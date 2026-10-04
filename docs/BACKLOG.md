@@ -17,7 +17,7 @@ Story completion follows the eight-stage lifecycle in PUBLIC_DEVELOPMENT.md and 
 | R0 Design and repository foundation | Freeze v1 scope/contracts/formulas and create package-only foundation | EQ-001–EQ-016 | None |
 | R1 Core session packages | Verified bars/trades/quote calculations, first streaming API | EQ-017–EQ-026 | R0 |
 | R2 Historical and contextual packages | History, baselines, relative/breadth, complete v1 composition | EQ-027–EQ-038 | R1 |
-| R3 Package release readiness | Tested distributable packages, examples, benchmarks, custom-feature support and adapter kit | EQ-039–EQ-048, EQ-093 | R2 |
+| R3 Package release readiness | Tested distributable packages, examples, benchmarks, custom-feature support and adapter kit | EQ-039–EQ-048, EQ-093–094 | R2 |
 | R4 DuckDB adapter | First real adapter using our optimized store | EQ-049–EQ-056 | R3 |
 | R5 Independent workers | Bounded parallel feature generation and catalog publication | EQ-057–EQ-066 | R4 |
 | R6 Provider and file adapters | Direct provider access and bring-your-own-file workflows | EQ-067–EQ-074 | R5 baseline; adapter work only needs R3 contracts |
@@ -57,6 +57,7 @@ Default delivery is sequential. R6 adapter implementation may run independently 
 | EQ-015 | R0 | Implement in-memory feature registry | Every v1 ID exposes schema, requirements, formulas, units, warm-up, timing and version; registry works without source/credentials; reserve built-in IDs and define scoped custom namespaces/metadata for later EQ-093 |
 | EQ-016 | R0 | Define adapter capability/request/batch protocols | Historical and optional live interfaces, bounded batches and source metadata defined; in-memory example proves no calculation dependency on adapters |
 | EQ-093 | R3 | Implement scoped custom-feature extension contracts and registration | Consumers register explicitly supplied local calculators or derived equations with unique namespaced ID/version, inputs/outputs/units/formula/timing/readiness/capabilities; cannot overwrite built-ins; scoped registry, validation, reproducibility metadata, examples and conformance tests; no source loading, remote code execution or correctness certification |
+| EQ-094 | R3 | Qualify chart consumer series, revisions and correction contract | Versioned portable result boundary, exact precision, stale revision rejection, provisional/confirmed and replay semantics; synthetic harness/examples and compatibility evidence; no production chart runtime |
 
 ## Epic E04 — Core session calculation packages
 
@@ -181,6 +182,8 @@ Default delivery is sequential. R6 adapter implementation may run independently 
 
 ## Dependency details and readiness constraints
 
+EQ-094 depends on EQ-011–015, EQ-023–025, EQ-039 and relevant completed families; compatibility evidence is delivered jointly with EQ-044. See [chart consumer contract](integrations/CHART_CONSUMER_CONTRACT.md). R3 includes synthetic portable-boundary qualification; production Rust/browser adapters and native kernels remain separate future work. Existing story IDs are retained.
+
 EQ-093 depends on EQ-013/015 result/registry contracts, EQ-039 public typing and relevant completed feature capabilities; EQ-044 compatibility and EQ-048 acceptance must cover it. Its registry namespace/metadata design is prepared in EQ-015, while actual local extension implementation is R3. Formula stories and existing built-in definitions are not reopened. EQ-093 is appended without renumbering EQ-001–092.
 
 EQ-011–016 follow mathematical decisions relevant to each schema. EQ-017–022 follow EQ-002/003 and contracts; EQ-023–025 follow implemented supported batch families. EQ-027–035 follow exact EQ-004–006 definitions. EQ-036 depends on result contracts and completed selected families. EQ-043 builds on EQ-016; EQ-048 needs every earlier package story. EQ-049–056 require package release acceptance. EQ-057–066 require DuckDB adapter acceptance; actual source qualification is independent and may keep builds blocked while package/adapter code is complete. EQ-067–074 require capability-specific decisions and tested package contracts. Remote exposure requires EQ-075 first. EQ-086/087 depend on EQ-085 evidence, not enthusiasm for another language.
@@ -202,6 +205,7 @@ Real-data deployments have separate provider rights, provenance, calendar, histo
 | Hosted data, client API and LLM/MCP usability | EQ-015,039–040,075–084 |
 | Future strategy and label isolation | EQ-089–092 |
 | Consumer-defined equations and custom algorithms | EQ-015,044,048,093 |
+| Chart consumer revisions, precision and correction handling | EQ-012,024,044,048,094 |
 
 ## Immediate next action
 
