@@ -19,6 +19,7 @@ Source-independent equity feature calculations for reproducible research, backte
 - [V1 feature scope](docs/features/V1_SCOPE.md)
 - [Backlog](docs/BACKLOG.md)
 - [Development workflow](docs/PUBLIC_DEVELOPMENT.md)
+- [Work agreements](AGENTS.md)
 - [Issues](https://github.com/atulsrivas1/equity-features/issues)
 - [Milestones](https://github.com/atulsrivas1/equity-features/milestones)
 

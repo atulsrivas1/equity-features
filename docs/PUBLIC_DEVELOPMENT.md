@@ -1,10 +1,10 @@
 # Public development workflow
 
-Status: proposed workflow, 2026-10-04. Repository: atulsrivas1/equity-features. Issues, milestones and the public Project are linked in DASHBOARD.md. Implementation has not started.
+Status: human-agreed workflow, 2026-10-04. Repository: atulsrivas1/equity-features. Issues, milestones and the public Project are linked in DASHBOARD.md. Numerical implementation has not started. Work agreements are in ../AGENTS.md and continuity in SESSION_HANDOFF.md.
 
 ## Planning and progress
 
-Keep docs/BACKLOG.md as the versioned scope/dependency baseline. Create one GitHub Issue per story, retaining EQ-001 through EQ-092. Epic tracking issues link their child stories. Use GitHub milestones for R0 through R8; milestones represent readiness outcomes rather than promised dates. A Project board tracks Backlog, Ready, In progress, In review and Done. Represent blocked work with an explicit linked dependency/reason, not an unsupported percentage-complete claim.
+Keep docs/BACKLOG.md as the versioned scope/dependency baseline. Create one GitHub Issue per story, retaining EQ-001 through EQ-092. Epic tracking issues link their child stories. Use GitHub milestones for R0 through R8; milestones represent readiness outcomes rather than promised dates. Track Backlog, Ready, In progress, Code review, Test, Ready to release, Released and Done. Represent blocked work with an explicit linked dependency/reason, not an unsupported percentage-complete claim.
 
 Issue title: [EQ-001] Freeze v1 feature scope. Issue body: problem/user value, included/excluded scope, acceptance checklist, prerequisites, release, validation and related design links. Labels identify epic and work type (design, feature, test, docs, performance); Project fields track status and release. Avoid maintaining different status lists in markdown and GitHub. GitHub is the work-status authority once set up; backlog markdown remains scope/version history and records deliberate scope changes.
 
@@ -12,7 +12,28 @@ Only move a story to Ready when its required decisions and inputs are available.
 
 ## Change delivery
 
-Work on short-lived branches, preferably codex/eq-001-feature-scope when this agent creates a branch. Open a draft PR early for a reviewable design or implementation, include the story ID, and link dependencies. Each PR describes behavior, evidence and limitations. Close a story through a merged change that satisfies its acceptance criteria; a draft PR or code written locally is not completion.
+Work on short-lived branches, preferably codex/eq-001-feature-scope when this agent creates a branch. Open a draft PR early for a reviewable design or implementation, include the story ID, and link dependencies. Each PR describes behavior, evidence and limitations. Close a story only at Done after its acceptance, documentation and applicable release evidence are complete. A merged implementation waiting for package release remains Ready to release. Avoid auto-closing keywords for implementation stories before their release gate.
+
+## Story lifecycle
+
+| Status | Required evidence |
+| --- | --- |
+| Backlog | Planned; decisions/dependencies not yet established |
+| Ready | Acceptance criteria, scope and required inputs/prerequisites established |
+| In progress | Actual design/implementation work underway with linked branch or draft |
+| Code review | Concrete reviewable PR, self-checks and documentation available; review applies to design/docs too |
+| Test | Review concerns resolved; relevant validation/acceptance checks being executed or assessed |
+| Ready to release | Required checks passed, acceptance criteria met, documentation complete and release artifact/change prepared |
+| Released | Delivered to declared users/channel with release evidence: package/tag/deployment, or validated documentation merged to default branch |
+| Done | Released result verified, acceptance/evidence/links recorded, issue closed and remaining work separately tracked |
+
+Update status promptly when actual work changes; don't infer Test or Released from a PR being opened. Tests may also run during development/review; Test denotes the formal acceptance gate. Failed review or tests return the story to the appropriate earlier stage with a reason. A blocked story retains its actual stage and a dependency explanation.
+
+Epics aggregate child progress: In progress once a child is underway/completed, Done only when all child release/acceptance gates are met. Do not mark an epic Done because its tracking issue exists. Documentation-only publication is a story release, not completion of its parent release milestone. No fabricated delay is required between stages when their evidence is already present.
+
+## Documentation with every story
+
+Update issue acceptance/progress/evidence and relevant design/formula/API/examples/decision/release documents in the same linked change as the story. PRs state documentation impact and validation, even when no user-facing API changes. Update SESSION_HANDOFF.md after meaningful work with decisions, failures, evidence and exact resume steps. Documentation completeness is mandatory before Ready to release and Done, not a separate later cleanup. GitHub Project owns current status; documents link it instead of duplicating changing counts/statuses.
 
 Use the default branch as the coherent reviewed state. Require relevant CI when implemented: tests, typing, package builds and examples. Numerical changes need mathematical fixtures and documented algorithm-version impact. Performance changes need measured comparisons and result parity. Avoid mirroring implementation in tests; verify meaningful independent expected outcomes. Design/docs changes require applicable link/scope checks, not irrelevant computation benchmarks.
 
