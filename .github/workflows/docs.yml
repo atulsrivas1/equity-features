@@ -1,0 +1,27 @@
+name: Documentation checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify planning documents and story coverage
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          for name in ('README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'docs/PACKAGE_DESIGN.md', 'docs/BACKLOG.md', 'docs/DASHBOARD.md'):
+              assert Path(name).is_file(), name
+          text = Path('docs/BACKLOG.md').read_text()
+          stories = re.findall(r'^\| (EQ-\d{3}) \| (R\d) \|', text, re.M)
+          assert len(stories) == 92
+          assert {x for x, _ in stories} == {f'EQ-{i:03}' for i in range(1, 93)}
+          print('Planning documents and all 92 stories verified.')
+          PY
