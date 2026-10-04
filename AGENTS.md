@@ -16,3 +16,5 @@ These are the human owner's agreed project rules. Read this file, docs/PUBLIC_DE
 12. Documentation is part of every story. Update relevant GitHub issue acceptance/evidence, public design/API/examples/decision/release documentation and linked PR alongside the change. Document no-impact decisions when appropriate. Documentation cannot be deferred to a later cleanup story to declare this story complete.
 
 Use short-lived codex/ branches when this agent creates branches. A human approval is required only where the user or applicable review policy requires it; do not invent an approval requirement. Record actual reviewer identity and limitations. Numerical tests and release gates remain mandatory even when work is autonomous.
+
+Delivery uses release-based planning and continuous pulling, not mandatory sprints. Read docs/DELIVERY_POLICY.md. Start the highest-priority dependency-satisfied Ready story, initially one active story at a time. Review progress weekly during active work; release dates are evidence-based forecasts, with no invented deadlines or automated reminders.
