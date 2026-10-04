@@ -22,7 +22,7 @@ Initial public interface is Python. NumPy supplies typed numerical arrays; PyArr
 
 Start with two distributions in one repository. Feature families are Python modules, not separate releases/services. Contracts can be used by future adapters without installing every computation backend. Both include type annotations and py.typed, standard wheel/sdist metadata, semantic versions and executable documentation. Declare supported Python/platform versions after verifying CI and dependency support; don't promise untested portability.
 
-Future adapters depend inward on these contracts/APIs. Calculation packages never depend outward on adapters. A future native accelerator is an optional implementation detail or wheel extra, not a new public API. Repository is intended to be public under the human owner’s personal GitHub account; owner is atulsrivas1; license selection is pending. No package registry release is implied by this design.
+Future adapters depend inward on these contracts/APIs. Calculation packages never depend outward on adapters. A future native accelerator is an optional implementation detail or wheel extra, not a new public API. Repository is intended to be public under the human owner’s personal GitHub account; owner is atulsrivas1; license is Apache-2.0. No package registry release is implied by this design.
 
 ## 3. Public modules
 
@@ -123,7 +123,7 @@ Feature registry is callable in memory and exposes machine-readable schemas, con
     docs/contracts/
     examples/
 
-Each distribution has its own pyproject.toml and release metadata; dependency ranges are explicit and release-compatible. Build/install wheels into clean environments and execute documented examples before release. CI checks types, tests, package builds and dependency boundaries; native wheels later need separately tested platform release coverage. License/public registry decision remains outside implementation.
+Each distribution has its own pyproject.toml and release metadata; dependency ranges are explicit and release-compatible. Build/install wheels into clean environments and execute documented examples before release. CI checks types, tests, package builds and dependency boundaries; native wheels later need separately tested platform release coverage. Apache-2.0 is selected; public package registry publication remains a later release action.
 
 Package phase is complete when schemas/formulas are specified, initial functions work, batch/stream semantics are verified for supported families, examples install from built artifacts, and benchmark baselines are recorded. Only then build the DuckDB adapter, which maps pinned prepared data into these contracts and preserves original/optimized source identity and causal evidence. Workers follow after adapter validation. No historical build is launched merely because packages exist; existing data admission/month gates remain.
 
