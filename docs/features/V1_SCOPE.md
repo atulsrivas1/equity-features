@@ -80,6 +80,8 @@ Structured features may have multiple typed fields. Per-observation quote eviden
 
 Scalar comparisons derivable from already supplied features, such as close-minus-SMA, can be caller expressions. Additional named features require a scope amendment rather than an undocumented registry entry.
 
+EQ-093 adds an optional custom-feature extension mechanism in R3. Consumer namespaced definitions do not expand or overwrite this39-ID built-in catalog; their correctness and capability tests remain consumer responsibilities.
+
 ## Batch, streaming and partition support
 
 | Family | Batch | Incremental v1 obligation | Partition rule |

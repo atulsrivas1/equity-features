@@ -3,6 +3,8 @@
 Definition version: 1. Owner: EQ-002. Applies to the20IDs below from V1_SCOPE.md.
 This is a specification and synthetic reference evidence, not production calculation code.
 
+Consumers may use supported parameters or derive their own equations. A materially changed equation is a distinct namespaced custom feature, not this built-in ID. See the [customization design](../PACKAGE_DESIGN.md#consumer-customization-eq-093) and planned EQ-093 extension story; no registration API is implemented yet.
+
 ## Shared input, timing and quality rules
 
 Caller supplies instrument/session identity, currency/price scale, integer share units, adjustment basis, eligibility-policy identity, session open/close, requested cutoff, auction inclusion and coverage evidence. Nothing is fetched. Fractional share quantities require a future explicit quantity-scale extension; v1 quantities are integer shares.

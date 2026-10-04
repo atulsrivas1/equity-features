@@ -30,7 +30,7 @@ Future adapters depend inward on these contracts/APIs. Calculation packages neve
 | --- | --- |
 | contracts | TradeBatch, QuoteBatch, BarBatch, DailyBatch, supplied reference frames, SessionSpec, WindowSpec, AdjustmentSpec, AvailabilitySpec |
 | validation | Structural checks, declared order checks, timestamp bounds, price/size validity, identity and duplicate policy |
-| registry | In-memory feature discovery, formulas, units, required columns, warm-up, timing eligibility and algorithm version |
+| registry | In-memory feature discovery, formulas, units, required columns, warm-up, timing eligibility and algorithm version; reserved built-in identities and scoped optional custom features |
 | session.bars | OHLC, volume, dollar-volume where supported, ranges, returns, opening/closing intervals and bar-based structure |
 | session.trades | Trade count/size statistics, trade VWAP, dollar volume, top-trade evidence, trade-based structure |
 | session.quotes | Observed spread statistics and supported quote measures with explicit sampling semantics |
@@ -110,6 +110,16 @@ Library has no automatic multiprocessing or unlimited threads. Caller controls b
 Benchmark suite measures rows/sec, peak process memory, allocation/copy overhead and multiple batch sizes with seeded representative small/large/skewed inputs; run native-process measurements, not Python allocation tracking alone. Results record CPU, backend versions, thread budget and numerical tolerances. Establish baselines before performance gates; do not invent throughput targets. Optimization requires correctness equivalence plus measured benefit. Source I/O performance belongs to future adapters.
 
 Tests cover hand-calculated fixtures, batch/incremental parity, missing/empty distinction, warm-up and lookahead boundaries, split-adjustment policy, duplicate/tie order, early close, integer overflow, nulls, zero denominators, shard conservation and versioned state round trips. Compare existing Go results where definitions agree; known defects are checked against independent mathematics rather than copied.
+
+### Consumer customization (EQ-093)
+
+Three paths: supported configuration parameters without changing feature meaning; caller-derived results from existing features; opt-in local custom calculators registered against public contracts. Changing an equation requires a distinct custom feature ID and algorithm version, not an override of a built-in ID. Built-in definitions remain stable and existing20session equations are unchanged.
+
+Custom registration is scoped to a caller-owned registry instance with explicit supplied callables, never mutable global registration, filesystem discovery or automatic plugin import. A custom definition declares namespaced ID, algorithm version, formula/description, input/output schemas, units, required history, cutoff/availability rules, missing/error handling, configuration and actual batch/stream/restore/merge capabilities. Outputs identify the custom implementation and input/config bindings; metadata serialization does not serialize executable Python objects.
+
+Registration validates identity/schema/capability contracts and rejects built-in collisions, duplicate identities and malformed outputs. Conformance is not proof of mathematical correctness, purity, deterministic behavior or resource limits of third-party code. Users supply their own expected-result tests. Explicit local Python callbacks are trusted caller code and are not sandboxed by the library; the library's own code still performs no source I/O. Initial implementation need not offer an expression language or generate executables from strings.
+
+Future remote/MCP services only expose server-approved custom implementations through a separate policy. Do not accept arbitrary client-uploaded callables, pickled code or shell expressions through this local extension API. Custom algorithms inherit no built-in numerical acceptance claim. Documentation/examples must clearly mark registration APIs as proposed until EQ-093 is implemented and qualified.
 
 ## 9. LLM-facing usability
 
