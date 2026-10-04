@@ -36,3 +36,5 @@ jobs:
           assert statuses == ['Backlog', 'Ready', 'In progress', 'Code review', 'Test', 'Ready to release', 'Released', 'Done']
           print('Work agreements, continuity and eight-stage lifecycle verified.')
           PY
+      - name: Verify exact session mathematics and boundary fixtures
+        run: python tools/verify_session_examples.py
