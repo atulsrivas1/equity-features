@@ -37,4 +37,4 @@ Status: planning. No calculation package implementation or release yet.
 
 [EQ-001: Freeze v1 feature scope](https://github.com/atulsrivas1/equity-features/issues/2). Formula and contract decisions precede implementation.
 
-[Public Project dashboard](https://github.com/users/atulsrivas1/projects/2) tracks Backlog, Ready, In progress, In review and Done. Story and epic items are being linked; EQ-001 is the first ready story. No invented completion percentages or deadlines.
+[Public Project dashboard](https://github.com/users/atulsrivas1/projects/2) tracks Backlog, Ready, In progress, In review and Done. All 104 issues are included; EQ-001 is Ready, and the other 103 items are Backlog. All 92 stories have native parent-epic links. No invented completion percentages or deadlines.
