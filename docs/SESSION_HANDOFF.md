@@ -21,8 +21,9 @@ Project owns current status. Custom extension roadmap change GOV-003 completed i
 
 User authorized the chart consumer integration contract. GOV-004 issue#117 publishes the proposed boundary and EQ-094 issue#116 (E03/R3, Backlog). Contract: initial Python analysis host/explicit batch boundary; immutable data revision binding, exact int64/scaled prices, full-resolution calculations, provisional previews separate from committed state and correction/backfill replay. No production chart adapter, native kernel or new market coverage is implemented. Final schema/transport and capability details are open until EQ-094 planning. Rust is a suitable chart-engine choice; shared calculation kernels remain evidence-gated EQ-085–087.
 
-Resume: verify GOV-004 linked PR/checks/publication and live Project status; finish its documentation release if necessary. Then resume EQ-003 quote formulas with a story plan. R0 remains incomplete; production kernels/API are not implemented. Do not start EQ-094 ahead of its prerequisites.
+GOV-004 publication PR: #118. Self-review corrected a table separator and removed a circular EQ-044 dependency: EQ-094 needs contract/typing/incremental foundations; EQ-044 jointly qualifies its compatibility. Planning checks and17reference cases pass; consult PR for final-head CI and publication evidence.
 
+Resume: verify GOV-004 linked PR/checks/publication and live Project status; finish its documentation release if necessary. Then resume EQ-003 quote formulas with a story plan. R0 remains incomplete; production kernels/API are not implemented. Do not start EQ-094 ahead of its prerequisites.
 
 For documentation-only stories, publishing validated documentation on the default branch counts as that story's release; it does not release its parent milestone or a Python package. Implementation stories wait for their declared package/deployment release.
 

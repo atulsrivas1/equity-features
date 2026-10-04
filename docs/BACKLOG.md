@@ -57,7 +57,6 @@ Default delivery is sequential. R6 adapter implementation may run independently 
 | EQ-015 | R0 | Implement in-memory feature registry | Every v1 ID exposes schema, requirements, formulas, units, warm-up, timing and version; registry works without source/credentials; reserve built-in IDs and define scoped custom namespaces/metadata for later EQ-093 |
 | EQ-016 | R0 | Define adapter capability/request/batch protocols | Historical and optional live interfaces, bounded batches and source metadata defined; in-memory example proves no calculation dependency on adapters |
 | EQ-093 | R3 | Implement scoped custom-feature extension contracts and registration | Consumers register explicitly supplied local calculators or derived equations with unique namespaced ID/version, inputs/outputs/units/formula/timing/readiness/capabilities; cannot overwrite built-ins; scoped registry, validation, reproducibility metadata, examples and conformance tests; no source loading, remote code execution or correctness certification |
-
 | EQ-094 | R3 | Qualify chart consumer series, revisions and correction contract | Versioned portable result boundary, exact precision, stale revision rejection, provisional/confirmed and replay semantics; synthetic harness/examples and compatibility evidence; no production chart runtime |
 
 ## Epic E04 — Core session calculation packages
@@ -183,7 +182,7 @@ Default delivery is sequential. R6 adapter implementation may run independently 
 
 ## Dependency details and readiness constraints
 
-EQ-094 depends on EQ-011–015, EQ-023–025, EQ-039/044 and relevant completed families. See [chart consumer contract](integrations/CHART_CONSUMER_CONTRACT.md). R3 includes synthetic portable-boundary qualification; production Rust/browser adapters and native kernels remain separate future work. Existing story IDs are retained.
+EQ-094 depends on EQ-011–015, EQ-023–025, EQ-039 and relevant completed families; compatibility evidence is delivered jointly with EQ-044. See [chart consumer contract](integrations/CHART_CONSUMER_CONTRACT.md). R3 includes synthetic portable-boundary qualification; production Rust/browser adapters and native kernels remain separate future work. Existing story IDs are retained.
 
 EQ-093 depends on EQ-013/015 result/registry contracts, EQ-039 public typing and relevant completed feature capabilities; EQ-044 compatibility and EQ-048 acceptance must cover it. Its registry namespace/metadata design is prepared in EQ-015, while actual local extension implementation is R3. Formula stories and existing built-in definitions are not reopened. EQ-093 is appended without renumbering EQ-001–092.
 
