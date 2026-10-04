@@ -17,7 +17,7 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-          for name in ('README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'docs/PACKAGE_DESIGN.md', 'docs/BACKLOG.md', 'docs/DASHBOARD.md', 'docs/features/V1_SCOPE.md'):
+          for name in ('AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'docs/PUBLIC_DEVELOPMENT.md', 'docs/SESSION_HANDOFF.md', 'docs/PACKAGE_DESIGN.md', 'docs/BACKLOG.md', 'docs/DASHBOARD.md', 'docs/features/V1_SCOPE.md'):
               assert Path(name).is_file(), name
           text = Path('docs/BACKLOG.md').read_text()
           stories = re.findall(r'^\| (EQ-\d{3}) \| (R\d) \|', text, re.M)
@@ -31,4 +31,8 @@ jobs:
               assert re.fullmatch(r'EQ-00[2-6](?:, EQ-00[2-6])*', row[4].strip())
           print('Planning documents and all 92 stories verified.')
           print('39 unique feature IDs have inputs, releases and formula-story mappings.')
+          workflow = Path('docs/PUBLIC_DEVELOPMENT.md').read_text()
+          statuses = re.findall(r'^\| (Backlog|Ready|In progress|Code review|Test|Ready to release|Released|Done) \|', workflow, re.M)
+          assert statuses == ['Backlog', 'Ready', 'In progress', 'Code review', 'Test', 'Ready to release', 'Released', 'Done']
+          print('Work agreements, continuity and eight-stage lifecycle verified.')
           PY
