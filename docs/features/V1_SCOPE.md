@@ -3,6 +3,8 @@
 Scope revision: 1. Story: [EQ-001](https://github.com/atulsrivas1/equity-features/issues/2).
 Status: scope baseline; numerical formulas and implementation remain subsequent stories.
 
+Session/bar/trade definitions and synthetic reference evidence are in [SESSION_FORMULAS.md](SESSION_FORMULAS.md). This defines the mathematics; production kernels remain later stories.
+
 ## Product boundary
 
 V1 is a source-independent Python calculation API for equity session measurements and supplied historical context. It accepts in-memory typed data and returns typed features, quality and evidence. It does not acquire data, discover calendars, read credentials, create jobs, publish files or select strategies.
