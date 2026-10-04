@@ -67,6 +67,8 @@ Windows count supplied governed trading sessions rather than calendar days or ro
 
 ## 6. Initial feature specification
 
+The versioned [V1 scope](features/V1_SCOPE.md) is the feature-ID and capability baseline. The table below summarizes families; exact formulas are settled in EQ-002–006 before their implementation.
+
 Implement a modest, well-defined first release rather than all advanced feature ideas.
 
 | Family | Initial features |
