@@ -25,4 +25,4 @@ Tests and examples will use synthetic data and require no paid credentials.
 
 ## License
 
-License selection is pending. Public visibility does not grant an open-source license; an explicit license is needed before the first package release.
+Licensed under [Apache License 2.0](LICENSE).
