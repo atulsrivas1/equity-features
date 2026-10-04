@@ -1,0 +1,36 @@
+{
+  "definition_version": 1,
+  "price_scale": 0,
+  "bars": [
+    {"id":"b1","start":0,"end":60,"open":100,"high":103,"low":99,"close":102,"volume":200,"notional":20300},
+    {"id":"b2","start":60,"end":120,"open":102,"high":104,"low":101,"close":103,"volume":300,"notional":30900}
+  ],
+  "trades": [
+    {"id":"t1","ts":10,"order":0,"price":100,"size":2},
+    {"id":"t2","ts":20,"order":0,"price":102,"size":3},
+    {"id":"t3","ts":30,"order":0,"price":101,"size":5}
+  ],
+  "prior_close": 98,
+  "expected": {
+    "session.bar.open":"100",
+    "session.bar.high":"104",
+    "session.bar.low":"99",
+    "session.bar.close":"103",
+    "session.bar.volume":"500",
+    "session.bar.notional":"51200",
+    "session.bar.close_weighted_price":"513/5",
+    "session.price.open_close_return":"3/100",
+    "session.price.range_fraction":"5/103",
+    "session.price.close_location":"4/5",
+    "session.price.overnight_gap":"1/49",
+    "session.price.close_close_return":"5/98",
+    "session.structure.interval_ohlcv":{"first":[100,103,99,102,200],"last":[102,104,101,103,300]},
+    "session.structure.interval_volume_share":{"first":"2/5","last":"3/5"},
+    "session.trade.count":"3",
+    "session.trade.volume":"10",
+    "session.trade.notional":"1011",
+    "session.trade.vwap":"1011/10",
+    "session.trade.mean_size":"10/3",
+    "session.trade.top_k":["t3","t2"]
+  }
+}

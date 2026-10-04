@@ -33,8 +33,8 @@ Status: planning. No calculation package implementation or release yet.
 - [[EPIC-E11] Profile-driven acceleration](https://github.com/atulsrivas1/equity-features/issues/95)
 - [[EPIC-E12] Separate strategy and label packages](https://github.com/atulsrivas1/equity-features/issues/100)
 
-## Next story
+## Formula work
 
-[EQ-002: Specify session, bar and trade formulas](https://github.com/atulsrivas1/equity-features/issues/3), after the EQ-001 scope change is merged. Formula and contract decisions precede implementation. See the [V1 feature scope](features/V1_SCOPE.md).
+[EQ-002: Session, bar and trade formulas](https://github.com/atulsrivas1/equity-features/issues/3) has its [specification and reference fixtures](features/SESSION_FORMULAS.md). The next formula family is [EQ-003: Quote formulas and sampling](https://github.com/atulsrivas1/equity-features/issues/4). Consult the live Project for acceptance/status; numerical implementation follows these specifications. See the [V1 feature scope](features/V1_SCOPE.md).
 
 [Public Project dashboard](https://github.com/users/atulsrivas1/projects/2) tracks Backlog, Ready, In progress, Code review, Test, Ready to release, Released and Done. All roadmap epic/story issues are included; additional maintenance work is tracked separately. All 92 EQ stories have native parent-epic links. Consult the live Project for current status; this page is navigation rather than a duplicate status database. No invented completion percentages or deadlines.

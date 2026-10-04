@@ -17,6 +17,7 @@ Source-independent equity feature calculations for reproducible research, backte
 - [Dashboard](docs/DASHBOARD.md)
 - [Package design](docs/PACKAGE_DESIGN.md)
 - [V1 feature scope](docs/features/V1_SCOPE.md)
+- [Session formula specification](docs/features/SESSION_FORMULAS.md)
 - [Backlog](docs/BACKLOG.md)
 - [Development workflow](docs/PUBLIC_DEVELOPMENT.md)
 - [Delivery policy](docs/DELIVERY_POLICY.md)
@@ -25,6 +26,8 @@ Source-independent equity feature calculations for reproducible research, backte
 - [Milestones](https://github.com/atulsrivas1/equity-features/milestones)
 
 Tests and examples will use synthetic data and require no paid credentials.
+
+The first mathematical reference fixtures are available now: run `python tools/verify_session_examples.py` to check the session specification using exact arithmetic. This verifier is not the production package API.
 
 ## License
 

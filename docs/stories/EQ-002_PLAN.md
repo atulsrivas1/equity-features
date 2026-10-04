@@ -4,6 +4,8 @@ Story: [Specify session, bar and trade formulas](https://github.com/atulsrivas1/
 Epic: E01. Release: R0 design/foundation. Estimate: **5 story points, provisional**.
 Status: plan drafted; exact formula specification, fixture validation and story acceptance are not completed by this plan.
 
+Execution evidence: SESSION_FORMULAS.md and decisions/session-semantics.md are drafted; golden fixtures and tools/verify_session_examples.py cover all20IDs and17reference cases. Final-head CI, publication and issue acceptance must be verified before completion. This plan remains the rationale; live issue/Project owns status.
+
 ## Purpose and estimate
 
 Turn the 20 session/bar/trade IDs owned by EQ-002 in V1_SCOPE.md into unambiguous mathematical specifications that independent implementers can follow. Resolve units, eligible inputs, boundaries, ordering, ties, denominators and quality states before numerical package code.
