@@ -101,3 +101,5 @@ BatchMetadata.scope optionally carries typed InputScope(start_ns,end_ns,eligibil
 EQ018 adds owned BatchMetadata.interval_coverage tuples of IntervalCoverage(name,start_ns,end_ns,Coverage), with unique names and bounds inside InputScope. Arrow serialization retains them; executable interval reduction matches configured window identity and actual selected whole-bar population. These are caller assertions, not inferred completeness.
 
 EQ023/0.0.2a6 adds StreamPopulation and PrefixCoverage: fixed owned source/schema declaration and explicit requested-prefix coverage. Contiguous ordinals/order and known retained identities are checked; caller owns global nonretained identity proof. No unbounded source history. [Lifecycle contract](../api/INCREMENTAL.md).
+
+EQ024 adds immutable AccumulatorState and exact compatible in-memory restore for all23 R1 IDs; see [incremental API](../api/INCREMENTAL.md). Strict schema/version/source/config checks and bounded owned state apply; digest is not authentication. Merge remains false.

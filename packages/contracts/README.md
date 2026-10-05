@@ -23,3 +23,5 @@ EQ021 adds typed sampled quote summaries/counts and bounded diagnostics; structu
 EQ022 adds typed time-weighted spread and exact QuoteDurations, narrowly validated zero-valid and unknown-initial diagnostics. See docs/api/CONTINUOUS_QUOTES.md for migration.
 
 EQ023 adds owned StreamPopulation/PrefixCoverage and explicit accepted mode inventories;23 batch/update IDs. Global identity and delivery proofs remain caller-owned. See docs/api/INCREMENTAL.md.
+
+EQ024 adds immutable AccumulatorState and exact compatible in-memory restore for all23 R1 IDs; see [incremental API](../../docs/api/INCREMENTAL.md). Strict schema/version/source/config checks and bounded owned state apply; digest is not authentication. Merge remains false.

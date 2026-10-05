@@ -81,3 +81,34 @@ sizes, not ingested row/chunk history. Atomic copies temporarily hold two bounde
 states; immutable results are caller-owned. Canonical chunk admission and optional
 Arrow copies scale with supplied chunks. No measured throughput claim. The Source
 boundary guard remains development policy, not a runtime sandbox. [Example](../../examples/session_incremental.py).
+
+## EQ024 state export and restore
+
+`state = accumulator.export_state()` returns immutable `AccumulatorState` text.
+`SessionAccumulator.restore_state(state, family, config, *, entity, population,
+prior_close=None, seed=None)` returns a fresh independent calculator. Supply the
+same original declarations and one-row enrichments; no source rows are fetched.
+The fingerprint covers config/algorithm/schema, entity, complete source/population,
+units/adjustments/sampling, enrichments and math/backend identity. Schema1 requires
+an exact implementation version; no migration between experimental versions.
+
+Canonical JSON stores arbitrary-width exact integers within their checked field
+bounds and hex strings for every finite binary64 sum/compensation/observation.
+State contains sufficient statistics and overflow/readiness flags, fixed windows,
+first/last order and bar boundaries, ordinal/watermark/gap/seal, K/N retained rows,
+and temporal durations/cursor/original anchor/current quote. It contains no raw
+history or growing ID set. A16MiB UTF8 envelope cap bounds parsing; export can reject
+oversized retained identity text. Duplicate keys, unknown fields, truncated JSON,
+noncanonical text, nonfinite floats, incorrect types/counts/rank/source identities,
+inconsistent durations/cursors, incompatible declarations and version changes
+reject before returning a calculator. Digests catch accidental corruption; they
+are not signatures and cannot authenticate rehashed fabricated historical totals.
+Caller-owned trusted state remains necessary. Checked structural relations do not
+reconstruct discarded source facts.
+
+Empty, partial, missing/noncausal, overflow-unready, prefix-published and finalized
+states roundtrip. Restored instances own separate mutable private reducers; exported
+text stays unchanged. Watermarks, permanent gaps and single finalization survive.
+All23 R1 IDs qualify restore. Merge remains unsupported. No file, pickle, executable
+reconstruction, implicit registry state or asynchronous thread ownership is added.
+See [synthetic restore example](../../examples/session_state.py).

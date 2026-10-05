@@ -1,8 +1,12 @@
 # Experimental package changes
 
-## 0.0.2a6 - EQ023 under verification
+## 0.0.2a7 - EQ024 under verification
 
-Shared bounded batch/update reductions for all23 R1 IDs, fixed source/schema population and explicit prefix certificates. Atomic update/snapshot/finalize, strict order/late-correction/sealing and known-gap replay policy. Truthful23 update flags; restore/merge/custom/R2 remain false. Formal delivery pending.
+Immutable exact in-memory state export/restore for all23 R1 IDs; compatible caller declarations, finite binary64 hex codec, checked bounded schema/retention/order/duration relations and preserved watermark/gap/seal. No persistence or authentication.346 units include18 state cases; full package gates pending.
+
+## 0.0.2a6 - EQ023 verified experimental delivery
+
+Shared bounded batch/update reductions for all23 R1 IDs, fixed source/schema population and explicit prefix certificates. Atomic update/snapshot/finalize, strict order/late-correction/sealing and known-gap replay policy. Truthful23 update flags; restore/merge/custom/R2 remain false. Accepted delivery receipt linked in SESSION_HANDOFF.md.
 
 ## 0.0.2a5 - EQ022 delivered
 

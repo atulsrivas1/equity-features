@@ -46,3 +46,21 @@ class PrefixCoverage:
             raise ContractError(ErrorCode.DUPLICATE,'duplicate prefix interval certificate')
         if any(x.end_ns > self.cutoff_ns for x in self.interval_coverage):
             raise ContractError(ErrorCode.BOUNDS,'interval certificate exceeds requested prefix')
+
+@dataclass(frozen=True)
+class AccumulatorState:
+    schema_version: str
+    implementation_version: str
+    binding_digest: str
+    payload: str
+    payload_digest: str
+
+    def __post_init__(self) -> None:
+        import hashlib
+        import re
+        if any(type(x) is not str or not x for x in (self.schema_version,self.implementation_version,self.binding_digest,self.payload,self.payload_digest)):
+            raise ContractError(ErrorCode.INVALID_SCHEMA,'owned text state envelope required')
+        if len(self.payload.encode('utf-8')) > 16*1024*1024:
+            raise ContractError(ErrorCode.BOUNDS,'state text exceeds16MiB bound')
+        if any(re.fullmatch('[0-9a-f]{64}',x) is None for x in (self.binding_digest,self.payload_digest)) or hashlib.sha256(self.payload.encode('utf-8')).hexdigest() != self.payload_digest:
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,'state digest mismatch')
