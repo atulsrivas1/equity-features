@@ -129,3 +129,8 @@ class Quotes(unittest.TestCase):
             builtin_registry().require_capability(feature,'batch')
             for mode in ('update','restore','merge'):
                 self.error(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:builtin_registry().require_capability(feature,mode))
+
+    def test_sampled_label_and_denominator_cannot_contradict_binding(self):
+        r=calc(quotes());s=sample(r)
+        self.error(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(r,values=(replace(r.values[0],values=(replace(s,sampling='continuous'),)),r.values[1])))
+        self.error(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(r,values=(replace(r.values[0],values=(replace(s,valid=3),)),r.values[1])))

@@ -484,6 +484,15 @@ class FeatureResult:
                 if q.status != Status.AVAILABLE and value is not None and not (q.status == Status.NOT_APPLICABLE and isinstance(value,SampledSpread) and value.valid == 0) and not (q.status == Status.INCOMPLETE_COVERAGE and isinstance(value,(BreadthCounts,BreadthFraction,IntervalOHLCV,IntervalVolumeShares))):
                     raise ContractError(ErrorCode.INVALID_SCHEMA,"unavailable scalar must be null")
                 if isinstance(value,(QuoteStateCounts,SampledSpread)):
+                    bindings=[b for b in self.metadata.inputs if b.role == "quotes" and b.kind == DataKind.QUOTE]
+                    if len(bindings) != 1 or not bindings[0].metadata.coverage.complete or bindings[0].metadata.coverage.observed != value.total:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"quote output requires complete matching target binding")
+                    if isinstance(value,SampledSpread):
+                        if value.sampling != bindings[0].metadata.sampling:
+                            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"sampled label contradicts source sampling")
+                        peers=[v for col in self.values for key,v in zip(col.entities,col.values,strict=True) if key == entity and isinstance(v,QuoteStateCounts)]
+                        if any(peer.total != value.total or peer.valid != value.valid for peer in peers):
+                            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"sampled denominator contradicts state counts")
                     if q.observed != value.total or q.expected != value.total:
                         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"complete quote output population/quality mismatch")
                     if isinstance(value,SampledSpread) and (q.status == Status.AVAILABLE) != (value.valid > 0):
