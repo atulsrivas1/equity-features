@@ -23,6 +23,8 @@ class Reason(StrEnum):
     ABSENT_INPUT = "absent_input"
     NULL_FIELD = "null_field"
     OBSERVED_EMPTY = "observed_empty"
+    NO_ELIGIBLE_OBSERVATIONS = "no_eligible_observations"
+    MISSING_ACTION_EVIDENCE = "missing_action_evidence"
     INSUFFICIENT_HISTORY = "insufficient_history"
     GOVERNED_GAP = "governed_gap"
     UNKNOWN_AVAILABILITY = "unknown_availability"

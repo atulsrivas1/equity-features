@@ -41,12 +41,13 @@ class SuppliedSpecifications(unittest.TestCase):
     def test_ordinary_cutoff_and_close(self):
         s=config().session
         self.assertTrue(s.admits_event(149,150));self.assertFalse(s.admits_event(150,150))
-        self.assertFalse(s.admits_event(200,200));self.assertFalse(s.admits_event(200,210))
+        self.assertFalse(s.admits_event(200,200))
+        with self.assertRaises(ValueError):s.admits_event(200,210)
     def test_explicit_auction_rules(self):
         s=replace(config().session,include_opening_auction=True,include_closing_auction=True)
         self.assertTrue(s.admits_event(100,101,auction="opening"))
         self.assertTrue(s.admits_event(200,200,auction="closing"))
-        self.assertFalse(s.admits_event(200,201,auction="closing"))
+        with self.assertRaises(ValueError):s.admits_event(200,201,auction="closing")
         self.assertFalse(config().session.admits_event(200,200,auction="closing"))
         self.assertFalse(s.admits_event(200,200,quote=True))
         with self.assertRaises(ValueError):s.admits_event(200,200,quote=True,auction="closing")
