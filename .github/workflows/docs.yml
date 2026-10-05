@@ -50,3 +50,6 @@ jobs:
 
       - name: Verify timing and action admission policy references
         run: python tools/verify_timing_examples.py
+
+      - name: Verify pure package source imports and metadata
+        run: python tools/verify_imports.py

@@ -48,3 +48,25 @@ Documentation CI verifies 93 active EQ IDs, 39 feature IDs and all eight lifecyc
 Use explicit UTF-8 and fail-fast checked subprocesses. GOV-002 recorded a local encoding failure and a shell sequence that wrongly continued to merge; corrected post-merge checks passed. GOV-006 recorded an unsupported Project CLI flag, corrected before publication; no failed command counts as validation. Public fixtures are synthetic or explicitly licensed. Never publish private data, credentials or internal paths. Documentation delivery is not parent milestone/package delivery. Preserve unrelated work and update this file after meaningful decisions, failures, validation and completed work.
 
 GOV-007 handoff PR126 merged 508fd81d0021aea44162b26e1e1c261449c28038 with both final-head CI checks passing. A post-publication byte assertion stopped on local CRLF versus GitHub LF; normalized text matched. Corrected verification compares GitHub content bytes with `git show HEAD:path` bytes, not checkout bytes; all four changed files matched committed blobs and all 74 references/planning checks passed. This verification-tool mismatch did not change published content. Use committed-blob comparison for exact publication checks on Windows.
+
+## Package foundation execution
+
+EQ-006 delivered via PR129, final head31101d0f25630b0b117d3e1f65f16ae0b5c120aa,
+squash5c8edf56392ac319483669c7f8890597b489ff68.123references, exact final-head
+and main CI, eight changed blobs verified. Issue7/E01 Done. CLI GraphQL quota later
+exhausted until03:25:33UTC; REST Project API checked against official GitHub docs,
+status updates verified through returned field values. Draft conversion connector
+lacked repository write access; signed-in GitHub UI converted PR129 instead.
+No quota/review/release gate was bypassed. Local checks use explicit UTF-8.
+
+EQ-007 In progress: confirmed5points; two src distributions, py.typed/license,
+inward dependency and isolated import smoke. No numerical APIs. All123references
+and import/planning checks pass locally. Review/exact-head CI/main publication
+pending; after source merge retain Ready to release awaiting EQ-009 artifacts.
+EQ-008 may be pulled after source gates; no second active implementation. Resume:
+inspect diff/open linked PR, formal lifecycle and final-head CI; squash merge,
+verify committed blobs/main CI. Do not mark EQ-007 Released/Done on merged source.
+
+EQ-007 staged diff check stopped on inherited trailing blank lines in copied LICENSE
+files; removed trailing whitespace only, kept root license and all license text.
+Import smoke compares normalized license text. No commit/push occurred on failure.
