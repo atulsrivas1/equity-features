@@ -184,3 +184,9 @@ part of configuration/math identity. Revisit under actual installed artifacts,
 cross-family causality audit and any future measured numerical backend.
 
 EF-L017 implementation qualification: final363b99f/main3162152 pass exact-head/source/main gates; both actual bundles and FOUR fresh Windows installed pairs each485tests/sixteen examples pass. [Receipt](../stories/EQ-030_DELIVERY.md). Tiny positive variance survives actual archive installation; final receipt publication remains before Done.
+
+## EF-L018 original frame versus selected volume fact —2026-10-05
+
+A selected target certificate must preserve original source-frame counts and row index, while its own coverage certifies only the chosen complete EOD row or explicit observed BAR prefix. Deduplicate exactly identical input identity/kind/metadata so prior and target rows from one frame do not forge a second source; reject conflicting revisions using the same ID. Derived dependency identities bind exact witnesses, not source authentication. [Plan](../stories/EQ-031_PLAN.md), [API](../api/DAILY_VOLUME.md).
+
+Volume-only means no price fields enter arithmetic; existing canonical market PriceUnit metadata remains required. Initial fixtures incorrectly omitted it, and later had positional ConfigSpec/SourceBinding/reconstruction mistakes; corrected without widening schema or counting failed evidence. Exact witness/coverage/zero-denominator/explicit prefix behavior must be qualified in installed artifacts before acceptance. Revisit under bucket/composition/causality integration and future source qualification.

@@ -197,3 +197,5 @@ EQ029 adds pure admitted batch Wilder recurrences without source I/O or a public
 
 
 EQ030 retains pure contract/kernel boundaries; exact finite-window centered variance and high-precision square root perform no source lookup. Transient rational work/storage costs are explicit, with no public accumulator or throughput claim. [API](api/HISTORY.md).
+
+EQ031 batch daily volume API consumes governed DAILY volume rows and owned VolumeBaseline/TargetVolume dependencies. Exact sum/count remains supplied for the ratio; no hidden baseline computation or prefix aggregation. Existing canonical price metadata remains required even without price fields. [API](api/DAILY_VOLUME.md). Pair0.0.3a5 adds two batch IDs (33total); session modes and existing schemas unchanged, companion volume schemas1. No history accumulator or measured performance claim.
