@@ -144,3 +144,20 @@ examples pass. [Receipt](../stories/EQ-028_DELIVERY.md). Exact comparison and
 bounded batch recurrence are qualified; final receipt publication remains before
 Done. Corrected UTF8/spacing and premature install-count commentary are preserved
 in continuity. Consumer admission/source authenticity remain caller responsibilities.
+
+## EF-L016 recursive arithmetic memory versus admission —2026-10-05
+
+EQ029's independent actual API fixtures preserve a nonneutral RSI through20,001
+flat sessions by separating gain proportion from normalized total magnitude.
+Absolute underflow must not fabricate the all-flat neutral50 convention. A later
+new movement is combined relative to the still explicitly represented old
+magnitude, with independent Decimal expected ratios. [API](../api/HISTORY.md),
+[plan](../stories/EQ-029_PLAN.md). Bounded scalar recurrence is not a public
+state mode or bounded total batch-memory claim; transient admitted prefix data
+and TR construction costs remain visible.
+
+ATR's current close is not in current TR arithmetic; predecessor close and each
+TRhigh/low remain mandatory. Period1 may erase arithmetic memory but the frozen
+epoch coverage rule still rejects earlier gaps unless caller replays or selects
+a new epoch. Revisit under actual installed delivery, causality audit and semantic
+legacy comparisons; local numerical passes are not artifact acceptance.
