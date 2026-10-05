@@ -6,13 +6,13 @@ Updated2026-10-04. Public repository: atulsrivas1/equity-features; Apache-2.0. R
 
 Source-independent Python contracts/features first, then DuckDB adapter, workers, provider/file adapters and optional remote/MCP access. Calculation libraries do no source I/O. Other applications are separate products; their designs/integrations belong outside this repository. See decisions/product-boundaries.md. No production calculation package has been implemented or published.
 
-EQ-001 feature scope Done in PR106 (39IDs); EQ-002 session/bar/trade mathematics Done in PR112 (20definitions,17reference cases); EQ-003 quote formulas Done in PR121 mergeaf0dbb8552a3667c242bd46756bf6cb2292d4a5d (3definitions,26reference cases). Final-head CI, publication comparison and post-publication tests were verified on their issues. EQ-004 historical formulas is Ready and needs a detailed plan next. R0 remains incomplete. EQ-093 custom extensions remains Backlog/R3, with no implementation or sandbox claim.
+EQ-001 feature scope Done in PR106 (39IDs); EQ-002 session/bar/trade mathematics Done in PR112 (20definitions,17reference cases); EQ-003 quote formulas Done in PR121 mergeaf0dbb8552a3667c242bd46756bf6cb2292d4a5d (3definitions,26reference cases). Final-head CI, publication comparison and post-publication tests were verified on their issues. EQ-004 historical formulas is now In progress; plan8provisional points and mathematical/reference artifacts are on codex/eq-004-history-formulas. R0 remains incomplete. EQ-093 custom extensions remains Backlog/R3, with no implementation or sandbox claim.
 
 ## Current scope correction
 
 Owner withdrew external-product-specific integration scope. GOV-006 issue#122 removes the external-product document/references and existing story additions; EQ-094 is retired as not planned, removed from active Project/milestone/parent scope and must not be reused.93active EQ stories remain. Generic precision, availability, state and replay contracts are preserved. Previous proposal GOV-004/PR118 is historical and superseded, not current scope. History is retained; published historical diffs are not erased.
 
-Resume: verify GOV-006 linked PR/final checks/publication and GitHub withdrawal metadata. Ensure deferred PR120 is synchronized so it cannot restore retired material. Then start EQ-004 planning; do not recreate removed product-specific scope.
+GOV-006 publication and withdrawal metadata are verified; deferred PR120 was synchronized. Continue EQ-004 to final checks/publication, then EQ-005 planning; do not recreate removed product-specific scope.
 
 ## Review and validation
 
@@ -21,3 +21,9 @@ GOV-005 issue119/PR120 remains open and explicitly deferred by owner. No hosted 
 Documentation CI checks93active EQ IDs,39builtin feature IDs and eight lifecycle states. Reference verifiers check17session and26quote cases; no backend/performance/provider qualification follows. Use explicit UTF-8. GOV-002 recorded a local encoding failure and a shell sequence that incorrectly continued to merge; corrected post-merge checks passed. All command sequences must stop on failed checks. Documentation releases are not parent milestone/package releases. Public fixtures stay synthetic or explicitly licensed; never publish private data/credentials.
 
 Scope-cleanup validation note: a Project removal command used an unsupported CLI flag and stopped before commit/publication. Corrected to the documented project-number/owner syntax; verify Project removal in final acceptance. No failed command was treated as a successful whole sequence.
+
+## EQ-004 current work
+
+8history definitions, initialization/gap/volatility decisions, plan and synthetic reference fixtures are drafted. SMA-seeded EMA, Wilder RSI/ATR, explicit anchors, strict recursive gaps, prior-only extrema and sample simple-return volatility with explicit scaling are defined. Verify all reference suites and final-head CI/publication before completion. No production package/backends/provider admission claimed. After verified delivery, make EQ-005 Ready for its plan. Scope cleanup PR123 merged4a0dda1bb440e7a78750c39d60f2e3f36042a0ae and deferred reviewer PR120 was synchronized at66def0e7bdc708ac82ce3ffeedaf0764f79cbcfe with passing checks; GOV-006 Done.
+
+EQ-004 acceptance preparation:31historical reference tests plus17session/26quote cases pass locally;8history IDs have equation/units/example coverage. Self-review added explicit identity/time-order, previous-close-not-range-fallback, missing-price and target-independent extrema cases. Check final PR head/CI and remote publication before Done.
