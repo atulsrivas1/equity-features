@@ -324,7 +324,7 @@ waits for these repairs Done. GOV009 already Done. R3 remains open. This overrid
 the earlier R3 continuous-pull mission without authorizing R2 implementation here.
 
 
-### BUG003 qualified implementation delivery —0.0.2a10
+### BUG003 qualified implementation delivery â€”0.0.2a10
 
 PR166/head24db3f4/mainb9bc293:377units/123refs/strict26files/all local and six
 exact-head CI gates/main docs37361305538/Foundation37361305448 both OS/published
