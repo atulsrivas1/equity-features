@@ -648,3 +648,11 @@ author review; next recheck all units/docUTF8/links, concrete final-head commit,
 Code review/Test, repeat archive/installed exact-head gates and main/bothOS actual
 bundles/FOUR fresh pairs/final receipt before Done. Author self-review+CI only;
 no independent human/hosted review, history state/source/performance claim. R3 paused.
+
+EQ028 docs gate correction: ce44fae introduced a Windows-default encoded em dash
+in the new changelog heading; UTF8 check failed before acceptance. Normalize that
+new byte explicitly to UTF8 and use explicit encodings for subsequent edits. All
+public Markdown/94stories/39IDs/lifecycle checks pass after correction. Local link
+check identified an inherited R1 acceptance structure.py link, unchanged from main;
+no new broken EQ028 links. Failed source is superseded; final-head checks/build
+must use the corrected commit. No fabricated green evidence.

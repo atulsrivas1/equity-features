@@ -20,3 +20,8 @@ checks, clean exact-head repeat build and installed pairs, SIX exact-head PR che
 guarded merge/exact published tree/main docs/bothOS CI/actual bundles/four installed
 pairs, followed by final receipt publication and actual main byte equality. No
 source merge alone establishes Done. R3 remains paused.
+
+Pre-acceptance docs check also caught and corrected Windows-default encoding of
+the new changelog em dash on ce44fae; corrected UTF8/planning/lifecycle checks pass.
+No new broken local links; an inherited R1 historical link remains separately
+identified in continuity. ce44fae is superseded, not final evidence.
