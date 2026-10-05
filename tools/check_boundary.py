@@ -18,6 +18,10 @@ def violations(source):
             for m in modules:
                 if m.split('.')[0] not in ALLOWED or m.startswith(('pyarrow.dataset','pyarrow.fs','pyarrow.parquet','pyarrow.csv','numpy.lib.npyio')):
                     found.append(f'{node.lineno}: forbidden import {m}')
+            if isinstance(node,ast.ImportFrom):
+                for imported in node.names:
+                    if imported.name in DENIED or imported.name.startswith(('read_','write_')) or imported.name=='*':
+                        found.append(f'{node.lineno}: forbidden imported access {imported.name}')
         if isinstance(node,(ast.Name,ast.Attribute)):
             name=node.id if isinstance(node,ast.Name) else node.attr
             if name in DENIED or name.startswith(('read_','write_','__builtins__')):
@@ -35,10 +39,10 @@ def check():
     for p in (ROOT/'packages').glob('*/src/**/*.py'):
         errors=violations(p.read_text(encoding='utf-8'))
         assert not errors,f'{p.relative_to(ROOT)}: {errors}'
-    for source in ["import requests as r", "from pathlib import Path as P", "import os", "import time as t", "open('x')", "f=__import__", "getattr(x,'read')", "import pyarrow.parquet as pq", "np.load('x')", "pa.memory_map('x')", "clock.now()"]:
+    for source in ["import requests as r", "from pathlib import Path as P", "import os", "import time as t", "open('x')", "f=__import__", "getattr(x,'read')", "import pyarrow.parquet as pq", "np.load('x')", "pa.memory_map('x')", "clock.now()", "from numpy import load as loader", "from pyarrow import memory_map as mmap", "from numpy import *"]:
         assert violations(source),source
     assert not violations('from dataclasses import dataclass\nfrom .types import T\nimport pyarrow as pa\npa.array([1])')
-    print('Pure boundary and 11 negative policy fixtures verified.')
+    print('Pure boundary and 14 negative policy fixtures verified.')
 
 
 if __name__=='__main__': check()
