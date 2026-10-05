@@ -161,3 +161,9 @@ TRhigh/low remain mandatory. Period1 may erase arithmetic memory but the frozen
 epoch coverage rule still rejects earlier gaps unless caller replays or selects
 a new epoch. Revisit under actual installed delivery, causality audit and semantic
 legacy comparisons; local numerical passes are not artifact acceptance.
+
+EF-L016 implementation qualification: corrected final d1b552c/main6311882 all head/
+source/main docs/bothOS CI and actual bundles/FOURfresh installed pairs each472tests/
+fifteenexamples pass. [Receipt](../stories/EQ-029_DELIVERY.md). Explicit epoch and
+ratio-preserving batch behavior are qualified; final receipt publication still
+gates Done. Numerical representation and admitted source proof remain distinct.
