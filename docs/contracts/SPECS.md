@@ -16,7 +16,7 @@ contradictory declarations fail. Lists become owned tuples; generators are rejec
 open<=event<min(C,close). An explicitly labeled opening auction needs inclusion,
 event=open and event<C. An explicitly labeled closing auction needs inclusion,
 event=close and C=close. Quotes have no auction exception. This predicate checks
-bounds/policy only; caller eligibility, coverage and semantic batch validation
+bounds/policy only; EQ-014 now rejects C outside actual open/close bounds; caller eligibility, coverage and semantic batch validation
 remain separate. It does not turn a forming bar into completed EOD evidence.
 
 `AvailabilitySpec(market_cutoff_ns,knowledge_cutoff_ns,evaluation_ns,mode,reason)`

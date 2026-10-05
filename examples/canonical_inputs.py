@@ -56,3 +56,16 @@ arrow_result = to_arrow_result(supplied_result)
 assert arrow_result["quality"]["status"].to_pylist() == ["missing_input"]
 assert supplied_result.values[0].values == (None,)
 print("Typed supplied result, unavailable scalar and excluded evidence verified")
+
+from equity_feature_contracts import validate_batch, normalize_batch, quantize_float_prices
+report = validate_batch(trade, session=result_config.session,
+    availability=result_config.availability)
+assert report.knowledge_exclusions[0].reason == Reason.UNKNOWN_AVAILABILITY
+scaled = normalize_batch(trade, price_unit=PriceUnit(5,"USD"))
+assert scaled.batch.column("price").values == (12345000,)
+assert scaled.batch.metadata.source.input_id != trade.metadata.source.input_id
+assert trade.column("price").values == (1234500,)
+quantized = quantize_float_prices((0.1,None), unit=PriceUnit(4,"USD"),
+    interpretation="decimal_repr", rounding="exact")
+assert quantized.values == (1000,None)
+print("Semantic validation and explicit owned normalization verified")
