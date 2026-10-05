@@ -23,7 +23,8 @@ Expected counts may be unknown for unavailable inputs. Every unavailable/partial
 status needs a typed `Reason`; absent_input, null_field, observed_empty,
 insufficient_history, governed_gap, unknown_availability, future_knowledge,
 partial_universe, zero_denominator, empty_universe, ineligible and future_market
-preserve the cause. Reasons do not replace formula-specific admission checks.
+preserve the cause. EQ-014 also supplies no_eligible_observations and
+missing_action_evidence for the accepted formula policies. Reasons do not replace formula-specific admission checks.
 
 `BreadthCounts(advancing,declining,unchanged,expected)` and
 `BreadthFraction(above,eligible,expected)` are the EQ-005 structured exception.

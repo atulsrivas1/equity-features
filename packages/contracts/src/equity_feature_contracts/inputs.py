@@ -94,6 +94,8 @@ class Coverage:
     def __post_init__(self) -> None:
         if type(self.observed) is not int or self.observed < 0 or type(self.complete) is not bool:
             raise ContractError(ErrorCode.INVALID_SCHEMA, "invalid coverage")
+        if self.observed > I64_MAX or (type(self.expected) is int and self.expected > I64_MAX):
+            raise ContractError(ErrorCode.OVERFLOW, "coverage count exceeds int64")
         if self.expected is not None and (type(self.expected) is not int or self.expected < self.observed):
             raise ContractError(ErrorCode.INVALID_SCHEMA, "expected coverage below observed")
         if self.complete and self.expected != self.observed:

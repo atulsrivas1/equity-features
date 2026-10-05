@@ -69,6 +69,8 @@ class SessionSpec:
 
     def admits_event(self, event_ns: int, cutoff_ns: int, *, auction: str = "none", quote: bool = False) -> bool:
         _ns(event_ns); _ns(cutoff_ns)
+        if not self.open_ns <= cutoff_ns <= self.close_ns:
+            raise ContractError(ErrorCode.BOUNDS, "session market cutoff outside actual bounds")
         if auction not in ("none", "opening", "closing") or type(quote) is not bool:
             raise ContractError(ErrorCode.INVALID_CONFIG, "explicit event kind required")
         if quote and auction != "none":
