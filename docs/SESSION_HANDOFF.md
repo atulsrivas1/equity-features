@@ -348,3 +348,48 @@ Resume: read current live issue/Project state, the latest release-specific hando
 ## Deferred reviewer branch synchronization —2026-10-05
 
 PR120 was synchronized with current main solely to remove merge conflicts. It remains a draft; hosted activation/qualification and owner resumption are still outstanding. Historical scope-cleanup command failure was corrected before publication; no failed command was counted as delivery. The old93-story snapshot is superseded by94active IDs including EQ095, while EQ094 stays retired. Current owner R2-before-R3 and self-review/CI rules remain unchanged.
+
+### Bounded repair publication exception —2026-10-05
+
+BUG003 implementation is Released/qualified; final receipt PR169 has5of6corrected
+exact-head checks green and the remaining Linux PR job queued since19:15UTC.
+Keep its merge gated. Start only BUG004 as the single In progress implementation
+while BUG003 waits externally for documentation publication; this bounded two-repair
+publication exception avoids idle implementation capacity and remains within the
+owner's repair-only authorization. No second active code change, R3 feature or R2
+work. BUG004 baseline rehashed state still raises OverflowError on0.0.2a10; pre-code
+plan confirms2points/schema2/error normalization/new pair0.0.2a11. Complete both
+stories through actual delivery and documentation gates before stopping.
+
+### BUG004 implementation/local validation
+
+Pair0.0.2a11 keeps schema2/equations unchanged and normalizes saved-state decoding
+OverflowError through ContractError(INVALID_SCHEMA), preserving original cause.
+Three independent regression cases cover positive/negative/very large rehashed hex,
+nonfinite/malformed hex, unchanged state and exact nonzero finite continuation.
+380units/123references/strict26files/boundary38negative10positive/import/registry/
+compatibility/license checks pass. Only BUG004 In progress; BUG003 receiptPR169
+remains gated on queued Linux job. Full repeat-build/head/main/actual bundle/fresh
+install qualification remains before release. No R2/R3 feature work.
+
+### Receipt queue recovery and continuity merge
+
+PR169 corrected head0da2815 passed all six checks after the Linux PR job remained
+queued over ten minutes; the stalled attempt was cancelled and its Linux job rerun
+at unchanged source, then actually passed. No gate was waived. Final receipt main
+d153a12 awaits main CI/actual bundle equality for BUG003 Done. Preserve owner
+repair-only scope. Merged published receipt continuity into BUG004 branch, retaining
+both the owner override and its actual implementation chronology; only docs conflicted.
+BUG004 local repeat-build and two fresh installs each380tests/eleven examples pass;
+new exact merged-head CI is required before publication. Historical queued-stage
+notes above are dated work evidence, not current completion claims.
+
+## Remaining repair delivery ownership —2026-10-05
+
+The owner transferred remaining BUG003/004 delivery to the dedicated R2 execution
+session after the original repair session became idle. Reused existing PR171
+implementation unchanged; merged current main65e66fd while preserving both repair
+chronology and owner R2/R3 pause/knowledge records. No duplicate calculator repair.
+Final integrated-head checks, published source/main artifacts/fresh installed pairs
+and receipt acceptance remain required; both repair issues are still undelivered
+at this checkpoint. R2 calculation work waits for their genuine Done state.

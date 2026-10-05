@@ -1,6 +1,6 @@
 # Equity Feature Contracts
 
-Experimental0.0.2a10, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
+Experimental0.0.2a11, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
 R1 session calculations use caller-supplied immutable canonical inputs and explicit
 config/entity/source/coverage/knowledge declarations. Core imports require no
 optional backend or source acquisition. Contracts depend only on stdlib; features
