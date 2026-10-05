@@ -10,7 +10,7 @@ import re
 from typing import TypeAlias
 from .errors import ContractError, ErrorCode
 from .inputs import BatchMetadata, DataKind, I64_MIN, I64_MAX
-from .specs import AvailabilitySpec
+from .specs import AvailabilitySpec, IntervalSpec
 
 class Status(StrEnum):
     AVAILABLE = "available"
@@ -43,6 +43,8 @@ class ValueType(StrEnum):
     BOOL = "bool"
     BREADTH_COUNTS = "breadth_counts"
     BREADTH_FRACTION = "breadth_fraction"
+    INTERVAL_OHLCV = "interval_ohlcv"
+    INTERVAL_VOLUME_SHARES = "interval_volume_shares"
 
 def _label(value: str) -> None:
     if type(value) is not str or not value.strip():
@@ -99,7 +101,70 @@ class BreadthFraction:
     def coverage(self) -> Fraction:
         return Fraction(self.eligible, self.expected)
 
-ResultCell: TypeAlias = int | float | str | bool | BreadthCounts | BreadthFraction | None
+@dataclass(frozen=True)
+class IntervalOHLCVRow:
+    interval: IntervalSpec
+    open_price: float | None
+    high_price: float | None
+    low_price: float | None
+    close_price: float | None
+    volume: int | None
+    quality: QualityRow
+
+    def __post_init__(self) -> None:
+        if type(self.interval) is not IntervalSpec or type(self.quality) is not QualityRow:
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"typed interval and quality required")
+        if self.quality.status != Status.AVAILABLE:
+            if any(x is not None for x in (self.open_price,self.high_price,self.low_price,self.close_price,self.volume)):
+                raise ContractError(ErrorCode.INVALID_SCHEMA,"unavailable interval row must be null")
+        else:
+            _count(self.volume)  # type: ignore[arg-type]
+            prices=(self.open_price,self.high_price,self.low_price,self.close_price)
+            if self.volume == 0:
+                if any(x is not None for x in prices): raise ContractError(ErrorCode.INVALID_SCHEMA,"empty interval has no prices")
+            elif any(type(x) is not float or not math.isfinite(x) or x <= 0 for x in prices):
+                raise ContractError(ErrorCode.INVALID_SCHEMA,"positive finite interval prices required")
+            elif not self.low_price <= self.open_price <= self.high_price or not self.low_price <= self.close_price <= self.high_price:  # type: ignore[operator]
+                raise ContractError(ErrorCode.INVALID_SCHEMA,"interval OHLC coherence required")
+
+@dataclass(frozen=True)
+class IntervalVolumeShareRow:
+    interval: IntervalSpec
+    share: float | None
+    quality: QualityRow
+
+    def __post_init__(self) -> None:
+        if type(self.interval) is not IntervalSpec or type(self.quality) is not QualityRow:
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"typed interval and quality required")
+        if self.quality.status == Status.AVAILABLE:
+            if type(self.share) is not float or not math.isfinite(self.share) or not 0 <= self.share <= 1:
+                raise ContractError(ErrorCode.BOUNDS,"interval share fraction required")
+        elif self.share is not None:
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"unavailable share must be null")
+
+@dataclass(frozen=True)
+class IntervalOHLCV:
+    rows: tuple[IntervalOHLCVRow, ...]
+
+    def __post_init__(self) -> None:
+        _interval_rows(self.rows,IntervalOHLCVRow)
+        object.__setattr__(self,"rows",tuple(self.rows))
+
+@dataclass(frozen=True)
+class IntervalVolumeShares:
+    rows: tuple[IntervalVolumeShareRow, ...]
+
+    def __post_init__(self) -> None:
+        _interval_rows(self.rows,IntervalVolumeShareRow)
+        object.__setattr__(self,"rows",tuple(self.rows))
+
+def _interval_rows(rows: tuple[IntervalOHLCVRow, ...] | tuple[IntervalVolumeShareRow, ...], expected: type[IntervalOHLCVRow] | type[IntervalVolumeShareRow]) -> None:
+    if type(rows) not in (tuple,list) or any(type(x) is not expected for x in rows):
+        raise ContractError(ErrorCode.INVALID_SCHEMA,"concrete typed interval rows required")
+    if len({x.interval.name for x in rows}) != len(rows):
+        raise ContractError(ErrorCode.DUPLICATE,"duplicate interval output name")
+
+ResultCell: TypeAlias = int | float | str | bool | BreadthCounts | BreadthFraction | IntervalOHLCV | IntervalVolumeShares | None
 
 @dataclass(frozen=True)
 class FeatureColumn:
@@ -135,7 +200,9 @@ def _value(dtype: ValueType, value: ResultCell) -> None:
     elif dtype == ValueType.STRING: valid = type(value) is str
     elif dtype == ValueType.BOOL: valid = type(value) is bool
     elif dtype == ValueType.BREADTH_COUNTS: valid = type(value) is BreadthCounts
-    else: valid = type(value) is BreadthFraction
+    elif dtype == ValueType.BREADTH_FRACTION: valid = type(value) is BreadthFraction
+    elif dtype == ValueType.INTERVAL_OHLCV: valid = type(value) is IntervalOHLCV
+    else: valid = type(value) is IntervalVolumeShares
     if not valid:
         code = ErrorCode.OVERFLOW if type(value) is int and dtype in (ValueType.INT64, ValueType.DECIMAL128) else ErrorCode.INVALID_SCHEMA
         raise ContractError(code, "result type/precision mismatch")
@@ -275,11 +342,17 @@ class FeatureResult:
                 q = qualities[entity,c.feature_id]
                 if entity.session_id != self.metadata.session_id: raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"result session mismatch")
                 if q.status == Status.AVAILABLE and value is None: raise ContractError(ErrorCode.INVALID_SCHEMA,"available result cannot be null")
-                if q.status != Status.AVAILABLE and value is not None and not (q.status == Status.INCOMPLETE_COVERAGE and isinstance(value,(BreadthCounts,BreadthFraction))):
+                if q.status != Status.AVAILABLE and value is not None and not (q.status == Status.INCOMPLETE_COVERAGE and isinstance(value,(BreadthCounts,BreadthFraction,IntervalOHLCV,IntervalVolumeShares))):
                     raise ContractError(ErrorCode.INVALID_SCHEMA,"unavailable scalar must be null")
                 if isinstance(value,(BreadthCounts,BreadthFraction)):
                     if q.observed != value.eligible or q.expected != value.expected or (q.status == Status.AVAILABLE) != (value.eligible == value.expected):
                         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"breadth partial status/coverage mismatch")
+                if isinstance(value,(IntervalOHLCV,IntervalVolumeShares)):
+                    ready=sum(row.quality.status == Status.AVAILABLE for row in value.rows)
+                    if q.expected != len(value.rows) or q.observed != ready or (q.status == Status.AVAILABLE) != (ready == len(value.rows)):
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"interval aggregate quality mismatch")
+                    if any(row.quality.entity != entity or row.quality.feature_id != c.feature_id for row in value.rows):
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"interval quality key mismatch")
         if len(self.evidence)>self.metadata.evidence_limit: raise ContractError(ErrorCode.BOUNDS,"evidence exceeds explicit bound")
         evidence_keys = {(x.entity,x.feature_id,x.input_id,x.row_id) for x in self.evidence}
         if len(evidence_keys) != len(self.evidence): raise ContractError(ErrorCode.DUPLICATE,"duplicate evidence identity")

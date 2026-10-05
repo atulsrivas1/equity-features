@@ -6,4 +6,5 @@ BAR_IDS = (
     "session.price.close_location", "session.price.overnight_gap",
     "session.price.close_close_return",
 )
-BATCH_IDS = frozenset(BAR_IDS)
+STRUCTURE_IDS = ("session.structure.interval_ohlcv", "session.structure.interval_volume_share")
+BATCH_IDS = frozenset(BAR_IDS+STRUCTURE_IDS)
