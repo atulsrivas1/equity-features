@@ -22,7 +22,7 @@ Follow Backlog -> Ready -> In progress -> Code review -> Test -> Ready to releas
 
 ## Immediate work and remaining decisions
 
-Next: EQ-002, session/bar/trade formulas with independently worked examples. Follow with formula stories EQ-003–006 according to their dependencies, then public contracts and package foundation. Do not require another architecture meeting to resolve decisions already assigned to stories.
+EQ-001–003 mathematical scope/session/quote work is complete. Continue EQ-004 historical formulas, then EQ-005/006 according to their dependencies, followed by public contracts/package foundation. Consult live Project/issue evidence for current status. Do not require another architecture meeting to resolve decisions already assigned to stories.
 
 | Decision still required | Owning story |
 | --- | --- |
