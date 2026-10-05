@@ -69,6 +69,7 @@ def clean_install(paths):
         run(str(py),'-m','pip','install','--no-index','--no-deps','--no-build-isolation',*[str(p) for p in paths])
         run(str(py),'-m','pip','check')
         run(str(py),'-I','-c','import equity_feature_contracts as c; import equity_features as f; assert c.__version__==f.__version__==f.contracts_version; print("Clean installed foundation imports verified",c.__version__)')
+        run(str(py),'-m','pip','install','--no-deps','numpy==2.2.6','pyarrow==20.0.0')
         tests=ROOT/'tests/unit'
         if tests.exists(): run(str(py),'-m','unittest','discover','-s',str(tests))
 
@@ -78,6 +79,9 @@ def main():
     repeat=ROOT/'work/repeat-dist';repeat.mkdir(parents=True,exist_ok=True)
     env=dict(os.environ,SOURCE_DATE_EPOCH=str(EPOCH))
     for out in [output,repeat]:
+        assert out.resolve().is_relative_to(ROOT.resolve())
+        for pattern in ('equity_feature_contracts-*.whl', 'equity_features-*.whl', 'equity_feature_contracts-*.tar.gz', 'equity_features-*.tar.gz'):
+            for old in out.glob(pattern): old.unlink()
         for name in ['contracts','features']:
             run(sys.executable,'-m','build','--no-isolation','--outdir',str(out),str(ROOT/'packages'/name),env=env)
         for p in out.glob('*.tar.gz'): normalize_sdist(p)

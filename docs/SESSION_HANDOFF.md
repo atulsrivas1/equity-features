@@ -4,7 +4,7 @@ Updated2026-10-04 (Eastern). Read AGENTS.md, PUBLIC_DEVELOPMENT.md and R0_AUTONO
 
 ## Verified delivery and current work
 
-EQ-001–004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
+EQ-001â€“004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
 
 EQ-007 Done: PR130 source a333fa7af53fc8f33e2b95368a99716bee6658d5, then actual foundation delivery under EQ-009. Source merge alone correctly remained Ready to release. EQ-008 Done via PR131,86321207b2ce8557a64a58782cfea28de4003a56: CPython3.12 x64, Windows/Linux; exact optional NumPy2.2.6/PyArrow20.0.0 pins and development tool lock. Local Windows3.12.10; CI Linux3.12.14 and Windows3.12.10 recorded in artifact manifests. Other environments unqualified.
 
@@ -16,7 +16,21 @@ Successful main Foundation package checks retained artifacts,30day requested ret
 - [foundation-0e130ca2a759ff13a35ca44da05382056a4b4768-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37258142835/artifacts/11323726340), expires2026-11-04T03:08:49Z; prior byte-identical install evidence: https://github.com/atulsrivas1/equity-features/actions/runs/37257622066/artifacts/11323481301.
 - [foundation-0e130ca2a759ff13a35ca44da05382056a4b4768-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37258142835/artifacts/11323307342), expires2026-11-04T03:08:14Z; prior byte-identical install evidence: https://github.com/atulsrivas1/equity-features/actions/runs/37257622066/artifacts/11323042505.
 
-EQ-010 In progress,3points: verified public owner atulsrivas1/Apache-2.0 and both distribution license/name metadata. Read-only PyPI lookups returned404; this neither reserves names nor authorizes publication. Decision and offline license consistency check prepared. Final-head/main CI and byte verification precede Done; then E02 child acceptance and EQ-011 Ready.
+EQ-010 Done via PR134, final head74b672ff49370959c24c0469273efcac992580f5,
+mainbebe4138d234138a51a98fe659923f6217e05f68. Exact-head/main checks and six
+published blobs verified; public owner/Apache metadata and read-only PyPI404
+snapshot recorded. E02 Done with all native children accepted. This neither reserves
+registry names nor authorizes publication.
+
+EQ-011 In progress,8points confirmed before code. Plan: stories/EQ-011_PLAN.md.
+Immutable canonical core for five kinds, source/unit/coverage/adjustment/sampling
+metadata, explicit Arrow/NumPy materializing bridges and24independent unit cases
+implemented. Core imports exclude optional backends. Experimental version0.0.1a1.
+Strict typing passed with PyArrow missing-stub override only; boundary passed.
+Current tests cover exact ns/int64/decimal128 endpoints and null/ownership behavior.
+Semantic validation remains EQ-014. Source review, all references, repeat build,
+clean install, exact-head/main CI and actual artifact delivery remain mandatory.
+E03 now active and remains open through EQ-093/R3.
 
 ## Failures and corrections
 
@@ -29,15 +43,15 @@ EQ-010 In progress,3points: verified public owner atulsrivas1/Apache-2.0 and bot
 
 ## Boundaries and durable authorization
 
-Owner authorizes remaining EQ-011–016 one at a time through verified R0 acceptance. Create each full story plan before implementation, inspect live issue/Project/prerequisites, confirm points, preserve unrelated work and obey eight stages. Author self-review/CI are approved; GOV-005 issue119/PR120 stays explicitly owner-deferred. No independent bot/human review, account/profile changes, paid/source access, private data, external-product integration, public registry or recurring automation. Calculation packages have no source/clock/job I/O. R1/R2 kernels and R3 custom execution remain unimplemented. EQ-093 stays R3; EQ-094 retired.
+Owner authorizes remaining EQ-011â€“016 one at a time through verified R0 acceptance. Create each full story plan before implementation, inspect live issue/Project/prerequisites, confirm points, preserve unrelated work and obey eight stages. Author self-review/CI are approved; GOV-005 issue119/PR120 stays explicitly owner-deferred. No independent bot/human review, account/profile changes, paid/source access, private data, external-product integration, public registry or recurring automation. Calculation packages have no source/clock/job I/O. R1/R2 kernels and R3 custom execution remain unimplemented. EQ-093 stays R3; EQ-094 retired.
 
-E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone assignment before closing R0, with explicit rationale; do not implement R3 or close the epic to clear a milestone. R0 acceptance still requires EQ-011–016 typed in-memory foundation, tests/docs and final versioned artifact delivery. Original chat stopped implementation; this chat owns the sequence.
+E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone assignment before closing R0, with explicit rationale; do not implement R3 or close the epic to clear a milestone. R0 acceptance still requires EQ-011â€“016 typed in-memory foundation, tests/docs and final versioned artifact delivery. Original chat stopped implementation; this chat owns the sequence.
 
 ## Exact resume steps
 
 1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
-2. Active EQ-010: review docs/decisions/release-access.md and tools/verify_release_policy.py; all123references/planning/import/license/diff checks, exact final-head CI, squash publication, GitHub bytes against committed blobs and main CI. Update issue12 and E02 honestly.
-3. Pull live EQ-011 issue14 after EQ-010 Done. Read its canonical schema acceptance and create docs/stories/EQ-011_PLAN.md before code;8points provisional. Implement actual immutable typed in-memory inputs and explicit columnar interoperability. Then EQ-012/013/014/015/016 in dependency order, no later-release calculators.
+2. Active EQ-011: finish author review of inputs/columnar/24unit tests and docs/contracts/INPUTS.md. Run all gates, open linked draft PR, exact-head CI, squash publication, committed blob verification and main CI; deliver/verify0.0.1a1 artifacts before Done.
+3. After EQ-011 Done, pull EQ-012 issue15 with live prerequisite/Project inspection and full pre-code plan. Then EQ-013/014/015/016 in dependency order, no later-release calculators.
 4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
 5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
 
