@@ -60,3 +60,6 @@ EQ028/0.0.3a2 adds history.sma/ema batch flags:28batch,23session update/restore,
 
 
 EQ029/0.0.3a3 adds history.rsi/atr batch flags:30batch/23session update/restore/22conditional merge;39mathematical definitions and unsupported history modes remain unchanged. Snapshot digest advances; [API](../api/HISTORY.md).
+
+
+EQ030/0.0.3a4 adds history.return_volatility batch:31batch/all8history,23session update/restore22merge.39mathematical definitions remain unchanged, state modes false and snapshot digest advances. [API](../api/HISTORY.md).

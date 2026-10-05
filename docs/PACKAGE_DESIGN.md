@@ -194,3 +194,6 @@ EQ028 retains contract/kernel ownership and batch-first boundaries. Contracts ow
 
 
 EQ029 adds pure admitted batch Wilder recurrences without source I/O or a public history accumulator. Normalized RSI scalar magnitude prevents underflow neutralization; total batch context remains finite/transient, not a throughput or constant-input-memory claim. [API](api/HISTORY.md).
+
+
+EQ030 retains pure contract/kernel boundaries; exact finite-window centered variance and high-precision square root perform no source lookup. Transient rational work/storage costs are explicit, with no public accumulator or throughput claim. [API](api/HISTORY.md).

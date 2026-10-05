@@ -1,5 +1,14 @@
 # Experimental package changes
 
+## 0.0.3a4 — EQ030 source qualification, delivery pending
+
+Batch volatility uses Nsimple returns/N+1governed closes, centered sample variance
+N-1 and explicit positive annualization_factor default1. Exact finite fractions
+and80-digit square root preserve tiny nonzero int64-limit changes; no implicit252.
+31batch/all8history,23session update/restore22merge; no history state modes.
+[API](api/HISTORY.md), [delivery gates](stories/EQ-030_DELIVERY.md).
+
+
 ## 0.0.3a3 — EQ029 verified experimental implementation delivery
 
 Batch Wilder RSI/ATR require explicit anchors/seeds and full governed epochs.

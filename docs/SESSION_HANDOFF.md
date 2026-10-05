@@ -755,3 +755,28 @@ annualization_factor default1, exact transient rationals/80-digit square root,
 tiny nonzero precision and independent readiness. No source code yet. Next: publish
 plan/Ready/In progress, implement/test/document pair0.0.3a4, then all source/head/
 main/actual installed/receipt gates. R3 paused.
+
+### EQ030 local implementation and review —2026-10-05
+
+Plan7bfdfe4 precedes source on codex/eq-030-volatility/PR182. Pair0.0.3a4 adds
+batch sample volatility over Nsimple returns/N+1governed closes, explicit positive
+annualization_factor default1, exact transient centered Fraction variance/80-digit
+square root.13new independent actual API cases and all472prior tests pass (485),
+including strict-positive near1e-38int64-limit precision beyond absolute tolerance,
+hand variance/scaling/default/sample-versus-RMS/population/gaps/causality/action/
+unit/source/mode guards. Strict32CI targets/purity38negative10positive pass.
+Fraction-sum inference corrected with an exact zero initializer; a points-command
+project ID typo was corrected before readiness. No failed evidence counted.
+
+API/config/conventions/costs/example/contracts/version/registry/changelog/pending
+receipt/lessonEF-L017 accompany source.31batch/all8history;23session update/restore
+22merge, history state modes false; schemas and39equations unchanged. Next: full
+123refs/import/registry/license/compatibility/docs/typed sixteenth example, final
+author review/commit, Code review/Test then exact-head repeated archives/fresh pairs/
+SIX CI/main exact source/bothOS actual bundles/FOURfreshpairs/final receipt. R3 paused.
+
+EQ030 full local source gates now pass123refs/strict37files (32CI targets plus five
+typed new examples), purity/import/registry/license/compatibility/UTF8/planning/
+lifecycle/sixteenth example. No new broken links; inherited R1 link stays recorded.
+Final author source review complete; next commit/Code review/Test and exact-head
+repeated archive/fresh installed execution before any acceptance claim.
