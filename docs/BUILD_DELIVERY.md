@@ -69,3 +69,5 @@ alone and editable wheels alone do not.
 ## R1 channel evolution
 
 0.0.2a0 adds twelve experimental batch bar/price calculations. The foundation-prefixed artifact channel is retained; manifests bind the exact source/runtime/hashes as before. Clean wheel/sdist installs now execute session_bars.py as well as both foundation examples and all unit tests. Current supported behavior and migration are in [SESSION_BARS](api/SESSION_BARS.md); actual delivery remains gated by successful main bundles and fresh installed execution.
+
+EQ019 adds the synthetic session_trades.py example to clean wheel/sdist installed checks. Five runnable examples and all unit cases execute against actual installed packages; runtime pins and experimental main artifact channel remain unchanged.

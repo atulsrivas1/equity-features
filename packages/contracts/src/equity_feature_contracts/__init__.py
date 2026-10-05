@@ -19,7 +19,7 @@ from .normalization import (NormalizationReport, NormalizedBatch, QuantizedPrice
 from .registry import (Capabilities, FeatureDefinition, InputRequirement,
     OutputField, Registry, builtin_registry)
 
-__version__ = "0.0.2a1"
+__version__ = "0.0.2a2"
 __all__ = ["AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
            "IntervalCoverage", "IntervalOHLCV", "IntervalOHLCVRow", "IntervalVolumeShares", "IntervalVolumeShareRow", "InputScope", "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",

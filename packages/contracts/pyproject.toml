@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "equity-feature-contracts"
-version = "0.0.2a1"
+version = "0.0.2a2"
 description = "Experimental in-memory equity feature contracts foundation"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
