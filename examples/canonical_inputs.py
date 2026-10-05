@@ -32,3 +32,27 @@ assert ConfigSpec.from_json(config.to_json()) == config
 assert len(config.digest) == 64
 
 print("Supplied specifications and canonical configuration verified",config.digest)
+
+from equity_feature_contracts import (
+    EntityKey, EvidenceRow, FeatureColumn, FeatureResult, InputBinding,
+    QualityRow, Reason, ResultMetadata, Status, ValueType,
+)
+from equity_feature_contracts.columnar import to_arrow_result
+stamp = trade.column("event_ns").values[0]
+result_config = ConfigSpec("demo:trade-count", "v1", (),
+    SessionSpec(meta.namespace, "S", stamp - 100, stamp + 100, "caller-zone"),
+    WindowSpec(2, "S", ("P1", "P2", "S")), AvailabilitySpec(stamp+1,stamp+2,stamp+2))
+entity = EntityKey("A", "S")
+result_metadata = ResultMetadata(meta.namespace, "S", result_config.availability,
+    result_config.digest, (InputBinding("trades", DataKind.TRADE, meta),),
+    "caller:synthetic", "v1", 1)
+supplied_result = FeatureResult(
+    (FeatureColumn("demo:trade-count", "v1", ValueType.INT64, "count", (entity,), (None,)),),
+    (QualityRow(entity,"demo:trade-count",Status.MISSING_INPUT,1,0,(Reason.UNKNOWN_AVAILABILITY,)),),
+    result_metadata,
+    (EvidenceRow(entity,"demo:trade-count",meta.source.input_id,"e1",stamp,None,
+        use="excluded",exclusion_reason=Reason.UNKNOWN_AVAILABILITY),))
+arrow_result = to_arrow_result(supplied_result)
+assert arrow_result["quality"]["status"].to_pylist() == ["missing_input"]
+assert supplied_result.values[0].values == (None,)
+print("Typed supplied result, unavailable scalar and excluded evidence verified")
