@@ -7,7 +7,7 @@ from typing import Any, Mapping
 import numpy as np
 import pyarrow as pa
 from .errors import ContractError, ErrorCode
-from .results import TopKTrades, BreadthCounts, BreadthFraction, FeatureResult, ValueType, IntervalOHLCV, IntervalVolumeShares
+from .results import QuoteStateCounts, SampledSpread, TopKTrades, BreadthCounts, BreadthFraction, FeatureResult, ValueType, IntervalOHLCV, IntervalVolumeShares
 from .inputs import (
     AdjustmentSpec, BatchMetadata, CanonicalBatch, Cell, Column, Coverage,
     DataKind, DType, InputScope, IntervalCoverage, PriceUnit, SourceBinding, schema_for,
@@ -124,6 +124,11 @@ def to_arrow_result(result: "FeatureResult") -> dict[str, Any]:
         elif dtype == ValueType.FLOAT64: arrow_type = pa.float64()
         elif dtype == ValueType.BOOL: arrow_type = pa.bool_()
         elif dtype == ValueType.STRING: arrow_type = pa.string()
+        elif dtype == ValueType.QUOTE_STATE_COUNTS:
+            arrow_type=pa.struct([pa.field(name,pa.int64(),False) for name in ("normal","locked","crossed","invalid","total","valid")])
+        elif dtype == ValueType.SAMPLED_SPREAD:
+            row_type=pa.struct([pa.field(name,pa.string(),False) for name in ("input_id","event_id","state")] + [pa.field("event_ns",pa.timestamp("ns",tz="UTC"),False),pa.field("order_key",pa.int64(),False),pa.field("known_at_ns",pa.timestamp("ns",tz="UTC"),True)] + [pa.field(name,pa.int64(),True) for name in ("bid","ask")] + [pa.field(name,pa.float64(),True) for name in ("spread","bps")])
+            arrow_type=pa.struct([pa.field("sampling",pa.string(),False),pa.field("total",pa.int64(),False),pa.field("valid",pa.int64(),False),pa.field("mean_spread",pa.float64(),True),pa.field("mean_bps",pa.float64(),True),pa.field("observation_limit",pa.int64(),False),pa.field("truncated",pa.bool_(),False),pa.field("rows",pa.list_(row_type),False)])
         elif dtype == ValueType.TOP_K_TRADES:
             row_type=pa.struct([pa.field(name,pa.string(),False) for name in ("input_id","event_id")] + [pa.field("event_ns",pa.timestamp("ns",tz="UTC"),False),pa.field("order_key",pa.int64(),False),pa.field("known_at_ns",pa.timestamp("ns",tz="UTC"),True),pa.field("price",pa.int64(),False),pa.field("size",pa.int64(),False)])
             arrow_type=pa.struct([pa.field("k",pa.int64(),False),pa.field("rows",pa.list_(row_type),False)])
@@ -139,7 +144,9 @@ def to_arrow_result(result: "FeatureResult") -> dict[str, Any]:
             arrow_type = pa.struct([pa.field(name,pa.int64(),nullable=False) for name in names])
         payload: list[Any] = []
         for value in column.values:
-            if isinstance(value,TopKTrades): payload.append(asdict(value))
+            if isinstance(value,QuoteStateCounts): payload.append({**asdict(value),"total":value.total,"valid":value.valid})
+            elif isinstance(value,SampledSpread): payload.append({**asdict(value),"truncated":value.truncated})
+            elif isinstance(value,TopKTrades): payload.append(asdict(value))
             elif isinstance(value,BreadthCounts): payload.append({**asdict(value),"eligible":value.eligible})
             elif isinstance(value,BreadthFraction): payload.append(asdict(value))
             elif isinstance(value,(IntervalOHLCV,IntervalVolumeShares)): payload.append([asdict(row) for row in value.rows])

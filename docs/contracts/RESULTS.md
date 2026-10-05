@@ -105,3 +105,5 @@ exact-head/main CI and actual artifact verification gate delivery.
 IntervalOHLCV/IntervalVolumeShares typed table cells extend ValueType. Nested IntervalSpec/QualityRow and nullable numerical fields preserve independent per-window readiness. FeatureResult permits explicit typed partial tables only with consistent aggregate expected/ready counts and keyed row quality. Missing sources remain null. Arrow materializes list-of-struct data with UTCns and nested quality; [interval API](../api/SESSION_STRUCTURE.md) describes schema, arithmetic and copy costs.
 
 EQ020/0.0.2a3 adds TopKTrades/TopKTradeRow and top_k_trades dtype, immutable ranked original coefficients and exact matching EvidenceRows. Arrow carries k and a typed bounded row list. [Migration/limits](../api/SESSION_TOP_K.md).
+
+EQ021/0.0.2a4 adds QuoteStateCounts, SampledSpread and QuoteObservation typed cells, bounded exact source/event evidence and Arrow structs/lists. Zero-valid SampledSpread has null means/not_applicable with diagnostic cell; FeatureResult verifies complete total and valid denominator. Missing/incomplete cells remain null. [Migration](../api/SESSION_QUOTES.md).

@@ -41,3 +41,5 @@ EQ018/0.0.2a1 adds batch capabilities for both session.structure IDs. Output met
 EQ019/0.0.2a2 adds five session.trade aggregate batch flags (19 implemented IDs). Actual trade notional output is decimal128 with currency/10^price_scale coefficient units, matching the bar exact-amount representation. Other execution flags remain unsupported; registry digest advances without changing equations. See [trade API](../api/SESSION_TRADES.md).
 
 EQ020/0.0.2a3 adds session.trade.top_k batch capability (20 implemented IDs), typed top_k_trades output. Other modes stay false. K/evidence bounds and retained-source proof limits: [API](../api/SESSION_TOP_K.md).
+
+EQ021/0.0.2a4 adds two quote event-summary batch flags (22 implemented IDs), quote_state_counts/sampled_spread typed outputs and explicit sampling. Time-weighted spread and other execution modes stay false. Frozen equations exclude quantiles/variance. [API](../api/SESSION_QUOTES.md).
