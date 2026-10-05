@@ -1,6 +1,6 @@
 # Equity Feature Contracts
 
-Experimental0.0.1a4 R0 foundation, Apache-2.0. Canonical immutable input schemas,
+Experimental0.0.1a4.post1 R0 foundation, Apache-2.0. Canonical immutable input schemas,
 integer/nanosecond admission and explicit copied Arrow/NumPy bridges are implemented.
 Supplied sessions/windows/timing and canonical configuration/digests are implemented.
 See repository docs/contracts/INPUTS.md SPECS.md, RESULTS.md and VALIDATION.md. Install the `columnar` extra for the bridges;

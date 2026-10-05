@@ -51,7 +51,7 @@ four fresh wheel/sdist installs each passed87cases and extended example.
 - [foundation-b93cdc6c7d1541e0316662ec82cee3ecda30d1e1-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37261152850/artifacts/11325290781), expires2026-11-04T03:53:57Z; hashes on issue16.
 - [foundation-b93cdc6c7d1541e0316662ec82cee3ecda30d1e1-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37261152850/artifacts/11324881569), expires2026-11-04T03:53:03Z; hashes on issue16.
 
-EQ-014 In progress,8points confirmed; pre-code plan stories/EQ-014_PLAN.md.
+EQ-014 Rework/In progress,8points confirmed; pre-code plan stories/EQ-014_PLAN.md.
 Semantic order/duplicate/bar/trade/quote/reference/bounds/known-at and compatible
 unit/basis checks, safe arithmetic and explicit owned sorting/identical dedup/scale/
 float quantization implemented at0.0.1a4.33new/120total units and strict types pass.
@@ -60,7 +60,14 @@ old helper fixtures now expect that stronger error. No original mathematical
 references changed. Explicit required-field selection preserves independent volume
 readiness on valid zero-volume/null-OHLC bars. Metadata coverage is source evidence,
 not auto-repaired; transform report maps original rows and changes input identity.
-Final review/build/installed tests/CI/publication/artifact acceptance still pending.
+PR138/head588dceedb0c95ebd140039fb50da843c1957dde9 mergedca7dc0833418dd2881f8355a79eb60017db0fcd4;
+all gates and120cases on both actual main bundles passed, then EQ-015 started.
+Registry schema mapping found close-only daily nonpositive prices bypassed validation
+without volume. EQ-014 reopened/In progress and EQ-015 returned Backlog; its code/
+pre-code plan are preserved in its branch/local Git stash. Focused alpha4.post1 now
+checks positive/coherent supplied OHLC independently of volume. Three new fixtures,
+123total units pass. No formulas changed. Renewed final-head/main/artifact acceptance
+is pending; resume preserved registry work only after reacceptance.
 E03 audited: issue milestone already null, Project has no separate Release field;
 its spanning R0/R3 scope will be documented at final acceptance while it stays open.
 
@@ -95,11 +102,13 @@ E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone
 ## Exact resume steps
 
 1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
-2. Active EQ-014: review validation/normalization and33new/120total cases plus
+2. Active EQ-014 focused rework: review independent price checks and123total cases plus
 contracts/VALIDATION.md. Complete repeat-build/installed examples, exact-head/main
-CI, publication bytes and actual0.0.1a4 artifact delivery before Done.
-3. After EQ-014 Done, pull EQ-015 issue18 with live prerequisites/Project and
-pre-code plan, then EQ-016. No later-release calculators.
+CI, publication bytes and actual0.0.1a4.post1 artifact delivery before Done.
+3. After renewed EQ-014 Done, restore codex/eq-015-in-memory-registry by fast-forward
+to corrected main and applying the preserved EQ015 stash. Resolve only version
+conflicts to alpha5, retain the new validation fix and resume its8point pre-code plan.
+Then EQ-016; no later-release calculators.
 4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
 5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
 

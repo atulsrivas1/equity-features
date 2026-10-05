@@ -138,6 +138,12 @@ def validate_batch(batch: CanonicalBatch, *, session: SessionSpec | None = None,
             volume = number("volume")
             prices = {name:number(name) for name in ("open","high","low","close") if name in columns}
             notional = number("actual_notional")
+            if volume != 0:
+                if any(v is not None and v <= 0 for v in prices.values()):
+                    raise ContractError(ErrorCode.INVALID_SCHEMA, "supplied price-bearing OHLC must be positive independently of volume")
+                independent_low = prices.get("low"); independent_high = prices.get("high")
+                if independent_low is not None and independent_high is not None and (independent_low > independent_high or any(v is not None and not independent_low <= v <= independent_high for v in prices.values())):
+                    raise ContractError(ErrorCode.INVALID_SCHEMA, "OHLC coherence violation independently of volume")
             if volume == 0:
                 if any(v is not None for v in prices.values()) or notional not in (None,0):
                     raise ContractError(ErrorCode.INVALID_SCHEMA, "zero-volume interval requires null OHLC and zero/absent notional")

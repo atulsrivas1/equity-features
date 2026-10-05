@@ -33,3 +33,14 @@ mypy/boundary/core isolation, installed runnable example and repeat builds, exac
 Linux/Windows head/main CI, published bytes and actual alpha0.0.1a4 artifacts before
 Done. API/docs/plan/continuity included; author self-review only. Registry/protocols
 EQ-015/016 next; no R1/R2 calculators or R3 callbacks. E03 remains open.
+
+## Focused rework2026-10-05
+
+EQ-015 schema mapping found nonpositive close-only daily input could bypass semantic
+price checks when volume was absent. EQ-004 requires independent positive price
+admission. Preserve registry draft, reopen EQ-014/In progress and EQ-015 Backlog.
+Implement positive supplied OHLC/coherence independently of volume while preserving
+legitimate zero-volume/null-OHLC and missing-field independence. Add negative close/
+unknown-volume, inconsistent close/high/low and valid close-only fixtures. Deliver
+new experimental0.0.1a4.post1 artifacts through all normal gates, then reaccept and
+resume preserved EQ-015 alpha5 work. No formulas changed; author self-review only.

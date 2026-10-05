@@ -68,6 +68,19 @@ class SemanticValidation(unittest.TestCase):
         self.assertEqual(b.row_count,3)
         recon=AvailabilitySpec(200,300,200,"reconstruction","later revision")
         self.assertEqual(validate_batch(b,availability=recon).knowledge_exclusions,())
+    def test_close_only_daily_positive_without_volume(self):
+        def close_only(value):
+            b=batch(DataKind.DAILY,close=(value,))
+            return replace(b,columns=tuple(c for c in b.columns if c.name not in ("open","high","low","volume")))
+        for value in (0,-1):self.assertCode(ErrorCode.INVALID_SCHEMA,lambda:validate_batch(close_only(value),required_fields=("close",)))
+        self.assertTrue(validate_batch(close_only(105),required_fields=("close",)).supplied_fields_ready)
+        self.assertFalse(validate_batch(close_only(None),required_fields=("close",)).supplied_fields_ready)
+    def test_daily_ohlc_coherence_without_volume(self):
+        b=batch(DataKind.DAILY,close=(111,));b=replace(b,columns=tuple(c for c in b.columns if c.name!="volume"))
+        self.assertCode(ErrorCode.INVALID_SCHEMA,lambda:validate_batch(b,required_fields=("close",)))
+    def test_bar_negative_price_with_unknown_volume(self):
+        b=batch(DataKind.BAR,close=(-1,),volume=(None,))
+        self.assertCode(ErrorCode.INVALID_SCHEMA,lambda:validate_batch(b))
     def test_valid_bar_exact_notional(self):
         self.assertTrue(validate_batch(batch(DataKind.BAR,actual_notional=(200,))).supplied_fields_ready)
         for notional in (179,221):self.assertCode(ErrorCode.INVALID_SCHEMA,lambda:validate_batch(batch(DataKind.BAR,actual_notional=(notional,))))

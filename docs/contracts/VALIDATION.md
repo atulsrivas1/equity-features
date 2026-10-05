@@ -1,6 +1,6 @@
 # Validation and explicit normalization
 
-EQ-014, experimental0.0.1a4. These stdlib helpers inspect owned caller input;
+EQ-014, experimental0.0.1a4.post1. These stdlib helpers inspect owned caller input;
 no source retrieval, calendars, corporate-action application or feature calculator.
 They are a reference admission/transform boundary, not a throughput claim.
 
@@ -88,9 +88,21 @@ Half-even handles finite nonexact values and records rounding count; NaN/infinit
 Boolean/integer impostors and int64 overflow fail. Result retains unit/interpretation/
 rounding; caller must bind this evidence when creating a new canonical source input.
 
-33new/120total unit cases and123existing mathematical references cover independent
+36validation/123total unit cases and123existing mathematical references cover independent
 order, tie, bar/quote/reference, session/knowledge, missing/null, arithmetic, copy,
 identity/dedup, exact/half-even and float interpretation fixtures. Strict typing,
 core isolation/boundary, repeat builds, installed tests/examples, exact-head/main CI
 and actual main artifact checks precede Done. Author self-review only. The algorithms
 here validate/normalize; numerical feature kernels remain R1/R2.
+
+## Close-only admission correction
+
+The original alpha4 validation/120case delivery omitted positivity/coherence checks
+when volume was absent. Registry schema mapping exposed this EQ-004 contradiction;
+EQ-014 reopened and EQ-015 paused. Alpha4.post1 checks every supplied price-bearing
+OHLC field independently of volume, while missing fields/nulls retain their readiness
+semantics and zero-volume/null-OHLC remains admissible. Three new independent
+fixtures cover close-only daily0/negative/positive/null, coherence without volume and
+negative bar price with unknown volume. Existing formula definitions are unchanged.
+Use alpha4.post1 or later for this admission path; prior artifacts remain historical
+evidence, not renewed acceptance. Final-head/main/artifact gates apply to this fix.
