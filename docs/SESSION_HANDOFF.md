@@ -32,16 +32,37 @@ OS bundles; four independent fresh installations each passed28cases and example.
 - [foundation-98098f17a235dd4997dd89a6b7ec4ba69a3f7130-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37259573665/artifacts/11324335042), expires2026-11-04T03:28:55Z; four SHA256 hashes recorded on issue14.
 - [foundation-98098f17a235dd4997dd89a6b7ec4ba69a3f7130-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37259573665/artifacts/11323938312), expires2026-11-04T03:29:42Z; four SHA256 hashes recorded on issue14.
 
-EQ-012 In progress,8points confirmed; pre-code plan stories/EQ-012_PLAN.md.
-Immutable supplied session/interval/early-close/auction, C/K/E/knowledge/reconstruction,
-governed windows and version1 canonical configuration implemented at0.0.1a2.
-27new/55total unit cases and strict types pass. Round-trip equality initially failed
-because constructor retained parameter insertion order; canonical sorting at
-construction resolved it without weakening the fixture. Core still has no calendar,
-clock or source I/O. Final review/build/CI/publication and actual artifact acceptance
-remain pending. E03 stays open for R3 EQ-093; no numerical kernels.
+EQ-012 Done via PR136, final headaf16dd0ad9107d3aa18ea79503c4e3cb9c370bb1,
+mainc2e799bc39743f97f2b46391317d80f0458c3eaf. Six exact-head and main checks
+passed;13Git blobs matched. Supplied sessions/early-close/auctions, governed windows,
+C/K/E/reconstruction and schema1 canonical configuration/digests implemented at0.0.1a2.
+55unit cases/123references/strict types/isolation/boundary, repeat-build hashes,
+fresh wheel/sdist installs/examples passed. Both actual main OS bundles downloaded,
+hashed/inspected and four independent fresh installs passed55cases/examples.
+- [foundation-c2e799bc39743f97f2b46391317d80f0458c3eaf-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37260231384/artifacts/11324158674), expires2026-11-04T03:39:44Z; hashes on issue15.
+- [foundation-c2e799bc39743f97f2b46391317d80f0458c3eaf-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37260231384/artifacts/11323989517), expires2026-11-04T03:38:59Z; hashes on issue15.
+
+EQ-013 In progress,8points confirmed; pre-code plan stories/EQ-013_PLAN.md.
+Typed immutable feature value columns, independent keyed quality, stable statuses/
+reasons/errors, bound source/config/algorithm/backend/timing identities and bounded
+consumed/excluded evidence implemented at0.0.1a3. Unavailable scalars null;
+structured partial breadth retains E/M and K/E exactly. Explicit copied Arrow
+values/quality/evidence output.32new/87total cases, strict typing/boundary pass.
+Typed bridge/config failures include malformed envelopes; ordinary cutoff evidence
+is distinguished from trade closing auction/completed interval exceptions. No
+numerical calculator; metadata is caller assertion, not proof of source contents.
+Final review/build/installed examples/CI/publication/artifact delivery remain pending.
 
 ## Failures and corrections
+
+- EQ-012 Project PATCH returned truncated JSON after applying Ready to release.
+  Checked merge stopped. Verified live state, used unique per-call request files,
+  retried the idempotent status step; actual merge/main checks and artifacts then
+  verified. Main watcher now asserts actual main/origin-main identity, so a feature
+  branch check cannot stand in for main acceptance.
+- EQ-013 malformed-float fixture initially used "bad", a valid hexadecimal number.
+  Corrected the negative input to "not-hex"; valid hex normalization remains allowed.
+
 
 - EQ-011 review found Windows default text decoding damaged punctuation in two
   edited documents. Restored original Unicode and used explicit UTF-8; no source
@@ -63,11 +84,11 @@ E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone
 ## Exact resume steps
 
 1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
-2. Active EQ-012: author review specs.py,27new/55total unit cases and
-contracts/SPECS.md; complete build/install/example, exact-head/main CI, publication
-bytes and actual0.0.1a2 artifact delivery before Done.
-3. After EQ-012 Done, pull EQ-013 issue16 with live prerequisites/Project and
-pre-code plan. Then EQ-014/015/016 in order, no later-release calculators.
+2. Active EQ-013: review typed results/errors and32new/87total cases plus
+contracts/RESULTS.md. Complete repeat-build/installed examples, final-head/main CI,
+publication bytes and actual0.0.1a3 artifact delivery before Done.
+3. After EQ-013 Done, pull EQ-014 issue17 with live prerequisites/Project and
+pre-code plan. Then EQ-015/016 in order, no later-release calculators.
 4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
 5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
 

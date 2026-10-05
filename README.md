@@ -5,7 +5,7 @@ Source-independent equity feature calculations for reproducible research, backte
 **Status: R0 foundation in development. Mathematical specifications are complete;
 both experimental foundation distributions are delivered through verified
 [internal CI artifacts](docs/BUILD_DELIVERY.md). Canonical input contracts are implemented in EQ-011; remaining R0 stories add
-result types, semantic validation, registry and protocols; numerical kernels remain R1/R2.
+semantic validation, registry and protocols; numerical kernels remain R1/R2.
 No public registry release.**
 
 [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
@@ -14,7 +14,8 @@ No public registry release.**
 foundation artifacts from any future owner-authorized registry publication.
 
 [Canonical input API, precision and copy semantics](docs/contracts/INPUTS.md),
-[supplied session/window/configuration APIs](docs/contracts/SPECS.md).
+[supplied session/window/configuration APIs](docs/contracts/SPECS.md),
+[typed result/quality/evidence APIs](docs/contracts/RESULTS.md).
 After installing both experimental distributions plus the contracts `columnar`
 extra, run `python examples/canonical_inputs.py` for the synthetic exact-nanosecond
 round trip. Final-head/main artifacts are verified before each story is Done.

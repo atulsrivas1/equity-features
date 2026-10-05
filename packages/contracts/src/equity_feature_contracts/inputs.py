@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from enum import StrEnum
 from typing import TypeAlias
 
+from .errors import ContractError, ErrorCode
 Cell: TypeAlias = int | str | bool | None
 I64_MIN = -(2**63)
 I64_MAX = 2**63 - 1
@@ -39,7 +40,7 @@ class InputSchema:
         for field in self.fields:
             if field.name == name:
                 return field
-        raise ValueError(f"unknown field: {name}")
+        raise ContractError(ErrorCode.INVALID_SCHEMA, f"unknown field: {name}")
 
 _ID = (Field("instrument_id", DType.STRING, False, True),
        Field("session_id", DType.STRING, False, True))
@@ -62,7 +63,7 @@ def schema_for(kind: DataKind) -> InputSchema:
     for schema in _SCHEMAS:
         if schema.kind == kind:
             return schema
-    raise ValueError("unsupported input kind")
+    raise ContractError(ErrorCode.INVALID_SCHEMA, "unsupported input kind")
 
 @dataclass(frozen=True)
 class PriceUnit:
@@ -70,8 +71,8 @@ class PriceUnit:
     currency: str
 
     def __post_init__(self) -> None:
-        if type(self.scale) is not int or not 0 <= self.scale <= 18 or not self.currency.strip():
-            raise ValueError("explicit scale 0..18 and currency required")
+        if type(self.scale) is not int or not 0 <= self.scale <= 18 or (type(self.currency) is not str or not self.currency.strip()):
+            raise ContractError(ErrorCode.INVALID_UNIT, "explicit scale 0..18 and currency required")
 
 @dataclass(frozen=True)
 class SourceBinding:
@@ -81,8 +82,8 @@ class SourceBinding:
     input_id: str
 
     def __post_init__(self) -> None:
-        if not all(x.strip() for x in (self.source_id, self.snapshot_id, self.mapping_version, self.input_id)):
-            raise ValueError("source/snapshot/mapping/input identity required")
+        if not all(type(x) is str and x.strip() for x in (self.source_id, self.snapshot_id, self.mapping_version, self.input_id)):
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "source/snapshot/mapping/input identity required")
 
 @dataclass(frozen=True)
 class Coverage:
@@ -92,11 +93,11 @@ class Coverage:
 
     def __post_init__(self) -> None:
         if type(self.observed) is not int or self.observed < 0 or type(self.complete) is not bool:
-            raise ValueError("invalid coverage")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "invalid coverage")
         if self.expected is not None and (type(self.expected) is not int or self.expected < self.observed):
-            raise ValueError("expected coverage below observed")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "expected coverage below observed")
         if self.complete and self.expected != self.observed:
-            raise ValueError("complete coverage requires known matching count")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "complete coverage requires known matching count")
 
 @dataclass(frozen=True)
 class AdjustmentSpec:
@@ -106,10 +107,10 @@ class AdjustmentSpec:
     anchor: str = "none"
 
     def __post_init__(self) -> None:
-        if self.basis not in ("raw", "split", "total_return") or not all(x.strip() for x in (self.policy_version, self.action_snapshot, self.anchor)):
-            raise ValueError("unsupported or unidentified adjustment basis")
+        if self.basis not in ("raw", "split", "total_return") or not all(type(x) is str and x.strip() for x in (self.policy_version, self.action_snapshot, self.anchor)):
+            raise ContractError(ErrorCode.UNSUPPORTED_ADJUSTMENT, "unsupported or unidentified adjustment basis")
         if self.basis != "raw" and (self.action_snapshot == "none" or self.anchor == "none"):
-            raise ValueError("adjusted input requires action snapshot and anchor")
+            raise ContractError(ErrorCode.UNSUPPORTED_ADJUSTMENT, "adjusted input requires action snapshot and anchor")
 
 @dataclass(frozen=True)
 class BatchMetadata:
@@ -125,13 +126,13 @@ class BatchMetadata:
 
     def __post_init__(self) -> None:
         if type(self.source) is not SourceBinding or type(self.coverage) is not Coverage or type(self.adjustment) is not AdjustmentSpec or (self.price_unit is not None and type(self.price_unit) is not PriceUnit):
-            raise ValueError("typed immutable metadata components required")
-        if not self.namespace.strip() or self.quantity_unit != "shares":
-            raise ValueError("explicit namespace and share quantities required")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "typed immutable metadata components required")
+        if (type(self.namespace) is not str or not self.namespace.strip()) or self.quantity_unit != "shares":
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "explicit namespace and share quantities required")
         if self.sampling not in ("none", "trade_snapshot", "continuous"):
-            raise ValueError("unsupported quote sampling")
+            raise ContractError(ErrorCode.UNSUPPORTED_SAMPLING, "unsupported quote sampling")
         if self.ordering not in ("declared", "unsorted") or self.duplicate_policy not in ("reject", "preserve"):
-            raise ValueError("unsupported order/duplicate declaration")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "unsupported order/duplicate declaration")
 
 @dataclass(frozen=True)
 class Column:
@@ -139,8 +140,10 @@ class Column:
     values: tuple[Cell, ...]
 
     def __post_init__(self) -> None:
+        if type(self.name) is not str or not self.name.strip():
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "nonempty column name required")
         if type(self.values) not in (tuple, list):
-            raise ValueError("concrete tuple/list values required; no lazy iterable")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "concrete tuple/list values required; no lazy iterable")
         object.__setattr__(self, "values", tuple(self.values))
 
 @dataclass(frozen=True)
@@ -151,24 +154,24 @@ class CanonicalBatch:
 
     def __post_init__(self) -> None:
         if type(self.kind) is not DataKind or type(self.columns) not in (tuple, list):
-            raise ValueError("DataKind and concrete columns required")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "DataKind and concrete columns required")
         if type(self.metadata) is not BatchMetadata or any(type(c) is not Column for c in self.columns):
-            raise ValueError("typed metadata and columns required")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "typed metadata and columns required")
         object.__setattr__(self, "columns", tuple(self.columns))
         schema = schema_for(self.kind)
         names = tuple(c.name for c in self.columns)
         if len(set(names)) != len(names):
-            raise ValueError("duplicate column")
+            raise ContractError(ErrorCode.DUPLICATE, "duplicate column")
         if any(f.required and f.name not in names for f in schema.fields):
-            raise ValueError("required identity/time/eligibility column missing")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "required identity/time/eligibility column missing")
         if len({len(c.values) for c in self.columns}) > 1:
-            raise ValueError("column length mismatch")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "column length mismatch")
         if self.kind != DataKind.REFERENCE and self.metadata.price_unit is None:
-            raise ValueError("market input requires price unit")
+            raise ContractError(ErrorCode.INVALID_UNIT, "market input requires price unit")
         if "price" in names and self.metadata.price_unit is None:
-            raise ValueError("reference price requires price unit")
+            raise ContractError(ErrorCode.INVALID_UNIT, "reference price requires price unit")
         if (self.kind == DataKind.QUOTE) != (self.metadata.sampling != "none"):
-            raise ValueError("quote input requires explicit sampling; other kinds use none")
+            raise ContractError(ErrorCode.UNSUPPORTED_SAMPLING, "quote input requires explicit sampling; other kinds use none")
         for column in self.columns:
             field = schema.field(column.name)
             for value in column.values:
@@ -185,7 +188,7 @@ class CanonicalBatch:
 def _admit(field: Field, value: Cell) -> None:
     if value is None:
         if not field.nullable:
-            raise ValueError(f"null required field: {field.name}")
+            raise ContractError(ErrorCode.INVALID_SCHEMA, f"null required field: {field.name}")
         return
     if field.dtype == DType.STRING:
         valid = type(value) is str and (field.nullable or bool(value.strip()))
@@ -195,5 +198,7 @@ def _admit(field: Field, value: Cell) -> None:
         valid = type(value) is int and -(10**38) < value < 10**38
     else:
         valid = type(value) is int and I64_MIN <= value <= I64_MAX
+    if not valid and type(value) is int and field.dtype in (DType.INT64, DType.UTC_NS, DType.DECIMAL128):
+        raise ContractError(ErrorCode.OVERFLOW, f"precision overflow: {field.name}")
     if not valid:
-        raise ValueError(f"type/precision violation: {field.name}")
+        raise ContractError(ErrorCode.INVALID_SCHEMA, f"type/precision violation: {field.name}")
