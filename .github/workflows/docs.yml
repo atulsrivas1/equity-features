@@ -56,3 +56,6 @@ jobs:
 
       - name: Verify licensing and distribution naming consistency
         run: python tools/verify_release_policy.py
+
+      - name: Verify immutable registry metadata against accepted scope
+        run: python tools/verify_registry.py
