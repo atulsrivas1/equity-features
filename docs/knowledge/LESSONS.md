@@ -41,3 +41,33 @@ bytes establish final delivery; issue162 is Done. Known omissions remain explici
 and caller certificates still do not authenticate arbitrary source truth. GOV010's
 same main/publication verification is accepted on issue167; R2 still waits for
 BUG004 final receipt rather than inferring dependency readiness from either merge.
+
+
+EF-L004 final receipt acceptance: [PR173](https://github.com/atulsrivas1/equity-features/pull/173)
+all final-head checks, published main29ff0ca source, main docs/bothOS CI and actual
+bundle equality to the four qualified installed byte sets passed. [BUG004 final
+acceptance](https://github.com/atulsrivas1/equity-features/issues/163#issuecomment-6003581353)
+records Done. Preserve original failure, qualification limits and earlier queue
+failures. EQ033 may now pull; superseded pending-receipt notes above remain history.
+
+
+## EF-L013 supplied-policy and field readiness —2026-10-05
+
+[EQ033](https://github.com/atulsrivas1/equity-features/issues/38)/
+[PR174](https://github.com/atulsrivas1/equity-features/pull/174) separates action
+admission from market readiness: complete usable factors do not establish known-at
+market observations, and classification does not depend on action factor operands.
+Local independent production API tests demonstrate those boundaries. Preserve
+explicit quantity basis with policy evidence; generic shares metadata alone cannot
+prove reciprocal split adjustment. [Policy guide](../api/ACTION_POLICIES.md).
+Scope: supplied schema1 utility, not authenticated source truth or implemented
+historical IDs. Revisit with dependent historical/context consumer qualification
+and final main installed artifacts; local tests alone are not accepted delivery.
+
+
+EF-L013 review correction: complete coverage metadata alone could contradict the
+actual supplied population. EQ033's two independently failing regressions now
+require coverage.observed equal row_count and selected evidence row_index within
+the original bound. Green head58bd47f builds were superseded; lifecycle returned to
+In progress. Requalify corrected source/artifacts before acceptance, and apply the
+same certificate-versus-delivery check to later HistoryContext consumers.

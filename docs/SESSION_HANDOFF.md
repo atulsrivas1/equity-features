@@ -454,3 +454,58 @@ head/main source/CI and actual bundle equality against793a188, then BUG004 Done.
 No package source/version changes in receipt publication. Preserve all R2 drafts
 on codex/r2-preparation and combine them with accepted main only after repair
 Done; refine/publish EQ033 plan before calculation code. R3 stays paused.
+
+
+### Repair receipt accepted; EQ033 pre-code pull —2026-10-05
+
+PR173 final28b0bf7 all six checks passed before exact-head-guarded squash merge to
+29ff0ca8311831d7906ff856bcd63f91fb991977. All three published documentation blobs
+match; main docs37377271047/Foundation37377271081 bothOS pass. Actual main bundles
+11372402127 Windows/11372187491 Linux manifests/source/clean epoch/all four hashes/
+contents pass and each OS's package bytes equal qualified793a188 archives. Reuse
+FOUR clean-install results only for those identical bytes. BUG004 issue163 is now
+closed/Project Done, with final acceptance comment6003581353. BUG003/GOV010 remain
+Done. No independent hosted/human review or stable/registry delivery claimed.
+
+The R2 session now pulls EQ033 on codex/eq-033-action-policies from accepted main.
+Its plan freezes pure supplied action/classification admission, exact factors and
+representation rejection before source code;8points/next pair0.0.3a0. Twelve draft
+plans remain preserved on codex/r2-preparation. Only EQ033 starts; no R3 restart.
+Resume: implement the committed EQ-033_PLAN.md against owned canonical contracts,
+independent synthetic fixtures, API/docs/example/version, then all review/test/
+artifact gates before Done. R2 remains unfinished; no calculation code at this
+pre-code checkpoint. Live Project remains current execution authority.
+
+
+### EQ033 implementation and author review —2026-10-05
+
+Pair0.0.3a0 adds owned schema1 action/reference evidence and pure supplied-policy
+application. Forty independent API fixtures cover exact split/share/notional,
+dividend no-double-count, null/missing/zero, revisions, C/K/E/anchor/effective
+boundaries, future facts, reconstruction and independent classification. Prior
+unit suite380 is retained. Strict29files and purity38negative10positive pass;
+imports/inventory/license/optional compatibility and123 reference cases pass.
+Author self-review found missing target-session bound enforcement; added explicit
+cutoff/target interval/event guards and regressions. One early fixture incorrectly
+claimed notional after changing volume; repaired fixture reaches intended exact
+quantity/nonintegral notional rejection. Initial example typing corrected. No
+hosted/human independent review claimed. API guide/contract migrations/example/
+changelog/package metadata/receipt skeleton accompany implementation. Registry and
+session state schema2/modes unchanged; sixteen R2 numerical IDs remain false.
+
+Next gate: full final units, repeat4archive inspection and local clean wheel/sdist
+pairs with all twelve examples; exact head SIX checks, gated merge, actual main
+published source/docs/bothOS CI, downloaded manifests/hashes/archive contents and
+FOUR fresh installed pairs; complete source-bound receipt and final documentation
+publication before Done. EQ033 only active; R3 stays paused.
+
+
+EQ033 Test rework: head58bd47f all six CI checks and local repeated fourarchive/
+fresh wheel+sdist pairs each420tests/twelve examples passed, but continued author
+review found contradictory coverage.observed versus actual supplied row count and
+out-of-population evidence indices could be admitted. Two independent regression
+cases failed before the correction. Added market/reference actual-count and typed
+selected-index guards;422units/42policycases/strict29files/purity pass afterward.
+Issue38 returned to In progress with explicit reason. Older green results are
+superseded, not final release evidence. Resume Code review/Test on corrected head,
+repeat its installed build and full final-head/main/actual artifact qualification.

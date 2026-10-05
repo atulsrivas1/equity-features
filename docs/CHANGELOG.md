@@ -1,5 +1,15 @@
 # Experimental package changes
 
+## 0.0.3a0 — EQ033 implementation; delivery qualification pending
+
+Pure supplied split/total-return factor application and independent point-in-time
+classification admission, immutable schema1 policy/evidence contracts, exact
+integral coefficient/quantity/notional checks and explicit readiness. No duplicate
+dividends, source reads, historical ID or new streaming capability. Existing
+input/config/result schema1 and accumulator schema2 unchanged. See [API](api/ACTION_POLICIES.md)
+and [delivery record](stories/EQ-033_DELIVERY.md). Actual final-head/main/artifact
+qualification is required before this story is Done.
+
 ## 0.0.2a9 - EQ026 verified experimental package delivery
 
 Seven independent cross-mode audit cases cover early closes/windows, exact auction boundary evidence, integer notional beyond binary64, scaled quote denominators and seed original-anchor expiry after snapshot/restore. All370 units pass; no numerical defect found. Stale capability/version documentation corrected; final R1 acceptance maps23 IDs and delivery evidence. Both actual OS bundles and four fresh installations pass; published EQ026 receipt and R1_ACCEPTANCE.md record complete kernel qualification. Final documentation/administrative closure source is linked in issue30.
