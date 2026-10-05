@@ -12,6 +12,7 @@ from equity_feature_contracts import (
 )
 from equity_feature_contracts._implemented import BAR_IDS
 from equity_features import __version__
+from ._reductions import _BarTotals
 
 
 def _columns(batch: CanonicalBatch) -> dict[str, tuple[int | str | bool | None, ...]]:
@@ -72,112 +73,40 @@ def _admit(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKey, policy:
     validate_batch(batch, session=None if prior else config.session, availability=config.availability, required_fields=())
 
 
+def _prior_info(prior_close: CanonicalBatch | None, config: ConfigSpec) -> tuple[Status,tuple[Reason,...],int | None]:
+    if prior_close is None: return Status.MISSING_INPUT,(Reason.ABSENT_INPUT,),None
+    report=validate_batch(prior_close,availability=config.availability,required_fields=("close",))
+    if not prior_close.metadata.coverage.complete: return Status.INCOMPLETE_COVERAGE,(Reason.GOVERNED_GAP,),None
+    if report.knowledge_exclusions: return Status.MISSING_INPUT,tuple(dict.fromkeys(x.reason for x in report.knowledge_exclusions)),None
+    if report.missing_fields or report.null_fields:
+        return Status.MISSING_INPUT,(Reason.ABSENT_INPUT if report.missing_fields else Reason.NULL_FIELD,),None
+    value=cast(int,_columns(prior_close)["close"][0])
+    if value <= 0: raise ContractError(ErrorCode.INVALID_SCHEMA,"positive prior close required")
+    return Status.AVAILABLE,(),value
+
+
 def compute_bars(batch: CanonicalBatch | None, config: ConfigSpec, *, entity: EntityKey,
                  prior_close: CanonicalBatch | None = None) -> FeatureResult:
-    """Compute twelve bar/price IDs for a caller-certified target, without fetching."""
-    policy = _policy(config)
+    """Twelve bar/price IDs using the same fixed-retention reduction as updates."""
+    policy=_policy(config)
     if type(entity) is not EntityKey or entity.session_id != config.session.session_id:
-        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "typed target entity/config identity required")
+        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"typed target entity/config identity required")
     if batch is not None: _admit(batch,config,entity,policy)
     if prior_close is not None:
         _admit(prior_close,config,entity,policy,prior=True)
         if batch is not None: require_compatible_inputs(batch,prior_close)
-    inputs = tuple(InputBinding(role,b.kind,b.metadata) for role,b in (("bars",batch),("prior_close",prior_close)) if b is not None)
-    metadata = ResultMetadata(config.session.namespace,entity.session_id,config.availability,config.digest,inputs,"python-exact",__version__)
-    columns = _columns(batch) if batch is not None else {}
-    expected = batch.metadata.coverage.expected if batch is not None else None
-    observed = batch.row_count if batch is not None else 0
-    qualities: list[QualityRow] = []
-    values: list[FeatureColumn] = []
-    base_status = Status.AVAILABLE
-    base_reasons: tuple[Reason,...] = ()
-    if batch is None:
-        base_status,base_reasons = Status.MISSING_INPUT,(Reason.ABSENT_INPUT,)
-    elif not batch.metadata.coverage.complete:
-        base_status,base_reasons = Status.INCOMPLETE_COVERAGE,(Reason.GOVERNED_GAP,)
-    else:
-        report = validate_batch(batch,session=config.session,availability=config.availability,required_fields=())
-        if report.knowledge_exclusions:
-            base_status = Status.MISSING_INPUT
-            base_reasons = tuple(dict.fromkeys(x.reason for x in report.knowledge_exclusions))
-
-    def numbers(name: str) -> tuple[int | None,...] | None:
-        return cast(tuple[int | None,...],columns[name]) if name in columns else (() if observed == 0 else None)
-
-    def readiness(fields: tuple[str,...]) -> tuple[Status,tuple[Reason,...]]:
-        if base_status != Status.AVAILABLE: return base_status,base_reasons
-        for field in fields:
-            seq = numbers(field)
-            if seq is None: return Status.MISSING_INPUT,(Reason.ABSENT_INPUT,)
-            if any(x is None for x in seq): return Status.MISSING_INPUT,(Reason.NULL_FIELD,)
-        return Status.AVAILABLE,()
-
-    volumes = numbers("volume")
-    price_rows = tuple(i for i,v in enumerate(volumes or ()) if v is not None and v > 0)
-    scale = 10**cast(PriceUnit,config.price_unit).scale
-    aggregate: dict[str,int] = {}
-    if readiness(("volume",))[0] == Status.AVAILABLE:
-        aggregate["volume"] = checked_int64(sum(cast(tuple[int,...],volumes)))
-        for field in ("open","high","low","close"):
-            seq = numbers(field)
-            if seq is not None and price_rows and all(seq[i] is not None for i in price_rows):
-                vals = tuple(cast(int,seq[i]) for i in price_rows)
-                aggregate[field] = vals[0] if field == "open" else vals[-1] if field == "close" else max(vals) if field == "high" else min(vals)
-        seq = numbers("actual_notional")
-        if not price_rows or (seq is not None and all(seq[i] is not None for i in price_rows)):
-            aggregate["notional"] = checked_decimal128(sum(cast(int,seq[i]) for i in price_rows)) if price_rows and seq is not None else 0
-        closes = numbers("close")
-        if price_rows and closes is not None and all(closes[i] is not None for i in price_rows):
-            aggregate["proxy_numerator"] = checked_decimal128(sum(cast(int,closes[i])*cast(int,cast(tuple[int | None,...],volumes)[i]) for i in price_rows))
-
-    prior_status = Status.AVAILABLE
-    prior_reasons: tuple[Reason,...] = ()
-    prior_value: int | None = None
-    if prior_close is None:
-        prior_status,prior_reasons = Status.MISSING_INPUT,(Reason.ABSENT_INPUT,)
-    else:
-        prior_report = validate_batch(prior_close,availability=config.availability,required_fields=("close",))
-        if not prior_close.metadata.coverage.complete:
-            prior_status,prior_reasons = Status.INCOMPLETE_COVERAGE,(Reason.GOVERNED_GAP,)
-        elif prior_report.knowledge_exclusions:
-            prior_status,prior_reasons = Status.MISSING_INPUT,tuple(dict.fromkeys(x.reason for x in prior_report.knowledge_exclusions))
-        elif prior_report.missing_fields or prior_report.null_fields:
-            prior_status,prior_reasons = Status.MISSING_INPUT,(Reason.ABSENT_INPUT if prior_report.missing_fields else Reason.NULL_FIELD,)
-        else:
-            prior_value = cast(int,_columns(prior_close)["close"][0])
-            if prior_value <= 0:
-                raise ContractError(ErrorCode.INVALID_SCHEMA, "positive prior close required")
-
-    for feature_id in BAR_IDS:
-        name = feature_id.rsplit(".",1)[1]
-        dtype = ValueType.INT64 if name == "volume" else ValueType.DECIMAL128 if name == "notional" else ValueType.FLOAT64
-        unit = "shares" if name == "volume" else "currency coefficient / 10^price_scale" if name == "notional" else "currency/share; proxy" if name == "close_weighted_price" else "currency/share" if name in ("open","high","low","close") else "fraction"
-        status,reasons = readiness(("volume",))
-        value: ResultCell = None
-        required = {"open":("open",),"high":("high",),"low":("low",),"close":("close",),"notional":("actual_notional",),"close_weighted_price":("close",),"open_close_return":("open","close"),"range_fraction":("high","low","close"),"close_location":("high","low","close"),"overnight_gap":("open",),"close_close_return":("close",)}.get(name,())
-        if status == Status.AVAILABLE:
-            if name == "volume": value = aggregate["volume"]
-            elif name == "notional" and name in aggregate: value = aggregate[name]
-            elif not price_rows:
-                status,reasons = Status.NOT_APPLICABLE,(Reason.NO_ELIGIBLE_OBSERVATIONS,)
-            elif any(field not in aggregate for field in required):
-                status,reasons = Status.MISSING_INPUT,(Reason.ABSENT_INPUT if any(numbers(field) is None for field in required) else Reason.NULL_FIELD,)
-            elif name in ("open","high","low","close"): value = float(Fraction(aggregate[name],scale))
-            elif name == "close_weighted_price": value = float(Fraction(aggregate["proxy_numerator"],aggregate["volume"]*scale))
-            elif name == "open_close_return": value = float(Fraction(aggregate["close"]-aggregate["open"],aggregate["open"]))
-            elif name == "range_fraction": value = float(Fraction(aggregate["high"]-aggregate["low"],aggregate["close"]))
-            elif name == "close_location":
-                width = aggregate["high"]-aggregate["low"]
-                if width == 0: status,reasons = Status.NOT_APPLICABLE,(Reason.ZERO_DENOMINATOR,)
-                else: value = float(Fraction(aggregate["close"]-aggregate["low"],width))
-            elif name in ("overnight_gap","close_close_return"):
-                if prior_status != Status.AVAILABLE: status,reasons = prior_status,prior_reasons
-                else:
-                    numerator = aggregate["open" if name == "overnight_gap" else "close"]
-                    value = float(Fraction(numerator-cast(int,prior_value),cast(int,prior_value)))
-        values.append(FeatureColumn(feature_id,"v1",dtype,unit,(entity,),(value,)))
-        qualities.append(QualityRow(entity,feature_id,status,expected,observed,reasons))
-    return FeatureResult(tuple(values),tuple(qualities),metadata)
+    inputs=tuple(InputBinding(role,b.kind,b.metadata) for role,b in (("bars",batch),("prior_close",prior_close)) if b is not None)
+    metadata=ResultMetadata(config.session.namespace,entity.session_id,config.availability,config.digest,inputs,"python-exact",__version__)
+    columns=_columns(batch) if batch is not None else {}
+    state=_BarTotals(tuple(columns))
+    if batch is not None:
+        known=columns.get("known_at_ns")
+        for i in range(batch.row_count):
+            reason=config.availability.knowledge_reason(cast(int | None,known[i]) if known is not None else None)
+            state.add(columns,i,Reason(reason) if reason is not None else None)
+    coverage=batch.metadata.coverage if batch is not None else Coverage(None,0,False)
+    override=(Status.MISSING_INPUT,(Reason.ABSENT_INPUT,)) if batch is None else None
+    return state.result(config,entity,coverage,metadata,_prior_info(prior_close,config),override)
 
 
 def compute_structure(batch: CanonicalBatch | None, config: ConfigSpec, *, entity: EntityKey) -> FeatureResult:

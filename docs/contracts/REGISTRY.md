@@ -45,3 +45,5 @@ EQ020/0.0.2a3 adds session.trade.top_k batch capability (20 implemented IDs), ty
 EQ021/0.0.2a4 adds two quote event-summary batch flags (22 implemented IDs), quote_state_counts/sampled_spread typed outputs and explicit sampling. Time-weighted spread and other execution modes stay false. Frozen equations exclude quantiles/variance. [API](../api/SESSION_QUOTES.md).
 
 EQ022/0.0.2a5 adds continuous time-weighted batch capability (all23 R1 IDs), one typed time_weighted_spread value containing previous provisional scalar duration/mean fields. Unknown duration is explicit nested diagnostics. Other execution modes remain false. [API](../api/CONTINUOUS_QUOTES.md).
+
+EQ023/0.0.2a6 adds update flags for all23 qualified R1 IDs. Explicit batch/update/restore/merge inventories enforce exact modes, with restore/merge empty and custom/R2 false. All six actual family lifecycles and constraints are documented in [matrix](../api/INCREMENTAL.md).

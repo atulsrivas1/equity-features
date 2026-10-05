@@ -1,6 +1,6 @@
 # Equity Feature Contracts
 
-Experimental0.0.2a5 contracts, Apache-2.0. Canonical immutable input schemas,
+Experimental0.0.2a6 contracts, Apache-2.0. Canonical immutable input schemas,
 integer/nanosecond admission and explicit copied Arrow/NumPy bridges are implemented.
 Supplied sessions/windows/timing and canonical configuration/digests are implemented.
 See repository docs/contracts/INPUTS.md SPECS.md, RESULTS.md and VALIDATION.md. Install the `columnar` extra for the bridges;
@@ -21,3 +21,5 @@ EQ020 adds typed bounded original topK trade rows and exact evidence, batch only
 EQ021 adds typed sampled quote summaries/counts and bounded diagnostics; structured zero-valid means are null/not_applicable with known counts. API/migration in docs/api/SESSION_QUOTES.md.
 
 EQ022 adds typed time-weighted spread and exact QuoteDurations, narrowly validated zero-valid and unknown-initial diagnostics. See docs/api/CONTINUOUS_QUOTES.md for migration.
+
+EQ023 adds owned StreamPopulation/PrefixCoverage and explicit accepted mode inventories;23 batch/update IDs. Global identity and delivery proofs remain caller-owned. See docs/api/INCREMENTAL.md.

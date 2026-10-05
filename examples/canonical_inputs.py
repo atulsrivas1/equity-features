@@ -75,6 +75,7 @@ from equity_features.registry import builtin_registry, Registry
 catalog = builtin_registry()
 assert len(catalog.list_features()) == 39
 assert len(catalog.list_features(capability="batch")) == 23
+assert len(catalog.list_features(capability="update")) == 23
 prototype = catalog.get("history.sma")
 research = Registry("research")
 scoped = research.with_definition(replace(prototype, feature_id="research:sma_metadata", planned_release="R3"))

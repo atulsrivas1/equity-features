@@ -5,7 +5,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "packages/contracts/src"))
 from equity_feature_contracts import builtin_registry
-from equity_feature_contracts._implemented import BATCH_IDS
+from equity_feature_contracts._implemented import BATCH_IDS, UPDATE_IDS, RESTORE_IDS, MERGE_IDS
 catalog = {x.feature_id:x for x in builtin_registry().list_features()}
 rows = re.findall(r"^\| ((?:session|history|baseline|relative|breadth)\.[a-z_.]+) \| ([^|]+) \| ([^|]+) \| (R[12]) \| ([^|]+) \|$", (ROOT/"docs/features/V1_SCOPE.md").read_text(encoding="utf-8"), re.M)
 assert len(rows)==39 and set(catalog)=={x[0] for x in rows}
@@ -13,7 +13,9 @@ for feature_id,_,_,release,_ in rows:
     definition=catalog[feature_id]
     assert definition.planned_release==release, feature_id
     assert definition.capabilities.batch == (feature_id in BATCH_IDS)
-    assert not any((definition.capabilities.update,definition.capabilities.restore,definition.capabilities.merge))
+    assert definition.capabilities.update == (feature_id in UPDATE_IDS)
+    assert definition.capabilities.restore == (feature_id in RESTORE_IDS)
+    assert definition.capabilities.merge == (feature_id in MERGE_IDS)
     assert (ROOT/definition.formula_document).is_file(), definition.formula_document
 count=0
 for document in ("SESSION_FORMULAS","QUOTE_FORMULAS","HISTORICAL_FORMULAS"):
