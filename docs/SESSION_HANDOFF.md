@@ -316,3 +316,47 @@ BUG003 is In progress, BUG004 still Ready. Historical R1 reports unchanged.
 ## Owner restores R2-before-R3 execution order —2026-10-05
 
 Owner authorized completing only BUG003#162/BUG004#163 in the existing repair chat, then pausing R3 and starting a separate R2 execution session. Repair chat confirmed no R3 feature story started; BUG003 code mainb9bc293/pair0.0.2a10/schema2 is not yet Done pending artifact installs; BUG004 remains undelivered. New R2 package docs/R2_AUTONOMOUS_HANDOFF.md under GOV010#167 covers all12EQ027–038 (89provisional points),16R2 IDs, math/design/tests/docs/delivery/stop gates and legacy rights/access constraints. R2 may plan while repairs are active but must verify both Done deliveries before implementation; do not race their owner. R3 handoff feature authority superseded; R2 does not automatically resume R3. Preparation is not implementation.
+
+## R2 execution preparation and external runner blocker —2026-10-05
+
+Dedicated isolated checkout qualified at exact GOV010/PR168 head
+`9c43a18a98021ecbe2610eca5431072b8738d4b0`. The five handoff files are
+documentation-only; package/tool/test source is unchanged from base
+`b9bc2934ef389b775f97d8d18f8b2ef70d6bd884`. Author self-review, UTF8,
+94-story scope, twelve mappings,89 provisional points, local handoff links and
+git diff whitespace checks pass. Windows CPython3.12.10/NumPy2.2.6/PyArrow20.0.0
+pinned environment passes377units/123references/strict26files, boundary38negative/
+10positive, imports/registry/compatibility/license. Four local archives reproduce
+and pass inspection; fresh local wheel/sdist pairs each pass377tests/eleven
+examples. Manifest binds exact head with source_dirty=false. These are local
+baseline checks, not a new main artifact delivery or repair acceptance.
+
+All twelve `docs/stories/EQ-027_PLAN.md` through `EQ-038_PLAN.md` are prepared
+drafts. Refine each against the actual preceding delivered API/live issue before
+pulling; these documents do not claim Ready or implementation. No calculation
+code, registry capability, experimental version or public channel changed.
+Initial read-only legacy inventory found relevant Go sources and Go1.25.8; source
+provenance/rights are retained privately. No private source/data copied publicly,
+cross-language parity or legacy acceptance claimed.
+
+At the blocker check PR168 remains Test: four exact-head checks passed, while
+Documentation pull_request run37361928970 and Windows job in Foundation
+pull_request run37361928950 remain queued with no runner. No pending deployment
+approval exists. GitHub reports an active Actions degraded-performance incident
+starting2026-10-05 19:11UTC ([status](https://www.githubstatus.com/)). Do not cancel
+or waive checks, change account/workflow policy or merge on only partial success.
+BUG003#162 remains open/Released pending PR169 final receipt publication; BUG004#163
+remains open/Ready. Their existing repair chat owns delivery, and R3 features remain
+paused. There is no dependency-satisfied R2 implementation story at this point.
+
+Resume: fetch current refs in the dedicated checkout, verify all six unchanged
+PR168 exact-head checks, resolve any concurrent-main documentation conflicts while
+preserving both repair evidence and owner pause, repeat relevant final-head checks,
+then GOV010 Test->Ready to release, gated PR168 merge, published five-file byte
+verification/main bothOS CI, Released->Done and issue closure. Recheck actual
+closed/Project Done receipts for BOTH repair issues; never infer Done from merge.
+Rebase this preparation branch onto accepted main preserving all continuity. Pull
+EQ033 only after those prerequisites, refine/commit its plan before code and follow
+the handoff's sequential implementation/delivery gates. The local delivery helper
+and baseline logs are preserved outside tracked package content. No automation or
+message to the repair chat was created; no automatic R3 restart.
