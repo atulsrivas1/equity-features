@@ -378,3 +378,26 @@ BACKLOG_WORKFLOW/decision/lesson/source-map records from the new primary checkou
 They were not yet on fetched main at this checkpoint; do not infer publication
 from local existence. Incorporate their accepted versions after integration while
 preserving owner R3 pause, actual source/artifact gates and independent evidence.
+
+### Temporary integration hold released —2026-10-05
+
+Preparation owner completed conflict repair: PR168 head
+`1838cc4518558919d318abc56b23ea5eb145b5fb` includes main
+`d153a1218a3dacc89eabfb2caa6e2b6686937189`, preserving handoff scope, repair
+receipt and owner R2 order. Its temporary integration hold is released. Serial
+ownership now is: repair owner integrates PR171 and verifies BOTH BUG003/BUG004
+Done first; this R2 session then integrates PR168/current-main conflicts and
+finishes GOV010 publication/main gates; knowledge owner waits for accepted PR168
+main before integrating PR172. Do not race171/172 or change deferred draft PR120.
+
+Live recheck: PR171 exact head `b1072fb813a5a8e0c191935056f93d43f9dcda44`
+has all six checks queued. PR168 has only one of six checks successful, five
+queued. BUG003 remains open/Released; its main receipt d153a12 requires final
+main docs/Windows CI and both bundle equality. BUG004 remains open/Test;
+pair0.0.2a11 local380unit qualification is not accepted source/artifact delivery.
+Current origin/main remains d153a12. Thus no calculation story is eligible and
+no PR168 merge is performed. Preserve c5a782c/c218206 plans and these subsequent
+ownership records; when prerequisites finish, merge current main into PR168
+without force-pushing, retain both appended histories, and verify its new exact
+head checks before the normal lifecycle/publication gates. No repair/knowledge
+branch or remote PR was mutated by this recheck.
