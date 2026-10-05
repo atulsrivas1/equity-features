@@ -185,3 +185,9 @@ Existing BUG001#144 (3points) and BUG002#145 (5points), created by separate R1
 handoff preparation, at repair start linked PR146 to track these same two defects. At repair start, confirmed
 points and In progress states; no duplicate implementation scope. GOV008#143 and
 its handoff preparation remain untouched.
+
+## Owner-started R1 execution — EQ-017 active
+
+Execution began2026-10-05 from main0f5165a. BUG001/002 live closed/Done and PR146/148 receipts verified/reused. Isolated worktree preserves the occupied repair checkout. EQ017#21 and E04#20 now In progress;8points confirmed. Pre-code plan stories/EQ-017_PLAN.md freezes API, explicit InputScope/eligibility/auction coverage, supplied prior close, independent readiness, exact arithmetic and0.0.2a0 capability migration. Baseline176units/123references/strict typing/purity/import/compatibility/licensing pass. Local implementation and independent tests are underway; no R1 source/delivery acceptance yet. PR120/E03/EQ093 unchanged.
+
+Initial new tests found proxy unit punctuation inconsistent with registry metadata; aligned the actual result unit without changing formula. Strict typing annotation issues corrected. Resume EQ017 author review plus CI and all exact-head/main/download/hash/fresh wheel+sdist gates before Done. Do not start EQ018 until that exit; continue EQ017–026 sequentially to verified R1 acceptance under R1_AUTONOMOUS_HANDOFF.md, then stop before R2.

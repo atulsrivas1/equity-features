@@ -115,6 +115,23 @@ class AdjustmentSpec:
             raise ContractError(ErrorCode.UNSUPPORTED_ADJUSTMENT, "adjusted input requires action snapshot and anchor")
 
 @dataclass(frozen=True)
+class InputScope:
+    """Caller assertion binding delivery coverage and constituent admission policy."""
+    start_ns: int
+    end_ns: int
+    eligibility_policy: str
+    include_opening_auction: bool = False
+    include_closing_auction: bool = False
+
+    def __post_init__(self) -> None:
+        if any(type(x) is not int or not I64_MIN <= x <= I64_MAX for x in (self.start_ns, self.end_ns)) or self.start_ns >= self.end_ns:
+            raise ContractError(ErrorCode.BOUNDS, "positive exact UTCns input scope required")
+        if type(self.eligibility_policy) is not str or not self.eligibility_policy.strip():
+            raise ContractError(ErrorCode.INVALID_CONFIG, "explicit eligibility policy required")
+        if any(type(x) is not bool for x in (self.include_opening_auction, self.include_closing_auction)):
+            raise ContractError(ErrorCode.INVALID_CONFIG, "Boolean auction construction policy required")
+
+@dataclass(frozen=True)
 class BatchMetadata:
     namespace: str
     source: SourceBinding
@@ -125,8 +142,11 @@ class BatchMetadata:
     quantity_unit: str = "shares"
     ordering: str = "declared"
     duplicate_policy: str = "reject"
+    scope: InputScope | None = None
 
     def __post_init__(self) -> None:
+        if self.scope is not None and type(self.scope) is not InputScope:
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "typed input scope required")
         if type(self.source) is not SourceBinding or type(self.coverage) is not Coverage or type(self.adjustment) is not AdjustmentSpec or (self.price_unit is not None and type(self.price_unit) is not PriceUnit):
             raise ContractError(ErrorCode.INVALID_SCHEMA, "typed immutable metadata components required")
         if (type(self.namespace) is not str or not self.namespace.strip()) or self.quantity_unit != "shares":
