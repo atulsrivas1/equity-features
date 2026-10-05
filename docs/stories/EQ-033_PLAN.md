@@ -116,3 +116,23 @@ Null cells remain null; absent fields remain absent; trade_count is unchanged.
 Output input_id derives from original price binding, reference binding, policy and
 config; original bindings remain separately accessible. Corrections require caller
 replay, with no numerical state restore API added by this story.
+
+
+### Admission detail frozen before source implementation
+
+Add immutable ReferenceFact to retain selected evidence. AdjustmentApplication
+separately records market-input readiness/status/reasons and original InputBinding;
+a ready action policy does not certify unknown/later-known market data. Raw policy
+never consumes factors and may retain supplied reference binding as context.
+Complete empty action snapshots are available. Adjusted action versions use
+instantaneous split_factor/dividend_factor rows (effective_end must be absent);
+classification intervals remain half-open. Null selected factors/text produce
+missing_input with typed reasons, not zero. Duplicate relevant reference IDs across
+session labels fail; unknown factor kinds within the anchor fail explicitly.
+TR convention is exactly supplied_reinvestment_factors; raw/split convention none.
+Reference price application is limited to supplied prior_close facts. Market batches
+must belong to the declared instrument and governed session IDs; complete admitted
+rows must meet C/knowledge policy. No source filtering/sorting or future market
+consumption is added. Arithmetic preserves absent/null fields, while admission
+checks their actual supplied values. Application is a policy utility, not a newly
+registered feature. No historical feature/mode becomes implemented in EQ033.
