@@ -1,4 +1,4 @@
-# Equity calculation packages â€” final design baseline
+# Equity calculation packages — final design baseline
 
 Date: 2026-10-04. Design baseline; experimental R0 foundation implementation is underway.
 Canonical inputs: [implemented contract](contracts/INPUTS.md). Numerical APIs below
@@ -24,7 +24,7 @@ Initial public interface is Python. NumPy supplies typed numerical arrays; PyArr
 
 Start with two distributions in one repository. Feature families are Python modules, not separate releases/services. Contracts can be used by future adapters without installing every computation backend. Both include type annotations and py.typed, standard wheel/sdist metadata, semantic versions and executable documentation. Declare supported Python/platform versions after verifying CI and dependency support; don't promise untested portability.
 
-Future adapters depend inward on these contracts/APIs. Calculation packages never depend outward on adapters. A future native accelerator is an optional implementation detail or wheel extra, not a new public API. Repository is intended to be public under the human ownerâ€™s personal GitHub account; owner is atulsrivas1; license is Apache-2.0. No package registry release is implied by this design.
+Future adapters depend inward on these contracts/APIs. Calculation packages never depend outward on adapters. A future native accelerator is an optional implementation detail or wheel extra, not a new public API. Repository is intended to be public under the human owner’s personal GitHub account; owner is atulsrivas1; license is Apache-2.0. No package registry release is implied by this design.
 
 ## 3. Public modules
 
@@ -69,7 +69,7 @@ Windows count supplied governed trading sessions rather than calendar days or ro
 
 ## 6. Initial feature specification
 
-The versioned [V1 scope](features/V1_SCOPE.md) is the feature-ID and capability baseline. The table below summarizes families; exact formulas are settled in EQ-002â€“006 before their implementation.
+The versioned [V1 scope](features/V1_SCOPE.md) is the feature-ID and capability baseline. The table below summarizes families; exact formulas are settled in EQ-002–006 before their implementation.
 
 Implement a modest, well-defined first release rather than all advanced feature ideas.
 

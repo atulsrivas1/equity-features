@@ -4,7 +4,7 @@ Updated2026-10-04 (Eastern). Read AGENTS.md, PUBLIC_DEVELOPMENT.md and R0_AUTONO
 
 ## Verified delivery and current work
 
-EQ-001Ã¢â‚¬â€œ004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
+EQ-001–004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
 
 EQ-007 Done: PR130 source a333fa7af53fc8f33e2b95368a99716bee6658d5, then actual foundation delivery under EQ-009. Source merge alone correctly remained Ready to release. EQ-008 Done via PR131,86321207b2ce8557a64a58782cfea28de4003a56: CPython3.12 x64, Windows/Linux; exact optional NumPy2.2.6/PyArrow20.0.0 pins and development tool lock. Local Windows3.12.10; CI Linux3.12.14 and Windows3.12.10 recorded in artifact manifests. Other environments unqualified.
 
@@ -39,6 +39,10 @@ E03 now active and remains open through EQ-093/R3.
 
 ## Failures and corrections
 
+- EQ-011 review found Windows default text decoding damaged punctuation in two
+  edited documents. Restored original Unicode and used explicit UTF-8; no source
+  semantics or evidence identities changed.
+
 - PR128 merge-commit request rejected: repository permits squash only. Checked command stopped; allowed squash used on the same green head.
 - Windows console UTF-8 print failed after an issue close; live closure verified, console reconfigured; no failed command counted as validation.
 - Whole-roadmap GraphQL queries consumed quota, then targeted queries also hit exhaustion. Switched to documented REST Projects endpoints and verified actual returned fields. CLI GraphQL quota reset03:25:33UTC. Connector draft conversion lacked write access; signed-in GitHub UI performed readiness transitions. No gate waived.
@@ -48,9 +52,9 @@ E03 now active and remains open through EQ-093/R3.
 
 ## Boundaries and durable authorization
 
-Owner authorizes remaining EQ-011Ã¢â‚¬â€œ016 one at a time through verified R0 acceptance. Create each full story plan before implementation, inspect live issue/Project/prerequisites, confirm points, preserve unrelated work and obey eight stages. Author self-review/CI are approved; GOV-005 issue119/PR120 stays explicitly owner-deferred. No independent bot/human review, account/profile changes, paid/source access, private data, external-product integration, public registry or recurring automation. Calculation packages have no source/clock/job I/O. R1/R2 kernels and R3 custom execution remain unimplemented. EQ-093 stays R3; EQ-094 retired.
+Owner authorizes remaining EQ-011–016 one at a time through verified R0 acceptance. Create each full story plan before implementation, inspect live issue/Project/prerequisites, confirm points, preserve unrelated work and obey eight stages. Author self-review/CI are approved; GOV-005 issue119/PR120 stays explicitly owner-deferred. No independent bot/human review, account/profile changes, paid/source access, private data, external-product integration, public registry or recurring automation. Calculation packages have no source/clock/job I/O. R1/R2 kernels and R3 custom execution remain unimplemented. EQ-093 stays R3; EQ-094 retired.
 
-E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone assignment before closing R0, with explicit rationale; do not implement R3 or close the epic to clear a milestone. R0 acceptance still requires EQ-011Ã¢â‚¬â€œ016 typed in-memory foundation, tests/docs and final versioned artifact delivery. Original chat stopped implementation; this chat owns the sequence.
+E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone assignment before closing R0, with explicit rationale; do not implement R3 or close the epic to clear a milestone. R0 acceptance still requires EQ-011–016 typed in-memory foundation, tests/docs and final versioned artifact delivery. Original chat stopped implementation; this chat owns the sequence.
 
 ## Exact resume steps
 
