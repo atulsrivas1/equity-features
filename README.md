@@ -34,6 +34,7 @@ round trip. Final-head/main artifacts are verified before each story is Done.
 
 ## Follow the work
 
+- [Project knowledge and session startup](docs/PROJECT_KNOWLEDGE.md)
 - [Dashboard](docs/DASHBOARD.md)
 - [R1 execution handoff](docs/R1_AUTONOMOUS_HANDOFF.md)
 - [Package design](docs/PACKAGE_DESIGN.md)
