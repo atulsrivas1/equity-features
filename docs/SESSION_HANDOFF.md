@@ -22,6 +22,15 @@ GOV-005 issue119/PR120 remains open and explicitly owner-deferred. Do not activa
 
 ## Verification and recovery
 
+EQ-005 execution: clean handoff commit and live Ready state verified; 8 points
+confirmed. Plan, all eight context formulas, denominator/alignment decisions and
+26 exact synthetic references prepared on codex/eq-005-context-formulas. Strict
+prior-slot baselines; partial eligible-member breadth with declared coverage.
+Review/testing/publication remain required before Done. No production kernels.
+Resume on this branch with work/flow.py check, inspect complete diff, attach linked
+PR, formal review/Test gates and exact final-head CI, then main blob verification.
+Only after delivery update #6/E01 and pull EQ-006. PR120 stays deferred.
+
 Documentation CI verifies 93 active EQ IDs, 39 feature IDs and all eight lifecycle states. Run the planning code in .github/workflows/docs.yml, python tools/verify_session_examples.py, python tools/verify_quote_examples.py, python tools/verify_history_examples.py and git diff --check; add relevant story-specific checks as contracts/code grow. Final-head CI and default-branch delivery verification remain required.
 
 Use explicit UTF-8 and fail-fast checked subprocesses. GOV-002 recorded a local encoding failure and a shell sequence that wrongly continued to merge; corrected post-merge checks passed. GOV-006 recorded an unsupported Project CLI flag, corrected before publication; no failed command counts as validation. Public fixtures are synthetic or explicitly licensed. Never publish private data, credentials or internal paths. Documentation delivery is not parent milestone/package delivery. Preserve unrelated work and update this file after meaningful decisions, failures, validation and completed work.
