@@ -7,7 +7,7 @@ from typing import Any, Mapping
 import numpy as np
 import pyarrow as pa
 from .errors import ContractError, ErrorCode
-from .results import BreadthCounts, BreadthFraction, FeatureResult, ValueType, IntervalOHLCV, IntervalVolumeShares
+from .results import TopKTrades, BreadthCounts, BreadthFraction, FeatureResult, ValueType, IntervalOHLCV, IntervalVolumeShares
 from .inputs import (
     AdjustmentSpec, BatchMetadata, CanonicalBatch, Cell, Column, Coverage,
     DataKind, DType, InputScope, IntervalCoverage, PriceUnit, SourceBinding, schema_for,
@@ -124,6 +124,9 @@ def to_arrow_result(result: "FeatureResult") -> dict[str, Any]:
         elif dtype == ValueType.FLOAT64: arrow_type = pa.float64()
         elif dtype == ValueType.BOOL: arrow_type = pa.bool_()
         elif dtype == ValueType.STRING: arrow_type = pa.string()
+        elif dtype == ValueType.TOP_K_TRADES:
+            row_type=pa.struct([pa.field(name,pa.string(),False) for name in ("input_id","event_id")] + [pa.field("event_ns",pa.timestamp("ns",tz="UTC"),False),pa.field("order_key",pa.int64(),False),pa.field("known_at_ns",pa.timestamp("ns",tz="UTC"),True),pa.field("price",pa.int64(),False),pa.field("size",pa.int64(),False)])
+            arrow_type=pa.struct([pa.field("k",pa.int64(),False),pa.field("rows",pa.list_(row_type),False)])
         elif dtype in (ValueType.INTERVAL_OHLCV,ValueType.INTERVAL_VOLUME_SHARES):
             interval_type=pa.struct([pa.field("name",pa.string(),False),pa.field("start_ns",pa.timestamp("ns",tz="UTC"),False),pa.field("end_ns",pa.timestamp("ns",tz="UTC"),False)])
             entity_type=pa.struct([pa.field("instrument_id",pa.string(),False),pa.field("session_id",pa.string(),False)])
@@ -136,7 +139,8 @@ def to_arrow_result(result: "FeatureResult") -> dict[str, Any]:
             arrow_type = pa.struct([pa.field(name,pa.int64(),nullable=False) for name in names])
         payload: list[Any] = []
         for value in column.values:
-            if isinstance(value,BreadthCounts): payload.append({**asdict(value),"eligible":value.eligible})
+            if isinstance(value,TopKTrades): payload.append(asdict(value))
+            elif isinstance(value,BreadthCounts): payload.append({**asdict(value),"eligible":value.eligible})
             elif isinstance(value,BreadthFraction): payload.append(asdict(value))
             elif isinstance(value,(IntervalOHLCV,IntervalVolumeShares)): payload.append([asdict(row) for row in value.rows])
             elif value is not None and dtype == ValueType.DECIMAL128: payload.append(Decimal(value))

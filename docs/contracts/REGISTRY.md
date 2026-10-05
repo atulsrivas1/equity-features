@@ -39,3 +39,5 @@ The twelve session.bar/session.price IDs now expose batch=True through compute_b
 EQ018/0.0.2a1 adds batch capabilities for both session.structure IDs. Output metadata uses interval_ohlcv and interval_volume_shares typed values with per-window quality. Only14IDs have batch support; every update/restore/merge and later/custom flag remains false. Scope and formula identities remain unchanged; registry snapshot digest advances.
 
 EQ019/0.0.2a2 adds five session.trade aggregate batch flags (19 implemented IDs). Actual trade notional output is decimal128 with currency/10^price_scale coefficient units, matching the bar exact-amount representation. Other execution flags remain unsupported; registry digest advances without changing equations. See [trade API](../api/SESSION_TRADES.md).
+
+EQ020/0.0.2a3 adds session.trade.top_k batch capability (20 implemented IDs), typed top_k_trades output. Other modes stay false. K/evidence bounds and retained-source proof limits: [API](../api/SESSION_TOP_K.md).
