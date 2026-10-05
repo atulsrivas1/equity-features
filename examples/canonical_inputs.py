@@ -69,3 +69,15 @@ quantized = quantize_float_prices((0.1,None), unit=PriceUnit(4,"USD"),
     interpretation="decimal_repr", rounding="exact")
 assert quantized.values == (1000,None)
 print("Semantic validation and explicit owned normalization verified")
+
+from dataclasses import replace
+from equity_features.registry import builtin_registry, Registry
+catalog = builtin_registry()
+assert len(catalog.list_features()) == 39
+assert catalog.list_features(capability="batch") == ()
+prototype = catalog.get("history.sma")
+research = Registry("research")
+scoped = research.with_definition(replace(prototype, feature_id="research:sma_metadata", planned_release="R3"))
+assert len(research.list_features()) == 39 and len(scoped.list_features()) == 40
+assert Registry.from_json(scoped.to_json()) == scoped
+print("39-ID discovery and immutable caller-scoped metadata registration verified")

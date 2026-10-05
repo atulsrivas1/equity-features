@@ -3,6 +3,8 @@ from enum import StrEnum
 
 class ErrorCode(StrEnum):
     INVALID_SCHEMA = "invalid_schema"
+    UNKNOWN_FEATURE = "unknown_feature"
+    UNSUPPORTED_CAPABILITY = "unsupported_capability"
     INVALID_ORDER = "invalid_order"
     DUPLICATE = "duplicate"
     INVALID_UNIT = "invalid_unit"

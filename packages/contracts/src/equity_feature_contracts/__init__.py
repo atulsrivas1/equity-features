@@ -16,7 +16,10 @@ from .validation import (KnowledgeExclusion, ValidationReport, checked_decimal12
 from .normalization import (NormalizationReport, NormalizedBatch, QuantizedPrices,
     normalize_batch, quantize_float_prices)
 
-__version__ = "0.0.1a4.post1"
+from .registry import (Capabilities, FeatureDefinition, InputRequirement,
+    OutputField, Registry, builtin_registry)
+
+__version__ = "0.0.1a5"
 __all__ = ["AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
            "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",
@@ -26,4 +29,6 @@ __all__ = ["AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column"
            "ResultMetadata", "Status", "ValueType", "KnowledgeExclusion", "ValidationReport",
            "checked_decimal128", "checked_int64", "checked_product", "checked_sum",
            "quote_state", "require_compatible_inputs", "validate_batch", "NormalizationReport",
-           "NormalizedBatch", "QuantizedPrices", "normalize_batch", "quantize_float_prices"]
+           "NormalizedBatch", "QuantizedPrices", "normalize_batch", "quantize_float_prices",
+           "Capabilities", "FeatureDefinition", "InputRequirement", "OutputField",
+           "Registry", "builtin_registry"]
