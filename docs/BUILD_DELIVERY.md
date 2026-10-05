@@ -6,7 +6,7 @@ registry publication. Public repository readers with appropriate GitHub access
 can download authorized code/synthetic artifacts; no private data is included.
 The bundle pins its experimental R0 distribution version in package metadata;
 EQ-009 began at0.0.1a0 and EQ-011 adds canonical inputs at0.0.1a1. These are
-foundation contracts, not production calculators.
+foundation contracts, not production calculators. EQ-012 specifications use0.0.1a2.
 30-day retention is requested, subject to repository limits; record actual expiry
 on each issue. After expiry, rebuild from the recorded commit with the pinned
 requirements; retained artifacts are a delivery channel, not permanent archival.
