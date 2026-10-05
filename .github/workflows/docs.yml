@@ -41,3 +41,6 @@ jobs:
 
       - name: Verify quote sampling, state and temporal reference fixtures
         run: python tools/verify_quote_examples.py
+
+      - name: Verify historical initialization, windows and gap references
+        run: python tools/verify_history_examples.py
