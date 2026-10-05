@@ -1,4 +1,4 @@
-# Session accumulators — experimental0.0.2a6
+# Session accumulators — experimental0.0.2a8
 
 `equity_features.incremental.SessionAccumulator(family, config, *, entity,
 population, prior_close=None, seed=None)` receives owned data/configuration only.
@@ -16,8 +16,9 @@ Caller serializes access; the mutable accumulator has no concurrent-call guarant
 | quotes | 2 event summaries | counts/exact spread/compensated bps/first bounded N observations | yes |
 | continuous | time-weighted spread | six durations/numerator/compensated pair/cursor/current quote/original expiry; optional seed | yes |
 
-All23 R1 IDs advertise batch/update. Restore/export and merge remain unsupported
-until their separate stories qualify them. R2/custom execution remains unsupported.
+All23 R1 IDs advertise batch/update/restore. Twenty-two noncontinuous IDs advertise
+conditional merge under the rules below; continuous merge remains false.
+R2/custom execution remains unsupported.
 No batch quantiles were added; bounded optional observations are supported in updates.
 
 `StreamPopulation(kind, fields, metadata, identity_policy)` owns fixed ordered
@@ -109,6 +110,38 @@ reconstruct discarded source facts.
 Empty, partial, missing/noncausal, overflow-unready, prefix-published and finalized
 states roundtrip. Restored instances own separate mutable private reducers; exported
 text stays unchanged. Watermarks, permanent gaps and single finalization survive.
-All23 R1 IDs qualify restore. Merge remains unsupported. No file, pickle, executable
+All23 R1 IDs qualify restore. Conditional merge is described below. No file, pickle, executable
 reconstruction, implicit registry state or asynchronous thread ownership is added.
 See [synthetic restore example](../../examples/session_state.py).
+
+## EQ025 legal partition merge
+
+`a.merge_partitions(b, *, left: PartitionSpan, right: PartitionSpan)` returns a
+fresh independent accumulator. Caller supplies nonempty global ordinal ranges
+[start,end); each length must equal that accumulator's actual consumed count.
+Ranges must be adjacent/disjoint and lie inside known final expected population.
+Arguments may arrive in either order; ranges determine global chronological order.
+Both accumulators must have identical original family/config/entity/population,
+source/schema/unit/basis/math/backend/enrichment bindings. They must be unsealed
+and unpublished (watermarks at open). Bar partitions must not overlap; event
+first/last keys must be strictly ordered across the boundary. Known retained/last
+IDs cannot overlap. Missing chunk delivery propagates permanently.
+
+Ranges and global nonretained opaque-ID uniqueness are caller-certified. Bounded
+reducers cannot authenticate discarded history or a forged span. Order/count/
+retained checks give concrete rejection of known contradictions, not an independent
+source-truth proof. Empty partitions, nonadjacent ranges, overlaps, corrections,
+post-snapshot/finalized inputs and continuous carry integration require replay.
+
+Bar/window totals and trade totals combine checked integer sufficient statistics;
+OHLC preserves first/last positive-volume endpoints and global extrema. TopK
+merges ranked union retaining K; quote observations retain firstN in global order.
+Temporary unions use at most2K/2N rows; final retention remains K/N. Quote bps
+combines compensated sums and residuals; exact integer/count/quality/evidence
+semantics match batch. Finite Float64 parity uses rel/abs1e-12 for differing
+reduction groupings, supported by1,000-row skewed/equal-time uneven partitions;
+no throughput guarantee or broad randomized qualification is implied. Return
+state can update the remaining contiguous prefix or export/restore. Originals
+remain unchanged on success or rejection. All22 noncontinuous R1 IDs qualify;
+continuous batch/update/restored replay qualifies, arbitrary merge does not.
+See [synthetic merge example](../../examples/session_merge.py).

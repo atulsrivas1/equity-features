@@ -64,3 +64,15 @@ class AccumulatorState:
             raise ContractError(ErrorCode.BOUNDS,'state text exceeds16MiB bound')
         if any(re.fullmatch('[0-9a-f]{64}',x) is None for x in (self.binding_digest,self.payload_digest)) or hashlib.sha256(self.payload.encode('utf-8')).hexdigest() != self.payload_digest:
             raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,'state digest mismatch')
+
+@dataclass(frozen=True)
+class PartitionSpan:
+    start_ordinal: int
+    end_ordinal: int
+
+    def __post_init__(self) -> None:
+        if any(type(x) is not int or not 0 <= x <= I64_MAX for x in (self.start_ordinal,self.end_ordinal)) or self.start_ordinal >= self.end_ordinal:
+            raise ContractError(ErrorCode.BOUNDS,'nonempty exact global population ordinal span required')
+
+    @property
+    def count(self) -> int: return self.end_ordinal-self.start_ordinal

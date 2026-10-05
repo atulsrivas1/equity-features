@@ -6,7 +6,7 @@ from equity_feature_contracts import (
     AccumulatorState, BatchMetadata, CanonicalBatch, Column, ConfigSpec, ContractError, Coverage,
     DataKind, EntityKey, ErrorCode, EvidenceRow, FeatureColumn, FeatureResult,
     InputBinding, InputScope, IntervalOHLCV, IntervalOHLCVRow, IntervalVolumeShares,
-    IntervalVolumeShareRow, PrefixCoverage, PriceUnit, QualityRow, Reason,
+    IntervalVolumeShareRow, PartitionSpan, PrefixCoverage, PriceUnit, QualityRow, Reason,
     ResultMetadata, Status, StreamPopulation, ValueType, checked_int64,
 )
 from equity_features import __version__
@@ -163,6 +163,10 @@ class SessionAccumulator:
                 if candidate.first_key is None: candidate.first_key=candidate.last_key
                 candidate.last_inclusive=batch.kind == DataKind.TRADE and 'condition' in columns and columns['condition'][i] == 'closing_auction'
         self._state=candidate
+
+    def merge_partitions(self, other: SessionAccumulator, *, left: PartitionSpan, right: PartitionSpan) -> SessionAccumulator:
+        from .merging import merge_partitions
+        return merge_partitions(self,other,left=left,right=right)
 
     def export_state(self) -> AccumulatorState:
         from .state import export_state

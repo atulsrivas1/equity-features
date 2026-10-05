@@ -77,6 +77,7 @@ assert len(catalog.list_features()) == 39
 assert len(catalog.list_features(capability="batch")) == 23
 assert len(catalog.list_features(capability="update")) == 23
 assert len(catalog.list_features(capability="restore")) == 23
+assert len(catalog.list_features(capability="merge")) == 22
 prototype = catalog.get("history.sma")
 research = Registry("research")
 scoped = research.with_definition(replace(prototype, feature_id="research:sma_metadata", planned_release="R3"))

@@ -1,8 +1,12 @@
 # Experimental package changes
 
-## 0.0.2a7 - EQ024 under verification
+## 0.0.2a8 - EQ025 under verification
 
-Immutable exact in-memory state export/restore for all23 R1 IDs; compatible caller declarations, finite binary64 hex codec, checked bounded schema/retention/order/duration relations and preserved watermark/gap/seal. No persistence or authentication.346 units include18 state cases; full package gates pending.
+Caller-certified legal adjacent partition merge for22 noncontinuous R1 IDs; owned return state, strict source/config/count/order/prepublication rules, checked totals and bounded K/N unions.363 units include17 equivalence cases with restored/chunk/merge-tree and1,000-event uneven skewed parity. Continuous merge stays unsupported. Full package delivery gates pending.
+
+## 0.0.2a7 - EQ024 verified experimental delivery
+
+Immutable exact in-memory state export/restore for all23 R1 IDs; compatible caller declarations, finite binary64 hex codec, checked bounded schema/retention/order/duration relations and preserved watermark/gap/seal. No persistence or authentication.346 units include18 state cases; full package delivery accepted (receipt in SESSION_HANDOFF).
 
 ## 0.0.2a6 - EQ023 verified experimental delivery
 

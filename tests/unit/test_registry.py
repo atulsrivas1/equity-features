@@ -36,14 +36,13 @@ class RegistryDefinitions(unittest.TestCase):
     def test_exact_implemented_capabilities(self):
         registry=builtin_registry()
         self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:23])
-        for mode in ("merge",):
-            self.assertEqual(registry.list_features(capability=mode),())
+        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="merge")),EXPECTED[:22])
         for d in registry.list_features():
-            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:23],update=d.feature_id in EXPECTED[:23],restore=d.feature_id in EXPECTED[:23]))
+            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:23],update=d.feature_id in EXPECTED[:23],restore=d.feature_id in EXPECTED[:23],merge=d.feature_id in EXPECTED[:22]))
         for feature in EXPECTED[:23]:
             registry.require_capability(feature,"batch");registry.require_capability(feature,"update");registry.require_capability(feature,"restore")
         for mode in ("merge",):
-            self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:registry.require_capability("session.trade.top_k",mode))
+            self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:registry.require_capability("session.quote.time_weighted_spread",mode))
     def test_family_selection(self):
         self.assertEqual(len(builtin_registry().list_features(family="history")),8)
         self.assertEqual(len(builtin_registry().list_features(family="session.quote")),3)
