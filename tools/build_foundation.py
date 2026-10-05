@@ -72,8 +72,9 @@ def clean_install(paths):
         run(str(py),'-m','pip','install','--no-deps','numpy==2.2.6','pyarrow==20.0.0')
         tests=ROOT/'tests/unit'
         if tests.exists(): run(str(py),'-m','unittest','discover','-s',str(tests))
-        example=ROOT/'examples/canonical_inputs.py'
-        if example.exists(): run(str(py),str(example))
+        for name in ('canonical_inputs','in_memory_adapter'):
+            example=ROOT/f'examples/{name}.py'
+            if example.exists(): run(str(py),str(example))
 
 
 def main():
