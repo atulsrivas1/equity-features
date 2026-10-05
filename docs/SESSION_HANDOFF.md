@@ -33,24 +33,21 @@ EQ-017–026 sequentially. No public registry, later-release implementation, con
 adapters/workers or external-product integration. Preparation publication and exact
 head/main checks must be verified under GOV-008 before its Done status.
 
-## Active R0 review rework
+## Current review repair delivery
 
-Owner requested two independently reproduced P2 fixes before R1 on2026-10-05.
-EQ009#11/EQ013#16 and R0 reopened; EQ017#21 returned Backlog with these blockers;
-E02 reopened, E03 stays open. Original alpha6 delivery evidence below remains factual.
-Pre-code plan: stories/R0_REVIEW_FIX_PLAN.md. One bounded two-story repair PR/author
-shares package gates; this is the recorded temporary work-in-progress exception.
-No R1 implementation, deferred reviewer activation or later scope is authorized.
+Both P2 fixes are Done in PR146/head9e57318edd80946b171bc310c7a3c67ebc41187e,
+main85c571265eec37726334200aaa202d8104fd097c, version0.0.1a6.post1. EQ009#11/EQ013#16 and
+BUG001#144/BUG002#145 have renewed acceptance:176units/123references/strict typing,
+38negative/10positive boundary fixtures, six exact-head/main checks, published Git
+blobs and both actual OS bundles verified. Four fresh wheel/sdist pair installs
+passed176cases and both examples. [Acceptance supplement](R0_ACCEPTANCE.md).
 
-Alpha0.0.1a6.post1 corrects exact-cutoff ordinary trade/quote FUTURE_MARKET exclusions
-using the same boundary predicate as consumption; completed/auction endpoint rules
-are preserved and incompatible markers rejected. Six new/176total units pass, with
-strict typing14sourcefiles. Purity guard admits an explicit reviewed backend surface,
-tracks simple aliases and rejects namespace escapes/unreviewed backend access;
-38negative/10positive scanner-only fixtures pass. Current packages have no backend I/O.
-123math references remain unchanged. Draft review/head/main/build/artifact acceptance
-is pending. After actual corrected delivery reaccept both stories/E02/R0, restore
-EQ017 Ready and stop before R1. Keep E03 open for R3 EQ093 and PR120 unchanged.
+Original alpha6 and handoff-preparation observations remain historical below/above.
+The two defects are delivered; a future R1 chat must verify live Done/evidence and
+reuse them, not repeat their implementation. One bounded repair group is complete;
+E02 reaccepted, E03 remains open for R3 EQ093 and deferred PR120 unchanged. No R1
+kernels started. Final supplement publication/main gates precede R0 reclosure and
+EQ017 Ready; live milestone/Project record the completed state.
 
 ## Verified delivery and current work
 
@@ -162,11 +159,10 @@ E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone
 ## Exact resume steps
 
 1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
-2. Complete codex/r0-review-repairs PR review,176unit/123reference/type/boundary/
-repeat build/example and exact-head/main/publication gates. Actually download/hash/
-inspect both post1 main bundles and four fresh pair installs before Released/Done.
-3. Publish corrected delivery/acceptance evidence, reaccept EQ009/EQ013/E02/R0 and
-restore EQ017 Ready. Stop; no R1 code or deferred reviewer setup. Prior evidence stays.
+2. Repair package acceptance is complete. Final supplement delivery verifies its
+publication/main gates, re-closes R0 and restores EQ017 Ready. Stop before R1.
+3. A later owner-started execution reads R1_AUTONOMOUS_HANDOFF.md, verifies live
+Done/evidence for BUG001/002, reuses the post1 fixes and pulls EQ017 with its plan.
 4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
 5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
 
@@ -175,6 +171,6 @@ restore EQ017 Ready. Stop; no R1 code or deferred reviewer setup. Prior evidence
 GOV-006 PR123 published scope correction4a0dda1bb440e7a78750c39d60f2e3f36042a0ae; current generic boundaries preserved. Deferred PR120 synchronized66def0e7bdc708ac82ce3ffeedaf0764f79cbcfe and remains untouched. GOV-007 PR126/127 delivered the autonomous handoff; initial verified main0cf343e14863e41e39ad142ac0977a9731101346. CRLF-vs-LF publication-tool mismatch was corrected by comparing committed Git blob bytes. Preserve prior history/evidence; documentation delivery alone never completes a package milestone.
 
 Existing BUG001#144 (3points) and BUG002#145 (5points), created by separate R1
-handoff preparation, now link PR146 and track these same two defects. Confirmed
+handoff preparation, at repair start linked PR146 to track these same two defects. At repair start, confirmed
 points and In progress states; no duplicate implementation scope. GOV008#143 and
 its handoff preparation remain untouched.
