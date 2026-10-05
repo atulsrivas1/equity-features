@@ -54,3 +54,6 @@ EQ025 qualifies conditional adjacent caller-certified partition merge for22 nonc
 
 
 EQ027/0.0.3a1 qualifies history.return/prior_high/prior_low batch only.26batch and session-only23update/restore/22merge inventories are separate; unsupported history modes remain false. Builtin snapshot digest changes with capabilities; [history API](../api/HISTORY.md).
+
+
+EQ028/0.0.3a2 adds history.sma/ema batch flags:28batch,23session update/restore,22conditional merge. Other history modes remain false;39 equations/identities unchanged. Builtin snapshot digest advances; [history API](../api/HISTORY.md).

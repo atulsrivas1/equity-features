@@ -628,3 +628,23 @@ handoff and conditional supported-mode acceptance; no state modes promised.
 No EQ028 calculation code at this checkpoint. Next: publish plan/Ready/In progress,
 implement/test/document pair0.0.3a2 then all source/installed/receipt delivery gates.
 R2 continues; R3 remains paused.
+
+### EQ028 local implementation and author review —2026-10-05
+
+Plan75c7b68 precedes source on codex/eq-028-sma-ema/PR178. Pair0.0.3a2 adds exact
+SMA and explicitly anchored EMA/no gap reset, independent dependency counts and
+bounded binary64 recurrence after exact seed. SMAReference schema1 retains exact
+wide sum/count and guarded comparison for later supplied breadth dependency;
+standard results/config/context schemas unchanged. Batch28, session23update/
+restore22merge; other modes false. Public API/example/contracts/version/changelog/
+lessonEF-L015 and pending delivery record accompany source.
+
+First local checks found recurrence type union errors and stale unsupported-SMA/
+catalog tests; corrected, not final failure evidence.452units/14new cases initially
+passed plus strict33files (30CI targets+three new typed examples),123 references,
+pure boundary38negative10positive/import/registry/license/compatibility. Added
+long small-price oscillation and source-revision/unit admission cases during
+author review; next recheck all units/docUTF8/links, concrete final-head commit,
+Code review/Test, repeat archive/installed exact-head gates and main/bothOS actual
+bundles/FOUR fresh pairs/final receipt before Done. Author self-review+CI only;
+no independent human/hosted review, history state/source/performance claim. R3 paused.
