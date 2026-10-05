@@ -7,3 +7,6 @@ Internal artifacts are established by EQ-009; no public registry release is clai
 
 Immutable 39-ID discovery and caller-scoped metadata registration are implemented.
 See docs/contracts/REGISTRY.md. All actual calculator capabilities remain false.
+
+Dependency-light adapter protocols are implemented; the synthetic historical
+example stays outside distributions. See docs/contracts/ADAPTERS.md.
