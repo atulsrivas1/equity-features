@@ -14,7 +14,8 @@ CONTINUOUS_IDS = ("session.quote.time_weighted_spread",)
 SESSION_BATCH_IDS = frozenset(BAR_IDS+STRUCTURE_IDS+TRADE_IDS+TOP_K_IDS+QUOTE_IDS+CONTINUOUS_IDS)
 
 HISTORY_IDS = ("history.return", "history.prior_high", "history.prior_low", "history.sma", "history.ema", "history.rsi", "history.atr", "history.return_volatility")
-BATCH_IDS = SESSION_BATCH_IDS | frozenset(HISTORY_IDS)
+VOLUME_IDS = ("baseline.daily_volume", "baseline.relative_volume")
+BATCH_IDS = SESSION_BATCH_IDS | frozenset(HISTORY_IDS+VOLUME_IDS)
 
 UPDATE_IDS = SESSION_BATCH_IDS
 RESTORE_IDS = SESSION_BATCH_IDS

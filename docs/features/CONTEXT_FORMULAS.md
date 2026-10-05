@@ -1,6 +1,6 @@
 # Baseline, relative and breadth formulas
 
-EQ-005, formula version 1. Eight IDs from V1_SCOPE.md; R2 kernels remain planned.
+EQ-005, formula version 1. Eight IDs from V1_SCOPE.md. EQ031 daily baseline/relative volume implementation is in source qualification; remaining contextual kernels are planned. [Daily API](../api/DAILY_VOLUME.md).
 Inputs are synthetic or caller-supplied in memory. Apply HISTORICAL_FORMULAS.md's
 governed session grid and EQ-006 admission policy. Prices are compatible positive
 scaled integers; volumes are nonnegative integers, summed in overflow-safe wide
