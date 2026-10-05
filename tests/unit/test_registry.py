@@ -33,12 +33,16 @@ class RegistryDefinitions(unittest.TestCase):
                 self.assertTrue(d.requirements and d.outputs and d.formula and d.warmup and d.timing and d.missing_policy)
                 self.assertEqual(d.schema_version,"1");self.assertEqual(d.algorithm_version,"v1")
                 self.assertEqual(FeatureDefinition.from_json(d.to_json()),d)
-    def test_no_calculator_capability_claims(self):
+    def test_exact_implemented_capabilities(self):
         registry=builtin_registry()
-        for mode in ("batch","update","restore","merge"):
+        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:12])
+        for mode in ("update","restore","merge"):
             self.assertEqual(registry.list_features(capability=mode),())
+        for d in registry.list_features():
+            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:12]))
+        for feature in EXPECTED[:12]: registry.require_capability(feature,"batch")
+        for mode in ("batch","update","restore","merge"):
             self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:registry.require_capability("session.trade.vwap",mode))
-        for d in registry.list_features():self.assertEqual(d.capabilities,Capabilities())
     def test_family_selection(self):
         self.assertEqual(len(builtin_registry().list_features(family="history")),8)
         self.assertEqual(len(builtin_registry().list_features(family="session.quote")),3)
@@ -93,8 +97,8 @@ class RegistryDefinitions(unittest.TestCase):
         self.assertCode(ErrorCode.INVALID_SCHEMA,lambda:OutputField("x","object","unit"))
         self.assertCode(ErrorCode.UNSUPPORTED_SAMPLING,lambda:InputRequirement("x","canonical:1",("close",),DataKind.DAILY,"continuous"))
     def test_execution_claim_rejected(self):
-        self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:Capabilities(batch=True))
-        self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:Capabilities(update=True))
+        self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:replace(custom(),capabilities=Capabilities(batch=True)))
+        self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:replace(custom(),capabilities=Capabilities(update=True)))
     def test_definition_metadata_negatives(self):
         d=custom();self.assertCode(ErrorCode.INCOMPATIBLE_VERSION,lambda:replace(d,schema_version="2"))
         self.assertCode(ErrorCode.INVALID_SCHEMA,lambda:replace(d,requirements=()))
