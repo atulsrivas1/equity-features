@@ -37,4 +37,4 @@ No performance benchmark or backend/package build is required for this mathemati
 
 ## End state
 
-All3quote feature IDs have implementation-ready mathematical/temporal definitions and independently checked examples, questions are resolved or explicitly bounded, linked documentation and final-head checks pass, and published artifacts are verified. Only then mark documentation Released/Done. No calculation package, continuous provider feed, chart adapter, accepted real dataset or R0 release is implied. Next EQ-004 historical formulas becomes Ready when its inputs/acceptance are confirmed.
+All3quote feature IDs have implementation-ready mathematical/temporal definitions and independently checked examples, questions are resolved or explicitly bounded, linked documentation and final-head checks pass, and published artifacts are verified. Only then mark documentation Released/Done. No calculation package, continuous provider feed, accepted real dataset or R0 release is implied. Next EQ-004 historical formulas becomes Ready when its inputs/acceptance are confirmed.

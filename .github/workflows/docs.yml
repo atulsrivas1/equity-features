@@ -17,19 +17,19 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-          for name in ('AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'docs/DELIVERY_POLICY.md', 'docs/PUBLIC_DEVELOPMENT.md', 'docs/SESSION_HANDOFF.md', 'docs/PACKAGE_DESIGN.md', 'docs/BACKLOG.md', 'docs/DASHBOARD.md', 'docs/features/V1_SCOPE.md', 'docs/integrations/CHART_CONSUMER_CONTRACT.md'):
+          for name in ('AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'docs/DELIVERY_POLICY.md', 'docs/PUBLIC_DEVELOPMENT.md', 'docs/SESSION_HANDOFF.md', 'docs/PACKAGE_DESIGN.md', 'docs/BACKLOG.md', 'docs/DASHBOARD.md', 'docs/features/V1_SCOPE.md'):
               assert Path(name).is_file(), name
           text = Path('docs/BACKLOG.md').read_text()
           stories = re.findall(r'^\| (EQ-\d{3}) \| (R\d) \|', text, re.M)
-          assert len(stories) == 94
-          assert {x for x, _ in stories} == {f'EQ-{i:03}' for i in range(1, 95)}
+          assert len(stories) == 93
+          assert {x for x, _ in stories} == {f'EQ-{i:03}' for i in range(1, 94)}
           scope = Path('docs/features/V1_SCOPE.md').read_text()
           rows = re.findall(r'^\| ((?:session|history|baseline|relative|breadth)\.[a-z_.]+) \| ([^|]+) \| ([^|]+) \| (R[12]) \| ([^|]+) \|$', scope, re.M)
           assert len(rows) == 39 and len({row[0] for row in rows}) == 39
           for row in rows:
               assert row[2].strip()
               assert re.fullmatch(r'EQ-00[2-6](?:, EQ-00[2-6])*', row[4].strip())
-          print('Planning documents and all 94 stories verified.')
+          print('Planning documents and all 93 active stories verified.')
           print('39 unique feature IDs have inputs, releases and formula-story mappings.')
           workflow = Path('docs/PUBLIC_DEVELOPMENT.md').read_text()
           statuses = re.findall(r'^\| (Backlog|Ready|In progress|Code review|Test|Ready to release|Released|Done) \|', workflow, re.M)
