@@ -53,7 +53,8 @@ These are dated observations; verify actual live state when resuming.
 ## Required R0 follow-up repairs
 
 Resolve and verify these before EQ-017. The R0 execution chat was observed actively
-repairing both findings while this package was prepared. Inspect live linked PRs,
+repairing both findings in [PR146](https://github.com/atulsrivas1/equity-features/pull/146)
+while this package was prepared. Inspect live linked PRs,
 default-branch publication, tests and delivery first. Reuse accepted fixes and record
 them on #144/#145; do not redo them or race another chat. If repairs remain active,
 wait for their gates while completing independent plans. If no repair is delivered

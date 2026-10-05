@@ -19,7 +19,8 @@ green and both bundles unexpired. All R0 EQ stories were closed/Done and R0 clos
 Review found two subsequent P2 defects, now tracked as BUG-001 #144 (exact-cutoff
 ordinary market exclusion evidence) and BUG-002 #145 (backend I/O checker bypass).
 The original R0 chat was observed actively repairing both findings in its own
-branch during preparation; the handoff was isolated to avoid interfering. Both
+branch ([PR146](https://github.com/atulsrivas1/equity-features/pull/146)) during
+preparation; the handoff was isolated to avoid interfering. Both
 remain verification prerequisites: reuse actually delivered repairs, do not duplicate
 active work, and record acceptance on the bug issues. No fix is claimed here.
 Resolve them before EQ-017, whose
