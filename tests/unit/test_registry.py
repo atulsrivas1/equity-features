@@ -35,14 +35,14 @@ class RegistryDefinitions(unittest.TestCase):
                 self.assertEqual(FeatureDefinition.from_json(d.to_json()),d)
     def test_exact_implemented_capabilities(self):
         registry=builtin_registry()
-        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:14])
+        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:19])
         for mode in ("update","restore","merge"):
             self.assertEqual(registry.list_features(capability=mode),())
         for d in registry.list_features():
-            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:14]))
-        for feature in EXPECTED[:14]: registry.require_capability(feature,"batch")
+            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:19]))
+        for feature in EXPECTED[:19]: registry.require_capability(feature,"batch")
         for mode in ("batch","update","restore","merge"):
-            self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:registry.require_capability("session.trade.vwap",mode))
+            self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:registry.require_capability("session.trade.top_k",mode))
     def test_family_selection(self):
         self.assertEqual(len(builtin_registry().list_features(family="history")),8)
         self.assertEqual(len(builtin_registry().list_features(family="session.quote")),3)

@@ -23,6 +23,7 @@ sys.meta_path.insert(0,Deny())
 import equity_feature_contracts as c
 assert not any(x.startswith('equity_features') for x in sys.modules)
 import equity_features as f
+import equity_features.session
 assert c.__version__==f.contracts_version==f.__version__==EXPECTED_VERSION
 assert not hasattr(f,'compute')
 '''

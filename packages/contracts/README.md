@@ -1,6 +1,6 @@
 # Equity Feature Contracts
 
-Experimental0.0.2a1 contracts, Apache-2.0. Canonical immutable input schemas,
+Experimental0.0.2a2 contracts, Apache-2.0. Canonical immutable input schemas,
 integer/nanosecond admission and explicit copied Arrow/NumPy bridges are implemented.
 Supplied sessions/windows/timing and canonical configuration/digests are implemented.
 See repository docs/contracts/INPUTS.md SPECS.md, RESULTS.md and VALIDATION.md. Install the `columnar` extra for the bridges;
@@ -11,7 +11,7 @@ provider integration or stable production API is claimed. Verified GitHub Action
 artifacts are the R0 channel; public registry publication is not authorized.
 
 Immutable 39-ID discovery and caller-scoped metadata registration are implemented.
-See docs/contracts/REGISTRY.md. Fourteen bar/price/structure IDs advertise batch support in equity-features; all other execution flags remain false. InputScope binds executable target coverage/construction policy.
+See docs/contracts/REGISTRY.md. Nineteen bar/price/structure/trade IDs advertise batch support in equity-features; all other execution flags remain false. InputScope binds executable target coverage/construction policy.
 
 Dependency-light adapter protocols are implemented; the synthetic historical
 example stays outside distributions. See docs/contracts/ADAPTERS.md.
