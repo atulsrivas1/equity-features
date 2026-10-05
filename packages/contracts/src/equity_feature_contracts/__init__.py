@@ -7,7 +7,7 @@ from .inputs import (
 from .specs import AvailabilitySpec, ConfigSpec, IntervalSpec, Parameter, SessionSpec, WindowSpec
 
 from .errors import ContractError, ErrorCode
-from .results import (IntervalOHLCV, IntervalOHLCVRow, IntervalVolumeShares, IntervalVolumeShareRow, BreadthCounts, BreadthFraction, EntityKey, EvidenceRow,
+from .results import (TopKTrades, TopKTradeRow, IntervalOHLCV, IntervalOHLCVRow, IntervalVolumeShares, IntervalVolumeShareRow, BreadthCounts, BreadthFraction, EntityKey, EvidenceRow,
     FeatureColumn, FeatureResult, InputBinding, QualityRow, Reason, ResultCell,
     ResultMetadata, Status, ValueType)
 
@@ -19,8 +19,8 @@ from .normalization import (NormalizationReport, NormalizedBatch, QuantizedPrice
 from .registry import (Capabilities, FeatureDefinition, InputRequirement,
     OutputField, Registry, builtin_registry)
 
-__version__ = "0.0.2a2"
-__all__ = ["AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
+__version__ = "0.0.2a3"
+__all__ = ["TopKTrades", "TopKTradeRow", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
            "IntervalCoverage", "IntervalOHLCV", "IntervalOHLCVRow", "IntervalVolumeShares", "IntervalVolumeShareRow", "InputScope", "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",
            "Parameter", "SessionSpec", "WindowSpec", "ContractError", "ErrorCode",

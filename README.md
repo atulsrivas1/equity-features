@@ -8,7 +8,7 @@ both experimental foundation distributions are delivered through verified
 are implemented. [Acceptance evidence and artifacts](docs/R0_ACCEPTANCE.md).
 Twelve batch bar/price kernels are delivered at0.0.2a0. Two interval structure
 kernels are delivered at0.0.2a1. Five trade aggregate kernels are implemented
-locally at0.0.2a2;
+locally at0.0.2a3;
 R1 delivery verification is in progress. Other kernels remain later stories.
 No public registry release.**
 
@@ -59,4 +59,4 @@ Licensed under [Apache License 2.0](LICENSE).
 
 ## Experimental R1 calculations
 
-EQ-017 adds twelve batch bar/price IDs with independent quality, exact real notional and separate close-weighted proxy. See [API/admission/precision](docs/api/SESSION_BARS.md) and [synthetic example](examples/session_bars.py). EQ017 is delivered; [receipt](docs/stories/EQ-017_DELIVERY.md). EQ018 adds [typed interval structures](docs/api/SESSION_STRUCTURE.md) at0.0.2a1, [delivered receipt](docs/stories/EQ-018_DELIVERY.md); prior R0 acceptance remains historical. [Trade aggregates](docs/api/SESSION_TRADES.md) are under delivery verification at0.0.2a2. No throughput or provider-readiness claim.
+EQ-017 adds twelve batch bar/price IDs with independent quality, exact real notional and separate close-weighted proxy. See [API/admission/precision](docs/api/SESSION_BARS.md) and [synthetic example](examples/session_bars.py). EQ017 is delivered; [receipt](docs/stories/EQ-017_DELIVERY.md). EQ018 adds [typed interval structures](docs/api/SESSION_STRUCTURE.md) at0.0.2a1, [delivered receipt](docs/stories/EQ-018_DELIVERY.md); prior R0 acceptance remains historical. [Trade aggregates](docs/api/SESSION_TRADES.md) are delivered at0.0.2a2; [receipt](docs/stories/EQ-019_DELIVERY.md). [Bounded topK](docs/api/SESSION_TOP_K.md) is under verification at0.0.2a3. No throughput or provider-readiness claim.

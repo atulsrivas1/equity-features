@@ -8,4 +8,5 @@ BAR_IDS = (
 )
 STRUCTURE_IDS = ("session.structure.interval_ohlcv", "session.structure.interval_volume_share")
 TRADE_IDS = ("session.trade.count", "session.trade.volume", "session.trade.notional", "session.trade.vwap", "session.trade.mean_size")
-BATCH_IDS = frozenset(BAR_IDS+STRUCTURE_IDS+TRADE_IDS)
+TOP_K_IDS = ("session.trade.top_k",)
+BATCH_IDS = frozenset(BAR_IDS+STRUCTURE_IDS+TRADE_IDS+TOP_K_IDS)

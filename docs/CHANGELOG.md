@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## 0.0.2a3 — EQ020 under verification
+
+Bounded deterministic topK original trade rows, typed structured Arrow output and exact event/source evidence; explicit K/evidence bound. Twenty implemented batch IDs; other modes remain false. Tests and delivery gates are required before acceptance.
+
 ## 0.0.2a0 â€” EQ-017
 
 Twelve batch bar/price IDs via compute_bars; exact actual notional and separate

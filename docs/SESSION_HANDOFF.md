@@ -215,3 +215,13 @@ Preserved concurrent PR151/mainff738809 R3 EQ095 roadmap and 94-story planning c
 ## EQ019 active
 
 Pre-code plan stories/EQ-019_PLAN.md confirms 8 points. Five trade aggregates implemented locally at0.0.2a2, with exact wide arithmetic, independent absent-price/size readiness, raw delivery versus eligible counts and C/K/E/source policy admission. 241 units (18 new)/123 references/strict typing18 files/purity/registry/import/compatibility/license checks pass. API/example, unit/capability migration and EQ018 receipt accompany this story. Next gates: draft PR/author review/Test/repeat builds/fresh installed five examples/exact-head/main CI/actual downloaded bundles. No top-K/quote/state/R2 acceptance claimed.
+
+## EQ-019 accepted —0.0.2a2
+
+PR153/head `05e9c54da755709ccfdc8c0bbf2f7baeb93e81b4`, main `80e81d5acc243a025c1d3383256e78064f140db5`:241 units/123 references/strict18 files/all gates/six exact-head/main OS CI/24 published blobs and both actual bundles/four fresh installations verified. Receipt stories/EQ-019_DELIVERY.md and issue23. EQ019 Done; EQ020#24 pulled In progress with pre-code5-point plan. E04 remains In progress. Resume codex/eq-020-top-k-evidence, implement typed bounded trade rows and explicit evidence; complete all formal delivery gates before EQ021. Preserve PR151/EQ095 and deferredPR120.
+
+### EQ020 implementation and local recovery
+
+Pre-code plan confirmed5points. Typed TopKTrades rows/evidence with explicit K<=10000 and limit>=K, stable insertion ranking and batch-only capability. Source retention K+1 transient; canonical admission remains proportional to batch. Public merge qualification deferred to EQ025 with caller disjointness responsibility. Initial fixtures used incorrect auction field and expected order before duplicate errors; corrected fixtures to condition/closing_auction and existing duplicate semantics without weakening admission. Fifteen new tests plus241 regressions pass (256 total); strict19 files and purity38/10 pass. Removed avoidable per-row missing-knowledge tuple allocation. Explicit UTF8 recovered a local continuity append encoding error, preserving published prefix bytes. Full formula/registry/import/compatibility/license/planning gates passed. Remaining: review/CI/builds, main publication/artifacts/fresh installs; EQ020 not accepted.
+
+EQ020 formal Test caught stale canonical_inputs batch-count assertion19 after topK made20. Local installed build and Linux CI failed; corrected example to exact20 inventory and reran on a new head. Failed c87688b checks/build are historical, not acceptance evidence.
