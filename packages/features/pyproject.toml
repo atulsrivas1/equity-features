@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "equity-features"
+version = "0.0.1a0"
+description = "Experimental source-independent equity feature foundation"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{name = "Equity Features contributors"}]
+dependencies = ["equity-feature-contracts==0.0.1a0"]
+
+[project.urls]
+Repository = "https://github.com/atulsrivas1/equity-features"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+equity_features = ["py.typed"]
