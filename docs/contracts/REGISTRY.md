@@ -63,3 +63,5 @@ EQ029/0.0.3a3 adds history.rsi/atr batch flags:30batch/23session update/restore/
 
 
 EQ030/0.0.3a4 adds history.return_volatility batch:31batch/all8history,23session update/restore22merge.39mathematical definitions remain unchanged, state modes false and snapshot digest advances. [API](../api/HISTORY.md).
+
+EQ031 qualifies baseline.daily_volume and baseline.relative_volume batch flags,33total. Both remain false for update/restore/merge.39 mathematical definitions and session23update/restore22merge remain unchanged; rebuild exact-version snapshots after pair0.0.3a5. [API](../api/DAILY_VOLUME.md).
