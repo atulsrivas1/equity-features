@@ -39,7 +39,7 @@ def _binding(a: SessionAccumulator) -> str:
 
 def export_state(a: SessionAccumulator) -> AccumulatorState:
     payload=_text(asdict(a._state))
-    return AccumulatorState('1',__version__,_binding(a),payload,_digest(payload))
+    return AccumulatorState('2',__version__,_binding(a),payload,_digest(payload))
 
 def _pairs(pairs: list[tuple[str,Any]]) -> dict[str,Any]:
     if len({k for k,v in pairs}) != len(pairs): _fail()
@@ -144,6 +144,9 @@ def _read(a: SessionAccumulator, raw: Any) -> _StreamState:
         expected_slot=asdict(a._state)[key]
         if (expected_slot is None) != (d[key] is None): _fail()
     if type(d['windows']) is not list or len(d['windows']) != len(a._state.windows): _fail()
+    if type(d['window_gaps']) is not list or len(d['window_gaps']) != len(a._state.windows): _fail()
+    s.window_gaps=tuple(_boolean(x) for x in d['window_gaps'])
+    if any(s.window_gaps) and not s.known_gap: _fail()
     fields=a.population.fields
     if d['bars'] is not None: s.bars=_bar(d['bars'],fields,n)
     s.windows=tuple(_bar(x,fields,n) for x in d['windows'])
@@ -208,7 +211,7 @@ def _read(a: SessionAccumulator, raw: Any) -> _StreamState:
     return s
 
 def restore_state(state: AccumulatorState, family: Family, config: ConfigSpec, *, entity: EntityKey, population: StreamPopulation, prior_close: CanonicalBatch | None=None, seed: CanonicalBatch | None=None) -> SessionAccumulator:
-    if type(state) is not AccumulatorState or state.schema_version!='1' or state.implementation_version!=__version__:
+    if type(state) is not AccumulatorState or state.schema_version!='2' or state.implementation_version!=__version__:
         raise ContractError(ErrorCode.INVALID_SCHEMA,'state schema/implementation version incompatible; no implicit migration')
     a=SessionAccumulator(family,config,entity=entity,population=population,prior_close=prior_close,seed=seed)
     if _binding(a)!=state.binding_digest:

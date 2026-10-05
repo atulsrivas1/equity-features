@@ -297,3 +297,18 @@ R2 milestone3 currently has12 open/0closed; R3 priority is a deliberate owner re
 ## R3 execution ownership and BUG003 reproduction —2026-10-05
 
 PR165 gated merge is main afee24e; all six exact-head checks passed, published docs match. GOV009 Released pending main package CI verification. Dedicated R3 checkout/pinned venv established. Independent original BUG003 restored sequence returns first-volume200 and both aggregate statuses Available; BUG004 rehashed out-of-range hex raises OverflowError.370 baseline units pass. BUG003 pre-code plan confirms5points, bounded per-window omission tuple, schema2/exact-version/no migration and atomic contradictory-certificate rejection. Pull BUG003 on codex/bug-003-interval-gap; no repair delivered yet. R2 live milestone3 remains12open/0closed, PR120 deferred.
+
+### BUG003 implementation/local checks
+
+GOV009 Done: main afee24e docs37360380846/Foundation37360381078 both OS jobs success,
+published source equal. Initial local commit failed because this new checkout lacked
+Git author settings; set repository-local Codex identity, then committed the pre-code
+plan and opened draft PR166. No global/account settings changed.
+
+Pair0.0.2a10/schema2 adds fixed window omission flags, whole propagation, atomic
+complete-certificate contradictions, fixed original expected-interval constraints,
+legal merge OR and strict restore shape/Boolean/consistency validation.377 units
+(7 independent regression cases), strict26files and boundary38/10 pass. Unknown
+expected without an omission remains certifiable; last window volume300 stays ready
+while omitted first window/shares stay unavailable. Full release gates pending;
+BUG003 is In progress, BUG004 still Ready. Historical R1 reports unchanged.
