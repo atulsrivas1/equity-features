@@ -1,6 +1,8 @@
 """Fail-closed import/call policy for project-owned pure Python packages."""
 import ast
 from pathlib import Path
+import re
+import tomllib
 
 ROOT=Path(__file__).resolve().parents[1]
 ALLOWED={'__future__','dataclasses','enum','typing','collections','math','fractions','decimal','json','hashlib','re','numpy','pyarrow','equity_feature_contracts','equity_features'}
@@ -24,6 +26,12 @@ def violations(source):
 
 
 def check():
+    allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
+    for p in (ROOT/'packages').glob('*/pyproject.toml'):
+        project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
+        deps=list(project['dependencies'])
+        for extra in project.get('optional-dependencies',{}).values(): deps.extend(extra)
+        assert all(re.split(r'[\[<>=!~; ]',d)[0] in allowed_dependencies for d in deps),p
     for p in (ROOT/'packages').glob('*/src/**/*.py'):
         errors=violations(p.read_text(encoding='utf-8'))
         assert not errors,f'{p.relative_to(ROOT)}: {errors}'
