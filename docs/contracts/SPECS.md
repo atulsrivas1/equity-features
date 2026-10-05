@@ -84,3 +84,6 @@ Done. Author self-review only; no independent review or throughput claim.
 
 
 EQ033 adds immutable schema1 ActionPolicy/ReferenceFact/PolicyAdmission/AdjustmentApplication/ClassificationAdmission; ConfigSpec/AvailabilitySpec/AdjustmentSpec schema1 remains unchanged. [Signatures, versions and readiness](../api/ACTION_POLICIES.md) bind original factors/revisions/known-at and explicit quantity basis.
+
+
+EQ027 adds owned HistoryContext schema1: exact SessionSpecs, per-slot certificates, target/grid/anchor/action identities. Existing ConfigSpec schema1 is retained; [history API](../api/HISTORY.md).

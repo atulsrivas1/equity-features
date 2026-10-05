@@ -185,3 +185,6 @@ This repository owns source-independent equity calculation contracts, mathematic
 
 
 EQ033 retains package boundaries: contracts owns immutable policy/evidence types; features.policies owns pure supplied admission/application. No source adapter, session-state or registry capability change. [Policy API](api/ACTION_POLICIES.md) and [pre-code plan](stories/EQ-033_PLAN.md) define exact representation and causal boundaries.
+
+
+EQ027 extends owned governed context and batch-only historical kernels without source acquisition, calendar inference or session accumulator exposure. [History API](api/HISTORY.md) retains existing typed results/provenance and source-independent ownership.
