@@ -334,6 +334,21 @@ Released; final receipt publication/main/equal artifact gates before Done. BUG00
 still Ready, no R3 feature started; owner override limits remaining work to BUG004
 then stop for separate R2 handoff. Preserve PR120 and historical R1 reports.
 
+## Owner restores R2-before-R3 execution order —2026-10-05
+
+Owner authorized completing only BUG003#162/BUG004#163 in the existing repair chat, then pausing R3 and starting a separate R2 execution session. Repair chat confirmed no R3 feature story started; BUG003 code mainb9bc293/pair0.0.2a10/schema2 is not yet Done pending artifact installs; BUG004 remains undelivered. New R2 package docs/R2_AUTONOMOUS_HANDOFF.md under GOV010#167 covers all12EQ027–038 (89provisional points),16R2 IDs, math/design/tests/docs/delivery/stop gates and legacy rights/access constraints. R2 may plan while repairs are active but must verify both Done deliveries before implementation; do not race their owner. R3 handoff feature authority superseded; R2 does not automatically resume R3. Preparation is not implementation.
+
+## GOV-011 project knowledge preparation — October 5, 2026
+
+A separate local repository checkout was prepared for future project sessions. Read [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md) and the relevant knowledge decision/lesson/source/backlog records at startup. [GOV-011 #170](https://github.com/atulsrivas1/equity-features/issues/170) tracks this documentation transfer. It preserves existing formula/API/acceptance records and links dated R0/R1 review corrections, owner priority changes and consumer/source boundaries. It does not take over repair or R2 execution owners, implement a feature, rerun historical acceptance suites, import data or configure automation.
+
+Coverage: six relevant chats, 96 returned turn records, with targeted/truncated-access limits in knowledge/SOURCE_MAP.md. Raw chats and private data are excluded from public records. knowledge/repository-sources.json fingerprints 32 source documents at the inspected baseline. Publication and completion remain subject to this documentation PR and applicable checks; no Done/release claim is made by preparation.
+
+Resume: read current live issue/Project state, the latest release-specific handoff and owner direction. Finish/verify BUG-003 and BUG-004 with their existing owner, verify GOV-010 publication and proceed with the dedicated R2 scope before R3 feature work. Treat these as dependencies to recheck, not a current completion snapshot.
+## Deferred reviewer branch synchronization —2026-10-05
+
+PR120 was synchronized with current main solely to remove merge conflicts. It remains a draft; hosted activation/qualification and owner resumption are still outstanding. Historical scope-cleanup command failure was corrected before publication; no failed command was counted as delivery. The old93-story snapshot is superseded by94active IDs including EQ095, while EQ094 stays retired. Current owner R2-before-R3 and self-review/CI rules remain unchanged.
+
 ### Bounded repair publication exception —2026-10-05
 
 BUG003 implementation is Released/qualified; final receipt PR169 has5of6corrected
@@ -368,6 +383,13 @@ both the owner override and its actual implementation chronology; only docs conf
 BUG004 local repeat-build and two fresh installs each380tests/eleven examples pass;
 new exact merged-head CI is required before publication. Historical queued-stage
 notes above are dated work evidence, not current completion claims.
-## Deferred reviewer branch synchronization —2026-10-05
 
-PR120 was synchronized with current main solely to remove merge conflicts. It remains a draft; hosted activation/qualification and owner resumption are still outstanding. Historical scope-cleanup command failure was corrected before publication; no failed command was counted as delivery. The old93-story snapshot is superseded by94active IDs including EQ095, while EQ094 stays retired. Current owner R2-before-R3 and self-review/CI rules remain unchanged.
+## Remaining repair delivery ownership —2026-10-05
+
+The owner transferred remaining BUG003/004 delivery to the dedicated R2 execution
+session after the original repair session became idle. Reused existing PR171
+implementation unchanged; merged current main65e66fd while preserving both repair
+chronology and owner R2/R3 pause/knowledge records. No duplicate calculator repair.
+Final integrated-head checks, published source/main artifacts/fresh installed pairs
+and receipt acceptance remain required; both repair issues are still undelivered
+at this checkpoint. R2 calculation work waits for their genuine Done state.
