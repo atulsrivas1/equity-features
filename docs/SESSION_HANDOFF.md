@@ -33,6 +33,25 @@ EQ-017–026 sequentially. No public registry, later-release implementation, con
 adapters/workers or external-product integration. Preparation publication and exact
 head/main checks must be verified under GOV-008 before its Done status.
 
+## Active R0 review rework
+
+Owner requested two independently reproduced P2 fixes before R1 on2026-10-05.
+EQ009#11/EQ013#16 and R0 reopened; EQ017#21 returned Backlog with these blockers;
+E02 reopened, E03 stays open. Original alpha6 delivery evidence below remains factual.
+Pre-code plan: stories/R0_REVIEW_FIX_PLAN.md. One bounded two-story repair PR/author
+shares package gates; this is the recorded temporary work-in-progress exception.
+No R1 implementation, deferred reviewer activation or later scope is authorized.
+
+Alpha0.0.1a6.post1 corrects exact-cutoff ordinary trade/quote FUTURE_MARKET exclusions
+using the same boundary predicate as consumption; completed/auction endpoint rules
+are preserved and incompatible markers rejected. Six new/176total units pass, with
+strict typing14sourcefiles. Purity guard admits an explicit reviewed backend surface,
+tracks simple aliases and rejects namespace escapes/unreviewed backend access;
+38negative/10positive scanner-only fixtures pass. Current packages have no backend I/O.
+123math references remain unchanged. Draft review/head/main/build/artifact acceptance
+is pending. After actual corrected delivery reaccept both stories/E02/R0, restore
+EQ017 Ready and stop before R1. Keep E03 open for R3 EQ093 and PR120 unchanged.
+
 ## Verified delivery and current work
 
 EQ-001–004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
@@ -143,14 +162,19 @@ E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone
 ## Exact resume steps
 
 1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
-2. R0 work stops at acceptance. The delivery procedure verifies report PR/main gates,
-closes R0 and sets EQ-017 Ready; consult live milestone/Project for the completed state.
-No R1 code is started in this mission.
-3. A later owner-directed R1 execution may pull EQ-017 from Ready, inspect live status,
-read accepted EQ-002 bar mathematics and R0 APIs, and create its full pre-code plan.
+2. Complete codex/r0-review-repairs PR review,176unit/123reference/type/boundary/
+repeat build/example and exact-head/main/publication gates. Actually download/hash/
+inspect both post1 main bundles and four fresh pair installs before Released/Done.
+3. Publish corrected delivery/acceptance evidence, reaccept EQ009/EQ013/E02/R0 and
+restore EQ017 Ready. Stop; no R1 code or deferred reviewer setup. Prior evidence stays.
 4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
 5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
 
 ## Historical governance evidence
 
 GOV-006 PR123 published scope correction4a0dda1bb440e7a78750c39d60f2e3f36042a0ae; current generic boundaries preserved. Deferred PR120 synchronized66def0e7bdc708ac82ce3ffeedaf0764f79cbcfe and remains untouched. GOV-007 PR126/127 delivered the autonomous handoff; initial verified main0cf343e14863e41e39ad142ac0977a9731101346. CRLF-vs-LF publication-tool mismatch was corrected by comparing committed Git blob bytes. Preserve prior history/evidence; documentation delivery alone never completes a package milestone.
+
+Existing BUG001#144 (3points) and BUG002#145 (5points), created by separate R1
+handoff preparation, now link PR146 and track these same two defects. Confirmed
+points and In progress states; no duplicate implementation scope. GOV008#143 and
+its handoff preparation remain untouched.
