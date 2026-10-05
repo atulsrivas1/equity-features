@@ -1,15 +1,15 @@
 # Equity Features
 
-Experimental0.0.3a3, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
+Experimental0.0.3a4, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
 R1 session calculations use caller-supplied immutable canonical inputs and explicit
 config/entity/source/coverage/knowledge declarations. Core imports require no
 optional backend or source acquisition. Contracts depend only on stdlib; features
 depend inward on the exact contracts package version.
 
-The39-ID catalog advertises30 implemented batch IDs,23 R1 update/restore IDs and22
+The39-ID catalog advertises31 implemented batch IDs,23 R1 update/restore IDs and22
 conditional merge IDs. Bar/price, interval structure, trade aggregates/topK,
 sampled quote summaries and continuous time-weighted spread are implemented.
-Continuous integration merge is unsupported; seven history IDs support batch; other R2/custom execution remains false.
+Continuous integration merge is unsupported; all eight history IDs support batch; other R2/custom execution remains false.
 Typed structured results, quality/provenance/evidence, exact checked units/counts,
 UTCns, explicit copied Arrow/NumPy bridges and stable contract errors apply.
 
@@ -38,3 +38,6 @@ EQ028 adds exact SMA/anchored EMA and an owned exact SMAReference dependency;
 
 EQ029 adds anchored Wilder RSI/ATR with explicit gaps/previous close;
 [API](../../docs/api/HISTORY.md), [qualification](../../docs/stories/EQ-029_DELIVERY.md).
+
+EQ030 adds centered sample return volatility with explicit scaling/default1;
+[API](../../docs/api/HISTORY.md), [qualification](../../docs/stories/EQ-030_DELIVERY.md).

@@ -167,3 +167,18 @@ source/main docs/bothOS CI and actual bundles/FOURfresh installed pairs each472t
 fifteenexamples pass. [Receipt](../stories/EQ-029_DELIVERY.md). Explicit epoch and
 ratio-preserving batch behavior are qualified; final receipt publication still
 gates Done. Numerical representation and admitted source proof remain distinct.
+
+## EF-L017 tiny nonzero centered variance —2026-10-05
+
+EQ030's int64-limit fixture has three closes that all round to the same Float64
+price but distinct exact simple returns; the resulting sample volatility is
+strictly positive near1e-38. Absolute atol1e-12 alone would permit an incorrect0.
+Independent Decimal expectations plus strict positivity/relative checks qualify
+that boundary. [API](../api/HISTORY.md), [plan](../stories/EQ-030_PLAN.md).
+
+Exact transient centered fractions avoid raw-moment cancellation and need no
+negative-variance clamp. Their finite arithmetic/storage cost remains explicit;
+no public state or throughput claim follows. Default A1 is a frozen convention,
+not a provider/calendar inference; explicit factor and sample denominator remain
+part of configuration/math identity. Revisit under actual installed artifacts,
+cross-family causality audit and any future measured numerical backend.
