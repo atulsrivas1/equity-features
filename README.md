@@ -3,10 +3,15 @@
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
 **Status: R0 foundation in development. Mathematical specifications are complete;
-package layout is importable from source. Numerical kernels and artifact delivery
-remain gated. No public registry release.**
+both experimental foundation distributions are delivered through verified
+[internal CI artifacts](docs/BUILD_DELIVERY.md). Contracts/validation/discovery
+are developed in the remaining R0 stories; numerical kernels remain R1/R2.
+No public registry release.**
 
 [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
+
+[Release access and licensing](docs/decisions/release-access.md) separates retained
+foundation artifacts from any future owner-authorized registry publication.
 
 ## Planned architecture
 

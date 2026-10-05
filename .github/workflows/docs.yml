@@ -53,3 +53,6 @@ jobs:
 
       - name: Verify pure package source imports and metadata
         run: python tools/verify_imports.py
+
+      - name: Verify licensing and distribution naming consistency
+        run: python tools/verify_release_policy.py
