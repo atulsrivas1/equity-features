@@ -45,3 +45,14 @@ Typed interval OHLCV and volume shares, explicit per-window coverage and partial
 ## 0.0.2a2 — EQ019
 
 Five eligible trade aggregates with exact wide products/notional, independent absent-payload readiness, explicit normalized eligibility/delivery coverage and causal knowledge admission. No bar-proxy substitution. Capability/unit metadata and registry digest evolve; actual main artifact verification gates delivery.
+
+## 0.0.2a10 — BUG003 interval omission repair
+
+Structure streams preserve bounded per-window known omissions through changed or
+absent certificates, export/restore and legal merge. Contradictory complete interval
+or whole-target claims reject atomically with INCONSISTENT_IDENTITY; independently
+covered unaffected windows remain ready. Fixed declared interval expected counts
+cannot change. State schema2 explicitly adds omission flags; schema1/older exact
+implementation states require replay, with no implicit migration. Formulas unchanged.
+Experimental main Actions artifacts remain the delivery channel; issue162 records
+final qualification. Historical R1 acceptance remains dated evidence.

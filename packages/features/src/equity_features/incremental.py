@@ -35,6 +35,7 @@ class _StreamState:
     sealed: PrefixCoverage | None = None
     bars: _BarTotals | None = None
     windows: tuple[_BarTotals,...] = ()
+    window_gaps: tuple[bool,...] = ()
     trades: _TradeTotals | None = None
     top: _TopTotals | None = None
     quotes: _QuoteTotals | None = None
@@ -70,7 +71,9 @@ class SessionAccumulator:
         fields=population.fields
         if family in ('bars','structure'):
             self._state.bars=_BarTotals(fields)
-            if family == 'structure': self._state.windows=tuple(_BarTotals(fields) for _ in config.session.intervals)
+            if family == 'structure':
+                self._state.windows=tuple(_BarTotals(fields) for _ in config.session.intervals)
+                self._state.window_gaps=tuple(False for _ in config.session.intervals)
         elif family == 'trades': self._state.trades=_TradeTotals(fields)
         elif family == 'top_k': self._state.top=_TopTotals(fields,k=cast(int,params['top_k']))
         elif family == 'quotes': self._state.quotes=_QuoteTotals(fields,limit=cast(int,params['observation_limit']),scale=cast(PriceUnit,config.price_unit).scale)
@@ -138,6 +141,10 @@ class SessionAccumulator:
         if expected is not None and candidate.observed > expected:
             raise ContractError(ErrorCode.BOUNDS,'supplied population exceeds declared final expected count')
         if not batch.metadata.coverage.complete: candidate.known_gap=True
+        if self._family == 'structure':
+            declarations={x.name:x.coverage for x in batch.metadata.interval_coverage}
+            candidate.window_gaps=tuple(gap or (interval.name in declarations and not declarations[interval.name].complete) for interval,gap in zip(self._config.session.intervals,candidate.window_gaps,strict=True))
+            candidate.known_gap=candidate.known_gap or any(candidate.window_gaps)
         known=columns.get('known_at_ns')
         for i in range(batch.row_count):
             text=self._config.availability.knowledge_reason(cast(int | None,known[i]) if known is not None else None)
@@ -211,6 +218,30 @@ class SessionAccumulator:
         candidate=self._state.clone()
         if candidate.temporal is not None: candidate.temporal.advance(cutoff)
         if certificate.coverage.expected is not None and certificate.coverage.expected > certificate.coverage.observed: candidate.known_gap=True
+        if self._family == 'structure':
+            declared={x.name:x for x in certificate.interval_coverage}
+            configured={x.name:x for x in config.session.intervals}
+            fixed={x.name:x for x in self._population.metadata.interval_coverage}
+            for name,item in declared.items():
+                if name not in configured or (item.start_ns,item.end_ns) != (configured[name].start_ns,configured[name].end_ns):
+                    raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,'prefix interval/config mismatch')
+                if name in fixed and fixed[name].coverage.expected is not None and item.coverage.expected != fixed[name].coverage.expected:
+                    raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,'interval expected population contradicts fixed declaration')
+            gaps=[]
+            for interval,window,gap in zip(config.session.intervals,candidate.windows,candidate.window_gaps,strict=True):
+                delivery=declared.get(interval.name)
+                if delivery is not None:
+                    coverage=delivery.coverage
+                    if coverage.observed != window.observed:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,'actual interval population/certificate mismatch')
+                    if gap and coverage.complete:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,'known interval omission requires replay')
+                    gap=gap or (coverage.expected is not None and coverage.expected > coverage.observed)
+                gaps.append(gap)
+            candidate.window_gaps=tuple(gaps)
+            candidate.known_gap=candidate.known_gap or any(candidate.window_gaps)
+            if candidate.known_gap and certificate.coverage.complete:
+                raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,'known interval omission contradicts complete target; replay required')
         metadata=self._metadata(config,supplied)
         if candidate.bars is not None:
             if self._family == 'structure': result=self._structure(candidate,config,certificate,metadata,supplied)

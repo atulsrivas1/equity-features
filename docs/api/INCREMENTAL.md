@@ -1,4 +1,4 @@
-# Session accumulators — experimental0.0.2a9
+# Session accumulators — experimental0.0.2a10
 
 `equity_features.incremental.SessionAccumulator(family, config, *, entity,
 population, prior_close=None, seed=None)` receives owned data/configuration only.
@@ -90,7 +90,7 @@ boundary guard remains development policy, not a runtime sandbox. [Example](../.
 prior_close=None, seed=None)` returns a fresh independent calculator. Supply the
 same original declarations and one-row enrichments; no source rows are fetched.
 The fingerprint covers config/algorithm/schema, entity, complete source/population,
-units/adjustments/sampling, enrichments and math/backend identity. Schema1 requires
+units/adjustments/sampling, enrichments and math/backend identity. Schema2 requires
 an exact implementation version; no migration between experimental versions.
 
 Canonical JSON stores arbitrary-width exact integers within their checked field
@@ -145,3 +145,27 @@ state can update the remaining contiguous prefix or export/restore. Originals
 remain unchanged on success or rejection. All22 noncontinuous R1 IDs qualify;
 continuous batch/update/restored replay qualifies, arbitrary merge does not.
 See [synthetic merge example](../../examples/session_merge.py).
+
+## BUG003 closed-window omission governance (0.0.2a10)
+
+A structure accumulator retains one Boolean omission flag per configured window.
+A closed interval certificate with expected>observed, or an incomplete chunk-local
+interval declaration, permanently records missing delivery for that window and
+the whole target. Later complete affected-window or whole-target claims raise
+INCONSISTENT_IDENTITY before changing state; lowering or omitting an incomplete
+certificate cannot clear the flag. An unchanged fixed population interval expected
+count is also required when one was originally supplied. Unknown expected without
+a concrete known omission may later be certified complete. Source assertions remain
+caller-owned; no discarded source history is authenticated.
+
+Unaffected independently covered interval OHLCV remains available under incomplete
+whole coverage. Shares need a complete whole denominator and stay unavailable.
+Corrections require a new accumulator and replay of complete supplied facts.
+Unpublished legal partition merge ORs each flag; restore preserves flags. Candidate
+validation makes contradictory snapshot/finalize rejection atomic. Additional state
+is O(configured windows), independent of row/chunk history.
+
+State schema2 adds window_gaps and rejects schema1; exact implementation version
+is still mandatory. No implicit migration can invent historical omitted-window
+facts. Replay old experimental states with their original supplied input instead.
+Formula IDs and equations stay unchanged; both distribution versions are0.0.2a10.
