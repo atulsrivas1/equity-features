@@ -1,13 +1,13 @@
 """Pure in-memory experimental contracts; optional backends import explicitly."""
 from .inputs import (
     AdjustmentSpec, BatchMetadata, CanonicalBatch, Cell, Column, Coverage,
-    DataKind, DType, Field, InputSchema, InputScope, PriceUnit, SourceBinding, schema_for,
+    DataKind, DType, Field, InputSchema, InputScope, IntervalCoverage, PriceUnit, SourceBinding, schema_for,
 )
 
 from .specs import AvailabilitySpec, ConfigSpec, IntervalSpec, Parameter, SessionSpec, WindowSpec
 
 from .errors import ContractError, ErrorCode
-from .results import (BreadthCounts, BreadthFraction, EntityKey, EvidenceRow,
+from .results import (IntervalOHLCV, IntervalOHLCVRow, IntervalVolumeShares, IntervalVolumeShareRow, BreadthCounts, BreadthFraction, EntityKey, EvidenceRow,
     FeatureColumn, FeatureResult, InputBinding, QualityRow, Reason, ResultCell,
     ResultMetadata, Status, ValueType)
 
@@ -19,9 +19,9 @@ from .normalization import (NormalizationReport, NormalizedBatch, QuantizedPrice
 from .registry import (Capabilities, FeatureDefinition, InputRequirement,
     OutputField, Registry, builtin_registry)
 
-__version__ = "0.0.2a0"
+__version__ = "0.0.2a1"
 __all__ = ["AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
-           "InputScope", "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
+           "IntervalCoverage", "IntervalOHLCV", "IntervalOHLCVRow", "IntervalVolumeShares", "IntervalVolumeShareRow", "InputScope", "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",
            "Parameter", "SessionSpec", "WindowSpec", "ContractError", "ErrorCode",
            "BreadthCounts", "BreadthFraction", "EntityKey", "EvidenceRow", "FeatureColumn",

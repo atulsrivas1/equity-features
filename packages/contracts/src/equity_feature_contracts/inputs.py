@@ -132,6 +132,19 @@ class InputScope:
             raise ContractError(ErrorCode.INVALID_CONFIG, "Boolean auction construction policy required")
 
 @dataclass(frozen=True)
+class IntervalCoverage:
+    name: str
+    start_ns: int
+    end_ns: int
+    coverage: Coverage
+
+    def __post_init__(self) -> None:
+        if type(self.name) is not str or not self.name.strip() or type(self.coverage) is not Coverage:
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "named typed interval coverage required")
+        if any(type(x) is not int or not I64_MIN <= x <= I64_MAX for x in (self.start_ns,self.end_ns)) or self.start_ns >= self.end_ns:
+            raise ContractError(ErrorCode.BOUNDS, "positive UTCns interval coverage bounds required")
+
+@dataclass(frozen=True)
 class BatchMetadata:
     namespace: str
     source: SourceBinding
@@ -143,10 +156,18 @@ class BatchMetadata:
     ordering: str = "declared"
     duplicate_policy: str = "reject"
     scope: InputScope | None = None
+    interval_coverage: tuple[IntervalCoverage, ...] = ()
 
     def __post_init__(self) -> None:
         if self.scope is not None and type(self.scope) is not InputScope:
             raise ContractError(ErrorCode.INVALID_SCHEMA, "typed input scope required")
+        if type(self.interval_coverage) not in (tuple,list) or any(type(x) is not IntervalCoverage for x in self.interval_coverage):
+            raise ContractError(ErrorCode.INVALID_SCHEMA, "concrete typed interval coverage required")
+        object.__setattr__(self,"interval_coverage",tuple(self.interval_coverage))
+        if len({x.name for x in self.interval_coverage}) != len(self.interval_coverage):
+            raise ContractError(ErrorCode.DUPLICATE, "duplicate interval coverage name")
+        if self.interval_coverage and (self.scope is None or any(x.start_ns < self.scope.start_ns or x.end_ns > self.scope.end_ns for x in self.interval_coverage)):
+            raise ContractError(ErrorCode.BOUNDS, "interval coverage outside declared input scope")
         if type(self.source) is not SourceBinding or type(self.coverage) is not Coverage or type(self.adjustment) is not AdjustmentSpec or (self.price_unit is not None and type(self.price_unit) is not PriceUnit):
             raise ContractError(ErrorCode.INVALID_SCHEMA, "typed immutable metadata components required")
         if (type(self.namespace) is not str or not self.namespace.strip()) or self.quantity_unit != "shares":

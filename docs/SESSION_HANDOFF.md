@@ -191,3 +191,17 @@ its handoff preparation remain untouched.
 Execution began2026-10-05 from main0f5165a. BUG001/002 live closed/Done and PR146/148 receipts verified/reused. Isolated worktree preserves the occupied repair checkout. EQ017#21 and E04#20 now In progress;8points confirmed. Pre-code plan stories/EQ-017_PLAN.md freezes API, explicit InputScope/eligibility/auction coverage, supplied prior close, independent readiness, exact arithmetic and0.0.2a0 capability migration. Baseline176units/123references/strict typing/purity/import/compatibility/licensing pass. Local implementation and independent tests are underway; no R1 source/delivery acceptance yet. PR120/E03/EQ093 unchanged.
 
 Initial new tests found proxy unit punctuation inconsistent with registry metadata; aligned the actual result unit without changing formula. Strict typing annotation issues corrected. Resume EQ017 author review plus CI and all exact-head/main/download/hash/fresh wheel+sdist gates before Done. Do not start EQ018 until that exit; continue EQ017–026 sequentially to verified R1 acceptance under R1_AUTONOMOUS_HANDOFF.md, then stop before R2.
+
+## EQ-017 accepted — 0.0.2a0
+
+PR149/head33ecb0d14ccc66dcdce876024b7d90e5695da5e5, main674194de7cc0ecb33b0569768572f4c89a1b354c:205units/123references/strict17files/purity/registry/import/compatibility/licensing/repeatbuilds/installedexamples, six exact-head and main OS CI,27publishedGitblobs and both actual bundles/fourfresh installs verified. Receipt: stories/EQ-017_DELIVERY.md and issue21. EQ017 now Done; EQ018#22 Ready. All other R1 stories still Backlog; E04 remains In progress.
+
+Recovery: post-merge helper tried creating existing local main and stopped; preserved that branch, detached this worktree at exact origin/main and checked live GitHub default-branch identity before main acceptance. Failed watcher did not count.
+
+Resume on an isolated codex/eq-018 branch from main674194de7cc0ecb33b0569768572f4c89a1b354c; read live issue/Project, write EQ018 full pre-code plan (5provisionalpoints), typed per-interval outputs, whole-bar alignment/coverage and earlyclose/auction tests. Finish each subsequent story with full delivery gates; no R2 or deferredPR120 work.
+
+## EQ018 active
+
+Pre-code plan stories/EQ-018_PLAN.md confirms5points. Typed IntervalCoverage and IntervalOHLCV/IntervalVolumeShares, derived checked whole-bar reductions, independent window/target readiness and Arrow nested quality implemented locally at0.0.2a1.222units (17new)/123references/strict17files/purity/registry/import/planning pass. Initial Arrow-to-Python nested UTC timestamp check failed on Windows without tzdata; replaced datetime conversion with direct typed field/int64 inspection, preserving nanoseconds and existing backend pins. Purity guard conservatively rejected a data field named open; chose explicit open_price/high_price/low_price/close_price fields, preserving the guard. No delivery claimed; next gates are draftPR/authorreview/Test/repeatbuild/installed4examples/exact-headmainCI/actualbundles.
+
+EQ018 author review found that a normal supplied scheduled close was copied into shorter transient reduction bounds, triggering a false early-close mismatch. Derived reduction windows now omit calendar schedule fields while the public result retains the original target config digest/session policy. Added an independent normal-scheduled-close regression;223units pass. Final head/build/CI gates must rerun after this correction.

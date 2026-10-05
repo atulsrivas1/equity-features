@@ -99,3 +99,7 @@ compatibility, evidence bounds/causal exclusions/auction exceptions, copied Arro
 output and typed malformed JSON/NumPy/Arrow errors. Existing123mathematical
 references remain separate equation evidence. Repeat build/install/example,
 exact-head/main CI and actual artifact verification gate delivery.
+
+## EQ018 structured migration —0.0.2a1
+
+IntervalOHLCV/IntervalVolumeShares typed table cells extend ValueType. Nested IntervalSpec/QualityRow and nullable numerical fields preserve independent per-window readiness. FeatureResult permits explicit typed partial tables only with consistent aggregate expected/ready counts and keyed row quality. Missing sources remain null. Arrow materializes list-of-struct data with UTCns and nested quality; [interval API](../api/SESSION_STRUCTURE.md) describes schema, arithmetic and copy costs.

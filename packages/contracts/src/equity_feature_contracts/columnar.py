@@ -7,10 +7,10 @@ from typing import Any, Mapping
 import numpy as np
 import pyarrow as pa
 from .errors import ContractError, ErrorCode
-from .results import BreadthCounts, BreadthFraction, FeatureResult, ValueType
+from .results import BreadthCounts, BreadthFraction, FeatureResult, ValueType, IntervalOHLCV, IntervalVolumeShares
 from .inputs import (
     AdjustmentSpec, BatchMetadata, CanonicalBatch, Cell, Column, Coverage,
-    DataKind, DType, InputScope, PriceUnit, SourceBinding, schema_for,
+    DataKind, DType, InputScope, IntervalCoverage, PriceUnit, SourceBinding, schema_for,
 )
 
 # Backend objects are untyped at this optional bridge; core admission checks every cell.
@@ -53,7 +53,7 @@ def _from_arrow(value: Any) -> CanonicalBatch:
     kind = DataKind(envelope["kind"])
     meta = envelope["metadata"]
     unit = meta["price_unit"]
-    metadata = BatchMetadata(namespace=meta["namespace"], source=SourceBinding(**meta["source"]), coverage=Coverage(**meta["coverage"]), price_unit=PriceUnit(**unit) if unit is not None else None, adjustment=AdjustmentSpec(**meta["adjustment"]), sampling=meta["sampling"], quantity_unit=meta["quantity_unit"], ordering=meta["ordering"], duplicate_policy=meta["duplicate_policy"], scope=InputScope(**meta["scope"]) if meta.get("scope") is not None else None)
+    metadata = BatchMetadata(namespace=meta["namespace"], source=SourceBinding(**meta["source"]), coverage=Coverage(**meta["coverage"]), price_unit=PriceUnit(**unit) if unit is not None else None, adjustment=AdjustmentSpec(**meta["adjustment"]), sampling=meta["sampling"], quantity_unit=meta["quantity_unit"], ordering=meta["ordering"], duplicate_policy=meta["duplicate_policy"], scope=InputScope(**meta["scope"]) if meta.get("scope") is not None else None, interval_coverage=tuple(IntervalCoverage(x["name"],x["start_ns"],x["end_ns"],Coverage(**x["coverage"])) for x in meta.get("interval_coverage",())))
     schema = schema_for(kind)
     columns = []
     for index, field in enumerate(value.schema):
@@ -124,6 +124,13 @@ def to_arrow_result(result: "FeatureResult") -> dict[str, Any]:
         elif dtype == ValueType.FLOAT64: arrow_type = pa.float64()
         elif dtype == ValueType.BOOL: arrow_type = pa.bool_()
         elif dtype == ValueType.STRING: arrow_type = pa.string()
+        elif dtype in (ValueType.INTERVAL_OHLCV,ValueType.INTERVAL_VOLUME_SHARES):
+            interval_type=pa.struct([pa.field("name",pa.string(),False),pa.field("start_ns",pa.timestamp("ns",tz="UTC"),False),pa.field("end_ns",pa.timestamp("ns",tz="UTC"),False)])
+            entity_type=pa.struct([pa.field("instrument_id",pa.string(),False),pa.field("session_id",pa.string(),False)])
+            quality_type=pa.struct([pa.field("entity",entity_type,False),pa.field("feature_id",pa.string(),False),pa.field("status",pa.string(),False),pa.field("expected",pa.int64(),True),pa.field("observed",pa.int64(),False),pa.field("reasons",pa.list_(pa.string()),False)])
+            fields=[pa.field("interval",interval_type,False),pa.field("quality",quality_type,False)]
+            fields += [pa.field(name,pa.float64(),True) for name in ("open_price","high_price","low_price","close_price")] + [pa.field("volume",pa.int64(),True)] if dtype == ValueType.INTERVAL_OHLCV else [pa.field("share",pa.float64(),True)]
+            arrow_type=pa.list_(pa.struct(fields))
         else:
             names = ("advancing","declining","unchanged","eligible","expected") if dtype == ValueType.BREADTH_COUNTS else ("above","eligible","expected")
             arrow_type = pa.struct([pa.field(name,pa.int64(),nullable=False) for name in names])
@@ -131,6 +138,7 @@ def to_arrow_result(result: "FeatureResult") -> dict[str, Any]:
         for value in column.values:
             if isinstance(value,BreadthCounts): payload.append({**asdict(value),"eligible":value.eligible})
             elif isinstance(value,BreadthFraction): payload.append(asdict(value))
+            elif isinstance(value,(IntervalOHLCV,IntervalVolumeShares)): payload.append([asdict(row) for row in value.rows])
             elif value is not None and dtype == ValueType.DECIMAL128: payload.append(Decimal(value))
             else: payload.append(value)
         schema = pa.schema([pa.field("instrument_id",pa.string(),nullable=False),pa.field("session_id",pa.string(),nullable=False),pa.field("value",arrow_type,nullable=True)],metadata=metadata)
