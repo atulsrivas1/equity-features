@@ -368,3 +368,6 @@ both the owner override and its actual implementation chronology; only docs conf
 BUG004 local repeat-build and two fresh installs each380tests/eleven examples pass;
 new exact merged-head CI is required before publication. Historical queued-stage
 notes above are dated work evidence, not current completion claims.
+## Deferred reviewer branch synchronization —2026-10-05
+
+PR120 was synchronized with current main solely to remove merge conflicts. It remains a draft; hosted activation/qualification and owner resumption are still outstanding. Historical scope-cleanup command failure was corrected before publication; no failed command was counted as delivery. The old93-story snapshot is superseded by94active IDs including EQ095, while EQ094 stays retired. Current owner R2-before-R3 and self-review/CI rules remain unchanged.
