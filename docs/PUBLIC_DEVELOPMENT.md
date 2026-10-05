@@ -56,3 +56,5 @@ Until GitHub setup finishes, store reviewable drafts here and clearly report loc
 ## Separate automated PR review
 
 The owner requested a separate Codex reviewer. Follow [CODE_REVIEW.md](CODE_REVIEW.md) and AGENTS.md Code Review Rules. Hosted activation is pending GOV-005 verification. New PRs, including setup, wait for an actual separate Codex response and documented findings disposition before release readiness; missing integration is recorded and resolved, not silently bypassed. Automated review, author self-review and human review remain distinct. No claim of automatic branch-protection enforcement is made.
+
+Owner decision (2026-10-04): defer Codex integration setup and continue EQ stories. GOV-005/PR120 remain open and deferred in Code review; no hosted activation or automated review claimed. Until activation is explicitly resumed and verified, use the existing self-review plus CI/acceptance workflow, accurately labeled. This explicit owner decision postpones the proposed separate-review gate; it does not waive tests, documentation or release verification.
