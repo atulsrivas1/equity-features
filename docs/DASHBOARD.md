@@ -1,6 +1,7 @@
 # Development dashboard
 
-Status: planning. No calculation package implementation or release yet.
+R0 experimental foundation is delivered. Numerical kernels remain R1/R2.
+Use the live Project for current work status.
 
 [All stories](https://github.com/atulsrivas1/equity-features/issues?q=is%3Aissue+label%3Atype%3Astory) · [Epics](https://github.com/atulsrivas1/equity-features/issues?q=is%3Aissue+label%3Atype%3Aepic) · [Milestones](https://github.com/atulsrivas1/equity-features/milestones)
 
@@ -39,3 +40,12 @@ Status: planning. No calculation package implementation or release yet.
 verified experimental artifacts and its limits. Consult the live Project for current
 status. EQ-017 is eligible for Ready after final R0 publication gates; this mission
 stops before R1 implementation. See [V1 scope](features/V1_SCOPE.md).
+
+## Next execution package
+
+[R1 autonomous handoff](R1_AUTONOMOUS_HANDOFF.md) covers EQ-017–026, their
+provisional points, plans, tests, documentation and verified experimental delivery.
+The R0 follow-up review identified [BUG-001 #144](https://github.com/atulsrivas1/equity-features/issues/144)
+and [BUG-002 #145](https://github.com/atulsrivas1/equity-features/issues/145), assigned
+to R1 as prerequisites before EQ-017. Their fixes are pending; the handoff does not
+claim R1 implementation or start a new chat. Preparation: [GOV-008 #143](https://github.com/atulsrivas1/equity-features/issues/143).

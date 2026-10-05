@@ -1,6 +1,37 @@
 # Development continuity
 
-Updated2026-10-05 (Eastern). Read AGENTS.md, PUBLIC_DEVELOPMENT.md and R0_AUTONOMOUS_HANDOFF.md. GitHub Project remains the status authority.
+Updated2026-10-05 (Eastern). Read AGENTS.md, PUBLIC_DEVELOPMENT.md and R1_AUTONOMOUS_HANDOFF.md for the next mission. GitHub Project remains the status authority.
+
+## R1 handoff preparation and R0 follow-up review
+
+Owner requested a handoff package for a new R1 development chat under GOV-008 #143.
+[R1_AUTONOMOUS_HANDOFF.md](R1_AUTONOMOUS_HANDOFF.md) contains the bounded mission,
+two prerequisite fixes, ten story plans (76 provisional points plus 8 prerequisite
+points), architecture/contract evolution, tests, documentation, delivery/stop gates
+and copyable kickoff prompt. This chat prepares documentation; it does not start
+R1 kernels or a new chat. Existing R0 evidence remains historical and PR120 deferred.
+
+Follow-up review of main 8f363cbccc91ae32363b856701888f855467aea4 reran 170 unit
+tests, 123 references, strict typing on 14 files, policy/compatibility/import/registry
+checks, repeat artifact builds and clean wheel/sdist installs with both examples.
+Local Windows hashes matched delivery evidence; live main Windows/Linux CI was
+green and both bundles unexpired. All R0 EQ stories were closed/Done and R0 closed.
+Review found two subsequent P2 defects, now tracked as BUG-001 #144 (exact-cutoff
+ordinary market exclusion evidence) and BUG-002 #145 (backend I/O checker bypass).
+The original R0 chat was observed actively repairing both findings in its own
+branch ([PR146](https://github.com/atulsrivas1/equity-features/pull/146)) during
+preparation; the handoff was isolated to avoid interfering. Both
+remain verification prerequisites: reuse actually delivered repairs, do not duplicate
+active work, and record acceptance on the bug issues. No fix is claimed here.
+Resolve them before EQ-017, whose
+dependency readiness must be reassessed. Do not erase accepted R0 history.
+
+Resume in the execution chat: inspect live issues/Project/checkout, read the R1
+package, baseline checks, inspect the R0 repair delivery; reuse accepted fixes or
+complete available prerequisite work under its issue/plan, then
+EQ-017–026 sequentially. No public registry, later-release implementation, concrete
+adapters/workers or external-product integration. Preparation publication and exact
+head/main checks must be verified under GOV-008 before its Done status.
 
 ## Verified delivery and current work
 
