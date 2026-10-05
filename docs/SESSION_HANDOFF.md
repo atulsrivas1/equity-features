@@ -22,7 +22,7 @@ published blobs verified; public owner/Apache metadata and read-only PyPI404
 snapshot recorded. E02 Done with all native children accepted. This neither reserves
 registry names nor authorizes publication.
 
-EQ-011 In progress,8points confirmed before code. Plan: stories/EQ-011_PLAN.md.
+EQ-011 Test,8points confirmed before code. Plan: stories/EQ-011_PLAN.md.
 Immutable canonical core for five kinds, source/unit/coverage/adjustment/sampling
 metadata, explicit Arrow/NumPy materializing bridges and27independent unit cases
 implemented. Core imports exclude optional backends. Experimental version0.0.1a1.
@@ -33,8 +33,12 @@ build had already produced earlier bytes; its installed sdist correctly failed t
 new27case tests. Those stale bytes are rejected; final source is rebuilt with the
 source/tests frozen throughout build/install verification. Synthetic installed
 example: examples/canonical_inputs.py.
-Semantic validation remains EQ-014. Source review, all references, repeat build,
-clean install, exact-head/main CI and actual artifact delivery remain mandatory.
+Semantic validation remains EQ-014. Author review resolved lazy-container guards
+and Unicode documentation issues. All123references,27unit cases, strict typing,
+core isolation and boundary checks pass. Final source repeat-built four archives
+with SHA256 parity and clean-installed wheel/sdist pairs; both installed27cases
+and the synthetic example pass. Exact final-head/main CI, publication blob checks
+and actual main artifact delivery remain mandatory.
 E03 now active and remains open through EQ-093/R3.
 
 ## Failures and corrections
@@ -59,7 +63,9 @@ E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone
 ## Exact resume steps
 
 1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
-2. Active EQ-011: finish author review of inputs/columnar/27unit tests and docs/contracts/INPUTS.md. Run all gates, open linked draft PR, exact-head CI, squash publication, committed blob verification and main CI; deliver/verify0.0.1a1 artifacts before Done.
+2. Active EQ-011/PR135: final source and local repeat-build/installed tests passed.
+Assess exact final-head Linux/Windows CI, squash publication, committed blob
+verification and main CI; deliver/verify0.0.1a1 main artifacts before Done.
 3. After EQ-011 Done, pull EQ-012 issue15 with live prerequisite/Project inspection and full pre-code plan. Then EQ-013/014/015/016 in dependency order, no later-release calculators.
 4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
 5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
