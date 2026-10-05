@@ -65,15 +65,23 @@ strict typing/isolation/boundary, repeat builds and installed registry example p
 All six head/main checks and18published blobs verified; both actual main bundles
 hashed/inspected; four fresh installs each passed145tests/example. Evidence on issue18.
 
-EQ-016 In progress,8points; plan stories/EQ-016_PLAN.md. Alpha6 pure historical and
-optional async-live Protocols, capability/request/finite batch/error declarations,
-bounded concrete-sequence conformance and outside-package synthetic trade example.
-Acquisition bounds and source/chunk coverage are explicit; no causal known-at filter.
-The example is historical ordinary-event only, preserves source evidence, rejects
-unsupported/auction/live/out-of-range/limit requests, and checks batch cancellation.
-Review/testing/main artifact acceptance remain. E03 stays open, milestone null for R3.
+EQ-016 Done via PR141/head67be802cf30177e4b6958cdd9ac0d4cc199b23ed,
+main8a857f1270a1b9a976ed8404ed70de9facd5636a, alpha6.25new/170total unit cases/123references,
+strict types14sourcefiles/registry parity/isolation/boundary, repeat builds and both
+installed examples pass. Six exact-head/main checks,15published blobs and both actual
+main bundles verified; four fresh pair installs passed170cases/both examples.
+Evidence on issue19 and [final R0 acceptance](R0_ACCEPTANCE.md).
+
+All16R0 EQ stories are Done. The final acceptance delivery procedure verifies this
+report publication/main gates, closes R0 and prepares EQ-017 Ready. See live milestone/
+Project and R0_ACCEPTANCE.md for the completed decision. No active implementation remains. E03 remains open/
+In progress, already milestone null, for R3 EQ-093. Deferred GOV-005/PR120 unchanged.
 
 ## Failures and corrections
+
+- Final acceptance audit stopped when a scratch first-page Project cache omitted
+  the R3/deferred issue IDs. Refreshed all112items using REST pagination, then
+  verified the actual open/Backlog/deferred states; no acceptance gate was skipped.
 
 - EQ-012 Project PATCH returned truncated JSON after applying Ready to release.
   Checked merge stopped. Verified live state, used unique per-call request files,
@@ -104,10 +112,11 @@ E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone
 ## Exact resume steps
 
 1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
-2. Complete EQ-016 review/checks, exact-head/main CI and actual alpha6 four installs
-before Done. EQ-015 actual alpha5 artifact acceptance is complete.
-3. Perform final R0 acceptance and spanning E03 reconciliation. Prepare EQ-017 Ready
-only after R0 acceptance; stop without implementing it or later-release calculators.
+2. R0 work stops at acceptance. The delivery procedure verifies report PR/main gates,
+closes R0 and sets EQ-017 Ready; consult live milestone/Project for the completed state.
+No R1 code is started in this mission.
+3. A later owner-directed R1 execution may pull EQ-017 from Ready, inspect live status,
+read accepted EQ-002 bar mathematics and R0 APIs, and create its full pre-code plan.
 4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
 5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
 
