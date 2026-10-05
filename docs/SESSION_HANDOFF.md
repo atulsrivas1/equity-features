@@ -433,3 +433,37 @@ ownership records; when prerequisites finish, merge current main into PR168
 without force-pushing, retain both appended histories, and verify its new exact
 head checks before the normal lifecycle/publication gates. No repair/knowledge
 branch or remote PR was mutated by this recheck.
+
+### GOV010 actual publication recheck —2026-10-05
+
+On the owner's request to proceed, fetched main
+`65e66fd8940da3c852603e6d4ae61f0492639cf2`: PR168 had already merged at final
+head `27ad4dea096ec21f9025f3e8ea24456427fb2be4`; PR120/172 also had merged. Read
+the accepted AGENTS/PROJECT_KNOWLEDGE/backlog workflow/review guidance. The
+explicit owner deferral in PUBLIC_DEVELOPMENT/CODE_REVIEW still controls hosted
+review activation; merged guidance does not prove a completed automated review.
+Merged current main into local preparation (cbec079), resolving only continuity
+by preserving BOTH full main repair/knowledge histories and local appended plans/
+ownership records. No remote branch reset or force-push.
+
+All five PR168 handoff blobs equal published main, and package/tool/test/workflow
+source is unchanged by its merge. UTF8/94 active stories/twelve mappings/89points/
+local links pass. Main Foundation37373639567 is successful on Windows/Linux.
+Both actual source-bound, clean main bundles downloaded and manifest/hash/content/
+license/typing verified: Linux artifact11369939284, expiry2026-11-04T21:15:57Z,
+CPython3.12.14; Windows11369803794, expiry2026-11-04T21:06:35Z,CPython3.12.10.
+All four hashes for each OS equal the independently qualified BUG003 receipt
+archives; Windows also equals this session's fresh-installed baseline. Installed
+evidence is reused only for identical package bytes, not for changed source.
+
+GOV010 remains Test. Final PR push Linux job111976063327/run37373457720 failed
+with annotation "The job was not acquired by Runner of type hosted even after
+multiple attempts". One bounded failed-job retry at unchanged exact head was
+requested; run attempt2 queued. Main Documentation37373639538 queued. Actual
+success is still required; no retrospective gated-merge or lifecycle claim.
+Evidence is on issue167 comment6003125513. The repair chat is idle; BUG003 remains
+open/Released and BUG004 open/Test. PR171 head2ce6a64 now conflicts with main,
+and remains owned by the repair session. Explicit human authorization to message
+that session or transfer remaining delivery was requested; no message or PR171
+mutation occurred. R2 calculation work remains gated, with all twelve plans
+preserved and R3 feature pause retained.
