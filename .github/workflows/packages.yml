@@ -21,3 +21,13 @@ jobs:
       - run: python -m pip check
       - run: python tools/verify_imports.py
       - run: python tools/verify_compatibility.py
+      - run: python -m mypy --strict packages/contracts/src packages/features/src
+      - run: python tools/check_boundary.py
+      - run: python tools/build_foundation.py
+      - name: Retain verified experimental foundation artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: foundation-${{ github.sha }}-${{ matrix.os }}
+          path: dist/
+          retention-days: 30
+          if-no-files-found: error
