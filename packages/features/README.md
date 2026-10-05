@@ -1,25 +1,27 @@
 # Equity Features
 
-Experimental0.0.2a6, Apache-2.0, depending inward on equity-feature-contracts.
-Nineteen batch bar/price/structure/trade IDs are implemented through equity_features.session family calls.
-Source-independent caller-supplied canonical inputs, config and entity are required;
-see docs/api/SESSION_BARS.md and examples/session_bars.py in the repository.
+Experimental0.0.2a9, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
+R1 session calculations use caller-supplied immutable canonical inputs and explicit
+config/entity/source/coverage/knowledge declarations. Core imports require no
+optional backend or source acquisition. Contracts depend only on stdlib; features
+depend inward on the exact contracts package version.
 
-Immutable39-ID discovery and caller-scoped metadata registration remain available.
-Only the nineteen bar/price/structure/trade IDs advertise batch support; other families and every
-update/restore/merge/custom execution mode remain unimplemented.
+The39-ID catalog advertises23 implemented R1 batch/update/restore IDs and22
+conditional merge IDs. Bar/price, interval structure, trade aggregates/topK,
+sampled quote summaries and continuous time-weighted spread are implemented.
+Continuous integration merge is unsupported; R2/custom execution remains false.
+Typed structured results, quality/provenance/evidence, exact checked units/counts,
+UTCns, explicit copied Arrow/NumPy bridges and stable contract errors apply.
 
-Delivery uses experimental main GitHub Actions artifacts, pending verified receipts
-for this version. No public registry, stable API or throughput claim.
+SessionAccumulator has bounded fixed summaries/windows/K rows/N observations,
+explicit prefix certificates, forward watermarks, immutable exact in-memory state
+and compatible owned restore. Merge requires adjacent disjoint caller-certified
+ranges, source/config/count/order compatibility and no publication/finalization.
+Digests are corruption checks, not authentication; global discarded identity and
+source delivery trust remain caller-owned. No persistence or throughput promise.
 
-EQ020 adds typed bounded original topK trade rows and exact evidence, batch only. See docs/api/SESSION_TOP_K.md in the source repository. No merge/update/restore capability or throughput claim.
-
-EQ021 adds compute_quotes for two event-weighted quote IDs with sampling identity and bounded observations. No duration coverage, quantile, streaming or throughput claim. See docs/api/SESSION_QUOTES.md.
-
-EQ022 adds compute_time_weighted, continuous only, with explicit age/initialization/seed, original-anchor expiry and exact category conservation. Batch only; no source acquisition or performance claim.
-
-EQ023 adds SessionAccumulator with supplied chunks, fixed source/schema, explicit prefix certificates, atomic update/snapshot/finalize and bounded family state. Pure single-caller lifecycle; no restore/merge, acquisition or throughput claim.
-
-EQ024 adds immutable AccumulatorState and exact compatible in-memory restore for all23 R1 IDs; see [incremental API](../../docs/api/INCREMENTAL.md). Strict schema/version/source/config checks and bounded owned state apply; digest is not authentication. Merge remains false.
-
-EQ025 qualifies conditional adjacent caller-certified partition merge for22 noncontinuous R1 IDs; current inventory23 batch/update/restore and22 merge. Continuous merge remains false. See the incremental API for proof, order, retention and replay limits.
+See [session API](../../docs/api/INCREMENTAL.md),
+[R1 acceptance](../../docs/R1_ACCEPTANCE.md), and repository examples.
+Experimental main GitHub Actions wheels/sdists are the distribution channel;
+actual source/hashes/expiry/install receipts are recorded per story. No public
+registry publication, stable API, concrete provider or automatic thread ownership.

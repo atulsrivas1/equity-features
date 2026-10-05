@@ -1,8 +1,12 @@
 # Experimental package changes
 
-## 0.0.2a8 - EQ025 under verification
+## 0.0.2a9 - EQ026 final audit under verification
 
-Caller-certified legal adjacent partition merge for22 noncontinuous R1 IDs; owned return state, strict source/config/count/order/prepublication rules, checked totals and bounded K/N unions.363 units include17 equivalence cases with restored/chunk/merge-tree and1,000-event uneven skewed parity. Continuous merge stays unsupported. Full package delivery gates pending.
+Seven independent cross-mode audit cases cover early closes/windows, exact auction boundary evidence, integer notional beyond binary64, scaled quote denominators and seed original-anchor expiry after snapshot/restore. All370 units pass; no numerical defect found. Stale capability/version documentation corrected; final R1 acceptance maps23 IDs and delivery evidence. Full final artifacts and published post-delivery receipt remain required.
+
+## 0.0.2a8 - EQ025 verified experimental delivery
+
+Caller-certified legal adjacent partition merge for22 noncontinuous R1 IDs; owned return state, strict source/config/count/order/prepublication rules, checked totals and bounded K/N unions.363 units include17 equivalence cases with restored/chunk/merge-tree and1,000-event uneven skewed parity. Continuous merge stays unsupported. Accepted delivery receipt linked in SESSION_HANDOFF.md.
 
 ## 0.0.2a7 - EQ024 verified experimental delivery
 
@@ -14,11 +18,11 @@ Shared bounded batch/update reductions for all23 R1 IDs, fixed source/schema pop
 
 ## 0.0.2a5 - EQ022 delivered
 
-Continuous quote time weights with supplied seed/inactive/unknown initialization, original-anchor expiry, exact duration conservation and valid-only means. Typed known zero-valid/initial-unknown diagnostics; missing or incomplete feed stays unavailable. All23 R1 batch IDs implemented; formal delivery pending.
+Continuous quote time weights with supplied seed/inactive/unknown initialization, original-anchor expiry, exact duration conservation and valid-only means. Typed known zero-valid/initial-unknown diagnostics; missing or incomplete feed stays unavailable. All23 R1 batch IDs implemented; accepted delivery receipt linked in SESSION_HANDOFF.md.
 
 ## 0.0.2a4 - EQ021 delivered
 
-Two event-weighted quote IDs with explicit sampling, exact counts, valid-only means and bounded diagnostics. Zero-valid structured results preserve null means and known evidence. No quantiles or time-coverage claim. Twenty-two batch capabilities; delivery gates pending.
+Two event-weighted quote IDs with explicit sampling, exact counts, valid-only means and bounded diagnostics. Zero-valid structured results preserve null means and known evidence. No quantiles or time-coverage claim. Twenty-two batch capabilities; accepted delivery receipt linked in SESSION_HANDOFF.md.
 
 ## 0.0.2a3 — EQ020 delivered
 
