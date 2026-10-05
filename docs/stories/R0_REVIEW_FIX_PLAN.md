@@ -30,3 +30,8 @@ Download/hash/inspect both actual main OS bundles and four fresh pair installati
 before Released/Done. Then restore E02/R0 acceptance and EQ017 Ready without R1 code.
 Publish final delivery identities/expiry/hashes and exact next steps. No independent
 review, registry publication, provider/private data or performance claim.
+
+Existing BUG001#144 (3points) and BUG002#145 (5points), created by separate R1
+handoff preparation, now link PR146 and track these same two defects. Confirmed
+points and In progress states; no duplicate implementation scope. GOV008#143 and
+its handoff preparation remain untouched.

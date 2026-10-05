@@ -142,3 +142,8 @@ restore EQ017 Ready. Stop; no R1 code or deferred reviewer setup. Prior evidence
 ## Historical governance evidence
 
 GOV-006 PR123 published scope correction4a0dda1bb440e7a78750c39d60f2e3f36042a0ae; current generic boundaries preserved. Deferred PR120 synchronized66def0e7bdc708ac82ce3ffeedaf0764f79cbcfe and remains untouched. GOV-007 PR126/127 delivered the autonomous handoff; initial verified main0cf343e14863e41e39ad142ac0977a9731101346. CRLF-vs-LF publication-tool mismatch was corrected by comparing committed Git blob bytes. Preserve prior history/evidence; documentation delivery alone never completes a package milestone.
+
+Existing BUG001#144 (3points) and BUG002#145 (5points), created by separate R1
+handoff preparation, now link PR146 and track these same two defects. Confirmed
+points and In progress states; no duplicate implementation scope. GOV008#143 and
+its handoff preparation remain untouched.
