@@ -1,6 +1,10 @@
 # Experimental package changes
 
-## 0.0.2a3 — EQ020 under verification
+## 0.0.2a4 - EQ021 under verification
+
+Two event-weighted quote IDs with explicit sampling, exact counts, valid-only means and bounded diagnostics. Zero-valid structured results preserve null means and known evidence. No quantiles or time-coverage claim. Twenty-two batch capabilities; delivery gates pending.
+
+## 0.0.2a3 â€” EQ020 delivered
 
 Bounded deterministic topK original trade rows, typed structured Arrow output and exact event/source evidence; explicit K/evidence bound. Twenty implemented batch IDs; other modes remain false. Tests and delivery gates are required before acceptance.
 

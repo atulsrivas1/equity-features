@@ -43,6 +43,8 @@ class ValueType(StrEnum):
     BOOL = "bool"
     BREADTH_COUNTS = "breadth_counts"
     BREADTH_FRACTION = "breadth_fraction"
+    QUOTE_STATE_COUNTS = "quote_state_counts"
+    SAMPLED_SPREAD = "sampled_spread"
     TOP_K_TRADES = "top_k_trades"
     INTERVAL_OHLCV = "interval_ohlcv"
     INTERVAL_VOLUME_SHARES = "interval_volume_shares"
@@ -208,7 +210,97 @@ class TopKTrades:
         if tuple(x.rank_key for x in self.rows) != tuple(sorted(x.rank_key for x in self.rows)):
             raise ContractError(ErrorCode.INVALID_ORDER,"topK rows must be ranked")
 
-ResultCell: TypeAlias = int | float | str | bool | TopKTrades | BreadthCounts | BreadthFraction | IntervalOHLCV | IntervalVolumeShares | None
+@dataclass(frozen=True)
+class QuoteStateCounts:
+    normal: int
+    locked: int
+    crossed: int
+    invalid: int
+
+    def __post_init__(self) -> None:
+        for value in (self.normal,self.locked,self.crossed,self.invalid): _count(value)
+        _count(self.total)
+
+    @property
+    def total(self) -> int: return self.normal+self.locked+self.crossed+self.invalid
+
+    @property
+    def valid(self) -> int: return self.normal+self.locked
+
+@dataclass(frozen=True)
+class QuoteObservation:
+    input_id: str
+    event_id: str
+    event_ns: int
+    order_key: int
+    known_at_ns: int | None
+    bid: int | None
+    ask: int | None
+    state: str
+    spread: float | None
+    bps: float | None
+
+    def __post_init__(self) -> None:
+        _label(self.input_id); _label(self.event_id)
+        for value in (self.event_ns,self.order_key,self.known_at_ns,self.bid,self.ask):
+            if value is not None and (type(value) is not int or not I64_MIN <= value <= I64_MAX):
+                raise ContractError(ErrorCode.BOUNDS,"exact int64 quote observation required")
+        if type(self.event_ns) is not int or type(self.order_key) is not int:
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"nonnull quote ordering required")
+        if self.bid is None or self.ask is None or self.bid <= 0 or self.ask <= 0: expected="invalid"
+        elif self.bid > self.ask: expected="crossed"
+        elif self.bid == self.ask: expected="locked"
+        else: expected="normal"
+        if self.state != expected:
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"quote state contradicts original prices")
+        if expected == "invalid":
+            if self.spread is not None or self.bps is not None:
+                raise ContractError(ErrorCode.INVALID_SCHEMA,"invalid quote diagnostics must be null")
+        elif any(type(x) is not float or not math.isfinite(x) for x in (self.spread,self.bps)):
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"finite quote diagnostics required")
+        elif expected == "locked" and (self.spread != 0 or self.bps != 0):
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"locked diagnostics must be zero")
+        elif expected == "normal" and (self.spread <= 0 or self.bps <= 0):  # type: ignore[operator]
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"normal diagnostics must be positive")
+        elif expected == "crossed" and (self.spread >= 0 or self.bps >= 0):  # type: ignore[operator]
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"crossed diagnostics must be negative")
+
+@dataclass(frozen=True)
+class SampledSpread:
+    sampling: str
+    total: int
+    valid: int
+    mean_spread: float | None
+    mean_bps: float | None
+    observation_limit: int
+    rows: tuple[QuoteObservation, ...] = ()
+
+    def __post_init__(self) -> None:
+        if self.sampling not in ("trade_snapshot","continuous"):
+            raise ContractError(ErrorCode.UNSUPPORTED_SAMPLING,"explicit quote sampling required")
+        _count(self.total); _count(self.valid)
+        if self.valid > self.total or type(self.observation_limit) is not int or not 0 <= self.observation_limit <= 10000:
+            raise ContractError(ErrorCode.BOUNDS,"quote population/observation bound mismatch")
+        if type(self.rows) not in (tuple,list) or any(type(x) is not QuoteObservation for x in self.rows):
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"concrete typed quote observations required")
+        object.__setattr__(self,"rows",tuple(self.rows))
+        if len(self.rows) != min(self.observation_limit,self.total):
+            raise ContractError(ErrorCode.BOUNDS,"quote diagnostic bound/count mismatch")
+        if len({(x.input_id,x.event_id) for x in self.rows}) != len(self.rows):
+            raise ContractError(ErrorCode.DUPLICATE,"duplicate quote diagnostic identity")
+        keys=tuple((x.event_ns,x.order_key) for x in self.rows)
+        if any(a >= b for a,b in zip(keys,keys[1:])):
+            raise ContractError(ErrorCode.INVALID_ORDER,"quote diagnostics must preserve total input order")
+        if self.valid == 0:
+            if self.mean_spread is not None or self.mean_bps is not None:
+                raise ContractError(ErrorCode.INVALID_SCHEMA,"zero-valid means must be null")
+        elif any(type(x) is not float or not math.isfinite(x) or x < 0 for x in (self.mean_spread,self.mean_bps)):
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"finite nonnegative valid means required")
+
+    @property
+    def truncated(self) -> bool: return len(self.rows) < self.total
+
+ResultCell: TypeAlias = int | float | str | bool | QuoteStateCounts | SampledSpread | TopKTrades | BreadthCounts | BreadthFraction | IntervalOHLCV | IntervalVolumeShares | None
 
 @dataclass(frozen=True)
 class FeatureColumn:
@@ -245,6 +337,8 @@ def _value(dtype: ValueType, value: ResultCell) -> None:
     elif dtype == ValueType.BOOL: valid = type(value) is bool
     elif dtype == ValueType.BREADTH_COUNTS: valid = type(value) is BreadthCounts
     elif dtype == ValueType.BREADTH_FRACTION: valid = type(value) is BreadthFraction
+    elif dtype == ValueType.QUOTE_STATE_COUNTS: valid = type(value) is QuoteStateCounts
+    elif dtype == ValueType.SAMPLED_SPREAD: valid = type(value) is SampledSpread
     elif dtype == ValueType.TOP_K_TRADES: valid = type(value) is TopKTrades
     elif dtype == ValueType.INTERVAL_OHLCV: valid = type(value) is IntervalOHLCV
     else: valid = type(value) is IntervalVolumeShares
@@ -387,8 +481,13 @@ class FeatureResult:
                 q = qualities[entity,c.feature_id]
                 if entity.session_id != self.metadata.session_id: raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"result session mismatch")
                 if q.status == Status.AVAILABLE and value is None: raise ContractError(ErrorCode.INVALID_SCHEMA,"available result cannot be null")
-                if q.status != Status.AVAILABLE and value is not None and not (q.status == Status.INCOMPLETE_COVERAGE and isinstance(value,(BreadthCounts,BreadthFraction,IntervalOHLCV,IntervalVolumeShares))):
+                if q.status != Status.AVAILABLE and value is not None and not (q.status == Status.NOT_APPLICABLE and isinstance(value,SampledSpread) and value.valid == 0) and not (q.status == Status.INCOMPLETE_COVERAGE and isinstance(value,(BreadthCounts,BreadthFraction,IntervalOHLCV,IntervalVolumeShares))):
                     raise ContractError(ErrorCode.INVALID_SCHEMA,"unavailable scalar must be null")
+                if isinstance(value,(QuoteStateCounts,SampledSpread)):
+                    if q.observed != value.total or q.expected != value.total:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"complete quote output population/quality mismatch")
+                    if isinstance(value,SampledSpread) and (q.status == Status.AVAILABLE) != (value.valid > 0):
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"sampled valid denominator/status mismatch")
                 if isinstance(value,(BreadthCounts,BreadthFraction)):
                     if q.observed != value.eligible or q.expected != value.expected or (q.status == Status.AVAILABLE) != (value.eligible == value.expected):
                         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"breadth partial status/coverage mismatch")
@@ -403,13 +502,13 @@ class FeatureResult:
         if len(evidence_keys) != len(self.evidence): raise ContractError(ErrorCode.DUPLICATE,"duplicate evidence identity")
         for c in self.values:
             for entity,value in zip(c.entities,c.values,strict=True):
-                if isinstance(value,TopKTrades):
+                if isinstance(value,(TopKTrades,SampledSpread)):
                     matched = [e for e in self.evidence if e.entity == entity and e.feature_id == c.feature_id]
                     if len(matched) != len(value.rows):
-                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"topK rows require exact evidence binding")
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"bounded rows require exact evidence binding")
                     for row in value.rows:
                         if not any(e.input_id == row.input_id and e.row_id == row.event_id and e.event_ns == row.event_ns and e.known_at_ns == row.known_at_ns and e.use == "consumed" for e in matched):
-                            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"topK original event evidence mismatch")
+                            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"bounded original event evidence mismatch")
         inputs = {x.metadata.source.input_id:x for x in self.metadata.inputs}
         for e in self.evidence:
             if (e.entity,e.feature_id) not in keys or e.input_id not in inputs: raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"unbound evidence identity")

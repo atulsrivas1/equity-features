@@ -35,12 +35,12 @@ class RegistryDefinitions(unittest.TestCase):
                 self.assertEqual(FeatureDefinition.from_json(d.to_json()),d)
     def test_exact_implemented_capabilities(self):
         registry=builtin_registry()
-        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:20])
+        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:22])
         for mode in ("update","restore","merge"):
             self.assertEqual(registry.list_features(capability=mode),())
         for d in registry.list_features():
-            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:20]))
-        for feature in EXPECTED[:20]: registry.require_capability(feature,"batch")
+            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:22]))
+        for feature in EXPECTED[:22]: registry.require_capability(feature,"batch")
         for mode in ("update","restore","merge"):
             self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:registry.require_capability("session.trade.top_k",mode))
     def test_family_selection(self):
