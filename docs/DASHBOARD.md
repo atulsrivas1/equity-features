@@ -57,3 +57,7 @@ claim R1 implementation or start a new chat. Preparation: [GOV-008 #143](https:/
 ## R3 execution package
 
 [R3 handoff](R3_AUTONOMOUS_HANDOFF.md) covers twelve R3 stories and [BUG-003#162](https://github.com/atulsrivas1/equity-features/issues/162)/[BUG-004#163](https://github.com/atulsrivas1/equity-features/issues/163). [Independent R1 review](reviews/R1_REVIEW.md) records both defects and validation. Final R3 acceptance remains dependent on actual R2 delivery.
+
+## Current execution order
+
+Owner restored R2-before-R3. Existing R3 chat finishes only both R1 defect repairs then stops; [R2 autonomous handoff](R2_AUTONOMOUS_HANDOFF.md) owns the twelve historical/contextual stories after verified repair delivery. R3 feature implementation stays paused until separately resumed.
