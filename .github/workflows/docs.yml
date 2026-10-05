@@ -17,6 +17,9 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
+          for document in (*Path(".").glob("*.md"), *Path("docs").rglob("*.md"), *Path("packages").glob("*/README.md")):
+              document.read_text(encoding="utf-8")
+          print("Public Markdown UTF8 encoding verified.")
           for name in ('AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'docs/DELIVERY_POLICY.md', 'docs/PUBLIC_DEVELOPMENT.md', 'docs/SESSION_HANDOFF.md', 'docs/PACKAGE_DESIGN.md', 'docs/BACKLOG.md', 'docs/DASHBOARD.md', 'docs/features/V1_SCOPE.md'):
               assert Path(name).is_file(), name
           text = Path('docs/BACKLOG.md').read_text()
