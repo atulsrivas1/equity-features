@@ -313,6 +313,27 @@ expected without an omission remains certifiable; last window volume300 stays re
 while omitted first window/shares stay unavailable. Full release gates pending;
 BUG003 is In progress, BUG004 still Ready. Historical R1 reports unchanged.
 
+## Owner priority override —2026-10-05
+
+Owner steering received during BUG003 artifact qualification: finish ONLY BUG003
+#162 and BUG004 #163 through documentation/lifecycle/CI/main/actual-artifact delivery,
+then stop and report accepted commits/versions/evidence. No EQ093/039–048/095 work
+may start or continue. No R3 feature has started; registry/adapter inspection was
+read-only context. Separate R2 handoff/session belongs to the preparation chat and
+waits for these repairs Done. GOV009 already Done. R3 remains open. This overrides
+the earlier R3 continuous-pull mission without authorizing R2 implementation here.
+
+
+### BUG003 qualified implementation delivery —0.0.2a10
+
+PR166/head24db3f4/mainb9bc293:377units/123refs/strict26files/all local and six
+exact-head CI gates/main docs37361305538/Foundation37361305448 both OS/published
+17blobs/both actual bundles/four fresh installs each377units+eleven examples pass.
+Receipt BUG-003_DELIVERY.md contains hashes/expiry and real reviewer/limits. BUG003
+Released; final receipt publication/main/equal artifact gates before Done. BUG004
+still Ready, no R3 feature started; owner override limits remaining work to BUG004
+then stop for separate R2 handoff. Preserve PR120 and historical R1 reports.
+
 ### Bounded repair publication exception —2026-10-05
 
 BUG003 implementation is Released/qualified; final receipt PR169 has5of6corrected
@@ -335,3 +356,15 @@ nonfinite/malformed hex, unchanged state and exact nonzero finite continuation.
 compatibility/license checks pass. Only BUG004 In progress; BUG003 receiptPR169
 remains gated on queued Linux job. Full repeat-build/head/main/actual bundle/fresh
 install qualification remains before release. No R2/R3 feature work.
+
+### Receipt queue recovery and continuity merge
+
+PR169 corrected head0da2815 passed all six checks after the Linux PR job remained
+queued over ten minutes; the stalled attempt was cancelled and its Linux job rerun
+at unchanged source, then actually passed. No gate was waived. Final receipt main
+d153a12 awaits main CI/actual bundle equality for BUG003 Done. Preserve owner
+repair-only scope. Merged published receipt continuity into BUG004 branch, retaining
+both the owner override and its actual implementation chronology; only docs conflicted.
+BUG004 local repeat-build and two fresh installs each380tests/eleven examples pass;
+new exact merged-head CI is required before publication. Historical queued-stage
+notes above are dated work evidence, not current completion claims.
