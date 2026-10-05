@@ -1,6 +1,6 @@
 # Experimental package changes
 
-## 0.0.3a3 — EQ029 source qualification, delivery pending
+## 0.0.3a3 — EQ029 verified experimental implementation delivery
 
 Batch Wilder RSI/ATR require explicit anchors/seeds and full governed epochs.
 Normalized RSI magnitude preserves nonneutral long-flat ratios; ATR requires

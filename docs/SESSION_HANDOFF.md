@@ -719,3 +719,23 @@ fifteenth synthetic example. No new broken local links; inherited R1 link unchan
 Type casts preserve validated admitted payload behavior without suppressing new
 tuple errors. Author final review complete; next concrete source commit/Code review/
 Test and exact-head repeat-build/fresh installed acceptance, not source-only closure.
+
+### EQ029 implementation delivered —2026-10-05
+
+PR180 final d1b552cfd77711a07815d4b803c7dd9fbde1bb80 all SIX exact-head checks,
+repeat4archives/inspection/clean source manifest and BOTH fresh local wheel/sdist
+pairs each472tests/fifteenexamples pass. Ready to release preceded guarded merge
+to63118826ef99a0fbce808d1fece0b7d19ed15283; entire published tree equals source head.
+Main docs37387090395/Foundation37387090399 Windows/Linux succeed. Actual source
+Windows11379357229/Linux11379031886 bundles verified exact commit/source_dirty=false/
+epoch1700000000/allfour SHA256/archive contents/license/typing. FOUR fresh Windows
+wheel/sdist pair executions (bothOS universal archives) each472tests/fifteenexamples
+pass; Linux-native execution is CI evidence. Released comment6005239686 binds actual
+delivery, receipt records artifact hashes/expiry. No independent human/hosted review.
+
+Final receipt documentation/head/main/bothOS actual archive equality remains before
+Done; installed execution reuse applies only to identical bytes.30batch/sevenhistory
+IDs,23session update/restore22merge, all history state modes false. Next: final
+receipt publication/gates and issueDone, then refined EQ030 pre-code plan for exact
+centered finite-window sample variance, explicit Adefault1 and tiny nonzero precision.
+One active story; R3 paused. No provider/private copy/performance/stable/tag/PyPI claim.
