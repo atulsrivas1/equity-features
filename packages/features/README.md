@@ -1,6 +1,6 @@
 # Equity Features
 
-Experimental0.0.2a4, Apache-2.0, depending inward on equity-feature-contracts.
+Experimental0.0.2a5, Apache-2.0, depending inward on equity-feature-contracts.
 Nineteen batch bar/price/structure/trade IDs are implemented through equity_features.session family calls.
 Source-independent caller-supplied canonical inputs, config and entity are required;
 see docs/api/SESSION_BARS.md and examples/session_bars.py in the repository.
@@ -15,3 +15,5 @@ for this version. No public registry, stable API or throughput claim.
 EQ020 adds typed bounded original topK trade rows and exact evidence, batch only. See docs/api/SESSION_TOP_K.md in the source repository. No merge/update/restore capability or throughput claim.
 
 EQ021 adds compute_quotes for two event-weighted quote IDs with sampling identity and bounded observations. No duration coverage, quantile, streaming or throughput claim. See docs/api/SESSION_QUOTES.md.
+
+EQ022 adds compute_time_weighted, continuous only, with explicit age/initialization/seed, original-anchor expiry and exact category conservation. Batch only; no source acquisition or performance claim.

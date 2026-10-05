@@ -7,7 +7,7 @@ from typing import Any, Mapping
 import numpy as np
 import pyarrow as pa
 from .errors import ContractError, ErrorCode
-from .results import QuoteStateCounts, SampledSpread, TopKTrades, BreadthCounts, BreadthFraction, FeatureResult, ValueType, IntervalOHLCV, IntervalVolumeShares
+from .results import TimeWeightedSpread, QuoteStateCounts, SampledSpread, TopKTrades, BreadthCounts, BreadthFraction, FeatureResult, ValueType, IntervalOHLCV, IntervalVolumeShares
 from .inputs import (
     AdjustmentSpec, BatchMetadata, CanonicalBatch, Cell, Column, Coverage,
     DataKind, DType, InputScope, IntervalCoverage, PriceUnit, SourceBinding, schema_for,
@@ -124,6 +124,9 @@ def to_arrow_result(result: "FeatureResult") -> dict[str, Any]:
         elif dtype == ValueType.FLOAT64: arrow_type = pa.float64()
         elif dtype == ValueType.BOOL: arrow_type = pa.bool_()
         elif dtype == ValueType.STRING: arrow_type = pa.string()
+        elif dtype == ValueType.TIME_WEIGHTED_SPREAD:
+            duration_type=pa.struct([pa.field(name,pa.int64(),False) for name in ("normal","locked","crossed","invalid","expired","unknown","total","valid")] + [pa.field("valid_fraction",pa.float64(),False)])
+            arrow_type=pa.struct([pa.field("durations",duration_type,False),pa.field("mean_spread",pa.float64(),True),pa.field("mean_bps",pa.float64(),True),pa.field("max_age_ns",pa.int64(),False),pa.field("initial_state",pa.string(),False)])
         elif dtype == ValueType.QUOTE_STATE_COUNTS:
             arrow_type=pa.struct([pa.field(name,pa.int64(),False) for name in ("normal","locked","crossed","invalid","total","valid")])
         elif dtype == ValueType.SAMPLED_SPREAD:
@@ -144,7 +147,8 @@ def to_arrow_result(result: "FeatureResult") -> dict[str, Any]:
             arrow_type = pa.struct([pa.field(name,pa.int64(),nullable=False) for name in names])
         payload: list[Any] = []
         for value in column.values:
-            if isinstance(value,QuoteStateCounts): payload.append({**asdict(value),"total":value.total,"valid":value.valid})
+            if isinstance(value,TimeWeightedSpread): payload.append({**asdict(value),"durations":{**asdict(value.durations),"total":value.durations.total,"valid":value.durations.valid,"valid_fraction":value.durations.valid_fraction}})
+            elif isinstance(value,QuoteStateCounts): payload.append({**asdict(value),"total":value.total,"valid":value.valid})
             elif isinstance(value,SampledSpread): payload.append({**asdict(value),"truncated":value.truncated})
             elif isinstance(value,TopKTrades): payload.append(asdict(value))
             elif isinstance(value,BreadthCounts): payload.append({**asdict(value),"eligible":value.eligible})

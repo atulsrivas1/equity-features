@@ -43,6 +43,7 @@ class ValueType(StrEnum):
     BOOL = "bool"
     BREADTH_COUNTS = "breadth_counts"
     BREADTH_FRACTION = "breadth_fraction"
+    TIME_WEIGHTED_SPREAD = "time_weighted_spread"
     QUOTE_STATE_COUNTS = "quote_state_counts"
     SAMPLED_SPREAD = "sampled_spread"
     TOP_K_TRADES = "top_k_trades"
@@ -300,7 +301,51 @@ class SampledSpread:
     @property
     def truncated(self) -> bool: return len(self.rows) < self.total
 
-ResultCell: TypeAlias = int | float | str | bool | QuoteStateCounts | SampledSpread | TopKTrades | BreadthCounts | BreadthFraction | IntervalOHLCV | IntervalVolumeShares | None
+@dataclass(frozen=True)
+class QuoteDurations:
+    normal: int
+    locked: int
+    crossed: int
+    invalid: int
+    expired: int
+    unknown: int
+
+    def __post_init__(self) -> None:
+        for value in (self.normal,self.locked,self.crossed,self.invalid,self.expired,self.unknown): _count(value)
+        _count(self.total)
+        if self.total == 0: raise ContractError(ErrorCode.BOUNDS,"positive target duration required")
+
+    @property
+    def total(self) -> int: return self.normal+self.locked+self.crossed+self.invalid+self.expired+self.unknown
+
+    @property
+    def valid(self) -> int: return self.normal+self.locked
+
+    @property
+    def valid_fraction(self) -> float: return float(Fraction(self.valid,self.total))
+
+@dataclass(frozen=True)
+class TimeWeightedSpread:
+    durations: QuoteDurations
+    mean_spread: float | None
+    mean_bps: float | None
+    max_age_ns: int
+    initial_state: str
+
+    def __post_init__(self) -> None:
+        if type(self.durations) is not QuoteDurations or self.initial_state not in ("seed","inactive","unknown"):
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"typed durations/explicit initial state required")
+        if type(self.max_age_ns) is not int or not 1 <= self.max_age_ns <= I64_MAX:
+            raise ContractError(ErrorCode.BOUNDS,"positive int64 max age required")
+        if self.initial_state == "inactive" and self.durations.unknown:
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"known inactive initialization cannot have unknown time")
+        if self.durations.valid == 0 or self.durations.unknown > 0:
+            if self.mean_spread is not None or self.mean_bps is not None:
+                raise ContractError(ErrorCode.INVALID_SCHEMA,"unknown/zero-valid time means must be null")
+        elif any(type(x) is not float or not math.isfinite(x) or x < 0 for x in (self.mean_spread,self.mean_bps)):
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"finite nonnegative time means required")
+
+ResultCell: TypeAlias = int | float | str | bool | TimeWeightedSpread | QuoteStateCounts | SampledSpread | TopKTrades | BreadthCounts | BreadthFraction | IntervalOHLCV | IntervalVolumeShares | None
 
 @dataclass(frozen=True)
 class FeatureColumn:
@@ -337,6 +382,7 @@ def _value(dtype: ValueType, value: ResultCell) -> None:
     elif dtype == ValueType.BOOL: valid = type(value) is bool
     elif dtype == ValueType.BREADTH_COUNTS: valid = type(value) is BreadthCounts
     elif dtype == ValueType.BREADTH_FRACTION: valid = type(value) is BreadthFraction
+    elif dtype == ValueType.TIME_WEIGHTED_SPREAD: valid = type(value) is TimeWeightedSpread
     elif dtype == ValueType.QUOTE_STATE_COUNTS: valid = type(value) is QuoteStateCounts
     elif dtype == ValueType.SAMPLED_SPREAD: valid = type(value) is SampledSpread
     elif dtype == ValueType.TOP_K_TRADES: valid = type(value) is TopKTrades
@@ -481,8 +527,23 @@ class FeatureResult:
                 q = qualities[entity,c.feature_id]
                 if entity.session_id != self.metadata.session_id: raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"result session mismatch")
                 if q.status == Status.AVAILABLE and value is None: raise ContractError(ErrorCode.INVALID_SCHEMA,"available result cannot be null")
-                if q.status != Status.AVAILABLE and value is not None and not (q.status == Status.NOT_APPLICABLE and isinstance(value,SampledSpread) and value.valid == 0) and not (q.status == Status.INCOMPLETE_COVERAGE and isinstance(value,(BreadthCounts,BreadthFraction,IntervalOHLCV,IntervalVolumeShares))):
+                if q.status != Status.AVAILABLE and value is not None and not (isinstance(value,TimeWeightedSpread) and q.status in (Status.NOT_APPLICABLE,Status.INCOMPLETE_COVERAGE)) and not (q.status == Status.NOT_APPLICABLE and isinstance(value,SampledSpread) and value.valid == 0) and not (q.status == Status.INCOMPLETE_COVERAGE and isinstance(value,(BreadthCounts,BreadthFraction,IntervalOHLCV,IntervalVolumeShares))):
                     raise ContractError(ErrorCode.INVALID_SCHEMA,"unavailable scalar must be null")
+                if isinstance(value,TimeWeightedSpread):
+                    targets=[b for b in self.metadata.inputs if b.role == "quotes" and b.kind == DataKind.QUOTE]
+                    if len(targets) != 1:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"time spread needs one quote target")
+                    seeds=[b for b in self.metadata.inputs if b.role == "quote_seed"]
+                    if seeds and (value.initial_state != "seed" or len(seeds) != 1 or seeds[0].kind != DataKind.QUOTE or seeds[0].metadata.sampling != "continuous"):
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"time initialization contradicts seed binding")
+                    target=targets[0].metadata
+                    if target.sampling != "continuous" or not target.coverage.complete or target.scope is None or target.scope.end_ns != self.metadata.availability.market_cutoff_ns:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"time duration requires complete continuous target scope")
+                    if q.expected != target.coverage.expected or q.observed != target.coverage.observed or value.durations.total != target.scope.end_ns-target.scope.start_ns:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"time duration/population conservation mismatch")
+                    expected_status=Status.INCOMPLETE_COVERAGE if value.durations.unknown else Status.AVAILABLE if value.durations.valid else Status.NOT_APPLICABLE
+                    if q.status != expected_status:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"time denominator/unknown duration status mismatch")
                 if isinstance(value,(QuoteStateCounts,SampledSpread)):
                     bindings=[b for b in self.metadata.inputs if b.role == "quotes" and b.kind == DataKind.QUOTE]
                     if len(bindings) != 1 or not bindings[0].metadata.coverage.complete or bindings[0].metadata.coverage.observed != value.total:

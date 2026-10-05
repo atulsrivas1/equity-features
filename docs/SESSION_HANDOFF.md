@@ -237,3 +237,13 @@ Pre-code8-point plan preserves frozen no-quantile equations despite provisional 
 EQ021 documentation review recovered a prior0.0.2a3 changelog CP1252 dash byte to UTF8 without changing historical meaning; strict UTF8 read of every docs Markdown now passes. Added the same encoding gate to documentation CI. All future scratch writers explicitly use UTF8 and normalize decoded newlines.
 
 EQ021 author review tightened a real result-contract gap: a manually constructed sampled cell could contradict source sampling or paired state-count denominator. Result admission now requires complete matching quotes binding, matching sampling and sibling valid/total counts. Independent negative regression added;274 units (18 new) pass. Final head/build/CI gates must use the corrected change.
+
+## EQ-021 accepted —0.0.2a4
+
+PR155/head `4cf743f275115297b3f8a28434d9c607871068fa`, main `ac5d406e7c44facf166777cef7edc9e92b4d81d8`:274units/123references/strict20files/all gates/six exact-head/main OS CI/26 published blobs/both actual bundles/four fresh installations verified. Receipt stories/EQ-021_DELIVERY.md and issue25. EQ021 Done; EQ022#26 pulled In progress after pre-code13-point plan. E04 remains In progress. Resume codex/eq-022-continuous-quotes; implement one duration metric with explicit seed/inactive/unknown initialization and original-anchor expiry; full lifecycle/artifact gates before EQ023. Preserve EQ095/PR120 and no auto-close wording.
+
+### EQ022 implementation/local validation
+
+Pre-code13-point plan. One continuous-only ID, typed conserved duration categories and known NA/unknown-left incomplete means, explicit max_age/seed/inactive/unknown config, original seed expiry and separate source bindings/evidence. Fixed reducer state: six counts/numerator/compensated pair/cursor/current quote; batch admission still row proportional. Twenty-two independent tests plus274 regressions (296 total), strict21 files and purity38/10. Review caught malformed batch access before typed admission and fixed it. Unit gate initially found old provisional registry scalar unknown_duration_ns assertion; migrated to typed time_weighted_spread schema, while production/Arrow tests verify exact nested unknown durations. Both packages0.0.2a5, inventory/discovery23, eighth installed example. Remaining full gates/review/head/main/actual bundles/fresh installs; EQ022 not accepted.
+
+EQ022 author review tightened initialization consistency: known inactive cannot carry unknown duration, and a seed binding cannot be relabeled unknown/inactive or noncontinuous. Independent negative test added;297 units (23 new) pass. Source/seed/config choices remain explicit. Final gates use corrected head only.

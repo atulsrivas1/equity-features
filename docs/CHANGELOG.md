@@ -1,6 +1,10 @@
 # Experimental package changes
 
-## 0.0.2a4 - EQ021 under verification
+## 0.0.2a5 - EQ022 under verification
+
+Continuous quote time weights with supplied seed/inactive/unknown initialization, original-anchor expiry, exact duration conservation and valid-only means. Typed known zero-valid/initial-unknown diagnostics; missing or incomplete feed stays unavailable. All23 R1 batch IDs implemented; formal delivery pending.
+
+## 0.0.2a4 - EQ021 delivered
 
 Two event-weighted quote IDs with explicit sampling, exact counts, valid-only means and bounded diagnostics. Zero-valid structured results preserve null means and known evidence. No quantiles or time-coverage claim. Twenty-two batch capabilities; delivery gates pending.
 
