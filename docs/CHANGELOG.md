@@ -1,6 +1,6 @@
 # Experimental package changes
 
-## 0.0.3a2 — EQ028 source qualification, delivery pending
+## 0.0.3a2 — EQ028 verified experimental implementation delivery
 
 Batch SMA uses exact wide means; EMA seeds at an explicit supplied anchor and
 requires its complete epoch without automatic gap reset. Independent readiness,

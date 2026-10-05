@@ -656,3 +656,23 @@ public Markdown/94stories/39IDs/lifecycle checks pass after correction. Local li
 check identified an inherited R1 acceptance structure.py link, unchanged from main;
 no new broken EQ028 links. Failed source is superseded; final-head checks/build
 must use the corrected commit. No fabricated green evidence.
+
+### EQ028 implementation delivered —2026-10-05
+
+PR178 final e54d2e1e1aa5c4b08f06acd308755ebc71c151c0 all SIX exact-head checks,
+repeat4archives/inspection/clean head manifest and BOTH local installed wheel/sdist
+pairs each454tests/fourteenexamples pass. Earlier commentary prematurely counted
+the second install before its log finished; corrected immediately and final log
+has exactly two actual executions. Ready to release preceded guarded merge to
+39d153588fc30d61d381c22e4cdcd9cbee47cc34; whole published tree equals source head.
+Main docs37385064081/Foundation37385064083 Windows/Linux succeed. Actual main
+Windows11378785457/Linux11378685434 bundles exact commit/clean source/epoch/allfour
+hashes/contents/license/typing verified; FOUR fresh Windows pair executions each
+454tests/fourteenexamples pass. Linux native execution is CI evidence. Released
+comment6004890499 binds actual source artifacts; verified receipt records expiry/
+SHA256. Final documentation publication/head/main/bothOS archive equality remains
+before Done. Reuse installed execution only when final archive bytes equal these.
+Author Codex self-review+CI, no independent human/hosted review or provider/state/
+performance claim. Next: final receipt gates/issueDone, then refined EQ029 pre-code
+plan for RSI ratio-preserving normalized magnitude and explicit previous-close ATR.
+One active story; R3 remains paused.
