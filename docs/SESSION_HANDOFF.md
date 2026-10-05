@@ -676,3 +676,20 @@ Author Codex self-review+CI, no independent human/hosted review or provider/stat
 performance claim. Next: final receipt gates/issueDone, then refined EQ029 pre-code
 plan for RSI ratio-preserving normalized magnitude and explicit previous-close ATR.
 One active story; R3 remains paused.
+
+### EQ028 accepted; EQ029 pre-code pull —2026-10-05
+
+EQ028 issue33 closed/Project Done after receipt PR179 head3ac00d3 SIX checks and
+guarded merge89ee579215cffb5dbab68ab7fd0fa1b0b84f2eeb; whole published tree matches.
+Main docs37385856045/Foundation37385855718 bothOS pass. Actual Windows11379440024/
+Linux11377771680 bundles verified exact source/epoch/clean manifest/hashes/contents
+and each OS four bytes equal qualified39d1535 FOUR installed454test/fourteenexample
+executions. Done comment6004981457 binds evidence. No numerical acceptance waiver.
+
+Pull EQ029 on codex/eq-029-rsi-atr from accepted main. Freeze RSI close anchor/
+Wilder seed and ratio-preserving normalized magnitude to avoid nonneutral flat
+underflow, ATR explicit TRanchor/mandatory previousclose/currentclose independence,
+separate window configurations, independent oracle/timing/gap fixtures and truthful
+batch-only modes. No source code yet. Next: publish pre-code plan/Ready/In progress,
+implement qualified pair0.0.3a3 and docs/tests/examples, then all installed/main/
+receipt gates. R2 continues; R3 paused.
