@@ -360,3 +360,21 @@ EQ033 only after those prerequisites, refine/commit its plan before code and fol
 the handoff's sequential implementation/delivery gates. The local delivery helper
 and baseline logs are preserved outside tracked package content. No automation or
 message to the repair chat was created; no automatic R3 restart.
+
+### Publication ownership transfer —2026-10-05
+
+The owner-authorized preparation session has taken responsibility for resolving
+and integrating PR168 and PR172 in its own checkout. It explicitly instructed
+this R2 session not to push/merge PR168 or reset its branch and not to start
+calculation implementation yet. Preserve local preparation commit
+`c5a782cba00de719d529bd68f9ef9c533da7e9d8` and its twelve draft plans. The earlier
+resume step assigning PR168 publication to this session is superseded by this
+handoff; await the preparation session's final integration evidence, independently
+verify it and both actual repair Done receipts before any calculation pull.
+No PR/branch mutation or calculation work followed this ownership transfer.
+
+Read the owner's updated work agreements and prepared PROJECT_KNOWLEDGE,
+BACKLOG_WORKFLOW/decision/lesson/source-map records from the new primary checkout.
+They were not yet on fetched main at this checkpoint; do not infer publication
+from local existence. Incorporate their accepted versions after integration while
+preserving owner R3 pause, actual source/artifact gates and independent evidence.
