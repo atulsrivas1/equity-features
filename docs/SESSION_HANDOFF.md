@@ -30,3 +30,9 @@ For documentation-only stories, publishing validated documentation on the defaul
 ## Validation and limitations
 
 The current check validates planning documents, all94EQ story IDs and39built-in scope IDs/formula mappings, plus17session reference cases. Tests, typing, wheel builds and benchmarks will be added as package implementation warrants them. No provider-source admission, realtime guarantee or performance acceptance follows from documentation checks. Consult live GitHub issue/PR/Project evidence for current delivery status; this handoff is a resume aid, not a duplicate status database.
+
+## Codex reviewer setup in progress
+
+User explicitly requested separate Codex PR review. GOV-005 issue#119 tracks repository rules, hosted activation and a real qualification review. codex/review-workflow prepares AGENTS Code Review Rules, CODE_REVIEW.md, workflow and PR template. No hosted activation or separate review is verified yet. Public settings at https://chatgpt.com/codex/settings/code-review redirect to ChatGPT login in the in-app browser; owner sign-in is required. The earlier app.chatgpt.com documentation link reached a restricted preview and was closed.
+
+Resume: after owner sign-in, inspect settings and connect/enable only this repository; obtain any explicit authorization required for new security-sensitive integration permissions. Make the setup PR ready, request/verify a real @codex review, record reviewed commit/findings, resolve them and run final-head CI. Keep the PR open until that gate is met. Existing finished work keeps self-review evidence; EQ-003 remains Ready but its implementation waits for completion of this active setup item. Do not claim a bot review from a request or reaction.

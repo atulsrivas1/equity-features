@@ -52,3 +52,7 @@ Use release notes for delivered behavior, compatibility changes and known limita
 Start with the feature scope, not code generation. Deliver docs/features/V1_SCOPE.md as a reviewable proposal that maps feature IDs to families, initial windows, input kinds, batch/incremental support, exact versus approximate measures and excluded strategies/labels. Scope completion requires explicit formula-story links and no undocumented promised feature. EQ-002 through EQ-006 settle formulas/timing; contracts and implementation follow those decisions.
 
 Until GitHub setup finishes, store reviewable drafts here and clearly report local-only status. After the repository is available, migrate the documents without overwriting setup work, create/link the first issue and PR, and preserve the numbered backlog. Repository/profile administration stays in the setup conversation; design and implementation stay in this conversation.
+
+## Separate automated PR review
+
+The owner requested a separate Codex reviewer. Follow [CODE_REVIEW.md](CODE_REVIEW.md) and AGENTS.md Code Review Rules. Hosted activation is pending GOV-005 verification. New PRs, including setup, wait for an actual separate Codex response and documented findings disposition before release readiness; missing integration is recorded and resolved, not silently bypassed. Automated review, author self-review and human review remain distinct. No claim of automatic branch-protection enforcement is made.

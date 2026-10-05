@@ -18,3 +18,26 @@ These are the human owner's agreed project rules. Read this file, docs/PUBLIC_DE
 Use short-lived codex/ branches when this agent creates branches. A human approval is required only where the user or applicable review policy requires it; do not invent an approval requirement. Record actual reviewer identity and limitations. Numerical tests and release gates remain mandatory even when work is autonomous.
 
 Delivery uses release-based planning and continuous pulling, not mandatory sprints. Read docs/DELIVERY_POLICY.md. Start the highest-priority dependency-satisfied Ready story, initially one active story at a time. Review progress weekly during active work; release dates are evidence-based forecasts, with no invented deadlines or automated reminders.
+
+## Code Review Rules
+
+Review the changed behavior and its affected callers against the linked story, accepted mathematical specifications and package design. Report concrete actionable defects with file/line evidence, triggering inputs and consequences. Identify severity accurately; do not invent findings, benchmark results or reviewer independence. Documentation/design PRs need semantic and contract review as well as links.
+
+### Mathematics, timing and data fidelity
+
+- Check equations, denominators, units, initialization, eligibility, interval boundaries, auction rules, stable ties and exact versus approximate feature identities against independent expected fixtures.
+- Check market/reference cutoffs, known-at availability, prior-only baselines, adjustment compatibility and future-data leakage; missing, empty and incomplete inputs must remain distinguishable.
+- Preserve UTC int64 nanoseconds, scaled-price precision, null validity and guarded accumulation; check overflow, round trips and documented floating tolerances.
+- For incremental features, check batch parity, provisional-state isolation, ordering/duplicate policy, checkpoint compatibility and correction/backfill replay. Reject unsupported capability assumptions and retrospective use of future-consumed state.
+
+### Boundaries, compatibility and validation
+
+- Calculation packages must not fetch data, read files/databases, consult wall time, access credentials, schedule jobs or publish outputs. Adapters, workers, chart rendering and network/MCP stay outside numerical packages.
+- Custom IDs cannot override built-ins. Local caller code is trusted, not sandboxed; remote services must not deserialize uploaded executable objects.
+- Check public schema/algorithm/config versions, identity and revision binding, typed errors, required dependencies and actual supported capability claims.
+- Check meaningful independent tests, synthetic/licensed fixtures, documentation, story acceptance and release evidence. Performance claims require measured workload/hardware and numerical parity; check copy/conversion costs and avoid hidden per-record object loops.
+- Flag private data, credentials or code without established publication rights. Do not mistake reference verifiers for implemented production packages.
+
+### Review evidence and delivery
+
+See docs/CODE_REVIEW.md. A separate Codex review is automated review, not author self-review or independent human review. Record its response URL and reviewed commit; resolve findings and establish final-head review coverage after relevant changes. No bot response, quota failure or missing configuration counts as approval. CI and numerical acceptance remain separate requirements.
