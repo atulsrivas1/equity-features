@@ -610,3 +610,21 @@ state/independent review claim. Next: this docs-only final receipt gate/issueDon
 then refined EQ028 pre-code plan. Consider an owned exact SMA mean witness for
 later close>SMA comparison at int64 limits; floating equality must not hide a
 one-tick mathematical distinction. R2 ongoing; R3 stays paused.
+
+### EQ027 accepted; EQ028 pre-code pull —2026-10-05
+
+EQ027 issue32 closed/Project Done after receipt PR177 head7c8689e0 all SIX checks,
+guarded merge36a4e14334ad2ea75b1cfa0cc6676f93ad6a858d and exact published tree.
+Main docs37383962048/Foundation37383962034 bothOS pass; actual Linux11376163599
+and Windows11375494292 bundles manifest/clean source/epoch/hash/content verified,
+all four per-OS archive bytes equal1896ff2 qualified FOUR installed pair executions
+each438tests/thirteenexamples. Final acceptance comment6004673657 binds evidence.
+
+Pull EQ028 from accepted main on codex/eq-028-sma-ema. Pre-code plan freezes SMA
+exact wide mean, explicitly anchored EMA/no gap reset, independent readiness,
+bounded Float64 recurrence/tolerance and owned exact SMAReference dependency.
+Batch-first modes supersede the unqualified private accumulator draft under the
+handoff and conditional supported-mode acceptance; no state modes promised.
+No EQ028 calculation code at this checkpoint. Next: publish plan/Ready/In progress,
+implement/test/document pair0.0.3a2 then all source/installed/receipt delivery gates.
+R2 continues; R3 remains paused.
