@@ -4,6 +4,18 @@ Prepared 2026-10-05 under [GOV-008 #143](https://github.com/atulsrivas1/equity-f
 The owner requested a package for a new development chat. This document prepares
 that mission; publishing it does not start a chat or calculation implementation.
 
+## Prerequisite repair delivery update — 2026-10-05
+
+BUG001#144 and BUG002#145 are now closed/Done after actual0.0.1a6.post1 delivery in
+[PR146](https://github.com/atulsrivas1/equity-features/pull/146), main `85c571265eec37726334200aaa202d8104fd097c`.
+176units/123references/strict types/38negative+10positive boundary cases, exact-head/
+main CI, publication bytes, both actual OS bundles and four fresh installations
+passed. [Acceptance evidence](R0_ACCEPTANCE.md). Earlier review/preparation facts
+and provisional repair plans below are historical; inspect live Done/receipt and
+reuse these fixes. Do not implement duplicates. This does not start R1 or change
+its ten kernel-story scope/estimates. Final supplement publication restores EQ017
+readiness; the live Project is authoritative.
+
 ## Mission and authority
 
 Complete [R1 — Core session packages](https://github.com/atulsrivas1/equity-features/milestone/2):

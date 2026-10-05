@@ -1,13 +1,52 @@
 # R0 foundation acceptance — 2026-10-05
 
-## Review rework in progress
+## Post-review repair accepted — 0.0.1a6.post1
 
-The original alpha6 delivery below was verified. A subsequent independent review
-reproduced two P2 gaps: exact-cutoff market exclusion evidence (EQ013) and backend
-reader calls passing the purity guard (EQ009). Owner requested repair before R1.
-R0 and both stories reopened; EQ017 temporarily Backlog. Alpha6.post1 fixes and
-176unit/38negative+10positive boundary regressions pass locally. Corrected artifact
-acceptance remains pending. See SESSION_HANDOFF.md and stories/R0_REVIEW_FIX_PLAN.md.
+Owner-requested fixes for [BUG-001#144](https://github.com/atulsrivas1/equity-features/issues/144) and
+[BUG-002#145](https://github.com/atulsrivas1/equity-features/issues/145) are delivered in
+[PR146](https://github.com/atulsrivas1/equity-features/pull/146), head `9e57318edd80946b171bc310c7a3c67ebc41187e`,
+main `85c571265eec37726334200aaa202d8104fd097c`. Original EQ009/EQ013 were reaccepted after actual artifact
+gates; the bug issues are also closed/Done. The original alpha6 delivery below
+remains factual. This supplement's publication/main gates precede R0 reclosure
+and restoration of EQ017 Ready. No R1 kernel work was started.
+
+Ordinary trade/quote diagnostics at C now accept FUTURE_MARKET exclusion while
+consumption remains forbidden. A shared kind/boundary predicate preserves inclusive
+completed-bar/daily/reference and explicit trade closing-auction endpoints and
+rejects contradictory exclusions/incompatible markers. Exact original knowledge,
+including null/future, survives diagnostic Arrow output. Schema/math policy unchanged.
+
+The AST guard admits a reviewed NumPy/PyArrow API surface, resolves simple aliases
+and rejects unreviewed imports/attributes and namespace escapes. Reported readers
+and their aliases fail; current owned array/schema/table conversions pass. No such
+source reads existed in shipped alpha6. This conservative static guard is not a
+runtime sandbox or proof about arbitrary object/native code; new APIs need review.
+
+176 unit tests (6new regressions),123 unchanged exact references, strict typing on 14 files,
+38 negative/10 positive scanner-only boundary cases, registry/import/compatibility/
+licensing checks, repeat four-archive hashes/content and both installed examples
+pass. All six exact-head and main checks/workflows passed; all 16 changed Git
+blobs matched GitHub bytes. Both actual main OS bundles were downloaded, hashed,
+source commit/clean flag/content verified and four fresh wheel/sdist pair installs
+each passed 176 tests and both examples. Review of the repair was author self-review
+plus CI; no independent repair review is claimed. Deferred PR120/EQ093 unchanged.
+
+- [foundation-85c571265eec37726334200aaa202d8104fd097c-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37324978020/artifacts/11352280558); expires `2026-11-04T14:30:00Z`; Windows CPython3.12.10.
+- [foundation-85c571265eec37726334200aaa202d8104fd097c-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37324978020/artifacts/11351064767); expires `2026-11-04T14:29:15Z`; Linux CPython3.12.14.
+
+| OS | Post1 archive | SHA256 |
+| --- | --- | --- |
+| Windows | equity_feature_contracts-0.0.1a6.post1-py3-none-any.whl | `7169bf159821a4b441e3411f8f9730bf7afb9ab038535684585e7d4c685991fd` |
+| Windows | equity_feature_contracts-0.0.1a6.post1.tar.gz | `00b16a8208e2c3171920aef4f28d83510dc7d18c36d15bfcc96ceb424df5dc99` |
+| Windows | equity_features-0.0.1a6.post1-py3-none-any.whl | `81cc7011c46c80d12cf4dee3e7c94792fc94515939d018ca5bde79cdcbb0cba3` |
+| Windows | equity_features-0.0.1a6.post1.tar.gz | `31ee41368884e2e791355cc709edb05b3a85f2f5d4f5da37e1b85ae21acc104d` |
+| Linux | equity_feature_contracts-0.0.1a6.post1-py3-none-any.whl | `5bcc4936141e890cdbe3f75099354b0740d02a9ee1af21a915e8ec4474ec96ce` |
+| Linux | equity_feature_contracts-0.0.1a6.post1.tar.gz | `ce19cd8014e95d10f8a524adb839bf090779457a03bc5960ae9416115e12f835` |
+| Linux | equity_features-0.0.1a6.post1-py3-none-any.whl | `91695950c740bc87835218456025d83b8482cafa4b04654b48711ac54a1216d8` |
+| Linux | equity_features-0.0.1a6.post1.tar.gz | `edb61858d944b8133b559364becd961df4d356cadb540eeebacd474294777b3a` |
+
+Rebuild after actual 30-day expiry from the recorded commit with pinned requirements.
+Experimental retained foundation artifacts only; no public registry or kernel release.
 
 ## Original alpha6 acceptance record
 
