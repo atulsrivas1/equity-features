@@ -220,6 +220,6 @@ def restore_state(state: AccumulatorState, family: Family, config: ConfigSpec, *
         raw=_decode(json.loads(state.payload,object_pairs_hook=_pairs));a._state=_read(a,raw)
         if export_state(a)!=state: _fail()
         if a._state.sealed is not None: a.snapshot(a._state.sealed)
-    except (ValueError,TypeError,KeyError,IndexError,RecursionError,AttributeError) as error:
+    except (ValueError,TypeError,KeyError,IndexError,RecursionError,AttributeError,OverflowError) as error:
         raise ContractError(ErrorCode.INVALID_SCHEMA,'malformed bounded state payload') from error
     return a

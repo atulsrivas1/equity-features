@@ -324,3 +324,14 @@ owner's repair-only authorization. No second active code change, R3 feature or R
 work. BUG004 baseline rehashed state still raises OverflowError on0.0.2a10; pre-code
 plan confirms2points/schema2/error normalization/new pair0.0.2a11. Complete both
 stories through actual delivery and documentation gates before stopping.
+
+### BUG004 implementation/local validation
+
+Pair0.0.2a11 keeps schema2/equations unchanged and normalizes saved-state decoding
+OverflowError through ContractError(INVALID_SCHEMA), preserving original cause.
+Three independent regression cases cover positive/negative/very large rehashed hex,
+nonfinite/malformed hex, unchanged state and exact nonzero finite continuation.
+380units/123references/strict26files/boundary38negative10positive/import/registry/
+compatibility/license checks pass. Only BUG004 In progress; BUG003 receiptPR169
+remains gated on queued Linux job. Full repeat-build/head/main/actual bundle/fresh
+install qualification remains before release. No R2/R3 feature work.

@@ -56,3 +56,11 @@ cannot change. State schema2 explicitly adds omission flags; schema1/older exact
 implementation states require replay, with no implicit migration. Formulas unchanged.
 Experimental main Actions artifacts remain the delivery channel; issue162 records
 final qualification. Historical R1 acceptance remains dated evidence.
+
+## 0.0.2a11 — BUG004 typed saved-state decoding
+
+Overflow while parsing rehashed binary64 hexadecimal saved-state values now raises
+ContractError(INVALID_SCHEMA) with the original cause. Existing state is unchanged;
+nonfinite/malformed rejection and valid finite roundtrips retain their behavior.
+Schema2/formulas unchanged; exact experimental version matching still requires
+replay of older implementation state. Issue163 records experimental artifact gates.
