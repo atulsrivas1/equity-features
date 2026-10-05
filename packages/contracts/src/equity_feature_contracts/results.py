@@ -238,6 +238,20 @@ class EvidenceRow:
         if self.effective_start_ns is not None and self.effective_end_ns is not None and self.effective_start_ns >= self.effective_end_ns:
             raise ContractError(ErrorCode.BOUNDS, "invalid evidence effective bounds")
 
+def _past_market_bound(evidence: EvidenceRow, kind: DataKind, cutoff: int) -> bool:
+    """Shared cutoff predicate for consumption and market exclusion evidence."""
+    if evidence.boundary == "closing_auction":
+        if kind != DataKind.TRADE:
+            raise ContractError(ErrorCode.BOUNDS, "closing-auction evidence requires trade input")
+        inclusive = True
+    elif evidence.boundary == "completed_interval":
+        if kind not in (DataKind.BAR, DataKind.DAILY):
+            raise ContractError(ErrorCode.BOUNDS, "completed evidence requires bar/daily input")
+        inclusive = True
+    else:
+        inclusive = kind not in (DataKind.TRADE, DataKind.QUOTE)
+    return evidence.event_ns > cutoff or (evidence.event_ns == cutoff and not inclusive)
+
 @dataclass(frozen=True)
 class FeatureResult:
     values: tuple[FeatureColumn, ...]
@@ -273,22 +287,18 @@ class FeatureResult:
         for e in self.evidence:
             if (e.entity,e.feature_id) not in keys or e.input_id not in inputs: raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"unbound evidence identity")
             knowledge_reason = self.metadata.availability.knowledge_reason(e.known_at_ns)
+            cutoff = self.metadata.availability.market_cutoff_ns
+            past_market_bound = _past_market_bound(e, inputs[e.input_id].kind, cutoff)
             if e.use == "consumed":
                 if knowledge_reason is not None:
                     raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"evidence cannot claim unknown/future causal knowledge")
-                kind = inputs[e.input_id].kind
-                cutoff = self.metadata.availability.market_cutoff_ns
-                if e.boundary == "closing_auction":
-                    if kind != DataKind.TRADE or e.event_ns != cutoff:
-                        raise ContractError(ErrorCode.BOUNDS,"closing-auction evidence must be trade at cutoff")
-                elif e.boundary == "completed_interval":
-                    if kind not in (DataKind.BAR,DataKind.DAILY) or e.event_ns > cutoff:
-                        raise ContractError(ErrorCode.BOUNDS,"completed evidence requires bounded bar/daily input")
-                elif e.event_ns > cutoff or (kind in (DataKind.TRADE,DataKind.QUOTE) and e.event_ns == cutoff):
-                    raise ContractError(ErrorCode.BOUNDS,"ordinary event evidence outside market bound")
+                if e.boundary == "closing_auction" and e.event_ns != cutoff:
+                    raise ContractError(ErrorCode.BOUNDS,"closing-auction evidence must be trade at cutoff")
+                if past_market_bound:
+                    raise ContractError(ErrorCode.BOUNDS,"event evidence outside market bound")
             elif e.exclusion_reason in (Reason.UNKNOWN_AVAILABILITY,Reason.FUTURE_KNOWLEDGE) and knowledge_reason != e.exclusion_reason.value:
                 raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"exclusion knowledge reason contradicts evidence")
-            elif e.exclusion_reason == Reason.FUTURE_MARKET and e.event_ns <= self.metadata.availability.market_cutoff_ns:
+            elif e.exclusion_reason == Reason.FUTURE_MARKET and not past_market_bound:
                 raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"future market exclusion contradicts bound")
 
     def metadata_json(self) -> str:
