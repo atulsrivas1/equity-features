@@ -47,3 +47,5 @@ EQ021/0.0.2a4 adds two quote event-summary batch flags (22 implemented IDs), quo
 EQ022/0.0.2a5 adds continuous time-weighted batch capability (all23 R1 IDs), one typed time_weighted_spread value containing previous provisional scalar duration/mean fields. Unknown duration is explicit nested diagnostics. Other execution modes remain false. [API](../api/CONTINUOUS_QUOTES.md).
 
 EQ023/0.0.2a6 adds update flags for all23 qualified R1 IDs. Explicit batch/update/restore/merge inventories enforce exact modes, with restore/merge empty and custom/R2 false. All six actual family lifecycles and constraints are documented in [matrix](../api/INCREMENTAL.md).
+
+EQ024 adds immutable AccumulatorState and exact compatible in-memory restore for all23 R1 IDs; see [incremental API](../api/INCREMENTAL.md). Strict schema/version/source/config checks and bounded owned state apply; digest is not authentication. Merge remains false.

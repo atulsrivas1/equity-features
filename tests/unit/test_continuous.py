@@ -144,7 +144,7 @@ class Continuous(unittest.TestCase):
         self.assertEqual(cell.field('durations').field('valid').to_pylist(),[7]);self.assertEqual(cell.field('durations').field('total').to_pylist(),[12])
         self.assertAlmostEqual(cell.field('mean_spread').to_pylist()[0],6/7)
         builtin_registry().require_capability('session.quote.time_weighted_spread','batch')
-        for mode in ('restore','merge'):self.error(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:builtin_registry().require_capability('session.quote.time_weighted_spread',mode))
+        for mode in ('merge',):self.error(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:builtin_registry().require_capability('session.quote.time_weighted_spread',mode))
     def test_weighted_mean_of_ratios_matches_exact_integral(self):
         bids=(1,100,1000,10000);asks=(3,110,1100,10010);dt=(3,4,2,3)
         v=value(calc(updates(bid=bids,ask=asks),cfg(age=100)))

@@ -19,3 +19,5 @@ EQ021 adds compute_quotes for two event-weighted quote IDs with sampling identit
 EQ022 adds compute_time_weighted, continuous only, with explicit age/initialization/seed, original-anchor expiry and exact category conservation. Batch only; no source acquisition or performance claim.
 
 EQ023 adds SessionAccumulator with supplied chunks, fixed source/schema, explicit prefix certificates, atomic update/snapshot/finalize and bounded family state. Pure single-caller lifecycle; no restore/merge, acquisition or throughput claim.
+
+EQ024 adds immutable AccumulatorState and exact compatible in-memory restore for all23 R1 IDs; see [incremental API](../../docs/api/INCREMENTAL.md). Strict schema/version/source/config checks and bounded owned state apply; digest is not authentication. Merge remains false.

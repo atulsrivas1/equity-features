@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, replace
 from typing import Literal, cast
 from equity_feature_contracts import (
-    BatchMetadata, CanonicalBatch, Column, ConfigSpec, ContractError, Coverage,
+    AccumulatorState, BatchMetadata, CanonicalBatch, Column, ConfigSpec, ContractError, Coverage,
     DataKind, EntityKey, ErrorCode, EvidenceRow, FeatureColumn, FeatureResult,
     InputBinding, InputScope, IntervalOHLCV, IntervalOHLCVRow, IntervalVolumeShares,
     IntervalVolumeShareRow, PrefixCoverage, PriceUnit, QualityRow, Reason,
@@ -163,6 +163,15 @@ class SessionAccumulator:
                 if candidate.first_key is None: candidate.first_key=candidate.last_key
                 candidate.last_inclusive=batch.kind == DataKind.TRADE and 'condition' in columns and columns['condition'][i] == 'closing_auction'
         self._state=candidate
+
+    def export_state(self) -> AccumulatorState:
+        from .state import export_state
+        return export_state(self)
+
+    @classmethod
+    def restore_state(cls, state: AccumulatorState, family: Family, config: ConfigSpec, *, entity: EntityKey, population: StreamPopulation, prior_close: CanonicalBatch | None = None, seed: CanonicalBatch | None = None) -> SessionAccumulator:
+        from .state import restore_state
+        return restore_state(state,family,config,entity=entity,population=population,prior_close=prior_close,seed=seed)
 
     def _metadata(self, config: ConfigSpec, metadata: BatchMetadata) -> ResultMetadata:
         role='bars' if self._family in ('bars','structure') else 'trades' if self._family in ('trades','top_k') else 'quotes'

@@ -14,5 +14,5 @@ CONTINUOUS_IDS = ("session.quote.time_weighted_spread",)
 BATCH_IDS = frozenset(BAR_IDS+STRUCTURE_IDS+TRADE_IDS+TOP_K_IDS+QUOTE_IDS+CONTINUOUS_IDS)
 
 UPDATE_IDS = BATCH_IDS
-RESTORE_IDS: frozenset[str] = frozenset()
+RESTORE_IDS = BATCH_IDS
 MERGE_IDS: frozenset[str] = frozenset()
