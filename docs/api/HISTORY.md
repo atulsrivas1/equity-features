@@ -184,3 +184,39 @@ source/calculation, authentication or history state capability. Existing schemas
 remain; exact implementation-version session state restore still requires replay.
 [Pre-code plan](../stories/EQ-029_PLAN.md), [delivery gates](../stories/EQ-029_DELIVERY.md),
 [installed synthetic example](../../examples/history_recursive.py).
+
+## Centered sample return volatility
+
+EQ030/pair0.0.3a4 completes all eight historical batch IDs (31total batch). Call
+`compute_history(..., feature_ids=("history.return_volatility",))` with period N>=2,
+default20 as an explicit period config, completed_eod WindowSpec.count=N+1 and
+optional positive int64 `annualization_factor` default1. The v1 default is explicit
+mathematical policy; no calendar/provider inference or automatic252 scaling.
+Other history IDs do not accept this parameter, and volatility uses its own call.
+
+Exactly Nsimple returns from N+1complete governed closes produce a centered mean
+and sample variance with denominatorN-1. Output is sqrt(A*variance), in fraction
+units. Supplying A is a square-root-time convention, not an empirical annual risk
+claim. Config/metadata retain that actual supplied convention; absent/default1 and
+explicit1 configs can have different digests while producing the same value.
+This is not RMS, population deviation, deviation of prices or a log-return variant.
+Constant returns have available0volatility; missing input/close never becomes0.
+
+The finite selected window uses exact transient Fraction returns/centered variance,
+then an80-digit Decimal square root and final Float64. Exact variance is nonnegative,
+so no cancellation clamp or absolute-value correction is needed. Independent
+110-digit Decimal fixtures verify wide/near-equal prices and largest permitted A.
+The strict-positive regression retains ~1e-38volatility from one-tick int64-limit
+changes even when converting all closes to Float64 makes them equal. Normal final
+rtol/atol1e-12 applies; tiny nonzero fixtures additionally check relative precision.
+
+Quality/evidence count all required N+1closes. Missing middle slots do not compress
+the window; finite readiness recovers only after all selected dependencies recover.
+Common C/K/E/known-at/reconstruction/action/unit/source/grid/certificate/bounds and
+bounded original evidence rules above remain. No initialization anchor is needed
+for this finite feature, though supplied context identity remains explicit.
+Transient exact numerator/denominator sizes and work grow with finite N and price
+inputs; no retained recursive fractions, history update/restore/merge, constant
+total memory or throughput claim. Existing schemas/state compatibility remain.
+[Pre-code plan](../stories/EQ-030_PLAN.md), [delivery gates](../stories/EQ-030_DELIVERY.md),
+[installed synthetic example](../../examples/history_volatility.py).

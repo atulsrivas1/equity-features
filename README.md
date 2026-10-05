@@ -79,3 +79,6 @@ EQ028 SMA/EMA implementation delivery is qualified at0.0.3a2;
 EQ029 anchored RSI/ATR implementation delivery is qualified at0.0.3a3;
 [API](docs/api/HISTORY.md), [installed example](examples/history_recursive.py),
 [verified source/artifacts/install receipt](docs/stories/EQ-029_DELIVERY.md).
+
+
+EQ030 sample volatility source qualification is underway at0.0.3a4; [API](docs/api/HISTORY.md), [installed example](examples/history_volatility.py), [delivery gates](docs/stories/EQ-030_DELIVERY.md).

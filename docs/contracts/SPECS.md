@@ -93,3 +93,6 @@ EQ028 adds immutable SMAReference schema1 alongside an unchanged FeatureResult; 
 
 
 EQ029 retains HistoryContext/ConfigSpec schema1; the initialization anchor is a close anchor for RSI and TR anchor for ATR, in separate calls/configurations. [Membership/precision](../api/HISTORY.md).
+
+
+EQ030 retains schema1 and uses optional positive int64 annualization_factor default1 only for volatility, with N+1close WindowSpec. Config identity records supplied conventions; [API](../api/HISTORY.md).

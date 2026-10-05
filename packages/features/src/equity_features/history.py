@@ -1,4 +1,4 @@
-"""Governed finite historical windows; no acquisition or hidden adjustment."""
+"""Governed historical windows and explicit epochs; no acquisition or hidden adjustment."""
 from __future__ import annotations
 from fractions import Fraction
 from typing import cast
@@ -11,9 +11,11 @@ from equity_feature_contracts import (
 from equity_feature_contracts.history import HistoryContext, SMAReference
 from . import __version__
 from ._recursive import atr, rsi
+from ._volatility import volatility
 
 _FIELDS = {"history.return": "close", "history.prior_high": "high", "history.prior_low": "low",
-           "history.sma": "close", "history.ema": "close", "history.rsi": "close", "history.atr": "high"}
+           "history.sma": "close", "history.ema": "close", "history.rsi": "close", "history.atr": "high",
+           "history.return_volatility": "close"}
 
 
 def _configuration(config: ConfigSpec, context: HistoryContext, feature_ids: tuple[str, ...]) -> tuple[int, int]:
@@ -32,15 +34,22 @@ def _configuration(config: ConfigSpec, context: HistoryContext, feature_ids: tup
         raise ContractError(ErrorCode.INVALID_CONFIG, "moving averages and other windows require distinct configurations")
     if any(x in ("history.rsi", "history.atr") for x in feature_ids) and len(feature_ids) != 1:
         raise ContractError(ErrorCode.INVALID_CONFIG, "RSI and ATR require their own anchor/window configuration")
+    is_volatility = "history.return_volatility" in feature_ids
+    if is_volatility and len(feature_ids) != 1:
+        raise ContractError(ErrorCode.INVALID_CONFIG, "volatility requires its own convention/configuration")
     parameters = {p.name: p.value for p in config.parameters}
-    if set(parameters) - {"period", "evidence_limit"} or "period" not in parameters:
-        raise ContractError(ErrorCode.INVALID_CONFIG, "explicit period and optional evidence_limit only")
+    allowed = {"period", "evidence_limit"} | ({"annualization_factor"} if is_volatility else set())
+    if set(parameters) - allowed or "period" not in parameters:
+        raise ContractError(ErrorCode.INVALID_CONFIG, "explicit period and documented optional parameters only")
     period = parameters["period"]
     evidence_limit = parameters.get("evidence_limit", 0)
     if type(period) is not int or not 1 <= period <= 2**63-2 or type(evidence_limit) is not int or not 0 <= evidence_limit <= 2**63-1:
         raise ContractError(ErrorCode.INVALID_CONFIG, "bounded positive integer period and nonnegative evidence limit required")
-    if "history.rsi" in feature_ids and period < 2:
-        raise ContractError(ErrorCode.INVALID_CONFIG, "RSI requires at least two changes")
+    if ("history.rsi" in feature_ids or is_volatility) and period < 2:
+        raise ContractError(ErrorCode.INVALID_CONFIG, "RSI/volatility require at least two changes/returns")
+    factor = parameters.get("annualization_factor", 1)
+    if type(factor) is not int or not 1 <= factor <= 2**63-1:
+        raise ContractError(ErrorCode.INVALID_CONFIG, "positive int64 annualization factor required")
     ids = tuple(s.session_id for s in context.sessions)
     if config.window.governed_sessions != ids or context.entity.session_id != config.session.session_id or config.session != next(s for s in context.sessions if s.session_id == context.entity.session_id):
         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "config must match exact governed target and grid")
@@ -48,8 +57,8 @@ def _configuration(config: ConfigSpec, context: HistoryContext, feature_ids: tup
         raise ContractError(ErrorCode.INVALID_CONFIG, "explicit price unit and target cutoff required")
     is_return = "history.return" in feature_ids
     recursive = any(x in ("history.ema", "history.rsi", "history.atr") for x in feature_ids)
-    extra_close = is_return or "history.rsi" in feature_ids
-    if config.window.count != period + int(extra_close) or config.window.anchor != ("completed_eod" if is_return or averages or recursive else "prior_only"):
+    extra_close = is_return or "history.rsi" in feature_ids or is_volatility
+    if config.window.count != period + int(extra_close) or config.window.anchor != ("completed_eod" if is_return or averages or recursive or is_volatility else "prior_only"):
         raise ContractError(ErrorCode.INVALID_CONFIG, "period/window count and inclusion policy disagree")
     if recursive and (context.initialization_anchor is None or
             ids.index(context.initialization_anchor) > ids.index(context.entity.session_id)):
@@ -103,7 +112,7 @@ def _rows(batch: CanonicalBatch | None, config: ConfigSpec, context: HistoryCont
 
 def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context: HistoryContext,
                     feature_ids: tuple[str, ...]) -> FeatureResult:
-    """Finite windows or explicitly anchored EMA over supplied governed slots."""
+    """Finite windows or explicit recursive epochs over supplied governed slots."""
     period, evidence_limit = _configuration(config, context, feature_ids)
     rows = _rows(batch, config, context)
     context_meta = BatchMetadata(config.session.namespace,
@@ -197,6 +206,9 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
         if status == Status.AVAILABLE:
             if feature_id == "history.return":
                 value = float(Fraction(values[-1], values[0]) - 1)
+            elif feature_id == "history.return_volatility":
+                factor = cast(int, next((p.value for p in config.parameters if p.name == "annualization_factor"), 1))
+                value = volatility(values, factor)
             elif feature_id == "history.rsi":
                 value = rsi(values, period)
             elif feature_id == "history.atr":
@@ -216,7 +228,7 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
         quality = QualityRow(context.entity, feature_id, status, expected, observed,
                              tuple(dict.fromkeys(reasons)))
         qualities.append(quality)
-        unit = "fraction" if feature_id == "history.return" else "RSI points0..100" if feature_id == "history.rsi" else f"{config.price_unit.currency}/share"  # type: ignore[union-attr]
+        unit = "fraction" if feature_id in ("history.return", "history.return_volatility") else "RSI points0..100" if feature_id == "history.rsi" else f"{config.price_unit.currency}/share"  # type: ignore[union-attr]
         columns.append(FeatureColumn(feature_id, "v1", ValueType.FLOAT64, unit, (context.entity,), (value,)))
     return FeatureResult(tuple(columns), tuple(qualities), metadata, tuple(evidence))
 

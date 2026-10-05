@@ -80,3 +80,6 @@ EQ028 adds history_averages.py as the fourteenth installed synthetic example; th
 
 
 EQ029 adds history_recursive.py as the fifteenth installed synthetic example; all existing repeated archive and actual main installed gates apply.
+
+
+EQ030 adds history_volatility.py as the sixteenth installed synthetic example; existing actual-main/repeated archive/fresh pair gates remain.
