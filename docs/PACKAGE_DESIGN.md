@@ -191,3 +191,6 @@ EQ027 extends owned governed context and batch-only historical kernels without s
 
 
 EQ028 retains contract/kernel ownership and batch-first boundaries. Contracts owns immutable exact SMAReference; features.history owns pure mean/anchored recurrence and witness production. No hidden dependency/source calculation or new history state mode; [API](api/HISTORY.md).
+
+
+EQ029 adds pure admitted batch Wilder recurrences without source I/O or a public history accumulator. Normalized RSI scalar magnitude prevents underflow neutralization; total batch context remains finite/transient, not a throughput or constant-input-memory claim. [API](api/HISTORY.md).

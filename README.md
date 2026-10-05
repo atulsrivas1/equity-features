@@ -74,3 +74,6 @@ Historical state modes remain unsupported.
 EQ028 SMA/EMA implementation delivery is qualified at0.0.3a2;
 [API](docs/api/HISTORY.md), [installed example](examples/history_averages.py),
 [verified source/artifacts/install receipt](docs/stories/EQ-028_DELIVERY.md).
+
+
+EQ029 anchored RSI/ATR source qualification is underway at0.0.3a3; [API](docs/api/HISTORY.md), [installed example](examples/history_recursive.py), [delivery gates](docs/stories/EQ-029_DELIVERY.md).

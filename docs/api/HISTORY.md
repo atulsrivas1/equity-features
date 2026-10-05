@@ -137,3 +137,50 @@ FeatureResult scalar types and compute_history signatures remain compatible.
 Both IDs are batch-only; session accumulator schema2 is unchanged but its exact
 implementation-version restore rule still requires replay of older states.
 Run [history_averages.py](../../examples/history_averages.py) after installation.
+
+## Wilder RSI and ATR
+
+EQ029/pair0.0.3a3 adds two batch IDs (30total, seven historical). Each uses its
+own call/configuration because their initialization anchors and windows differ.
+`history.rsi` period N>=2/default14 uses completed_eod WindowSpec.count=N+1 and
+a close initialization_anchor. Its first Nchanges seed mean gains/losses, followed
+by Wilder ((N-1)*prior+current)/N. Gain-only=100, loss-only=0, entirely flat seed=50.
+Unknown/missing input remains null. Every anchor-through-target close is required;
+quality/evidence count those actual row dependencies, not only the trailing N.
+
+RSI represents gain proportion and total-average magnitude as a normalized
+binary64 mantissa plus checked signed-int64 base2exponent. Seed sums/ratio are
+exact transient wide arithmetic before conversion. Flat updates decay magnitude
+and leave proportion unchanged; nonzero changes combine old/new magnitudes after
+exponent alignment, then normalize. Contributions below binary64 resolution may
+vanish only relative to a dominant new movement; an old-only nonneutral state
+never becomes neutral50 from absolute underflow. Independent 80-digit Decimal
+fixtures include20,001flat sessions and subsequent gain/loss. rtol/atol1e-12 in RSI
+points applies. This bounded scalar representation is not a public state/update API.
+
+`history.atr` period N>=1/default14 uses completed_eod WindowSpec.count=N and an
+explicit TR initialization_anchor. It needs the preceding governed close plus
+every TRrow through target. Each TR is max(H-L,abs(H-prevC),abs(L-prevC)); first N
+TRs seed their exact mean, then Wilder smoothing uses bounded Float64 recurrence
+in currency/share. Period1 equals latest TR under the same epoch admission;
+covered zero TR yields available0. ATR quality/evidence counts the preceding-close
+row and all TRrows. At the preceding row only close is required; each TRrow needs
+high/low, and its close is required only when another TR follows. Target current
+close is optional. A missing target close may block RSI while ATR stays available.
+
+TRanchor at the first supplied grid row lacks a governed predecessor and gives
+insufficient_history, with the required missing predecessor counted once. Existing
+preceding row with missing/null close is incomplete_coverage; absent required
+columns are missing_input. No synthesized predecessor or high-low seed fallback.
+Both recursive indicators need full seed warm-up and every subsequent required
+slot. Gaps do not silently restart, even when N=1 would erase arithmetic memory;
+caller must explicitly choose a new epoch or replay admissible corrected history.
+
+Common original context/source/action/C/K/E/unit/certificate/bounds checks and
+globally bounded evidence apply. Production batch retains transient values over
+the supplied finite prefix; ATR additionally builds transient TRs. Bounded scalar
+recurrence does not imply bounded total batch input memory or throughput. No hidden
+source/calculation, authentication or history state capability. Existing schemas
+remain; exact implementation-version session state restore still requires replay.
+[Pre-code plan](../stories/EQ-029_PLAN.md), [delivery gates](../stories/EQ-029_DELIVERY.md),
+[installed synthetic example](../../examples/history_recursive.py).

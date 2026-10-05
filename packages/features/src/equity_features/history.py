@@ -10,9 +10,10 @@ from equity_feature_contracts import (
 )
 from equity_feature_contracts.history import HistoryContext, SMAReference
 from . import __version__
+from ._recursive import atr, rsi
 
 _FIELDS = {"history.return": "close", "history.prior_high": "high", "history.prior_low": "low",
-           "history.sma": "close", "history.ema": "close"}
+           "history.sma": "close", "history.ema": "close", "history.rsi": "close", "history.atr": "high"}
 
 
 def _configuration(config: ConfigSpec, context: HistoryContext, feature_ids: tuple[str, ...]) -> tuple[int, int]:
@@ -29,6 +30,8 @@ def _configuration(config: ConfigSpec, context: HistoryContext, feature_ids: tup
     averages = any(x in ("history.sma", "history.ema") for x in feature_ids)
     if averages and any(x not in ("history.sma", "history.ema") for x in feature_ids):
         raise ContractError(ErrorCode.INVALID_CONFIG, "moving averages and other windows require distinct configurations")
+    if any(x in ("history.rsi", "history.atr") for x in feature_ids) and len(feature_ids) != 1:
+        raise ContractError(ErrorCode.INVALID_CONFIG, "RSI and ATR require their own anchor/window configuration")
     parameters = {p.name: p.value for p in config.parameters}
     if set(parameters) - {"period", "evidence_limit"} or "period" not in parameters:
         raise ContractError(ErrorCode.INVALID_CONFIG, "explicit period and optional evidence_limit only")
@@ -36,17 +39,21 @@ def _configuration(config: ConfigSpec, context: HistoryContext, feature_ids: tup
     evidence_limit = parameters.get("evidence_limit", 0)
     if type(period) is not int or not 1 <= period <= 2**63-2 or type(evidence_limit) is not int or not 0 <= evidence_limit <= 2**63-1:
         raise ContractError(ErrorCode.INVALID_CONFIG, "bounded positive integer period and nonnegative evidence limit required")
+    if "history.rsi" in feature_ids and period < 2:
+        raise ContractError(ErrorCode.INVALID_CONFIG, "RSI requires at least two changes")
     ids = tuple(s.session_id for s in context.sessions)
     if config.window.governed_sessions != ids or context.entity.session_id != config.session.session_id or config.session != next(s for s in context.sessions if s.session_id == context.entity.session_id):
         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "config must match exact governed target and grid")
     if config.price_unit is None or not config.session.open_ns <= config.availability.market_cutoff_ns <= config.session.close_ns:
         raise ContractError(ErrorCode.INVALID_CONFIG, "explicit price unit and target cutoff required")
     is_return = "history.return" in feature_ids
-    if config.window.count != period + int(is_return) or config.window.anchor != ("completed_eod" if is_return or averages else "prior_only"):
+    recursive = any(x in ("history.ema", "history.rsi", "history.atr") for x in feature_ids)
+    extra_close = is_return or "history.rsi" in feature_ids
+    if config.window.count != period + int(extra_close) or config.window.anchor != ("completed_eod" if is_return or averages or recursive else "prior_only"):
         raise ContractError(ErrorCode.INVALID_CONFIG, "period/window count and inclusion policy disagree")
-    if "history.ema" in feature_ids and (context.initialization_anchor is None or
+    if recursive and (context.initialization_anchor is None or
             ids.index(context.initialization_anchor) > ids.index(context.entity.session_id)):
-        raise ContractError(ErrorCode.INVALID_CONFIG, "EMA requires an explicit anchor at or before target")
+        raise ContractError(ErrorCode.INVALID_CONFIG, "recursive history requires explicit anchor at or before target")
     action = context.action_admission
     if action is None:
         if config.adjustment.basis != "raw" or config.adjustment.policy_version != "raw-v1":
@@ -121,21 +128,31 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
         dependencies = selected
         expected = config.window.count
         history_complete = config.window.history_complete
-        if feature_id == "history.ema":
+        if feature_id in ("history.ema", "history.rsi", "history.atr"):
             ids = tuple(s.session_id for s in context.sessions)
             anchor = cast(str, context.initialization_anchor)
-            dependencies = ids[ids.index(anchor):ids.index(context.entity.session_id)+1]
-            expected = len(dependencies)
-            history_complete = expected >= period
+            start = ids.index(anchor)
+            dependencies = ids[max(0, start-int(feature_id == "history.atr")):ids.index(context.entity.session_id)+1]
+            expected = len(dependencies)+int(feature_id == "history.atr" and start == 0)
+            history_complete = len(dependencies) >= period+int(feature_id != "history.ema") and (feature_id != "history.atr" or start > 0)
         values: list[int] = []
+        atr_rows: list[tuple[int | None, int | None, int | None]] = []
         reasons: list[Reason] = []
         observed = 0
         status = Status.AVAILABLE
         field = batch.column(_FIELDS[feature_id]) if batch is not None else None
+        payloads = {name: batch.column(name) if batch is not None else None for name in ("close", "high", "low")}
+        absent_fields = field is None
         known = batch.column("known_at_ns") if batch is not None else None
-        for session_id in dependencies:
+        for position, session_id in enumerate(dependencies):
             row = rows.get(session_id)
             reason = None
+            required: tuple[str, ...] = (_FIELDS[feature_id],)
+            if feature_id == "history.atr":
+                required = ("close",) if position == 0 and start > 0 else ("high", "low")
+                if position < len(dependencies)-1 and (position > 0 or start == 0):
+                    required += ("close",)
+                absent_fields = absent_fields or any(payloads[name] is None for name in required)
             knowledge = cast(int | None, known.values[row]) if known is not None and row is not None else None
             if row is None or not certificates[session_id].complete:
                 reason = Reason.GOVERNED_GAP
@@ -143,12 +160,18 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
                 reason = Reason.FUTURE_MARKET
             elif (knowledge_reason := config.availability.knowledge_reason(knowledge)) is not None:
                 reason = Reason(knowledge_reason)
-            elif field is None:
+            elif any(payloads[name] is None for name in required):
                 reason = Reason.ABSENT_INPUT
-            elif field.values[row] is None:
+            elif any(cast(Column, payloads[name]).values[row] is None for name in required):
                 reason = Reason.NULL_FIELD
             if reason is None:
-                values.append(cast(int, field.values[row]))  # type: ignore[union-attr,index]
+                ready_row = cast(int, row)
+                if feature_id == "history.atr":
+                    atr_rows.append(cast(tuple[int | None, int | None, int | None],
+                                         tuple(cast(int | None, cast(Column, payloads[name]).values[ready_row]) if payloads[name] is not None else None
+                                               for name in ("close", "high", "low"))))
+                else:
+                    values.append(cast(int, cast(Column, field).values[ready_row]))
                 observed += 1
             else:
                 reasons.append(reason)
@@ -157,7 +180,7 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
                                             str(row), sessions[session_id].close_ns, knowledge,
                                             sessions[session_id].open_ns, sessions[session_id].close_ns,
                                             "consumed" if reason is None else "excluded", reason, "completed_interval"))
-        if batch is None or field is None:
+        if batch is None or absent_fields:
             status = Status.MISSING_INPUT
             reasons.append(Reason.ABSENT_INPUT)
         elif not history_complete:
@@ -174,6 +197,10 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
         if status == Status.AVAILABLE:
             if feature_id == "history.return":
                 value = float(Fraction(values[-1], values[0]) - 1)
+            elif feature_id == "history.rsi":
+                value = rsi(values, period)
+            elif feature_id == "history.atr":
+                value = atr(atr_rows, period, 10**config.price_unit.scale)  # type: ignore[union-attr]
             elif feature_id in ("history.sma", "history.ema"):
                 scale = 10**config.price_unit.scale  # type: ignore[union-attr]
                 total = checked_decimal128(sum(values[:period]))
@@ -189,7 +216,7 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
         quality = QualityRow(context.entity, feature_id, status, expected, observed,
                              tuple(dict.fromkeys(reasons)))
         qualities.append(quality)
-        unit = "fraction" if feature_id == "history.return" else f"{config.price_unit.currency}/share"  # type: ignore[union-attr]
+        unit = "fraction" if feature_id == "history.return" else "RSI points0..100" if feature_id == "history.rsi" else f"{config.price_unit.currency}/share"  # type: ignore[union-attr]
         columns.append(FeatureColumn(feature_id, "v1", ValueType.FLOAT64, unit, (context.entity,), (value,)))
     return FeatureResult(tuple(columns), tuple(qualities), metadata, tuple(evidence))
 
