@@ -342,3 +342,6 @@ A separate local repository checkout was prepared for future project sessions. R
 Coverage: six relevant chats, 96 returned turn records, with targeted/truncated-access limits in knowledge/SOURCE_MAP.md. Raw chats and private data are excluded from public records. knowledge/repository-sources.json fingerprints 32 source documents at the inspected baseline. Publication and completion remain subject to this documentation PR and applicable checks; no Done/release claim is made by preparation.
 
 Resume: read current live issue/Project state, the latest release-specific handoff and owner direction. Finish/verify BUG-003 and BUG-004 with their existing owner, verify GOV-010 publication and proceed with the dedicated R2 scope before R3 feature work. Treat these as dependencies to recheck, not a current completion snapshot.
+## Deferred reviewer branch synchronization —2026-10-05
+
+PR120 was synchronized with current main solely to remove merge conflicts. It remains a draft; hosted activation/qualification and owner resumption are still outstanding. Historical scope-cleanup command failure was corrected before publication; no failed command was counted as delivery. The old93-story snapshot is superseded by94active IDs including EQ095, while EQ094 stays retired. Current owner R2-before-R3 and self-review/CI rules remain unchanged.
