@@ -16,9 +16,38 @@ Successful main Foundation package checks retained artifacts,30day requested ret
 - [foundation-0e130ca2a759ff13a35ca44da05382056a4b4768-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37258142835/artifacts/11323726340), expires2026-11-04T03:08:49Z; prior byte-identical install evidence: https://github.com/atulsrivas1/equity-features/actions/runs/37257622066/artifacts/11323481301.
 - [foundation-0e130ca2a759ff13a35ca44da05382056a4b4768-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37258142835/artifacts/11323307342), expires2026-11-04T03:08:14Z; prior byte-identical install evidence: https://github.com/atulsrivas1/equity-features/actions/runs/37257622066/artifacts/11323042505.
 
-EQ-010 In progress,3points: verified public owner atulsrivas1/Apache-2.0 and both distribution license/name metadata. Read-only PyPI lookups returned404; this neither reserves names nor authorizes publication. Decision and offline license consistency check prepared. Final-head/main CI and byte verification precede Done; then E02 child acceptance and EQ-011 Ready.
+EQ-010 Done via PR134, final head74b672ff49370959c24c0469273efcac992580f5,
+mainbebe4138d234138a51a98fe659923f6217e05f68. Exact-head/main checks and six
+published blobs verified; public owner/Apache metadata and read-only PyPI404
+snapshot recorded. E02 Done with all native children accepted. This neither reserves
+registry names nor authorizes publication.
+
+EQ-011 Test,8points confirmed before code. Plan: stories/EQ-011_PLAN.md.
+Immutable canonical core for five kinds, source/unit/coverage/adjustment/sampling
+metadata, explicit Arrow/NumPy materializing bridges and28independent unit cases
+implemented. Core imports exclude optional backends. Experimental version0.0.1a1.
+Strict typing passed with PyArrow missing-stub override only; boundary passed.
+Current tests cover exact ns/int64/decimal128 endpoints and null/ownership behavior.
+Author review added concrete-container guards before source freeze. A development
+build had already produced earlier bytes; its installed sdist correctly failed the
+new27case tests. Those stale bytes are rejected; final source is rebuilt with the
+source/tests frozen throughout build/install verification. Synthetic installed
+example: examples/canonical_inputs.py.
+Semantic validation remains EQ-014. Author review resolved lazy-container guards
+and Unicode documentation issues. All123references,28unit cases, strict typing,
+core isolation and boundary checks pass. Final source repeat-built four archives
+with SHA256 parity and clean-installed wheel/sdist pairs; both installed28cases
+and the synthetic example pass. Final bridge review additionally rejects lazy mapping/ndarray subclasses before
+iteration;28cases pass. The changed bridge requires refreshed final build/CI.
+Exact final-head/main CI, publication blob checks
+and actual main artifact delivery remain mandatory.
+E03 now active and remains open through EQ-093/R3.
 
 ## Failures and corrections
+
+- EQ-011 review found Windows default text decoding damaged punctuation in two
+  edited documents. Restored original Unicode and used explicit UTF-8; no source
+  semantics or evidence identities changed.
 
 - PR128 merge-commit request rejected: repository permits squash only. Checked command stopped; allowed squash used on the same green head.
 - Windows console UTF-8 print failed after an issue close; live closure verified, console reconfigured; no failed command counted as validation.
@@ -36,8 +65,10 @@ E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone
 ## Exact resume steps
 
 1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
-2. Active EQ-010: review docs/decisions/release-access.md and tools/verify_release_policy.py; all123references/planning/import/license/diff checks, exact final-head CI, squash publication, GitHub bytes against committed blobs and main CI. Update issue12 and E02 honestly.
-3. Pull live EQ-011 issue14 after EQ-010 Done. Read its canonical schema acceptance and create docs/stories/EQ-011_PLAN.md before code;8points provisional. Implement actual immutable typed in-memory inputs and explicit columnar interoperability. Then EQ-012/013/014/015/016 in dependency order, no later-release calculators.
+2. Active EQ-011/PR135: final source and local repeat-build/installed tests passed.
+Assess exact final-head Linux/Windows CI, squash publication, committed blob
+verification and main CI; deliver/verify0.0.1a1 main artifacts before Done.
+3. After EQ-011 Done, pull EQ-012 issue15 with live prerequisite/Project inspection and full pre-code plan. Then EQ-013/014/015/016 in dependency order, no later-release calculators.
 4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
 5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
 
