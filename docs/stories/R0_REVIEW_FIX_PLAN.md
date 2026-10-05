@@ -35,3 +35,5 @@ Existing BUG001#144 (3points) and BUG002#145 (5points), created by separate R1
 handoff preparation, now link PR146 and track these same two defects. Confirmed
 points and In progress states; no duplicate implementation scope. GOV008#143 and
 its handoff preparation remain untouched.
+
+Package acceptance completed via PR146/main85c571265eec37726334200aaa202d8104fd097c:176units/123references,38negative/10positive boundary cases and four actual main post1 fresh installs. Final supplement publication gates restore R0/EQ017 readiness.

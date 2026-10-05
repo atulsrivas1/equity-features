@@ -2,7 +2,7 @@
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
-**Status: R0 review repairs in verification (0.0.1a6.post1). Mathematical specifications are complete;
+**Status: R0 experimental foundation accepted after review repairs (0.0.1a6.post1). Mathematical specifications are complete;
 both experimental foundation distributions are delivered through verified
 [internal CI artifacts](docs/BUILD_DELIVERY.md). Typed inputs/specifications/results/validation/discovery and adapter protocols
 are implemented. [Acceptance evidence and artifacts](docs/R0_ACCEPTANCE.md).
