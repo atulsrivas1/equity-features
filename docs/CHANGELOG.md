@@ -1,8 +1,8 @@
 # Experimental package changes
 
-## 0.0.2a9 - EQ026 final audit under verification
+## 0.0.2a9 - EQ026 verified experimental package delivery
 
-Seven independent cross-mode audit cases cover early closes/windows, exact auction boundary evidence, integer notional beyond binary64, scaled quote denominators and seed original-anchor expiry after snapshot/restore. All370 units pass; no numerical defect found. Stale capability/version documentation corrected; final R1 acceptance maps23 IDs and delivery evidence. Full final artifacts and published post-delivery receipt remain required.
+Seven independent cross-mode audit cases cover early closes/windows, exact auction boundary evidence, integer notional beyond binary64, scaled quote denominators and seed original-anchor expiry after snapshot/restore. All370 units pass; no numerical defect found. Stale capability/version documentation corrected; final R1 acceptance maps23 IDs and delivery evidence. Both actual OS bundles and four fresh installations pass; published EQ026 receipt and R1_ACCEPTANCE.md record complete kernel qualification. Final documentation/administrative closure source is linked in issue30.
 
 ## 0.0.2a8 - EQ025 verified experimental delivery
 
