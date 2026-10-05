@@ -1,6 +1,6 @@
 # Experimental package changes
 
-## 0.0.3a0 — EQ033 implementation; delivery qualification pending
+## 0.0.3a0 — EQ033 verified experimental implementation delivery
 
 Pure supplied split/total-return factor application and independent point-in-time
 classification admission, immutable schema1 policy/evidence contracts, exact

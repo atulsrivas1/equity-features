@@ -116,3 +116,13 @@ binding. Digests detect identity differences, not authenticated source truth.
 Run [the synthetic example](../../examples/action_policies.py). See the
 [delivery record](../stories/EQ-033_DELIVERY.md) for actual qualification; source
 implementation and editable tests alone are not a completed release.
+
+
+## Existing session state compatibility
+
+The0.0.3a0 pair changes the recorded implementation version even though session
+state schema2/shape and its equations are unchanged. Existing exact-version
+restore rules remain: a0.0.2a11 saved accumulator is not migrated into0.0.3a0.
+Replay/rebuild caller-owned inputs with the new matching package pair, or use the
+original qualified pair for that exact saved state. No new restore/merge support
+for historical IDs is introduced. [Session state policy](INCREMENTAL.md).

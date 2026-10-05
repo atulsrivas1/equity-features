@@ -509,3 +509,27 @@ selected-index guards;422units/42policycases/strict29files/purity pass afterward
 Issue38 returned to In progress with explicit reason. Older green results are
 superseded, not final release evidence. Resume Code review/Test on corrected head,
 repeat its installed build and full final-head/main/actual artifact qualification.
+
+
+### EQ033 implementation delivered; final receipt gate —2026-10-05
+
+Corrected final headb2ef4b85c90ad1230b7547b0db80853b32035d46 all SIX CI checks and
+local repeated fourarchives/inspection/fresh wheel+sdist each422tests/twelve examples
+pass. Ready to release recorded before exact-head-guarded merge; published main
+da116c8687e3e04e6923ce6900dd665c42855fb5 whole tree matches reviewed head. Main
+docs37380324558/Foundation37380324519 Windows/Linux pass. Both actual OS bundles
+downloaded with exact source/clean epoch/all four hashes/content/license/typing
+verified; FOUR fresh Windows wheel/sdist pair installations each422tests/twelve
+examples pass. Linux native execution is CI evidence, not local Windows evidence.
+Receipt EQ-033_DELIVERY.md records artifact IDs/hashes/expiry/toolchains. EQ033
+is now Released; final documentation receipt/main/bothOS actual archive equality
+remains before Done. Forty-two independent policy cases and123references retained;
+superseded green58bd47f and two failing-before/fixed-after cases stay in history.
+
+Version0.0.3a0 keeps accumulator schema2 but exact-version restore remains; old
+0.0.2a11 state needs caller replay/rebuild, no migration. No historical capability
+or independent review claimed. Next: qualify this docs-only final receipt PR exact
+head/source/main/docs/bothOS actual byte equality, issue acceptance/Done; then pull
+refined EQ027 plan from accepted main before code. Private EQ027 prep identifies
+existing UPDATE_IDS=BATCH_IDS alias must stay session-only when adding history
+batch capabilities. Other R2 plans preserved; R3 remains paused.

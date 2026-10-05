@@ -6,8 +6,8 @@ Source-independent equity feature calculations for reproducible research, backte
 All 23 session IDs support batch/update/restore;22 noncontinuous IDs support
 conditional partition merge. [R1 acceptance and limits](docs/R1_ACCEPTANCE.md)
 and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the actual
-channel. R0 repaired acceptance remains historical. R1 follow-up repairs are verified at0.0.2a11. R2 supplied-policy utilities
-are under qualification at0.0.3a0; its16 numerical IDs remain unimplemented;
+channel. R0 repaired acceptance remains historical. R1 follow-up repairs are verified at0.0.2a11. R2 supplied-policy utility implementation
+is qualified at0.0.3a0; its16 numerical IDs remain unimplemented;
 no public registry release, stable API or throughput claim.**
 
 [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).

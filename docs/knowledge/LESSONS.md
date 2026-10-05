@@ -71,3 +71,12 @@ require coverage.observed equal row_count and selected evidence row_index within
 the original bound. Green head58bd47f builds were superseded; lifecycle returned to
 In progress. Requalify corrected source/artifacts before acceptance, and apply the
 same certificate-versus-delivery check to later HistoryContext consumers.
+
+
+EF-L013 implementation qualification: corrected b2ef4b8 and main da116c8 pass
+422units/42policycases/123refs/all policy gates and bothOS CI; both actual main
+bundles and FOUR fresh installed pairs each422tests/twelve examples pass. This
+qualifies the supplied-policy utility, not the sixteen numerical historical/context
+IDs or source truth. [Receipt](../stories/EQ-033_DELIVERY.md). Final documentation
+publication gates remain before Done; subsequent consumers must retain these
+explicit original binding/quantity/certificate/availability semantics.
