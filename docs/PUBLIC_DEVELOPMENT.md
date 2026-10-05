@@ -6,7 +6,7 @@ Status: human-agreed workflow, 2026-10-04. Repository: atulsrivas1/equity-featur
 
 Use [release-based continuous pull](DELIVERY_POLICY.md), with one active story initially and weekly progress review. No mandatory sprints; milestones and readiness gates guide delivery. Target dates are forecasts set when evidence supports them.
 
-Keep docs/BACKLOG.md as the versioned scope/dependency baseline. Create one GitHub Issue per story, retaining existing IDs and appending new stories through EQ-094. Epic tracking issues link their child stories. Use GitHub milestones for R0 through R8; milestones represent readiness outcomes rather than promised dates. Track Backlog, Ready, In progress, Code review, Test, Ready to release, Released and Done. Represent blocked work with an explicit linked dependency/reason, not an unsupported percentage-complete claim.
+Keep docs/BACKLOG.md as the versioned scope/dependency baseline. Create one GitHub Issue per story, retaining existing IDs and retaining active EQ-001 through EQ-093 and never reusing retired IDs. Epic tracking issues link their child stories. Use GitHub milestones for R0 through R8; milestones represent readiness outcomes rather than promised dates. Track Backlog, Ready, In progress, Code review, Test, Ready to release, Released and Done. Represent blocked work with an explicit linked dependency/reason, not an unsupported percentage-complete claim.
 
 Issue title: [EQ-001] Freeze v1 feature scope. Issue body: problem/user value, included/excluded scope, acceptance checklist, prerequisites, release, validation and related design links. Labels identify epic and work type (design, feature, test, docs, performance); Project fields track status and release. Avoid maintaining different status lists in markdown and GitHub. GitHub is the work-status authority once set up; backlog markdown remains scope/version history and records deliberate scope changes.
 
@@ -53,8 +53,10 @@ Start with the feature scope, not code generation. Deliver docs/features/V1_SCOP
 
 Until GitHub setup finishes, store reviewable drafts here and clearly report local-only status. After the repository is available, migrate the documents without overwriting setup work, create/link the first issue and PR, and preserve the numbered backlog. Repository/profile administration stays in the setup conversation; design and implementation stay in this conversation.
 
-## Separate automated PR review
+## Owner decision: automated reviewer setup deferred
 
-The owner requested a separate Codex reviewer. Follow [CODE_REVIEW.md](CODE_REVIEW.md) and AGENTS.md Code Review Rules. Hosted activation is pending GOV-005 verification. New PRs, including setup, wait for an actual separate Codex response and documented findings disposition before release readiness; missing integration is recorded and resolved, not silently bypassed. Automated review, author self-review and human review remain distinct. No claim of automatic branch-protection enforcement is made.
+On2026-10-04 the owner deferred GOV-005/PR120 and instructed continuing EQ stories. Its proposed separate Codex review gate is postponed until activation is resumed and verified. Continue author self-review, CI, acceptance/documentation and publication verification, labeled accurately; never claim an automated or human review that did not occur. GOV-005 remains open/deferred; this decision does not waive tests or release gates.
 
-Owner decision (2026-10-04): defer Codex integration setup and continue EQ stories. GOV-005/PR120 remain open and deferred in Code review; no hosted activation or automated review claimed. Until activation is explicitly resumed and verified, use the existing self-review plus CI/acceptance workflow, accurately labeled. This explicit owner decision postpones the proposed separate-review gate; it does not waive tests, documentation or release verification.
+## Prepared automated review guidance
+
+PR120 prepares AGENTS.md Code Review Rules and CODE_REVIEW.md. GOV-005 remains deferred until the owner resumes hosted activation and its first real review is verified. This proposed setup does not suspend the current owner-authorized self-review/CI workflow. Once activated, record reviewer identity, response/commit coverage and findings disposition; do not equate automated and human review.

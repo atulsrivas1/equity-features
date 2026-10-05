@@ -32,7 +32,7 @@ Review the changed behavior and its affected callers against the linked story, a
 
 ### Boundaries, compatibility and validation
 
-- Calculation packages must not fetch data, read files/databases, consult wall time, access credentials, schedule jobs or publish outputs. Adapters, workers, chart rendering and network/MCP stay outside numerical packages.
+- Calculation packages must not fetch data, read files/databases, consult wall time, access credentials, schedule jobs or publish outputs. Adapters, workers and network/MCP stay outside numerical packages.
 - Custom IDs cannot override built-ins. Local caller code is trusted, not sandboxed; remote services must not deserialize uploaded executable objects.
 - Check public schema/algorithm/config versions, identity and revision binding, typed errors, required dependencies and actual supported capability claims.
 - Check meaningful independent tests, synthetic/licensed fixtures, documentation, story acceptance and release evidence. Performance claims require measured workload/hardware and numerical parity; check copy/conversion costs and avoid hidden per-record object loops.

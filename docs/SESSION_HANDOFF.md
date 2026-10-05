@@ -1,43 +1,25 @@
 # Development continuity
 
-Updated: 2026-10-04. Repository: atulsrivas1/equity-features. License: Apache-2.0.
+Updated2026-10-04. Public repository: atulsrivas1/equity-features; Apache-2.0. Read AGENTS.md and PUBLIC_DEVELOPMENT.md; GitHub Project is the actual status authority.
 
-## Agreed direction
+## Scope and completed work
 
-Read AGENTS.md for the human owner's work agreements. Deliver source-independent Python contracts/features first, then a DuckDB adapter, independent workers, provider/file adapters, and optional remote/MCP access. Public fixtures must be synthetic or explicitly licensed. No numerical package implementation exists yet.
+Source-independent Python contracts/features first, then DuckDB adapter, workers, provider/file adapters and optional remote/MCP access. Calculation libraries do no source I/O. Other applications are separate products; their designs/integrations belong outside this repository. See decisions/product-boundaries.md. No production calculation package has been implemented or published.
 
-## Completed baseline
+EQ-001 feature scope Done in PR106 (39IDs); EQ-002 session/bar/trade mathematics Done in PR112 (20definitions,17reference cases); EQ-003 quote formulas Done in PR121 mergeaf0dbb8552a3667c242bd46756bf6cb2292d4a5d (3definitions,26reference cases). Final-head CI, publication comparison and post-publication tests were verified on their issues. EQ-004 historical formulas is Ready and needs a detailed plan next. R0 remains incomplete. EQ-093 custom extensions remains Backlog/R3, with no implementation or sandbox claim.
 
-- Public repository, Project, nine release milestones, 12 epics and initially 92 EQ story issues created.
-- EQ-001 completed in PR106, merged2844256888b4f4547df2c9b57aa164a264175bc9:39 feature IDs with inputs, releases, formula-story mappings and capability/exclusion boundaries. Exact-head documentation CI passed. This is scope documentation, not implemented calculations or package release.
-- EQ-002 Done: PR112 mergeddf08aa13e25e15d824a6e4aac94cd099b1bb26c6; final-head CI,17reference tests/20definition coverage and published spec/fixtures verification passed. EQ-003 quote formulas is Ready.
-- Work-agreement/lifecycle change GOV-001 issue107 completed in PR108, merged14af590aa17a5674abd4ba46d7e713064a9ba5b3. Exact-head documentation CI and published content verification passed; eight-state Project migration verified. AGENTS.md and PUBLIC_DEVELOPMENT.md contain the agreed rules.
+## Current scope correction
 
-## Current work and resume
+Owner withdrew external-product-specific integration scope. GOV-006 issue#122 removes the external-product document/references and existing story additions; EQ-094 is retired as not planned, removed from active Project/milestone/parent scope and must not be reused.93active EQ stories remain. Generic precision, availability, state and replay contracts are preserved. Previous proposal GOV-004/PR118 is historical and superseded, not current scope. History is retained; published historical diffs are not erased.
 
-Delivery policy GOV-002 issue109 completed in PR110 mergedf3dd9e08d2b0328dee5785adeea4343c79e6a883; exact-head CI and remote publication verified. Local Windows encoding checks failed and the shell mistakenly continued to merge before their correction; explicit UTF-8 checks then passed and the gate-order exception is recorded in issue109. Stop command sequences on failed validation. Use explicit UTF-8 for document reads and writes.
+Resume: verify GOV-006 linked PR/final checks/publication and GitHub withdrawal metadata. Ensure deferred PR120 is synchronized so it cannot restore retired material. Then start EQ-004 planning; do not recreate removed product-specific scope.
 
-Project owns current status. Custom extension roadmap change GOV-003 completed in PR115, merge0592c9b3202069bd08db93cfd6c9b7f99805f81e; EQ-093 remains Backlog/R3, with no implementation or sandbox guarantee.
+## Review and validation
 
-User authorized the chart consumer integration contract. GOV-004 issue#117 publishes the proposed boundary and EQ-094 issue#116 (E03/R3, Backlog). Contract: initial Python analysis host/explicit batch boundary; immutable data revision binding, exact int64/scaled prices, full-resolution calculations, provisional previews separate from committed state and correction/backfill replay. No production chart adapter, native kernel or new market coverage is implemented. Final schema/transport and capability details are open until EQ-094 planning. Rust is a suitable chart-engine choice; shared calculation kernels remain evidence-gated EQ-085–087.
+GOV-005 issue119/PR120 remains open and explicitly deferred by owner. No hosted integration or separate Codex review is claimed. Existing self-review, CI, acceptance/documentation and publication checks apply until owner resumes setup. Actual reviewers and limitations must be recorded; administrator merges do not imply human review.
 
-GOV-004 publication PR: #118. Self-review corrected a table separator and removed a circular EQ-044 dependency: EQ-094 needs contract/typing/incremental foundations; EQ-044 jointly qualifies its compatibility. Planning checks and17reference cases pass; consult PR for final-head CI and publication evidence.
+Documentation CI checks93active EQ IDs,39builtin feature IDs and eight lifecycle states. Reference verifiers check17session and26quote cases; no backend/performance/provider qualification follows. Use explicit UTF-8. GOV-002 recorded a local encoding failure and a shell sequence that incorrectly continued to merge; corrected post-merge checks passed. All command sequences must stop on failed checks. Documentation releases are not parent milestone/package releases. Public fixtures stay synthetic or explicitly licensed; never publish private data/credentials.
 
-Resume: verify GOV-004 linked PR/checks/publication and live Project status; finish its documentation release if necessary. Then resume EQ-003 quote formulas with a story plan. R0 remains incomplete; production kernels/API are not implemented. Do not start EQ-094 ahead of its prerequisites.
+Scope-cleanup validation note: a Project removal command used an unsupported CLI flag and stopped before commit/publication. Corrected to the documented project-number/owner syntax; verify Project removal in final acceptance. No failed command was treated as a successful whole sequence.
 
-For documentation-only stories, publishing validated documentation on the default branch counts as that story's release; it does not release its parent milestone or a Python package. Implementation stories wait for their declared package/deployment release.
-
-## Validation and limitations
-
-The current check validates planning documents, all94EQ story IDs and39built-in scope IDs/formula mappings, plus17session reference cases. Tests, typing, wheel builds and benchmarks will be added as package implementation warrants them. No provider-source admission, realtime guarantee or performance acceptance follows from documentation checks. Consult live GitHub issue/PR/Project evidence for current delivery status; this handoff is a resume aid, not a duplicate status database.
-
-## Codex reviewer setup in progress
-
-User explicitly requested separate Codex PR review. GOV-005 issue#119 tracks repository rules, hosted activation and a real qualification review. codex/review-workflow prepares AGENTS Code Review Rules, CODE_REVIEW.md, workflow and PR template. No hosted activation or separate review is verified yet. Public settings at https://chatgpt.com/codex/settings/code-review redirect to ChatGPT login in the in-app browser; owner sign-in is required. The earlier app.chatgpt.com documentation link reached a restricted preview and was closed.
-
-Resume: after owner sign-in, inspect settings and connect/enable only this repository; obtain any explicit authorization required for new security-sensitive integration permissions. Make the setup PR ready, request/verify a real @codex review, record reviewed commit/findings, resolve them and run final-head CI. Keep the PR open until that gate is met. Existing finished work keeps self-review evidence; EQ-003 remains Ready but its implementation waits for completion of this active setup item. Do not claim a bot review from a request or reaction.
-
-## Owner steering: reviewer setup deferred
-
-Owner decision (2026-10-04): defer Codex integration setup and continue EQ stories. GOV-005/PR120 remain open and deferred in Code review; no hosted activation or automated review claimed. Until activation is explicitly resumed and verified, use the existing self-review plus CI/acceptance workflow, accurately labeled. This explicit owner decision postpones the proposed separate-review gate; it does not waive tests, documentation or release verification.
-Resume EQ-003 immediately with plan/specification and synthetic fixtures. Revisit GOV-005 only when the owner resumes setup; do not wait for sign-in or claim separate review in the meantime.
+Deferred reviewer branch synchronization: scope-cleanup PR123 is merged; retired contract remains deleted and93active story CI retained. Pending PR120 retains generic review guidance only. Continue EQ-004 under the owner-authorized self-review/CI workflow until reviewer setup is resumed.
