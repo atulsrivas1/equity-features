@@ -97,3 +97,5 @@ registry and adapter protocols remain EQ-012â€“016. No numerical calculator
 ## R1 additive scope contract (0.0.2a0)
 
 BatchMetadata.scope optionally carries typed InputScope(start_ns,end_ns,eligibility_policy,include_opening_auction,include_closing_auction). Bounds are positive exact UTCns intervals; policy nonempty and auction flags Boolean. It survives Arrow envelopes and result input identity. Historical batches without scope still construct; executable bar calculations require matching scope/policy and actual population coverage. See [bar API](../api/SESSION_BARS.md). Source admission truth remains caller-owned.
+
+EQ018 adds owned BatchMetadata.interval_coverage tuples of IntervalCoverage(name,start_ns,end_ns,Coverage), with unique names and bounds inside InputScope. Arrow serialization retains them; executable interval reduction matches configured window identity and actual selected whole-bar population. These are caller assertions, not inferred completeness.

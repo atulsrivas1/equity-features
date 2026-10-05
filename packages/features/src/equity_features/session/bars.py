@@ -1,11 +1,13 @@
 """Checked exact bar reductions with independent field/reference readiness."""
 from __future__ import annotations
+from dataclasses import replace
 from fractions import Fraction
 from typing import cast
 from equity_feature_contracts import (
-    CanonicalBatch, ConfigSpec, ContractError, DataKind, EntityKey, ErrorCode,
+    CanonicalBatch, Column, ConfigSpec, ContractError, Coverage, DataKind, EntityKey, ErrorCode,
     FeatureColumn, FeatureResult, InputBinding, QualityRow, Reason, ResultCell,
-    ResultMetadata, Status, ValueType, PriceUnit, checked_decimal128, checked_int64,
+    ResultMetadata, Status, ValueType, PriceUnit, InputScope, IntervalOHLCV,
+    IntervalOHLCVRow, IntervalVolumeShares, IntervalVolumeShareRow, checked_decimal128, checked_int64,
     require_compatible_inputs, validate_batch,
 )
 from equity_feature_contracts._implemented import BAR_IDS
@@ -176,3 +178,86 @@ def compute_bars(batch: CanonicalBatch | None, config: ConfigSpec, *, entity: En
         values.append(FeatureColumn(feature_id,"v1",dtype,unit,(entity,),(value,)))
         qualities.append(QualityRow(entity,feature_id,status,expected,observed,reasons))
     return FeatureResult(tuple(values),tuple(qualities),metadata)
+
+
+def compute_structure(batch: CanonicalBatch | None, config: ConfigSpec, *, entity: EntityKey) -> FeatureResult:
+    """Whole-bar interval OHLCV and shares with explicitly scoped delivery evidence."""
+    policy = _policy(config)
+    if not config.session.intervals:
+        raise ContractError(ErrorCode.INVALID_CONFIG,"at least one supplied interval required")
+    whole = compute_bars(batch,config,entity=entity)
+    total = next(c.values[0] for c in whole.values if c.feature_id == "session.bar.volume")
+    total_quality = next(q for q in whole.quality if q.feature_id == "session.bar.volume")
+    ohlcv_id = "session.structure.interval_ohlcv"
+    share_id = "session.structure.interval_volume_share"
+    if batch is None:
+        return FeatureResult((FeatureColumn(ohlcv_id,"v1",ValueType.INTERVAL_OHLCV,"currency/share; shares",(entity,),(None,)),FeatureColumn(share_id,"v1",ValueType.INTERVAL_VOLUME_SHARES,"fraction",(entity,),(None,))),tuple(QualityRow(entity,f,Status.MISSING_INPUT,None,0,(Reason.ABSENT_INPUT,)) for f in (ohlcv_id,share_id)),whole.metadata)
+    ohlcv_rows: list[IntervalOHLCVRow] = []
+    share_rows: list[IntervalVolumeShareRow] = []
+    columns = _columns(batch) if batch is not None else {}
+    declared = {x.name:x for x in batch.metadata.interval_coverage} if batch is not None else {}
+    configured = {x.name:x for x in config.session.intervals}
+    for name,item in declared.items():
+        if name not in configured or (item.start_ns,item.end_ns) != (configured[name].start_ns,configured[name].end_ns):
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"interval delivery/config identity mismatch")
+    for interval in config.session.intervals:
+        selected: tuple[int,...] = ()
+        if batch is not None:
+            starts = cast(tuple[int,...],columns["start_ns"])
+            ends = cast(tuple[int,...],columns["end_ns"])
+            if any(a < bound < b for a,b in zip(starts,ends,strict=True) for bound in (interval.start_ns,interval.end_ns)):
+                raise ContractError(ErrorCode.BOUNDS,"requested interval straddles a whole bar")
+            selected = tuple(i for i,(a,b) in enumerate(zip(starts,ends,strict=True)) if interval.start_ns <= a and b <= interval.end_ns)
+        delivery = declared.get(interval.name)
+        observed = len(selected)
+        expected = delivery.coverage.expected if delivery is not None else None
+        if delivery is not None and delivery.coverage.observed != observed:
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"interval coverage population mismatch")
+        qstatus = Status.AVAILABLE
+        qreasons: tuple[Reason,...] = ()
+        if batch is None:
+            qstatus,qreasons = Status.MISSING_INPUT,(Reason.ABSENT_INPUT,)
+        elif interval.end_ns > config.availability.market_cutoff_ns or delivery is None or not delivery.coverage.complete:
+            qstatus,qreasons = Status.INCOMPLETE_COVERAGE,(Reason.GOVERNED_GAP,)
+        volume: int | None = None
+        prices: tuple[float | None,...] = (None,None,None,None)
+        volume_status,volume_reasons = qstatus,qreasons
+        if qstatus == Status.AVAILABLE and batch is not None and delivery is not None:
+            scoped_metadata = replace(batch.metadata,scope=InputScope(interval.start_ns,interval.end_ns,policy,config.session.include_opening_auction,config.session.include_closing_auction),coverage=delivery.coverage,interval_coverage=())
+            scoped = replace(batch,columns=tuple(Column(c.name,tuple(c.values[i] for i in selected)) for c in batch.columns),metadata=scoped_metadata)
+            # Transient reduction bounds are a window, not a new exchange calendar.
+            # The public result retains the original target configuration/identity.
+            session = replace(config.session,open_ns=interval.start_ns,close_ns=interval.end_ns,intervals=(),scheduled_close_ns=None,early_close=False)
+            timing = replace(config.availability,market_cutoff_ns=interval.end_ns)
+            reduced = compute_bars(scoped,replace(config,session=session,availability=timing),entity=entity)
+            reduced_values = {c.feature_id.rsplit(".",1)[1]:c.values[0] for c in reduced.values}
+            reduced_quality = {q.feature_id.rsplit(".",1)[1]:q for q in reduced.quality}
+            volume_quality = reduced_quality["volume"]
+            volume_status,volume_reasons = volume_quality.status,volume_quality.reasons
+            volume = cast(int | None,reduced_values["volume"])
+            qstatus,qreasons = volume_status,volume_reasons
+            if qstatus == Status.AVAILABLE and volume != 0:
+                bad = next((reduced_quality[x] for x in ("open","high","low","close") if reduced_quality[x].status != Status.AVAILABLE),None)
+                if bad is not None: qstatus,qreasons = bad.status,bad.reasons
+                else: prices = tuple(cast(float,reduced_values[x]) for x in ("open","high","low","close"))
+        ohlcv_quality = QualityRow(entity,ohlcv_id,qstatus,expected,observed,qreasons)
+        ohlcv_rows.append(IntervalOHLCVRow(interval,prices[0],prices[1],prices[2],prices[3],volume if qstatus == Status.AVAILABLE else None,ohlcv_quality))
+        share_status,share_reasons = volume_status,volume_reasons
+        share: float | None = None
+        if share_status == Status.AVAILABLE:
+            if total_quality.status != Status.AVAILABLE:
+                share_status,share_reasons = total_quality.status,total_quality.reasons
+            elif total == 0:
+                share_status,share_reasons = Status.NOT_APPLICABLE,(Reason.ZERO_DENOMINATOR,)
+            else: share = float(Fraction(cast(int,volume),cast(int,total)))
+        share_rows.append(IntervalVolumeShareRow(interval,share,QualityRow(entity,share_id,share_status,expected,observed,share_reasons)))
+    tables: tuple[IntervalOHLCV | IntervalVolumeShares,...] = (IntervalOHLCV(tuple(ohlcv_rows)),IntervalVolumeShares(tuple(share_rows)))
+    features: list[FeatureColumn] = []
+    quality: list[QualityRow] = []
+    for feature_id,dtype,unit,table in zip((ohlcv_id,share_id),(ValueType.INTERVAL_OHLCV,ValueType.INTERVAL_VOLUME_SHARES),("currency/share; shares","fraction"),tables,strict=True):
+        ready=sum(row.quality.status == Status.AVAILABLE for row in table.rows)
+        reasons=tuple(dict.fromkeys(reason for row in table.rows for reason in row.quality.reasons))
+        status=Status.AVAILABLE if ready == len(table.rows) else Status.INCOMPLETE_COVERAGE
+        features.append(FeatureColumn(feature_id,"v1",dtype,unit,(entity,),(table,)))
+        quality.append(QualityRow(entity,feature_id,status,len(table.rows),ready,reasons))
+    return FeatureResult(tuple(features),tuple(quality),replace(whole.metadata,backend_version=__version__))

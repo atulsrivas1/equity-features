@@ -9,3 +9,7 @@ types become float64 currency/share; notional remains exact scaled coefficient.
 Registry advertises only actual batch bar capabilities; snapshots use a new digest.
 No public registry publication, stable release or performance qualification.
 Main artifact acceptance is required before this version is declared delivered.
+
+##0.0.2a1 — EQ018
+
+Typed interval OHLCV and volume shares, explicit per-window coverage and partial-row quality; whole-bar alignment/earlyclose/auction admission preserved. Registry structured output metadata and digest evolve; both structure batch flags supported. Delivery still requires actual main artifacts; no public registry or performance claim.
