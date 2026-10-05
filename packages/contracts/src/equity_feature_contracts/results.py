@@ -43,6 +43,7 @@ class ValueType(StrEnum):
     BOOL = "bool"
     BREADTH_COUNTS = "breadth_counts"
     BREADTH_FRACTION = "breadth_fraction"
+    TOP_K_TRADES = "top_k_trades"
     INTERVAL_OHLCV = "interval_ohlcv"
     INTERVAL_VOLUME_SHARES = "interval_volume_shares"
 
@@ -164,7 +165,50 @@ def _interval_rows(rows: tuple[IntervalOHLCVRow, ...] | tuple[IntervalVolumeShar
     if len({x.interval.name for x in rows}) != len(rows):
         raise ContractError(ErrorCode.DUPLICATE,"duplicate interval output name")
 
-ResultCell: TypeAlias = int | float | str | bool | BreadthCounts | BreadthFraction | IntervalOHLCV | IntervalVolumeShares | None
+@dataclass(frozen=True)
+class TopKTradeRow:
+    input_id: str
+    event_id: str
+    event_ns: int
+    order_key: int
+    known_at_ns: int | None
+    price: int
+    size: int
+
+    def __post_init__(self) -> None:
+        _label(self.input_id); _label(self.event_id)
+        for value in (self.event_ns,self.order_key,self.known_at_ns):
+            if value is not None and (type(value) is not int or not I64_MIN <= value <= I64_MAX):
+                raise ContractError(ErrorCode.BOUNDS,"exact int64 trade ordering required")
+        if type(self.event_ns) is not int or type(self.order_key) is not int:
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"nonnull trade ordering required")
+        for value in (self.price,self.size):
+            if type(value) is not int or not 0 < value <= I64_MAX:
+                raise ContractError(ErrorCode.BOUNDS,"positive int64 trade payload required")
+
+    @property
+    def rank_key(self) -> tuple[int,int,int,str]:
+        return (-self.size,self.event_ns,self.order_key,self.event_id)
+
+@dataclass(frozen=True)
+class TopKTrades:
+    k: int
+    rows: tuple[TopKTradeRow, ...]
+
+    def __post_init__(self) -> None:
+        if type(self.k) is not int or not 1 <= self.k <= 10000:
+            raise ContractError(ErrorCode.BOUNDS,"topK bound1..10000 required")
+        if type(self.rows) not in (tuple,list) or any(type(x) is not TopKTradeRow for x in self.rows):
+            raise ContractError(ErrorCode.INVALID_SCHEMA,"concrete typed topK rows required")
+        object.__setattr__(self,"rows",tuple(self.rows))
+        if len(self.rows) > self.k:
+            raise ContractError(ErrorCode.BOUNDS,"topK retained bound exceeded")
+        if len({(x.input_id,x.event_id) for x in self.rows}) != len(self.rows):
+            raise ContractError(ErrorCode.DUPLICATE,"duplicate topK source/event identity")
+        if tuple(x.rank_key for x in self.rows) != tuple(sorted(x.rank_key for x in self.rows)):
+            raise ContractError(ErrorCode.INVALID_ORDER,"topK rows must be ranked")
+
+ResultCell: TypeAlias = int | float | str | bool | TopKTrades | BreadthCounts | BreadthFraction | IntervalOHLCV | IntervalVolumeShares | None
 
 @dataclass(frozen=True)
 class FeatureColumn:
@@ -201,6 +245,7 @@ def _value(dtype: ValueType, value: ResultCell) -> None:
     elif dtype == ValueType.BOOL: valid = type(value) is bool
     elif dtype == ValueType.BREADTH_COUNTS: valid = type(value) is BreadthCounts
     elif dtype == ValueType.BREADTH_FRACTION: valid = type(value) is BreadthFraction
+    elif dtype == ValueType.TOP_K_TRADES: valid = type(value) is TopKTrades
     elif dtype == ValueType.INTERVAL_OHLCV: valid = type(value) is IntervalOHLCV
     else: valid = type(value) is IntervalVolumeShares
     if not valid:
@@ -356,6 +401,15 @@ class FeatureResult:
         if len(self.evidence)>self.metadata.evidence_limit: raise ContractError(ErrorCode.BOUNDS,"evidence exceeds explicit bound")
         evidence_keys = {(x.entity,x.feature_id,x.input_id,x.row_id) for x in self.evidence}
         if len(evidence_keys) != len(self.evidence): raise ContractError(ErrorCode.DUPLICATE,"duplicate evidence identity")
+        for c in self.values:
+            for entity,value in zip(c.entities,c.values,strict=True):
+                if isinstance(value,TopKTrades):
+                    matched = [e for e in self.evidence if e.entity == entity and e.feature_id == c.feature_id]
+                    if len(matched) != len(value.rows):
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"topK rows require exact evidence binding")
+                    for row in value.rows:
+                        if not any(e.input_id == row.input_id and e.row_id == row.event_id and e.event_ns == row.event_ns and e.known_at_ns == row.known_at_ns and e.use == "consumed" for e in matched):
+                            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"topK original event evidence mismatch")
         inputs = {x.metadata.source.input_id:x for x in self.metadata.inputs}
         for e in self.evidence:
             if (e.entity,e.feature_id) not in keys or e.input_id not in inputs: raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"unbound evidence identity")
