@@ -16,7 +16,7 @@ from .validation import (KnowledgeExclusion, ValidationReport, checked_decimal12
 from .normalization import (NormalizationReport, NormalizedBatch, QuantizedPrices,
     normalize_batch, quantize_float_prices)
 
-__version__ = "0.0.1a4"
+__version__ = "0.0.1a4.post1"
 __all__ = ["AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
            "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",
