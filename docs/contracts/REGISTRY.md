@@ -57,3 +57,6 @@ EQ027/0.0.3a1 qualifies history.return/prior_high/prior_low batch only.26batch a
 
 
 EQ028/0.0.3a2 adds history.sma/ema batch flags:28batch,23session update/restore,22conditional merge. Other history modes remain false;39 equations/identities unchanged. Builtin snapshot digest advances; [history API](../api/HISTORY.md).
+
+
+EQ029/0.0.3a3 adds history.rsi/atr batch flags:30batch/23session update/restore/22conditional merge;39mathematical definitions and unsupported history modes remain unchanged. Snapshot digest advances; [API](../api/HISTORY.md).

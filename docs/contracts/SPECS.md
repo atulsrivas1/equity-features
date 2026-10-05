@@ -90,3 +90,6 @@ EQ027 adds owned HistoryContext schema1: exact SessionSpecs, per-slot certificat
 
 
 EQ028 adds immutable SMAReference schema1 alongside an unchanged FeatureResult; exact sum/count projection, unit/quality and price comparison guards are documented in the [history API](../api/HISTORY.md). ConfigSpec/HistoryContext schema1 stays unchanged.
+
+
+EQ029 retains HistoryContext/ConfigSpec schema1; the initialization anchor is a close anchor for RSI and TR anchor for ATR, in separate calls/configurations. [Membership/precision](../api/HISTORY.md).

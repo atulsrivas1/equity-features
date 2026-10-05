@@ -35,10 +35,10 @@ class RegistryDefinitions(unittest.TestCase):
                 self.assertEqual(FeatureDefinition.from_json(d.to_json()),d)
     def test_exact_implemented_capabilities(self):
         registry=builtin_registry()
-        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:26]+EXPECTED[28:30])
+        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:30])
         self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="merge")),EXPECTED[:22])
         for d in registry.list_features():
-            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:26]+EXPECTED[28:30],update=d.feature_id in EXPECTED[:23],restore=d.feature_id in EXPECTED[:23],merge=d.feature_id in EXPECTED[:22]))
+            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:30],update=d.feature_id in EXPECTED[:23],restore=d.feature_id in EXPECTED[:23],merge=d.feature_id in EXPECTED[:22]))
         for feature in EXPECTED[:23]:
             registry.require_capability(feature,"batch");registry.require_capability(feature,"update");registry.require_capability(feature,"restore")
         for mode in ("merge",):

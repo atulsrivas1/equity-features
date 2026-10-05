@@ -1,5 +1,14 @@
 # Experimental package changes
 
+## 0.0.3a3 — EQ029 source qualification, delivery pending
+
+Batch Wilder RSI/ATR require explicit anchors/seeds and full governed epochs.
+Normalized RSI magnitude preserves nonneutral long-flat ratios; ATR requires
+previous close and high/low independently of target close.30batch/23session
+update/restore22merge; no history state modes. [API](api/HISTORY.md),
+[delivery gates](stories/EQ-029_DELIVERY.md).
+
+
 ## 0.0.3a2 — EQ028 verified experimental implementation delivery
 
 Batch SMA uses exact wide means; EMA seeds at an explicit supplied anchor and

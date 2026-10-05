@@ -72,7 +72,7 @@ def clean_install(paths):
         run(str(py),'-m','pip','install','--no-deps','numpy==2.2.6','pyarrow==20.0.0')
         tests=ROOT/'tests/unit'
         if tests.exists(): run(str(py),'-m','unittest','discover','-s',str(tests))
-        for name in ('canonical_inputs','in_memory_adapter','session_bars','session_structure','session_trades','session_top_k','session_quotes','continuous_quotes','session_incremental','session_state','session_merge','action_policies','history_windows','history_averages'):
+        for name in ('canonical_inputs','in_memory_adapter','session_bars','session_structure','session_trades','session_top_k','session_quotes','continuous_quotes','session_incremental','session_state','session_merge','action_policies','history_windows','history_averages','history_recursive'):
             example=ROOT/f'examples/{name}.py'
             if example.exists(): run(str(py),str(example))
 

@@ -77,3 +77,6 @@ EQ033/0.0.3a0 adds action_policies.py as the twelfth synthetic clean-install exa
 
 
 EQ028 adds history_averages.py as the fourteenth installed synthetic example; the same repeat archive/fresh pair/main artifact gates apply.
+
+
+EQ029 adds history_recursive.py as the fifteenth installed synthetic example; all existing repeated archive and actual main installed gates apply.

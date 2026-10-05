@@ -693,3 +693,29 @@ separate window configurations, independent oracle/timing/gap fixtures and truth
 batch-only modes. No source code yet. Next: publish pre-code plan/Ready/In progress,
 implement qualified pair0.0.3a3 and docs/tests/examples, then all installed/main/
 receipt gates. R2 continues; R3 paused.
+
+### EQ029 local implementation and review —2026-10-05
+
+Plan dc2bba6 precedes source on codex/eq-029-rsi-atr/PR180. Pair0.0.3a3 adds pure
+batch RSI/ATR with explicit anchors/Wilder seeds, ratio-preserving normalized RSI
+total magnitude/exponent, mandatory ATR predecessor close and optional target
+close. Existing context/config/results schemas and39equations remain.30batch,
+23session update/restore22merge; all history state modes false. API/precision/
+contracts/version/registry/examples/changelog/pending receipt/lessonEF-L016 accompany
+code. No source reads, independent review or throughput/provider claim.
+
+472units (18new independent actual API cases) pass, including20,001flat nonneutral
+RSI/later movements and Decimal/default/wide/scaled goldens. Strict31CI targets/
+pure boundary38negative10positive pass. Initial variable tuple/index typing errors
+and malformed action fixture missing adjustment anchor/incorrect policy args were
+corrected; not final evidence. Next: full123refs/import/license/registry/compatibility/
+docs/typed fifteenth example, author final review/commit then Code review/Test,
+repeat exact-head archives/fresh installs/SIX CI checks/main exact source/bothOS
+actual bundles/FOURfreshpairs/final receipt before acceptance. R3 remains paused.
+
+EQ029 local full gates now pass123references/strict35files (31CI targets plus four
+typed new examples), import/registry/license/compatibility/UTF8/planning/lifecycle/
+fifteenth synthetic example. No new broken local links; inherited R1 link unchanged.
+Type casts preserve validated admitted payload behavior without suppressing new
+tuple errors. Author final review complete; next concrete source commit/Code review/
+Test and exact-head repeat-build/fresh installed acceptance, not source-only closure.
