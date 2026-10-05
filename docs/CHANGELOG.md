@@ -1,6 +1,10 @@
 # Experimental package changes
 
-## 0.0.2a5 - EQ022 under verification
+## 0.0.2a6 - EQ023 under verification
+
+Shared bounded batch/update reductions for all23 R1 IDs, fixed source/schema population and explicit prefix certificates. Atomic update/snapshot/finalize, strict order/late-correction/sealing and known-gap replay policy. Truthful23 update flags; restore/merge/custom/R2 remain false. Formal delivery pending.
+
+## 0.0.2a5 - EQ022 delivered
 
 Continuous quote time weights with supplied seed/inactive/unknown initialization, original-anchor expiry, exact duration conservation and valid-only means. Typed known zero-valid/initial-unknown diagnostics; missing or incomplete feed stays unavailable. All23 R1 batch IDs implemented; formal delivery pending.
 

@@ -3,12 +3,13 @@ from __future__ import annotations
 from dataclasses import replace
 from typing import cast
 from equity_feature_contracts import (
-    CanonicalBatch, ConfigSpec, ContractError, DataKind, EntityKey, ErrorCode,
+    CanonicalBatch, ConfigSpec, Coverage, ContractError, DataKind, EntityKey, ErrorCode,
     EvidenceRow, FeatureColumn, FeatureResult, InputBinding, QualityRow, Reason,
     ResultMetadata, Status, TopKTradeRow, TopKTrades, ValueType, builtin_registry,
     validate_batch,
 )
 from equity_features import __version__
+from ._reductions import _TopTotals
 from .bars import _columns, _policy
 from .trades import _admit_trades
 
@@ -28,31 +29,15 @@ def compute_top_k(batch: CanonicalBatch | None, config: ConfigSpec, *, entity: E
     if type(entity) is not EntityKey or entity.session_id != config.session.session_id:
         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"typed target entity/config identity required")
     if batch is not None: _admit_trades(batch,config,entity,policy)
-    feature_id="session.trade.top_k"
     inputs=(InputBinding("trades",DataKind.TRADE,batch.metadata),) if batch is not None else ()
     metadata=ResultMetadata(config.session.namespace,entity.session_id,config.availability,config.digest,inputs,"python-exact",__version__,limit)
-    expected=batch.metadata.coverage.expected if batch is not None else None
-    observed=batch.row_count if batch is not None else 0
-    status=Status.AVAILABLE
-    reasons: tuple[Reason,...]=()
-    if batch is None: status,reasons=Status.MISSING_INPUT,(Reason.ABSENT_INPUT,)
-    elif not batch.metadata.coverage.complete: status,reasons=Status.INCOMPLETE_COVERAGE,(Reason.GOVERNED_GAP,)
-    else:
-        report=validate_batch(batch,session=config.session,availability=config.availability,required_fields=())
-        if report.knowledge_exclusions:
-            status,reasons=Status.MISSING_INPUT,tuple(dict.fromkeys(x.reason for x in report.knowledge_exclusions))
     columns=_columns(batch) if batch is not None else {}
-    if status == Status.AVAILABLE and any(x is True for x in columns.get("eligible",())) and not {"price","size"} <= set(columns):
-        status,reasons=Status.MISSING_INPUT,(Reason.ABSENT_INPUT,)
-    known = columns.get("known_at_ns")
-    retained: list[TopKTradeRow]=[]
-    if status == Status.AVAILABLE and batch is not None:
-        for i,eligible in enumerate(columns["eligible"]):
-            if eligible is not True: continue
-            row=TopKTradeRow(batch.metadata.source.input_id,cast(str,columns["event_id"][i]),cast(int,columns["event_ns"][i]),cast(int,columns["order_key"][i]),cast(int | None,known[i]) if known is not None else None,cast(int,columns["price"][i]),cast(int,columns["size"][i]))
-            retained.append(row);retained.sort(key=lambda x:x.rank_key)
-            if len(retained) > k: retained.pop()
-    value=TopKTrades(k,tuple(retained)) if status == Status.AVAILABLE else None
-    evidence=tuple(EvidenceRow(entity,feature_id,x.input_id,x.event_id,x.event_ns,x.known_at_ns,boundary="closing_auction" if x.event_ns == config.availability.market_cutoff_ns else "ordinary") for x in retained)
-    output=builtin_registry().get(feature_id).outputs[0]
-    return FeatureResult((FeatureColumn(feature_id,"v1",ValueType.TOP_K_TRADES,output.unit,(entity,),(value,)),),(QualityRow(entity,feature_id,status,expected,observed,reasons),),metadata,evidence)
+    state=_TopTotals(tuple(columns),k=k)
+    if batch is not None:
+        known=columns.get("known_at_ns")
+        for i in range(batch.row_count):
+            reason=config.availability.knowledge_reason(cast(int | None,known[i]) if known is not None else None)
+            state.add(columns,i,Reason(reason) if reason is not None else None,batch.metadata.source.input_id)
+    coverage=batch.metadata.coverage if batch is not None else Coverage(None,0,False)
+    override=(Status.MISSING_INPUT,(Reason.ABSENT_INPUT,)) if batch is None else None
+    return state.result(config,entity,coverage,metadata,override)

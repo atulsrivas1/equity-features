@@ -127,7 +127,7 @@ class Quotes(unittest.TestCase):
         self.error(ErrorCode.INCONSISTENT_IDENTITY,lambda:calc(quotes(instrument_id=('B',)*4)))
         for feature in ('session.quote.sampled_spread','session.quote.state_counts'):
             builtin_registry().require_capability(feature,'batch')
-            for mode in ('update','restore','merge'):
+            for mode in ('restore','merge'):
                 self.error(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:builtin_registry().require_capability(feature,mode))
 
     def test_sampled_label_and_denominator_cannot_contradict_binding(self):

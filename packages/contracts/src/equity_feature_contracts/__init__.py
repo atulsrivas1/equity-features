@@ -16,11 +16,13 @@ from .validation import (KnowledgeExclusion, ValidationReport, checked_decimal12
 from .normalization import (NormalizationReport, NormalizedBatch, QuantizedPrices,
     normalize_batch, quantize_float_prices)
 
+from .streaming import StreamPopulation, PrefixCoverage
+
 from .registry import (Capabilities, FeatureDefinition, InputRequirement,
     OutputField, Registry, builtin_registry)
 
-__version__ = "0.0.2a5"
-__all__ = ["QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
+__version__ = "0.0.2a6"
+__all__ = ["StreamPopulation", "PrefixCoverage", "QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
            "IntervalCoverage", "IntervalOHLCV", "IntervalOHLCVRow", "IntervalVolumeShares", "IntervalVolumeShareRow", "InputScope", "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",
            "Parameter", "SessionSpec", "WindowSpec", "ContractError", "ErrorCode",

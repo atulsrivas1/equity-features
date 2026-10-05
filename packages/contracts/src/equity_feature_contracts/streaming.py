@@ -1,0 +1,48 @@
+"""Owned declarations for pure chunk delivery and explicit requested-prefix coverage."""
+from __future__ import annotations
+from dataclasses import dataclass
+from .errors import ContractError, ErrorCode
+from .inputs import (BatchMetadata, CanonicalBatch, Column, Coverage, DataKind,
+    I64_MIN, I64_MAX, IntervalCoverage)
+from .validation import validate_batch
+
+@dataclass(frozen=True)
+class StreamPopulation:
+    kind: DataKind
+    fields: tuple[str, ...]
+    metadata: BatchMetadata
+    identity_policy: str = 'caller-certified-global-unique-v1'
+
+    def __post_init__(self) -> None:
+        if type(self.kind) is not DataKind or type(self.metadata) is not BatchMetadata or self.identity_policy != 'caller-certified-global-unique-v1':
+            raise ContractError(ErrorCode.INVALID_SCHEMA,'typed stable caller-certified population required')
+        if type(self.fields) not in (tuple,list) or any(type(x) is not str for x in self.fields):
+            raise ContractError(ErrorCode.INVALID_SCHEMA,'concrete fixed canonical field names required')
+        object.__setattr__(self,'fields',tuple(self.fields))
+        CanonicalBatch(self.kind,tuple(Column(name,()) for name in self.fields),self.metadata)
+        if self.metadata.scope is None:
+            raise ContractError(ErrorCode.INVALID_CONFIG,'stream population requires explicit final target scope')
+
+    @classmethod
+    def from_batch(cls, batch: CanonicalBatch) -> StreamPopulation:
+        if type(batch) is not CanonicalBatch or not batch.metadata.coverage.complete or batch.metadata.coverage.observed != batch.row_count:
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,'complete actual population needed for from_batch')
+        validate_batch(batch,required_fields=())
+        return cls(batch.kind,tuple(c.name for c in batch.columns),batch.metadata)
+
+@dataclass(frozen=True)
+class PrefixCoverage:
+    cutoff_ns: int
+    coverage: Coverage
+    interval_coverage: tuple[IntervalCoverage, ...] = ()
+
+    def __post_init__(self) -> None:
+        if type(self.cutoff_ns) is not int or not I64_MIN <= self.cutoff_ns <= I64_MAX or type(self.coverage) is not Coverage:
+            raise ContractError(ErrorCode.INVALID_SCHEMA,'exact cutoff/typed prefix coverage required')
+        if type(self.interval_coverage) not in (tuple,list) or any(type(x) is not IntervalCoverage for x in self.interval_coverage):
+            raise ContractError(ErrorCode.INVALID_SCHEMA,'concrete typed interval certificates required')
+        object.__setattr__(self,'interval_coverage',tuple(self.interval_coverage))
+        if len({x.name for x in self.interval_coverage}) != len(self.interval_coverage):
+            raise ContractError(ErrorCode.DUPLICATE,'duplicate prefix interval certificate')
+        if any(x.end_ns > self.cutoff_ns for x in self.interval_coverage):
+            raise ContractError(ErrorCode.BOUNDS,'interval certificate exceeds requested prefix')
