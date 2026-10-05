@@ -59,6 +59,7 @@ def merge_partitions(a: SessionAccumulator, b: SessionAccumulator, *, left: Part
     if ids_a&ids_b: raise ContractError(ErrorCode.DUPLICATE,'known retained or last event identities overlap')
     result=SessionAccumulator(a.family,a.config,entity=a.entity,population=a.population,prior_close=a._prior_close,seed=a._seed)
     z=x.clone();z.observed=checked_int64(x.observed+y.observed);z.known_gap=x.known_gap or y.known_gap;z.knowledge=tuple(dict.fromkeys(x.knowledge+y.knowledge))
+    z.window_gaps=tuple(l or r for l,r in zip(x.window_gaps,y.window_gaps,strict=True))
     z.last_key=y.last_key;z.last_start=y.last_start;z.last_end=y.last_end;z.last_event_id=y.last_event_id;z.last_inclusive=y.last_inclusive
     if x.bars is not None:
         z.bars=_bar(x.bars,cast(_BarTotals,y.bars));z.windows=tuple(_bar(l,r) for l,r in zip(x.windows,y.windows,strict=True))

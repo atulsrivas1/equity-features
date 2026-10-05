@@ -47,3 +47,7 @@ cost is O(windows*bars) plus materialization. No throughput claim. Precision rem
 rtol/atol1e-12; counts compare exactly. Only these two batch flags are added; streaming,
 restore and merge qualification remain separate stories. See [migration](../contracts/RESULTS.md)
 and [delivery procedure](../BUILD_DELIVERY.md).
+
+BUG003/0.0.2a10 preserves known closed-window omissions in incremental state,
+rejects contradictory complete re-certification atomically and retains unaffected
+window readiness. See [coverage/state policy](../api/INCREMENTAL.md).

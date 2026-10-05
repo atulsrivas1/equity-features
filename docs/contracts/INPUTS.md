@@ -103,3 +103,7 @@ EQ018 adds owned BatchMetadata.interval_coverage tuples of IntervalCoverage(name
 EQ023/0.0.2a6 adds StreamPopulation and PrefixCoverage: fixed owned source/schema declaration and explicit requested-prefix coverage. Contiguous ordinals/order and known retained identities are checked; caller owns global nonretained identity proof. No unbounded source history. [Lifecycle contract](../api/INCREMENTAL.md).
 
 EQ024 adds immutable AccumulatorState and exact compatible in-memory restore for all23 R1 IDs; see [incremental API](../api/INCREMENTAL.md). Strict schema/version/source/config checks and bounded owned state apply; digest is not authentication. Merge remains false.
+
+BUG003/0.0.2a10 preserves known closed-window omissions in incremental state,
+rejects contradictory complete re-certification atomically and retains unaffected
+window readiness. See [coverage/state policy](../api/INCREMENTAL.md).
