@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "id": "q1",
+      "ts": 0,
+      "order": 0,
+      "bid": 100,
+      "ask": 102
+    },
+    {
+      "id": "q2",
+      "ts": 3,
+      "order": 0,
+      "bid": 102,
+      "ask": 102
+    },
+    {
+      "id": "q3",
+      "ts": 7,
+      "order": 0,
+      "bid": 105,
+      "ask": 104
+    },
+    {
+      "id": "q4",
+      "ts": 9,
+      "order": 0,
+      "bid": null,
+      "ask": 102
+    }
+  ],
+  "sampled": {
+    "counts": {
+      "total": 4,
+      "normal": 1,
+      "valid": 2,
+      "locked": 1,
+      "crossed": 1,
+      "invalid": 1
+    },
+    "mean_abs": "1",
+    "mean_bps": "10000/101"
+  },
+  "continuous": {
+    "durations": {
+      "valid": 7,
+      "normal": 3,
+      "locked": 4,
+      "crossed": 2,
+      "invalid": 3,
+      "expired": 0,
+      "unknown": 0
+    },
+    "mean_abs": "6/7",
+    "mean_bps": "60000/707",
+    "valid_fraction": "7/12"
+  }
+}

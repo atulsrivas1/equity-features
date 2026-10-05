@@ -117,3 +117,5 @@ Trade VWAP and a bar-close proxy remain distinct; TBBO-style samples cannot prov
 EQ-001 freezes the 39 planned feature IDs above, shared quality/evidence requirements, capability boundaries and exclusions. It does not approve precise formulas, claim calculations are implemented or assert any provider data is historically admissible.
 
 Before implementing each family, EQ-002–006 must define exact mathematical/temporal semantics and independent expected examples. EQ-011–016 turn these into schemas/config/results/registry/protocols. Any new ID, changed feature meaning, expanded market scope or stronger stream/merge promise requires a reviewed scope revision and linked story.
+
+Quote mathematical definitions and reference evidence are in [QUOTE_FORMULAS.md](QUOTE_FORMULAS.md), owned by EQ-003. Sampling populations, locked/crossed counts, midpoint basis, explicit freshness and initial-state coverage remain visible to consumers.
