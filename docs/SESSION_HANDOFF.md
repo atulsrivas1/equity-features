@@ -577,3 +577,14 @@ license/compatibility/123formula references/UTF8/link gates, commit concrete sou
 Code review/Test and repeat build/clean wheel+sdist execution; exact head SIX checks,
 gated merge/main source/docs/bothOS/actual bundles/FOURfreshpairs/receipt publication
 before Released/Done. One active story EQ027; R3 remains paused.
+
+
+EQ027 installed-gate failure/rework: source8ea565c438units/types/docs passed but
+canonical_inputs.py still asserted total23batch IDs. Local fresh wheel execution
+and all four package CI jobs failed at that example; no merge/acceptance. Issue32
+returned to In progress. Restrict the foundation tutorial's assertion to its
+qualified23session batch IDs; current total26 is independently asserted in registry
+tests and history example. Also clear capabilities on copied custom metadata so
+future SMA batch implementation cannot falsely grant a custom execution callback.
+Author review and direct example pass follow; repeat corrected final-head build/
+CI/main/installed gates. Preserve failed8ea565c evidence and lessonEF-L005.

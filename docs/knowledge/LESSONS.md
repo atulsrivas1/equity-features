@@ -104,3 +104,13 @@ new history kernels. Keep explicit independent catalog expectations as capabilit
 evolve and preserve historical R1 checks for its actual session scope. Revisit
 under final installed delivery and subsequent numerical families; no unqualified
 history state capability can be inferred from an existing session accumulator.
+
+
+EF-L005 EQ027 corroboration:438source unit cases did not catch a stale installed
+canonical example expecting total23batch IDs; local wheel and four CI package jobs
+failed. Keep foundation tutorial assertions scoped to its actual session modes,
+and maintain independent whole-catalog capability assertions alongside each new
+family. Copying built-in metadata for a custom definition must clear execution
+flags until a custom executor is separately qualified. Revisit every capability
+extension under actual clean installed examples; source unit passes cannot waive
+this gate. Failed8ea565c and corrected head remain in EQ027 continuity/PR176.

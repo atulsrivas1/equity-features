@@ -71,16 +71,19 @@ assert quantized.values == (1000,None)
 print("Semantic validation and explicit owned normalization verified")
 
 from dataclasses import replace
+from equity_feature_contracts import Capabilities
 from equity_features.registry import builtin_registry, Registry
 catalog = builtin_registry()
 assert len(catalog.list_features()) == 39
-assert len(catalog.list_features(capability="batch")) == 23
+# The foundation example checks its qualified session scope; later batch IDs
+# have separate numerical examples and independent registry tests.
+assert len(catalog.list_features(family="session", capability="batch")) == 23
 assert len(catalog.list_features(capability="update")) == 23
 assert len(catalog.list_features(capability="restore")) == 23
 assert len(catalog.list_features(capability="merge")) == 22
 prototype = catalog.get("history.sma")
 research = Registry("research")
-scoped = research.with_definition(replace(prototype, feature_id="research:sma_metadata", planned_release="R3"))
+scoped = research.with_definition(replace(prototype, feature_id="research:sma_metadata", planned_release="R3", capabilities=Capabilities()))
 assert len(research.list_features()) == 39 and len(scoped.list_features()) == 40
 assert Registry.from_json(scoped.to_json()) == scoped
 print("39-ID discovery and immutable caller-scoped metadata registration verified")
