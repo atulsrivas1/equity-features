@@ -780,3 +780,11 @@ typed new examples), purity/import/registry/license/compatibility/UTF8/planning/
 lifecycle/sixteenth example. No new broken links; inherited R1 link stays recorded.
 Final author source review complete; next commit/Code review/Test and exact-head
 repeated archive/fresh installed execution before any acceptance claim.
+
+### EQ030 implementation delivered —2026-10-05
+
+EQ030 implementation delivered: PR182 final363b99ffa1e352a2b6e16a9884a9afd4ec3f0d35 all SIX checks; clean repeat4archives and BOTH fresh local pairs each485tests/sixteen examples pass. Guarded merge316215250387c8876a85326e41f14765b1620580 entire tree equals source. Main docs37389113015/Foundation37389112975 bothOS succeed. Both actual bundles exact source/source_dirty=false/epoch1700000000/allfour hashes/contents verified. FOUR fresh Windows pair installs of bothOS universal archives each485tests/sixteen examples pass, CPython3.12.10/NumPy2.2.6/PyArrow20.0.0. Linux-native execution is CI evidence. Final receipt PR/head/main/bothOS archive equality still gates Done. Author Codex self-review+CI only;31batch/all8history,23session update/restore22merge, history state modes false. Experimental channel only; R3 paused.
+foundation-316215250387c8876a85326e41f14765b1620580-ubuntu-24.04 artifact11380750548 expires2026-11-04T23:33:49Z.
+foundation-316215250387c8876a85326e41f14765b1620580-windows-latest artifact11379594537 expires2026-11-04T23:35:07Z.
+
+Actual archive hashes and expiry are in [receipt](stories/EQ-030_DELIVERY.md). Next: final docs receipt exact-head checks/guarded merge/main docs and bothOS Foundation/actual byte equality before issue35Done. Then pull refined EQ031 pre-code volume baseline plan. One active story; R3 paused.

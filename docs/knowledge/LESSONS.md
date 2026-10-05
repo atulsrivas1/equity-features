@@ -182,3 +182,5 @@ no public state or throughput claim follows. Default A1 is a frozen convention,
 not a provider/calendar inference; explicit factor and sample denominator remain
 part of configuration/math identity. Revisit under actual installed artifacts,
 cross-family causality audit and any future measured numerical backend.
+
+EF-L017 implementation qualification: final363b99f/main3162152 pass exact-head/source/main gates; both actual bundles and FOUR fresh Windows installed pairs each485tests/sixteen examples pass. [Receipt](../stories/EQ-030_DELIVERY.md). Tiny positive variance survives actual archive installation; final receipt publication remains before Done.

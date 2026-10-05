@@ -1,6 +1,6 @@
 # Experimental package changes
 
-## 0.0.3a4 — EQ030 source qualification, delivery pending
+## 0.0.3a4 — EQ030 verified experimental implementation delivery
 
 Batch volatility uses Nsimple returns/N+1governed closes, centered sample variance
 N-1 and explicit positive annualization_factor default1. Exact finite fractions
