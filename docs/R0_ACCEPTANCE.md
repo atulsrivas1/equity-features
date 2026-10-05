@@ -1,5 +1,16 @@
 # R0 foundation acceptance — 2026-10-05
 
+## Review rework in progress
+
+The original alpha6 delivery below was verified. A subsequent independent review
+reproduced two P2 gaps: exact-cutoff market exclusion evidence (EQ013) and backend
+reader calls passing the purity guard (EQ009). Owner requested repair before R1.
+R0 and both stories reopened; EQ017 temporarily Backlog. Alpha6.post1 fixes and
+176unit/38negative+10positive boundary regressions pass locally. Corrected artifact
+acceptance remains pending. See SESSION_HANDOFF.md and stories/R0_REVIEW_FIX_PLAN.md.
+
+## Original alpha6 acceptance record
+
 All EQ-001–016 acceptance and actual delivery gates are met. The scope is the
 experimental design/contracts/repository foundation, not the later full calculation
 package phase. The R0 milestone contains 16 EQ stories and 3 accepted governance items;

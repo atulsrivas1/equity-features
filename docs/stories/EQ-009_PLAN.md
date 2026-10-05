@@ -27,3 +27,5 @@ Docs: build/channel/retention/rebuild guide, boundary rationale, README/continui
 release evidence and issue/epic links. End: both distributions genuinely downloaded,
 hash/commit verified and clean-installed; only then EQ-009 and waiting EQ-007 can
 be Released/Done. PR120 stays deferred; author self-review/CI only. Next EQ-010.
+
+Owner-authorized2026-10-05 post-acceptance rework: [shared P2 repair plan](R0_REVIEW_FIX_PLAN.md). Original acceptance evidence is preserved; new delivery is required.

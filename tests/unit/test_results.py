@@ -150,6 +150,53 @@ class ResultContracts(unittest.TestCase):
         self.assertCode(ErrorCode.BOUNDS,lambda:replace(result(),metadata=quote,evidence=(closing,)))
         bar=replace(m,inputs=(replace(m.inputs[0],kind=DataKind.BAR),))
         self.assertEqual(replace(result(),metadata=bar,evidence=(evidence(event_ns=200,boundary="completed_interval"),)).evidence[0].event_ns,200)
+    def test_ordinary_trade_quote_cutoff_consumption_and_exclusion(self):
+        for kind in (DataKind.TRADE, DataKind.QUOTE):
+            m=meta();m=replace(m,inputs=(replace(m.inputs[0],kind=kind),))
+            for stamp,outside in ((199,False),(200,True),(201,True)):
+                with self.subTest(kind=kind,stamp=stamp):
+                    consumed=evidence(event_ns=stamp)
+                    excluded=evidence(event_ns=stamp,use="excluded",exclusion_reason=Reason.FUTURE_MARKET)
+                    if outside:
+                        self.assertCode(ErrorCode.BOUNDS,lambda:replace(result(),metadata=m,evidence=(consumed,)))
+                        self.assertEqual(replace(result(),metadata=m,evidence=(excluded,)).evidence,(excluded,))
+                    else:
+                        self.assertEqual(replace(result(),metadata=m,evidence=(consumed,)).evidence,(consumed,))
+                        self.assertCode(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(result(),metadata=m,evidence=(excluded,)))
+    def test_completed_bar_daily_endpoint_exclusion_consistency(self):
+        for kind in (DataKind.BAR,DataKind.DAILY):
+            m=meta();m=replace(m,inputs=(replace(m.inputs[0],kind=kind),))
+            for stamp in (199,200):
+                row=evidence(event_ns=stamp,boundary="completed_interval")
+                self.assertEqual(replace(result(),metadata=m,evidence=(row,)).evidence,(row,))
+                self.assertCode(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(result(),metadata=m,evidence=(replace(row,use="excluded",exclusion_reason=Reason.FUTURE_MARKET),)))
+            late=evidence(event_ns=201,boundary="completed_interval",use="excluded",exclusion_reason=Reason.FUTURE_MARKET)
+            self.assertEqual(replace(result(),metadata=m,evidence=(late,)).evidence,(late,))
+            self.assertCode(ErrorCode.BOUNDS,lambda:replace(result(),metadata=m,evidence=(replace(late,use="consumed",exclusion_reason=None),)))
+    def test_reference_endpoint_remains_inclusive(self):
+        m=meta();m=replace(m,inputs=(replace(m.inputs[0],kind=DataKind.REFERENCE),))
+        row=evidence(event_ns=200)
+        self.assertEqual(replace(result(),metadata=m,evidence=(row,)).evidence,(row,))
+        self.assertCode(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(result(),metadata=m,evidence=(replace(row,use="excluded",exclusion_reason=Reason.FUTURE_MARKET),)))
+    def test_closing_auction_exact_endpoint_not_future_market(self):
+        row=evidence(event_ns=200,boundary="closing_auction")
+        self.assertEqual(replace(result(),evidence=(row,)).evidence,(row,))
+        self.assertCode(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(result(),evidence=(replace(row,use="excluded",exclusion_reason=Reason.FUTURE_MARKET),)))
+        self.assertCode(ErrorCode.BOUNDS,lambda:replace(result(),evidence=(replace(row,event_ns=199),)))
+        late=replace(row,event_ns=201,use="excluded",exclusion_reason=Reason.FUTURE_MARKET)
+        self.assertEqual(replace(result(),evidence=(late,)).evidence,(late,))
+    def test_excluded_evidence_rejects_incompatible_boundary_kind(self):
+        for kind,boundary in ((DataKind.QUOTE,"closing_auction"),(DataKind.BAR,"closing_auction"),(DataKind.REFERENCE,"completed_interval"),(DataKind.TRADE,"completed_interval"),(DataKind.QUOTE,"completed_interval")):
+            m=meta();m=replace(m,inputs=(replace(m.inputs[0],kind=kind),))
+            row=evidence(event_ns=201,boundary=boundary,use="excluded",exclusion_reason=Reason.FUTURE_MARKET)
+            self.assertCode(ErrorCode.BOUNDS,lambda:replace(result(),metadata=m,evidence=(row,)))
+    def test_exact_cutoff_exclusion_preserves_diagnostic_knowledge_and_arrow(self):
+        for known in (None,210,211):
+            row=evidence(event_ns=200,known_at_ns=known,use="excluded",exclusion_reason=Reason.FUTURE_MARKET)
+            r=replace(result(),evidence=(row,));table=to_arrow_result(r)["evidence"]
+            self.assertEqual(table["event_ns"].cast(pa.int64()).to_pylist(),[200])
+            self.assertEqual(table["known_at_ns"].cast(pa.int64()).to_pylist(),[known])
+            self.assertEqual(table["exclusion_reason"].to_pylist(),["future_market"])
     def test_existing_admission_typed_errors(self):
         self.assertCode(ErrorCode.INVALID_UNIT,lambda:PriceUnit(19,"USD"))
         self.assertCode(ErrorCode.UNSUPPORTED_ADJUSTMENT,lambda:AdjustmentSpec("unsupported"))

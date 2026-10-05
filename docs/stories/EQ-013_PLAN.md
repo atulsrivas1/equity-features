@@ -32,3 +32,5 @@ core isolation, repeat builds/fresh installed tests/examples, final-head/main CI
 publication blobs and actual main artifact delivery. Docs/API/example/continuity
 in the story; author self-review only. Semantic validation/registry/protocols remain
 EQ-014–016, numerical calculators R1/R2, custom execution EQ-093/R3. E03 open.
+
+Owner-authorized2026-10-05 post-acceptance rework: [shared P2 repair plan](R0_REVIEW_FIX_PLAN.md). Original acceptance evidence is preserved; new delivery is required.

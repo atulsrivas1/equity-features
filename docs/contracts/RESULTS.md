@@ -58,7 +58,18 @@ at C, while quotes have no exception. Completed_interval is only for bars/daily
 with end<=C. Reference effective evidence remains bounded. The caller must bind
 and honor the actual session/auction configuration whose digest is recorded;
 construction cannot recover that configuration from its hash or prove source row
-contents. Evidence is bounded by a caller-declared global row limit, keyed without
+contents.
+
+The alpha6.post1 review repair shares a single input-kind/boundary cutoff predicate
+for consumption and FUTURE_MARKET exclusion reasons. Ordinary trades/quotes at C
+are excluded and may retain that reason, including original unknown/future knowledge.
+Before C the reason contradicts the bound. Completed bar/daily/reference endpoints
+and explicit closing-auction trade at C are admissible and cannot claim FUTURE_MARKET.
+After C, market exclusion is consistent. Incompatible boundary/kind markers fail for
+both consumed and excluded diagnostics; a consumed closing auction must be exactly C.
+Six independent regressions cover this matrix and exact Arrow diagnostic retention.
+Schema/math policy remain1/v1; this corrects admission without a formula change.
+ Evidence is bounded by a caller-declared global row limit, keyed without
 duplicates, and cannot reference missing result/input keys. No unbounded top-K
 state or evidence discovery is introduced.
 
