@@ -225,7 +225,9 @@ def compute_structure(batch: CanonicalBatch | None, config: ConfigSpec, *, entit
         if qstatus == Status.AVAILABLE and batch is not None and delivery is not None:
             scoped_metadata = replace(batch.metadata,scope=InputScope(interval.start_ns,interval.end_ns,policy,config.session.include_opening_auction,config.session.include_closing_auction),coverage=delivery.coverage,interval_coverage=())
             scoped = replace(batch,columns=tuple(Column(c.name,tuple(c.values[i] for i in selected)) for c in batch.columns),metadata=scoped_metadata)
-            session = replace(config.session,open_ns=interval.start_ns,close_ns=interval.end_ns,intervals=())
+            # Transient reduction bounds are a window, not a new exchange calendar.
+            # The public result retains the original target configuration/identity.
+            session = replace(config.session,open_ns=interval.start_ns,close_ns=interval.end_ns,intervals=(),scheduled_close_ns=None,early_close=False)
             timing = replace(config.availability,market_cutoff_ns=interval.end_ns)
             reduced = compute_bars(scoped,replace(config,session=session,availability=timing),entity=entity)
             reduced_values = {c.feature_id.rsplit(".",1)[1]:c.values[0] for c in reduced.values}

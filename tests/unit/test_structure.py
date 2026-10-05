@@ -82,6 +82,11 @@ class Structure(unittest.TestCase):
         b=fixture();b=replace(b,metadata=replace(b.metadata,scope=replace(b.metadata.scope,include_opening_auction=True,include_closing_auction=True)))
         r=calc(b,c);self.assertEqual([x.share for x in table(r,1).rows],[.4,.6])
 
+    def test_normal_scheduled_close_survives_window_reduction(self):
+        c=cfg();c=replace(c,session=replace(c.session,scheduled_close_ns=200))
+        r=calc(fixture(),c);self.assertEqual([x.share for x in table(r,1).rows],[.4,.6])
+        self.assertEqual(r.metadata.config_digest,c.digest)
+
     def test_after_cutoff_interval_never_leaks(self):
         c=cfg();c=replace(c,availability=replace(c.availability,market_cutoff_ns=150))
         b=fixture();b=replace(b,columns=tuple(Column(x.name,x.values[:1]) for x in b.columns),metadata=replace(b.metadata,coverage=Coverage(1,1,True),scope=InputScope(100,150,"synthetic-v1"),interval_coverage=b.metadata.interval_coverage[:1]))
