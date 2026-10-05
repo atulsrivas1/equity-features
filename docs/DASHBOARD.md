@@ -8,15 +8,15 @@ Status: planning. No calculation package implementation or release yet.
 
 | Release | Milestone |
 | --- | --- |
-| R0 | [R0 â€” Design and repository foundation](https://github.com/atulsrivas1/equity-features/milestone/1) |
-| R1 | [R1 â€” Core session packages](https://github.com/atulsrivas1/equity-features/milestone/2) |
-| R2 | [R2 â€” Historical and contextual packages](https://github.com/atulsrivas1/equity-features/milestone/3) |
-| R3 | [R3 â€” Package release readiness](https://github.com/atulsrivas1/equity-features/milestone/4) |
-| R4 | [R4 â€” DuckDB adapter](https://github.com/atulsrivas1/equity-features/milestone/5) |
-| R5 | [R5 â€” Independent workers](https://github.com/atulsrivas1/equity-features/milestone/6) |
-| R6 | [R6 â€” Provider and file adapters](https://github.com/atulsrivas1/equity-features/milestone/7) |
-| R7 | [R7 â€” Remote access and LLM tools](https://github.com/atulsrivas1/equity-features/milestone/8) |
-| R8 | [R8 â€” Advanced performance and research](https://github.com/atulsrivas1/equity-features/milestone/9) |
+| R0 | [R0 — Design and repository foundation](https://github.com/atulsrivas1/equity-features/milestone/1) |
+| R1 | [R1 — Core session packages](https://github.com/atulsrivas1/equity-features/milestone/2) |
+| R2 | [R2 — Historical and contextual packages](https://github.com/atulsrivas1/equity-features/milestone/3) |
+| R3 | [R3 — Package release readiness](https://github.com/atulsrivas1/equity-features/milestone/4) |
+| R4 | [R4 — DuckDB adapter](https://github.com/atulsrivas1/equity-features/milestone/5) |
+| R5 | [R5 — Independent workers](https://github.com/atulsrivas1/equity-features/milestone/6) |
+| R6 | [R6 — Provider and file adapters](https://github.com/atulsrivas1/equity-features/milestone/7) |
+| R7 | [R7 — Remote access and LLM tools](https://github.com/atulsrivas1/equity-features/milestone/8) |
+| R8 | [R8 — Advanced performance and research](https://github.com/atulsrivas1/equity-features/milestone/9) |
 
 ## Epics
 
@@ -35,10 +35,7 @@ Status: planning. No calculation package implementation or release yet.
 
 ## Formula work
 
-[EQ-002: Session, bar and trade formulas](https://github.com/atulsrivas1/equity-features/issues/3) has its [specification and reference fixtures](features/SESSION_FORMULAS.md). [EQ-003: Quote formulas and sampling](https://github.com/atulsrivas1/equity-features/issues/4) has its [specification and reference fixtures](features/QUOTE_FORMULAS.md). [EQ-004: Historical formulas](https://github.com/atulsrivas1/equity-features/issues/5) has its [specification and references](features/HISTORICAL_FORMULAS.md). Next is [EQ-005: Baseline, relative and breadth formulas](https://github.com/atulsrivas1/equity-features/issues/6). Consult the live Project for acceptance/status; numerical implementation follows these specifications. See the [V1 feature scope](features/V1_SCOPE.md).
-
-[Public Project dashboard](https://github.com/users/atulsrivas1/projects/2) tracks Backlog, Ready, In progress, Code review, Test, Ready to release, Released and Done. All roadmap epic/story issues are included; additional maintenance work is tracked separately. All 93 active EQ stories have native parent-epic links. Consult the live Project for current status; this page is navigation rather than a duplicate status database. No invented completion percentages or deadlines.
-
-## R0 execution package
-
-[Autonomous R0 handoff and kickoff prompt](R0_AUTONOMOUS_HANDOFF.md) describes the remaining stories, provisional estimates, design/testing/documentation plans and bounded delivery authorization. Current states remain on the public Project.
+[R0 acceptance](R0_ACCEPTANCE.md) records the complete design/contracts foundation,
+verified experimental artifacts and its limits. Consult the live Project for current
+status. EQ-017 is eligible for Ready after final R0 publication gates; this mission
+stops before R1 implementation. See [V1 scope](features/V1_SCOPE.md).
