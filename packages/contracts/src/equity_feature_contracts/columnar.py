@@ -82,10 +82,12 @@ def to_numpy(batch: CanonicalBatch) -> dict[str, NumpyColumn]:
     return result
 
 def from_numpy(kind: DataKind, columns: Mapping[str, NumpyColumn], metadata: BatchMetadata) -> CanonicalBatch:
+    if type(columns) is not dict:
+        raise ValueError("concrete NumPy column dictionary required; no lazy mapping")
     result = []
     for name, (array, mask) in columns.items():
         dtype = schema_for(kind).field(name).dtype
-        if not isinstance(array, np.ndarray) or not isinstance(mask, np.ndarray) or array.ndim != 1 or mask.ndim != 1 or array.shape != mask.shape or mask.dtype != np.dtype(bool):
+        if type(array) is not np.ndarray or type(mask) is not np.ndarray or array.ndim != 1 or mask.ndim != 1 or array.shape != mask.shape or mask.dtype != np.dtype(bool):
             raise ValueError("one-dimensional array and Boolean validity mask required")
         if dtype == DType.DECIMAL128 or (dtype == DType.STRING and array.dtype.kind != "U") or (dtype == DType.BOOL and array.dtype != np.dtype(bool)) or (dtype in (DType.INT64, DType.UTC_NS) and array.dtype != np.dtype(np.int64)):
             raise ValueError(f"NumPy exact dtype required: {name}")

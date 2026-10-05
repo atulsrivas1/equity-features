@@ -75,7 +75,8 @@ Envelope JSON serializes metadata only; it is an experimental in-memory exchange
 convention, not a supported untrusted remote transport or executable serialization.
 
 `to_numpy` returns a mapping from column name to `(array, validity_mask)`; True
-means present. `from_numpy(kind, mapping, metadata)` requires one-dimensional
+means present. `from_numpy(kind, mapping, metadata)` requires a concrete dictionary and exact ndarray buffers (no subclasses),
+one-dimensional
 int64/Boolean/Unicode arrays and a same-shape Boolean mask. Masked physical filler
 is zero/False/empty string, but remains logical null. Float epochs/prices, unsigned
 integers, object arrays and wide notional conversion are rejected. Both directions
@@ -83,7 +84,7 @@ materialize copies; modifying an output array cannot change the canonical input.
 
 ## Evidence and remaining scope
 
-27 unit cases cover all five schemas, required/optional/null/zero/empty inputs,
+28 unit cases cover all five schemas, required/optional/null/zero/empty inputs,
 int64 and decimal128 extrema, nanosecond round trips, Arrow Table/type/unit checks,
 NumPy masks/ownership, invalid units/sampling/adjustment and retained quote states.
 CI and fresh wheel/sdist environments install pinned optional backends and run

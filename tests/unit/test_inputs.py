@@ -83,6 +83,14 @@ class InputContracts(unittest.TestCase):
         for dtype in (np.float64,np.uint64):
             cols=to_numpy(fixture());cols["event_ns"]=(np.array([1],dtype=dtype),np.array([True]))
             with self.assertRaises(ValueError):from_numpy(DataKind.TRADE,cols,metadata())
+    def test_numpy_concrete_buffers_only(self):
+        class LazyMapping(dict):
+            def items(self):raise AssertionError("lazy source must never execute")
+        with self.assertRaises(ValueError):from_numpy(DataKind.TRADE,LazyMapping(),metadata())
+        class ArraySubclass(np.ndarray):pass
+        cols=to_numpy(fixture())
+        cols["event_ns"]=(cols["event_ns"][0].view(ArraySubclass),cols["event_ns"][1])
+        with self.assertRaises(ValueError):from_numpy(DataKind.TRADE,cols,metadata())
     def test_numpy_bad_mask_rejected(self):
         cols=to_numpy(fixture());cols["event_ns"]=(np.array([1],dtype=np.int64),np.array([1],dtype=np.int64))
         with self.assertRaises(ValueError):from_numpy(DataKind.TRADE,cols,metadata())

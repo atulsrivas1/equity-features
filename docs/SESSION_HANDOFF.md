@@ -24,7 +24,7 @@ registry names nor authorizes publication.
 
 EQ-011 Test,8points confirmed before code. Plan: stories/EQ-011_PLAN.md.
 Immutable canonical core for five kinds, source/unit/coverage/adjustment/sampling
-metadata, explicit Arrow/NumPy materializing bridges and27independent unit cases
+metadata, explicit Arrow/NumPy materializing bridges and28independent unit cases
 implemented. Core imports exclude optional backends. Experimental version0.0.1a1.
 Strict typing passed with PyArrow missing-stub override only; boundary passed.
 Current tests cover exact ns/int64/decimal128 endpoints and null/ownership behavior.
@@ -34,10 +34,12 @@ new27case tests. Those stale bytes are rejected; final source is rebuilt with th
 source/tests frozen throughout build/install verification. Synthetic installed
 example: examples/canonical_inputs.py.
 Semantic validation remains EQ-014. Author review resolved lazy-container guards
-and Unicode documentation issues. All123references,27unit cases, strict typing,
+and Unicode documentation issues. All123references,28unit cases, strict typing,
 core isolation and boundary checks pass. Final source repeat-built four archives
-with SHA256 parity and clean-installed wheel/sdist pairs; both installed27cases
-and the synthetic example pass. Exact final-head/main CI, publication blob checks
+with SHA256 parity and clean-installed wheel/sdist pairs; both installed28cases
+and the synthetic example pass. Final bridge review additionally rejects lazy mapping/ndarray subclasses before
+iteration;28cases pass. The changed bridge requires refreshed final build/CI.
+Exact final-head/main CI, publication blob checks
 and actual main artifact delivery remain mandatory.
 E03 now active and remains open through EQ-093/R3.
 
