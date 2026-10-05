@@ -27,6 +27,7 @@ import equity_features.session
 import equity_features.incremental
 import equity_features.state
 import equity_features.merging
+import equity_features.policies
 assert c.__version__==f.contracts_version==f.__version__==EXPECTED_VERSION
 assert not hasattr(f,'compute')
 '''

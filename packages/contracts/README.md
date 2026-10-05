@@ -1,6 +1,6 @@
 # Equity Feature Contracts
 
-Experimental0.0.2a11, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
+Experimental0.0.3a0, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
 R1 session calculations use caller-supplied immutable canonical inputs and explicit
 config/entity/source/coverage/knowledge declarations. Core imports require no
 optional backend or source acquisition. Contracts depend only on stdlib; features
@@ -25,3 +25,7 @@ See [session API](../../docs/api/INCREMENTAL.md),
 Experimental main GitHub Actions wheels/sdists are the distribution channel;
 actual source/hashes/expiry/install receipts are recorded per story. No public
 registry publication, stable API, concrete provider or automatic thread ownership.
+
+EQ033 adds [pure supplied action/classification policies](../../docs/api/ACTION_POLICIES.md)
+and immutable policy/evidence contracts; historical feature IDs remain unimplemented.
+See [qualification record](../../docs/stories/EQ-033_DELIVERY.md).

@@ -81,3 +81,6 @@ round trips and a fixed schema1 digest compatibility fixture. Numerical calculat
 result errors/statuses and semantic normalization remain later stories. Source merge
 alone is not delivery; exact-head/main CI and verified installed main artifacts gate
 Done. Author self-review only; no independent review or throughput claim.
+
+
+EQ033 adds immutable schema1 ActionPolicy/ReferenceFact/PolicyAdmission/AdjustmentApplication/ClassificationAdmission; ConfigSpec/AvailabilitySpec/AdjustmentSpec schema1 remains unchanged. [Signatures, versions and readiness](../api/ACTION_POLICIES.md) bind original factors/revisions/known-at and explicit quantity basis.

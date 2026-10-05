@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "equity-feature-contracts"
-version = "0.0.2a11"
-description = "Experimental R1 in-memory session feature contracts"
+version = "0.0.3a0"
+description = "Experimental in-memory equity feature and supplied-policy contracts"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 license = "Apache-2.0"

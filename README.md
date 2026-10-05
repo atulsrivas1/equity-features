@@ -6,7 +6,8 @@ Source-independent equity feature calculations for reproducible research, backte
 All 23 session IDs support batch/update/restore;22 noncontinuous IDs support
 conditional partition merge. [R1 acceptance and limits](docs/R1_ACCEPTANCE.md)
 and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the actual
-channel. R0 repaired acceptance remains historical. R2 implementation is unstarted;
+channel. R0 repaired acceptance remains historical. R1 follow-up repairs are verified at0.0.2a11. R2 supplied-policy utilities
+are under qualification at0.0.3a0; its16 numerical IDs remain unimplemented;
 no public registry release, stable API or throughput claim.**
 
 [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
@@ -58,3 +59,10 @@ Licensed under [Apache License 2.0](LICENSE).
 ## Experimental R1 calculations
 
 EQ-017 adds twelve batch bar/price IDs with independent quality, exact real notional and separate close-weighted proxy. See [API/admission/precision](docs/api/SESSION_BARS.md) and [synthetic example](examples/session_bars.py). EQ017 is delivered; [receipt](docs/stories/EQ-017_DELIVERY.md). EQ018 adds [typed interval structures](docs/api/SESSION_STRUCTURE.md) at0.0.2a1, [delivered receipt](docs/stories/EQ-018_DELIVERY.md); prior R0 acceptance remains historical. [Trade aggregates](docs/api/SESSION_TRADES.md) are delivered at0.0.2a2; [receipt](docs/stories/EQ-019_DELIVERY.md). [Bounded topK](docs/api/SESSION_TOP_K.md) is delivered at0.0.2a3; [receipt](docs/stories/EQ-020_DELIVERY.md). [Sampled quotes](docs/api/SESSION_QUOTES.md) are delivered at0.0.2a4; [receipt](docs/stories/EQ-021_DELIVERY.md). [Continuous quotes](docs/api/CONTINUOUS_QUOTES.md) are delivered at0.0.2a5; [receipt](docs/stories/EQ-022_DELIVERY.md). [Bounded accumulators](docs/api/INCREMENTAL.md) are delivered at0.0.2a6; [receipt](docs/stories/EQ-023_DELIVERY.md). Exact in-memory restore is delivered at0.0.2a7; [receipt](docs/stories/EQ-024_DELIVERY.md). Conditional merge is delivered at0.0.2a8; [receipt](docs/stories/EQ-025_DELIVERY.md). Final R1 audit is qualified at0.0.2a9; [acceptance](docs/R1_ACCEPTANCE.md) and [receipt](docs/stories/EQ-026_DELIVERY.md). No throughput or provider-readiness claim.
+
+## Supplied action and reference policies
+
+EQ033 applies exact supplied factors and independently admits point-in-time sector/
+universe membership. Read the [policy API](docs/api/ACTION_POLICIES.md), run the
+[synthetic example](examples/action_policies.py), and consult the
+[delivery record](docs/stories/EQ-033_DELIVERY.md) for actual gate evidence.

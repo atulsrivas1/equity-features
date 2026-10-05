@@ -107,3 +107,6 @@ EQ024 adds immutable AccumulatorState and exact compatible in-memory restore for
 BUG003/0.0.2a10 preserves known closed-window omissions in incremental state,
 rejects contradictory complete re-certification atomically and retains unaffected
 window readiness. See [coverage/state policy](../api/INCREMENTAL.md).
+
+
+EQ033/pair0.0.3a0 uses existing canonical REFERENCE split_factor/dividend_factor and sector_membership/universe_membership fields; no input schema/quantity unit change. Exact transformed source IDs and original bindings are in [the policy API](../api/ACTION_POLICIES.md).
