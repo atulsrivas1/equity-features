@@ -137,3 +137,10 @@ supplied config/context/dependency identities and use the exact witness, without
 recomputing a missing dependency. No public history accumulator follows from a
 bounded batch recurrence; registry modes remain explicit. Revisit under actual
 installed delivery and EQ035/EQ037 consumer qualification.
+
+EF-L015 implementation qualification: final e54d2e1/main39d1535 exact head/source/
+main docs/bothOS CI and actual bundles/FOUR installed pairs each454tests/fourteen
+examples pass. [Receipt](../stories/EQ-028_DELIVERY.md). Exact comparison and
+bounded batch recurrence are qualified; final receipt publication remains before
+Done. Corrected UTF8/spacing and premature install-count commentary are preserved
+in continuity. Consumer admission/source authenticity remain caller responsibilities.
