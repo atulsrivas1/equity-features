@@ -80,3 +80,37 @@ qualifies the supplied-policy utility, not the sixteen numerical historical/cont
 IDs or source truth. [Receipt](../stories/EQ-033_DELIVERY.md). Final documentation
 publication gates remain before Done; subsequent consumers must retain these
 explicit original binding/quantity/certificate/availability semantics.
+
+
+EF-L013 final publication accepted on issue38: PR175/d3e9fc9 full head/main checks
+and actual bothOS archive equality to qualified installed bytes passed; EQ033 is
+Done. EQ027 now owns consumer qualification of action/context/certificate identities.
+Keep utility acceptance distinct from mathematical feature acceptance; sixteen
+R2 numerical IDs remain unimplemented at this pre-code pull.
+
+
+## EF-L014 finite window and capability independence —2026-10-05
+
+EQ027/PR176 local independent production API fixtures distinguish valid return
+endpoints from complete h+1governed closes, and certify finite-window recovery only
+when the missing slot exits that exact window. Whole-frame future/incomplete
+coverage does not override per-slot selected proof, but certificates still must
+match actual delivered rows. [History API](../api/HISTORY.md). Local438unit evidence
+is implementation qualification, not accepted artifact delivery.
+
+Capability inventory must separate all batch IDs from session update/restore IDs;
+otherwise the previous UPDATE_IDS=BATCH_IDS alias would falsely grant modes to
+new history kernels. Keep explicit independent catalog expectations as capabilities
+evolve and preserve historical R1 checks for its actual session scope. Revisit
+under final installed delivery and subsequent numerical families; no unqualified
+history state capability can be inferred from an existing session accumulator.
+
+
+EF-L005 EQ027 corroboration:438source unit cases did not catch a stale installed
+canonical example expecting total23batch IDs; local wheel and four CI package jobs
+failed. Keep foundation tutorial assertions scoped to its actual session modes,
+and maintain independent whole-catalog capability assertions alongside each new
+family. Copying built-in metadata for a custom definition must clear execution
+flags until a custom executor is separately qualified. Revisit every capability
+extension under actual clean installed examples; source unit passes cannot waive
+this gate. Failed8ea565c and corrected head remain in EQ027 continuity/PR176.

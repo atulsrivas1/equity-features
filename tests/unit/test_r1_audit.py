@@ -60,9 +60,11 @@ class R1Audit(unittest.TestCase):
         self.assertEqual(r,compute_time_weighted(b,c,entity=ENTITY,seed=seed(event=99,bid=100,ask=102)))
 
     def test_inventory_has_no_unimplemented_or_arbitrary_continuous_modes(self):
-        registry=builtin_registry();self.assertEqual(len(registry.list_features(capability='batch')),23);self.assertEqual(len(registry.list_features(capability='update')),23);self.assertEqual(len(registry.list_features(capability='restore')),23);self.assertEqual(len(registry.list_features(capability='merge')),22)
+        registry=builtin_registry();self.assertEqual(len(registry.list_features(family='session',capability='batch')),23);self.assertEqual(len(registry.list_features(capability='update')),23);self.assertEqual(len(registry.list_features(capability='restore')),23);self.assertEqual(len(registry.list_features(capability='merge')),22)
         self.assertFalse(registry.get('session.quote.time_weighted_spread').capabilities.merge)
         for d in registry.list_features():
-            if d.planned_release!='R1':self.assertFalse(any((d.capabilities.batch,d.capabilities.update,d.capabilities.restore,d.capabilities.merge)))
+            if d.planned_release!='R1':
+                self.assertFalse(any((d.capabilities.update,d.capabilities.restore,d.capabilities.merge)))
+                if d.feature_id not in ('history.return','history.prior_high','history.prior_low'):self.assertFalse(d.capabilities.batch)
 
 if __name__=='__main__':unittest.main()

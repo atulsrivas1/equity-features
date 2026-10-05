@@ -51,3 +51,6 @@ EQ023/0.0.2a6 adds update flags for all23 qualified R1 IDs. Explicit batch/updat
 EQ024 adds immutable AccumulatorState and exact compatible in-memory restore for all23 R1 IDs; see [incremental API](../api/INCREMENTAL.md). Strict schema/version/source/config checks and bounded owned state apply; digest is not authentication. Merge remains false.
 
 EQ025 qualifies conditional adjacent caller-certified partition merge for22 noncontinuous R1 IDs; current inventory23 batch/update/restore and22 merge. Continuous merge remains false. See the incremental API for proof, order, retention and replay limits.
+
+
+EQ027/0.0.3a1 qualifies history.return/prior_high/prior_low batch only.26batch and session-only23update/restore/22merge inventories are separate; unsupported history modes remain false. Builtin snapshot digest changes with capabilities; [history API](../api/HISTORY.md).

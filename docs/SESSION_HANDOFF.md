@@ -533,3 +533,58 @@ head/source/main/docs/bothOS actual byte equality, issue acceptance/Done; then p
 refined EQ027 plan from accepted main before code. Private EQ027 prep identifies
 existing UPDATE_IDS=BATCH_IDS alias must stay session-only when adding history
 batch capabilities. Other R2 plans preserved; R3 remains paused.
+
+
+### EQ033 accepted; EQ027 pre-code pull —2026-10-05
+
+EQ033 issue38 closed/Project Done after final receipt PR175 head16d51e7 all SIX
+checks and exact-head-guarded merge to d3e9fc9c2c2f4d5b7892cd96ffefc3d1f15badad.
+Whole published tree equals receipt head; main docs37381128329/Foundation37381128337
+bothOS pass. Actual current-main bundles11374465257 Windows/11374455108 Linux
+manifest/source/clean epoch/hash/content verification and bothOS equality to
+FOUR fresh installed da116c8 byte sets passed. Final acceptance comment6004238365
+binds all evidence. One R2 story Done; eleven unfinished. No R3 restart.
+
+Pull EQ027 from accepted main on codex/eq-027-history-windows; pre-code plan freezes
+owned governed HistoryContext, window membership, independent readiness/quality,
+bounded evidence, exact final arithmetic and truthful batch-only capability.
+No calculation code at this checkpoint. Context certificates must match actual
+row presence; UPDATE_IDS must remain session-only when extending BATCH_IDS.
+Next: implement three IDs, independent windows/gaps/causality/precision fixtures,
+API/example/docs/version0.0.3a1 then complete all delivery/receipt gates before Done.
+
+
+### EQ027 local implementation/author review —2026-10-05
+
+Pair0.0.3a1 adds owned HistoryContext/schema1 and compute_history for return/prior
+high/prior low, batch only. Sixteen independent production API cases cover all
+frozen default horizons/windows, hand golden5/21/122/103, missing-middle/finite
+recovery, independent null/field readiness, prior extrema before target close,
+future mutation, C/K/E/reconstruction, bounded original evidence, wide precision,
+units/basis/policy/identity, exact source/grid bounds and proof contradictions.
+438units pass including all422prior cases. Strict32files (30 CI targets plus two
+new typed examples), purity38negative10positive and registry gate pass. Author
+review added explicit optional source-scope bounds and unknown raw policy guard.
+An initial fixture referenced metadata digest on wrong object; corrected to
+ResultMetadata. Old R1 audit/registry whole-catalog expectations were stale: retain
+session-only23mode checks and explicitly qualify three new history batch flags.
+26batch/23update/restore/22merge, other history flags false. No independent hosted/
+human review or history state/performance/provider claim.
+
+API/context/schema/registry guide, synthetic thirteenth installed example, package
+scope/version/changelog and pending receipt accompany code. Next: complete import/
+license/compatibility/123formula references/UTF8/link gates, commit concrete source,
+Code review/Test and repeat build/clean wheel+sdist execution; exact head SIX checks,
+gated merge/main source/docs/bothOS/actual bundles/FOURfreshpairs/receipt publication
+before Released/Done. One active story EQ027; R3 remains paused.
+
+
+EQ027 installed-gate failure/rework: source8ea565c438units/types/docs passed but
+canonical_inputs.py still asserted total23batch IDs. Local fresh wheel execution
+and all four package CI jobs failed at that example; no merge/acceptance. Issue32
+returned to In progress. Restrict the foundation tutorial's assertion to its
+qualified23session batch IDs; current total26 is independently asserted in registry
+tests and history example. Also clear capabilities on copied custom metadata so
+future SMA batch implementation cannot falsely grant a custom execution callback.
+Author review and direct example pass follow; repeat corrected final-head build/
+CI/main/installed gates. Preserve failed8ea565c evidence and lessonEF-L005.
