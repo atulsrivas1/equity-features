@@ -61,3 +61,11 @@ The original chat stops R0 implementation after the handoff. The new chat owns t
 ## Reusable kickoff prompt
 
 > Complete the remaining equity-features R0 stories EQ-005 through EQ-016 autonomously, one story at a time. Work in the existing equity-features checkout, not a new repository. Read AGENTS.md, docs/R0_AUTONOMOUS_HANDOFF.md, docs/SESSION_HANDOFF.md, docs/PUBLIC_DEVELOPMENT.md, docs/DELIVERY_POLICY.md, the design/backlog and live GitHub issues/Project first. The handoff contains story plans, provisional estimates, contracts, tests, documentation, release gates and scope limits. Preserve completed EQ-001–004, deferred PR120 and unrelated changes. You are authorized to implement, document, manage issue/Project states and create/merge linked PRs after existing review/test/delivery gates. Continue through R0 acceptance without repeatedly asking to proceed. No public registry publication, later-release implementation, account administration or product-specific integration. Deliver and verify foundation artifacts before completing implementation stories. Report true evidence, decisions, failures and resume steps durably. Stop after verified R0 completion or a genuine blocker requiring owner input.
+
+## Execution outcome
+
+The mission completed its16EQ stories with actual alpha6 foundation artifacts.
+[Final acceptance report](R0_ACCEPTANCE.md) records170unit/123reference tests,
+review/publication/install evidence and limitations. The final delivery procedure verifies report publication before R0 milestone closure
+and EQ-017 readiness; consult live milestone/Project for the completed state. No R1 implementation follows
+automatically. Original handoff facts above remain historical.

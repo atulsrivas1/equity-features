@@ -7,6 +7,7 @@ can download authorized code/synthetic artifacts; no private data is included.
 The bundle pins its experimental R0 distribution version in package metadata;
 EQ-009 began at0.0.1a0 and EQ-011 adds canonical inputs at0.0.1a1. These are
 foundation contracts, not production calculators. EQ-012 specifications use0.0.1a2.
+Final R0 is0.0.1a6; [acceptance evidence and actual bundles](R0_ACCEPTANCE.md).
 30-day retention is requested, subject to repository limits; record actual expiry
 on each issue. After expiry, rebuild from the recorded commit with the pinned
 requirements; retained artifacts are a delivery channel, not permanent archival.
@@ -15,7 +16,7 @@ requirements; retained artifacts are a delivery channel, not permanent archival.
 python -m pip install -r requirements-dev.txt
 python tools/verify_imports.py
 python tools/check_boundary.py
-python -m mypy --strict packages/contracts/src packages/features/src
+python -m mypy --strict packages/contracts/src packages/features/src examples/in_memory_adapter.py
 python tools/build_foundation.py
 ```
 
@@ -23,7 +24,7 @@ The build tool creates both wheels and sdists twice, compares SHA256 bytes,
 inspects contents/license/py.typed, and installs each pair in separate fresh venvs
 with no package-index fallback for project packages. Sdist install uses the exact
 setuptools build pin. Fresh environments install pinned NumPy/PyArrow to run
-installed core/columnar unit tests and the canonical synthetic example. Core
+installed core/columnar unit tests and both canonical/adapter synthetic examples. Core
 import isolation is checked separately without optional backend access. Before
 building, only previous generated project wheels/sdists are removed from checked
 workspace output directories; unrelated files are preserved. SOURCE_DATE_EPOCH
