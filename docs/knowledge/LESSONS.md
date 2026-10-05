@@ -80,3 +80,10 @@ qualifies the supplied-policy utility, not the sixteen numerical historical/cont
 IDs or source truth. [Receipt](../stories/EQ-033_DELIVERY.md). Final documentation
 publication gates remain before Done; subsequent consumers must retain these
 explicit original binding/quantity/certificate/availability semantics.
+
+
+EF-L013 final publication accepted on issue38: PR175/d3e9fc9 full head/main checks
+and actual bothOS archive equality to qualified installed bytes passed; EQ033 is
+Done. EQ027 now owns consumer qualification of action/context/certificate identities.
+Keep utility acceptance distinct from mathematical feature acceptance; sixteen
+R2 numerical IDs remain unimplemented at this pre-code pull.

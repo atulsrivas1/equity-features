@@ -533,3 +533,22 @@ head/source/main/docs/bothOS actual byte equality, issue acceptance/Done; then p
 refined EQ027 plan from accepted main before code. Private EQ027 prep identifies
 existing UPDATE_IDS=BATCH_IDS alias must stay session-only when adding history
 batch capabilities. Other R2 plans preserved; R3 remains paused.
+
+
+### EQ033 accepted; EQ027 pre-code pull —2026-10-05
+
+EQ033 issue38 closed/Project Done after final receipt PR175 head16d51e7 all SIX
+checks and exact-head-guarded merge to d3e9fc9c2c2f4d5b7892cd96ffefc3d1f15badad.
+Whole published tree equals receipt head; main docs37381128329/Foundation37381128337
+bothOS pass. Actual current-main bundles11374465257 Windows/11374455108 Linux
+manifest/source/clean epoch/hash/content verification and bothOS equality to
+FOUR fresh installed da116c8 byte sets passed. Final acceptance comment6004238365
+binds all evidence. One R2 story Done; eleven unfinished. No R3 restart.
+
+Pull EQ027 from accepted main on codex/eq-027-history-windows; pre-code plan freezes
+owned governed HistoryContext, window membership, independent readiness/quality,
+bounded evidence, exact final arithmetic and truthful batch-only capability.
+No calculation code at this checkpoint. Context certificates must match actual
+row presence; UPDATE_IDS must remain session-only when extending BATCH_IDS.
+Next: implement three IDs, independent windows/gaps/causality/precision fixtures,
+API/example/docs/version0.0.3a1 then complete all delivery/receipt gates before Done.
