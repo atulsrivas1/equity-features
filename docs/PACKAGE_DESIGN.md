@@ -113,7 +113,15 @@ Benchmark suite measures rows/sec, peak process memory, allocation/copy overhead
 
 Tests cover hand-calculated fixtures, batch/incremental parity, missing/empty distinction, warm-up and lookahead boundaries, split-adjustment policy, duplicate/tie order, early close, integer overflow, nulls, zero denominators, shard conservation and versioned state round trips. Compare existing Go results where definitions agree; known defects are checked against independent mathematics rather than copied.
 
-### Consumer customization (EQ-093)
+### Consumer customization (EQ-093, qualified by EQ-095)
+
+R3 EQ-095 qualifies a separately packaged consumer using only public installed APIs.
+It registers/discovers a custom feature, obtains input from a synthetic third-party
+adapter passing public SDK conformance, and compares typed results to independent
+expected values. Clean Windows/Linux wheel/sdist environments prohibit private
+imports and source-tree fallback; installed core source stays unchanged. EQ-039
+owns the guide, EQ-040 examples, EQ-043 the SDK and EQ-048 release acceptance.
+Real providers remain R6; R3 qualification needs no credentials or downloads.
 
 Three paths: supported configuration parameters without changing feature meaning; caller-derived results from existing features; opt-in local custom calculators registered against public contracts. Changing an equation requires a distinct custom feature ID and algorithm version, not an override of a built-in ID. Built-in definitions remain stable and existing20session equations are unchanged.
 

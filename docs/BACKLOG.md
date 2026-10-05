@@ -17,7 +17,7 @@ Story completion follows the eight-stage lifecycle in PUBLIC_DEVELOPMENT.md and 
 | R0 Design and repository foundation | Freeze v1 scope/contracts/formulas and create package-only foundation | EQ-001–EQ-016 | None |
 | R1 Core session packages | Verified bars/trades/quote calculations, first streaming API | EQ-017–EQ-026 | R0 |
 | R2 Historical and contextual packages | History, baselines, relative/breadth, complete v1 composition | EQ-027–EQ-038 | R1 |
-| R3 Package release readiness | Tested distributable packages, examples, benchmarks, custom-feature support and adapter kit | EQ-039–EQ-048, EQ-093 | R2 |
+| R3 Package release readiness | Tested distributable packages, examples, benchmarks, custom-feature support and adapter kit | EQ-039–EQ-048, EQ-093, EQ-095 | R2 |
 | R4 DuckDB adapter | First real adapter using our optimized store | EQ-049–EQ-056 | R3 |
 | R5 Independent workers | Bounded parallel feature generation and catalog publication | EQ-057–EQ-066 | R4 |
 | R6 Provider and file adapters | Direct provider access and bring-your-own-file workflows | EQ-067–EQ-074 | R5 baseline; adapter work only needs R3 contracts |
@@ -94,16 +94,17 @@ Default delivery is sequential. R6 adapter implementation may run independently 
 
 | ID | Release | Story | Acceptance condition |
 | --- | --- | --- | --- |
-| EQ-039 | R3 | Complete API typing and stable documentation | Public APIs/errors/registry documented, py.typed included and caller examples type-check |
-| EQ-040 | R3 | Publish runnable in-memory examples | Local-source-free batch/stream/history/composition examples run from installed wheels; show unavailable-input handling |
+| EQ-039 | R3 | Complete API typing and stable documentation | Public APIs/errors/registry documented, py.typed included and caller examples type-check; Extension guide covers supported configuration versus custom meaning, IDs/versions, quality/capabilities and the public adapter SDK. |
+| EQ-040 | R3 | Publish runnable in-memory examples | Local-source-free batch/stream/history/composition examples run from installed wheels; show unavailable-input handling; Externally packaged extension examples run from installed artifacts without private/source-tree imports. |
 | EQ-041 | R3 | Establish representative benchmark suite | Seeded small/large/skewed data, rows/sec, peak process memory, copies and batch-size measurements record hardware/backend/thread settings |
 | EQ-042 | R3 | Verify bounded computation and resource behavior | State grows only as documented; no hidden process pools; legal cancellation/batch limits and supported thread controls demonstrated |
-| EQ-043 | R3 | Deliver adapter development kit and conformance suite | Protocol docs, mapping guidance, in-memory adapter, fixtures and conformance tests cover order/precision/availability/errors/batch boundaries |
+| EQ-043 | R3 | Deliver adapter development kit and conformance suite | Protocol docs, mapping guidance, in-memory adapter, fixtures and conformance tests cover order/precision/availability/errors/batch boundaries; Independently packaged synthetic adapter demonstrates reusable public SDK conformance without core modifications or actual providers. |
 | EQ-044 | R3 | Verify versioning and backward compatibility | Contract/schema/math/state version policy and incompatible-state tests; custom IDs/algorithm/config metadata included; reference changelog and migration procedure |
 | EQ-045 | R3 | Test clean installation and distribution contents | Wheels/sdists install in supported clean environments; examples/tests pass; no private paths, datasets or credentials included |
 | EQ-046 | R3 | Audit pure calculation boundary | Public computation runs without database/network/file reads or clock dependency; hidden backend execution and mutable globals checked |
 | EQ-047 | R3 | Review dependency/release integrity | Dependency licenses, pinned build provenance, artifact checksums and required release credentials handled outside code; public release gated on EQ-010 |
-| EQ-048 | R3 | Record package release acceptance | All R0–R3 stories including EQ-093 evidenced, numerical suite passes, benchmark baseline stored and installable artifacts produced; no provider/data readiness claim |
+| EQ-048 | R3 | Record package release acceptance | All R0–R3 stories including EQ-093 and EQ-095 evidenced, numerical suite passes, benchmark baseline stored and installable artifacts produced; no provider/data readiness claim; EQ-095 external consumer qualification is required for R3 acceptance. |
+| EQ-095 | R3 | Qualify external feature and adapter extensibility | Separately packaged consumer registers/discovers a custom feature, supplies synthetic adapter input and gets independently checked typed results in clean Windows/Linux installs; public APIs only, no core changes, negative schema/collision/version/capability tests and reproducible guide |
 
 ## Epic E07 — First adapter: our DuckDB store
 
@@ -182,7 +183,7 @@ Default delivery is sequential. R6 adapter implementation may run independently 
 ## Dependency details and readiness constraints
 
 
-EQ-093 depends on EQ-013/015 result/registry contracts, EQ-039 public typing and relevant completed feature capabilities; EQ-044 compatibility and EQ-048 acceptance must cover it. Its registry namespace/metadata design is prepared in EQ-015, while actual local extension implementation is R3. Formula stories and existing built-in definitions are not reopened. EQ-093 is appended without renumbering EQ-001–092.
+EQ-093 depends on EQ-013/015 result/registry contracts, delivered public contract typing and relevant completed feature capabilities; final EQ-039 extension documentation follows registration rather than blocking it; EQ-044 compatibility and EQ-048 acceptance must cover it. Its registry namespace/metadata design is prepared in EQ-015, while actual local extension implementation is R3. Formula stories and existing built-in definitions are not reopened. EQ-093 is appended without renumbering EQ-001–092.
 
 EQ-011–016 follow mathematical decisions relevant to each schema. EQ-017–022 follow EQ-002/003 and contracts; EQ-023–025 follow implemented supported batch families. EQ-027–035 follow exact EQ-004–006 definitions. EQ-036 depends on result contracts and completed selected families. EQ-043 builds on EQ-016; EQ-048 needs every earlier package story. EQ-049–056 require package release acceptance. EQ-057–066 require DuckDB adapter acceptance; actual source qualification is independent and may keep builds blocked while package/adapter code is complete. EQ-067–074 require capability-specific decisions and tested package contracts. Remote exposure requires EQ-075 first. EQ-086/087 depend on EQ-085 evidence, not enthusiasm for another language.
 
@@ -210,4 +211,6 @@ Start R0 with EQ-001–006 and confirm personal owner/license/project name. Main
 
 ## Retired identifiers
 
-EQ-094 is withdrawn by owner instruction and excluded from active delivery scope. Do not reuse this identifier or count cancellation as implemented/released work. Active story IDs are EQ-001–EQ-093.
+EQ-094 is withdrawn by owner instruction and excluded from active delivery scope. Do not reuse this identifier or count cancellation as implemented/released work. Active story IDs are EQ-001–EQ-093 and EQ-095 (94 active stories).
+
+EQ-095 ([#150](https://github.com/atulsrivas1/equity-features/issues/150)) is owner-requested R3/E06 scope, dependent on EQ-093/039/040/043/045 and required by EQ-048. EQ-093 implements an external consumer example, registration/discovery and invalid-output tests; EQ-039 documents it, EQ-040 runs it, EQ-043 delivers the adapter SDK. EQ-095 independently qualifies their combined installed experience. R6 EQ-074 reuses the SDK for later real-provider guidance. Completed EQ-016 is not reopened. Synthetic R3 qualification has no R4/R6 dependency.
