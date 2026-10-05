@@ -426,3 +426,31 @@ Verify/close BUG003 and GOV010 using actual successful publication evidence,
 preserving all earlier failed/queued attempts. Only then combine/refine preserved
 EQ033 plan on accepted main and pull it under R2. No R3 feature restart or automated
 follow-up; no original repair-chat message was required after human ownership transfer.
+
+### Repair delivery recovered and qualified —2026-10-05
+
+All six final PR171/9e78e14 checks passed. Observed source merged as main
+`793a188acba054ba227a61d181897ae90236c149`; main documentation37376045297 and
+Foundation37376045409 bothOS pass. Full changed source publication matches PR head.
+Both actual main bundles11372050924 Linux/11371602243 Windows downloaded and
+manifest/source_dirty=false/all4hashes/content verified; FOUR fresh pair installs
+each380tests/eleven examples pass. Windows local CPython3.12.10/backends2.2.6/20.0.0;
+Linux CPython3.12.14 execution cited from CI. Completed implementation receipt
+BUG-004_DELIVERY.md contains exact archives/hashes/expiry. BUG004 Ready to release
+then Released after actual qualification; final receipt publication/main/bothOS
+byte equality remains before Done. Source merge alone was not counted as release.
+
+GOV010 and BUG003 are now CLOSED/Project Done. PR168 final27ad4de all6checks and
+main65e66fd docs37373639538 attempt2/Foundation37373639567 bothOS pass; all five
+published handoff blobs match, source unchanged. Both actual bundles/qualified
+BUG003 byte equality verified, so installed evidence reused only for identical
+archives. BUG003 receipt PR169 all6checks/published d153a12 receipt unchanged and
+renewed actual main publication accepted. Their issues record exact lifecycle and
+verification; historical cancelled/queued/acquisition failures remain above.
+Hosted reviewer activation still explicitly deferred despite guidance merge.
+
+Next: finish this documentation-only receipt/lesson/continuity PR through exact
+head/main source/CI and actual bundle equality against793a188, then BUG004 Done.
+No package source/version changes in receipt publication. Preserve all R2 drafts
+on codex/r2-preparation and combine them with accepted main only after repair
+Done; refine/publish EQ033 plan before calculation code. R3 stays paused.
