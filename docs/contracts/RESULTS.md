@@ -109,3 +109,8 @@ EQ020/0.0.2a3 adds TopKTrades/TopKTradeRow and top_k_trades dtype, immutable ran
 EQ021/0.0.2a4 adds QuoteStateCounts, SampledSpread and QuoteObservation typed cells, bounded exact source/event evidence and Arrow structs/lists. Zero-valid SampledSpread has null means/not_applicable with diagnostic cell; FeatureResult verifies complete total and valid denominator. Missing/incomplete cells remain null. [Migration](../api/SESSION_QUOTES.md).
 
 EQ022/0.0.2a5 adds QuoteDurations/TimeWeightedSpread and time_weighted_spread dtype. Complete continuous target binds exact duration total and quality count. Known zero-valid NA and initial-unknown incomplete cells preserve diagnostics with null means; delivery incomplete remains null. [Scalar metadata migration/limits](../api/CONTINUOUS_QUOTES.md).
+
+BUG004/0.0.2a11 normalizes out-of-range finite saved-state hex float conversion to
+ContractError(INVALID_SCHEMA), with the OverflowError cause retained. Caller state
+is unchanged and no calculator is returned. Nonfinite/malformed state remains typed;
+valid canonical finite binary64 state roundtrips exactly. [State/error details](../api/INCREMENTAL.md).

@@ -1,4 +1,4 @@
-# Session accumulators — experimental0.0.2a10
+# Session accumulators — experimental0.0.2a11
 
 `equity_features.incremental.SessionAccumulator(family, config, *, entity,
 population, prior_close=None, seed=None)` receives owned data/configuration only.
@@ -169,3 +169,13 @@ State schema2 adds window_gaps and rejects schema1; exact implementation version
 is still mandatory. No implicit migration can invent historical omitted-window
 facts. Replay old experimental states with their original supplied input instead.
 Formula IDs and equations stay unchanged; both distribution versions are0.0.2a10.
+
+## BUG004 typed saved-state float rejection (0.0.2a11)
+
+A rehashed state containing an out-of-range binary64 hexadecimal exponent rejects
+with ContractError(INVALID_SCHEMA), retaining OverflowError as the cause. Nonfinite
+and malformed hex also reject through the typed schema contract. No calculator is
+returned and existing caller state stays unchanged. Finite canonical hex roundtrips
+and corruption/config/source/version admission remain governed as above. State
+schema2/equations are unchanged; exact implementation version remains mandatory,
+so0.0.2a10 states require replay rather than an implicit migration to0.0.2a11.
