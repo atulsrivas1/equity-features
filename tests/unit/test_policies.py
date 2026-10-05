@@ -389,6 +389,17 @@ class SuppliedPolicy(unittest.TestCase):
         self.assertEqual(result.status, Status.AVAILABLE)
         self.assertEqual(field(result.batch, "known_at_ns"), (None, 211))
 
+    def test_contradictory_market_or_reference_observed_counts_rejected(self):
+        b = market(); b = replace(b, metadata=replace(b.metadata, coverage=Coverage(1, 1, True)))
+        self.assertCode(ErrorCode.INCONSISTENT_IDENTITY, lambda: self.apply(b))
+        ref = reference(coverage=Coverage(0, 0, True))
+        self.assertCode(ErrorCode.INCONSISTENT_IDENTITY, lambda: self.apply(refs=ref))
+
+    def test_reference_evidence_indices_cannot_exceed_bound_population(self):
+        result = self.apply()
+        self.assertCode(ErrorCode.BOUNDS,
+                        lambda: replace(result.admission, facts=(replace(result.admission.facts[0], row_index=1),)))
+
 
 class ClassificationPolicy(unittest.TestCase):
     def admit(self, ref=None, effective=100, kind="sector_membership", cfg=None):

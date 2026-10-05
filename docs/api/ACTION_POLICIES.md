@@ -23,7 +23,9 @@ Inputs remain `CanonicalBatch` and `ConfigSpec`; `entity` is the target `EntityK
 Its session must match the config target; market inputs must belong to its instrument
 and governed session IDs. Namespace, exact price scale/currency, output adjustment
 and algorithm version must agree. Reference facts may carry their own session labels.
-Structural validation rejects duplicates/order/bounds/invalid factors without sorting.
+Observed coverage must equal actual supplied row count; selected evidence indices
+must stay within that bound. Structural validation rejects duplicates/order/bounds/
+invalid factors without sorting.
 Original bindings, row indices, reference IDs, effective bounds and known-at values
 remain in immutable evidence. List construction detaches; lazy iterables fail.
 

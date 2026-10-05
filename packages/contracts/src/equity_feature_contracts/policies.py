@@ -103,6 +103,8 @@ def _admission(entity: EntityKey, config_digest: str, availability: Availability
         raise ContractError(ErrorCode.INVALID_SCHEMA, "policy readiness/reasons disagree")
     if facts and reference is None:
         raise ContractError(ErrorCode.INVALID_SCHEMA, "selected facts require original reference binding")
+    if reference is not None and any(x.row_index >= reference.metadata.coverage.observed for x in facts):
+        raise ContractError(ErrorCode.BOUNDS, "selected reference row exceeds supplied population binding")
     if len({x.reference_id for x in facts}) != len(facts) or len({x.row_index for x in facts}) != len(facts):
         raise ContractError(ErrorCode.DUPLICATE, "duplicate selected reference identity/index")
     if status == Status.AVAILABLE and any(availability.knowledge_reason(x.known_at_ns) is not None for x in facts):

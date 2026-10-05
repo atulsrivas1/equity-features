@@ -498,3 +498,14 @@ pairs with all twelve examples; exact head SIX checks, gated merge, actual main
 published source/docs/bothOS CI, downloaded manifests/hashes/archive contents and
 FOUR fresh installed pairs; complete source-bound receipt and final documentation
 publication before Done. EQ033 only active; R3 stays paused.
+
+
+EQ033 Test rework: head58bd47f all six CI checks and local repeated fourarchive/
+fresh wheel+sdist pairs each420tests/twelve examples passed, but continued author
+review found contradictory coverage.observed versus actual supplied row count and
+out-of-population evidence indices could be admitted. Two independent regression
+cases failed before the correction. Added market/reference actual-count and typed
+selected-index guards;422units/42policycases/strict29files/purity pass afterward.
+Issue38 returned to In progress with explicit reason. Older green results are
+superseded, not final release evidence. Resume Code review/Test on corrected head,
+repeat its installed build and full final-head/main/actual artifact qualification.

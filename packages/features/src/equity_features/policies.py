@@ -40,6 +40,8 @@ def _reference(reference: CanonicalBatch | None, config: ConfigSpec) -> InputBin
         raise ContractError(ErrorCode.INVALID_SCHEMA, "supplied canonical reference required")
     if reference.metadata.namespace != config.session.namespace:
         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "reference namespace mismatch")
+    if reference.metadata.coverage.observed != reference.row_count:
+        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "reference coverage must bind actual supplied row count")
     validate_batch(reference, required_fields=())
     return InputBinding("policy_reference", reference.kind, reference.metadata)
 
@@ -171,6 +173,8 @@ def apply_action_policy(batch: CanonicalBatch, reference: CanonicalBatch | None,
         raise ContractError(ErrorCode.INVALID_SCHEMA, "owned canonical input required")
     if batch.metadata.namespace != config.session.namespace:
         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "market input namespace mismatch")
+    if batch.metadata.coverage.observed != batch.row_count:
+        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "market coverage must bind actual supplied row count")
     if batch.metadata.price_unit != config.price_unit:
         raise ContractError(ErrorCode.INVALID_UNIT, "policy requires explicit matching price scale/currency")
     expected = policy.adjustment if policy.representation == "caller_transformed" or policy.adjustment.basis == "raw" else AdjustmentSpec()

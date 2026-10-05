@@ -63,3 +63,11 @@ prove reciprocal split adjustment. [Policy guide](../api/ACTION_POLICIES.md).
 Scope: supplied schema1 utility, not authenticated source truth or implemented
 historical IDs. Revisit with dependent historical/context consumer qualification
 and final main installed artifacts; local tests alone are not accepted delivery.
+
+
+EF-L013 review correction: complete coverage metadata alone could contradict the
+actual supplied population. EQ033's two independently failing regressions now
+require coverage.observed equal row_count and selected evidence row_index within
+the original bound. Green head58bd47f builds were superseded; lifecycle returned to
+In progress. Requalify corrected source/artifacts before acceptance, and apply the
+same certificate-versus-delivery check to later HistoryContext consumers.
