@@ -23,9 +23,10 @@ sys.meta_path.insert(0,Deny())
 import equity_feature_contracts as c
 assert not any(x.startswith('equity_features') for x in sys.modules)
 import equity_features as f
-assert c.__version__==f.contracts_version==f.__version__=='0.0.1a0'
+assert c.__version__==f.contracts_version==f.__version__==EXPECTED_VERSION
 assert not hasattr(f,'compute')
 '''
+code=code.replace('EXPECTED_VERSION',repr(meta['version']))
 prefix=f'import sys;sys.path[:0]={str([str(ROOT/"packages/contracts/src"),str(ROOT/"packages/features/src")])}\n'
 subprocess.run([sys.executable,'-I','-c',prefix+code],check=True)
 print('Two package source imports, metadata, py.typed and inward dependency verified.')

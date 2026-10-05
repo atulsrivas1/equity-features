@@ -1,6 +1,8 @@
 # Equity calculation packages — final design baseline
 
-Date: 2026-10-04. Design only; implementation and publication not started.
+Date: 2026-10-04. Design baseline; experimental R0 foundation implementation is underway.
+Canonical inputs: [implemented contract](contracts/INPUTS.md). Numerical APIs below
+remain planned until their respective implementation stories; no registry publication.
 Repository planned: `equity-features`.
 This supersedes the Go-first library recommendation in earlier worker proposal.
 Delivery order: calculation packages, then DuckDB adapter, then workers.

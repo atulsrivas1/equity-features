@@ -4,7 +4,9 @@ EQ-009 channel: downloadable **GitHub Actions artifacts from successful main
 Foundation package checks**, named `foundation-<commit>-<OS>`. No PyPI/public
 registry publication. Public repository readers with appropriate GitHub access
 can download authorized code/synthetic artifacts; no private data is included.
-These are version0.0.1a0 experimental R0 distributions, not production calculators.
+The bundle pins its experimental R0 distribution version in package metadata;
+EQ-009 began at0.0.1a0 and EQ-011 adds canonical inputs at0.0.1a1. These are
+foundation contracts, not production calculators.
 30-day retention is requested, subject to repository limits; record actual expiry
 on each issue. After expiry, rebuild from the recorded commit with the pinned
 requirements; retained artifacts are a delivery channel, not permanent archival.
@@ -20,7 +22,11 @@ python tools/build_foundation.py
 The build tool creates both wheels and sdists twice, compares SHA256 bytes,
 inspects contents/license/py.typed, and installs each pair in separate fresh venvs
 with no package-index fallback for project packages. Sdist install uses the exact
-setuptools build pin. It runs installed unit tests when present. SOURCE_DATE_EPOCH
+setuptools build pin. Fresh environments install pinned NumPy/PyArrow to run
+installed core/columnar unit tests and the canonical synthetic example. Core
+import isolation is checked separately without optional backend access. Before
+building, only previous generated project wheels/sdists are removed from checked
+workspace output directories; unrelated files are preserved. SOURCE_DATE_EPOCH
 1700000000 fixes wheel timestamps; sdist tar ownership/mode/mtime and gzip headers
 are canonicalized at that epoch. This timestamp is a packaging convention, not
 market time or an availability claim. Repeatability is within a tested OS/toolchain;

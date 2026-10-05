@@ -22,6 +22,7 @@ jobs:
       - run: python tools/verify_imports.py
       - run: python tools/verify_compatibility.py
       - run: python -m mypy --strict packages/contracts/src packages/features/src
+      - run: python -m unittest discover -s tests/unit
       - run: python tools/check_boundary.py
       - run: python tools/build_foundation.py
       - name: Retain verified experimental foundation artifacts
