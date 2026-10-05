@@ -70,3 +70,6 @@ universe membership. Read the [policy API](docs/api/ACTION_POLICIES.md), run the
 EQ027 adds [governed returns and prior extrema](docs/api/HISTORY.md),
 [synthetic example](examples/history_windows.py) and [delivery record](docs/stories/EQ-027_DELIVERY.md).
 Historical state modes remain unsupported.
+
+EQ028 SMA/EMA source qualification is underway at0.0.3a2; [API](docs/api/HISTORY.md),
+[installed example](examples/history_averages.py), [delivery gates](docs/stories/EQ-028_DELIVERY.md).

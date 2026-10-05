@@ -188,3 +188,6 @@ EQ033 retains package boundaries: contracts owns immutable policy/evidence types
 
 
 EQ027 extends owned governed context and batch-only historical kernels without source acquisition, calendar inference or session accumulator exposure. [History API](api/HISTORY.md) retains existing typed results/provenance and source-independent ownership.
+
+
+EQ028 retains contract/kernel ownership and batch-first boundaries. Contracts owns immutable exact SMAReference; features.history owns pure mean/anchored recurrence and witness production. No hidden dependency/source calculation or new history state mode; [API](api/HISTORY.md).

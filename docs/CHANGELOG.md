@@ -1,5 +1,14 @@
 # Experimental package changes
 
+## 0.0.3a2 — EQ028 source qualification, delivery pending
+
+Batch SMA uses exact wide means; EMA seeds at an explicit supplied anchor and
+requires its complete epoch without automatic gap reset. Independent readiness,
+bounded Float64 recurrence and exact supplied SMAReference comparisons preserve
+int64-limit ties/one-tick distinctions.28batch/23session update/restore/22merge.
+[API](api/HISTORY.md), [delivery gates](stories/EQ-028_DELIVERY.md).
+
+
 ## 0.0.3a1 — EQ027 verified experimental implementation delivery
 
 Batch horizon returns and prior highs/lows require exact governed windows; missing

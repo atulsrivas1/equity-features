@@ -13,7 +13,7 @@ QUOTE_IDS = ("session.quote.sampled_spread", "session.quote.state_counts")
 CONTINUOUS_IDS = ("session.quote.time_weighted_spread",)
 SESSION_BATCH_IDS = frozenset(BAR_IDS+STRUCTURE_IDS+TRADE_IDS+TOP_K_IDS+QUOTE_IDS+CONTINUOUS_IDS)
 
-HISTORY_IDS = ("history.return", "history.prior_high", "history.prior_low")
+HISTORY_IDS = ("history.return", "history.prior_high", "history.prior_low", "history.sma", "history.ema")
 BATCH_IDS = SESSION_BATCH_IDS | frozenset(HISTORY_IDS)
 
 UPDATE_IDS = SESSION_BATCH_IDS

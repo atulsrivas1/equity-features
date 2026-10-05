@@ -4,7 +4,9 @@ EQ027/pair0.0.3a1 introduces batch `history.return`, `history.prior_high` and
 `history.prior_low`. [Frozen mathematics](../features/HISTORICAL_FORMULAS.md),
 [pre-code plan](../stories/EQ-027_PLAN.md), [delivery](../stories/EQ-027_DELIVERY.md).
 No history update/restore/merge capability is advertised. Existing session modes
-remain23 batch/update/restore and22 conditional merge; total batch inventory is26.
+remain23 batch/update/restore and22 conditional merge. EQ028/pair0.0.3a2 adds
+SMA/EMA batch, taking the total batch inventory to28; its delivery gates are tracked
+in [EQ028 receipt](../stories/EQ-028_DELIVERY.md).
 
 ## Owned context and calls
 
@@ -94,3 +96,44 @@ than silently loading a prior incompatible snapshot. Input/config/result schema1
 remains unchanged; HistoryContext is a new schema1 owned contract.
 
 Run [history_windows.py](../../examples/history_windows.py) against installed packages.
+
+## SMA and explicitly anchored EMA
+
+`compute_history(..., feature_ids=("history.sma", "history.ema"))` uses explicit
+period N and completed_eod WindowSpec.count=N. These two may share a call/config;
+other history IDs use separate calls. Defaults SMA20/50/200 and EMA20 are explicit
+periods. SMA sums exact positive scaled coefficients in checked decimal128 range
+and converts sum/(N*10^scale) only once. EMA requires context.initialization_anchor
+at or before target; the first N closes since that anchor seed their arithmetic
+mean. Later closes use alpha=2/(N+1) and bounded binary64 scalar recurrence.
+Period1 yields the latest close, conditional on its original epoch admission.
+
+SMA quality counts N trailing slots. EMA quality counts every actual governed slot
+from anchor through target, while readiness also requires at least N seed closes.
+No skipped gap or automatic reset: an old gap may keep EMA unavailable after SMA
+recovers. Explicit new anchor or corrected admissible replay changes identity.
+Future prices do not enter either calculation. Common C/K/E, action, unit/source,
+null/coverage/evidence guards above apply independently. Long/wide scaled EMA
+is qualified against independent 80-digit Decimal references at rtol/atol1e-12;
+this is numerical qualification, not a performance claim or public state API.
+
+`compute_sma_reference(batch, config, *, context) -> SMAReference` pairs a single
+standard SMA FeatureResult with exact coefficient sum/count and PriceUnit. The
+frozen schema1 witness validates decimal128 sum, int64 count, positive int64-range
+mean, matching result/source units, available quality counts and Float64 projection.
+Unavailable SMA carries numerator=None and denominator=None. `compare_price(price,
+unit)` requires a positive int64 coefficient and identical unit, returning -1/0/+1
+by exact cross multiplication. Near int64 limits a one-tick difference can vanish
+in Float64 but remains distinct in this supplied witness. Comparison against an
+unavailable witness raises a typed unsupported_capability error.
+
+The witness retains original result/config/context/source bindings; structural
+checks do not authenticate source facts or reconstruct its config from a digest.
+Dependent consumers must validate supplied configuration/admission identities.
+Its producer validates the result then makes an additional finite pass over the
+same selected supplied closes; owned input validation/copies remain visible costs.
+No Arrow witness bridge, hidden source/dependency calculation or throughput claim.
+FeatureResult scalar types and compute_history signatures remain compatible.
+Both IDs are batch-only; session accumulator schema2 is unchanged but its exact
+implementation-version restore rule still requires replay of older states.
+Run [history_averages.py](../../examples/history_averages.py) after installation.
