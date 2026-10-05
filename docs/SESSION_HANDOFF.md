@@ -393,3 +393,36 @@ chronology and owner R2/R3 pause/knowledge records. No duplicate calculator repa
 Final integrated-head checks, published source/main artifacts/fresh installed pairs
 and receipt acceptance remain required; both repair issues are still undelivered
 at this checkpoint. R2 calculation work waits for their genuine Done state.
+
+### Integrated repair gates and external blocker —2026-10-05
+
+PR171 exact head `9e78e14a8fe2572a262083af4bd207af8f84199c` is mergeable after
+current-main conflict resolution. Source repair/tests unchanged.380units/123refs/
+strict26files/purity38negative10positive/import/registry/compatibility/license/
+UTF8 and repeat four-archive build/inspection/fresh local wheel+sdist pairs each
+380tests/eleven examples pass, manifest source_dirty=false. Author self-review
+reports no new findings and does not claim completed hosted/human review.
+Three exact-head package checks pass; Linux push run37375326394 job111982425931,
+docs37375326422 and37375331818 remain queued without runners. Preserve this head;
+do not count queued/cancelled runs as passes or restart them repeatedly.
+
+GOV010/PR168 all six final-head checks are now successful after one bounded
+runner-acquisition failure retry. Main65e66fd package run37373639567 bothOS and
+actual bundles/hash equality were verified in the R2 preparation record/issue167.
+Main docs37373639538 failed to acquire a runner; one bounded failed-job retry
+(attempt2) remains queued. Its success is still required. BUG003 is Released;
+its receipt/main/source/artifact checks are reused only when actual current-main
+docs success and both qualified byte sets match. Neither repair nor GOV010 Done
+is inferred from a merge. R2 plans/continuity remain preserved separately on
+codex/r2-preparation; no calculation implementation has started.
+
+Resume in this dedicated checkout: qualify all SIX unchanged PR171 head checks
+and its local manifest, Test->Ready to release, gated merge with exact head guard,
+verify full changed published Git blobs/main bothOS CI, actual downloaded bothOS
+bundles/FOUR fresh installed pairs, then Released. Complete source-bound receipt,
+knowledge lesson and continuity on this receipt branch, linked docs PR/exact-head/
+main checks and BOTH archive equality; update issue acceptance and Project Done.
+Verify/close BUG003 and GOV010 using actual successful publication evidence,
+preserving all earlier failed/queued attempts. Only then combine/refine preserved
+EQ033 plan on accepted main and pull it under R2. No R3 feature restart or automated
+follow-up; no original repair-chat message was required after human ownership transfer.
