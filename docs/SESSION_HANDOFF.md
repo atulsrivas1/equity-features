@@ -788,3 +788,7 @@ foundation-316215250387c8876a85326e41f14765b1620580-ubuntu-24.04 artifact1138075
 foundation-316215250387c8876a85326e41f14765b1620580-windows-latest artifact11379594537 expires2026-11-04T23:35:07Z.
 
 Actual archive hashes and expiry are in [receipt](stories/EQ-030_DELIVERY.md). Next: final docs receipt exact-head checks/guarded merge/main docs and bothOS Foundation/actual byte equality before issue35Done. Then pull refined EQ031 pre-code volume baseline plan. One active story; R3 paused.
+
+### EQ030 final receipt publication; EQ031 pre-code design —2026-10-05
+
+PR183 head86cb0d0a2adbab8568001edd900ff1ece1cae254 all SIX checks; guarded mergea94dfaa1a7e5011ed8a85865a04fa035913a5fc8 entire published tree verified equal. Final main docs/bothOS Foundation and actual byte equality still gate Done. Prepare [EQ031 plan](stories/EQ-031_PLAN.md) on isolated codex/eq-031-daily-volume, mathematics/contracts first. No EQ031 calculation implementation yet; prior-only exact volume witness and explicit target prefix admission are frozen before code. Next finish receipt gates/35Done, then36Ready/In progress and pair0.0.3a5 implementation. R3 paused.
