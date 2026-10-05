@@ -35,6 +35,7 @@ round trip. Final-head/main artifacts are verified before each story is Done.
 ## Follow the work
 
 - [Dashboard](docs/DASHBOARD.md)
+- [R1 execution handoff](docs/R1_AUTONOMOUS_HANDOFF.md)
 - [Package design](docs/PACKAGE_DESIGN.md)
 - [V1 feature scope](docs/features/V1_SCOPE.md)
 - [Session formula specification](docs/features/SESSION_FORMULAS.md)
