@@ -43,6 +43,10 @@ stops before R1 implementation. See [V1 scope](features/V1_SCOPE.md).
 
 ## Next execution package
 
+R3 includes [EQ-095 external extension qualification #150](https://github.com/atulsrivas1/equity-features/issues/150),
+with acceptance updates to EQ-093/039/040/043/048 and R6 EQ-074. This is planned
+Backlog scope, not implemented support. Current R1 execution is unchanged.
+
 [R1 autonomous handoff](R1_AUTONOMOUS_HANDOFF.md) covers EQ-017–026, their
 provisional points, plans, tests, documentation and verified experimental delivery.
 The R0 follow-up review identified [BUG-001 #144](https://github.com/atulsrivas1/equity-features/issues/144)
