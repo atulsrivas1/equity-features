@@ -2,8 +2,8 @@
 
 All EQ-001–016 acceptance and actual delivery gates are met. The scope is the
 experimental design/contracts/repository foundation, not the later full calculation
-package phase. The R0 milestone contains16 EQ stories and3 accepted governance items;
-all 19 are closed, all16 EQ Project statuses are Done. Milestone closure follows verification of this report’s publication and final-head/main
+package phase. The R0 milestone contains 16 EQ stories and 3 accepted governance items;
+all 19 are closed, all 16 EQ Project statuses are Done. Milestone closure follows verification of this report’s publication and final-head/main
 checks; the live milestone records that completed delivery decision.
 
 ## Delivered behavior
@@ -26,11 +26,11 @@ Missing, observed-empty, unavailable, null and zero remain distinguishable.
 
 ## Verified gates and review
 
-- 123 independent exact mathematics/policy references:17 session,26 quote,31 history,
-  26 context and23 timing. They establish specification examples, not production kernels.
-- 170 unit tests, including25 adapter and22 registry cases, pass in both OS CI and
-  fresh installed wheels/sdists.14 negative boundary fixtures pass. Registry parity
-  checks 39 IDs/releases and31 table formulas against accepted public documents.
+- 123 independent exact mathematics/policy references: 17 session, 26 quote, 31 history,
+  26 context and 23 timing. They establish specification examples, not production kernels.
+- 170 unit tests, including 25 adapter and 22 registry cases, pass in both OS CI and
+  fresh installed wheels/sdists. 14 negative boundary fixtures pass. Registry parity
+  checks 39 IDs/releases and 31 table formulas against accepted public documents.
 - Strict mypy checks 14 source files, including static HistoricalAdapter assignment
   in the synthetic example. Canonical/result Arrow precision/masks are covered.
 - Core/inward import isolation, compatibility pins, licensing/content checks,
@@ -103,9 +103,8 @@ E03 open/In progress and unassigned to a single milestone for open R3 EQ-093 #11
 No later child is closed or reassigned to manufacture R0 completion. EQ-094 remains
 retired. Deferred GOV-005 #119/PR120 remains unchanged.
 
-The acceptance procedure closes R0 milestone 1 and sets EQ-017 #21 after this
-report’s publication/main gates
-Ready because the formulas and R0 foundation prerequisites are satisfied. No R1
+The acceptance procedure closes R0 milestone 1 and sets EQ-017 #21 Ready after
+this report’s publication/main gates, because the formulas and R0 foundation prerequisites are satisfied. No R1
 implementation starts in this mission. Do not create automations or imply dates.
 Numerical kernels, incremental engines, package-phase benchmarks/composition and
 stable release qualification, concrete DuckDB/provider/file adapters, workers,
