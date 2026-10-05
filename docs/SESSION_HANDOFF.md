@@ -80,3 +80,18 @@ build/type transitive tools. Editable installs, pip check, UTCns/int64/null smok
 123references and planning/import/diff checks pass. Linux/Windows CI matrix must
 pass final head before policy acceptance; artifacts still EQ-009. Resume linked
 PR review/Test/final-head CI, squash/main blob and CI verification; then EQ-009.
+
+EQ-008 Done via PR131 at86321207b2ce8557a64a58782cfea28de4003a56; final
+2fed0eaad9c4b097fa3ba63a05485a38e25aad8c passed six checks and main matrix/docs
+passed. Premature completion assertion stopped while main matrix was still running;
+no issue closure occurred until both main workflows succeeded.8blobs verified.
+
+EQ-009 In progress (8points): local four-artifact repeat builds matched SHA256,
+archive inspection and fresh wheel/sdist pairs installed with pip check/import smoke.
+Strict mypy (2sources),11negative boundary fixtures and123references pass. Build
+manifest now includes package-source dirty flag; CI must record clean source. Main
+30day GitHub Actions channel planned/documented but not yet delivered. EQ-007 stays
+Ready to release. Resume: review linked PR, Test/final-head all CI, squash/main blobs,
+wait main artifact matrix, download actual main bundles and verify manifest commit,
+hashes/expiry, clean install. Only then Released/Done for EQ-009 and EQ-007; EQ-010
+is next. Do not substitute local build/editable installs for retained delivery.
