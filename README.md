@@ -2,7 +2,11 @@
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
-**Status: design and planning. No installable implementation yet.**
+**Status: R0 foundation in development. Mathematical specifications are complete;
+package layout is importable from source. Numerical kernels and artifact delivery
+remain gated. No public registry release.**
+
+[Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
 
 ## Planned architecture
 
