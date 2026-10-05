@@ -103,7 +103,7 @@ class TopK(unittest.TestCase):
         r=calc(trades());self.error(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(r,evidence=()))
         self.error(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(r,evidence=(replace(r.evidence[0],event_ns=159),r.evidence[1])))
         for mode in ('merge',):
-            self.error(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:builtin_registry().require_capability('session.trade.top_k',mode))
+            builtin_registry().require_capability('session.trade.top_k',mode)
 
     def test_target_boundary_and_auction_evidence(self):
         self.error(ErrorCode.BOUNDS,lambda:calc(trades(event_ns=(110,130,200))))

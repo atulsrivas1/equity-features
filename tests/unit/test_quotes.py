@@ -128,7 +128,7 @@ class Quotes(unittest.TestCase):
         for feature in ('session.quote.sampled_spread','session.quote.state_counts'):
             builtin_registry().require_capability(feature,'batch')
             for mode in ('merge',):
-                self.error(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:builtin_registry().require_capability(feature,mode))
+                builtin_registry().require_capability(feature,mode)
 
     def test_sampled_label_and_denominator_cannot_contradict_binding(self):
         r=calc(quotes());s=sample(r)
