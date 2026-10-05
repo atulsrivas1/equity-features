@@ -1,6 +1,6 @@
 # Historical equity mathematical contract
 
-Definition version1; owner EQ-004, with EQ-006 joint return/reference admission policy. Covers8history IDs in V1_SCOPE.md. This document and synthetic references specify mathematics; no production package or trusted provider history is implemented.
+Definition version1; owner EQ-004, with EQ-006 joint return/reference admission policy. Covers8history IDs in V1_SCOPE.md. This document and synthetic references specify mathematics. Current source/qualification is linked in the [history API](../api/HISTORY.md) and receipts; no trusted provider history is certified.
 
 ## Supplied grid, completion and price basis
 

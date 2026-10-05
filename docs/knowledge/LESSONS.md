@@ -114,3 +114,12 @@ family. Copying built-in metadata for a custom definition must clear execution
 flags until a custom executor is separately qualified. Revisit every capability
 extension under actual clean installed examples; source unit passes cannot waive
 this gate. Failed8ea565c and corrected head remain in EQ027 continuity/PR176.
+
+
+EF-L014 implementation qualification: corrected27d9ff6/main1896ff2 bothOS/docs
+CI and actual bundles/FOUR fresh installed pairs each438tests/thirteenexamples pass;
+[receipt](../stories/EQ-027_DELIVERY.md). Selected windows and truthful26batch/
+23session modes are qualified; final receipt publication remains before Done.
+Derived context coverage counts supplied grid definitions, not usable prices;
+per-slot proof/quality owns numerical readiness. Preserve installed example failure
+and correction under EF-L005; do not infer history state support from batch.

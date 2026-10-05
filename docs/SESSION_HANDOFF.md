@@ -588,3 +588,25 @@ tests and history example. Also clear capabilities on copied custom metadata so
 future SMA batch implementation cannot falsely grant a custom execution callback.
 Author review and direct example pass follow; repeat corrected final-head build/
 CI/main/installed gates. Preserve failed8ea565c evidence and lessonEF-L005.
+
+
+### EQ027 implementation delivery qualified —2026-10-05
+
+Final corrected27d9ff68dc30bd0bb8301c6326e36e1d3c0c0a64 all SIX checks and local
+repeat4archives/fresh wheel+sdist pairs each438tests/thirteenexamples pass. Ready
+to release recorded before exact-head-guarded merge to1896ff274ba1abfbb313829d277133a9b86d3ba7;
+entire published tree matches final head. Main docs37383010352/Foundation37383010306
+Windows/Linux pass. Both actual main bundles/clean manifest/exact source/epoch/
+all4hashes/content/license/typing verified; FOUR fresh Windows installed pairs
+wheel+sdist for bothOS archives each438tests/thirteenexamples pass. Linux native
+execution is CI evidence. Receipt binds artifact IDs/hashes/expiry. EQ027 Released;
+final receipt publication/head/main/actual bothOS byte equality remains before Done.
+Failed8ea565c/stale tutorial/all4package CI jobs preserved and superseded.
+
+Documentation clarifies derived context binding coverage counts grid definitions,
+not ready price slots, and links current policy/history implementation from frozen
+mathematical specifications without changing equations. No provider truth/history
+state/independent review claim. Next: this docs-only final receipt gate/issueDone,
+then refined EQ028 pre-code plan. Consider an owned exact SMA mean witness for
+later close>SMA comparison at int64 limits; floating equality must not hide a
+one-tick mathematical distinction. R2 ongoing; R3 stays paused.

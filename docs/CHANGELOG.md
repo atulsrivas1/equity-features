@@ -1,6 +1,6 @@
 # Experimental package changes
 
-## 0.0.3a1 — EQ027 implementation; qualification pending
+## 0.0.3a1 — EQ027 verified experimental implementation delivery
 
 Batch horizon returns and prior highs/lows require exact governed windows; missing
 slots stay explicit and prior-only extrema exclude target. Owned HistoryContext/

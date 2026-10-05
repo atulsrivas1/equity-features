@@ -74,7 +74,8 @@ later consumers; an admission does not authenticate vendor facts.
 ResultMetadata retains actual daily/reference InputBindings and one derived typed
 history_context binding. Its source_id=caller-history-context and
 mapping_version=history-context-v1 distinguish a caller-owned context from an
-acquired provider reference. Snapshot ID is grid_version; input_id hashes exact
+acquired provider reference. Its coverage counts supplied grid definitions, not
+available price slots. Snapshot ID is grid_version; input_id hashes exact
 sessions/certificates/initialization/action identities. Config digest and actual
 data bindings retain cutoffs/units/revisions. Changing supplied context/source
 changes identity even when a selected mathematical value stays equal.
