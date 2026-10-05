@@ -312,3 +312,15 @@ legal merge OR and strict restore shape/Boolean/consistency validation.377 units
 expected without an omission remains certifiable; last window volume300 stays ready
 while omitted first window/shares stay unavailable. Full release gates pending;
 BUG003 is In progress, BUG004 still Ready. Historical R1 reports unchanged.
+
+### Bounded repair publication exception —2026-10-05
+
+BUG003 implementation is Released/qualified; final receipt PR169 has5of6corrected
+exact-head checks green and the remaining Linux PR job queued since19:15UTC.
+Keep its merge gated. Start only BUG004 as the single In progress implementation
+while BUG003 waits externally for documentation publication; this bounded two-repair
+publication exception avoids idle implementation capacity and remains within the
+owner's repair-only authorization. No second active code change, R3 feature or R2
+work. BUG004 baseline rehashed state still raises OverflowError on0.0.2a10; pre-code
+plan confirms2points/schema2/error normalization/new pair0.0.2a11. Complete both
+stories through actual delivery and documentation gates before stopping.
