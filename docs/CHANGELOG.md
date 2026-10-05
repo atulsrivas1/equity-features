@@ -13,3 +13,7 @@ Main artifact acceptance is required before this version is declared delivered.
 ##0.0.2a1 — EQ018
 
 Typed interval OHLCV and volume shares, explicit per-window coverage and partial-row quality; whole-bar alignment/earlyclose/auction admission preserved. Registry structured output metadata and digest evolve; both structure batch flags supported. Delivery still requires actual main artifacts; no public registry or performance claim.
+
+## 0.0.2a2 — EQ019
+
+Five eligible trade aggregates with exact wide products/notional, independent absent-payload readiness, explicit normalized eligibility/delivery coverage and causal knowledge admission. No bar-proxy substitution. Capability/unit metadata and registry digest evolve; actual main artifact verification gates delivery.
