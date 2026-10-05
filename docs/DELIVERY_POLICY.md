@@ -42,3 +42,7 @@ architecture meeting to resolve decisions already assigned to stories.
 | Exact schemas, precision, API/result/error and adapter protocol definitions | EQ-011–016 |
 
 Provider access, remote hosting and workers remain later releases. No separate up-front decision is needed on deployment scale or native acceleration before the calculation packages exist and are measured.
+
+## Owner-directed R3 priority — 2026-10-05
+
+The owner requested the [R3 execution package](R3_AUTONOMOUS_HANDOFF.md) and a new chat after R1 review. Prioritize its two R1 defect repairs and dependency-ready R3 stories as an explicit exception to earliest-release pulling. R2 remains separately scoped and unstarted; this decision does not authorize R2 implementation or waive its prerequisite/acceptance gates. Full R3 closure must wait for verified R2.
