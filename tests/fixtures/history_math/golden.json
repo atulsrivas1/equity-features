@@ -1,0 +1,58 @@
+{
+  "period": 3,
+  "rows": [
+    {
+      "session": 0,
+      "end": 10,
+      "close": 100,
+      "high": 102,
+      "low": 98
+    },
+    {
+      "session": 1,
+      "end": 20,
+      "close": 110,
+      "high": 112,
+      "low": 99
+    },
+    {
+      "session": 2,
+      "end": 30,
+      "close": 105,
+      "high": 111,
+      "low": 103
+    },
+    {
+      "session": 3,
+      "end": 40,
+      "close": 120,
+      "high": 122,
+      "low": 104
+    },
+    {
+      "session": 4,
+      "end": 50,
+      "close": 115,
+      "high": 121,
+      "low": 113
+    },
+    {
+      "session": 5,
+      "end": 60,
+      "close": 130,
+      "high": 132,
+      "low": 114
+    }
+  ],
+  "expected": {
+    "return": "5/21",
+    "sma": "365/3",
+    "ema": "975/8",
+    "rsi": "4700/57",
+    "atr": "122/9",
+    "prior_high": "122",
+    "prior_low": "103",
+    "variance": "476449/44791488",
+    "volatility": "0.1031360429707622"
+  }
+}

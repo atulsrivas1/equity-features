@@ -22,9 +22,14 @@ Follow Backlog -> Ready -> In progress -> Code review -> Test -> Ready to releas
 
 ## Immediate work and remaining decisions
 
-Next: EQ-002, session/bar/trade formulas with independently worked examples. Follow with formula stories EQ-003–006 according to their dependencies, then public contracts and package foundation. Do not require another architecture meeting to resolve decisions already assigned to stories.
+R0 foundation is delivered; [acceptance](R0_ACCEPTANCE.md) retains its evidence.
+The next bounded execution package is [R1_AUTONOMOUS_HANDOFF.md](R1_AUTONOMOUS_HANDOFF.md):
+first BUG-001 #144 and BUG-002 #145, then EQ-017–026 according to dependencies.
+Consult live Project/issue evidence for current status. The earlier
+[R0 handoff](R0_AUTONOMOUS_HANDOFF.md) remains historical. Do not require another
+architecture meeting to resolve decisions already assigned to stories.
 
-| Decision still required | Owning story |
+| R0 decision ownership (resolved; consult accepted documentation) | Owning story |
 | --- | --- |
 | Trade eligibility, auctions, bar aggregation, exact/proxy measures, ties and zero denominators | EQ-002 |
 | Quote sampling, locked/crossed handling and bounded time weighting | EQ-003 |
@@ -37,3 +42,7 @@ Next: EQ-002, session/bar/trade formulas with independently worked examples. Fol
 | Exact schemas, precision, API/result/error and adapter protocol definitions | EQ-011–016 |
 
 Provider access, remote hosting and workers remain later releases. No separate up-front decision is needed on deployment scale or native acceleration before the calculation packages exist and are measured.
+
+## Owner-directed R3 priority — 2026-10-05
+
+The owner requested the [R3 execution package](R3_AUTONOMOUS_HANDOFF.md) and a new chat after R1 review. Prioritize its two R1 defect repairs and dependency-ready R3 stories as an explicit exception to earliest-release pulling. R2 remains separately scoped and unstarted; this decision does not authorize R2 implementation or waive its prerequisite/acceptance gates. Full R3 closure must wait for verified R2.

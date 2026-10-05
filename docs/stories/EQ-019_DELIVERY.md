@@ -1,0 +1,13 @@
+# EQ-019 experimental delivery receipt
+
+
+## EQ-019 verified delivery — 2026-10-05
+
+PR153, exact head `05e9c54da755709ccfdc8c0bbf2f7baeb93e81b4`, main `80e81d5acc243a025c1d3383256e78064f140db5`, version **0.0.2a2**. Five eligible trade aggregate IDs are callable with exact checked count/volume/notional and independent payload readiness. Plan/API/example/unit migration/changelog/continuity and EQ018 receipt are published.
+
+241 unit tests (18 new), 123 independent formula references, strict typing18 files, purity38 negative/10 positive, registry/import/compatibility/license/planning94 checks pass. Repeat four-archive hashes/content and fresh wheel/sdist pair installed tests and five examples pass. Six exact-head checks and all main Windows/Linux checks passed; all24 changed Git blobs match actual main bytes. Author self-review plus CI applies; no independent reviewer claimed.
+
+Both actual main OS bundles downloaded; source commit/clean flag/four SHA256/content checked. Four fresh pair installations each passed241 tests/five examples on Windows CPython3.12.10; CI separately verified Linux3.12.14 and Windows3.12.10. Experimental retained Actions channel only; no public registry release, throughput or source-truth guarantee. Update/restore/merge/topK/quotes/custom execution remain unsupported.
+
+- [foundation-80e81d5acc243a025c1d3383256e78064f140db5-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37334777863/artifacts/11355094207); expires `2026-11-04T15:42:29Z`; SHA256: {"equity_feature_contracts-0.0.2a2-py3-none-any.whl": "40e0a2d85791349b14c13d3035c871b84bd7f95f2c93c0ceaa1d31b573876698", "equity_feature_contracts-0.0.2a2.tar.gz": "c2c52e06f62a1a7d71117064bcc5a6bbd9d5fdfbd0ac444ea166df99d78becd6", "equity_features-0.0.2a2-py3-none-any.whl": "6d3b03808ea5f6132328edc8463b961daedd5a9bcca08312242da1f74c2ac7a7", "equity_features-0.0.2a2.tar.gz": "dce43b3be9a776f6e3581e6985e33abb804f38cd512e525e65283ed43292d2b9"}
+- [foundation-80e81d5acc243a025c1d3383256e78064f140db5-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37334777863/artifacts/11354919998); expires `2026-11-04T15:41:37Z`; SHA256: {"equity_feature_contracts-0.0.2a2-py3-none-any.whl": "de3d9f20730cb3d87341676f48c81599f27cc650b6efa0d40fb360b32a52282f", "equity_feature_contracts-0.0.2a2.tar.gz": "e05d6aa9fa6913c1ed42e3a956c6e65fcf6735e8d8c30269a5d1fc0ccb913d8d", "equity_features-0.0.2a2-py3-none-any.whl": "f85eff1e3fa4444f56b7c4d437992aa93be945bc84ceef1fa6e5160c6bdb17e5", "equity_features-0.0.2a2.tar.gz": "06ff45eb9650ea9b5eb5a2e49c719fd47d1cdc0ba21779a117c803a84b021d8c"}

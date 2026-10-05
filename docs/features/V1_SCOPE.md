@@ -1,6 +1,10 @@
 # V1 feature scope
 
 Scope revision: 1. Story: [EQ-001](https://github.com/atulsrivas1/equity-features/issues/2).
+
+Baseline, relative and breadth definitions: [CONTEXT_FORMULAS.md](CONTEXT_FORMULAS.md).
+
+All families apply [TIMING_ADJUSTMENT_POLICY.md](TIMING_ADJUSTMENT_POLICY.md).
 Status: scope baseline; numerical formulas and implementation remain subsequent stories.
 
 Session/bar/trade definitions and synthetic reference evidence are in [SESSION_FORMULAS.md](SESSION_FORMULAS.md). This defines the mathematics; production kernels remain later stories.
@@ -119,3 +123,5 @@ EQ-001 freezes the 39 planned feature IDs above, shared quality/evidence require
 Before implementing each family, EQ-002–006 must define exact mathematical/temporal semantics and independent expected examples. EQ-011–016 turn these into schemas/config/results/registry/protocols. Any new ID, changed feature meaning, expanded market scope or stronger stream/merge promise requires a reviewed scope revision and linked story.
 
 Quote mathematical definitions and reference evidence are in [QUOTE_FORMULAS.md](QUOTE_FORMULAS.md), owned by EQ-003. Sampling populations, locked/crossed counts, midpoint basis, explicit freshness and initial-state coverage remain visible to consumers.
+
+Historical equations, initialization/window/coverage choices and reference evidence are in [HISTORICAL_FORMULAS.md](HISTORICAL_FORMULAS.md), owned by EQ-004 with EQ-006 reference-admission bounds.

@@ -1,0 +1,15 @@
+# EQ-026 experimental delivery receipt
+
+
+## EQ-026 verified experimental package delivery —2026-10-05
+
+PR160/exact head `e65d98096503b98501c9a95306ea377c037fb57e`, accepted kernel main `f0343a968aa54322c6d72bfcffd9db6aacedb0c9`, package pair **0.0.2a9**. Seven independent final integration goldens pass; no numerical defect found. All 23 IDs map to callable batch/update/restore;22 conditional merge; arbitrary continuous merge and all R2/custom execution remain false. Typed outputs/formulas/precision/causal coverage/evidence and bounded ownership/proof limits documented. Stale capability/version docs repaired.
+
+370 units (7 new),123 independent references, strict26files, purity38negative/10positive, registry/import/compat/license/planning94/UTF8 pass. Repeated four archive hashes/content and fresh wheel/sdist installs each370 tests/eleven examples passed; six exact-head checks and all main Windows/Linux checks pass. Every changed story Git blob and actual remote bytes match published source. Author self-review+CI; no independent reviewer claimed. Fixture Arrow dict shape and one-row helper corrections recorded; no weakened production admission.
+
+Both actual main OS artifact bundles downloaded and manifest commit/clean flag/four SHA256/archive content inspected. Four fresh pair installs each370 tests/eleven examples on Windows CPython 3.12.10; CI separately Linux3.12.14/Windows3.12.10. NumPy 2.2.6/PyArrow 20.0.0; experimental Actions channel only. No stable/PyPI/tag publication, throughput or authenticated source-truth promise.
+
+Final acceptance/receipt documentation publishes this completed package qualification. Issue30 records final documentation source/checks/publication and administrative closure after all gates; R1 milestone/E04 remain open until then. No R2 implementation.
+
+- [foundation-f0343a968aa54322c6d72bfcffd9db6aacedb0c9-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37348487501/artifacts/11361601551); expires `2026-11-04T17:27:45Z`; SHA256: {"equity_feature_contracts-0.0.2a9-py3-none-any.whl": "40fc6d48fcc76253c55af572f5b1ca1253e6b80f3a9b205a9fe23fbae6260576", "equity_feature_contracts-0.0.2a9.tar.gz": "4da1f013b6d19e5f8edea334c9bc2e1f108f116179994257813666c5ab56b2e1", "equity_features-0.0.2a9-py3-none-any.whl": "21c0394323dddc05c22636a979c39a937efe60bc233f68a08417b5d074ee3bad", "equity_features-0.0.2a9.tar.gz": "b51f6606d782b743e05600ae54eed623078f33f914df989be5a435379f46c747"}
+- [foundation-f0343a968aa54322c6d72bfcffd9db6aacedb0c9-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37348487501/artifacts/11360968645); expires `2026-11-04T17:28:26Z`; SHA256: {"equity_feature_contracts-0.0.2a9-py3-none-any.whl": "773a35a13edb557ae35b2a995fec587d9e7052b9122b852d63aa846e539f2d28", "equity_feature_contracts-0.0.2a9.tar.gz": "9eb93fe85d8728e157ebb9725f040c67a9742ad303e6b6b488dd95daea381f4c", "equity_features-0.0.2a9-py3-none-any.whl": "f177b27d0f922da7f42fcbebcb9533b49e36456f264b7d1c7571eb77bda75e96", "equity_features-0.0.2a9.tar.gz": "3a8935594ae5c4ce0b548149c40a7ca37ea8b933dd0643a19caaf86b4d6c851e"}

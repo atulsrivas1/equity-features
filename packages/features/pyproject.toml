@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "equity-features"
+version = "0.0.2a10"
+description = "Experimental R1 source-independent session calculations"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{name = "Equity Features contributors"}]
+dependencies = ["equity-feature-contracts==0.0.2a10"]
+
+[project.optional-dependencies]
+columnar = ["equity-feature-contracts[columnar]==0.0.2a10"]
+
+[project.urls]
+Repository = "https://github.com/atulsrivas1/equity-features"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+equity_features = ["py.typed"]
