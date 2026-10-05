@@ -44,5 +44,6 @@ registry digest require consumer handling. Arrow copies typed struct/list cells,
 int64 original prices and UTCns timestamps with separate quality/evidence tables.
 Summary retention is fixed counters, checked exact spread sum and compensated
 bps pair plus bounded diagnostics. Input canonical ownership/validation and Arrow
-copies scale with supplied rows. This is batch capability only: no update/restore/
-merge, duration-coverage or throughput claim. [Example](../../examples/session_quotes.py).
+copies scale with supplied rows. R1 qualifies batch/update/restore and conditional legal merge through
+[SessionAccumulator](INCREMENTAL.md). Event-weighted summaries do not claim
+duration coverage or measured throughput. [Example](../../examples/session_quotes.py).

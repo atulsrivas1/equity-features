@@ -2,15 +2,12 @@
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
-**Status: R0 experimental foundation accepted after review repairs (0.0.1a6.post1). Mathematical specifications are complete;
-both experimental foundation distributions are delivered through verified
-[internal CI artifacts](docs/BUILD_DELIVERY.md). Typed inputs/specifications/results/validation/discovery and adapter protocols
-are implemented. [Acceptance evidence and artifacts](docs/R0_ACCEPTANCE.md).
-All23 R1 session feature IDs are delivered in batch and bounded update modes at0.0.2a6.
-Exact in-memory restore is delivered at0.0.2a7; conditional partition merge is
-under verification at0.0.2a8. R1 acceptance
-continues through legal-merge qualification and final audit; R2 remains unstarted.
-No public registry release.**
+**Status: R1 experimental0.0.2a9 final audit under delivery verification.
+All23 session IDs support batch/update/restore;22 noncontinuous IDs support
+conditional partition merge. [R1 acceptance and limits](docs/R1_ACCEPTANCE.md)
+and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the actual
+channel. R0 repaired acceptance remains historical. R2 implementation is unstarted;
+no public registry release, stable API or throughput claim.**
 
 [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
 
@@ -59,4 +56,4 @@ Licensed under [Apache License 2.0](LICENSE).
 
 ## Experimental R1 calculations
 
-EQ-017 adds twelve batch bar/price IDs with independent quality, exact real notional and separate close-weighted proxy. See [API/admission/precision](docs/api/SESSION_BARS.md) and [synthetic example](examples/session_bars.py). EQ017 is delivered; [receipt](docs/stories/EQ-017_DELIVERY.md). EQ018 adds [typed interval structures](docs/api/SESSION_STRUCTURE.md) at0.0.2a1, [delivered receipt](docs/stories/EQ-018_DELIVERY.md); prior R0 acceptance remains historical. [Trade aggregates](docs/api/SESSION_TRADES.md) are delivered at0.0.2a2; [receipt](docs/stories/EQ-019_DELIVERY.md). [Bounded topK](docs/api/SESSION_TOP_K.md) is delivered at0.0.2a3; [receipt](docs/stories/EQ-020_DELIVERY.md). [Sampled quotes](docs/api/SESSION_QUOTES.md) are delivered at0.0.2a4; [receipt](docs/stories/EQ-021_DELIVERY.md). [Continuous quotes](docs/api/CONTINUOUS_QUOTES.md) are delivered at0.0.2a5; [receipt](docs/stories/EQ-022_DELIVERY.md). [Bounded accumulators](docs/api/INCREMENTAL.md) are delivered at0.0.2a6; [receipt](docs/stories/EQ-023_DELIVERY.md). Exact in-memory restore is delivered at0.0.2a7; [receipt](docs/stories/EQ-024_DELIVERY.md). Conditional merge is under verification at0.0.2a8. No throughput or provider-readiness claim.
+EQ-017 adds twelve batch bar/price IDs with independent quality, exact real notional and separate close-weighted proxy. See [API/admission/precision](docs/api/SESSION_BARS.md) and [synthetic example](examples/session_bars.py). EQ017 is delivered; [receipt](docs/stories/EQ-017_DELIVERY.md). EQ018 adds [typed interval structures](docs/api/SESSION_STRUCTURE.md) at0.0.2a1, [delivered receipt](docs/stories/EQ-018_DELIVERY.md); prior R0 acceptance remains historical. [Trade aggregates](docs/api/SESSION_TRADES.md) are delivered at0.0.2a2; [receipt](docs/stories/EQ-019_DELIVERY.md). [Bounded topK](docs/api/SESSION_TOP_K.md) is delivered at0.0.2a3; [receipt](docs/stories/EQ-020_DELIVERY.md). [Sampled quotes](docs/api/SESSION_QUOTES.md) are delivered at0.0.2a4; [receipt](docs/stories/EQ-021_DELIVERY.md). [Continuous quotes](docs/api/CONTINUOUS_QUOTES.md) are delivered at0.0.2a5; [receipt](docs/stories/EQ-022_DELIVERY.md). [Bounded accumulators](docs/api/INCREMENTAL.md) are delivered at0.0.2a6; [receipt](docs/stories/EQ-023_DELIVERY.md). Exact in-memory restore is delivered at0.0.2a7; [receipt](docs/stories/EQ-024_DELIVERY.md). Conditional merge is delivered at0.0.2a8; [receipt](docs/stories/EQ-025_DELIVERY.md). Final R1 audit is under verification at0.0.2a9. No throughput or provider-readiness claim.

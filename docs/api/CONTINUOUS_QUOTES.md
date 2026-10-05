@@ -66,5 +66,5 @@ flowchart LR
 
 Reducer retention is six counters, checked numerator/compensated pair, integration
 cursor and one current quote/anchor. Batch canonical ownership/validation and
-Arrow copies remain input proportional. Batch capability only; no update/restore/
-merge or measured throughput claim. [Example](../../examples/continuous_quotes.py).
+Arrow copies remain input proportional. R1 qualifies batch/update/restore through [SessionAccumulator](INCREMENTAL.md);
+continuous merge and measured throughput remain unsupported. [Example](../../examples/continuous_quotes.py).
