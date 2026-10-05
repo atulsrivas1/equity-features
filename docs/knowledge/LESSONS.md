@@ -123,3 +123,17 @@ CI and actual bundles/FOUR fresh installed pairs each438tests/thirteenexamples p
 Derived context coverage counts supplied grid definitions, not usable prices;
 per-slot proof/quality owns numerical readiness. Preserve installed example failure
 and correction under EF-L005; do not infer history state support from batch.
+
+## EF-L015 exact dependency comparisons —2026-10-05
+
+EQ028's independent int64-limit fixture shows a Float64 SMA and latest close can
+round equal while their mathematical difference is half a coefficient tick.
+The owned SMAReference exact sum/count witness preserves comparison signs by
+cross multiplication while retaining the ordinary scalar result and original
+bindings. [API](../api/HISTORY.md), [plan](../stories/EQ-028_PLAN.md). This is
+structural validation, not authenticated truth: matching rounded projection alone
+does not prove the supplied source or exact operands. Later breadth must admit
+supplied config/context/dependency identities and use the exact witness, without
+recomputing a missing dependency. No public history accumulator follows from a
+bounded batch recurrence; registry modes remain explicit. Revisit under actual
+installed delivery and EQ035/EQ037 consumer qualification.

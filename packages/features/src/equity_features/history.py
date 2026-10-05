@@ -4,14 +4,15 @@ from fractions import Fraction
 from typing import cast
 
 from equity_feature_contracts import (
-    BatchMetadata, CanonicalBatch, ConfigSpec, ContractError, Coverage, DataKind,
+    BatchMetadata, CanonicalBatch, Column, ConfigSpec, ContractError, Coverage, DataKind,
     ErrorCode, EvidenceRow, FeatureColumn, FeatureResult, InputBinding, QualityRow,
-    Reason, ResultCell, ResultMetadata, SourceBinding, Status, ValueType, validate_batch,
+    Reason, ResultCell, ResultMetadata, SourceBinding, Status, ValueType, checked_decimal128, validate_batch,
 )
-from equity_feature_contracts.history import HistoryContext
+from equity_feature_contracts.history import HistoryContext, SMAReference
 from . import __version__
 
-_FIELDS = {"history.return": "close", "history.prior_high": "high", "history.prior_low": "low"}
+_FIELDS = {"history.return": "close", "history.prior_high": "high", "history.prior_low": "low",
+           "history.sma": "close", "history.ema": "close"}
 
 
 def _configuration(config: ConfigSpec, context: HistoryContext, feature_ids: tuple[str, ...]) -> tuple[int, int]:
@@ -25,6 +26,9 @@ def _configuration(config: ConfigSpec, context: HistoryContext, feature_ids: tup
         raise ContractError(ErrorCode.DUPLICATE, "duplicate requested historical ID")
     if "history.return" in feature_ids and len(feature_ids) > 1:
         raise ContractError(ErrorCode.INVALID_CONFIG, "return and prior extrema require distinct window configurations")
+    averages = any(x in ("history.sma", "history.ema") for x in feature_ids)
+    if averages and any(x not in ("history.sma", "history.ema") for x in feature_ids):
+        raise ContractError(ErrorCode.INVALID_CONFIG, "moving averages and other windows require distinct configurations")
     parameters = {p.name: p.value for p in config.parameters}
     if set(parameters) - {"period", "evidence_limit"} or "period" not in parameters:
         raise ContractError(ErrorCode.INVALID_CONFIG, "explicit period and optional evidence_limit only")
@@ -38,8 +42,11 @@ def _configuration(config: ConfigSpec, context: HistoryContext, feature_ids: tup
     if config.price_unit is None or not config.session.open_ns <= config.availability.market_cutoff_ns <= config.session.close_ns:
         raise ContractError(ErrorCode.INVALID_CONFIG, "explicit price unit and target cutoff required")
     is_return = "history.return" in feature_ids
-    if config.window.count != period + int(is_return) or config.window.anchor != ("completed_eod" if is_return else "prior_only"):
+    if config.window.count != period + int(is_return) or config.window.anchor != ("completed_eod" if is_return or averages else "prior_only"):
         raise ContractError(ErrorCode.INVALID_CONFIG, "period/window count and inclusion policy disagree")
+    if "history.ema" in feature_ids and (context.initialization_anchor is None or
+            ids.index(context.initialization_anchor) > ids.index(context.entity.session_id)):
+        raise ContractError(ErrorCode.INVALID_CONFIG, "EMA requires an explicit anchor at or before target")
     action = context.action_admission
     if action is None:
         if config.adjustment.basis != "raw" or config.adjustment.policy_version != "raw-v1":
@@ -89,8 +96,8 @@ def _rows(batch: CanonicalBatch | None, config: ConfigSpec, context: HistoryCont
 
 def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context: HistoryContext,
                     feature_ids: tuple[str, ...]) -> FeatureResult:
-    """Return or independent prior extrema over exactly declared governed slots."""
-    _, evidence_limit = _configuration(config, context, feature_ids)
+    """Finite windows or explicitly anchored EMA over supplied governed slots."""
+    period, evidence_limit = _configuration(config, context, feature_ids)
     rows = _rows(batch, config, context)
     context_meta = BatchMetadata(config.session.namespace,
                                 SourceBinding("caller-history-context", context.grid_version,
@@ -111,13 +118,22 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
     qualities: list[QualityRow] = []
     evidence: list[EvidenceRow] = []
     for feature_id in feature_ids:
+        dependencies = selected
+        expected = config.window.count
+        history_complete = config.window.history_complete
+        if feature_id == "history.ema":
+            ids = tuple(s.session_id for s in context.sessions)
+            anchor = cast(str, context.initialization_anchor)
+            dependencies = ids[ids.index(anchor):ids.index(context.entity.session_id)+1]
+            expected = len(dependencies)
+            history_complete = expected >= period
         values: list[int] = []
         reasons: list[Reason] = []
         observed = 0
         status = Status.AVAILABLE
         field = batch.column(_FIELDS[feature_id]) if batch is not None else None
         known = batch.column("known_at_ns") if batch is not None else None
-        for session_id in selected:
+        for session_id in dependencies:
             row = rows.get(session_id)
             reason = None
             knowledge = cast(int | None, known.values[row]) if known is not None and row is not None else None
@@ -144,7 +160,7 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
         if batch is None or field is None:
             status = Status.MISSING_INPUT
             reasons.append(Reason.ABSENT_INPUT)
-        elif not config.window.history_complete:
+        elif not history_complete:
             status = Status.INSUFFICIENT_HISTORY
             reasons.append(Reason.INSUFFICIENT_HISTORY)
         elif any(x in (Reason.UNKNOWN_AVAILABILITY, Reason.FUTURE_KNOWLEDGE) for x in reasons):
@@ -158,12 +174,35 @@ def compute_history(batch: CanonicalBatch | None, config: ConfigSpec, *, context
         if status == Status.AVAILABLE:
             if feature_id == "history.return":
                 value = float(Fraction(values[-1], values[0]) - 1)
+            elif feature_id in ("history.sma", "history.ema"):
+                scale = 10**config.price_unit.scale  # type: ignore[union-attr]
+                total = checked_decimal128(sum(values[:period]))
+                mean = float(Fraction(total, period*scale))
+                if feature_id == "history.ema":
+                    alpha = 2.0/(period+1)
+                    for coefficient in values[period:]:
+                        mean = alpha*(coefficient/scale)+(1.0-alpha)*mean
+                value = mean
             else:
                 coefficient = max(values) if feature_id == "history.prior_high" else min(values)
                 value = float(Fraction(coefficient, 10**config.price_unit.scale))  # type: ignore[union-attr]
-        quality = QualityRow(context.entity, feature_id, status, config.window.count, observed,
+        quality = QualityRow(context.entity, feature_id, status, expected, observed,
                              tuple(dict.fromkeys(reasons)))
         qualities.append(quality)
         unit = "fraction" if feature_id == "history.return" else f"{config.price_unit.currency}/share"  # type: ignore[union-attr]
         columns.append(FeatureColumn(feature_id, "v1", ValueType.FLOAT64, unit, (context.entity,), (value,)))
     return FeatureResult(tuple(columns), tuple(qualities), metadata, tuple(evidence))
+
+
+def compute_sma_reference(batch: CanonicalBatch | None, config: ConfigSpec, *,
+                          context: HistoryContext) -> SMAReference:
+    """Qualify SMA and retain its exact sum/count for supplied dependency comparison."""
+    result = compute_history(batch, config, context=context, feature_ids=("history.sma",))
+    numerator = denominator = None
+    if result.quality[0].status == Status.AVAILABLE:
+        supplied = cast(CanonicalBatch, batch)
+        rows = _rows(supplied, config, context)
+        close = cast(Column, supplied.column("close"))
+        numerator = checked_decimal128(sum(cast(int, close.values[rows[s]]) for s in config.window.selected_sessions()))
+        denominator = config.window.count
+    return SMAReference(result, numerator, denominator, config.price_unit)  # type: ignore[arg-type]

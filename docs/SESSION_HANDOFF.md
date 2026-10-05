@@ -610,3 +610,49 @@ state/independent review claim. Next: this docs-only final receipt gate/issueDon
 then refined EQ028 pre-code plan. Consider an owned exact SMA mean witness for
 later close>SMA comparison at int64 limits; floating equality must not hide a
 one-tick mathematical distinction. R2 ongoing; R3 stays paused.
+
+### EQ027 accepted; EQ028 pre-code pull —2026-10-05
+
+EQ027 issue32 closed/Project Done after receipt PR177 head7c8689e0 all SIX checks,
+guarded merge36a4e14334ad2ea75b1cfa0cc6676f93ad6a858d and exact published tree.
+Main docs37383962048/Foundation37383962034 bothOS pass; actual Linux11376163599
+and Windows11375494292 bundles manifest/clean source/epoch/hash/content verified,
+all four per-OS archive bytes equal1896ff2 qualified FOUR installed pair executions
+each438tests/thirteenexamples. Final acceptance comment6004673657 binds evidence.
+
+Pull EQ028 from accepted main on codex/eq-028-sma-ema. Pre-code plan freezes SMA
+exact wide mean, explicitly anchored EMA/no gap reset, independent readiness,
+bounded Float64 recurrence/tolerance and owned exact SMAReference dependency.
+Batch-first modes supersede the unqualified private accumulator draft under the
+handoff and conditional supported-mode acceptance; no state modes promised.
+No EQ028 calculation code at this checkpoint. Next: publish plan/Ready/In progress,
+implement/test/document pair0.0.3a2 then all source/installed/receipt delivery gates.
+R2 continues; R3 remains paused.
+
+### EQ028 local implementation and author review —2026-10-05
+
+Plan75c7b68 precedes source on codex/eq-028-sma-ema/PR178. Pair0.0.3a2 adds exact
+SMA and explicitly anchored EMA/no gap reset, independent dependency counts and
+bounded binary64 recurrence after exact seed. SMAReference schema1 retains exact
+wide sum/count and guarded comparison for later supplied breadth dependency;
+standard results/config/context schemas unchanged. Batch28, session23update/
+restore22merge; other modes false. Public API/example/contracts/version/changelog/
+lessonEF-L015 and pending delivery record accompany source.
+
+First local checks found recurrence type union errors and stale unsupported-SMA/
+catalog tests; corrected, not final failure evidence.452units/14new cases initially
+passed plus strict33files (30CI targets+three new typed examples),123 references,
+pure boundary38negative10positive/import/registry/license/compatibility. Added
+long small-price oscillation and source-revision/unit admission cases during
+author review; next recheck all units/docUTF8/links, concrete final-head commit,
+Code review/Test, repeat archive/installed exact-head gates and main/bothOS actual
+bundles/FOUR fresh pairs/final receipt before Done. Author self-review+CI only;
+no independent human/hosted review, history state/source/performance claim. R3 paused.
+
+EQ028 docs gate correction: ce44fae introduced a Windows-default encoded em dash
+in the new changelog heading; UTF8 check failed before acceptance. Normalize that
+new byte explicitly to UTF8 and use explicit encodings for subsequent edits. All
+public Markdown/94stories/39IDs/lifecycle checks pass after correction. Local link
+check identified an inherited R1 acceptance structure.py link, unchanged from main;
+no new broken EQ028 links. Failed source is superseded; final-head checks/build
+must use the corrected commit. No fabricated green evidence.

@@ -74,3 +74,6 @@ EQ019 adds the synthetic session_trades.py example to clean wheel/sdist installe
 
 
 EQ033/0.0.3a0 adds action_policies.py as the twelfth synthetic clean-install example. Both wheel/sdist pairs retain identical build, source-manifest and main artifact gates; no new publication channel.
+
+
+EQ028 adds history_averages.py as the fourteenth installed synthetic example; the same repeat archive/fresh pair/main artifact gates apply.

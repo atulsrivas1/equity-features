@@ -188,7 +188,7 @@ class GovernedHistory(unittest.TestCase):
         cfg = config(ctx)
         self.assertCode(ErrorCode.INVALID_CONFIG, lambda: compute_history(b, replace(cfg, window=replace(cfg.window, count=3)),
                                                                          context=ctx, feature_ids=("history.return",)))
-        self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY, lambda: compute_history(b, cfg, context=ctx, feature_ids=("history.sma",)))
+        self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY, lambda: compute_history(b, cfg, context=ctx, feature_ids=("history.rsi",)))
         for name in ("history.return", "history.prior_high", "history.prior_low"):
             self.assertTrue(builtin_registry().get(name).capabilities.batch)
             for mode in ("update", "restore", "merge"):

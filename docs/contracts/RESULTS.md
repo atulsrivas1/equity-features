@@ -114,3 +114,6 @@ BUG004/0.0.2a11 normalizes out-of-range finite saved-state hex float conversion 
 ContractError(INVALID_SCHEMA), with the OverflowError cause retained. Caller state
 is unchanged and no calculator is returned. Nonfinite/malformed state remains typed;
 valid canonical finite binary64 state roundtrips exactly. [State/error details](../api/INCREMENTAL.md).
+
+
+EQ028 SMAReference pairs an ordinary single Float64 SMA result with exact scaled-coefficient sum/count; no scalar ValueType/schema or Arrow bridge changes. Its validation is structural, not source authentication. [History API](../api/HISTORY.md).

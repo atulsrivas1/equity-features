@@ -21,11 +21,11 @@ from .streaming import StreamPopulation, PrefixCoverage, AccumulatorState, Parti
 from .registry import (Capabilities, FeatureDefinition, InputRequirement,
     OutputField, Registry, builtin_registry)
 
-from .history import HistoryContext
+from .history import HistoryContext, SMAReference
 from .policies import ActionPolicy, ReferenceFact, PolicyAdmission, AdjustmentApplication, ClassificationAdmission
 
-__version__ = "0.0.3a1"
-__all__ = ["HistoryContext", "ActionPolicy", "ReferenceFact", "PolicyAdmission", "AdjustmentApplication", "ClassificationAdmission", "PartitionSpan", "AccumulatorState", "StreamPopulation", "PrefixCoverage", "QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
+__version__ = "0.0.3a2"
+__all__ = ["SMAReference", "HistoryContext", "ActionPolicy", "ReferenceFact", "PolicyAdmission", "AdjustmentApplication", "ClassificationAdmission", "PartitionSpan", "AccumulatorState", "StreamPopulation", "PrefixCoverage", "QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
            "IntervalCoverage", "IntervalOHLCV", "IntervalOHLCVRow", "IntervalVolumeShares", "IntervalVolumeShareRow", "InputScope", "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",
            "Parameter", "SessionSpec", "WindowSpec", "ContractError", "ErrorCode",

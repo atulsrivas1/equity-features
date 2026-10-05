@@ -87,3 +87,6 @@ EQ033 adds immutable schema1 ActionPolicy/ReferenceFact/PolicyAdmission/Adjustme
 
 
 EQ027 adds owned HistoryContext schema1: exact SessionSpecs, per-slot certificates, target/grid/anchor/action identities. Existing ConfigSpec schema1 is retained; [history API](../api/HISTORY.md).
+
+
+EQ028 adds immutable SMAReference schema1 alongside an unchanged FeatureResult; exact sum/count projection, unit/quality and price comparison guards are documented in the [history API](../api/HISTORY.md). ConfigSpec/HistoryContext schema1 stays unchanged.
