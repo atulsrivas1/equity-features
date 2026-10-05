@@ -2,7 +2,7 @@
 
 EQ-006, policy version 1. This applies to every v1 formula; source truth remains a
 caller qualification. No calendar, actions, revisions or timestamps are fetched.
-EQ-011–014 encode these policies. R2 adjustment application remains later work.
+EQ-011–014 encode these policies. EQ033 implements [supplied policy utilities](../api/ACTION_POLICIES.md); numerical feature delivery remains separately qualified.
 
 ## Bounds and knowledge
 
