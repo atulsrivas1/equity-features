@@ -454,3 +454,24 @@ head/main source/CI and actual bundle equality against793a188, then BUG004 Done.
 No package source/version changes in receipt publication. Preserve all R2 drafts
 on codex/r2-preparation and combine them with accepted main only after repair
 Done; refine/publish EQ033 plan before calculation code. R3 stays paused.
+
+
+### Repair receipt accepted; EQ033 pre-code pull —2026-10-05
+
+PR173 final28b0bf7 all six checks passed before exact-head-guarded squash merge to
+29ff0ca8311831d7906ff856bcd63f91fb991977. All three published documentation blobs
+match; main docs37377271047/Foundation37377271081 bothOS pass. Actual main bundles
+11372402127 Windows/11372187491 Linux manifests/source/clean epoch/all four hashes/
+contents pass and each OS's package bytes equal qualified793a188 archives. Reuse
+FOUR clean-install results only for those identical bytes. BUG004 issue163 is now
+closed/Project Done, with final acceptance comment6003581353. BUG003/GOV010 remain
+Done. No independent hosted/human review or stable/registry delivery claimed.
+
+The R2 session now pulls EQ033 on codex/eq-033-action-policies from accepted main.
+Its plan freezes pure supplied action/classification admission, exact factors and
+representation rejection before source code;8points/next pair0.0.3a0. Twelve draft
+plans remain preserved on codex/r2-preparation. Only EQ033 starts; no R3 restart.
+Resume: implement the committed EQ-033_PLAN.md against owned canonical contracts,
+independent synthetic fixtures, API/docs/example/version, then all review/test/
+artifact gates before Done. R2 remains unfinished; no calculation code at this
+pre-code checkpoint. Live Project remains current execution authority.

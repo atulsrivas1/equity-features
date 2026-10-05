@@ -41,3 +41,11 @@ bytes establish final delivery; issue162 is Done. Known omissions remain explici
 and caller certificates still do not authenticate arbitrary source truth. GOV010's
 same main/publication verification is accepted on issue167; R2 still waits for
 BUG004 final receipt rather than inferring dependency readiness from either merge.
+
+
+EF-L004 final receipt acceptance: [PR173](https://github.com/atulsrivas1/equity-features/pull/173)
+all final-head checks, published main29ff0ca source, main docs/bothOS CI and actual
+bundle equality to the four qualified installed byte sets passed. [BUG004 final
+acceptance](https://github.com/atulsrivas1/equity-features/issues/163#issuecomment-6003581353)
+records Done. Preserve original failure, qualification limits and earlier queue
+failures. EQ033 may now pull; superseded pending-receipt notes above remain history.
