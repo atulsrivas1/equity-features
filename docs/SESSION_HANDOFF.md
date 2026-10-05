@@ -393,3 +393,64 @@ chronology and owner R2/R3 pause/knowledge records. No duplicate calculator repa
 Final integrated-head checks, published source/main artifacts/fresh installed pairs
 and receipt acceptance remain required; both repair issues are still undelivered
 at this checkpoint. R2 calculation work waits for their genuine Done state.
+
+### Integrated repair gates and external blocker —2026-10-05
+
+PR171 exact head `9e78e14a8fe2572a262083af4bd207af8f84199c` is mergeable after
+current-main conflict resolution. Source repair/tests unchanged.380units/123refs/
+strict26files/purity38negative10positive/import/registry/compatibility/license/
+UTF8 and repeat four-archive build/inspection/fresh local wheel+sdist pairs each
+380tests/eleven examples pass, manifest source_dirty=false. Author self-review
+reports no new findings and does not claim completed hosted/human review.
+Three exact-head package checks pass; Linux push run37375326394 job111982425931,
+docs37375326422 and37375331818 remain queued without runners. Preserve this head;
+do not count queued/cancelled runs as passes or restart them repeatedly.
+
+GOV010/PR168 all six final-head checks are now successful after one bounded
+runner-acquisition failure retry. Main65e66fd package run37373639567 bothOS and
+actual bundles/hash equality were verified in the R2 preparation record/issue167.
+Main docs37373639538 failed to acquire a runner; one bounded failed-job retry
+(attempt2) remains queued. Its success is still required. BUG003 is Released;
+its receipt/main/source/artifact checks are reused only when actual current-main
+docs success and both qualified byte sets match. Neither repair nor GOV010 Done
+is inferred from a merge. R2 plans/continuity remain preserved separately on
+codex/r2-preparation; no calculation implementation has started.
+
+Resume in this dedicated checkout: qualify all SIX unchanged PR171 head checks
+and its local manifest, Test->Ready to release, gated merge with exact head guard,
+verify full changed published Git blobs/main bothOS CI, actual downloaded bothOS
+bundles/FOUR fresh installed pairs, then Released. Complete source-bound receipt,
+knowledge lesson and continuity on this receipt branch, linked docs PR/exact-head/
+main checks and BOTH archive equality; update issue acceptance and Project Done.
+Verify/close BUG003 and GOV010 using actual successful publication evidence,
+preserving all earlier failed/queued attempts. Only then combine/refine preserved
+EQ033 plan on accepted main and pull it under R2. No R3 feature restart or automated
+follow-up; no original repair-chat message was required after human ownership transfer.
+
+### Repair delivery recovered and qualified —2026-10-05
+
+All six final PR171/9e78e14 checks passed. Observed source merged as main
+`793a188acba054ba227a61d181897ae90236c149`; main documentation37376045297 and
+Foundation37376045409 bothOS pass. Full changed source publication matches PR head.
+Both actual main bundles11372050924 Linux/11371602243 Windows downloaded and
+manifest/source_dirty=false/all4hashes/content verified; FOUR fresh pair installs
+each380tests/eleven examples pass. Windows local CPython3.12.10/backends2.2.6/20.0.0;
+Linux CPython3.12.14 execution cited from CI. Completed implementation receipt
+BUG-004_DELIVERY.md contains exact archives/hashes/expiry. BUG004 Ready to release
+then Released after actual qualification; final receipt publication/main/bothOS
+byte equality remains before Done. Source merge alone was not counted as release.
+
+GOV010 and BUG003 are now CLOSED/Project Done. PR168 final27ad4de all6checks and
+main65e66fd docs37373639538 attempt2/Foundation37373639567 bothOS pass; all five
+published handoff blobs match, source unchanged. Both actual bundles/qualified
+BUG003 byte equality verified, so installed evidence reused only for identical
+archives. BUG003 receipt PR169 all6checks/published d153a12 receipt unchanged and
+renewed actual main publication accepted. Their issues record exact lifecycle and
+verification; historical cancelled/queued/acquisition failures remain above.
+Hosted reviewer activation still explicitly deferred despite guidance merge.
+
+Next: finish this documentation-only receipt/lesson/continuity PR through exact
+head/main source/CI and actual bundle equality against793a188, then BUG004 Done.
+No package source/version changes in receipt publication. Preserve all R2 drafts
+on codex/r2-preparation and combine them with accepted main only after repair
+Done; refine/publish EQ033 plan before calculation code. R3 stays paused.

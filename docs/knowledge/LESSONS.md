@@ -18,3 +18,26 @@ Imported review/delivery evidence, October 5, 2026. No production unit suite or 
 | EF-L012 | More workers or a language switch cannot establish maximum performance. [Design](../PACKAGE_DESIGN.md), [delivery policy](../DELIVERY_POLICY.md) | Benchmark representative workloads, copies, throughput, peak memory and parity; change one bottleneck at a time. A justified no-acceleration decision can complete a conditional performance story. |
 
 For a new lesson record claim/status, source and version, supporting/contradicting cases, scope, action and revisit condition. Amend or supersede it when new evidence changes applicability. Invalid implementation is not evidence that a financial hypothesis fails.
+
+## EF-L004 implementation qualification supplement —2026-10-05
+
+BUG004/PR171 pair0.0.2a11 normalizes oversized saved-state hexadecimal float
+conversion to ContractError(INVALID_SCHEMA) with original OverflowError cause.
+Three production API regression cases pass independently for rehashed malformed
+states, atomic rejection and valid finite continuation. Integrated head9e78e14
+passes380units/123references and repeated-build/fresh local installations. Main
+793a188 bothOS/doc CI and actual bothOS bundles/FOUR fresh installed pairs each
+380tests/eleven examples are now qualified; source-bound receipt publication gates
+remain before Done. This correction does not establish hosted reviewer activation.
+Source and failed/cancelled/queued attempts: [issue163](https://github.com/atulsrivas1/equity-features/issues/163),
+[pending receipt](../stories/BUG-004_DELIVERY.md). Revisit when actual main artifacts
+and published receipt are accepted; retain the original failure and schema2/version
+binding lesson rather than replacing historical R1 acceptance.
+
+EF-L003 closure supplement: BUG003/PR166 schema2/pair0.0.2a10's377unit qualification
+and original four installed main artifact checks are preserved. Published receipt
+PR169, renewed main65e66fd full CI and BOTH actual bundle equality to those qualified
+bytes establish final delivery; issue162 is Done. Known omissions remain explicit,
+and caller certificates still do not authenticate arbitrary source truth. GOV010's
+same main/publication verification is accepted on issue167; R2 still waits for
+BUG004 final receipt rather than inferring dependency readiness from either merge.
