@@ -11,8 +11,11 @@ TRADE_IDS = ("session.trade.count", "session.trade.volume", "session.trade.notio
 TOP_K_IDS = ("session.trade.top_k",)
 QUOTE_IDS = ("session.quote.sampled_spread", "session.quote.state_counts")
 CONTINUOUS_IDS = ("session.quote.time_weighted_spread",)
-BATCH_IDS = frozenset(BAR_IDS+STRUCTURE_IDS+TRADE_IDS+TOP_K_IDS+QUOTE_IDS+CONTINUOUS_IDS)
+SESSION_BATCH_IDS = frozenset(BAR_IDS+STRUCTURE_IDS+TRADE_IDS+TOP_K_IDS+QUOTE_IDS+CONTINUOUS_IDS)
 
-UPDATE_IDS = BATCH_IDS
-RESTORE_IDS = BATCH_IDS
-MERGE_IDS = BATCH_IDS - frozenset(CONTINUOUS_IDS)
+HISTORY_IDS = ("history.return", "history.prior_high", "history.prior_low")
+BATCH_IDS = SESSION_BATCH_IDS | frozenset(HISTORY_IDS)
+
+UPDATE_IDS = SESSION_BATCH_IDS
+RESTORE_IDS = SESSION_BATCH_IDS
+MERGE_IDS = SESSION_BATCH_IDS - frozenset(CONTINUOUS_IDS)

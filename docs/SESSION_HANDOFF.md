@@ -552,3 +552,28 @@ No calculation code at this checkpoint. Context certificates must match actual
 row presence; UPDATE_IDS must remain session-only when extending BATCH_IDS.
 Next: implement three IDs, independent windows/gaps/causality/precision fixtures,
 API/example/docs/version0.0.3a1 then complete all delivery/receipt gates before Done.
+
+
+### EQ027 local implementation/author review —2026-10-05
+
+Pair0.0.3a1 adds owned HistoryContext/schema1 and compute_history for return/prior
+high/prior low, batch only. Sixteen independent production API cases cover all
+frozen default horizons/windows, hand golden5/21/122/103, missing-middle/finite
+recovery, independent null/field readiness, prior extrema before target close,
+future mutation, C/K/E/reconstruction, bounded original evidence, wide precision,
+units/basis/policy/identity, exact source/grid bounds and proof contradictions.
+438units pass including all422prior cases. Strict32files (30 CI targets plus two
+new typed examples), purity38negative10positive and registry gate pass. Author
+review added explicit optional source-scope bounds and unknown raw policy guard.
+An initial fixture referenced metadata digest on wrong object; corrected to
+ResultMetadata. Old R1 audit/registry whole-catalog expectations were stale: retain
+session-only23mode checks and explicitly qualify three new history batch flags.
+26batch/23update/restore/22merge, other history flags false. No independent hosted/
+human review or history state/performance/provider claim.
+
+API/context/schema/registry guide, synthetic thirteenth installed example, package
+scope/version/changelog and pending receipt accompany code. Next: complete import/
+license/compatibility/123formula references/UTF8/link gates, commit concrete source,
+Code review/Test and repeat build/clean wheel+sdist execution; exact head SIX checks,
+gated merge/main source/docs/bothOS/actual bundles/FOURfreshpairs/receipt publication
+before Released/Done. One active story EQ027; R3 remains paused.

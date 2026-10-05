@@ -87,3 +87,20 @@ and actual bothOS archive equality to qualified installed bytes passed; EQ033 is
 Done. EQ027 now owns consumer qualification of action/context/certificate identities.
 Keep utility acceptance distinct from mathematical feature acceptance; sixteen
 R2 numerical IDs remain unimplemented at this pre-code pull.
+
+
+## EF-L014 finite window and capability independence —2026-10-05
+
+EQ027/PR176 local independent production API fixtures distinguish valid return
+endpoints from complete h+1governed closes, and certify finite-window recovery only
+when the missing slot exits that exact window. Whole-frame future/incomplete
+coverage does not override per-slot selected proof, but certificates still must
+match actual delivered rows. [History API](../api/HISTORY.md). Local438unit evidence
+is implementation qualification, not accepted artifact delivery.
+
+Capability inventory must separate all batch IDs from session update/restore IDs;
+otherwise the previous UPDATE_IDS=BATCH_IDS alias would falsely grant modes to
+new history kernels. Keep explicit independent catalog expectations as capabilities
+evolve and preserve historical R1 checks for its actual session scope. Revisit
+under final installed delivery and subsequent numerical families; no unqualified
+history state capability can be inferred from an existing session accumulator.

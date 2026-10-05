@@ -1,5 +1,13 @@
 # Experimental package changes
 
+## 0.0.3a1 — EQ027 implementation; qualification pending
+
+Batch horizon returns and prior highs/lows require exact governed windows; missing
+slots stay explicit and prior-only extrema exclude target. Owned HistoryContext/
+per-slot certificates, action identities and bounded evidence accompany the API.
+26batch/23session update/restore/22conditional merge; no history state mode.
+[API](api/HISTORY.md), [delivery](stories/EQ-027_DELIVERY.md).
+
 ## 0.0.3a0 — EQ033 verified experimental implementation delivery
 
 Pure supplied split/total-return factor application and independent point-in-time
