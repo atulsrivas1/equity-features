@@ -475,3 +475,26 @@ Resume: implement the committed EQ-033_PLAN.md against owned canonical contracts
 independent synthetic fixtures, API/docs/example/version, then all review/test/
 artifact gates before Done. R2 remains unfinished; no calculation code at this
 pre-code checkpoint. Live Project remains current execution authority.
+
+
+### EQ033 implementation and author review —2026-10-05
+
+Pair0.0.3a0 adds owned schema1 action/reference evidence and pure supplied-policy
+application. Forty independent API fixtures cover exact split/share/notional,
+dividend no-double-count, null/missing/zero, revisions, C/K/E/anchor/effective
+boundaries, future facts, reconstruction and independent classification. Prior
+unit suite380 is retained. Strict29files and purity38negative10positive pass;
+imports/inventory/license/optional compatibility and123 reference cases pass.
+Author self-review found missing target-session bound enforcement; added explicit
+cutoff/target interval/event guards and regressions. One early fixture incorrectly
+claimed notional after changing volume; repaired fixture reaches intended exact
+quantity/nonintegral notional rejection. Initial example typing corrected. No
+hosted/human independent review claimed. API guide/contract migrations/example/
+changelog/package metadata/receipt skeleton accompany implementation. Registry and
+session state schema2/modes unchanged; sixteen R2 numerical IDs remain false.
+
+Next gate: full final units, repeat4archive inspection and local clean wheel/sdist
+pairs with all twelve examples; exact head SIX checks, gated merge, actual main
+published source/docs/bothOS CI, downloaded manifests/hashes/archive contents and
+FOUR fresh installed pairs; complete source-bound receipt and final documentation
+publication before Done. EQ033 only active; R3 stays paused.

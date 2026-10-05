@@ -182,3 +182,6 @@ A later runner can inspect feature input requirements, plan acquisition and invo
 ## Product boundaries
 
 This repository owns source-independent equity calculation contracts, mathematical definitions and the agreed adapter/worker roadmap. Other products are separate. Product-specific UI, rendering, interaction, application architecture and bespoke integration designs do not belong here. External products can consume the generic public APIs; any later integration work lives in the consuming product or a separately authorized adapter project. Generic precision, timing, quality, provenance and state/replay contracts remain numerical-library requirements.
+
+
+EQ033 retains package boundaries: contracts owns immutable policy/evidence types; features.policies owns pure supplied admission/application. No source adapter, session-state or registry capability change. [Policy API](api/ACTION_POLICIES.md) and [pre-code plan](stories/EQ-033_PLAN.md) define exact representation and causal boundaries.

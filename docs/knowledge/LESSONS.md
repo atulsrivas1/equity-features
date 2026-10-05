@@ -49,3 +49,17 @@ bundle equality to the four qualified installed byte sets passed. [BUG004 final
 acceptance](https://github.com/atulsrivas1/equity-features/issues/163#issuecomment-6003581353)
 records Done. Preserve original failure, qualification limits and earlier queue
 failures. EQ033 may now pull; superseded pending-receipt notes above remain history.
+
+
+## EF-L013 supplied-policy and field readiness —2026-10-05
+
+[EQ033](https://github.com/atulsrivas1/equity-features/issues/38)/
+[PR174](https://github.com/atulsrivas1/equity-features/pull/174) separates action
+admission from market readiness: complete usable factors do not establish known-at
+market observations, and classification does not depend on action factor operands.
+Local independent production API tests demonstrate those boundaries. Preserve
+explicit quantity basis with policy evidence; generic shares metadata alone cannot
+prove reciprocal split adjustment. [Policy guide](../api/ACTION_POLICIES.md).
+Scope: supplied schema1 utility, not authenticated source truth or implemented
+historical IDs. Revisit with dependent historical/context consumer qualification
+and final main installed artifacts; local tests alone are not accepted delivery.
