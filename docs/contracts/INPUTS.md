@@ -83,7 +83,7 @@ materialize copies; modifying an output array cannot change the canonical input.
 
 ## Evidence and remaining scope
 
-24 unit cases cover all five schemas, required/optional/null/zero/empty inputs,
+27 unit cases cover all five schemas, required/optional/null/zero/empty inputs,
 int64 and decimal128 extrema, nanosecond round trips, Arrow Table/type/unit checks,
 NumPy masks/ownership, invalid units/sampling/adjustment and retained quote states.
 CI and fresh wheel/sdist environments install pinned optional backends and run
@@ -91,4 +91,4 @@ these same tests against installed artifacts. Core isolation is tested separatel
 with optional backends forbidden. Backend-specific dynamic types are confined to
 the optional bridge; strict mypy checks all core and bridge source, with only the
 missing third-party PyArrow stubs excluded. Session/config/result/semantic validators,
-registry and adapter protocols remain EQ-012–016. No numerical calculator exists.
+registry and adapter protocols remain EQ-012â€“016. No numerical calculator exists.

@@ -124,6 +124,8 @@ class BatchMetadata:
     duplicate_policy: str = "reject"
 
     def __post_init__(self) -> None:
+        if type(self.source) is not SourceBinding or type(self.coverage) is not Coverage or type(self.adjustment) is not AdjustmentSpec or (self.price_unit is not None and type(self.price_unit) is not PriceUnit):
+            raise ValueError("typed immutable metadata components required")
         if not self.namespace.strip() or self.quantity_unit != "shares":
             raise ValueError("explicit namespace and share quantities required")
         if self.sampling not in ("none", "trade_snapshot", "continuous"):
@@ -137,6 +139,8 @@ class Column:
     values: tuple[Cell, ...]
 
     def __post_init__(self) -> None:
+        if type(self.values) not in (tuple, list):
+            raise ValueError("concrete tuple/list values required; no lazy iterable")
         object.__setattr__(self, "values", tuple(self.values))
 
 @dataclass(frozen=True)
@@ -146,6 +150,10 @@ class CanonicalBatch:
     metadata: BatchMetadata
 
     def __post_init__(self) -> None:
+        if type(self.kind) is not DataKind or type(self.columns) not in (tuple, list):
+            raise ValueError("DataKind and concrete columns required")
+        if type(self.metadata) is not BatchMetadata or any(type(c) is not Column for c in self.columns):
+            raise ValueError("typed metadata and columns required")
         object.__setattr__(self, "columns", tuple(self.columns))
         schema = schema_for(self.kind)
         names = tuple(c.name for c in self.columns)

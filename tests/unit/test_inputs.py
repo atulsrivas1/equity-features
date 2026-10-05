@@ -92,6 +92,21 @@ class InputContracts(unittest.TestCase):
         self.assertEqual(b.column("event_ns").values,(1_700_000_000_000_000_001,))
     def test_column_detaches_list(self):
         values=[1];c=Column("price",values);values[0]=2;self.assertEqual(c.values,(1,))
+    def test_lazy_iterable_never_executed(self):
+        touched=[]
+        def lazy():
+            touched.append(True)
+            yield 1
+        with self.assertRaises(ValueError):Column("price",lazy())
+        with self.assertRaises(ValueError):CanonicalBatch(DataKind.TRADE,lazy(),metadata())
+        self.assertEqual(touched,[])
+    def test_explicit_kind_and_typed_metadata(self):
+        with self.assertRaises(ValueError):replace(fixture(),kind="trade")
+        with self.assertRaises(ValueError):replace(metadata(),source={})
+    def test_arrow_nullability_rejected(self):
+        a=to_arrow(fixture());i=a.schema.get_field_index("event_ns")
+        a=a.set_column(i,pa.field("event_ns",pa.timestamp("ns",tz="UTC"),nullable=True),a.column(i))
+        with self.assertRaises(ValueError):from_arrow(a)
     def test_units_sampling_and_adjustment(self):
         for scale in (-1,19,True):
             with self.assertRaises(ValueError):PriceUnit(scale,"USD")

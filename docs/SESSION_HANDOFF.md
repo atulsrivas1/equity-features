@@ -24,7 +24,7 @@ registry names nor authorizes publication.
 
 EQ-011 In progress,8points confirmed before code. Plan: stories/EQ-011_PLAN.md.
 Immutable canonical core for five kinds, source/unit/coverage/adjustment/sampling
-metadata, explicit Arrow/NumPy materializing bridges and24independent unit cases
+metadata, explicit Arrow/NumPy materializing bridges and27independent unit cases
 implemented. Core imports exclude optional backends. Experimental version0.0.1a1.
 Strict typing passed with PyArrow missing-stub override only; boundary passed.
 Current tests cover exact ns/int64/decimal128 endpoints and null/ownership behavior.
@@ -50,7 +50,7 @@ E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone
 ## Exact resume steps
 
 1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
-2. Active EQ-011: finish author review of inputs/columnar/24unit tests and docs/contracts/INPUTS.md. Run all gates, open linked draft PR, exact-head CI, squash publication, committed blob verification and main CI; deliver/verify0.0.1a1 artifacts before Done.
+2. Active EQ-011: finish author review of inputs/columnar/27unit tests and docs/contracts/INPUTS.md. Run all gates, open linked draft PR, exact-head CI, squash publication, committed blob verification and main CI; deliver/verify0.0.1a1 artifacts before Done.
 3. After EQ-011 Done, pull EQ-012 issue15 with live prerequisite/Project inspection and full pre-code plan. Then EQ-013/014/015/016 in dependency order, no later-release calculators.
 4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
 5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
