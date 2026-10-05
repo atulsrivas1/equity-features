@@ -56,3 +56,7 @@ Until GitHub setup finishes, store reviewable drafts here and clearly report loc
 ## Owner decision: automated reviewer setup deferred
 
 On2026-10-04 the owner deferred GOV-005/PR120 and instructed continuing EQ stories. Its proposed separate Codex review gate is postponed until activation is resumed and verified. Continue author self-review, CI, acceptance/documentation and publication verification, labeled accurately; never claim an automated or human review that did not occur. GOV-005 remains open/deferred; this decision does not waive tests or release gates.
+
+## Prepared automated review guidance
+
+PR120 prepares AGENTS.md Code Review Rules and CODE_REVIEW.md. GOV-005 remains deferred until the owner resumes hosted activation and its first real review is verified. This proposed setup does not suspend the current owner-authorized self-review/CI workflow. Once activated, record reviewer identity, response/commit coverage and findings disposition; do not equate automated and human review.
