@@ -1,6 +1,6 @@
 # Work agreements
 
-These are the human owner's agreed project rules. Read this file, docs/PUBLIC_DEVELOPMENT.md, docs/SESSION_HANDOFF.md and the current issue/Project status before starting work. Keep durable project memory in these tracked documents rather than assuming chat memory persists.
+These are the human owner's agreed project rules. Read this file, docs/PROJECT_KNOWLEDGE.md, docs/PUBLIC_DEVELOPMENT.md, docs/SESSION_HANDOFF.md and the current issue/Project status before starting work. Keep durable project memory in these tracked documents rather than assuming chat memory persists. Read the relevant linked decisions, lessons and source specifications before choosing or changing work.
 
 1. Work publicly through numbered GitHub stories, epic links, release milestones and linked pull requests. GitHub Project status is the current work-status authority; docs/BACKLOG.md records versioned scope and dependencies.
 2. Follow the backlog. Satisfy acceptance criteria and release gates before declaring completion. Record changes in scope and consequential decisions explicitly.
@@ -18,3 +18,5 @@ These are the human owner's agreed project rules. Read this file, docs/PUBLIC_DE
 Use short-lived codex/ branches when this agent creates branches. A human approval is required only where the user or applicable review policy requires it; do not invent an approval requirement. Record actual reviewer identity and limitations. Numerical tests and release gates remain mandatory even when work is autonomous.
 
 Delivery uses release-based planning and continuous pulling, not mandatory sprints. Read docs/DELIVERY_POLICY.md. Start the highest-priority dependency-satisfied Ready story, initially one active story at a time. Review progress weekly during active work; release dates are evidence-based forecasts, with no invented deadlines or automated reminders.
+
+Maintain knowledge using docs/knowledge/BACKLOG_WORKFLOW.md. After a meaningful result or correction, update the relevant evidence-linked lesson, preserve superseded decisions, update the handoff, and reconcile affected issue/dependency records. Do not copy raw private chats into public documentation or turn historical status into current execution authority. Knowledge preparation does not take ownership from an active release session.

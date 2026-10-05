@@ -312,3 +312,12 @@ legal merge OR and strict restore shape/Boolean/consistency validation.377 units
 expected without an omission remains certifiable; last window volume300 stays ready
 while omitted first window/shares stay unavailable. Full release gates pending;
 BUG003 is In progress, BUG004 still Ready. Historical R1 reports unchanged.
+
+
+## GOV-011 project knowledge preparation — October 5, 2026
+
+A separate local repository checkout was prepared for future project sessions. Read [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md) and the relevant knowledge decision/lesson/source/backlog records at startup. [GOV-011 #170](https://github.com/atulsrivas1/equity-features/issues/170) tracks this documentation transfer. It preserves existing formula/API/acceptance records and links dated R0/R1 review corrections, owner priority changes and consumer/source boundaries. It does not take over repair or R2 execution owners, implement a feature, rerun historical acceptance suites, import data or configure automation.
+
+Coverage: six relevant chats, 96 returned turn records, with targeted/truncated-access limits in knowledge/SOURCE_MAP.md. Raw chats and private data are excluded from public records. knowledge/repository-sources.json fingerprints 32 source documents at the inspected baseline. Publication and completion remain subject to this documentation PR and applicable checks; no Done/release claim is made by preparation.
+
+Resume: read current live issue/Project state, the latest release-specific handoff and owner direction. Finish/verify BUG-003 and BUG-004 with their existing owner, verify GOV-010 publication and proceed with the dedicated R2 scope before R3 feature work. Treat these as dependencies to recheck, not a current completion snapshot.
