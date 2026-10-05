@@ -1,29 +1,27 @@
 # Equity Feature Contracts
 
-Experimental0.0.2a6 contracts, Apache-2.0. Canonical immutable input schemas,
-integer/nanosecond admission and explicit copied Arrow/NumPy bridges are implemented.
-Supplied sessions/windows/timing and canonical configuration/digests are implemented.
-See repository docs/contracts/INPUTS.md SPECS.md, RESULTS.md and VALIDATION.md. Install the `columnar` extra for the bridges;
-core imports require no backend. Typed values, independent quality, bounded evidence and stable errors are implemented.
-Semantic validation and explicit owned normalization are implemented.
-Adapter protocols and bounded conformance helpers are implemented. No source I/O, calculator,
-provider integration or stable production API is claimed. Verified GitHub Actions
-artifacts are the R0 channel; public registry publication is not authorized.
+Experimental0.0.2a9, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
+R1 session calculations use caller-supplied immutable canonical inputs and explicit
+config/entity/source/coverage/knowledge declarations. Core imports require no
+optional backend or source acquisition. Contracts depend only on stdlib; features
+depend inward on the exact contracts package version.
 
-Immutable 39-ID discovery and caller-scoped metadata registration are implemented.
-See docs/contracts/REGISTRY.md. Nineteen bar/price/structure/trade IDs advertise batch support in equity-features; all other execution flags remain false. InputScope binds executable target coverage/construction policy.
+The39-ID catalog advertises23 implemented R1 batch/update/restore IDs and22
+conditional merge IDs. Bar/price, interval structure, trade aggregates/topK,
+sampled quote summaries and continuous time-weighted spread are implemented.
+Continuous integration merge is unsupported; R2/custom execution remains false.
+Typed structured results, quality/provenance/evidence, exact checked units/counts,
+UTCns, explicit copied Arrow/NumPy bridges and stable contract errors apply.
 
-Dependency-light adapter protocols are implemented; the synthetic historical
-example stays outside distributions. See docs/contracts/ADAPTERS.md.
+SessionAccumulator has bounded fixed summaries/windows/K rows/N observations,
+explicit prefix certificates, forward watermarks, immutable exact in-memory state
+and compatible owned restore. Merge requires adjacent disjoint caller-certified
+ranges, source/config/count/order compatibility and no publication/finalization.
+Digests are corruption checks, not authentication; global discarded identity and
+source delivery trust remain caller-owned. No persistence or throughput promise.
 
-EQ020 adds typed bounded original topK trade rows and exact evidence, batch only. See docs/api/SESSION_TOP_K.md in the source repository. No merge/update/restore capability or throughput claim.
-
-EQ021 adds typed sampled quote summaries/counts and bounded diagnostics; structured zero-valid means are null/not_applicable with known counts. API/migration in docs/api/SESSION_QUOTES.md.
-
-EQ022 adds typed time-weighted spread and exact QuoteDurations, narrowly validated zero-valid and unknown-initial diagnostics. See docs/api/CONTINUOUS_QUOTES.md for migration.
-
-EQ023 adds owned StreamPopulation/PrefixCoverage and explicit accepted mode inventories;23 batch/update IDs. Global identity and delivery proofs remain caller-owned. See docs/api/INCREMENTAL.md.
-
-EQ024 adds immutable AccumulatorState and exact compatible in-memory restore for all23 R1 IDs; see [incremental API](../../docs/api/INCREMENTAL.md). Strict schema/version/source/config checks and bounded owned state apply; digest is not authentication. Merge remains false.
-
-EQ025 qualifies conditional adjacent caller-certified partition merge for22 noncontinuous R1 IDs; current inventory23 batch/update/restore and22 merge. Continuous merge remains false. See the incremental API for proof, order, retention and replay limits.
+See [session API](../../docs/api/INCREMENTAL.md),
+[R1 acceptance](../../docs/R1_ACCEPTANCE.md), and repository examples.
+Experimental main GitHub Actions wheels/sdists are the distribution channel;
+actual source/hashes/expiry/install receipts are recorded per story. No public
+registry publication, stable API, concrete provider or automatic thread ownership.

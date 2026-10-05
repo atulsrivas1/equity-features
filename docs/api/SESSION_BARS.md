@@ -55,4 +55,4 @@ Schema1 scalar results remain unchanged. InputScope is an additive schema1 envel
 field; R0 batches lacking it still construct/round-trip, but cannot be executed by
 this API. Capability/registry digest and OHLC output dtype change intentionally in
 0.0.2a0. Old registry snapshots fail the existing digest guard. Custom/R2 execution
-and all update/restore/merge flags remain unsupported.
+and the SessionAccumulator API qualifies update/restore and conditional legal merge for these IDs. See [incremental modes](INCREMENTAL.md).

@@ -28,12 +28,11 @@ The reducer retains at mostK+1 candidates transiently and K results; insertion
 sorting costs O(n K log K). Canonical input ownership/validation and Arrow copies
 still scale with supplied batch rows; this is bounded reduction retention, not
 constant-memory source admission or a throughput promise. K is bounded by10000.
-No unbounded raw-row list or stream claim is introduced.
+No unbounded raw-row list is retained.
 
 For disjoint populations, topK(union of per-partition topK) equals full topK;
-production-invoking tests independently verify this conservation. This version
-exposes batch only. EQ025 owns any public merge qualification. Retained identities
+production-invoking tests independently verify this conservation. R1 qualifies batch/update/restore and conditional legal merge through
+[SessionAccumulator](INCREMENTAL.md). Retained identities
 can detect retained duplicates; summaries cannot prove disjointness of opaque IDs
 that were not retained. The caller must govern population disjointness; overlap
-and duplicates in the actual CanonicalBatch reject. No summary merge/update/restore
-capability is advertised. Example: [session_top_k.py](../../examples/session_top_k.py).
+and duplicates in the actual CanonicalBatch reject. Qualified modes require the explicit certificates and preconditions in the incremental API. Example: [session_top_k.py](../../examples/session_top_k.py).

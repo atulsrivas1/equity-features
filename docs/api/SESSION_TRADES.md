@@ -45,9 +45,9 @@ mean_size, with rtol/atol1e-12. No int64 wrapping or price rounding. Overflow is
 typed failure, not a null/zero result. This checked backend materializes column/index
 tuples proportional to batch size; it has no measured throughput or zero-copy claim.
 
-Only five trade batch flags are added (19 total implemented bar/structure/trade IDs).
-Top-K, quotes, update/restore/merge and custom/R2 execution remain unsupported.
+Initial0.0.2a2 added five trade batch flags; current R1 inventory is23 batch/update/restore and22 conditional merge.
+TopK and quotes are delivered through their separate family APIs. SessionAccumulator qualifies update/restore and conditional legal merge for trade IDs; custom/R2 execution remains unsupported. See [incremental modes](INCREMENTAL.md).
 Notional registry unit/type metadata migrates explicitly to the scaled coefficient;
 registry digest and both distribution versions advance to0.0.2a2. State APIs and
-bounded merge/restore evidence belong to later R1 stories. Delivery uses successful
+bounded merge/restore evidence are delivered through EQ023–025. Delivery uses successful
 main artifacts plus actual downloaded/install verification, never source merge alone.
