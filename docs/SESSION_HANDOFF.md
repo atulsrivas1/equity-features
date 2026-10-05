@@ -95,3 +95,14 @@ Ready to release. Resume: review linked PR, Test/final-head all CI, squash/main 
 wait main artifact matrix, download actual main bundles and verify manifest commit,
 hashes/expiry, clean install. Only then Released/Done for EQ-009 and EQ-007; EQ-010
 is next. Do not substitute local build/editable installs for retained delivery.
+
+EQ-009 rework before acceptance: PR132 source merged9bb9f12b3f3b5282ff564bdf4ff687b0bea4b0dc
+and all final/main checks passed; main artifact download/installs underway. Further
+negative inspection found `from numpy import load as loader` bypassed the AST gate.
+Acceptance process13008 completed both OS bundle verification and issue closures
+before the stop reached it. EQ-007 delivery is valid and remains Done. EQ-009
+was reopened and returned to In progress for the gate defect; EQ-010 Backlog. Fix on codex/eq-009-import-alias-gate inspects imported function names,
+forbids wildcard imports and adds three regression negatives (14total). Core artifact
+code is unchanged, but final fix-head CI/main verification is required. Do not count
+PR132 alone as EQ-009 completion. EQ-007 Done is supported by actual artifact evidence. Resume review
+follow-up PR, gates, then actual final-main artifact verification before closing.
