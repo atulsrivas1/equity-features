@@ -1,6 +1,6 @@
 # Work agreements
 
-These are the human owner's agreed project rules. Read this file, docs/PUBLIC_DEVELOPMENT.md, docs/SESSION_HANDOFF.md and the current issue/Project status before starting work. Keep durable project memory in these tracked documents rather than assuming chat memory persists.
+These are the human owner's agreed project rules. Read this file, docs/PROJECT_KNOWLEDGE.md, docs/PUBLIC_DEVELOPMENT.md, docs/SESSION_HANDOFF.md and the current issue/Project status before starting work. Keep durable project memory in these tracked documents rather than assuming chat memory persists. Read the relevant linked decisions, lessons and source specifications before choosing or changing work.
 
 1. Work publicly through numbered GitHub stories, epic links, release milestones and linked pull requests. GitHub Project status is the current work-status authority; docs/BACKLOG.md records versioned scope and dependencies.
 2. Follow the backlog. Satisfy acceptance criteria and release gates before declaring completion. Record changes in scope and consequential decisions explicitly.
@@ -19,6 +19,7 @@ Use short-lived codex/ branches when this agent creates branches. A human approv
 
 Delivery uses release-based planning and continuous pulling, not mandatory sprints. Read docs/DELIVERY_POLICY.md. Start the highest-priority dependency-satisfied Ready story, initially one active story at a time. Review progress weekly during active work; release dates are evidence-based forecasts, with no invented deadlines or automated reminders.
 
+Maintain knowledge using docs/knowledge/BACKLOG_WORKFLOW.md. After a meaningful result or correction, update the relevant evidence-linked lesson, preserve superseded decisions, update the handoff, and reconcile affected issue/dependency records. Do not copy raw private chats into public documentation or turn historical status into current execution authority. Knowledge preparation does not take ownership from an active release session.
 ## Code Review Rules
 
 Review the changed behavior and its affected callers against the linked story, accepted mathematical specifications and package design. Report concrete actionable defects with file/line evidence, triggering inputs and consequences. Identify severity accurately; do not invent findings, benchmark results or reviewer independence. Documentation/design PRs need semantic and contract review as well as links.
