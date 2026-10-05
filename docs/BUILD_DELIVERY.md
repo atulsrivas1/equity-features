@@ -65,3 +65,7 @@ Primary guidance: [build frontend](https://build.pypa.io/en/stable/) and
 [GitHub artifact retention/downloads](https://docs.github.com/en/actions/tutorials/store-and-share-data).
 Artifact checksums and actual installations establish delivery; merged source
 alone and editable wheels alone do not.
+
+## R1 channel evolution
+
+0.0.2a0 adds twelve experimental batch bar/price calculations. The foundation-prefixed artifact channel is retained; manifests bind the exact source/runtime/hashes as before. Clean wheel/sdist installs now execute session_bars.py as well as both foundation examples and all unit tests. Current supported behavior and migration are in [SESSION_BARS](api/SESSION_BARS.md); actual delivery remains gated by successful main bundles and fresh installed execution.

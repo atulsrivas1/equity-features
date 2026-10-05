@@ -8,6 +8,7 @@ from typing import Any
 from .errors import ContractError, ErrorCode
 from .inputs import DataKind, I64_MAX, schema_for
 from .results import ValueType
+from ._implemented import BATCH_IDS
 
 @dataclass(frozen=True)
 class Capabilities:
@@ -18,8 +19,8 @@ class Capabilities:
 
     def __post_init__(self) -> None:
         flags = (self.batch,self.update,self.restore,self.merge)
-        if any(type(x) is not bool for x in flags) or any(flags):
-            raise ContractError(ErrorCode.UNSUPPORTED_CAPABILITY,"R0 definitions cannot claim calculator/callback capabilities")
+        if any(type(x) is not bool for x in flags):
+            raise ContractError(ErrorCode.UNSUPPORTED_CAPABILITY,"Boolean capabilities required")
 
 @dataclass(frozen=True)
 class InputRequirement:
@@ -91,6 +92,8 @@ class FeatureDefinition:
             raise ContractError(ErrorCode.INCOMPATIBLE_VERSION,"unsupported definition schema/release")
         if type(self.capabilities) is not Capabilities:
             raise ContractError(ErrorCode.INVALID_SCHEMA,"typed actual capabilities required")
+        if (self.capabilities.batch and self.feature_id not in BATCH_IDS) or any((self.capabilities.update,self.capabilities.restore,self.capabilities.merge)):
+            raise ContractError(ErrorCode.UNSUPPORTED_CAPABILITY,"capability has no accepted implementation")
         for rows,expected in ((self.requirements,InputRequirement),(self.outputs,OutputField)):
             if type(rows) not in (tuple,list) or not rows or any(type(x) is not expected for x in rows):
                 raise ContractError(ErrorCode.INVALID_SCHEMA,"concrete nonempty typed schema metadata required")
@@ -164,8 +167,8 @@ class Registry:
         if family is not None:
             _text(family)
             definitions = tuple(x for x in definitions if x.feature_id.startswith((family+".",family+":")))
-        # Actual execution flags are all false under the R0 metadata-only contract.
-        return () if capability is not None else definitions
+        if capability is None: return definitions
+        return tuple(x for x in definitions if _supports(x.capabilities,capability))
 
     def get(self,feature_id: str) -> FeatureDefinition:
         _text(feature_id)
@@ -177,10 +180,11 @@ class Registry:
         return replace(self,custom=self.custom+(definition,))
 
     def require_capability(self,feature_id: str,mode: str) -> None:
-        self.get(feature_id)
+        definition = self.get(feature_id)
         if mode not in ("batch","update","restore","merge"):
             raise ContractError(ErrorCode.INVALID_CONFIG,"unknown capability mode")
-        raise ContractError(ErrorCode.UNSUPPORTED_CAPABILITY,"R0 defines metadata; numerical/custom execution is not implemented")
+        if not _supports(definition.capabilities,mode):
+            raise ContractError(ErrorCode.UNSUPPORTED_CAPABILITY,"requested numerical/custom capability is not implemented")
 
     def to_json(self) -> str:
         return json.dumps({"schema_version":"1","builtin_scope_version":"1","builtin_digest":_BUILTIN_DIGEST,"namespace":self.namespace,"custom":[asdict(x) for x in self.custom]},sort_keys=True,separators=(",",":"),ensure_ascii=True)
@@ -201,3 +205,6 @@ class Registry:
 
 def builtin_registry() -> Registry:
     return Registry()
+
+def _supports(capabilities: Capabilities, mode: str) -> bool:
+    return {"batch":capabilities.batch,"update":capabilities.update,"restore":capabilities.restore,"merge":capabilities.merge}[mode]

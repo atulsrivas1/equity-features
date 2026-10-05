@@ -1,12 +1,13 @@
 # Equity Features
 
-Experimental R0 foundation depending inward on equity-feature-contracts. Calculation
-kernels are R1/R2 work. No calculate function is exposed at EQ-007. The public
-mathematical specifications are in the repository's docs/features directory.
-Internal artifacts are established by EQ-009; no public registry release is claimed.
+Experimental0.0.2a0, Apache-2.0, depending inward on equity-feature-contracts.
+Twelve batch bar/price IDs are implemented through equity_features.session.compute_bars.
+Source-independent caller-supplied canonical inputs, config and entity are required;
+see docs/api/SESSION_BARS.md and examples/session_bars.py in the repository.
 
-Immutable 39-ID discovery and caller-scoped metadata registration are implemented.
-See docs/contracts/REGISTRY.md. All actual calculator capabilities remain false.
+Immutable39-ID discovery and caller-scoped metadata registration remain available.
+Only the twelve bar/price IDs advertise batch support; other families and every
+update/restore/merge/custom execution mode remain unimplemented.
 
-Dependency-light adapter protocols are implemented; the synthetic historical
-example stays outside distributions. See docs/contracts/ADAPTERS.md.
+Delivery uses experimental main GitHub Actions artifacts, pending verified receipts
+for this version. No public registry, stable API or throughput claim.

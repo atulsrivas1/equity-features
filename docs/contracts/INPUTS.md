@@ -93,3 +93,7 @@ with optional backends forbidden. Backend-specific dynamic types are confined to
 the optional bridge; strict mypy checks all core and bridge source, with only the
 missing third-party PyArrow stubs excluded. Session/config/result/semantic validators,
 registry and adapter protocols remain EQ-012â€“016. No numerical calculator exists.
+
+## R1 additive scope contract (0.0.2a0)
+
+BatchMetadata.scope optionally carries typed InputScope(start_ns,end_ns,eligibility_policy,include_opening_auction,include_closing_auction). Bounds are positive exact UTCns intervals; policy nonempty and auction flags Boolean. It survives Arrow envelopes and result input identity. Historical batches without scope still construct; executable bar calculations require matching scope/policy and actual population coverage. See [bar API](../api/SESSION_BARS.md). Source admission truth remains caller-owned.
