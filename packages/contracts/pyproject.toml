@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=77"]
+requires = ["setuptools==80.9.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -12,6 +12,9 @@ license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{name = "Equity Features contributors"}]
 dependencies = []
+
+[project.optional-dependencies]
+columnar = ["numpy==2.2.6", "pyarrow==20.0.0"]
 
 [project.urls]
 Repository = "https://github.com/atulsrivas1/equity-features"

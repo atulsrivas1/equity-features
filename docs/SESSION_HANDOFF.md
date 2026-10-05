@@ -70,3 +70,13 @@ verify committed blobs/main CI. Do not mark EQ-007 Released/Done on merged sourc
 EQ-007 staged diff check stopped on inherited trailing blank lines in copied LICENSE
 files; removed trailing whitespace only, kept root license and all license text.
 Import smoke compares normalized license text. No commit/push occurred on failure.
+
+EQ-007 source delivered via PR130 at a333fa7af53fc8f33e2b95368a99716bee6658d5;
+final2641a41c6d3453a77db2cc274db22f4a1d9a988d and main CI pass,17blobs match.
+Issue9 remains open/Ready to release awaiting EQ-009 artifacts. No source-only Done.
+EQ-008 In progress (5points): CPython3.12 only; local Windows3.12.10 AMD64 clean
+venv installed exact NumPy2.2.6/PyArrow20.0.0, setuptools80.9.0 and fully pinned
+build/type transitive tools. Editable installs, pip check, UTCns/int64/null smoke,
+123references and planning/import/diff checks pass. Linux/Windows CI matrix must
+pass final head before policy acceptance; artifacts still EQ-009. Resume linked
+PR review/Test/final-head CI, squash/main blob and CI verification; then EQ-009.
