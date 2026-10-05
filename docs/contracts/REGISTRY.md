@@ -43,3 +43,5 @@ EQ019/0.0.2a2 adds five session.trade aggregate batch flags (19 implemented IDs)
 EQ020/0.0.2a3 adds session.trade.top_k batch capability (20 implemented IDs), typed top_k_trades output. Other modes stay false. K/evidence bounds and retained-source proof limits: [API](../api/SESSION_TOP_K.md).
 
 EQ021/0.0.2a4 adds two quote event-summary batch flags (22 implemented IDs), quote_state_counts/sampled_spread typed outputs and explicit sampling. Time-weighted spread and other execution modes stay false. Frozen equations exclude quantiles/variance. [API](../api/SESSION_QUOTES.md).
+
+EQ022/0.0.2a5 adds continuous time-weighted batch capability (all23 R1 IDs), one typed time_weighted_spread value containing previous provisional scalar duration/mean fields. Unknown duration is explicit nested diagnostics. Other execution modes remain false. [API](../api/CONTINUOUS_QUOTES.md).
