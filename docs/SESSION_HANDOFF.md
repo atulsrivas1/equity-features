@@ -1,5 +1,16 @@
 # Development continuity
 
+## Extension roadmap update — 2026-10-05
+
+Owner requested stories proving developer/user extensibility. Added EQ-095 #150
+to R3/E06, 5 provisional points, dependent on EQ-093/039/040/043/045 and required
+by EQ-048. It independently qualifies an externally packaged custom-feature and
+synthetic-adapter consumer using public installed APIs. Existing registration,
+guide, examples, SDK, acceptance and later R6 guide criteria are extended without
+duplicating implementation. EQ-016 remains accepted, EQ-094 retired and R1 scope
+unchanged. Planning CI checks 94 active IDs (001–093 and 095). All new work is
+Backlog; no implementation claimed. See docs/stories/EQ-095_PLAN.md and live issues.
+
 Updated2026-10-05 (Eastern). Read AGENTS.md, PUBLIC_DEVELOPMENT.md and R1_AUTONOMOUS_HANDOFF.md for the next mission. GitHub Project remains the status authority.
 
 ## R1 handoff preparation and R0 follow-up review
