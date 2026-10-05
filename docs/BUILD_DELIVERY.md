@@ -38,7 +38,8 @@ main artifacts are the declared delivery. See issue evidence for current run IDs
 
 `check_boundary.py` allows only reviewed stdlib/inward/explicit columnar imports,
 rejects source/provider/filesystem/process/clock modules, dynamic execution/import,
-reflective access and common I/O calls, including aliases.11negative fixtures prove
+reflective access and common I/O calls, including imported function aliases and
+wildcard imports.14negative fixtures prove
 the gate fails on prohibited imports/accesses. Runtime tests supplement it as APIs
 grow. This is a conservative project-owned Python boundary policy, not a sandbox
 or proof about arbitrary third-party code/native dependencies. Each new import or
