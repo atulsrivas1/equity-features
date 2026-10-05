@@ -1,6 +1,6 @@
-"""Source-independent foundation. Numerical calculators follow in R1/R2."""
+"""Source-independent experimental features; explicit session family APIs."""
 
 from equity_feature_contracts import __version__ as contracts_version
 
-__version__ = "0.0.1a6.post1"
+__version__ = "0.0.2a0"
 __all__ = ["__version__", "contracts_version"]

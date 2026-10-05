@@ -10,7 +10,7 @@ from .errors import ContractError, ErrorCode
 from .results import BreadthCounts, BreadthFraction, FeatureResult, ValueType
 from .inputs import (
     AdjustmentSpec, BatchMetadata, CanonicalBatch, Cell, Column, Coverage,
-    DataKind, DType, PriceUnit, SourceBinding, schema_for,
+    DataKind, DType, InputScope, PriceUnit, SourceBinding, schema_for,
 )
 
 # Backend objects are untyped at this optional bridge; core admission checks every cell.
@@ -53,7 +53,7 @@ def _from_arrow(value: Any) -> CanonicalBatch:
     kind = DataKind(envelope["kind"])
     meta = envelope["metadata"]
     unit = meta["price_unit"]
-    metadata = BatchMetadata(namespace=meta["namespace"], source=SourceBinding(**meta["source"]), coverage=Coverage(**meta["coverage"]), price_unit=PriceUnit(**unit) if unit is not None else None, adjustment=AdjustmentSpec(**meta["adjustment"]), sampling=meta["sampling"], quantity_unit=meta["quantity_unit"], ordering=meta["ordering"], duplicate_policy=meta["duplicate_policy"])
+    metadata = BatchMetadata(namespace=meta["namespace"], source=SourceBinding(**meta["source"]), coverage=Coverage(**meta["coverage"]), price_unit=PriceUnit(**unit) if unit is not None else None, adjustment=AdjustmentSpec(**meta["adjustment"]), sampling=meta["sampling"], quantity_unit=meta["quantity_unit"], ordering=meta["ordering"], duplicate_policy=meta["duplicate_policy"], scope=InputScope(**meta["scope"]) if meta.get("scope") is not None else None)
     schema = schema_for(kind)
     columns = []
     for index, field in enumerate(value.schema):

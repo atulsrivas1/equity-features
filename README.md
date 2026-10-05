@@ -6,7 +6,8 @@ Source-independent equity feature calculations for reproducible research, backte
 both experimental foundation distributions are delivered through verified
 [internal CI artifacts](docs/BUILD_DELIVERY.md). Typed inputs/specifications/results/validation/discovery and adapter protocols
 are implemented. [Acceptance evidence and artifacts](docs/R0_ACCEPTANCE.md).
-Numerical kernels remain R1/R2.
+Twelve experimental batch bar/price kernels are implemented locally at0.0.2a0;
+R1 delivery verification is in progress. Other kernels remain later stories.
 No public registry release.**
 
 [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
@@ -53,3 +54,7 @@ The first mathematical reference fixtures are available now: run `python tools/v
 ## License
 
 Licensed under [Apache License 2.0](LICENSE).
+
+## Experimental R1 calculations
+
+EQ-017 adds twelve batch bar/price IDs with independent quality, exact real notional and separate close-weighted proxy. See [API/admission/precision](docs/api/SESSION_BARS.md) and [synthetic example](examples/session_bars.py). Version0.0.2a0 is under implementation/delivery verification; prior R0 acceptance remains historical. No throughput or provider-readiness claim.
