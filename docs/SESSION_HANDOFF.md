@@ -22,14 +22,26 @@ GOV-005 issue119/PR120 remains open and explicitly owner-deferred. Do not activa
 
 ## Verification and recovery
 
-EQ-005 execution: clean handoff commit and live Ready state verified; 8 points
-confirmed. Plan, all eight context formulas, denominator/alignment decisions and
-26 exact synthetic references prepared on codex/eq-005-context-formulas. Strict
-prior-slot baselines; partial eligible-member breadth with declared coverage.
-Review/testing/publication remain required before Done. No production kernels.
-Resume on this branch with work/flow.py check, inspect complete diff, attach linked
-PR, formal review/Test gates and exact final-head CI, then main blob verification.
-Only after delivery update #6/E01 and pull EQ-006. PR120 stays deferred.
+EQ-005 delivered via PR128 (squash b3a39a4209580e95ebe7f953d63b81f839901dfe).
+Final head fee6be4c20581567c28b4ef6e79b7b960dc004b0 passed both CI checks;
+100 reference cases/planning passed before and after delivery, all eight Git blobs
+matched GitHub bytes, main CI passed. Issue6 Done/closed and E01 checklist verified.
+Merge-commit attempt was rejected (repository allows squash only); checked commands
+stopped, then allowed squash on the same head succeeded. A Windows console Unicode
+print failed after the successful issue close; live closure was independently
+verified and UTF-8 stdout fixed. No failed command counts as validation.
+
+EQ-006 In progress on codex/eq-006-timing-policy, confirmed8points. Plan and timing
+policy separate market C, reference knowledge K and evaluation E with C,K<=E;
+delayed EOD knowledge is not instantly available at close. Split/dividend basis
+and reconstruction are explicit.23design fixtures added. Broad full-roadmap Project
+query hit rate-cost rejection; stopped, switched to targeted cached-ID query,
+verified live transition. PR120 stays deferred; author self-review only.
+Resume: run all five tools/verify_*_examples.py and planning block in docs workflow;
+inspect diff, linked PR, Code review/Test, exact final-head CI, allowed squash merge,
+GitHub bytes vs committed blobs and main checks before Released/Done. Update E01,
+then EQ-007 planning. No production kernels/source admission claimed.
+
 
 Documentation CI verifies 93 active EQ IDs, 39 feature IDs and all eight lifecycle states. Run the planning code in .github/workflows/docs.yml, python tools/verify_session_examples.py, python tools/verify_quote_examples.py, python tools/verify_history_examples.py and git diff --check; add relevant story-specific checks as contracts/code grow. Final-head CI and default-branch delivery verification remain required.
 

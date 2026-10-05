@@ -47,3 +47,6 @@ jobs:
 
       - name: Verify context denominators, alignment and universe references
         run: python tools/verify_context_examples.py
+
+      - name: Verify timing and action admission policy references
+        run: python tools/verify_timing_examples.py

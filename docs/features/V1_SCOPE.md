@@ -3,6 +3,8 @@
 Scope revision: 1. Story: [EQ-001](https://github.com/atulsrivas1/equity-features/issues/2).
 
 Baseline, relative and breadth definitions: [CONTEXT_FORMULAS.md](CONTEXT_FORMULAS.md).
+
+All families apply [TIMING_ADJUSTMENT_POLICY.md](TIMING_ADJUSTMENT_POLICY.md).
 Status: scope baseline; numerical formulas and implementation remain subsequent stories.
 
 Session/bar/trade definitions and synthetic reference evidence are in [SESSION_FORMULAS.md](SESSION_FORMULAS.md). This defines the mathematics; production kernels remain later stories.
