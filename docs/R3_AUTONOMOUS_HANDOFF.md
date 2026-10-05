@@ -1,5 +1,7 @@
 # R3 autonomous execution package
 
+Owner steering2026-10-05 supersedes this mission's feature-pull authority: the R3 chat completes ONLY BUG-003 #162 and BUG-004 #163 through verified Done, then stops. No R3 feature story has started. [R2 execution](R2_AUTONOMOUS_HANDOFF.md) follows before R3 resumes; a new owner instruction is required to resume R3. Earlier scope/plans below remain prepared future work, not current execution authority.
+
 Prepared 2026-10-05 under [GOV-009 #164](https://github.com/atulsrivas1/equity-features/issues/164) at the owner's request. Scope: [R3 — Package release readiness](https://github.com/atulsrivas1/equity-features/milestone/4), including two new prerequisite repairs from independent R1 review. This preparation is not implementation or release acceptance.
 
 ## Authority and dependency boundary
