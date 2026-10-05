@@ -107,3 +107,5 @@ IntervalOHLCV/IntervalVolumeShares typed table cells extend ValueType. Nested In
 EQ020/0.0.2a3 adds TopKTrades/TopKTradeRow and top_k_trades dtype, immutable ranked original coefficients and exact matching EvidenceRows. Arrow carries k and a typed bounded row list. [Migration/limits](../api/SESSION_TOP_K.md).
 
 EQ021/0.0.2a4 adds QuoteStateCounts, SampledSpread and QuoteObservation typed cells, bounded exact source/event evidence and Arrow structs/lists. Zero-valid SampledSpread has null means/not_applicable with diagnostic cell; FeatureResult verifies complete total and valid denominator. Missing/incomplete cells remain null. [Migration](../api/SESSION_QUOTES.md).
+
+EQ022/0.0.2a5 adds QuoteDurations/TimeWeightedSpread and time_weighted_spread dtype. Complete continuous target binds exact duration total and quality count. Known zero-valid NA and initial-unknown incomplete cells preserve diagnostics with null means; delivery incomplete remains null. [Scalar metadata migration/limits](../api/CONTINUOUS_QUOTES.md).

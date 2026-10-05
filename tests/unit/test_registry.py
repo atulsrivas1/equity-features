@@ -35,12 +35,12 @@ class RegistryDefinitions(unittest.TestCase):
                 self.assertEqual(FeatureDefinition.from_json(d.to_json()),d)
     def test_exact_implemented_capabilities(self):
         registry=builtin_registry()
-        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:22])
+        self.assertEqual(tuple(x.feature_id for x in registry.list_features(capability="batch")),EXPECTED[:23])
         for mode in ("update","restore","merge"):
             self.assertEqual(registry.list_features(capability=mode),())
         for d in registry.list_features():
-            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:22]))
-        for feature in EXPECTED[:22]: registry.require_capability(feature,"batch")
+            self.assertEqual(d.capabilities,Capabilities(batch=d.feature_id in EXPECTED[:23]))
+        for feature in EXPECTED[:23]: registry.require_capability(feature,"batch")
         for mode in ("update","restore","merge"):
             self.assertCode(ErrorCode.UNSUPPORTED_CAPABILITY,lambda:registry.require_capability("session.trade.top_k",mode))
     def test_family_selection(self):
@@ -72,7 +72,7 @@ class RegistryDefinitions(unittest.TestCase):
     def test_quote_sampling_and_duration_schema(self):
         r=builtin_registry();self.assertEqual(r.get("session.quote.sampled_spread").requirements[0].sampling,"sampled_or_continuous")
         weighted=r.get("session.quote.time_weighted_spread");self.assertEqual(weighted.requirements[0].sampling,"continuous")
-        self.assertIn("max_age_ns",weighted.warmup);self.assertIn("unknown_duration_ns",[x.name for x in weighted.outputs])
+        self.assertIn("max_age_ns",weighted.warmup);self.assertEqual([(x.name,x.dtype) for x in weighted.outputs],[("value","time_weighted_spread")])
     def test_breadth_partial_denominator(self):
         d=builtin_registry().get("breadth.above_sma_fraction")
         self.assertIn("K/E",d.formula);self.assertIn("never K/M",d.formula);self.assertEqual(d.outputs[0].dtype,"breadth_fraction")
