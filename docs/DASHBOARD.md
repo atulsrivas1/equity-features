@@ -1,6 +1,6 @@
 # Development dashboard
 
-R0 experimental foundation is delivered. Numerical kernels remain R1/R2.
+R0 foundation and R1 experimental session kernels are delivered. R2 remains planned; R3 execution starts with independently reviewed R1 repairs.
 Use the live Project for current work status.
 
 [All stories](https://github.com/atulsrivas1/equity-features/issues?q=is%3Aissue+label%3Atype%3Astory) · [Epics](https://github.com/atulsrivas1/equity-features/issues?q=is%3Aissue+label%3Atype%3Aepic) · [Milestones](https://github.com/atulsrivas1/equity-features/milestones)
@@ -53,3 +53,7 @@ The R0 follow-up review identified [BUG-001 #144](https://github.com/atulsrivas1
 and [BUG-002 #145](https://github.com/atulsrivas1/equity-features/issues/145), assigned
 to R1 as prerequisites before EQ-017. Their fixes are pending; the handoff does not
 claim R1 implementation or start a new chat. Preparation: [GOV-008 #143](https://github.com/atulsrivas1/equity-features/issues/143).
+
+## R3 execution package
+
+[R3 handoff](R3_AUTONOMOUS_HANDOFF.md) covers twelve R3 stories and [BUG-003#162](https://github.com/atulsrivas1/equity-features/issues/162)/[BUG-004#163](https://github.com/atulsrivas1/equity-features/issues/163). [Independent R1 review](reviews/R1_REVIEW.md) records both defects and validation. Final R3 acceptance remains dependent on actual R2 delivery.
