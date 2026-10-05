@@ -22,7 +22,7 @@ Follow Backlog -> Ready -> In progress -> Code review -> Test -> Ready to releas
 
 ## Immediate work and remaining decisions
 
-EQ-001–003 mathematical scope/session/quote work is complete. Continue EQ-004 historical formulas, then EQ-005/006 according to their dependencies, followed by public contracts/package foundation. Consult live Project/issue evidence for current status. Do not require another architecture meeting to resolve decisions already assigned to stories.
+EQ-001–004 mathematical scope/session/quote/history work is complete. Continue EQ-005/006 according to their dependencies, followed by public contracts/package foundation. The bounded execution package is in [R0_AUTONOMOUS_HANDOFF.md](R0_AUTONOMOUS_HANDOFF.md). Consult live Project/issue evidence for current status. Do not require another architecture meeting to resolve decisions already assigned to stories.
 
 | Decision still required | Owning story |
 | --- | --- |
