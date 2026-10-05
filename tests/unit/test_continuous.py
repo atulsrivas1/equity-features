@@ -161,3 +161,9 @@ class Continuous(unittest.TestCase):
             self.assertEqual(len(state.duration),6);self.assertEqual(state.anchor,n-1)
             self.assertEqual(state.summary('unknown').durations.total,n)
             self.assertEqual(state.summary('unknown').mean_spread,2.0)
+
+    def test_initialization_cannot_contradict_duration_or_seed_binding(self):
+        unknown=value(calc(blank()))
+        self.error(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(unknown,initial_state='inactive'))
+        r=calc(blank(),cfg(initial='seed'),seed());v=value(r)
+        self.error(ErrorCode.INCONSISTENT_IDENTITY,lambda:replace(r,values=(replace(r.values[0],values=(replace(v,initial_state='unknown'),)),)))

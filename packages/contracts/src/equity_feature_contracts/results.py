@@ -337,6 +337,8 @@ class TimeWeightedSpread:
             raise ContractError(ErrorCode.INVALID_SCHEMA,"typed durations/explicit initial state required")
         if type(self.max_age_ns) is not int or not 1 <= self.max_age_ns <= I64_MAX:
             raise ContractError(ErrorCode.BOUNDS,"positive int64 max age required")
+        if self.initial_state == "inactive" and self.durations.unknown:
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"known inactive initialization cannot have unknown time")
         if self.durations.valid == 0 or self.durations.unknown > 0:
             if self.mean_spread is not None or self.mean_bps is not None:
                 raise ContractError(ErrorCode.INVALID_SCHEMA,"unknown/zero-valid time means must be null")
@@ -531,6 +533,9 @@ class FeatureResult:
                     targets=[b for b in self.metadata.inputs if b.role == "quotes" and b.kind == DataKind.QUOTE]
                     if len(targets) != 1:
                         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"time spread needs one quote target")
+                    seeds=[b for b in self.metadata.inputs if b.role == "quote_seed"]
+                    if seeds and (value.initial_state != "seed" or len(seeds) != 1 or seeds[0].kind != DataKind.QUOTE or seeds[0].metadata.sampling != "continuous"):
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"time initialization contradicts seed binding")
                     target=targets[0].metadata
                     if target.sampling != "continuous" or not target.coverage.complete or target.scope is None or target.scope.end_ns != self.metadata.availability.market_cutoff_ns:
                         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY,"time duration requires complete continuous target scope")
