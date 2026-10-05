@@ -313,6 +313,27 @@ expected without an omission remains certifiable; last window volume300 stays re
 while omitted first window/shares stay unavailable. Full release gates pending;
 BUG003 is In progress, BUG004 still Ready. Historical R1 reports unchanged.
 
+## Owner priority override —2026-10-05
+
+Owner steering received during BUG003 artifact qualification: finish ONLY BUG003
+#162 and BUG004 #163 through documentation/lifecycle/CI/main/actual-artifact delivery,
+then stop and report accepted commits/versions/evidence. No EQ093/039–048/095 work
+may start or continue. No R3 feature has started; registry/adapter inspection was
+read-only context. Separate R2 handoff/session belongs to the preparation chat and
+waits for these repairs Done. GOV009 already Done. R3 remains open. This overrides
+the earlier R3 continuous-pull mission without authorizing R2 implementation here.
+
+
+### BUG003 qualified implementation delivery —0.0.2a10
+
+PR166/head24db3f4/mainb9bc293:377units/123refs/strict26files/all local and six
+exact-head CI gates/main docs37361305538/Foundation37361305448 both OS/published
+17blobs/both actual bundles/four fresh installs each377units+eleven examples pass.
+Receipt BUG-003_DELIVERY.md contains hashes/expiry and real reviewer/limits. BUG003
+Released; final receipt publication/main/equal artifact gates before Done. BUG004
+still Ready, no R3 feature started; owner override limits remaining work to BUG004
+then stop for separate R2 handoff. Preserve PR120 and historical R1 reports.
+
 ## Owner restores R2-before-R3 execution order —2026-10-05
 
 Owner authorized completing only BUG003#162/BUG004#163 in the existing repair chat, then pausing R3 and starting a separate R2 execution session. Repair chat confirmed no R3 feature story started; BUG003 code mainb9bc293/pair0.0.2a10/schema2 is not yet Done pending artifact installs; BUG004 remains undelivered. New R2 package docs/R2_AUTONOMOUS_HANDOFF.md under GOV010#167 covers all12EQ027–038 (89provisional points),16R2 IDs, math/design/tests/docs/delivery/stop gates and legacy rights/access constraints. R2 may plan while repairs are active but must verify both Done deliveries before implementation; do not race their owner. R3 handoff feature authority superseded; R2 does not automatically resume R3. Preparation is not implementation.
