@@ -52,3 +52,7 @@ Use release notes for delivered behavior, compatibility changes and known limita
 Start with the feature scope, not code generation. Deliver docs/features/V1_SCOPE.md as a reviewable proposal that maps feature IDs to families, initial windows, input kinds, batch/incremental support, exact versus approximate measures and excluded strategies/labels. Scope completion requires explicit formula-story links and no undocumented promised feature. EQ-002 through EQ-006 settle formulas/timing; contracts and implementation follow those decisions.
 
 Until GitHub setup finishes, store reviewable drafts here and clearly report local-only status. After the repository is available, migrate the documents without overwriting setup work, create/link the first issue and PR, and preserve the numbered backlog. Repository/profile administration stays in the setup conversation; design and implementation stay in this conversation.
+
+## Owner decision: automated reviewer setup deferred
+
+On2026-10-04 the owner deferred GOV-005/PR120 and instructed continuing EQ stories. Its proposed separate Codex review gate is postponed until activation is resumed and verified. Continue author self-review, CI, acceptance/documentation and publication verification, labeled accurately; never claim an automated or human review that did not occur. GOV-005 remains open/deferred; this decision does not waive tests or release gates.

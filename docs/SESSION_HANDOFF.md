@@ -30,3 +30,13 @@ For documentation-only stories, publishing validated documentation on the defaul
 ## Validation and limitations
 
 The current check validates planning documents, all94EQ story IDs and39built-in scope IDs/formula mappings, plus17session reference cases. Tests, typing, wheel builds and benchmarks will be added as package implementation warrants them. No provider-source admission, realtime guarantee or performance acceptance follows from documentation checks. Consult live GitHub issue/PR/Project evidence for current delivery status; this handoff is a resume aid, not a duplicate status database.
+
+## Current active story: EQ-003
+
+User deferred Codex review setup; GOV-005 issue119 and draftPR120 stay open/deferred. Their proposed separate-review gate is postponed by the owner. Continue existing self-review, CI, documentation and publication gates; never claim bot review. Pending reviewer branch records this deferral too.
+
+EQ-003 issue4 is In progress, estimated5provisional points. codex/eq-003-quote-formulas delivers3quote definitions, sampling/state/time-weighting decisions and synthetic exact references. Resume its linked PR/review/tests before release; no numerical package implementation or provider trust is claimed. GOV-004 PR118 already merged5583ec35730472c023b2f1c0b1a1a3b0ea75edc9 and published contents were verified.
+
+EQ-003 artifacts now include execution plan,3quote definitions, quote-semantics decisions, synthetic exact golden fixtures and quote reference verifier. Qs/Qc separated; locked0valid, crossed excluded from means, midpoint-bps per observation, explicit age and original seed age, invalid reset, unknown boundary and delivery completeness specified. Verify final-head reference/CI checks and publication before Done; next EQ-004 needs a plan.
+
+EQ-003 local acceptance evidence:26quote reference cases plus17existing session cases pass, all3quote IDs mapped,94story/39feature/eight-state planning checks pass. Self-review added delivery-gap/no-valid-time/int64 boundary cases and guarded duration representation. Final-head CI and remote publication still required. After documentation delivery, verify issue/Project Done and set EQ-004 Ready; GOV-005 remains deferred.
