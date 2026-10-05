@@ -8,7 +8,7 @@ from typing import Any
 from .errors import ContractError, ErrorCode
 from .inputs import DataKind, I64_MAX, schema_for
 from .results import ValueType
-from ._implemented import BATCH_IDS
+from ._implemented import BATCH_IDS, UPDATE_IDS, RESTORE_IDS, MERGE_IDS
 
 @dataclass(frozen=True)
 class Capabilities:
@@ -92,7 +92,7 @@ class FeatureDefinition:
             raise ContractError(ErrorCode.INCOMPATIBLE_VERSION,"unsupported definition schema/release")
         if type(self.capabilities) is not Capabilities:
             raise ContractError(ErrorCode.INVALID_SCHEMA,"typed actual capabilities required")
-        if (self.capabilities.batch and self.feature_id not in BATCH_IDS) or any((self.capabilities.update,self.capabilities.restore,self.capabilities.merge)):
+        if any(enabled and self.feature_id not in inventory for enabled,inventory in ((self.capabilities.batch,BATCH_IDS),(self.capabilities.update,UPDATE_IDS),(self.capabilities.restore,RESTORE_IDS),(self.capabilities.merge,MERGE_IDS))):
             raise ContractError(ErrorCode.UNSUPPORTED_CAPABILITY,"capability has no accepted implementation")
         for rows,expected in ((self.requirements,InputRequirement),(self.outputs,OutputField)):
             if type(rows) not in (tuple,list) or not rows or any(type(x) is not expected for x in rows):

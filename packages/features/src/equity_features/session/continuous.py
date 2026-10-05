@@ -11,7 +11,8 @@ from equity_feature_contracts import (
 )
 from equity_features import __version__
 from .bars import _columns, _policy
-from .quotes import _admit_quotes, _quote_values
+from .quotes import _admit_quotes
+from ._reductions import _quote_values
 
 _CATEGORIES=('normal','locked','crossed','invalid','expired','unknown')
 

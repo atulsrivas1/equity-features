@@ -24,6 +24,7 @@ import equity_feature_contracts as c
 assert not any(x.startswith('equity_features') for x in sys.modules)
 import equity_features as f
 import equity_features.session
+import equity_features.incremental
 assert c.__version__==f.contracts_version==f.__version__==EXPECTED_VERSION
 assert not hasattr(f,'compute')
 '''

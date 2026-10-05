@@ -2,5 +2,5 @@
 
 from equity_feature_contracts import __version__ as contracts_version
 
-__version__ = "0.0.2a5"
+__version__ = "0.0.2a6"
 __all__ = ["__version__", "contracts_version"]
