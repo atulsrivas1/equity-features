@@ -4,7 +4,7 @@ Updated2026-10-04 (Eastern). Read AGENTS.md, PUBLIC_DEVELOPMENT.md and R0_AUTONO
 
 ## Verified delivery and current work
 
-EQ-001â€“004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
+EQ-001Ã¢â‚¬â€œ004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
 
 EQ-007 Done: PR130 source a333fa7af53fc8f33e2b95368a99716bee6658d5, then actual foundation delivery under EQ-009. Source merge alone correctly remained Ready to release. EQ-008 Done via PR131,86321207b2ce8557a64a58782cfea28de4003a56: CPython3.12 x64, Windows/Linux; exact optional NumPy2.2.6/PyArrow20.0.0 pins and development tool lock. Local Windows3.12.10; CI Linux3.12.14 and Windows3.12.10 recorded in artifact manifests. Other environments unqualified.
 
@@ -28,6 +28,11 @@ metadata, explicit Arrow/NumPy materializing bridges and27independent unit cases
 implemented. Core imports exclude optional backends. Experimental version0.0.1a1.
 Strict typing passed with PyArrow missing-stub override only; boundary passed.
 Current tests cover exact ns/int64/decimal128 endpoints and null/ownership behavior.
+Author review added concrete-container guards before source freeze. A development
+build had already produced earlier bytes; its installed sdist correctly failed the
+new27case tests. Those stale bytes are rejected; final source is rebuilt with the
+source/tests frozen throughout build/install verification. Synthetic installed
+example: examples/canonical_inputs.py.
 Semantic validation remains EQ-014. Source review, all references, repeat build,
 clean install, exact-head/main CI and actual artifact delivery remain mandatory.
 E03 now active and remains open through EQ-093/R3.
@@ -43,9 +48,9 @@ E03 now active and remains open through EQ-093/R3.
 
 ## Boundaries and durable authorization
 
-Owner authorizes remaining EQ-011â€“016 one at a time through verified R0 acceptance. Create each full story plan before implementation, inspect live issue/Project/prerequisites, confirm points, preserve unrelated work and obey eight stages. Author self-review/CI are approved; GOV-005 issue119/PR120 stays explicitly owner-deferred. No independent bot/human review, account/profile changes, paid/source access, private data, external-product integration, public registry or recurring automation. Calculation packages have no source/clock/job I/O. R1/R2 kernels and R3 custom execution remain unimplemented. EQ-093 stays R3; EQ-094 retired.
+Owner authorizes remaining EQ-011Ã¢â‚¬â€œ016 one at a time through verified R0 acceptance. Create each full story plan before implementation, inspect live issue/Project/prerequisites, confirm points, preserve unrelated work and obey eight stages. Author self-review/CI are approved; GOV-005 issue119/PR120 stays explicitly owner-deferred. No independent bot/human review, account/profile changes, paid/source access, private data, external-product integration, public registry or recurring automation. Calculation packages have no source/clock/job I/O. R1/R2 kernels and R3 custom execution remain unimplemented. EQ-093 stays R3; EQ-094 retired.
 
-E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone assignment before closing R0, with explicit rationale; do not implement R3 or close the epic to clear a milestone. R0 acceptance still requires EQ-011â€“016 typed in-memory foundation, tests/docs and final versioned artifact delivery. Original chat stopped implementation; this chat owns the sequence.
+E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone assignment before closing R0, with explicit rationale; do not implement R3 or close the epic to clear a milestone. R0 acceptance still requires EQ-011Ã¢â‚¬â€œ016 typed in-memory foundation, tests/docs and final versioned artifact delivery. Original chat stopped implementation; this chat owns the sequence.
 
 ## Exact resume steps
 
