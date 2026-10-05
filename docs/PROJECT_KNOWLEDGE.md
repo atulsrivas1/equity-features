@@ -1,0 +1,38 @@
+# Project knowledge
+
+GOV-011, prepared October 5, 2026. This is the repository's cross-session knowledge entry point. It complements existing specifications and receipts; it does not establish new numerical correctness, delivery acceptance or performance.
+
+## Start a session
+
+Read [work agreements](../AGENTS.md), this overview, [current handoff](SESSION_HANDOFF.md), [delivery policy](DELIVERY_POLICY.md) and the live [Project](https://github.com/users/atulsrivas1/projects/2). Then read the selected story, its dependencies and only the relevant source documents.
+
+- [Decision history](knowledge/DECISIONS.md): agreed direction and superseded proposals.
+- [Engineering lessons](knowledge/LESSONS.md): observed failures, evidence and revisit conditions.
+- [Source map and review coverage](knowledge/SOURCE_MAP.md): authoritative contracts and import limits.
+- [Backlog and learning workflow](knowledge/BACKLOG_WORKFLOW.md): how to identify, rank and deliver the next useful work.
+
+The live Project owns current lifecycle status. [BACKLOG.md](BACKLOG.md) owns versioned scope/dependencies. An old handoff paragraph, chat completion statement or successful test count does not override a newer owner decision or delivery gate. A new checkout uses the same issues and ownership rules.
+
+## Purpose and architecture
+
+Build reusable, source-independent equity calculations for research, backtesting and machine-readable analysis. The owner selected a separate personal open-source project, public engineering records and Apache-2.0. Code licensing does not grant provider-data or private-source rights.
+
+Two distributions share one repository: `equity-feature-contracts` owns typed inputs/specifications/results/validation/discovery/adapter protocols; `equity-features` owns calculations. Calculations receive supplied facts and return results. Adapters own acquisition and normalization; workers own scheduling, resources and persistence; downstream strategies own scanners, rankings and outcomes.
+
+Python is the selected public interface. Backend acceleration follows measurements and parity checks. The earlier Go-first worker proposal and earlier provider-prefixed package names are historical. A package metadata interface is not a delivered adapter, worker, hosted service or stable registry release.
+
+## Release and ownership orientation
+
+The agreed sequence is packages R0–R3, DuckDB adapter R4, independent workers R5, provider/file adapters R6, remote tools R7, and measured acceleration/separate strategy-label packages R8. Read [scope and dependencies](BACKLOG.md) rather than treating every later capability as a prerequisite for the current release.
+
+On October 5 the owner restored **R2 before R3 feature work**. The repair session finishes BUG-003/BUG-004 and stops; the dedicated R2 session may prepare, but calculation implementation depends on verified repairs and handoff publication. Consult [GOV-010](https://github.com/atulsrivas1/equity-features/issues/167), [PR168](https://github.com/atulsrivas1/equity-features/pull/168), and current issue/Project evidence. This dated decision does not claim those gates are now complete.
+
+[R0 acceptance](R0_ACCEPTANCE.md) and [R1 acceptance](R1_ACCEPTANCE.md) remain versioned historical receipts. The later [R1 review](reviews/R1_REVIEW.md) found two further defects despite extensive tests. Current repair status is linked, not inferred from the old acceptance report. [BUG-003](https://github.com/atulsrivas1/equity-features/issues/162), [BUG-004](https://github.com/atulsrivas1/equity-features/issues/163).
+
+External application architecture remains outside this project. EQ-094 was withdrawn and its ID remains reserved. Custom features/adapter conformance remain agreed scope under EQ-093/EQ-095; no application-specific integration is required. GOV-005/PR120 reviewer activation remains deferred unless the owner resumes it.
+
+## How learning persists
+
+Keep evidence in linked review, decision, story and delivery records. Add a scoped lesson when a correction changes how future work should proceed. Record supporting and contradicting evidence, affected version/scope, action and revisit condition. Update priorities and the exact resume step. Saved documents supply durable context; they do not retrain a model or create an unattended worker.
+
+The import screened relevant active/archived development chats and inspected repository records. It was targeted, not an account-wide archive or fresh source-code audit. See the [coverage record](knowledge/SOURCE_MAP.md). No numerical feature or bulk dataset work was performed by GOV-011.

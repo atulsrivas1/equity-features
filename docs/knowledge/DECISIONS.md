@@ -1,0 +1,21 @@
+# Decision history
+
+Engineering summaries of owner decisions and accepted records, prepared October 5, 2026. Canonical specifications control details. Preserve supersession rather than silently replacing history.
+
+| Decision | Current consequence | Source / superseded direction |
+| --- | --- | --- |
+| Separate reusable open-source equity packages | Public original code, synthetic/licensed examples, Apache-2.0; private data/source reuse needs verified rights | [Release access](../decisions/release-access.md); supersedes a source-specific bundled worker project |
+| Python-first public API with two distributions | Dependency-light contracts; calculations depend inward; optional/native acceleration only after justified measurement | [Package design](../PACKAGE_DESIGN.md), [layout](../PACKAGE_LAYOUT.md); supersedes Go-first and earlier provider-prefixed package names |
+| Calculations never acquire inputs | No file/DB/network/credential/clock/scheduler access in calculation code; caller supplies data/configuration/availability | [AGENTS](../../AGENTS.md), [adapter contracts](../contracts/ADAPTERS.md) |
+| Mathematics before implementation | Formula, units, initialization, timing, coverage and edge examples precede feature code | [Feature scope](../features/V1_SCOPE.md), linked formula stories |
+| Exact identity and explicit missingness | Preserve UTC int64 nanoseconds, scaled integer values, source revisions and independent quality; missing is not zero | [Inputs](../contracts/INPUTS.md), [results](../contracts/RESULTS.md) |
+| Causal and reconstructed history are distinct | Supplied market/reference/decision cutoffs and known-at evidence govern admission; generation time does not prove historical availability | [Timing policy](../features/TIMING_ADJUSTMENT_POLICY.md) |
+| Release-based continuous pull | One active story initially; pull dependency-satisfied Ready work; dates are evidence-based forecasts, no mandatory sprint ceremony | [Delivery policy](../DELIVERY_POLICY.md); supersedes the initial sprint suggestion |
+| Eight lifecycle stages and documentation with every story | Backlog → Ready → In progress → Code review → Test → Ready to release → Released → Done; merged code is not automatically delivered | [Public workflow](../PUBLIC_DEVELOPMENT.md) |
+| Experimental artifacts are the current channel | Verify actual main bundles and fresh installations; no registry/stable/throughput claim from source merge alone | [Build delivery](../BUILD_DELIVERY.md), [release access](../decisions/release-access.md) |
+| External products remain separate | No consumer-specific architecture/integration requirement; EQ-094 withdrawn and reserved | [Product boundaries](../decisions/product-boundaries.md), [PR123](https://github.com/atulsrivas1/equity-features/pull/123) supersedes the earlier integration proposal |
+| Explicit consumer extension qualification | Distinct custom ID/version, no built-in replacement, declared timing/capabilities and public-API clean-install example; registration is planned until delivered | [EQ-093](https://github.com/atulsrivas1/equity-features/issues/113), [EQ-095](https://github.com/atulsrivas1/equity-features/issues/150) |
+| Reviewer activation deferred | Retain author self-review/CI and honest identity; do not claim independent/automated review | [Workflow owner decision](../PUBLIC_DEVELOPMENT.md), [GOV-005](https://github.com/atulsrivas1/equity-features/issues/119) |
+| R2 precedes R3 feature work | Finish two R1 repairs with their owner; R2 waits for verified delivery; R3 requires renewed scope at the appropriate boundary | [GOV-010](https://github.com/atulsrivas1/equity-features/issues/167), [PR168](https://github.com/atulsrivas1/equity-features/pull/168); supersedes the earlier R3 execution priority |
+
+When a decision changes, add date, owner/source evidence, affected records and consequences. Earlier decisions remain historical and cannot authorize today's account, publication, source-access or live-process actions.
