@@ -1,108 +1,46 @@
 # Development continuity
 
-Updated 2026-10-04. Public repository: atulsrivas1/equity-features; Apache-2.0. Read AGENTS.md and PUBLIC_DEVELOPMENT.md. GitHub Project is the actual status authority.
+Updated2026-10-04 (Eastern). Read AGENTS.md, PUBLIC_DEVELOPMENT.md and R0_AUTONOMOUS_HANDOFF.md. GitHub Project remains the status authority.
 
-## Completed work and current scope
+## Verified delivery and current work
 
-EQ-001 Done via PR106: 39 builtin IDs. EQ-002 Done via PR112: 20 session/bar/trade definitions and 17 reference cases. EQ-003 Done via PR121 (merge af0dbb8552a3667c242bd46756bf6cb2292d4a5d): 3 quote definitions and 26 reference cases. EQ-004 Done via PR124 (merge 4fbe9e00d278a7bb70ca024c094b63b8e83dbebb): 8 historical definitions and 31 reference cases. Their final-head CI, default-branch publication and post-publication checks are recorded on their issues. These 74 mathematical reference cases do not qualify production kernels, performance or provider inputs. No production package or public registry release exists yet.
+EQ-001–004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
 
-EQ-004 established SMA-seeded EMA, Wilder RSI/ATR, explicit anchors, strict recursive gap behavior, prior-only extrema and sample simple-return volatility with explicit scaling. Preserve these recorded decisions. EQ-005 is Ready; EQ-006–016 remain Backlog at this snapshot. Verify live Project before reporting status.
+EQ-007 Done: PR130 source a333fa7af53fc8f33e2b95368a99716bee6658d5, then actual foundation delivery under EQ-009. Source merge alone correctly remained Ready to release. EQ-008 Done via PR131,86321207b2ce8557a64a58782cfea28de4003a56: CPython3.12 x64, Windows/Linux; exact optional NumPy2.2.6/PyArrow20.0.0 pins and development tool lock. Local Windows3.12.10; CI Linux3.12.14 and Windows3.12.10 recorded in artifact manifests. Other environments unqualified.
 
-## Autonomous R0 handoff
+EQ-009 Done via PR132 and follow-up PR133. Final head18866d7f96f78516e27ed95787a9432c276c5050; main0e130ca2a759ff13a35ca44da05382056a4b4768. All six exact-head checks and main workflows passed.14negative boundary fixtures, declared runtime dependency allowlist, strict typing,123references, source/import/licensing-content checks, repeat four-artifact SHA256 parity and fresh wheel/sdist installs passed. All story-changed Git blobs matched GitHub bytes (full squash diff, not just last commit). Both final main bundles were actually downloaded/hashed/inspected; their four distribution hashes matched previously fresh-installed PR132 main bundles, so install evidence was reused on identical bytes. No independent review claimed.
 
-Owner requested a separate chat to complete bounded R0 work. [R0_AUTONOMOUS_HANDOFF.md](R0_AUTONOMOUS_HANDOFF.md), tracked by GOV-007 issue125, contains the mission, kickoff prompt, remaining EQ-005–016 story plans, provisional points, tests/docs and delivery gates. The new execution chat owns R0 after this document is published; the original chat stops implementation to avoid concurrent writes. Resume by reading that package and the live EQ-005 issue6, preparing its full story plan and using the agreed workflow. Continue one story at a time through R0 acceptance; do not start R1 automatically.
+## Foundation delivery channel
 
-Both source-independent distributions are planned: equity-feature-contracts and equity-features. R0 includes actual contracts/validation/registry foundation, not only documents. Establish and verify a declared internal foundation-artifact channel under EQ-009 before declaring implementation delivery; merging source alone is insufficient. No public registry publication or stable release version/date is authorized. E03 spans R0 and R3 EQ-093: retain the later child and reconcile epic milestone tracking honestly before closing R0.
+Successful main Foundation package checks retained artifacts,30day requested retention, manifest source commit/clean flag/SHA256/OS/runtime. No PyPI or stable production release. Build/rebuild instructions: BUILD_DELIVERY.md; compatibility: COMPATIBILITY.md. Artifact evidence/expiry/hashes are recorded on issues9/11.
+- [foundation-0e130ca2a759ff13a35ca44da05382056a4b4768-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37258142835/artifacts/11323726340), expires2026-11-04T03:08:49Z; prior byte-identical install evidence: https://github.com/atulsrivas1/equity-features/actions/runs/37257622066/artifacts/11323481301.
+- [foundation-0e130ca2a759ff13a35ca44da05382056a4b4768-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37258142835/artifacts/11323307342), expires2026-11-04T03:08:14Z; prior byte-identical install evidence: https://github.com/atulsrivas1/equity-features/actions/runs/37257622066/artifacts/11323042505.
 
-## Product and review boundaries
+EQ-010 In progress,3points: verified public owner atulsrivas1/Apache-2.0 and both distribution license/name metadata. Read-only PyPI lookups returned404; this neither reserves names nor authorizes publication. Decision and offline license consistency check prepared. Final-head/main CI and byte verification precede Done; then E02 child acceptance and EQ-011 Ready.
 
-Calculations receive in-memory inputs and perform no fetching/database/file/credential/job/output/clock work. Adapters/workers/remote access remain later releases. Other applications are separate products; see decisions/product-boundaries.md. GOV-006 issue122/PR123 delivered scope cleanup (merge 4a0dda1bb440e7a78750c39d60f2e3f36042a0ae). EQ-094 is retired not_planned with no active Project/milestone/parent scope; never reuse it. 93 active EQ stories remain. GOV-004/PR118 is a superseded proposal; historical diffs remain visible. EQ-093 custom calculators remains Backlog/R3, with no implementation or sandbox claim.
+## Failures and corrections
 
-GOV-005 issue119/PR120 remains open and explicitly owner-deferred. Do not activate or merge it as part of R0. Deferred branch synchronized at 66def0e7bdc708ac82ce3ffeedaf0764f79cbcfe with passing checks. Existing author self-review, CI, acceptance/documentation and publication checks apply. Record actual reviewers/limitations; no separate hosted bot or independent human review is claimed. Administrator merges do not imply human review.
+- PR128 merge-commit request rejected: repository permits squash only. Checked command stopped; allowed squash used on the same green head.
+- Windows console UTF-8 print failed after an issue close; live closure verified, console reconfigured; no failed command counted as validation.
+- Whole-roadmap GraphQL queries consumed quota, then targeted queries also hit exhaustion. Switched to documented REST Projects endpoints and verified actual returned fields. CLI GraphQL quota reset03:25:33UTC. Connector draft conversion lacked write access; signed-in GitHub UI performed readiness transitions. No gate waived.
+- Copied licenses inherited a trailing blank line; staged diff check stopped before commit. Trimmed whitespace only, preserved license text/root license.
+- EQ-008 close assertion stopped while main matrix still ran; closure waited for successful workflows.
+- EQ-009 imported-function alias loophole found during artifact acceptance. Acceptance metadata finished before process stop reached it; EQ-009 explicitly reopened/In progress and EQ-010 returned Backlog. EQ-007 actual artifact acceptance remained valid. PR133 fixed imported names/wildcard bypass with three negatives; new final-head/main/artifact verification preceded reacceptance. Earlier build/hash/install evidence remains factual.
 
-## Verification and recovery
+## Boundaries and durable authorization
 
-EQ-005 delivered via PR128 (squash b3a39a4209580e95ebe7f953d63b81f839901dfe).
-Final head fee6be4c20581567c28b4ef6e79b7b960dc004b0 passed both CI checks;
-100 reference cases/planning passed before and after delivery, all eight Git blobs
-matched GitHub bytes, main CI passed. Issue6 Done/closed and E01 checklist verified.
-Merge-commit attempt was rejected (repository allows squash only); checked commands
-stopped, then allowed squash on the same head succeeded. A Windows console Unicode
-print failed after the successful issue close; live closure was independently
-verified and UTF-8 stdout fixed. No failed command counts as validation.
+Owner authorizes remaining EQ-011–016 one at a time through verified R0 acceptance. Create each full story plan before implementation, inspect live issue/Project/prerequisites, confirm points, preserve unrelated work and obey eight stages. Author self-review/CI are approved; GOV-005 issue119/PR120 stays explicitly owner-deferred. No independent bot/human review, account/profile changes, paid/source access, private data, external-product integration, public registry or recurring automation. Calculation packages have no source/clock/job I/O. R1/R2 kernels and R3 custom execution remain unimplemented. EQ-093 stays R3; EQ-094 retired.
 
-EQ-006 In progress on codex/eq-006-timing-policy, confirmed8points. Plan and timing
-policy separate market C, reference knowledge K and evaluation E with C,K<=E;
-delayed EOD knowledge is not instantly available at close. Split/dividend basis
-and reconstruction are explicit.23design fixtures added. Broad full-roadmap Project
-query hit rate-cost rejection; stopped, switched to targeted cached-ID query,
-verified live transition. PR120 stays deferred; author self-review only.
-Resume: run all five tools/verify_*_examples.py and planning block in docs workflow;
-inspect diff, linked PR, Code review/Test, exact final-head CI, allowed squash merge,
-GitHub bytes vs committed blobs and main checks before Released/Done. Update E01,
-then EQ-007 planning. No production kernels/source admission claimed.
+E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone assignment before closing R0, with explicit rationale; do not implement R3 or close the epic to clear a milestone. R0 acceptance still requires EQ-011–016 typed in-memory foundation, tests/docs and final versioned artifact delivery. Original chat stopped implementation; this chat owns the sequence.
 
+## Exact resume steps
 
-Documentation CI verifies 93 active EQ IDs, 39 feature IDs and all eight lifecycle states. Run the planning code in .github/workflows/docs.yml, python tools/verify_session_examples.py, python tools/verify_quote_examples.py, python tools/verify_history_examples.py and git diff --check; add relevant story-specific checks as contracts/code grow. Final-head CI and default-branch delivery verification remain required.
+1. Work in the existing equity-feature-project checkout, not this chat output directory; inspect status/branch/HEAD/origin/main and concurrent PRs. Public documentation intentionally excludes private local paths.
+2. Active EQ-010: review docs/decisions/release-access.md and tools/verify_release_policy.py; all123references/planning/import/license/diff checks, exact final-head CI, squash publication, GitHub bytes against committed blobs and main CI. Update issue12 and E02 honestly.
+3. Pull live EQ-011 issue14 after EQ-010 Done. Read its canonical schema acceptance and create docs/stories/EQ-011_PLAN.md before code;8points provisional. Implement actual immutable typed in-memory inputs and explicit columnar interoperability. Then EQ-012/013/014/015/016 in dependency order, no later-release calculators.
+4. Run the planning block from .github/workflows/docs.yml; python tools/verify_session_examples.py, verify_quote_examples.py, verify_history_examples.py, verify_context_examples.py, verify_timing_examples.py; import/license checks; pinned venv compatibility, strict mypy, boundary/unit/build checks as applicable. Stop on failures.
+5. Each implementation delivery requires actual successful main artifact download, commit/hash/content/clean-install verification before Released/Done. Record issue/epic/Project and this continuity alongside every story; attach every created PR to execution chat. Stop at verified R0 acceptance and report next-story readiness.
 
-Use explicit UTF-8 and fail-fast checked subprocesses. GOV-002 recorded a local encoding failure and a shell sequence that wrongly continued to merge; corrected post-merge checks passed. GOV-006 recorded an unsupported Project CLI flag, corrected before publication; no failed command counts as validation. Public fixtures are synthetic or explicitly licensed. Never publish private data, credentials or internal paths. Documentation delivery is not parent milestone/package delivery. Preserve unrelated work and update this file after meaningful decisions, failures, validation and completed work.
+## Historical governance evidence
 
-GOV-007 handoff PR126 merged 508fd81d0021aea44162b26e1e1c261449c28038 with both final-head CI checks passing. A post-publication byte assertion stopped on local CRLF versus GitHub LF; normalized text matched. Corrected verification compares GitHub content bytes with `git show HEAD:path` bytes, not checkout bytes; all four changed files matched committed blobs and all 74 references/planning checks passed. This verification-tool mismatch did not change published content. Use committed-blob comparison for exact publication checks on Windows.
-
-## Package foundation execution
-
-EQ-006 delivered via PR129, final head31101d0f25630b0b117d3e1f65f16ae0b5c120aa,
-squash5c8edf56392ac319483669c7f8890597b489ff68.123references, exact final-head
-and main CI, eight changed blobs verified. Issue7/E01 Done. CLI GraphQL quota later
-exhausted until03:25:33UTC; REST Project API checked against official GitHub docs,
-status updates verified through returned field values. Draft conversion connector
-lacked repository write access; signed-in GitHub UI converted PR129 instead.
-No quota/review/release gate was bypassed. Local checks use explicit UTF-8.
-
-EQ-007 In progress: confirmed5points; two src distributions, py.typed/license,
-inward dependency and isolated import smoke. No numerical APIs. All123references
-and import/planning checks pass locally. Review/exact-head CI/main publication
-pending; after source merge retain Ready to release awaiting EQ-009 artifacts.
-EQ-008 may be pulled after source gates; no second active implementation. Resume:
-inspect diff/open linked PR, formal lifecycle and final-head CI; squash merge,
-verify committed blobs/main CI. Do not mark EQ-007 Released/Done on merged source.
-
-EQ-007 staged diff check stopped on inherited trailing blank lines in copied LICENSE
-files; removed trailing whitespace only, kept root license and all license text.
-Import smoke compares normalized license text. No commit/push occurred on failure.
-
-EQ-007 source delivered via PR130 at a333fa7af53fc8f33e2b95368a99716bee6658d5;
-final2641a41c6d3453a77db2cc274db22f4a1d9a988d and main CI pass,17blobs match.
-Issue9 remains open/Ready to release awaiting EQ-009 artifacts. No source-only Done.
-EQ-008 In progress (5points): CPython3.12 only; local Windows3.12.10 AMD64 clean
-venv installed exact NumPy2.2.6/PyArrow20.0.0, setuptools80.9.0 and fully pinned
-build/type transitive tools. Editable installs, pip check, UTCns/int64/null smoke,
-123references and planning/import/diff checks pass. Linux/Windows CI matrix must
-pass final head before policy acceptance; artifacts still EQ-009. Resume linked
-PR review/Test/final-head CI, squash/main blob and CI verification; then EQ-009.
-
-EQ-008 Done via PR131 at86321207b2ce8557a64a58782cfea28de4003a56; final
-2fed0eaad9c4b097fa3ba63a05485a38e25aad8c passed six checks and main matrix/docs
-passed. Premature completion assertion stopped while main matrix was still running;
-no issue closure occurred until both main workflows succeeded.8blobs verified.
-
-EQ-009 In progress (8points): local four-artifact repeat builds matched SHA256,
-archive inspection and fresh wheel/sdist pairs installed with pip check/import smoke.
-Strict mypy (2sources),11negative boundary fixtures and123references pass. Build
-manifest now includes package-source dirty flag; CI must record clean source. Main
-30day GitHub Actions channel planned/documented but not yet delivered. EQ-007 stays
-Ready to release. Resume: review linked PR, Test/final-head all CI, squash/main blobs,
-wait main artifact matrix, download actual main bundles and verify manifest commit,
-hashes/expiry, clean install. Only then Released/Done for EQ-009 and EQ-007; EQ-010
-is next. Do not substitute local build/editable installs for retained delivery.
-
-EQ-009 rework before acceptance: PR132 source merged9bb9f12b3f3b5282ff564bdf4ff687b0bea4b0dc
-and all final/main checks passed; main artifact download/installs underway. Further
-negative inspection found `from numpy import load as loader` bypassed the AST gate.
-Acceptance process13008 completed both OS bundle verification and issue closures
-before the stop reached it. EQ-007 delivery is valid and remains Done. EQ-009
-was reopened and returned to In progress for the gate defect; EQ-010 Backlog. Fix on codex/eq-009-import-alias-gate inspects imported function names,
-forbids wildcard imports and adds three regression negatives (14total). Core artifact
-code is unchanged, but final fix-head CI/main verification is required. Do not count
-PR132 alone as EQ-009 completion. EQ-007 Done is supported by actual artifact evidence. Resume review
-follow-up PR, gates, then actual final-main artifact verification before closing.
+GOV-006 PR123 published scope correction4a0dda1bb440e7a78750c39d60f2e3f36042a0ae; current generic boundaries preserved. Deferred PR120 synchronized66def0e7bdc708ac82ce3ffeedaf0764f79cbcfe and remains untouched. GOV-007 PR126/127 delivered the autonomous handoff; initial verified main0cf343e14863e41e39ad142ac0977a9731101346. CRLF-vs-LF publication-tool mismatch was corrected by comparing committed Git blob bytes. Preserve prior history/evidence; documentation delivery alone never completes a package milestone.
