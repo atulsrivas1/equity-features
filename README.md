@@ -2,10 +2,10 @@
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
-**Status: R2 final integration is under qualification at experimental pair 0.0.3a13.
+**Status: R2 experimental pair 0.0.3a13 is accepted.
 All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
 conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
-Eleven R2 stories are accepted; EQ037 final release gates remain in progress.
+All twelve R2 stories are closed/Project Done; the R2 milestone and E05 are closed. R3 remains paused.
 [R2 acceptance evidence](docs/R2_ACCEPTANCE.md), [R1 acceptance and limits](docs/R1_ACCEPTANCE.md),
 and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the declared
 channel. No stable API, public registry publication or throughput claim.**
