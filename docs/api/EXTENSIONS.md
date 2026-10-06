@@ -44,3 +44,6 @@ EQ040 adds consumer0.3.0's [standalone installed workflows](../EXAMPLES.md): pyt
 
 
 [Version identities and replay policy](../VERSIONING.md) documents independent implementation/algorithm/config/schema identities, exact experimental state restoration and actual typed incompatibility. Custom definition metadata never restores an executable registration or incremental mode.
+
+
+The [current experimental bundle installation](../INSTALLING.md) provides actual standalone consumerwheel/sdist beside core archives. Sourcebuild commands above remain a developer alternative. Corefiles and installed distribution metadata are fingerprinted before consumerinstallation, afterward and after public execution; external archives cannot contain corepackage namespaces. Actual installed artifacts/typing/independent goldens remain separate from arbitrarycallback correctness or source-truth certification.

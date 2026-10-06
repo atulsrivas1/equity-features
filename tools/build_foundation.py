@@ -1,4 +1,4 @@
-"""Pinned repeat-build, archive inspection and clean-install gate for R0."""
+"""Pinned experimental core/consumer repeat-build and actual install gates."""
 import gzip
 import hashlib
 import io
@@ -37,7 +37,8 @@ def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def inspect(path):
-    package='equity_feature_contracts' if 'contracts' in path.name else 'equity_features'
+    consumer=path.name.startswith('equity_feature_demo-')
+    package='equity_feature_demo' if consumer else 'equity_feature_contracts' if 'contracts' in path.name else 'equity_features'
     if path.suffix=='.whl':
         with zipfile.ZipFile(path) as z: files={n:z.read(n) for n in z.namelist() if not n.endswith('/')}
         assert all(n.startswith((package+'/',package+'-')) for n in files),files.keys()
@@ -52,10 +53,33 @@ def inspect(path):
         assert any(k.endswith('/src/'+package+'/py.typed') for k in files)
         assert any(k.endswith('/LICENSE') for k in files)
         assert any(k.endswith('/pyproject.toml') for k in files)
+        if consumer:
+            prefix=path.name.removesuffix('.tar.gz')+'/'
+            assert all(n.startswith((prefix+'src/'+package+'/',prefix+'src/'+package+'.egg-info/')) or n in {prefix+x for x in ('LICENSE','PKG-INFO','pyproject.toml','setup.cfg')} for n in files),files.keys()
     for name,content in files.items():
         assert not name.startswith(('/','\\')) and '..' not in Path(name).parts,name
         assert not any(x in name for x in ['__pycache__','.pyc','.env','fixtures','work/']),name
         assert b'C:\\Users\\' not in content and b'/home/runner/' not in content,name
+
+
+def core_fingerprint(py):
+    """Actual installed core bytes before and after independent installation."""
+    code='''import hashlib,json
+from importlib.metadata import distribution
+from pathlib import Path
+import equity_features as f,equity_feature_contracts as c
+roots=(Path(f.__file__).parent,Path(c.__file__).parent)
+assert all('site-packages' in root.parts for root in roots)
+result={root.name+'/'+p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for root in roots for p in root.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+for name in ('equity-features','equity-feature-contracts'):
+    dist=distribution(name)
+    for relative in dist.files:
+        path=Path(dist.locate_file(relative)).resolve()
+        assert 'site-packages' in path.parts
+        if '__pycache__' not in path.parts and path.is_file():result[relative.as_posix()]=hashlib.sha256(path.read_bytes()).hexdigest()
+print(json.dumps(result,sort_keys=True))
+'''
+    return json.loads(subprocess.check_output([str(py),'-I','-c',code],text=True,cwd=ROOT))
 
 
 def clean_install(paths):
@@ -70,12 +94,14 @@ def clean_install(paths):
         run(str(py),'-m','pip','check')
         run(str(py),'-I','-c','import equity_feature_contracts as c; import equity_features as f; assert c.__version__==f.__version__==f.contracts_version; print("Clean installed foundation imports verified",c.__version__)')
         run(str(py),'-m','pip','install','--no-deps','numpy==2.2.6','pyarrow==20.0.0')
-        consumer=ROOT/'examples/external_consumer'
-        if consumer.exists():
-            # Build independently; install into the same isolated pair without editing core.
-            demo_out=env/'consumer-dist'
-            run(sys.executable,'-m','build','--no-isolation','--wheel','--outdir',str(demo_out),str(consumer))
-            run(str(py),'-m','pip','install','--no-index','--no-deps',*[str(p) for p in demo_out.glob('*.whl')])
+        consumer_paths=sorted(p for p in paths[0].parent.glob('equity_feature_demo-*') if (p.suffix=='.whl')==(paths[0].suffix=='.whl'))
+        assert len(consumer_paths)==1,'matching standalone consumer artifact required'
+        for p in consumer_paths:inspect(p)
+        before_install=core_fingerprint(py)
+        run(str(py),'-m','pip','install','--no-index','--no-deps','--no-build-isolation',*[str(p) for p in consumer_paths])
+        after_install=core_fingerprint(py)
+        assert before_install==after_install,'consumer installation overwrote installed core'
+        if consumer_paths:
             run(str(py),'-I','-c',"""import ast, hashlib
 from pathlib import Path
 import equity_features as f, equity_feature_contracts as c, equity_feature_demo as d
@@ -105,6 +131,15 @@ print('Independent installed consumer public imports and immutable core verified
             # Development tools qualify installed typing; they are not core runtime requirements.
             run(str(py),'-m','pip','install','--no-deps','mypy==1.15.0','mypy_extensions==1.1.0','typing_extensions==4.16.0')
             run(str(py),'-I',str(ROOT/'tools/verify_public_typing.py'))
+        after_execution=core_fingerprint(py)
+        assert before_install==after_execution,'consumer execution changed installed core'
+        fingerprint_digest=lambda values:hashlib.sha256(json.dumps(values,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+        consumer_version=subprocess.check_output([str(py),'-I','-c',"from importlib.metadata import version;print(version('equity-feature-demo'))"],text=True).strip()
+        consumer_report=dict(schema='consumer-install1',source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
+            system=platform.system(),consumer_version=consumer_version,artifact=consumer_paths[0].name,artifact_sha256=digest(consumer_paths[0]),
+            core_files=len(before_install),before_install_sha256=fingerprint_digest(before_install),after_install_sha256=fingerprint_digest(after_install),
+            after_execution_sha256=fingerprint_digest(after_execution),public_only_installed_execution=True)
+        (ROOT/'dist'/('consumer-'+platform.system()+'-'+paths[0].suffix.lstrip('.')+'.json')).write_text(json.dumps(consumer_report,sort_keys=True,indent=2)+'\n',encoding='utf-8')
         benchmark=ROOT/'benchmarks/run_baseline.py'
         if benchmark.exists():
             benchmark_output=ROOT/'dist'/('benchmark-'+platform.system()+'-'+paths[0].suffix.lstrip('.')+'.json')
@@ -126,23 +161,26 @@ def main():
     env=dict(os.environ,SOURCE_DATE_EPOCH=str(EPOCH))
     for out in [output,repeat]:
         assert out.resolve().is_relative_to(ROOT.resolve())
-        for pattern in ('equity_feature_contracts-*.whl', 'equity_features-*.whl', 'equity_feature_contracts-*.tar.gz', 'equity_features-*.tar.gz'):
+        for pattern in ('equity_feature_contracts-*.whl', 'equity_features-*.whl', 'equity_feature_contracts-*.tar.gz', 'equity_features-*.tar.gz','equity_feature_demo-*.whl','equity_feature_demo-*.tar.gz'):
             for old in out.glob(pattern): old.unlink()
-        for name in ['contracts','features']:
-            run(sys.executable,'-m','build','--no-isolation','--outdir',str(out),str(ROOT/'packages'/name),env=env)
+        for source in [ROOT/'packages/contracts',ROOT/'packages/features',ROOT/'examples/external_consumer']:
+            run(sys.executable,'-m','build','--no-isolation','--outdir',str(out),str(source),env=env)
         for p in out.glob('*.tar.gz'): normalize_sdist(p)
     paths=sorted([*output.glob('*.whl'),*output.glob('*.tar.gz')])
-    assert len(paths)==4,'stale or missing artifact set'
+    assert len(paths)==6,'stale or missing core/consumer artifact set'
     for p in paths:
         assert digest(p)==digest(repeat/p.name),f'reproducibility: {p.name}'
         inspect(p)
-    clean_install([p for p in paths if p.suffix=='.whl'])
-    clean_install([p for p in paths if p.suffix!='.whl'])
+    core_paths=[p for p in paths if not p.name.startswith('equity_feature_demo-')]
+    consumer_paths=[p for p in paths if p.name.startswith('equity_feature_demo-')]
+    assert len(core_paths)==4 and len(consumer_paths)==2
+    clean_install([p for p in core_paths if p.suffix=='.whl'])
+    clean_install([p for p in core_paths if p.suffix!='.whl'])
     commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
-    dirty=bool(subprocess.check_output(['git','status','--porcelain','--','packages'],cwd=ROOT,text=True).strip())
-    manifest=dict(schema_version='1',commit=commit,source_dirty=dirty,epoch=EPOCH,python=platform.python_version(),system=platform.system(),artifacts={p.name:digest(p) for p in paths})
+    dirty=bool(subprocess.check_output(['git','status','--porcelain','--','packages','examples/external_consumer'],cwd=ROOT,text=True).strip())
+    manifest=dict(schema_version='1',commit=commit,source_dirty=dirty,epoch=EPOCH,python=platform.python_version(),system=platform.system(),artifacts={p.name:digest(p) for p in core_paths},consumer_artifacts={p.name:digest(p) for p in consumer_paths})
     (output/'manifest.json').write_text(json.dumps(manifest,sort_keys=True,indent=2)+'\n',encoding='utf-8')
-    print('Four reproducible foundation artifacts inspected and clean-installed; manifest written.')
+    print('Four core and TWO standalone consumer reproducible artifacts inspected and clean-installed; manifest written.')
 
 
 if __name__=='__main__': main()

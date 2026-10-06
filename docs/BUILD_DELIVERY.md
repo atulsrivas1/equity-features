@@ -4,9 +4,8 @@ EQ-009 channel: downloadable **GitHub Actions artifacts from successful main
 Foundation package checks**, named `foundation-<commit>-<OS>`. No PyPI/public
 registry publication. Public repository readers with appropriate GitHub access
 can download authorized code/synthetic artifacts; no private data is included.
-The bundle pins its experimental R0 distribution version in package metadata;
-EQ-009 began at0.0.1a0 and EQ-011 adds canonical inputs at0.0.1a1. These are
-foundation contracts, not production calculators. EQ-012 specifications use0.0.1a2.
+The current bundle pins matching experimental corepair0.0.4a4 and independently packaged consumer0.3.0; installation is documented in [INSTALLING](INSTALLING.md). All39builtin batch/23sessionupdate-restore/22conditionalmerge modes remain experimental. Historical channel revisions:
+EQ-009 began at0.0.1a0 and EQ-011 adds canonical inputs at0.0.1a1. Current session/history calculations and public extension/SDK APIs retain their documented source-independent inputs and qualification limits. EQ-012 specifications use0.0.1a2.
 R0 review repair is0.0.1a6.post1; original verified foundation is0.0.1a6; [acceptance evidence and actual bundles](R0_ACCEPTANCE.md).
 30-day retention is requested, subject to repository limits; record actual expiry
 on each issue. After expiry, rebuild from the recorded commit with the pinned
@@ -34,7 +33,7 @@ market time or an availability claim. Repeatability is within a tested OS/toolch
 cross-platform archive byte identity is not promised.
 
 `manifest.json` binds source commit, Python/OS, epoch and SHA256 of exactly four
-artifacts. CI logs record tool versions and tests. Download the bundle from the
+core artifacts in `artifacts`. EQ045 separately records two standalone consumer archives in `consumer_artifacts`; they are repeat-built at the same epoch and inspected before actual wheel/sdist installation. CI logs record tool versions and tests. Download the bundle from the
 recorded main run, compare all file hashes/manifest commit, then clean-install.
 Only after actual download and verification is an implementation Released/Done.
 Later foundation revisions retain commit identity and update the experimental
@@ -110,3 +109,6 @@ EQ041 executes the isolated installed small benchmark from each fresh wheel/sdis
 
 
 EQ042 adds six installed resource diagnostic children per fresh core pair, retaining variable resource-<system>-<whl-or-gz>.json beside benchmark JSON. Independently verify exact clean source, normalized diagnostic/native-probe hashes, allsix family parity/bounded records/atomic rejections/caller controls and native memory units. Corearchive determinism does not require diagnostic byte equality. Full21case Windows measurements and scoped reachable Python sizes are documented in RESOURCE_BEHAVIOR.md; corepaira4/consumer0.3.0 unchanged.
+
+
+EQ045 inspects standaloneconsumer namespace/license/py.typed/privatepath boundaries and requires core module plus installed distribution-metadata fingerprints before/after consumerinstallation and afterexecution, excluding bytecode caches. It retains repeat-built consumerwheel+sdist with separately scoped consumer_artifacts hashes and consumer-<system>-<whl-or-gz>.json actualartifact/source/installfingerprint receipts. Wheelpair installs actualconsumerwheel; sdistpair actualconsumersdist with pinnedsetuptools80.9/noindex/nodeps/nobuildisolation. Existing22examples/completeunits/publictyping/public-only imports/invariance/benchmark/resource gates remain. Independent adversarial archive fixtures reject core namespace contamination/path escapes/known private-path content. These owned artifact checks do not certify arbitrary downloaded code or source rights. Finalreview/currentCI/mainFOURactualpairs/receiptpublication remain required; no numerical/schema/coreversion/channel change.
