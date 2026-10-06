@@ -227,8 +227,13 @@ def resolve_source(config: CatalogConfig, selection: SourceSelection, *,
         with duckdb.connect(str(config.path), read_only=True,
                             config={"threads": 1, "memory_limit": "256MB"}) as connection:
             _cancel(cancellation)
+            database_row = connection.execute("SELECT current_database()").fetchone()
+            if database_row is None:
+                _fail("Catalog database identity unavailable")
+            database = _text(database_row[0]).replace('"', '""')
+            prefix = '"' + database + '".catalog.'
             routes = connection.execute(
-                "SELECT view_schema, view_name FROM catalog.datasets "
+                f"SELECT view_schema, view_name FROM {prefix}datasets "
                 "WHERE layer=? AND snapshot=? AND dataset=? AND source_schema=? LIMIT 2", params,
             ).fetchall()
             if not routes:
@@ -241,7 +246,7 @@ def resolve_source(config: CatalogConfig, selection: SourceSelection, *,
             rows = cast(list[tuple[object, ...]], connection.execute(
                 "SELECT session_date, path, bytes, rows, provenance, original_dataset, "
                 "substituted_dataset, column_signature, optimized_path, optimized_bytes, view_schema, view_name "
-                "FROM catalog.files WHERE layer=? AND snapshot=? AND dataset=? AND source_schema=? "
+                f"FROM {prefix}files WHERE layer=? AND snapshot=? AND dataset=? AND source_schema=? "
                 f"AND session_date IN ({placeholders}) "
                 "ORDER BY session_date,path LIMIT ?",
                 [*params, *selection.sessions, config.max_files + 1],

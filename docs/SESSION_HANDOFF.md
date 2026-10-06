@@ -1326,3 +1326,36 @@ connections/cancellation and externally measured query/conversion/copy/native me
 Preparation one synthetic original-row1/1ns probe is not story acceptance. Implement
 independent actual Parquet fixtures/docs, separate final-head review/bothOS installed
 artifacts and actual main publication/readback before Done; EQ052-056 remain planned.
+
+EQ051 initial reader fixture hit DuckDB database/schema catalog-name ambiguity
+(15setup errors, no reader pass). Retain catalog.duckdb as regression; fixture DDL
+and resolver metadata queries explicitly qualify the database/schema/table, escaping
+the connection-reported database identifier while keeping values bound. Initial
+strict reader check also found two local typing issues, corrected. Current reruns
+are required; no failed/superseded check counted as acceptance.
+
+EQ051 second fixture run: literal source prices were DuckDB DECIMAL rather than
+the promised retained DOUBLE; fixed fixture explicit DOUBLE declarations, no
+implicit production coercion. Capability errors now translate via safe adapter
+messages/fromNone while preserving existing error codes. Failed61case attempt
+(2failures/8errors) is superseded; require current rerun.
+
+
+EQ051 third reader run exposed one fixture SQL unquoted close alias, corrected;
+current61 optional tests pass (14s) and strict4 source modules pass. Added actual
+installed-only synthetic reader measurement/parity harness and builder integration.
+ReadResult retains MappingReport; mapping timing includes sorting/materialization;
+copy loop cancellation added. API documents supplied sessions, unknown default
+coverage, original occurrence, whole-bar predicates, fixed errors and stability/
+responsiveness/memory limits. Interim separate reviewer inspecting uncommitted
+implementation; no final-head/installed/delivery acceptance yet. Next freeze code/
+docs, actual repeat-built installed wheel/sdist benchmark, resolve review findings,
+final-head review/CI and actual main artifacts/readback before issue58 Done.
+
+
+EQ051 interim separate reviewer /root/eq049_review independently ran61tests/strict4
+and reproduced P2 NULL timestamp bypass: DuckDB default UDF null handling silently
+filtered an unlocatable row into asserted observed-empty. Corrected special null
+handling routes None through exact parser; added independent null-time/default and
+claimed-empty rejection fixture. Require current62 suite and installed harness
+rerun; interim review is not frozen-head acceptance.

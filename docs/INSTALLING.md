@@ -99,3 +99,11 @@ three strictly typed adapter modules and independently expected mapping fixtures
 The optional builder now qualifies the expanded installed suite/forms; exact pinned
 contracts0.0.4a4/DuckDB1.5.6 and pure core remain unchanged. No read/calendar/real
 numerical acceptance yet; actual review/artifact/publication gates remain.
+
+
+EQ051 optional0.1.0a3 adds [bounded original-Parquet reads](api/DUCKDB_READER.md),
+four strictly typed adapter modules, explicit supplied sessions/scope/coverage and
+physical original occurrence identity. Installed wheel/sdist qualification includes
+reader fixtures and synthetic read-cost/native-memory reports. Corepaira4 and pinned
+DuckDB1.5.6 remain unchanged. No R4 conformance/private numerical acceptance yet;
+final reviewed-head CI and actual delivery/readback gates remain required.

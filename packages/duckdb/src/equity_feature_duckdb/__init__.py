@@ -7,10 +7,15 @@ from .resolver import (
 from .mapping import (MappingPolicy, RowOccurrence, PriceConversion, MappingReport,
                       MappedSource, map_columns, parse_utc_ns)
 
-__version__ = "0.1.0a2"
+from .reader import (CoverageAssertion, ReadConfig, ReadMetrics, ReadResult,
+                     DuckDBHistoricalAdapter)
+
+__version__ = "0.1.0a3"
 __all__ = [
     "CatalogConfig", "FilePin", "ResolvedPartition", "ResolvedSource",
     "SourceSelection", "resolve_source",
     "MappingPolicy", "RowOccurrence", "PriceConversion", "MappingReport",
     "MappedSource", "map_columns", "parse_utc_ns",
+    "CoverageAssertion", "ReadConfig", "ReadMetrics", "ReadResult",
+    "DuckDBHistoricalAdapter",
 ]

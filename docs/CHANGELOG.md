@@ -1,5 +1,16 @@
 # Experimental package changes
 
+## Optional DuckDB0.1.0a3 - EQ051 bounded reads
+
+Original local Parquet acquisition with bound instrument/time/session filters, exact
+UTCns, deterministic physical occurrence ordering, eager row/file/chunk bounds,
+owned canonical population and chunk envelopes. Caller supplies governed sessions
+and exact population coverage assertions; default coverage and availability stay
+unknown. Separate installed parity/cost/native-memory harness; no hard cap or live
+feed. Catalog database/schema qualification fixes filename ambiguity. Pure core
+unchanged. Source62 optional tests/strict4 pass; final review/installed/publication
+gates remain. [API](api/DUCKDB_READER.md).
+
 ## Optional DuckDB0.1.0a2 — EQ050 mapping
 
 Explicit retained trades/TBBO/minute/UTCdaily mapping with exact UTCns, checked

@@ -62,7 +62,7 @@ ReadResult should retain full bounded canonical population as well as envelopes/
 
 ### Frozen interfaces and bounds
 
-ReadConfig(resolved, mapping, namespace, source_id, calendar_version, sessions,
+ReadConfig(catalog_path, resolved, mapping, namespace, source_id, calendar_version, sessions,
 partition_sessions, scope, coverage_assertion=None, max_files=4096,
 max_batch_rows=1024, threads=1, memory_limit_mb=256) owns typed records and exact
 positive bounds. SessionSpecs are caller-governed, same namespace/unique IDs/
@@ -77,7 +77,7 @@ CoverageAssertion(instruments,sessions,start_ns,end_ns,expected_rows,policy_id)
 is an explicit caller assertion for exactly one requested population, not provider
 truth. A matching actual selected count retains asserted complete; absent assertion
 defaults Coverage(None,n,False). Conflicts fail; subsets do not inherit complete.
-ReadResult(canonical,batches,metrics) owns full bounded canonical population and
+ReadResult(canonical,batches,metrics,mapping_report) owns full bounded canonical population and
 chunk envelopes. ReadMetrics names SQL/fetch, mapping and delivery copy ns, rows,
 files, cells/chunks and selected file bytes, explicitly not measured storage I/O.
 
@@ -101,3 +101,14 @@ validate_delivery; original catalog bytes unchanged. External measured synthetic
 workload verifies selected units/identity parity, SQL/conversion/copy times and
 process lifetime native peaks with units/platform/toolchain recorded. No native
 memory hard cap, midquery responsiveness, zero-copy or full-corpus claim.
+
+Implementation refinement: ReadConfig requires catalog_path:Path as its first
+argument. ResolvedSource intentionally holds no catalog path; caller supplies the
+explicit existing absolute catalog for a private read_only=True connection. No
+catalog view is executed and no imaginary in-memory read-only mode is promised.
+EQ053 adds actual catalog/file stability receipt binding.
+
+ReadResult also retains MappingReport (None for missing acquisition) so actual
+price rounding and unmapped-field evidence remain observable, not lost behind
+the bound canonical identity. Mapping timing includes sorting/column/occurrence
+materialization and mapping; total external timing includes preflight overhead.
