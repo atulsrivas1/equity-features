@@ -166,3 +166,6 @@ EQ052 [delivery receipt](stories/EQ-052_DELIVERY.md) binds source823ae1d, option
 
 
 EQ053 optional0.1.0a5 adds [bounded acquisition evidence](api/DUCKDB_EVIDENCE.md): cumulative original/catalog pre-post hashes, supplied optimized pins, normalization/source receipts and explicit observed-versus-pinned limits. Six typed modules, independent actual-Parquet mutation/budget/pin/cancellation/identity fixtures. Corepaira4/math/schema/runtimepins unchanged; current installed forms/measurement/finalreview/artifact publication gates remain beforeDone.
+
+
+EQ053 [receipt](stories/EQ-053_DELIVERY.md) binds correctedsource db5c509, optionala5/90cases/strict6/fouractualdownloadedforms/current20reports/verificationcosts and resolvedP2. Final receipt/publication/readback gates remain.
