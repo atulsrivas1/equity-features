@@ -1131,3 +1131,8 @@ PR250 final434be80908c02624a6dc5e2a910b84e657b8e49a separatefinalheadreview(comm
 ### EQ045 Done / EQ046 pull
 
 EQ045 reviewedreceiptPR251 finalc22f41d(review6020868304), allSIXchecks/FOURactualsource core+consumer freshpairs each628tests/22examples/publictyping/invariance/benchmark-resource pass. Guardedmain5442746f08d5e586ecb659567e6e521cf8bb5341 exacttree/5publishedblobs/docs37497321734/Foundation37497321567 bothOS verified. Actualfinal12archives equalqualifiedsource c88a282; FOURbenchmark+FOURresource+FOURconsumerinstallation JSON currentcleanmain/facts independentlyverified. Issue51Released/postrelease actualsource+archives+reports/Doneclosed(comment6020970458). Pull EQ046#52/5points owned43module purity audit with positive guard controls and existing independent fixtures after imports/backends initialization; no math/schema/version change. Three laterR3stories remain after046; R3/E06 stillopen.
+
+
+### EQ046 scoped audit implementation
+
+Threeauditcases plus prior628 pass full631units; nested619 existingcases pass Pythonfile/network/clock/process guards with exact26 Arrowtimezone lookup cases; strict593 additionally deny all selectedenvironmentreads. All43loadedownedmoduledata snapshots equal, injected/restoredmutabledata provesdetector,16guardcontrols reject. Initial strict failures exposedactualArrow20 per-conversionPYARROW_IGNORE_TIMEZONE andlazycompute/sysconfig; checked upstreamversionedsource andpreloadedcompute, no weakened generalenvironment exemption. No math/schema/corea4/consumer0.3 change. Next fullstrict/policies/mathchecks, freeze source/separatefinalheadreview/repeatbuildTWOfreshpairs/currentbothOSCI andactualmainFOURpairs/reviewedreceipt/finalpublication beforeDone; 047/095/048 remain.
