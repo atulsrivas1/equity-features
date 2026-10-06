@@ -1,6 +1,6 @@
 # Experimental package changes
 
-## 0.0.3a5 — EQ031 source qualification, delivery pending
+## 0.0.3a5 — EQ031 verified experimental implementation delivery
 
 Batch prior-only daily volume baseline and supplied relative volume, exact sum/count dependency witness, explicit complete EOD versus observed BAR prefix and retained original source/evidence.33batch/23session update/restore22merge, history/volume state modes false. Existing schemas/math unchanged; new volume companions schema1. Canonical price metadata remains required without price fields. Pair version requires caller state replay/registry rebuild. [API](api/DAILY_VOLUME.md), [pre-code plan](stories/EQ-031_PLAN.md). Actual release/receipt gates pending; no stable/provider/performance claim.
 
