@@ -1,4 +1,4 @@
-# Session accumulators — experimental0.0.2a11
+# Session accumulators â€” experimental0.0.2a11
 
 `equity_features.incremental.SessionAccumulator(family, config, *, entity,
 population, prior_close=None, seed=None)` receives owned data/configuration only.
@@ -181,3 +181,6 @@ returned and existing caller state stays unchanged. Finite canonical hex roundtr
 and corruption/config/source/version admission remain governed as above. State
 schema2/equations are unchanged; exact implementation version remains mandatory,
 so0.0.2a10 states require replay rather than an implicit migration to0.0.2a11.
+
+
+EQ042 measures existing retained dimensions for allsix families, public payload size and version-specific reachable Python graphs independently of materialized input/result/native process peaks. See [resource behavior](../RESOURCE_BEHAVIOR.md) and [21 actual Windows cases](../benchmarks/EQ-042_WINDOWS.md). K, quote evidence limits, configured windows, fixed prior/seed context, numeric/identifier/config sizes and temporary candidates affect resources. Caller cancellation between updates preserves consumed prefixes; synchronous kernels have no mid-call cancellation/thread budget and mutable access is serialized by caller. No equation/schema/capability change.
