@@ -41,3 +41,6 @@ Commands require external pip/build tooling, not a network-capable core calculat
 [tools/build_foundation.py](../../tools/build_foundation.py) repeats both core archive builds, inspects license/typing/privacy boundaries, and runs the consumer/typing verifier for each fresh wheel/sdist pair, alongside units/examples. It also fingerprints installed core files before/after external execution. No installed core edit, private import, credential or proprietary data is required. Actual bothOS CI/main artifact receipts remain acceptance evidence; a green editable run or example alone is insufficient. EQ095 independently qualifies the combined external experience before whole R3 acceptance.
 
 EQ040 adds consumer0.3.0's [standalone installed workflows](../EXAMPLES.md): python -I -m equity_feature_demo.walkthrough covers batch/stream/history/composition/missingness plus existing custom/adapter integration. Consumer algorithmv2 and corepair0.0.4a4 are unchanged; independent implementation version and installed qualification advance.
+
+
+[Version identities and replay policy](../VERSIONING.md) documents independent implementation/algorithm/config/schema identities, exact experimental state restoration and actual typed incompatibility. Custom definition metadata never restores an executable registration or incremental mode.

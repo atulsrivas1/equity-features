@@ -295,3 +295,8 @@ EQ042 actual clean b6e84c3 21case Windows diagnostics distinguish growing input 
 
 
 Separate [final-head review](https://github.com/atulsrivas1/equity-features/pull/247#issuecomment-6020136442) independently passed626units/strict48/sixinstalledresourcecases and verified21rawcases/scopes. It found default Windows text decoding corrupting historical UTF8 punctuation in224255d; correctedf94407b restores original history and appends explicitUTF8 entries. Always specify UTF8 for durable tracked-document reads/writes, inspect netdiff and re-review corrected finalhead. Runtime/test/build remain measured-source identical; actualmain FOURpair/finalreceipt gates distinct from review.
+
+
+## EF-L021 version labels require boundary-specific admission
+
+EQ044 source inventory distinguishes generic nonempty algorithm/math labels from owned consuming validators, config schema1 from savedstate schema2 and resultmathv1 from internal state binding r1-exact-compensated-v1. Exact implementation mismatch rejects invalid_schema, not a universal incompatible_version code. Digests bind facts but cannot reconstruct historical omissions or authenticate supplied sources. Existing specs/registry/results/composition/custom/state/overflow/resource fixtures independently qualify the actual boundaries; no duplicated documentation-shaped tests needed. [Guide](../VERSIONING.md), [plan](../stories/EQ-044_PLAN.md). Revisit whenever a validator/schema/equation/implementation or declared migration changes. Documentation-only release preserves package/test/build/consumer bytes and verifies actualmain bundle equivalence plus new variable provenance, under PUBLIC_DEVELOPMENT publication gates.
