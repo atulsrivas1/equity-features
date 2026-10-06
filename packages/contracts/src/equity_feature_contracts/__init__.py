@@ -23,10 +23,11 @@ from .registry import (Capabilities, FeatureDefinition, InputRequirement,
 
 from .history import HistoryContext, SMAReference
 from .volume import VolumeBaseline, TargetVolume
+from .buckets import VolumeBucket, BucketContext, IntervalBaseline, BucketVolume
 from .policies import ActionPolicy, ReferenceFact, PolicyAdmission, AdjustmentApplication, ClassificationAdmission
 
-__version__ = "0.0.3a5"
-__all__ = ["VolumeBaseline", "TargetVolume", "SMAReference", "HistoryContext", "ActionPolicy", "ReferenceFact", "PolicyAdmission", "AdjustmentApplication", "ClassificationAdmission", "PartitionSpan", "AccumulatorState", "StreamPopulation", "PrefixCoverage", "QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
+__version__ = "0.0.3a6"
+__all__ = ["VolumeBucket", "BucketContext", "IntervalBaseline", "BucketVolume", "VolumeBaseline", "TargetVolume", "SMAReference", "HistoryContext", "ActionPolicy", "ReferenceFact", "PolicyAdmission", "AdjustmentApplication", "ClassificationAdmission", "PartitionSpan", "AccumulatorState", "StreamPopulation", "PrefixCoverage", "QuoteDurations", "TimeWeightedSpread", "QuoteStateCounts", "QuoteObservation", "SampledSpread", "TopKTrades", "TopKTradeRow", "AdjustmentSpec", "BatchMetadata", "CanonicalBatch", "Cell", "Column",
            "IntervalCoverage", "IntervalOHLCV", "IntervalOHLCVRow", "IntervalVolumeShares", "IntervalVolumeShareRow", "InputScope", "Coverage", "DataKind", "DType", "Field", "InputSchema", "PriceUnit",
            "SourceBinding", "schema_for", "AvailabilitySpec", "ConfigSpec", "IntervalSpec",
            "Parameter", "SessionSpec", "WindowSpec", "ContractError", "ErrorCode",

@@ -192,3 +192,9 @@ A selected target certificate must preserve original source-frame counts and row
 Volume-only means no price fields enter arithmetic; existing canonical market PriceUnit metadata remains required. Initial fixtures incorrectly omitted it, and later had positional ConfigSpec/SourceBinding/reconstruction mistakes; corrected without widening schema or counting failed evidence. Exact witness/coverage/zero-denominator/explicit prefix behavior must be qualified in installed artifacts before acceptance. Revisit under bucket/composition/causality integration and future source qualification.
 
 EF-L018 implementation qualification: finalbb0db95/mainffe8ddd exact-head/source/main gates and both actual bundles/FOUR fresh installed pairs each504tests/seventeen examples pass. [Receipt](../stories/EQ-031_DELIVERY.md). Original-frame identity and exact dependency/prefix/quantity guards are qualified; final receipt publication still gates Done. Status requires both actual jobs, not one completed job screenshot/output.
+
+## EF-L019 bucket coverage is independent —2026-10-05
+
+Actual early close can exclude a late bucket while an earlier bucket remains complete. Preserve N required slots, observed/expected coverage and ineligible reason; neither0fill nor observed-count denominator is valid under frozen EQ005. Daily coverage cannot certify a particular bucket. A supplied target prefix can carry observed data yet remain unavailable for a whole-bucket ratio. [Plan](../stories/EQ-032_PLAN.md), [API](../api/INTERVAL_VOLUME.md).
+
+Single-bucket typed results retain existing Float64 output schemas and separate identities/quality. Future composition must preserve multiple bucket/horizon instances instead of overwriting by feature ID alone. Exact witness/source-row/cutoff/adjustment behavior still needs installed delivery before acceptance; revisit under composition/causality/source qualification.
