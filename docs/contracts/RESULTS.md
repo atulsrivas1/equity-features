@@ -119,3 +119,5 @@ valid canonical finite binary64 state roundtrips exactly. [State/error details](
 EQ028 SMAReference pairs an ordinary single Float64 SMA result with exact scaled-coefficient sum/count; no scalar ValueType/schema or Arrow bridge changes. Its validation is structural, not source authentication. [History API](../api/HISTORY.md).
 
 EQ031 retains volume baseline as standard single Float64 shares FeatureResult plus exact sum/count/config/context in VolumeBaseline. Relative volume is a separate Float64 fraction result with two-dependency quality; original baseline N-slot quality remains available in the supplied reference. Derived context/dependency/certificate bindings are not observed price rows. [Admission and evidence](../api/DAILY_VOLUME.md). Existing result schema unchanged.
+
+EQ032 each bucket returns standard Float64 shares mean or fraction ratio with its own context identity/quality. Exact sum/count remains in IntervalBaseline; no existing output dtype/schema change. Separate bucket results preserve independent readiness and original source rows, derived assertions remain distinct from market observations. [API](../api/INTERVAL_VOLUME.md).
