@@ -105,6 +105,10 @@ print('Independent installed consumer public imports and immutable core verified
             # Development tools qualify installed typing; they are not core runtime requirements.
             run(str(py),'-m','pip','install','--no-deps','mypy==1.15.0','mypy_extensions==1.1.0','typing_extensions==4.16.0')
             run(str(py),'-I',str(ROOT/'tools/verify_public_typing.py'))
+        benchmark=ROOT/'benchmarks/run_baseline.py'
+        if benchmark.exists():
+            benchmark_output=ROOT/'dist'/('benchmark-'+platform.system()+'-'+paths[0].suffix.lstrip('.')+'.json')
+            run(str(py),'-I',str(benchmark),'--quick','--repetitions','2','--output',str(benchmark_output))
         tests=ROOT/'tests/unit'
         if tests.exists(): run(str(py),'-m','unittest','discover','-s',str(tests))
         for name in ('canonical_inputs','in_memory_adapter','session_bars','session_structure','session_trades','session_top_k','session_quotes','continuous_quotes','session_incremental','session_state','session_merge','action_policies','history_windows','history_averages','history_recursive','history_volatility','daily_volume','interval_volume','relative_returns','declared_breadth','feature_composition','legacy_comparison'):
