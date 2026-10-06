@@ -128,6 +128,22 @@ class AdapterKitTests(unittest.TestCase):
         with self.assertRaises(ContractError):
             replace(batch, columns=cols)
 
+    def test_bad_source_ohlc_maps_safe_schema_error(self):
+        batch = self.adapter.data
+        columns = tuple(replace(c, values=(98, 104)) if c.name == "high" else c for c in batch.columns)
+        malformed = replace(batch, columns=columns)
+        with self.assertRaises(SourceError) as caught:
+            replace(self.adapter, data=malformed)
+        self.assertEqual(caught.exception.code, SourceErrorCode.SCHEMA)
+        self.assertIsInstance(caught.exception.__cause__, ContractError)
+        self.assertEqual(str(caught.exception), "synthetic fixture violates canonical source contract")
+
+    def test_bad_source_bounds_map_safe_schema_error(self):
+        with self.assertRaises(SourceError) as caught:
+            replace(self.adapter, end_ns=2**63)
+        self.assertEqual(caught.exception.code, SourceErrorCode.SCHEMA)
+        self.assertIsInstance(caught.exception.__cause__, ContractError)
+
     def test_case_report_ownership_and_schema(self):
         owned = [self.batches[0]]
         case = self.case("owned", batches=owned)

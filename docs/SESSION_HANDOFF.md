@@ -1040,3 +1040,6 @@ PR238/f1c2dc3 completed separate local /root/r3_reviewer review (comment60178604
 
 
 EQ043 draftPR239 now implements pure finite ConformanceCase/Outcome/Report/run_conformance and separately packaged typed consumer0.2.0 BARadapter, pair0.0.4a4. Twelve independent SDK/actualadapter test methods pass, strict46files passes; actualadapter custom5/100 binding verified. Negative cases include request/schema/precision/order/duplicates/units/limits/availability/empty/missing/error/cancellation; no equation/actualmode change. SDK mapping guide added. Next freeze implementation, full617unit/reference/purity/build/installed gates and separate final-head reviewer, then formal CI/main publication/receipt acceptance. No released/Done claim yet.
+
+
+Separate /root/r3_reviewer at375a07b independently617units/12SDK/strict46/allpolicy pass but reproduced P2 externaladapter-owned validate_batch/AvailabilitySpec leaking ContractError rather than promised SourceError(SCHEMA). Translate owned fixture/chunk contract failures with safe messages and original causes; actual badOHLC/badbounds regression fixtures added. Consumer implementation increments0.2.0to0.2.1; corepair0.0.4a4/code bytes unchanged. Earlier external0.2.0 qualification superseded; stop/requalify changed source/tests and final-head reviewer.

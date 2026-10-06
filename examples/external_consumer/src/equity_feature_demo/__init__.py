@@ -22,7 +22,7 @@ def definition() -> CustomDefinition:
         "Use built-in admitted OHLC at supplied C/K/E; no future/unknown knowledge",
         "Unavailable operands propagate; zero open is not_applicable/zero_denominator",
         "docs/api/CUSTOM_FEATURES.md", algorithm_version="v2"),
-        "equity-feature-demo", "0.2.0", "eligibility_policy supplied to admitted built-in bars",
+        "equity-feature-demo", "0.2.1", "eligibility_policy supplied to admitted built-in bars",
         (("eligibility_policy", "str"),))
 
 

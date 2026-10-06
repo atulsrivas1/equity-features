@@ -2,7 +2,7 @@
 from dataclasses import dataclass, replace
 from typing import Iterator, cast
 from equity_feature_contracts import (
-    AdjustmentSpec, AvailabilitySpec, CanonicalBatch, Column, Coverage, DataKind, PriceUnit, SourceBinding, validate_batch,
+    AdjustmentSpec, AvailabilitySpec, CanonicalBatch, Column, ContractError, Coverage, DataKind, PriceUnit, SourceBinding, validate_batch,
 )
 from equity_feature_contracts.adapters import (
     AcquisitionRequest, AdapterBatch, AdapterCapabilities, Cancellation, SourceError,
@@ -29,6 +29,12 @@ class InMemoryBarAdapter:
     end_ns: int = 200
 
     def __post_init__(self) -> None:
+        try:
+            self._validate_fixture()
+        except ContractError as error:
+            raise SourceError(SourceErrorCode.SCHEMA, "synthetic fixture violates canonical source contract") from error
+
+    def _validate_fixture(self) -> None:
         if type(self.source) is not SourceBinding or (self.data is not None and type(self.data) is not CanonicalBatch):
             raise SourceError(SourceErrorCode.SCHEMA, "typed synthetic source and supplied canonical fixture required")
         AcquisitionRequest("fixture", DataKind.BAR, self.namespace, ("A",), ("S",),
@@ -72,10 +78,13 @@ class InMemoryBarAdapter:
             if cancellation.is_cancelled():
                 raise SourceError(SourceErrorCode.CANCELLED, "cancelled between synthetic chunks")
             indices = selected[ordinal * request.max_batch_rows:(ordinal + 1) * request.max_batch_rows]
-            source = replace(self.source, input_id=f"{self.source.input_id}:{request.request_id}:{ordinal}")
-            batch = CanonicalBatch(DataKind.BAR,
-                tuple(Column(c.name, tuple(c.values[i] for i in indices)) for c in self.data.columns),
-                replace(self.data.metadata, source=source))
+            try:
+                source = replace(self.source, input_id=f"{self.source.input_id}:{request.request_id}:{ordinal}")
+                batch = CanonicalBatch(DataKind.BAR,
+                    tuple(Column(c.name, tuple(c.values[i] for i in indices)) for c in self.data.columns),
+                    replace(self.data.metadata, source=source))
+            except ContractError as error:
+                raise SourceError(SourceErrorCode.SCHEMA, "synthetic chunk violates canonical source contract") from error
             yield AdapterBatch(request.request_id, ordinal, ordinal == chunks - 1, source,
                 self.data.metadata.coverage, Coverage(len(indices), len(indices), True), batch)
 
