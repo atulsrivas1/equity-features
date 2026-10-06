@@ -172,12 +172,15 @@ class FeatureBundle:
         if ids != tuple(i for i in self.spec.instance_ids if i in ids) or self.missing_instances != tuple(i for i in self.spec.instance_ids if i not in ids):
             raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "exact declared ordering and missing instances required")
         sources: dict[str, InputBinding] = {}
-        owners: dict[str, tuple[str, str | None]] = {}
+        owners: dict[str, tuple[str, ...]] = {}
+        buckets: dict[str, str] = {}
         proofs: dict[tuple[str, str], tuple[int, int | None]] = {}
         for component in self.components:
             cfg, m, ctx = component.config, component.result.metadata, component.owned_context
             if cfg.session != self.spec.session or cfg.availability != self.spec.availability or m.namespace != self.spec.namespace:
                 raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "bundle target/timing mismatch")
+            session_output = all(col.feature_id.startswith("session.") for col in component.result.values)
+            population = tuple(sorted({entity.instrument_id for col in component.result.values for entity in col.entities}))
             for binding in m.inputs:
                 key = binding.metadata.source.input_id
                 previous = sources.get(key)
@@ -187,11 +190,21 @@ class FeatureBundle:
                 if binding.role in ("daily_history", "bucket_history"):
                     if ctx is None or (binding.role == "bucket_history" and type(ctx) is not BucketContext):
                         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "direct normalized frame needs owned context")
-                    bucket = _digest(asdict(ctx.bucket)) if isinstance(ctx, BucketContext) else None
-                    owner = (ctx.entity.instrument_id, bucket)
+                    owner = (ctx.entity.instrument_id,)
                     if key in owners and owners[key] != owner:
                         raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "contradictory normalized frame ownership")
                     owners[key] = owner
+                    if binding.role == "bucket_history" and isinstance(ctx, BucketContext):
+                        bucket = _digest(asdict(ctx.bucket))
+                        if key in buckets and buckets[key] != bucket:
+                            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "contradictory normalized bucket scope")
+                        buckets[key] = bucket
+                elif session_output and binding.kind != DataKind.REFERENCE:
+                    if not population:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "direct session frame requires declared instrument population")
+                    if key in owners and owners[key] != population:
+                        raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "contradictory direct session frame ownership")
+                    owners[key] = population
             for row in component.result.evidence:
                 key_row = (row.input_id, row.row_id)
                 original = (row.event_ns, row.known_at_ns)

@@ -1,6 +1,6 @@
 # Supplied feature composition
 
-EQ036 experimental pair0.0.3a10, new collection schema1. Existing input, result,
+EQ036 corrected experimental pair0.0.3a11, new collection schema1. Existing input, result,
 state schemas, numerical formulas and the39-feature inventory remain unchanged.
 Composition preserves already supplied results; it executes no dependency or I/O.
 [Pre-code plan](../stories/EQ-036_PLAN.md),
@@ -53,7 +53,7 @@ features package version. This collection has no update/merge/restore operation.
 
 Shared input IDs require identical kind/metadata. Direct daily_history frames own
 one context instrument; bucket_history owns one instrument/normalized bucket.
-Conflicting ownership rejects even with evidence_limit0. Shared original row IDs
+Direct session market frames also retain their declared instrument population, including bars/trades/quotes/seeds/prior-close inputs. Conflicting populations for one frame reject even with evidence_limit0; coherent same-instrument reuse across sampled and continuous quote features remains valid. Shared original row IDs
 must agree on event/known-at; derived use, interval and output entity may differ
 legitimately by feature and remain in their original component. This is structural
 consistency, not source authentication; absent retained proof cannot be recreated.
@@ -78,3 +78,5 @@ source revisions/contradictory original proof, derived-proof differences, mandat
 context with missing source, fixed output schema, direct ownership with zero
 evidence, actual quote conventions and independent currency scopes. No numerical
 speed, source/provider rights, stable publication or hidden replay claim.
+
+Instrument population claims must agree for shared original normalized frames. Bucket scope is an additional explicit bucket_history claim and conflicts only with another explicit bucket claim; native session bars can reuse the same instrument/frame without declaring historical bucket scope. Missing prior history remains an unavailable supplied component, not a false identity error.

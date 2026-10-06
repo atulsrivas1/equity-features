@@ -227,6 +227,57 @@ class Composition(unittest.TestCase):
         self.assertEqual(tuple(col.unit for col in result.values), ("EUR/share", "EUR/share"))
         self.assertEqual(tuple(col.values[0] for col in bundle.components[0].result.values), (102.0, 98.0))
 
+    def test_direct_session_frame_owner_conflicts_without_retained_evidence(self):
+        from equity_feature_contracts import EntityKey
+        from equity_features.session import compute_bars, compute_trades, compute_quotes
+        from test_bars import config, batch as bars
+        from test_trades import trades
+        for producer, factory, cfg in ((compute_trades, trades, config()),
+                                       (compute_bars, bars, config()),
+                                       (compute_quotes, quotes, quote_config(0))):
+            with self.subTest(producer=producer.__name__):
+                first = factory()
+                second = factory(instrument_id=("B",)*first.row_count)
+                a = FamilyResult("a", producer(first, cfg, entity=EntityKey("A", "S")), cfg)
+                b = FamilyResult("b", producer(second, cfg, entity=EntityKey("B", "S")), cfg)
+                self.assertFalse(a.result.evidence or b.result.evidence)
+                self.error(ErrorCode.INCONSISTENT_IDENTITY,
+                           lambda: compose_features((a, b), spec=spec(a, ("a", "b"))))
+
+    def test_same_instrument_original_quote_frame_can_supply_distinct_features(self):
+        from equity_feature_contracts import EntityKey
+        from equity_features.session import compute_quotes, compute_time_weighted
+        cfg = time_config()
+        sampled_cfg = replace(cfg, parameters=(Parameter("eligibility_policy", "synthetic-v1"), Parameter("observation_limit", 0)))
+        batch = updates()
+        a = FamilyResult("sampled", compute_quotes(batch, sampled_cfg, entity=EntityKey("A", "S")), sampled_cfg)
+        b = FamilyResult("time", compute_time_weighted(batch, cfg, entity=EntityKey("A", "S")), cfg)
+        bundle = compose_features((a, b), spec=spec(a, ("sampled", "time")))
+        self.assertEqual(bundle.components, (a, b))
+
+    def test_session_and_bucket_share_original_frame_without_false_scope_conflict(self):
+        from test_bars import config, batch, ENTITY
+        from equity_features.session.bars import compute_bars
+        from equity_feature_contracts import BucketContext, SessionSpec, Coverage
+        b = batch(instrument_id=("A",), session_id=("S",), start_ns=(100,), end_ns=(200,),
+                  open=(100,), high=(103,), low=(99,), close=(102,), volume=(200,),
+                  actual_notional=(20300,), known_at_ns=(200,))
+        cfg = config()
+        ctx = BucketContext(ENTITY, "grid-v1", (SessionSpec("demo", "P", 0, 100, "supplied"), cfg.session),
+                            VolumeBucket("full", 0, 100, "grid-v1"), (Coverage(1, 0, False), Coverage(1, 1, True)))
+        bcfg = replace(cfg, identity="bucket", parameters=(Parameter("period", 1), Parameter("evidence_limit", 0)),
+                       window=WindowSpec(1, "S", ("P", "S"), "prior_only"))
+        baseline = compute_interval_baseline(b, bcfg, context=ctx)
+        bars = FamilyResult("bars", compute_bars(b, cfg, entity=ENTITY), cfg)
+        prior = FamilyResult("baseline", baseline.result, bcfg, companion=baseline)
+        self.assertEqual(prior.result.evidence, ())
+        self.assertEqual(prior.result.values[0].values, (None,))
+        for components in ((bars, prior), (prior, bars)):
+            with self.subTest(order=tuple(c.instance_id for c in components)):
+                bundle = compose_features(components, spec=spec(bars, tuple(c.instance_id for c in components)))
+                self.assertEqual(bundle.components, components)
+                self.assertIs(bundle.components[components.index(prior)].result, baseline.result)
+
 
 if __name__ == "__main__":
     unittest.main()
