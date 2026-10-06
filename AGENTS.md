@@ -1,5 +1,9 @@
 # Work agreements
 
+All commits must use Atul Srivastava <102820540+atulsrivas1@users.noreply.github.com> as author and locally created committer. Do not use Codex attribution or Codex co-author trailers. Verify published attribution.
+
+Owner direction on October 5, 2026 resumes GOV-005: require a separate completed Codex PR review covering the final head, findings disposition and existing acceptance/CI gates before merge or Done. A request, reaction or self-review is not a completed review. Missing activation blocks Code review. See docs/CODE_REVIEW.md. This supersedes the October 4 deferral.
+
 These are the human owner's agreed project rules. Read this file, docs/PROJECT_KNOWLEDGE.md, docs/PUBLIC_DEVELOPMENT.md, docs/SESSION_HANDOFF.md and the current issue/Project status before starting work. Keep durable project memory in these tracked documents rather than assuming chat memory persists. Read the relevant linked decisions, lessons and source specifications before choosing or changing work.
 
 1. Work publicly through numbered GitHub stories, epic links, release milestones and linked pull requests. GitHub Project status is the current work-status authority; docs/BACKLOG.md records versioned scope and dependencies.
