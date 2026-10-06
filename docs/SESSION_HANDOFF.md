@@ -1,3 +1,7 @@
+# Owner attribution and review update — October 5, 2026
+
+Main history attribution was corrected with verified tree parity; see [correction record](decisions/OWNER_ATTRIBUTION_CORRECTION.md). GOV-005 resumes by owner direction and requires completed separate Codex review before merge/Done. Hosted activation is not verified; settings currently require owner sign-in. Request `@codex review` on this policy PR and record actual response/head coverage. Existing development ownership remains unchanged. Fetch and transplant unmerged work onto corrected main without merging old ancestry; preserve local work and historical receipt SHAs.
+
 # Development continuity
 
 ## Extension roadmap update â€” 2026-10-05

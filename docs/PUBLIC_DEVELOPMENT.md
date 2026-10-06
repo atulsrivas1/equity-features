@@ -60,3 +60,9 @@ On2026-10-04 the owner deferred GOV-005/PR120 and instructed continuing EQ stori
 ## Prepared automated review guidance
 
 PR120 prepares AGENTS.md Code Review Rules and CODE_REVIEW.md. GOV-005 remains deferred until the owner resumes hosted activation and its first real review is verified. This proposed setup does not suspend the current owner-authorized self-review/CI workflow. Once activated, record reviewer identity, response/commit coverage and findings disposition; do not equate automated and human review.
+
+## Resumed owner direction — October 5, 2026
+
+The owner requested the same attribution correction and separate Codex reviewer workflow as strategy-research. This supersedes the October 4 deferral above. PR120 was merged; it is historical guidance, not evidence of hosted activation. Future PRs require an actual completed Codex review covering the final head and findings disposition before merge/Done. Keep GOV-005 in Code review while activation or the first review is missing. Existing CI, numerical acceptance and publication checks remain required.
+
+See [history correction](decisions/OWNER_ATTRIBUTION_CORRECTION.md). Rebase outstanding work onto corrected main; do not merge the old ancestry back or overwrite other work. Original receipts retain their original SHAs as provenance.
