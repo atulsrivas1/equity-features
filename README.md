@@ -6,7 +6,7 @@ Source-independent equity feature calculations for reproducible research, backte
 R2 remains accepted under its original0.0.3a13 receipt.
 All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
 conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
-All twelve R2 stories are closed/Project Done; the R2 milestone and E05 are closed. R3 has resumed; EQ093, EQ043, EQ039 and EQ040 are Done, E03 is closed. EQ041 representative benchmark implementation is being qualified; R3 remains open.
+All twelve R2 stories are closed/Project Done; the R2 milestone and E05 are closed. R3 has resumed; EQ093, EQ043, EQ039, EQ040 and EQ041 are Done, E03 is closed. EQ042 retained-state and caller-resource diagnostics are being qualified; R3 remains open.
 [Adapter SDK](docs/contracts/ADAPTER_KIT.md) and [delivery evidence](docs/stories/EQ-043_DELIVERY.md) record its supported synthetic adapter and supplied-case checks.
 [Custom API](docs/api/CUSTOM_FEATURES.md) and [delivery evidence](docs/stories/EQ-093_DELIVERY.md)
 record supported modes and review/installation limits.
@@ -19,6 +19,7 @@ channel. No stable API, public registry publication or universal throughput guar
 [extension rules and installed reproduction](docs/api/EXTENSIONS.md).
 
 [Seeded benchmark methodology and installed harness](docs/BENCHMARKS.md) records measurement scope and limits.
+[Retained-state diagnostics and caller resource controls](docs/RESOURCE_BEHAVIOR.md).
 
 [Release access and licensing](docs/decisions/release-access.md) separates retained
 foundation artifacts from any future owner-authorized registry publication.

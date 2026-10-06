@@ -1,0 +1,3871 @@
+{
+  "cases": [
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 1,
+      "config_sha256": "7faea5907610a358a0fd4177cd23628fb39b6a58ed065f6baeca87a606936c94",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "bars",
+      "fixture_sha256": "df56fbee71332b2649a6e1a6a633fa3f361cadcdf49c1e4f888f545def428bc4",
+      "input_python": {
+        "bytes": 22733,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 11,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 19,
+          "int": 131,
+          "str": 64,
+          "tuple": 13
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 814,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 17532
+      },
+      "native_process": {
+        "initial_bytes": 32272384,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 33185792,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 814,
+      "payload_bytes_unsealed": 717,
+      "result_python": {
+        "bytes": 19838,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 12,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 12,
+          "Reason": 2,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 3,
+          "ValueType": 3,
+          "bool": 2,
+          "dict": 44,
+          "float": 7,
+          "int": 9,
+          "str": 126,
+          "tuple": 30
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 14554,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_BarTotals": 1,
+          "_StreamState": 1,
+          "_Sum": 3,
+          "bool": 2,
+          "dict": 22,
+          "int": 9,
+          "set": 1,
+          "str": 131,
+          "tuple": 4
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 128,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 1,
+      "config_sha256": "154c864c3b36f51d129f54ccef3f6b37d702ffb56e0dbf13102ed71e95b31813",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "structure",
+      "fixture_sha256": "2f1aff7c8eb216aeb6aefe9ac3a2432bb1995998cdd7b98461d9673824eebc37",
+      "input_python": {
+        "bytes": 23883,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 11,
+          "Coverage": 3,
+          "DataKind": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 2,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 23,
+          "int": 131,
+          "str": 66,
+          "tuple": 13
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 1863,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 26100
+      },
+      "native_process": {
+        "initial_bytes": 32337920,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 33406976,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 1863,
+      "payload_bytes_unsealed": 1573,
+      "result_python": {
+        "bytes": 15703,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 3,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 2,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 2,
+          "IntervalOHLCV": 1,
+          "IntervalOHLCVRow": 2,
+          "IntervalSpec": 2,
+          "IntervalVolumeShareRow": 2,
+          "IntervalVolumeShares": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 6,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 2,
+          "bool": 2,
+          "dict": 35,
+          "float": 10,
+          "int": 11,
+          "str": 107,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 19226,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 3,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 2,
+          "IntervalSpec": 2,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_BarTotals": 3,
+          "_StreamState": 1,
+          "_Sum": 9,
+          "bool": 2,
+          "dict": 38,
+          "int": 17,
+          "set": 3,
+          "str": 133,
+          "tuple": 8
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 2,
+      "rows": 128,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 2
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 1,
+      "config_sha256": "347d52b4283919f77e40f6a55307995e46a3a11aec65124fbf98962966a0a9db",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "trades",
+      "fixture_sha256": "f981432466e85f2c30095e85cbc63447840ab020b1b25f1e535d10c8e794be95",
+      "input_python": {
+        "bytes": 25950,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 9,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 17,
+          "int": 130,
+          "str": 192,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 682,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 15831
+      },
+      "native_process": {
+        "initial_bytes": 32489472,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 33349632,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 682,
+      "payload_bytes_unsealed": 585,
+      "result_python": {
+        "bytes": 13420,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 5,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 5,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 3,
+          "bool": 2,
+          "dict": 26,
+          "float": 2,
+          "int": 6,
+          "str": 104,
+          "tuple": 14
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 13853,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_Sum": 2,
+          "_TradeTotals": 1,
+          "bool": 2,
+          "dict": 20,
+          "int": 6,
+          "str": 129,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 128,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 1,
+      "config_sha256": "f9b78b1cab49177d462abb3ed56d077721eec3330cde67e23a941ca9cc8a979d",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "top_k",
+      "fixture_sha256": "f981432466e85f2c30095e85cbc63447840ab020b1b25f1e535d10c8e794be95",
+      "input_python": {
+        "bytes": 25950,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 9,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 17,
+          "int": 130,
+          "str": 192,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 1392,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 19825
+      },
+      "native_process": {
+        "initial_bytes": 32428032,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 33488896,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 1392,
+      "payload_bytes_unsealed": 1295,
+      "result_python": {
+        "bytes": 15174,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "EvidenceRow": 8,
+          "FeatureColumn": 1,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 1,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "TopKTradeRow": 8,
+          "TopKTrades": 1,
+          "ValueType": 1,
+          "bool": 2,
+          "dict": 33,
+          "int": 13,
+          "str": 116,
+          "tuple": 8
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 15923,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 3,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "TopKTradeRow": 8,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_TopTotals": 1,
+          "bool": 2,
+          "dict": 28,
+          "int": 13,
+          "list": 1,
+          "str": 135,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 8,
+      "retained_window_rows": 0,
+      "rows": 128,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 1,
+      "config_sha256": "9251b30478d8de64ca70844e4d438951db558d3e88e1fda8bf376a396fdd7077",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "quotes",
+      "fixture_sha256": "7a12c0d8b703651635c2f062fb54e9641b22307c9ada2d578112a046753fca4d",
+      "input_python": {
+        "bytes": 24745,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 8,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 16,
+          "int": 130,
+          "str": 192,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 1792,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 20503
+      },
+      "native_process": {
+        "initial_bytes": 32190464,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 33251328,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 1792,
+      "payload_bytes_unsealed": 1695,
+      "result_python": {
+        "bytes": 16111,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "EvidenceRow": 5,
+          "FeatureColumn": 2,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 2,
+          "QuoteObservation": 5,
+          "QuoteStateCounts": 1,
+          "ResultMetadata": 1,
+          "SampledSpread": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 2,
+          "bool": 2,
+          "dict": 31,
+          "float": 12,
+          "int": 12,
+          "str": 129,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 16913,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 2,
+          "PriceUnit": 1,
+          "QuoteObservation": 5,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_QuoteTotals": 1,
+          "_StreamState": 1,
+          "_Sum": 1,
+          "bool": 2,
+          "dict": 26,
+          "float": 12,
+          "int": 12,
+          "list": 1,
+          "str": 144,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 5,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 128,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 1,
+      "config_sha256": "e28ca1ebc8a631dbb54a3f65491b070750d15f064679e8e64a0b4dc2b2a7fbbf",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "continuous",
+      "fixture_sha256": "0c14474a28b8f8ee3902bd8d6edeb042092660194637be7d089339619cefc002",
+      "input_python": {
+        "bytes": 24893,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 8,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 16,
+          "int": 130,
+          "str": 192,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": null,
+      "native_process": {
+        "initial_bytes": 32272384,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 33189888,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 678,
+      "payload_bytes_unsealed": 594,
+      "result_python": {
+        "bytes": 11851,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 1,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 1,
+          "QuoteDurations": 1,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "TimeWeightedSpread": 1,
+          "ValueType": 1,
+          "bool": 2,
+          "dict": 18,
+          "float": 2,
+          "int": 5,
+          "str": 104,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 14665,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 3,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_TimeReducer": 1,
+          "bool": 2,
+          "dict": 21,
+          "float": 2,
+          "int": 8,
+          "str": 137,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 128,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 16,
+      "config_sha256": "aabc7ffe248bca3466ec67c961119903e48c056a673e3a535c1d97a98283e869",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "bars",
+      "fixture_sha256": "c5fd9194ad038e45d8166d9c042bce223f9077cfdc01fd45e57a44ccb53292e7",
+      "input_python": {
+        "bytes": 345657,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 11,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 19,
+          "int": 5638,
+          "str": 64,
+          "tuple": 13
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 826,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 17748
+      },
+      "native_process": {
+        "initial_bytes": 32350208,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 34689024,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 826,
+      "payload_bytes_unsealed": 725,
+      "result_python": {
+        "bytes": 19746,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 12,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 12,
+          "Reason": 2,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 3,
+          "ValueType": 3,
+          "bool": 2,
+          "dict": 44,
+          "float": 7,
+          "int": 10,
+          "str": 126,
+          "tuple": 30
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 13870,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_BarTotals": 1,
+          "_StreamState": 1,
+          "_Sum": 3,
+          "bool": 2,
+          "dict": 22,
+          "int": 14,
+          "set": 1,
+          "str": 131,
+          "tuple": 4
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 2048,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 16,
+      "config_sha256": "6e5c1680c71eed61d457d28b6a09b0d1e75ee4cf9678a369b006cc33ade1260a",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "structure",
+      "fixture_sha256": "ea843c32502c2885437b8216144c826ec0f09fcf84cd21c3ef54e217c0a867fb",
+      "input_python": {
+        "bytes": 346823,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 11,
+          "Coverage": 3,
+          "DataKind": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 2,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 23,
+          "int": 5644,
+          "str": 66,
+          "tuple": 13
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 1908,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 26540
+      },
+      "native_process": {
+        "initial_bytes": 32206848,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 34578432,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 1908,
+      "payload_bytes_unsealed": 1601,
+      "result_python": {
+        "bytes": 15583,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 3,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 2,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 2,
+          "IntervalOHLCV": 1,
+          "IntervalOHLCVRow": 2,
+          "IntervalSpec": 2,
+          "IntervalVolumeShareRow": 2,
+          "IntervalVolumeShares": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 6,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 2,
+          "bool": 2,
+          "dict": 35,
+          "float": 10,
+          "int": 17,
+          "str": 107,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 18382,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 3,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 2,
+          "IntervalSpec": 2,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_BarTotals": 3,
+          "_StreamState": 1,
+          "_Sum": 9,
+          "bool": 2,
+          "dict": 38,
+          "int": 30,
+          "set": 3,
+          "str": 133,
+          "tuple": 8
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 2,
+      "rows": 2048,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 2
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 16,
+      "config_sha256": "3c2f6e2fa6b4e31454aa9a1ca3704aa2ee95887c455f2d1b97b946e92ac65aca",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "trades",
+      "fixture_sha256": "5b627e0c0885c1d3a4fd76e88af5f49b3a8a9565536f81bd058058e03ae979cf",
+      "input_python": {
+        "bytes": 405518,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 9,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 17,
+          "int": 5634,
+          "str": 2112,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 694,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 16078
+      },
+      "native_process": {
+        "initial_bytes": 32362496,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 34635776,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 694,
+      "payload_bytes_unsealed": 593,
+      "result_python": {
+        "bytes": 13384,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 5,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 5,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 3,
+          "bool": 2,
+          "dict": 26,
+          "float": 2,
+          "int": 9,
+          "str": 104,
+          "tuple": 14
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 13258,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_Sum": 2,
+          "_TradeTotals": 1,
+          "bool": 2,
+          "dict": 20,
+          "int": 11,
+          "str": 129,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 2048,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 16,
+      "config_sha256": "31ff98ffa08740f7f537c3a437f9fd3f468375cbd30a5a120de97fe0e82430bf",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "top_k",
+      "fixture_sha256": "5b627e0c0885c1d3a4fd76e88af5f49b3a8a9565536f81bd058058e03ae979cf",
+      "input_python": {
+        "bytes": 405518,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 9,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 17,
+          "int": 5634,
+          "str": 2112,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 1402,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 20400
+      },
+      "native_process": {
+        "initial_bytes": 32415744,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 34672640,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 1402,
+      "payload_bytes_unsealed": 1301,
+      "result_python": {
+        "bytes": 15082,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "EvidenceRow": 8,
+          "FeatureColumn": 1,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 1,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "TopKTradeRow": 8,
+          "TopKTrades": 1,
+          "ValueType": 1,
+          "bool": 2,
+          "dict": 33,
+          "int": 14,
+          "str": 116,
+          "tuple": 8
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 15620,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 3,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "TopKTradeRow": 8,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_TopTotals": 1,
+          "bool": 2,
+          "dict": 28,
+          "int": 17,
+          "list": 1,
+          "str": 135,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 8,
+      "retained_window_rows": 0,
+      "rows": 2048,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 16,
+      "config_sha256": "d706426801dc8dccb8ef76316d1d5ef2bb2ad2794055b7785866957cf5736693",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "quotes",
+      "fixture_sha256": "2ca4418b2a554f12f2e85904cc6609060fdcc215b1061a146725b39710490815",
+      "input_python": {
+        "bytes": 388953,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 8,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 16,
+          "int": 5634,
+          "str": 2112,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 1803,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 20912
+      },
+      "native_process": {
+        "initial_bytes": 32399360,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 34861056,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 1803,
+      "payload_bytes_unsealed": 1702,
+      "result_python": {
+        "bytes": 16103,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "EvidenceRow": 5,
+          "FeatureColumn": 2,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 2,
+          "QuoteObservation": 5,
+          "QuoteStateCounts": 1,
+          "ResultMetadata": 1,
+          "SampledSpread": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 2,
+          "bool": 2,
+          "dict": 31,
+          "float": 12,
+          "int": 16,
+          "str": 129,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 16474,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 2,
+          "PriceUnit": 1,
+          "QuoteObservation": 5,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_QuoteTotals": 1,
+          "_StreamState": 1,
+          "_Sum": 1,
+          "bool": 2,
+          "dict": 26,
+          "float": 12,
+          "int": 16,
+          "list": 1,
+          "str": 144,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 5,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 2048,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 16,
+      "config_sha256": "c8f416988043f806e34544f817342992ad4749980a0be1b7246a7f2b9462f007",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "continuous",
+      "fixture_sha256": "ff717a0deca33721dceb0a23a91a4e69424814da4f08255f32608be88c9d8f59",
+      "input_python": {
+        "bytes": 389021,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 8,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 16,
+          "int": 5634,
+          "str": 2112,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": null,
+      "native_process": {
+        "initial_bytes": 32456704,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 34729984,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 690,
+      "payload_bytes_unsealed": 602,
+      "result_python": {
+        "bytes": 11715,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 1,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 1,
+          "QuoteDurations": 1,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "TimeWeightedSpread": 1,
+          "ValueType": 1,
+          "bool": 2,
+          "dict": 18,
+          "float": 2,
+          "int": 7,
+          "str": 104,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 14334,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 3,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_TimeReducer": 1,
+          "bool": 2,
+          "dict": 21,
+          "float": 2,
+          "int": 11,
+          "str": 137,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 2048,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 64,
+      "config_sha256": "8c7a233ba29e1d11a91ad92bb4fdb5fe0eded4358558b046e7590639059ac4ad",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "bars",
+      "fixture_sha256": "91fe9855306718e627df62d1d58ba050d5c7b4ddfa2cc27743c01a70185f36f8",
+      "input_python": {
+        "bytes": 1402425,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 11,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 19,
+          "int": 24070,
+          "str": 64,
+          "tuple": 13
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 826,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 17748
+      },
+      "native_process": {
+        "initial_bytes": 32301056,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 38633472,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 826,
+      "payload_bytes_unsealed": 725,
+      "result_python": {
+        "bytes": 19746,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 12,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 12,
+          "Reason": 2,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 3,
+          "ValueType": 3,
+          "bool": 2,
+          "dict": 44,
+          "float": 7,
+          "int": 10,
+          "str": 126,
+          "tuple": 30
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 13790,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_BarTotals": 1,
+          "_StreamState": 1,
+          "_Sum": 3,
+          "bool": 2,
+          "dict": 22,
+          "int": 14,
+          "set": 1,
+          "str": 131,
+          "tuple": 4
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 8192,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 64,
+      "config_sha256": "7f8e6c6490cb248098b18a5a2746c9e10bd845b56b25e0792e8152122626ef90",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "structure",
+      "fixture_sha256": "36fb13d57a22e3de390e7e6d4405b955bac3e18a09f15199eed5e45b52ef81f3",
+      "input_python": {
+        "bytes": 1403591,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 11,
+          "Coverage": 3,
+          "DataKind": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 2,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 23,
+          "int": 24076,
+          "str": 66,
+          "tuple": 13
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 1908,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 26540
+      },
+      "native_process": {
+        "initial_bytes": 32403456,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 38903808,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 1908,
+      "payload_bytes_unsealed": 1601,
+      "result_python": {
+        "bytes": 15583,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 3,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 2,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 2,
+          "IntervalOHLCV": 1,
+          "IntervalOHLCVRow": 2,
+          "IntervalSpec": 2,
+          "IntervalVolumeShareRow": 2,
+          "IntervalVolumeShares": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 6,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 2,
+          "bool": 2,
+          "dict": 35,
+          "float": 10,
+          "int": 17,
+          "str": 107,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 18238,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 3,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 2,
+          "IntervalSpec": 2,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_BarTotals": 3,
+          "_StreamState": 1,
+          "_Sum": 9,
+          "bool": 2,
+          "dict": 38,
+          "int": 30,
+          "set": 3,
+          "str": 133,
+          "tuple": 8
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 2,
+      "rows": 8192,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 2
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 64,
+      "config_sha256": "b4a1c3f49cda160a67530d299c06e6e055a20c81cfed25980cc9a54a0bed0a0f",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "trades",
+      "fixture_sha256": "878d872d7889d54dceb17f1458a6f9b0787dc947083461f29ca490f379822b32",
+      "input_python": {
+        "bytes": 1646606,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 9,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 17,
+          "int": 24066,
+          "str": 8256,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 694,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 16078
+      },
+      "native_process": {
+        "initial_bytes": 32288768,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 39211008,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 694,
+      "payload_bytes_unsealed": 593,
+      "result_python": {
+        "bytes": 13384,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 5,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 5,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 3,
+          "bool": 2,
+          "dict": 26,
+          "float": 2,
+          "int": 9,
+          "str": 104,
+          "tuple": 14
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 13154,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_Sum": 2,
+          "_TradeTotals": 1,
+          "bool": 2,
+          "dict": 20,
+          "int": 11,
+          "str": 129,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 8192,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 64,
+      "config_sha256": "0282de43fdeadea28a40a9b1576f73d7f44c351a9bdf0d65a923b7d472b0f022",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "top_k",
+      "fixture_sha256": "878d872d7889d54dceb17f1458a6f9b0787dc947083461f29ca490f379822b32",
+      "input_python": {
+        "bytes": 1646606,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 9,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 17,
+          "int": 24066,
+          "str": 8256,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 1402,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 20400
+      },
+      "native_process": {
+        "initial_bytes": 32182272,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 39231488,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 1402,
+      "payload_bytes_unsealed": 1301,
+      "result_python": {
+        "bytes": 15082,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "EvidenceRow": 8,
+          "FeatureColumn": 1,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 1,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "TopKTradeRow": 8,
+          "TopKTrades": 1,
+          "ValueType": 1,
+          "bool": 2,
+          "dict": 33,
+          "int": 14,
+          "str": 116,
+          "tuple": 8
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 15516,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 3,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "TopKTradeRow": 8,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_TopTotals": 1,
+          "bool": 2,
+          "dict": 28,
+          "int": 17,
+          "list": 1,
+          "str": 135,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 8,
+      "retained_window_rows": 0,
+      "rows": 8192,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 64,
+      "config_sha256": "40fe1a07f310ef4601be670e19fac4482f4a283753e3992007f235ab57452ebc",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "quotes",
+      "fixture_sha256": "cb96f12b763dca348218c3b2e830f1abc8705569d2f1d6c5874922447930c7a6",
+      "input_python": {
+        "bytes": 1580889,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 8,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 16,
+          "int": 24066,
+          "str": 8256,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 1804,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 20912
+      },
+      "native_process": {
+        "initial_bytes": 32358400,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 38830080,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 1804,
+      "payload_bytes_unsealed": 1703,
+      "result_python": {
+        "bytes": 16103,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "EvidenceRow": 5,
+          "FeatureColumn": 2,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 2,
+          "QuoteObservation": 5,
+          "QuoteStateCounts": 1,
+          "ResultMetadata": 1,
+          "SampledSpread": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 2,
+          "bool": 2,
+          "dict": 31,
+          "float": 12,
+          "int": 16,
+          "str": 129,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 16338,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 2,
+          "PriceUnit": 1,
+          "QuoteObservation": 5,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_QuoteTotals": 1,
+          "_StreamState": 1,
+          "_Sum": 1,
+          "bool": 2,
+          "dict": 26,
+          "float": 12,
+          "int": 16,
+          "list": 1,
+          "str": 144,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 5,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 8192,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 128,
+      "chunks": 64,
+      "config_sha256": "d75112f39f6b2fd75f35bbdd37c98a1a98b38054672a0d5a096b1e5b7e82685d",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "continuous",
+      "fixture_sha256": "ecd88ecf1ca91b8950d2e3e876cb18f90ff26c0893143c7c484bee4112c54fae",
+      "input_python": {
+        "bytes": 1580893,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 8,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 16,
+          "int": 24066,
+          "str": 8256,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": null,
+      "native_process": {
+        "initial_bytes": 32284672,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 38637568,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 691,
+      "payload_bytes_unsealed": 603,
+      "result_python": {
+        "bytes": 11683,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 1,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 1,
+          "QuoteDurations": 1,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "TimeWeightedSpread": 1,
+          "ValueType": 1,
+          "bool": 2,
+          "dict": 18,
+          "float": 2,
+          "int": 7,
+          "str": 104,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 14270,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 3,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_TimeReducer": 1,
+          "bool": 2,
+          "dict": 21,
+          "float": 2,
+          "int": 11,
+          "str": 137,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 8192,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 16,
+      "chunks": 512,
+      "config_sha256": "44b720df8c332e01f888419aa2ca569394800619c2f4d310bbf3d71d402410c1",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "top_k",
+      "fixture_sha256": "878d872d7889d54dceb17f1458a6f9b0787dc947083461f29ca490f379822b32",
+      "input_python": {
+        "bytes": 1646606,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 9,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 17,
+          "int": 24066,
+          "str": 8256,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 64,
+      "merge": {
+        "merged_payload_bytes": 7333,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 52830
+      },
+      "native_process": {
+        "initial_bytes": 32354304,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 39710720,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 7333,
+      "payload_bytes_unsealed": 7232,
+      "result_python": {
+        "bytes": 41484,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "EvidenceRow": 64,
+          "FeatureColumn": 1,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 1,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "TopKTradeRow": 64,
+          "TopKTrades": 1,
+          "ValueType": 1,
+          "bool": 2,
+          "dict": 145,
+          "int": 69,
+          "str": 172,
+          "tuple": 8
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 29882,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 3,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "TopKTradeRow": 64,
+          "WindowSpec": 1,
+          "_StreamState": 1,
+          "_TopTotals": 1,
+          "bool": 2,
+          "dict": 84,
+          "int": 73,
+          "list": 1,
+          "str": 191,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 64,
+      "retained_window_rows": 0,
+      "rows": 8192,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 16,
+      "chunks": 512,
+      "config_sha256": "6b0789e80ab38ccf7d632859b2bf1cefb18c4b25c438f50c1c8b82a162ff588b",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "quotes",
+      "fixture_sha256": "cb96f12b763dca348218c3b2e830f1abc8705569d2f1d6c5874922447930c7a6",
+      "input_python": {
+        "bytes": 1580889,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 8,
+          "Coverage": 1,
+          "DataKind": 1,
+          "InputScope": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 16,
+          "int": 24066,
+          "str": 8256,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 11192,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 53373
+      },
+      "native_process": {
+        "initial_bytes": 32411648,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 39870464,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 50,
+      "payload_bytes_sealed": 11192,
+      "payload_bytes_unsealed": 11091,
+      "result_python": {
+        "bytes": 40522,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "EvidenceRow": 50,
+          "FeatureColumn": 2,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 2,
+          "QuoteObservation": 50,
+          "QuoteStateCounts": 1,
+          "ResultMetadata": 1,
+          "SampledSpread": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 2,
+          "bool": 2,
+          "dict": 121,
+          "float": 102,
+          "int": 59,
+          "str": 174,
+          "tuple": 10
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 30525,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 1,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "Parameter": 2,
+          "PriceUnit": 1,
+          "QuoteObservation": 50,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_QuoteTotals": 1,
+          "_StreamState": 1,
+          "_Sum": 1,
+          "bool": 2,
+          "dict": 71,
+          "float": 102,
+          "int": 61,
+          "list": 1,
+          "str": 189,
+          "tuple": 6
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 50,
+      "retained_top_rows": 0,
+      "retained_window_rows": 0,
+      "rows": 8192,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 0
+    },
+    {
+      "atomic_rejections": [
+        {
+          "case": "wrong_ordinal",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "contradictory_certificate",
+          "code": "inconsistent_identity"
+        },
+        {
+          "case": "incompatible_restore",
+          "code": "invalid_schema"
+        },
+        {
+          "case": "corrupt_restore",
+          "code": "invalid_schema"
+        }
+      ],
+      "batch_stream_restore_merge_parity": true,
+      "chunk_size": 16,
+      "chunks": 512,
+      "config_sha256": "8be90f2d120c4754e01b0264ee7ca7b9d97e802644576511d04f619c15e0acdb",
+      "controls": {
+        "adapter_outcomes": [
+          {
+            "case": "cancel_before",
+            "code": "cancelled",
+            "yielded": 0
+          },
+          {
+            "case": "row_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "chunk_limit",
+            "code": "resource_limit",
+            "yielded": 0
+          },
+          {
+            "case": "cancel_between",
+            "code": "cancelled",
+            "yielded": 1
+          },
+          {
+            "case": "unsupported_kernel_threads",
+            "code": "invalid_config"
+          },
+          {
+            "case": "unsupported_kernel_cancelled",
+            "code": "invalid_config"
+          }
+        ],
+        "arbitrary_callback_resources": "not certified",
+        "caller_serializes_accumulator": true,
+        "caller_stopped_prefix_count": 1,
+        "kernel_thread_budget": "unsupported",
+        "midkernel_cancel": "unsupported"
+      },
+      "family": "structure",
+      "fixture_sha256": "8f4affd186935eec2e228914c376d34dd2af17b3bb9f16b1bca0368954958f9a",
+      "input_python": {
+        "bytes": 1412199,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 1,
+          "CanonicalBatch": 1,
+          "Column": 11,
+          "Coverage": 21,
+          "DataKind": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 20,
+          "PriceUnit": 1,
+          "SourceBinding": 1,
+          "bool": 2,
+          "dict": 59,
+          "int": 24148,
+          "str": 84,
+          "tuple": 13
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "k": 8,
+      "merge": {
+        "merged_payload_bytes": 11566,
+        "originals_unchanged": true,
+        "three_coexisting_states_python_bytes": 99532
+      },
+      "native_process": {
+        "initial_bytes": 32309248,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 39923712,
+        "scope": "child lifetime high-water through calculations/control checks, before JSON output; includes input/diagnostics/restore/partitions/results"
+      },
+      "no_hidden_pool_creation_observed": true,
+      "observation_limit": 5,
+      "payload_bytes_sealed": 11566,
+      "payload_bytes_unsealed": 9403,
+      "result_python": {
+        "bytes": 42371,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 1,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "Coverage": 21,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "FeatureColumn": 2,
+          "FeatureResult": 1,
+          "InputBinding": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 20,
+          "IntervalOHLCV": 1,
+          "IntervalOHLCVRow": 20,
+          "IntervalSpec": 20,
+          "IntervalVolumeShareRow": 20,
+          "IntervalVolumeShares": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "QualityRow": 42,
+          "ResultMetadata": 1,
+          "SourceBinding": 1,
+          "Status": 1,
+          "ValueType": 2,
+          "bool": 2,
+          "dict": 161,
+          "float": 100,
+          "int": 126,
+          "str": 125,
+          "tuple": 11
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_python": {
+        "bytes": 51494,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdjustmentSpec": 2,
+          "AvailabilitySpec": 1,
+          "BatchMetadata": 1,
+          "ConfigSpec": 1,
+          "Coverage": 21,
+          "DataKind": 1,
+          "EntityKey": 1,
+          "InputScope": 1,
+          "IntervalCoverage": 20,
+          "IntervalSpec": 20,
+          "NoneType": 1,
+          "Parameter": 1,
+          "PriceUnit": 1,
+          "SessionAccumulator": 1,
+          "SessionSpec": 1,
+          "SourceBinding": 1,
+          "StreamPopulation": 1,
+          "WindowSpec": 1,
+          "_BarTotals": 21,
+          "_StreamState": 1,
+          "_Sum": 63,
+          "bool": 2,
+          "dict": 182,
+          "int": 192,
+          "set": 21,
+          "str": 151,
+          "tuple": 8
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "retained_quote_rows": 0,
+      "retained_top_rows": 0,
+      "retained_window_rows": 20,
+      "rows": 8192,
+      "runtime": {
+        "consumer": "0.3.0",
+        "core": "0.0.4a4",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "python_implementation": "CPython",
+        "system": "Windows"
+      },
+      "windows": 20
+    }
+  ],
+  "diagnostic_scope": "version-specific owned graph traversal, not private API/total allocation/nativeRSS",
+  "harness_hash_encoding": "UTF8 with normalized LF",
+  "harness_sha256": "47b19ccb282b7d99d84d342166ea0c3763b7afb0df94fb25c66c1877109674b0",
+  "measurement_source_dirty": false,
+  "native_probe_sha256": "a481f45163d3a0061de24920357a168a57d08690aa47394b0e7e288177b12579",
+  "schema": "resource-suite1",
+  "source_commit": "b6e84c3eb6c92b39177908edfa5d03ff8adad178"
+}
