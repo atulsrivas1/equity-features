@@ -42,3 +42,67 @@ rights. Final installed/artifact/CI/readback evidence precedes Done.
 ## Done outcome
 
 Actual-data adapter and numerical integration evidence; no full-corpus inference. Neither a prepared plan nor a source merge establishes this outcome.
+
+## Concrete pull — October6,2026, before qualification code
+
+EQ054 Closed/ProjectDone after sourcePR270/review6026129744, receiptPR271/review6026286443, finalmain7f0ff33 exacttree/owner/publicblobs/allCI/actual24archive equality/current24reports/fourfresh92testforms/30SDK16numeric/Released6026406579/postread. Pull055only;056finalboundedR4 remains open.
+
+Read-only inspection freezes two retained instruments, five dated UTC24h daily
+slots and one five-minute intraday window with five complete minute bars per
+instrument. Eight original/optimized source pairs include daily/minute plus
+trade/TBBO candidate partitions from one explicitly selected prepared generation;
+never union curated overlap. Source rows, original/optimized selected bar parity,
+exact file lengths and SHA256 observations, catalog hash/metadata and identities
+are retained privately before execution. Frozen scope SHA256
+`357bf98b840688a77eb63948c8760c760500543748abe22bbc34828913b91156`. Raw names/IDs/paths/values/receipts stay private;
+public methodology/results disclose only qualification facts and limitations.
+Source bytes and physical lineage/admission are preserved; caller pins are newly
+frozen observations, not prior provider pins or provenance admission.
+
+Independent stdlib Fraction/Decimal80 goldens are frozen directly from raw original
+rows before importing calculations/adapter: period3 SMA and EMA(seed first3, then
+alpha1/2 updates), RSI(first3changes/Wilder then fourth), ATR(TRanchor secondslot,
+previous firstclose, seed3TR then fourth), prior3 high/low excluding target, horizon2
+return from3consecutive closes, sample3simple-return volatility(4closes,N-1,A1),
+and caller-composed prior3close SMA at preceding target. Minute open/high/low/close,
+volume and close-weighted proxy use exact scaled coefficients/checked shares;
+actual bar notional remains missing input. Binary64_exact/half_even to scale4USD
+is explicit retained-value quantization; it cannot recover original provider1e-9
+coefficients. Reference expected ratios/final Float64 use rtol/atol1e-12; integer
+counts/volumes/UTCns/occurrences and units/status/source binding are exact.
+
+Use actual installed public a6/corea4 packages from accepted downloaded source
+archives in fresh environments, four producer/form combinations. A private bounded
+qualification runner outside pure packages reads frozen config/goldens, uses actual
+resolver/reader with original+optimized prior observation pins and acquisition1,
+and compares actual canonical identity/time/price/quantity/row/delivery coverage,
+retained unknown knowledge, report/receipt bindings and independent numerical
+expectations. It checks actual supplied-envelope SDK validation, one excluded
+unfinished bar, requested-empty selection, and intentionally wronggolden rejection.
+Private script/config/data/report identities permit replay without public redistribution.
+No library API/mathematics/package/dependency/version change is required; this is
+qualification of accepted optionala6, with same-story public methodology/evidence
+and no-impact decisions. Public CI keeps synthetic fixtures; real source execution
+is localWindows, nativeLinux delivery remains CI, not private Linux qualification.
+
+Caller grid is supplied UTCdaily/micro-window evidence, not inferred exchangeRTH
+or market completeness. Certificates describe exact retained selected populations,
+not all expected trades/bars. Raw reconstruction explicitly permits unknown known-at
+for retrospective numerical checks; separate causal computations must remain null/
+unavailable. Trade eligibility absent produces typed unavailable, no fabricated
+eligible_default; actual TBBO remains trade_snapshot and continuous requests reject.
+Absent governed action/membership/classification/point-in-time references stay
+unavailable; no FMP DOUBLE-to-rational or latest-snapshot historical inference.
+Acquisition failure, numerical unavailable and successful-empty are distinguished.
+A missing-grid-slot caller composition must keep recursive EMA incomplete while a
+later complete finite SMA recovers; no source rewriting or hidden gap compression.
+
+Record successful and blocked cases, measured complete acquisition including hash/
+SQL/map/copy costs, rows/user-space hashbytes/selectedfilelength/native lifetime peak
+limits, exact installed archive/harness/frozen-source identities and core module/
+metadata before-after invariance. No full-corpus performance or source truth/PIT/
+rights/atomic-snapshot conclusion. Relevant public methodology/API/install/qualification
+matrix/lesson/handoff/issue/PR accompany result. Separate final-head source and actual
+private evidence review, currentbothOSCI/actualmainarchive equivalence/currentreports/
+public bytes/owner/channels/Releasedpostread precedeDone. Then056 finalR4 all8stories
+and bothactualtestinglayers; STOP beforeR5.
