@@ -67,3 +67,5 @@ EQ030/0.0.3a4 adds history.return_volatility batch:31batch/all8history,23session
 EQ031 qualifies baseline.daily_volume and baseline.relative_volume batch flags,33total. Both remain false for update/restore/merge.39 mathematical definitions and session23update/restore22merge remain unchanged; rebuild exact-version snapshots after pair0.0.3a5. [API](../api/DAILY_VOLUME.md).
 
 EQ032 qualifies baseline.interval_volume and baseline.interval_relative_volume batch flags (35total); both state modes false.39equations and session23update/restore22merge unchanged. New companion schemas1; existing schemas retained, exact-version replay/registry rebuild after pair0.0.3a6. [API](../api/INTERVAL_VOLUME.md).
+
+EQ034 qualifies relative.market_return and relative.sector_return batch flags (37total), both state modes false.39equations and session23update-restore22merge unchanged. New companions schema1; exact-version replay/registry rebuilding after pair0.0.3a7. [API](../api/RELATIVE_RETURNS.md).

@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## 0.0.3a7 — EQ034 source qualification, delivery pending
+
+Supplied market/sector arithmetic return spreads retain actual child configs/source revisions/action snapshots and explicit sector mapping/membership point. Missing sector membership leaves market ready; no hidden return calculation/namespace conversion.37batch/23session update-restore22merge, relative/history/bucket state modes false. New companions schema1, existing schemas/39equations unchanged; exact-version replay/registry rebuild applies. [API](api/RELATIVE_RETURNS.md), [plan](stories/EQ-034_PLAN.md). Actual head/main/artifact/installed/receipt gates pending; no source truth/performance/stable claim.
+
 ## 0.0.3a6 — EQ032 verified experimental implementation delivery
 
 Individual typed bucket volume means and supplied ratios preserve required N, actual early-close exclusions, independent readiness, partial versus fully elapsed target proof and original source evidence.35batch/23session update/restore22merge; bucket/history state modes false. Existing output/state/input schemas and39equations unchanged, new bucket companions schema1. Exact-version replay/registry rebuilding applies. [API](api/INTERVAL_VOLUME.md), [pre-code plan](stories/EQ-032_PLAN.md). Actual head/main/artifact/installed/receipt gates pending; no provider/performance/stable claim.

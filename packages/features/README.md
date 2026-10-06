@@ -1,6 +1,6 @@
 # Equity Features
 
-Experimental0.0.3a6, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
+Experimental0.0.3a7, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
 R1 session calculations use caller-supplied immutable canonical inputs and explicit
 config/entity/source/coverage/knowledge declarations. Core imports require no
 optional backend or source acquisition. Contracts depend only on stdlib; features
@@ -45,3 +45,5 @@ EQ030 adds centered sample return volatility with explicit scaling/default1;
 EQ031 adds owned volume dependencies and batch-only daily baseline/relative volume; [API](../../docs/api/DAILY_VOLUME.md). No history state modes or source acquisition.
 
 EQ032 adds owned bucket dependencies and two batch-only interval-volume IDs; [API](../../docs/api/INTERVAL_VOLUME.md). Individual bucket coverage and required N are preserved.
+
+EQ034 adds owned supplied return references and batch market/sector spreads with explicit benchmark/membership identities; [API](../../docs/api/RELATIVE_RETURNS.md).

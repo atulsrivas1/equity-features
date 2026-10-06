@@ -87,3 +87,5 @@ EQ030 adds history_volatility.py as the sixteenth installed synthetic example; e
 EQ031 adds daily_volume.py as the seventeenth installed synthetic example; all actual-main/repeated archive/fresh pair gates remain mandatory.
 
 EQ032 adds interval_volume.py as the eighteenth installed synthetic example; all repeated archive/actual-main/fresh pair gates remain.
+
+EQ034 adds relative_returns.py as the nineteenth installed synthetic example; all repeated archive/actual-main/fresh pair gates remain.
