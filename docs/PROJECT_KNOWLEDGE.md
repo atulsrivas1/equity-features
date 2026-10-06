@@ -152,3 +152,6 @@ EQ052 governed calendars/history/supplied references source823ae1d is separately
 EQ052 finalmaincd8377f8dfac57b9cf739225226b8e5fbfcf1c02, sourcePR266review6025190664/receiptPR267review6025336786; allCI/exacttree/publicblobs/owner/24actualarchive equality/current20reports/fourfresh75testforms/livechannels and Released6025430699/postread pass. Issue59 Closed/ProjectDone. Purecore unchanged.
 
 Pull dependency-ready053only: [concrete pre-code plan](stories/EQ-053_PLAN.md) binds bounded cumulative pre/post SHA256/catalog metadata refresh/actual original occurrence/normalization receipts and optionala5; observations versus pins/admission/provider/PIT limits explicit. Publish plan beforecode, then Inprogress/draftPR.054-056planned; no real slice/goldens frozen.
+
+
+EQ053 correctedsource db5c509 is reviewed/qualified with90optional/strict6/actualbothOS artifacts/fourfreshdownloadedforms. [Receipt](stories/EQ-053_DELIVERY.md) preserves resolvedP2/counter and observation/pin/admission limits. Finalsame-story publication/readback precedesDone;054conformance/055private numerical/056R4 remain planned. Purecore unchanged.

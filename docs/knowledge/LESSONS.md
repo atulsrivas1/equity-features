@@ -408,3 +408,6 @@ EQ053 binds actual current originals and normalization to evidence while recheck
 
 
 EF-L030 correction: [separateP2review](https://github.com/atulsrivas1/equity-features/pull/268#issuecomment-6025612285) independently reproduced transient file size causing nested hashcounter under-accounting. A priorstat is not an actual read charge. Share one actual cumulative counter across resolver/acquisition, and verify exact-bound adversarial restoration; outputwithholding alone does not prove resource-bound compliance. Current15regressions pass; priorheadbuild/greenchecks superseded.
+
+
+EF-L030 [corrected actual delivery](../stories/EQ-053_DELIVERY.md) binds sharedcounter adversarialregression/90cases/fouractual forms; originalrace independently resolved by finalreview. Priorstats cannot account for actual nested reads; matchingobservations/bytebudget compliance/provideradmission are separate checks. Purecore unchanged; finalpublication gates remain.
