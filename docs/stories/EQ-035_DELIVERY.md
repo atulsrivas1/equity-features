@@ -55,7 +55,7 @@ Windows-local installation does not imply local Linux execution.
 Author self-review+CI only; no independent hosted/human review recorded. The
 October5 owner direction resumed the separate final-head Codex review gate;
 hosted activation remains unverified under GOV005. The owner explicitly authorized
-a separate local Codex reviewer for EQ035; that review is in progress, not a pass.
+a separate local Codex reviewer for EQ035; the completed separate [review report](https://github.com/atulsrivas1/equity-features/pull/220#issuecomment-6007687982) covers head d6530359b6e21e4337db952211b688762229c96c with no unresolved actionable findings. Reviewer /root/eq035_review independently ran22breadth/full561tests/the example and matched all eight downloaded archive hashes; it inspected rather than repeated installed execution. The stale formula-page planned-status finding was corrected. Subsequent documentation changes require final-head confirmation before merge.
 PR220 remains Code review until completed final-head review and findings
 disposition are recorded. Experimental main
 Actions channel only; no source/provider/private copy/
