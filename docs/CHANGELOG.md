@@ -165,3 +165,5 @@ replay of older implementation state. Issue163 records experimental artifact gat
 ## EQ038 comparison qualification — pair0.0.3a11 unchanged
 
 [16-ID migration inventory](stories/EQ-038_COMPARISON.md) distinguishes actual five-vector GoEMA/ATR execution from source-only related definitions. Captured synthetic observations/public installed API example prove compatible arithmetic and one-tick exact-input versus nativeFloat64 ATR difference. No package equation/API/state/version change; independent review and delivery remain before acceptance.
+
+EQ043 corrected0.0.4a4 source completed final-head separate local review and main bothOS CI. Consumer0.2.1 supersedes0.2.0; [delivery](stories/EQ-043_DELIVERY.md) and issue49 retain actual installed and receipt publication gates. No built-in math/schema/mode change or stable channel.

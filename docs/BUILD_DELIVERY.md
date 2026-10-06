@@ -99,3 +99,5 @@ EQ038 adds legacy_comparison.py as the twenty-second installed synthetic example
 
 
 EQ093 adds a separately built synthetic consumer wheel to each isolated core wheel/sdist installation. Installed public module locations/imports and core-file byte invariance are checked alongside22 existing examples and the complete unit suite. The consumer is outside both core distributions; actual main bundles and final source remain separate delivery gates. No custom-code purity/sandbox claim.
+
+EQ043's separately packaged typed synthetic BAR adapter and public pure supplied-case conformance checks retain the existing experimental artifact channel. Both core archives include py.typed; consumer0.2.1 is independently built during each fresh pair install. Actual review/source/CI/artifact receipt is [EQ043](stories/EQ-043_DELIVERY.md); its verification gates apply before Done.
