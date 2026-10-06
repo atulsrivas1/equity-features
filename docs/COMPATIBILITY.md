@@ -61,3 +61,21 @@ three strictly typed adapter modules and independently expected mapping fixtures
 The optional builder now qualifies the expanded installed suite/forms; exact pinned
 contracts0.0.4a4/DuckDB1.5.6 and pure core remain unchanged. No read/calendar/real
 numerical acceptance yet; actual review/artifact/publication gates remain.
+
+
+EQ051 optional0.1.0a3 adds [bounded original-Parquet reads](api/DUCKDB_READER.md),
+four strictly typed adapter modules, explicit supplied sessions/scope/coverage and
+physical original occurrence identity. Installed wheel/sdist qualification includes
+reader fixtures and synthetic read-cost/native-memory reports. Corepaira4 and pinned
+DuckDB1.5.6 remain unchanged. No R4 conformance/private numerical acceptance yet;
+final reviewed-head CI and actual delivery/readback gates remain required.
+
+
+EQ051 clean installation additionally pins NumPy2.2.6 in the optional adapter
+runtime. DuckDB1.5.6 create_function requires NumPy in the observed fresh environment;
+the development environment had masked this dependency. Install DuckDB1.5.6 and
+NumPy2.2.6 explicitly before --no-deps project archive installation. Core runtime
+dependencies remain unchanged; NumPy's existing upstream notice/hash provenance
+is recorded in [release integrity](RELEASE_INTEGRITY.md). Both native installed forms must verify
+this exact runtime. Null timestamps pass through the parser and fail closed, following
+[DuckDB UDF null semantics](https://www.duckdb.org/docs/current/clients/python/function).

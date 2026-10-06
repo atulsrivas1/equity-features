@@ -356,3 +356,18 @@ hashes match priorPR evidence. [Receipt](../stories/EQ-049_DELIVERY.md).
 ## EF-L027 retained normalization needs explicit clock and policy evidence
 
 EQ050 reuses accepted quantize_float_prices rather than duplicating numerical rounding. Interpretation/rounding/report identity cannot recover original scaled coefficients from retained DOUBLE. Exact UTCns parsing does not identify source clock, eligibility, calendar or known-at; require explicit evidence-bearing caller declarations, preserve unavailable/null and UTCdaily versus RTH distinctions. Source-occurrence identity preserves tied equal payloads without certifying exchange uniqueness. [Mapping API](../api/DUCKDB_MAPPING.md), [receipt](../stories/EQ-050_DELIVERY.md). Revisit for source representation/clock/eligibility/availability or normalization-policy changes.
+
+
+## EF-L028 physical occurrence and measurements need explicit boundaries
+
+EQ051 keeps original Parquet physical row identity through filtered/sorted reads;
+optimized row positions cannot certify original occurrences. Map the whole bounded
+population once so chunk delivery retains stable normalization/schema/coverage;
+caller assertions bind exact selected populations rather than infer provider
+completeness. Actual catalog.duckdb fixtures exposed database/schema ambiguity;
+qualify identifiers without relaxing bound values. Measure whole public read plus
+SQL/materialization/copy phases and actual installed native lifetime high-water
+units; selected file sizes and DuckDB memory settings are not I/O or process-cap
+measurements. [Plan](../stories/EQ-051_PLAN.md), [API](../api/DUCKDB_READER.md).
+Revisit for storage rewrite/row identity, streaming, stability/coverage or measurement
+method changes; final installed/review/publication evidence remains pending.

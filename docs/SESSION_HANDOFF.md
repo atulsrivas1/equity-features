@@ -1306,3 +1306,79 @@ required; superseded failed document checks are never counted as acceptance.
 PR262 finalbc370d2 review6024069428/all10checks passed; source main6f3891f exacttree/15publicblobs/owner verified. Main docs37520940373/Foundation37520940262/optional37520940219 succeed. All24 actual optional+Foundation archives/current16reports verified; core/consumer hashes unchanged. FOUR actual optional source forms installed locallyWindows each46tests/strict3/core invariance; nativeLinux is CI. Source-local/Windowsmain optional differences are resolver.py newlines/derived RECORD only; within-checkout repeatability. [Receipt](stories/EQ-050_DELIVERY.md).
 
 Issue57 Ready to release until doc-only receipt separate final-head review/allCI/guardedfinalmain/actualarchive equality/currentreports/retention/Released postrelease readback. Keep source/runtime/tests/tools/packages unchanged; reuse these installed forms with final byte equality/current reports. Then close57Done and pull EQ051 bounded original-file reads with actual original occurrence identity; EQ052-056 remain planned. No real source population/goldens frozen.
+
+
+### EQ050 accepted / EQ051 concrete pull
+
+EQ050 issue57 Closed/ProjectDone after Released6024316455/postrelease readback.
+PR262 source6f3891f review6024069428 and PR263 final1e5fdd7 review6024212651 each
+separately reviewed/allCI/exacttree/publicblobs/owner verified. Final docs37522085905/
+Foundation37522085778/optional37522085498 succeed; all24 actual archives equal
+qualifiedsource,16 current reports and four unexpired channels read back. FOUR
+actualsource forms installedWindows46tests/strict3/core invariance; nativeLinux CI.
+Mapping only, no historical/private numerical acceptance. Transient GitHub mutation
+failures retried/read back; issue body successfully updated through REST.
+
+Next EQ051#58 concrete plan before code: original-file physical occurrences, exact
+UTCns bound predicates, caller-governed SessionSpecs/scope, map bounded population
+once before chunks, explicit coverage assertions/default unknown, private configured
+connections/cancellation and externally measured query/conversion/copy/native memory.
+Preparation one synthetic original-row1/1ns probe is not story acceptance. Implement
+independent actual Parquet fixtures/docs, separate final-head review/bothOS installed
+artifacts and actual main publication/readback before Done; EQ052-056 remain planned.
+
+EQ051 initial reader fixture hit DuckDB database/schema catalog-name ambiguity
+(15setup errors, no reader pass). Retain catalog.duckdb as regression; fixture DDL
+and resolver metadata queries explicitly qualify the database/schema/table, escaping
+the connection-reported database identifier while keeping values bound. Initial
+strict reader check also found two local typing issues, corrected. Current reruns
+are required; no failed/superseded check counted as acceptance.
+
+EQ051 second fixture run: literal source prices were DuckDB DECIMAL rather than
+the promised retained DOUBLE; fixed fixture explicit DOUBLE declarations, no
+implicit production coercion. Capability errors now translate via safe adapter
+messages/fromNone while preserving existing error codes. Failed61case attempt
+(2failures/8errors) is superseded; require current rerun.
+
+
+EQ051 third reader run exposed one fixture SQL unquoted close alias, corrected;
+current61 optional tests pass (14s) and strict4 source modules pass. Added actual
+installed-only synthetic reader measurement/parity harness and builder integration.
+ReadResult retains MappingReport; mapping timing includes sorting/materialization;
+copy loop cancellation added. API documents supplied sessions, unknown default
+coverage, original occurrence, whole-bar predicates, fixed errors and stability/
+responsiveness/memory limits. Interim separate reviewer inspecting uncommitted
+implementation; no final-head/installed/delivery acceptance yet. Next freeze code/
+docs, actual repeat-built installed wheel/sdist benchmark, resolve review findings,
+final-head review/CI and actual main artifacts/readback before issue58 Done.
+
+
+EQ051 interim separate reviewer /root/eq049_review independently ran61tests/strict4
+and reproduced P2 NULL timestamp bypass: DuckDB default UDF null handling silently
+filtered an unlocatable row into asserted observed-empty. Corrected special null
+handling routes None through exact parser; added independent null-time/default and
+claimed-empty rejection fixture. Require current62 suite and installed harness
+rerun; interim review is not frozen-head acceptance.
+
+
+EQ051 ac5e944 first actual installed wheel failed (2failures/10errors) because
+DuckDB1.5.6 create_function requires NumPy, absent in clean environment despite
+development success. CI optional37524762123 bothOS likewise failed; no acceptance
+claimed. Private reproduction inspected safe exception context on synthetic fixture;
+installing NumPy2.2.6 restored selected times(10,10,15). Pin existing governed NumPy
+version in optional adapter only, update exact dependency boundary and installed
+runtime/metadata checks. Both core dependency lists remain unchanged. Benchmark
+COPY combined parameterized range/path also failed backend restriction; separate
+bound range fixture creation then bound COPY path. Current reruns required.
+
+
+EQ051 clean9f80670 actual local wheel installed/full synthetic measurement passes:
+512rows median1538765000ns/owned174926bytes/nativepeak75612160bytes;
+4096rows median13053876000ns/owned1384947bytes/nativepeak82649088bytes.
+Three samples each, independent price/time/share/occurrence/delivery parity. Native
+Windows lifetime high-water includes imports/setup/prior case, no hardcap/I/O/
+throughput claim. Public sanitized report docs/benchmarks/EQ-051_WINDOWS.json and
+interpretation/actual installed wheel hashes EQ-051_READ.md. Clean repeat builder
+wheel qualification passes62tests/strict4/quickread/core invariance; sdist running.
+Separate reviewer currently frozen9f80670; next doc-only measured evidence final
+head review/currentCI and actual main delivery remain before acceptance.

@@ -1,0 +1,196 @@
+{
+  "cases": [
+    {
+      "controls": {
+        "batch_rows": 256,
+        "max_batches": 128,
+        "max_rows": 512,
+        "memory_setting_mb": 256,
+        "threads": 1
+      },
+      "fixture_resolver_setup_ns": 170908000,
+      "independent_population_unit_identity_parity": true,
+      "limits": "supplied synthetic single-process workload, no warm/cold storage distinction; file bytes are selected lengths, not measured I/O; owned graph excludes config/wrapper/native/global code; no throughput or zero-copy target",
+      "logical_fixture_sha256": "f9d6b5031c1b3a1e29a27113f6688299bfb3ce728294faceadb208c75e578edc",
+      "native_process": {
+        "after_setup_peak_bytes": 75612160,
+        "initial_bytes": 58085376,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 75612160,
+        "scope": "process lifetime high-water including imports/fixture/resolver/SQL/Python/canonical/chunks; not exclusive read allocations or hard cap"
+      },
+      "owned_canonical_and_envelopes": {
+        "bytes": 174926,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdapterBatch": 2,
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 3,
+          "CanonicalBatch": 3,
+          "Column": 24,
+          "Coverage": 3,
+          "DataKind": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 3,
+          "bool": 2,
+          "dict": 42,
+          "int": 1283,
+          "str": 586,
+          "tuple": 30
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "phases": [
+        {
+          "batches": 2,
+          "canonical_cells": 4096,
+          "delivered_rows": 512,
+          "delivery_copy_ns": 1411700,
+          "files": 1,
+          "mapping_ns": 17188400,
+          "selected_file_bytes": 3617,
+          "sql_fetch_ns": 1485238000
+        },
+        {
+          "batches": 2,
+          "canonical_cells": 4096,
+          "delivered_rows": 512,
+          "delivery_copy_ns": 1131800,
+          "files": 1,
+          "mapping_ns": 16520700,
+          "selected_file_bytes": 3617,
+          "sql_fetch_ns": 1520532200
+        },
+        {
+          "batches": 2,
+          "canonical_cells": 4096,
+          "delivered_rows": 512,
+          "delivery_copy_ns": 1167500,
+          "files": 1,
+          "mapping_ns": 17508400,
+          "selected_file_bytes": 3617,
+          "sql_fetch_ns": 1537660500
+        }
+      ],
+      "read_total_median_ns": 1538765000,
+      "read_total_samples_ns": [
+        1504345200,
+        1538765000,
+        1556948000
+      ],
+      "rows": 512,
+      "runtime": {
+        "adapter": "0.1.0a3",
+        "contracts": "0.0.4a4",
+        "duckdb": "1.5.6",
+        "machine": "AMD64",
+        "numpy": "2.2.6",
+        "python": "3.12.10",
+        "system": "Windows"
+      }
+    },
+    {
+      "controls": {
+        "batch_rows": 256,
+        "max_batches": 128,
+        "max_rows": 4096,
+        "memory_setting_mb": 256,
+        "threads": 1
+      },
+      "fixture_resolver_setup_ns": 173855700,
+      "independent_population_unit_identity_parity": true,
+      "limits": "supplied synthetic single-process workload, no warm/cold storage distinction; file bytes are selected lengths, not measured I/O; owned graph excludes config/wrapper/native/global code; no throughput or zero-copy target",
+      "logical_fixture_sha256": "0c99c17e4adbf7fe83b0aa8d19c4ab00de7a4c6d39b715cb1fabd7660b82a64b",
+      "native_process": {
+        "after_setup_peak_bytes": 82649088,
+        "initial_bytes": 75612160,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "peak_bytes": 82649088,
+        "scope": "process lifetime high-water including imports/fixture/resolver/SQL/Python/canonical/chunks; not exclusive read allocations or hard cap"
+      },
+      "owned_canonical_and_envelopes": {
+        "bytes": 1384947,
+        "excluded_types": [
+          "EnumType"
+        ],
+        "object_counts": {
+          "AdapterBatch": 16,
+          "AdjustmentSpec": 1,
+          "BatchMetadata": 17,
+          "CanonicalBatch": 17,
+          "Column": 136,
+          "Coverage": 17,
+          "DataKind": 1,
+          "InputScope": 1,
+          "NoneType": 1,
+          "PriceUnit": 1,
+          "SourceBinding": 17,
+          "bool": 2,
+          "dict": 224,
+          "int": 12035,
+          "str": 4184,
+          "tuple": 156
+        },
+        "scope": "deduplicated reachable builtin/owned Python objects; not exclusive ownership/native memory"
+      },
+      "phases": [
+        {
+          "batches": 16,
+          "canonical_cells": 32768,
+          "delivered_rows": 4096,
+          "delivery_copy_ns": 9690800,
+          "files": 1,
+          "mapping_ns": 135947500,
+          "selected_file_bytes": 21922,
+          "sql_fetch_ns": 13014995500
+        },
+        {
+          "batches": 16,
+          "canonical_cells": 32768,
+          "delivered_rows": 4096,
+          "delivery_copy_ns": 8165600,
+          "files": 1,
+          "mapping_ns": 134741200,
+          "selected_file_bytes": 21922,
+          "sql_fetch_ns": 12909591500
+        },
+        {
+          "batches": 16,
+          "canonical_cells": 32768,
+          "delivered_rows": 4096,
+          "delivery_copy_ns": 9785400,
+          "files": 1,
+          "mapping_ns": 135891900,
+          "selected_file_bytes": 21922,
+          "sql_fetch_ns": 12323112300
+        }
+      ],
+      "read_total_median_ns": 13053876000,
+      "read_total_samples_ns": [
+        13161665900,
+        13053876000,
+        12470342300
+      ],
+      "rows": 4096,
+      "runtime": {
+        "adapter": "0.1.0a3",
+        "contracts": "0.0.4a4",
+        "duckdb": "1.5.6",
+        "machine": "AMD64",
+        "numpy": "2.2.6",
+        "python": "3.12.10",
+        "system": "Windows"
+      }
+    }
+  ],
+  "harness_hash_encoding": "UTF8 with normalized LF",
+  "harness_sha256": "7865566e0f45e82d69e28d2526bdf8c6a42b1d76e7792b5c71377edfc28fbc26",
+  "measurement_source_dirty": false,
+  "schema": "duckdb-read-cost1",
+  "source_commit": "9f806700e1cbc22ba292f14e7f061a67bad59885",
+  "timing_scope": "whole public read plus separate SQL-fetch, owned mapping/materialization and delivery-copy phases; setup reported separately"
+}
