@@ -155,3 +155,10 @@ Pull dependency-ready053only: [concrete pre-code plan](stories/EQ-053_PLAN.md) b
 
 
 EQ053 correctedsource db5c509 is reviewed/qualified with90optional/strict6/actualbothOS artifacts/fourfreshdownloadedforms. [Receipt](stories/EQ-053_DELIVERY.md) preserves resolvedP2/counter and observation/pin/admission limits. Finalsame-story publication/readback precedesDone;054conformance/055private numerical/056R4 remain planned. Purecore unchanged.
+
+
+### EQ053 accepted / EQ054 concrete pull
+
+EQ053 finalmain185859dea55eb9890f05c54eeb778c41ec6a9733 sourcePR268review6025684027/receiptPR269review6025840016, allCI/exacttree/publicblobs/owner/24archive equality/current20reports/fourfresh90cases/Released6025925692/postread pass. Issue60 Closed/ProjectDone. P2cumulativebudgetrace resolved; older8ade checks excluded.
+
+Pull054only: [concrete plan](stories/EQ-054_PLAN.md) fixes standaloneactualDuckDB SDK thirtycases/independent trade-bar-historygoldens/installedpublicimports/currentbothformsconformancereports. Optionala6/corea4 unchangedmath/sourceisolation/runtimepins. Publishplanbeforecode; then Ready/Inprogress/draftPR.055private realnumericalscope/goldensunfrozen/056R4planned.
