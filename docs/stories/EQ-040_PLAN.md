@@ -1,0 +1,11 @@
+# EQ040 installed runnable examples plan
+
+R3/E06/issue46, provisional5points. Pull only after EQ039 public API/typing guide is verifiedDone; accepted EQ093/EQ043/R2 underpin custom/adapter and all actual families.
+
+First inventory22existing synthetic repository examples already executed against isolated installed core wheel/sdist pairs. Publish a current catalog with independent expected values, unavailable-input behavior, explicit acquisition/consumption ownership and commands. Keep tools/example fixtures outside both core distributions.
+
+Add a separately installed consumer walkthrough module, using public APIs exclusively, that executes sessionbatch and supplied-chunk streaming/prefix/finalization, governed historical returns, supplied feature composition with explicitly absent instances, and existing custom/synthetic-adapter integration. Synthetic independent goldens: twoBARsession O100/H104/L99/C103; custom5/100 versusbuiltin5/103; DAILY100/110/121 gives h1=1/10,h2=21/100. Missing supplied bars/history staysnull/MISSING_INPUT; missing component is named without erasing available siblings. Prefix and final streamed result match acceptedbatch values while preserving actualcutoffs/certificates. No source/private data/network/files inside core; no unsupported history/custom incremental or provider acquisition.
+
+Consumer implementation/version increments0.2.1to0.3.0 for the new packaged example; canonical math v2 and corepair0.0.4a4 remain unchanged. Current package-name installedtyping now covers the additional module; public-import/location/core-byte invariance guard remains. Build consumer independently and execute python -I -m equity_feature_demo.walkthrough from isolated installed pair without repositoryfallback. Extend freshinstall gate to run it; existing22examples and619units remain numerical coverage.
+
+Docs/examples catalog, extension/reproduction guide/currentversion/changelog/README/handoff/knowledge and linkedissue acceptance accompany change. Freeze implementation; independent installed positive/negative/type/unit/reference/boundary/compatibility gates, separate finalheadreview, bothOSCI, actualmainartifact qualification and same-story reviewedreceipt beforeReleased/Done. EQ095 independently qualifies combined externalnegativeexperience; EQ041benchmark is next after delivery. No stablechannel/R4/API meaning change.
