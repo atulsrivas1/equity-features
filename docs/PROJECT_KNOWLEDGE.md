@@ -72,3 +72,5 @@ EQ093 corrected0.0.4a3 source/main/actualbothOSbundles are qualified after separ
 
 
 EQ093 finalreceipt/main6d93888 actualbundle equality and postrelease evidence accepted on issue113; storyDone/E03closed. R3remainsopen with11stories. Dependency-ready EQ043SDK is next under its pre-code plan; hostedreview/stable/R4remainoutside this delivery.
+
+EQ043 corrected source2c4a39c/maince04e4d is separately reviewed,619tests/strict46/TWOinstalledpairs and mainbothOSCI pass. ActualbothOSsource bundles are downloaded/inspected; FOURinstall and same-story receipt publication gates remain. [Receipt](stories/EQ-043_DELIVERY.md). Next EQ039 after issue49verifiedDone; R3 is incomplete.
