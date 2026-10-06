@@ -1299,3 +1299,10 @@ EQ050 first document check failed for legacy-encoded new punctuation from a Wind
 write. Encoding repair also exposed newline translation; both corrected from the
 pre-repair source. Full public UTF8/changed link/privacy and clean diff rerun are
 required; superseded failed document checks are never counted as acceptance.
+
+
+### EQ050 qualified source / receipt gates
+
+PR262 finalbc370d2 review6024069428/all10checks passed; source main6f3891f exacttree/15publicblobs/owner verified. Main docs37520940373/Foundation37520940262/optional37520940219 succeed. All24 actual optional+Foundation archives/current16reports verified; core/consumer hashes unchanged. FOUR actual optional source forms installed locallyWindows each46tests/strict3/core invariance; nativeLinux is CI. Source-local/Windowsmain optional differences are resolver.py newlines/derived RECORD only; within-checkout repeatability. [Receipt](stories/EQ-050_DELIVERY.md).
+
+Issue57 Ready to release until doc-only receipt separate final-head review/allCI/guardedfinalmain/actualarchive equality/currentreports/retention/Released postrelease readback. Keep source/runtime/tests/tools/packages unchanged; reuse these installed forms with final byte equality/current reports. Then close57Done and pull EQ051 bounded original-file reads with actual original occurrence identity; EQ052-056 remain planned. No real source population/goldens frozen.

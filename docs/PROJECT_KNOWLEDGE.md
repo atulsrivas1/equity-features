@@ -129,3 +129,6 @@ policy covers R4. EQ049 source43e003c resolver is reviewed/qualified with27optio
 before Done. Both core packages/consumer remain unchanged. Metadata resolution does
 not acquire canonical rows or establish source/PIT/numerical acceptance. EQ050–056
 remain planned; real numerical and actual conformance layers remain mandatory.
+
+
+EQ049 is accepted Done. EQ050 source6f3891f mapping0.1.0a2 is separately reviewed/qualified with46optional/633core/strict3, actual bothOS source-main artifacts and FOUR actual downloaded-form Windows installs. [Receipt](stories/EQ-050_DELIVERY.md) retains final receipt/publication gates before Done. Pure core unchanged; no canonical historical reads or real numerical acceptance yet. EQ051 follows; EQ052-056 remain planned.

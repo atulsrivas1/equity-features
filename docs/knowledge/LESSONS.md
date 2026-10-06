@@ -351,3 +351,8 @@ archive hashes, while each repeat-build is stable. Inspect member/RECORD differe
 and qualify actual downloaded bytes; do not claim cross-checkout reproducibility.
 Source-main producer interpreter also has its own provenance even where archive
 hashes match priorPR evidence. [Receipt](../stories/EQ-049_DELIVERY.md).
+
+
+## EF-L027 retained normalization needs explicit clock and policy evidence
+
+EQ050 reuses accepted quantize_float_prices rather than duplicating numerical rounding. Interpretation/rounding/report identity cannot recover original scaled coefficients from retained DOUBLE. Exact UTCns parsing does not identify source clock, eligibility, calendar or known-at; require explicit evidence-bearing caller declarations, preserve unavailable/null and UTCdaily versus RTH distinctions. Source-occurrence identity preserves tied equal payloads without certifying exchange uniqueness. [Mapping API](../api/DUCKDB_MAPPING.md), [receipt](../stories/EQ-050_DELIVERY.md). Revisit for source representation/clock/eligibility/availability or normalization-policy changes.
