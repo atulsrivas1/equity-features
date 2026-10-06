@@ -123,3 +123,6 @@ EQ031 retains volume baseline as standard single Float64 shares FeatureResult pl
 EQ032 each bucket returns standard Float64 shares mean or fraction ratio with its own context identity/quality. Exact sum/count remains in IntervalBaseline; no existing output dtype/schema change. Separate bucket results preserve independent readiness and original source rows, derived assertions remain distinct from market observations. [API](../api/INTERVAL_VOLUME.md).
 
 EQ034 standard Float64 fraction spreads retain per-comparison quality (2market/3sector dependencies), parent config and actual child source/reference/membership identities. Evidence maps to output symbol/comparison while keeping original rows/timestamps; original child instrument association remains in dependency identity. No fake common config or observed source. [API](../api/RELATIVE_RETURNS.md). Existing output schema retained.
+
+
+EQ035 BreadthResult/MemberExclusion schema1 retain standard structured breadth cells and explicit missing/unready members. Partial cells are already supported; no new dtype or fictitious observed rows. Original evidence/proof validation remains independent of output limit. [API](../api/DECLARED_BREADTH.md).

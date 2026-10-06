@@ -1,6 +1,6 @@
 # Equity Feature Contracts
 
-Experimental0.0.3a7, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
+Experimental0.0.3a8, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
 R1 session calculations use caller-supplied immutable canonical inputs and explicit
 config/entity/source/coverage/knowledge declarations. Core imports require no
 optional backend or source acquisition. Contracts depend only on stdlib; features
@@ -47,3 +47,6 @@ EQ031 adds owned volume dependencies and batch-only daily baseline/relative volu
 EQ032 adds owned bucket dependencies and two batch-only interval-volume IDs; [API](../../docs/api/INTERVAL_VOLUME.md). Individual bucket coverage and required N are preserved.
 
 EQ034 adds owned supplied return references and batch market/sector spreads with explicit benchmark/membership identities; [API](../../docs/api/RELATIVE_RETURNS.md).
+
+
+EQ035 adds owned declared-universe/member/close/SMA/exclusion companions; [API](../../docs/api/DECLARED_BREADTH.md). Existing structured output schemas retained; source truth is caller-owned.

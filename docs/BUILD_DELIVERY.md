@@ -89,3 +89,6 @@ EQ031 adds daily_volume.py as the seventeenth installed synthetic example; all a
 EQ032 adds interval_volume.py as the eighteenth installed synthetic example; all repeated archive/actual-main/fresh pair gates remain.
 
 EQ034 adds relative_returns.py as the nineteenth installed synthetic example; all repeated archive/actual-main/fresh pair gates remain.
+
+
+EQ035 adds declared_breadth.py as the twentieth installed synthetic example; repeated archive/actual-main/fresh wheel-sdist gates remain mandatory.

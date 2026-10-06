@@ -1,8 +1,12 @@
 # Experimental package changes
 
-## 0.0.3a7 — EQ034 source qualification, delivery pending
+## 0.0.3a8 — EQ035 source qualification, delivery pending
 
-Supplied market/sector arithmetic return spreads retain actual child configs/source revisions/action snapshots and explicit sector mapping/membership point. Missing sector membership leaves market ready; no hidden return calculation/namespace conversion.37batch/23session update-restore22merge, relative/history/bucket state modes false. New companions schema1, existing schemas/39equations unchanged; exact-version replay/registry rebuild applies. [API](api/RELATIVE_RETURNS.md), [plan](stories/EQ-034_PLAN.md). Actual head/main/artifact/installed/receipt gates pending; no source truth/performance/stable claim.
+Declared-universe breadth aggregates supplied compatible returns and exact SMA/close witnesses. Partial expected populations retain structured counts/fractions/E/M and typed exclusions.39batch/all16R2 numerical IDs; context/history state modes false, session23update-restore22merge unchanged. Existing schemas/39equations retained; new companions schema1, exact-version replay/registry rebuild applies. [API](api/DECLARED_BREADTH.md), [plan](stories/EQ-035_PLAN.md). Actual delivery gates pending.
+
+## 0.0.3a7 — EQ034 verified experimental implementation delivery
+
+Supplied market/sector arithmetic return spreads retain actual child configs/source revisions/action snapshots and explicit sector mapping/membership point. Missing sector membership leaves market ready; no hidden return calculation/namespace conversion.37batch/23session update-restore22merge, relative/history/bucket state modes false. New companions schema1, existing schemas/39equations unchanged; exact-version replay/registry rebuild applies. [API](api/RELATIVE_RETURNS.md), [plan](stories/EQ-034_PLAN.md). Verified source/main/artifact/installed/final receipt evidence is in [delivery receipt](stories/EQ-034_DELIVERY.md) and issue39; no source truth/performance/stable claim.
 
 ## 0.0.3a6 — EQ032 verified experimental implementation delivery
 
