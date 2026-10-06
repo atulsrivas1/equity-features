@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## EQ042 external resource diagnostics — corepair unchanged
+
+Allsix session accumulator families measure reachable Python graphs/state payload, separately supplied input/output and native process peaks across rows/chunks/K/observations/windows. Independent simplegoldens/batch-stream-restore/legalmerge parity, injected raw-retention positive detector, bounded records/atomic invalid updates-certificates-restores and actual adapter cancellation/limits are checked. Unsupported kernelthread/cancel configuration rejects; owned computations run with newthread/process creation denied. Fixed prior/seed, caller metadata sizes, transientclones/unions and arbitrarycallbacks retain explicit limits. [Resource contract](RESOURCE_BEHAVIOR.md). Corepaira4/consumer0.3.0/math/schema/modes unchanged; actual fullmeasurements/review/CI/mainartifact/receipt gates remain pending.
+
 ## EQ041 external benchmark harness — corepair unchanged
 
 Seeded small/large/skewed trade aggregates, bounded topK, two chunk sizes and governed SMA/EMA/return calls verify independent arithmetic/parity before timing. Isolated installed children record native process lifetime peaks, conversion/ownership facts, min/median/max and hardware/backend/requested thread provenance. Meaningful negative result admission and deterministic fixture tests added; fresh pair installs execute a small benchmark smoke whose variable JSON is separate from corearchive digests. [Methodology](BENCHMARKS.md). Corepair0.0.4a4/consumer0.3.0/equations/schemas/modes unchanged; measured baseline, separate review and actual delivery gates remain pending.
