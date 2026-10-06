@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## 0.0.4a3 — EQ093 owned requested entity
+
+Corrective separate review reproduced a valid mutated shared EntityKey being accepted as a different requested instrument. Capture and validate an independent pre-callback entity alongside owned metadata. Preserve its actual failing identity regression; a2 is superseded before acceptance. Existing formulas/schemas/modes unchanged.
+
 ## 0.0.4a2 — EQ093 separate review correction
 
 Separate local reviewer reproduced accepted mutated nested NaN/string scalar, negative quality/structured count and invalid shared input coverage in a1. Recursively re-admit all owned result contract components and copy expected input metadata before invoking trusted code; valid altered shared bindings now reject against the original request. Four independent regression fixtures preserve these failures. No equation/built-in/schema/mode change; a1 qualification is superseded before acceptance. Final corrected-head review/artifact gates remain.

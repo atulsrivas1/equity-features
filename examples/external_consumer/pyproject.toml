@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 name = "equity-feature-demo"
 version = "0.1.0"
 requires-python = ">=3.12"
-dependencies = ["equity-feature-contracts==0.0.4a2", "equity-features==0.0.4a2"]
+dependencies = ["equity-feature-contracts==0.0.4a3", "equity-features==0.0.4a3"]
 description = "Synthetic public-API consumer qualification; no source acquisition"
 license = "Apache-2.0"
 [tool.setuptools.packages.find]

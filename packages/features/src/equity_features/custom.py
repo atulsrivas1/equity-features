@@ -201,6 +201,7 @@ class CustomRegistry:
                 raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "custom input/config price unit mismatch")
             validate_batch(item.batch, session=config.session, availability=config.availability,
                            required_fields=requirement.fields)
+        expected_entity = cast(EntityKey, _readmit(request.entity))
         expected_metadata = cast(ResultMetadata, _readmit(request.metadata(custom)))
         result = registration.calculator(request)
         if type(result) is not FeatureResult:
@@ -214,7 +215,7 @@ class CustomRegistry:
         column = result.values[0]
         output = definition.outputs[0]
         if (column.feature_id != feature_id or column.algorithm_version != definition.algorithm_version
-                or column.schema_version != definition.schema_version or column.entities != (request.entity,)):
+                or column.schema_version != definition.schema_version or column.entities != (expected_entity,)):
             raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "custom column identity/version/entity mismatch")
         if column.dtype.value != output.dtype or column.unit != output.unit:
             raise ContractError(ErrorCode.INVALID_SCHEMA, "custom output type/unit mismatch")

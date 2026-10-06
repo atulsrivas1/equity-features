@@ -1024,3 +1024,6 @@ Owner explicitly authorizes separate local Codex reviews throughout R3. Prior re
 
 
 EQ093 separate review at1d7de22 reproduced one P2: shallow result reconstruction accepts mutated nested scalar/type/quality/structured counts and aliased input coverage. Reviewer /root/r3_reviewer independently passed600units/strict44/purity/import/compatibility but did not rebuild/nativeLinux. Return to In progress; corrected pair0.0.4a2 recursively re-admits owned public result component types and captures independent expected metadata before callback. Four regression fixtures cover actual failures and valid binding mutation; prior a1 qualification superseded. Freeze corrected source, rerun all relevant gates and request separate final-head review.
+
+
+Corrective review atc538284 confirmed original failures rejected but reproduced remaining P2: callback can mutate shared requested EntityKey fromAtoB and return originally aliased result accepted asB. Pair0.0.4a3 captures pre-callback owned entity; preserve exact regression, rerun changed gates and request final-head review. a2 qualification superseded before acceptance; no accepted release exists for a1/a2.

@@ -154,6 +154,14 @@ class CustomTests(unittest.TestCase):
         registry = CustomRegistry("demo").register(self.definition, changed)
         self.reject(ErrorCode.INCONSISTENT_IDENTITY, lambda: registry.compute(FEATURE_ID, fixture()))
 
+    def test_pre_callback_entity_snapshot_is_owned(self):
+        def changed(request):
+            result = calculate(request)
+            object.__setattr__(request.entity, "instrument_id", "B")
+            return result
+        registry = CustomRegistry("demo").register(self.definition, changed)
+        self.reject(ErrorCode.INCONSISTENT_IDENTITY, lambda: registry.compute(FEATURE_ID, fixture()))
+
     def test_declared_input_unit_mismatch(self):
         config = replace(self.request.config, price_unit=PriceUnit(2, "USD"))
         self.reject(ErrorCode.INCONSISTENT_IDENTITY, lambda: self.registry.compute(FEATURE_ID, replace(self.request, config=config)))
