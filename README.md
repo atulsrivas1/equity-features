@@ -15,6 +15,8 @@ and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the declared
 channel. No stable API, public registry publication or throughput claim.**
 
 [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
+[Current public API and typed callers](docs/api/PUBLIC_API.md),
+[extension rules and installed reproduction](docs/api/EXTENSIONS.md).
 
 [Release access and licensing](docs/decisions/release-access.md) separates retained
 foundation artifacts from any future owner-authorized registry publication.
