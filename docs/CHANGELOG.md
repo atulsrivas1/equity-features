@@ -1,6 +1,10 @@
 # Experimental package changes
 
-## 0.0.3a9 — EQ035 compound-exclusion correction, delivery pending
+## 0.0.3a10 — EQ036 composition source qualification
+
+Immutable supplied feature instances retain whole results/configs/contexts/exact companions and explicit missing families; compatible original proof, normalized frame ownership and actual producer output/backend/evidence conventions are checked. No hidden dependency execution, new numerical ID or existing schema/math/state mode change. [API](api/FEATURE_COMPOSITION.md), [plan](stories/EQ-036_PLAN.md). Separate final-head review and actual delivery gates remain.
+
+## 0.0.3a9 — EQ035 accepted compound-exclusion correction
 
 Retain all unavailable SMA/close and absent-dependency reasons in member exclusions even output evidence limit0. Counts/coverage/status priority/math/schemas/modes unchanged. Experimental0.0.3a8 implementation qualification is preserved in [historical receipt](stories/EQ-035_A8_DELIVERY.md); receipt PR218 superseded before Done. Corrected source repeats all delivery gates. Exact-version replay/registry rebuilding applies. [Plan addendum](stories/EQ-035_PLAN.md), [API](api/DECLARED_BREADTH.md).
 

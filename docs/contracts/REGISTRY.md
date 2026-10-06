@@ -72,3 +72,5 @@ EQ034 qualifies relative.market_return and relative.sector_return batch flags (3
 
 
 EQ035 qualifies both breadth batch flags:39batch/all16R2 numerical IDs,23session update/restore22merge unchanged. All breadth/context/history state modes false; new schema1 companions, existing39equations/schemas unchanged; exact-version replay/registry rebuild after0.0.3a8. [API](../api/DECLARED_BREADTH.md).
+
+EQ036 collection is typed orchestration, not another numerical ID.39batch/23session update-restore22merge remain; no history/context/breadth state capability added. Pair0.0.3a10 requires exact-version replay/registry rebuilding. [Composition API](../api/FEATURE_COMPOSITION.md).

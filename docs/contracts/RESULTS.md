@@ -126,3 +126,5 @@ EQ034 standard Float64 fraction spreads retain per-comparison quality (2market/3
 
 
 EQ035 BreadthResult/MemberExclusion schema1 retain standard structured breadth cells and explicit missing/unready members. Partial cells are already supported; no new dtype or fictitious observed rows. Original evidence/proof validation remains independent of output limit. [API](../api/DECLARED_BREADTH.md).
+
+EQ036 FamilyResult/FeatureBundle schema1 preserve supplied whole FeatureResult, quality/evidence and exact typed companions, with explicit missing instances and a complete collection identity. No existing dtype/schema change or missing-to-zero conversion. Actual per-family output schema and required consumed contexts are validated, not recalculated. [API](../api/FEATURE_COMPOSITION.md).

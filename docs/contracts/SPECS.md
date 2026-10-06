@@ -105,3 +105,5 @@ EQ034 exports ReturnReference, RelativeSpec and SectorBenchmark schema1. Own chi
 
 
 EQ035 introduces DeclaredUniverseSpec, BreadthSpec, MemberFeatures, SMAInput and CompletedClose schema1. Explicit parent return h+1 versus SMA N configurations keep exact component config/grid/action/timing identities; selected source certificates retain original metadata. [API](../api/DECLARED_BREADTH.md).
+
+EQ036 CompositionSpec declares full namespace/session/C-K-E and unique ordered instance IDs, batch-only/schema1. FamilyResult retains actual ConfigSpec and owned context/companion rather than inventing a shared digest/window/unit. [API](../api/FEATURE_COMPOSITION.md).
