@@ -55,3 +55,6 @@ columns; preserve source snapshot/mapping and stable input/row identities, UTCns
 quantization policy, masks, sample type, action basis, ordering and original known_at.
 Use validation/normalization reports rather than silently sorting/repairing gaps.
 Conformance fixtures are synthetic and require no credentials or paid data.
+
+
+EQ043 adds the [public reusable development kit](ADAPTER_KIT.md), named supplied-delivery/error cases and a separately packaged synthetic BAR adapter/custom consumer. Existing protocol/schema1 meanings remain unchanged; pure helpers never acquire or iterate sources. Actual story review/artifact acceptance is tracked on issue49.

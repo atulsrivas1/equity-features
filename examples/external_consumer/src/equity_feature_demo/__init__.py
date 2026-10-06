@@ -22,7 +22,7 @@ def definition() -> CustomDefinition:
         "Use built-in admitted OHLC at supplied C/K/E; no future/unknown knowledge",
         "Unavailable operands propagate; zero open is not_applicable/zero_denominator",
         "docs/api/CUSTOM_FEATURES.md", algorithm_version="v2"),
-        "equity-feature-demo", "0.1.0", "eligibility_policy supplied to admitted built-in bars",
+        "equity-feature-demo", "0.2.0", "eligibility_policy supplied to admitted built-in bars",
         (("eligibility_policy", "str"),))
 
 
@@ -75,3 +75,5 @@ def main() -> None:
     assert values["session.price.range_fraction"] == 5/103
     assert len(registry.list_features()) == 1 and len(CustomRegistry("demo").list_features()) == 0
     print("Installed external custom range/open=0.05; unchanged built-in range/close=5/103 verified.")
+    from equity_feature_demo.adapter import main as adapter_main
+    adapter_main()
