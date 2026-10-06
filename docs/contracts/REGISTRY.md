@@ -85,3 +85,5 @@ feature-specific overrides. No equations, result/state/algorithm schemas or capa
 flags change. Cached definitions require rebuilding; exact-version state contexts
 require replay. Registry digests change; no migration or history state mode is promised.
 See [final integration plan](../stories/EQ-037_PLAN.md).
+
+EQ039 supplies the current [public API/error index](../api/PUBLIC_API.md) and [extension guide](../api/EXTENSIONS.md) above this historical foundation timeline. Corepair0.0.4a4 now has39builtinbatch/23sessionupdate-restore/22conditionalmerge IDs and explicit trusted canonical custombatch registration; legacy paragraphs retain their dated original inventories. No stableAPI/channel promise.
