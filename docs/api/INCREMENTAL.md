@@ -1,4 +1,4 @@
-# Session accumulators â€” experimental0.0.2a11
+# Session accumulators — experimental0.0.2a11
 
 `equity_features.incremental.SessionAccumulator(family, config, *, entity,
 population, prior_close=None, seed=None)` receives owned data/configuration only.
