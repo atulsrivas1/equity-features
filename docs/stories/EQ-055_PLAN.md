@@ -153,3 +153,5 @@ main artifacts/fourfreshreal forms/receipt/publication/Releasedpostread remain.
 No new source population, mathematical feature, provider/calendar/PIT inference or
 release beyond boundedR4 is added. Earlier no-package-change expectation is superseded
 by this necessary acquisition rework; preserve its history and private frozen inputs.
+
+Native and Python lexical guards explicitly use ASCII ISO digits. Earlier Python Unicode-digit acceptance in clock/fraction positions is undocumented non-ISO permissiveness and will be rejected consistently under experimental a7; standard retained timestamps and integer UTCns are unchanged. Add independent non-ASCII rejection fixtures and document this narrowing.
