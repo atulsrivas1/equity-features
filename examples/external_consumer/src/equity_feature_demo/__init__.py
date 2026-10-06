@@ -20,9 +20,9 @@ def definition() -> CustomDefinition:
         (OutputField(FEATURE_ID, "float64", "fraction"),),
         "(max(high)-min(low))/first(open)", "complete supplied session bars",
         "Use built-in admitted OHLC at supplied C/K/E; no future/unknown knowledge",
-        "Unavailable operands propagate; zero open is not_applicable/zero_denominator",
+        "Unavailable operands propagate; nonpositive OHLC is rejected at canonical admission",
         "docs/api/CUSTOM_FEATURES.md", algorithm_version="v2"),
-        "equity-feature-demo", "0.3.0", "eligibility_policy supplied to admitted built-in bars",
+        "equity-feature-demo", "0.4.0", "eligibility_policy supplied to admitted built-in bars",
         (("eligibility_policy", "str"),))
 
 

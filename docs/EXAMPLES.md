@@ -55,3 +55,6 @@ The legacy comparison uses retained licensed/public synthetic observations, not 
 
 
 EQ045 main bundles retain the independently packaged consumerwheel AND sdist, separate from core artifacts; [installation](INSTALLING.md) runs standalone public workflows without rebuilding the consumer from a source checkout. Both actualforms are installed in freshqualification environments; namespace/license/typing inspection and core-module/distribution-metadata fingerprints before/after installation/execution apply. Repository examples still require their documented sibling fixtures.
+
+
+EQ095 adds consumer0.4.0 [combined installed qualification](EXTERNAL_QUALIFICATION.md):43 actual synthetic outcomes with independent goldens, actual adapter conformance, typed negatives and unchanged core/catalog. Builder retains this report inside each consumer-installation JSON. Customalgorithmv2/corepaira4 remain unchanged; historical consumer0.3.0 measurements and integrity inventory remain dated evidence. Actual release acceptance requires linked current issue/receipt gates.

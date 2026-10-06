@@ -15,7 +15,7 @@ with pinned requirements after expiry. No stable/PyPI/tag channel is declared.
 | --- | --- |
 | equity_feature_contracts-0.0.4a4 wheel/sdist | Pure owned contracts/typed schemas/discovery/adapter protocols and finite conformance checks; stdlib runtime, optional columnar bridge explicitly imported. |
 | equity_features-0.0.4a4 wheel/sdist | Matching pure supplied-input calculations, supported session state/custom APIs; exact dependency on matching contracts. |
-| equity_feature_demo-0.3.0 wheel/sdist | Independent Apache-2.0 synthetic public-API consumer and supplied in-memory BAR adapter; outside core, with its own py.typed/license/implementation identity. |
+| equity_feature_demo-0.4.0 wheel/sdist | Independent Apache-2.0 synthetic public-API consumer and supplied in-memory BAR adapter; outside core, with its own py.typed/license/implementation identity. |
 | manifest.json | Exact source/platform/runtime/epoch; `artifacts` has four core digests and `consumer_artifacts` has two standalone consumer digests. |
 | benchmark/resource/consumer-<system>-<whl-or-gz>.json | Actual installed diagnostics and consumer-artifact/fingerprint provenance; inspect independently of deterministic archive digests. Timing/memory observations can vary. |
 
@@ -35,7 +35,7 @@ These commands use external package tooling; calculations do not fetch anything.
 ```text
 python -m venv .venv
 VENV_PYTHON -m pip install --no-index --no-deps ARTIFACT_DIR/equity_feature_contracts-0.0.4a4-py3-none-any.whl ARTIFACT_DIR/equity_features-0.0.4a4-py3-none-any.whl
-VENV_PYTHON -m pip install --no-index --no-deps ARTIFACT_DIR/equity_feature_demo-0.3.0-py3-none-any.whl
+VENV_PYTHON -m pip install --no-index --no-deps ARTIFACT_DIR/equity_feature_demo-0.4.0-py3-none-any.whl
 VENV_PYTHON -m pip check
 VENV_PYTHON -I -c "import equity_feature_contracts as c, equity_features as f; assert c.__version__ == f.__version__ == f.contracts_version == '0.0.4a4'"
 VENV_PYTHON -I -m equity_feature_demo.walkthrough
@@ -75,3 +75,6 @@ alone does not complete R3 or certify provider readiness/custom callback behavio
 
 
 Dependency license notices, pinned build/bootstrap provenance, upstream hash observations and experimental channel expiry/rights limits are recorded in the [integrity review](RELEASE_INTEGRITY.md). Upstream backends/tools are installed separately rather than bundled into these project archives.
+
+
+EQ095 adds consumer0.4.0 [combined installed qualification](EXTERNAL_QUALIFICATION.md):43 actual synthetic outcomes with independent goldens, actual adapter conformance, typed negatives and unchanged core/catalog. Builder retains this report inside each consumer-installation JSON. Customalgorithmv2/corepaira4 remain unchanged; historical consumer0.3.0 measurements and integrity inventory remain dated evidence. Actual release acceptance requires linked current issue/receipt gates.

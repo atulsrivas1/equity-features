@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## Consumer0.4.0 — EQ095 installed external qualification
+
+[Qualification](EXTERNAL_QUALIFICATION.md) runs43 synthetic public contract/adapter outcomes, independent5/100vs5/103 goldens, actual metadata/quality/conformance and negative modes/bindings/limits. Builder retains actual installed report and fingerprints. Two meaningful external driver tests; no corepaira4/math/schema/mode change. Actual reviewed source/install/publication gates remain before acceptance.
+
 ## EQ047 dependency and release integrity — documentation only
 
 [Review](RELEASE_INTEGRITY.md) inventories pinned upstream archive/index checksums, complete shipped license notices and actual tool/action/bootstrap/OS/experimental-channel provenance. Native/platform notices and mutable tag/minor/index/expiry limits remain explicit; credentials and upstream acquisition stay outside calculations. Corepaira4/consumer0.3/tests/tools/math/schema/modes unchanged; actual finalreview/currentCI/publishedmain archiveequivalence/report facts/postrelease verification required.

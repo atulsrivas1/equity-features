@@ -106,6 +106,7 @@ def clean_install(paths):
 from pathlib import Path
 import equity_features as f, equity_feature_contracts as c, equity_feature_demo as d
 from equity_feature_demo.walkthrough import main as walkthrough
+from equity_feature_demo.qualification import qualify
 roots=(Path(f.__file__).parent,Path(c.__file__).parent)
 def fingerprint():
     return {str(p):hashlib.sha256(p.read_bytes()).hexdigest() for root in roots for p in root.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
@@ -124,6 +125,7 @@ for path in Path(d.__file__).parent.rglob('*.py'):
 before=fingerprint()
 d.main()
 walkthrough()
+assert qualify().passed
 assert fingerprint()==before, 'installed core changed during external execution'
 print('Independent installed consumer public imports and immutable core verified.')
 """)
@@ -131,6 +133,9 @@ print('Independent installed consumer public imports and immutable core verified
             # Development tools qualify installed typing; they are not core runtime requirements.
             run(str(py),'-m','pip','install','--no-deps','mypy==1.15.0','mypy_extensions==1.1.0','typing_extensions==4.16.0')
             run(str(py),'-I',str(ROOT/'tools/verify_public_typing.py'))
+        qualification=json.loads(subprocess.check_output([str(py),'-I','-m','equity_feature_demo.qualification'],text=True,cwd=env))
+        assert qualification['schema']=='external-qualification1'
+        assert all(c['expected']==c['observed'] for c in qualification['cases'])
         after_execution=core_fingerprint(py)
         assert before_install==after_execution,'consumer execution changed installed core'
         fingerprint_digest=lambda values:hashlib.sha256(json.dumps(values,sort_keys=True,separators=(',',':')).encode()).hexdigest()
@@ -138,7 +143,7 @@ print('Independent installed consumer public imports and immutable core verified
         consumer_report=dict(schema='consumer-install1',source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
             system=platform.system(),consumer_version=consumer_version,artifact=consumer_paths[0].name,artifact_sha256=digest(consumer_paths[0]),
             core_files=len(before_install),before_install_sha256=fingerprint_digest(before_install),after_install_sha256=fingerprint_digest(after_install),
-            after_execution_sha256=fingerprint_digest(after_execution),public_only_installed_execution=True)
+            after_execution_sha256=fingerprint_digest(after_execution),public_only_installed_execution=True,qualification=qualification)
         (ROOT/'dist'/('consumer-'+platform.system()+'-'+paths[0].suffix.lstrip('.')+'.json')).write_text(json.dumps(consumer_report,sort_keys=True,indent=2)+'\n',encoding='utf-8')
         benchmark=ROOT/'benchmarks/run_baseline.py'
         if benchmark.exists():

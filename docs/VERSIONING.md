@@ -2,7 +2,7 @@
 
 EQ044 documents the actual release interfaces, not a stable compatibility promise.
 Matching core distributions are `equity-feature-contracts==0.0.4a4` and
-`equity-features==0.0.4a4`; the independent example consumer is0.3.0.
+`equity-features==0.0.4a4`; the independent example consumer is0.4.0.
 The consumer's mathematical algorithm remains v2 despite implementation changes.
 Git commit, artifact SHA256 and environment identify delivered bytes independently
 of these labels. [Delivery](BUILD_DELIVERY.md), [platform qualification](COMPATIBILITY.md),

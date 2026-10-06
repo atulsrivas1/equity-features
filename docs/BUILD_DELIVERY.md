@@ -4,7 +4,7 @@ EQ-009 channel: downloadable **GitHub Actions artifacts from successful main
 Foundation package checks**, named `foundation-<commit>-<OS>`. No PyPI/public
 registry publication. Public repository readers with appropriate GitHub access
 can download authorized code/synthetic artifacts; no private data is included.
-The current bundle pins matching experimental corepair0.0.4a4 and independently packaged consumer0.3.0; installation is documented in [INSTALLING](INSTALLING.md). All39builtin batch/23sessionupdate-restore/22conditionalmerge modes remain experimental. Historical channel revisions:
+The current bundle pins matching experimental corepair0.0.4a4 and independently packaged consumer0.4.0; installation is documented in [INSTALLING](INSTALLING.md). All39builtin batch/23sessionupdate-restore/22conditionalmerge modes remain experimental. Historical channel revisions:
 EQ-009 began at0.0.1a0 and EQ-011 adds canonical inputs at0.0.1a1. Current session/history calculations and public extension/SDK APIs retain their documented source-independent inputs and qualification limits. EQ-012 specifications use0.0.1a2.
 R0 review repair is0.0.1a6.post1; original verified foundation is0.0.1a6; [acceptance evidence and actual bundles](R0_ACCEPTANCE.md).
 30-day retention is requested, subject to repository limits; record actual expiry
@@ -115,3 +115,6 @@ EQ045 inspects standaloneconsumer namespace/license/py.typed/privatepath boundar
 
 
 EQ047 [integrity review](RELEASE_INTEGRITY.md) and [inventory](DEPENDENCY_INVENTORY.json) record actual upstream license notices/index digests, source/action/tool/bootstrap/OS provenance and channel expiry limits. Exact version pins and repeat archive bytes do not imply hermetic acquisition or native license/security certification. Existing experimental channel/credentials outside core remain unchanged.
+
+
+EQ095 adds consumer0.4.0 [combined installed qualification](EXTERNAL_QUALIFICATION.md):43 actual synthetic outcomes with independent goldens, actual adapter conformance, typed negatives and unchanged core/catalog. Builder retains this report inside each consumer-installation JSON. Customalgorithmv2/corepaira4 remain unchanged; historical consumer0.3.0 measurements and integrity inventory remain dated evidence. Actual release acceptance requires linked current issue/receipt gates.

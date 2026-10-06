@@ -110,3 +110,6 @@ EQ036 supplied feature composition corrected implementation delivery is qualifie
 EQ038 [Go comparison](docs/stories/EQ-038_COMPARISON.md) records five actual synthetic EMA/ATR vectors and a16-ID source/migration inventory. [Example](examples/legacy_comparison.py) replays captured observations and verifies public APIs; unpublished Go source is not rerun by public CI. Qualification/acceptance gates remain; R3paused.
 
 [Runnable installed workflows and the synthetic example catalog](docs/EXAMPLES.md) use public supplied-input APIs and show missing-data quality explicitly.
+
+
+EQ095 adds consumer0.4.0 [combined installed qualification](docs/EXTERNAL_QUALIFICATION.md):43 actual synthetic outcomes with independent goldens, actual adapter conformance, typed negatives and unchanged core/catalog. Builder retains this report inside each consumer-installation JSON. Customalgorithmv2/corepaira4 remain unchanged; historical consumer0.3.0 measurements and integrity inventory remain dated evidence. Actual release acceptance requires linked current issue/receipt gates.
