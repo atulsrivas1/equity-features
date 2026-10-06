@@ -91,3 +91,8 @@ EQ034 relative-return implementation is qualified at0.0.3a7; [API](docs/api/RELA
 
 
 EQ035 declared-universe breadth corrected source qualification is underway at0.0.3a9; [API](docs/api/DECLARED_BREADTH.md), [example](examples/declared_breadth.py), [delivery gates](docs/stories/EQ-035_DELIVERY.md). Partial expected universes and exact close-versus-SMA comparisons are preserved.
+EQ035 declared-universe breadth source qualification is underway at0.0.3a8; [API](docs/api/DECLARED_BREADTH.md), [example](examples/declared_breadth.py), [delivery gates](docs/stories/EQ-035_DELIVERY.md). Partial expected universes and exact close-versus-SMA comparisons are preserved.
+
+## Planned research evidence extensions
+
+[Evidence roadmap](docs/EVIDENCE_ROADMAP.md): execution receipts and reproduction bundles (R9), explicit point-in-time diagnostics (R10), and agent decision evidence with optional ledger/MCP integration (R11). These are Backlog capabilities, not current product guarantees. Existing calculation/adapter/worker boundaries remain intact.

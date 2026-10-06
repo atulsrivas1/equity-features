@@ -1,3 +1,7 @@
+# Owner attribution and review update — October 5, 2026
+
+Main history attribution was corrected with verified tree parity; see [correction record](decisions/OWNER_ATTRIBUTION_CORRECTION.md). GOV-005 resumes by owner direction and requires completed separate Codex review before merge/Done. Hosted activation is not verified; settings currently require owner sign-in. Request `@codex review` on this policy PR and record actual response/head coverage. Existing development ownership remains unchanged. Fetch and transplant unmerged work onto corrected main without merging old ancestry; preserve local work and historical receipt SHAs.
+
 # Development continuity
 
 ## Extension roadmap update — 2026-10-05
@@ -876,3 +880,10 @@ Before final receipt acceptance, review found simultaneous unready SMA/close ret
 EQ035 new actual compound regression failed on0.0.3a8: unknown close reason absent from member exclusion when SMA has null prior close, with outputlimit0. Corrective plan31c4439/PR219 published before code; preserve historical96b4e62/PR218/source qualification. Corrected0.0.3a9 unions/deduplicates requested unavailable dependency reasons, preserving established status priority/math/counts/coverage. Next targeted22/full561/strict49/source gates/exact-head archives and all main/final receipt gates. R3paused.
 
 EQ035 corrected local qualification:561units/22breadth API cases/123references/strict49files/purity38negative10positive/import/registry/compatibility/license/UTF8/docs/lifecycle/twentieth example pass. Author reviewed union/dedup logic for both unready and absent fields; existing status priority and counts/coverage unchanged. Failed before/after evidence retained; no independent reviewer. Next commit/Code review/Test; corrected pair0.0.3a9 repeated4archives/BOTH local pairs/SIX exact-head checks/guarded main/docs/bothOS actual bundles/FOURpairs/final receipt/byte equality before Done.
+### GOV-012 evidence roadmap — October 5, 2026
+
+Owner requested additional public epics, stories and releases. Created E13/E14/E15 (#193–195), EQ-096–110 (#196–210), milestones R9/R10/R11 and provisional story points; all implementation stories/epics are Backlog on Project2. Existing EQ-053/057/061/082 issues cross-link provenance and MCP reuse. Versioned design/plans: EVIDENCE_ROADMAP.md; backlog/dashboard/design/knowledge updated alongside planning. No numerical code, source data, deployment, publication deadline or compliance certification changed; R2 owner continues independently and R3 feature scope remains paused. Next: publish checked GOV-012 documentation PR, verify Project/milestone/story parity and published documentation. Future implementation requires dependency-satisfied Ready status and release authorization.
+
+### GOV-012 proposal refinement
+
+Owner requested applying ledger review corrections and a separate continuous-market epic. Existing EQ-096/097/101/102/106/107 acceptance refined; public AGENT_EVIDENCE_DESIGN.md covers anchor limits, actual content hashes, historical versus execution time, matched membership, freshness and bounded incremental state. Added E16/R12/EQ-111–115 with points/dependencies/tests/questions and all Backlog; CONTINUOUS_MARKET_DESIGN.md starts with reuse/gaps and mathematics. Original local proposals preserved adjacent to revised files; no private deployment paths copied publicly. Same documentation PR211 carries these planning changes. Next verify live board/story/milestone and documentation checks; no R2 ownership or numerical implementation changes.

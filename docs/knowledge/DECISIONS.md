@@ -19,3 +19,11 @@ Engineering summaries of owner decisions and accepted records, prepared October 
 | R2 precedes R3 feature work | Finish two R1 repairs with their owner; R2 waits for verified delivery; R3 requires renewed scope at the appropriate boundary | [GOV-010](https://github.com/atulsrivas1/equity-features/issues/167), [PR168](https://github.com/atulsrivas1/equity-features/pull/168); supersedes the earlier R3 execution priority |
 
 When a decision changes, add date, owner/source evidence, affected records and consequences. Earlier decisions remain historical and cannot authorize today's account, publication, source-access or live-process actions.
+
+## October 5, 2026 — evidence roadmap planning
+
+The owner requested epics/stories/releases for reproducible calculation evidence, point-in-time diagnostics and agent evidence. [GOV-012](https://github.com/atulsrivas1/equity-features/issues/192) adds E13–E15, EQ-096–110 and R9–R11. Reuse EQ-053 acquisition provenance, EQ-057/061 worker manifests and EQ-082 MCP; new work links evidence rather than duplicating those systems. Planning does not interrupt R2, resume paused R3, alter current equations or certify regulatory compliance. [Plans and limitations](../EVIDENCE_ROADMAP.md).
+
+## Owner-authorized proposal refinements — October 5, 2026
+
+Corrected ledger proposal maps into existing EQ-096/097/101/102/106/107; no ID reassignment. [Design](../AGENT_EVIDENCE_DESIGN.md) fixes unanchored truncation, metadata-only hashing, historical decision timing and quadratic append risks. Continuous-market proposals use separate E16/R12/EQ-111–115 and begin with capability-gap/formula decisions, not assumed new session types. [Design](../CONTINUOUS_MARKET_DESIGN.md). All implementation remains Backlog; R2 priority unchanged. Original private proposal files preserved locally; only revised source-independent design is published.

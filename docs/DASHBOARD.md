@@ -61,3 +61,17 @@ claim R1 implementation or start a new chat. Preparation: [GOV-008 #143](https:/
 ## Current execution order
 
 Owner restored R2-before-R3. Existing R3 chat finishes only both R1 defect repairs then stops; [R2 autonomous handoff](R2_AUTONOMOUS_HANDOFF.md) owns the twelve historical/contextual stories after verified repair delivery. R3 feature implementation stays paused until separately resumed.
+
+## Additional evidence roadmap
+
+[Story plans and dependencies](EVIDENCE_ROADMAP.md). Fifteen new implementation stories are Backlog; Project status is authoritative.
+
+| Release | Epic | Scope |
+| --- | --- | --- |
+| [R9](https://github.com/atulsrivas1/equity-features/milestone/10) | [E13](https://github.com/atulsrivas1/equity-features/issues/193) | Reproducible calculation evidence |
+| [R10](https://github.com/atulsrivas1/equity-features/milestone/11) | [E14](https://github.com/atulsrivas1/equity-features/issues/194) | Point-in-time diagnostics |
+| [R11](https://github.com/atulsrivas1/equity-features/milestone/12) | [E15](https://github.com/atulsrivas1/equity-features/issues/195) | Agent research evidence |
+
+## Continuous-market planning
+
+[E16](https://github.com/atulsrivas1/equity-features/issues/212) / [R12](https://github.com/atulsrivas1/equity-features/milestone/13) contains EQ-111–115, all Backlog. [Design and story plans](CONTINUOUS_MARKET_DESIGN.md). Existing ledger scope is refined in [agent evidence design](AGENT_EVIDENCE_DESIGN.md).
