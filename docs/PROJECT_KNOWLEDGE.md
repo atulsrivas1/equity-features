@@ -83,3 +83,6 @@ EQ040 finalmain96d420c passed actualfinalarchiveequality/postrelease source+arch
 
 
 EQ041 finalmain910abd6 accepted actualarchiveequality/independentvariablebenchmarkJSON and postreleaseverification; issue47Done. EQ042 separately reviewed correctedsourcef94407b/main df9c943 publishes21clean-source resource cases and installed sixfamily diagnostics. BothOSCI/mainpublishedsource and actualvariablebenchmark/resourceJSON checks pass; FOURsourcefreshpairs/reviewedreceipt/finalpublication remain beforeissue48Done. [Resource contract](RESOURCE_BEHAVIOR.md), [receipt](stories/EQ-042_DELIVERY.md). Sixlater R3stories remain; no math/schema/coreversion/mode change.
+
+
+EQ042 finalmain89a24a4 actualfinalarchives equalFOURqualifiedsourcepairs and variablebenchmark/resource facts/postreleaseverification accepted; issue48Done. EQ044 actual version/replay policy is documentation-only with existing626unit/strict48/policy evidence and unchanged runtime/test/build/consumer. [Guide](VERSIONING.md), [plan](stories/EQ-044_PLAN.md). Required separate finalheadreview/CI and actualmainartifact-equivalence/publication remain beforeDone; five subsequent R3stories follow.

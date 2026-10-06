@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## EQ044 version identities and replay policy — no runtime change
+
+[Version guide](VERSIONING.md) inventories current schemas, mathematics/config/source/result/custom identities, context-specific typed incompatibility and exact experimental state restoration. Migration remains replay-only, with BUG003 omitted facts and BUG004 finite-float corrections preserved. Existing626units/strict48/policies qualify these boundaries; no mirror tests or corepaira4/consumer0.3.0/math/schema/mode change. Previous EQ040–042 pending-source checkpoints are superseded by their accepted Done delivery evidence on issues46–48 and linked receipts; full R3 acceptance remains separate.
+
 ## EQ042 external resource diagnostics — corepair unchanged
 
 Allsix session accumulator families measure reachable Python graphs/state payload, separately supplied input/output and native process peaks across rows/chunks/K/observations/windows. Independent simplegoldens/batch-stream-restore/legalmerge parity, injected raw-retention positive detector, bounded records/atomic invalid updates-certificates-restores and actual adapter cancellation/limits are checked. Unsupported kernelthread/cancel configuration rejects; owned computations run with newthread/process creation denied. Fixed prior/seed, caller metadata sizes, transientclones/unions and arbitrarycallbacks retain explicit limits. [Resource contract](RESOURCE_BEHAVIOR.md). Corepaira4/consumer0.3.0/math/schema/modes unchanged; actual fullmeasurements/review/CI/mainartifact/receipt gates remain pending.
