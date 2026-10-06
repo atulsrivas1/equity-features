@@ -66,15 +66,25 @@ def qualify(output, form):
         run(str(py),'-m','pip','install','--no-index','--no-deps','--no-build-isolation',str(adapter))
         run(str(py),'-m','pip','check')
         assert before==core_fingerprint(py),'adapter installation changed installed core'
-        run(str(py),'-I','-c',"from pathlib import Path; import equity_feature_duckdb as d,duckdb,numpy; assert 'site-packages' in Path(d.__file__).parts; assert d.__version__=='0.1.0a5'; assert duckdb.__version__=='1.5.6'; assert numpy.__version__=='2.2.6'",cwd=env)
+        run(str(py),'-I','-c',"from pathlib import Path; import equity_feature_duckdb as d,duckdb,numpy; assert 'site-packages' in Path(d.__file__).parts; assert d.__version__=='0.1.0a6'; assert duckdb.__version__=='1.5.6'; assert numpy.__version__=='2.2.6'",cwd=env)
         result=subprocess.run([str(py),'-I','-m','unittest','discover','-s',str(ROOT/'tests/duckdb')],cwd=env,text=True,capture_output=True)
         print(result.stdout+result.stderr)
         result.check_returncode()
         count=int(re.search(r'Ran (\d+) tests',result.stderr).group(1))
         run(str(py),'-I',str(ROOT/'benchmarks/duckdb_read.py'),'--quick',
             '--output',str(output/f'read-{platform.system()}-{form}.json'),cwd=env)
+        conformance_path=output/f'conformance-{platform.system()}-{form}.json'
+        run(str(py),'-I',str(ROOT/'examples/duckdb_conformance.py'),'--installed',
+            '--output',str(conformance_path),cwd=env)
+        conformance=json.loads(conformance_path.read_text(encoding='utf-8'))
+        assert conformance['installed_public_execution'] and len(conformance['cases'])==30
+        assert all(c['passed'] and c['expected']==c['observed'] for c in conformance['cases'])
+        assert len(conformance['numerical'])==16 and conformance['independent_numerical_unit_quality_binding_parity']
+        conformance.update(form=form,artifacts={p.name:digest(p) for p in [*paths,adapter]})
+        conformance_path.write_bytes((json.dumps(conformance,sort_keys=True,indent=2)+'\n').encode('utf-8'))
         run(str(py),'-m','pip','install','--no-deps','mypy==1.15.0','mypy_extensions==1.1.0','typing_extensions==4.16.0')
         run(str(py),'-I','-m','mypy','--strict','-p','equity_feature_duckdb',cwd=env)
+        run(str(py),'-I','-m','mypy','--strict',str(ROOT/'examples/duckdb_conformance.py'),cwd=env)
         run(str(py),'-I','-c',"""import sys
 class Deny:
     def find_spec(self,fullname,path=None,target=None):
@@ -89,7 +99,7 @@ print('Pure core registry executes with DuckDB forbidden')
         assert before==after,'adapter execution changed installed core'
         fingerprint = lambda x: hashlib.sha256(json.dumps(x,sort_keys=True).encode()).hexdigest()
         report = dict(schema='duckdb-install1',source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-                      form=form,system=platform.system(),python=platform.python_version(),duckdb='1.5.6',numpy='2.2.6',adapter='0.1.0a5',
+                      form=form,system=platform.system(),python=platform.python_version(),duckdb='1.5.6',numpy='2.2.6',adapter='0.1.0a6',
                       artifacts={p.name:digest(p) for p in [*paths,adapter]},synthetic_tests=count,
                       test_suite_sha256=hashlib.sha256(b''.join(p.read_bytes() for p in sorted((ROOT/'tests/duckdb').glob('test_*.py')))).hexdigest(),
                       before_core_sha256=fingerprint(before),after_core_sha256=fingerprint(after),
@@ -103,7 +113,7 @@ def main():
     for out in (output,repeat):
         assert out.resolve().is_relative_to(ROOT.resolve())
         out.mkdir(parents=True,exist_ok=True)
-        for pattern in ('equity_feature_duckdb-*','equity_feature_contracts-*','equity_features-*','installed-*.json','read-*.json','manifest.json'):
+        for pattern in ('equity_feature_duckdb-*','equity_feature_contracts-*','equity_features-*','installed-*.json','read-*.json','conformance-*.json','manifest.json'):
             for old in out.glob(pattern):
                 assert old.is_file()
                 old.unlink()
@@ -117,7 +127,7 @@ def main():
         (inspect_adapter if path.name.startswith('equity_feature_duckdb-') else inspect)(path)
     qualify(output,'whl');qualify(output,'gz')
     manifest=dict(schema='duckdb-build1',commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-                  source_dirty=bool(subprocess.check_output(['git','status','--porcelain','--','packages','tools/build_duckdb.py','tests/duckdb'],cwd=ROOT,text=True).strip()),
+                  source_dirty=bool(subprocess.check_output(['git','status','--porcelain','--','packages','tools/build_duckdb.py','tests/duckdb','benchmarks/duckdb_read.py','examples/duckdb_conformance.py'],cwd=ROOT,text=True).strip()),
                   system=platform.system(),python=platform.python_version(),epoch=EPOCH,
                   artifacts={p.name:digest(p) for p in paths})
     (output/'manifest.json').write_text(json.dumps(manifest,sort_keys=True,indent=2)+'\n',encoding='utf-8')
