@@ -92,3 +92,8 @@ EQ044 version/replay guide accepted afteractualmain e7077b6 source/artifact-equi
 
 
 EQ045 finalmain5442746 actual12archive equality/current12report facts/postreleaseverification accepted; issue51Done. Pull EQ046 owned43module AST plus guarded existing synthetic numerical/admission fixtures and declared module-data audit. [Plan](stories/EQ-046_PLAN.md). Corepaira4/consumer0.3 unchanged; no arbitrarycallback/nativebackend sandbox claim. Then047/095/048; R3 incomplete.
+
+
+### EQ-046 reviewed source publication
+
+SourcePR252 finalfe095898dd0b044d7964a1b8b66a9d85346d558f separate review/no unresolvedfindings, Reviewer independently631units/threeauditcases/strict48/boundary38negative10positive/import-registry-license/fivemathverifiers/201links and exactguardcount/moduledata/Arrow20versionedsource/UTF8history verified; authorfrozenTWO actualpairs 631units/22examples/consumer0.3.0walkthrough/publictyping(threeconsumerfiles+caller/threeinvalidcalls)/corebefore-afterinstall-executioninvariance/benchmark-resource smokes and allheadCI pass. Guardedmain73246b1d970bba4f2284424c5933ef5548f949f5 exacttree/publicblobs/owner/docs37499007161/Foundation37499007035 bothOS verified. Actualsource12archives+12variable report facts inspected; FOURsourcefreshpairs running/required before receiptmerge/Done. [Receipt](stories/EQ-046_DELIVERY.md) needs separatefinalreview/allCI/finalmainarchiveequality/currentvariableprovenance/postreleaseverification. ThreeR3stories remain after046acceptance:047dependency-integrity,095combinedinstalledexternalconsumer and048finalpackageacceptance. E06/milestone4 remainopen; noR4scope.
