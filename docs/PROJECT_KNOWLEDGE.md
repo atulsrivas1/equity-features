@@ -44,3 +44,7 @@ The import screened relevant active/archived development chats and inspected rep
 ## Revised ledger and continuous-market proposals
 
 [Ledger design](AGENT_EVIDENCE_DESIGN.md) refines existing R9–R11 stories. [Continuous-market design](CONTINUOUS_MARKET_DESIGN.md) adds conditional E16/R12/EQ-111–115 future scope; prove gaps and freeze formulas before code. No present execution priority or existing schema/equation changes.
+
+## Deferred evidence service pilot
+
+[E17/R13](EVIDENCE_SERVICE_PILOT.md) adds EQ-116–120 as low-priority Backlog. Reuse existing R9–R11 packages to measure debugging/replay usefulness before optional independent checkpoint witnesses. No blockchain, new repository, outreach or deployment authorized. Current core work retains priority.

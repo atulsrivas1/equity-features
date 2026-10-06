@@ -75,3 +75,7 @@ Owner restored R2-before-R3. Existing R3 chat finishes only both R1 defect repai
 ## Continuous-market planning
 
 [E16](https://github.com/atulsrivas1/equity-features/issues/212) / [R12](https://github.com/atulsrivas1/equity-features/milestone/13) contains EQ-111–115, all Backlog. [Design and story plans](CONTINUOUS_MARKET_DESIGN.md). Existing ledger scope is refined in [agent evidence design](AGENT_EVIDENCE_DESIGN.md).
+
+## Low-priority future validation
+
+[E17](https://github.com/atulsrivas1/equity-features/issues/221) / [R13](https://github.com/atulsrivas1/equity-features/milestone/14) contains EQ-116–120, Backlog with priority:low and no dates. [Pilot plans](EVIDENCE_SERVICE_PILOT.md). Core work comes first; witness implementation is conditional on demonstrated need and an owner decision.

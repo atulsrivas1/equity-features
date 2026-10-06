@@ -27,3 +27,7 @@ The owner requested epics/stories/releases for reproducible calculation evidence
 ## Owner-authorized proposal refinements — October 5, 2026
 
 Corrected ledger proposal maps into existing EQ-096/097/101/102/106/107; no ID reassignment. [Design](../AGENT_EVIDENCE_DESIGN.md) fixes unanchored truncation, metadata-only hashing, historical decision timing and quadratic append risks. Continuous-market proposals use separate E16/R12/EQ-111–115 and begin with capability-gap/formula decisions, not assumed new session types. [Design](../CONTINUOUS_MARKET_DESIGN.md). All implementation remains Backlog; R2 priority unchanged. Original private proposal files preserved locally; only revised source-independent design is published.
+
+## Owner direction — low-priority evidence service validation
+
+Plan our own evidence service as a focused synthetic consumer pilot, not a new blockchain. E17/R13/EQ-116–120 stay Backlog with priority:low; evaluate value against structured logs before conditional witness design/implementation. [Plans](../EVIDENCE_SERVICE_PILOT.md). No-go is legitimate evidence; deferred implementation cannot be relabeled Done.
