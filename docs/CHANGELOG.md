@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## 0.0.4a1 — EQ093 scoped trusted batch extensions
+
+Explicit immutable CustomRegistry registers local trusted callbacks with namespaced schema1 metadata, primitive config types, one declared output and exact result/request/implementation bindings. Only canonical batch inputs and batch execution are supported; built-in39 equations, discovery and state modes remain unchanged. Separately packaged synthetic public consumer verifies range/open5/100 versus built-in range/close5/103. No executable serialization, source acquisition, sandbox or arbitrary-code purity claim. [API](api/CUSTOM_FEATURES.md), [plan](stories/EQ-093_PLAN.md). Final review and actual artifact delivery gates remain pending.
+
 ## 0.0.3a13 — EQ037 original-row volume proof correction
 
 Independent review reproduced contradictory supplied source-row timing admission when baseline evidence filled retention. Daily and interval ratios now validate all supplied claims before clipping evidence, preserving coherent same-frame different-row reuse. Actual failing regressions at bounds1/20 now pass. No equations, schemas or capability changes; exact-version replay applies. a12 source qualification is superseded before acceptance. [Plan addendum](stories/EQ-037_PLAN.md).

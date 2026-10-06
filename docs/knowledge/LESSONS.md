@@ -257,3 +257,8 @@ Public pre-code0852392 precedes two actual failing regressions (four subcases).
 a13 validates all supplied proof before retention, rejects typed inconsistent_identity,
 and preserves same-frame targetrow3/2.5 ratios. Daily20/bucket19 targeted tests pass.
 No source-authentication or proof reconstruction claim. Full suite/review/build gates repeat.
+
+
+## EF-L011 R3 implementation checkpoint — October6
+
+EQ093/PR237 now exercises an independently packaged synthetic calculator through public APIs, with independent5/100 versus5/103 results and negative identity/config/unit/mode cases. Its installed qualification is pending final frozen source/review/publication; do not infer Done from editable consumer success. Canonical positive-volume null OHLC is an admission error, not an unavailable calculation operand. Keep malformed schema, valid incomplete coverage and unknown/future knowledge as separate fixtures. Initial builds cannot qualify subsequently changed source/tests; freeze and rerun relevant gates. [Plan](../stories/EQ-093_PLAN.md), [API](../api/CUSTOM_FEATURES.md).

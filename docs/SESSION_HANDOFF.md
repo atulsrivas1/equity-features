@@ -1004,3 +1004,10 @@ E05/milestone3 closed only after all twelve child checks. Current README/accepta
 ## October6 R3 resumption
 
 Owner requests autonomous R3 after accepted R2. Live milestone3/repairs162/163 are closed/Done; main7333d34 reconciles bounded R2 acceptance. Preserve rewritten owner attribution and old repair branches. Pull EQ093#113 first (8 provisional points); pre-code plan docs/stories/EQ-093_PLAN.md. No R4 or stable-registry scope. R3 local reviewer alternative needs explicit owner choice because existing CODE_REVIEW.md alternative is R2-bounded. Next: implement scoped public batch extension and external synthetic consumer, then separate review and numerical/installed/publication gates before merge/Done.
+
+
+### EQ093 implementation checkpoint — October6
+
+Draft PR237 adds immutable trusted batch registrations and a separately packaged public consumer. Baseline588tests passed; current12 extension fixtures pass (600 total expected), strict44files and boundary38negative/10positive checks passed. Hand-derived5/100 custom versus5/103 built-in golden passed. Full five reference suites passed. Compatibility/registry/license gates passed. A preliminary build was started before the final input-unit/test/type changes and failed against the concurrently changed test tree; it is superseded, not release evidence. One missing-OHLC fixture incorrectly expected unavailable quality; canonical positive-volume OHLC admission correctly rejects INVALID_SCHEMA, so that fixture was corrected and separate incomplete-coverage unavailability added. Final frozen rebuild/CI remain required.
+
+Resume: freeze current PR source, run full600tests and repeated fresh wheel/sdist build with independent external-wheel install, public-import/installed-location/core-byte checks. Then completed separate final-head review, findings disposition, formal acceptance, main artifact/publication checks. Hosted activation unverified; R3 local-review owner choice remains pending. EQ093 is In progress, not released/Done; eleven other R3 stories remain unstarted. No R4/stable channel scope.

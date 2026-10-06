@@ -70,6 +70,35 @@ def clean_install(paths):
         run(str(py),'-m','pip','check')
         run(str(py),'-I','-c','import equity_feature_contracts as c; import equity_features as f; assert c.__version__==f.__version__==f.contracts_version; print("Clean installed foundation imports verified",c.__version__)')
         run(str(py),'-m','pip','install','--no-deps','numpy==2.2.6','pyarrow==20.0.0')
+        consumer=ROOT/'examples/external_consumer'
+        if consumer.exists():
+            # Build independently; install into the same isolated pair without editing core.
+            demo_out=env/'consumer-dist'
+            run(sys.executable,'-m','build','--no-isolation','--wheel','--outdir',str(demo_out),str(consumer))
+            run(str(py),'-m','pip','install','--no-index','--no-deps',*[str(p) for p in demo_out.glob('*.whl')])
+            run(str(py),'-I','-c',"""import ast, hashlib
+from pathlib import Path
+import equity_features as f, equity_feature_contracts as c, equity_feature_demo as d
+roots=(Path(f.__file__).parent,Path(c.__file__).parent)
+def fingerprint():
+    return {str(p):hashlib.sha256(p.read_bytes()).hexdigest() for root in roots for p in root.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+for module in (f,c,d):
+    assert 'site-packages' in Path(module.__file__).parts, module.__file__
+for path in Path(d.__file__).parent.rglob('*.py'):
+    for node in ast.walk(ast.parse(path.read_text(encoding='utf-8'))):
+        if isinstance(node,ast.Import):
+            names=[x.name for x in node.names]
+        elif isinstance(node,ast.ImportFrom):
+            names=[node.module or '']+[x.name for x in node.names]
+            assert node.level==0, 'relative consumer imports are not qualified'
+        else:
+            continue
+        assert not any(part.startswith('_') for name in names for part in name.split('.')), names
+before=fingerprint()
+d.main()
+assert fingerprint()==before, 'installed core changed during external execution'
+print('Independent installed consumer public imports and immutable core verified.')
+""")
         tests=ROOT/'tests/unit'
         if tests.exists(): run(str(py),'-m','unittest','discover','-s',str(tests))
         for name in ('canonical_inputs','in_memory_adapter','session_bars','session_structure','session_trades','session_top_k','session_quotes','continuous_quotes','session_incremental','session_state','session_merge','action_policies','history_windows','history_averages','history_recursive','history_volatility','daily_volume','interval_volume','relative_returns','declared_breadth','feature_composition','legacy_comparison'):
