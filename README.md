@@ -2,13 +2,13 @@
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
-**Status: R1 experimental0.0.2a9 package qualification accepted.
-All 23 session IDs support batch/update/restore;22 noncontinuous IDs support
-conditional partition merge. [R1 acceptance and limits](docs/R1_ACCEPTANCE.md)
-and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the actual
-channel. R0 repaired acceptance remains historical. R1 follow-up repairs are verified at0.0.2a11. R2 supplied-policy utility implementation
-is qualified at0.0.3a0; three history batch IDs are qualified at0.0.3a1;
-no public registry release, stable API or throughput claim.**
+**Status: R2 final integration is under qualification at experimental pair 0.0.3a13.
+All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
+conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
+Eleven R2 stories are accepted; EQ037 final release gates remain in progress.
+[R2 acceptance evidence](docs/R2_ACCEPTANCE.md), [R1 acceptance and limits](docs/R1_ACCEPTANCE.md),
+and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the declared
+channel. No stable API, public registry publication or throughput claim.**
 
 [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
 

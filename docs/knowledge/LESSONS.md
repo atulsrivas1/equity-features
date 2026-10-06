@@ -236,3 +236,24 @@ EQ036 separate a11 review reproduced a false rejection between actual session ba
 ### EF-L023 — equation similarity is narrower than migration parity
 
 EQ038 [evidence](../stories/EQ-038_COMPARISON.md): actual exportedGo EMA/ATR ordinary/warm-up/flat/period1/wide vectors executed on synthetic data, source fingerprints unchanged; wide nativeFloat64 ATR0 differs from exact-coefficient1. Broader inspection found worker/reference/robustmedian/breadth definitions beyondinitialkernels: source-only matching arithmetic does not establish grid/seed/unit/denominator/member/availability/state parity. Public CI replays captured observations and actual public APIs, not unpublished privateGo source. Preserve limits and do not claim fullworker parity or copyprivatecode.
+
+## EF-L024 discovery must match actual producers — 2026-10-05
+
+Three EQ037 integration tests exposed four actual descriptor mismatches before the
+correction: prior high/low Float64 columns versus int64 discovery, and members/fraction
+breadth units versus explanatory compound text. Actual failing subcases are retained
+in local qualification logs. Correct the four catalog rows and remove consumer overrides
+rather than change already qualified producer math. Whole-result future invariance and
+independent eight-feature goldens pass; old recursive gaps remain unavailable while
+finite complete windows recover. [Plan](../stories/EQ-037_PLAN.md),
+[regressions](../../tests/unit/test_r2_integration.py). Full release gates remain pending;
+revisit descriptor/producer parity whenever a builtin output representation changes.
+
+
+Independent final R2 review reproduced a P2 missed by586green tests: supplied daily/bucket
+baseline row0 and target row0 shared identity but contradictory timing could pass when
+retention1 was full. At20 it rejected only via generic duplicate output validation.
+Public pre-code0852392 precedes two actual failing regressions (four subcases).
+a13 validates all supplied proof before retention, rejects typed inconsistent_identity,
+and preserves same-frame targetrow3/2.5 ratios. Daily20/bucket19 targeted tests pass.
+No source-authentication or proof reconstruction claim. Full suite/review/build gates repeat.

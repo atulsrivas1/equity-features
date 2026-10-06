@@ -44,3 +44,13 @@ head, record findings and their disposition, and identify its coverage and
 limitations before merge or Done. Author self-review, a review request or CI
 alone remains insufficient. GOV005 stays open for hosted activation; this
 bounded decision does not waive numerical, documentation or publication gates.
+
+## Bounded R2 continuation
+
+The owner-selected local reviewer workflow continues through the remaining R2
+composition, comparison and final acceptance stories, as recorded in their plans
+and delivery reports. The separate agent /root/eq035_review reviews actual frozen
+heads and records executed checks, findings and limitations. This does not activate
+hosted review, constitute human review, or retroactively review earlier stories.
+The final R2 audit must cover all sixteen actual R2 kernels and declared capabilities.
+GOV-005 remains open; numerical, CI and artifact gates remain mandatory.

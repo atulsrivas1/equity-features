@@ -1,6 +1,6 @@
 # Public development workflow
 
-Status: human-agreed workflow, 2026-10-04. Repository: atulsrivas1/equity-features. Issues, milestones and the public Project are linked in DASHBOARD.md. Numerical implementation has not started. Work agreements are in ../AGENTS.md and continuity in SESSION_HANDOFF.md.
+Status: human-agreed workflow, 2026-10-04. Repository: atulsrivas1/equity-features. Issues, milestones and the public Project are linked in DASHBOARD.md. That dated preparation status is historical; current implementation and acceptance are recorded in the live Project and release receipts. Work agreements are in ../AGENTS.md and continuity in SESSION_HANDOFF.md.
 
 ## Planning and progress
 

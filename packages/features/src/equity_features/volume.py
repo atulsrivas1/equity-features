@@ -20,6 +20,22 @@ def _context_binding(config: ConfigSpec, context: HistoryContext) -> InputBindin
                                       Coverage(len(context.sessions), len(context.sessions), True), None))
 
 
+def _retain_proof(evidence: list[EvidenceRow], proofs: dict[tuple[str, str], EvidenceRow],
+                  row: EvidenceRow, limit: int) -> None:
+    """Validate every supplied original-row claim independently of output retention."""
+    key = (row.input_id, row.row_id)
+    previous = proofs.get(key)
+    if previous is not None:
+        if (previous.event_ns, previous.known_at_ns, previous.effective_start_ns,
+            previous.effective_end_ns, previous.boundary) != (row.event_ns, row.known_at_ns,
+            row.effective_start_ns, row.effective_end_ns, row.boundary):
+            raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "conflicting original-row volume proof")
+        return
+    proofs[key] = row
+    if len(evidence) < limit:
+        evidence.append(row)
+
+
 def _result(feature: str, value: float | None, status: Status, reasons: list[Reason], expected: int,
             observed: int, config: ConfigSpec, context: HistoryContext, inputs: list[InputBinding],
             evidence: list[EvidenceRow], limit: int) -> FeatureResult:
@@ -116,6 +132,7 @@ def compute_relative_volume(target: TargetVolume | None, baseline: VolumeBaselin
     inputs = [_context_binding(config, context)]
     reasons: list[Reason] = []
     evidence: list[EvidenceRow] = []
+    proofs: dict[tuple[str, str], EvidenceRow] = {}
     status = Status.AVAILABLE
     observed = 0
     if baseline is None:
@@ -135,10 +152,10 @@ def compute_relative_volume(target: TargetVolume | None, baseline: VolumeBaselin
             reasons.extend(q.reasons)
         else:
             observed += 1
-        for e in baseline.result.evidence[:limit]:
-            evidence.append(EvidenceRow(e.entity, "baseline.relative_volume", e.input_id, e.row_id, e.event_ns,
+        for e in baseline.result.evidence:
+            _retain_proof(evidence, proofs, EvidenceRow(e.entity, "baseline.relative_volume", e.input_id, e.row_id, e.event_ns,
                                         e.known_at_ns, e.effective_start_ns, e.effective_end_ns, e.use,
-                                        e.exclusion_reason, e.boundary))
+                                        e.exclusion_reason, e.boundary), limit)
     target_reason = None
     if target is None:
         target_reason = Reason.ABSENT_INPUT
@@ -168,11 +185,10 @@ def compute_relative_volume(target: TargetVolume | None, baseline: VolumeBaselin
         if target_reason is None:
             observed += 1
         # The same original daily frame may supply both prior rows and the target.
-        if len(evidence) < limit:
-            evidence.append(EvidenceRow(context.entity, "baseline.relative_volume", target.source.metadata.source.input_id,
+        _retain_proof(evidence, proofs, EvidenceRow(context.entity, "baseline.relative_volume", target.source.metadata.source.input_id,
                                         str(target.row_index), interval.end_ns, target.known_at_ns,
                                         interval.start_ns, interval.end_ns, "consumed" if target_reason is None else "excluded",
-                                        target_reason, "completed_interval"))
+                                        target_reason, "completed_interval"), limit)
     if target_reason is not None:
         reasons.append(target_reason)
         if status == Status.AVAILABLE:

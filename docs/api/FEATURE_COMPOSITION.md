@@ -1,6 +1,6 @@
 # Supplied feature composition
 
-EQ036 corrected experimental pair0.0.3a11, new collection schema1. Existing input, result,
+EQ037 experimental pair0.0.3a13, new collection schema1. Existing input, result,
 state schemas, numerical formulas and the39-feature inventory remain unchanged.
 Composition preserves already supplied results; it executes no dependency or I/O.
 [Pre-code plan](../stories/EQ-036_PLAN.md),
@@ -16,11 +16,11 @@ null values and bounded original evidence. Config digest, v1 algorithm, actual
 delivered output dtype/unit and producer backend/evidence conventions are checked.
 History price units carry the configured currency; breadth counts use members and
 above-SMA uses fraction. Discovery descriptions do not convert supplied values.
-The accepted historical extrema producer returns Float64 currency/share, while
-its existing discovery dtype description says int64; breadth discovery describes
-the structured members/fraction fields rather than its literal column unit.
-Composition preserves and checks the actual delivered producer conventions.
-This story does not change those existing catalog descriptors or numerical schemas.
+EQ037 corrects discovery to the existing producer representation: prior extrema
+are Float64 prices, direction counts use members, and above-SMA uses fraction.
+Composition now reads those registry descriptors directly. Currency/share remains
+a symbolic configured unit, including USD/share or EUR/share. Structured coverage
+fields retain their separate typed semantics; numerical schemas are unchanged.
 
 Context is HistoryContext or BucketContext. Historical and baseline producers must
 retain their consumed exact context binding even when the market batch is missing.

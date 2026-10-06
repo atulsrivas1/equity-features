@@ -10,3 +10,12 @@ missing members never mean unchanged or below-SMA. Empty declared universe is
 not_applicable. These choices are tested by exact synthetic examples in
 tools/verify_context_examples.py. R2 implements calculators; EQ-006 admits timing
 and action evidence. No future provider-dependent defaults are assumed here.
+
+## EQ037 supplied proof validation correction
+
+Daily and interval relative-volume consumers validate every supplied baseline proof
+and target original-row event/known-at/completed interval before clipping output evidence.
+Explicit contradictory claims for the same source ID/row reject consistently regardless
+of retention. Coherent same-frame different-row reuse remains allowed. Output retention
+bounds do not expand; absent proof is not reconstructed or source-authenticated.
+Pair0.0.3a13 records this admission correction; formulas/schemas/capabilities unchanged.

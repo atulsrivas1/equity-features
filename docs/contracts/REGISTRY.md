@@ -74,3 +74,14 @@ EQ034 qualifies relative.market_return and relative.sector_return batch flags (3
 EQ035 qualifies both breadth batch flags:39batch/all16R2 numerical IDs,23session update/restore22merge unchanged. All breadth/context/history state modes false; new schema1 companions, existing39equations/schemas unchanged; exact-version replay/registry rebuild after0.0.3a8. [API](../api/DECLARED_BREADTH.md).
 
 EQ036 collection is typed orchestration, not another numerical ID.39batch/23session update-restore22merge remain; no history/context/breadth state capability added. Pair0.0.3a10 requires exact-version replay/registry rebuilding. [Composition API](../api/FEATURE_COMPOSITION.md).
+
+## EQ037 descriptor compatibility (0.0.3a12)
+
+Discovery now matches existing output columns: history.prior_high/prior_low are
+float64 with symbolic configured currency/share; breadth.direction_counts uses
+members and breadth.above_sma_fraction uses fraction. Coverage semantics remain
+in the structured fields. Composition reads builtin dtype/unit descriptors without
+feature-specific overrides. No equations, result/state/algorithm schemas or capability
+flags change. Cached definitions require rebuilding; exact-version state contexts
+require replay. Registry digests change; no migration or history state mode is promised.
+See [final integration plan](../stories/EQ-037_PLAN.md).

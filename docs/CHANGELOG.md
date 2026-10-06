@@ -1,5 +1,13 @@
 # Experimental package changes
 
+## 0.0.3a13 — EQ037 original-row volume proof correction
+
+Independent review reproduced contradictory supplied source-row timing admission when baseline evidence filled retention. Daily and interval ratios now validate all supplied claims before clipping evidence, preserving coherent same-frame different-row reuse. Actual failing regressions at bounds1/20 now pass. No equations, schemas or capability changes; exact-version replay applies. a12 source qualification is superseded before acceptance. [Plan addendum](stories/EQ-037_PLAN.md).
+
+## 0.0.3a12 — EQ037 final integration qualification
+
+Correct four builtin discovery descriptors to actual Float64 extrema and members/fraction breadth units; composition uses registry descriptors directly. Producer formulas, schemas and capability flags are unchanged. Three actual-API integration fixtures cover all eight history goldens, future invariance, missing recursive prefixes, discovery parity and batch-only R2 capabilities. Cached registry rebuilding and exact-version replay apply. [Plan](stories/EQ-037_PLAN.md), [acceptance qualification](R2_ACCEPTANCE.md). Independent final-head review and actual delivery gates remain pending.
+
 ## 0.0.3a11 — EQ036 direct market frame ownership correction
 
 Extend cross-instance direct session market frame ownership to declared instrument populations even with zero evidence. Same-instrument sampled/continuous reuse remains valid; values/formulas/quality/coverage/schemas/modes unchanged. Actual failing trade/bar/quote regressions preserved. [a10 qualification](stories/EQ-036_A10_DELIVERY.md) was superseded before final acceptance. Corrected source repeats required review and artifact gates.
