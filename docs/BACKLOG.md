@@ -23,6 +23,9 @@ Story completion follows the eight-stage lifecycle in PUBLIC_DEVELOPMENT.md and 
 | R6 Provider and file adapters | Direct provider access and bring-your-own-file workflows | EQ-067–EQ-074 | R5 baseline; adapter work only needs R3 contracts |
 | R7 Remote access and LLM tools | Hosted slices/jobs, client SDK and MCP | EQ-075–EQ-084 | R5; provider-backed endpoints also need relevant R6 adapter |
 | R8 Advanced performance and research | Profile-driven acceleration and separate strategy/label packages | EQ-085–EQ-092 | R5 measurements; relevant earlier capabilities |
+| R9 Reproducible calculation evidence | Execution receipts, content fingerprints, replay bundles and explanations | EQ-096–EQ-100 | R3; real sources additionally R4/relevant R6; independent of R8 acceleration |
+| R10 Point-in-time diagnostics | Explicit findings, provenance linkage and adversarial conformance | EQ-101–EQ-105 | R9; delivered membership/composition/causal contracts |
+| R11 Agent research evidence | Decision events, optional ledger and evidence-aware MCP | EQ-106–EQ-110 | R9/R10; existing R7 MCP and security for service scope |
 
 Default delivery is sequential. R6 adapter implementation may run independently of R5 after R3 if later authorized; it must not delay DuckDB as our first adapter. R7/R8 are future scope, not prerequisites for the package phase.
 
@@ -211,6 +214,40 @@ Start R0 with EQ-001–006 and confirm personal owner/license/project name. Main
 
 ## Retired identifiers
 
-EQ-094 is withdrawn by owner instruction and excluded from active delivery scope. Do not reuse this identifier or count cancellation as implemented/released work. Active story IDs are EQ-001–EQ-093 and EQ-095 (94 active stories).
+EQ-094 is withdrawn by owner instruction and excluded from active delivery scope. Do not reuse this identifier or count cancellation as implemented/released work. Active story IDs are EQ-001–EQ-093 and EQ-095–EQ-110 (109 active stories).
 
 EQ-095 ([#150](https://github.com/atulsrivas1/equity-features/issues/150)) is owner-requested R3/E06 scope, dependent on EQ-093/039/040/043/045 and required by EQ-048. EQ-093 implements an external consumer example, registration/discovery and invalid-output tests; EQ-039 documents it, EQ-040 runs it, EQ-043 delivers the adapter SDK. EQ-095 independently qualifies their combined installed experience. R6 EQ-074 reuses the SDK for later real-provider guidance. Completed EQ-016 is not reopened. Synthetic R3 qualification has no R4/R6 dependency.
+
+## Additional evidence scope — GOV-012
+
+Owner-requested planning: [GOV-012](https://github.com/atulsrivas1/equity-features/issues/192); [full story plans](EVIDENCE_ROADMAP.md). All fifteen implementation stories are Backlog. Existing R0–R8 assignments and current release ownership remain intact. Default sequential pulling remains; independent dependency-ready R9 preparation needs later execution authorization. No deadlines, compliance or source-truth guarantees.
+
+### Epic E13 — [tracking issue](https://github.com/atulsrivas1/equity-features/issues/193)
+
+| ID | Release | Story | Acceptance condition |
+| --- | --- | --- | --- |
+| EQ-096 | R9 | [Specify execution receipts and evidence boundaries](https://github.com/atulsrivas1/equity-features/issues/196); 5 provisional points | Versioned receipt binds formula/config, input content identity, availability, backend/environment and output identity; distinguish metadata digest from content hash and calculation evidence from agent evidence. Dependencies: EQ-013, EQ-039, EQ-044, EQ-048. |
+| EQ-097 | R9 | [Implement deterministic input and output content fingerprints](https://github.com/atulsrivas1/equity-features/issues/197); 8 provisional points | Hash supported typed content including units, nulls, ordering and UTC nanoseconds; reject unsupported values; document floating representation and copy/stream costs; never claim source truth. Dependencies: EQ-096. |
+| EQ-098 | R9 | [Build portable reproduction bundles and replay verification](https://github.com/atulsrivas1/equity-features/issues/198); 8 provisional points | Separate I/O package exports manifest, supplied input artifacts or immutable references, configs, package versions and results; replay verifies identity then parity with declared tolerance; no executable-object deserialization. Dependencies: EQ-096, EQ-097, EQ-045. |
+| EQ-099 | R9 | [Expose bounded calculation explanations and evidence references](https://github.com/atulsrivas1/equity-features/issues/199); 5 provisional points | Explain formula/version, admitted inputs, cutoffs, coverage and exclusions with typed findings and bounded summaries; distinguish omitted retained evidence from missing proof; complete evidence lives outside kernels. Dependencies: EQ-096, EQ-013, EQ-036. |
+| EQ-100 | R9 | [Qualify reproducible evidence release and public examples](https://github.com/atulsrivas1/equity-features/issues/200); 5 provisional points | Installed public APIs reproduce synthetic calculations and reject tampered bundles; record measured overhead, compatibility, threat model and release acceptance without provider certification. Dependencies: EQ-096â€“EQ-099, EQ-048. |
+
+### Epic E14 — [tracking issue](https://github.com/atulsrivas1/equity-features/issues/194)
+
+| ID | Release | Story | Acceptance condition |
+| --- | --- | --- | --- |
+| EQ-101 | R10 | [Specify leakage findings and admissibility policy](https://github.com/atulsrivas1/equity-features/issues/201); 5 provisional points | Define separate future market data, late/unknown knowledge, reconstruction, stale membership, revised data and incompatible adjustment findings; report pass/fail/unknown only for declared checks, no universal safety score. Dependencies: EQ-096, EQ-033, EQ-037. |
+| EQ-102 | R10 | [Implement membership and revision leakage diagnostics](https://github.com/atulsrivas1/equity-features/issues/202); 8 provisional points | Validate supplied effective/known-at membership and revision/action snapshots; reject current-only membership offered as historical proof; unknown evidence remains explicit; adapters acquire facts. Dependencies: EQ-101, EQ-033, EQ-036. |
+| EQ-103 | R10 | [Bind adapter and worker provenance to evidence receipts](https://github.com/atulsrivas1/equity-features/issues/203); 5 provisional points | Reuse existing acquisition/task/output manifests, link immutable content identities and availability claims to receipts, retain gaps and revisions; no duplicate catalog or source admission by file presence. Dependencies: EQ-097, EQ-101, EQ-053, EQ-057, EQ-061. |
+| EQ-104 | R10 | [Create adversarial point-in-time conformance suite](https://github.com/atulsrivas1/equity-features/issues/204); 8 provisional points | Reusable external suite detects declared leaks and preserves unknowns using synthetic contaminated/clean pairs; future-data invariance and current-versus-historical universe scenarios; no universal detector claim. Dependencies: EQ-101â€“EQ-103, EQ-037, EQ-043. |
+| EQ-105 | R10 | [Qualify point-in-time diagnostics and consumer guidance](https://github.com/atulsrivas1/equity-features/issues/205); 5 provisional points | Publish installed examples, coverage matrix, evidence prerequisites, false-positive/unknown limits and acceptance receipt; qualify bounded runtime with result parity. Dependencies: EQ-101â€“EQ-104, EQ-100. |
+
+### Epic E15 — [tracking issue](https://github.com/atulsrivas1/equity-features/issues/195)
+
+| ID | Release | Story | Acceptance condition |
+| --- | --- | --- | --- |
+| EQ-106 | R11 | [Define agent decision events and authority boundaries](https://github.com/atulsrivas1/equity-features/issues/206); 5 provisional points | Separate orchestration schema records trigger/request, supplied model identity, tool arguments/results, receipt refs, timestamps, actor, approval and outcome; no hidden chain-of-thought requirement; exclude secrets and private data by default. Dependencies: EQ-096, EQ-101. |
+| EQ-107 | R11 | [Implement optional tamper-evident event ledger](https://github.com/atulsrivas1/equity-features/issues/207); 8 provisional points | External persistence package uses canonical event hashes, sequence and prior hash; supports verification, crash recovery and exported anchors; distinguish alteration detection from authenticity, correctness and unanchored truncation. Dependencies: EQ-106, EQ-097. |
+| EQ-108 | R11 | [Extend existing MCP tools with evidence and diagnostics](https://github.com/atulsrivas1/equity-features/issues/208); 8 provisional points | Extend one existing MCP server with receipt/explanation/diagnostic tools, bounded artifacts, explicit quality and supported capabilities; authorization and cancellation; no uploaded executable feature code. Dependencies: EQ-082, EQ-099, EQ-105, EQ-106; hosted deployments also EQ-075â€“EQ-080. |
+| EQ-109 | R11 | [Publish agent research integration and replay examples](https://github.com/atulsrivas1/equity-features/issues/209); 5 provisional points | Synthetic external consumer records a research request, calculated evidence, diagnostics and agent action references, then independently replays calculation and checks ledger; no profitability claims or provider secrets. Dependencies: EQ-098, EQ-107, EQ-108. |
+| EQ-110 | R11 | [Qualify agent evidence release and positioning limits](https://github.com/atulsrivas1/equity-features/issues/210); 5 provisional points | Release receipt covers service threat model, access isolation, replay, ledger limits, compatibility and examples; messaging states reproducible evidence and declared checks, not compliance certification or unique-market claims. Dependencies: EQ-106â€“EQ-109, EQ-100, EQ-105, EQ-084 for hosted scope. |

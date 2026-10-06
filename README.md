@@ -88,3 +88,7 @@ EQ031 daily volume implementation is qualified at0.0.3a5; [API](docs/api/DAILY_V
 EQ032 interval-volume implementation is qualified at0.0.3a6; [API](docs/api/INTERVAL_VOLUME.md), [installed example](examples/interval_volume.py), [delivery gates](docs/stories/EQ-032_DELIVERY.md).
 
 EQ034 relative-return source qualification is underway at0.0.3a7; [API](docs/api/RELATIVE_RETURNS.md), [installed example](examples/relative_returns.py), [delivery gates](docs/stories/EQ-034_DELIVERY.md).
+
+## Planned research evidence extensions
+
+[Evidence roadmap](docs/EVIDENCE_ROADMAP.md): execution receipts and reproduction bundles (R9), explicit point-in-time diagnostics (R10), and agent decision evidence with optional ledger/MCP integration (R11). These are Backlog capabilities, not current product guarantees. Existing calculation/adapter/worker boundaries remain intact.
