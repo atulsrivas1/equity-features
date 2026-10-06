@@ -92,3 +92,10 @@ and has actual form-specific installed test/typing/core-invariance reports. Inst
 matching contracts/features archives before adapter, using --no-index --no-deps
 --no-build-isolation for project archives and the pinned DuckDB1.5.6 runtime. Sdist
 installation uses setuptools80.9.0. R4 remains incomplete; no stable registry/tag.
+
+
+EQ050 optional0.1.0a2 adds [explicit retained mapping](api/DUCKDB_MAPPING.md),
+three strictly typed adapter modules and independently expected mapping fixtures.
+The optional builder now qualifies the expanded installed suite/forms; exact pinned
+contracts0.0.4a4/DuckDB1.5.6 and pure core remain unchanged. No read/calendar/real
+numerical acceptance yet; actual review/artifact/publication gates remain.

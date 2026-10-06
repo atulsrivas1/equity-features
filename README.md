@@ -116,3 +116,9 @@ EQ095 adds consumer0.4.0 [combined installed qualification](docs/EXTERNAL_QUALIF
 
 
 [R3 package acceptance evidence](docs/R3_ACCEPTANCE.md) maps all50boundedR0–R3stories, corepair0.0.4a4/consumer0.4.0, all39built-ins and installed externalqualification/benchmark/resource/integrity evidence. Exactfinal release status and actualartifact SHA/runs/expiry are recorded on issue54 and milestone4. The channel remains experimentalmain Actions artifacts; provider/data readiness is later scope.
+
+
+Optional DuckDB0.1.0a2 adds [explicit retained mapping](docs/api/DUCKDB_MAPPING.md)
+under EQ050, separate from both pure calculation packages. Unknown availability,
+source eligibility/clock/precision evidence and trade-snapshot sampling stay explicit.
+Historical acquisition/conformance/real numerical R4 qualification remain open.

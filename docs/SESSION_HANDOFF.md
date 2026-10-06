@@ -1285,3 +1285,12 @@ parser, supplied identity/session/eligibility, trade-snapshot TBBO, minute/UTCda
 source interval semantics. Preserve null/missing/zero/known-at unknown and pure
 core. Implement/tests/docs, separate final-head review and actual installed bothOS
 artifacts/readback before Done. EQ051–056 remain planned; no real golden frozen.
+
+
+EQ050 initial mapping:19 independent methods plus27 existing optional cases pass
+(46total), strict3 pass. Retained four schema column types were privately inspected;
+no source rows/goldens read or published. Caller source_clock assertion is explicit;
+OHLCV UTC daily remains distinct from RTH. Price conversion reuses accepted core
+helper. Optional0.1.0a2, core unchanged. Next clean final source/repeat builder,
+separate final-head review, bothOS CI and actual source/main installs/publication;
+then mapping receipt/readback before Done. EQ051–056 remain planned.
