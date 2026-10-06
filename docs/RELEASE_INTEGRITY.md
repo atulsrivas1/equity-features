@@ -1,6 +1,6 @@
 # Dependency and experimental release integrity
 
-EQ047/R3/issue53 reviews the existing channel after accepted EQ046. The current core pair is0.0.4a4 and the separate consumer is0.3.0. This review changes documentation only: calculation, test, build, benchmark and consumer sources remain identical to the FOUR source pairs qualified for EQ046. No formula, unit, timing, initialization, coverage, schema, algorithm, execution mode or version changes.
+EQ047/R3/issue53 reviews the existing channel after accepted EQ046. At the EQ047 reviewed baseline, the core pair is0.0.4a4 and the separate consumer is0.3.0. EQ095 later advances only the consumer to0.4.0 without new dependencies; this dated inventory retains original observations. This review changes documentation only: calculation, test, build, benchmark and consumer sources remain identical to the FOUR source pairs qualified for EQ046. No formula, unit, timing, initialization, coverage, schema, algorithm, execution mode or version changes.
 
 ## Dependency and license inventory
 

@@ -118,3 +118,6 @@ EQ047 [integrity review](RELEASE_INTEGRITY.md) and [inventory](DEPENDENCY_INVENT
 
 
 EQ095 adds consumer0.4.0 [combined installed qualification](EXTERNAL_QUALIFICATION.md):43 actual synthetic outcomes with independent goldens, actual adapter conformance, typed negatives and unchanged core/catalog. Builder retains this report inside each consumer-installation JSON. Customalgorithmv2/corepaira4 remain unchanged; historical consumer0.3.0 measurements and integrity inventory remain dated evidence. Actual release acceptance requires linked current issue/receipt gates.
+
+
+EQ048 [finalR0–R3 acceptance](R3_ACCEPTANCE.md) maps original receipts, current633unit/strict49/reference/purity/installedconsumer evidence and actualqualified corepaira4/consumer0.4.0 bundles. Its docs-only sources equal095 FOURqualifiedpairs; one reviewedPR/currentbothOSCI/actualfinalarchiveequality/currentreportprovenance/Releasedreadback suffice under PUBLIC_DEVELOPMENT, no newpublicationchannel. Final issue54 records actualSHA/runs/digests/expiry; finiteActionsretention remains explicit.
