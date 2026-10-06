@@ -50,3 +50,8 @@ The owner requested the [R3 execution package](R3_AUTONOMOUS_HANDOFF.md) and a n
 ## Owner restores release order —2026-10-05
 
 The owner superseded the earlier R3 feature-priority exception: existing R3 session finishes only BUG003#162/BUG004#163, then stops; the [R2 session](R2_AUTONOMOUS_HANDOFF.md) verifies their Done delivery and completes R2 before R3 resumes. All numerical/documentation/publication gates remain required. No automatic R3 restart.
+
+
+## Owner resumes R3 — October6
+
+Owner requests autonomous R3 after accepted R2. Both prerequisite repairs and R2 accepted exit are reused; resume the twelve prepared R3 stories under R3_AUTONOMOUS_HANDOFF.md/current review policy. Earlier stop-after-repairs steering is superseded. Highest dependency-ready pull is EQ093, followed by EQ043; no new release dates, stable channel or later-release implementation is authorized.
