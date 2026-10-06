@@ -1,0 +1,535 @@
+{
+  "schema": "r3-dependency-inventory1",
+  "inspection": "Public upstream pinned binarywheels and shipped licensefile bytes; no projectarchive rebundling/endorsement/security/legalcertification",
+  "records": [
+    {
+      "system_target": "Windows",
+      "project": "build",
+      "version": "1.2.2.post1",
+      "archive": "build-1.2.2.post1-py3-none-any.whl",
+      "sha256": "1d61c0887fa860c01971625baae8bdd338e517b836a2f70dd1f7aa3a6b2fc5b5",
+      "index_record": "https://pypi.org/pypi/build/1.2.2.post1/json",
+      "index_sha256_verified": true,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_notice_labels": [],
+      "license_files": [
+        {
+          "path": "build-1.2.2.post1.dist-info/LICENSE",
+          "sha256": "aaf9a29ca5907971ccf07de025375db34539a8d5eeebce20b46099805722106f"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "colorama",
+      "version": "0.4.6",
+      "archive": "colorama-0.4.6-py2.py3-none-any.whl",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "index_record": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "index_sha256_verified": true,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_notice_labels": [],
+      "license_files": [
+        {
+          "path": "colorama-0.4.6.dist-info/licenses/LICENSE.txt",
+          "sha256": "cac35c02686e5d04a5a7140bfb3b36e73aed496656e891102e428886d7930318"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "mypy",
+      "version": "1.15.0",
+      "archive": "mypy-1.15.0-cp312-cp312-win_amd64.whl",
+      "sha256": "171a9ca9a40cd1843abeca0e405bc1940cd9b305eaeea2dda769ba096932bb22",
+      "index_record": "https://pypi.org/pypi/mypy/1.15.0/json",
+      "index_sha256_verified": true,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_notice_labels": [],
+      "license_files": [
+        {
+          "path": "mypy/typeshed/LICENSE",
+          "sha256": "13c71e0962836d8850762bda0f6234ff213034871fa66b6c42962549d73517a4"
+        },
+        {
+          "path": "mypy-1.15.0.dist-info/LICENSE",
+          "sha256": "ea563cc7079537e603443c22ad8eab3ff650a486224108bf0c76b2e6c86699d2"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "mypy_extensions",
+      "version": "1.1.0",
+      "archive": "mypy_extensions-1.1.0-py3-none-any.whl",
+      "sha256": "1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505",
+      "index_record": "https://pypi.org/pypi/mypy_extensions/1.1.0/json",
+      "index_sha256_verified": true,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_notice_labels": [],
+      "license_files": [
+        {
+          "path": "mypy_extensions-1.1.0.dist-info/licenses/LICENSE",
+          "sha256": "a50450da1d53cd777b80ced77c58ff96abe0ccd879706bd142c3ec20e245f0b4"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "numpy",
+      "version": "2.2.6",
+      "archive": "numpy-2.2.6-cp312-cp312-win_amd64.whl",
+      "sha256": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2",
+      "index_record": "https://pypi.org/pypi/numpy/2.2.6/json",
+      "index_sha256_verified": true,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_notice_labels": [
+        "Name: lapack-lite",
+        "License: BSD-3-Clause",
+        "Name: dragon4",
+        "License: MIT",
+        "Name: libdivide",
+        "License: Zlib",
+        "Name: Meson",
+        "License: Apache 2.0",
+        "Name: spin",
+        "License: BSD-3",
+        "Name: tempita",
+        "License: MIT",
+        "Name: OpenBLAS",
+        "License: BSD-3-Clause",
+        "Name: LAPACK",
+        "License: BSD-3-Clause-Attribution",
+        "Name: GCC runtime library",
+        "License: GPL-3.0-with-GCC-exception"
+      ],
+      "license_files": [
+        {
+          "path": "numpy/ma/LICENSE",
+          "sha256": "d78dbb208b80d92b4d333e41a4baae50d12444f46e53199fa7726a91de6e2da7"
+        },
+        {
+          "path": "numpy/random/LICENSE.md",
+          "sha256": "b4bc2f4fa1c95778f1ed3dd8f14706bece399475b978f9f34b5d3cd72521b48a"
+        },
+        {
+          "path": "numpy/_core/include/numpy/random/LICENSE.txt",
+          "sha256": "d544761558b510866c21f7e8a2d5716fca76e0b98117e3b6b86314db7244d150"
+        },
+        {
+          "path": "numpy-2.2.6.dist-info/LICENSE.txt",
+          "sha256": "14256cc3a2c9d32ac284da96b937feb44f72dd90bee2317ac3020166846ad99d"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "packaging",
+      "version": "26.3",
+      "archive": "packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "index_record": "https://pypi.org/pypi/packaging/26.3/json",
+      "index_sha256_verified": true,
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "license_classifiers": [],
+      "license_notice_labels": [],
+      "license_files": [
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "packaging-26.3.dist-info/licenses/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "pip",
+      "version": "25.1.1",
+      "archive": "pip-25.1.1-py3-none-any.whl",
+      "sha256": "2913a38a2abf4ea6b64ab507bd9e967f3b53dc1ede74b01b0931e1ce548751af",
+      "index_record": "https://pypi.org/pypi/pip/25.1.1/json",
+      "index_sha256_verified": true,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_notice_labels": [],
+      "license_files": [
+        {
+          "path": "pip-25.1.1.dist-info/licenses/LICENSE.txt",
+          "sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "pyarrow",
+      "version": "20.0.0",
+      "archive": "pyarrow-20.0.0-cp312-cp312-win_amd64.whl",
+      "sha256": "96d6a0a37d9c98be08f5ed6a10831d88d52cac7b13f5287f1e0f625a0de8062b",
+      "index_record": "https://pypi.org/pypi/pyarrow/20.0.0/json",
+      "index_sha256_verified": true,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_notice_labels": [
+        "License: Apache License Version 2.0 http://www.apache.org/licenses/LICENSE-2.0",
+        "License: http://www.apache.org/licenses/LICENSE-2.0",
+        "License: http://www.apache.org/licenses/LICENSE-2.0",
+        "License: http://www.apache.org/licenses/LICENSE-2.0",
+        "License: 3-clause BSD",
+        "License: 3-clause BSD",
+        "License: The MIT License (MIT)",
+        "License: BSD 2-Clause",
+        "License: Zope Public License (ZPL) Version 2.1.",
+        "License: Apache 2.0",
+        "License:",
+        "License: 3-clause BSD",
+        "License: http://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "license_files": [
+        {
+          "path": "pyarrow-20.0.0.dist-info/LICENSE.txt",
+          "sha256": "4b2ecaf6e99f3d16b2360e588ff58ff3932e3af1b3e1f1a5bbc00251d9f4cdc3"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "pyproject_hooks",
+      "version": "1.3.3",
+      "archive": "pyproject_hooks-1.3.3-py3-none-any.whl",
+      "sha256": "5fc53fdac9f7bd63fbcdc868fb5f90b4784d78a53a3d3388cd738b807441a20b",
+      "index_record": "https://pypi.org/pypi/pyproject_hooks/1.3.3/json",
+      "index_sha256_verified": true,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_notice_labels": [],
+      "license_files": [
+        {
+          "path": "pyproject_hooks-1.3.3.dist-info/licenses/LICENSE",
+          "sha256": "1b22b049b5267d6dfc23a67bf4a84d8ec04b9fdfb1a51d360e42b4342c8b4154"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "setuptools",
+      "version": "80.9.0",
+      "archive": "setuptools-80.9.0-py3-none-any.whl",
+      "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922",
+      "index_record": "https://pypi.org/pypi/setuptools/80.9.0/json",
+      "index_sha256_verified": true,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_notice_labels": [],
+      "license_files": [
+        {
+          "path": "setuptools/_vendor/platformdirs-4.2.2.dist-info/licenses/LICENSE",
+          "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6"
+        },
+        {
+          "path": "setuptools/_vendor/wheel/vendored/packaging/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "setuptools/_vendor/wheel/vendored/packaging/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "setuptools/_vendor/wheel/vendored/packaging/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        },
+        {
+          "path": "setuptools/config/NOTICE",
+          "sha256": "2dddf08818297a3b89d43d95ff659d8da85741108c9136dfa3a4d856c0623bd8"
+        },
+        {
+          "path": "setuptools/config/_validate_pyproject/NOTICE",
+          "sha256": "5d300dbfa643138b013b75ac9caeee591f951b8b0ee24288c34ccd926c4780c8"
+        },
+        {
+          "path": "setuptools-80.9.0.dist-info/licenses/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/autocommand-2.2.2.dist-info/LICENSE",
+          "sha256": "ade78d04982d69972d444a8e14a94f87a2334dd3855cc80348ea8e240aa0df2d"
+        },
+        {
+          "path": "setuptools/_vendor/backports.tarfile-1.2.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/importlib_metadata-8.0.0.dist-info/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        },
+        {
+          "path": "setuptools/_vendor/inflect-7.3.1.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.collections-5.1.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.context-5.3.0.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.functools-4.0.1.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/jaraco.text-3.12.1.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        },
+        {
+          "path": "setuptools/_vendor/more_itertools-10.3.0.dist-info/LICENSE",
+          "sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46"
+        },
+        {
+          "path": "setuptools/_vendor/packaging-24.2.dist-info/LICENSE",
+          "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+        },
+        {
+          "path": "setuptools/_vendor/packaging-24.2.dist-info/LICENSE.APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "setuptools/_vendor/packaging-24.2.dist-info/LICENSE.BSD",
+          "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+        },
+        {
+          "path": "setuptools/_vendor/tomli-2.0.1.dist-info/LICENSE",
+          "sha256": "b80816b0d530b8accb4c2211783790984a6e3b61922c2b5ee92f3372ab2742fe"
+        },
+        {
+          "path": "setuptools/_vendor/typeguard-4.3.0.dist-info/LICENSE",
+          "sha256": "6163f7987dfb38d6bc320ce2b70b2f02b862bc41126516d552ef1cd43247e758"
+        },
+        {
+          "path": "setuptools/_vendor/typing_extensions-4.12.2.dist-info/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        },
+        {
+          "path": "setuptools/_vendor/wheel-0.45.1.dist-info/LICENSE.txt",
+          "sha256": "30c23618679108f3e8ea1d2a658c7ca417bdfc891c98ef1a89fa4ff0c9828654"
+        },
+        {
+          "path": "setuptools/_vendor/zipp-3.19.2.dist-info/LICENSE",
+          "sha256": "86da0f01aeae46348a3c3d465195dc1ceccde79f79e87769a64b8da04b2a4741"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Windows",
+      "project": "typing_extensions",
+      "version": "4.16.0",
+      "archive": "typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "index_record": "https://pypi.org/pypi/typing_extensions/4.16.0/json",
+      "index_sha256_verified": true,
+      "license_expression": "PSF-2.0",
+      "license_classifiers": [],
+      "license_notice_labels": [],
+      "license_files": [
+        {
+          "path": "typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+          "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+        }
+      ],
+      "execution": "Windows inventory matches actualinstalled licensebytes"
+    },
+    {
+      "system_target": "Linux",
+      "project": "numpy",
+      "version": "2.2.6",
+      "archive": "numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "sha256": "fd83c01228a688733f1ded5201c678f0c53ecc1006ffbc404db9f7a899ac6249",
+      "index_record": "https://pypi.org/pypi/numpy/2.2.6/json",
+      "index_sha256_verified": true,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_notice_labels": [
+        "Name: lapack-lite",
+        "License: BSD-3-Clause",
+        "Name: dragon4",
+        "License: MIT",
+        "Name: libdivide",
+        "License: Zlib",
+        "Name: Meson",
+        "License: Apache 2.0",
+        "Name: spin",
+        "License: BSD-3",
+        "Name: tempita",
+        "License: MIT",
+        "Name: OpenBLAS",
+        "License: BSD-3-Clause",
+        "Name: LAPACK",
+        "License: BSD-3-Clause-Attribution",
+        "Name: GCC runtime library",
+        "License: GPL-3.0-with-GCC-exception",
+        "Name: libquadmath",
+        "License: LGPL-2.1-or-later"
+      ],
+      "license_files": [
+        {
+          "path": "numpy/ma/LICENSE",
+          "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6"
+        },
+        {
+          "path": "numpy/random/LICENSE.md",
+          "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+        },
+        {
+          "path": "numpy/_core/include/numpy/random/LICENSE.txt",
+          "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec"
+        },
+        {
+          "path": "numpy-2.2.6.dist-info/LICENSE.txt",
+          "sha256": "c002bd26de7dc7aa464250a0de063d58fe55974452e4389e5c21c350a820bf06"
+        }
+      ],
+      "execution": "Linux-target binarywheel inspected onWindows; no nativeexecution claim"
+    },
+    {
+      "system_target": "Linux",
+      "project": "pyarrow",
+      "version": "20.0.0",
+      "archive": "pyarrow-20.0.0-cp312-cp312-manylinux_2_28_x86_64.whl",
+      "sha256": "4250e28a22302ce8692d3a0e8ec9d9dde54ec00d237cff4dfa9c1fbf79e472a8",
+      "index_record": "https://pypi.org/pypi/pyarrow/20.0.0/json",
+      "index_sha256_verified": true,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_notice_labels": [
+        "License: Apache License Version 2.0 http://www.apache.org/licenses/LICENSE-2.0",
+        "License: http://www.apache.org/licenses/LICENSE-2.0",
+        "License: http://www.apache.org/licenses/LICENSE-2.0",
+        "License: http://www.apache.org/licenses/LICENSE-2.0",
+        "License: 3-clause BSD",
+        "License: 3-clause BSD",
+        "License: The MIT License (MIT)",
+        "License: BSD 2-Clause",
+        "License: Zope Public License (ZPL) Version 2.1.",
+        "License: Apache 2.0",
+        "License:",
+        "License: 3-clause BSD",
+        "License: http://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "license_files": [
+        {
+          "path": "pyarrow-20.0.0.dist-info/LICENSE.txt",
+          "sha256": "36f65c663f1c9c910af64c73cb4302667d6513c3f0a617e42bd896d767ff4604"
+        }
+      ],
+      "execution": "Linux-target binarywheel inspected onWindows; no nativeexecution claim"
+    }
+  ],
+  "observed_date": "2026-10-06",
+  "baseline_main": "0b6aa5662c10721d405a762925f60cbc2c148ebb",
+  "baseline_foundation_run": "37500435856",
+  "qualified_source": "73246b1d970bba4f2284424c5933ef5548f949f5",
+  "calculation_versions": {
+    "contracts": "0.0.4a4",
+    "features": "0.0.4a4",
+    "consumer": "0.3.0"
+  },
+  "project_dependencies": {
+    "contracts": {
+      "base": [],
+      "optional": {
+        "columnar": [
+          "numpy==2.2.6",
+          "pyarrow==20.0.0"
+        ]
+      }
+    },
+    "features": {
+      "base": [
+        "equity-feature-contracts==0.0.4a4"
+      ],
+      "optional": {
+        "columnar": [
+          "equity-feature-contracts[columnar]==0.0.4a4"
+        ]
+      }
+    },
+    "consumer": {
+      "base": [
+        "equity-feature-contracts==0.0.4a4",
+        "equity-features==0.0.4a4"
+      ],
+      "optional": {}
+    }
+  },
+  "resolved_actions": {
+    "actions/checkout@v4": "11d5960a326750d5838078e36cf38b85af677262",
+    "actions/setup-python@v5": "a26af69be951a213d495a4c3e4e4022e16d87065",
+    "actions/upload-artifact@v4": "ea165f8d65b6e75b540449e92b4886f43607fa02"
+  },
+  "actual_manifest_python": {
+    "Linux": "3.12.15",
+    "Windows": "3.12.10"
+  },
+  "actual_bootstrap_pip_from_CI_notice": {
+    "windows-latest": [
+      "25.0.1"
+    ],
+    "ubuntu-24.04": [
+      "25.0.1"
+    ]
+  },
+  "baseline_channel_observations": [
+    {
+      "name": "foundation-0b6aa5662c10721d405a762925f60cbc2c148ebb-windows-latest",
+      "size_in_bytes": 266914,
+      "digest": "sha256:dc451aeb2541e0d55b107a8a0c182ecaf09bf92c3e4fc7c93fb71128a6c2b3fe",
+      "expired": false,
+      "expires_at": "2026-11-05T17:06:04Z"
+    },
+    {
+      "name": "foundation-0b6aa5662c10721d405a762925f60cbc2c148ebb-ubuntu-24.04",
+      "size_in_bytes": 265669,
+      "digest": "sha256:9186b40ee820c5f7b9fb3c5ccbb96d0b2fda4661aa8d49b467ca12a426b8f5d2",
+      "expired": false,
+      "expires_at": "2026-11-05T17:04:10Z"
+    }
+  ]
+}
