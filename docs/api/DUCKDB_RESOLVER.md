@@ -3,7 +3,7 @@
 EQ049 [issue56](https://github.com/atulsrivas1/equity-features/issues/56),
 [pre-code plan](../stories/EQ-049_PLAN.md). Experimental optional distribution
 `equity-feature-duckdb`0.1.0a1 / import `equity_feature_duckdb`; contracts0.0.4a4,
-DuckDB1.5.6, CPython3.12. Source implementation is awaiting review/delivery gates.
+DuckDB1.5.6, CPython3.12. Source is reviewed and qualified in installed artifacts; [delivery](../stories/EQ-049_DELIVERY.md) records final receipt gates.
 The pure contracts/features distributions remain unchanged and never import it.
 
 ```python
