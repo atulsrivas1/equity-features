@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## External consumer 0.3.0 — EQ040 installed workflows
+
+Separately packaged public-API walkthrough verifies supplied batch and streaming session results, governed historical returns, composition with absent components, and existing custom/adapter integration. Independent goldens, missing quality, prefix immutability and batch/stream parity execute from isolated installed wheel/sdist pairs. All22 existing examples have a current [catalog](EXAMPLES.md). Corepair0.0.4a4, formulas, schemas and modes are unchanged. Separate final-head source review and bothOS CI pass; actual-main receipt qualification remains required before Done.
+
 ## 0.0.4a4 — EQ043 public adapter conformance kit
 
 Pure finite named delivery/error cases and derived reports reuse validate_delivery without source invocation. Separately packaged public typed consumer0.2.1 adds raw historical BAR acquisition, transparent source/chunk coverage, exact known-at preservation, bounds/cancellation and custom5/100 input binding. All39 equations/actual feature modes and existing adapter schemas unchanged. [SDK](contracts/ADAPTER_KIT.md), [plan](stories/EQ-043_PLAN.md). Separate review corrected leaked external constructor ContractErrors to safe SourceError(SCHEMA), preserving causes and actual malformed-OHLC/bounds regressions. Consumer0.2.0 is superseded; core a4 bytes are unchanged. Final separate review and actual-main artifact gates remain pending.
