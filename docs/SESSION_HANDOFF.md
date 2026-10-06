@@ -1016,3 +1016,8 @@ Resume: freeze current PR source, run full600tests and repeated fresh wheel/sdis
 ### EQ093 frozen source qualification
 
 Source289ac94 passes600units/123references/strict44files/all admission/purity gates and repeat-build archives. TWO fresh local Windows wheel/sdist pairs each600units/22examples plus independent external-wheel/public-import/installed-path/core-byte checks pass. PR-head Linux/Windows and docs runs37465188770/37465188730 pass. [Implementation report](stories/EQ-093_IMPLEMENTATION_REPORT.md) records hashes and limits. Story is Code review: hosted request has no completed response; R3 local alternative authorization remains pending. Stop at this required review gate, preserve clean codex/eq-093-custom-features/PR237, and resume with completed final-head reviewer, findings, final checks and actual main delivery before Done. No other R3 story is started.
+
+
+### October6 reviewer authorization
+
+Owner explicitly authorizes separate local Codex reviews throughout R3. Prior review-choice block is superseded. All e2ae666 PR237 checks pass. Record authorization, freeze new head, obtain separate review, resolve findings and deliver EQ093 through actual main artifact acceptance before pulling EQ043. No hosted/human review claim.

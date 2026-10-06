@@ -63,3 +63,6 @@ registry publication, provider readiness or performance claim is implied.
 ## October6 owner-directed R3 resumption
 
 Owner resumes bounded R3 autonomously after accepted R2 and both Done repairs. EQ093#113/PR237 is Code review with600unit and installed consumer source qualification; [report](stories/EQ-093_IMPLEMENTATION_REPORT.md). No merge/release/Done yet. Required separate final-head reviewer remains unresolved: hosted activation unverified and existing local alternative is R2-bounded. Resume at that gate, then actual main publication/installation acceptance and dependency-ready EQ043. Preserve earlier paused-history notes; this direction supersedes their feature-pull pause. No R4, stable registry or account scope.
+
+
+October6 owner authorizes the separate local Codex reviewer alternative throughout bounded R3. The earlier pending-choice block is superseded; retain final-head review and all acceptance/publication gates. [Policy](CODE_REVIEW.md).
