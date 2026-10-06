@@ -100,3 +100,13 @@ the quick measurement/parity case, preserving core-file/metadata invariance.
 BothOS artifacts include `read-<system>-<form>.json` alongside installed reports.
 Use [installation instructions](../INSTALLING.md); source-tree tests alone do not
 complete the actual artifact/publication gate.
+
+
+EQ051 clean installation additionally pins NumPy2.2.6 in the optional adapter
+runtime. DuckDB1.5.6 create_function requires NumPy in the observed fresh environment;
+the development environment had masked this dependency. Install DuckDB1.5.6 and
+NumPy2.2.6 explicitly before --no-deps project archive installation. Core runtime
+dependencies remain unchanged; NumPy's existing upstream notice/hash provenance
+is recorded in [release integrity](../RELEASE_INTEGRITY.md). Both native installed forms must verify
+this exact runtime. Null timestamps pass through the parser and fail closed, following
+[DuckDB UDF null semantics](https://www.duckdb.org/docs/current/clients/python/function).

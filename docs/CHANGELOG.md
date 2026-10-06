@@ -7,7 +7,8 @@ UTCns, deterministic physical occurrence ordering, eager row/file/chunk bounds,
 owned canonical population and chunk envelopes. Caller supplies governed sessions
 and exact population coverage assertions; default coverage and availability stay
 unknown. Separate installed parity/cost/native-memory harness; no hard cap or live
-feed. Catalog database/schema qualification fixes filename ambiguity. Pure core
+feed. Catalog database/schema qualification fixes filename ambiguity. Optional NumPy2.2.6
+pin supplies observed DuckDB Python-UDF dependency; core dependencies unchanged. Pure core
 unchanged. Source62 optional tests/strict4 pass; final review/installed/publication
 gates remain. [API](api/DUCKDB_READER.md).
 

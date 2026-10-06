@@ -112,3 +112,10 @@ ReadResult also retains MappingReport (None for missing acquisition) so actual
 price rounding and unmapped-field evidence remain observable, not lost behind
 the bound canonical identity. Mapping timing includes sorting/column/occurrence
 materialization and mapping; total external timing includes preflight overhead.
+
+
+Clean installation refinement: optional adapter runtime includes NumPy2.2.6,
+required by observed DuckDB1.5.6 Python UDF registration. Reuse existing governed
+upstream pin/integrity provenance; corepair dependencies are unchanged. No extra
+provider/backend or numerical behavior added. Final bothOS clean installed forms
+verify exact dependency metadata and backend versions.

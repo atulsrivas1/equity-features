@@ -1359,3 +1359,14 @@ filtered an unlocatable row into asserted observed-empty. Corrected special null
 handling routes None through exact parser; added independent null-time/default and
 claimed-empty rejection fixture. Require current62 suite and installed harness
 rerun; interim review is not frozen-head acceptance.
+
+
+EQ051 ac5e944 first actual installed wheel failed (2failures/10errors) because
+DuckDB1.5.6 create_function requires NumPy, absent in clean environment despite
+development success. CI optional37524762123 bothOS likewise failed; no acceptance
+claimed. Private reproduction inspected safe exception context on synthetic fixture;
+installing NumPy2.2.6 restored selected times(10,10,15). Pin existing governed NumPy
+version in optional adapter only, update exact dependency boundary and installed
+runtime/metadata checks. Both core dependency lists remain unchanged. Benchmark
+COPY combined parameterized range/path also failed backend restriction; separate
+bound range fixture creation then bound COPY path. Current reruns required.

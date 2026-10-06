@@ -25,6 +25,7 @@ def helper(name, filename):
 
 def run_case(rows, repetitions):
     import duckdb
+    import numpy
     import equity_feature_duckdb as adapter_package
     import equity_feature_contracts as contracts_package
     from equity_feature_contracts import AvailabilitySpec, DataKind, InputScope, PriceUnit, SessionSpec
@@ -39,7 +40,8 @@ def run_case(rows, repetitions):
         root=Path(folder);db=root/'fictional.duckdb';original=root/'original.parquet';optimized=root/'optimized.parquet'
         start=perf_counter_ns()
         with duckdb.connect(str(db)) as c:
-            c.execute("COPY (SELECT 7 instrument_id,'1970-01-01T00:00:00.' || lpad(CAST(i+1 AS VARCHAR),9,'0') || 'Z' ts_utc,(100.0+i%7)::DOUBLE price,((i%5)+1)::INTEGER size FROM range(?) t(i)) TO ? (FORMAT PARQUET)",[rows,str(original)])
+            c.execute("CREATE TEMP TABLE fixture AS SELECT 7 instrument_id,'1970-01-01T00:00:00.' || lpad(CAST(i+1 AS VARCHAR),9,'0') || 'Z' ts_utc,(100.0+i%7)::DOUBLE price,((i%5)+1)::INTEGER size FROM range(?) t(i)",[rows])
+            c.execute("COPY fixture TO ? (FORMAT PARQUET)",[str(original)])
             shutil.copyfile(original,optimized)
             c.execute('CREATE SCHEMA catalog')
             c.execute('CREATE TABLE catalog.datasets(layer VARCHAR,snapshot VARCHAR,dataset VARCHAR,source_schema VARCHAR,view_schema VARCHAR,view_name VARCHAR)')
@@ -83,7 +85,7 @@ def run_case(rows, repetitions):
             controls=dict(threads=config.threads,memory_setting_mb=config.memory_limit_mb,batch_rows=request.max_batch_rows,
                 max_rows=request.max_rows,max_batches=request.max_batches),
             runtime=dict(system=platform.system(),machine=platform.machine(),python=platform.python_version(),
-                duckdb=duckdb.__version__,adapter=adapter_package.__version__,contracts=contracts_package.__version__),
+                duckdb=duckdb.__version__,numpy=numpy.__version__,adapter=adapter_package.__version__,contracts=contracts_package.__version__),
             limits='supplied synthetic single-process workload, no warm/cold storage distinction; file bytes are selected lengths, not measured I/O; owned graph excludes config/wrapper/native/global code; no throughput or zero-copy target')
 
 

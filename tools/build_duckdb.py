@@ -30,6 +30,7 @@ def inspect_adapter(path):
         meta = next(v for n,v in files.items() if n.endswith('/METADATA'))
         assert b'License-Expression: Apache-2.0' in meta
         assert b'Requires-Dist: duckdb==1.5.6' in meta
+        assert b'Requires-Dist: numpy==2.2.6' in meta
         assert b'Requires-Dist: equity-feature-contracts==0.0.4a4' in meta
         assert any(n.endswith('/licenses/LICENSE') for n in files)
     else:
@@ -61,11 +62,11 @@ def qualify(output, form):
         run(str(py),'-I','-c',"import importlib.util; assert importlib.util.find_spec('duckdb') is None; import equity_features,equity_feature_contracts; print('Installed pure core imports without DuckDB')",cwd=env)
         before = core_fingerprint(py)
         adapter = next(p for p in output.glob('equity_feature_duckdb-*') if (p.suffix=='.whl')==(form=='whl'))
-        run(str(py),'-m','pip','install','--no-deps','duckdb==1.5.6')
+        run(str(py),'-m','pip','install','--no-deps','duckdb==1.5.6','numpy==2.2.6')
         run(str(py),'-m','pip','install','--no-index','--no-deps','--no-build-isolation',str(adapter))
         run(str(py),'-m','pip','check')
         assert before==core_fingerprint(py),'adapter installation changed installed core'
-        run(str(py),'-I','-c',"from pathlib import Path; import equity_feature_duckdb as d,duckdb; assert 'site-packages' in Path(d.__file__).parts; assert d.__version__=='0.1.0a3'; assert duckdb.__version__=='1.5.6'",cwd=env)
+        run(str(py),'-I','-c',"from pathlib import Path; import equity_feature_duckdb as d,duckdb,numpy; assert 'site-packages' in Path(d.__file__).parts; assert d.__version__=='0.1.0a3'; assert duckdb.__version__=='1.5.6'; assert numpy.__version__=='2.2.6'",cwd=env)
         result=subprocess.run([str(py),'-I','-m','unittest','discover','-s',str(ROOT/'tests/duckdb')],cwd=env,text=True,capture_output=True)
         print(result.stdout+result.stderr)
         result.check_returncode()
@@ -88,7 +89,7 @@ print('Pure core registry executes with DuckDB forbidden')
         assert before==after,'adapter execution changed installed core'
         fingerprint = lambda x: hashlib.sha256(json.dumps(x,sort_keys=True).encode()).hexdigest()
         report = dict(schema='duckdb-install1',source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-                      form=form,system=platform.system(),python=platform.python_version(),duckdb='1.5.6',adapter='0.1.0a3',
+                      form=form,system=platform.system(),python=platform.python_version(),duckdb='1.5.6',numpy='2.2.6',adapter='0.1.0a3',
                       artifacts={p.name:digest(p) for p in [*paths,adapter]},synthetic_tests=count,
                       test_suite_sha256=hashlib.sha256(b''.join(p.read_bytes() for p in sorted((ROOT/'tests/duckdb').glob('test_*.py')))).hexdigest(),
                       before_core_sha256=fingerprint(before),after_core_sha256=fingerprint(after),

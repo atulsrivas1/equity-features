@@ -137,7 +137,7 @@ def check():
     adapter=ROOT/'packages/duckdb/pyproject.toml'
     if adapter.exists():
         project=tomllib.loads(adapter.read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','duckdb==1.5.6']
+        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','duckdb==1.5.6','numpy==2.2.6']
         assert not project.get('optional-dependencies'), 'unreviewed adapter dependencies'
     for source in NEGATIVE_FIXTURES:
         assert violations(source),source

@@ -11,7 +11,7 @@ requires-python = ">=3.12,<3.13"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{name = "Equity Features contributors"}]
-dependencies = ["equity-feature-contracts==0.0.4a4", "duckdb==1.5.6"]
+dependencies = ["equity-feature-contracts==0.0.4a4", "duckdb==1.5.6", "numpy==2.2.6"]
 
 [project.urls]
 Repository = "https://github.com/atulsrivas1/equity-features"
