@@ -90,4 +90,4 @@ EQ032 interval-volume implementation is qualified at0.0.3a6; [API](docs/api/INTE
 EQ034 relative-return implementation is qualified at0.0.3a7; [API](docs/api/RELATIVE_RETURNS.md), [installed example](examples/relative_returns.py), [delivery gates](docs/stories/EQ-034_DELIVERY.md).
 
 
-EQ035 declared-universe breadth source qualification is underway at0.0.3a8; [API](docs/api/DECLARED_BREADTH.md), [example](examples/declared_breadth.py), [delivery gates](docs/stories/EQ-035_DELIVERY.md). Partial expected universes and exact close-versus-SMA comparisons are preserved.
+EQ035 declared-universe breadth corrected source qualification is underway at0.0.3a9; [API](docs/api/DECLARED_BREADTH.md), [example](examples/declared_breadth.py), [delivery gates](docs/stories/EQ-035_DELIVERY.md). Partial expected universes and exact close-versus-SMA comparisons are preserved.

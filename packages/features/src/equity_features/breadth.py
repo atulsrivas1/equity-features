@@ -114,6 +114,11 @@ def _compute(members: tuple[MemberFeatures, ...] | None, config: ConfigSpec, uni
                     elif not direction:
                         sma, close = member.sma, member.close
                         ready = 0
+                        dependency_reasons: list[Reason] = []
+                        if sma is None:
+                            dependency_reasons.append(Reason.ABSENT_INPUT)
+                        if close is None:
+                            dependency_reasons.append(Reason.ABSENT_INPUT)
                         if sma is not None:
                             align(sma.config, sma.context, sma.reference.result)
                             retain(entity, sma.reference.result.metadata.inputs, "sma", sma.identity_digest)
@@ -122,6 +127,8 @@ def _compute(members: tuple[MemberFeatures, ...] | None, config: ConfigSpec, uni
                             q = sma.reference.result.quality[0]
                             qstatus, qreasons = q.status, q.reasons
                             ready += qstatus == Status.AVAILABLE
+                            if qstatus != Status.AVAILABLE:
+                                dependency_reasons.extend(qreasons)
                         if close is not None:
                             m = close.source.metadata
                             if m.namespace != config.session.namespace or m.price_unit != config.price_unit:
@@ -144,6 +151,8 @@ def _compute(members: tuple[MemberFeatures, ...] | None, config: ConfigSpec, uni
                                 cs = Status.MISSING_INPUT
                                 cr = (Reason(cast(str, config.availability.knowledge_reason(close.known_at_ns))),)
                             ready += cs == Status.AVAILABLE
+                            if cs != Status.AVAILABLE:
+                                dependency_reasons.extend(cr)
                             if qstatus == Status.AVAILABLE or sma is None:
                                 qstatus, qreasons = cs, cr
                             borrow(EvidenceRow(entity, fid, m.source.input_id, str(close.row_index), config.session.close_ns, close.known_at_ns,
@@ -152,8 +161,10 @@ def _compute(members: tuple[MemberFeatures, ...] | None, config: ConfigSpec, uni
                             assert sma is not None and close is not None and config.price_unit is not None
                             is_above = sma.reference.compare_price(cast(int, close.coefficient), config.price_unit) > 0
                             qstatus, qreasons = Status.AVAILABLE, ()
-                        elif sma is None or close is None:
-                            qstatus, qreasons = Status.MISSING_INPUT, (Reason.ABSENT_INPUT,)
+                        else:
+                            if sma is None or close is None:
+                                qstatus = Status.MISSING_INPUT
+                            qreasons = tuple(dict.fromkeys(dependency_reasons))
                 if qstatus == Status.AVAILABLE:
                     eligible += 1
                     if direction:
