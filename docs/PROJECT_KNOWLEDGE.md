@@ -142,3 +142,6 @@ original reads, explicit supplied sessions/coverage and actual measured costs;
 optional NumPy2.2.6 UDF requirement corrected after clean-install failure. Pure core
 unchanged. EQ052-056 remain planned; actual conformance/private numerical layers
 remain mandatory and no real slice/golden is frozen.
+
+
+EQ052 governed calendars/history/supplied references source823ae1d is separately reviewed and qualified75optional/strict5, actual bothOS artifacts/fourdownloaded forms. [Receipt](stories/EQ-052_DELIVERY.md) retains final same-story publication/readback gates. No puremath change or private numerical acceptance. EQ053 stability/evidence follows;054conformance/055realnumerical/056R4 gates remain.

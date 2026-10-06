@@ -160,3 +160,6 @@ Existing contracts/math/source isolation and DuckDB1.5.6/NumPy2.2.6 pins remain
 unchanged. Calendar authority, row-presence certificates, UTCdaily/RTH and reference
 availability stay explicit; actual review/installed/artifact/publication gates on
 issue59 remain before Done. R4 conformance/private numerical acceptance still open.
+
+
+EQ052 [delivery receipt](stories/EQ-052_DELIVERY.md) binds source823ae1d, optionala4,75installed cases/strict5/fouractual sourceproducer forms/current20native reports. Unchanged purecore/consumer; final receipt publication/readback precede Done.

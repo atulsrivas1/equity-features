@@ -397,3 +397,6 @@ facts and decides feature quality. [Plan](../stories/EQ-052_PLAN.md),
 [API](../api/DUCKDB_GOVERNANCE.md). Interim independent75cases/strict5 pass; final
 installed/review/publication evidence remains pending. Revisit for source calendars,
 normalization, seed/window requirements, reference acquisition or PIT evidence.
+
+
+EF-L029 delivery evidence: [EQ052 receipt](../stories/EQ-052_DELIVERY.md) binds actual synthetic Parquet finiteSMA40/prior35 versus anchoredmissing input, separately reviewed75installed cases and fouractual forms. Supplied sessions/certificates/reference facts are assertions; structural history sufficiency and whole-reference gaps never replace pure numerical or relevant-fact admission. Revisit when calendar/source/reference authority or history policy changes.
