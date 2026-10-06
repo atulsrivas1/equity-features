@@ -1,4 +1,6 @@
-# EQ093 implementation qualification (not release acceptance)
+# EQ093 historical a1 implementation qualification (not release acceptance)
+
+This a1 report is superseded by separate-review corrections and qualified pair0.0.4a3. See [current delivery](EQ-093_DELIVERY.md). Original observations below remain history, not corrected acceptance.
 
 [Issue113](https://github.com/atulsrivas1/equity-features/issues/113), [PR237](https://github.com/atulsrivas1/equity-features/pull/237), source289ac946d96807ec5f653b155cf878013e5c9358; pair0.0.4a1. Owner resumes R3 on October6 after accepted R2. Current stage Code review. No separate completed review, main merge, main experimental publication or Done is claimed.
 
