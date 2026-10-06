@@ -132,3 +132,13 @@ remain planned; real numerical and actual conformance layers remain mandatory.
 
 
 EQ049 is accepted Done. EQ050 source6f3891f mapping0.1.0a2 is separately reviewed/qualified with46optional/633core/strict3, actual bothOS source-main artifacts and FOUR actual downloaded-form Windows installs. [Receipt](stories/EQ-050_DELIVERY.md) retains final receipt/publication gates before Done. Pure core unchanged; no canonical historical reads or real numerical acceptance yet. EQ051 follows; EQ052-056 remain planned.
+
+
+EQ050 is acceptedDone. EQ051 reviewed source34a0615 optional0.1.0a3 is qualified
+with62 optional/633core/strict4, actual bothOS source-main artifacts and FOUR fresh
+downloaded producer/form Windows installs. [Receipt](stories/EQ-051_DELIVERY.md)
+retains final doc-only review/CI/publication/readback gates before Done. Bounded
+original reads, explicit supplied sessions/coverage and actual measured costs;
+optional NumPy2.2.6 UDF requirement corrected after clean-install failure. Pure core
+unchanged. EQ052-056 remain planned; actual conformance/private numerical layers
+remain mandatory and no real slice/golden is frozen.

@@ -143,3 +143,12 @@ three strictly typed adapter modules and independently expected mapping fixtures
 The optional builder now qualifies the expanded installed suite/forms; exact pinned
 contracts0.0.4a4/DuckDB1.5.6 and pure core remain unchanged. No read/calendar/real
 numerical acceptance yet; actual review/artifact/publication gates remain.
+
+
+EQ051 optional0.1.0a3 expands actual installed bothOS wheel/sdist qualification to
+bounded original-Parquet reads with supplied sessions/coverage,62 independent cases,
+strict4 and retained read-<system>-<form>.json synthetic timing/parity/native-lifetime
+peak reports. Clean UDF runtime pins DuckDB1.5.6/NumPy2.2.6 separately from unchanged
+pure packages. SQL/materialization/copy costs and whole-process high-water limits
+are explicit; selected file bytes are not measured I/O. [Receipt](stories/EQ-051_DELIVERY.md)
+binds actual source forms/publication gates; no R4 conformance/private acceptance yet.

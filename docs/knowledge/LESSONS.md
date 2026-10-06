@@ -371,3 +371,13 @@ units; selected file sizes and DuckDB memory settings are not I/O or process-cap
 measurements. [Plan](../stories/EQ-051_PLAN.md), [API](../api/DUCKDB_READER.md).
 Revisit for storage rewrite/row identity, streaming, stability/coverage or measurement
 method changes; final installed/review/publication evidence remains pending.
+
+
+EQ051 clean installed environments exposed DuckDB Python-UDF NumPy dependence
+masked by development imports. Pin/verify the optional runtime explicitly and
+retain failed installation evidence; core invariance remains separate. Reviewer
+null-time probe proved backend default null handling could silently certify empty
+selection; route malformed event times through the parser and reject before
+coverage assertions. [Actual receipt](../stories/EQ-051_DELIVERY.md) distinguishes
+clean measurement source, doc-only head reuse, native producer Python provenance
+and FOUR actual downloaded-form installs. No final receipt/publication claim yet.
