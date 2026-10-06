@@ -52,12 +52,16 @@ pair installations of bothOS universal archives each561tests/twenty examples pas
 CPython3.12.10/NumPy2.2.6/PyArrow20.0.0. Linux-native execution is CI evidence;
 Windows-local installation does not imply local Linux execution.
 
-Author self-review+CI only; no independent hosted/human review recorded. The
+Author self-review, CI and completed separate local automated review; no hosted
+review or human approval is claimed. The
 October5 owner direction resumed the separate final-head Codex review gate;
 hosted activation remains unverified under GOV005. The owner explicitly authorized
 a separate local Codex reviewer for EQ035; the completed separate [review report](https://github.com/atulsrivas1/equity-features/pull/220#issuecomment-6007687982) covers head d6530359b6e21e4337db952211b688762229c96c with no unresolved actionable findings. Reviewer /root/eq035_review independently ran22breadth/full561tests/the example and matched all eight downloaded archive hashes; it inspected rather than repeated installed execution. The stale formula-page planned-status finding was corrected. Subsequent documentation changes require final-head confirmation before merge.
-PR220 remains Code review until completed final-head review and findings
-disposition are recorded. Experimental main
+PR220 was merged through the owner account as mainbea2c24a750771e9c0a93fc9c846b34a10db0108;
+its entire published tree equals reviewed head d6530359b6e21e4337db952211b688762229c96c.
+PR228 records the completed review in tracked continuity and this receipt; its
+final-head confirmation, CI and published main/archive verification gate Done.
+Experimental main
 Actions channel only; no source/provider/private copy/
 stable/tag/PyPI/performance/state claim. Final receipt publication/head/main/actual
 per-OS four-archive equality and required separate review remain before Done. Reuse installed execution only
