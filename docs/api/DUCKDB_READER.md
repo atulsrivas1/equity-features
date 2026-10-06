@@ -110,3 +110,5 @@ dependencies remain unchanged; NumPy's existing upstream notice/hash provenance
 is recorded in [release integrity](../RELEASE_INTEGRITY.md). Both native installed forms must verify
 this exact runtime. Null timestamps pass through the parser and fail closed, following
 [DuckDB UDF null semantics](https://www.duckdb.org/docs/current/clients/python/function).
+
+Observed local installed costs and limits: [measurement record](../benchmarks/EQ-051_READ.md).

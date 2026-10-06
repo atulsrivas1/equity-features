@@ -1370,3 +1370,15 @@ version in optional adapter only, update exact dependency boundary and installed
 runtime/metadata checks. Both core dependency lists remain unchanged. Benchmark
 COPY combined parameterized range/path also failed backend restriction; separate
 bound range fixture creation then bound COPY path. Current reruns required.
+
+
+EQ051 clean9f80670 actual local wheel installed/full synthetic measurement passes:
+512rows median1538765000ns/owned174926bytes/nativepeak75612160bytes;
+4096rows median13053876000ns/owned1384947bytes/nativepeak82649088bytes.
+Three samples each, independent price/time/share/occurrence/delivery parity. Native
+Windows lifetime high-water includes imports/setup/prior case, no hardcap/I/O/
+throughput claim. Public sanitized report docs/benchmarks/EQ-051_WINDOWS.json and
+interpretation/actual installed wheel hashes EQ-051_READ.md. Clean repeat builder
+wheel qualification passes62tests/strict4/quickread/core invariance; sdist running.
+Separate reviewer currently frozen9f80670; next doc-only measured evidence final
+head review/currentCI and actual main delivery remain before acceptance.
