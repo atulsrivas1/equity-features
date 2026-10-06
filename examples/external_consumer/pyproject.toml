@@ -3,10 +3,10 @@ requires = ["setuptools==80.9.0"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "equity-feature-demo"
-version = "0.2.1"
+version = "0.3.0"
 requires-python = ">=3.12"
 dependencies = ["equity-feature-contracts==0.0.4a4", "equity-features==0.0.4a4"]
-description = "Synthetic public-API consumer qualification; no source acquisition"
+description = "Synthetic public API workflows and supplied in-memory adapter qualification"
 license = "Apache-2.0"
 [tool.setuptools.packages.find]
 where = ["src"]
