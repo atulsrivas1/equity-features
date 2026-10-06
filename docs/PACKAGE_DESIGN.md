@@ -222,3 +222,6 @@ EQ093 initial implementation adds features.custom with explicit immutable truste
 
 
 EQ043 adds contract-owned pure reusable supplied-delivery conformance cases/reports while the concrete synthetic BAR adapter remains in the independently packaged consumer. No source iteration/acquisition is introduced in calculations/contracts. [SDK](contracts/ADAPTER_KIT.md); final review/delivery gates pending.
+
+
+EQ046 [calculation audit](PURITY_AUDIT.md) verifies actual owned43module boundary and guarded existing independent fixtures. Pure canonical calculation is distinct from optional Arrow20 sequence conversion, which reads PYARROW_IGNORE_TIMEZONE, and import/native initialization. No backend/environment/native sandbox or arbitrary callback certification is promised. Equations/schema/corepaira4/consumer0.3.0 unchanged.

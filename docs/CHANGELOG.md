@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## EQ046 scoped calculation audit — no core behavior change
+
+[Audit](PURITY_AUDIT.md) combines all43 owned module AST/import checks,16 guard controls,619 existing independent fixtures under file/network/clock/process denial and593 under additional strict environment denial. Arrow20 sequence conversion timezone lookup and initialization/native/callback limits explicitly recorded; declared owned module data unchanged and mutation detector proven. Three meaningful audit tests bring full suite631; numerical/corepaira4/consumer0.3/schema/modes unchanged. Actualreview/install/publication gates remain required.
+
 ## EQ045 standalone distribution qualification — corepair/consumer unchanged
 
 Main bundles retain separately hashed repeat-built consumerwheel/sdist with namespace/license/typing/privatepath inspection, actual form-specific cleaninstallation and core module/distribution-metadata fingerprints before/after installation/execution. Two independent adversarial packaging fixtures close the post-install-only fingerprint gap. Corepaira4/consumer0.3.0/math/schema/modes unchanged; source/finalreview/currentCI/actualmainFOURpairs/receipt gates remain required. [Install guide](INSTALLING.md), [plan](stories/EQ-045_PLAN.md).

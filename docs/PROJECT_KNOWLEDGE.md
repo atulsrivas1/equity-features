@@ -89,3 +89,6 @@ EQ042 finalmain89a24a4 actualfinalarchives equalFOURqualifiedsourcepairs and var
 
 
 EQ044 version/replay guide accepted afteractualmain e7077b6 source/artifact-equivalence/currentvariableJSON/postreleaseverification; issue50Done. EQ045 reviewedsource434be80/main c88a282 fixes consumer-install fingerprint gap and publishes repeat-built standalone consumerwheel/sdist with separate hashes/actualform-specific installs.628units/strict48/authorTWOpairs/currentmainbothOSCI and actual12archives+12report checks pass; FOURactualsourcepairs/reviewedreceipt/finalpublication remain beforeDone. [Install](INSTALLING.md), [receipt](stories/EQ-045_DELIVERY.md). Corea4/consumer0.3/math/schema/modes unchanged; fourlaterR3stories follow045.
+
+
+EQ045 finalmain5442746 actual12archive equality/current12report facts/postreleaseverification accepted; issue51Done. Pull EQ046 owned43module AST plus guarded existing synthetic numerical/admission fixtures and declared module-data audit. [Plan](stories/EQ-046_PLAN.md). Corepaira4/consumer0.3 unchanged; no arbitrarycallback/nativebackend sandbox claim. Then047/095/048; R3 incomplete.

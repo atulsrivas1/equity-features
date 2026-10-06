@@ -308,3 +308,8 @@ EQ045 found that a post-install core fingerprint can establish callback executio
 
 
 Subsequent [separate final-head review](https://github.com/atulsrivas1/equity-features/pull/250#issuecomment-6020694564) independently628units/strict48/archivecontent-license and184links pass; authorTWOactualcore+consumerforms confirm before/afterinstall/execution equality. Source-main c88a282 bothOSCI and actualconsumerreports verify actualinputartifact identities rather than a rebuilt example. Preserve FOURactualsourcepairs/currentfinal12archives+report checks as separate delivery gates; fingerprint digests bind installed metadata without exposing raw localdirectURL paths.
+
+
+## EF-L023 backend initialization and conversion are separate purity scopes
+
+EQ046 strict guard found Arrow20 sequence conversion reads PYARROW_IGNORE_TIMEZONE per call; merely importing pyarrow does not preload lazy compute/sysconfig. Versioned upstream source supports the observed lookup. Preload compute before execution, preserve all selected file/network/clock/process guards, separately run593 strict canonical fixtures and619 full fixtures with only audited backend key/exact26-case inventory. Snapshot43 owned module declarative data and prove detector with restored injected mutation; no allnativeglobal/callback sandbox claim. [Audit](../PURITY_AUDIT.md), [tests](../../tests/unit/test_purity_audit.py), [plan](../stories/EQ-046_PLAN.md). Revisit for new backend APIs/versions/import timing/owned global data or additional audited fixture cases.
