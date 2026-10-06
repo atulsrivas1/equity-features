@@ -95,3 +95,5 @@ is a mathematical result, not malformed input. Invalid integer representation,
 negative volume, duplicate identities or inconsistent alignment raises an error.
 Fixtures establish equations and boundaries only; no production API, performance
 or actual reference/source availability is qualified by this specification.
+
+EQ035 public batch consumers implement the frozen breadth equations with exact SMA witnesses and typed member exclusions; [API](../api/DECLARED_BREADTH.md). Mathematics unchanged; actual package delivery is separately gated.

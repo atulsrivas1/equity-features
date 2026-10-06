@@ -65,6 +65,6 @@ class R1Audit(unittest.TestCase):
         for d in registry.list_features():
             if d.planned_release!='R1':
                 self.assertFalse(any((d.capabilities.update,d.capabilities.restore,d.capabilities.merge)))
-                if d.feature_id not in ('history.return','history.prior_high','history.prior_low','history.sma','history.ema','history.rsi','history.atr','history.return_volatility','baseline.daily_volume','baseline.relative_volume','baseline.interval_volume','baseline.interval_relative_volume','relative.market_return','relative.sector_return'):self.assertFalse(d.capabilities.batch)
+                if d.feature_id not in ('history.return','history.prior_high','history.prior_low','history.sma','history.ema','history.rsi','history.atr','history.return_volatility','baseline.daily_volume','baseline.relative_volume','baseline.interval_volume','baseline.interval_relative_volume','relative.market_return','relative.sector_return','breadth.direction_counts','breadth.above_sma_fraction'):self.assertFalse(d.capabilities.batch)
 
 if __name__=='__main__':unittest.main()
