@@ -24,7 +24,10 @@ def main():
         env = dict(os.environ, MYPYPATH='')
         command = [sys.executable, '-m', 'mypy', '--strict', '--no-incremental']
         sample = root/'examples/typed_caller.py'
-        subprocess.run(command+[str(sample), str(Path(demo.__file__).parent)], cwd=cwd, env=env, check=True)
+        subprocess.run(command+[str(sample)], cwd=cwd, env=env, check=True)
+        # Package-name discovery preserves PEP561 lookup instead of adding site-packages
+        # as a user source root (which shadows typing_extensions on Windows).
+        subprocess.run(command+['-p', 'equity_feature_demo'], cwd=cwd, env=env, check=True)
         negative = cwd/'invalid_caller.py'
         negative.write_text('''from equity_feature_contracts import EntityKey, PriceUnit
 from equity_feature_contracts.adapter_kit import run_conformance
