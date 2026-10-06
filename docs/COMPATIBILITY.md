@@ -87,3 +87,6 @@ Existing contracts/math/source isolation and DuckDB1.5.6/NumPy2.2.6 pins remain
 unchanged. Calendar authority, row-presence certificates, UTCdaily/RTH and reference
 availability stay explicit; actual review/installed/artifact/publication gates on
 issue59 remain before Done. R4 conformance/private numerical acceptance still open.
+
+
+EQ053 optional0.1.0a5 adds [bounded acquisition evidence](api/DUCKDB_EVIDENCE.md): cumulative original/catalog pre-post hashes, supplied optimized pins, normalization/source receipts and explicit observed-versus-pinned limits. Six typed modules, independent actual-Parquet mutation/budget/pin/cancellation/identity fixtures. Corepaira4/math/schema/runtimepins unchanged; current installed forms/measurement/finalreview/artifact publication gates remain beforeDone.

@@ -21,6 +21,7 @@ from equity_feature_contracts.adapters import (
 from .mapping import MappingPolicy, MappingReport, RowOccurrence, map_columns, parse_utc_ns
 from .resolver import (ResolvedPartition, ResolvedSource, SourceSelection,
                        _absolute, _cancel, _count, _date, _fail, _hash, _text)
+from .evidence import AcquisitionReceipt, VerificationPolicy, _begin_observation, _digest
 
 
 @dataclass(frozen=True)
@@ -68,12 +69,15 @@ class ReadConfig:
     max_batch_rows: int = 1024
     threads: int = 1
     memory_limit_mb: int = 256
+    verification: VerificationPolicy = VerificationPolicy()
 
     def __post_init__(self) -> None:
         if not isinstance(self.catalog_path, Path) or not self.catalog_path.is_absolute():
             _fail("Explicit absolute catalog Path required")
         if type(self.resolved) is not ResolvedSource or type(self.mapping) is not MappingPolicy or type(self.scope) is not InputScope:
             _fail("Typed resolved source/mapping/scope required")
+        if type(self.verification) is not VerificationPolicy:
+            _fail("Typed verification policy required")
         for value in (self.namespace, self.source_id, self.calendar_version):
             _text(value)
         for bound in (self.max_files, self.max_batch_rows, self.threads, self.memory_limit_mb):
@@ -138,6 +142,8 @@ class ReadMetrics:
     selected_file_bytes: int
     canonical_cells: int
     batches: int
+    verification_ns: int = 0
+    verification_hash_bytes: int = 0
 
 
 @dataclass(frozen=True)
@@ -146,6 +152,7 @@ class ReadResult:
     batches: tuple[AdapterBatch, ...]
     metrics: ReadMetrics
     mapping_report: MappingReport | None = None
+    receipt: AcquisitionReceipt | None = None
 
 
 class DuckDBHistoricalAdapter:
@@ -183,14 +190,31 @@ class DuckDBHistoricalAdapter:
         selected = tuple(p for p in config.resolved.partitions if partition_sessions[p.session] in request.sessions)
         if len(selected) > config.max_files:
             _fail("Read file limit exceeded", SourceErrorCode.LIMIT)
-        base_payload = dict(request=asdict(request), selection=config.resolved.identity_digest,
-            calendar=config.calendar_version, scope=asdict(config.scope), coverage=asdict(config.coverage_assertion) if config.coverage_assertion else None)
-        identity = hashlib.sha256(json.dumps(base_payload, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
-        source = SourceBinding(config.source_id, request.snapshot_id, "original-read1:"+identity, "request:"+identity)
+        verification_start = perf_counter_ns()
+        observation = _begin_observation(config.catalog_path, config.resolved, selected, config.verification, cancellation)
+        verification_ns = perf_counter_ns()-verification_start
+        request_digest = _digest(asdict(request))
+        configuration = asdict(config)
+        configuration["catalog_path"] = str(config.catalog_path)
+        configuration_digest = _digest(configuration)
+        identity = _digest(dict(version="original-read2", request=request_digest,
+            configuration=configuration_digest, catalog=observation.catalog_sha256,
+            files=[asdict(f) for f in observation.files]))
+        source = SourceBinding(config.source_id, request.snapshot_id, "original-read2:"+identity, "request:"+identity)
+        def receipt(binding: SourceBinding, coverage: Coverage, report: MappingReport | None,
+                    disposition: str, rows: int) -> AcquisitionReceipt:
+            return AcquisitionReceipt(request_digest, configuration_digest, config.resolved.identity_digest,
+                identity, observation.catalog_sha256, observation.files, config.resolved.missing_sessions,
+                binding, report, coverage, request.availability, config.calendar_version, disposition,
+                rows, observation.pin_strength, observation.hash_bytes)
         if any(partition_sessions[d] in request.sessions for d in config.resolved.missing_sessions):
+            verification_start = perf_counter_ns()
+            observation.finish()
+            verification_ns += perf_counter_ns()-verification_start
             envelope = AdapterBatch(request.request_id, 0, True, source, Coverage(None, 0, False),
                                     Coverage(None, 0, False), None, "missing", "Selected source partition missing")
-            return ReadResult(None, (envelope,), ReadMetrics(0, 0, 0, 0, 0, 0, 0, 1))
+            return ReadResult(None, (envelope,), ReadMetrics(0, 0, 0, 0, 0, 0, 0, 1,
+                verification_ns, observation.hash_bytes), receipt=receipt(source, envelope.source_coverage, None, "missing", 0))
         start = perf_counter_ns()
         # All values are owned in this bounded collection before any envelope is exposed.
         acquired: list[tuple[int, int, int, str, tuple[object, ...]]] = []
@@ -259,6 +283,9 @@ class DuckDBHistoricalAdapter:
             _fail("Original source read failed")
         query_ns = perf_counter_ns()-start
         _cancel(cancellation)
+        verification_start = perf_counter_ns()
+        observation.finish()
+        verification_ns += perf_counter_ns()-verification_start
         start = perf_counter_ns()
         acquired.sort(key=lambda row: row[:3])
         count_rows = len(acquired)
@@ -275,7 +302,7 @@ class DuckDBHistoricalAdapter:
             coverage = Coverage(claim.expected_rows, count_rows, True)
         names = names or ("instrument_id", "ts_utc")
         columns: dict[str, tuple[object, ...] | list[object]] = {n: tuple(row[4][i] for row in acquired) for i, n in enumerate(names)}
-        occurrences = tuple(RowOccurrence(hashlib.sha256(json.dumps([config.resolved.identity_digest, selected[row[1]].original_path, selected[row[1]].original_sha256]).encode()).hexdigest(), row[2], i) for i, row in enumerate(acquired))
+        occurrences = tuple(RowOccurrence(hashlib.sha256(json.dumps([config.resolved.identity_digest, selected[row[1]].original_path, observation.files[row[1]].observed_original_sha256]).encode()).hexdigest(), row[2], i) for i, row in enumerate(acquired))
         scope = InputScope(request.start_ns, request.end_ns, config.scope.eligibility_policy)
         metadata = BatchMetadata(config.namespace, source, coverage, request.price_unit,
                                  adjustment=request.adjustment, sampling=request.sampling, scope=scope)
@@ -295,8 +322,9 @@ class DuckDBHistoricalAdapter:
                                           Coverage(end-begin, end-begin, True), batch))
         copying_ns = perf_counter_ns()-start
         metrics = ReadMetrics(query_ns, mapping_ns, copying_ns, count_rows, len(selected), file_bytes,
-                              len(mapped.batch.columns)*count_rows, chunks)
-        return ReadResult(mapped.batch, tuple(envelopes), metrics, mapped.report)
+                              len(mapped.batch.columns)*count_rows, chunks, verification_ns, observation.hash_bytes)
+        return ReadResult(mapped.batch, tuple(envelopes), metrics, mapped.report,
+                          receipt(mapped.batch.metadata.source, coverage, mapped.report, "data", count_rows))
 
     def iter_batches(self, request: AcquisitionRequest, cancellation: Cancellation) -> Iterator[AdapterBatch]:
         result = self.read(request, cancellation)

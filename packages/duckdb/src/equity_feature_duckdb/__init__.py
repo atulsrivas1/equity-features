@@ -12,8 +12,9 @@ from .reader import (CoverageAssertion, ReadConfig, ReadMetrics, ReadResult,
 
 from .governance import (GovernedCalendar, HistoryPlan, plan_history, make_history_context,
                          ReferenceRequest, ReferenceResolution, resolve_supplied_reference)
+from .evidence import VerificationPolicy, FileEvidence, AcquisitionReceipt
 
-__version__ = "0.1.0a4"
+__version__ = "0.1.0a5"
 __all__ = [
     "CatalogConfig", "FilePin", "ResolvedPartition", "ResolvedSource",
     "SourceSelection", "resolve_source",
@@ -23,4 +24,5 @@ __all__ = [
     "DuckDBHistoricalAdapter",
     "GovernedCalendar", "HistoryPlan", "plan_history", "make_history_context",
     "ReferenceRequest", "ReferenceResolution", "resolve_supplied_reference",
+    "VerificationPolicy", "FileEvidence", "AcquisitionReceipt",
 ]

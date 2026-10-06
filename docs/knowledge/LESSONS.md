@@ -400,3 +400,8 @@ normalization, seed/window requirements, reference acquisition or PIT evidence.
 
 
 EF-L029 delivery evidence: [EQ052 receipt](../stories/EQ-052_DELIVERY.md) binds actual synthetic Parquet finiteSMA40/prior35 versus anchoredmissing input, separately reviewed75installed cases and fouractual forms. Supplied sessions/certificates/reference facts are assertions; structural history sufficiency and whole-reference gaps never replace pure numerical or relevant-fact admission. Revisit when calendar/source/reference authority or history policy changes.
+
+
+## EF-L030 acquisition hashes preserve observation boundaries
+
+EQ053 binds actual current originals and normalization to evidence while rechecking catalog route/metadata and supplied pins. Same-sized content needs SHA256, not size-only checks. A newly observed hash is not a prior source pin or provider admission; optimized hash equality is not rewrite parity and pre/post equality is not atomic snapshot isolation or change/reversion exclusion. Bind original occurrences to actual observed content, preserve legacy/substitution/known-at/coverage declarations, and bound cumulative verification separately from SQL costs. [Plan](../stories/EQ-053_PLAN.md), [API](../api/DUCKDB_EVIDENCE.md). First development run failed Path JSON serialization; explicit catalog path encoding fixed it, prior75suite passed. Newfixture used wrong knowledge field name; corrected to accepted knowledge_cutoff_ns. Failed checks excluded. Revisit for physical source/replay/stability/availability policy changes; finalreview/installed/publication gates remain.

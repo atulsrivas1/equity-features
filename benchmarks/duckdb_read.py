@@ -73,6 +73,9 @@ def run_case(rows, repetitions):
             assert len(set(result.canonical.column('event_id').values))==rows
             assert result.canonical.column('known_at_ns') is None
             assert result.mapping_report.price_conversions[0].rounded_cells==0
+            assert result.receipt is not None and result.receipt.rows==rows
+            assert result.receipt.hash_bytes==result.metrics.verification_hash_bytes>0
+            assert result.metrics.verification_ns>0
             validate_delivery(request,adapter.capabilities(),result.batches)
             phase_samples.append(asdict(result.metrics))
         peak=native.peak_bytes()[0]
@@ -99,7 +102,7 @@ def main():
     report=dict(schema='duckdb-read-cost1',source_commit=source,measurement_source_dirty=dirty,
         harness_sha256=hashlib.sha256(Path(__file__).read_text(encoding='utf-8').encode()).hexdigest(),
         harness_hash_encoding='UTF8 with normalized LF',cases=cases,
-        timing_scope='whole public read plus separate SQL-fetch, owned mapping/materialization and delivery-copy phases; setup reported separately')
+        timing_scope='whole public read plus separate source verification, SQL-fetch, owned mapping/materialization and delivery-copy phases; setup reported separately; hashed user-space bytes are not physical storage I/O')
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(report,sort_keys=True,indent=2)+'\n',encoding='utf-8')
     print('Installed synthetic reader parity/cost/native-memory report recorded')

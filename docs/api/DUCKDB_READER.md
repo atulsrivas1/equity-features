@@ -112,3 +112,6 @@ this exact runtime. Null timestamps pass through the parser and fail closed, fol
 [DuckDB UDF null semantics](https://www.duckdb.org/docs/current/clients/python/function).
 
 Observed local installed costs and limits: [measurement record](../benchmarks/EQ-051_READ.md).
+
+
+EQ053 a5 supersedes the earlier pending-stability boundary above with mandatory bounded catalog/original pre/post observations and optional supplied optimized pins. ReadConfig.verification controls cumulative budgets/strict original pins; ReadResult.receipt and ReadMetrics.verification_ns/verification_hash_bytes retain evidence/cost. Source prefix original-read2 and observed content occurrence tokens replace a3/a4 identities. [Evidence API](DUCKDB_EVIDENCE.md) defines observed versus pinned/non-atomic/provider/PIT/privacy limits.

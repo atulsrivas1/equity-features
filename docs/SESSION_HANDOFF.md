@@ -1449,3 +1449,9 @@ Issue59 Ready to release until doc-only receipt separatefinalheadreview/allCI/gu
 EQ052 finalmaincd8377f8dfac57b9cf739225226b8e5fbfcf1c02, sourcePR266review6025190664/receiptPR267review6025336786; allCI/exacttree/publicblobs/owner/24actualarchive equality/current20reports/fourfresh75testforms/livechannels and Released6025430699/postread pass. Issue59 Closed/ProjectDone. Purecore unchanged.
 
 Pull dependency-ready053only: [concrete pre-code plan](stories/EQ-053_PLAN.md) binds bounded cumulative pre/post SHA256/catalog metadata refresh/actual original occurrence/normalization receipts and optionala5; observations versus pins/admission/provider/PIT limits explicit. Publish plan beforecode, then Inprogress/draftPR.054-056planned; no real slice/goldens frozen.
+
+
+EQ053 plan db57f529 before source, draftPR268, issue60 Inprogress. Uncommitted evidence.py/reader adds cumulative pre-post hashes/currentmetadata/pins/ownedreceipts/original-read2 occurrence content; optionala5 unchangedpurecore. First75run15errors due Path JSON encoding, fixedexplicitcatalogpath and75rerun17.614sPASS. New14fixture initial wrong knowledge_ns field correctedknowledge_cutoff_ns. Strict6passes; full89currentrerun executing. Source/docs/package/build/measurement updated together. Next current full89/strict6/boundaries/docs, cleanfreeze and actualrepeatbuild/separatefinalreview/currentCI/main actualforms/receipt publication/readback beforeDone.054-056planned;realgoldensunfrozen.
+
+
+EQ053 currentfinal source89optional cases24.733s/strict6/boundary38negative10positive/imports/fullpublicUTF8/225changedrelative links/privacy/unchangedpurecore pass. Actual original and pinnedoptimized mutation probes withhold output; exact budget/ownedreceipt assertions pass. Freeze source, cleanrepeat actual wheel/sdist builder and separate final-head review/currentCI next. No installed/publication acceptance yet.

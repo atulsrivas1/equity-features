@@ -254,3 +254,6 @@ EQ039 adds a current public API/error/registry/extension index and installed typ
 EQ039 completed separate finalheadreview and source-main bothOSCI. Corrected installedtyping and currentguide/source are qualified locally; [receipt](stories/EQ-039_DELIVERY.md) and issue45 retain actual FOURpairs/receiptpublicationgates before acceptance. Core0.0.4a4/consumer0.2.1 unchanged.
 
 EQ040 introduces independently packaged consumer0.3.0 walkthrough for installed batch/stream/history/composition/missing input/custom/adapter. Independent OHLC100/104/99/103, notional51200, prefix102/final parity, returns1/10 and21/100, custom5/100 versusbuiltin5/103 and missing-instance/null quality are asserted. Core0.0.4a4/math/schema/modes unchanged; only external implementation version advances. [Examples](EXAMPLES.md), [plan](stories/EQ-040_PLAN.md). Final source/review/CI/actualartifact gates remain.
+
+
+EQ053 optionala5 introduces acquisition1/VerificationPolicy and original-read2 source identities, with observed original content in occurrence IDs; experimental identity change is deliberate. Canonical schema1/puremath/core/runtimepins unchanged. Pre/post local hash equality has no atomic snapshot/provider/PIT/rewrite certification. Relevant actual installation/delivery gates remain.
