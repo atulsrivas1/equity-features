@@ -79,3 +79,8 @@ Owner restored R2-before-R3. Existing R3 chat finishes only both R1 defect repai
 ## Low-priority future validation
 
 [E17](https://github.com/atulsrivas1/equity-features/issues/221) / [R13](https://github.com/atulsrivas1/equity-features/milestone/14) contains EQ-116–120, Backlog with priority:low and no dates. [Pilot plans](EVIDENCE_SERVICE_PILOT.md). Core work comes first; witness implementation is conditional on demonstrated need and an owner decision.
+
+
+## R4 execution preparation — October 6, 2026
+
+[R4 handoff](R4_AUTONOMOUS_HANDOFF.md) and [two-layer test strategy](R4_TEST_STRATEGY.md) prepared under [GOV013 #258](https://github.com/atulsrivas1/equity-features/issues/258). Eight story plans,52provisional points; both synthetic DuckDB conformance and frozen representative real-data integration required. Preparation is not implementation or R4 acceptance. Review authorization/publication and live Project remain authoritative.
