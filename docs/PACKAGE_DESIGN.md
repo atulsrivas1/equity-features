@@ -214,3 +214,5 @@ Owner-requested [evidence roadmap](EVIDENCE_ROADMAP.md) extends supplied result/
 ## Conditional continuous-market extension
 
 [Revised proposal](CONTINUOUS_MARKET_DESIGN.md) requires SessionSpec reuse assessment and mathematical definitions before any new type/kernel. ConfigSpec exact-type checks mean type additions require explicit compatibility/version decisions; existing digests/equations remain preserved. Cross-venue normalization/conversion/reference availability is caller-supplied, and reopening outcomes remain unavailable before both legs are known. [Ledger details](AGENT_EVIDENCE_DESIGN.md) distinguish content from metadata identity and internal chain consistency from trusted-anchor verification.
+
+EQ036 supplies a pure immutable typed feature bundle with explicit instance/config/context/companion identity and missing families. It performs no numerical dependency execution, joins no cross-unit arithmetic and has no acquisition/scheduler/state surface. Original proofs and normalized frame ownership are validated independently of retained evidence size. [API](api/FEATURE_COMPOSITION.md).

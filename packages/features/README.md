@@ -1,6 +1,6 @@
 # Equity Features
 
-Experimental0.0.3a9, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
+Experimental0.0.3a10, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
 R1 session calculations use caller-supplied immutable canonical inputs and explicit
 config/entity/source/coverage/knowledge declarations. Core imports require no
 optional backend or source acquisition. Contracts depend only on stdlib; features
@@ -50,3 +50,5 @@ EQ034 adds owned supplied return references and batch market/sector spreads with
 
 
 EQ035 adds compute_direction_breadth and compute_above_sma_breadth using supplied dependencies only; [API](../../docs/api/DECLARED_BREADTH.md). Missing members preserve expected U and exact SMA witness comparison. Both batch only.
+
+Pure compose_features collects supplied typed instances with coherent target/C-K-E, actual backend versions and original proof/frame ownership checks. Missing dependencies remain explicit; no hidden calculation, acquisition or state operation. See feature_composition.py and docs/api/FEATURE_COMPOSITION.md.

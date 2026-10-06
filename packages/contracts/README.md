@@ -1,6 +1,6 @@
 # Equity Feature Contracts
 
-Experimental0.0.3a9, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
+Experimental0.0.3a10, Apache-2.0, CPython3.12 x64 on qualified Windows/Linux.
 R1 session calculations use caller-supplied immutable canonical inputs and explicit
 config/entity/source/coverage/knowledge declarations. Core imports require no
 optional backend or source acquisition. Contracts depend only on stdlib; features
@@ -50,3 +50,5 @@ EQ034 adds owned supplied return references and batch market/sector spreads with
 
 
 EQ035 adds owned declared-universe/member/close/SMA/exclusion companions; [API](../../docs/api/DECLARED_BREADTH.md). Existing structured output schemas retained; source truth is caller-owned.
+
+CompositionSpec, FamilyResult and FeatureBundle schema1 retain ordered supplied results/configs/contexts/typed witnesses and explicit missing instances. No numerical execution, I/O or new existing result/state schema. See docs/api/FEATURE_COMPOSITION.md in the repository.

@@ -92,3 +92,5 @@ EQ034 adds relative_returns.py as the nineteenth installed synthetic example; al
 
 
 EQ035 adds declared_breadth.py as the twentieth installed synthetic example; repeated archive/actual-main/fresh wheel-sdist gates remain mandatory.
+
+EQ036 adds feature_composition.py as the twenty-first installed synthetic example. Repeated archive, fresh wheel/sdist, actual-main manifests and final byte-equality gates remain mandatory. No new publication channel.
