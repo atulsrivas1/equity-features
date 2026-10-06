@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## EQ048 bounded package acceptance record — versions unchanged
+
+[R3 evidence](R3_ACCEPTANCE.md) maps all50R0–R3stories, acceptedrepairs/priorrelease receipts, current633units/strict49/math123, installeda4/consumer0.4qualification/43outcomes and measuredbenchmark/resource/integrity limits. No runtime/math/schema/mode/dependency/channel change. Exactfinalreview/publication/Releasedverification and54/E06/milestone4closure recorded in liveGitHub.
+
 ## Consumer0.4.0 — EQ095 installed external qualification
 
 [Qualification](EXTERNAL_QUALIFICATION.md) runs43 synthetic public contract/adapter outcomes, independent5/100vs5/103 goldens, actual metadata/quality/conformance and negative modes/bindings/limits. Builder retains actual installed report and fingerprints. Two meaningful external driver tests; no corepaira4/math/schema/mode change. Actual reviewed source/install/publication gates remain before acceptance.

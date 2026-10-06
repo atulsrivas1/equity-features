@@ -1,6 +1,6 @@
 # Development dashboard
 
-R0 foundation and R1 experimental session kernels are delivered. R2 remains planned; R3 execution starts with independently reviewed R1 repairs.
+R0–R2 acceptance and subsequent prerequisite repairs are verified. R3 package scope, reviewed installed artifacts and final acceptance evidence are mapped in [R3 acceptance](R3_ACCEPTANCE.md); [issue54](https://github.com/atulsrivas1/equity-features/issues/54) records its actual final publication and lifecycle.
 Use the live Project for current work status.
 
 [All stories](https://github.com/atulsrivas1/equity-features/issues?q=is%3Aissue+label%3Atype%3Astory) · [Epics](https://github.com/atulsrivas1/equity-features/issues?q=is%3Aissue+label%3Atype%3Aepic) · [Milestones](https://github.com/atulsrivas1/equity-features/milestones)

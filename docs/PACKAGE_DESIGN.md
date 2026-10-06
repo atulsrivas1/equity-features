@@ -225,3 +225,8 @@ EQ043 adds contract-owned pure reusable supplied-delivery conformance cases/repo
 
 
 EQ046 [calculation audit](PURITY_AUDIT.md) verifies actual owned43module boundary and guarded existing independent fixtures. Pure canonical calculation is distinct from optional Arrow20 sequence conversion, which reads PYARROW_IGNORE_TIMEZONE, and import/native initialization. No backend/environment/native sandbox or arbitrary callback certification is promised. Equations/schema/corepaira4/consumer0.3.0 unchanged.
+
+
+## Current bounded R3 qualification
+
+Earlier093/043 pending statements above are dated implementation observations. Both are now delivered/Done and EQ095 qualifies their combined installed external consumer0.4.0 with no corechange. [R3 acceptance mapping](R3_ACCEPTANCE.md) covers all39batch IDs,23sessionupdate/restore,22conditionalmerge and16R2batch-only plus trustedcustombatch/conformance. Existing equations/unit/timing/coverage/schema/admission separation remains; exactfinalstatus is issue54.

@@ -113,3 +113,6 @@ EQ038 [Go comparison](docs/stories/EQ-038_COMPARISON.md) records five actual syn
 
 
 EQ095 adds consumer0.4.0 [combined installed qualification](docs/EXTERNAL_QUALIFICATION.md):43 actual synthetic outcomes with independent goldens, actual adapter conformance, typed negatives and unchanged core/catalog. Builder retains this report inside each consumer-installation JSON. Customalgorithmv2/corepaira4 remain unchanged; historical consumer0.3.0 measurements and integrity inventory remain dated evidence. Actual release acceptance requires linked current issue/receipt gates.
+
+
+[R3 package acceptance evidence](docs/R3_ACCEPTANCE.md) maps all50boundedR0–R3stories, corepair0.0.4a4/consumer0.4.0, all39built-ins and installed externalqualification/benchmark/resource/integrity evidence. Exactfinal release status and actualartifact SHA/runs/expiry are recorded on issue54 and milestone4. The channel remains experimentalmain Actions artifacts; provider/data readiness is later scope.
