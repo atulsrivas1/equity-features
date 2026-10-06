@@ -98,3 +98,5 @@ EQ029 retains HistoryContext/ConfigSpec schema1; the initialization anchor is a 
 EQ030 retains schema1 and uses optional positive int64 annualization_factor default1 only for volatility, with N+1close WindowSpec. Config identity records supplied conventions; [API](../api/HISTORY.md).
 
 EQ031 supplies owned schema1 VolumeBaseline and TargetVolume, exported from contracts. Exact baseline witness/config/context and original target source/row/selected scope preserve dependency identity, complete EOD versus explicitly observed BAR prefix and quantity basis. Existing PriceUnit metadata requirement is retained for volume-only market rows. [Detailed API](../api/DAILY_VOLUME.md).
+
+EQ032 exports immutable VolumeBucket, BucketContext, IntervalBaseline and BucketVolume schema1. Exact open-relative bucket grids, per-bucket presence/coverage, original source-row proof, early-close ineligibility and full elapsed versus partial target bounds are explicit. Daily coverage is not bucket coverage. [API](../api/INTERVAL_VOLUME.md).
