@@ -1442,3 +1442,22 @@ separate finalheadreview/CI/sourceactualmainforms/receipt/publication beforeDone
 PR266 final013f822 review6025190664/no actionable findings/all10checks; source823ae1d exacttree/14actualpublicblobs/owner verified. Main docs37529743834/Foundation37529743667/optional37529743622 allsuccess. All24actualarchives/current20native reports/harness/testsuite/nativeprobe/optionalRECORD verify; Foundationbytes equal accepted051. FOUR fresh actual sourceproducer/form Windows installs each75tests/strict5/64row measured parity/core absent-forbidden/byteinvariance; nativeLinuxCI. [Receipt](stories/EQ-052_DELIVERY.md).
 
 Issue59 Ready to release until doc-only receipt separatefinalheadreview/allCI/guardedfinalmain/publicblob/owner/actualarchiveequality/currentreports/liveexpiry and Releasedpostreread. Runtime/tests/tools/package/harness/workflow unchanged; reuse fourforms onlywith final equality/currentreports. Then59Done and pull053bounded acquisition evidence/source stability planbeforecode.054-056planned; realinstruments/dates/goldens stillunfrozen.
+
+
+### EQ052 accepted / EQ053 concrete pull
+
+EQ052 finalmaincd8377f8dfac57b9cf739225226b8e5fbfcf1c02, sourcePR266review6025190664/receiptPR267review6025336786; allCI/exacttree/publicblobs/owner/24actualarchive equality/current20reports/fourfresh75testforms/livechannels and Released6025430699/postread pass. Issue59 Closed/ProjectDone. Purecore unchanged.
+
+Pull dependency-ready053only: [concrete pre-code plan](stories/EQ-053_PLAN.md) binds bounded cumulative pre/post SHA256/catalog metadata refresh/actual original occurrence/normalization receipts and optionala5; observations versus pins/admission/provider/PIT limits explicit. Publish plan beforecode, then Inprogress/draftPR.054-056planned; no real slice/goldens frozen.
+
+
+EQ053 plan db57f529 before source, draftPR268, issue60 Inprogress. Uncommitted evidence.py/reader adds cumulative pre-post hashes/currentmetadata/pins/ownedreceipts/original-read2 occurrence content; optionala5 unchangedpurecore. First75run15errors due Path JSON encoding, fixedexplicitcatalogpath and75rerun17.614sPASS. New14fixture initial wrong knowledge_ns field correctedknowledge_cutoff_ns. Strict6passes; full89currentrerun executing. Source/docs/package/build/measurement updated together. Next current full89/strict6/boundaries/docs, cleanfreeze and actualrepeatbuild/separatefinalreview/currentCI/main actualforms/receipt publication/readback beforeDone.054-056planned;realgoldensunfrozen.
+
+
+EQ053 currentfinal source89optional cases24.733s/strict6/boundary38negative10positive/imports/fullpublicUTF8/225changedrelative links/privacy/unchangedpurecore pass. Actual original and pinnedoptimized mutation probes withhold output; exact budget/ownedreceipt assertions pass. Freeze source, cleanrepeat actual wheel/sdist builder and separate final-head review/currentCI next. No installed/publication acceptance yet.
+
+
+EQ053 separate review6025612285 foundP2 at8ade54d: nested resolver used its own hashcounter then charged priorstat size; transient2byte catalog restored beforehash exceededlimit2121728 with2124618 successful hashedbytes, though outputwithheld. Returnedissue60Inprogress rework6025617661. Fix publicresolver signature unchanged/privatehelper shares actual _HashBudget; independent exact2catalog adversarial15methods8.645sPASS/strict6PASS. Earlier8ade/mixed-source builder completed89forms but is excluded; log retained privately. Current full90/newcleanfreeze/repeatbuild/finalreview/currentCI/artifacts/publication remain required.
+
+
+EQ053 corrected full90cases25.463s/strict6/boundary38negative10positive/imports/publicUTF8/lifecyclelinks/diff pass. Exact cumulative adversarialbudget nowstopsLIMIT at2121728bytes; next correctedcleanfreeze/actualbothforms/finalheadreview/currentCI. Existingold8adebuild is superseded, not installedacceptance for correctedsource.

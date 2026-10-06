@@ -31,3 +31,6 @@ certificate validation and supplied reference intent with visible availability g
 Existing pure HistoryContext/WindowSpec/policy admission remains authoritative.
 See repository docs/api/DUCKDB_GOVERNANCE.md; no calendar/reference fetching or
 UTCdaily-to-RTH relabeling. Actual delivery gates remain on issue59.
+
+
+Version0.1.0a5 returns acquisition1 receipts and bounded catalog/original stability observations with explicit VerificationPolicy. Supplied pins differ from observed hashes; optimized data remains unqueried. Raw real receipts contain private paths. See docs/api/DUCKDB_EVIDENCE.md for fields, identity upgrade, budgets and non-atomic/provider/PIT limits. Purecore remains unchanged.

@@ -163,3 +163,6 @@ issue59 remain before Done. R4 conformance/private numerical acceptance still op
 
 
 EQ052 [delivery receipt](stories/EQ-052_DELIVERY.md) binds source823ae1d, optionala4,75installed cases/strict5/fouractual sourceproducer forms/current20native reports. Unchanged purecore/consumer; final receipt publication/readback precede Done.
+
+
+EQ053 optional0.1.0a5 adds [bounded acquisition evidence](api/DUCKDB_EVIDENCE.md): cumulative original/catalog pre-post hashes, supplied optimized pins, normalization/source receipts and explicit observed-versus-pinned limits. Six typed modules, independent actual-Parquet mutation/budget/pin/cancellation/identity fixtures. Corepaira4/math/schema/runtimepins unchanged; current installed forms/measurement/finalreview/artifact publication gates remain beforeDone.
