@@ -137,3 +137,7 @@ ContractError(INVALID_SCHEMA) with the original cause. Existing state is unchang
 nonfinite/malformed rejection and valid finite roundtrips retain their behavior.
 Schema2/formulas unchanged; exact experimental version matching still requires
 replay of older implementation state. Issue163 records experimental artifact gates.
+
+## EQ038 comparison qualification — pair0.0.3a11 unchanged
+
+[16-ID migration inventory](stories/EQ-038_COMPARISON.md) distinguishes actual five-vector GoEMA/ATR execution from source-only related definitions. Captured synthetic observations/public installed API example prove compatible arithmetic and one-tick exact-input versus nativeFloat64 ATR difference. No package equation/API/state/version change; independent review and delivery remain before acceptance.

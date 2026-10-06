@@ -97,3 +97,5 @@ EQ035 declared-universe breadth is accepted at0.0.3a9; [API](docs/api/DECLARED_B
 [Evidence roadmap](docs/EVIDENCE_ROADMAP.md): execution receipts and reproduction bundles (R9), explicit point-in-time diagnostics (R10), and agent decision evidence with optional ledger/MCP integration (R11). These are Backlog capabilities, not current product guarantees. Existing calculation/adapter/worker boundaries remain intact.
 
 EQ036 supplied feature composition corrected implementation delivery is qualified at0.0.3a11; [API](docs/api/FEATURE_COMPOSITION.md), [synthetic example](examples/feature_composition.py). Whole instance identities and explicit missing families are preserved without hidden dependency execution.
+
+EQ038 [Go comparison](docs/stories/EQ-038_COMPARISON.md) records five actual synthetic EMA/ATR vectors and a16-ID source/migration inventory. [Example](examples/legacy_comparison.py) replays captured observations and verifies public APIs; unpublished Go source is not rerun by public CI. Qualification/acceptance gates remain; R3paused.

@@ -1,0 +1,161 @@
+{
+  "schema_version": "1",
+  "runtime": "go version go1.26.7 windows/amd64",
+  "backend": "native-float64",
+  "vectors": [
+    {
+      "name": "ordinary",
+      "period": 3,
+      "close": [
+        100,
+        110,
+        105,
+        120,
+        115,
+        130
+      ],
+      "high": [
+        102,
+        112,
+        111,
+        122,
+        121,
+        132
+      ],
+      "low": [
+        98,
+        99,
+        103,
+        104,
+        113,
+        114
+      ]
+    },
+    {
+      "name": "short",
+      "period": 3,
+      "close": [
+        100,
+        110
+      ],
+      "high": [
+        102,
+        112
+      ],
+      "low": [
+        98,
+        99
+      ]
+    },
+    {
+      "name": "flat",
+      "period": 3,
+      "close": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "high": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "low": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    {
+      "name": "period1",
+      "period": 1,
+      "close": [
+        100,
+        110,
+        105,
+        120,
+        115,
+        130
+      ],
+      "high": [
+        102,
+        112,
+        111,
+        122,
+        121,
+        132
+      ],
+      "low": [
+        98,
+        99,
+        103,
+        104,
+        113,
+        114
+      ]
+    },
+    {
+      "name": "wide_tick",
+      "period": 1,
+      "close": [
+        9223372036854775806,
+        9223372036854775807
+      ],
+      "high": [
+        9223372036854775807,
+        9223372036854775807
+      ],
+      "low": [
+        9223372036854775806,
+        9223372036854775806
+      ]
+    }
+  ],
+  "observed": [
+    {
+      "name": "ordinary",
+      "ema": 121.875,
+      "atr": 13.555555555555557,
+      "ema_class": "finite",
+      "atr_class": "finite"
+    },
+    {
+      "name": "short",
+      "ema": null,
+      "atr": null,
+      "ema_class": "nan",
+      "atr_class": "nan"
+    },
+    {
+      "name": "flat",
+      "ema": 100,
+      "atr": 0,
+      "ema_class": "finite",
+      "atr_class": "finite"
+    },
+    {
+      "name": "period1",
+      "ema": 130,
+      "atr": 18,
+      "ema_class": "finite",
+      "atr_class": "finite"
+    },
+    {
+      "name": "wide_tick",
+      "ema": 9223372036854776000,
+      "atr": 0,
+      "ema_class": "finite",
+      "atr_class": "finite"
+    }
+  ],
+  "limits": "Captured actual private Go kernel observations; public CI replays these and verifies actual public APIs, not the unpublished Go source."
+}
