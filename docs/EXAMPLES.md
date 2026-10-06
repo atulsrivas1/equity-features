@@ -52,3 +52,6 @@ The following22 repository scripts remain fixture resources outside both core di
 | [legacy_comparison.py](../examples/legacy_comparison.py) | Five captured actual Go observations versus accepted independent EMA/ATR math |
 
 The legacy comparison uses retained licensed/public synthetic observations, not private source execution or fetched data. Other example assertions and accepted mathematical references remain linked to their owning stories. Examples demonstrate supported contracts, not production source completeness, rights, strategy performance or hidden acceleration. EQ095 adds independent combined external negatives; EQ048 owns whole R3 acceptance.
+
+
+EQ045 main bundles retain the independently packaged consumerwheel AND sdist, separate from core artifacts; [installation](INSTALLING.md) runs standalone public workflows without rebuilding the consumer from a source checkout. Both actualforms are installed in freshqualification environments; namespace/license/typing inspection and core-module/distribution-metadata fingerprints before/after installation/execution apply. Repository examples still require their documented sibling fixtures.

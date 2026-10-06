@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## EQ045 standalone distribution qualification — corepair/consumer unchanged
+
+Main bundles retain separately hashed repeat-built consumerwheel/sdist with namespace/license/typing/privatepath inspection, actual form-specific cleaninstallation and core module/distribution-metadata fingerprints before/after installation/execution. Two independent adversarial packaging fixtures close the post-install-only fingerprint gap. Corepaira4/consumer0.3.0/math/schema/modes unchanged; source/finalreview/currentCI/actualmainFOURpairs/receipt gates remain required. [Install guide](INSTALLING.md), [plan](stories/EQ-045_PLAN.md).
+
 ## EQ044 version identities and replay policy — no runtime change
 
 [Version guide](VERSIONING.md) inventories current schemas, mathematics/config/source/result/custom identities, context-specific typed incompatibility and exact experimental state restoration. Migration remains replay-only, with BUG003 omitted facts and BUG004 finite-float corrections preserved. Existing626units/strict48/policies qualify these boundaries; no mirror tests or corepaira4/consumer0.3.0/math/schema/mode change. Previous EQ040–042 pending-source checkpoints are superseded by their accepted Done delivery evidence on issues46–48 and linked receipts; full R3 acceptance remains separate.
