@@ -2,11 +2,11 @@
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
-**Status: experimental pair 0.0.4a3 has qualified scoped trusted custom batch extensions.
+**Status: experimental pair 0.0.4a4 has qualified scoped trusted custom batch extensions and a supplied-delivery adapter SDK.
 R2 remains accepted under its original0.0.3a13 receipt.
 All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
 conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
-All twelve R2 stories are closed/Project Done; the R2 milestone and E05 are closed. R3 has resumed; EQ093 is Done and E03 closed. EQ043 adapter-kit pair0.0.4a4 has passed separate review and main bothOS CI; actual delivery verification is completing.
+All twelve R2 stories are closed/Project Done; the R2 milestone and E05 are closed. R3 has resumed; EQ093 and EQ043 are Done, E03 is closed. EQ039 public documentation and installed typing passed separate review and main bothOS CI; actual delivery verification is completing.
 [Adapter SDK](docs/contracts/ADAPTER_KIT.md) and [delivery evidence](docs/stories/EQ-043_DELIVERY.md) record its supported synthetic adapter and supplied-case checks.
 [Custom API](docs/api/CUSTOM_FEATURES.md) and [delivery evidence](docs/stories/EQ-093_DELIVERY.md)
 record supported modes and review/installation limits.
