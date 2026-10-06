@@ -106,3 +106,50 @@ matrix/lesson/handoff/issue/PR accompany result. Separate final-head source and 
 private evidence review, currentbothOSCI/actualmainarchive equivalence/currentreports/
 public bytes/owner/channels/Releasedpostread precedeDone. Then056 finalR4 all8stories
 and bothactualtestinglayers; STOP beforeR5.
+
+## Evidence-driven acquisition rework — before implementation
+
+Initial fresh installed a6 development reached actual daily acquisition(201636900ns)
+then minute acquisition did not complete after several minutes. First known runner
+was interrupted, no result accepted. Diagnostic timer stack reported importlib
+activity and then Windows native access violation3221225477 during minute read;
+this does not independently establish the crash cause. Both attempts excluded.
+Minimal actual original-minute query with same pinned backend/NumPy invoked Python
+UTC callback at least10000times for five requested bars and was interrupted; no
+completed old-query timing or throughput claim. Native permissive timestamp probe
+returned exact same five timestamps in56910100ns, a single diagnostic sample; it
+is not a qualified replacement or generic performance conclusion.
+
+Consequential refinement within EQ055: replace the row-callback SQL timestamp
+expression with a connection-local native SQL macro, preserving accepted strict
+UTC lexical formats, valid calendar dates, hour/minute/second ranges, one-to-nine
+fractional digits, Z/+00:00 only, null rejection and exact signed-int64ns bounds.
+Use exact HUGEINT date-day/clock/fraction arithmetic then guarded BIGINT cast;
+reject overflow rather than use TIMESTAMP_NS's special infinity sentinels at
+extreme integers. No float epoch or timezone inference. Original Python parser
+remains mapping/public reference behavior; actual returned canonical values must
+agree. Native parsing stays outside pure calculations and does not materialize
+whole files into owned Python rows. Existing bound paths/projections/identities/
+cutoffs/chunks/cancellation/hash/core separation and source limitations remain.
+
+Optionala7 identifies this acquisition implementation; corepaira4/consumer0.4.0/
+math/schema/original-read2/retained-map1/acquisition1 and DuckDB1.5.6/NumPy2.2.6
+pins remain. Final receipt records actual adapter versiona7; equal normalized facts
+retain canonical source identity, adapter-version-sensitive receipt identity changes.
+Add independent literal/stdlib calendar+integer native parser fixtures including
+int64 extreme values, null/bad dates/offsets/fractions/overflow; rerun full optional
+suite/strict7 and actual current installed30SDK16numeric qualification. Qualified
+synthetic cost reports must distinguish new measured head from dated a3 costs.
+Private original scope/goldens stay frozen; the runner changes only actual adapter
+version/archive inputs and diagnostic reporting. Fourfresh actual a7 delivered
+producer/forms must pass real numerical/evidence checks before completion.
+
+[DuckDB cast semantics](https://www.duckdb.org/docs/current/sql/expressions/cast)
+and [full regular-expression matching](https://www.duckdb.org/docs/current/sql/functions/regular_expressions)
+support native guards; exact pinned behavior/parity is verified by fixtures, not
+assumed from docs. Publish this revised pre-code contract, then implement and record
+failures/superseded runs. Separate final-head review/current bothOS CI/current actual
+main artifacts/fourfreshreal forms/receipt/publication/Releasedpostread remain.
+No new source population, mathematical feature, provider/calendar/PIT inference or
+release beyond boundedR4 is added. Earlier no-package-change expectation is superseded
+by this necessary acquisition rework; preserve its history and private frozen inputs.
