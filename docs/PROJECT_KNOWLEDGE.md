@@ -119,3 +119,13 @@ EQ095 sourcePR255 finalc6d1ed9(review6021920519) actualsource823aecdb; reviewedr
 
 
 EQ048 finaldocumentation acceptance mapsoriginalR0–R2receipts, current49Donepredecessors/repairs, qualifieda4/consumer0.4 and all39modes/purity/benchmark/resource/integrity/43caseexternalconsumer proofs. [Acceptance](R3_ACCEPTANCE.md) preserves originalbaselineversions and exactcurrentartifact facts. Finalreview/actualpublication/Releasedreadback plusall50/E06/milestone4closure remain next; nocodechange/R4scope.
+
+## Bounded R4 execution
+
+[GOV013 handoff](R4_AUTONOMOUS_HANDOFF.md) is delivered; explicit owner local-review
+policy covers R4. EQ049 source43e003c resolver is reviewed/qualified with27optional/
+633core/strict2, actualmain bothOS artifacts and FOUR downloaded source-form installs.
+[Receipt](stories/EQ-049_DELIVERY.md) retains final receipt publication/readback gates
+before Done. Both core packages/consumer remain unchanged. Metadata resolution does
+not acquire canonical rows or establish source/PIT/numerical acceptance. EQ050–056
+remain planned; real numerical and actual conformance layers remain mandatory.

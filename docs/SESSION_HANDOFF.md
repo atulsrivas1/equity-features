@@ -1245,3 +1245,24 @@ new frozen tests/head. Existing633 core units still pass; pure-boundary38negativ
 10positive retained by explicit pure-package routing, while optional dependencies
 are separately pinned. DuckDB upstream Windows/Linux index/archive/notice hashes
 are recorded without private source; no native Linux local execution claim.
+
+### EQ049 qualified source / same-story receipt
+
+SourcePR260 finalc19741a review6023607431/all10checks passed; guardedactualmain43e003c
+exacttree/25publishedblobs/owner verified. Actualmain docs37517449987/Foundation
+37517450010/optional37517450198 bothOS pass. Actualoptional twelve archives/four
+native installedreports and Foundation core/consumer R3 archive invariance verified.
+FOUR actual downloaded source forms each27optionaltests/installedstrict2/absent-
+forbidden DuckDB core/install-execution corebyte invariance pass locallyWindows;
+nativeLinux comes from CI. Producer Linux3.12.15/Windows3.12.10 are actual current
+source provenance, separate from olderPR evidence. LocalLF versusWindowsCI CRLF
+optional archive differences separately inspected; within-checkout repeatability,
+no cross-checkout identity claim. [Receipt](stories/EQ-049_DELIVERY.md).
+
+Issue56 remains Ready to release until this doc-only receipt's separate final-head
+review/allCI and guardedfinalmain/actualarchiveequality/currentreport/retention/
+Released-postrelease readback. Preserve runtime/test/package/builder bytes and reuse
+qualified source forms; no redundant numerical/freshbuild claims. Then issue56Done,
+pull050 mapping under concrete plan; other seven stories remain planned. Private
+metadata probes and EQ050 clock/precision preparation live outside public evidence.
+OHLCV daily is UTC-based, not silentlyRTH; docs/private prep retain the constraint.

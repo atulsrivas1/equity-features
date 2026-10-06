@@ -344,3 +344,10 @@ and actual numerical behavior. [Concrete plan](../stories/EQ-049_PLAN.md),
 [qualification strategy](../R4_TEST_STRATEGY.md),
 [handoff review](https://github.com/atulsrivas1/equity-features/pull/259#issuecomment-6023300273).
 Revisit for changed catalog/schema/receipt/admission or source representations.
+
+EQ049 release qualification distinguishes normalized Git source from actual working
+checkout bytes: local new LF files and WindowsCI CRLF produce different optional
+archive hashes, while each repeat-build is stable. Inspect member/RECORD differences
+and qualify actual downloaded bytes; do not claim cross-checkout reproducibility.
+Source-main producer interpreter also has its own provenance even where archive
+hashes match priorPR evidence. [Receipt](../stories/EQ-049_DELIVERY.md).
