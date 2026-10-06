@@ -313,3 +313,11 @@ Subsequent [separate final-head review](https://github.com/atulsrivas1/equity-fe
 ## EF-L023 backend initialization and conversion are separate purity scopes
 
 EQ046 strict guard found Arrow20 sequence conversion reads PYARROW_IGNORE_TIMEZONE per call; merely importing pyarrow does not preload lazy compute/sysconfig. Versioned upstream source supports the observed lookup. Preload compute before execution, preserve all selected file/network/clock/process guards, separately run593 strict canonical fixtures and619 full fixtures with only audited backend key/exact26-case inventory. Snapshot43 owned module declarative data and prove detector with restored injected mutation; no allnativeglobal/callback sandbox claim. [Audit](../PURITY_AUDIT.md), [tests](../../tests/unit/test_purity_audit.py), [plan](../stories/EQ-046_PLAN.md). Revisit for new backend APIs/versions/import timing/owned global data or additional audited fixture cases.
+
+
+## EF-L024 artifact and dependency provenance have distinct scopes
+
+EQ047 inspected13 pinned upstream wheel/index hashes and complete shipped notices, including actualinstalledWindows matchingbytes and Linux-target native notice variants. NumPy/Arrow metadata license labels alone omit bundled notices; do not infer universal SPDX expressions or redistribute stripped binary license texts. Developmentpip25.1.1 differs from observedfreshbootstrap25.0.1; CPython minor selection/actiontags/indexversionpins are not immutablepatch/hashlocked/hermetic acquisition. Actualresolvedactions/source/OS/innerarchivehashes/serverbundledigests/expiry are distinct evidence fields. [Review](../RELEASE_INTEGRITY.md), [inventory](../DEPENDENCY_INVENTORY.json), [plan](../stories/EQ-047_PLAN.md). Revisit for any dependency/tool/nativewheel/platform/channel/permissions/rights change; no stable/registry/authentication or arbitrarycode license/security certificate.
+
+
+EQ047 separate draftreview(7ff6539) caughtP2 prose conflating sourceLinux3.12.14 and finalLinux3.12.15; inventory and downloadedfinalmanifest alreadycorrect. Correct currentprose/handoff, preserve explicit source/final observations and re-review newhead. Archivebyte equality doesnotimply interpreter/tool provenance equality under a floatingminor selector. This correction strengthens the distinct-evidence rule; no package/test change.

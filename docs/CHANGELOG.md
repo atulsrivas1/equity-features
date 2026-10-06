@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## EQ047 dependency and release integrity — documentation only
+
+[Review](RELEASE_INTEGRITY.md) inventories pinned upstream archive/index checksums, complete shipped license notices and actual tool/action/bootstrap/OS/experimental-channel provenance. Native/platform notices and mutable tag/minor/index/expiry limits remain explicit; credentials and upstream acquisition stay outside calculations. Corepaira4/consumer0.3/tests/tools/math/schema/modes unchanged; actual finalreview/currentCI/publishedmain archiveequivalence/report facts/postrelease verification required.
+
 ## EQ046 scoped calculation audit — no core behavior change
 
 [Audit](PURITY_AUDIT.md) combines all43 owned module AST/import checks,16 guard controls,619 existing independent fixtures under file/network/clock/process denial and593 under additional strict environment denial. Arrow20 sequence conversion timezone lookup and initialization/native/callback limits explicitly recorded; declared owned module data unchanged and mutation detector proven. Three meaningful audit tests bring full suite631; numerical/corepaira4/consumer0.3/schema/modes unchanged. Actualreview/install/publication gates remain required.

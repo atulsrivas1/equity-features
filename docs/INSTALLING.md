@@ -72,3 +72,6 @@ equations/schema/modes. Final-head separate review/currentCI/actualmain FOURfres
 and receipt publication gates remain required before story acceptance. Issue51 and
 its linked receipt record exact accepted commits/runs/digests; package installation
 alone does not complete R3 or certify provider readiness/custom callback behavior.
+
+
+Dependency license notices, pinned build/bootstrap provenance, upstream hash observations and experimental channel expiry/rights limits are recorded in the [integrity review](RELEASE_INTEGRITY.md). Upstream backends/tools are installed separately rather than bundled into these project archives.
