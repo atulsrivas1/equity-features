@@ -86,3 +86,6 @@ EQ041 finalmain910abd6 accepted actualarchiveequality/independentvariablebenchma
 
 
 EQ042 finalmain89a24a4 actualfinalarchives equalFOURqualifiedsourcepairs and variablebenchmark/resource facts/postreleaseverification accepted; issue48Done. EQ044 actual version/replay policy is documentation-only with existing626unit/strict48/policy evidence and unchanged runtime/test/build/consumer. [Guide](VERSIONING.md), [plan](stories/EQ-044_PLAN.md). Required separate finalheadreview/CI and actualmainartifact-equivalence/publication remain beforeDone; five subsequent R3stories follow.
+
+
+EQ044 version/replay guide accepted afteractualmain e7077b6 source/artifact-equivalence/currentvariableJSON/postreleaseverification; issue50Done. EQ045 reviewedsource434be80/main c88a282 fixes consumer-install fingerprint gap and publishes repeat-built standalone consumerwheel/sdist with separate hashes/actualform-specific installs.628units/strict48/authorTWOpairs/currentmainbothOSCI and actual12archives+12report checks pass; FOURactualsourcepairs/reviewedreceipt/finalpublication remain beforeDone. [Install](INSTALLING.md), [receipt](stories/EQ-045_DELIVERY.md). Corea4/consumer0.3/math/schema/modes unchanged; fourlaterR3stories follow045.

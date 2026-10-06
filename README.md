@@ -14,7 +14,7 @@ record supported modes and review/installation limits.
 and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the declared
 channel. No stable API, public registry publication or universal throughput guarantee.**
 
-[Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
+[Qualified artifact installation](docs/INSTALLING.md) provides core and standalone consumerwheel/sdist commands. [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
 [Current public API and typed callers](docs/api/PUBLIC_API.md),
 [extension rules and installed reproduction](docs/api/EXTENSIONS.md).
 
