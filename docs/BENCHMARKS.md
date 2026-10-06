@@ -26,4 +26,4 @@ System/release/machine/CPUidentifier/logicalCPU/Python/core/backend versions and
 
 ## Publication
 
-Each fresh wheel/sdist installation runs the small benchmark smoke; both supportedOS CI jobs retain its JSON in the existing experimental artifact bundle. Corearchive manifest/digests remain independent of the variable timing files. Full local baseline JSON and summary will be published with their exact measured source identity; final-head review, current CI and actual-main receipt gates remain mandatory before EQ041Done. No numerical API/schema/version change or stable registry publication.
+Each fresh wheel/sdist installation runs the small benchmark smoke; both supportedOS CI jobs retain its JSON in the existing experimental artifact bundle. Corearchive manifest/digests remain independent of the variable timing files. [Full measured Windows baseline](benchmarks/EQ-041_WINDOWS.md) and [raw samples](benchmarks/EQ-041_WINDOWS.json) bind clean source efa8af7 and exact normalized harness hash. Final-head review, current CI and actual-main receipt gates remain mandatory before EQ041Done. No numerical API/schema/version change or stable registry publication.
