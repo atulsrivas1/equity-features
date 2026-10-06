@@ -999,3 +999,31 @@ EQ037 final R2 integration accepted: four producer discovery corrections and reg
 Verified all12R2children EQ027–038 closed/ProjectDone and acceptance checklists complete, with individual linked delivery receipts. Accepted prerequisite BUG003#162/BUG004#163/GOV010#167 are closed/ProjectDone. Final0.0.3a13 integration/causality/metadata/proof correction reviewed by separate local Codex at actual frozen head,588units/123references/strict53/purity/source/docs, allhead/mainCI/actualBOTHbundles/FOURfreshinstalledpairs/finalreceiptbyteequality accepted underissue42. R2_ACCEPTANCE.md and EQ-037_DELIVERY.md retain actualsource/artifact/reviewlimits. Declared experimentalCIchannel only, no stable/PyPI/tag/provider/performance/sourceauth claim. Overall119activeEQstories:38Done/81futureBacklog, retired094excluded. BoundedR2exit; R3paused. No laterreleaseimplementation or recurringworker created.
 
 E05/milestone3 closed only after all twelve child checks. Current README/acceptance/knowledge reconciled. Next publish and independently review this docs-only closure record, verify exacthead/mainCI/actualarchivebyteequality against installeda171pairs, then stop boundedR2mission. R3 remains paused; no automatic restart or reminder.
+
+
+## October6 R3 resumption
+
+Owner requests autonomous R3 after accepted R2. Live milestone3/repairs162/163 are closed/Done; main7333d34 reconciles bounded R2 acceptance. Preserve rewritten owner attribution and old repair branches. Pull EQ093#113 first (8 provisional points); pre-code plan docs/stories/EQ-093_PLAN.md. No R4 or stable-registry scope. R3 local reviewer alternative needs explicit owner choice because existing CODE_REVIEW.md alternative is R2-bounded. Next: implement scoped public batch extension and external synthetic consumer, then separate review and numerical/installed/publication gates before merge/Done.
+
+
+### EQ093 implementation checkpoint — October6
+
+Draft PR237 adds immutable trusted batch registrations and a separately packaged public consumer. Baseline588tests passed; current12 extension fixtures pass (600 total expected), strict44files and boundary38negative/10positive checks passed. Hand-derived5/100 custom versus5/103 built-in golden passed. Full five reference suites passed. Compatibility/registry/license gates passed. A preliminary build was started before the final input-unit/test/type changes and failed against the concurrently changed test tree; it is superseded, not release evidence. One missing-OHLC fixture incorrectly expected unavailable quality; canonical positive-volume OHLC admission correctly rejects INVALID_SCHEMA, so that fixture was corrected and separate incomplete-coverage unavailability added. Final frozen rebuild/CI remain required.
+
+Resume: freeze current PR source, run full600tests and repeated fresh wheel/sdist build with independent external-wheel install, public-import/installed-location/core-byte checks. Then completed separate final-head review, findings disposition, formal acceptance, main artifact/publication checks. Hosted activation unverified; R3 local-review owner choice remains pending. EQ093 is In progress, not released/Done; eleven other R3 stories remain unstarted. No R4/stable channel scope.
+
+
+### EQ093 frozen source qualification
+
+Source289ac94 passes600units/123references/strict44files/all admission/purity gates and repeat-build archives. TWO fresh local Windows wheel/sdist pairs each600units/22examples plus independent external-wheel/public-import/installed-path/core-byte checks pass. PR-head Linux/Windows and docs runs37465188770/37465188730 pass. [Implementation report](stories/EQ-093_IMPLEMENTATION_REPORT.md) records hashes and limits. Story is Code review: hosted request has no completed response; R3 local alternative authorization remains pending. Stop at this required review gate, preserve clean codex/eq-093-custom-features/PR237, and resume with completed final-head reviewer, findings, final checks and actual main delivery before Done. No other R3 story is started.
+
+
+### October6 reviewer authorization
+
+Owner explicitly authorizes separate local Codex reviews throughout R3. Prior review-choice block is superseded. All e2ae666 PR237 checks pass. Record authorization, freeze new head, obtain separate review, resolve findings and deliver EQ093 through actual main artifact acceptance before pulling EQ043. No hosted/human review claim.
+
+
+EQ093 separate review at1d7de22 reproduced one P2: shallow result reconstruction accepts mutated nested scalar/type/quality/structured counts and aliased input coverage. Reviewer /root/r3_reviewer independently passed600units/strict44/purity/import/compatibility but did not rebuild/nativeLinux. Return to In progress; corrected pair0.0.4a2 recursively re-admits owned public result component types and captures independent expected metadata before callback. Four regression fixtures cover actual failures and valid binding mutation; prior a1 qualification superseded. Freeze corrected source, rerun all relevant gates and request separate final-head review.
+
+
+Corrective review atc538284 confirmed original failures rejected but reproduced remaining P2: callback can mutate shared requested EntityKey fromAtoB and return originally aliased result accepted asB. Pair0.0.4a3 captures pre-callback owned entity; preserve exact regression, rerun changed gates and request final-head review. a2 qualification superseded before acceptance; no accepted release exists for a1/a2.

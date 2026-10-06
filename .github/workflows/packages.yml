@@ -17,11 +17,11 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install -r requirements-dev.txt
-      - run: python -m pip install --no-build-isolation -e packages/contracts -e packages/features
+      - run: python -m pip install --no-build-isolation -e packages/contracts -e packages/features -e examples/external_consumer
       - run: python -m pip check
       - run: python tools/verify_imports.py
       - run: python tools/verify_compatibility.py
-      - run: python -m mypy --strict packages/contracts/src packages/features/src examples/in_memory_adapter.py
+      - run: python -m mypy --strict packages/contracts/src packages/features/src examples/in_memory_adapter.py examples/external_consumer/src
       - run: python -m unittest discover -s tests/unit
       - run: python tools/check_boundary.py
       - run: python tools/build_foundation.py

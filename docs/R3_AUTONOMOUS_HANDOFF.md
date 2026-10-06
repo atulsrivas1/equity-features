@@ -1,3 +1,5 @@
+Owner steering2026-10-06 resumes the twelve R3 stories autonomously after accepted R2. This supersedes the October5 feature pause below. Both repairs are Done. Separate final-head Codex review follows current CODE_REVIEW.md; the historical self-review-only wording below is superseded.
+
 # R3 autonomous execution package
 
 Owner steering2026-10-05 supersedes this mission's feature-pull authority: the R3 chat completes ONLY BUG-003 #162 and BUG-004 #163 through verified Done, then stops. No R3 feature story has started. [R2 execution](R2_AUTONOMOUS_HANDOFF.md) follows before R3 resumes; a new owner instruction is required to resume R3. Earlier scope/plans below remain prepared future work, not current execution authority.

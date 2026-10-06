@@ -54,3 +54,8 @@ heads and records executed checks, findings and limitations. This does not activ
 hosted review, constitute human review, or retroactively review earlier stories.
 The final R2 audit must cover all sixteen actual R2 kernels and declared capabilities.
 GOV-005 remains open; numerical, CI and artifact gates remain mandatory.
+
+
+## R3 authorized local review — October6, 2026
+
+The owner explicitly authorizes separate local Codex reviewers throughout bounded R3, continuing autonomous delivery after accepted R2. This extends the R2 alternative; no additional approval is required per story. Each review must inspect the actual final PR head, report executed checks, findings/disposition, reviewer identity and limitations. Author self-review and CI alone remain insufficient. Hosted activation remains unverified and GOV005 remains separate; numerical, documentation, bothOS CI and actual artifact acceptance remain mandatory.
