@@ -3,7 +3,7 @@ from dataclasses import replace
 import json
 import unittest
 from equity_feature_contracts import (
-    Capabilities, Column, ContractError, Coverage, EntityKey, ErrorCode, FeatureColumn, FeatureResult,
+    BreadthCounts, Capabilities, Column, ContractError, Coverage, EntityKey, ErrorCode, FeatureColumn, FeatureResult,
     InputRequirement, OutputField, Parameter, PriceUnit, QualityRow, Reason, Status, ValueType, builtin_registry,
 )
 from equity_features.custom import CustomDefinition, CustomInput, CustomRegistry, CustomRequest
@@ -108,6 +108,51 @@ class CustomTests(unittest.TestCase):
             raise RuntimeError("trusted caller error")
         with self.assertRaisesRegex(RuntimeError, "trusted caller error"):
             CustomRegistry("demo").register(self.definition, failure).compute(FEATURE_ID, self.request)
+
+    def test_forged_nested_scalar_and_quality_rejected(self):
+        for mutation, code in (("nan", ErrorCode.INVALID_SCHEMA), ("string", ErrorCode.INVALID_SCHEMA), ("quality", ErrorCode.BOUNDS)):
+            def bad(request):
+                result = calculate(request)
+                if mutation == "quality":
+                    object.__setattr__(result.quality[0], "observed", -1)
+                else:
+                    object.__setattr__(result.values[0], "values", (float("nan") if mutation == "nan" else "bad",))
+                return result
+            registry = CustomRegistry("demo").register(self.definition, bad)
+            self.reject(code, lambda: registry.compute(FEATURE_ID, self.request))
+
+    def test_forged_nested_structured_cell_rejected(self):
+        structured = replace(self.definition, definition=replace(self.definition.definition,
+            outputs=(OutputField(FEATURE_ID, "breadth_counts", "members"),)))
+        def result(request, corrupt=False):
+            counts = BreadthCounts(0, 1, 0, 1)
+            q = QualityRow(request.entity, FEATURE_ID, Status.AVAILABLE, 1, 1)
+            value = FeatureResult((FeatureColumn(FEATURE_ID, "v2", ValueType.BREADTH_COUNTS,
+                "members", (request.entity,), (counts,)),), (q,), request.metadata(structured))
+            if corrupt:
+                object.__setattr__(counts, "advancing", -1)
+                object.__setattr__(counts, "declining", 2)
+            return value
+        valid = CustomRegistry("demo").register(structured, result).compute(FEATURE_ID, self.request)
+        self.assertEqual(valid.values[0].values, (BreadthCounts(0, 1, 0, 1),))
+        registry = CustomRegistry("demo").register(structured, lambda request: result(request, True))
+        self.reject(ErrorCode.BOUNDS, lambda: registry.compute(FEATURE_ID, self.request))
+
+    def test_callback_mutated_input_metadata_rejected(self):
+        def bad(request):
+            result = calculate(request)
+            object.__setattr__(request.inputs[0].batch.metadata.coverage, "expected", -1)
+            return result
+        registry = CustomRegistry("demo").register(self.definition, bad)
+        self.reject(ErrorCode.INVALID_SCHEMA, lambda: registry.compute(FEATURE_ID, fixture()))
+
+    def test_pre_callback_metadata_snapshot_is_owned(self):
+        def changed(request):
+            result = calculate(request)
+            object.__setattr__(request.inputs[0].batch.metadata.source, "mapping_version", "changed")
+            return result
+        registry = CustomRegistry("demo").register(self.definition, changed)
+        self.reject(ErrorCode.INCONSISTENT_IDENTITY, lambda: registry.compute(FEATURE_ID, fixture()))
 
     def test_declared_input_unit_mismatch(self):
         config = replace(self.request.config, price_unit=PriceUnit(2, "USD"))

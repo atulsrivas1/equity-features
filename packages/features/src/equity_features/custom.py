@@ -1,15 +1,50 @@
 """Explicit trusted local batch extensions; no executable discovery or serialization."""
 from __future__ import annotations
 
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, fields, replace
 import json
-from typing import Protocol
+from typing import Any, Callable, Protocol, cast
 
 from equity_feature_contracts import (
-    CanonicalBatch, Capabilities, ConfigSpec, ContractError, EntityKey, ErrorCode,
+    AdjustmentSpec, AvailabilitySpec, BatchMetadata, BreadthCounts, BreadthFraction,
+    CanonicalBatch, Capabilities, ConfigSpec, ContractError, Coverage, EntityKey, ErrorCode,
+    EvidenceRow, FeatureColumn, InputScope, IntervalCoverage, IntervalOHLCV, IntervalOHLCVRow,
+    IntervalSpec, IntervalVolumeShareRow, IntervalVolumeShares, PriceUnit, QualityRow,
+    QuoteDurations, QuoteObservation, QuoteStateCounts, Reason, SampledSpread, SourceBinding,
+    Status, TimeWeightedSpread, TopKTradeRow, TopKTrades, ValueType, DataKind,
     FeatureDefinition, FeatureResult, InputBinding, Registry, ResultMetadata,
     validate_batch,
 )
+
+
+_RESULT_COMPONENTS = (
+    FeatureResult, FeatureColumn, QualityRow, EntityKey, ResultMetadata, InputBinding,
+    AvailabilitySpec, BatchMetadata, SourceBinding, Coverage, PriceUnit, AdjustmentSpec,
+    InputScope, IntervalCoverage, IntervalSpec, BreadthCounts, BreadthFraction,
+    IntervalOHLCV, IntervalOHLCVRow, IntervalVolumeShares, IntervalVolumeShareRow,
+    TopKTrades, TopKTradeRow, QuoteStateCounts, QuoteObservation, SampledSpread,
+    QuoteDurations, TimeWeightedSpread,
+)
+
+
+def _readmit(value: object, depth: int = 0) -> object:
+    """Reconstruct only owned result contract types, including every nested component."""
+    if depth > 32:
+        raise ContractError(ErrorCode.INVALID_SCHEMA, "cyclic/overdeep result component")
+    cls = type(value)
+    if value is None or cls in (str, int, float, bool, Status, Reason, ValueType, DataKind):
+        return value
+    if cls in (tuple, list):
+        return tuple(_readmit(x, depth + 1) for x in cast(tuple[object, ...], value))
+    if cls not in _RESULT_COMPONENTS:
+        raise ContractError(ErrorCode.INVALID_SCHEMA, "unsupported nested result component")
+    try:
+        constructor = cast(Callable[..., object], cls)
+        return constructor(**{f.name: _readmit(value.__dict__[f.name], depth + 1) for f in fields(cast(Any, cls))})
+    except ContractError:
+        raise
+    except (TypeError, ValueError, AttributeError, KeyError, OverflowError) as error:
+        raise ContractError(ErrorCode.INVALID_SCHEMA, "malformed nested result component") from error
 
 
 @dataclass(frozen=True)
@@ -146,7 +181,7 @@ class CustomRegistry:
         if type(request) is not CustomRequest:
             raise ContractError(ErrorCode.INVALID_SCHEMA, "typed custom request required")
         custom = registration.definition
-        definition = custom.definition
+        definition = FeatureDefinition.from_json(custom.definition.to_json())
         config = request.config
         if config.identity != feature_id or config.algorithm_version != definition.algorithm_version:
             raise ContractError(ErrorCode.INCOMPATIBLE_VERSION, "custom configuration identity/version mismatch")
@@ -166,12 +201,12 @@ class CustomRegistry:
                 raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "custom input/config price unit mismatch")
             validate_batch(item.batch, session=config.session, availability=config.availability,
                            required_fields=requirement.fields)
-        expected_metadata = request.metadata(custom)
+        expected_metadata = cast(ResultMetadata, _readmit(request.metadata(custom)))
         result = registration.calculator(request)
         if type(result) is not FeatureResult:
             raise ContractError(ErrorCode.INVALID_SCHEMA, "custom callback must return FeatureResult")
-        # Re-admit even a frozen object: caller code can bypass dataclass construction.
-        result = FeatureResult(result.values, result.quality, result.metadata, result.evidence)
+        # Copy and re-admit every owned component, including structured cells and bindings.
+        result = cast(FeatureResult, _readmit(result))
         if result.metadata != expected_metadata:
             raise ContractError(ErrorCode.INCONSISTENT_IDENTITY, "custom result request/implementation bindings mismatch")
         if len(result.values) != 1:

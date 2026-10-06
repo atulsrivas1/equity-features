@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## 0.0.4a2 — EQ093 separate review correction
+
+Separate local reviewer reproduced accepted mutated nested NaN/string scalar, negative quality/structured count and invalid shared input coverage in a1. Recursively re-admit all owned result contract components and copy expected input metadata before invoking trusted code; valid altered shared bindings now reject against the original request. Four independent regression fixtures preserve these failures. No equation/built-in/schema/mode change; a1 qualification is superseded before acceptance. Final corrected-head review/artifact gates remain.
+
 ## 0.0.4a1 — EQ093 scoped trusted batch extensions
 
 Explicit immutable CustomRegistry registers local trusted callbacks with namespaced schema1 metadata, primitive config types, one declared output and exact result/request/implementation bindings. Only canonical batch inputs and batch execution are supported; built-in39 equations, discovery and state modes remain unchanged. Separately packaged synthetic public consumer verifies range/open5/100 versus built-in range/close5/103. No executable serialization, source acquisition, sandbox or arbitrary-code purity claim. [API](api/CUSTOM_FEATURES.md), [plan](stories/EQ-093_PLAN.md). Final review and actual artifact delivery gates remain pending.

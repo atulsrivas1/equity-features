@@ -1021,3 +1021,6 @@ Source289ac94 passes600units/123references/strict44files/all admission/purity ga
 ### October6 reviewer authorization
 
 Owner explicitly authorizes separate local Codex reviews throughout R3. Prior review-choice block is superseded. All e2ae666 PR237 checks pass. Record authorization, freeze new head, obtain separate review, resolve findings and deliver EQ093 through actual main artifact acceptance before pulling EQ043. No hosted/human review claim.
+
+
+EQ093 separate review at1d7de22 reproduced one P2: shallow result reconstruction accepts mutated nested scalar/type/quality/structured counts and aliased input coverage. Reviewer /root/r3_reviewer independently passed600units/strict44/purity/import/compatibility but did not rebuild/nativeLinux. Return to In progress; corrected pair0.0.4a2 recursively re-admits owned public result component types and captures independent expected metadata before callback. Four regression fixtures cover actual failures and valid binding mutation; prior a1 qualification superseded. Freeze corrected source, rerun all relevant gates and request separate final-head review.
