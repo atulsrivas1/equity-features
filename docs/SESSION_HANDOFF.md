@@ -808,3 +808,7 @@ foundation-ffe8ddd3603f9b2bf764664de477aad070b83696-ubuntu-24.04 artifact1138093
 foundation-ffe8ddd3603f9b2bf764664de477aad070b83696-windows-latest artifact11380744864 expires2026-11-04T23:58:08Z.
 
 [Receipt](stories/EQ-031_DELIVERY.md) retains actual artifact hashes/expiry. A progress message incorrectly said both main jobs passed after observing Linux success; corrected immediately while Windows remained running. Actual bothOS success and FOUR completed installations were subsequently verified before acceptance. No pending/failed evidence counted. Next final docs receipt head/main/bothOS actual archive equality, then36Done and refined EQ032 pre-code plan for independent bucket certificates/fixed N denominator. R3paused.
+
+### EQ031 final receipt publication; EQ032 pre-code design —2026-10-05
+
+PR185 head080110e4ff4e7397df32b36d39b81601edba421b all SIX checks; guarded merged dedc06103dfae87061ea5fdca6ec77c3bb47749a and full published tree equals receipt head. Main docs/bothOS Foundation/actual archive equality remain before36Done. Prepare [EQ032 plan](stories/EQ-032_PLAN.md): individual typed bucket calls preserve existing Float64 schemas and independent coverage; early close/partial bucket never0 or reduced denominator. Resolve original observed-day wording against frozen EQ005 required N and retained observed/expected evidence. No EQ032 code yet. Next finish EQ031receipt gates/Done, then37Ready/In progress. R3paused.
