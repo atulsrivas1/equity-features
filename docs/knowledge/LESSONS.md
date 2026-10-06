@@ -381,3 +381,19 @@ selection; route malformed event times through the parser and reject before
 coverage assertions. [Actual receipt](../stories/EQ-051_DELIVERY.md) distinguishes
 clean measurement source, doc-only head reuse, native producer Python provenance
 and FOUR actual downloaded-form installs. No final receipt/publication claim yet.
+
+
+## EF-L029 governed requests preserve structural gaps and source timing
+
+EQ052 delegates finite membership to accepted WindowSpec and retains explicit
+recursive anchor prefixes. Request sufficiency is not numerical readiness; a
+missing prefix cannot be skipped or restarted, while a complete finite window can
+recover. Actual daily row presence must agree with explicit per-slot certificates;
+null fields are present unavailable observations, not absent or zero-filled rows.
+Retained UTCdaily intervals cannot be relabeled RTH, and caller schedules do not
+acquire calendar authority from file dates. Supplied reference availability gaps
+observe the whole population; pure admission still selects relevant effective
+facts and decides feature quality. [Plan](../stories/EQ-052_PLAN.md),
+[API](../api/DUCKDB_GOVERNANCE.md). Interim independent75cases/strict5 pass; final
+installed/review/publication evidence remains pending. Revisit for source calendars,
+normalization, seed/window requirements, reference acquisition or PIT evidence.

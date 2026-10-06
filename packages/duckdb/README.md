@@ -1,6 +1,6 @@
 # Experimental DuckDB adapter
 
-`equity-feature-duckdb`0.1.0a3 is optional and stays outside both pure packages.
+`equity-feature-duckdb`0.1.0a4 is optional and stays outside both pure packages.
 It resolves bounded catalog metadata and maps owned retained-source columns into
 canonical schema1. Bounded original-Parquet historical reads use caller-supplied
 sessions, explicit coverage policies and exact UTCns predicates. R4 is incomplete.
@@ -24,3 +24,10 @@ dependencies remain unchanged; NumPy's existing upstream notice/hash provenance
 is recorded in [release integrity](../../docs/RELEASE_INTEGRITY.md). Both native installed forms must verify
 this exact runtime. Null timestamps pass through the parser and fail closed, following
 [DuckDB UDF null semantics](https://www.duckdb.org/docs/current/clients/python/function).
+
+
+EQ052 adds caller-owned versioned calendar/history requests, actual daily slot
+certificate validation and supplied reference intent with visible availability gaps.
+Existing pure HistoryContext/WindowSpec/policy admission remains authoritative.
+See repository docs/api/DUCKDB_GOVERNANCE.md; no calendar/reference fetching or
+UTCdaily-to-RTH relabeling. Actual delivery gates remain on issue59.

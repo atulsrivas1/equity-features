@@ -117,3 +117,11 @@ dependencies remain unchanged; NumPy's existing upstream notice/hash provenance
 is recorded in [release integrity](RELEASE_INTEGRITY.md). Both native installed forms must verify
 this exact runtime. Null timestamps pass through the parser and fail closed, following
 [DuckDB UDF null semantics](https://www.duckdb.org/docs/current/clients/python/function).
+
+
+EQ052 optional0.1.0a4 adds [supplied calendar/history/reference governance](api/DUCKDB_GOVERNANCE.md)
+with five strictly typed adapter modules and expanded installed independent fixtures.
+Existing contracts/math/source isolation and DuckDB1.5.6/NumPy2.2.6 pins remain
+unchanged. Calendar authority, row-presence certificates, UTCdaily/RTH and reference
+availability stay explicit; actual review/installed/artifact/publication gates on
+issue59 remain before Done. R4 conformance/private numerical acceptance still open.

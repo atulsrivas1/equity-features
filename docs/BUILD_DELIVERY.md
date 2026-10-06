@@ -152,3 +152,11 @@ peak reports. Clean UDF runtime pins DuckDB1.5.6/NumPy2.2.6 separately from unch
 pure packages. SQL/materialization/copy costs and whole-process high-water limits
 are explicit; selected file bytes are not measured I/O. [Receipt](stories/EQ-051_DELIVERY.md)
 binds actual source forms/publication gates; no R4 conformance/private acceptance yet.
+
+
+EQ052 optional0.1.0a4 adds [supplied calendar/history/reference governance](api/DUCKDB_GOVERNANCE.md)
+with five strictly typed adapter modules and expanded installed independent fixtures.
+Existing contracts/math/source isolation and DuckDB1.5.6/NumPy2.2.6 pins remain
+unchanged. Calendar authority, row-presence certificates, UTCdaily/RTH and reference
+availability stay explicit; actual review/installed/artifact/publication gates on
+issue59 remain before Done. R4 conformance/private numerical acceptance still open.

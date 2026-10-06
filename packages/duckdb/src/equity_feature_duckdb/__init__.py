@@ -10,7 +10,10 @@ from .mapping import (MappingPolicy, RowOccurrence, PriceConversion, MappingRepo
 from .reader import (CoverageAssertion, ReadConfig, ReadMetrics, ReadResult,
                      DuckDBHistoricalAdapter)
 
-__version__ = "0.1.0a3"
+from .governance import (GovernedCalendar, HistoryPlan, plan_history, make_history_context,
+                         ReferenceRequest, ReferenceResolution, resolve_supplied_reference)
+
+__version__ = "0.1.0a4"
 __all__ = [
     "CatalogConfig", "FilePin", "ResolvedPartition", "ResolvedSource",
     "SourceSelection", "resolve_source",
@@ -18,4 +21,6 @@ __all__ = [
     "MappedSource", "map_columns", "parse_utc_ns",
     "CoverageAssertion", "ReadConfig", "ReadMetrics", "ReadResult",
     "DuckDBHistoricalAdapter",
+    "GovernedCalendar", "HistoryPlan", "plan_history", "make_history_context",
+    "ReferenceRequest", "ReferenceResolution", "resolve_supplied_reference",
 ]

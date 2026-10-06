@@ -1,5 +1,16 @@
 # Experimental package changes
 
+## Optional DuckDB0.1.0a4 - EQ052 supplied governance
+
+Versioned caller-governed calendar definitions, explicit WindowSpec/anchor history
+requests, actual daily row versus per-slot certificate validation and supplied
+canonical reference request/revision/availability observations. Preserve gaps,
+unknown/later knowledge, prior-only membership and UTCdaily/RTH distinction. Reuse
+unchanged pure history/action/classification contracts and mathematics. Independent
+75 optional source cases/strict5 include actual Parquet-to-pure SMA40, gapEMA,
+prior-only35 and reference revision/cutoff evidence; actual final review/installed/
+publication gates remain. [API](api/DUCKDB_GOVERNANCE.md).
+
 ## Optional DuckDB0.1.0a3 - EQ051 bounded reads
 
 Original local Parquet acquisition with bound instrument/time/session filters, exact
