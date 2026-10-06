@@ -1,5 +1,5 @@
-# EQ035 delivery gates pending
+# EQ035 corrected-source delivery gates pending
 
-Issue40/E05/R2/PR191; plan1a64cfc precedes source. Pair0.0.3a8/39batch IDs;21 independent production breadth cases pass. [API](../api/DECLARED_BREADTH.md). No final-head/main/artifact/installed receipt accepted yet. Author Codex self-review+CI only; R3paused.
+Issue40/E05/R2; historical0.0.3a8 [qualification](EQ-035_A8_DELIVERY.md) retained. Final compound-exclusion audit requires both unavailable dependency reasons be retained even evidence_limit0. Corrected pair0.0.3a9 source/head/main/artifact/installed/receipt gates remain. No Done claim; author self-review+CI only; R3paused.
 
-Final local560units/123references/strict49files/all source gates/twentieth example pass. No exact-head/main/archive/installed delivery claimed yet.
+Corrected local qualification:561units (22new breadth API cases)/123references/strict49files/purity38negative10positive/all source/docs gates/twentieth example pass. Actual failing compound regression is retained in continuity. Final-head/main/archive/installed receipts remain pending.

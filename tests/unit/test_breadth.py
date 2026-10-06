@@ -275,6 +275,25 @@ class Breadth(unittest.TestCase):
         self.assertNotEqual(r.result.metadata.identity_digest, other.result.metadata.identity_digest)
         self.assertTrue(any(b.metadata.source.input_id == s.identity_digest for b in r.result.metadata.inputs))
 
+    def test_all_unavailable_sma_and_close_reasons_survive_zero_evidence_limit(self):
+        from equity_feature_contracts import AvailabilitySpec
+        for known, reason in ((None, Reason.UNKNOWN_AVAILABILITY), (26, Reason.FUTURE_KNOWLEDGE)):
+            member = sma_member(prices=(None, 11), known=known)
+            cfg = replace(member.sma.config, parameters=(Parameter("period", 2), Parameter("evidence_limit", 0)))
+            universe = DeclaredUniverseSpec("synthetic", "S1", "U", "r1", 11, ("a",))
+            spec = BreadthSpec(EntityKey("U", "S1"))
+            result = self.above((member,), cfg, universe, spec)
+            self.assertIn(Reason.NULL_FIELD, result.exclusions[0].reasons)
+            self.assertIn(reason, result.exclusions[0].reasons)
+            self.assertEqual(result.result.evidence, ())
+            missing_close = self.above((replace(member, close=None),), cfg, universe, spec)
+            self.assertIn(Reason.NULL_FIELD, missing_close.exclusions[0].reasons)
+            self.assertIn(Reason.ABSENT_INPUT, missing_close.exclusions[0].reasons)
+            self.assertEqual(missing_close.exclusions[0].status, Status.MISSING_INPUT)
+            missing_sma = self.above((replace(member, sma=None),), cfg, universe, spec)
+            self.assertIn(Reason.ABSENT_INPUT, missing_sma.exclusions[0].reasons)
+            self.assertIn(reason, missing_sma.exclusions[0].reasons)
+
     def test_future_history_rows_do_not_change_admitted_breadth(self):
         r1, _ = reference("a", (100, 110, 999), target=1)
         r2, _ = reference("a", (100, 110, 1), target=1)

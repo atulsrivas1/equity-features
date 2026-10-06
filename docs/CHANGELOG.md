@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## 0.0.3a9 — EQ035 compound-exclusion correction, delivery pending
+
+Retain all unavailable SMA/close and absent-dependency reasons in member exclusions even output evidence limit0. Counts/coverage/status priority/math/schemas/modes unchanged. Experimental0.0.3a8 implementation qualification is preserved in [historical receipt](stories/EQ-035_A8_DELIVERY.md); receipt PR218 superseded before Done. Corrected source repeats all delivery gates. Exact-version replay/registry rebuilding applies. [Plan addendum](stories/EQ-035_PLAN.md), [API](api/DECLARED_BREADTH.md).
+
 ## 0.0.3a8 — EQ035 source qualification, delivery pending
 
 Declared-universe breadth aggregates supplied compatible returns and exact SMA/close witnesses. Partial expected populations retain structured counts/fractions/E/M and typed exclusions.39batch/all16R2 numerical IDs; context/history state modes false, session23update-restore22merge unchanged. Existing schemas/39equations retained; new companions schema1, exact-version replay/registry rebuild applies. [API](api/DECLARED_BREADTH.md), [plan](stories/EQ-035_PLAN.md). Actual delivery gates pending.

@@ -1,6 +1,6 @@
 # Declared-universe breadth, schema1
 
-Pair0.0.3a8 / EQ035. This is pure aggregation of supplied member facts and results.
+Pair0.0.3a9 / EQ035. This is pure aggregation of supplied member facts and results.
 Frozen mathematics: [context formulas](../features/CONTEXT_FORMULAS.md);
 [pre-code plan](../stories/EQ-035_PLAN.md). No dependency is calculated or fetched.
 
@@ -40,7 +40,8 @@ absent U is missing_input with expected unknown. Dataset None is missing_input;
 provided empty members for nonempty U is known incomplete coverage, not missing data.
 Absent-member exclusions are companion records, never fake EvidenceRow observations.
 Malformed requested dependencies are typed errors; compatible unready dependencies
-exclude only the affected member, preserving status/reasons. Unrequested fields do
+exclude only the affected member, preserving status priority and all unavailable
+SMA/close/absent dependency reasons (deduplicated), even with output evidence limit0. Unrequested fields do
 not affect values/readiness or consumed identity.
 
 Requested members align exact governed/selected session grid, period/anchor,
