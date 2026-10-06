@@ -1,6 +1,6 @@
 # Experimental package changes
 
-## 0.0.3a6 — EQ032 source qualification, delivery pending
+## 0.0.3a6 — EQ032 verified experimental implementation delivery
 
 Individual typed bucket volume means and supplied ratios preserve required N, actual early-close exclusions, independent readiness, partial versus fully elapsed target proof and original source evidence.35batch/23session update/restore22merge; bucket/history state modes false. Existing output/state/input schemas and39equations unchanged, new bucket companions schema1. Exact-version replay/registry rebuilding applies. [API](api/INTERVAL_VOLUME.md), [pre-code plan](stories/EQ-032_PLAN.md). Actual head/main/artifact/installed/receipt gates pending; no provider/performance/stable claim.
 
