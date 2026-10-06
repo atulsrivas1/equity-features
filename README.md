@@ -2,7 +2,7 @@
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
-**Status: experimental pair 0.0.4a3 has qualified scoped trusted custom batch extensions.
+**Status: experimental pair 0.0.4a4 has qualified scoped trusted custom batch extensions and a supplied-delivery adapter SDK.
 R2 remains accepted under its original0.0.3a13 receipt.
 All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
 conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
