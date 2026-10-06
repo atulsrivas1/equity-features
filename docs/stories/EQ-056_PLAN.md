@@ -42,3 +42,15 @@ rights. Final installed/artifact/CI/readback evidence precedes Done.
 ## Done outcome
 
 Eight stories Done, E07 and milestone5 closed; stop bounded R4. Neither a prepared plan nor a source merge establishes this outcome.
+
+## Concrete dependency-ready pull — October6,2026
+
+Live EQ049–055 issues56–62 are CLOSED/ProjectDone. EQ055 finalmain85efa9d/sourcePR272review6026789989/receiptPR273review6026980666, allCI/24archive equality/current24native reports/four actual delivered synthetic94forms/four private68numerical9acquisition3blocked forms/Released6027069596/postread passed. EQ056 is the only remaining R4 story; E07 and milestone5 remain open until its actual acceptance.
+
+Documentation-only final audit: map all eight numbered stories and accepted receipts, actual optionala7/corepaira4/consumer0.4.0 versions, supported acquisition/governance/evidence APIs, unchanged schemas/math/modes/runtime pins, both actual testing layers and measured cost limits. Reconcile README/install/compatibility/current source gates with the accepted delivery record; preserve historical failures/versions/receipts. No numerical, runtime, package, harness, fixture, dependency, workflow or capability changes.
+
+Use a concrete eight-row acceptance matrix and current actual archive hashes/source/report/harness identities, private opaque scope/script/report hashes and finite live channels. Reuse EQ055 qualified forms only with final actual archive equality and current native report provenance. Private real qualification is local Windows; native Linux is synthetic CI. Observed pins/caller grids/retained coverage/unknown knowledge and eligibility/reference/continuous quote gaps remain explicit, with no source truth/PIT/rights/full-corpus inference. Historical a3 full read cost does not benchmark current a7 performance. No new tests that merely mirror documentation; final-head CI, separate semantic/evidence/privacy/link review, actual published tree/blobs/owner/current main artifacts/channels and Released readback are required.
+
+Final acceptance text remains conditional until delivered. Exact final SHA/workflows/expiry/lifecycle are recorded on issue63 after publication. Verify all eight child issues CLOSED/ProjectDone before checking and closing E07; move epic through applicable review/test/release stages on actual evidence and close milestone5 only with zero open stories. Record actual correction: the EQ055 receipt premerge helper assumed exactly ten checks, rejected fifteen all-success checks and its shell continued; all fifteen finished before merge. Future merge helpers fail fast and validate required checks plus all returned checks. Public issue62 preserves this evidence; no CI/review gate was missing.
+
+Done is all eight actual accepted delivery/readback records, E07/milestone5 closed and current continuity with exact provenance. STOP beforeR5; no worker launch, provider acquisition, remote service, stable registry/tag, historical restart or automation.
