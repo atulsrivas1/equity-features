@@ -9,7 +9,6 @@ from time import perf_counter_ns
 from typing import Iterator, cast
 
 import duckdb
-from duckdb.func import FunctionNullHandling
 from equity_feature_contracts import (
     AdjustmentSpec, BatchMetadata, CanonicalBatch, Column, Coverage, DataKind, InputScope,
     SessionSpec, SourceBinding,
@@ -22,6 +21,28 @@ from .mapping import MappingPolicy, MappingReport, RowOccurrence, map_columns, p
 from .resolver import (ResolvedPartition, ResolvedSource, SourceSelection,
                        _absolute, _cancel, _count, _date, _fail, _hash, _text)
 from .evidence import AcquisitionReceipt, VerificationPolicy, _begin_observation, _digest
+
+
+def _create_utc_parser(con: duckdb.DuckDBPyConnection) -> None:
+    """Connection-local exact ASCII UTCns arithmetic; no Python row callbacks."""
+    con.execute(r"""
+        CREATE TEMP MACRO canonical_utc_ns(v) AS
+        CASE WHEN v IS NOT NULL
+            AND regexp_full_match(v, '[0-9]{4}-[0-9]{2}-[0-9]{2}[T ][0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]{1,9})?(Z|\+00:00)')
+            AND try_cast(substr(v, 1, 10) AS DATE) IS NOT NULL
+            AND try_cast(substr(v, 1, 4) AS INTEGER) BETWEEN 1 AND 9999
+            AND try_cast(substr(v, 12, 2) AS INTEGER) BETWEEN 0 AND 23
+            AND try_cast(substr(v, 15, 2) AS INTEGER) BETWEEN 0 AND 59
+            AND try_cast(substr(v, 18, 2) AS INTEGER) BETWEEN 0 AND 59
+        THEN coalesce(try_cast(
+            (cast(date_diff('day', DATE '1970-01-01', try_cast(substr(v, 1, 10) AS DATE)) AS HUGEINT) * 86400
+             + cast(substr(v, 12, 2) AS HUGEINT) * 3600
+             + cast(substr(v, 15, 2) AS HUGEINT) * 60
+             + cast(substr(v, 18, 2) AS HUGEINT)) * 1000000000
+             + cast(rpad(regexp_extract(v, '\.([0-9]{1,9})', 1), 9, '0') AS HUGEINT)
+            AS BIGINT), error('Timestamp outside int64'))
+        ELSE error('Exact UTC timestamp required') END
+    """)
 
 
 @dataclass(frozen=True)
@@ -228,8 +249,7 @@ class DuckDBHistoricalAdapter:
         try:
             with duckdb.connect(str(config.catalog_path), read_only=True,
                                 config={"threads": config.threads, "memory_limit": f"{config.memory_limit_mb}MB"}) as con:
-                con.create_function("canonical_utc_ns", parse_utc_ns, ["VARCHAR"], "BIGINT",
-                                    null_handling=FunctionNullHandling.SPECIAL)
+                _create_utc_parser(con)
                 for file_index, partition in enumerate(selected):
                     _cancel(cancellation)
                     path = partition.original_path

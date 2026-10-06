@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## Optional DuckDB0.1.0a7 - EQ055 native UTCns acquisition refinement
+
+Connection-local native exact integer UTCns parser after representative source callback diagnostics. Strict ASCII ISO/null/date/clock/fraction/int64 guards preserve standard timestamps and both signed endpoints; Unicode clock/fraction digits reject consistently.94source tests/strict7 pass, purecore/math/runtimepins unchanged. Current installed real qualification/review/publication gates remain. [Methodology](api/DUCKDB_REAL_QUALIFICATION.md).
+
 ## Optional DuckDB0.1.0a6 - EQ054 actual SDK qualification
 
 Thirty actual synthetic DuckDB/Parquet SDK outcomes, sixteen independent public

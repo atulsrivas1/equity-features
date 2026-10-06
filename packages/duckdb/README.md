@@ -1,6 +1,6 @@
 # Experimental DuckDB adapter
 
-`equity-feature-duckdb`0.1.0a6 is optional and stays outside both pure packages.
+`equity-feature-duckdb`0.1.0a7 is optional and stays outside both pure packages.
 It resolves bounded catalog metadata and maps owned retained-source columns into
 canonical schema1. Bounded original-Parquet historical reads use caller-supplied
 sessions, explicit coverage policies and exact UTCns predicates. R4 is incomplete.
@@ -36,3 +36,5 @@ UTCdaily-to-RTH relabeling. Actual delivery gates remain on issue59.
 Version0.1.0a5 returns acquisition1 receipts and bounded catalog/original stability observations with explicit VerificationPolicy. Supplied pins differ from observed hashes; optimized data remains unqueried. Raw real receipts contain private paths. See docs/api/DUCKDB_EVIDENCE.md for fields, identity upgrade, budgets and non-atomic/provider/PIT limits. Purecore remains unchanged.
 
 Version0.1.0a6 adds installed synthetic SDK qualification with thirty actual DuckDB outcomes and sixteen independently expected numerical/unit/status/source-binding checks. See repository docs/api/DUCKDB_CONFORMANCE.md and examples/duckdb_conformance.py. Installed typing covers six adapter modules and that example. Source-only runs are developer evidence; private real-data and final delivery gates remain separate.
+
+Version0.1.0a7 parses SQL UTCns with a connection-local native macro and exact HUGEINT arithmetic/guardedBIGINT, strict ASCII ISO/null/calendar/clock/fraction/bounds checks. Python mapping stays exact; undocumented Unicode clock/fraction digits reject consistently. Purecore/runtimepins unchanged; actual receipt stampa7. See docs/api/DUCKDB_REAL_QUALIFICATION.md; current installed/private/delivery gates remain.

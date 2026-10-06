@@ -92,3 +92,5 @@ no-trade intervals. Missing intervals do not become complete zero-volume rows.
 [DBN source types](https://github.com/databento/dbn/tree/d368005a636bae84bff443cd6ddae6430a0ffd00/rust/dbn/src)
 define original scaled prices; retained representation and caller declarations
 need their own evidence. Provider documentation alone does not admit private rows.
+
+EQ055 experimentala7 uses native strict ASCII UTCns SQL arithmetic, retaining Python mapping/parser parity and actual receipt adapter stamp. No row-callback SQL timestamp parsing, float epochs or TIMESTAMP_NS sentinel conversion. Integer UTCns/standard retained formats and purecore/math/runtimepins are unchanged; Unicode-digit clock/fraction input is rejected consistently. [Private qualification methodology](DUCKDB_REAL_QUALIFICATION.md) separates native/source checks from pending actual installed real-data acceptance and current delivery gates.
