@@ -255,6 +255,29 @@ class Composition(unittest.TestCase):
         bundle = compose_features((a, b), spec=spec(a, ("sampled", "time")))
         self.assertEqual(bundle.components, (a, b))
 
+    def test_session_and_bucket_share_original_frame_without_false_scope_conflict(self):
+        from test_bars import config, batch, ENTITY
+        from equity_features.session.bars import compute_bars
+        from equity_feature_contracts import BucketContext, SessionSpec, Coverage
+        b = batch(instrument_id=("A",), session_id=("S",), start_ns=(100,), end_ns=(200,),
+                  open=(100,), high=(103,), low=(99,), close=(102,), volume=(200,),
+                  actual_notional=(20300,), known_at_ns=(200,))
+        cfg = config()
+        ctx = BucketContext(ENTITY, "grid-v1", (SessionSpec("demo", "P", 0, 100, "supplied"), cfg.session),
+                            VolumeBucket("full", 0, 100, "grid-v1"), (Coverage(1, 0, False), Coverage(1, 1, True)))
+        bcfg = replace(cfg, identity="bucket", parameters=(Parameter("period", 1), Parameter("evidence_limit", 0)),
+                       window=WindowSpec(1, "S", ("P", "S"), "prior_only"))
+        baseline = compute_interval_baseline(b, bcfg, context=ctx)
+        bars = FamilyResult("bars", compute_bars(b, cfg, entity=ENTITY), cfg)
+        prior = FamilyResult("baseline", baseline.result, bcfg, companion=baseline)
+        self.assertEqual(prior.result.evidence, ())
+        self.assertEqual(prior.result.values[0].values, (None,))
+        for components in ((bars, prior), (prior, bars)):
+            with self.subTest(order=tuple(c.instance_id for c in components)):
+                bundle = compose_features(components, spec=spec(bars, tuple(c.instance_id for c in components)))
+                self.assertEqual(bundle.components, components)
+                self.assertIs(bundle.components[components.index(prior)].result, baseline.result)
+
 
 if __name__ == "__main__":
     unittest.main()

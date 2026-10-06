@@ -78,3 +78,5 @@ source revisions/contradictory original proof, derived-proof differences, mandat
 context with missing source, fixed output schema, direct ownership with zero
 evidence, actual quote conventions and independent currency scopes. No numerical
 speed, source/provider rights, stable publication or hidden replay claim.
+
+Instrument population claims must agree for shared original normalized frames. Bucket scope is an additional explicit bucket_history claim and conflicts only with another explicit bucket claim; native session bars can reuse the same instrument/frame without declaring historical bucket scope. Missing prior history remains an unavailable supplied component, not a false identity error.
