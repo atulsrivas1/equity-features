@@ -48,3 +48,9 @@ Windows/Linux CI tests metadata resolution and clean actual wheel/sdist forms.
 Core import/discovery runs with DuckDB absent/forbidden before/after optional
 installation; core-file/metadata invariance is checked. Pending review/CI/artifact
 acceptance on issue56; no broader version/platform/source readiness promise.
+
+[Optional upstream inspection](DUCKDB_DEPENDENCY_INVENTORY.json) records actual
+CPython312 Windows/Linux wheel SHA256 matched to the PyPI index and shipped notice
+hashes. Windows installed notices match its wheel; Linux wheel inspection is not
+native execution. DuckDB foundation MIT and experimental Spark Apache2 notice
+texts remain upstream; metadata is not a universal/native dependency certificate.

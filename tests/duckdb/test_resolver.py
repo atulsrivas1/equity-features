@@ -182,6 +182,30 @@ class ResolverTests(unittest.TestCase):
     def test_dataset_value_is_bound_not_sql(self):
         self.error(SourceErrorCode.UNAVAILABLE,lambda: resolve_source(self.config,replace(self.selection,dataset="FICTION' OR 1=1 --")))
 
+    def test_actual_parquet_metadata_fixture(self):
+        original=self.root/'fictional-original.parquet'
+        optimized=self.root/'fictional-optimized.parquet'
+        with duckdb.connect() as con:
+            for path in (original,optimized):
+                con.execute('COPY (SELECT 1800000000000000001::BIGINT AS event_ns, 101::BIGINT AS price, 2::BIGINT AS size) TO ? (FORMAT PARQUET)',[str(path)])
+            self.assertEqual(con.execute('SELECT count(*) FROM read_parquet(?)',[str(original)]).fetchone()[0],1)
+        self.mutate('DELETE FROM catalog.files')
+        self.insert_file(rows=1,original=original,optimized=optimized)
+        pin=FilePin(str(original),hashlib.sha256(original.read_bytes()).hexdigest(),hashlib.sha256(optimized.read_bytes()).hexdigest(),'fictional-parquet-receipt')
+        row=resolve_source(self.config,self.selection,pins=(pin,)).partitions[0]
+        self.assertEqual(row.declared_rows,1)
+        self.assertEqual(row.original_bytes,original.stat().st_size)
+
+    def test_catalog_mutation_during_resolution_rejected(self):
+        owner=self
+        class MutateOnce:
+            calls=0
+            def is_cancelled(self):
+                self.calls+=1
+                if self.calls==6:owner.mutate("UPDATE catalog.files SET provenance='changed_revision'")
+                return False
+        self.error(SourceErrorCode.SCHEMA,lambda: resolve_source(self.config,self.selection,cancellation=MutateOnce()))
+
 
 if __name__ == '__main__':
     unittest.main()

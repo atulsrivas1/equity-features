@@ -1236,3 +1236,12 @@ CI are added; still require executed clean checks, independent final-head review
 actual main publication/artifact installs/readback before issue56 Done. GOV013 is
 now live Closed/Done; source handoff branch preserved. Other seven stories remain
 planned; next after accepted049 is050 mapping. No canonical row delivery yet.
+
+EQ049 source27 tests now include actual synthetic Parquet, observed catalog mutation
+rejection and two adversarial archive namespace/path-escape cases. The earlier
+be8912a installed build began before these fixture additions; keep it as development
+smoke, never frozen final-head acceptance. Required next clean rerun covers the
+new frozen tests/head. Existing633 core units still pass; pure-boundary38negative/
+10positive retained by explicit pure-package routing, while optional dependencies
+are separately pinned. DuckDB upstream Windows/Linux index/archive/notice hashes
+are recorded without private source; no native Linux local execution claim.

@@ -1,0 +1,30 @@
+{
+  "version": "1.5.6",
+  "index": "https://pypi.org/pypi/duckdb/1.5.6/json",
+  "files": [
+    {
+      "filename": "duckdb-1.5.6-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl",
+      "sha256": "bc9619ed7d4ffa117b5155d84b44794366bb6635178d78ed5e13a6024845c757",
+      "bytes": 21568087,
+      "notices": {
+        "duckdb/experimental/spark/LICENSE": "ff5aa49c52e9830627582e9854fa76827d19c3b040b856162d172d72a9e95067",
+        "duckdb-1.5.6.dist-info/licenses/LICENSE": "075c33400ffcb0c586dd106a029d3e733e9da3693f8fcb9cebfc651c8a2f14e3"
+      }
+    },
+    {
+      "filename": "duckdb-1.5.6-cp312-cp312-win_amd64.whl",
+      "sha256": "09ff51b230219f0d8b47fc8a1e17fb595ba9fab0c3d96a6de4d00b8ff86b3cf1",
+      "bytes": 13190189,
+      "notices": {
+        "duckdb/experimental/spark/LICENSE": "bc219cdc6410cc929715f4622ce2424af890049b071f34d68dec1955554bf332",
+        "duckdb-1.5.6.dist-info/licenses/LICENSE": "c8dd1b346eacc9c7334e2b8881b2a795d6b942c71e05e25c209696e3c7483931"
+      }
+    }
+  ],
+  "limits": [
+    "Windows installed notice inspection; Linux upstream archive inspection is not native execution",
+    "Version/index hashes are observations, not hermetic bootstrap or provider rights"
+  ],
+  "license_observation": "Shipped foundation LICENSE is MIT text; experimental Spark subpackage retains Apache-2.0 text. Preserve complete upstream notices. Metadata fields alone do not identify a universal aggregate SPDX expression.",
+  "observed_date": "2026-10-06"
+}
