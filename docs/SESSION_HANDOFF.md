@@ -1195,3 +1195,31 @@ EQ095 sourcePR255 finalc6d1ed9(review6021920519) actualsource823aecdb; reviewedr
 Owner confirmed R2/R3 completion and required both synthetic conformance and real-data integration; then requested R4 package/newchat. LiveR2/R3milestonesclosed/zeroopen, all24stories andtwoR3repairs ProjectDone; actualmain28879e3 withsuccessful Foundation37508048990/docs37508048897. R4_AUTONOMOUS_HANDOFF.md/R4_TEST_STRATEGY.md and EQ049–056plans prepared underGOV013#258:52provisional points, one active story, begin049, optionaladapter outsidecore, explicit precision/calendar/PIT/source gaps, private real evidence/no rawpublicdata, currentexperimentalCIchannel, noR5/provider/remote/historicalgeneration/sourcecleanup. No R4 calculation/adapter source change or tests executed by preparation. CODE_REVIEW local alternatives are boundedR2/R3; resolve actualR4 review authorization/hostedactivation beforemerge/Done. Next publish/review/check handoff and start requested dedicated R4 executionchat. Publicplans are proposals toconcretize beforecode; owner/modelsettings unchanged.
 
 Owner answered the review-method question onOctober6: hostedGitHubCodexreview isnotworking; use separate localCodexreviewers forR4. CODE_REVIEW.md/AGENTS.md now record that explicit bounded authorization forhandoffGOV013 andall8R4stories. No repeatedperstory permissionneeded; actualfinalheadreview/findings/executedchecks/limits stillmandatory. Newhandoffheadmustbereviewed, prior9ffa72b reviewaloneisinsufficient afterpolicydocchanges. R4executionchat01a1128f-d201-7511-9915-67c2101ed043 activein dedicatedR4checkout; no separateotherchatmessage sent. Preserve concurrentreviewwork.
+
+## R4 execution bootstrap and EQ049 pull — October 6, 2026
+
+Separate execution review covered PR259 final adc3837, with no actionable findings:
+https://github.com/atulsrivas1/equity-features/pull/259#issuecomment-6023300273.
+Owner explicitly authorized local reviewers for bounded R4; current policy records
+that choice. Handoff merged as99a560c; GOV013 still awaits its actual main artifact
+publication/readback before Done. Its author owns that documentation delivery.
+EQ049 depends on accepted R3, not GOV013 closure; those R2/R3 milestones and
+EQ048/095 are verified Done. Execution uses codex/eq049 from actualmain99a560c;
+original codex/r4-handoff is preserved. One active implementation story.
+
+Bootstrap independently passed633unit/strict49/math123, compatibility, boundary,
+imports, registry and licensing. Actual R3 main28879e3 Foundation37508048990 Linux
+and Windows bundles downloaded; twelve inner archives match both manifests and
+are not expired at readback. Actual Windows wheel core/consumer installation
+passed43-case qualification and walkthrough outside source with DuckDB absent.
+Linux archives were inspected locally; native execution remains CI evidence.
+No fresh local sdist qualification or R4 acceptance is claimed by this baseline.
+
+EQ049's appended concrete plan freezes optional equity-feature-duckdb0.1.0a1 /
+DuckDB1.5.6, immutable selection/pin records, read-only bounded metadata/hash checks,
+missing versus declared-empty partitions, original/optimized/substitution identity
+and unchanged source admission. Private metadata inspection confirms catalog hashes
+need caller receipt binding; no private paths/rows are published. Next publish the
+pre-code draft, implement resolver and independent synthetic checks, then required
+separate final-head review, bothOS CI, actual clean artifacts and release readback.
+EQ050–056 remain planned. Stop at accepted R4; no R5/provider/registry/source changes.
