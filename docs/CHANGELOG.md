@@ -169,3 +169,5 @@ replay of older implementation state. Issue163 records experimental artifact gat
 EQ043 corrected0.0.4a4 source completed final-head separate local review and main bothOS CI. Consumer0.2.1 supersedes0.2.0; [delivery](stories/EQ-043_DELIVERY.md) and issue49 retain actual installed and receipt publication gates. No built-in math/schema/mode change or stable channel.
 
 EQ039 adds a current public API/error/registry/extension index and installed typed caller qualification. No numerical equation/schema/distribution version change; static typing handles owned signatures while optional backend objects remain runtime-admitted Any. Independent wrong config/unit/case argument calls must fail. [API](api/PUBLIC_API.md), [extensions](api/EXTENSIONS.md). Review/CI/actualinstalledpublication gates remain.
+
+EQ039 completed separate finalheadreview and source-main bothOSCI. Corrected installedtyping and currentguide/source are qualified locally; [receipt](stories/EQ-039_DELIVERY.md) and issue45 retain actual FOURpairs/receiptpublicationgates before acceptance. Core0.0.4a4/consumer0.2.1 unchanged.
