@@ -1442,3 +1442,10 @@ separate finalheadreview/CI/sourceactualmainforms/receipt/publication beforeDone
 PR266 final013f822 review6025190664/no actionable findings/all10checks; source823ae1d exacttree/14actualpublicblobs/owner verified. Main docs37529743834/Foundation37529743667/optional37529743622 allsuccess. All24actualarchives/current20native reports/harness/testsuite/nativeprobe/optionalRECORD verify; Foundationbytes equal accepted051. FOUR fresh actual sourceproducer/form Windows installs each75tests/strict5/64row measured parity/core absent-forbidden/byteinvariance; nativeLinuxCI. [Receipt](stories/EQ-052_DELIVERY.md).
 
 Issue59 Ready to release until doc-only receipt separatefinalheadreview/allCI/guardedfinalmain/publicblob/owner/actualarchiveequality/currentreports/liveexpiry and Releasedpostreread. Runtime/tests/tools/package/harness/workflow unchanged; reuse fourforms onlywith final equality/currentreports. Then59Done and pull053bounded acquisition evidence/source stability planbeforecode.054-056planned; realinstruments/dates/goldens stillunfrozen.
+
+
+### EQ052 accepted / EQ053 concrete pull
+
+EQ052 finalmaincd8377f8dfac57b9cf739225226b8e5fbfcf1c02, sourcePR266review6025190664/receiptPR267review6025336786; allCI/exacttree/publicblobs/owner/24actualarchive equality/current20reports/fourfresh75testforms/livechannels and Released6025430699/postread pass. Issue59 Closed/ProjectDone. Purecore unchanged.
+
+Pull dependency-ready053only: [concrete pre-code plan](stories/EQ-053_PLAN.md) binds bounded cumulative pre/post SHA256/catalog metadata refresh/actual original occurrence/normalization receipts and optionala5; observations versus pins/admission/provider/PIT limits explicit. Publish plan beforecode, then Inprogress/draftPR.054-056planned; no real slice/goldens frozen.
