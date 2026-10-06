@@ -17,7 +17,7 @@ A CustomDefinition wraps FeatureDefinition schema1 with inner execution flags fa
 
 Return exactly one matching FeatureColumn/entity with independently aligned QualityRow and request.metadata(definition). Original source/snapshot/mapping/input bindings, C/K/E, config digest and actual implementation backend/version remain in ResultMetadata. Result admission reconstructs nested owned types and compares pre-callback copied identity; this enforces contracts, not a sandbox. Missing/incomplete/future/unknown data remains distinct; no manufactured zero or source row. Initially evidence retention is zero. Unknown IDs/malformed requests/unsupported modes reject before invoking a callback; callback exceptions propagate. Metadata to_json contains no executable and cannot restore a registration.
 
-The public consumer0.2.1's synthetic session has O100/H104/L99/C103: custom range/open=(104-99)/100=0.05 versus unchanged builtin range/close=5/103. It uses explicitly admitted builtin v1 operands but its own v2 custom identity. Its separately packaged raw historical BAR adapter preserves exact facts, original known_at and full-source coverage separately from delivery chunks; supplied SDK cases check ordering/precision/availability/errors/bounds. Source acquisition is external to both core distributions. Trusted local code receives no purity/determinism/resource/mathematical/source-rights certification or sandbox. Remote executable upload/serialization is absent; provider/live/file/worker integration is later scope.
+The public consumer0.3.0's synthetic session has O100/H104/L99/C103: custom range/open=(104-99)/100=0.05 versus unchanged builtin range/close=5/103. It uses explicitly admitted builtin v1 operands but its own v2 custom identity. Its separately packaged raw historical BAR adapter preserves exact facts, original known_at and full-source coverage separately from delivery chunks; supplied SDK cases check ordering/precision/availability/errors/bounds. Source acquisition is external to both core distributions. Trusted local code receives no purity/determinism/resource/mathematical/source-rights certification or sandbox. Remote executable upload/serialization is absent; provider/live/file/worker integration is later scope.
 
 ## Reproduce with actual installed public APIs
 
@@ -29,7 +29,7 @@ Create a fresh environment (`python -m venv installed-env`) and use its Python e
 python -m pip install --no-deps setuptools==80.9.0 build==1.2.2.post1 pyproject_hooks==1.3.3 packaging==26.3
 python -m pip install --no-index --no-deps --no-build-isolation <contracts artifact> <features artifact>
 python -m build --no-isolation --wheel --outdir consumer-dist examples/external_consumer
-python -m pip install --no-index --no-deps consumer-dist/equity_feature_demo-0.2.1-py3-none-any.whl
+python -m pip install --no-index --no-deps consumer-dist/equity_feature_demo-0.3.0-py3-none-any.whl
 python -m pip check
 python -I -c "from equity_feature_demo import main; main()"
 python -m pip install --no-deps mypy==1.15.0 mypy_extensions==1.1.0 typing_extensions==4.16.0
@@ -39,3 +39,5 @@ python -I tools/verify_public_typing.py
 Commands require external pip/build tooling, not a network-capable core calculator. The consumer's pinned matching core dependencies prevent silently fetching unreleased packages. The isolated command resolves installed consumer/core public modules; the verifier checks actual site-packages/py.typed and rejects editable fallback. Expected output includes custom0.05, builtin5/103, public SDK adapter binding, positive caller/consumer typing and three rejected invalid calls. Run optional NumPy2.2.6/PyArrow20.0.0 and broader installed examples only under their documented compatibility requirements.
 
 [tools/build_foundation.py](../../tools/build_foundation.py) repeats both core archive builds, inspects license/typing/privacy boundaries, and runs the consumer/typing verifier for each fresh wheel/sdist pair, alongside units/examples. It also fingerprints installed core files before/after external execution. No installed core edit, private import, credential or proprietary data is required. Actual bothOS CI/main artifact receipts remain acceptance evidence; a green editable run or example alone is insufficient. EQ095 independently qualifies the combined external experience before whole R3 acceptance.
+
+EQ040 adds consumer0.3.0's [standalone installed workflows](../EXAMPLES.md): python -I -m equity_feature_demo.walkthrough covers batch/stream/history/composition/missingness plus existing custom/adapter integration. Consumer algorithmv2 and corepair0.0.4a4 are unchanged; independent implementation version and installed qualification advance.

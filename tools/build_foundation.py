@@ -79,6 +79,7 @@ def clean_install(paths):
             run(str(py),'-I','-c',"""import ast, hashlib
 from pathlib import Path
 import equity_features as f, equity_feature_contracts as c, equity_feature_demo as d
+from equity_feature_demo.walkthrough import main as walkthrough
 roots=(Path(f.__file__).parent,Path(c.__file__).parent)
 def fingerprint():
     return {str(p):hashlib.sha256(p.read_bytes()).hexdigest() for root in roots for p in root.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
@@ -96,9 +97,11 @@ for path in Path(d.__file__).parent.rglob('*.py'):
         assert not any(part.startswith('_') for name in names for part in name.split('.')), names
 before=fingerprint()
 d.main()
+walkthrough()
 assert fingerprint()==before, 'installed core changed during external execution'
 print('Independent installed consumer public imports and immutable core verified.')
 """)
+            run(str(py),'-I','-m','equity_feature_demo.walkthrough')
             # Development tools qualify installed typing; they are not core runtime requirements.
             run(str(py),'-m','pip','install','--no-deps','mypy==1.15.0','mypy_extensions==1.1.0','typing_extensions==4.16.0')
             run(str(py),'-I',str(ROOT/'tools/verify_public_typing.py'))

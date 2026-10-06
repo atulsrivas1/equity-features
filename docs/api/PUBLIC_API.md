@@ -1,6 +1,6 @@
 # Current experimental public API
 
-EQ039 documents matching core pair0.0.4a4 and independently packaged consumer0.2.1. The delivered inventory is39 builtin batch IDs,23 session update/restore IDs and22 conditional merge IDs. All16 history/context/breadth R2 IDs remain batch-only; continuous quote merge is unsupported. Custom execution supports explicit canonical batch requests only. Read actual capabilities rather than inferring modes from a module name. This guide's consistency does not establish a stable API, broad platform promise or registry publication. [Compatibility](../COMPATIBILITY.md), [registry](../contracts/REGISTRY.md), [incremental matrix](INCREMENTAL.md).
+EQ039 documents matching core pair0.0.4a4 and independently packaged consumer0.3.0. The delivered inventory is39 builtin batch IDs,23 session update/restore IDs and22 conditional merge IDs. All16 history/context/breadth R2 IDs remain batch-only; continuous quote merge is unsupported. Custom execution supports explicit canonical batch requests only. Read actual capabilities rather than inferring modes from a module name. This guide's consistency does not establish a stable API, broad platform promise or registry publication. [Compatibility](../COMPATIBILITY.md), [registry](../contracts/REGISTRY.md), [incremental matrix](INCREMENTAL.md).
 
 ## Imports and ownership
 
