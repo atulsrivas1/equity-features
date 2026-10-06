@@ -207,6 +207,13 @@ def resolve_source(config: CatalogConfig, selection: SourceSelection, *,
                    pins: tuple[FilePin, ...] = (),
                    cancellation: Cancellation | None = None) -> ResolvedSource:
     """Resolve exactly one declared route; never query canonical market rows."""
+    return _resolve_source(config, selection, pins=pins, cancellation=cancellation)
+
+
+def _resolve_source(config: CatalogConfig, selection: SourceSelection, *,
+                    pins: tuple[FilePin, ...] = (),
+                    cancellation: Cancellation | None = None,
+                    budget: _HashBudget | None = None) -> ResolvedSource:
     if type(config) is not CatalogConfig or type(selection) is not SourceSelection:
         _fail("Typed catalog configuration and selection required")
     if len(selection.sessions) > config.max_sessions:
@@ -218,7 +225,7 @@ def resolve_source(config: CatalogConfig, selection: SourceSelection, *,
     by_path = {pin.original_path: pin for pin in pins}
     if len(by_path) != len(pins):
         _fail("Duplicate file pins")
-    budget = _HashBudget(config.max_hash_bytes, cancellation)
+    budget = budget if budget is not None else _HashBudget(config.max_hash_bytes, cancellation)
     before = budget.read(config.path)
     if config.expected_sha256 is not None and before != config.expected_sha256:
         _fail("Catalog hash pin mismatch")

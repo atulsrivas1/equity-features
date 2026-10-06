@@ -10,7 +10,7 @@ from equity_feature_contracts import AvailabilitySpec, Coverage, SourceBinding
 from equity_feature_contracts.adapters import Cancellation, SourceErrorCode
 from .mapping import MappingReport
 from .resolver import (CatalogConfig, FilePin, ResolvedPartition, ResolvedSource,
-                       _HashBudget, _absolute, _count, _date, _fail, _hash, _identifier, _text, resolve_source)
+                       _HashBudget, _absolute, _count, _date, _fail, _hash, _identifier, _text, _resolve_source)
 
 
 def _digest(value: object) -> str:
@@ -168,19 +168,16 @@ def _begin_observation(catalog_path: Path, resolved: ResolvedSource,
         _fail("Source catalog unavailable", SourceErrorCode.UNAVAILABLE)
     budget = _HashBudget(policy.max_hash_bytes, cancellation)
     # Reuse the accepted route/schema/metadata resolver, preserving receipt IDs.
-    # Its two catalog reads count against the same acquisition hash byte budget.
-    fresh = resolve_source(CatalogConfig(catalog_path, resolved.catalog_sha256,
+    # Share the actual counter: a prior stat cannot charge concurrent file reads.
+    fresh = _resolve_source(CatalogConfig(catalog_path, resolved.catalog_sha256,
         max_sessions=len(resolved.selection.sessions), max_files=policy.max_files,
         max_hash_bytes=budget.remaining), resolved.selection,
         pins=tuple(FilePin(p.original_path, receipt_id=p.receipt_id) for p in resolved.partitions),
-        cancellation=cancellation)
+        cancellation=cancellation, budget=budget)
     expected = tuple(replace(p, original_sha256=None, optimized_sha256=None) for p in resolved.partitions)
     if (fresh.partitions != expected or fresh.missing_sessions != resolved.missing_sessions
             or (fresh.view_schema, fresh.view_name) != (resolved.view_schema, resolved.view_name)):
         _fail("Resolved source metadata changed")
-    if 2*catalog_bytes > budget.remaining:
-        _fail("Hash byte budget exceeded", SourceErrorCode.LIMIT)
-    budget.remaining -= 2*catalog_bytes
     files: list[FileEvidence] = []
     for p in selected:
         if policy.require_original_pins and p.original_sha256 is None:

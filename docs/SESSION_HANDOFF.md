@@ -1455,3 +1455,9 @@ EQ053 plan db57f529 before source, draftPR268, issue60 Inprogress. Uncommitted e
 
 
 EQ053 currentfinal source89optional cases24.733s/strict6/boundary38negative10positive/imports/fullpublicUTF8/225changedrelative links/privacy/unchangedpurecore pass. Actual original and pinnedoptimized mutation probes withhold output; exact budget/ownedreceipt assertions pass. Freeze source, cleanrepeat actual wheel/sdist builder and separate final-head review/currentCI next. No installed/publication acceptance yet.
+
+
+EQ053 separate review6025612285 foundP2 at8ade54d: nested resolver used its own hashcounter then charged priorstat size; transient2byte catalog restored beforehash exceededlimit2121728 with2124618 successful hashedbytes, though outputwithheld. Returnedissue60Inprogress rework6025617661. Fix publicresolver signature unchanged/privatehelper shares actual _HashBudget; independent exact2catalog adversarial15methods8.645sPASS/strict6PASS. Earlier8ade/mixed-source builder completed89forms but is excluded; log retained privately. Current full90/newcleanfreeze/repeatbuild/finalreview/currentCI/artifacts/publication remain required.
+
+
+EQ053 corrected full90cases25.463s/strict6/boundary38negative10positive/imports/publicUTF8/lifecyclelinks/diff pass. Exact cumulative adversarialbudget nowstopsLIMIT at2121728bytes; next correctedcleanfreeze/actualbothforms/finalheadreview/currentCI. Existingold8adebuild is superseded, not installedacceptance for correctedsource.

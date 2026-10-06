@@ -86,6 +86,28 @@ class EvidenceTests(unittest.TestCase):
         self.error(SourceErrorCode.LIMIT,lambda:self.adapter(verification=VerificationPolicy(max_hash_bytes=exact-1)).read(self.f.request()))
         self.error(SourceErrorCode.LIMIT,lambda:self.adapter(verification=VerificationPolicy(max_files=1)).read(self.f.request()))
 
+    def test_transient_catalog_size_cannot_undercharge_shared_budget(self):
+        # Independent review probe: restore the accepted larger catalog after
+        # preflight stat, before the first actual resolver hash.
+        catalog=self.f.db.read_bytes();limit=2*len(catalog)
+        a=self.adapter(verification=VerificationPolicy(max_hash_bytes=limit))
+        self.f.db.write_bytes(b'xx');read=_HashBudget.read;hashed=0
+        class Restore:
+            calls=0
+            def is_cancelled(inner):
+                inner.calls+=1
+                if inner.calls==2:self.f.db.write_bytes(catalog)
+                return False
+        def charged(budget,path,expected_size=None):
+            nonlocal hashed
+            result=read(budget,path,expected_size)
+            hashed+=Path(path).stat().st_size
+            return result
+        with patch.object(_HashBudget,'read',charged):
+            self.error(SourceErrorCode.LIMIT,lambda:a.read(self.f.request(),Restore()))
+        self.assertEqual(hashed,limit)
+        self.assertEqual(self.f.db.read_bytes(),catalog)
+
     def test_same_size_catalog_change_is_stale(self):
         adapter=self.adapter();size=self.f.db.stat().st_size
         with duckdb.connect(str(self.f.db)) as con:
