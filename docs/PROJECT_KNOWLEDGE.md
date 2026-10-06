@@ -106,3 +106,8 @@ EQ047 finalmain07b4f3d actual12archiveequivalence/current12reportfacts/expiry/po
 
 
 EQ095 consumer0.4.0 combines existing public custom/adapter experience in43actualsynthetic outcomes and independently detects a contract-valid wronggolden callback; corea4/math/schema unchanged. [Qualification](EXTERNAL_QUALIFICATION.md) and plan record actualadmissioncorrection. NativeLinux isCI; currentdelivery review/install/publication remains beforeDone, then048R3acceptance.
+
+
+### EQ-095 reviewed source publication
+
+SourcePR255 finalc6d1ed90a75fe80b5d75d13d4165afd4efe6b681 separate review/no unresolvedfindings, Independent633units/strict49/123references/policies/43qualification outcomes/354links/publicfourconsumerimports/coreunchanged. Initial86a8eaa P3 planfulltyping48vs49 corrected finalc6d1ed9 and independentlyre-reviewed documentation/head; no unresolvedfindings; authorfrozenTWO actualpairs 633units/22repositoryexamples/consumer0.4.0walkthrough+43casequalification/publictyping(fourconsumerfiles+caller/threeinvalidcalls)/corebefore-afterinstall-executioninvariance/benchmark-resource smokes and allheadCI pass. Guardedmain823aecdb06cfc2aebcd492d46daf0b87111ef9d7 exacttree/publicblobs/owner/docs37505488147/Foundation37505488106 bothOS verified. Actualsource12archives+12variable report facts inspected; FOURsourcefreshpairs running/required before receiptmerge/Done. [Receipt](stories/EQ-095_DELIVERY.md) needs separatefinalreview/allCI/finalmainarchiveequality/currentvariableprovenance/postreleaseverification. Only EQ048#54 finalboundedR0-R3packageacceptance remains after095. E06/milestone4 stayopen until actualfinalacceptance; no stable/registry/tag/provider/R4scope.
