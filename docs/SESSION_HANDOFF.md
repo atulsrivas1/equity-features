@@ -828,3 +828,7 @@ foundation-3fdbfb3f86652bf195d17474f2167a3541931bd5-windows-latest artifact11381
 foundation-3fdbfb3f86652bf195d17474f2167a3541931bd5-ubuntu-24.04 artifact11381249690 expires2026-11-05T00:18:00Z.
 
 [Receipt](stories/EQ-032_DELIVERY.md) retains actual archive hashes/expiry. Next final docs receipt exact-head checks/guarded merge/main docs/bothOS Foundation/actual archive byte equality before37Done. Then refined EQ034 pre-code plan with owned return references, explicit benchmark/sector mapping and membership effective point, independent requested comparison readiness. R3paused.
+
+### EQ032 final receipt publication; EQ034 pre-code design —2026-10-05
+
+PR187 headbb20715fd436c2a1d19052c9aed63213039a3dd5 all SIX checks; guarded merged6a693cdb5d6e6ced72dc4bb467f71585f520ed0d entire published tree equals receipt head. Final main docs/bothOS Foundation/actual archive equality remains before37Done. Prepare [EQ034 plan](stories/EQ-034_PLAN.md), owned return references and explicit market/sector benchmark identities/membership effective point; no return recomputation or implicit ticker/namespace join. Distinct actual child configs/action bindings retained, independent requested comparison readiness. No EQ034 source yet. Next finish032receipt main/actual byte equality/Done, then39Ready/In progress. R3paused.
