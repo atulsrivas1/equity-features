@@ -203,3 +203,6 @@ EQ031 batch daily volume API consumes governed DAILY volume rows and owned Volum
 EQ032 uses individual typed bucket calls with standard Float64 shares/fraction FeatureResults plus exact IntervalBaseline witness/BucketContext/VolumeBucket/BucketVolume schema1 companions. Preserve independent readiness and required N; early-close missing buckets never0. Existing output schemas unchanged,35batch/23session update/restore22merge, no bucket state modes or hidden aggregation. [API](api/INTERVAL_VOLUME.md).
 
 EQ034 consumes owned ReturnReference and explicit RelativeSpec/SectorBenchmark schema1 companions. Arithmetic spreads retain actual child configs/sources/action snapshots and parent membership admission; no common child digest or hidden return calculation.37batch/23session update-restore22merge, existing schemas/39equations unchanged; relative state modes false. [API](api/RELATIVE_RETURNS.md).
+
+
+EQ035 adds owned declared-universe/member/close/SMA/exclusion companions and separate pure direction/above-SMA consumers.39batch IDs include all16R2 numerical kernels, with truthful false context/history state modes. Actual source/config/action identities and partial E/M remain explicit; no hidden dependency calculation. [API](api/DECLARED_BREADTH.md).

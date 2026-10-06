@@ -102,3 +102,6 @@ EQ031 supplies owned schema1 VolumeBaseline and TargetVolume, exported from cont
 EQ032 exports immutable VolumeBucket, BucketContext, IntervalBaseline and BucketVolume schema1. Exact open-relative bucket grids, per-bucket presence/coverage, original source-row proof, early-close ineligibility and full elapsed versus partial target bounds are explicit. Daily coverage is not bucket coverage. [API](../api/INTERVAL_VOLUME.md).
 
 EQ034 exports ReturnReference, RelativeSpec and SectorBenchmark schema1. Own child return result/config/history context, explicitly map sector ID to benchmark entity and declare membership effective point. Parent preserves distinct component configurations/action snapshots under compatible horizon/grid/unit/policy/cutoffs. [API](../api/RELATIVE_RETURNS.md).
+
+
+EQ035 introduces DeclaredUniverseSpec, BreadthSpec, MemberFeatures, SMAInput and CompletedClose schema1. Explicit parent return h+1 versus SMA N configurations keep exact component config/grid/action/timing identities; selected source certificates retain original metadata. [API](../api/DECLARED_BREADTH.md).

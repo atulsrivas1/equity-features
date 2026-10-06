@@ -69,3 +69,6 @@ EQ031 qualifies baseline.daily_volume and baseline.relative_volume batch flags,3
 EQ032 qualifies baseline.interval_volume and baseline.interval_relative_volume batch flags (35total); both state modes false.39equations and session23update/restore22merge unchanged. New companion schemas1; existing schemas retained, exact-version replay/registry rebuild after pair0.0.3a6. [API](../api/INTERVAL_VOLUME.md).
 
 EQ034 qualifies relative.market_return and relative.sector_return batch flags (37total), both state modes false.39equations and session23update-restore22merge unchanged. New companions schema1; exact-version replay/registry rebuilding after pair0.0.3a7. [API](../api/RELATIVE_RETURNS.md).
+
+
+EQ035 qualifies both breadth batch flags:39batch/all16R2 numerical IDs,23session update/restore22merge unchanged. All breadth/context/history state modes false; new schema1 companions, existing39equations/schemas unchanged; exact-version replay/registry rebuild after0.0.3a8. [API](../api/DECLARED_BREADTH.md).
