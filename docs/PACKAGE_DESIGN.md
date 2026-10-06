@@ -207,3 +207,7 @@ EQ034 consumes owned ReturnReference and explicit RelativeSpec/SectorBenchmark s
 ## Optional research evidence packages
 
 Owner-requested [evidence roadmap](EVIDENCE_ROADMAP.md) extends supplied result/quality/evidence identities with execution receipts and content fingerprints. Pure in-memory contracts/helpers may live in contracts; actual package allocation is frozen by EQ-096 before implementation. Bundle I/O/replay, ledger persistence and agent orchestration live in separate optional distributions, not calculation kernels. EQ-108 extends the existing EQ-082 MCP service. No remote executable uploads or source-truth certification. Point-in-time diagnostics preserve unknown evidence and reconstruction distinctions; hash chains need independently trusted anchors. Current calculations and accepted equations are unchanged.
+
+## Conditional continuous-market extension
+
+[Revised proposal](CONTINUOUS_MARKET_DESIGN.md) requires SessionSpec reuse assessment and mathematical definitions before any new type/kernel. ConfigSpec exact-type checks mean type additions require explicit compatibility/version decisions; existing digests/equations remain preserved. Cross-venue normalization/conversion/reference availability is caller-supplied, and reopening outcomes remain unavailable before both legs are known. [Ledger details](AGENT_EVIDENCE_DESIGN.md) distinguish content from metadata identity and internal chain consistency from trusted-anchor verification.

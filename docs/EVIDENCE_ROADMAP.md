@@ -223,3 +223,7 @@ EQ-053 owns adapter acquisition provenance; EQ-057/061 own worker manifests/outp
 ## Claims and security limits
 
 Content hashes identify supplied bytes/values, not data truth. Replay needs retained or resolvable licensed inputs. Ledger chains detect alterations relative to trustworthy retained anchors; they do not establish authenticity or prevent unanchored truncation. Point-in-time checks cover declared evidence and preserve unknowns, not all leakage or model-training contamination. Missing proof is never relabeled passed. No hidden chain-of-thought capture, executable uploads, source/data rights assumption, profitability promise, regulatory certification or market-exclusivity claim. Public examples remain synthetic/licensed. A compliance product would require separately scoped legal, retention and operational assessment.
+
+## Corrected agent ledger detail
+
+[Agent evidence design](AGENT_EVIDENCE_DESIGN.md) refines EQ-096/097/101/102/106/107 with content hashes, simulated cutoffs, matching membership, explicit freshness and anchored truncation checks. R11 remains the ledger/service release. Continuous-market work is separate [E16/R12 scope](CONTINUOUS_MARKET_DESIGN.md), using new IDs EQ-111–115.

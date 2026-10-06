@@ -40,3 +40,7 @@ The import screened relevant active/archived development chats and inspected rep
 ## Additional planned evidence capabilities
 
 [E13–E15 / R9–R11](EVIDENCE_ROADMAP.md) contain fifteen Backlog stories for execution receipts/replay, declared leakage checks and agent events/ledger/MCP integration. This is future planning, not implemented capability or current execution ownership. Existing R7 owns the base MCP service. Calculations remain pure and source-independent.
+
+## Revised ledger and continuous-market proposals
+
+[Ledger design](AGENT_EVIDENCE_DESIGN.md) refines existing R9–R11 stories. [Continuous-market design](CONTINUOUS_MARKET_DESIGN.md) adds conditional E16/R12/EQ-111–115 future scope; prove gaps and freeze formulas before code. No present execution priority or existing schema/equation changes.
