@@ -1157,3 +1157,19 @@ EQ047 supplements actualcurrentretention/serverdigests/expiry for eight earliera
 
 
 EQ047 separate review of7ff6539 foundP2 interpreterprovenance: draftprose conflatedsourceLinux3.12.14 withfinalLinux3.12.15 whileinventorycorrectlyrecorded15. Corrected guide distinguishes source73246b1/final0b6aa566 and unchangedWindows3.12.10; actualdownloadedmanifests independentlychecked. No code/archive/qualificationchanges; reworkInprogress then newfinalheadreview/allCI required. Otherreviewchecks13wheel/index/45noticefiles/11installedWindowssets/channelobservations/actions/pins/203links passed, no numerical/type/freshinstall/nativeLinux reruns claimed.
+
+
+### EQ047 Done / EQ095 pull
+
+PR254 correctedfinal24f2d00 separatefinalreview6021522146 resolvesP2 sourceLinux3.12.14 vsfinal3.12.15. Guardedmain07b4f3d747f822e93bc557ab65a1b0f8fe44dc3a exacttree/9actualpublicblobs/owner/docs37502471034/Foundation37502471182 bothOS verified. Code/tests/tools/consumer unchanged from FOURqualified046source73246b1; actual12finalarchives equal and currentFOURbenchmark/FOURresource/FOURconsumerinstallation JSON/native/control/math/provenance/expiry pass. Issue53Released/postreleaseactualreadback/Doneclosed(comment6021659499). Pull EQ095#150/5points new publicinstalledqualificationmodule with consumer0.4.0 implementation only, corea4/custommathv2 unchanged. Pre-codeplan documents5/100 vs5/103, config/metadata/quality/evidence/typednegative scopes and actualretainedartifact/isolation gates. Fullcurrent631units/strict48/math123 remainbaseline; newexternalqualificationdriverseparatefrompure619/593cohort. After095Done, EQ048 finalacceptance; no R4 scope.
+
+
+EQ095 initialprecode e0fc2e3 replaced an existingpreparedplan instead ofappending; restored original27-linepreparation byte-text fromaccepted07b4f3d andappend currentexecution decisions before anyimplementation. No scopedecisionlost; originalBacklogstatus explicitlyhistorical, liveProject Inprogress current. Read existinglinkedplans beforewriting and preserve supersededpreparation. Qualificationreportschema external-qualification1/case groups/expectedcode boundaries nowspecified.
+
+
+### EQ095 implementation / admission correction
+
+Consumer0.4.0 combinedpublicqualification43cases(13positive/23contract/7source), adapter10finiteconformancecases, independent5/100vs5/103 goldens/currentmetadata/unknownavailability/modes/limits/cancel/builtin invariance. Initialzeroexpectation corrected to canonical invalid_schema; zerovolumenullfirstrow uses nextpricebearingopen, unavailablefixtureusesunknownknown_at bothrows. Two externaldriver tests includingwrong0.06callback; excludeexternaldriverfromfixed619/593puritycohort. Builder runs actual installedqualificationnestedconsumerreceipt plus publictyping/corefingerprintguards. Corea4/mathv2/schema/modes unchanged; existing047inventory/041042measurements remain historical0.3. Next freeze/sourcefinalreview/fullbuildTWOpairs/bothOSCI/sourcepublication/FOURactualsourcepairs/reviewedreceipt/finalpublication beforeDone; then048wholeR3.
+
+
+EQ095 initial86a8eaa review6021866873 P3 corrected plan fullCI typingcount48to49; narrower localcommand omitted standaloneadapter caller. InitialexactheadTWO633freshpairs/sixrepeatarchives/allSIXCI pass but finaldocumentationhead requires separate re-review and exactcleanreportqualification. No runtimefinding/corechange; historical48counts preserved.

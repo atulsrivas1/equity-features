@@ -100,3 +100,9 @@ SourcePR252 finalfe095898dd0b044d7964a1b8b66a9d85346d558f separate review/no unr
 
 
 EQ046 finalmain0b6aa56 actual12archive equality/current12report provenance/expiry and postreleaseverification accepted; issue52Done. [Purity audit](PURITY_AUDIT.md), [receipt](stories/EQ-046_DELIVERY.md). Pull documentation-only EQ047 existingdependency/license/provenance/channel review from this qualified code; [plan](stories/EQ-047_PLAN.md). Then095/048, R3 remainsopen.
+
+
+EQ047 finalmain07b4f3d actual12archiveequivalence/current12reportfacts/expiry/postrelease accepted; issue53Done. [Integrity](RELEASE_INTEGRITY.md), [inventory](DEPENDENCY_INVENTORY.json). Pull EQ095 combined publicinstalledcustom+syntheticadapterqualification, consumerimplementation0.4.0/corea4/mathv2; [plan](stories/EQ-095_PLAN.md). Final048acceptance remains; R3 notcomplete.
+
+
+EQ095 consumer0.4.0 combines existing public custom/adapter experience in43actualsynthetic outcomes and independently detects a contract-valid wronggolden callback; corea4/math/schema unchanged. [Qualification](EXTERNAL_QUALIFICATION.md) and plan record actualadmissioncorrection. NativeLinux isCI; currentdelivery review/install/publication remains beforeDone, then048R3acceptance.

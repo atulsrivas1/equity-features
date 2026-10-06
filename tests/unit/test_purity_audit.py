@@ -47,7 +47,7 @@ ARROW_CASES = frozenset({
 })
 
 EXCLUDED = {'test_purity_audit', 'test_distribution_isolation',
-            'test_benchmark_evidence', 'test_resource_behavior'}
+            'test_benchmark_evidence', 'test_resource_behavior', 'test_external_consumer_qualification'}
 
 
 def deny(*args, **kwargs):

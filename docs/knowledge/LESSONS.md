@@ -321,3 +321,8 @@ EQ047 inspected13 pinned upstream wheel/index hashes and complete shipped notice
 
 
 EQ047 separate draftreview(7ff6539) caughtP2 prose conflating sourceLinux3.12.14 and finalLinux3.12.15; inventory and downloadedfinalmanifest alreadycorrect. Correct currentprose/handoff, preserve explicit source/final observations and re-review newhead. Archivebyte equality doesnotimply interpreter/tool provenance equality under a floatingminor selector. This correction strengthens the distinct-evidence rule; no package/test change.
+
+
+## EF-L025 qualify admitted inputs and actual installed artifacts
+
+EQ095 initial probe incorrectly treated zero OHLC as a reachable denominator outcome. Canonical positive-price admission rejects it first; valid zero-volume null prices do not replace the next price-bearing open. Use actual public admission and unknown availability to qualify missing_input; never weaken core validation to force a desired fixture. A wrong but contract-valid0.06 callback proves the independent5/100 golden can detect numerical error. Retain43 actual synthetic outcomes inside each installed consumer receipt, with actual archive/source/version and core installation/execution fingerprints; source-tree success cannot substitute. Historical backend/resource/license observations keep original versions. [Qualification](../EXTERNAL_QUALIFICATION.md), [plan](../stories/EQ-095_PLAN.md). Revisit for new input/callback modes, report schema or consumer artifacts.
