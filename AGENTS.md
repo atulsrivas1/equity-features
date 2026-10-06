@@ -46,3 +46,7 @@ Review the changed behavior and its affected callers against the linked story, a
 ### Review evidence and delivery
 
 See docs/CODE_REVIEW.md. A separate Codex review is automated review, not author self-review or independent human review. Record its response URL and reviewed commit; resolve findings and establish final-head review coverage after relevant changes. No bot response, quota failure or missing configuration counts as approval. CI and numerical acceptance remain separate requirements.
+
+## R4 authorized local review — October 6, 2026
+
+The owner explicitly authorized separate local Codex reviewers throughout R4 and its handoff because hosted GitHub Codex review is not working. This extends the bounded R2/R3 alternative to GOV013 and EQ049–056; no further per-story approval is required. Each reviewer must independently inspect the actual final PR head and affected contracts/callers, record reviewer identity, executed checks, findings/disposition and limitations. Relevant changes require final-head coverage. Author self-review and CI alone do not satisfy this gate. This is local automated review, not hosted activation or human review. Existing numerical, documentation, CI, installed-artifact and publication/readback acceptance remains mandatory; GOV005 stays separate.
