@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## 0.0.4a4 — EQ043 public adapter conformance kit
+
+Pure finite named delivery/error cases and derived reports reuse validate_delivery without source invocation. Separately packaged public typed consumer0.2.1 adds raw historical BAR acquisition, transparent source/chunk coverage, exact known-at preservation, bounds/cancellation and custom5/100 input binding. All39 equations/actual feature modes and existing adapter schemas unchanged. [SDK](contracts/ADAPTER_KIT.md), [plan](stories/EQ-043_PLAN.md). Separate review corrected leaked external constructor ContractErrors to safe SourceError(SCHEMA), preserving causes and actual malformed-OHLC/bounds regressions. Consumer0.2.0 is superseded; core a4 bytes are unchanged. Final separate review and actual-main artifact gates remain pending.
+
 ## 0.0.4a3 — EQ093 owned requested entity
 
 Corrective separate review reproduced a valid mutated shared EntityKey being accepted as a different requested instrument. Capture and validate an independent pre-callback entity alongside owned metadata. Preserve its actual failing identity regression; a2 is superseded before acceptance. Existing formulas/schemas/modes unchanged.

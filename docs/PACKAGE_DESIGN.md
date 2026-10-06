@@ -219,3 +219,6 @@ EQ036 supplies a pure immutable typed feature bundle with explicit instance/conf
 
 
 EQ093 initial implementation adds features.custom with explicit immutable trusted batch registrations, canonical inputs and one typed result column. Contracts/built-in registries are unchanged; custom metadata wraps their accepted descriptors and keeps actual caller execution capabilities separate. [Custom API](api/CUSTOM_FEATURES.md) records supported modes and limitations. Final review/publication remains pending.
+
+
+EQ043 adds contract-owned pure reusable supplied-delivery conformance cases/reports while the concrete synthetic BAR adapter remains in the independently packaged consumer. No source iteration/acquisition is introduced in calculations/contracts. [SDK](contracts/ADAPTER_KIT.md); final review/delivery gates pending.

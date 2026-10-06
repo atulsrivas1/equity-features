@@ -69,3 +69,6 @@ October6 owner authorizes the separate local Codex reviewer alternative througho
 
 
 EQ093 corrected0.0.4a3 source/main/actualbothOSbundles are qualified after separate final-head review,605tests and FOUR fresh installed pairs with independent public consumer. [Delivery](stories/EQ-093_DELIVERY.md). Final receipt publication/byte-equality gates remain before Done; EQ043 is next. Built-in39 and actual session modes unchanged; no full R3 release acceptance or stable/custom-code certification claim.
+
+
+EQ093 finalreceipt/main6d93888 actualbundle equality and postrelease evidence accepted on issue113; storyDone/E03closed. R3remainsopen with11stories. Dependency-ready EQ043SDK is next under its pre-code plan; hostedreview/stable/R4remainoutside this delivery.
