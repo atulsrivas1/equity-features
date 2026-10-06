@@ -78,3 +78,17 @@ Dependency license notices, pinned build/bootstrap provenance, upstream hash obs
 
 
 EQ095 adds consumer0.4.0 [combined installed qualification](EXTERNAL_QUALIFICATION.md):43 actual synthetic outcomes with independent goldens, actual adapter conformance, typed negatives and unchanged core/catalog. Builder retains this report inside each consumer-installation JSON. Customalgorithmv2/corepaira4 remain unchanged; historical consumer0.3.0 measurements and integrity inventory remain dated evidence. Actual release acceptance requires linked current issue/receipt gates.
+
+
+## Optional R4 DuckDB adapter — pending delivery acceptance
+
+The optional adapter remains separate from both pure packages. Its initial resolver
+API is documented in [DUCKDB_RESOLVER](api/DUCKDB_RESOLVER.md). Development uses
+requirements-duckdb.txt and packages/duckdb; no provider credentials are needed.
+Qualified main optional bundles are named duckdb-<commit>-<OS>; until issue56's
+actual published installation/readback is accepted, do not treat source as delivery.
+Each bundle binds six matching core/adapter wheel/sdist archives in manifest.json
+and has actual form-specific installed test/typing/core-invariance reports. Install
+matching contracts/features archives before adapter, using --no-index --no-deps
+--no-build-isolation for project archives and the pinned DuckDB1.5.6 runtime. Sdist
+installation uses setuptools80.9.0. R4 remains incomplete; no stable registry/tag.

@@ -122,14 +122,23 @@ def violations(source):
 
 def check():
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
-    for p in (ROOT/'packages').glob('*/pyproject.toml'):
+    pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
+    known_packages={*pure_packages,ROOT/'packages/duckdb'}
+    assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
+    for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
         deps=list(project['dependencies'])
         for extra in project.get('optional-dependencies',{}).values(): deps.extend(extra)
         assert all(re.split(r'[\[<>=!~; ]',d)[0] in allowed_dependencies for d in deps),p
-    for p in (ROOT/'packages').glob('*/src/**/*.py'):
-        errors=violations(p.read_text(encoding='utf-8'))
-        assert not errors,f'{p.relative_to(ROOT)}: {errors}'
+    for root in pure_packages:
+        for p in root.glob('src/**/*.py'):
+            errors=violations(p.read_text(encoding='utf-8'))
+            assert not errors,f'{p.relative_to(ROOT)}: {errors}'
+    adapter=ROOT/'packages/duckdb/pyproject.toml'
+    if adapter.exists():
+        project=tomllib.loads(adapter.read_text(encoding='utf-8'))['project']
+        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','duckdb==1.5.6']
+        assert not project.get('optional-dependencies'), 'unreviewed adapter dependencies'
     for source in NEGATIVE_FIXTURES:
         assert violations(source),source
     for source in POSITIVE_FIXTURES:

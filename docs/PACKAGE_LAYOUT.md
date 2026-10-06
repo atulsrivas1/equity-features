@@ -23,3 +23,9 @@ Each distribution has metadata, its README, Apache license and py.typed marker.
 Version0.0.1a0 identifies experimental foundation artifacts; R3 stability and public
 publishing remain gated. EQ-009 builds wheels/sdists, clean installs and retains
 downloadable internal artifacts with checksums. Until then EQ-007 awaits delivery.
+
+
+EQ049 adds packages/duckdb, import equity_feature_duckdb, as the optional R4 source
+boundary. Its separate requirements-duckdb.txt/workflow/builder/tests/duckdb do not
+add DuckDB to pure packages or their runtime/development requirements. Resolver
+source/typing checks do not establish R4 canonical or real-data acceptance.

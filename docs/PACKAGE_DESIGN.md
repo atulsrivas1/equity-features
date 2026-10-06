@@ -230,3 +230,13 @@ EQ046 [calculation audit](PURITY_AUDIT.md) verifies actual owned43module boundar
 ## Current bounded R3 qualification
 
 Earlier093/043 pending statements above are dated implementation observations. Both are now delivered/Done and EQ095 qualifies their combined installed external consumer0.4.0 with no corechange. [R3 acceptance mapping](R3_ACCEPTANCE.md) covers all39batch IDs,23sessionupdate/restore,22conditionalmerge and16R2batch-only plus trustedcustombatch/conformance. Existing equations/unit/timing/coverage/schema/admission separation remains; exactfinalstatus is issue54.
+
+
+## R4 optional source adapter
+
+EQ049 adds optional equity-feature-duckdb0.1.0a1 / equity_feature_duckdb outside
+contracts and features. It depends inward on contracts0.0.4a4 and DuckDB1.5.6;
+core versions/math/schema/modes are unchanged. Current implementation resolves
+bounded catalog metadata only; [API and limits](api/DUCKDB_RESOLVER.md).
+Canonical row mapping/acquisition/calendar/provenance and actual conformance plus
+private real-data integration remain EQ050–055; R4 acceptance is EQ056.

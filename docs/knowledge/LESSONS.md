@@ -331,3 +331,16 @@ EQ095 initial probe incorrectly treated zero OHLC as a reachable denominator out
 ## EF-L026 release acceptance joins live status with exact published evidence
 
 EQ048 reads all50boundedR0–R3story Project records, acceptedprior milestones/repairs and actualqualified095source/final artifacts. A currentliveDone predecessor count does not substitute for exactfinalheadreview, publicblobs/tree, bothOSCI/downloaded archives and independently currentvariable reports. Conversely doc-only source-identical acceptance need not invent newnumericaltests/redundantlocalinstalls/secondreceipt. Preserve original measured/license/interpreter baselines and state laterconsumer metadata changes explicitly. Closeownstory afterReleasedreadback, then reconcileepic/milestone fromactualallDone. [Acceptance](../R3_ACCEPTANCE.md), [plan](../stories/EQ-048_PLAN.md). Revisit for changedcode/dependencies/requiredreview/publicchannel/scope; stop at ownerboundedrelease.
+
+## EF-L027 metadata resolution is not row or source admission
+
+R4 bootstrap independently inspected catalog metadata: explicit generation/layer
+selection and retained sizes/schema/substitutions are available, while content
+hashes require external receipt binding. Preserve original/optimized identities
+and unknown admission rather than infer hashes, eligibility, clocks, calendar or
+PIT from file presence/rewrite counts. EQ049 resolves metadata; EQ050/051 map/read
+rows and EQ053 binds acquisition stability; EQ054/055 separately qualify synthetic
+and actual numerical behavior. [Concrete plan](../stories/EQ-049_PLAN.md),
+[qualification strategy](../R4_TEST_STRATEGY.md),
+[handoff review](https://github.com/atulsrivas1/equity-features/pull/259#issuecomment-6023300273).
+Revisit for changed catalog/schema/receipt/admission or source representations.
