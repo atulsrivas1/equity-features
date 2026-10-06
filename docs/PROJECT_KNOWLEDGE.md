@@ -36,3 +36,11 @@ External application architecture remains outside this project. EQ-094 was withd
 Keep evidence in linked review, decision, story and delivery records. Add a scoped lesson when a correction changes how future work should proceed. Record supporting and contradicting evidence, affected version/scope, action and revisit condition. Update priorities and the exact resume step. Saved documents supply durable context; they do not retrain a model or create an unattended worker.
 
 The import screened relevant active/archived development chats and inspected repository records. It was targeted, not an account-wide archive or fresh source-code audit. See the [coverage record](knowledge/SOURCE_MAP.md). No numerical feature or bulk dataset work was performed by GOV-011.
+
+## Additional planned evidence capabilities
+
+[E13–E15 / R9–R11](EVIDENCE_ROADMAP.md) contain fifteen Backlog stories for execution receipts/replay, declared leakage checks and agent events/ledger/MCP integration. This is future planning, not implemented capability or current execution ownership. Existing R7 owns the base MCP service. Calculations remain pure and source-independent.
+
+## Revised ledger and continuous-market proposals
+
+[Ledger design](AGENT_EVIDENCE_DESIGN.md) refines existing R9–R11 stories. [Continuous-market design](CONTINUOUS_MARKET_DESIGN.md) adds conditional E16/R12/EQ-111–115 future scope; prove gaps and freeze formulas before code. No present execution priority or existing schema/equation changes.
