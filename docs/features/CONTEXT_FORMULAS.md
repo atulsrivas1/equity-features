@@ -1,6 +1,6 @@
 # Baseline, relative and breadth formulas
 
-EQ-005, formula version 1. Eight IDs from V1_SCOPE.md. EQ031 daily baseline/relative volume, EQ032 individual bucket baseline/ratio and EQ034 supplied relative-return implementations are delivered. EQ035 declared-universe breadth kernels are implemented; required review and final delivery acceptance remain pending. Formula definitions remain unchanged. [Daily API](../api/DAILY_VOLUME.md), [bucket API](../api/INTERVAL_VOLUME.md), [relative API](../api/RELATIVE_RETURNS.md), [breadth API](../api/DECLARED_BREADTH.md).
+EQ-005, formula version 1. Eight IDs from V1_SCOPE.md. EQ031 daily baseline/relative volume, EQ032 individual bucket baseline/ratio and EQ034 supplied relative-return implementations are delivered. EQ035 declared-universe breadth is accepted at corrected pair0.0.3a9; [accepted delivery](https://github.com/atulsrivas1/equity-features/issues/40#issuecomment-6007758004) records actual separate review and final publication gates. Formula definitions remain unchanged. [Daily API](../api/DAILY_VOLUME.md), [bucket API](../api/INTERVAL_VOLUME.md), [relative API](../api/RELATIVE_RETURNS.md), [breadth API](../api/DECLARED_BREADTH.md).
 Inputs are synthetic or caller-supplied in memory. Apply HISTORICAL_FORMULAS.md's
 governed session grid and EQ-006 admission policy. Prices are compatible positive
 scaled integers; volumes are nonnegative integers, summed in overflow-safe wide
