@@ -169,3 +169,5 @@ EQ053 optional0.1.0a5 adds [bounded acquisition evidence](api/DUCKDB_EVIDENCE.md
 
 
 EQ053 [receipt](stories/EQ-053_DELIVERY.md) binds correctedsource db5c509, optionala5/90cases/strict6/fouractualdownloadedforms/current20reports/verificationcosts and resolvedP2. Final receipt/publication/readback gates remain.
+
+EQ054 optional0.1.0a6 adds [actual installed SDK conformance](api/DUCKDB_CONFORMANCE.md): thirty actual DuckDB/Parquet outcomes and sixteen independent numerical/unit/status/source-binding assertions. The standalone public example requires site-packages imports for installed acceptance. Six adapter modules plus example are strictly typed; actual bothOS wheel/sdist builds retain conformance reports, expanding optional/Foundation native reports to24 while archives remain24. Corepaira4/consumer0.4.0/math/schema/runtimepins remain unchanged. Source checks are not installed delivery; final review, currentCI, fourfresh downloaded forms and actual publication/readback remain required. Private real numerical qualification stays separate under EQ055.

@@ -1,5 +1,14 @@
 # Experimental package changes
 
+## Optional DuckDB0.1.0a6 - EQ054 actual SDK qualification
+
+Thirty actual synthetic DuckDB/Parquet SDK outcomes, sixteen independent public
+trade/bar/history numerical/unit/status/source-binding checks and enforced installed
+imports. Standalone example and both native wheel/sdist conformance reports;92
+optional source tests and strict7 pass. Pure contracts/math/schema/runtimepins
+unchanged. Final review/installed/publication gates remain; private real numerical
+qualification is separate. [Guide](api/DUCKDB_CONFORMANCE.md).
+
 ## Optional DuckDB0.1.0a4 - EQ052 supplied governance
 
 Versioned caller-governed calendar definitions, explicit WindowSpec/anchor history

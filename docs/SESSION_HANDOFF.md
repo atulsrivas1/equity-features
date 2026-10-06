@@ -1468,3 +1468,14 @@ EQ053 corrected full90cases25.463s/strict6/boundary38negative10positive/imports/
 PR268 finale9ccd882 review6025684027 resolves P2review6025612285/noopenfindings/all10CI. Sourcedb5c509 exacttree/19actualpublicblobs/owner verified; main docs37533499716/Foundation37533499176/optional37533499164 allsuccess. Actual24archives/current20reports/harness/testsuite/nativeprobe/optionalRECORD pass; Foundationbytes equal accepted052. FOUR freshactualproducer/formWindows installs each90tests/strict6/64rowparity/verificationmetrics/core absent-forbidden/byteinvariance; nativeLinuxCI. [Receipt](stories/EQ-053_DELIVERY.md).
 
 Issue60 Ready to release until doc-only receipt separatefinalheadreview/allCI/guardedfinalmain/publicblob/owner/actualarchiveequality/currentreports/liveexpiry/Releasedpostreread. Runtime/tests/tools/packages/harness/workflow unchanged; reusefourforms onlywithfinalequality/currentreports. Then60Done and pull054 actualinstalledSDKagainstactualDuckDB synthetic fixtures;055realnumericalscope/goldensunfrozen/056R4planned.
+
+
+### EQ053 accepted / EQ054 concrete pull
+
+EQ053 finalmain185859dea55eb9890f05c54eeb778c41ec6a9733 sourcePR268review6025684027/receiptPR269review6025840016, allCI/exacttree/publicblobs/owner/24archive equality/current20reports/fourfresh90cases/Released6025925692/postread pass. Issue60 Closed/ProjectDone. P2cumulativebudgetrace resolved; older8ade checks excluded.
+
+Pull054only: [concrete plan](stories/EQ-054_PLAN.md) fixes standaloneactualDuckDB SDK thirtycases/independent trade-bar-historygoldens/installedpublicimports/currentbothformsconformancereports. Optionala6/corea4 unchangedmath/sourceisolation/runtimepins. Publishplanbeforecode; then Ready/Inprogress/draftPR.055private realnumericalscope/goldensunfrozen/056R4planned.
+
+EQ054 precodebedb9a3/draftPR270 issue61 Inprogress. Standalone actualDuckDB SDK30cases/16independent trade-bar-history numeric-unit-quality-sourcebinding checks; optionala6 stamp only, purecore/runtimepins unchanged. Two added methods/full92tests29.634sPASS/strict7/boundary38negative10positive/importsPASS. Earlier fixture defaultprior_only, malformedconstructor/legalsourcecoverage expectation and auxiliarygrid unit checks corrected, failedruns excluded (EF-L031). Sourcecoverage may exceed deliveredsubset; actual rejection now cross-chunk inconsistency. Current CLI source-only accurately marks editable imports, no installed acceptance. Same-story API/install/build/compat/changelog/strategy/knowledge documented.
+
+Next freeze source/push/PR270 CodeReview, cleanrepeatbuild92/strict6+example1/30SDK16goldens and separate final-head reviewer/current10CI. Guarded source merge, actual24archives/current24reports/fourfreshsourceproducerforms, reviewed same-story receipt/finalarchive equality/harness/report/currentchannel/publication/Releasedpostread before61Done. EQ055 freeze private representative scope/independentgoldens before its execution;056 boundedR4 thenSTOP.

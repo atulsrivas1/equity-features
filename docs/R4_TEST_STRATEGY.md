@@ -82,3 +82,7 @@ The owner explicitly authorized separate local Codex reviewers for R4 and its
 handoff on October6 because hosted GitHub Codex review is not working. Require
 actual final-head review and findings disposition alongside the existing gates.
 This is local automated review, not hosted activation or human review.
+
+## EQ054 concrete synthetic implementation
+
+[Executable guide](api/DUCKDB_CONFORMANCE.md) maps thirty actual DuckDB/Parquet SDK cases and sixteen independently expected trade/bar/history values, units, status and source bindings. Unknown/later knowledge stays unavailable; quote requests retain trade_snapshot, route selection stays explicit, and source coverage differs from delivered subset.92 optional source cases and strict7 pass. Each actual installed wheel/sdist qualification must enforce site-packages imports and retain current conformance source/harness/producer/archive facts. Native total reports become24/archives24; fourfresh delivered forms and reviewed actualmain/readback remain beforeDone. EQ055 private scope/goldens remain unfrozen; these source checks do not satisfy its separate gate.
