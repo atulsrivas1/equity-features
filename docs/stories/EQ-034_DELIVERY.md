@@ -58,3 +58,10 @@ identical bytes. Then pull refined EQ035; R3paused.
 | Windows | equity_feature_contracts-0.0.3a7.tar.gz | `7dcc5d621cfde24a9ddd5eaf469cb7217625c0a5267350cbc555e8c255357b76` |
 | Windows | equity_features-0.0.3a7-py3-none-any.whl | `cb65d7d03b2dbebe21fac82bc5af45502996c09d7e196a4688447c1123655f90` |
 | Windows | equity_features-0.0.3a7.tar.gz | `f11ab9a6e5292aacfef58928e31c917c1d450e669980a9dc56a0021717f9c9b6` |
+
+## Attribution-history rewrite requalification
+
+During receipt publication, remote main was force-rewritten to `97133497915bf6bb0b96b31f13122ec230f8b9bf` with owner attribution; the entire published tree is byte-identical to qualified source14ea194. The first receipt PR creation failed with no common ancestor; old receipt branch/commit0e83c85 retained, then cherry-picked onto current main without changing or force-pushing it. Current main [docs37396055254](https://github.com/atulsrivas1/equity-features/actions/runs/37396055254) and [Foundation37396055304](https://github.com/atulsrivas1/equity-features/actions/runs/37396055304) bothOS pass. Both actual current bundles were downloaded and commit/source_dirty=false/epoch/hashes/contents/license/typing verified; all four archives per OS equal original qualified installed bytes. The FOUR completed539test/nineteenexample Windows installations above are reused strictly for identical archives. This does not claim fresh execution on changed bytes or independent review. Final receipt publication gates remain.
+
+- [foundation-97133497915bf6bb0b96b31f13122ec230f8b9bf-windows-latest](https://github.com/atulsrivas1/equity-features/actions/runs/37396055304/artifacts/11383048722); expires `2026-11-05T00:51:39Z`; four archives identical to the same OS hashes above.
+- [foundation-97133497915bf6bb0b96b31f13122ec230f8b9bf-ubuntu-24.04](https://github.com/atulsrivas1/equity-features/actions/runs/37396055304/artifacts/11383038601); expires `2026-11-05T00:51:24Z`; four archives identical to the same OS hashes above.
