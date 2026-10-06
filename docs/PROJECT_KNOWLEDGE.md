@@ -29,7 +29,7 @@ On October 5 the owner restored **R2 before R3 feature work**. The repair sessio
 
 [R0 acceptance](R0_ACCEPTANCE.md) and [R1 acceptance](R1_ACCEPTANCE.md) remain versioned historical receipts. The later [R1 review](reviews/R1_REVIEW.md) found two further defects despite extensive tests. Current repair status is linked, not inferred from the old acceptance report. [BUG-003](https://github.com/atulsrivas1/equity-features/issues/162), [BUG-004](https://github.com/atulsrivas1/equity-features/issues/163).
 
-External application architecture remains outside this project. EQ-094 was withdrawn and its ID remains reserved. Custom features/adapter conformance remain agreed scope under EQ-093/EQ-095; no application-specific integration is required. GOV-005/PR120 reviewer activation remains deferred unless the owner resumes it.
+External application architecture remains outside this project. EQ-094 was withdrawn and its ID remains reserved. Custom features/adapter conformance remain agreed scope under EQ-093/EQ-095; no application-specific integration is required. The October5 owner direction resumed the separate final-head Codex review gate; hosted activation remains unverified under GOV-005. The owner authorized a separate local Codex reviewer for EQ035; see [review policy](CODE_REVIEW.md) for the bounded alternative and evidence requirements.
 
 ## How learning persists
 
