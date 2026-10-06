@@ -4,17 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "equity-features"
-version = "0.0.3a8"
+version = "0.0.3a9"
 description = "Experimental source-independent session/history calculations and supplied policies"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{name = "Equity Features contributors"}]
-dependencies = ["equity-feature-contracts==0.0.3a8"]
+dependencies = ["equity-feature-contracts==0.0.3a9"]
 
 [project.optional-dependencies]
-columnar = ["equity-feature-contracts[columnar]==0.0.3a8"]
+columnar = ["equity-feature-contracts[columnar]==0.0.3a9"]
 
 [project.urls]
 Repository = "https://github.com/atulsrivas1/equity-features"
