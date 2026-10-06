@@ -1170,3 +1170,6 @@ EQ095 initialprecode e0fc2e3 replaced an existingpreparedplan instead ofappendin
 ### EQ095 implementation / admission correction
 
 Consumer0.4.0 combinedpublicqualification43cases(13positive/23contract/7source), adapter10finiteconformancecases, independent5/100vs5/103 goldens/currentmetadata/unknownavailability/modes/limits/cancel/builtin invariance. Initialzeroexpectation corrected to canonical invalid_schema; zerovolumenullfirstrow uses nextpricebearingopen, unavailablefixtureusesunknownknown_at bothrows. Two externaldriver tests includingwrong0.06callback; excludeexternaldriverfromfixed619/593puritycohort. Builder runs actual installedqualificationnestedconsumerreceipt plus publictyping/corefingerprintguards. Corea4/mathv2/schema/modes unchanged; existing047inventory/041042measurements remain historical0.3. Next freeze/sourcefinalreview/fullbuildTWOpairs/bothOSCI/sourcepublication/FOURactualsourcepairs/reviewedreceipt/finalpublication beforeDone; then048wholeR3.
+
+
+EQ095 initial86a8eaa review6021866873 P3 corrected plan fullCI typingcount48to49; narrower localcommand omitted standaloneadapter caller. InitialexactheadTWO633freshpairs/sixrepeatarchives/allSIXCI pass but finaldocumentationhead requires separate re-review and exactcleanreportqualification. No runtimefinding/corechange; historical48counts preserved.
