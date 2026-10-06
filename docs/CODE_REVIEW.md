@@ -33,3 +33,14 @@ Owner decision (2026-10-04): defer Codex integration setup and continue EQ stori
 The owner requested the same attribution correction and separate Codex reviewer workflow as strategy-research. This supersedes the October 4 deferral above. PR120 was merged; it is historical guidance, not evidence of hosted activation. Future PRs require an actual completed Codex review covering the final head and findings disposition before merge/Done. Keep GOV-005 in Code review while activation or the first review is missing. Existing CI, numerical acceptance and publication checks remain required.
 
 See [history correction](decisions/OWNER_ATTRIBUTION_CORRECTION.md). Rebase outstanding work onto corrected main; do not merge the old ancestry back or overwrite other work. Original receipts retain their original SHAs as provenance.
+
+## EQ035 authorized alternative — October 5, 2026
+
+The owner explicitly authorized a separate local Codex reviewer for EQ035 while
+hosted activation is unverified. This satisfies the alternative-review decision
+above; it does not claim hosted activation or human review. A separate local
+review agent must inspect the corrected breadth implementation and final PR220
+head, record findings and their disposition, and identify its coverage and
+limitations before merge or Done. Author self-review, a review request or CI
+alone remains insufficient. GOV005 stays open for hosted activation; this
+bounded decision does not waive numerical, documentation or publication gates.
