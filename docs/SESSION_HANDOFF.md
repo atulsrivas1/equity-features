@@ -1223,3 +1223,16 @@ need caller receipt binding; no private paths/rows are published. Next publish t
 pre-code draft, implement resolver and independent synthetic checks, then required
 separate final-head review, bothOS CI, actual clean artifacts and release readback.
 EQ050–056 remain planned. Stop at accepted R4; no R5/provider/registry/source changes.
+
+
+### EQ049 initial resolver implementation
+
+Optional resolver0.1.0a1 pins DuckDB1.5.6 outside unchanged core. Initial23 actual
+synthetic catalog tests pass; strict2 files pass after removal of a redundant cast.
+Unknown hashes/admission/known-at remain explicit; missing versus declared-empty
+and substitutions are preserved. Route conflicts fail instead of hiding partitions.
+Repeat artifact/installed resolver+typing/core-invariance builder and optional bothOS
+CI are added; still require executed clean checks, independent final-head review,
+actual main publication/artifact installs/readback before issue56 Done. GOV013 is
+now live Closed/Done; source handoff branch preserved. Other seven stories remain
+planned; next after accepted049 is050 mapping. No canonical row delivery yet.

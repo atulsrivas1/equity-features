@@ -1,5 +1,15 @@
 # Experimental package changes
 
+## Optional DuckDB0.1.0a1 — EQ049 source resolution
+
+Explicit bounded curated/prepared snapshot/dataset/partition selection, original/
+optimized receipt pins, schema/substitution/admission evidence, missing versus
+catalog-declared-empty, safe errors/cancellation/hash limits. Separate optional
+package and bothOS installed artifact qualification; pure corepaira4 remains
+unchanged. Initial source tests23/strict2 pass; final review/delivery pending.
+No row mapping/acquisition or R4 conformance/real-data acceptance yet. [API](api/DUCKDB_RESOLVER.md).
+
+
 ## EQ048 bounded package acceptance record — versions unchanged
 
 [R3 evidence](R3_ACCEPTANCE.md) maps all50R0–R3stories, acceptedrepairs/priorrelease receipts, current633units/strict49/math123, installeda4/consumer0.4qualification/43outcomes and measuredbenchmark/resource/integrity limits. No runtime/math/schema/mode/dependency/channel change. Exactfinalreview/publication/Releasedverification and54/E06/milestone4closure recorded in liveGitHub.

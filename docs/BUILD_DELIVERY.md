@@ -121,3 +121,18 @@ EQ095 adds consumer0.4.0 [combined installed qualification](EXTERNAL_QUALIFICATI
 
 
 EQ048 [finalR0–R3 acceptance](R3_ACCEPTANCE.md) maps original receipts, current633unit/strict49/reference/purity/installedconsumer evidence and actualqualified corepaira4/consumer0.4.0 bundles. Its docs-only sources equal095 FOURqualifiedpairs; one reviewedPR/currentbothOSCI/actualfinalarchiveequality/currentreportprovenance/Releasedreadback suffice under PUBLIC_DEVELOPMENT, no newpublicationchannel. Final issue54 records actualSHA/runs/digests/expiry; finiteActionsretention remains explicit.
+
+
+## Optional DuckDB artifact channel
+
+EQ049 tools/build_duckdb.py builds matching unchanged core and optional adapter
+wheel/sdist archives twice, normalizes sdists at the existing epoch and requires
+byte equality/namespace-license-typing/private-path inspection. Each form is
+installed in a separate fresh environment outside source: core without DuckDB,
+then pinned DuckDB and actual adapter archive, public resolver tests, installed
+strict typing and core import/registry with DuckDB forbidden. Actual installed core
+module/distribution-metadata bytes must match before/after adapter install/execution.
+The optional bothOS workflow retains dist/duckdb under duckdb-<commit>-<OS> for
+requested30days. Successful main run, actual download/hash/report inspection and
+fresh published-artifact installations precede Released/Done. Source builds/PR
+artifacts are review evidence only; core Foundation workflow remains independent.
