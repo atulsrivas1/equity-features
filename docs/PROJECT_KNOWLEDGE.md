@@ -168,3 +168,5 @@ EQ053 final185859d acceptedDone after corrected cumulative-budget regression, se
 EQ054 source6180247 is reviewed/qualified92cases/strict7/current24archives24reports/fouractualdownloadedforms/30SDK16numeric. [Receipt](stories/EQ-054_DELIVERY.md). Final same-story review/publication/readback remain; EQ055private scope/goldensunfrozen/056R4open.
 
 EQ054 final7f0ff33 acceptedDone after separate reviews6026129744/6026286443, allCI/24archive equality/current24reports/fourfresh92testforms/30SDK16numeric/Released6026406579/postread. EQ055 concrete private scope/independent goldens frozen before execution; [plan](stories/EQ-055_PLAN.md). No real numerical result yet;056R4 open.
+
+EQ055 source rework to optionala7 addresses actual original-minute Python timestamp callback cost while preserving strict ASCII UTCns integer semantics and purecore.94source cases/strict7/native int64 endpoint/invalid fixtures pass. [Methodology](api/DUCKDB_REAL_QUALIFICATION.md); EF-L032 distinguishes diagnostic partial runs from performance/acceptance. Private scope/goldens unchanged; installed real/finalreview/CI/delivery remain.

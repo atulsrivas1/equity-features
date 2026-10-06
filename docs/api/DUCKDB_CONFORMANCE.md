@@ -87,3 +87,5 @@ and [measured read](DUCKDB_READER.md) limitations remain. EQ055 must separately 
 and qualify actual private numerical scope. Final source/receipt reviews, currentCI,
 four fresh downloaded-form installations, actualmain artifact/report/publication
 and Releasedpostread gates precede EQ054 Done; EQ056 requires both testing layers.
+
+EQ055 experimentala7 uses native strict ASCII UTCns SQL arithmetic, retaining Python mapping/parser parity and actual receipt adapter stamp. No row-callback SQL timestamp parsing, float epochs or TIMESTAMP_NS sentinel conversion. Integer UTCns/standard retained formats and purecore/math/runtimepins are unchanged; Unicode-digit clock/fraction input is rejected consistently. [Private qualification methodology](DUCKDB_REAL_QUALIFICATION.md) separates native/source checks from pending actual installed real-data acceptance and current delivery gates.

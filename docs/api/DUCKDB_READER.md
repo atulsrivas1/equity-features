@@ -115,3 +115,5 @@ Observed local installed costs and limits: [measurement record](../benchmarks/EQ
 
 
 EQ053 a5 supersedes the earlier pending-stability boundary above with mandatory bounded catalog/original pre/post observations and optional supplied optimized pins. ReadConfig.verification controls cumulative budgets/strict original pins; ReadResult.receipt and ReadMetrics.verification_ns/verification_hash_bytes retain evidence/cost. Source prefix original-read2 and observed content occurrence tokens replace a3/a4 identities. [Evidence API](DUCKDB_EVIDENCE.md) defines observed versus pinned/non-atomic/provider/PIT/privacy limits.
+
+EQ055 experimentala7 uses native strict ASCII UTCns SQL arithmetic, retaining Python mapping/parser parity and actual receipt adapter stamp. No row-callback SQL timestamp parsing, float epochs or TIMESTAMP_NS sentinel conversion. Integer UTCns/standard retained formats and purecore/math/runtimepins are unchanged; Unicode-digit clock/fraction input is rejected consistently. [Private qualification methodology](DUCKDB_REAL_QUALIFICATION.md) separates native/source checks from pending actual installed real-data acceptance and current delivery gates.

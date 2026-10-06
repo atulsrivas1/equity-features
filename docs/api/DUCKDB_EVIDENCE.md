@@ -109,3 +109,5 @@ public fixtures or package artifacts. Public examples use synthetic files. This 
 optional acquisition evidence for future EQ103 reuse, not a new pure calculation
 execution receipt or provider certificate. Actual installed synthetic conformance,
 private numerical integration and final R4 acceptance remain separate stories.
+
+EQ055 experimentala7 uses native strict ASCII UTCns SQL arithmetic, retaining Python mapping/parser parity and actual receipt adapter stamp. No row-callback SQL timestamp parsing, float epochs or TIMESTAMP_NS sentinel conversion. Integer UTCns/standard retained formats and purecore/math/runtimepins are unchanged; Unicode-digit clock/fraction input is rejected consistently. [Private qualification methodology](DUCKDB_REAL_QUALIFICATION.md) separates native/source checks from pending actual installed real-data acceptance and current delivery gates.

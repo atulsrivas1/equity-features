@@ -25,7 +25,7 @@ def parse_utc_ns(value: object) -> int:
         return value
     if type(value) is not str:
         _fail("Exact UTC timestamp required")
-    match = re.fullmatch(r"(\d{4}-\d{2}-\d{2})[T ](\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,9}))?(?:Z|\+00:00)", value)
+    match = re.fullmatch(r"([0-9]{4}-[0-9]{2}-[0-9]{2})[T ]([0-9]{2}):([0-9]{2}):([0-9]{2})(?:\.([0-9]{1,9}))?(?:Z|\+00:00)", value)
     if match is None:
         _fail("Exact UTC timestamp required")
     try:
