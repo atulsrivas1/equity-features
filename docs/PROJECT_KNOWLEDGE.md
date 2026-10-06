@@ -48,3 +48,13 @@ The import screened relevant active/archived development chats and inspected rep
 ## Deferred evidence service pilot
 
 [E17/R13](EVIDENCE_SERVICE_PILOT.md) adds EQ-116–120 as low-priority Backlog. Reuse existing R9–R11 packages to measure debugging/replay usefulness before optional independent checkpoint witnesses. No blockchain, new repository, outreach or deployment authorized. Current core work retains priority.
+
+## Accepted bounded R2 exit — 2026-10-05
+
+All twelve R2 stories EQ027–038 are closed/Project Done; E05 and milestone3 are closed.
+[Acceptance](R2_ACCEPTANCE.md) and [final integration receipt](stories/EQ-037_DELIVERY.md)
+bind actual pair0.0.3a13, independent numerical/review evidence, bothOSCI and verified
+installed artifacts. The supported inventory is39batch/23sessionupdate-restore/22conditionalmerge;
+all16R2IDs remain batch-only. R3 is paused; next work requires a later owner pull decision.
+119activeEQstories:38Done/81futureBacklog, retired094excluded. No hosted reviewer activation,
+registry publication, provider readiness or performance claim is implied.

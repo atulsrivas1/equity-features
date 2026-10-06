@@ -2,9 +2,9 @@
 
 EQ037 [issue42](https://github.com/atulsrivas1/equity-features/issues/42),
 [plan](stories/EQ-037_PLAN.md), [PR234](https://github.com/atulsrivas1/equity-features/pull/234).
-Final acceptance is pending final receipt publication and final archive byte equality.
-The corrected source and published main have completed their review/build/CI gates;
-this qualification document does not by itself close R2.
+Final acceptance is verified: all twelve R2 stories are closed/Project Done; E05 and
+milestone3 are closed. Corrected experimental pair0.0.3a13 is delivered through the
+qualified retained CI artifacts. R3 remains paused.
 
 ## Mathematical and capability coverage
 
@@ -69,7 +69,7 @@ The reviewer independently passed588units/123references and extra source-row che
 archive/installation/CI gates are separate root evidence, not reviewer execution.
 Old stories retain original review provenance. Hosted activation remains unverified.
 
-## Required acceptance gates
+## Required acceptance gates (completed; original qualification checklist)
 
 Full unit/reference/typing/boundary/import/registry/compatibility/license/documentation
 checks; six exact-head CI checks; repeated four archives and both fresh local pairs;
@@ -103,3 +103,12 @@ bothOS passed. Both actual bundles and FOURfreshinstalledWindows wheel/sdistpair
 [EQ037 receipt](stories/EQ-037_DELIVERY.md) records all8perOSarchivehashes, IDs and expiry.
 Final receipt separate review/head/mainCI and actual archive byte equality remain before
 issue42Done and all12R2/E05/milestoneclosure.
+
+## Final accepted publication and bounded exit
+
+EQ037 final R2 integration accepted: four producer discovery corrections and registry-driven composition at pair0.0.3a13; unchanged formulas/input/result/state/algorithm schemas and39batch/23sessionupdate-restore/22conditionalmerge. All16R2IDs batch-only, unsupported state modes reject. Independent whole-result future/target exclusion, eight exact history goldens, missing-prefix versus finite-window recovery, producer metadata/capability parity; supported repaired session replay fixtures pass.588units/123references/strict53/purity38negative10positive/import/registry/compatibility/license/docs119active/eightstages pass. Source PR234 final head reviewed all16kernels, SIXchecks/repeatedarchives/BOTHfreshpairs; guarded source maina171467ed81e9b2f212755411d5a4a004e89a00d bothOSCI and actualBOTHbundles/FOURfreshWindowswheel-sdistpairs each588tests/22examples. Final receipt PR235/heada9050b5045d7a2be1c8989afd76c4ba5f1602bd9, completed separate local review https://github.com/atulsrivas1/equity-features/pull/235#issuecomment-6008756999, SIXchecks and guardedmaina6361a663bb02905b932f4d5a79250da97adb8cf exacttree, docs37409442685/Foundation37409442677bothOSsuccess; actualfinalBOTHmanifests exactcommit/source_dirty=false/epoch/archivehash-content/license/typing andall8perOSarchivehashes equal installed source-main pairs. No unresolved actionable findings. Receipt docs/stories/EQ-037_DELIVERY.md and docs/R2_ACCEPTANCE.md. Local automated review is not hosted/human; nativeLinux execution isCI. No stable/PyPI/tag/provider/sourceauth/performance claim. Next verify all12R2issuesClosed/ProjectDone before E05/milestone3 closure. R3paused.
+
+Verified all12R2children EQ027–038 closed/ProjectDone and acceptance checklists complete, with individual linked delivery receipts. Accepted prerequisite BUG003#162/BUG004#163/GOV010#167 are closed/ProjectDone. Final0.0.3a13 integration/causality/metadata/proof correction reviewed by separate local Codex at actual frozen head,588units/123references/strict53/purity/source/docs, allhead/mainCI/actualBOTHbundles/FOURfreshinstalledpairs/finalreceiptbyteequality accepted underissue42. R2_ACCEPTANCE.md and EQ-037_DELIVERY.md retain actualsource/artifact/reviewlimits. Declared experimentalCIchannel only, no stable/PyPI/tag/provider/performance/sourceauth claim. Overall119activeEQstories:38Done/81futureBacklog, retired094excluded. BoundedR2exit; R3paused. No laterreleaseimplementation or recurringworker created.
+
+The prior qualification paragraphs retain the stage at which their evidence was recorded.
+The actual issue/Project acceptance and closed milestone supersede their pending-status text.
