@@ -43,7 +43,9 @@ in currency/10^price_scale; the bound PriceUnit supplies currency and scale. Exa
 Python integer products/sums precede Fraction to float64 conversion for VWAP and
 mean_size, with rtol/atol1e-12. No int64 wrapping or price rounding. Overflow is a
 typed failure, not a null/zero result. This checked backend materializes column/index
-tuples proportional to batch size; it has no measured throughput or zero-copy claim.
+tuples proportional to batch size; it has no zero-copy or universal throughput guarantee.
+The [seeded checked-backend benchmark](../BENCHMARKS.md) records representative
+aggregate/topK/stream observations and exact measured workload limits.
 
 Initial0.0.2a2 added five trade batch flags; current R1 inventory is23 batch/update/restore and22 conditional merge.
 TopK and quotes are delivered through their separate family APIs. SessionAccumulator qualifies update/restore and conditional legal merge for trade IDs; custom/R2 execution remains unsupported. See [incremental modes](INCREMENTAL.md).

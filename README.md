@@ -12,7 +12,7 @@ All twelve R2 stories are closed/Project Done; the R2 milestone and E05 are clos
 record supported modes and review/installation limits.
 [R2 acceptance evidence](docs/R2_ACCEPTANCE.md), [R1 acceptance and limits](docs/R1_ACCEPTANCE.md),
 and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the declared
-channel. No stable API, public registry publication or throughput claim.**
+channel. No stable API, public registry publication or universal throughput guarantee.**
 
 [Development installation and package ownership](docs/PACKAGE_LAYOUT.md).
 [Current public API and typed callers](docs/api/PUBLIC_API.md),

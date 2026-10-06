@@ -80,7 +80,9 @@ limits. No unbounded Fraction denominator or averages-of-averages reduction.
 Retained state scales with configured K/N/window count and supplied fixed ID/config
 sizes, not ingested row/chunk history. Atomic copies temporarily hold two bounded
 states; immutable results are caller-owned. Canonical chunk admission and optional
-Arrow copies scale with supplied chunks. No measured throughput claim. The Source
+Arrow copies scale with supplied chunks. [Representative checked trade streaming
+measurements](../BENCHMARKS.md) include materialized chunk costs separately and give
+no universal throughput guarantee. The Source
 boundary guard remains development policy, not a runtime sandbox. [Example](../../examples/session_incremental.py).
 
 ## EQ024 state export and restore
