@@ -1266,3 +1266,22 @@ qualified source forms; no redundant numerical/freshbuild claims. Then issue56Do
 pull050 mapping under concrete plan; other seven stories remain planned. Private
 metadata probes and EQ050 clock/precision preparation live outside public evidence.
 OHLCV daily is UTC-based, not silentlyRTH; docs/private prep retain the constraint.
+
+
+### EQ049 accepted / EQ050 concrete pull
+
+EQ049 issue56 Closed/ProjectDone after Released6023934185 and actual postrelease
+readback. Source43e003c/PR260 and receipt6b57b641/PR261 are separately final-head
+reviewed (6023607431/6023821849); allCI and exacttree/publicblobs/owner verified.
+Finalmain docs37519102307/Foundation37519102324/optional37519102259 succeed; all24
+actual archives match qualifiedsource and16 current reports/four live channels
+read back. Four actual sourceforms installed locallyWindows,27tests/typing/core
+invariance each; nativeLinux execution is CI. Metadata resolver only, no numerical
+R4 acceptance. [Issue evidence](https://github.com/atulsrivas1/equity-features/issues/56).
+
+Next dependency-ready EQ050#57: concrete mapping plan published before code. Reuse
+accepted quantize_float_prices with explicit interpretation/rounding; UTCns exact
+parser, supplied identity/session/eligibility, trade-snapshot TBBO, minute/UTCdaily
+source interval semantics. Preserve null/missing/zero/known-at unknown and pure
+core. Implement/tests/docs, separate final-head review and actual installed bothOS
+artifacts/readback before Done. EQ051–056 remain planned; no real golden frozen.
