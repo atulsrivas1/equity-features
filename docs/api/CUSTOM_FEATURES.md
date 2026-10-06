@@ -1,6 +1,6 @@
 # Trusted local custom batch features
 
-EQ093 adds `equity_features.custom`: CustomDefinition, CustomInput, CustomRequest, BatchCalculator, CustomRegistration and CustomRegistry. Experimental pair0.0.4a3; built-in discovery/39 equations are unchanged. Implementation is pending final review and delivered artifact acceptance; the PR/issue records current status.
+EQ093 adds `equity_features.custom`: CustomDefinition, CustomInput, CustomRequest, BatchCalculator, CustomRegistration and CustomRegistry. Experimental pair0.0.4a3; built-in discovery/39 equations are unchanged. Corrected implementation and actual main artifacts are qualified; [delivery receipt](../stories/EQ-093_DELIVERY.md) and issue113 record final publication/acceptance status.
 
 A CustomDefinition wraps existing schema1 FeatureDefinition metadata with an implementation ID/version, a configuration rule, primitive parameter types and actual batch-only capabilities. Its inner FeatureDefinition has all execution flags false: the built-in catalog does not certify caller code. Register by `CustomRegistry("demo").register(definition, calculator)`; registration returns a new immutable registry. Namespaced IDs, duplicates and built-in collisions follow existing Registry rules. `list_features()` and `get(id)` discover explicit custom registrations. Built-in functions remain their existing APIs.
 

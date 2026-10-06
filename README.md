@@ -2,10 +2,13 @@
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
-**Status: R2 experimental pair 0.0.3a13 is accepted.
+**Status: experimental pair 0.0.4a3 has qualified scoped trusted custom batch extensions.
+R2 remains accepted under its original0.0.3a13 receipt.
 All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
 conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
-All twelve R2 stories are closed/Project Done; the R2 milestone and E05 are closed. R3 remains paused.
+All twelve R2 stories are closed/Project Done; the R2 milestone and E05 are closed. R3 has resumed; EQ093 final receipt publication is completing.
+[Custom API](docs/api/CUSTOM_FEATURES.md) and [delivery evidence](docs/stories/EQ-093_DELIVERY.md)
+record supported modes and review/installation limits.
 [R2 acceptance evidence](docs/R2_ACCEPTANCE.md), [R1 acceptance and limits](docs/R1_ACCEPTANCE.md),
 and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the declared
 channel. No stable API, public registry publication or throughput claim.**

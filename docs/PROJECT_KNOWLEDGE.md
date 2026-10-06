@@ -66,3 +66,6 @@ Owner resumes bounded R3 autonomously after accepted R2 and both Done repairs. E
 
 
 October6 owner authorizes the separate local Codex reviewer alternative throughout bounded R3. The earlier pending-choice block is superseded; retain final-head review and all acceptance/publication gates. [Policy](CODE_REVIEW.md).
+
+
+EQ093 corrected0.0.4a3 source/main/actualbothOSbundles are qualified after separate final-head review,605tests and FOUR fresh installed pairs with independent public consumer. [Delivery](stories/EQ-093_DELIVERY.md). Final receipt publication/byte-equality gates remain before Done; EQ043 is next. Built-in39 and actual session modes unchanged; no full R3 release acceptance or stable/custom-code certification claim.

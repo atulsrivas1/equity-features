@@ -1027,3 +1027,8 @@ EQ093 separate review at1d7de22 reproduced one P2: shallow result reconstruction
 
 
 Corrective review atc538284 confirmed original failures rejected but reproduced remaining P2: callback can mutate shared requested EntityKey fromAtoB and return originally aliased result accepted asB. Pair0.0.4a3 captures pre-callback owned entity; preserve exact regression, rerun changed gates and request final-head review. a2 qualification superseded before acceptance; no accepted release exists for a1/a2.
+
+
+### EQ093 actual main qualification
+
+Corrected7971c7d/a3 completed separate final-head /root/r3_reviewer review (PR237comment6017664006),605units/17custom/123refs/strict44/all policies/TWO local installed pairs/all SIXheadchecks; guardedmainbccb3a5 exacttree and23publishedblobs verified. Main docs37473848638/Foundation37473848542bothOS success. ActualBOTHbundles clean exactmanifests/epoch/all8archive hashes-content-license-typing and FOUR fresh local installed pairs each605tests/22examples plus separately installed consumer/public imports/site-packages/core-byte invariance passed. [Receipt](stories/EQ-093_DELIVERY.md). No hosted/human/financial/custom-code purity claim. Receipt branch codex/eq-093-delivery-receipt now needs separate final-head review, CI, guarded main publication and actual bundle byte-equality before story113Done/E03closure. Then pull EQ043 SDK; other11R3stories unstarted.
