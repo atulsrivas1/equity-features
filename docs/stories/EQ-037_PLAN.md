@@ -67,3 +67,7 @@ Verify all12R2stories actualClosed/ProjectDone and acceptance gates before closi
 E05/milestone3. Record actual closure/remaining roadmap in tracked continuity and
 verify final publication. Stop after genuine bounded R2exit. R3remains paused;
 no new worker/schedule/reminder or later-release implementation.
+
+## Prerequisite acceptance before implementation
+
+EQ038actualDone [acceptance6008533667](https://github.com/atulsrivas1/equity-features/issues/43#issuecomment-6008533667): finalreceiptPR233/head450de8e separatelyreviewed6008486454, SIXchecks, mainb370f88ed3b0e7e2e3410934afff6de9e4dd311d exacttree, docs37407430936/Foundation37407430924 bothOS andactualBOTHbundles all8perOSarchivehashes equalFOURfresh583test/22examplepairs. Pre-code037plan71b1441 separatelyreviewed no blockers; transplanted onto actualmain asf2940a1 without content change. All prerequisites now satisfied. Pull42Ready/Inprogress after this public addendum; no source yet.
