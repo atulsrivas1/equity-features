@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## EQ041 external benchmark harness — corepair unchanged
+
+Seeded small/large/skewed trade aggregates, bounded topK, two chunk sizes and governed SMA/EMA/return calls verify independent arithmetic/parity before timing. Isolated installed children record native process lifetime peaks, conversion/ownership facts, min/median/max and hardware/backend/requested thread provenance. Meaningful negative result admission and deterministic fixture tests added; fresh pair installs execute a small benchmark smoke whose variable JSON is separate from corearchive digests. [Methodology](BENCHMARKS.md). Corepair0.0.4a4/consumer0.3.0/equations/schemas/modes unchanged; measured baseline, separate review and actual delivery gates remain pending.
+
 ## External consumer 0.3.0 — EQ040 installed workflows
 
 Separately packaged public-API walkthrough verifies supplied batch and streaming session results, governed historical returns, composition with absent components, and existing custom/adapter integration. Independent goldens, missing quality, prefix immutability and batch/stream parity execute from isolated installed wheel/sdist pairs. All22 existing examples have a current [catalog](EXAMPLES.md). Corepair0.0.4a4, formulas, schemas and modes are unchanged. Separate final-head source review and bothOS CI pass; actual-main receipt qualification remains required before Done.

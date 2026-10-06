@@ -1,0 +1,575 @@
+{
+  "cases": [
+    {
+      "aggregate": {
+        "max_ns": 1180500,
+        "median_ns": 1142800,
+        "min_ns": 1134500,
+        "rows_per_second": 112005.600280014,
+        "samples_ns": [
+          1134500,
+          1180500,
+          1142800
+        ]
+      },
+      "copies": {
+        "arrow_visible_buffer_bytes": 7330,
+        "from_arrow": {
+          "max_ns": 1457600,
+          "median_ns": 1408400,
+          "min_ns": 1385900,
+          "rows_per_second": 90883.27179778472,
+          "samples_ns": [
+            1457600,
+            1408400,
+            1385900
+          ]
+        },
+        "from_numpy": {
+          "max_ns": 469100,
+          "median_ns": 446100,
+          "min_ns": 440600,
+          "rows_per_second": 286931.1813494732,
+          "samples_ns": [
+            469100,
+            446100,
+            440600
+          ]
+        },
+        "mutation_isolation_pass": true,
+        "numpy_arrays_and_masks_bytes": 9472,
+        "numpy_owned_array_count": 18,
+        "to_arrow": {
+          "max_ns": 389100,
+          "median_ns": 279500,
+          "min_ns": 260400,
+          "rows_per_second": 457960.6440071556,
+          "samples_ns": [
+            389100,
+            279500,
+            260400
+          ]
+        },
+        "to_numpy": {
+          "max_ns": 262000,
+          "median_ns": 259500,
+          "min_ns": 222700,
+          "rows_per_second": 493256.2620423892,
+          "samples_ns": [
+            259500,
+            262000,
+            222700
+          ]
+        }
+      },
+      "fixture_construction_ns": 783300,
+      "fixture_sha256": "fc9a4b2a65fa6492e33274d19c6525ecec9346447fa0af7ce7f68a336e8cb16b",
+      "golden": {
+        "session.trade.count": 128,
+        "session.trade.mean_size": 50.3828125,
+        "session.trade.notional": 969006,
+        "session.trade.volume": 6449,
+        "session.trade.vwap": 150.256783997519
+      },
+      "history": {
+        "anchor": "S0",
+        "fixture_sha256": "f8d29d6bd33f044552f04cef68e000a52da67a0a810b7f79f6f08fb767e45c86",
+        "independent_golden": [
+          152.5,
+          152.77277342061558
+        ],
+        "period": 20,
+        "return_golden": -0.20394736842105263,
+        "return_period": 19,
+        "return_timing": {
+          "max_ns": 2090900,
+          "median_ns": 2088300,
+          "min_ns": 2087700,
+          "rows_per_second": 61293.87540104391,
+          "samples_ns": [
+            2088300,
+            2090900,
+            2087700
+          ]
+        },
+        "rows": 128,
+        "timing": {
+          "max_ns": 2401300,
+          "median_ns": 2387100,
+          "min_ns": 2373400,
+          "rows_per_second": 53621.5491600687,
+          "samples_ns": [
+            2387100,
+            2401300,
+            2373400
+          ]
+        }
+      },
+      "k": 8,
+      "native_peak": {
+        "after_trade_fixture_bytes": 44355584,
+        "end_bytes": 52207616,
+        "initial_bytes": 44343296,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "scope": "whole child process lifetime including inputs/imports/reference/conversions/results"
+      },
+      "parity_before_timing": true,
+      "rows": 128,
+      "runtime": {
+        "arrow_cpu_count": 1,
+        "arrow_io_thread_count": 1,
+        "clock": "QueryPerformanceCounter()",
+        "clock_resolution_seconds": 1e-07,
+        "contracts": "0.0.4a4",
+        "cpu": "Intel64 Family 6 Model 85 Stepping 4, GenuineIntel",
+        "features": "0.0.4a4",
+        "gc_policy": "default enabled",
+        "logical_cpus": 96,
+        "machine": "AMD64",
+        "numpy": "2.2.6",
+        "other_effective_backend_threads": "not independently introspected",
+        "pyarrow": "20.0.0",
+        "python": "3.12.10",
+        "release": "11",
+        "requested_thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "system": "Windows"
+      },
+      "schema": "benchmark1",
+      "seed": 41001,
+      "skew": false,
+      "streams": [
+        {
+          "chunk_materialization_ns": 357600,
+          "chunk_size": 128,
+          "chunks": 1,
+          "timing_update_and_finalize": {
+            "max_ns": 2017300,
+            "median_ns": 1982500,
+            "min_ns": 1981800,
+            "rows_per_second": 64564.94325346784,
+            "samples_ns": [
+              2017300,
+              1981800,
+              1982500
+            ]
+          }
+        },
+        {
+          "chunk_materialization_ns": 344900,
+          "chunk_size": 1024,
+          "chunks": 1,
+          "timing_update_and_finalize": {
+            "max_ns": 1979100,
+            "median_ns": 1963100,
+            "min_ns": 1931500,
+            "rows_per_second": 65202.99526259488,
+            "samples_ns": [
+              1931500,
+              1963100,
+              1979100
+            ]
+          }
+        }
+      ],
+      "top_k": {
+        "max_ns": 1624400,
+        "median_ns": 1605000,
+        "min_ns": 1602700,
+        "rows_per_second": 79750.77881619938,
+        "samples_ns": [
+          1624400,
+          1605000,
+          1602700
+        ]
+      }
+    },
+    {
+      "aggregate": {
+        "max_ns": 124678400,
+        "median_ns": 118490100,
+        "min_ns": 116904900,
+        "rows_per_second": 138273.15531002168,
+        "samples_ns": [
+          124678400,
+          116904900,
+          118490100
+        ]
+      },
+      "copies": {
+        "arrow_visible_buffer_bytes": 973978,
+        "from_arrow": {
+          "max_ns": 154492500,
+          "median_ns": 153718800,
+          "min_ns": 148444900,
+          "rows_per_second": 106584.2304259466,
+          "samples_ns": [
+            153718800,
+            154492500,
+            148444900
+          ]
+        },
+        "from_numpy": {
+          "max_ns": 52636900,
+          "median_ns": 51700900,
+          "min_ns": 49983600,
+          "rows_per_second": 316899.7058078293,
+          "samples_ns": [
+            49983600,
+            52636900,
+            51700900
+          ]
+        },
+        "mutation_isolation_pass": true,
+        "numpy_arrays_and_masks_bytes": 1343488,
+        "numpy_owned_array_count": 18,
+        "to_arrow": {
+          "max_ns": 8870800,
+          "median_ns": 8502600,
+          "min_ns": 7713700,
+          "rows_per_second": 1926939.9948251124,
+          "samples_ns": [
+            8870800,
+            8502600,
+            7713700
+          ]
+        },
+        "to_numpy": {
+          "max_ns": 24132900,
+          "median_ns": 23930200,
+          "min_ns": 23777700,
+          "rows_per_second": 684657.8800010029,
+          "samples_ns": [
+            24132900,
+            23930200,
+            23777700
+          ]
+        }
+      },
+      "fixture_construction_ns": 72036700,
+      "fixture_sha256": "e0ac1084d2de34402fb0ef918bea049e3813e207bd55bcca9f875c2ce2826218",
+      "golden": {
+        "session.trade.count": 16384,
+        "session.trade.mean_size": 50.475830078125,
+        "session.trade.notional": 124033104,
+        "session.trade.volume": 826996,
+        "session.trade.vwap": 149.98029494701305
+      },
+      "history": {
+        "anchor": "S0",
+        "fixture_sha256": "7f19c52caed8e1a95d7995ac939ed94fdeb2a7b63410a4a8fa46ebbb3a694242",
+        "independent_golden": [
+          145.15,
+          141.10949973013024
+        ],
+        "period": 20,
+        "return_golden": -0.3333333333333333,
+        "return_period": 19,
+        "return_timing": {
+          "max_ns": 7666300,
+          "median_ns": 7476300,
+          "min_ns": 7444300,
+          "rows_per_second": 68483.07317790885,
+          "samples_ns": [
+            7666300,
+            7476300,
+            7444300
+          ]
+        },
+        "rows": 512,
+        "timing": {
+          "max_ns": 16346300,
+          "median_ns": 8771500,
+          "min_ns": 8733300,
+          "rows_per_second": 58370.86017214844,
+          "samples_ns": [
+            16346300,
+            8771500,
+            8733300
+          ]
+        }
+      },
+      "k": 8,
+      "native_peak": {
+        "after_trade_fixture_bytes": 49889280,
+        "end_bytes": 74592256,
+        "initial_bytes": 44363776,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "scope": "whole child process lifetime including inputs/imports/reference/conversions/results"
+      },
+      "parity_before_timing": true,
+      "rows": 16384,
+      "runtime": {
+        "arrow_cpu_count": 1,
+        "arrow_io_thread_count": 1,
+        "clock": "QueryPerformanceCounter()",
+        "clock_resolution_seconds": 1e-07,
+        "contracts": "0.0.4a4",
+        "cpu": "Intel64 Family 6 Model 85 Stepping 4, GenuineIntel",
+        "features": "0.0.4a4",
+        "gc_policy": "default enabled",
+        "logical_cpus": 96,
+        "machine": "AMD64",
+        "numpy": "2.2.6",
+        "other_effective_backend_threads": "not independently introspected",
+        "pyarrow": "20.0.0",
+        "python": "3.12.10",
+        "release": "11",
+        "requested_thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "system": "Windows"
+      },
+      "schema": "benchmark1",
+      "seed": 41001,
+      "skew": false,
+      "streams": [
+        {
+          "chunk_materialization_ns": 42585800,
+          "chunk_size": 128,
+          "chunks": 128,
+          "timing_update_and_finalize": {
+            "max_ns": 194784900,
+            "median_ns": 189259900,
+            "min_ns": 189021100,
+            "rows_per_second": 86568.78715459535,
+            "samples_ns": [
+              194784900,
+              189021100,
+              189259900
+            ]
+          }
+        },
+        {
+          "chunk_materialization_ns": 39345100,
+          "chunk_size": 1024,
+          "chunks": 16,
+          "timing_update_and_finalize": {
+            "max_ns": 198767400,
+            "median_ns": 188355500,
+            "min_ns": 186255900,
+            "rows_per_second": 86984.45227243165,
+            "samples_ns": [
+              198767400,
+              188355500,
+              186255900
+            ]
+          }
+        }
+      ],
+      "top_k": {
+        "max_ns": 185170700,
+        "median_ns": 182851300,
+        "min_ns": 182177400,
+        "rows_per_second": 89602.86309148472,
+        "samples_ns": [
+          185170700,
+          182177400,
+          182851300
+        ]
+      }
+    },
+    {
+      "aggregate": {
+        "max_ns": 147190300,
+        "median_ns": 128252700,
+        "min_ns": 124327000,
+        "rows_per_second": 127747.79790211044,
+        "samples_ns": [
+          147190300,
+          128252700,
+          124327000
+        ]
+      },
+      "copies": {
+        "arrow_visible_buffer_bytes": 973978,
+        "from_arrow": {
+          "max_ns": 156701500,
+          "median_ns": 156561000,
+          "min_ns": 155199900,
+          "rows_per_second": 104649.30602129521,
+          "samples_ns": [
+            155199900,
+            156561000,
+            156701500
+          ]
+        },
+        "from_numpy": {
+          "max_ns": 64182500,
+          "median_ns": 59465500,
+          "min_ns": 51733000,
+          "rows_per_second": 275521.10047002044,
+          "samples_ns": [
+            51733000,
+            59465500,
+            64182500
+          ]
+        },
+        "mutation_isolation_pass": true,
+        "numpy_arrays_and_masks_bytes": 1343488,
+        "numpy_owned_array_count": 18,
+        "to_arrow": {
+          "max_ns": 8670400,
+          "median_ns": 8382700,
+          "min_ns": 8156700,
+          "rows_per_second": 1954501.532918988,
+          "samples_ns": [
+            8670400,
+            8382700,
+            8156700
+          ]
+        },
+        "to_numpy": {
+          "max_ns": 25044700,
+          "median_ns": 24901300,
+          "min_ns": 24671800,
+          "rows_per_second": 657957.6166706156,
+          "samples_ns": [
+            24901300,
+            24671800,
+            25044700
+          ]
+        }
+      },
+      "fixture_construction_ns": 67086900,
+      "fixture_sha256": "ba27e643da2f4f5e3b074e77ffaeddf21c4696aa4a401223b11d1a13f2db49da",
+      "golden": {
+        "session.trade.count": 16384,
+        "session.trade.mean_size": 1032.4838256835938,
+        "session.trade.notional": 2518030869,
+        "session.trade.volume": 16916215,
+        "session.trade.vwap": 148.8530897130357
+      },
+      "history": {
+        "anchor": "S0",
+        "fixture_sha256": "7f19c52caed8e1a95d7995ac939ed94fdeb2a7b63410a4a8fa46ebbb3a694242",
+        "independent_golden": [
+          145.15,
+          141.10949973013024
+        ],
+        "period": 20,
+        "return_golden": -0.3333333333333333,
+        "return_period": 19,
+        "return_timing": {
+          "max_ns": 8004500,
+          "median_ns": 7795700,
+          "min_ns": 7652900,
+          "rows_per_second": 65677.23232038175,
+          "samples_ns": [
+            7652900,
+            8004500,
+            7795700
+          ]
+        },
+        "rows": 512,
+        "timing": {
+          "max_ns": 17389900,
+          "median_ns": 9298600,
+          "min_ns": 9050700,
+          "rows_per_second": 55062.052351966966,
+          "samples_ns": [
+            17389900,
+            9298600,
+            9050700
+          ]
+        }
+      },
+      "k": 8,
+      "native_peak": {
+        "after_trade_fixture_bytes": 49491968,
+        "end_bytes": 74416128,
+        "initial_bytes": 44457984,
+        "method": "Windows PeakWorkingSetSize bytes",
+        "scope": "whole child process lifetime including inputs/imports/reference/conversions/results"
+      },
+      "parity_before_timing": true,
+      "rows": 16384,
+      "runtime": {
+        "arrow_cpu_count": 1,
+        "arrow_io_thread_count": 1,
+        "clock": "QueryPerformanceCounter()",
+        "clock_resolution_seconds": 1e-07,
+        "contracts": "0.0.4a4",
+        "cpu": "Intel64 Family 6 Model 85 Stepping 4, GenuineIntel",
+        "features": "0.0.4a4",
+        "gc_policy": "default enabled",
+        "logical_cpus": 96,
+        "machine": "AMD64",
+        "numpy": "2.2.6",
+        "other_effective_backend_threads": "not independently introspected",
+        "pyarrow": "20.0.0",
+        "python": "3.12.10",
+        "release": "11",
+        "requested_thread_environment": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1"
+        },
+        "system": "Windows"
+      },
+      "schema": "benchmark1",
+      "seed": 41001,
+      "skew": true,
+      "streams": [
+        {
+          "chunk_materialization_ns": 44548800,
+          "chunk_size": 128,
+          "chunks": 128,
+          "timing_update_and_finalize": {
+            "max_ns": 203544000,
+            "median_ns": 200650700,
+            "min_ns": 198979900,
+            "rows_per_second": 81654.33761257748,
+            "samples_ns": [
+              203544000,
+              200650700,
+              198979900
+            ]
+          }
+        },
+        {
+          "chunk_materialization_ns": 43844900,
+          "chunk_size": 1024,
+          "chunks": 16,
+          "timing_update_and_finalize": {
+            "max_ns": 198110500,
+            "median_ns": 195138000,
+            "min_ns": 195107500,
+            "rows_per_second": 83961.09420000204,
+            "samples_ns": [
+              198110500,
+              195107500,
+              195138000
+            ]
+          }
+        }
+      ],
+      "top_k": {
+        "max_ns": 187796900,
+        "median_ns": 187580800,
+        "min_ns": 185482400,
+        "rows_per_second": 87343.69402412187,
+        "samples_ns": [
+          187580800,
+          185482400,
+          187796900
+        ]
+      }
+    }
+  ],
+  "harness_hash_encoding": "UTF8 with normalized LF",
+  "harness_sha256": "a481f45163d3a0061de24920357a168a57d08690aa47394b0e7e288177b12579",
+  "limits": "single run baseline; native lifetime peaks are not calculator allocations; no universal performance target",
+  "measurement_source_dirty": false,
+  "schema": "benchmark-suite1",
+  "source_commit": "efa8af7101e571a66a22aa9892ba9aa96b590075",
+  "timing_scope": "full public checked calls; no source I/O or fixture/conversion creation in calculator timings"
+}
