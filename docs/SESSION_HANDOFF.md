@@ -987,3 +987,7 @@ Public pre-code0852392 precedes two actual failing regressions (four subcases).
 a13 validates all supplied proof before retention, rejects typed inconsistent_identity,
 and preserves same-frame targetrow3/2.5 ratios. Daily20/bucket19 targeted tests pass.
 No source-authentication or proof reconstruction claim. Full suite/review/build gates repeat.
+
+EQ037 correctiveea1a375/a13 completedseparatelocalreview6008668622/all16kernels, independently588units/123refs/additionalproofchecks; no unresolved. AllSIXheadchecks/repeatedfourarchives/BOTHfresh588test/22examplepairs passed. GuardedPR234maina171467ed81e9b2f212755411d5a4a004e89a00d exacttree, docs37408742217/Foundation37408742222 bothOS passed. ActualBOTHmainbundles downloaded exactcleanmanifests; FOURfreshinstallations underway. Next actualreceipt/finalheadreview/SIXchecks/mainactual8hashequality before42Done/all12/E05/milestoneclosure. R3paused.
+
+EQ037 actualBOTHsource-main bundles/FOURfreshWindows wheel-sdistpairs each588units/22examples passed; receipt rendered all8SHA/artifactIDs/expiry/cleanexactmanifests. Source a171 qualification accepted, but finalreceipt separate review/SIXheadchecks/mainCI/actual8hashequality remain before42Done and aggregate closure.

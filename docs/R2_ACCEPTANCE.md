@@ -2,8 +2,9 @@
 
 EQ037 [issue42](https://github.com/atulsrivas1/equity-features/issues/42),
 [plan](stories/EQ-037_PLAN.md), [PR234](https://github.com/atulsrivas1/equity-features/pull/234).
-Final acceptance is pending review, immutable builds, published-main CI and actual
-installed artifacts. This qualification document does not close R2.
+Final acceptance is pending final receipt publication and final archive byte equality.
+The corrected source and published main have completed their review/build/CI gates;
+this qualification document does not by itself close R2.
 
 ## Mathematical and capability coverage
 
@@ -61,12 +62,14 @@ No universal legacy parity or private source publication is claimed.
 
 Pair 0.0.3a13 corrects two discovery dtypes and two breadth wire units to existing
 producer representations. No math/algorithm/input/result/state schema change. Rebuild
-cached registry definitions; replay exact-version state/caller contexts. The selected
-separate local Codex reviewer must cover all sixteen kernels and the frozen final head;
-review identity, execution and limitations will be recorded in the final delivery receipt.
+cached registry definitions; replay exact-version state/caller contexts. The completed
+[separate local review](https://github.com/atulsrivas1/equity-features/pull/234#issuecomment-6008668622)
+covers all sixteen kernels at final head ea1a375d95c8a3f8e0693469c111333508e59184.
+The reviewer independently passed588units/123references and extra source-row checks;
+archive/installation/CI gates are separate root evidence, not reviewer execution.
 Old stories retain original review provenance. Hosted activation remains unverified.
 
-## Remaining acceptance gates
+## Required acceptance gates
 
 Full unit/reference/typing/boundary/import/registry/compatibility/license/documentation
 checks; six exact-head CI checks; repeated four archives and both fresh local pairs;
@@ -86,3 +89,17 @@ Explicit contradictory claims for the same source ID/row reject consistently reg
 of retention. Coherent same-frame different-row reuse remains allowed. Output retention
 bounds do not expand; absent proof is not reconstructed or source-authenticated.
 Pair0.0.3a13 records this admission correction; formulas/schemas/capabilities unchanged.
+
+## Corrected source publication
+
+Public corrective plan0852392 precedes failing volume proof regressions; a12 qualification
+is superseded before acceptance. Correcteda13 head ea1a375d95c8a3f8e0693469c111333508e59184
+passed588units/123references/strict53/purity/source/docs, separate review and SIXchecks.
+Repeated four archives/BOTHfreshlocal pairs each588tests/22examples passed. Guarded
+main a171467ed81e9b2f212755411d5a4a004e89a00d entiretree equals reviewedhead;
+[docs](https://github.com/atulsrivas1/equity-features/actions/runs/37408742217) and
+[Foundation](https://github.com/atulsrivas1/equity-features/actions/runs/37408742222)
+bothOS passed. Both actual bundles and FOURfreshinstalledWindows wheel/sdistpairs each passed588units/22examples.
+[EQ037 receipt](stories/EQ-037_DELIVERY.md) records all8perOSarchivehashes, IDs and expiry.
+Final receipt separate review/head/mainCI and actual archive byte equality remain before
+issue42Done and all12R2/E05/milestoneclosure.
