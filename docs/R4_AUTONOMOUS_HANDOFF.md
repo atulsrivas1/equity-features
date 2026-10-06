@@ -36,12 +36,11 @@ Foundation37508048990 and documentation37508048897. R3 reports633 unit tests,
 consumer0.4.0. Recheck live artifacts/expiry, actual main and prerequisites; these
 are recorded observations, not new test execution or permanent artifact hosting.
 
-CODE_REVIEW.md's local alternatives explicitly cover bounded R2/R3; hosted
-activation remains unverified. Require an actual final-head separate review under
-an owner-authorized R4 alternative or working hosted integration. Missing review
-blocks merging/Done, not independent baseline inspection and preparation. Do not
-silently extend the earlier alternative, invent approval or call self-review
-independent. Record findings/disposition and actual reviewer limits. An execution
+Owner explicitly authorized separate local Codex reviewers throughout R4 and
+its handoff on October6 because hosted GitHub Codex review is not working.
+CODE_REVIEW.md/AGENTS.md record the bounded extension; no repeated per-story
+approval is needed. Require actual separate final-head coverage, not self-review
+or CI alone. Hosted activation remains unverified. Record findings/disposition and actual reviewer limits. An execution
 chat may independently inspect the prepared handoff, but that alone does not waive
 the policy gate for implementation.
 
@@ -142,5 +141,5 @@ EQ049; one active story, plans before code, required separate final-head review,
 real lifecycle, installed artifacts and documentation alongside every story. Require
 both actual DuckDB synthetic conformance and frozen representative real-data
 numerical integration. Preserve source gaps/originals and private data; no R5,
-providers, remote service, stable/PyPI/tag or historical generation. Resolve review
-authorization explicitly where necessary; do not infer it from earlier bounded R3.
+providers, remote service, stable/PyPI/tag or historical generation. Use the explicitly authorized separate local Codex reviewer workflow for R4;
+record actual final-head coverage and limitations, not hosted activation.

@@ -78,7 +78,7 @@ EQ052 resolves caller-governed calendars, warm-up and reference gaps. EQ053 bind
 the actual acquisition evidence. Concrete real instruments/dates, independent
 goldens and justified tolerances are frozen under EQ055, not invented now.
 
-The current local-review alternatives in CODE_REVIEW.md explicitly cover R2/R3;
-hosted activation remains unverified. Obtain an owner-authorized R4 alternative
-or actual hosted final-head review before merging R4 changes. This plan does not
-silently extend a bounded earlier authorization.
+The owner explicitly authorized separate local Codex reviewers for R4 and its
+handoff on October6 because hosted GitHub Codex review is not working. Require
+actual final-head review and findings disposition alongside the existing gates.
+This is local automated review, not hosted activation or human review.

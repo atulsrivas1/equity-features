@@ -59,3 +59,7 @@ GOV-005 remains open; numerical, CI and artifact gates remain mandatory.
 ## R3 authorized local review — October6, 2026
 
 The owner explicitly authorizes separate local Codex reviewers throughout bounded R3, continuing autonomous delivery after accepted R2. This extends the R2 alternative; no additional approval is required per story. Each review must inspect the actual final PR head, report executed checks, findings/disposition, reviewer identity and limitations. Author self-review and CI alone remain insufficient. Hosted activation remains unverified and GOV005 remains separate; numerical, documentation, bothOS CI and actual artifact acceptance remain mandatory.
+
+## R4 authorized local review — October 6, 2026
+
+The owner explicitly authorized separate local Codex reviewers throughout R4 and its handoff because hosted GitHub Codex review is not working. This extends the bounded R2/R3 alternative to GOV013 and EQ049–056; no further per-story approval is required. Each reviewer must independently inspect the actual final PR head and affected contracts/callers, record reviewer identity, executed checks, findings/disposition and limitations. Relevant changes require final-head coverage. Author self-review and CI alone do not satisfy this gate. This is local automated review, not hosted activation or human review. Existing numerical, documentation, CI, installed-artifact and publication/readback acceptance remains mandatory; GOV005 stays separate.
