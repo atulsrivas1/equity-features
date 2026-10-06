@@ -227,6 +227,34 @@ class Composition(unittest.TestCase):
         self.assertEqual(tuple(col.unit for col in result.values), ("EUR/share", "EUR/share"))
         self.assertEqual(tuple(col.values[0] for col in bundle.components[0].result.values), (102.0, 98.0))
 
+    def test_direct_session_frame_owner_conflicts_without_retained_evidence(self):
+        from equity_feature_contracts import EntityKey
+        from equity_features.session import compute_bars, compute_trades, compute_quotes
+        from test_bars import config, batch as bars
+        from test_trades import trades
+        for producer, factory, cfg in ((compute_trades, trades, config()),
+                                       (compute_bars, bars, config()),
+                                       (compute_quotes, quotes, quote_config(0))):
+            with self.subTest(producer=producer.__name__):
+                first = factory()
+                second = factory(instrument_id=("B",)*first.row_count)
+                a = FamilyResult("a", producer(first, cfg, entity=EntityKey("A", "S")), cfg)
+                b = FamilyResult("b", producer(second, cfg, entity=EntityKey("B", "S")), cfg)
+                self.assertFalse(a.result.evidence or b.result.evidence)
+                self.error(ErrorCode.INCONSISTENT_IDENTITY,
+                           lambda: compose_features((a, b), spec=spec(a, ("a", "b"))))
+
+    def test_same_instrument_original_quote_frame_can_supply_distinct_features(self):
+        from equity_feature_contracts import EntityKey
+        from equity_features.session import compute_quotes, compute_time_weighted
+        cfg = time_config()
+        sampled_cfg = replace(cfg, parameters=(Parameter("eligibility_policy", "synthetic-v1"), Parameter("observation_limit", 0)))
+        batch = updates()
+        a = FamilyResult("sampled", compute_quotes(batch, sampled_cfg, entity=EntityKey("A", "S")), sampled_cfg)
+        b = FamilyResult("time", compute_time_weighted(batch, cfg, entity=EntityKey("A", "S")), cfg)
+        bundle = compose_features((a, b), spec=spec(a, ("sampled", "time")))
+        self.assertEqual(bundle.components, (a, b))
+
 
 if __name__ == "__main__":
     unittest.main()

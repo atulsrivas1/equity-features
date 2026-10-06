@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## 0.0.3a11 — EQ036 direct market frame ownership correction
+
+Extend cross-instance direct session market frame ownership to declared instrument populations even with zero evidence. Same-instrument sampled/continuous reuse remains valid; values/formulas/quality/coverage/schemas/modes unchanged. Actual failing trade/bar/quote regressions preserved. [a10 qualification](stories/EQ-036_A10_DELIVERY.md) was superseded before final acceptance. Corrected source repeats required review and artifact gates.
+
 ## 0.0.3a10 — EQ036 composition source qualification
 
 Immutable supplied feature instances retain whole results/configs/contexts/exact companions and explicit missing families; compatible original proof, normalized frame ownership and actual producer output/backend/evidence conventions are checked. No hidden dependency execution, new numerical ID or existing schema/math/state mode change. [API](api/FEATURE_COMPOSITION.md), [plan](stories/EQ-036_PLAN.md). Separate final-head review and actual delivery gates remain.

@@ -1,6 +1,6 @@
 # Supplied feature composition
 
-EQ036 experimental pair0.0.3a10, new collection schema1. Existing input, result,
+EQ036 corrected experimental pair0.0.3a11, new collection schema1. Existing input, result,
 state schemas, numerical formulas and the39-feature inventory remain unchanged.
 Composition preserves already supplied results; it executes no dependency or I/O.
 [Pre-code plan](../stories/EQ-036_PLAN.md),
@@ -53,7 +53,7 @@ features package version. This collection has no update/merge/restore operation.
 
 Shared input IDs require identical kind/metadata. Direct daily_history frames own
 one context instrument; bucket_history owns one instrument/normalized bucket.
-Conflicting ownership rejects even with evidence_limit0. Shared original row IDs
+Direct session market frames also retain their declared instrument population, including bars/trades/quotes/seeds/prior-close inputs. Conflicting populations for one frame reject even with evidence_limit0; coherent same-instrument reuse across sampled and continuous quote features remains valid. Shared original row IDs
 must agree on event/known-at; derived use, interval and output entity may differ
 legitimately by feature and remain in their original component. This is structural
 consistency, not source authentication; absent retained proof cannot be recreated.
