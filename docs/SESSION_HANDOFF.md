@@ -1151,3 +1151,6 @@ SourcePR252 fe09589/main73246b1, reviewedreceiptPR253 a11eb286(review6021230990)
 ### EQ047 concrete integrity inventory
 
 Documentation-only inventory records13 actual pinnedupstream wheel/index SHA matches, shipped license/notice hashes and11actualinstalledWindows notice equality plus2Linux-target inspections(no nativeexecutionclaim). NativeNumPyLinux libquadmath/GCC exceptions and Arrowbundlednotice variants preserved; metadata classifiers are notinventedSPDX. ActualEQ046 finalrun37500435856 actionSHAs/Linux3.12.14-Windows3.12.10/bootstrap25.0.1 vsdev25.1.1/channelserverdigests-expiry observed. Eq010#12 closed/Done/publicrepo/Apache decision gates existingexperimentalchannel, no newcredentials orregistry/adminscope. Code/tests/tools/backends/consumer/coreversions/math unchanged; reuse FOURqualified046 and currentfullCI. Next freeze finaldocshead/separatereview/allCI/guardedmain/bothOS12archiveequivalence/current12reports/expiry/postreleaseverification before53Done; then095/048.
+
+
+EQ047 supplements actualcurrentretention/serverdigests/expiry for eight earlieracceptedR3 issues113/49/45/46/47/48/50/51 without changing priorqualification/status; historicalmain/run identities preserved in inventory and linked publiccomments. EQ046alreadyrecordsfinalexpiry. Finaldocumentationhead includes this completeR3channel evidence; no package/source/test changes.

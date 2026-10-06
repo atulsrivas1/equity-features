@@ -531,5 +531,183 @@
       "expired": false,
       "expires_at": "2026-11-05T17:04:10Z"
     }
+  ],
+  "historical_accepted_r3_channel_observations": [
+    {
+      "issue": 113,
+      "accepted_main": "6d93888a8308a83c79b5f6710789a64e6987fd2a",
+      "foundation_run": 37475249253,
+      "observation": "2026-10-06 public retained channel metadata; prior actual package acceptance remains on linked issue",
+      "artifacts": [
+        {
+          "name": "foundation-6d93888a8308a83c79b5f6710789a64e6987fd2a-ubuntu-24.04",
+          "digest": "sha256:6b551c25eb81cf28c57d1300f8731f8eb9de7fa68dd63d8757d6710b9664ef01",
+          "size_in_bytes": 231318,
+          "expires_at": "2026-11-05T14:00:52Z",
+          "expired": false
+        },
+        {
+          "name": "foundation-6d93888a8308a83c79b5f6710789a64e6987fd2a-windows-latest",
+          "digest": "sha256:cc6e72f5c12327f46bf1e0e746866e7a0188c24b3620881d1a4a5f2c30b2b901",
+          "size_in_bytes": 232411,
+          "expires_at": "2026-11-05T14:01:13Z",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "issue": 49,
+      "accepted_main": "7e21c89b1fbbe01bb84f82708bf0ea7685de4813",
+      "foundation_run": 37478578951,
+      "observation": "2026-10-06 public retained channel metadata; prior actual package acceptance remains on linked issue",
+      "artifacts": [
+        {
+          "name": "foundation-7e21c89b1fbbe01bb84f82708bf0ea7685de4813-ubuntu-24.04",
+          "digest": "sha256:715e0341c6b15121e0e6234ff81451756183b7daa321bd949ef370ee59167bae",
+          "size_in_bytes": 233321,
+          "expires_at": "2026-11-05T14:25:04Z",
+          "expired": false
+        },
+        {
+          "name": "foundation-7e21c89b1fbbe01bb84f82708bf0ea7685de4813-windows-latest",
+          "digest": "sha256:6f5d36851656c739ed0efbf2a628a08c6d9049aa2a32f0c6c8e35729f819ffae",
+          "size_in_bytes": 234362,
+          "expires_at": "2026-11-05T14:25:22Z",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "issue": 45,
+      "accepted_main": "864884acf8ba5719959c2531ad25eeadd266617c",
+      "foundation_run": 37482076328,
+      "observation": "2026-10-06 public retained channel metadata; prior actual package acceptance remains on linked issue",
+      "artifacts": [
+        {
+          "name": "foundation-864884acf8ba5719959c2531ad25eeadd266617c-windows-latest",
+          "digest": "sha256:7bc44ebfe78ce7b71ca90a2c76f6e153b18d6a7c2daa2dec6f648be27dcee14f",
+          "size_in_bytes": 234363,
+          "expires_at": "2026-11-05T14:51:02Z",
+          "expired": false
+        },
+        {
+          "name": "foundation-864884acf8ba5719959c2531ad25eeadd266617c-ubuntu-24.04",
+          "digest": "sha256:03b6c06917ff3a8a0b2b1b17cc85767904bd5615c28f74d606a2a8e274bf08b2",
+          "size_in_bytes": 233322,
+          "expires_at": "2026-11-05T14:49:43Z",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "issue": 46,
+      "accepted_main": "96d420c571ec7b21ae35ff750be5bc04ddd2a0a9",
+      "foundation_run": 37484750267,
+      "observation": "2026-10-06 public retained channel metadata; prior actual package acceptance remains on linked issue",
+      "artifacts": [
+        {
+          "name": "foundation-96d420c571ec7b21ae35ff750be5bc04ddd2a0a9-ubuntu-24.04",
+          "digest": "sha256:fd18a8afddd60812ecbe8e5845c11e33a0588ca0fa3bd7d561285fbb8283bc9a",
+          "size_in_bytes": 233322,
+          "expires_at": "2026-11-05T15:08:59Z",
+          "expired": false
+        },
+        {
+          "name": "foundation-96d420c571ec7b21ae35ff750be5bc04ddd2a0a9-windows-latest",
+          "digest": "sha256:aee34b7443fb4da7b2a83ae69a56234e749552458cb02b64397492dfdc1cf338",
+          "size_in_bytes": 234363,
+          "expires_at": "2026-11-05T15:10:11Z",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "issue": 47,
+      "accepted_main": "910abd64f95fb231adbc0a483d4d080fcb7a8fab",
+      "foundation_run": 37488221921,
+      "observation": "2026-10-06 public retained channel metadata; prior actual package acceptance remains on linked issue",
+      "artifacts": [
+        {
+          "name": "foundation-910abd64f95fb231adbc0a483d4d080fcb7a8fab-ubuntu-24.04",
+          "digest": "sha256:10740ac8fae3624df5192b45ee476bdda73d54b7f3842b917b9d0c1c444d871e",
+          "size_in_bytes": 237276,
+          "expires_at": "2026-11-05T15:33:31Z",
+          "expired": false
+        },
+        {
+          "name": "foundation-910abd64f95fb231adbc0a483d4d080fcb7a8fab-windows-latest",
+          "digest": "sha256:9e5c78e4828d3478cf7252078516b981b7cd22b83c8635d1ba44e30c03cf7d2f",
+          "size_in_bytes": 238341,
+          "expires_at": "2026-11-05T15:33:56Z",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "issue": 48,
+      "accepted_main": "89a24a4474354e453650ebf4b2a16ed487a30c1c",
+      "foundation_run": 37493031343,
+      "observation": "2026-10-06 public retained channel metadata; prior actual package acceptance remains on linked issue",
+      "artifacts": [
+        {
+          "name": "foundation-89a24a4474354e453650ebf4b2a16ed487a30c1c-windows-latest",
+          "digest": "sha256:91b4f4d0aafba1f70f15f3a120c9d86a6aa7b2f5699943c171be8740c088ccd0",
+          "size_in_bytes": 245029,
+          "expires_at": "2026-11-05T16:08:48Z",
+          "expired": false
+        },
+        {
+          "name": "foundation-89a24a4474354e453650ebf4b2a16ed487a30c1c-ubuntu-24.04",
+          "digest": "sha256:0abcc89e315364dac0e9c6247c21586ec45cdfc0417a0ea51c222e57019eede8",
+          "size_in_bytes": 243884,
+          "expires_at": "2026-11-05T16:08:00Z",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "issue": 50,
+      "accepted_main": "e7077b6d1b89e8a70473275afab9302d985ef4fd",
+      "foundation_run": 37494258191,
+      "observation": "2026-10-06 public retained channel metadata; prior actual package acceptance remains on linked issue",
+      "artifacts": [
+        {
+          "name": "foundation-e7077b6d1b89e8a70473275afab9302d985ef4fd-windows-latest",
+          "digest": "sha256:80a8e209d56e5c82bbe1fbd9e40a222045d522f120655483b70fee0e2c4f0d76",
+          "size_in_bytes": 245005,
+          "expires_at": "2026-11-05T16:18:05Z",
+          "expired": false
+        },
+        {
+          "name": "foundation-e7077b6d1b89e8a70473275afab9302d985ef4fd-ubuntu-24.04",
+          "digest": "sha256:1baa683bf511637203508a742d0fdb76ce414b35f37a4b5933e01cfe2f696d64",
+          "size_in_bytes": 243897,
+          "expires_at": "2026-11-05T16:16:53Z",
+          "expired": false
+        }
+      ]
+    },
+    {
+      "issue": 51,
+      "accepted_main": "5442746f08d5e586ecb659567e6e521cf8bb5341",
+      "foundation_run": 37497321567,
+      "observation": "2026-10-06 public retained channel metadata; prior actual package acceptance remains on linked issue",
+      "artifacts": [
+        {
+          "name": "foundation-5442746f08d5e586ecb659567e6e521cf8bb5341-ubuntu-24.04",
+          "digest": "sha256:eb08c7c4f1e8c65b73f849d227fbc939f271db461cd5fb0a4b513cf142764f35",
+          "size_in_bytes": 265678,
+          "expires_at": "2026-11-05T16:39:55Z",
+          "expired": false
+        },
+        {
+          "name": "foundation-5442746f08d5e586ecb659567e6e521cf8bb5341-windows-latest",
+          "digest": "sha256:50955fff4e7dea6cac6b5068612337d9a1c0b26a46feda25d7f4a8d4a6dcedea",
+          "size_in_bytes": 266917,
+          "expires_at": "2026-11-05T16:41:19Z",
+          "expired": false
+        }
+      ]
+    }
   ]
 }
