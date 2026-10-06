@@ -946,3 +946,17 @@ EQ038 separate review independently confirmed all12private reviewed-source finge
 EQ038sourcequalification621b680 repeatedarchives/BOTHfresh583test/22examplepairs; docs-onlyfinal09ddbf1da8f2f2067025d23d203e8d307598630c independentlyreviewed6008372510/SIXchecks. Guardedmainbe6bee7d333d8685839175143ec376e07286455a entiretreeequalshead; docs37406617792/Foundation37406617818 bothOSsuccess. ActualBOTHpublishedbundles/FOURfreshWindowswheel-sdistpairs each583tests/22examplespass, [receipt](stories/EQ-038_DELIVERY.md) recordsall8SHA/expiry/runtime/reviewlimits. Finalreceipt separate review/head/mainCI/actualperOSarchivebyteequality remain before43Done. Next037finalaudit must reconcile registry prior-high/low int64 descriptors with actualFloat64 prices and explicit breadth wireunits while retainingfrozenmath/statecapabilities; pre-codeplan/regression/versiondecision beforecode. R3paused.
 
 EQ038Done6008533667 afterreceiptPR233/head450de8ecf539675de469001c15f6dc6bfc33aab7 completedseparatereview6008486454/SIXchecks; guardedmainb370f88ed3b0e7e2e3410934afff6de9e4dd311d entiretree, docs37407430936/Foundation37407430924 bothOS; actualfinalBOTHbundles verified/all8perOSarchivehashesequalFOURfreshbe6installedpairs each583tests/22examples. ElevenR2Done, only037remaining. [037pre-codeplan](stories/EQ-037_PLAN.md) separatelyreviewed71b1441 no blockers, transplantedf2940a1 ontoactualmain. Establish42Ready/Inprogress and add actualcausality/discoveryfailingregressions beforemetadatafix plannedpair0.0.3a12; finalreview all16kernels/capabilities/repairedstate proof/full source/head/main/installed/receipt/closure gates. R3paused.
+
+### EQ037 integration correction — 2026-10-05
+
+Issue42 In progress after verified43Done; public prerequisite addendum885ec21 precedes
+code. Three actual integration tests failed four discovery subcases on a11, then passed
+after four descriptor corrections and registry-driven composition admission at planned
+pair0.0.3a12. Existing22composition cases also pass. Producer math/algorithm/result/state
+schemas and39batch/23update-restore/22merge unchanged. Current docs/review orientation
+and inherited R1 source navigation reconciled; historical receipts preserved.
+Next full units/references/typing/boundary/source/docs gates, immutable head/separate
+review of all16actualR2kernels, exact-head archives/CI/main/FOURinstalledpairs/finalreceipt.
+Only then42Done/all12verified/E05/milestone3closure. R3paused.
+
+EQ037 full local qualification passed586units/123referencecases/strict53files/purity38negative10positive/import/registry/compatibility/license/docs119active/eightstages and zero broken local links. Next freeze source/docs and obtain separate exact-head review all16kernels; repeatedarchives/localpairs/headCI/mainactualFOURpairs/finalreceipt/closure remain.

@@ -74,12 +74,8 @@ class FamilyResult:
             if col.algorithm_version != definition.algorithm_version:
                 raise ContractError(ErrorCode.INCOMPATIBLE_VERSION, "component algorithm mismatch")
             output = definition.outputs[0]
-            dtype = ValueType.FLOAT64 if col.feature_id in ("history.prior_high", "history.prior_low") else ValueType(output.dtype)
+            dtype = ValueType(output.dtype)
             unit = output.unit
-            if col.feature_id == "breadth.direction_counts":
-                unit = "members"
-            elif col.feature_id == "breadth.above_sma_fraction":
-                unit = "fraction"
             if col.feature_id.startswith("history.") and unit == "currency/share":
                 if cfg.price_unit is None:
                     raise ContractError(ErrorCode.INVALID_UNIT, "history price output requires explicit currency")
