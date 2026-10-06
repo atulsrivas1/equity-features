@@ -136,3 +136,10 @@ The optional bothOS workflow retains dist/duckdb under duckdb-<commit>-<OS> for
 requested30days. Successful main run, actual download/hash/report inspection and
 fresh published-artifact installations precede Released/Done. Source builds/PR
 artifacts are review evidence only; core Foundation workflow remains independent.
+
+
+EQ050 optional0.1.0a2 adds [explicit retained mapping](api/DUCKDB_MAPPING.md),
+three strictly typed adapter modules and independently expected mapping fixtures.
+The optional builder now qualifies the expanded installed suite/forms; exact pinned
+contracts0.0.4a4/DuckDB1.5.6 and pure core remain unchanged. No read/calendar/real
+numerical acceptance yet; actual review/artifact/publication gates remain.

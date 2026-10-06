@@ -240,3 +240,10 @@ core versions/math/schema/modes are unchanged. Current implementation resolves
 bounded catalog metadata only; [API and limits](api/DUCKDB_RESOLVER.md).
 Canonical row mapping/acquisition/calendar/provenance and actual conformance plus
 private real-data integration remain EQ050–055; R4 acceptance is EQ056.
+
+
+EQ050 optional0.1.0a2 adds [explicit retained mapping](api/DUCKDB_MAPPING.md),
+three strictly typed adapter modules and independently expected mapping fixtures.
+The optional builder now qualifies the expanded installed suite/forms; exact pinned
+contracts0.0.4a4/DuckDB1.5.6 and pure core remain unchanged. No read/calendar/real
+numerical acceptance yet; actual review/artifact/publication gates remain.

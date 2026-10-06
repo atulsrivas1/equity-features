@@ -4,8 +4,13 @@ from .resolver import (
     SourceSelection, resolve_source,
 )
 
-__version__ = "0.1.0a1"
+from .mapping import (MappingPolicy, RowOccurrence, PriceConversion, MappingReport,
+                      MappedSource, map_columns, parse_utc_ns)
+
+__version__ = "0.1.0a2"
 __all__ = [
     "CatalogConfig", "FilePin", "ResolvedPartition", "ResolvedSource",
     "SourceSelection", "resolve_source",
+    "MappingPolicy", "RowOccurrence", "PriceConversion", "MappingReport",
+    "MappedSource", "map_columns", "parse_utc_ns",
 ]

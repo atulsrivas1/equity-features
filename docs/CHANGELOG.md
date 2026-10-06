@@ -1,12 +1,22 @@
 # Experimental package changes
 
+## Optional DuckDB0.1.0a2 — EQ050 mapping
+
+Explicit retained trades/TBBO/minute/UTCdaily mapping with exact UTCns, checked
+shares, caller-owned instrument/session/occurrence/eligibility/source-clock
+declarations and accepted explicit price quantization reports. Preserve missing/
+null/zero, unknown availability and quote sampling; reject invalid OHLC/precision/
+identity instead of hidden repair. Pure core unchanged; source validation46tests/
+strict3, installed/review/delivery gates remain. [API](api/DUCKDB_MAPPING.md).
+
 ## Optional DuckDB0.1.0a1 — EQ049 source resolution
 
 Explicit bounded curated/prepared snapshot/dataset/partition selection, original/
 optimized receipt pins, schema/substitution/admission evidence, missing versus
 catalog-declared-empty, safe errors/cancellation/hash limits. Separate optional
 package and bothOS installed artifact qualification; pure corepaira4 remains
-unchanged. Initial source tests23/strict2 pass; final review/delivery pending.
+unchanged. Final27 source cases/strict2 and actual installed bothOS/main artifacts accepted on
+issue56; [receipt](stories/EQ-049_DELIVERY.md).
 No row mapping/acquisition or R4 conformance/real-data acceptance yet. [API](api/DUCKDB_RESOLVER.md).
 
 

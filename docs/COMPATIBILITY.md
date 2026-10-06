@@ -54,3 +54,10 @@ CPython312 Windows/Linux wheel SHA256 matched to the PyPI index and shipped noti
 hashes. Windows installed notices match its wheel; Linux wheel inspection is not
 native execution. DuckDB foundation MIT and experimental Spark Apache2 notice
 texts remain upstream; metadata is not a universal/native dependency certificate.
+
+
+EQ050 optional0.1.0a2 adds [explicit retained mapping](api/DUCKDB_MAPPING.md),
+three strictly typed adapter modules and independently expected mapping fixtures.
+The optional builder now qualifies the expanded installed suite/forms; exact pinned
+contracts0.0.4a4/DuckDB1.5.6 and pure core remain unchanged. No read/calendar/real
+numerical acceptance yet; actual review/artifact/publication gates remain.
