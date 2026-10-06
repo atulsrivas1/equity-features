@@ -16,7 +16,8 @@ SESSION_BATCH_IDS = frozenset(BAR_IDS+STRUCTURE_IDS+TRADE_IDS+TOP_K_IDS+QUOTE_ID
 HISTORY_IDS = ("history.return", "history.prior_high", "history.prior_low", "history.sma", "history.ema", "history.rsi", "history.atr", "history.return_volatility")
 VOLUME_IDS = ("baseline.daily_volume", "baseline.relative_volume")
 BUCKET_IDS = ("baseline.interval_volume", "baseline.interval_relative_volume")
-BATCH_IDS = SESSION_BATCH_IDS | frozenset(HISTORY_IDS+VOLUME_IDS+BUCKET_IDS)
+RELATIVE_IDS = ("relative.market_return", "relative.sector_return")
+BATCH_IDS = SESSION_BATCH_IDS | frozenset(HISTORY_IDS+VOLUME_IDS+BUCKET_IDS+RELATIVE_IDS)
 
 UPDATE_IDS = SESSION_BATCH_IDS
 RESTORE_IDS = SESSION_BATCH_IDS
