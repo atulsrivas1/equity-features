@@ -59,7 +59,7 @@ EQ038 distinguishes five actually executed private Go EMA/ATR synthetic vectors 
 source-only definitions; its public CI replays captured observations and public APIs.
 No universal legacy parity or private source publication is claimed.
 
-Pair 0.0.3a12 corrects two discovery dtypes and two breadth wire units to existing
+Pair 0.0.3a13 corrects two discovery dtypes and two breadth wire units to existing
 producer representations. No math/algorithm/input/result/state schema change. Rebuild
 cached registry definitions; replay exact-version state/caller contexts. The selected
 separate local Codex reviewer must cover all sixteen kernels and the frozen final head;
@@ -77,3 +77,12 @@ byte equality precede issue42 Done, all twelve Project Done records, E05 and mil
 closure. R3 remains paused. The declared channel is experimental CI artifacts, with
 retention/expiry in receipts; no stable release, tag, PyPI, provider readiness, source
 authentication or throughput claim.
+
+## EQ037 supplied proof validation correction
+
+Daily and interval relative-volume consumers validate every supplied baseline proof
+and target original-row event/known-at/completed interval before clipping output evidence.
+Explicit contradictory claims for the same source ID/row reject consistently regardless
+of retention. Coherent same-frame different-row reuse remains allowed. Output retention
+bounds do not expand; absent proof is not reconstructed or source-authenticated.
+Pair0.0.3a13 records this admission correction; formulas/schemas/capabilities unchanged.

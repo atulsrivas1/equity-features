@@ -1,6 +1,6 @@
 # Supplied feature composition
 
-EQ037 experimental pair0.0.3a12, new collection schema1. Existing input, result,
+EQ037 experimental pair0.0.3a13, new collection schema1. Existing input, result,
 state schemas, numerical formulas and the39-feature inventory remain unchanged.
 Composition preserves already supplied results; it executes no dependency or I/O.
 [Pre-code plan](../stories/EQ-036_PLAN.md),

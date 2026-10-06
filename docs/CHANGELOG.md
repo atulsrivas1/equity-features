@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## 0.0.3a13 — EQ037 original-row volume proof correction
+
+Independent review reproduced contradictory supplied source-row timing admission when baseline evidence filled retention. Daily and interval ratios now validate all supplied claims before clipping evidence, preserving coherent same-frame different-row reuse. Actual failing regressions at bounds1/20 now pass. No equations, schemas or capability changes; exact-version replay applies. a12 source qualification is superseded before acceptance. [Plan addendum](stories/EQ-037_PLAN.md).
+
 ## 0.0.3a12 — EQ037 final integration qualification
 
 Correct four builtin discovery descriptors to actual Float64 extrema and members/fraction breadth units; composition uses registry descriptors directly. Producer formulas, schemas and capability flags are unchanged. Three actual-API integration fixtures cover all eight history goldens, future invariance, missing recursive prefixes, discovery parity and batch-only R2 capabilities. Cached registry rebuilding and exact-version replay apply. [Plan](stories/EQ-037_PLAN.md), [acceptance qualification](R2_ACCEPTANCE.md). Independent final-head review and actual delivery gates remain pending.

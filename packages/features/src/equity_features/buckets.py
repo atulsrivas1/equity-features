@@ -9,7 +9,7 @@ from equity_feature_contracts import (
 )
 from equity_feature_contracts.buckets import BucketContext, BucketVolume, IntervalBaseline, _configuration
 from . import __version__
-from .volume import _add, _identity_binding
+from .volume import _add, _identity_binding, _retain_proof
 
 
 def _context(config: ConfigSpec, context: BucketContext) -> InputBinding:
@@ -138,6 +138,7 @@ def compute_interval_relative_volume(target: BucketVolume | None, baseline: Inte
     status = Status.AVAILABLE
     reasons: list[Reason] = []
     evidence: list[EvidenceRow] = []
+    proofs: dict[tuple[str, str], EvidenceRow] = {}
     observed = 0
     if baseline is None:
         status = Status.MISSING_INPUT
@@ -156,10 +157,10 @@ def compute_interval_relative_volume(target: BucketVolume | None, baseline: Inte
             reasons.extend(q.reasons)
         else:
             observed += 1
-        for e in baseline.result.evidence[:limit]:
-            evidence.append(EvidenceRow(e.entity, "baseline.interval_relative_volume", e.input_id, e.row_id,
+        for e in baseline.result.evidence:
+            _retain_proof(evidence, proofs, EvidenceRow(e.entity, "baseline.interval_relative_volume", e.input_id, e.row_id,
                                         e.event_ns, e.known_at_ns, e.effective_start_ns, e.effective_end_ns,
-                                        e.use, e.exclusion_reason, e.boundary))
+                                        e.use, e.exclusion_reason, e.boundary), limit)
     start, end = context.bucket.bounds(config.session)
     reason = Reason.INELIGIBLE if end > config.session.close_ns else None
     if target is None:
@@ -184,11 +185,10 @@ def compute_interval_relative_volume(target: BucketVolume | None, baseline: Inte
                 reason = Reason.NULL_FIELD
         if reason is None:
             observed += 1
-        if len(evidence) < limit:
-            evidence.append(EvidenceRow(context.entity, "baseline.interval_relative_volume", target.source.metadata.source.input_id,
+        _retain_proof(evidence, proofs, EvidenceRow(context.entity, "baseline.interval_relative_volume", target.source.metadata.source.input_id,
                                         str(target.row_index), target.interval.end_ns, target.known_at_ns,
                                         target.interval.start_ns, target.interval.end_ns,
-                                        "consumed" if reason is None else "excluded", reason, "completed_interval"))
+                                        "consumed" if reason is None else "excluded", reason, "completed_interval"), limit)
     if reason is not None:
         reasons.append(reason)
         if status == Status.AVAILABLE:

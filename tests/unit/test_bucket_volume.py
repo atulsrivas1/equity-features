@@ -262,5 +262,19 @@ class BucketVolumeTests(unittest.TestCase):
         self.assertEqual(self.calculate(b2, cfg2, ctx2).result.values[0].values, (20.0,))
 
 
+    def test_original_row_proof_admission_independent_of_retention(self):
+        for limit in (1, 20):
+            with self.subTest(evidence_limit=limit):
+                b, cfg, ctx = fixture(evidence=limit)
+                ref = compute_interval_baseline(b, cfg, context=ctx)
+                target = replace(fact(cfg, ctx), source=InputBinding("bucket_target", DataKind.BAR, b.metadata), row_index=0)
+                self.assertCode(ErrorCode.INCONSISTENT_IDENTITY,
+                                lambda: compute_interval_relative_volume(target, ref, cfg, context=ctx))
+                coherent = replace(target, row_index=3)
+                result = compute_interval_relative_volume(coherent, ref, cfg, context=ctx)
+                self.assertEqual(result.values[0].values, (2.5,))
+                self.assertLessEqual(len(result.evidence), limit)
+
+
 if __name__ == "__main__":
     unittest.main()

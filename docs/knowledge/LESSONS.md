@@ -248,3 +248,12 @@ independent eight-feature goldens pass; old recursive gaps remain unavailable wh
 finite complete windows recover. [Plan](../stories/EQ-037_PLAN.md),
 [regressions](../../tests/unit/test_r2_integration.py). Full release gates remain pending;
 revisit descriptor/producer parity whenever a builtin output representation changes.
+
+
+Independent final R2 review reproduced a P2 missed by586green tests: supplied daily/bucket
+baseline row0 and target row0 shared identity but contradictory timing could pass when
+retention1 was full. At20 it rejected only via generic duplicate output validation.
+Public pre-code0852392 precedes two actual failing regressions (four subcases).
+a13 validates all supplied proof before retention, rejects typed inconsistent_identity,
+and preserves same-frame targetrow3/2.5 ratios. Daily20/bucket19 targeted tests pass.
+No source-authentication or proof reconstruction claim. Full suite/review/build gates repeat.

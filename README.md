@@ -2,7 +2,7 @@
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
-**Status: R2 final integration is under qualification at experimental pair 0.0.3a12.
+**Status: R2 final integration is under qualification at experimental pair 0.0.3a13.
 All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
 conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
 Eleven R2 stories are accepted; EQ037 final release gates remain in progress.

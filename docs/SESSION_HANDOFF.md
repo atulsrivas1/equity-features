@@ -978,3 +978,12 @@ quantity/unit/coverage/status/schema/capability changes. Corrective pair0.0.3a13
 repeats full review, immutable build, CI/main/artifact/installed and receipt gates.
 Preserve104d8d3/a12 source qualification as superseded before acceptance; it passed
 586tests/22examples repeatedarchives/BOTHfreshpairs but this P2 blocks release.
+
+
+Independent final R2 review reproduced a P2 missed by586green tests: supplied daily/bucket
+baseline row0 and target row0 shared identity but contradictory timing could pass when
+retention1 was full. At20 it rejected only via generic duplicate output validation.
+Public pre-code0852392 precedes two actual failing regressions (four subcases).
+a13 validates all supplied proof before retention, rejects typed inconsistent_identity,
+and preserves same-frame targetrow3/2.5 ratios. Daily20/bucket19 targeted tests pass.
+No source-authentication or proof reconstruction claim. Full suite/review/build gates repeat.

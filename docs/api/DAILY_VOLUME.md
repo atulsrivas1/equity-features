@@ -70,3 +70,12 @@ merge. Pair version changes require existing caller state replay/registry rebuil
 No provider access, hidden normalization, performance, source authentication or
 stable publication claim. Float64 results use declared rtol/atol1e-12; witnesses
 retain exact sums/counts. Batch loops/transient input/evidence costs are explicit.
+
+## EQ037 supplied proof validation correction
+
+Daily and interval relative-volume consumers validate every supplied baseline proof
+and target original-row event/known-at/completed interval before clipping output evidence.
+Explicit contradictory claims for the same source ID/row reject consistently regardless
+of retention. Coherent same-frame different-row reuse remains allowed. Output retention
+bounds do not expand; absent proof is not reconstructed or source-authenticated.
+Pair0.0.3a13 records this admission correction; formulas/schemas/capabilities unchanged.
