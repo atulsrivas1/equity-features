@@ -960,3 +960,21 @@ review of all16actualR2kernels, exact-head archives/CI/main/FOURinstalledpairs/f
 Only then42Done/all12verified/E05/milestone3closure. R3paused.
 
 EQ037 full local qualification passed586units/123referencecases/strict53files/purity38negative10positive/import/registry/compatibility/license/docs119active/eightstages and zero broken local links. Next freeze source/docs and obtain separate exact-head review all16kernels; repeatedarchives/localpairs/headCI/mainactualFOURpairs/finalreceipt/closure remain.
+
+## Independent review correction before code — 2026-10-05
+
+Separate reviewer reproduced P2 in both supplied volume-ratio consumers: when one
+retained baseline evidence row already fills evidence_limit1, a target certificate
+claiming that same source ID/row with different event/known-at timing is admitted.
+At larger retention it rejects via duplicate evidence, so admission wrongly depends
+on output retention. This is explicit contradictory supplied proof, not missing
+source authentication. Hold acceptance and return42 to In progress.
+
+Add actual daily/bucket failing regressions across evidence limits1 and20. Validate
+all supplied original row identities before clipping or deduplicating retained output;
+coherent same-frame target row reuse remains allowed. Preserve derived-use/interval
+semantics where coherent and retain independent readiness. No producer equation,
+quantity/unit/coverage/status/schema/capability changes. Corrective pair0.0.3a13
+repeats full review, immutable build, CI/main/artifact/installed and receipt gates.
+Preserve104d8d3/a12 source qualification as superseded before acceptance; it passed
+586tests/22examples repeatedarchives/BOTHfreshpairs but this P2 blocks release.
