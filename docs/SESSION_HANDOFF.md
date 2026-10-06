@@ -1402,3 +1402,24 @@ and Releasedpostrelease readback. Runtime/tests/tools/package/harness unchanged;
 reuse thesefouractualforms with currentfinalreport/byteequality. Then issue58Done
 and pull EQ052 caller-governed calendars/history/reference requests;052-056 planned.
 No actual private numerical slice/goldens or R4 conformance yet.
+
+
+### EQ051 accepted / EQ052 concrete pull
+
+EQ051 issue58 Closed/ProjectDone after Released6024998010/postrelease actual
+receipt/live3successCI/24archives/current20reports/currentharness/tests/four
+unchangedunexpiredchannels rereadPASS. PR264 source34a0615 review6024700509 and
+PR265 finalaaedb7a8 review6024872978 each independently reviewed/allCI/exacttree/
+actualpublicblobs/owner verified. Finaldocs37527287259/Foundation37527287306/
+optional37527287289 succeed; all24 actual archivebytes equal qualifiedsource,
+20currentnative reports. FOUR actual sourceproducer forms Windows62tests/strict4/
+64row measured parity/core absent-forbidden/byteinvariance; nativeLinux CI. Pure
+core/consumer unchanged; fullsource9f actual512/4096 cost report dated honestly.
+
+No other openPR. Pull EQ052#59 dependency-ready; concreteprecode plan now fixes
+caller-owned versioned Calendar/WindowSpec-based history requests/slotcertificates/
+suppliedreference resolution, with explicit UTCdaily/RTH and PIT gaps. Optionala4,
+unchanged pure contracts/math. Publish plan before source; Ready thenInprogress
+with linked draftPR. Independent suppliedholiday/DST/earlyclose/finiteSMArecovery
+vsanchoredEMAgap/prior-only/reference revision fixtures; finalreview/bothOSactual
+install/artifact/publication/readback beforeDone.053-056 planned; realgoldensunfrozen.
