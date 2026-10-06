@@ -1157,3 +1157,8 @@ EQ047 supplements actualcurrentretention/serverdigests/expiry for eight earliera
 
 
 EQ047 separate review of7ff6539 foundP2 interpreterprovenance: draftprose conflatedsourceLinux3.12.14 withfinalLinux3.12.15 whileinventorycorrectlyrecorded15. Corrected guide distinguishes source73246b1/final0b6aa566 and unchangedWindows3.12.10; actualdownloadedmanifests independentlychecked. No code/archive/qualificationchanges; reworkInprogress then newfinalheadreview/allCI required. Otherreviewchecks13wheel/index/45noticefiles/11installedWindowssets/channelobservations/actions/pins/203links passed, no numerical/type/freshinstall/nativeLinux reruns claimed.
+
+
+### EQ047 Done / EQ095 pull
+
+PR254 correctedfinal24f2d00 separatefinalreview6021522146 resolvesP2 sourceLinux3.12.14 vsfinal3.12.15. Guardedmain07b4f3d747f822e93bc557ab65a1b0f8fe44dc3a exacttree/9actualpublicblobs/owner/docs37502471034/Foundation37502471182 bothOS verified. Code/tests/tools/consumer unchanged from FOURqualified046source73246b1; actual12finalarchives equal and currentFOURbenchmark/FOURresource/FOURconsumerinstallation JSON/native/control/math/provenance/expiry pass. Issue53Released/postreleaseactualreadback/Doneclosed(comment6021659499). Pull EQ095#150/5points new publicinstalledqualificationmodule with consumer0.4.0 implementation only, corea4/custommathv2 unchanged. Pre-codeplan documents5/100 vs5/103, config/metadata/quality/evidence/typednegative scopes and actualretainedartifact/isolation gates. Fullcurrent631units/strict48/math123 remainbaseline; newexternalqualificationdriverseparatefrompure619/593cohort. After095Done, EQ048 finalacceptance; no R4 scope.
