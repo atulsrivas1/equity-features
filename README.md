@@ -85,4 +85,4 @@ EQ030 sample volatility implementation is qualified at0.0.3a4; [API](docs/api/HI
 
 EQ031 daily volume implementation is qualified at0.0.3a5; [API](docs/api/DAILY_VOLUME.md), [installed example](examples/daily_volume.py), [delivery gates](docs/stories/EQ-031_DELIVERY.md).
 
-EQ032 interval-volume source qualification is underway at0.0.3a6; [API](docs/api/INTERVAL_VOLUME.md), [installed example](examples/interval_volume.py), [delivery gates](docs/stories/EQ-032_DELIVERY.md).
+EQ032 interval-volume implementation is qualified at0.0.3a6; [API](docs/api/INTERVAL_VOLUME.md), [installed example](examples/interval_volume.py), [delivery gates](docs/stories/EQ-032_DELIVERY.md).
