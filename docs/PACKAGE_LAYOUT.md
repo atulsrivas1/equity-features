@@ -29,3 +29,6 @@ EQ049 adds packages/duckdb, import equity_feature_duckdb, as the optional R4 sou
 boundary. Its separate requirements-duckdb.txt/workflow/builder/tests/duckdb do not
 add DuckDB to pure packages or their runtime/development requirements. Resolver
 source/typing checks do not establish R4 canonical or real-data acceptance.
+
+
+EQ121 establishes the owner-authorized [I/O companion](https://github.com/atulsrivas1/equity-feature-io) and [workers companion](https://github.com/atulsrivas1/equity-feature-workers). Version-marker distributions io-contracts/io-sdk/workers0.1.0a0 have strictly inward metadata dependencies; actual publication acceptance is recorded on [canonical issue278](https://github.com/atulsrivas1/equity-features/issues/278). Worker commands are absent. Existing optional DuckDB source remains here until reviewed/qualified EQ122 extraction; no existing core/import/math changes. [Foundation plan](stories/EQ-121_PLAN.md).
