@@ -1,3 +1,7 @@
+## EQ124 composition ownership
+
+[Explicit factory API](IO_FACTORIES.md) uses matching companionio-contracts/SDK0.1.0a1, canonicalcontracts0.0.4a4 and independentDuckDB0.1.0a8. Actual qualified currentsource/main artifacts and final-head review are recorded on canonical281 before acceptance. Worker0.1.0a0 still requiresSDK0.1.0a0; a mixed old-worker/new-SDK environment is not promised. EQ129 owns current composed skeleton dependency alignment. Purepackage versions/schema/math remain unchanged. Full operational sink interfaces/backend matrices remain their numbered stories.
+
 # Foundation compatibility and environment policy
 
 ## Current optional ownership — EQ122
