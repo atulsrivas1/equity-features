@@ -34,4 +34,4 @@ Reviewers: parent `/root` and separate local automated `/root/io_architecture_re
 
 ## Current next step
 
-BUG-005 is In progress after owner-authorized repair, provisionally3points, E08/R5 prerequisite. EQ057 remains Backlog with explicit repair dependency. Historical R4.1 closure remains preserved; current readiness is superseded. Verify and deliver the I/O repair before restoring EQ057 Ready and dispatching R5. [Prepared R5 resume](R5_AUTONOMOUS_HANDOFF.md) must be refreshed with the corrected package/version/artifact/readback and applicable review policy. No worker implementation/new session is started by this repair.
+BUG-005 is provisionally3points, E08/R5 prerequisite; its live issue/Project records current lifecycle. Historical R4.1 closure remains preserved. Readiness requires verified I/O repair delivery and actual BUG005Done before restoring EQ057Ready. [Prepared R5 resume](R5_AUTONOMOUS_HANDOFF.md) requires the corrected.a1 package and canonical301's exact published main/artifact/run/hash/expiry/readback, preserving other versions and historical receipts. No worker implementation/new session is started by this repair.
