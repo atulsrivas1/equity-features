@@ -1,3 +1,7 @@
+# C1 community release planning - October 7, 2026
+
+[EPIC-E20](https://github.com/atulsrivas1/equity-features/issues/311) adds EQ-131-135 in [R14](https://github.com/atulsrivas1/equity-features/milestone/16), coordinated with research SR-026/027 in M5. [Versioned plan](C1_COMMUNITY_RELEASE_PLAN.md) defines the frozen R5-R13 and M2/M3 predecessor gates, scope, overlap, acceptance and manual learning metrics. All new scope is Backlog; live Project owns status. Existing owners/priorities remain. Planning only; no implementation, external posting, new chat, schedule or release. Completed final-head review and actual delivered-source verification remain required.
+
 ## EQ062 actual experimental delivery - October 7, 2026
 
 Worker0.1.0a7 delivered at actual main `696185f6d9a336f21af72114c5f65dce0c928daa`, successful native push37701379546. Canonical main `1fd6aedb3fd1861b14b788ca97ab2eeb7d8766cf` passed native37701389011/docs37701389029. Guarded workerPR14/canonicalPR323 merges followed separate corrected source/artifact/final-metadata review and all four worker/six canonical checks. Actual public full trees equal reviewed heads. Source receipt SHA728562597f624487ffa5d9a1041c52d4ce6a0d5d1be925229d5e4d2ca0ead896 and corrected comparison SHAe7d2fd808e8d6be287515bdad0743c0b714f9e739262b2acec6336a4ca41f76a read back exactly as UTF8 LF from both actual main refs.
