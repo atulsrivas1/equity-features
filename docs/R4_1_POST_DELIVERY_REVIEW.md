@@ -6,6 +6,8 @@ Owner subsequently requested fixing BUG005 then discussing next work. [I/O PR11]
 
 Explicit local-review extension for this R5-assigned repair is pending owner response because AGENTS/CODE_REVIEW covers bounded R4.1 only. This is a policy requirement, not a new inferred human approval gate. Implementation/testing continues independently; applicable separate final-head review remains required before merge. Do not start workers or restore EQ057 Ready until actual repair acceptance. Earlier review snapshots below remain historical.
 
+[Source qualification receipt](https://github.com/atulsrivas1/equity-features/issues/301#issuecomment-6040195529) binds successful source-head Parquet37636816350 and matrix37636816380 native pushes, downloaded ZIP/archive/manifest/report hashes and expiry. Four Parquet fresh forms each pass20physical/eightprocess/two measured parity workloads; four matrix forms each pass6methods/nineroutes. Native Windows Parquet archives equal the local repeated qualified builds. Strict public/external typing and before/after core fingerprints pass. This establishes source qualification, not final review, actual-main release/readback or BUG005 Done; no private execution/new speedup/durability claim.
+
 Owner requested review before preparing the R5 execution handoff. Historical R4.1 acceptance is verified; a newly reproduced P2 defect blocks current worker readiness. Canonical [BUG-005 #301](https://github.com/atulsrivas1/equity-features/issues/301) owns repair in the I/O repository. No runtime fix is implemented by this report.
 
 ## Finding: incoherent Parquet completion observation
