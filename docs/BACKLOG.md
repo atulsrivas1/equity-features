@@ -2,6 +2,9 @@
 
 [EPIC-E20](https://github.com/atulsrivas1/equity-features/issues/311) adds EQ-131-135 in [R14](https://github.com/atulsrivas1/equity-features/milestone/16), coordinated with research SR-026/027 in M5. [Versioned plan](C1_COMMUNITY_RELEASE_PLAN.md) defines the frozen R5-R13 and M2/M3 predecessor gates, scope, overlap, acceptance and manual learning metrics. All new scope is Backlog; live Project owns status. Existing owners/priorities remain. Planning only; no implementation, external posting, new chat, schedule or release. Completed final-head review and actual delivered-source verification remain required.
 
+## Current bounded R5 scope reconciliation — October 7, 2026
+
+EQ057–061 are actually accepted Closed/Project Done; latest [EQ061 acceptance6048044214](https://github.com/atulsrivas1/equity-features/issues/69#issuecomment-6048044214). EQ062#70 is the sole selected active story with unchanged versioned scope and [pre-code resource/partition/reuse/spill contract](stories/EQ-062_PLAN.md),21 provisional complexity points. EQ063–066 remain pending own pulls. Live Project is current status authority; dated snapshots below retain history. Dedicated owner-authorized session completes bounded R5 then stops before R6. No deadline or additional release is added.
 
 ## EQ130 release audit under qualification
 
