@@ -1,5 +1,12 @@
 # Owner attribution and review update — October 5, 2026
 
+## EQ121 accepted / EQ122 concrete pull — October 6, 2026
+
+EQ121#278 now verified CLOSED/ProjectDone after Released6028658946/postread acceptance6028666231. Coremain2cd51cd reviewed2a8a7ce/6028527651/all10CI; main docs37555023720/Foundation37555023713/optional37555023782 allsuccess/all382publicblobs-owner/24unchangedcore archives24currentnative reports. I/Omain31d08bc revieweda7f21ec/6028521735/mainCI37554716309/all30blobs; workersmainb2f13c9 reviewed03e60ec/6028521959/mainCI37554727700/all25blobs. All24actualcomponent/dependency archives/currentbuilder-probe/nativeforms/8fresh actual sourceproducerform installs equal finalmain bytes; current8channels/digests/expiry on issue278. Experimental io-contracts/io-sdk/workers0.1.0a0 version markers only; no backendoperations/workercommands. P2sourceprovenance/P3governance resolved; original failed --merge blocked safely, canonical squash policy respected. Source/private/unrelated checkouts preserved.
+
+Next highest dependency-ready pull EQ122#279 under [concrete pre-code plan](stories/EQ-122_PLAN.md): compatible optionalDuckDB.a8 extraction, publicsource/API/installed/migration evidence and immutableR4source/math limits before active core removal. Only one active story. EQ123–130 remain dependency-gated; R4.1 not accepted and STOPbeforeR5 remains.
+
+
 ## R4.1 execution / EQ121 foundation work — October 6, 2026
 
 GOV014#275 and GOV015#289 refreshed live CLOSED/ProjectDone after published main7a6db8c. Dedicated bounded release session owns EQ121–130, one active implementation story. Bootstrap actual Windows3.12.10 passed633core/94optional/123independent reference tests/strict56/import-registry-license-compatibility/purity38negative10positive. Editable bootstrap is not release artifact acceptance.
