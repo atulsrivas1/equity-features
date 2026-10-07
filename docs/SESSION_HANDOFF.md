@@ -1,3 +1,9 @@
+## EQ125 implementation / review preparation
+
+Companion0a75312/PR5 implements frozen typed publication/closedcodec/identity/lifecycle/reusableconformance with matchingcontractsSDK.a2/fixture.a1. Local44development (21factory21publication2provenance)/strict11files/manual4nonempty+emptygoldens/all29records4enums/18synthetic completecontent/bar50051200102.6/21reusablecases/defectivefixture detection pass. Purecanonical/DuckDB/worker unchanged. Inmemoryrestartfaults simulate state, no process/backend/private certificate. Publicboundary IO_PUBLICATION_API.md and companionAPI/docssnapshot distinguish plannedrelease evidence.
+
+Localrepeat/freshforms/currentnativeCI underway, not accepted. Next separateactualheadsemanticreview/findings, actualinstalled/currentnative/sourceartifactchecks, finaldocumentationheadcoverage/currentchecks then Readyrelease/exactheadmain/sourceowner/40archives/currentreports/6serverZIP hashes/allfiles/finiteexpiry/readback/Released/Done. Canonical282 soleactive; laterstoriesgated, worker alignmentEQ129, R4.1 incomplete, STOPbeforeR5.
+
 ## EQ124 accepted / EQ125 pre-code pull
 
 EQ124 verified Closed/ProjectDone after Released6029783916/postread6029784487. Coremain3c8ecda/companionmain7c9e082 reviewedfinal f9d37f2/f228411; allpublic369/85blobs/owner, actualmainCI,40archives/currentreports/sixserverZIP hashes/allfiles/finiteexpiry accepted. New matching I/OcontractsSDK.a1/consumer.a0 factory API delivered; canonical.a4/DuckDB.a8/workers.a0 unchanged. Receipt stories/EQ-124_RELEASE_RECEIPT.json; finalreview6029672808/6029672074. No fullruntime/backend/private certification.
