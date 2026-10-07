@@ -1,3 +1,7 @@
+## EQ130 relative-link correction / In progress
+
+Separate exact-head review found P3: core docs/stories/EQ-130_DELIVERY.md reused docs-root relative links, which resolved to nonexistent docs/stories files. Both corrected to ../R4_1_ACCEPTANCE.md and ../R5_AUTONOMOUS_HANDOFF.md; all other new relative links independently scanned. Finding and actual rework are preserved; final corrected core-head review/current CI/artifacts/main publication/readback remain required. Companion source heads and all package/runtime/test/workflow/math/private bytes unchanged; accepted129 publicLF receipt retains exact hash. One active287, epic audit aggregate under rework, no R5 implementation. Earlier snapshots preserve history; live Project is authority.
+
 ## EQ130 release audit under qualification
 
 EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
