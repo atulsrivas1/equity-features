@@ -1,3 +1,9 @@
+## R5 planning publication / pending separate review
+
+[PR303](https://github.com/atulsrivas1/equity-features/pull/303) publishes the seven-document parallel execution clarification. EQ-057/060/061/062/065/066 issue bodies were updated and independently read back: titles, issue state, Project status and milestone are unchanged. EQ-057 remains Ready; the other five remain Backlog. Local documentation workflow checks, all eight reference/import/release/registry scripts, changed-document relative links and whitespace checks pass. These are planning checks, not worker scaling evidence. CI is running; no merge or release acceptance is claimed.
+
+The owner has been asked whether separate local Codex reviewers may cover this planning PR and R5, because existing authorization ends at R4.1 plus bounded BUG-005. Until an explicit answer and completed applicable final-head review, leave PR303 open. Resume by checking the answer, current PR head/CI and live issues; record any authorized policy change, obtain the separate review, then apply normal documentation publication/readback gates. Do not start workers or create a new session from this planning request.
+
 ## October 7 R5 parallel execution clarification
 
 The owner authorized documenting bounded, dependency-aware parallel execution before R5 implementation. [Parallel execution plan](R5_PARALLEL_EXECUTION_PLAN.md) refines existing EQ-057/060/061/062/065/066; no new epic/release, numerical change or worker launch. Parquet locks whole write attempts per output root; DuckDB output has serialized ownership per database. Independent calculations require supplied inputs/initialization, ordered history and explicit universe barriers. Require input reuse, bounded backpressure, combined worker/backend resource budgets and measured 1/2/4/8-worker parity/scaling where capacity permits. Advanced acceleration remains R8.
