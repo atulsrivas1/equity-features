@@ -1,3 +1,7 @@
+## Current bounded R5 scope reconciliation — October 7, 2026
+
+EQ057–061 are actually accepted Closed/Project Done; latest [EQ061 acceptance6048044214](https://github.com/atulsrivas1/equity-features/issues/69#issuecomment-6048044214). EQ062#70 is the sole selected active story with unchanged versioned scope and [pre-code resource/partition/reuse/spill contract](stories/EQ-062_PLAN.md),21 provisional complexity points. EQ063–066 remain pending own pulls. Live Project is current status authority; dated snapshots below retain history. Dedicated owner-authorized session completes bounded R5 then stops before R6. No deadline or additional release is added.
+
 ## EQ130 release audit under qualification
 
 EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
