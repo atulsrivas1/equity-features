@@ -1,3 +1,9 @@
+## EQ125 corrected source / renewed review preparation
+
+Separate0a review6029970029/core6029970566 found3P2; correctedcompanion32b785a preservesfrozenwire/math while rejecting lost non-limit guarantees/enforcingexplicitpublisher requests, raw wireversion/schema admission beforecanonicalconstructors, and declaredbusy|restart conformance requiringexclusive newhandle/oldinvalidated. Local47development(21factory24publication2provenance)/strict11files pass. InitialCI failedmissingpurefeatures verification dependency; correctedworkflowinstalls bothpurepackages. Initial0alocalrepeat/freshforms passedbut superseded. EF-L037 recordsnegativeadmission lesson.
+
+Next correctedactualheadrepeat/freshforms/nativeCI and renewedseparatereview; no releaseacceptance. Preserve initialdist/newsourceguards, do not mutatehead duringbuild. Then currentartifactqualification/finaldocs-headreview/nativechecks/Readyrelease/exactheadmain/sourceowner/40archives/currentreports/6ZIPserverSHA/allfiles/finiteexpiry/readback/ReleasedDone. Canonical282 soleactive; backendprocessqualification126127/customexample128/workeralignment129 remain, STOPbeforeR5.
+
 ## EQ125 implementation / review preparation
 
 Companion0a75312/PR5 implements frozen typed publication/closedcodec/identity/lifecycle/reusableconformance with matchingcontractsSDK.a2/fixture.a1. Local44development (21factory21publication2provenance)/strict11files/manual4nonempty+emptygoldens/all29records4enums/18synthetic completecontent/bar50051200102.6/21reusablecases/defectivefixture detection pass. Purecanonical/DuckDB/worker unchanged. Inmemoryrestartfaults simulate state, no process/backend/private certificate. Publicboundary IO_PUBLICATION_API.md and companionAPI/docssnapshot distinguish plannedrelease evidence.
