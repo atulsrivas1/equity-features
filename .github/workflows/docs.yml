@@ -29,6 +29,8 @@ jobs:
           assert {sid for sid, release in stories if release == 'R4.1'} == {f'EQ-{i:03}' for i in range(121, 131)}
           assert Path('docs/IO_WORKER_ARCHITECTURE.md').is_file()
           assert Path('docs/R4_1_DELIVERY_PLAN.md').is_file()
+          assert Path('docs/R4_1_AUTONOMOUS_HANDOFF.md').is_file()
+          assert Path('docs/R4_1_TEST_STRATEGY.md').is_file()
           scope = Path('docs/features/V1_SCOPE.md').read_text()
           rows = re.findall(r'^\| ((?:session|history|baseline|relative|breadth)\.[a-z_.]+) \| ([^|]+) \| ([^|]+) \| (R[12]) \| ([^|]+) \|$', scope, re.M)
           assert len(rows) == 39 and len({row[0] for row in rows}) == 39

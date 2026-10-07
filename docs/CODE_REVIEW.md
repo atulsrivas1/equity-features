@@ -68,3 +68,7 @@ The owner explicitly authorized separate local Codex reviewers throughout R4 and
 ## R4.1 and architecture planning authorized local review — October 6, 2026
 
 The owner explicitly extends separate local Codex reviewers to GOV-014 architecture planning and the bounded R4.1 prerequisite release, because hosted review remains unavailable. Each review must inspect the actual final head and affected contracts/callers, record identity, executed checks, findings/disposition and limitations. Relevant changes require renewed final-head coverage. Author self-review and CI alone remain insufficient. This does not authorize later releases by inference, activate hosted review or waive numerical, documentation, installation and publication gates.
+
+## R4.1 execution handoff coverage
+
+The owner-authorized bounded R4.1 local-review alternative includes its GOV-015 execution handoff preparation and final-head semantic review. Retain actual reviewer identity, findings/disposition, relevant CI and publication gates. This clarification grants no hosted activation, human-review claim, later-release scope or waiver of installed/numerical acceptance.

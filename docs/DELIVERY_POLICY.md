@@ -60,3 +60,7 @@ The owner superseded the earlier R3 feature-priority exception: existing R3 sess
 ## Owner resumes R3 — October6
 
 Owner requests autonomous R3 after accepted R2. Both prerequisite repairs and R2 accepted exit are reused; resume the twelve prepared R3 stories under R3_AUTONOMOUS_HANDOFF.md/current review policy. Earlier stop-after-repairs steering is superseded. Highest dependency-ready pull is EQ093, followed by EQ043; no new release dates, stable channel or later-release implementation is authorized.
+
+## Owner assigns bounded R4.1 execution - October 6, 2026
+
+Owner requests the handoff and a dedicated new session for R4.1. [Execution package](R4_1_AUTONOMOUS_HANDOFF.md) owns EQ-121 through EQ-130 after verified GOV-014/GOV-015 publication/readiness. Continue pulling within that release with one active story and real review/test/artifact gates, then stop before R5. No sprint, date promise, recurring automation or later-release execution is implied.

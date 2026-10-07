@@ -434,3 +434,7 @@ EF-L032 [R4 audit](../R4_ACCEPTANCE.md) retains both executed layers and explici
 ## Architecture clarification, October 6
 
 [R4 acceptance](../R4_ACCEPTANCE.md) established pure dependency boundaries while the optional adapter remained co-located. [GOV-014](https://github.com/atulsrivas1/equity-features/issues/275) adds repository separation as an ownership decision. Repository separation and dependency purity require distinct evidence: preserve inward imports and qualify installed compatibility during extraction. A renamed repository alone establishes neither. Revisit if new package dependencies threaten core independence.
+
+## Handoff dispatch and readiness are separate gates
+
+[GOV-015/PR290](https://github.com/atulsrivas1/equity-features/pull/290) review found a dependency cycle: preparation Done required assigned-session evidence, while the draft required preparation Done before assignment. Publish the reviewed handoff first; permit bootstrap-only assignment, verify it and close preparation; refresh actual Done before implementation. Keep these boundaries explicit in continuity, kickoff and acceptance. Revisit if a later handoff adds a prerequisite requiring the session that it also prevents creating.
