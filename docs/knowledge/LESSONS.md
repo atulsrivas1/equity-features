@@ -1,3 +1,7 @@
+## EF-L051 source evidence - stable ownership and receipt-first restart
+
+EQ063 source136 tests/strict11 and two actual sink process-exit/restart cases support retaining OS lock through publication and persisting existing-codec intent before begin. No timer-based takeover of a live publisher. Cancellation/exhaustion does not erase committed work: actual readback supersedes operational flags without a callback/second begin. Windows mandatory byte-range locking also denies another process reading a locked byte; test the semantics rather than assuming POSIX reads. Interrupted multiprocessing waiter synchronization is excluded; avoid accessing its potentially abandoned Event lock after forced termination. Source/native/artifact/review/release qualification remains pending; [evidence](../stories/EQ-063_DELIVERY.md), previous plan retained below.
+
 ## EF-L051 - local task ownership must fence publication across recovery
 
 EQ063 [pre-code plan](../stories/EQ-063_PLAN.md) retains stable OS ownership through publication instead of assuming a metadata lease can fence a live sink writer. Expiry stops future steps; it does not steal a live lock. Persist SDK Output intent before begin and verify actual committed receipt/result readback on restart before retrying. Plan/independent fixture only; implementation/platform/fault/release evidence pending. Prior lessons preserved below.

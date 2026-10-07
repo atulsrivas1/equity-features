@@ -1,0 +1,3 @@
+# Worker local claim API
+
+Canonical EQ063#71, E08/R5. Experimental worker0.1.0a8 API/limits/examples live in [worker CLAIMS.md](https://github.com/atulsrivas1/equity-feature-workers/blob/codex/eq063-claims/docs/CLAIMS.md); [frozen contract](../stories/EQ-063_PLAN.md) and [delivery evidence](../stories/EQ-063_DELIVERY.md) distinguish current gates. ClaimLimits, ClaimProgress, ClaimStore, TaskClaim add local operational orchestration only. Existing ClaimIdentity/Task/Output/Result/Receipt contracts and numerical formulas unchanged. Acquisition precedes observed Task claims; source truth is not established by caller metadata. Calculations perform no filesystem/scheduling/publication. Catalog/progress/physical pilot remain later EQ064–066.
