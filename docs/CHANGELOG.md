@@ -1,3 +1,7 @@
+## EQ129 implementation under qualification
+
+Nine-package committed native compatibility matrix; workers skeleton.a1 metadata aligns to SDK.a2 with committed probes/fixed source pins/end guards. Independent custom vs standalone minute source expectations, full canonical sink readback, offline dependency conflicts and core-only import/byte isolation. No changed mathematics/source/backend/runtime; final review/currentnative/main gates pending.
+
 # Experimental package changes
 
 ## Compatible DuckDB extraction0.1.0a8 — EQ122
