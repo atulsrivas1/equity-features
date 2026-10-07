@@ -1,3 +1,7 @@
+## EQ130 release audit under qualification
+
+EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
+
 ## EQ129 supported combination under qualification
 
 The concrete [canonical matrix plan](https://github.com/atulsrivas1/equity-features/blob/codex/eq-129-compatibility-matrix/docs/stories/EQ-129_PLAN.md) freezes core/contracts0.0.4a4, IO contracts/SDK0.1.0a2, standalone DuckDBsource0.1.0a8, both sinks0.1.0a0, exampleextensions0.1.0a0 and workers skeleton0.1.0a1. Optional engines are DuckDB1.5.6/NumPy2.2.6/PyArrow20.0.0, explicitly installed only for full composition. Core works independently; extension needs only canonical contracts+SDK. Workers.a1 pins SDK.a2 and exports version only, no commands/runtime. Historical workers.a0/SDK.a0 remains separately scoped; forcing oldworker.a0 with newSDK.a2 or IOcontracts.a1 with SDK.a2 must fail actual resolver/pipcheck. This does not certify untested versions/platforms.
