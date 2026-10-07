@@ -1,3 +1,8 @@
+# C1 community release planning - October 7, 2026
+
+[EPIC-E20](https://github.com/atulsrivas1/equity-features/issues/311) adds EQ-131-135 in [R14](https://github.com/atulsrivas1/equity-features/milestone/16), coordinated with research SR-026/027 in M5. [Versioned plan](C1_COMMUNITY_RELEASE_PLAN.md) defines the frozen R5-R13 and M2/M3 predecessor gates, scope, overlap, acceptance and manual learning metrics. All new scope is Backlog; live Project owns status. Existing owners/priorities remain. Planning only; no implementation, external posting, new chat, schedule or release. Completed final-head review and actual delivered-source verification remain required.
+
+
 ## EQ130 release audit under qualification
 
 EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
