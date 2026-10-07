@@ -1,3 +1,7 @@
+## EF-L051 - local task ownership must fence publication across recovery
+
+EQ063 [pre-code plan](../stories/EQ-063_PLAN.md) retains stable OS ownership through publication instead of assuming a metadata lease can fence a live sink writer. Expiry stops future steps; it does not steal a live lock. Persist SDK Output intent before begin and verify actual committed receipt/result readback on restart before retrying. Plan/independent fixture only; implementation/platform/fault/release evidence pending. Prior lessons preserved below.
+
 ## EF-L050 — Budget the whole task pipeline before parallel callbacks
 
 Worker0.1.0a7 delivered at actual main `696185f6d9a336f21af72114c5f65dce0c928daa`, successful native push37701379546. Canonical main `1fd6aedb3fd1861b14b788ca97ab2eeb7d8766cf` passed native37701389011/docs37701389029. Guarded workerPR14/canonicalPR323 merges followed separate corrected source/artifact/final-metadata review and all four worker/six canonical checks. Actual public full trees equal reviewed heads. Source receipt SHA728562597f624487ffa5d9a1041c52d4ce6a0d5d1be925229d5e4d2ca0ead896 and corrected comparison SHAe7d2fd808e8d6be287515bdad0743c0b714f9e739262b2acec6336a4ca41f76a read back exactly as UTF8 LF from both actual main refs.

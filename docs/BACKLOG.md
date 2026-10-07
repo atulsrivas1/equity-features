@@ -1,3 +1,7 @@
+## EQ063 selected preparation - October7,2026
+
+[EQ062 acceptance](https://github.com/atulsrivas1/equity-features/issues/70#issuecomment-6049001746) is Closed/Project Done. LiveProject confirms EQ057–062 Done and EQ063–066 Backlog before pull; E08 In progress. EQ063#71 is next dependency-satisfied preparation. [Pre-code claim/retry/recovery contract](stories/EQ-063_PLAN.md) and frozen independent fixture precede runtime.21 provisional complexity points, not days. Implement exact task OS-lock ownership, bounded operational records/attempts/cancellation and actual receipt-first recovery; no sink/math/schema/mandatory-dependency changes. Separate review, source/native/installed/release gates remain pending. Preserve divergent local canonical main; branches start verified origin/main. Complete boundedR5 then stop beforeR6.
+
 ## Current bounded R5 scope reconciliation — October 7, 2026
 
 EQ057–061 are actually accepted Closed/Project Done; latest [EQ061 acceptance6048044214](https://github.com/atulsrivas1/equity-features/issues/69#issuecomment-6048044214). EQ062#70 is the sole selected active story with unchanged versioned scope and [pre-code resource/partition/reuse/spill contract](stories/EQ-062_PLAN.md),21 provisional complexity points. EQ063–066 remain pending own pulls. Live Project is current status authority; dated snapshots below retain history. Dedicated owner-authorized session completes bounded R5 then stops before R6. No deadline or additional release is added.
