@@ -1,6 +1,6 @@
 # Equity Features
 
-**Next prerequisite:** [R4.1 repository separation and extensible I/O](docs/R4_1_DELIVERY_PLAN.md) comes before R5 workers. Calculations remain here; [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io) owns adapters/sinks and the worker repository remains a skeleton. Canonical EQ121–127 are accepted; [EQ127](docs/stories/EQ-127_DELIVERY.md) records transactional DuckDB sink review, qualification and publication evidence. Canonical issues and live Project supply the status authority for R4.1 release gates.
+**R4.1 release audit:** EQ121–129 are accepted; [EQ130 acceptance](docs/R4_1_ACCEPTANCE.md) records the final documentation/review/publication gates and canonical outcome. Pure calculations remain here; independent sources/sinks live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io), and workers0.1.0a1 remains a version-only skeleton. [R5 resume](docs/R5_AUTONOMOUS_HANDOFF.md) prepares EQ057#65 after actual acceptance; no worker implementation is delivered by this audit.
 
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
