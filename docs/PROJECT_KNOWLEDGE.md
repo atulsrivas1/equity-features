@@ -1,5 +1,15 @@
 # Project knowledge
 
+## EQ127 corrected source qualification — October 7, 2026
+
+Canonical284 is Test6031117239 after corrected separate reviews6031112127/
+6031112734 resolve prior recovery/UTF8/whitespace findings. [Actual source
+receipt](stories/EQ-127_SOURCE_RECEIPT.json) binds68archivefiles/tenserverZIPs/
+all118files/currentreports/sourceowner/finite expiry. Final metadata/currentCI
+and actual successful-main publication/readback remain required. One active
+story; complete bounded128129130 afterwards, STOPbeforeR5. Dated rework/planning
+snapshots below are preserved history, not current execution authority.
+
 ## R4.1 transactional sink continuity — October 7, 2026
 
 Canonical EQ121–126 are accepted Closed/ProjectDone; companion repositories now
