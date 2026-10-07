@@ -1,3 +1,7 @@
+## EQ062 canonical historical-link correction - October 7, 2026
+
+Separate reviewer /root/r5_review reproduced P3 broken historical receipt links in the three canonical continuity files. Corrected each to docs/stories/EQ-062_MODE_COMPARISON_4CE4F63.json. Worker/runtime/fixtures/source benchmark bytes are unchanged. Independently117tests50.336s/strict10 and corrected27/81 comparison pass; both prior P2s resolved. Renew canonical final-head semantic review/currentchecks; artifact/release acceptance remains pending.
+
 ## EQ062 packaged documentation carry-forward
 
 The corrected comparison receipt binds measured source0f73fbc, all original scoped hashes and actual27/81 samples. After that frozen measurement, only packages/workers/README.md within build scopes receives a current117/35 evidence header and explicit historical-snapshot labeling. Runtime, fixtures, probe, builder and workflow bytes remain exactly measured. The benchmark is not rerun for this non-executable documentation update; separate final-head semantic review and committed repeat/native artifact qualification verify the current packaged README. Receipts retain the actual distinct measured and delivered source identities; no hash is rewritten or source equality fabricated.
@@ -38,7 +42,7 @@ EQ062 returns Code review -> In progress at [6048512238](https://github.com/atul
 
 Author separately tightens process transport/resource admission: explicit per-task pickle transport cap, failure-task metadata admission before callbacks, child result transport size enforcement before IPC, two in-flight input copy reservations and two all-task transport reservations for child/IPC/returned metadata. These are conservative logical bounds, not decoded-object/native/interpreter RSS enforcement. Oversized result transport yields fixed RESOURCE_LIMIT without returning that rejected result; admitted other tasks retain their outcomes. All-shard result reservation remains mandatory even with spill. Mathematics, frozen oracle, core/I/O/task/result/receipt schemas and mandatory dependencies remain unchanged.
 
-Earlier112 tests/strict10 and comparison4ce4f63 (27 configurations/81 samples) succeeded and are preserved as historical candidate evidence, superseded for changed code. [Historical receipt](EQ-062_MODE_COMPARISON_4CE4F63.json) SHAa93362f4ea48baebd7458238b3819a8aae983b083eac611c1958333662038976. Renew tests/typing, freeze committed exact-LF source, rerun comparison, then renew independent final-head review before native/repeat/fresh installed/source-artifact/publication gates. No current corrected qualification or release is claimed yet. EQ063-066 remain Backlog; finish bounded R5 and stop before R6.
+Earlier112 tests/strict10 and comparison4ce4f63 (27 configurations/81 samples) succeeded and are preserved as historical candidate evidence, superseded for changed code. [Historical receipt](stories/EQ-062_MODE_COMPARISON_4CE4F63.json) SHAa93362f4ea48baebd7458238b3819a8aae983b083eac611c1958333662038976. Renew tests/typing, freeze committed exact-LF source, rerun comparison, then renew independent final-head review before native/repeat/fresh installed/source-artifact/publication gates. No current corrected qualification or release is claimed yet. EQ063-066 remain Backlog; finish bounded R5 and stop before R6.
 
 ## EQ062 measured compute-mode selection — October 7, 2026
 
