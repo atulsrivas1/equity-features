@@ -1,5 +1,18 @@
 # Project knowledge
 
+## R4.1 transactional sink continuity — October 7, 2026
+
+Canonical EQ121–126 are accepted Closed/ProjectDone; companion repositories now
+exist. [EQ127](stories/EQ-127_DELIVERY.md) is the sole active story, returned
+Code review -> In progress for two separately reproduced committed-replay/
+stored-corruption defects. Initial local/native positive runs are superseded for
+corrected acceptance. Historical UTF8 continuity corruption from a locale-read
+helper is restored from exact pre-code text; only new entries are retained.
+Pure/source/SDK/Parquet/worker package bytes are unchanged. Renewed exact-head
+review/current installed/native/source/main readback remain required. Next
+EQ128129130 after prerequisites; complete bounded R4.1 then STOPbeforeR5. Dated
+planning snapshots below remain history, not current execution authority.
+
 ## R4.1 execution assignment - October 6, 2026
 
 Owner requests a dedicated session to complete R4.1 using the [autonomous handoff](R4_1_AUTONOMOUS_HANDOFF.md) and [test strategy](R4_1_TEST_STRATEGY.md), prepared under [GOV-015 #289](https://github.com/atulsrivas1/equity-features/issues/289). The parent publishes/readbacks the handoff, assigns bootstrap-only work, verifies assignment and closes GOV-015. Before implementation, the child verifies published GOV-014/GOV-015 Done, current main/access and live ownership. Canonical EQ-121 through EQ-130 issues/Project stay here; companion PRs supply component delivery evidence without duplicate lifecycle authorities. Complete ten-story acceptance, then stop before R5. This records execution authorization, not implementation or release completion.
