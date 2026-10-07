@@ -55,7 +55,9 @@ belong to the adapter. Validation does not establish source truth or rights.
 Historical and optional live acquisition remain distinct; no new live capability
 is implied. Unsupported requirements fail before a job claims success.
 
-## Output boundary: proposed contract, to freeze in EQ-123
+## Output boundary: EQ123 specification authority
+
+The [EQ123 I/O v1 specification](IO_PUBLICATION_V1.md) now supplies the exact design and independent vectors through companion PR3; runtime implementation remains EQ125 and backend guarantees remain EQ126/127. Canonical280 records actual review/publication gates. The architecture outline below remains the scope boundary.
 
 Publication accepts canonical results with values, nulls, quality/status, units,
 evidence and input identities intact. The external envelope binds generation/job/
