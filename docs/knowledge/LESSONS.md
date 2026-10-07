@@ -19,7 +19,7 @@ Imported review/delivery evidence, October 5, 2026. No production unit suite or 
 
 For a new lesson record claim/status, source and version, supporting/contradicting cases, scope, action and revisit condition. Amend or supersede it when new evidence changes applicability. Invalid implementation is not evidence that a financial hypothesis fails.
 
-## EF-L004 implementation qualification supplement —2026-10-05
+## EF-L004 implementation qualification supplement â€”2026-10-05
 
 BUG004/PR171 pair0.0.2a11 normalizes oversized saved-state hexadecimal float
 conversion to ContractError(INVALID_SCHEMA) with original OverflowError cause.
@@ -51,7 +51,7 @@ records Done. Preserve original failure, qualification limits and earlier queue
 failures. EQ033 may now pull; superseded pending-receipt notes above remain history.
 
 
-## EF-L013 supplied-policy and field readiness —2026-10-05
+## EF-L013 supplied-policy and field readiness â€”2026-10-05
 
 [EQ033](https://github.com/atulsrivas1/equity-features/issues/38)/
 [PR174](https://github.com/atulsrivas1/equity-features/pull/174) separates action
@@ -89,7 +89,7 @@ Keep utility acceptance distinct from mathematical feature acceptance; sixteen
 R2 numerical IDs remain unimplemented at this pre-code pull.
 
 
-## EF-L014 finite window and capability independence —2026-10-05
+## EF-L014 finite window and capability independence â€”2026-10-05
 
 EQ027/PR176 local independent production API fixtures distinguish valid return
 endpoints from complete h+1governed closes, and certify finite-window recovery only
@@ -124,7 +124,7 @@ Derived context coverage counts supplied grid definitions, not usable prices;
 per-slot proof/quality owns numerical readiness. Preserve installed example failure
 and correction under EF-L005; do not infer history state support from batch.
 
-## EF-L015 exact dependency comparisons —2026-10-05
+## EF-L015 exact dependency comparisons â€”2026-10-05
 
 EQ028's independent int64-limit fixture shows a Float64 SMA and latest close can
 round equal while their mathematical difference is half a coefficient tick.
@@ -145,7 +145,7 @@ bounded batch recurrence are qualified; final receipt publication remains before
 Done. Corrected UTF8/spacing and premature install-count commentary are preserved
 in continuity. Consumer admission/source authenticity remain caller responsibilities.
 
-## EF-L016 recursive arithmetic memory versus admission —2026-10-05
+## EF-L016 recursive arithmetic memory versus admission â€”2026-10-05
 
 EQ029's independent actual API fixtures preserve a nonneutral RSI through20,001
 flat sessions by separating gain proportion from normalized total magnitude.
@@ -168,7 +168,7 @@ fifteenexamples pass. [Receipt](../stories/EQ-029_DELIVERY.md). Explicit epoch a
 ratio-preserving batch behavior are qualified; final receipt publication still
 gates Done. Numerical representation and admitted source proof remain distinct.
 
-## EF-L017 tiny nonzero centered variance —2026-10-05
+## EF-L017 tiny nonzero centered variance â€”2026-10-05
 
 EQ030's int64-limit fixture has three closes that all round to the same Float64
 price but distinct exact simple returns; the resulting sample volatility is
@@ -185,7 +185,7 @@ cross-family causality audit and any future measured numerical backend.
 
 EF-L017 implementation qualification: final363b99f/main3162152 pass exact-head/source/main gates; both actual bundles and FOUR fresh Windows installed pairs each485tests/sixteen examples pass. [Receipt](../stories/EQ-030_DELIVERY.md). Tiny positive variance survives actual archive installation; final receipt publication remains before Done.
 
-## EF-L018 original frame versus selected volume fact —2026-10-05
+## EF-L018 original frame versus selected volume fact â€”2026-10-05
 
 A selected target certificate must preserve original source-frame counts and row index, while its own coverage certifies only the chosen complete EOD row or explicit observed BAR prefix. Deduplicate exactly identical input identity/kind/metadata so prior and target rows from one frame do not forge a second source; reject conflicting revisions using the same ID. Derived dependency identities bind exact witnesses, not source authentication. [Plan](../stories/EQ-031_PLAN.md), [API](../api/DAILY_VOLUME.md).
 
@@ -193,7 +193,7 @@ Volume-only means no price fields enter arithmetic; existing canonical market Pr
 
 EF-L018 implementation qualification: finalbb0db95/mainffe8ddd exact-head/source/main gates and both actual bundles/FOUR fresh installed pairs each504tests/seventeen examples pass. [Receipt](../stories/EQ-031_DELIVERY.md). Original-frame identity and exact dependency/prefix/quantity guards are qualified; final receipt publication still gates Done. Status requires both actual jobs, not one completed job screenshot/output.
 
-## EF-L019 bucket coverage is independent —2026-10-05
+## EF-L019 bucket coverage is independent â€”2026-10-05
 
 Actual early close can exclude a late bucket while an earlier bucket remains complete. Preserve N required slots, observed/expected coverage and ineligible reason; neither0fill nor observed-count denominator is valid under frozen EQ005. Daily coverage cannot certify a particular bucket. A supplied target prefix can carry observed data yet remain unavailable for a whole-bucket ratio. [Plan](../stories/EQ-032_PLAN.md), [API](../api/INTERVAL_VOLUME.md).
 
@@ -201,7 +201,7 @@ Single-bucket typed results retain existing Float64 output schemas and separate 
 
 EF-L019 implementation qualification: final3a493bf/main3fdbfb3 exact-head/source/main gates, both actual bundles and FOUR fresh installed pairs each522tests/eighteenexamples pass. [Receipt](../stories/EQ-032_DELIVERY.md). Independent bucket coverage and fixed N are qualified; final receipt publication still gates Done.
 
-## EF-L020 alignment preserves actual component identity —2026-10-05
+## EF-L020 alignment preserves actual component identity â€”2026-10-05
 
 Compatible return comparisons need explicit horizon/selected grid/unit/policy/C-K-E and benchmark identity, while each child retains its real configuration/evidence bound and action snapshot. Parent identity cannot replace child digests. Sector label and benchmark instrument are distinct declarations; membership point is explicit, and missing membership affects sector only. [Plan](../stories/EQ-034_PLAN.md), [API](../api/RELATIVE_RETURNS.md).
 
@@ -210,7 +210,7 @@ Structural reference proof is not source authentication. Available return frame 
 EQ034 final author review found conflicting supplied original-row proof could escape validation when the output evidence limit was zero/full. A separate validation map now checks every supplied proof independently of retained output size. A seventeenth regression covers compatible self-benchmark versus contradictory row known-at with limit0. Final539units/strict46files and nineteenth example pass. An attempted pytest invocation failed because this project uses unittest; the actual full unittest gate passed. No failed command counted as acceptance. Next remaining reference/source gates, exact-head repeated artifacts/local installations/CI/main actual bundles/final receipt; R3paused.
 
 
-## EF-L021 expected universes and exact member witnesses —2026-10-05
+## EF-L021 expected universes and exact member witnesses â€”2026-10-05
 
 Declared expected U is independent of supplied eligible data; preserve M and typed member exclusions, never fill absent returns with0 or shrink the fraction to K/M. Above-SMA comparison must use the exact sum/count witness; float equality near int64 can conceal an actual half-tick. Original-row proof must keep completed_interval boundaries when reusing SMA and close observations, deduplicate equal proof and reject conflict even limit0. [Plan](../stories/EQ-035_PLAN.md), [API](../api/DECLARED_BREADTH.md).
 
@@ -223,7 +223,7 @@ EF-L021 final acceptance found a compound diagnostic gap despite560passing tests
 
 EF-L021 corrected actual main artifacts: bothOS four-archive manifests and FOUR fresh installed pairs each561tests/twenty examples verified; see [receipt](../stories/EQ-035_DELIVERY.md). External account merge had no recorded separate review, so tests/publication did not imply accepted delivery. Under resumed review policy, owner explicitly authorized an EQ035 separate local Codex reviewer; preserve its final-head coverage/findings separately from self-review, CI and hosted activation. The reviewer found a stale formula-page planned-status sentence, corrected alongside delivery docs. Next final frozen-head confirmation and final receipt publication verification remain; no Done claim from request or preliminary review.
 
-## EF-L022 composition preserves actual producer contracts —2026-10-05
+## EF-L022 composition preserves actual producer contracts â€”2026-10-05
 
 Distinct horizon/bucket instances must retain whole configs/results/owned contexts and exact companions; feature IDs alone are not a collection key. Direct normalized source ID ownership is instrument-specific and, for bucket_history, scope-specific even evidence_limit0. Separate pre-code review found this guard before implementation. Actual sampled/state-count and continuous quote producers share compensated backend but retain distinct evidence conventions; do not impose a false common default.
 
@@ -233,11 +233,11 @@ EF-L022 post-installation audit found daily/bucket ownership guards were not eno
 
 EQ036 separate a11 review reproduced a false rejection between actual session bars and unavailable bucket baseline sharing a valid original frame. Missing bucket scope is not a contradictory bucket claim. Both-order regression failed before population/bucket dictionaries were separated, then passed; conflicting instruments and two explicit conflicting bucket scopes still reject.
 
-### EF-L023 — equation similarity is narrower than migration parity
+### EF-L023 â€” equation similarity is narrower than migration parity
 
 EQ038 [evidence](../stories/EQ-038_COMPARISON.md): actual exportedGo EMA/ATR ordinary/warm-up/flat/period1/wide vectors executed on synthetic data, source fingerprints unchanged; wide nativeFloat64 ATR0 differs from exact-coefficient1. Broader inspection found worker/reference/robustmedian/breadth definitions beyondinitialkernels: source-only matching arithmetic does not establish grid/seed/unit/denominator/member/availability/state parity. Public CI replays captured observations and actual public APIs, not unpublished privateGo source. Preserve limits and do not claim fullworker parity or copyprivatecode.
 
-## EF-L024 discovery must match actual producers — 2026-10-05
+## EF-L024 discovery must match actual producers â€” 2026-10-05
 
 Three EQ037 integration tests exposed four actual descriptor mismatches before the
 correction: prior high/low Float64 columns versus int64 discovery, and members/fraction
@@ -259,7 +259,7 @@ and preserves same-frame targetrow3/2.5 ratios. Daily20/bucket19 targeted tests 
 No source-authentication or proof reconstruction claim. Full suite/review/build gates repeat.
 
 
-## EF-L011 R3 implementation checkpoint — October6
+## EF-L011 R3 implementation checkpoint â€” October6
 
 EQ093/PR237 now exercises an independently packaged synthetic calculator through public APIs, with independent5/100 versus5/103 results and negative identity/config/unit/mode cases. Its installed qualification is pending final frozen source/review/publication; do not infer Done from editable consumer success. Canonical positive-volume null OHLC is an admission error, not an unavailable calculation operand. Keep malformed schema, valid incomplete coverage and unknown/future knowledge as separate fixtures. Initial builds cannot qualify subsequently changed source/tests; freeze and rerun relevant gates. [Plan](../stories/EQ-093_PLAN.md), [API](../api/CUSTOM_FEATURES.md).
 
@@ -330,7 +330,7 @@ EQ095 initial probe incorrectly treated zero OHLC as a reachable denominator out
 
 ## EF-L026 release acceptance joins live status with exact published evidence
 
-EQ048 reads all50boundedR0–R3story Project records, acceptedprior milestones/repairs and actualqualified095source/final artifacts. A currentliveDone predecessor count does not substitute for exactfinalheadreview, publicblobs/tree, bothOSCI/downloaded archives and independently currentvariable reports. Conversely doc-only source-identical acceptance need not invent newnumericaltests/redundantlocalinstalls/secondreceipt. Preserve original measured/license/interpreter baselines and state laterconsumer metadata changes explicitly. Closeownstory afterReleasedreadback, then reconcileepic/milestone fromactualallDone. [Acceptance](../R3_ACCEPTANCE.md), [plan](../stories/EQ-048_PLAN.md). Revisit for changedcode/dependencies/requiredreview/publicchannel/scope; stop at ownerboundedrelease.
+EQ048 reads all50boundedR0â€“R3story Project records, acceptedprior milestones/repairs and actualqualified095source/final artifacts. A currentliveDone predecessor count does not substitute for exactfinalheadreview, publicblobs/tree, bothOSCI/downloaded archives and independently currentvariable reports. Conversely doc-only source-identical acceptance need not invent newnumericaltests/redundantlocalinstalls/secondreceipt. Preserve original measured/license/interpreter baselines and state laterconsumer metadata changes explicitly. Closeownstory afterReleasedreadback, then reconcileepic/milestone fromactualallDone. [Acceptance](../R3_ACCEPTANCE.md), [plan](../stories/EQ-048_PLAN.md). Revisit for changedcode/dependencies/requiredreview/publicchannel/scope; stop at ownerboundedrelease.
 
 ## EF-L027 metadata resolution is not row or source admission
 
@@ -420,7 +420,7 @@ EF-L031 [actual source delivery](../stories/EQ-054_DELIVERY.md) binds thirtyactu
 
 ## EF-L032 bounded delivery does not bound SQL callback work
 
-EQ055 real-source development invoked at least10000 Python timestamp callbacks while requesting five bars. Owned output row bounds do not prove work proportional to selected rows. Interrupted old-query timing is not a benchmark or speedup denominator; timed-stack/native-crash observation does not establish a crash cause. Native source probes must preserve strict lexical/calendar/null/clock/fraction/int64 semantics, not silently use permissive TIMESTAMP_NS casting or lose extreme sentinel values. Pre-code refinement freezes native HUGEINT→guardedBIGINT arithmetic and consistent ASCII ISO admission before implementation. Two literal/stdlib/error methods and94sourcecases/strict7 pass; current installed/private/finalreview gates remain. [Plan](../stories/EQ-055_PLAN.md), [methodology](../api/DUCKDB_REAL_QUALIFICATION.md). Revisit when query/parsing/backend/source populations change; private rows/pins/receipts stay private.
+EQ055 real-source development invoked at least10000 Python timestamp callbacks while requesting five bars. Owned output row bounds do not prove work proportional to selected rows. Interrupted old-query timing is not a benchmark or speedup denominator; timed-stack/native-crash observation does not establish a crash cause. Native source probes must preserve strict lexical/calendar/null/clock/fraction/int64 semantics, not silently use permissive TIMESTAMP_NS casting or lose extreme sentinel values. Pre-code refinement freezes native HUGEINTâ†’guardedBIGINT arithmetic and consistent ASCII ISO admission before implementation. Two literal/stdlib/error methods and94sourcecases/strict7 pass; current installed/private/finalreview gates remain. [Plan](../stories/EQ-055_PLAN.md), [methodology](../api/DUCKDB_REAL_QUALIFICATION.md). Revisit when query/parsing/backend/source populations change; private rows/pins/receipts stay private.
 
 EF-L032 installed evidence: clean a7 source f70d82c passed both fresh 94-test synthetic forms and two additional fresh real qualifications, each 68 numerical/status/unit/source checks, nine acquisitions and three blocked cases. Private immutable scope retains the original a6 preparation stamp; actual completed reports independently bind a7 artifacts/runtime/source/script. Preserve both identities rather than editing preparation to imply it already represented the final implementation. Whole-process native peaks and complete acquisition costs are observations with explicit scope; no old-query denominator means no speedup claim. Final review and actual delivered-main forms remain required.
 
@@ -443,3 +443,8 @@ EF-L032 [R4 audit](../R4_ACCEPTANCE.md) retains both executed layers and explici
 ## EF-L033 committed source provenance excludes working-tree additions
 
 Separate EQ121 reviewer reproduced a P2 in both new companion builders: `git diff` alone ignores untracked discoverable Python files. Such a file could enter a dependency wheel even while its receipt named the accepted core commit. Corrected builds materialize exact Git archives for component and dependency package sources. An independent synthetic regression creates both untracked code and modified tracked bytes and verifies only committed bytes survive. [Canonical correction](https://github.com/atulsrivas1/equity-features/issues/278#issuecomment-6028430623), [I/O final review](https://github.com/atulsrivas1/equity-feature-io/pull/1#issuecomment-6028459186), [workers final review](https://github.com/atulsrivas1/equity-feature-workers/pull/1#issuecomment-6028459420). Initial green builds/CI are retained as superseded provenance evidence; corrected final-head CI/install/publication gates remain separate. Revisit for any source materialization, packaging input, dependency pin or artifact receipt change.
+
+
+## EF-L034 extraction identity and qualification head are separate bindings
+
+[EQ122 plan](../stories/EQ-122_PLAN.md) preserves canonical source/mapping identities while changing adapter receipt/package version0.1.0a7 to0.1.0a8. The receipt digest changes with its declared version field; compare complete receipt fields with explicit stamp/digest exclusions, never relabel an old receipt. Native same-file old/new actual installed comparisons bind both artifact hashes. Build reports capture the committed source head before materialization and reject a changed head/dirty source at completion; a build begun before source corrections is superseded even if its tests pass. [Separate reviewer record](https://github.com/atulsrivas1/equity-feature-io/pull/2#issuecomment-6028784915) resolves the relocated package link and reviews the corrected source guard. Current artifact/native/private/publication gates remain pending. Revisit when extraction/runtime stamps, receipt identity, build provenance or fixture bindings change.
