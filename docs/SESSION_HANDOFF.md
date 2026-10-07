@@ -1,3 +1,11 @@
+## EQ122 accepted / EQ123 contract freeze preparation
+
+EQ122 verified Closed/ProjectDone after [Released evidence](https://github.com/atulsrivas1/equity-features/issues/279#issuecomment-6029210719) and [postread acceptance](https://github.com/atulsrivas1/equity-features/issues/279#issuecomment-6029211426). Coremain45b3a6b / I/Omain7475e1e actual public source/owner/native installed archives/reports/serverZIP SHA/finite retention pass; core12archives preserve accepted2cd51cd bytes, standalone24archives retain qualified extraction evidence. Six actual633-test executions cover development/wheel/sdist on both native platforms; wrapper corrected UTF8 and test-log count. No product-test failure, source/math change or new private execution inferred. Original R4 limitations retained.
+
+Next single story EQ123 under [pre-code plan](stories/EQ-123_PLAN.md): normative companion source/sink specification, exact safe serialization/identity/lifecycle/error/capability rules and hand-worked vectors. EQ125 owns runtime types and conformance; core inputs/results/algorithms remain unchanged. Publish this plan and mark Ready then In progress, prepare companion specification, separate semantic final-head review, applicable currentCI/actualmain source+unchanged artifact readback, then Released/Done. EQ124+ stays gated; R4.1 incomplete, STOPbeforeR5.
+
+Earlier snapshots below preserve history; current canonical issues/Project remain status authority.
+
 ## EQ122 current core Test / final publication gates
 
 Coreimplementationcomplete; source18d81b1 native37557964807/37557967299 and localrepeat6actualarchives/bothfreshforms pass. Downloaded12core/consumer archives exactlyequal accepted2cd51cd;12currentbenchmark/resource/consumer reports preserve harness/nativeprobe bindings and appropriate qualification categories. Separate core review of source/tool/redirect/migration/publicstandalone evidence and corrected historical-link/consumer-wording covered a9fd709 ([record](https://github.com/atulsrivas1/equity-features/pull/292#issuecomment-6029075161)), bothP3findings resolved. Latestdocumentation-head coverage/currentCI remains recorded in PR292; never substitute an earlierhead record for the actualfinalhead.
