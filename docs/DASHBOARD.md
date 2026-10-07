@@ -1,5 +1,10 @@
 # Development dashboard
 
+## Current priority — R4.1 before workers
+
+R4 is accepted; its historical [receipt](R4_ACCEPTANCE.md) remains intact. New [R4.1 milestone](https://github.com/atulsrivas1/equity-features/milestone/15) contains [E18 #276](https://github.com/atulsrivas1/equity-features/issues/276) and [E19 #277](https://github.com/atulsrivas1/equity-features/issues/277), EQ-121–130 (60 provisional points). [Architecture](IO_WORKER_ARCHITECTURE.md) and [story plans](R4_1_DELIVERY_PLAN.md) define separate feature/I/O/worker repositories. R5 implementation is blocked until EQ-130 acceptance. No new repository or runtime is delivered by this planning work. Older dated execution paragraphs below are historical; use live Project status.
+
+
 R0–R2 acceptance and subsequent prerequisite repairs are verified. R3 package scope, reviewed installed artifacts and final acceptance evidence are mapped in [R3 acceptance](R3_ACCEPTANCE.md); [issue54](https://github.com/atulsrivas1/equity-features/issues/54) records its actual final publication and lifecycle.
 Use the live Project for current work status.
 
@@ -14,6 +19,7 @@ Use the live Project for current work status.
 | R2 | [R2 — Historical and contextual packages](https://github.com/atulsrivas1/equity-features/milestone/3) |
 | R3 | [R3 — Package release readiness](https://github.com/atulsrivas1/equity-features/milestone/4) |
 | R4 | [R4 — DuckDB adapter](https://github.com/atulsrivas1/equity-features/milestone/5) |
+| R4.1 | [Repository separation and extensible I/O](https://github.com/atulsrivas1/equity-features/milestone/15) |
 | R5 | [R5 — Independent workers](https://github.com/atulsrivas1/equity-features/milestone/6) |
 | R6 | [R6 — Provider and file adapters](https://github.com/atulsrivas1/equity-features/milestone/7) |
 | R7 | [R7 — Remote access and LLM tools](https://github.com/atulsrivas1/equity-features/milestone/8) |

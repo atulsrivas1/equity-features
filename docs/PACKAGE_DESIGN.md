@@ -1,11 +1,16 @@
 # Equity calculation packages — final design baseline
 
+## Current architecture override — October 6, 2026
+
+The [architecture](IO_WORKER_ARCHITECTURE.md) and [decision](decisions/IO_REPOSITORY_SEPARATION.md) supersede earlier co-location/worker-order proposals below. R4 remains accepted; its optional adapter is currently here. Planned R4.1 extracts it into `equity-feature-io`, adds separate extensible input/sink contracts and factories, and establishes a separate `equity-feature-workers` skeleton before R5 implementation. Canonical calculation schemas and compatible pure acquisition protocols stay in the core contracts package. No repository/runtime move is claimed by this design update.
+
+
 Date: 2026-10-04. Design baseline; experimental R0 foundation implementation is underway.
 Canonical inputs: [implemented contract](contracts/INPUTS.md). Numerical APIs below
 remain planned until their respective implementation stories; no registry publication.
 Repository planned: `equity-features`.
 This supersedes the Go-first library recommendation in earlier worker proposal.
-Delivery order: calculation packages, then DuckDB adapter, then workers.
+Delivery order: calculation packages, accepted DuckDB adapter, R4.1 separation/I/O qualification, then R5 workers.
 
 ## 1. Architectural boundary
 

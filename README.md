@@ -1,5 +1,8 @@
 # Equity Features
 
+**Next prerequisite:** [R4.1 repository separation and extensible I/O](docs/R4_1_DELIVERY_PLAN.md) comes before R5 workers. [Design](docs/IO_WORKER_ARCHITECTURE.md) keeps calculations here, puts adapters/sinks in a planned companion I/O repository, and orchestration in a planned worker repository. Existing R4 adapter delivery remains accepted; extraction and sinks are not implemented yet.
+
+
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
 
 **Status: experimental pair 0.0.4a4 has qualified scoped trusted custom batch extensions and a supplied-delivery adapter SDK.

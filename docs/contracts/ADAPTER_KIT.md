@@ -1,5 +1,10 @@
 # Public adapter conformance development kit
 
+## R4.1 ownership clarification
+
+Existing pure input protocol/SDK contracts remain compatible in `equity-feature-contracts`. New storage publication and explicit factory interfaces are planned in companion I/O packages; concrete adapters/sinks stay outside calculations. [Architecture](../IO_WORKER_ARCHITECTURE.md) specifies responsibilities and consumer extension paths. Do not interpret a historical absence-of-DuckDB statement below as current R4 delivery status. No contract/runtime change occurs in this planning story.
+
+
 EQ043 adds `equity_feature_contracts.adapter_kit` in experimental pair0.0.4a4. It reuses the accepted [adapter protocols and delivery validator](ADAPTERS.md). Source acquisition and concrete adapters stay outside both numerical distributions. Implementation review, CI and actual publication gates are recorded on [issue49](https://github.com/atulsrivas1/equity-features/issues/49).
 
 ## Pure reusable checks

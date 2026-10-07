@@ -1,5 +1,10 @@
 # Project knowledge
 
+## Current owner direction — October 6, 2026
+
+R4 is accepted. [Architecture](IO_WORKER_ARCHITECTURE.md) and [R4.1 plans](R4_1_DELIVERY_PLAN.md) now require separation before R5: core calculation/contracts remain here; companion `equity-feature-io` owns adapters, sinks, factory/SDK contracts; `equity-feature-workers` owns orchestration. Both companion repositories are planned, not created by this documentation work. Preserve existing input protocol/API identities; no circular dependencies. E18/E19, EQ-121–130 are Backlog; R5 blocked by EQ-130. Live Project is execution authority; older dated status paragraphs below are history.
+
+
 GOV-011, prepared October 5, 2026. This is the repository's cross-session knowledge entry point. It complements existing specifications and receipts; it does not establish new numerical correctness, delivery acceptance or performance.
 
 ## Start a session
