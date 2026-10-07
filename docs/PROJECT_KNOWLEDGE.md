@@ -1,3 +1,7 @@
+## Current R5 review authorization — October 7, 2026
+
+The owner authorized separate local Codex reviewers for PR303 and all R5 stories. See [review policy](CODE_REVIEW.md). This supersedes earlier pending-authorization statements below without waiving completed final-head review or other acceptance gates. PR303 planning remains under qualification; no R5 worker implementation starts here.
+
 ## October 7 R5 parallel execution clarification
 
 The owner authorized documenting bounded, dependency-aware parallel execution before R5 implementation. [Parallel execution plan](R5_PARALLEL_EXECUTION_PLAN.md) refines existing EQ-057/060/061/062/065/066; no new epic/release, numerical change or worker launch. Parquet locks whole write attempts per output root; DuckDB output has serialized ownership per database. Independent calculations require supplied inputs/initialization, ordered history and explicit universe barriers. Require input reuse, bounded backpressure, combined worker/backend resource budgets and measured 1/2/4/8-worker parity/scaling where capacity permits. Advanced acceleration remains R8.

@@ -1,3 +1,7 @@
+## Current R5 review authorization — October 7, 2026
+
+The owner authorized separate local Codex reviewers for PR303 and all R5 stories. See [review policy](CODE_REVIEW.md). This supersedes earlier pending-authorization statements below without waiving completed final-head review or other acceptance gates. PR303 planning remains under qualification; no R5 worker implementation starts here.
+
 ## R5 planning publication / pending separate review
 
 [PR303](https://github.com/atulsrivas1/equity-features/pull/303) publishes the seven-document parallel execution clarification. EQ-057/060/061/062/065/066 issue bodies were updated and independently read back: titles, issue state, Project status and milestone are unchanged. EQ-057 remains Ready; the other five remain Backlog. Local documentation workflow checks, all eight reference/import/release/registry scripts, changed-document relative links and whitespace checks pass. These are planning checks, not worker scaling evidence. CI is running; no merge or release acceptance is claimed.

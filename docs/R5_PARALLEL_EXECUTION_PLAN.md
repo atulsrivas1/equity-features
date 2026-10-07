@@ -1,3 +1,7 @@
+## Current R5 review authorization — October 7, 2026
+
+The owner authorized separate local Codex reviewers for PR303 and all R5 stories. See [review policy](CODE_REVIEW.md). This supersedes earlier pending-authorization statements below without waiving completed final-head review or other acceptance gates. PR303 planning remains under qualification; no R5 worker implementation starts here.
+
 # R5 bounded parallel execution plan
 
 Owner-authorized planning clarification, October 7, 2026. This refines existing E08/R5 stories; it starts no worker implementation, adds no release/date commitment and changes no calculation or sink contract. The live Project remains status authority. Advanced native acceleration and broad tuning remain R8.
