@@ -6,7 +6,7 @@ GOV-011 knowledge import, October 5, 2026. Repository baseline inspected: `b9bc2
 
 | Question | Read |
 | --- | --- |
-| Purpose, boundaries, two-package ownership | [Design](../PACKAGE_DESIGN.md), [layout](../PACKAGE_LAYOUT.md), [product boundaries](../decisions/product-boundaries.md) |
+| Purpose, boundaries, two-package ownership and planned companion I/O/workers | [Design](../PACKAGE_DESIGN.md), [layout](../PACKAGE_LAYOUT.md), [current I/O architecture](../IO_WORKER_ARCHITECTURE.md), [product boundaries](../decisions/product-boundaries.md) |
 | Which features and release dependencies? | [V1 scope](../features/V1_SCOPE.md), [backlog](../BACKLOG.md), live [Project](https://github.com/users/atulsrivas1/projects/2) |
 | Exact mathematics | [Session](../features/SESSION_FORMULAS.md), [quotes](../features/QUOTE_FORMULAS.md), [history](../features/HISTORICAL_FORMULAS.md), [context](../features/CONTEXT_FORMULAS.md) |
 | Temporal admission and corporate actions | [Timing policy](../features/TIMING_ADJUSTMENT_POLICY.md), [timing decision](../decisions/timing-adjustment.md) |

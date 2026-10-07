@@ -31,3 +31,8 @@ Corrected ledger proposal maps into existing EQ-096/097/101/102/106/107; no ID r
 ## Owner direction — low-priority evidence service validation
 
 Plan our own evidence service as a focused synthetic consumer pilot, not a new blockchain. E17/R13/EQ-116–120 stay Backlog with priority:low; evaluate value against structured logs before conditional witness design/implementation. [Plans](../EVIDENCE_SERVICE_PILOT.md). No-go is legitimate evidence; deferred implementation cannot be relabeled Done.
+
+
+## October 6: R4.1 before R5
+
+Owner selects separate feature/I/O/worker repositories with explicit input adapter/output sink factories and third-party extension kits. [Decision](../decisions/IO_REPOSITORY_SEPARATION.md), [GOV-014 #275](https://github.com/atulsrivas1/equity-features/issues/275). This supersedes earlier planned co-location of adapter/worker implementations; it does not invalidate delivered R4 or change numerical/input contracts.

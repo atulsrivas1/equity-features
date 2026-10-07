@@ -429,3 +429,8 @@ EF-L032 [actual delivery](../stories/EQ-055_DELIVERY.md) binds four delivered a7
 EF-L032 delivery correction: [issue62 evidence](https://github.com/atulsrivas1/equity-features/issues/62#issuecomment-6027020059) records a helper that assumed exactly10CI checks although15actual checks had passed before merge; its PowerShell command continued after failure. Count returned checks honestly, require all completed success and required roles, and make dependent merge commands fail fast. Git head guards and successful independent evidence do not excuse a launcher ignoring failure; retain the actual correction without inventing missing gates.
 
 EF-L032 [R4 audit](../R4_ACCEPTANCE.md) retains both executed layers and explicit artifact/runtime/receipt/private-source bindings. Historical source measurements and preparation stamps are preserved; current acceptance comes from current delivered hashes/reports/readback, not silently relabeled history. Final docs-only reuse requires actual byte equality plus currentnative/private evidence. Revisit for changed backend/parser/source populations or capabilities.
+
+
+## Architecture clarification, October 6
+
+[R4 acceptance](../R4_ACCEPTANCE.md) established pure dependency boundaries while the optional adapter remained co-located. [GOV-014](https://github.com/atulsrivas1/equity-features/issues/275) adds repository separation as an ownership decision. Repository separation and dependency purity require distinct evidence: preserve inward imports and qualify installed compatibility during extraction. A renamed repository alone establishes neither. Revisit if new package dependencies threaten core independence.

@@ -1,5 +1,10 @@
 # Release-based planning and continuous pull
 
+## Owner priority — October 6, 2026
+
+After accepted R4, deliver [R4.1 separation and I/O](R4_1_DELIVERY_PLAN.md) before any R5 worker implementation. R0–R4 and R5–R13 identifiers/history stay intact; R4.1 is an inserted prerequisite, not a package version or deadline. Highest-priority first story is EQ-121 once planning publication/access prerequisites are verified. R5 remains Backlog with explicit EQ-130 dependency. Later provider implementations require accepted I/O contracts/SDK. Older dated directions below remain historical.
+
+
 Agreed: 2026-10-04. Mandatory sprints are not used.
 
 ## Planning and selection

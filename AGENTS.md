@@ -50,3 +50,8 @@ See docs/CODE_REVIEW.md. A separate Codex review is automated review, not author
 ## R4 authorized local review — October 6, 2026
 
 The owner explicitly authorized separate local Codex reviewers throughout R4 and its handoff because hosted GitHub Codex review is not working. This extends the bounded R2/R3 alternative to GOV013 and EQ049–056; no further per-story approval is required. Each reviewer must independently inspect the actual final PR head and affected contracts/callers, record reviewer identity, executed checks, findings/disposition and limitations. Relevant changes require final-head coverage. Author self-review and CI alone do not satisfy this gate. This is local automated review, not hosted activation or human review. Existing numerical, documentation, CI, installed-artifact and publication/readback acceptance remains mandatory; GOV005 stays separate.
+
+
+## R4.1 and architecture planning authorized local review — October 6, 2026
+
+The owner explicitly extends separate local Codex reviewers to GOV-014 architecture planning and the bounded R4.1 prerequisite release, because hosted review remains unavailable. Each review must inspect the actual final head and affected contracts/callers, record identity, executed checks, findings/disposition and limitations. Relevant changes require renewed final-head coverage. Author self-review and CI alone remain insufficient. This does not authorize later releases by inference, activate hosted review or waive numerical, documentation, installation and publication gates.

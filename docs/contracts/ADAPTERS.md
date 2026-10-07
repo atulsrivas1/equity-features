@@ -1,5 +1,10 @@
 # Adapter contracts and synthetic development kit (EQ-016)
 
+## R4.1 ownership clarification
+
+Existing pure input protocol/SDK contracts remain compatible in `equity-feature-contracts`. New storage publication and explicit factory interfaces are planned in companion I/O packages; concrete adapters/sinks stay outside calculations. [Architecture](../IO_WORKER_ARCHITECTURE.md) specifies responsibilities and consumer extension paths. Do not interpret a historical absence-of-DuckDB statement below as current R4 delivery status. No contract/runtime change occurs in this planning story.
+
+
 Experimental0.0.1a6 exports a dependency-light `equity_feature_contracts.adapters`
 module. Protocols declare `HistoricalAdapter.capabilities/iter_batches` and optional
 `LiveAdapter.capabilities/stream_batches` (async iterator). Declarations perform no
