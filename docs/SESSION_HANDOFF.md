@@ -1,4 +1,37 @@
+## EQ122 current core Test / final publication gates
+
+Coreimplementationcomplete; source18d81b1 native37557964807/37557967299 and localrepeat6actualarchives/bothfreshforms pass. Downloaded12core/consumer archives exactlyequal accepted2cd51cd;12currentbenchmark/resource/consumer reports preserve harness/nativeprobe bindings and appropriate qualification categories. Separate core review of source/tool/redirect/migration/publicstandalone evidence and corrected historical-link/consumer-wording covered a9fd709 ([record](https://github.com/atulsrivas1/equity-features/pull/292#issuecomment-6029075161)), bothP3findings resolved. Latestdocumentation-head coverage/currentCI remains recorded in PR292; never substitute an earlierhead record for the actualfinalhead.
+
+Canonical279 is Test. Resume: confirm latestfinalhead separate review and allrequiredchecks successful, exact-head corepublication (squashpolicy), download successful-main bothfoundation bundles, verify12unchangedarchives/12currentreports/allserverZIPhashes/expiry/publictree-owner; updatecanonical Readyrelease/Released/postreadbackDone. StandaloneI/O main7475e1e actualsource/artifact/native/privatebyte certificates alreadyqualified. Purepaira4/consumer source and mathematics unchanged, R4history/receipts retained, source stores/workers untouched. EQ123+ gated until279Done; STOPbeforeR5.
+
+Earlier dated snapshots below retain completed/pending history; current Project/PR/issue records govern actualstatus.
+
+## EQ122 standalone accepted / active core extraction implementation
+
+Standalone actualmain7475e1e optional37557267501/foundation37557267503 successful; all4channel ZIP server hashes/downloadedfiles/24archives/currentnative reports/retention/corebaseline/old-new samefile parity/private4exact-byte certificates/publictree69/owner verified. [Public standalone receipt](stories/EQ-122_STANDALONE_RECEIPT.json), [issue gate](https://github.com/atulsrivas1/equity-features/issues/279#issuecomment-6028971610). Canonical279 returned Test to Inprogress for preplanned gated core-removal phase, no failure/scope change.
+
+Activecore optional package/tests/workflow/requirements/builder/measurement/example now removed; currentAPI redirects/currentmigration andownership notes added, originalR4 history/receipts retained. Purepackage bytes remain unchanged; boundary fixtures reject companion imports and source smoke denies all actual optional/I/O/worker namespaces. No workers/source-store changes. Next: puredevelopment/currentnative freshcoreforms/byteparity, separate actual corefinalheadreview, finaldocs/currentCI/coremainpublication/current12archives/reports/tree/ownerreadback, canonical Readyrelease/Released/Done. EQ123+ dependency-gated; STOPbeforeR5.
+
+Historical snapshots below preserve preparation and superseded pending gates.
+
+## EQ122 standalone source published / main artifacts pending
+
+I/O PR2 reviewed final2b0d785 ([semantic record](https://github.com/atulsrivas1/equity-feature-io/pull/2#issuecomment-6028862027)), all8currentCI and qualified/private exact-byte equality passed. Published main7475e1eef2f9d3b834fdf98473d8b40df4b6cc5f tree45db06c8/all69publicblobs/owner verified; canonical [component-source receipt](https://github.com/atulsrivas1/equity-features/issues/279#issuecomment-6028914020). Actual main optional37557267501/foundation37557267503 builds underway. Canonical279 remains Test; no active core source/package/test/workflow removal yet. Exact resume: require successfulmain; download bothoptional bundles and verify allarchives/reports/old-new parity/core invariance/retention/currentmanifest/sourcehashes against qualifiedsource and4new private producer/form byte bindings; verify currentfoundation unchanged accepted bytes; then active core removal/redirects/purechecks/separatefinalreview/mainpublication/readback/Released/Done. EQ123+ stays gated, STOPbeforeR5.
+
+## EQ122 extraction review/test — current
+
+Canonical279 is Test after activated/completed separate local I/O PR2 review of eecde5a8b6db9abcfd9b647de2a2ffebdee376fa ([record](https://github.com/atulsrivas1/equity-feature-io/pull/2#issuecomment-6028784915)); P3 relocated release-integrity link resolved, no unresolved findings. Accepted19runtime/fixture/measurement file comparison/94development cases/strict7 and2provenance regressions pass. Actual native/current-head fresh qualification is running, not release acceptance. Initial2c02805 build superseded when source evolved; its archives/reports are excluded. New builder captures source head and rejects concurrent source changes; native bothforms compare actual installed a7/a8 on identical synthetic files. Immutable private scope/helper/golden/accepted-report bindings verified read-only; new artifact private evidence remains separate.
+
+Core active optional package/test/harness/workflow remains intact pending standalone actual main publication/readback. Next: complete current source CI/fresh forms/private new-artifact checks; source final-head review and exact-head standalone publication/readback; then core redirects/removal/final review/pure CI/publication, canonical Released/readback/Done. EQ123+ remain dependency-gated; STOP beforeR5.
+
 # Owner attribution and review update — October 5, 2026
+
+## EQ121 accepted / EQ122 concrete pull — October 6, 2026
+
+EQ121#278 now verified CLOSED/ProjectDone after Released6028658946/postread acceptance6028666231. Coremain2cd51cd reviewed2a8a7ce/6028527651/all10CI; main docs37555023720/Foundation37555023713/optional37555023782 allsuccess/all382publicblobs-owner/24unchangedcore archives24currentnative reports. I/Omain31d08bc revieweda7f21ec/6028521735/mainCI37554716309/all30blobs; workersmainb2f13c9 reviewed03e60ec/6028521959/mainCI37554727700/all25blobs. All24actualcomponent/dependency archives/currentbuilder-probe/nativeforms/8fresh actual sourceproducerform installs equal finalmain bytes; current8channels/digests/expiry on issue278. Experimental io-contracts/io-sdk/workers0.1.0a0 version markers only; no backendoperations/workercommands. P2sourceprovenance/P3governance resolved; original failed --merge blocked safely, canonical squash policy respected. Source/private/unrelated checkouts preserved.
+
+Next highest dependency-ready pull EQ122#279 under [concrete pre-code plan](stories/EQ-122_PLAN.md): compatible optionalDuckDB.a8 extraction, publicsource/API/installed/migration evidence and immutableR4source/math limits before active core removal. Only one active story. EQ123–130 remain dependency-gated; R4.1 not accepted and STOPbeforeR5 remains.
+
 
 ## R4.1 execution / EQ121 foundation work — October 6, 2026
 
@@ -1554,3 +1587,7 @@ Pre-code6537d5f published before audit. [R4 acceptance](R4_ACCEPTANCE.md) maps a
 Next freeze finaldocs/PR274, separate semantic/evidence/privacy finalheadreview/currentCI; Test/Ready to release then fail-fast guardedmerge. Download actual finalmain24archives/current24reports, compareaccepted055 bytes/current harness/tests/runtime and private4hashbindings/livechannels; actualpublictree/blobs/owner/Releasedpostread before63Done. Then all8liveClosedDone, E07review/test/release/Done and milestone5zeroopenclosed; durable final continuity. STOP beforeR5.
 
 EQ056 separate review found a documentation provenance ambiguity: optional accepted Linux producer is3.12.15 while Foundation Linux is3.12.14, both Windows3.12.10. Audit now scopes each bundle explicitly; no runtime/data/acceptance failure. Return63/E07Inprogress for correction, freeze correctedhead/review/currentCI then resume real gates. Earlier0abe checks alone do not establish corrected finalhead acceptance.
+
+Core development validation after active removal: CPython3.12.10 WindowsAMD64 passes633tests in23.807s, strict49source/example files, import/compatibility and42negative/10positive pure-boundary fixtures. Gitdiff against accepted2cd51cd shows no contracts/features/external-consumer changes. This is development evidence; currentnative/fresh installed/coremain/readback remains mandatory.
+
+Core source18d81b1 actual native push37557964807 and PR37557967299/docs37557964775/37557966122 pass all6checks. [Core source receipt](stories/EQ-122_CORE_SOURCE_RECEIPT.json) verifies downloaded12pure/consumer archives byte-identical to accepted main2cd51cd and12current benchmark/resource/consumer reports with unchanged harness/native-probe bindings,6batch/stream/restore/merge parity cases and43consumer qualification cases, including independent numerical goldens. Local repeat6archives/bothactual fresh forms also pass and equal WindowsCI bytes. Separate core review resolves scope/boundary/publicstandalone evidence; P3 historical R4 conformance link redirected to the accepted fixedcommit. Renewed documentation-head review/currentCI/coremain publication/readback remains before overall acceptance.

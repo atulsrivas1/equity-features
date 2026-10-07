@@ -9,7 +9,7 @@ Source-independent equity feature calculations for reproducible research, backte
 R2 remains accepted under its original0.0.3a13 receipt.
 All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
 conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
-R2 and R3 are accepted, with their milestones/epics closed. R4 optional DuckDB adapter work is underway; [EQ049 resolver](docs/api/DUCKDB_RESOLVER.md) is reviewed and qualified in installed artifacts; [receipt](docs/stories/EQ-049_DELIVERY.md) records final acceptance gates. Both synthetic conformance and representative private real-data numerical qualification remain required for R4.
+R2/R3 and [R4](docs/R4_ACCEPTANCE.md) are accepted. Current optional DuckDB implementation/API/tests/artifact channel live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io); [migration](docs/DUCKDB_MIGRATION.md) preserves imports and accepted R4 semantics. This repository retains pure contracts/features, historical R4 plans/receipts and explicit API redirects. [R4.1](docs/R4_1_DELIVERY_PLAN.md) release acceptance and remaining prerequisites are tracked through the canonical issues/Project.
 [Adapter SDK](docs/contracts/ADAPTER_KIT.md) and [delivery evidence](docs/stories/EQ-043_DELIVERY.md) record its supported synthetic adapter and supplied-case checks.
 [Custom API](docs/api/CUSTOM_FEATURES.md) and [delivery evidence](docs/stories/EQ-093_DELIVERY.md)
 record supported modes and review/installation limits.

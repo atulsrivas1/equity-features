@@ -1,5 +1,9 @@
 # Experimental package changes
 
+## Compatible DuckDB extraction0.1.0a8 — EQ122
+
+Current optional source/tests/specifications/qualification move to equity-feature-io; core retains purepair0.0.4a4 and the standalone consumer unchanged. Imports/public APIs/source/math/schema preserved; declared package/receipt version changes whole receipt digest only. [Migration](DUCKDB_MIGRATION.md) retires core development paths and points to the actual successful-main experimental channel. [Standalone receipt](stories/EQ-122_STANDALONE_RECEIPT.json) binds reviewedmain7475e1e/native forms/actualarchives/channel hashes and private exact-byte evidence limits. [Core delivery](stories/EQ-122_DELIVERY.md) records remaining core review/CI/publication/canonical acceptance; no overall Done claim here. R4 entries below retain historical delivery chronology.
+
 ## Optional DuckDB0.1.0a7 - EQ055 native UTCns acquisition refinement
 
 Connection-local native exact integer UTCns parser after representative source callback diagnostics. Strict ASCII ISO/null/date/clock/fraction/int64 guards preserve standard timestamps and both signed endpoints; Unicode clock/fraction digits reject consistently.94source tests/strict7 pass, purecore/math/runtimepins unchanged. Current installed real qualification/review/publication gates remain. [Methodology](api/DUCKDB_REAL_QUALIFICATION.md).

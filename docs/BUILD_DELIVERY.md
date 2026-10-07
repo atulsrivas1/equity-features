@@ -1,5 +1,9 @@
 # Experimental foundation builds and delivery
 
+## Current optional ownership — EQ122
+
+Current optional DuckDB source/tests/API/qualification harness and its successful-main experimental channel are in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io). Core owns only contracts/features plus the external consumer example. The active core optional package/test/workflow/builder/development requirement is removed after verified standalone main7475e1e publication. [Migration](DUCKDB_MIGRATION.md), [standalone receipt](stories/EQ-122_STANDALONE_RECEIPT.json) and [canonical issue279](https://github.com/atulsrivas1/equity-features/issues/279) bind compatibility and actual acceptance gates. Purepair0.0.4a4 modules/metadata/schema/math remain byte-identical; no I/O/workers dependency is introduced. Original R4 ownership/version/workflow paragraphs below describe historical delivery and are retained as chronology, not current build instructions.
+
 EQ-009 channel: downloadable **GitHub Actions artifacts from successful main
 Foundation package checks**, named `foundation-<commit>-<OS>`. No PyPI/public
 registry publication. Public repository readers with appropriate GitHub access

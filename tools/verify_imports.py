@@ -17,7 +17,7 @@ code='''
 import sys, importlib.abc
 class Deny(importlib.abc.MetaPathFinder):
     def find_spec(self,fullname,path=None,target=None):
-        if fullname.split('.')[0] in {'numpy','pyarrow','duckdb','requests','httpx','adapters','workers'}:
+        if fullname.split('.')[0] in {'numpy','pyarrow','duckdb','requests','httpx','adapters','workers','equity_feature_io_contracts','equity_feature_io_sdk','equity_feature_workers','equity_feature_duckdb'}:
             raise AssertionError('Forbidden optional/source import: '+fullname)
 sys.meta_path.insert(0,Deny())
 import equity_feature_contracts as c

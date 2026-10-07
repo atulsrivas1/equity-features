@@ -19,6 +19,8 @@ BACKEND_APIS={
 }
 
 NEGATIVE_FIXTURES=(
+    "import equity_feature_io_contracts", "import equity_feature_io_sdk",
+    "import equity_feature_workers", "import equity_feature_duckdb",
     "import requests as r", "from pathlib import Path as P", "import os",
     "import time as t", "open('x')", "f=__import__", "getattr(x,'read')",
     "import pyarrow.parquet as pq", "np.load('x')", "pa.memory_map('x')",
@@ -123,7 +125,7 @@ def violations(source):
 def check():
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
-    known_packages={*pure_packages,ROOT/'packages/duckdb'}
+    known_packages=set(pure_packages)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
@@ -134,11 +136,6 @@ def check():
         for p in root.glob('src/**/*.py'):
             errors=violations(p.read_text(encoding='utf-8'))
             assert not errors,f'{p.relative_to(ROOT)}: {errors}'
-    adapter=ROOT/'packages/duckdb/pyproject.toml'
-    if adapter.exists():
-        project=tomllib.loads(adapter.read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','duckdb==1.5.6','numpy==2.2.6']
-        assert not project.get('optional-dependencies'), 'unreviewed adapter dependencies'
     for source in NEGATIVE_FIXTURES:
         assert violations(source),source
     for source in POSITIVE_FIXTURES:
