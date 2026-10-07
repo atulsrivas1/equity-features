@@ -4,6 +4,8 @@ EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit
 
 # Equity packages, adapters and workers — delivery backlog
 
+October 7 post-delivery correction: [BUG-005 #301](https://github.com/atulsrivas1/equity-features/issues/301), E08/R5 prerequisite, provisional3points, repairs coherent Parquet lookup across cooperating publication/retries. [Review](R4_1_POST_DELIVERY_REVIEW.md) records independent reproduction/checks/limits. EQ057 depends on verified repair delivery; current Project records Backlog until that prerequisite is satisfied. Historical R4.1 acceptance/identifiers remain preserved; no R5 implementation is claimed.
+
 Baseline: 2026-10-04; scope updated October 6, 2026. R0–R4 delivery has historical acceptance receipts; current lifecycle is the live Project. R4.1 is newly planned prerequisite scope, not implemented.
 Design authority: PACKAGE_DESIGN.md in this directory.
 Planned repository: equity-features. Links and actual delivery status are maintained in DASHBOARD.md. No package registry release yet.

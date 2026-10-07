@@ -1,3 +1,7 @@
+## October 7 post-delivery review correction
+
+[R4.1 review](R4_1_POST_DELIVERY_REVIEW.md) preserves verified historical release closure and identifies P2 [BUG-005 #301](https://github.com/atulsrivas1/equity-features/issues/301). Parquet control files are individually atomic but a reservation/completion pair is not a coherent observation across cooperating publication. Parent independently reproduced false CORRUPTION from ABSENT/ABORTED, then intact COMMITTED/readback; selected existing suites pass and omit this interleaving. Repair is R5 prerequisite, EQ057 Backlog; no numerical/source-data change or automatic worker dispatch. Current live Project supersedes earlier Ready snapshots. Applicable separate review/installed/platform/actual publication gates remain required.
+
 ## EQ130 dependency-ordering correction
 
 Author final self-check and separate reviewer concurrence resolved an acceptance ordering conflict: R5 issue dependency descriptions reconcile after actual287Released/mainreadback and before EQ130 Done; selection of EQ057 Ready remains gated on actual287Done/alltenaccepted/both epicsDoneClosed/milestone15closedzeroopen. This reconciles documentation with the existing EQ130 acceptance criterion; no R5 implementation or scope change. Actual Test -> In progress rework and superseded core2090 qualification retained; renew final core head review/CI/artifacts. IO/worker heads and package/runtime/math/private bytes unchanged. Live canonical287/Project governs final outcome.
