@@ -22,8 +22,8 @@ generation are R5 scope. Move the optional DuckDB implementation through reviewe
 EQ-122 changes, preserving accepted behavior and history. Routine API/package
 choices within the accepted architecture do not require repeated permission.
 
-Start only after GOV-014 #275 and this GOV-015 handoff are verified Closed/Project
-Done and their actual merged main content is fetched. Read current issue/Project
+Start implementation only after GOV-014 #275 and this GOV-015 handoff are verified
+Closed/Project Done and their actual merged main content is fetched. Read current issue/Project
 ownership before every pull. Use one active implementation story, short-lived
 `codex/` branches, pre-code plans, public PRs and the exact lifecycle:
 Backlog -> Ready -> In progress -> Code review -> Test -> Ready to release ->
@@ -167,15 +167,24 @@ No paid rows, private paths, secrets or raw receipts enter public docs/artifacts
 
 ## Bootstrap, progress and completion
 
+The parent publishes/readbacks the reviewed handoff, then creates the execution
+session with bootstrap authority while GOV-015 awaits assignment acceptance.
+Before GOV-015 Done, the new session may fetch/inspect current main, read agreements
+and live ownership, and run isolated baseline validation. It must not implement
+EQ-121, create companion repositories or change implementation-story status yet.
+The parent verifies assignment and closes GOV-015; the child then refreshes actual
+Closed/Project Done evidence before the first story pull. This avoids a dispatch/
+acceptance dependency cycle. Assignment and implementation readiness are distinct.
+
 Use the dedicated private checkout specified in the local dispatch prompt. Fetch
-current main, verify GOV-015 Done, preserve unrelated checkouts, and configure
+current main, preserve unrelated checkouts, and configure
 Atul Srivastava <102820540+atulsrivas1@users.noreply.github.com> for author and local
 committer. Verify published attribution; no Codex co-author trailers. Inspect live
 Project/milestones/open PRs, dependencies, companion name/access and active owners.
 Run relevant baseline unit/reference/typing/import/registry/license/build checks
 under the supported environment; distinguish reused historical evidence from
 actual execution. Verify current accepted artifacts/expiry rather than assume
-permanent hosting. Begin EQ-121 after documented readiness, then pull continuously
+permanent hosting. Verify GOV-015 Done and begin EQ-121 after documented readiness, then pull continuously
 within R4.1; no mandatory sprint or automatic reminder.
 
 Maintain current continuity and evidence in each affected repository alongside
@@ -197,8 +206,10 @@ actual delivered versions/components, evidence links and remaining limitations.
 ## Kickoff prompt
 
 Complete bounded R4.1 autonomously using this handoff, the architecture, all ten
-plans, test strategy, current work agreements and live Project. Verify GOV-014 and
-GOV-015 published/Done; use a dedicated current-main checkout, then start EQ-121.
+plans, test strategy, current work agreements and live Project. Bootstrap a
+dedicated current-main checkout under the dispatch authority above; parent records
+assignment and closes GOV-015. Refresh actual GOV-014/GOV-015 published/Done
+evidence before implementation, then start EQ-121.
 Create the authorized companion repositories, extract the compatible R4 adapter,
 deliver separate extensible I/O/factory/sink contracts, Parquet/DuckDB sinks and
 independently installed custom examples. Keep core calculations pure and canonical

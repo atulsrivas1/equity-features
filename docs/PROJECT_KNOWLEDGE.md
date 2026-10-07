@@ -2,7 +2,7 @@
 
 ## R4.1 execution assignment - October 6, 2026
 
-Owner requests a dedicated session to complete R4.1 using the [autonomous handoff](R4_1_AUTONOMOUS_HANDOFF.md) and [test strategy](R4_1_TEST_STRATEGY.md), prepared under [GOV-015 #289](https://github.com/atulsrivas1/equity-features/issues/289). It must first verify published GOV-014/GOV-015 Done, current main/access and live ownership. Canonical EQ-121 through EQ-130 issues/Project stay here; companion PRs supply component delivery evidence without duplicate lifecycle authorities. Complete ten-story acceptance, then stop before R5. This records execution authorization, not implementation or release completion.
+Owner requests a dedicated session to complete R4.1 using the [autonomous handoff](R4_1_AUTONOMOUS_HANDOFF.md) and [test strategy](R4_1_TEST_STRATEGY.md), prepared under [GOV-015 #289](https://github.com/atulsrivas1/equity-features/issues/289). The parent publishes/readbacks the handoff, assigns bootstrap-only work, verifies assignment and closes GOV-015. Before implementation, the child verifies published GOV-014/GOV-015 Done, current main/access and live ownership. Canonical EQ-121 through EQ-130 issues/Project stay here; companion PRs supply component delivery evidence without duplicate lifecycle authorities. Complete ten-story acceptance, then stop before R5. This records execution authorization, not implementation or release completion.
 
 
 ## Current owner direction — October 6, 2026
