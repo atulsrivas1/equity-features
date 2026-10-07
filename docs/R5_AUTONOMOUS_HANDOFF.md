@@ -1,5 +1,9 @@
 # R5 prepared resume after R4.1
 
+## October 7 review gate — supersedes readiness below
+
+[Post-delivery review](R4_1_POST_DELIVERY_REVIEW.md) reproduced P2 [BUG-005 #301](https://github.com/atulsrivas1/equity-features/issues/301): cooperating Parquet readers can report false CORRUPTION across valid publication/retry control reads. [I/O PR11](https://github.com/atulsrivas1/equity-feature-io/pull/11) carries the corrected Parquet0.1.0a1. Worker readiness requires actual BUG005Closed/ProjectDone with separate review, supported installed/platform evidence and verified actual-main publication/readback; only then restore EQ057Ready. Read current issue/Project rather than treating this conditional gate as a completion claim. Use the exact corrected main/source/artifact/run/hash/expiry from canonical301, replacing historical Parquet.a0 expectations with accepted.a1; other declared component versions remain unchanged. Historical R4.1 accepted-head/version snapshots below remain preserved. Explicit local review now covers boundedBUG005/PR11/302 only; general R5 review authorization remains a separate owner-policy decision. No new worker session/implementation is authorized here.
+
 This is preparation for a future owner-authorized session, not permission to start R5 in the bounded R4.1 chat. Canonical [EQ130#287](https://github.com/atulsrivas1/equity-features/issues/287) must be actual Closed/ProjectDone with accepted [R4.1 audit](R4_1_ACCEPTANCE.md), all ten stories/epics accepted and milestone15 zero-open/closed. The [live Project](https://github.com/users/atulsrivas1/projects/2) is status authority. Highest dependency-satisfied next story is [EQ057#65](https://github.com/atulsrivas1/equity-features/issues/65), E08#64/R5, selected Ready only after this exit; #64 is an epic, not the worker story. No R5 work is underway.
 
 ## First actions in a new authorized session
