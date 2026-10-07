@@ -1,3 +1,11 @@
+## EQ123 accepted / EQ124 explicit factory preparation
+
+EQ123 verified Closed/ProjectDone after [Released](https://github.com/atulsrivas1/equity-features/issues/280#issuecomment-6029468862) / [postread](https://github.com/atulsrivas1/equity-features/issues/280#issuecomment-6029469345). Reviewed companiona63856f0/main639c575 / coreb1e6fc4/main427631d actualsource74/367blobs-owner/current nativeCI/36unchangedarchives/currentreports/6serverZIPhashes/finiteexpiry/newdesign fixtures pass. Coremain Linux3.12.14 and Windows3.12.10 recorded; matrix remains3.12x64. No running sink/private/backend certification. Final downloaded-source verifier first lacked the newly published Git object; fetched origin/main and reran all both-platform checks before acceptance. E18/E19 remainOpenInprogress; accepted childcheckboxes121122123 reconciled.
+
+Next single story EQ124 under [pre-code plan](stories/EQ-124_PLAN.md): explicit registries/direct injection, validated immutable scalar config/separate credential providers/exact capability/version admission and independently installed synthetic factories/typing/redaction/no-I/O checks. New companioncontracts/SDK.a1; full runtime sink lifecycle/codec remainsEQ125. Publish plan, markReady/Inprogress, implement/qualify currentactual artifacts/separate final-head review/main readback thenReleased/Done. Worker.a0 oldpair stays skeleton; composition alignment remainsEQ129. EQ125+ gated, R4.1 incomplete, STOPbeforeR5.
+
+Earlier snapshots preserve history; live canonical Project remains authority.
+
 ## EQ122 accepted / EQ123 contract freeze preparation
 
 EQ122 verified Closed/ProjectDone after [Released evidence](https://github.com/atulsrivas1/equity-features/issues/279#issuecomment-6029210719) and [postread acceptance](https://github.com/atulsrivas1/equity-features/issues/279#issuecomment-6029211426). Coremain45b3a6b / I/Omain7475e1e actual public source/owner/native installed archives/reports/serverZIP SHA/finite retention pass; core12archives preserve accepted2cd51cd bytes, standalone24archives retain qualified extraction evidence. Six actual633-test executions cover development/wheel/sdist on both native platforms; wrapper corrected UTF8 and test-log count. No product-test failure, source/math change or new private execution inferred. Original R4 limitations retained.
