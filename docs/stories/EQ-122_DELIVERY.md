@@ -1,3 +1,7 @@
+## Actual EQ122 acceptance
+
+Canonical279 is now verified Closed/ProjectDone after [actual Released readback](https://github.com/atulsrivas1/equity-features/issues/279#issuecomment-6029210719) and [postread acceptance](https://github.com/atulsrivas1/equity-features/issues/279#issuecomment-6029211426). Coremain45b3a6b/source364owner/native633development+bothinstalledforms/12unchangedarchives/12currentreports/twoactualserverSHA channels and companionmain7475e1e/24archives/fourchannels/privateexact-byte certificates pass. All required separate final-head review/currentCI and migration/source/math limits are linked in that acceptance. No remaining EQ122 gate. Earlier preparation snapshots below preserve their actual prepublication state; they do not override current canonical acceptance.
+
 # EQ122 compatible extraction evidence
 
 Canonical [issue279](https://github.com/atulsrivas1/equity-features/issues/279), E18/R4.1. [Pre-code plan](EQ-122_PLAN.md) preceded implementation. [I/O PR2](https://github.com/atulsrivas1/equity-feature-io/pull/2) supplies reviewed standalone implementation; [core PR292](https://github.com/atulsrivas1/equity-features/pull/292) supplies active core removal/redirects. This document is a preparation snapshot for core review/test; overall acceptance remains pending.
