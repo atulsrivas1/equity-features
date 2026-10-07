@@ -1,3 +1,7 @@
+## EF-L012 R5 planning supplement — October 7, 2026
+
+Independent calculations do not guarantee concurrent publication or measured scaling. Inspection of accepted Parquet source confirms a writer lock per output root for the whole attempt; DuckDB declares serialized database ownership. This is a supported-behavior observation, not a throughput benchmark. [R5 plan](../R5_PARALLEL_EXECUTION_PLAN.md) assigns explicit task dependencies, bounded queues, input reuse, combined resource budgets and scaling/parity evidence to existing stories. Revisit defaults after EQ-062/066 measurements; retain R8 optimization as conditional. Owner requested documentation/story clarification, not worker implementation.
+
 # Engineering lessons
 
 Imported review/delivery evidence, October 5, 2026. No production unit suite or source-code audit was independently rerun for this knowledge import. Existing formula reference checks were run as documentation gates. These lessons guide work; the linked records define tested scope and actual acceptance.

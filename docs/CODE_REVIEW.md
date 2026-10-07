@@ -1,3 +1,7 @@
+## PR303 and R5 authorized local review — October 7, 2026
+
+The owner explicitly answered "Authorize PR303 and all R5 stories" to the review-policy question. Separate local Codex reviewers may cover this bounded parallelism planning PR and every R5 story, including final-head semantic/contract review and delivery evidence. Record actual reviewer identity, inspected commit, findings/disposition, executed checks and limitations; relevant changes require renewed final-head coverage. This is local automated review, not hosted activation or human review. Author self-review and CI alone are insufficient; existing numerical, documentation, installed/native, release and actual-publication/readback gates remain mandatory. It authorizes no later release by inference and starts no worker implementation or new session. Earlier pending R5 authorization snapshots below are superseded.
+
 ## BUG-005 bounded local review authorization — October 7, 2026
 
 Owner responds to the explicit policy gate with "can you review". Separate local Codex review is authorized for canonical BUG-005 #301, componentPR11 and canonical continuityPR302, including final-head semantic/runtime/findings and delivery coverage. This is local automated review, not hosted activation or human review, and grants no general R5 authorization. Preserve all numerical/documentation/CI/installed/publication/readback gates; author self-review is insufficient. Earlier pending-authorization snapshots are superseded for this repair only.

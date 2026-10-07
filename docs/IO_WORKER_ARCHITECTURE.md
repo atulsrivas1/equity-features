@@ -1,3 +1,13 @@
+## Current R5 review authorization — October 7, 2026
+
+The owner authorized separate local Codex reviewers for PR303 and all R5 stories. See [review policy](CODE_REVIEW.md). This supersedes earlier pending-authorization statements below without waiving completed final-head review or other acceptance gates. PR303 planning remains under qualification; no R5 worker implementation starts here.
+
+## October 7 R5 parallel execution clarification
+
+The owner authorized documenting bounded, dependency-aware parallel execution before R5 implementation. [Parallel execution plan](R5_PARALLEL_EXECUTION_PLAN.md) refines existing EQ-057/060/061/062/065/066; no new epic/release, numerical change or worker launch. Parquet locks whole write attempts per output root; DuckDB output has serialized ownership per database. Independent calculations require supplied inputs/initialization, ordered history and explicit universe barriers. Require input reuse, bounded backpressure, combined worker/backend resource budgets and measured 1/2/4/8-worker parity/scaling where capacity permits. Advanced acceleration remains R8.
+
+BUG-005 is accepted in [actual release receipt](https://github.com/atulsrivas1/equity-features/issues/301#issuecomment-6041276187); use corrected Parquet0.1.0a1. Live EQ-057 is Ready; the other affected R5 stories remain Backlog. This clarification changes acceptance scope detail, not execution status. General R5 and this planning PR need an applicable separate-review policy before merge; previous bounded local authorization is not extended by inference. Older snapshots below retain their historical scope.
+
 ## EQ130 release audit under qualification
 
 EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
