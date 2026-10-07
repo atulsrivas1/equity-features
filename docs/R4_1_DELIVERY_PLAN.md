@@ -180,4 +180,3 @@ All ten stories require public numbered execution links, separate final-head rev
 **Documentation with the story:** R4.1 acceptance, exact resume handoff and reconciled GitHub lifecycle/dependencies.
 
 **Done state:** Scoped behavior implemented, separately final-head reviewed, tested from applicable installed artifacts, documented, actually released and read back. Update authoritative issue/Project and release evidence; do not count planning as implementation.
-
