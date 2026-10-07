@@ -1,5 +1,11 @@
 # R4.1 post-delivery review — October 7, 2026
 
+## Owner-requested repair under qualification
+
+Owner subsequently requested fixing BUG005 then discussing next work. [I/O PR11](https://github.com/atulsrivas1/equity-feature-io/pull/11), pre-code plan9ef9f39/source8b0f975, implements completion-first binding and removes the cross-file reservation absence test; stable completion without matching reservation is still corruption. Corrected Parquet0.1.0a1, other package versions unchanged. Local20physical/eightprocess tests and strict5files pass; six composition methods/nine routes and pipcheck pass. New interleavings reproduce four false-corruption errors against old source; stable missing/attempt/envelope and existing component/projection negatives are retained. Four native matrix installed forms were independently read back from successful source push37636816380 with ZIP/archive/manifest/report/unchanged-core identities. Fresh Parquet artifacts and all current checks remain under qualification; no final review/merge/release/Done claimed.
+
+Explicit local-review extension for this R5-assigned repair is pending owner response because AGENTS/CODE_REVIEW covers bounded R4.1 only. This is a policy requirement, not a new inferred human approval gate. Implementation/testing continues independently; applicable separate final-head review remains required before merge. Do not start workers or restore EQ057 Ready until actual repair acceptance. Earlier review snapshots below remain historical.
+
 Owner requested review before preparing the R5 execution handoff. Historical R4.1 acceptance is verified; a newly reproduced P2 defect blocks current worker readiness. Canonical [BUG-005 #301](https://github.com/atulsrivas1/equity-features/issues/301) owns repair in the I/O repository. No runtime fix is implemented by this report.
 
 ## Finding: incoherent Parquet completion observation
@@ -24,4 +30,4 @@ Reviewers: parent `/root` and separate local automated `/root/io_architecture_re
 
 ## Current next step
 
-BUG-005 is Ready, provisionally3points, E08/R5 prerequisite. EQ057 returns Ready -> Backlog with explicit repair dependency. Historical R4.1 closure remains preserved; current readiness is superseded. Fix and verify the I/O repair before restoring EQ057 Ready and dispatching R5. [Prepared R5 resume](R5_AUTONOMOUS_HANDOFF.md) must be refreshed with the corrected package/version/artifact/readback and applicable review policy. No R5 implementation/new session is started by this review.
+BUG-005 is In progress after owner-authorized repair, provisionally3points, E08/R5 prerequisite. EQ057 remains Backlog with explicit repair dependency. Historical R4.1 closure remains preserved; current readiness is superseded. Verify and deliver the I/O repair before restoring EQ057 Ready and dispatching R5. [Prepared R5 resume](R5_AUTONOMOUS_HANDOFF.md) must be refreshed with the corrected package/version/artifact/readback and applicable review policy. No worker implementation/new session is started by this repair.
