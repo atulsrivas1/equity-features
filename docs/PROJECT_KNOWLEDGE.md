@@ -1,6 +1,9 @@
 ## EQ063 selected preparation - October7,2026
 
 [EQ062 acceptance](https://github.com/atulsrivas1/equity-features/issues/70#issuecomment-6049001746) is Closed/Project Done. LiveProject confirms EQ057–062 Done and EQ063–066 Backlog before pull; E08 In progress. EQ063#71 is next dependency-satisfied preparation. [Pre-code claim/retry/recovery contract](stories/EQ-063_PLAN.md) and frozen independent fixture precede runtime.21 provisional complexity points, not days. Implement exact task OS-lock ownership, bounded operational records/attempts/cancellation and actual receipt-first recovery; no sink/math/schema/mandatory-dependency changes. Separate review, source/native/installed/release gates remain pending. Preserve divergent local canonical main; branches start verified origin/main. Complete boundedR5 then stop beforeR6.
+# C1 community release planning - October 7, 2026
+
+[EPIC-E20](https://github.com/atulsrivas1/equity-features/issues/311) adds EQ-131-135 in [R14](https://github.com/atulsrivas1/equity-features/milestone/16), coordinated with research SR-026/027 in M5. [Versioned plan](C1_COMMUNITY_RELEASE_PLAN.md) defines the frozen R5-R13 and M2/M3 predecessor gates, scope, overlap, acceptance and manual learning metrics. All new scope is Backlog; live Project owns status. Existing owners/priorities remain. Planning only; no implementation, external posting, new chat, schedule or release. Completed final-head review and actual delivered-source verification remain required.
 
 ## EQ062 actual experimental delivery - October 7, 2026
 
