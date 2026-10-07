@@ -180,3 +180,7 @@ All ten stories require public numbered execution links, separate final-head rev
 **Documentation with the story:** R4.1 acceptance, exact resume handoff and reconciled GitHub lifecycle/dependencies.
 
 **Done state:** Scoped behavior implemented, separately final-head reviewed, tested from applicable installed artifacts, documented, actually released and read back. Update authoritative issue/Project and release evidence; do not count planning as implementation.
+
+## Execution assignment
+
+Owner requests a new dedicated session using the [autonomous handoff](R4_1_AUTONOMOUS_HANDOFF.md) and [independent test matrix](R4_1_TEST_STRATEGY.md). Preparation: [GOV-015 #289](https://github.com/atulsrivas1/equity-features/issues/289). Verify its published Done evidence before the first story; preparation does not implement these stories or change their dependencies/points.

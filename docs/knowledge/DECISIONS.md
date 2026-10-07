@@ -36,3 +36,7 @@ Plan our own evidence service as a focused synthetic consumer pilot, not a new b
 ## October 6: R4.1 before R5
 
 Owner selects separate feature/I/O/worker repositories with explicit input adapter/output sink factories and third-party extension kits. [Decision](../decisions/IO_REPOSITORY_SEPARATION.md), [GOV-014 #275](https://github.com/atulsrivas1/equity-features/issues/275). This supersedes earlier planned co-location of adapter/worker implementations; it does not invalidate delivered R4 or change numerical/input contracts.
+
+## R4.1 execution handoff and dedicated session
+
+October 6 owner requests preparing and assigning bounded R4.1 to a new session. [GOV-015 #289](https://github.com/atulsrivas1/equity-features/issues/289), [handoff](../R4_1_AUTONOMOUS_HANDOFF.md). Canonical stories remain in the feature repository/Project across companion PRs; separate release session starts only after verified handoff publication and stops before R5. Existing local reviewer authorization applies to this R4.1 preparation/delivery; no new hosted activation or later-release review waiver.
