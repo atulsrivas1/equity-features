@@ -4,18 +4,18 @@ Canonical279 is Test after activated/completed separate local I/O PR2 review of 
 
 Core active optional package/test/harness/workflow remains intact pending standalone actual main publication/readback. Next: complete current source CI/fresh forms/private new-artifact checks; source final-head review and exact-head standalone publication/readback; then core redirects/removal/final review/pure CI/publication, canonical Released/readback/Done. EQ123+ remain dependency-gated; STOP beforeR5.
 
-# Owner attribution and review update â€” October 5, 2026
+# Owner attribution and review update — October 5, 2026
 
-## EQ121 accepted / EQ122 concrete pull â€” October 6, 2026
+## EQ121 accepted / EQ122 concrete pull — October 6, 2026
 
 EQ121#278 now verified CLOSED/ProjectDone after Released6028658946/postread acceptance6028666231. Coremain2cd51cd reviewed2a8a7ce/6028527651/all10CI; main docs37555023720/Foundation37555023713/optional37555023782 allsuccess/all382publicblobs-owner/24unchangedcore archives24currentnative reports. I/Omain31d08bc revieweda7f21ec/6028521735/mainCI37554716309/all30blobs; workersmainb2f13c9 reviewed03e60ec/6028521959/mainCI37554727700/all25blobs. All24actualcomponent/dependency archives/currentbuilder-probe/nativeforms/8fresh actual sourceproducerform installs equal finalmain bytes; current8channels/digests/expiry on issue278. Experimental io-contracts/io-sdk/workers0.1.0a0 version markers only; no backendoperations/workercommands. P2sourceprovenance/P3governance resolved; original failed --merge blocked safely, canonical squash policy respected. Source/private/unrelated checkouts preserved.
 
-Next highest dependency-ready pull EQ122#279 under [concrete pre-code plan](stories/EQ-122_PLAN.md): compatible optionalDuckDB.a8 extraction, publicsource/API/installed/migration evidence and immutableR4source/math limits before active core removal. Only one active story. EQ123â€“130 remain dependency-gated; R4.1 not accepted and STOPbeforeR5 remains.
+Next highest dependency-ready pull EQ122#279 under [concrete pre-code plan](stories/EQ-122_PLAN.md): compatible optionalDuckDB.a8 extraction, publicsource/API/installed/migration evidence and immutableR4source/math limits before active core removal. Only one active story. EQ123–130 remain dependency-gated; R4.1 not accepted and STOPbeforeR5 remains.
 
 
-## R4.1 execution / EQ121 foundation work â€” October 6, 2026
+## R4.1 execution / EQ121 foundation work — October 6, 2026
 
-GOV014#275 and GOV015#289 refreshed live CLOSED/ProjectDone after published main7a6db8c. Dedicated bounded release session owns EQ121â€“130, one active implementation story. Bootstrap actual Windows3.12.10 passed633core/94optional/123independent reference tests/strict56/import-registry-license-compatibility/purity38negative10positive. Editable bootstrap is not release artifact acceptance.
+GOV014#275 and GOV015#289 refreshed live CLOSED/ProjectDone after published main7a6db8c. Dedicated bounded release session owns EQ121–130, one active implementation story. Bootstrap actual Windows3.12.10 passed633core/94optional/123independent reference tests/strict56/import-registry-license-compatibility/purity38negative10positive. Editable bootstrap is not release artifact acceptance.
 
 EQ121#278 Ready then Inprogress with pre-code fdec92e/PR291 before component source. Authorized public repositories [I/O](https://github.com/atulsrivas1/equity-feature-io) and [workers](https://github.com/atulsrivas1/equity-feature-workers) created with owner access; initialized empty main baselines preserve reviewed component PR delivery. [I/O PR1](https://github.com/atulsrivas1/equity-feature-io/pull/1) at8461ee5 and [workers PR1](https://github.com/atulsrivas1/equity-feature-workers/pull/1) at14e56c8 implement typed0.1.0a0 version-marker foundations, inward dependencies, same agreements and repeat-build/fresh-form/core-isolation gates. Workers has no commands. Package names io-contracts/io-sdk/workers each observed PyPI404, not reserved or published. Initial whitespace gate caught copied license trailing blank lines; trimmed whitespace preserves legal text. Initial separate review found P2 untracked dependency-source provenance and P3 absent mandatory local governance links. Corrected I/O241631d/workers0cacab0 archive exact committed component/dependency sources; independent dirty/untracked regression passes in both. Separate final-head re-review resolves both/no unresolved findings (I/O6028459186/workers6028459420). Corrected local bothforms pass; native CI/source-producer bundles and fourfresh downloaded forms per component qualification underway. Actual main publication/receipt/readback remain before release acceptance.
 
@@ -31,9 +31,9 @@ Owner explicitly requests the release execution handoff and a new dedicated sess
 Preparation gates at this snapshot: publish/read back reviewed final-head handoff/CI, create the owner-requested execution session with bootstrap-only authority, verify its assignment, then close GOV-015. The child refreshes live Closed/Done before EQ-121 implementation. A separate review of initial head `5e1ecc5` found and corrected the earlier dispatch/Done cycle; renewed final-head review remains required. Parent owns GOV-015 acceptance/dispatch only; the new session will own R4.1 implementation after verified publication. Live issue289/PR and Project record actual final gates and session assignment. Next execution: verify GOV-014/GOV-015/access/live owners, then Ready/pull EQ-121 #278; all other new stories remain Backlog until prerequisites. R5 remains blocked by EQ-130. No private data, original-source deletion, historical generation, stable publication or R5 session is authorized by this handoff.
 
 
-## GOV-014 architecture planning â€” current October 6, 2026
+## GOV-014 architecture planning — current October 6, 2026
 
-Owner requests repository separation and configurable input adapters/output sinks before R5. Work is on `codex/io-architecture-plan`, based on accepted R4 main `74ac28dcacc373105ff1a9bff97a69baabdee588`; preserve unrelated checkouts. [GOV-014 #275](https://github.com/atulsrivas1/equity-features/issues/275) tracks documentation/public planning only. [Architecture](IO_WORKER_ARCHITECTURE.md), [decision](decisions/IO_REPOSITORY_SEPARATION.md), [R4.1 plans](R4_1_DELIVERY_PLAN.md), [milestone15](https://github.com/atulsrivas1/equity-features/milestone/15), E18#276/E19#277 and EQ-121â€“130 (#278â€“287) are prepared. New implementations remain Backlog; R5 requires EQ-130. Core APIs/math/versions and accepted R4 source behavior are unchanged.
+Owner requests repository separation and configurable input adapters/output sinks before R5. Work is on `codex/io-architecture-plan`, based on accepted R4 main `74ac28dcacc373105ff1a9bff97a69baabdee588`; preserve unrelated checkouts. [GOV-014 #275](https://github.com/atulsrivas1/equity-features/issues/275) tracks documentation/public planning only. [Architecture](IO_WORKER_ARCHITECTURE.md), [decision](decisions/IO_REPOSITORY_SEPARATION.md), [R4.1 plans](R4_1_DELIVERY_PLAN.md), [milestone15](https://github.com/atulsrivas1/equity-features/milestone/15), E18#276/E19#277 and EQ-121–130 (#278–287) are prepared. New implementations remain Backlog; R5 requires EQ-130. Core APIs/math/versions and accepted R4 source behavior are unchanged.
 
 Local documentation/workflow checks passed: 129 active story coverage, ten R4.1 plans, 39 unchanged feature mappings, eight-stage lifecycle, 123 independent reference tests, import/license/registry checks and changed-document link/privacy/whitespace checks. The first privacy helper scanned historical handoff text; corrected it to assess newly added text rather than claim removal of prior published history. Existing R5/R6/R7 issues and milestone descriptions now link the R4.1 dependency and repository ownership. Pre-publication review found no blocking architecture defects but detected a trailing blank line missed by an uncommitted-only whitespace helper. Corrected the plan and validation to inspect the full change against the accepted main baseline. PR288 and issue275 retain final review/CI/publication evidence and are current status authority. At this snapshot those final gates remain pending; after verified planning Done, follow the next-work instructions below. Owner explicitly authorized separate local review for GOV-014 and bounded R4.1; AGENTS.md/CODE_REVIEW.md record this extension. Hosted review remains unavailable. Do not merge on author self-review alone. After planning Done, verify access and detailed readiness before pulling EQ-121; no worker/code extraction/private generation automatically starts in this planning conversation. Update this paragraph with actual evidence as gates occur.
 
@@ -42,7 +42,7 @@ Main history attribution was corrected with verified tree parity; see [correctio
 
 # Development continuity
 
-## Extension roadmap update â€” 2026-10-05
+## Extension roadmap update — 2026-10-05
 
 Owner requested stories proving developer/user extensibility. Added EQ-095 #150
 to R3/E06, 5 provisional points, dependent on EQ-093/039/040/043/045 and required
@@ -50,7 +50,7 @@ by EQ-048. It independently qualifies an externally packaged custom-feature and
 synthetic-adapter consumer using public installed APIs. Existing registration,
 guide, examples, SDK, acceptance and later R6 guide criteria are extended without
 duplicating implementation. EQ-016 remains accepted, EQ-094 retired and R1 scope
-unchanged. Planning CI checks 94 active IDs (001â€“093 and 095). All new work is
+unchanged. Planning CI checks 94 active IDs (001–093 and 095). All new work is
 Backlog; no implementation claimed. See docs/stories/EQ-095_PLAN.md and live issues.
 
 Updated2026-10-05 (Eastern). Read AGENTS.md, PUBLIC_DEVELOPMENT.md and R1_AUTONOMOUS_HANDOFF.md for the next mission. GitHub Project remains the status authority.
@@ -82,7 +82,7 @@ dependency readiness must be reassessed. Do not erase accepted R0 history.
 Resume in the execution chat: inspect live issues/Project/checkout, read the R1
 package, baseline checks, inspect the R0 repair delivery; reuse accepted fixes or
 complete available prerequisite work under its issue/plan, then
-EQ-017â€“026 sequentially. No public registry, later-release implementation, concrete
+EQ-017–026 sequentially. No public registry, later-release implementation, concrete
 adapters/workers or external-product integration. Preparation publication and exact
 head/main checks must be verified under GOV-008 before its Done status.
 
@@ -104,7 +104,7 @@ EQ017 Ready; live milestone/Project record the completed state.
 
 ## Verified delivery and current work
 
-EQ-001â€“004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
+EQ-001–004 Done: PR106/112/121/124 established39IDs and74exact design references. EQ-005 Done via PR128, squash b3a39a4209580e95ebe7f953d63b81f839901dfe;26context references. EQ-006 Done via PR129, squash5c8edf56392ac319483669c7f8890597b489ff68;23timing cases. E01 Done. These123references establish mathematics/policy, not production kernels or provider readiness.
 
 EQ-007 Done: PR130 source a333fa7af53fc8f33e2b95368a99716bee6658d5, then actual foundation delivery under EQ-009. Source merge alone correctly remained Ready to release. EQ-008 Done via PR131,86321207b2ce8557a64a58782cfea28de4003a56: CPython3.12 x64, Windows/Linux; exact optional NumPy2.2.6/PyArrow20.0.0 pins and development tool lock. Local Windows3.12.10; CI Linux3.12.14 and Windows3.12.10 recorded in artifact manifests. Other environments unqualified.
 
@@ -205,9 +205,9 @@ In progress, already milestone null, for R3 EQ-093. Deferred GOV-005/PR120 uncha
 
 ## Boundaries and durable authorization
 
-Owner authorizes remaining EQ-011â€“016 one at a time through verified R0 acceptance. Create each full story plan before implementation, inspect live issue/Project/prerequisites, confirm points, preserve unrelated work and obey eight stages. Author self-review/CI are approved; GOV-005 issue119/PR120 stays explicitly owner-deferred. No independent bot/human review, account/profile changes, paid/source access, private data, external-product integration, public registry or recurring automation. Calculation packages have no source/clock/job I/O. R1/R2 kernels and R3 custom execution remain unimplemented. EQ-093 stays R3; EQ-094 retired.
+Owner authorizes remaining EQ-011–016 one at a time through verified R0 acceptance. Create each full story plan before implementation, inspect live issue/Project/prerequisites, confirm points, preserve unrelated work and obey eight stages. Author self-review/CI are approved; GOV-005 issue119/PR120 stays explicitly owner-deferred. No independent bot/human review, account/profile changes, paid/source access, private data, external-product integration, public registry or recurring automation. Calculation packages have no source/clock/job I/O. R1/R2 kernels and R3 custom execution remain unimplemented. EQ-093 stays R3; EQ-094 retired.
 
-E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone assignment before closing R0, with explicit rationale; do not implement R3 or close the epic to clear a milestone. R0 acceptance still requires EQ-011â€“016 typed in-memory foundation, tests/docs and final versioned artifact delivery. Original chat stopped implementation; this chat owns the sequence.
+E03 includes R3 EQ-093 and must remain open. Reconcile its spanning R0 milestone assignment before closing R0, with explicit rationale; do not implement R3 or close the epic to clear a milestone. R0 acceptance still requires EQ-011–016 typed in-memory foundation, tests/docs and final versioned artifact delivery. Original chat stopped implementation; this chat owns the sequence.
 
 ## Exact resume steps
 
@@ -228,13 +228,13 @@ handoff preparation, at repair start linked PR146 to track these same two defect
 points and In progress states; no duplicate implementation scope. GOV008#143 and
 its handoff preparation remain untouched.
 
-## Owner-started R1 execution â€” EQ-017 active
+## Owner-started R1 execution — EQ-017 active
 
 Execution began2026-10-05 from main0f5165a. BUG001/002 live closed/Done and PR146/148 receipts verified/reused. Isolated worktree preserves the occupied repair checkout. EQ017#21 and E04#20 now In progress;8points confirmed. Pre-code plan stories/EQ-017_PLAN.md freezes API, explicit InputScope/eligibility/auction coverage, supplied prior close, independent readiness, exact arithmetic and0.0.2a0 capability migration. Baseline176units/123references/strict typing/purity/import/compatibility/licensing pass. Local implementation and independent tests are underway; no R1 source/delivery acceptance yet. PR120/E03/EQ093 unchanged.
 
-Initial new tests found proxy unit punctuation inconsistent with registry metadata; aligned the actual result unit without changing formula. Strict typing annotation issues corrected. Resume EQ017 author review plus CI and all exact-head/main/download/hash/fresh wheel+sdist gates before Done. Do not start EQ018 until that exit; continue EQ017â€“026 sequentially to verified R1 acceptance under R1_AUTONOMOUS_HANDOFF.md, then stop before R2.
+Initial new tests found proxy unit punctuation inconsistent with registry metadata; aligned the actual result unit without changing formula. Strict typing annotation issues corrected. Resume EQ017 author review plus CI and all exact-head/main/download/hash/fresh wheel+sdist gates before Done. Do not start EQ018 until that exit; continue EQ017–026 sequentially to verified R1 acceptance under R1_AUTONOMOUS_HANDOFF.md, then stop before R2.
 
-## EQ-017 accepted â€” 0.0.2a0
+## EQ-017 accepted — 0.0.2a0
 
 PR149/head33ecb0d14ccc66dcdce876024b7d90e5695da5e5, main674194de7cc0ecb33b0569768572f4c89a1b354c:205units/123references/strict17files/purity/registry/import/compatibility/licensing/repeatbuilds/installedexamples, six exact-head and main OS CI,27publishedGitblobs and both actual bundles/fourfresh installs verified. Receipt: stories/EQ-017_DELIVERY.md and issue21. EQ017 now Done; EQ018#22 Ready. All other R1 stories still Backlog; E04 remains In progress.
 
@@ -248,7 +248,7 @@ Pre-code plan stories/EQ-018_PLAN.md confirms5points. Typed IntervalCoverage and
 
 EQ018 author review found that a normal supplied scheduled close was copied into shorter transient reduction bounds, triggering a false early-close mismatch. Derived reduction windows now omit calendar schedule fields while the public result retains the original target config digest/session policy. Added an independent normal-scheduled-close regression;223units pass. Final head/build/CI gates must rerun after this correction.
 
-## EQ-018 accepted â€” 0.0.2a1
+## EQ-018 accepted — 0.0.2a1
 
 PR152/head `e8298ac92c2f94b191e0433b0b156125548e47eb`, main `c3faac1ae34c5c3470313c6064210e37ce1cd90d`: 223 units/123 references/strict 17 files/purity/registry/import/compatibility/license/repeat builds/installed examples, six exact-head and main OS CI, 27 published blobs and both actual bundles/four fresh installations verified. Receipt: stories/EQ-018_DELIVERY.md and issue22. EQ018 Done; EQ019#23 Ready. E04 stays In progress.
 
@@ -258,7 +258,7 @@ Preserved concurrent PR151/mainff738809 R3 EQ095 roadmap and 94-story planning c
 
 Pre-code plan stories/EQ-019_PLAN.md confirms 8 points. Five trade aggregates implemented locally at0.0.2a2, with exact wide arithmetic, independent absent-price/size readiness, raw delivery versus eligible counts and C/K/E/source policy admission. 241 units (18 new)/123 references/strict typing18 files/purity/registry/import/compatibility/license checks pass. API/example, unit/capability migration and EQ018 receipt accompany this story. Next gates: draft PR/author review/Test/repeat builds/fresh installed five examples/exact-head/main CI/actual downloaded bundles. No top-K/quote/state/R2 acceptance claimed.
 
-## EQ-019 accepted â€”0.0.2a2
+## EQ-019 accepted —0.0.2a2
 
 PR153/head `05e9c54da755709ccfdc8c0bbf2f7baeb93e81b4`, main `80e81d5acc243a025c1d3383256e78064f140db5`:241 units/123 references/strict18 files/all gates/six exact-head/main OS CI/24 published blobs and both actual bundles/four fresh installations verified. Receipt stories/EQ-019_DELIVERY.md and issue23. EQ019 Done; EQ020#24 pulled In progress with pre-code5-point plan. E04 remains In progress. Resume codex/eq-020-top-k-evidence, implement typed bounded trade rows and explicit evidence; complete all formal delivery gates before EQ021. Preserve PR151/EQ095 and deferredPR120.
 
@@ -268,7 +268,7 @@ Pre-code plan confirmed5points. Typed TopKTrades rows/evidence with explicit K<=
 
 EQ020 formal Test caught stale canonical_inputs batch-count assertion19 after topK made20. Local installed build and Linux CI failed; corrected example to exact20 inventory and reran on a new head. Failed c87688b checks/build are historical, not acceptance evidence.
 
-## EQ-020 accepted â€”0.0.2a3
+## EQ-020 accepted —0.0.2a3
 
 PR154/head `22e15d4d87bd2ab765b822846268eeea194b36ea`, main `6c42ee24c9c8364fa763f31f76fa23b6cbf12617`:256 units/123 references/strict19 files/all gates/six exact-head/main OS CI/25 published blobs/both actual bundles/four fresh installs verified. Receipt stories/EQ-020_DELIVERY.md and issue24. EQ020 Done; EQ021#25 pulled In progress after pre-code8-point plan. E04 stays In progress. Resume codex/eq-021-sampled-quotes; implement only two quote IDs preserving no-quantile formulas and explicit sampling. Complete lifecycle/main delivery before EQ022. Preserve EQ095/PR120; use Related issue wording to avoid premature auto-closure.
 
@@ -280,7 +280,7 @@ EQ021 documentation review recovered a prior0.0.2a3 changelog CP1252 dash byte t
 
 EQ021 author review tightened a real result-contract gap: a manually constructed sampled cell could contradict source sampling or paired state-count denominator. Result admission now requires complete matching quotes binding, matching sampling and sibling valid/total counts. Independent negative regression added;274 units (18 new) pass. Final head/build/CI gates must use the corrected change.
 
-## EQ-021 accepted â€”0.0.2a4
+## EQ-021 accepted —0.0.2a4
 
 PR155/head `4cf743f275115297b3f8a28434d9c607871068fa`, main `ac5d406e7c44facf166777cef7edc9e92b4d81d8`:274units/123references/strict20files/all gates/six exact-head/main OS CI/26 published blobs/both actual bundles/four fresh installations verified. Receipt stories/EQ-021_DELIVERY.md and issue25. EQ021 Done; EQ022#26 pulled In progress after pre-code13-point plan. E04 remains In progress. Resume codex/eq-022-continuous-quotes; implement one duration metric with explicit seed/inactive/unknown initialization and original-anchor expiry; full lifecycle/artifact gates before EQ023. Preserve EQ095/PR120 and no auto-close wording.
 
@@ -290,7 +290,7 @@ Pre-code13-point plan. One continuous-only ID, typed conserved duration categori
 
 EQ022 author review tightened initialization consistency: known inactive cannot carry unknown duration, and a seed binding cannot be relabeled unknown/inactive or noncontinuous. Independent negative test added;297 units (23 new) pass. Source/seed/config choices remain explicit. Final gates use corrected head only.
 
-## EQ-022 accepted â€”0.0.2a5
+## EQ-022 accepted —0.0.2a5
 
 PR156/head `b9c474a87510dc400643a565bf5a06b0605171f4`, main `7e1a87f67d014614a2d14c94dddba8868a674dba`:297units/123references/strict21files/all gates/six exact-head/main OS CI/25 published blobs/both actual bundles/four fresh installations verified. Receipt stories/EQ-022_DELIVERY.md and issue26. EQ022 Done; EQ023#27 pulled In progress after pre-code13-point plan (revised from provisional8 for all-family lifecycle/transactional proof work; no scope change). E04 stays In progress. Resume codex/eq-023-streaming-lifecycle; fixed-schema/source population, explicit prefix certificates, shared bounded reductions and atomic update/snapshot/finalize; full artifact gates before EQ024. Preserve EQ095/PR120; no export/restore/merge claim yet.
 
@@ -300,27 +300,27 @@ Pre-code13-point plan (provisional8 revised for all-family lifecycle). New Strea
 
 All297 preexisting units pass after shared refactor;31 independent lifecycle tests yield328 units. Strict24 source files, purity38/10, registry and dependency-light import gates pass (incremental imported under optional/source denial). Initial guard rejected harmless state attribute time; renamed temporal without weakening guard. Mypy explicit tuple row construction/import path corrected. Test fixtures corrected positive-volume null OHLC to absent field (malformed supplied null remains rejected) and final certificate expected count to declared2. Parity found interval aggregate reason union mismatch; fixed to accepted batch semantics. Added closing auction, independent interval share, fixed quote/topK retention and atomic malformed-payload tests. All23 update flags now explicit inventories; restore/merge still false. Both packages0.0.2a6, ninth installed example. Remaining full checks/review/head/main/artifacts/fresh installs; EQ023 not accepted.
 
-## EQ-023 accepted â€”0.0.2a6
+## EQ-023 accepted —0.0.2a6
 
 PR157/head `cbe6b9d6a9636e708e7e68de807a562cbe9023a7`, main `b5107ac5db739ddfe6106b5555dd8f4d8e974d50`:328units/123references/strict24files/all local/exact-head/main CI/published bytes/both actual bundles/four fresh installations verified. Receipt stories/EQ-023_DELIVERY.md and issue27. EQ023 Done; EQ024#28 In progress after pre-code13point plan revised from8 for six-family state validation. E04 In progress. Resume codex/eq-024-state-restore; immutable exact state and strict compatible restore next. Restore/merge remain false until qualified. Preserve EQ095/PR120.
 
-## EQ024 implementation and self-review â€”0.0.2a7
+## EQ024 implementation and self-review —0.0.2a7
 
 All six families export immutable bounded JSON state and restore with original config/entity/population/prior/seed fingerprint. Integers exact, binary64 hex, private copies independent; order/gap/watermark/seal and K/N/windows/temporal state preserved. 346 units (18 new); strict25files. Self-review added impossible empty totals/trade positive-size and quote count/temporal cursor checks. Early test fixtures passed initialization as positional age and used nonexistent math_version; corrected fixture arguments to accepted initial keyword and config identity. Legacy restore-false assertions migrated to merge-only, backed by all-family resumed tests. Digests detect corruption, not historical provenance/authentication.16MiB exported-text cap documented. Full package/head/main/publication/download/install gates pending; issue28 In progress.
 
-## EQ-024 accepted â€”0.0.2a7
+## EQ-024 accepted —0.0.2a7
 
 PR158/head `524ecd82be2744db08a83b2c65475be77941de0e`, main `10b62eee6ce0757893c5fedf7b66b170a28853e4`:346units/123references/strict25files/all local/exact-head/main CI/published bytes/both actual bundles/four fresh installations verified. Receipt stories/EQ-024_DELIVERY.md and issue28. EQ024 Done; EQ025#29 In progress after pre-code13point plan revised from5 for22-family legal merge qualification. E04 In progress. Resume codex/eq-025-partition-parity; legal adjacent partition merge and chunk/replay qualification next. Merge remains false until qualified. Preserve EQ095/PR120.
 
-## EQ025 implementation/self-review â€”0.0.2a8
+## EQ025 implementation/self-review —0.0.2a8
 
 PartitionSpan and pure owned merge combine checked sufficient statistics for22 noncontinuous R1 IDs; adjacent nonempty caller-certified ranges, matching source/config/enrichments, strict bar/event order, bounded duplicate checks, no prior publication/seal. No global opaque-ID/span authentication claim. Temporary K/N unions bounded2K/2N; continuous remains replay-only.363 units (17 new),123 references, strict26files/purity/registry/import pass. Large1,000-event uneven skew/equal-time partitions use documented Float64rel/abs1e-12 while exact counts/totals/evidence remain exact. Two invalid fixture attempts corrected: zero-volume bars require null OHLC/zero notional; retained-duplicate adversary uses explicit declared population because from_batch correctly rejects global duplicates. Full package/head/main/published-byte/actual bundles/four fresh installs pending before Done. EQ026 final audit only next.
 
-## EQ-025 accepted â€”0.0.2a8
+## EQ-025 accepted —0.0.2a8
 
 PR159/head `b64adc526564ce581d733c7fd0eeb32d52eae1e0`, main `1d360f8975ff186fdaf3cdda27705472c3132e74`:363units/123references/strict26files/all local/exact-head/main CI/published bytes/both actual bundles/four fresh installations verified. Receipt stories/EQ-025_DELIVERY.md and issue29. EQ025 Done; EQ026#30 In progress after pre-code8point final audit plan. E04 In progress. Resume codex/eq-026-r1-edge-audit; independent edge audit and published final R1 acceptance next.23 batch/update/restore and22 conditional merge qualified; continuous merge false. No R2 work. First artifact install attempt hit transient PyPI unsupported content type; full four-install retry verified without changing pins. Preserve EQ095/PR120.
 
-## EQ026 independent edge audit â€”0.0.2a9
+## EQ026 independent edge audit —0.0.2a9
 
 Seven new independent cross-mode rational cases pass: early close bar/window goldens, auction finalC evidence, exact notional beyond binary64/Arrow, scaled sampled valid denominator, and original seed expiry across empty prefix snapshot/restoration.370 total units; no numerical implementation defect found. Initial audit fixtures assumed one Arrow table instead of per-feature dictionary and duplicated updates helper event keyword; corrected to established bridge shape and one-row fixture. Public older bar/trade API and package README capability/version contradictions repaired. Experimental package metadata identifies actual R1 rather than only foundation. Final report mapping and kernel artifact qualification pending. EQ027 actual issue32 confirmed;31 is E05 epic. Preserve R0 fixes/EQ095/PR120; no R2 implementation.
 
@@ -330,13 +330,13 @@ PR160/head `e65d98096503b98501c9a95306ea377c037fb57e`, kernel main `f0343a968aa5
 
 Final documentation change contains root/docs only; its exact-head/main CI and actual OS bundle hash equality/four fresh installations are final closure gates recorded authoritatively in issue30. Close EQ026 Done, E04 and R1 milestone only after all10stories+BUG001/002 are live closed/Done and final documentation published. No further package implementation remains. EQ027 actual#32 release/math/contracts dependencies ready after exit but remains Backlog/unstarted; E03#13 stays open for R3, EQ095#150/PR120 preserved. Stop after verified exit; no R2+, PyPI, source acquisition, adapters/workers or automation.
 
-## R3 handoff and independent R1 review â€” 2026-10-05
+## R3 handoff and independent R1 review — 2026-10-05
 
 The owner requested an R3 package/new execution chat. docs/R3_AUTONOMOUS_HANDOFF.md contains all twelve R3 stories, provisional65 points plus7 repair points, plans/design/testing/docs/exit gates. Independent R1 review (docs/reviews/R1_REVIEW.md) found known closed-window coverage loss and saved-state float error leakage; tracked as BUG-003#162 (5 provisional points) and BUG-004#163 (2), R3 prerequisite repairs. Both are Ready, not fixed. R1 dated acceptance remains historical; no closed R1 story is automatically reopened.
 
 R2 milestone3 currently has12 open/0closed; R3 priority is a deliberate owner request, not authority to implement R2 or waive acceptance. Execution must repair first, pull dependency-ready R3 stories only, and cannot close EQ048/R3 until accepted R2 exists. Report exact dependency blockers when no authorized Ready work remains. GOV-009#164 owns package publication; no implementation claimed by preparation. Preserve deferred PR120 and separate-product boundaries.
 
-## R3 execution ownership and BUG003 reproduction â€”2026-10-05
+## R3 execution ownership and BUG003 reproduction —2026-10-05
 
 PR165 gated merge is main afee24e; all six exact-head checks passed, published docs match. GOV009 Released pending main package CI verification. Dedicated R3 checkout/pinned venv established. Independent original BUG003 restored sequence returns first-volume200 and both aggregate statuses Available; BUG004 rehashed out-of-range hex raises OverflowError.370 baseline units pass. BUG003 pre-code plan confirms5points, bounded per-window omission tuple, schema2/exact-version/no migration and atomic contradictory-certificate rejection. Pull BUG003 on codex/bug-003-interval-gap; no repair delivered yet. R2 live milestone3 remains12open/0closed, PR120 deferred.
 
@@ -355,18 +355,18 @@ expected without an omission remains certifiable; last window volume300 stays re
 while omitted first window/shares stay unavailable. Full release gates pending;
 BUG003 is In progress, BUG004 still Ready. Historical R1 reports unchanged.
 
-## Owner priority override â€”2026-10-05
+## Owner priority override —2026-10-05
 
 Owner steering received during BUG003 artifact qualification: finish ONLY BUG003
 #162 and BUG004 #163 through documentation/lifecycle/CI/main/actual-artifact delivery,
-then stop and report accepted commits/versions/evidence. No EQ093/039â€“048/095 work
+then stop and report accepted commits/versions/evidence. No EQ093/039–048/095 work
 may start or continue. No R3 feature has started; registry/adapter inspection was
 read-only context. Separate R2 handoff/session belongs to the preparation chat and
 waits for these repairs Done. GOV009 already Done. R3 remains open. This overrides
 the earlier R3 continuous-pull mission without authorizing R2 implementation here.
 
 
-### BUG003 qualified implementation delivery â€”0.0.2a10
+### BUG003 qualified implementation delivery —0.0.2a10
 
 PR166/head24db3f4/mainb9bc293:377units/123refs/strict26files/all local and six
 exact-head CI gates/main docs37361305538/Foundation37361305448 both OS/published
@@ -376,22 +376,22 @@ Released; final receipt publication/main/equal artifact gates before Done. BUG00
 still Ready, no R3 feature started; owner override limits remaining work to BUG004
 then stop for separate R2 handoff. Preserve PR120 and historical R1 reports.
 
-## Owner restores R2-before-R3 execution order â€”2026-10-05
+## Owner restores R2-before-R3 execution order —2026-10-05
 
-Owner authorized completing only BUG003#162/BUG004#163 in the existing repair chat, then pausing R3 and starting a separate R2 execution session. Repair chat confirmed no R3 feature story started; BUG003 code mainb9bc293/pair0.0.2a10/schema2 is not yet Done pending artifact installs; BUG004 remains undelivered. New R2 package docs/R2_AUTONOMOUS_HANDOFF.md under GOV010#167 covers all12EQ027â€“038 (89provisional points),16R2 IDs, math/design/tests/docs/delivery/stop gates and legacy rights/access constraints. R2 may plan while repairs are active but must verify both Done deliveries before implementation; do not race their owner. R3 handoff feature authority superseded; R2 does not automatically resume R3. Preparation is not implementation.
+Owner authorized completing only BUG003#162/BUG004#163 in the existing repair chat, then pausing R3 and starting a separate R2 execution session. Repair chat confirmed no R3 feature story started; BUG003 code mainb9bc293/pair0.0.2a10/schema2 is not yet Done pending artifact installs; BUG004 remains undelivered. New R2 package docs/R2_AUTONOMOUS_HANDOFF.md under GOV010#167 covers all12EQ027–038 (89provisional points),16R2 IDs, math/design/tests/docs/delivery/stop gates and legacy rights/access constraints. R2 may plan while repairs are active but must verify both Done deliveries before implementation; do not race their owner. R3 handoff feature authority superseded; R2 does not automatically resume R3. Preparation is not implementation.
 
-## GOV-011 project knowledge preparation â€” October 5, 2026
+## GOV-011 project knowledge preparation — October 5, 2026
 
 A separate local repository checkout was prepared for future project sessions. Read [PROJECT_KNOWLEDGE.md](PROJECT_KNOWLEDGE.md) and the relevant knowledge decision/lesson/source/backlog records at startup. [GOV-011 #170](https://github.com/atulsrivas1/equity-features/issues/170) tracks this documentation transfer. It preserves existing formula/API/acceptance records and links dated R0/R1 review corrections, owner priority changes and consumer/source boundaries. It does not take over repair or R2 execution owners, implement a feature, rerun historical acceptance suites, import data or configure automation.
 
 Coverage: six relevant chats, 96 returned turn records, with targeted/truncated-access limits in knowledge/SOURCE_MAP.md. Raw chats and private data are excluded from public records. knowledge/repository-sources.json fingerprints 32 source documents at the inspected baseline. Publication and completion remain subject to this documentation PR and applicable checks; no Done/release claim is made by preparation.
 
 Resume: read current live issue/Project state, the latest release-specific handoff and owner direction. Finish/verify BUG-003 and BUG-004 with their existing owner, verify GOV-010 publication and proceed with the dedicated R2 scope before R3 feature work. Treat these as dependencies to recheck, not a current completion snapshot.
-## Deferred reviewer branch synchronization â€”2026-10-05
+## Deferred reviewer branch synchronization —2026-10-05
 
 PR120 was synchronized with current main solely to remove merge conflicts. It remains a draft; hosted activation/qualification and owner resumption are still outstanding. Historical scope-cleanup command failure was corrected before publication; no failed command was counted as delivery. The old93-story snapshot is superseded by94active IDs including EQ095, while EQ094 stays retired. Current owner R2-before-R3 and self-review/CI rules remain unchanged.
 
-### Bounded repair publication exception â€”2026-10-05
+### Bounded repair publication exception —2026-10-05
 
 BUG003 implementation is Released/qualified; final receipt PR169 has5of6corrected
 exact-head checks green and the remaining Linux PR job queued since19:15UTC.
@@ -426,7 +426,7 @@ BUG004 local repeat-build and two fresh installs each380tests/eleven examples pa
 new exact merged-head CI is required before publication. Historical queued-stage
 notes above are dated work evidence, not current completion claims.
 
-## Remaining repair delivery ownership â€”2026-10-05
+## Remaining repair delivery ownership —2026-10-05
 
 The owner transferred remaining BUG003/004 delivery to the dedicated R2 execution
 session after the original repair session became idle. Reused existing PR171
@@ -436,7 +436,7 @@ Final integrated-head checks, published source/main artifacts/fresh installed pa
 and receipt acceptance remain required; both repair issues are still undelivered
 at this checkpoint. R2 calculation work waits for their genuine Done state.
 
-### Integrated repair gates and external blocker â€”2026-10-05
+### Integrated repair gates and external blocker —2026-10-05
 
 PR171 exact head `9e78e14a8fe2572a262083af4bd207af8f84199c` is mergeable after
 current-main conflict resolution. Source repair/tests unchanged.380units/123refs/
@@ -469,7 +469,7 @@ preserving all earlier failed/queued attempts. Only then combine/refine preserve
 EQ033 plan on accepted main and pull it under R2. No R3 feature restart or automated
 follow-up; no original repair-chat message was required after human ownership transfer.
 
-### Repair delivery recovered and qualified â€”2026-10-05
+### Repair delivery recovered and qualified —2026-10-05
 
 All six final PR171/9e78e14 checks passed. Observed source merged as main
 `793a188acba054ba227a61d181897ae90236c149`; main documentation37376045297 and
@@ -498,7 +498,7 @@ on codex/r2-preparation and combine them with accepted main only after repair
 Done; refine/publish EQ033 plan before calculation code. R3 stays paused.
 
 
-### Repair receipt accepted; EQ033 pre-code pull â€”2026-10-05
+### Repair receipt accepted; EQ033 pre-code pull —2026-10-05
 
 PR173 final28b0bf7 all six checks passed before exact-head-guarded squash merge to
 29ff0ca8311831d7906ff856bcd63f91fb991977. All three published documentation blobs
@@ -519,7 +519,7 @@ artifact gates before Done. R2 remains unfinished; no calculation code at this
 pre-code checkpoint. Live Project remains current execution authority.
 
 
-### EQ033 implementation and author review â€”2026-10-05
+### EQ033 implementation and author review —2026-10-05
 
 Pair0.0.3a0 adds owned schema1 action/reference evidence and pure supplied-policy
 application. Forty independent API fixtures cover exact split/share/notional,
@@ -553,7 +553,7 @@ superseded, not final release evidence. Resume Code review/Test on corrected hea
 repeat its installed build and full final-head/main/actual artifact qualification.
 
 
-### EQ033 implementation delivered; final receipt gate â€”2026-10-05
+### EQ033 implementation delivered; final receipt gate —2026-10-05
 
 Corrected final headb2ef4b85c90ad1230b7547b0db80853b32035d46 all SIX CI checks and
 local repeated fourarchives/inspection/fresh wheel+sdist each422tests/twelve examples
@@ -577,7 +577,7 @@ existing UPDATE_IDS=BATCH_IDS alias must stay session-only when adding history
 batch capabilities. Other R2 plans preserved; R3 remains paused.
 
 
-### EQ033 accepted; EQ027 pre-code pull â€”2026-10-05
+### EQ033 accepted; EQ027 pre-code pull —2026-10-05
 
 EQ033 issue38 closed/Project Done after final receipt PR175 head16d51e7 all SIX
 checks and exact-head-guarded merge to d3e9fc9c2c2f4d5b7892cd96ffefc3d1f15badad.
@@ -596,7 +596,7 @@ Next: implement three IDs, independent windows/gaps/causality/precision fixtures
 API/example/docs/version0.0.3a1 then complete all delivery/receipt gates before Done.
 
 
-### EQ027 local implementation/author review â€”2026-10-05
+### EQ027 local implementation/author review —2026-10-05
 
 Pair0.0.3a1 adds owned HistoryContext/schema1 and compute_history for return/prior
 high/prior low, batch only. Sixteen independent production API cases cover all
@@ -632,7 +632,7 @@ Author review and direct example pass follow; repeat corrected final-head build/
 CI/main/installed gates. Preserve failed8ea565c evidence and lessonEF-L005.
 
 
-### EQ027 implementation delivery qualified â€”2026-10-05
+### EQ027 implementation delivery qualified —2026-10-05
 
 Final corrected27d9ff68dc30bd0bb8301c6326e36e1d3c0c0a64 all SIX checks and local
 repeat4archives/fresh wheel+sdist pairs each438tests/thirteenexamples pass. Ready
@@ -653,7 +653,7 @@ then refined EQ028 pre-code plan. Consider an owned exact SMA mean witness for
 later close>SMA comparison at int64 limits; floating equality must not hide a
 one-tick mathematical distinction. R2 ongoing; R3 stays paused.
 
-### EQ027 accepted; EQ028 pre-code pull â€”2026-10-05
+### EQ027 accepted; EQ028 pre-code pull —2026-10-05
 
 EQ027 issue32 closed/Project Done after receipt PR177 head7c8689e0 all SIX checks,
 guarded merge36a4e14334ad2ea75b1cfa0cc6676f93ad6a858d and exact published tree.
@@ -671,7 +671,7 @@ No EQ028 calculation code at this checkpoint. Next: publish plan/Ready/In progre
 implement/test/document pair0.0.3a2 then all source/installed/receipt delivery gates.
 R2 continues; R3 remains paused.
 
-### EQ028 local implementation and author review â€”2026-10-05
+### EQ028 local implementation and author review —2026-10-05
 
 Plan75c7b68 precedes source on codex/eq-028-sma-ema/PR178. Pair0.0.3a2 adds exact
 SMA and explicitly anchored EMA/no gap reset, independent dependency counts and
@@ -699,7 +699,7 @@ check identified an inherited R1 acceptance structure.py link, unchanged from ma
 no new broken EQ028 links. Failed source is superseded; final-head checks/build
 must use the corrected commit. No fabricated green evidence.
 
-### EQ028 implementation delivered â€”2026-10-05
+### EQ028 implementation delivered —2026-10-05
 
 PR178 final e54d2e1e1aa5c4b08f06acd308755ebc71c151c0 all SIX exact-head checks,
 repeat4archives/inspection/clean head manifest and BOTH local installed wheel/sdist
@@ -719,7 +719,7 @@ performance claim. Next: final receipt gates/issueDone, then refined EQ029 pre-c
 plan for RSI ratio-preserving normalized magnitude and explicit previous-close ATR.
 One active story; R3 remains paused.
 
-### EQ028 accepted; EQ029 pre-code pull â€”2026-10-05
+### EQ028 accepted; EQ029 pre-code pull —2026-10-05
 
 EQ028 issue33 closed/Project Done after receipt PR179 head3ac00d3 SIX checks and
 guarded merge89ee579215cffb5dbab68ab7fd0fa1b0b84f2eeb; whole published tree matches.
@@ -736,7 +736,7 @@ batch-only modes. No source code yet. Next: publish pre-code plan/Ready/In progr
 implement qualified pair0.0.3a3 and docs/tests/examples, then all installed/main/
 receipt gates. R2 continues; R3 paused.
 
-### EQ029 local implementation and review â€”2026-10-05
+### EQ029 local implementation and review —2026-10-05
 
 Plan dc2bba6 precedes source on codex/eq-029-rsi-atr/PR180. Pair0.0.3a3 adds pure
 batch RSI/ATR with explicit anchors/Wilder seeds, ratio-preserving normalized RSI
@@ -762,7 +762,7 @@ Type casts preserve validated admitted payload behavior without suppressing new
 tuple errors. Author final review complete; next concrete source commit/Code review/
 Test and exact-head repeat-build/fresh installed acceptance, not source-only closure.
 
-### EQ029 implementation delivered â€”2026-10-05
+### EQ029 implementation delivered —2026-10-05
 
 PR180 final d1b552cfd77711a07815d4b803c7dd9fbde1bb80 all SIX exact-head checks,
 repeat4archives/inspection/clean source manifest and BOTH fresh local wheel/sdist
@@ -782,7 +782,7 @@ receipt publication/gates and issueDone, then refined EQ030 pre-code plan for ex
 centered finite-window sample variance, explicit Adefault1 and tiny nonzero precision.
 One active story; R3 paused. No provider/private copy/performance/stable/tag/PyPI claim.
 
-### EQ029 accepted; EQ030 pre-code pull â€”2026-10-05
+### EQ029 accepted; EQ030 pre-code pull —2026-10-05
 
 EQ029 issue34 closed/Project Done after receipt PR181 headb3d9f9f SIX checks,
 guarded merged2d36b9fe59db9fc455756048daad9347e2d71ce and exact published tree.
@@ -798,7 +798,7 @@ tiny nonzero precision and independent readiness. No source code yet. Next: publ
 plan/Ready/In progress, implement/test/document pair0.0.3a4, then all source/head/
 main/actual installed/receipt gates. R3 paused.
 
-### EQ030 local implementation and review â€”2026-10-05
+### EQ030 local implementation and review —2026-10-05
 
 Plan7bfdfe4 precedes source on codex/eq-030-volatility/PR182. Pair0.0.3a4 adds
 batch sample volatility over Nsimple returns/N+1governed closes, explicit positive
@@ -823,7 +823,7 @@ lifecycle/sixteenth example. No new broken links; inherited R1 link stays record
 Final author source review complete; next commit/Code review/Test and exact-head
 repeated archive/fresh installed execution before any acceptance claim.
 
-### EQ030 implementation delivered â€”2026-10-05
+### EQ030 implementation delivered —2026-10-05
 
 EQ030 implementation delivered: PR182 final363b99ffa1e352a2b6e16a9884a9afd4ec3f0d35 all SIX checks; clean repeat4archives and BOTH fresh local pairs each485tests/sixteen examples pass. Guarded merge316215250387c8876a85326e41f14765b1620580 entire tree equals source. Main docs37389113015/Foundation37389112975 bothOS succeed. Both actual bundles exact source/source_dirty=false/epoch1700000000/allfour hashes/contents verified. FOUR fresh Windows pair installs of bothOS universal archives each485tests/sixteen examples pass, CPython3.12.10/NumPy2.2.6/PyArrow20.0.0. Linux-native execution is CI evidence. Final receipt PR/head/main/bothOS archive equality still gates Done. Author Codex self-review+CI only;31batch/all8history,23session update/restore22merge, history state modes false. Experimental channel only; R3 paused.
 foundation-316215250387c8876a85326e41f14765b1620580-ubuntu-24.04 artifact11380750548 expires2026-11-04T23:33:49Z.
@@ -831,11 +831,11 @@ foundation-316215250387c8876a85326e41f14765b1620580-windows-latest artifact11379
 
 Actual archive hashes and expiry are in [receipt](stories/EQ-030_DELIVERY.md). Next: final docs receipt exact-head checks/guarded merge/main docs and bothOS Foundation/actual byte equality before issue35Done. Then pull refined EQ031 pre-code volume baseline plan. One active story; R3 paused.
 
-### EQ030 final receipt publication; EQ031 pre-code design â€”2026-10-05
+### EQ030 final receipt publication; EQ031 pre-code design —2026-10-05
 
 PR183 head86cb0d0a2adbab8568001edd900ff1ece1cae254 all SIX checks; guarded mergea94dfaa1a7e5011ed8a85865a04fa035913a5fc8 entire published tree verified equal. Final main docs/bothOS Foundation and actual byte equality still gate Done. Prepare [EQ031 plan](stories/EQ-031_PLAN.md) on isolated codex/eq-031-daily-volume, mathematics/contracts first. No EQ031 calculation implementation yet; prior-only exact volume witness and explicit target prefix admission are frozen before code. Next finish receipt gates/35Done, then36Ready/In progress and pair0.0.3a5 implementation. R3 paused.
 
-### EQ030 accepted; EQ031 implementation â€”2026-10-05
+### EQ030 accepted; EQ031 implementation —2026-10-05
 
 EQ030 issue35 closed/ProjectDone comment6005705653: final PR183/maina94dfaa full tree/head/main gates and both actual bundles verified; allfour per-OS archive bytes equal implementation3162152 qualified FOUR485test/sixteenexample installed pairs. Main docs37390088833/Foundation37390089685 succeed. Pull EQ031 issue36, plan47af94a/PR184 precedes code, provisional5points, Ready then In progress after dependencies Done. Implement owned exact volume baseline and explicitly certified target-volume dependency without hidden acquisition/aggregation. Next independent API fixtures, strict typing, public docs/version/example and all delivery gates. R3 paused.
 
@@ -843,7 +843,7 @@ EQ031 initial18 new actual API fixtures pass; full500test run passed before thre
 
 EQ031 final local source qualification:504units (19new),123formula references, strict40files (34CI plus six typed new examples), purity38negative10positive/import/registry/compatibility/license/UTF8/planning/lifecycle and seventeenth synthetic example pass. Supplied split-shares admission retains action source and does not apply factors twice; exact witness rejects contradictory coverage/action/evidence bounds. Initial changelog helper assumed a different document heading and was corrected before publication. Author final source/API/math review complete; no independent reviewer claimed. Next source commit/Code review/Test, exact-head repeated4archives/two local fresh pairs/SIX CI, guarded merge/main exact tree/docs/bothOS actual bundles/FOURfreshpairs/final receipt.
 
-### EQ031 implementation delivered â€”2026-10-05
+### EQ031 implementation delivered —2026-10-05
 
 EQ031 implementation delivered: PR184 finalbb0db950533a66cfd94e9f388c09607c787f74d4 all SIX checks, repeat4archives/clean source manifest/epoch and BOTH local fresh pairs each504tests/seventeen examples pass. Guarded mainffe8ddd3603f9b2bf764664de477aad070b83696 entire tree equals source. Main docs37391276366/Foundation37391277504 bothOS succeed. Both actual bundles exact commit/source_dirty=false/epoch1700000000/four hashes/content/license/typing verified. FOUR fresh Windows wheel/sdist pair installations of bothOS universal archives each504tests/seventeen examples pass. Runtime CPython3.12.10/NumPy2.2.6/PyArrow20.0.0; Linux-native execution is CI, no local Linux claim. Final receipt publication/head/main/actual bothOS byte equality remains before Done.33batch/23session update/restore22merge; history/volume state modes false. Author Codex self-review+CI only, no independent hosted/human review. Experimental channel only; R3paused.
 foundation-ffe8ddd3603f9b2bf764664de477aad070b83696-ubuntu-24.04 artifact11380933684 expires2026-11-04T23:57:09Z.
@@ -851,11 +851,11 @@ foundation-ffe8ddd3603f9b2bf764664de477aad070b83696-windows-latest artifact11380
 
 [Receipt](stories/EQ-031_DELIVERY.md) retains actual artifact hashes/expiry. A progress message incorrectly said both main jobs passed after observing Linux success; corrected immediately while Windows remained running. Actual bothOS success and FOUR completed installations were subsequently verified before acceptance. No pending/failed evidence counted. Next final docs receipt head/main/bothOS actual archive equality, then36Done and refined EQ032 pre-code plan for independent bucket certificates/fixed N denominator. R3paused.
 
-### EQ031 final receipt publication; EQ032 pre-code design â€”2026-10-05
+### EQ031 final receipt publication; EQ032 pre-code design —2026-10-05
 
 PR185 head080110e4ff4e7397df32b36d39b81601edba421b all SIX checks; guarded merged dedc06103dfae87061ea5fdca6ec77c3bb47749a and full published tree equals receipt head. Main docs/bothOS Foundation/actual archive equality remain before36Done. Prepare [EQ032 plan](stories/EQ-032_PLAN.md): individual typed bucket calls preserve existing Float64 schemas and independent coverage; early close/partial bucket never0 or reduced denominator. Resolve original observed-day wording against frozen EQ005 required N and retained observed/expected evidence. No EQ032 code yet. Next finish EQ031receipt gates/Done, then37Ready/In progress. R3paused.
 
-### EQ031 accepted; EQ032 implementation â€”2026-10-05
+### EQ031 accepted; EQ032 implementation —2026-10-05
 
 EQ031 issue36 closed/ProjectDone comment6006085286 after final receipt PR185/maindedc061 (full commit dedc06103dfae87061ea5fdca6ec77c3bb47749a), all exact-head/main checks and actual final per-OS four-archive equality to sourceffe8ddd qualified FOUR504test/seventeenexample pairs. Main docs37392014524/Foundation37392014646 bothOS pass. Pull EQ032 issue37, plan40652f6/PR186 precedes code,8points, Ready then In progress. Implement owned single-bucket contexts/witnesses/supplied target facts and independent early-close/partial coverage. Existing output schemas preserved; fixed N math follows EQ005. Next production API fixtures/source documentation/all exact delivery gates. R3paused.
 
@@ -863,7 +863,7 @@ EQ032 initial519full units/strict36files pass;18new bucket API cases now individ
 
 EQ032 final local source qualification:522units (18new)/123formula references/strict43files (36CI plus seven typed new examples), purity38negative10positive/import/registry/compatibility/license/UTF8/docs/planning/lifecycle and eighteenth example pass. No new broken links; inherited R1 link recorded. Author source/API/math review complete: single-bucket config/context and exact witness proofs preserve independent readiness, all source-row/evidence/adjustment/early-close/partial boundaries retained. No independent reviewer claimed. Next commit/Code review/Test, exact-head repeated4archives/BOTH local fresh pairs/SIX checks/main exact tree/docs/bothOS actual bundles/FOURfreshpairs/final receipt. R3paused.
 
-### EQ032 implementation delivered â€”2026-10-05
+### EQ032 implementation delivered —2026-10-05
 
 EQ032 implementation delivered: PR186 final3a493bf42c3c802ae56231acce3e9603590c97fd all SIX checks, repeat4archives/content/hash parity and BOTH local fresh pairs each522tests/eighteenexamples pass. Guarded main3fdbfb3f86652bf195d17474f2167a3541931bd5 full tree equals source. Main docs37393148861/Foundation37393148578 bothOS succeed. Both actual bundles exact commit/source_dirty=false/epoch1700000000/four hashes/archive contents/license/typing verified. FOUR fresh Windows wheel/sdist pair installations of bothOS universal archives each522tests/eighteenexamples pass, CPython3.12.10/NumPy2.2.6/PyArrow20.0.0. Linux-native execution remains CI. Final receipt publication/head/main/actual bothOS byte equality still gates Done.35batch/23session update-restore22merge; bucket/history state modes false. Existing schemas/39equations preserved; companion bucket schemas1. Author Codex self-review+CI only, no independent hosted/human review. Experimental channel only; R3paused.
 foundation-3fdbfb3f86652bf195d17474f2167a3541931bd5-windows-latest artifact11381703456 expires2026-11-05T00:18:10Z.
@@ -871,11 +871,11 @@ foundation-3fdbfb3f86652bf195d17474f2167a3541931bd5-ubuntu-24.04 artifact1138124
 
 [Receipt](stories/EQ-032_DELIVERY.md) retains actual archive hashes/expiry. Next final docs receipt exact-head checks/guarded merge/main docs/bothOS Foundation/actual archive byte equality before37Done. Then refined EQ034 pre-code plan with owned return references, explicit benchmark/sector mapping and membership effective point, independent requested comparison readiness. R3paused.
 
-### EQ032 final receipt publication; EQ034 pre-code design â€”2026-10-05
+### EQ032 final receipt publication; EQ034 pre-code design —2026-10-05
 
 PR187 headbb20715fd436c2a1d19052c9aed63213039a3dd5 all SIX checks; guarded merged6a693cdb5d6e6ced72dc4bb467f71585f520ed0d entire published tree equals receipt head. Final main docs/bothOS Foundation/actual archive equality remains before37Done. Prepare [EQ034 plan](stories/EQ-034_PLAN.md), owned return references and explicit market/sector benchmark identities/membership effective point; no return recomputation or implicit ticker/namespace join. Distinct actual child configs/action bindings retained, independent requested comparison readiness. No EQ034 source yet. Next finish032receipt main/actual byte equality/Done, then39Ready/In progress. R3paused.
 
-### EQ032 accepted; EQ034 implementation â€”2026-10-05
+### EQ032 accepted; EQ034 implementation —2026-10-05
 
 EQ032 issue37 closed/ProjectDone comment6006480654 after receipt PR187/main6a693cd, exact-head/full tree/main docs37393923827/Foundation37393923280 bothOS success and actual per-OS four-archive equality to source3fdbfb3 qualified FOUR522test/eighteenexample pairs. Pull EQ034 issue39, pre-code4de403b/PR188 precedes code,5points, Ready then In progress. Implement owned return dependencies and explicit benchmark/sector mapping/membership point without hidden calculations. Next independent production API fixtures/public docs/full exact delivery gates. R3paused.
 
@@ -885,7 +885,7 @@ EQ034 final author review found conflicting supplied original-row proof could es
 
 EQ034 final source qualification:539units/123references/strict46files/purity38negative10positive/import/registry/compatibility/license/UTF8/docs/lifecycle and nineteenth example pass. Author Codex reviewed source/API/math and component callers; supplied proof conflicts are checked independently of retained evidence. No independent reviewer. Next Code review/Test, repeat four archives/BOTH local fresh pairs/SIX exact-head checks/guarded main/full tree/docs/bothOS actual bundles/FOUR fresh pairs/final receipt. R3paused.
 
-### EQ034 implementation delivered â€”2026-10-05
+### EQ034 implementation delivered —2026-10-05
 
 PR188 final9a89cf89f1cb8f350086e3922dfaa907a1c428ed SIX checks/repeat4archives/BOTH local fresh pairs each539tests/nineteen examples pass. Guarded main14ea19457b324c052bc48a770bae7c2172cbb7c9 full tree equals source. Main docs37395764151/Foundation37395764033 bothOS success; both actual bundles exact commit/source_dirty=false/epoch/four hashes/content/license/typing verified. FOUR fresh Windows installed wheel/sdist pairs of bothOS universal archives each539tests/nineteenexamples pass. CPython3.12.10/NumPy2.2.6/PyArrow20.0.0; Linux-native execution is CI only. [Receipt](stories/EQ-034_DELIVERY.md). Final receipt publication/head/main/actual per-OS four-archive equality still gates Done.37batch/23session update-restore22merge; relative/history/bucket state modes false. Author Codex self-review+CI only. Next final receipt then039Done/refined035 pre-code plan; R3paused.
 foundation-14ea19457b324c052bc48a770bae7c2172cbb7c9-ubuntu-24.04 artifact11383172989 expires2026-11-05T00:47:54Z.
@@ -893,11 +893,11 @@ foundation-14ea19457b324c052bc48a770bae7c2172cbb7c9-windows-latest artifact11382
 
 EQ034 receipt PR creation failed: remote main had an attribution-history force rewrite to97133497915bf6bb0b96b31f13122ec230f8b9bf (entire tree unchanged). Original0e83c85 receipt commit/branch preserved; cherry-picked onto current main as ec3b0b3. Current main docs37396055254/Foundation37396055304 bothOS pass; both actual rewritten-source bundles validated and all four archives per OS byte-identical to qualified source14ea194. Reuse original FOUR539test/nineteenexample installation evidence only for those identical bytes. No account/history/protection changes made by this development session. Next publish requalified receipt against current main/head/main checks and actual final byte equality; then39Done/035pre-code. R3paused.
 
-### EQ034 final receipt publication; EQ035 pre-code design â€”2026-10-05
+### EQ034 final receipt publication; EQ035 pre-code design —2026-10-05
 
 PR190 final6f0896d42caffa8b3b7a5e53e6a4f7cee25a966f SIX checks; guarded main09928a9bad3aa1d9bab4cefcfe0bc30e28519dba entire published tree equals receipt head. Main docs/bothOS Foundation/actual final per-OS archive equality remain before39Done. Publish [035pre-code plan](stories/EQ-035_PLAN.md): immutable declared universe/explicit expectedM/typed member dependencies and exclusions; exact direction/sign and close-versus-SMA witness comparisons, independent partial readiness, actual child configs/grids/action/source identity. No035code before034Done. Next verify034 final publication then40Ready/In progress. R3paused.
 
-### EQ034 accepted; EQ035 implementation â€”2026-10-05
+### EQ034 accepted; EQ035 implementation —2026-10-05
 
 EQ034 issue39 closed/ProjectDone comment6007052166 after final receipt PR190/main09928a9, docs37396602925/Foundation37396602184 bothOS and actual per-OS four-archive equality to original FOUR539test/nineteenexample source pairs. Attribution rewrite preserved/requalified; no development-session force push. Pull035issue40,8points, pre-code1a64cfc/PR191 precedes source, Ready then In progress. Initial typed source and17production API fixtures pass after correcting nonexistent reference_cutoff to existing knowledge_reason, stale breadth registry flags and fixture field/reconstruction-mode assumptions. A broad text edit caused an indentation/redefinition error, corrected before passing evidence. Same original SMA/close proof preserves completed_interval boundary and deduplicates; contradictory proof rejects even outputlimit0. Exact int64 half-tick comparison uses owned SMA witness. Next full556units/123refs/strict typed twentieth example/API/docs/review/all delivery gates. R3paused.
 
@@ -905,34 +905,34 @@ EQ035 source review added explicit aggregate BreadthSpec digest binding so diffe
 
 EQ035 final local qualification:560units (21new)/123formula references/strict49files (40CI plus nine typed new examples), purity38negative10positive/import/registry/compatibility/license/UTF8/docs/lifecycle and twentieth example pass. Author Codex source/API/math review complete; exact witness/count/eligibility/identity/proof/source/cutoff boundaries retained. No independent reviewer. Next commit/Code review/Test, repeat4archives/BOTH local fresh pairs/SIXchecks/guarded merge/main docs/bothOS actual bundles/FOURpairs/final receipt/byte equality before40Done. R3paused.
 
-### EQ035 implementation delivered â€”2026-10-05
+### EQ035 implementation delivered —2026-10-05
 
 PR191 final624b738337fa45c54561fee0bd59f0f5afeab7c1 all SIX checks/repeat4archives/BOTH local fresh pairs each560tests/twenty examples pass. Guarded main14332412aa8fe90df253dde6883908007b531795 full tree equals source. Main docs37398040952/Foundation37398041250 bothOS success; both actual bundles exact commit/source_dirty=false/epoch/four hashes/content/license/typing verified. FOUR fresh Windows installed wheel/sdist pairs of bothOS universal archives each560tests/twenty examples pass. CPython3.12.10/NumPy2.2.6/PyArrow20.0.0; Linux-native execution is CI only. [Receipt](stories/EQ-035_DELIVERY.md). Final receipt publication/head/main/actual per-OS archive equality still gates Done.39batch/all16R2 numerical IDs,23session update-restore22merge; context/history state modes false. Author Codex self-review+CI only. Next final receipt then40Done/refined036pre-code plan; R3paused.
 foundation-14332412aa8fe90df253dde6883908007b531795-ubuntu-24.04 artifact11384641115 expires2026-11-05T01:14:26Z.
 foundation-14332412aa8fe90df253dde6883908007b531795-windows-latest artifact11384616465 expires2026-11-05T01:15:03Z.
 
-### EQ035 compound-exclusion rework â€”2026-10-05
+### EQ035 compound-exclusion rework —2026-10-05
 
 Before final receipt acceptance, review found simultaneous unready SMA/close retains only primary reasons; evidence_limit0 can hide the other requested diagnostic. Preserve historical0.0.3a8 source qualification/FOUR560test/twentyexample actual pairs in stories/EQ-035_A8_DELIVERY.md; PR218 receipt superseded before merge/Done. Return40 from Released to In progress. Pre-code addendum unions all unavailable dependency reasons, preserving status priority/counts/coverage/math/schema/modes. Pair0.0.3a9 corrective source, new actual regression plus full delivery gates next; no035Done or036code. R3paused.
 
 EQ035 new actual compound regression failed on0.0.3a8: unknown close reason absent from member exclusion when SMA has null prior close, with outputlimit0. Corrective plan31c4439/PR219 published before code; preserve historical96b4e62/PR218/source qualification. Corrected0.0.3a9 unions/deduplicates requested unavailable dependency reasons, preserving established status priority/math/counts/coverage. Next targeted22/full561/strict49/source gates/exact-head archives and all main/final receipt gates. R3paused.
 
 EQ035 corrected local qualification:561units/22breadth API cases/123references/strict49files/purity38negative10positive/import/registry/compatibility/license/UTF8/docs/lifecycle/twentieth example pass. Author reviewed union/dedup logic for both unready and absent fields; existing status priority and counts/coverage unchanged. Failed before/after evidence retained; no independent reviewer. Next commit/Code review/Test; corrected pair0.0.3a9 repeated4archives/BOTH local pairs/SIX exact-head checks/guarded main/docs/bothOS actual bundles/FOURpairs/final receipt/byte equality before Done.
-### GOV-012 evidence roadmap â€” October 5, 2026
+### GOV-012 evidence roadmap — October 5, 2026
 
-Owner requested additional public epics, stories and releases. Created E13/E14/E15 (#193â€“195), EQ-096â€“110 (#196â€“210), milestones R9/R10/R11 and provisional story points; all implementation stories/epics are Backlog on Project2. Existing EQ-053/057/061/082 issues cross-link provenance and MCP reuse. Versioned design/plans: EVIDENCE_ROADMAP.md; backlog/dashboard/design/knowledge updated alongside planning. No numerical code, source data, deployment, publication deadline or compliance certification changed; R2 owner continues independently and R3 feature scope remains paused. Next: publish checked GOV-012 documentation PR, verify Project/milestone/story parity and published documentation. Future implementation requires dependency-satisfied Ready status and release authorization.
+Owner requested additional public epics, stories and releases. Created E13/E14/E15 (#193–195), EQ-096–110 (#196–210), milestones R9/R10/R11 and provisional story points; all implementation stories/epics are Backlog on Project2. Existing EQ-053/057/061/082 issues cross-link provenance and MCP reuse. Versioned design/plans: EVIDENCE_ROADMAP.md; backlog/dashboard/design/knowledge updated alongside planning. No numerical code, source data, deployment, publication deadline or compliance certification changed; R2 owner continues independently and R3 feature scope remains paused. Next: publish checked GOV-012 documentation PR, verify Project/milestone/story parity and published documentation. Future implementation requires dependency-satisfied Ready status and release authorization.
 
 ### GOV-012 proposal refinement
 
-Owner requested applying ledger review corrections and a separate continuous-market epic. Existing EQ-096/097/101/102/106/107 acceptance refined; public AGENT_EVIDENCE_DESIGN.md covers anchor limits, actual content hashes, historical versus execution time, matched membership, freshness and bounded incremental state. Added E16/R12/EQ-111â€“115 with points/dependencies/tests/questions and all Backlog; CONTINUOUS_MARKET_DESIGN.md starts with reuse/gaps and mathematics. Original local proposals preserved adjacent to revised files; no private deployment paths copied publicly. Same documentation PR211 carries these planning changes. Next verify live board/story/milestone and documentation checks; no R2 ownership or numerical implementation changes.
+Owner requested applying ledger review corrections and a separate continuous-market epic. Existing EQ-096/097/101/102/106/107 acceptance refined; public AGENT_EVIDENCE_DESIGN.md covers anchor limits, actual content hashes, historical versus execution time, matched membership, freshness and bounded incremental state. Added E16/R12/EQ-111–115 with points/dependencies/tests/questions and all Backlog; CONTINUOUS_MARKET_DESIGN.md starts with reuse/gaps and mathematics. Original local proposals preserved adjacent to revised files; no private deployment paths copied publicly. Same documentation PR211 carries these planning changes. Next verify live board/story/milestone and documentation checks; no R2 ownership or numerical implementation changes.
 
-### EQ035 actual publication and missing required review â€”2026-10-05
+### EQ035 actual publication and missing required review —2026-10-05
 
 Current main7a27ceac6990c01c19f3b6e0f0b3008a131185e7 already merged219 with owner account identity and published head a78b1e7c022936ac098b46b4d78ce0c95b1f4c35. GitHub reports no reviews/comments; account merge is not evidence of human or separate Codex review. Our pending current-main rebase preserved owner/governance changes and corrected attribution; lease push rejected because another attribution update changed the remote, then branch was merged/deleted externally. All local original/rebased commits remain preserved. No remote change was overwritten. Main package files are byte-identical to qualified corrective707e4ee; main docs37399839584/Foundation37399839557 bothOS success. Actual new-main bundles/FOUR561test/twentyexample installations remain to verify.
 
 AGENTS.md/CODE_REVIEW.md now requires completed separate final-head Codex review before merge/Done; GOV005#119 activation is unavailable/unverified. Set40 Code review with explicit missing-review dependency; do not infer Done from the external merge or count self-review/CI as that review. This followup records truthful publication/review state, requests the actual review and will carry final receipt only after all gates. No036code/R3restart while035 is not accepted. Future GOV012 roadmap remains Backlog and does not expand R2.
 
-### EQ035 corrected actual artifacts and authorized local review â€”2026-10-05
+### EQ035 corrected actual artifacts and authorized local review —2026-10-05
 
 Actual main7a27ceac6990c01c19f3b6e0f0b3008a131185e7 docs37399839584/Foundation37399839557 succeeded; both actual Windows/Linux bundles verified clean manifest/exact source/epoch1700000000/four hashes/content/license/typing. FOUR fresh Windows wheel/sdist installations of bothOS universal archives each passed561units/twenty examples; native Linux execution remains CI evidence. The corrected [receipt](stories/EQ-035_DELIVERY.md) records artifact IDs, hashes and expiry.
 
@@ -941,9 +941,9 @@ Owner explicitly authorized a separate local Codex reviewer for EQ035 as the una
 Separate local review completed for d6530359b6e21e4337db952211b688762229c96c; [public report](https://github.com/atulsrivas1/equity-features/pull/220#issuecomment-6007687982) records reviewer /root/eq035_review, full source/math/contracts/docs coverage, independent22/561/example execution/eight hash checks, resolved stale-status finding and no unresolved actionable findings. Reviewer inspected installed logs rather than repeating installations. Final receipt-doc update needs final-head reconfirmation; all CI/main publication/equality gates remain. No hosted/human approval claim.
 ### Low-priority evidence service pilot planning
 
-Owner requested an epic/stories for usefulness validation and optional independent witnesses. Created E17/R13/EQ-116â€“120 with priority:low, provisional points, dependencies, design/questions/tests/documentation; all Backlog. EVIDENCE_SERVICE_PILOT.md reuses R9â€“R11 ledger/replay/diagnostics and stages pilot/evaluation before conditional witnesses. No new blockchain, implementation, repository, outreach or deployment. Core release ownership unchanged. Next publish planning PR and validate live Project parity/docs; separate completed Codex final-head review remains required before merge/Done under current agreements.
+Owner requested an epic/stories for usefulness validation and optional independent witnesses. Created E17/R13/EQ-116–120 with priority:low, provisional points, dependencies, design/questions/tests/documentation; all Backlog. EVIDENCE_SERVICE_PILOT.md reuses R9–R11 ledger/replay/diagnostics and stages pilot/evaluation before conditional witnesses. No new blockchain, implementation, repository, outreach or deployment. Core release ownership unchanged. Next publish planning PR and validate live Project parity/docs; separate completed Codex final-head review remains required before merge/Done under current agreements.
 
-### EQ035 accepted; EQ036 pre-code plan â€”2026-10-05
+### EQ035 accepted; EQ036 pre-code plan —2026-10-05
 
 EQ035 issue40 closed/ProjectDone after [acceptance](https://github.com/atulsrivas1/equity-features/issues/40#issuecomment-6007758004): actual PR228 finalc58c5dd8/main8454c926 entiretree match, separate local reviewer coverage of actual final head after external merge (not retrospective pre-merge approval), all SIX head checks/main docs37401620858/Foundation37401620903 bothOS success. BOTH actual final bundles/four archives per OS verified byte-equal to FOUR original fresh Windows installed pairs each561tests/twenty examples. No external work overwritten; local rebases preserved after lease rejection. GOV005 hosted activation remains open; no human review claim.
 
@@ -953,7 +953,7 @@ EQ036 pre-code independent local review found direct normalized-frame ownership 
 
 EQ036 source inspection corrected pre-code review assumption: both sampled/state-count and continuous quote producers use python-exact-compensated; sampled limit is observation_limit, continuous fixed1, others configured evidence_limit/default0. Actual producer mapping recorded before code; no failed assumption counted as evidence.
 
-### EQ036 implementation source qualification â€”2026-10-05
+### EQ036 implementation source qualification —2026-10-05
 
 Pre-code b6480d4/8c0787d/fc4b2a2 precede source inPR229. Pure FamilyResult/CompositionSpec/FeatureBundle and compose_features retain whole typed instances/configs/owned contexts/exact companions/explicit missing IDs and complete digest. Direct normalized frame ownership is validated evenlimit0; original shared event/known-at proof agrees while derived interval/use stays per component. Actual quote backend/observation-limit/fixed1 conventions and supplied currency scopes preserved. Pair0.0.3a10,39batch/23session update-restore22merge; no new numerical ID/math/schema/state capability.
 
@@ -961,7 +961,7 @@ Separate pre-code/source reviewer /root/eq035_review found normalized ownership 
 
 Next freeze source/head for separate final review and SIX CI/repeated4archives/BOTH local fresh pairs; then actual guarded publication/main docs/bothOS bundles/FOURfresh580test/21example installed pairs/final receipt/perOS byte equality before41Done. Only then38legacy comparison and37finalR2 acceptance. R3paused; no stable/PyPI/performance/rights/source-authentication claim.
 
-### EQ036 post-delivery ownership correction â€”2026-10-05
+### EQ036 post-delivery ownership correction —2026-10-05
 
 Source75de6a9/PR229 guarded main27572d13 entiretree equals head; main docs37403153133/Foundation37403153169 bothOS and actual BOTH bundles/FOURfresh580test/21example pairs passed, preserved in [a10 qualification](stories/EQ-036_A10_DELIVERY.md). Source merge helper warned it could not fast-forward stale localmain; no reset/overwrite, resumed receipt branch from actual origin/main.
 
@@ -985,7 +985,7 @@ EQ038sourcequalification621b680 repeatedarchives/BOTHfresh583test/22examplepairs
 
 EQ038Done6008533667 afterreceiptPR233/head450de8ecf539675de469001c15f6dc6bfc33aab7 completedseparatereview6008486454/SIXchecks; guardedmainb370f88ed3b0e7e2e3410934afff6de9e4dd311d entiretree, docs37407430936/Foundation37407430924 bothOS; actualfinalBOTHbundles verified/all8perOSarchivehashesequalFOURfreshbe6installedpairs each583tests/22examples. ElevenR2Done, only037remaining. [037pre-codeplan](stories/EQ-037_PLAN.md) separatelyreviewed71b1441 no blockers, transplantedf2940a1 ontoactualmain. Establish42Ready/Inprogress and add actualcausality/discoveryfailingregressions beforemetadatafix plannedpair0.0.3a12; finalreview all16kernels/capabilities/repairedstate proof/full source/head/main/installed/receipt/closure gates. R3paused.
 
-### EQ037 integration correction â€” 2026-10-05
+### EQ037 integration correction — 2026-10-05
 
 Issue42 In progress after verified43Done; public prerequisite addendum885ec21 precedes
 code. Three actual integration tests failed four discovery subcases on a11, then passed
@@ -999,7 +999,7 @@ Only then42Done/all12verified/E05/milestone3closure. R3paused.
 
 EQ037 full local qualification passed586units/123referencecases/strict53files/purity38negative10positive/import/registry/compatibility/license/docs119active/eightstages and zero broken local links. Next freeze source/docs and obtain separate exact-head review all16kernels; repeatedarchives/localpairs/headCI/mainactualFOURpairs/finalreceipt/closure remain.
 
-## Independent review correction before code â€” 2026-10-05
+## Independent review correction before code — 2026-10-05
 
 Separate reviewer reproduced P2 in both supplied volume-ratio consumers: when one
 retained baseline evidence row already fills evidence_limit1, a target certificate
@@ -1030,11 +1030,11 @@ EQ037 correctiveea1a375/a13 completedseparatelocalreview6008668622/all16kernels,
 
 EQ037 actualBOTHsource-main bundles/FOURfreshWindows wheel-sdistpairs each588units/22examples passed; receipt rendered all8SHA/artifactIDs/expiry/cleanexactmanifests. Source a171 qualification accepted, but finalreceipt separate review/SIXheadchecks/mainCI/actual8hashequality remain before42Done and aggregate closure.
 
-### Verified R2 closure â€” 2026-10-05
+### Verified R2 closure — 2026-10-05
 
 EQ037 final R2 integration accepted: four producer discovery corrections and registry-driven composition at pair0.0.3a13; unchanged formulas/input/result/state/algorithm schemas and39batch/23sessionupdate-restore/22conditionalmerge. All16R2IDs batch-only, unsupported state modes reject. Independent whole-result future/target exclusion, eight exact history goldens, missing-prefix versus finite-window recovery, producer metadata/capability parity; supported repaired session replay fixtures pass.588units/123references/strict53/purity38negative10positive/import/registry/compatibility/license/docs119active/eightstages pass. Source PR234 final head reviewed all16kernels, SIXchecks/repeatedarchives/BOTHfreshpairs; guarded source maina171467ed81e9b2f212755411d5a4a004e89a00d bothOSCI and actualBOTHbundles/FOURfreshWindowswheel-sdistpairs each588tests/22examples. Final receipt PR235/heada9050b5045d7a2be1c8989afd76c4ba5f1602bd9, completed separate local review https://github.com/atulsrivas1/equity-features/pull/235#issuecomment-6008756999, SIXchecks and guardedmaina6361a663bb02905b932f4d5a79250da97adb8cf exacttree, docs37409442685/Foundation37409442677bothOSsuccess; actualfinalBOTHmanifests exactcommit/source_dirty=false/epoch/archivehash-content/license/typing andall8perOSarchivehashes equal installed source-main pairs. No unresolved actionable findings. Receipt docs/stories/EQ-037_DELIVERY.md and docs/R2_ACCEPTANCE.md. Local automated review is not hosted/human; nativeLinux execution isCI. No stable/PyPI/tag/provider/sourceauth/performance claim. Next verify all12R2issuesClosed/ProjectDone before E05/milestone3 closure. R3paused.
 
-Verified all12R2children EQ027â€“038 closed/ProjectDone and acceptance checklists complete, with individual linked delivery receipts. Accepted prerequisite BUG003#162/BUG004#163/GOV010#167 are closed/ProjectDone. Final0.0.3a13 integration/causality/metadata/proof correction reviewed by separate local Codex at actual frozen head,588units/123references/strict53/purity/source/docs, allhead/mainCI/actualBOTHbundles/FOURfreshinstalledpairs/finalreceiptbyteequality accepted underissue42. R2_ACCEPTANCE.md and EQ-037_DELIVERY.md retain actualsource/artifact/reviewlimits. Declared experimentalCIchannel only, no stable/PyPI/tag/provider/performance/sourceauth claim. Overall119activeEQstories:38Done/81futureBacklog, retired094excluded. BoundedR2exit; R3paused. No laterreleaseimplementation or recurringworker created.
+Verified all12R2children EQ027–038 closed/ProjectDone and acceptance checklists complete, with individual linked delivery receipts. Accepted prerequisite BUG003#162/BUG004#163/GOV010#167 are closed/ProjectDone. Final0.0.3a13 integration/causality/metadata/proof correction reviewed by separate local Codex at actual frozen head,588units/123references/strict53/purity/source/docs, allhead/mainCI/actualBOTHbundles/FOURfreshinstalledpairs/finalreceiptbyteequality accepted underissue42. R2_ACCEPTANCE.md and EQ-037_DELIVERY.md retain actualsource/artifact/reviewlimits. Declared experimentalCIchannel only, no stable/PyPI/tag/provider/performance/sourceauth claim. Overall119activeEQstories:38Done/81futureBacklog, retired094excluded. BoundedR2exit; R3paused. No laterreleaseimplementation or recurringworker created.
 
 E05/milestone3 closed only after all twelve child checks. Current README/acceptance/knowledge reconciled. Next publish and independently review this docs-only closure record, verify exacthead/mainCI/actualarchivebyteequality against installeda171pairs, then stop boundedR2mission. R3 remains paused; no automatic restart or reminder.
 
@@ -1044,7 +1044,7 @@ E05/milestone3 closed only after all twelve child checks. Current README/accepta
 Owner requests autonomous R3 after accepted R2. Live milestone3/repairs162/163 are closed/Done; main7333d34 reconciles bounded R2 acceptance. Preserve rewritten owner attribution and old repair branches. Pull EQ093#113 first (8 provisional points); pre-code plan docs/stories/EQ-093_PLAN.md. No R4 or stable-registry scope. R3 local reviewer alternative needs explicit owner choice because existing CODE_REVIEW.md alternative is R2-bounded. Next: implement scoped public batch extension and external synthetic consumer, then separate review and numerical/installed/publication gates before merge/Done.
 
 
-### EQ093 implementation checkpoint â€” October6
+### EQ093 implementation checkpoint — October6
 
 Draft PR237 adds immutable trusted batch registrations and a separately packaged public consumer. Baseline588tests passed; current12 extension fixtures pass (600 total expected), strict44files and boundary38negative/10positive checks passed. Hand-derived5/100 custom versus5/103 built-in golden passed. Full five reference suites passed. Compatibility/registry/license gates passed. A preliminary build was started before the final input-unit/test/type changes and failed against the concurrently changed test tree; it is superseded, not release evidence. One missing-OHLC fixture incorrectly expected unavailable quality; canonical positive-volume OHLC admission correctly rejects INVALID_SCHEMA, so that fixture was corrected and separate incomplete-coverage unavailability added. Final frozen rebuild/CI remain required.
 
@@ -1220,21 +1220,21 @@ SourcePR255 finalc6d1ed90a75fe80b5d75d13d4165afd4efe6b681 separate review/no unr
 
 ### EQ095 Done / EQ048 final bounded acceptance pull
 
-EQ095 sourcePR255 finalc6d1ed9(review6021920519) actualsource823aecdb; reviewedreceiptPR256 final08de533(review6022053642) actualfinalmain82ac35e86447cd958c0672d1c977a4e91a23ece1 exacttree/all3publishedreceiptblobs/docs37506725120/Foundation37506725210bothOSpass. AuthorTWO plusFOUR actualdownloadedsourcepairs each633units/22examples/publictyping/43qualifiedconsumer/corefingerprint/benchmark-resource pass. Final12archives equalqualifiedsource and12currentreports exactcleanmain/facts independentlyverified; Releasedreadbackâ†’Done150comment6022215660. Currentcorea4/consumer0.4, coremath/schema/modes unchanged; originalP3count resolved standardstrict49. Liveall49otherR0-R3storiesclosedDone/priormilestones1â€“3closed/repairsDone; pulllastEQ048#54/5points onorigin/main82ac35e. [Plan](stories/EQ-048_PLAN.md). One doc-only finalacceptancePR with currentCI/review/publication/archiveequality/currentreports/Releasedverification, thenall50/E06/milestone4 closure. R3notyetclosed; noR4scope.
+EQ095 sourcePR255 finalc6d1ed9(review6021920519) actualsource823aecdb; reviewedreceiptPR256 final08de533(review6022053642) actualfinalmain82ac35e86447cd958c0672d1c977a4e91a23ece1 exacttree/all3publishedreceiptblobs/docs37506725120/Foundation37506725210bothOSpass. AuthorTWO plusFOUR actualdownloadedsourcepairs each633units/22examples/publictyping/43qualifiedconsumer/corefingerprint/benchmark-resource pass. Final12archives equalqualifiedsource and12currentreports exactcleanmain/facts independentlyverified; Releasedreadback→Done150comment6022215660. Currentcorea4/consumer0.4, coremath/schema/modes unchanged; originalP3count resolved standardstrict49. Liveall49otherR0-R3storiesclosedDone/priormilestones1–3closed/repairsDone; pulllastEQ048#54/5points onorigin/main82ac35e. [Plan](stories/EQ-048_PLAN.md). One doc-only finalacceptancePR with currentCI/review/publication/archiveequality/currentreports/Releasedverification, thenall50/E06/milestone4 closure. R3notyetclosed; noR4scope.
 
 
 ### EQ048 concrete acceptance record
 
-[R3 acceptance](R3_ACCEPTANCE.md) maps50boundedstories/originalreceipts+repairs; all49predecessorsliveclosedDone/prior3milestonesclosed, current633/strict49/math123 and qualified095a4/consumer0.4metadata/43cases/corefingerprints/041042baselines/047integrity. Correctedcurrentdashboard and explicitlylabelled047consumer0.3inventorybaseline; no historicalproofrewrites. Docs-only actualsource/tests/tools/consumer/benchmark/workflow equal095FOURsource823aecdbpairs. Next separateactualfinalheadreview/allCI/guardedpublication/bothOSactual12archive equality/current12reportfacts/expiry/Releasedreadbackâ†’Done54; thenall50/E06/milestone4closure, endboundedwork. Do not claimDonebeforegates.
+[R3 acceptance](R3_ACCEPTANCE.md) maps50boundedstories/originalreceipts+repairs; all49predecessorsliveclosedDone/prior3milestonesclosed, current633/strict49/math123 and qualified095a4/consumer0.4metadata/43cases/corefingerprints/041042baselines/047integrity. Correctedcurrentdashboard and explicitlylabelled047consumer0.3inventorybaseline; no historicalproofrewrites. Docs-only actualsource/tests/tools/consumer/benchmark/workflow equal095FOURsource823aecdbpairs. Next separateactualfinalheadreview/allCI/guardedpublication/bothOSactual12archive equality/current12reportfacts/expiry/Releasedreadback→Done54; thenall50/E06/milestone4closure, endboundedwork. Do not claimDonebeforegates.
 
 
-## Owner-requested R4 execution handoff â€” October 6, 2026
+## Owner-requested R4 execution handoff — October 6, 2026
 
-Owner confirmed R2/R3 completion and required both synthetic conformance and real-data integration; then requested R4 package/newchat. LiveR2/R3milestonesclosed/zeroopen, all24stories andtwoR3repairs ProjectDone; actualmain28879e3 withsuccessful Foundation37508048990/docs37508048897. R4_AUTONOMOUS_HANDOFF.md/R4_TEST_STRATEGY.md and EQ049â€“056plans prepared underGOV013#258:52provisional points, one active story, begin049, optionaladapter outsidecore, explicit precision/calendar/PIT/source gaps, private real evidence/no rawpublicdata, currentexperimentalCIchannel, noR5/provider/remote/historicalgeneration/sourcecleanup. No R4 calculation/adapter source change or tests executed by preparation. CODE_REVIEW local alternatives are boundedR2/R3; resolve actualR4 review authorization/hostedactivation beforemerge/Done. Next publish/review/check handoff and start requested dedicated R4 executionchat. Publicplans are proposals toconcretize beforecode; owner/modelsettings unchanged.
+Owner confirmed R2/R3 completion and required both synthetic conformance and real-data integration; then requested R4 package/newchat. LiveR2/R3milestonesclosed/zeroopen, all24stories andtwoR3repairs ProjectDone; actualmain28879e3 withsuccessful Foundation37508048990/docs37508048897. R4_AUTONOMOUS_HANDOFF.md/R4_TEST_STRATEGY.md and EQ049–056plans prepared underGOV013#258:52provisional points, one active story, begin049, optionaladapter outsidecore, explicit precision/calendar/PIT/source gaps, private real evidence/no rawpublicdata, currentexperimentalCIchannel, noR5/provider/remote/historicalgeneration/sourcecleanup. No R4 calculation/adapter source change or tests executed by preparation. CODE_REVIEW local alternatives are boundedR2/R3; resolve actualR4 review authorization/hostedactivation beforemerge/Done. Next publish/review/check handoff and start requested dedicated R4 executionchat. Publicplans are proposals toconcretize beforecode; owner/modelsettings unchanged.
 
 Owner answered the review-method question onOctober6: hostedGitHubCodexreview isnotworking; use separate localCodexreviewers forR4. CODE_REVIEW.md/AGENTS.md now record that explicit bounded authorization forhandoffGOV013 andall8R4stories. No repeatedperstory permissionneeded; actualfinalheadreview/findings/executedchecks/limits stillmandatory. Newhandoffheadmustbereviewed, prior9ffa72b reviewaloneisinsufficient afterpolicydocchanges. R4executionchat01a1128f-d201-7511-9915-67c2101ed043 activein dedicatedR4checkout; no separateotherchatmessage sent. Preserve concurrentreviewwork.
 
-## R4 execution bootstrap and EQ049 pull â€” October 6, 2026
+## R4 execution bootstrap and EQ049 pull — October 6, 2026
 
 Separate execution review covered PR259 final adc3837, with no actionable findings:
 https://github.com/atulsrivas1/equity-features/pull/259#issuecomment-6023300273.
@@ -1260,7 +1260,7 @@ and unchanged source admission. Private metadata inspection confirms catalog has
 need caller receipt binding; no private paths/rows are published. Next publish the
 pre-code draft, implement resolver and independent synthetic checks, then required
 separate final-head review, bothOS CI, actual clean artifacts and release readback.
-EQ050â€“056 remain planned. Stop at accepted R4; no R5/provider/registry/source changes.
+EQ050–056 remain planned. Stop at accepted R4; no R5/provider/registry/source changes.
 
 
 ### EQ049 initial resolver implementation
@@ -1322,7 +1322,7 @@ accepted quantize_float_prices with explicit interpretation/rounding; UTCns exac
 parser, supplied identity/session/eligibility, trade-snapshot TBBO, minute/UTCdaily
 source interval semantics. Preserve null/missing/zero/known-at unknown and pure
 core. Implement/tests/docs, separate final-head review and actual installed bothOS
-artifacts/readback before Done. EQ051â€“056 remain planned; no real golden frozen.
+artifacts/readback before Done. EQ051–056 remain planned; no real golden frozen.
 
 
 EQ050 initial mapping:19 independent methods plus27 existing optional cases pass
@@ -1331,7 +1331,7 @@ no source rows/goldens read or published. Caller source_clock assertion is expli
 OHLCV UTC daily remains distinct from RTH. Price conversion reuses accepted core
 helper. Optional0.1.0a2, core unchanged. Next clean final source/repeat builder,
 separate final-head review, bothOS CI and actual source/main installs/publication;
-then mapping receipt/readback before Done. EQ051â€“056 remain planned.
+then mapping receipt/readback before Done. EQ051–056 remain planned.
 
 EQ050 first document check failed for legacy-encoded new punctuation from a Windows
 write. Encoding repair also exposed newline translation; both corrected from the
@@ -1538,7 +1538,7 @@ Current retry runs outside pure packages; do not modify its private script while
 
 EQ055 development2 actual daily read201636900ns passed canonical/numerical checks until minute phase; stack diagnostic then native access violation3221225477, excluded/no crashcause assertion. Minimal old actualminute UDF query at least10000callback invocations for five requested bars, interrupted/no completed timing. Native permissive diagnostic exact5timestamps56910100ns, not qualifiedreplacement/performanceclaim. Revised pre-code055plan native guarded lexical/date/HUGEINT arithmetic/int64 UTCns macro outsidepurecore; optionala7 preserves math/schema/identities/runtimepins. Original private scope/goldens unchanged. Next publish revisedplan BEFORE code, implement/independent nativeparser regression/fulloptional/strict7/actualSDK/cleanbuild/finalreview/CI and currentactualmain/fourfreshrealforms/receipt/publication/readback. Earliera6 attempts superseded, no realdata acceptance.056boundedR4thenSTOP.
 
-EQ055 revisedprecodef2a5686/ASCIIclarification5bf59cb preceded implementation. Native reader._create_utc_parser connection-localSQLmacro exactHUGEINT day/clock/fractionâ†’guardedBIGINT rejectsnull/baddate/clock/offset/fraction/nonASCII/overflow; Python lexicalguardASCII same. Optiona7 receiptstamp only/core/math/schema/pins/canonicalids unchanged. Two nativeparser methods sixliteral+250independentstdlib goldens/error matrix1.213sPASS; full94source30.766s/strict7/boundary38negative10positive/importsPASS. Guarded actualsource5timestamps26732700ns singlequery, not fullacquisition/performanceclaim. Prior a6 private runs/interruptedUDF/nativecrash excluded. Documentationmethodology/API/install/build/compat/changelog/lesson/strategy accompany source.
+EQ055 revisedprecodef2a5686/ASCIIclarification5bf59cb preceded implementation. Native reader._create_utc_parser connection-localSQLmacro exactHUGEINT day/clock/fraction→guardedBIGINT rejectsnull/baddate/clock/offset/fraction/nonASCII/overflow; Python lexicalguardASCII same. Optiona7 receiptstamp only/core/math/schema/pins/canonicalids unchanged. Two nativeparser methods sixliteral+250independentstdlib goldens/error matrix1.213sPASS; full94source30.766s/strict7/boundary38negative10positive/importsPASS. Guarded actualsource5timestamps26732700ns singlequery, not fullacquisition/performanceclaim. Prior a6 private runs/interruptedUDF/nativecrash excluded. Documentationmethodology/API/install/build/compat/changelog/lesson/strategy accompany source.
 
 Next cleanfreeze/bothformbuild+SDK30/16/private actuala7 local qualification (outsidepurecore, original frozen scope unchanged), separate finalsource review/current10CI, actualmain24archives24reports/fourfresh realproducerforms, reviewedsame-storyreceipt/finalpublication/Releasedpostread. Private nativephase reporter/initialresolution/readcost/lifetimepeak and exactscript/archive/scope hashes required; no realdata acceptance yet.056boundedR4thenSTOP.
 
@@ -1558,7 +1558,7 @@ Issue62 remains Ready to release until doc-only receipt separate final review/al
 
 EQ055 final85efa9d84ac22b47f6d38a71750e89a59c041651 sourcePR272review6026789989/receiptPR273review6026980666, currentdocs37544137956/Foundation37544138061/optional37544138119success; exacttree/publicblobs/owner/all24archive equality/current24reports/private four68/9/3forms/core invariance/livechannels/Released6027069596/postreadPASS. Issue62ClosedDone. Receipt helper initially assumed10checks; actual15allSUCCESSbeforemerge but shell continued after assertion failure. Issue62comment6027020059 records correction; future guarded merges use fail-fast checked subprocess, required roles/all returned completed checks. No missing review/CI evidence.
 
-All seven predecessor issues56â€“62 liveClosed/ProjectDone; pull056only under concrete [plan](stories/EQ-056_PLAN.md). Documentation-only eight-story/two-layer/currentoptional a7 acceptance audit, current archive/report/privatehash/channel/API/install/compatibility/limitations, separate finalheadreview/currentCI/publication/Released readback and actual eightDone/E07/milestone5closure. No runtime/math/version/harness/workflow changes. Reuse accepted forms only with final actualequality/currentreports. STOP beforeR5.
+All seven predecessor issues56–62 liveClosed/ProjectDone; pull056only under concrete [plan](stories/EQ-056_PLAN.md). Documentation-only eight-story/two-layer/currentoptional a7 acceptance audit, current archive/report/privatehash/channel/API/install/compatibility/limitations, separate finalheadreview/currentCI/publication/Released readback and actual eightDone/E07/milestone5closure. No runtime/math/version/harness/workflow changes. Reuse accepted forms only with final actualequality/currentreports. STOP beforeR5.
 
 ### EQ056 implemented final audit / review gates
 
