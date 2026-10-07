@@ -1,0 +1,45 @@
+{
+  "local_current_repeat_bothforms_equal_windows_ci": true,
+  "native_run": 37557964807,
+  "phase": "reviewed source snapshot; final documentation head and main acceptance pending",
+  "pure_and_consumer_bytes_unchanged": true,
+  "readback": {
+    "archives": 12,
+    "main": "18d81b1b5b067d630f26d7b868bf435e0780c668",
+    "records": [
+      {
+        "all_archive_bytes_equal": true,
+        "archives": 6,
+        "bundle": "foundation-18d81b1b5b067d630f26d7b868bf435e0780c668-ubuntu-24.04",
+        "python": "3.12.15",
+        "reports": [
+          "benchmark-Linux-gz.json",
+          "benchmark-Linux-whl.json",
+          "consumer-Linux-gz.json",
+          "consumer-Linux-whl.json",
+          "resource-Linux-gz.json",
+          "resource-Linux-whl.json"
+        ],
+        "system": "Linux"
+      },
+      {
+        "all_archive_bytes_equal": true,
+        "archives": 6,
+        "bundle": "foundation-18d81b1b5b067d630f26d7b868bf435e0780c668-windows-latest",
+        "python": "3.12.10",
+        "reports": [
+          "benchmark-Windows-gz.json",
+          "benchmark-Windows-whl.json",
+          "consumer-Windows-gz.json",
+          "consumer-Windows-whl.json",
+          "resource-Windows-gz.json",
+          "resource-Windows-whl.json"
+        ],
+        "system": "Windows"
+      }
+    ],
+    "reports": 12
+  },
+  "schema": "eq122-core-qualified-source1",
+  "source_head": "18d81b1b5b067d630f26d7b868bf435e0780c668"
+}
