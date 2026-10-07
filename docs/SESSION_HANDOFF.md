@@ -1,3 +1,9 @@
+## EQ126 process/read admission correction / In progress
+
+Interim e32f03e/core2b3f220 reviews6030431572/6030432083 found P2 compressed/dictionary allocation before parity rejection. Companion implements before-read UNCOMPRESSED PLAIN/RLE-only admission, footer/group/leaf bounds and conservative expected buffer allowance;17development cases/strict5 pass before final leaf-count addition, current source must requalify. Eight actual owned-child interruption/concurrency cases pass; two fresh Windows3.12.10/AMD64/NTFS workloads64/2048cells record exact int64/result/status parity and observed memory/bytes/timings. Superseded concurrency fixture/resource omission retained EF-L038. Canonical/SDK/source/worker bytes unchanged, no private execution.
+
+New native Parquet workflow/repeat committed-source builder prepared, not yet accepted. Next commit/push source, local repeat/two actual fresh forms, Windows/Linux CI; resolve real failures then separate final-head review and downloaded current channels/54archivefiles/serverZIP hash/allfiles/finite retention/sourceowner. Only then Readyrelease/publication/successfulmain readback/ReleasedDone283.126 soleactive,127-130 pending, STOPbeforeR5. No production/powerloss/hardRSS claim.
+
 ## EQ126 initial implementation / In progress
 
 Published pre-codecore762f5db/PR296 and companiona220dd0/PR6 preceded backend code. New optional Parquet.a0/pinnedPyArrow20 implements exact three-component complete result storage, typed cells/evidence, closed reservation/completion controls, bounded physical writer, explicit local root/scope, serialized OS lock/liveBUSY/exclusive new attempt after ownership loss, retained tombstones/original receipts and full physical/logical/projection verification. Explicit factory consumes no credentials, import registers nothing. Pure canonical/SDK/source/worker bytes remain unchanged.
