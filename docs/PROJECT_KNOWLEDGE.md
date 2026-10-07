@@ -1,3 +1,7 @@
+## EQ130 dependency-ordering correction
+
+Author final self-check and separate reviewer concurrence resolved an acceptance ordering conflict: R5 issue dependency descriptions reconcile after actual287Released/mainreadback and before EQ130 Done; selection of EQ057 Ready remains gated on actual287Done/alltenaccepted/both epicsDoneClosed/milestone15closedzeroopen. This reconciles documentation with the existing EQ130 acceptance criterion; no R5 implementation or scope change. Actual Test -> In progress rework and superseded core2090 qualification retained; renew final core head review/CI/artifacts. IO/worker heads and package/runtime/math/private bytes unchanged. Live canonical287/Project governs final outcome.
+
 ## EQ130 relative-link correction / In progress
 
 Separate exact-head review found P3: core docs/stories/EQ-130_DELIVERY.md reused docs-root relative links, which resolved to nonexistent docs/stories files. Both corrected to ../R4_1_ACCEPTANCE.md and ../R5_AUTONOMOUS_HANDOFF.md; all other new relative links independently scanned. Finding and actual rework are preserved; final corrected core-head review/current CI/artifacts/main publication/readback remain required. Companion source heads and all package/runtime/test/workflow/math/private bytes unchanged; accepted129 publicLF receipt retains exact hash. One active287, epic audit aggregate under rework, no R5 implementation. Earlier snapshots preserve history; live Project is authority.
