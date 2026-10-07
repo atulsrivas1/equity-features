@@ -438,3 +438,8 @@ EF-L032 [R4 audit](../R4_ACCEPTANCE.md) retains both executed layers and explici
 ## Handoff dispatch and readiness are separate gates
 
 [GOV-015/PR290](https://github.com/atulsrivas1/equity-features/pull/290) review found a dependency cycle: preparation Done required assigned-session evidence, while the draft required preparation Done before assignment. Publish the reviewed handoff first; permit bootstrap-only assignment, verify it and close preparation; refresh actual Done before implementation. Keep these boundaries explicit in continuity, kickoff and acceptance. Revisit if a later handoff adds a prerequisite requiring the session that it also prevents creating.
+
+
+## EF-L033 committed source provenance excludes working-tree additions
+
+Separate EQ121 reviewer reproduced a P2 in both new companion builders: `git diff` alone ignores untracked discoverable Python files. Such a file could enter a dependency wheel even while its receipt named the accepted core commit. Corrected builds materialize exact Git archives for component and dependency package sources. An independent synthetic regression creates both untracked code and modified tracked bytes and verifies only committed bytes survive. [Canonical correction](https://github.com/atulsrivas1/equity-features/issues/278#issuecomment-6028430623), [I/O final review](https://github.com/atulsrivas1/equity-feature-io/pull/1#issuecomment-6028459186), [workers final review](https://github.com/atulsrivas1/equity-feature-workers/pull/1#issuecomment-6028459420). Initial green builds/CI are retained as superseded provenance evidence; corrected final-head CI/install/publication gates remain separate. Revisit for any source materialization, packaging input, dependency pin or artifact receipt change.

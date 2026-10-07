@@ -1,0 +1,26 @@
+# EQ121 companion foundation delivery
+
+Canonical [issue278](https://github.com/atulsrivas1/equity-features/issues/278), E18, milestone15; [pre-code plan](EQ-121_PLAN.md), [core PR291](https://github.com/atulsrivas1/equity-features/pull/291). GOV014/GOV015 live Closed/Project Done and published main7a6db8c were refreshed before Ready/Inprogress. One bounded release session owns R4.1; future stories remain dependency-gated.
+
+## Components and evidence
+
+| Component | Deliverable | Reviewed source / final documentation head | Native qualification |
+| --- | --- | --- | --- |
+| [I/O PR1](https://github.com/atulsrivas1/equity-feature-io/pull/1) | io-contracts/io-sdk0.1.0a0 typed version markers, inward metadata dependencies, governance/build/install gates | `241631d71b9232db998746ddfef72f192eaf7772` / `a7f21ec5e1651a3a4d566c9377958288788aa546` | [37554150509](https://github.com/atulsrivas1/equity-feature-io/actions/runs/37554150509) actual Windows/Linux repeat wheel/sdist/fresh installs |
+| [Workers PR1](https://github.com/atulsrivas1/equity-feature-workers/pull/1) | workers0.1.0a0 typed skeleton, inward SDK dependency, no commands/orchestration | `0cacab00bb0b678cb35ecde3ca4a337534d7de05` / `03e60ec7e267c193360be44e29f9b7a1c5ef648f` | [37554173306](https://github.com/atulsrivas1/equity-feature-workers/actions/runs/37554173306) actual Windows/Linux repeat wheel/sdist/fresh installs |
+
+Separate local automated reviewer /root/eq121_component_review covers both final documentation heads plus semantic/code contracts and affected builders/callers. Earlier [I/O review](https://github.com/atulsrivas1/equity-feature-io/pull/1#issuecomment-6028459186)/[workers review](https://github.com/atulsrivas1/equity-feature-workers/pull/1#issuecomment-6028459420) resolve P2 untracked source provenance and P3 missing mandatory governance links. Renewed final documentation review verifies all24 downloaded archive hashes, source inventories and unchanged builder/probe; response URLs recorded on component PRs. No unresolved findings. Local automated review is not hosted activation/human review. Core planning/evidence PR requires its own final-head semantic review.
+
+Native/local corrected builds independently verify39builtin discovery with companions/backend imports forbidden, supplied bar500volume/51200notional/102.6weightedprice and absent prior, exact versions/dependency graph, site-packages without editable imports, no entry points, namespaces/Apache licenses/py.typed and strict installed package typing. Canonical core module/distribution metadata fingerprints remain identical before/after companion installation/import. Independent synthetic modified/untracked Git snapshot regression passes in both repositories; initial green working-tree builds are superseded. Current source packets include2core dependency wheels for I/O and4dependency wheels for workers; all component distributions have both wheel/sdist. Native CI and separately downloaded archives are distinct evidence; Windows execution of Linux-produced forms is not nativeLinux private qualification.
+
+## Ownership and compatibility
+
+Authorized public repositories exist with owner admin/push access. Their canonical story/lifecycle remains here; companion PRs link full issue URL without auto-close or duplicated story trackers. Distribution names io-contracts/io-sdk/workers each observed PyPI404 at creation; names are not reserved and no registry publication occurred. Apache-2.0 applies to code, not source data rights.
+
+Canonical contracts/features0.0.4a4, acquisition protocol identities, formulas and numerical modes remain unchanged. New contracts metadata depends inward on canonical contracts, SDK on matching I/O contracts, workers on matching SDK. Foundation packages expose only version markers; source/sink/factory operations arrive in later R4.1 stories. Existing optional DuckDB0.1.0a7 stays in core until separately reviewed/qualified EQ122 extraction. No backend runtime dependency enters these foundations or pure calculations.
+
+## Publication gate and limits
+
+Component `docs/EQ121_DELIVERY.md` inventories actual source-producer hashes. Successful-main experimental Actions bundles request30day retention; actual bundle hashes/expiry, component final main source/tree/owner readback and archive/form qualification equivalence are recorded on issue278 after publication. This receipt is a pre-publication source qualification snapshot; it does not declare Done or a merely merged implementation released.
+
+Require current final-head review/CI and formal Test before Ready to release; then guarded component/core publication, actual successful-main downloads, all archive/dependency/builder/probe equality and current native reports, fresh downloaded form results, Released post-readback and canonical acceptance before Done. No private source qualification/data modification, stable tag/registry, worker implementation or performance claim. CPython3.12 x64 Windows/Linux only. Remaining EQ122–130 and epics/milestone are not delivered by foundations; stop before R5 after actual release acceptance.
