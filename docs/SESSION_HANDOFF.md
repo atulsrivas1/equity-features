@@ -1,3 +1,9 @@
+## EQ124 accepted / EQ125 pre-code pull
+
+EQ124 verified Closed/ProjectDone after Released6029783916/postread6029784487. Coremain3c8ecda/companionmain7c9e082 reviewedfinal f9d37f2/f228411; allpublic369/85blobs/owner, actualmainCI,40archives/currentreports/sixserverZIP hashes/allfiles/finiteexpiry accepted. New matching I/OcontractsSDK.a1/consumer.a0 factory API delivered; canonical.a4/DuckDB.a8/workers.a0 unchanged. Receipt stories/EQ-124_RELEASE_RECEIPT.json; finalreview6029672808/6029672074. No fullruntime/backend/private certification.
+
+Current single story EQ125 pre-codeplan stories/EQ-125_PLAN.md. Next publishplan/PR before code, implement frozen fulltyped publication/safe static codec/reusableconformance with independent fakesink traces/currentinstalled forms, same-storydocs/actualfinalheadseparatereview/nativeCI/mainreadback. Only planned scope, no runtime implementation claimed. Matching newI/Opair.a2/fixture.a1 planned; worker alignmentEQ129. R4.1 remains incomplete, STOPbeforeR5.
+
 ## EQ124 native source qualification / Test
 
 Currentcore8542a24 and companion8f3208d push/PR native checks allsuccessful. Downloaded core12archives/12currentreports retain accepted2cd51cd bytes. Companionfoundation16archives/fourfreshforms/21installedfactory tests per form/positive typing/two rejected calls/core invariance and optional12archives/current94/30/16 parity passed; localWindows repeat archives match native. Separate automated reviewer records PR2946029619190 / companionPR46029619510, no unresolved findings. Source receipt companiondocs/EQ124_SOURCE_RECEIPT.json records actualruntime/source/artifact hashes. Next final documentation-head review/currentCI then exact-head publication and actual-main source/owner/all40archives/currentreports/6ZIPserverhashes/finiteexpiry readback; only then Released/postreadDone. No new private execution, full lifecycle remainsEQ125/workeralignmentEQ129/R4.1 incomplete, STOPbeforeR5.
