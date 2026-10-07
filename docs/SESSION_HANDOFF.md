@@ -1,3 +1,11 @@
+## EQ122 current core Test / final publication gates
+
+Coreimplementationcomplete; source18d81b1 native37557964807/37557967299 and localrepeat6actualarchives/bothfreshforms pass. Downloaded12core/consumer archives exactlyequal accepted2cd51cd;12currentbenchmark/resource/consumer reports preserve harness/nativeprobe bindings and appropriate qualification categories. Separate core review of source/tool/redirect/migration/publicstandalone evidence and corrected historical-link/consumer-wording covered a9fd709 ([record](https://github.com/atulsrivas1/equity-features/pull/292#issuecomment-6029075161)), bothP3findings resolved. Latestdocumentation-head coverage/currentCI remains recorded in PR292; never substitute an earlierhead record for the actualfinalhead.
+
+Canonical279 is Test. Resume: confirm latestfinalhead separate review and allrequiredchecks successful, exact-head corepublication (squashpolicy), download successful-main bothfoundation bundles, verify12unchangedarchives/12currentreports/allserverZIPhashes/expiry/publictree-owner; updatecanonical Readyrelease/Released/postreadbackDone. StandaloneI/O main7475e1e actualsource/artifact/native/privatebyte certificates alreadyqualified. Purepaira4/consumer source and mathematics unchanged, R4history/receipts retained, source stores/workers untouched. EQ123+ gated until279Done; STOPbeforeR5.
+
+Earlier dated snapshots below retain completed/pending history; current Project/PR/issue records govern actualstatus.
+
 ## EQ122 standalone accepted / active core extraction implementation
 
 Standalone actualmain7475e1e optional37557267501/foundation37557267503 successful; all4channel ZIP server hashes/downloadedfiles/24archives/currentnative reports/retention/corebaseline/old-new samefile parity/private4exact-byte certificates/publictree69/owner verified. [Public standalone receipt](stories/EQ-122_STANDALONE_RECEIPT.json), [issue gate](https://github.com/atulsrivas1/equity-features/issues/279#issuecomment-6028971610). Canonical279 returned Test to Inprogress for preplanned gated core-removal phase, no failure/scope change.
