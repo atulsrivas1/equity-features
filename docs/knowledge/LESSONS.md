@@ -1,5 +1,8 @@
 ## EF-L054 — Physical pilot measurement and source admission are separate
 
+EQ066 review correction: memory observation alone does not own coordinator lifetime. Separate reviewed cleanup must terminate only owned identities, preserve the original failure and always finalize sampling; terminal root exit is not child completion. Windows job membership must cover preexisting virtualenv children before input; Linux group signaling needs retained creation identity. Repeated evidence locations must reject existing reports before work. [Concrete review/rework](https://github.com/atulsrivas1/equity-features/issues/74#issuecomment-6052428323) preserves the bounded surviving-child probe and superseded204-suite results. Corrected focused7/58.699s passed; renewed full/source/native/performance/release gates remain pending.
+
+
 Frozen protocol/oracle and actual source/calculation/sink generation/catalog full-content parity must precede performance or readiness claims. Sample simultaneous live RSS, not separate process peak sums; Windows virtualenv launchers can hide actual allocator memory, so use real PID+creation identity and independently touched allocations. Preserve failed measurements and limits; source rights/PIT/calendar/warm-up/math/month/annual capacity remain source-specific even when synthetic package engineering qualifies. [Pre-code plan](../stories/EQ-066_PLAN.md) and [measurement API](../api/WORKER_PILOT_READINESS.md). No benchmark/release acceptance claimed in this lesson preparation.
 
 ## EF-L053 — Observed stage work and actual task acceptance are distinct
