@@ -1,5 +1,7 @@
 ## EF-L053 — Observed stage work and actual task acceptance are distinct
 
+EQ065 actual source evidence: author200/239.984s, separate source200/205.709s/strict13/example passed; actual native37720753966 and four fresh forms preserve full result/evidence/input identities and all retained fault suites. [Receipt](../stories/EQ-065_SOURCE_RECEIPT.json) binds actual50 scoped source bytes, archives, runtimes and finite retention. Failed/superseded reviews/runs remain excluded. Final metadata/currentCI/actual-main release/acceptance remain pending.
+
 Third source review: user-supplied Mapping iteration is caller code, so report admission/fencing must precede it. Copy once under fixed error normalization and bind the same stable config to intent and factories; invalid materialization retains an explicitly incomplete admission identity. Superseded198 green source runs do not qualify this correction. Native cancellation/owned repeat stop were actual and excluded; renewed200 qualification remains pending.
 
 Second review correction: resident admission must include the full retained report population, not only this call. Copy and validate each injected clock-metadata primitive once to prevent validation/assignment divergence. Source196 green runs did not reveal these adversarial defects; focused36/26.297s pass after corrections, renewed final gates pending. Preserve earlier source reviews and their findings; a green suite is not approval.
