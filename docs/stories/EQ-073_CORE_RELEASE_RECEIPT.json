@@ -1,0 +1,77 @@
+{
+  "source_head": "c130f3087a7f546e623237b59af1a92be794bd16",
+  "run_id": "37821986778",
+  "qualified_source_head": "f2b14c4bc9362bee39a01108461264241dfd5132",
+  "bundles": [
+    {
+      "id": 11570305662,
+      "name": "foundation-c130f3087a7f546e623237b59af1a92be794bd16-windows-latest",
+      "zip_sha256": "5c070523bf417ef116efcb916b88e899bc6b9f2b2f9650844f874d59fb826b62",
+      "expires_at": "2026-11-07T18:10:41Z",
+      "python": "3.12.10",
+      "system": "Windows",
+      "archives": {
+        "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2",
+        "equity_feature_contracts-0.0.4a4.tar.gz": "c0f35f1fd775b83ab9fdd48177c6332f38b1c83cc2f9986467e0852ca758ae57",
+        "equity_features-0.0.4a4-py3-none-any.whl": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0",
+        "equity_features-0.0.4a4.tar.gz": "c25ab736eb267cd11a11d52cbeda6931d23796c94bb264164014f0dd542f1d06",
+        "equity_feature_demo-0.4.0-py3-none-any.whl": "8a8afc9b450936804887231a86aeff4bfb71b326ffb26821994137fc21735b5e",
+        "equity_feature_demo-0.4.0.tar.gz": "7d163e4e420e5272323d941b1876bf13e4fb23348ec668aa52d3027ca9b45fc9"
+      },
+      "consumer_reports": [
+        "consumer-Windows-gz.json",
+        "consumer-Windows-whl.json"
+      ],
+      "files": {
+        "benchmark-Windows-whl.json": "b9597dafe4d6373912946c20cecb509df14cbb5d6f9587f288ecba3218fa2f7c",
+        "benchmark-Windows-gz.json": "22c20a85de0d45be35f4cc40a2da14ddedc945a7e09c2e5673ef492d3b8b0ed7",
+        "consumer-Windows-gz.json": "6c81be960a40b33459b8adf739b2d4c45c248f5997605f770e95dfa86946c993",
+        "consumer-Windows-whl.json": "d714fd8c240ad82436234435bd7ff8fec14193a199e273851ba77878ec823bfa",
+        "equity_features-0.0.4a4-py3-none-any.whl": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0",
+        "equity_features-0.0.4a4.tar.gz": "c25ab736eb267cd11a11d52cbeda6931d23796c94bb264164014f0dd542f1d06",
+        "equity_feature_contracts-0.0.4a4.tar.gz": "c0f35f1fd775b83ab9fdd48177c6332f38b1c83cc2f9986467e0852ca758ae57",
+        "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2",
+        "equity_feature_demo-0.4.0-py3-none-any.whl": "8a8afc9b450936804887231a86aeff4bfb71b326ffb26821994137fc21735b5e",
+        "equity_feature_demo-0.4.0.tar.gz": "7d163e4e420e5272323d941b1876bf13e4fb23348ec668aa52d3027ca9b45fc9",
+        "manifest.json": "6ba45af6acf2a7da2a1eff0208162c8c3a2b54d799e5832d6c023be69b254651",
+        "resource-Windows-gz.json": "46ce45ba0471b463b52af3ef93c8b2cc052b0a117803322862242e71ef62d4c2",
+        "resource-Windows-whl.json": "c91feb4ad294a09d8d0238e1b96008729fd1552d047c020464b956b377e2026e"
+      }
+    },
+    {
+      "id": 11569263784,
+      "name": "foundation-c130f3087a7f546e623237b59af1a92be794bd16-ubuntu-24.04",
+      "zip_sha256": "f9bf9734f991a005fd44474d2475f2ed3cf95d537da6dbbb037f40f7beabd478",
+      "expires_at": "2026-11-07T18:10:09Z",
+      "python": "3.12.15",
+      "system": "Linux",
+      "archives": {
+        "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+        "equity_feature_contracts-0.0.4a4.tar.gz": "f32a66f31759b10c9ac251f4dffb2388a3e2ce50d2e5e15c69ac7038828f97a9",
+        "equity_features-0.0.4a4-py3-none-any.whl": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e",
+        "equity_features-0.0.4a4.tar.gz": "14e7b8b0ec1b245747d53081a73c9ef060c0f637d205ae97b5e14304b4d95c8f",
+        "equity_feature_demo-0.4.0-py3-none-any.whl": "210b4b823d2d0c76b0051785e5fc3aef32ebea3ddbcfd9c0c35efa639827ec35",
+        "equity_feature_demo-0.4.0.tar.gz": "33f15232fac42cb7056847c12025c7977162a9b28d5dc4a74b710461b2e93c07"
+      },
+      "consumer_reports": [
+        "consumer-Linux-gz.json",
+        "consumer-Linux-whl.json"
+      ],
+      "files": {
+        "benchmark-Linux-whl.json": "85236136187749b4038493d1bea240de3529c701fafc021780785d6eeb8b1aa8",
+        "consumer-Linux-gz.json": "cd179020eddd80334ba28fa7416716c1953120abea2327a87e558b0baf0559e7",
+        "consumer-Linux-whl.json": "170ea7a428aaae4140a2654e3428e740b51f206d01816efa4c125b461fc9ecbe",
+        "benchmark-Linux-gz.json": "eae5c0b47ab988bbd2909729c3e680303ee47b642740ebad996f1be60b854c3e",
+        "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+        "equity_feature_contracts-0.0.4a4.tar.gz": "f32a66f31759b10c9ac251f4dffb2388a3e2ce50d2e5e15c69ac7038828f97a9",
+        "equity_feature_demo-0.4.0-py3-none-any.whl": "210b4b823d2d0c76b0051785e5fc3aef32ebea3ddbcfd9c0c35efa639827ec35",
+        "equity_feature_demo-0.4.0.tar.gz": "33f15232fac42cb7056847c12025c7977162a9b28d5dc4a74b710461b2e93c07",
+        "equity_features-0.0.4a4-py3-none-any.whl": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e",
+        "equity_features-0.0.4a4.tar.gz": "14e7b8b0ec1b245747d53081a73c9ef060c0f637d205ae97b5e14304b4d95c8f",
+        "manifest.json": "ec6ba90bf564a20d2241c4e3a0dc23112355b3d91393e72e99ad54ffcf4854ae",
+        "resource-Linux-gz.json": "3afd2ee6c193ef630bb0e9c7250211c3ac21dacd0a4c4a0d569962dcd822d404",
+        "resource-Linux-whl.json": "29dafe76910b2c1d4a83325517a257b9b2ff149e88622d52c53c776c00015b55"
+      }
+    }
+  ]
+}
