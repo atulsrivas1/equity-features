@@ -1,3 +1,9 @@
+## EF-L059 — Bind runner execution consent across source and sink
+
+[EQ073 source/delivery](../stories/EQ-073_DELIVERY.md) demonstrates that feature selection and credentials are not execution, provider-download or cost permission. Hash full command/requirements and exact selected source capability/config plus sink ID/config/requirements into the plan. Default deny before either factory/credential/source/sink access; recheck after the approval callback and re-admit actual constructed capabilities. Explicit missing/ambiguous/unsupported roles prevent hidden acquisition; preserve existing absent witnesses, source coverage/known-at and worker result/receipt identity. Declared metadata/caller code is trusted, not source/rights authentication or a sandbox. Provider/cache/financial approvals remain independently scoped.
+
+Independent25methods/strict15sourcefiles plus four reviewer adversaries and full235source regressions pass; current native light/full evidence is receipt-bound. Packaging audit fields must accept legal LF/CRLF metadata while keeping raw archive hashes unchanged. Retain the failed audit and corrected candidate distinctly; do not claim a superseded interrupted run passed. No generic worker speedup/provider proof follows from test elapsed time or owned fixture success.
+
 ## EF-L058 — Bind full local normalization and preserve UTF-8 continuity
 
 [EQ071 source](../stories/EQ-071_SOURCE.md) freezes a complete profile fingerprint before runtime: caller revision labels alone cannot distinguish changed knowledge/eligibility/session/coverage annotations. Hash explicit source, units, scope, coverage and finite DBN row mapping into cache/result identity; exclude staged path and retain actual immutable byte and selected physical row digests. DBN local row IDs/wire sequence are not provider correction identity. Preserve unknown/future knowledge into independent pure admission; reconstruction and causal proof are distinct.
