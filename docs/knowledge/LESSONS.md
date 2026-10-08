@@ -1,3 +1,20 @@
+## EF-L058 — Bind full local normalization and preserve UTF-8 continuity
+
+[EQ071 source](../stories/EQ-071_SOURCE.md) freezes a complete profile fingerprint before runtime: caller revision labels alone cannot distinguish changed knowledge/eligibility/session/coverage annotations. Hash explicit source, units, scope, coverage and finite DBN row mapping into cache/result identity; exclude staged path and retain actual immutable byte and selected physical row digests. DBN local row IDs/wire sequence are not provider correction identity. Preserve unknown/future knowledge into independent pure admission; reconstruction and causal proof are distinct.
+
+Author found Windows default Path.read_text decoding mangled historical UTF-8 punctuation in source continuity updates. Restore exact prior Git UTF-8 history, preserve new update, use explicit encoding='utf-8' for every public text read/write, and inspect full baseline diff before final-head review. The bad candidate is preserved as failed documentation evidence; it cannot be accepted as clean continuity. Package/source fixture bytes were unaffected; review/install/native/current-main gates remain mandatory.
+
+## EF-L057 — Assert live issue identity before Project-field mutation
+
+[EQ071 admission correction](https://github.com/atulsrivas1/equity-features/issues/80#issuecomment-6063783896)
+caught an author command using adjacent opaque itemID: unimplementedEQ072 briefly
+received EQ071 status/points. Restore real Backlog, clear accidental estimate,
+record the false transitions as mistakes, then admit correct EQ071 through real
+Ready/In progress. Do not reinterpret a field write as genuine readiness. Resolve
+current issue number/URL and itemID from live Project inventory and assert all
+three before mutation; read back status afterward. This is workflow correctness,
+not implementation/provider/release evidence. No source or provider action occurred.
+
 ## EF-L056 native input-inventory correction
 
 [EQ068 delivery](../stories/EQ-068_DELIVERY.md) records the additional independent
