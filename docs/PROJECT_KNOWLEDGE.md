@@ -1,3 +1,9 @@
+# Synchronization capture — October 7, 2026
+
+Captured October 7, 2026, America/New_York, under [GOV-016 #331](https://github.com/atulsrivas1/equity-features/issues/331). [Synchronization audit](knowledge/SYNCHRONIZATION_AUDIT.md) records inspected source heads, checks and limitations. R0–R4.1 are accepted; EQ057–063 are Done, EQ064 is Released with final acceptance pending, and EQ065–066 remain Backlog. The dedicated R5 owner retains delivery. Recheck the [live Project](https://github.com/users/atulsrivas1/projects/2) before acting; these facts are a dated capture, not an execution override.
+
+The earlier execution snapshots below are historical. Specifications, decisions and exact receipts remain authoritative within their recorded scope. This audit does not take ownership from the active release session.
+
 ## EQ064 final acceptance record — exact resume
 
 Runtime delivery is verified, but EQ064#72 remains Released/OPEN until final acceptance. Same-story evidence PRs: [worker21](https://github.com/atulsrivas1/equity-feature-workers/pull/21) and [canonical330](https://github.com/atulsrivas1/equity-features/pull/330). Source and actual-release receipts bind original ba295 source and actual runtime main c483ba293a17be8f22c12e6b04a0f57ca100bdbd/canonical963bf767d7088112e9b22f2628c1fc46fd9217da. Final changed-head separate review, all4 worker/all6 canonical current checks and exact guarded publication remain mandatory. Verify actual finalmain native success, both actual server ZIPs/all18 archives/scopedsource equality to qualified source and original runtime delivery, complete reviewed-tree equality and exact public UTF8 LF source/release receipts/Atul author/GitHub squash committer readback. Only then record acceptance, close issue72 and set ProjectDone; pull dependency-satisfied EQ065 next. EQ066 physical/source/PIT/warm-up/month/annual admission remains separately gated. Stop after bounded R5 before R6; no other implementation underway.

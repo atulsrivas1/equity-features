@@ -1,0 +1,1105 @@
+{
+  "schema": 1,
+  "governance_issue": 331,
+  "capture_date": "2026-10-07 America/New_York",
+  "heads": {
+    "equity-features": "963bf767d7088112e9b22f2628c1fc46fd9217da",
+    "equity-feature-io": "4603c6e50331a5e8a82b13b62a0cdd5ffaa0e4bf",
+    "equity-feature-workers": "c483ba293a17be8f22c12e6b04a0f57ca100bdbd"
+  },
+  "active_story_count": 134,
+  "backlog_row_count_before": 129,
+  "missing_backlog_rows": [
+    "EQ-131",
+    "EQ-132",
+    "EQ-133",
+    "EQ-134",
+    "EQ-135"
+  ],
+  "release_assignment_mismatches": [],
+  "issue_project_mismatches": [],
+  "epic_checkbox_mismatches": [
+    {
+      "epic": 64,
+      "story": "EQ-057",
+      "accepted": true
+    },
+    {
+      "epic": 64,
+      "story": "EQ-058",
+      "accepted": true
+    },
+    {
+      "epic": 64,
+      "story": "EQ-059",
+      "accepted": true
+    },
+    {
+      "epic": 64,
+      "story": "EQ-060",
+      "accepted": true
+    },
+    {
+      "epic": 64,
+      "story": "EQ-061",
+      "accepted": true
+    },
+    {
+      "epic": 64,
+      "story": "EQ-062",
+      "accepted": true
+    },
+    {
+      "epic": 64,
+      "story": "EQ-063",
+      "accepted": true
+    }
+  ],
+  "packages": [
+    {
+      "repository": "equity-features",
+      "name": "equity-feature-contracts",
+      "version": "0.0.4a4",
+      "dependencies": []
+    },
+    {
+      "repository": "equity-features",
+      "name": "equity-features",
+      "version": "0.0.4a4",
+      "dependencies": [
+        "equity-feature-contracts==0.0.4a4"
+      ]
+    },
+    {
+      "repository": "equity-feature-io",
+      "name": "equity-feature-duckdb",
+      "version": "0.1.0a8",
+      "dependencies": [
+        "equity-feature-contracts==0.0.4a4",
+        "duckdb==1.5.6",
+        "numpy==2.2.6"
+      ]
+    },
+    {
+      "repository": "equity-feature-io",
+      "name": "equity-feature-duckdb-sink",
+      "version": "0.1.0a0",
+      "dependencies": [
+        "equity-feature-io-sdk==0.1.0a2",
+        "duckdb==1.5.6"
+      ]
+    },
+    {
+      "repository": "equity-feature-io",
+      "name": "equity-feature-io-contracts",
+      "version": "0.1.0a2",
+      "dependencies": [
+        "equity-feature-contracts==0.0.4a4"
+      ]
+    },
+    {
+      "repository": "equity-feature-io",
+      "name": "equity-feature-io-sdk",
+      "version": "0.1.0a2",
+      "dependencies": [
+        "equity-feature-io-contracts==0.1.0a2"
+      ]
+    },
+    {
+      "repository": "equity-feature-io",
+      "name": "equity-feature-parquet",
+      "version": "0.1.0a1",
+      "dependencies": [
+        "equity-feature-io-sdk==0.1.0a2",
+        "pyarrow==20.0.0"
+      ]
+    },
+    {
+      "repository": "equity-feature-workers",
+      "name": "equity-feature-workers",
+      "version": "0.1.0a9",
+      "dependencies": [
+        "equity-feature-io-sdk==0.1.0a2",
+        "equity-features==0.0.4a4"
+      ]
+    }
+  ],
+  "worker_source_receipt_hash_checks": [
+    {
+      "platform": "Windows",
+      "files": 46,
+      "mismatches": []
+    },
+    {
+      "platform": "Linux",
+      "files": 46,
+      "mismatches": []
+    }
+  ],
+  "release_counts": {
+    "R14 - Community onboarding and participation (C1)": 5,
+    "R4.1 \u2014 Repository separation and extensible I/O": 10,
+    "R13 \u2014 Evidence service validation (low priority)": 5,
+    "R12 \u2014 Continuous-market research extensions": 5,
+    "R11 \u2014 Agent research evidence": 5,
+    "R10 \u2014 Point-in-time diagnostics": 5,
+    "R9 \u2014 Reproducible calculation evidence": 5,
+    "R3 \u2014 Package release readiness": 12,
+    "R8 \u2014 Advanced performance and research": 8,
+    "R7 \u2014 Remote access and LLM tools": 10,
+    "R6 \u2014 Provider and file adapters": 8,
+    "R5 \u2014 Independent workers": 10,
+    "R4 \u2014 DuckDB adapter": 8,
+    "R2 \u2014 Historical and contextual packages": 12,
+    "R1 \u2014 Core session packages": 10,
+    "R0 \u2014 Design and repository foundation": 16
+  },
+  "story_matrix": [
+    {
+      "id": "EQ-001",
+      "issue": 2,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-002",
+      "issue": 3,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-003",
+      "issue": 4,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-004",
+      "issue": 5,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-005",
+      "issue": 6,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-006",
+      "issue": 7,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-007",
+      "issue": 9,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-008",
+      "issue": 10,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-009",
+      "issue": 11,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-010",
+      "issue": 12,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-011",
+      "issue": 14,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-012",
+      "issue": 15,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-013",
+      "issue": 16,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-014",
+      "issue": 17,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-015",
+      "issue": 18,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-016",
+      "issue": 19,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R0 \u2014 Design and repository foundation"
+    },
+    {
+      "id": "EQ-017",
+      "issue": 21,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-018",
+      "issue": 22,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-019",
+      "issue": 23,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-020",
+      "issue": 24,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-021",
+      "issue": 25,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-022",
+      "issue": 26,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-023",
+      "issue": 27,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-024",
+      "issue": 28,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-025",
+      "issue": 29,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-026",
+      "issue": 30,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R1 \u2014 Core session packages"
+    },
+    {
+      "id": "EQ-027",
+      "issue": 32,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-028",
+      "issue": 33,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-029",
+      "issue": 34,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-030",
+      "issue": 35,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-031",
+      "issue": 36,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-032",
+      "issue": 37,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-033",
+      "issue": 38,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-034",
+      "issue": 39,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-035",
+      "issue": 40,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-036",
+      "issue": 41,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-037",
+      "issue": 42,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-038",
+      "issue": 43,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R2 \u2014 Historical and contextual packages"
+    },
+    {
+      "id": "EQ-039",
+      "issue": 45,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-040",
+      "issue": 46,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-041",
+      "issue": 47,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-042",
+      "issue": 48,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-043",
+      "issue": 49,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-044",
+      "issue": 50,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-045",
+      "issue": 51,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-046",
+      "issue": 52,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-047",
+      "issue": 53,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-048",
+      "issue": 54,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-049",
+      "issue": 56,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4 \u2014 DuckDB adapter"
+    },
+    {
+      "id": "EQ-050",
+      "issue": 57,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4 \u2014 DuckDB adapter"
+    },
+    {
+      "id": "EQ-051",
+      "issue": 58,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4 \u2014 DuckDB adapter"
+    },
+    {
+      "id": "EQ-052",
+      "issue": 59,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4 \u2014 DuckDB adapter"
+    },
+    {
+      "id": "EQ-053",
+      "issue": 60,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4 \u2014 DuckDB adapter"
+    },
+    {
+      "id": "EQ-054",
+      "issue": 61,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4 \u2014 DuckDB adapter"
+    },
+    {
+      "id": "EQ-055",
+      "issue": 62,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4 \u2014 DuckDB adapter"
+    },
+    {
+      "id": "EQ-056",
+      "issue": 63,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4 \u2014 DuckDB adapter"
+    },
+    {
+      "id": "EQ-057",
+      "issue": 65,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-058",
+      "issue": 66,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-059",
+      "issue": 67,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-060",
+      "issue": 68,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-061",
+      "issue": 69,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-062",
+      "issue": 70,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-063",
+      "issue": 71,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-064",
+      "issue": 72,
+      "state": "open",
+      "project_status": "Released",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-065",
+      "issue": 73,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-066",
+      "issue": 74,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R5 \u2014 Independent workers"
+    },
+    {
+      "id": "EQ-067",
+      "issue": 76,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R6 \u2014 Provider and file adapters"
+    },
+    {
+      "id": "EQ-068",
+      "issue": 77,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R6 \u2014 Provider and file adapters"
+    },
+    {
+      "id": "EQ-069",
+      "issue": 78,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R6 \u2014 Provider and file adapters"
+    },
+    {
+      "id": "EQ-070",
+      "issue": 79,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R6 \u2014 Provider and file adapters"
+    },
+    {
+      "id": "EQ-071",
+      "issue": 80,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R6 \u2014 Provider and file adapters"
+    },
+    {
+      "id": "EQ-072",
+      "issue": 81,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R6 \u2014 Provider and file adapters"
+    },
+    {
+      "id": "EQ-073",
+      "issue": 82,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R6 \u2014 Provider and file adapters"
+    },
+    {
+      "id": "EQ-074",
+      "issue": 83,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R6 \u2014 Provider and file adapters"
+    },
+    {
+      "id": "EQ-075",
+      "issue": 85,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-076",
+      "issue": 86,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-077",
+      "issue": 87,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-078",
+      "issue": 88,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-079",
+      "issue": 89,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-080",
+      "issue": 90,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-081",
+      "issue": 91,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-082",
+      "issue": 92,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-083",
+      "issue": 93,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-084",
+      "issue": 94,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R7 \u2014 Remote access and LLM tools"
+    },
+    {
+      "id": "EQ-085",
+      "issue": 96,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R8 \u2014 Advanced performance and research"
+    },
+    {
+      "id": "EQ-086",
+      "issue": 97,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R8 \u2014 Advanced performance and research"
+    },
+    {
+      "id": "EQ-087",
+      "issue": 98,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R8 \u2014 Advanced performance and research"
+    },
+    {
+      "id": "EQ-088",
+      "issue": 99,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R8 \u2014 Advanced performance and research"
+    },
+    {
+      "id": "EQ-089",
+      "issue": 101,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R8 \u2014 Advanced performance and research"
+    },
+    {
+      "id": "EQ-090",
+      "issue": 102,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R8 \u2014 Advanced performance and research"
+    },
+    {
+      "id": "EQ-091",
+      "issue": 103,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R8 \u2014 Advanced performance and research"
+    },
+    {
+      "id": "EQ-092",
+      "issue": 104,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R8 \u2014 Advanced performance and research"
+    },
+    {
+      "id": "EQ-093",
+      "issue": 113,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-095",
+      "issue": 150,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R3 \u2014 Package release readiness"
+    },
+    {
+      "id": "EQ-096",
+      "issue": 196,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R9 \u2014 Reproducible calculation evidence"
+    },
+    {
+      "id": "EQ-097",
+      "issue": 197,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R9 \u2014 Reproducible calculation evidence"
+    },
+    {
+      "id": "EQ-098",
+      "issue": 198,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R9 \u2014 Reproducible calculation evidence"
+    },
+    {
+      "id": "EQ-099",
+      "issue": 199,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R9 \u2014 Reproducible calculation evidence"
+    },
+    {
+      "id": "EQ-100",
+      "issue": 200,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R9 \u2014 Reproducible calculation evidence"
+    },
+    {
+      "id": "EQ-101",
+      "issue": 201,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R10 \u2014 Point-in-time diagnostics"
+    },
+    {
+      "id": "EQ-102",
+      "issue": 202,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R10 \u2014 Point-in-time diagnostics"
+    },
+    {
+      "id": "EQ-103",
+      "issue": 203,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R10 \u2014 Point-in-time diagnostics"
+    },
+    {
+      "id": "EQ-104",
+      "issue": 204,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R10 \u2014 Point-in-time diagnostics"
+    },
+    {
+      "id": "EQ-105",
+      "issue": 205,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R10 \u2014 Point-in-time diagnostics"
+    },
+    {
+      "id": "EQ-106",
+      "issue": 206,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R11 \u2014 Agent research evidence"
+    },
+    {
+      "id": "EQ-107",
+      "issue": 207,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R11 \u2014 Agent research evidence"
+    },
+    {
+      "id": "EQ-108",
+      "issue": 208,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R11 \u2014 Agent research evidence"
+    },
+    {
+      "id": "EQ-109",
+      "issue": 209,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R11 \u2014 Agent research evidence"
+    },
+    {
+      "id": "EQ-110",
+      "issue": 210,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R11 \u2014 Agent research evidence"
+    },
+    {
+      "id": "EQ-111",
+      "issue": 213,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R12 \u2014 Continuous-market research extensions"
+    },
+    {
+      "id": "EQ-112",
+      "issue": 214,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R12 \u2014 Continuous-market research extensions"
+    },
+    {
+      "id": "EQ-113",
+      "issue": 215,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R12 \u2014 Continuous-market research extensions"
+    },
+    {
+      "id": "EQ-114",
+      "issue": 216,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R12 \u2014 Continuous-market research extensions"
+    },
+    {
+      "id": "EQ-115",
+      "issue": 217,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R12 \u2014 Continuous-market research extensions"
+    },
+    {
+      "id": "EQ-116",
+      "issue": 222,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R13 \u2014 Evidence service validation (low priority)"
+    },
+    {
+      "id": "EQ-117",
+      "issue": 223,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R13 \u2014 Evidence service validation (low priority)"
+    },
+    {
+      "id": "EQ-118",
+      "issue": 224,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R13 \u2014 Evidence service validation (low priority)"
+    },
+    {
+      "id": "EQ-119",
+      "issue": 225,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R13 \u2014 Evidence service validation (low priority)"
+    },
+    {
+      "id": "EQ-120",
+      "issue": 226,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R13 \u2014 Evidence service validation (low priority)"
+    },
+    {
+      "id": "EQ-121",
+      "issue": 278,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-122",
+      "issue": 279,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-123",
+      "issue": 280,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-124",
+      "issue": 281,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-125",
+      "issue": 282,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-126",
+      "issue": 283,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-127",
+      "issue": 284,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-128",
+      "issue": 285,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-129",
+      "issue": 286,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-130",
+      "issue": 287,
+      "state": "closed",
+      "project_status": "Done",
+      "release": "R4.1 \u2014 Repository separation and extensible I/O"
+    },
+    {
+      "id": "EQ-131",
+      "issue": 312,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R14 - Community onboarding and participation (C1)"
+    },
+    {
+      "id": "EQ-132",
+      "issue": 313,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R14 - Community onboarding and participation (C1)"
+    },
+    {
+      "id": "EQ-133",
+      "issue": 314,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R14 - Community onboarding and participation (C1)"
+    },
+    {
+      "id": "EQ-134",
+      "issue": 315,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R14 - Community onboarding and participation (C1)"
+    },
+    {
+      "id": "EQ-135",
+      "issue": 316,
+      "state": "open",
+      "project_status": "Backlog",
+      "release": "R14 - Community onboarding and participation (C1)"
+    }
+  ],
+  "executed_checks": [
+    "123 mathematical reference cases (17 session, 26 quote, 31 history, 26 context, 23 timing)",
+    "registry: 39 IDs and declared batch/update/restore/merge capability parity",
+    "source metadata/import isolation",
+    "license/distribution metadata",
+    "boundary: 42 negative and 10 positive fixtures"
+  ],
+  "limits": "Read-only source/metadata synchronization audit, not a new full numerical, worker, installed-package, artifact-download or private-source qualification."
+}
