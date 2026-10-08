@@ -1,3 +1,14 @@
+## EF-L057 — Assert live issue identity before Project-field mutation
+
+[EQ071 admission correction](https://github.com/atulsrivas1/equity-features/issues/80#issuecomment-6063783896)
+caught an author command using adjacent opaque itemID: unimplementedEQ072 briefly
+received EQ071 status/points. Restore real Backlog, clear accidental estimate,
+record the false transitions as mistakes, then admit correct EQ071 through real
+Ready/In progress. Do not reinterpret a field write as genuine readiness. Resolve
+current issue number/URL and itemID from live Project inventory and assert all
+three before mutation; read back status afterward. This is workflow correctness,
+not implementation/provider/release evidence. No source or provider action occurred.
+
 ## EF-L056 native input-inventory correction
 
 [EQ068 delivery](../stories/EQ-068_DELIVERY.md) records the additional independent
