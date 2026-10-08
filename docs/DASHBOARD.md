@@ -1,3 +1,7 @@
+## Bounded R5.1 correction — October 8, 2026
+
+R5's ten stories, E08 and milestone6 remain accepted/closed. Owner-selected [BUG006](https://github.com/atulsrivas1/equity-features/issues/337) is the sole [R5.1](https://github.com/atulsrivas1/equity-features/milestone/17) correction; source/review/native qualification is recorded in its [delivery](stories/BUG-006_DELIVERY.md). The live Project and issue own actual lifecycle; older dated captures below preserve history. No R6 or private generation is admitted.
+
 # Synchronization capture — October 7, 2026
 
 Captured October 7, 2026, America/New_York, under [GOV-016 #331](https://github.com/atulsrivas1/equity-features/issues/331). [Synchronization audit](knowledge/SYNCHRONIZATION_AUDIT.md) records inspected source heads, checks and limitations. R0–R4.1 are accepted; EQ057–063 are Done, EQ064 is Released with final acceptance pending, and EQ065–066 remain Backlog. The dedicated R5 owner retains delivery. Recheck the [live Project](https://github.com/users/atulsrivas1/projects/2) before acting; these facts are a dated capture, not an execution override.
@@ -36,6 +40,7 @@ Use the live Project for current work status.
 | R4 | [R4 — DuckDB adapter](https://github.com/atulsrivas1/equity-features/milestone/5) |
 | R4.1 | [Repository separation and extensible I/O](https://github.com/atulsrivas1/equity-features/milestone/15) |
 | R5 | [R5 — Independent workers](https://github.com/atulsrivas1/equity-features/milestone/6) |
+| R5.1 | [Shared publisher completion repair — BUG006](https://github.com/atulsrivas1/equity-features/milestone/17) |
 | R6 | [R6 — Provider and file adapters](https://github.com/atulsrivas1/equity-features/milestone/7) |
 | R7 | [R7 — Remote access and LLM tools](https://github.com/atulsrivas1/equity-features/milestone/8) |
 | R8 | [R8 — Advanced performance and research](https://github.com/atulsrivas1/equity-features/milestone/9) |

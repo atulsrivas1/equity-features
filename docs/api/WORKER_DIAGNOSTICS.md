@@ -1,3 +1,7 @@
+## BUG006 ownership correction — experimental workers0.1.0a12 candidate
+
+Both reporter-enabled and default supervision drain only the invocation's admitted task identities. Concurrent producers' unrelated entries remain pending for a subsequent explicit creating-owner drain, and their count/bytes remain charged against publisher limits. The ownership set is independent of diagnostic reservations. [BUG006](https://github.com/atulsrivas1/equity-features/issues/337) tracks current review/native/installed/release acceptance; no private-generation admission follows from this correction.
+
 # Experimental diagnostics API — workers0.1.0a10
 
 EQ065#73 links workerPR22 and canonicalPR333. Frozen pre-code plan/oracle precede runtime. Diagnostics are local observations. Numerical formulas, units, initialization, eligibility, cutoffs, source entitlement, Task/Output/Result/Receipt codecs, sink locking and mandatory dependencies are unchanged. No output is automatically published.

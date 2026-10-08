@@ -1,0 +1,30 @@
+# BUG006 — scoped supervisor publication, experimental workers0.1.0a12
+
+[BUG006](https://github.com/atulsrivas1/equity-features/issues/337), [R5.1 milestone17](https://github.com/atulsrivas1/equity-features/milestone/17), [plan](BUG-006_PLAN.md). The owner selected this repair and authorized separate local review on October8,2026. Original R5 acceptance and the [postdelivery finding](../reviews/R5_POST_DELIVERY_REVIEW.md) remain historical evidence; no original release receipt is rewritten.
+
+## Problem and resulting behavior
+
+In a11, a foreign producer could submit task B during successful supervised task A calculation. Default supervision drained both entries and indexed B in its own execution map, producing false CALCULATION_FAILED and consuming both returned completions despite committed sink data. Reporter-enabled supervision already limited draining.
+
+Both paths now pass an immutable admitted task identity set to the publisher. The existing queue lock protects filtering before publication/removal. Other producer entries remain pending for an explicit creating-owner drain and continue to consume queue count/bytes and shared publication budget. Optional diagnostics retain their separate reservation check. Explicit full draining, owner/reentry fences, cancellation, receipt-first uncertain-commit recovery and later same-run resolution remain intact. Filtering already-returned records would not repair this defect.
+
+The original both-sink reproducer now returns no producer error, no supervisor failure, a verified A output, B pending/ABSENT before its explicit drain, and exactly one B completion on that drain. New regressions additionally compare full encoded original result readback for both tasks and verify an empty second drain, with and without reporter, on Parquet/DuckDB.
+
+## Scope and compatibility
+
+Worker version alone advances0.1.0a11 ->0.1.0a12. The additional underscore drain keyword is internal ownership plumbing; supported public calls remain compatible. No numerical formula, algorithm version, units, cutoffs, initialization, missingness/coverage, task/result/receipt schema, identity, core/I/O source, mandatory dependency or performance default changes. Accepted core20c08c7370581d03c8a0404579667f68d67ac88b and I/O4603c6e50331a5e8a82b13b62a0cdd5ffaa0e4bf remain pinned. No new speedup, hard-RSS, production/private capacity or general concurrency guarantee is claimed. R6 and private pilot/month/annual generation remain gated.
+
+## Review and source qualification
+
+Component [PR26](https://github.com/atulsrivas1/equity-feature-workers/pull/26) final source908866695b9765aa0557c5ad6082242d85052669. Separate local automated reviewer `/root/bug006_review` inspected that head and canonical plan74effa122759989d2ba2743d98eb1eaca8a2ab20; [source review](https://github.com/atulsrivas1/equity-feature-workers/pull/26#issuecomment-6061060210), [artifact review/qualification](https://github.com/atulsrivas1/equity-feature-workers/pull/26#issuecomment-6061281711). No actionable findings. This is neither author self-review, human review nor hosted activation.
+
+- Author regressions: old a11 fails both no-reporter sinks while both reporter cases pass; repaired two methods/four cases PASS9.324s. Strict13/pipcheck pass. Supporting installed-a12 full210 tests PASS309.674s; pilot version fixture was corrected during that local run, so frozen native gates are recorded separately.
+- Separate reviewer:14 focused methods pass, strict13/pipcheck pass; four extra real-sink observed/unobserved probes force first begin BUSY with two supervised tasks and foreign C. Later same-run drain resolves the first task with exact readback and preserves C for one explicit drain.
+- Exact [source push37785219135](https://github.com/atulsrivas1/equity-feature-workers/actions/runs/37785219135) and [PR37785223738](https://github.com/atulsrivas1/equity-feature-workers/actions/runs/37785223738) both Windows/Linux SUCCESS. Full210 native methods (Linux one explicit Windows-only skip), including Windows152.023s. Both fresh wheel/sdist forms run retained209 methods each, including37 supervisor methods,38 diagnostics and8 pilot methods; strict installed typing, core isolation/fingerprints, examples/console and physical source-to-both-sinks/generation/catalog parity pass. Linux skips the Windows-only native-fault method, while its independent group/timeout/parity checks execute.
+- [Source receipt](BUG-006_SOURCE_RECEIPT.json) records two exact server ZIPs,20 archives/22 files, both56-file committed-LF source maps, four recorded forms, dependency pins and finite expiry. Root and separate reviewer independently verify hashes/source/archive contents/metadata and native installed participation. Root and reviewer additionally run actual Linux-wheel four-case regression on Windows in isolated targets (12.719s/10.451s); this is not local Linux execution.
+
+Superseded a6c283b Linux CI failed because the retained installed-pilot fixture still asserted a11. Corrected to a12 at9088666; superseded own push/PR runs were cancelled where active and excluded. Initial author fixture used an inadmissible closure, and initial reviewer launch used a wrong relative venv path; neither counts as defect/validation evidence. Historical failed evidence is preserved. Archive equality is checked per platform; cross-platform archive hash equality is not assumed.
+
+## Publication and remaining gate
+
+Reviewed source was guarded-published to worker main atdfa19c557bd0f7f9ac9e069bf5a4939bae32bb80. Its entire Git tree exactly equals9088666; actual author Atul Srivastava and GitHub squash committer were read back. [Main native37787096529](https://github.com/atulsrivas1/equity-feature-workers/actions/runs/37787096529) is running; actual-main artifacts/source/receipt readback and final canonical documentation review/current checks/publication remain pending. BUG006 is Ready to release/OPEN, not Done. Finish these same-story gates before acceptance/closure; no unrelated work is selected.
