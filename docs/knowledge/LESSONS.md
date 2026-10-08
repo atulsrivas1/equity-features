@@ -742,3 +742,8 @@ Postrelease R5 review reproduced an unrelated producer's committed receipt being
 ## BUG006 repair qualification — October 8, 2026
 
 A completion consumer must filter its owned task population before publication/removal, independent of telemetry. [BUG006](https://github.com/atulsrivas1/equity-features/issues/337) regressions prove the released default-path failure for both sinks while observed mode passes. Include full readback and a subsequent explicit drain of the foreign entry, rather than merely checking no exception. Patch/release gates remain pending; this is not qualification evidence for private workloads.
+
+
+## BUG006 verified delivery evidence — October 8, 2026
+
+[Repair delivery](../stories/BUG-006_DELIVERY.md) verifies admitted-identity filtering before publication/removal, preserving foreign pending entries and queue budgets regardless of diagnostics. Native/fresh wheel+sdist observed/unobserved both-sink regressions and separate extra BUSY/same-run retry/readback probes pass. Actual main per-platform archives/source hashes equal qualified source; original green a11 acceptance remains historical and did not cover this failure. Future completion consumers need ownership tests with and without optional telemetry; unrelated work must retain its own explicit completion drain. No broader production/concurrency/private-capacity conclusion is supported.

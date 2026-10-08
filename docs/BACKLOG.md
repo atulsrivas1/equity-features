@@ -1,3 +1,7 @@
+## R5.1 actual delivery evidence — October 8, 2026
+
+The sole bounded corrective story [BUG006](https://github.com/atulsrivas1/equity-features/issues/337) delivers experimental workers0.1.0a12 with scoped supervisor publication and both-sink observed/unobserved regressions. [Delivery/source/release evidence](stories/BUG-006_DELIVERY.md) binds separate review, native/fresh-installed forms, actual main artifacts and per-platform source parity. Final documentation publication/readback and live acceptance gate Done. Original R5 and134 EQ scope rows remain historical/unchanged; R6/private generation remain gated.
+
 ## Owner-selected R5.1 correction — October 8, 2026
 
 Owner requested [BUG006](https://github.com/atulsrivas1/equity-features/issues/337)'s repair. [R5.1 milestone17](https://github.com/atulsrivas1/equity-features/milestone/17) contains only that correction, experimental workers0.1.0a12, three provisional complexity points. [Plan](stories/BUG-006_PLAN.md) defines scope, independent regressions, documentation and review/native/installed/release gates. One active repair; original R5 acceptance/milestone and all134 EQ rows remain historical/unchanged. R6 and private generation stay gated. This supersedes the pending-selection snapshot immediately below.

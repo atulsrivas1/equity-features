@@ -1,4 +1,4 @@
-## BUG006 ownership correction — experimental workers0.1.0a12 candidate
+## BUG006 ownership correction — experimental workers0.1.0a12 corrective release
 
 Both reporter-enabled and default supervision drain only the invocation's admitted task identities. Concurrent producers' unrelated entries remain pending for a subsequent explicit creating-owner drain, and their count/bytes remain charged against publisher limits. The ownership set is independent of diagnostic reservations. [BUG006](https://github.com/atulsrivas1/equity-features/issues/337) tracks current review/native/installed/release acceptance; no private-generation admission follows from this correction.
 
