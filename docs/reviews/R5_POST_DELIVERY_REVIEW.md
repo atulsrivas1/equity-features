@@ -27,9 +27,9 @@ Repair should drain only the supervisor's admitted identities and preserve other
 | Story | Inspected behavior | Independent evidence |
 | --- | --- | --- |
 | EQ057 | Closed manifests, identity, input/result binding, codec/history declarations | 11 retained manifest methods; independent ordering declaration probe |
-| EQ058 | Session bars/trades/quotes commands and physical sink admission/readback | 14 methods; empty prefix plus three trade chunks and exact literals |
+| EQ058 | Session bars/trades/quotes commands and physical sink admission/readback | 14 methods; empty prefix plus three trade chunks/exact literals; false complete trade coverage rejected |
 | EQ059 | History/baseline/reference/relative dispatch, initialization and prior-only admission | 16 methods; independent raw history chunk baseline300/2=150 |
-| EQ060 | Dependency/assembly/universe barriers and retained proof consumption | 20 methods; false global complete certificate rejected |
+| EQ060 | Dependency/assembly/universe barriers and retained proof consumption | 20 retained barrier methods independently executed |
 | EQ061 | Serialized publication, immutable generation and original full-result verification | 20 methods; publication/generation source inspected |
 | EQ062 | Partition/reuse/budget/spill/default supervisor and producing-thread interaction | 35 methods; BUG006 independently uncovered beyond existing suite |
 | EQ063 | Stable task claims, attempt/cancellation/receipt-first recovery | 24 methods; additional unknown-to-commit and postcommit-cancellation probes |
