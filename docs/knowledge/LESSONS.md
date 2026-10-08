@@ -1,5 +1,8 @@
 ## EF-L054 — Physical pilot measurement and source admission are separate
 
+Actual runtime release [receipt](../stories/EQ-066_RELEASE_RECEIPT.json) SHAe7846f2812af06b310fc0625c09a539df0034ad26a2cb16ddf7e9c7674e5b1f7 verifies both native platforms, actual20archives22files/56source/fourforms/source+per-platform qualified archive equality/finite expiry and exact published tree/source report/owner readback. The [R5 audit](../R5_ACCEPTANCE.md) preserves all child acceptance and separate private gates. Same-story final evidence review/currentCI/final-main/readback/acceptance remain pending; a successful runtime merge alone is not Done.
+
+
 Full frozen physical protocol completed with162 verified measured samples/zero skips/six excluded references; raw public report [EQ066](../stories/EQ-066_BENCHMARK.json) SHA51141ad524d47c72574e5d304d31c5bd5196fdb955d22125ccd899a17e486c99. All24 process configurations were slower at the median than their measured sequential1 baseline; fixed thread counts each lost on at least one workload/sink pair. Keep bounded sequential1 as the documented starting configuration for these fixtures, preserving individual faster thread outcomes and repeat variability. More configured workers are not a delivery target. Simultaneous sampled job RSS was108.2–155.9MiB for sequential1 versus200.1–323.7MiB for process8, with shared-page/short-peak/scan/counter limitations retained. This is measured Windows CPython3.12.10 engineering evidence, not Linux full-scaling or private capacity approval. Current corrected native source37730743379 qualifies bothOS/fourfreshforms; actual producer versions match manifests. Local repeat/final metadata/currentCI/actual-main/release/acceptance remain pending.
 
 
