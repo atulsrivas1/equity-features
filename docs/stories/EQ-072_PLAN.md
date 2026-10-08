@@ -1,0 +1,23 @@
+# EQ072 composition preparation — externally blocked
+
+[Story81](https://github.com/atulsrivas1/equity-features/issues/81), E09/R6. This pre-code design does not change the actual Backlog state or claim qualified composition. Required provider acceptance remains blocked. EQ069/070 owned normalized fixtures and synthetic package evidence cannot establish compatible real datasets. Reuse accepted canonical/I/O/worker protocols; no new join/calculation/fetching contract inside numerical packages.
+
+## Admission identity before numerical composition
+
+Prepare a caller-owned finite manifest of named input roles and original source bindings. Each role names accepted immutable provider/file snapshot, mapping revision, input digest, dataset/schema, canonical instrument IDs, supplied session IDs/bounds, source-population/eligibility/auction policy, price scale/currency, integral-share units, raw/adjusted basis/action snapshot/anchor, original known-at and source/delivery coverage. Every role must meet actual adapter capabilities and calculation requirements before acquisition or compute; registration and matching tickers are insufficient.
+
+Compare canonical identity/session, exact units and adjustment evidence through existing public compatibility/admission helpers. Unknown/missing scope, incompatible population/auction policy, currency/price scale, session/RTH-vs-UTC daily, adjustment actions/anchor, duplicate/out-of-order data or unqualified quote sampling reject. Explicit conversions require existing public reports and compatible mathematical specifications; never automatic rounding, fractional truncation or ticker-only joining. Keep distinct immutable provenance for both sources even when their normalized prices agree. Do not replace absent prior/benchmark/universe inputs with provider defaults.
+
+Temporal compatibility uses original facts and existing C/K/E rules. Equal event timestamps do not prove equal knowledge time. Preserve null/future known-at for numerical quality admission; no retrieval/capture substitution. Retain separate source and delivered counts and missing/unavailable/empty/partial status. A compatible type schema or successful EOF cannot prove source completeness/corrections/rights. Explicit qualified governance is required for complete computation.
+
+## Independent probes to freeze before code
+
+Owned valid pair: different source/snapshot/mapping/input IDs mapped explicitly to canonical A/S, USDscale9/integralshares/raw-v1, same caller-owned minute/population and separately preserved lineage. Exact literal BAR OHLC100/102/99/101/volume10 with absent actualnotional; no invented cross-source notional or vendor VWAP reconciliation. Repeat direct/factory/worker consumption and compare full canonical/result/status/metadata/evidence identities, not values only. Unknown/future knowledge remains unchanged.
+
+Negatives vary one independently governed fact: ticker-equal/canonical-ID-different, session same label/different bounds, venue-vs-consolidated population, currency/scale, fractional quantity, raw-vs-split/action revision/anchor, snapshot/mapping/input substitution, missing scope, unavailable/empty/incomplete, quote snapshot-vs-continuous, UTCdaily-vs-RTH, cutoff/known-at mismatch and duplicate/out-of-order/chunk metadata. Reject before misleading merged provenance or output. Tests must exercise actual candidates and guarded paths; constructing an expected error code is not an executed failure.
+
+Provider facts remain distinct: a Databento venue feed and Massive consolidated eligible aggregates are not automatically the same population even if both represent AAPL. Fractional Massive volume may be incompatible with canonical integral shares. Actual bounded proof requires approved genuinely compatible sources/entitlements/rights/freecost, with securely injected credentials. No additional provider requests outside owner-approved tiny historical scope. A mock or a truthful fractional rejection cannot replace positive compatibility evidence.
+
+## Entry and completion
+
+Remain Backlog while actual provider qualification/compatible population inputs are missing. Independent design preparation is authorized by owner's remaining-R6 request and [test strategy](../R6_TEST_STRATEGY.md). Pull implementation only when required prerequisites are met and exact Ready admission is recorded. Later source/tests/docs, separate review, native/fresh installed consumers/current checks/source/archive/expiry/attribution/default-branch readback precede release/Done. Ownerbudget0, no costs/credits/live/cache/retry/subscription/upgrades. No numerical policy expansion/R7/private generation/registry/stable/recurring/destructive work.
