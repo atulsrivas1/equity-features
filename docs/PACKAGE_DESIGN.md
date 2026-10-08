@@ -261,4 +261,3 @@ Existing SDK/contracts/sinks/workers exact version pair stays unchanged. Provide
 adapters later depend on this explicitly; no concrete transport, credential access,
 cache or fetching enters calculation packages. Current issue77 owns source/review/
 native/main acceptance. No registry/stable release or provider proof is implied.
-
