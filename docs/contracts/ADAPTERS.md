@@ -1,5 +1,14 @@
 # Adapter contracts and synthetic development kit (EQ-016)
 
+## R6 shared acquisition controls
+
+[EQ068 controls](../api/ACQUISITION_CONTROLS.md) are optional runtime support in
+equity-feature-io, under qualification. They reuse these pure request/error types
+and the accepted I/O CredentialProvider; no core protocol/API/math change. Explicit
+request-scoped user consent precedes credential lookup/transport; immutable cache
+retention/use has separate approval. Native installed support tests do not qualify
+actual provider normalization, access, coverage, historical knowledge or data rights.
+
 ## R4.1 ownership clarification
 
 Existing pure input protocol/SDK contracts remain compatible in `equity-feature-contracts`. New storage publication and explicit factory interfaces are planned in companion I/O packages; concrete adapters/sinks stay outside calculations. [Architecture](../IO_WORKER_ARCHITECTURE.md) specifies responsibilities and consumer extension paths. Do not interpret a historical absence-of-DuckDB statement below as current R4 delivery status. No contract/runtime change occurs in this planning story.

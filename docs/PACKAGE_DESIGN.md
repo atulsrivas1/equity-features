@@ -252,3 +252,12 @@ three strictly typed adapter modules and independently expected mapping fixtures
 The optional builder now qualifies the expanded installed suite/forms; exact pinned
 contracts0.0.4a4/DuckDB1.5.6 and pure core remain unchanged. No read/calendar/real
 numerical acceptance yet; actual review/artifact/publication gates remain.
+# R6 acquisition support addition
+
+[EQ068 shared acquisition](api/ACQUISITION_CONTROLS.md) is separately installable
+experimental equity-feature-acquisition0.1.0a0 in equity-feature-io. Dependency is
+accepted I/O contracts0.1.0a2; reuse canonical request/error and CredentialProvider.
+Existing SDK/contracts/sinks/workers exact version pair stays unchanged. Provider
+adapters later depend on this explicitly; no concrete transport, credential access,
+cache or fetching enters calculation packages. Current issue77 owns source/review/
+native/main acceptance. No registry/stable release or provider proof is implied.
