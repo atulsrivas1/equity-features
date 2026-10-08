@@ -1,5 +1,8 @@
 ## EF-L054 — Physical pilot measurement and source admission are separate
 
+Continued concrete ownership faults supersede the first job implementation: live handle-query errors could skip a preexisting launcher child, failed CloseHandle discarded job identity/fallback, and sampler dictionary mutation could bypass Linux group cleanup. [Preserved review rework](https://github.com/atulsrivas1/equity-features/issues/74#issuecomment-6052552837). Create Windows root suspended and verify its job before any instruction, then resume an exact verified primary thread; all descendants inherit ownership, avoiding a scheduling-sensitive capture workaround. Failures remain failures even after bounded fallback. Stop sampling before immutable retained-identity copying; never close a buffered pipe under a blocked reader. Focused8/58.395s and targeted native-fault cases passed; renewed whole-source/native/performance/release qualification remains pending.
+
+
 EQ066 review correction: memory observation alone does not own coordinator lifetime. Separate reviewed cleanup must terminate only owned identities, preserve the original failure and always finalize sampling; terminal root exit is not child completion. Windows job membership must cover preexisting virtualenv children before input; Linux group signaling needs retained creation identity. Repeated evidence locations must reject existing reports before work. [Concrete review/rework](https://github.com/atulsrivas1/equity-features/issues/74#issuecomment-6052428323) preserves the bounded surviving-child probe and superseded204-suite results. Corrected focused7/58.699s passed; renewed full/source/native/performance/release gates remain pending.
 
 
