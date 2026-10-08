@@ -1,5 +1,7 @@
 ## EF-L052 selection must fence every caller callback before admission
 
+EQ064 source qualification: native run37710957195 Windows3.12.10/Linux3.12.15 and local frozen repeat passed all four installed catalog21/strict12 forms; exact [source receipt](../stories/EQ-064_SOURCE_RECEIPT.json) binds actual artifacts and unchanged source/core identities. Independent reviewer162/158.231s passed with no actionable findings. This establishes the source candidate, while artifact/final metadata review/current CI and actual main release/readback/acceptance remain pending.
+
 Fence creating-thread selection re-entry at method entry, before cancellation or dependency/capability callbacks, not only before writer lock acquisition. Caller callbacks are trusted code but cannot recursively select through the same operation. Direct regressions cover cancellation/admission and generation-read re-entry. Final162 tests174.469s/strict12/example pass; this author development result is distinct from separate exact-head review/native/fresh artifact/actual-main release. Preserve earlier successful172.600s and initial failed fixture/cancellation evidence. [Candidate/source evidence](../stories/EQ-064_DELIVERY.md). No numerical/sink/schema change.
 
 ## EF-L052 cancellation and pre-side-effect catalog admission
