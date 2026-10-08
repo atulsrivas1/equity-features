@@ -1,3 +1,7 @@
+## EF-L053 — Observed stage work and actual task acceptance are distinct
+
+EQ065 pre-code decision: record bounded actual operational durations with units/boundaries and fixed redacted reasons; concurrent spans cannot be added as elapsed wall time. Preserve original Task/Output/Result/Receipt identities and separate computed output, verified commit, immutable generation and selected catalog states. Failed measurement cannot erase durable work or certify unavailable readback. [Pre-code plan](../stories/EQ-065_PLAN.md) and frozen independent diagnostic_oracle precede runtime; no implementation/performance/acceptance claimed. EQ064 current-main guard lesson: preserve independent documentation synchronization and use distinct reviewed publication chains rather than asserting unchanged full-tree identity under an unrelated merge; actual supplement/acceptance evidence6050557124/6050565243 records the bounded R5 result without taking GOV016 ownership.
+
 ## EF-L052 selection must fence every caller callback before admission
 
 EQ064 actual runtime delivery: native37712536019 Windows/Linux and canonical37712542753/docs37712542783 passed; actual [release receipt](../stories/EQ-064_RELEASE_RECEIPT.json) binds source/archive equality to qualified candidate. Source/metadata reviews passed and complete published trees/public receipt/attribution match the guarded reviewed heads. Final same-story evidence review/currentCI/publication/native/readback/acceptance remain pending; do not infer Done from the runtime merge.
