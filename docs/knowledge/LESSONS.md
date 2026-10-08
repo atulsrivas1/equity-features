@@ -1,3 +1,7 @@
+## EF-L056 supplemental independent review evidence
+
+[EQ068 rework](https://github.com/atulsrivas1/equity-feature-io/pull/12#issuecomment-6062914124) adds two P2 corrections beyond the original29test coverage: monotonic time can advance between condition and sleep calculation, so recheck the actual timestamp against target/deadline before sleeping; permission expiry must not prevent purging expired cache entries.32-case corrected fixtures include these independent counterexamples and oversized-row nonpublication. Prior source/build evidence remains historical; final review/native/publication gates must be renewed. No performance or provider rights claim follows.
+
 ## EF-L055 — Acquisition consent, capability and data rights are separate
 
 Same-story [receipt review correction](https://github.com/atulsrivas1/equity-features/pull/342#issuecomment-6062424070) repeats the exact-byte lesson: native Windows text writing can produce CRLF while Git publishes LF. Hash exact public Git bytes and label original local bytes separately; equal parsed JSON cannot substitute for a claimed byte digest. [Delivery](../stories/EQ-067_DELIVERY.md) preserves both identities and the failed/superseded candidate. No archive or provider proof changed; corrected documentation still requires renewed final-head review/current checks.
