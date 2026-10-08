@@ -1,6 +1,8 @@
 # Equity Features
 
-**R4.1 release audit:** EQ121–129 are accepted; [EQ130 acceptance](docs/R4_1_ACCEPTANCE.md) records the final documentation/review/publication gates and canonical outcome. Pure calculations remain here; independent sources/sinks live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io), and workers0.1.0a1 remains a version-only skeleton. [R5 resume](docs/R5_AUTONOMOUS_HANDOFF.md) prepares EQ057#65 after actual acceptance; no worker implementation is delivered by this audit.
+Captured October 7, 2026, America/New_York, under [GOV-016 #331](https://github.com/atulsrivas1/equity-features/issues/331). [Synchronization audit](docs/knowledge/SYNCHRONIZATION_AUDIT.md) records inspected source heads, checks and limitations. R0–R4.1 are accepted; EQ057–063 are Done, EQ064 is Released with final acceptance pending, and EQ065–066 remain Backlog. The dedicated R5 owner retains delivery. Recheck the [live Project](https://github.com/users/atulsrivas1/projects/2) before acting; these facts are a dated capture, not an execution override.
+
+Pure calculations remain here; sources/sinks live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io), and implemented experimental workers live in [equity-feature-workers](https://github.com/atulsrivas1/equity-feature-workers). [R5 handoff](docs/R5_AUTONOMOUS_HANDOFF.md) preserves detailed delivery evidence and boundaries.
 
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
@@ -9,7 +11,7 @@ Source-independent equity feature calculations for reproducible research, backte
 R2 remains accepted under its original0.0.3a13 receipt.
 All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
 conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
-R2/R3 and [R4](docs/R4_ACCEPTANCE.md) are accepted. Current optional DuckDB implementation/API/tests/artifact channel live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io); [migration](docs/DUCKDB_MIGRATION.md) preserves imports and accepted R4 semantics. This repository retains pure contracts/features, historical R4 plans/receipts and explicit API redirects. [R4.1](docs/R4_1_DELIVERY_PLAN.md) release acceptance and remaining prerequisites are tracked through the canonical issues/Project.
+R2/R3 and [R4](docs/R4_ACCEPTANCE.md) are accepted. Current optional DuckDB implementation/API/tests/artifact channel live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io); [migration](docs/DUCKDB_MIGRATION.md) preserves imports and accepted R4 semantics. This repository retains pure contracts/features, historical R4 plans/receipts and explicit API redirects. [R4.1 acceptance](docs/R4_1_ACCEPTANCE.md) and canonical issues retain the qualified versions and migration evidence.
 [Adapter SDK](docs/contracts/ADAPTER_KIT.md) and [delivery evidence](docs/stories/EQ-043_DELIVERY.md) record its supported synthetic adapter and supplied-case checks.
 [Custom API](docs/api/CUSTOM_FEATURES.md) and [delivery evidence](docs/stories/EQ-093_DELIVERY.md)
 record supported modes and review/installation limits.

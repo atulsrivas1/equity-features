@@ -1,3 +1,9 @@
+# Synchronization capture — October 7, 2026
+
+Captured October 7, 2026, America/New_York, under [GOV-016 #331](https://github.com/atulsrivas1/equity-features/issues/331). [Synchronization audit](knowledge/SYNCHRONIZATION_AUDIT.md) records inspected source heads, checks and limitations. R0–R4.1 are accepted; EQ057–063 are Done, EQ064 is Released with final acceptance pending, and EQ065–066 remain Backlog. The dedicated R5 owner retains delivery. Recheck the [live Project](https://github.com/users/atulsrivas1/projects/2) before acting; these facts are a dated capture, not an execution override.
+
+The earlier execution snapshots below are historical. Specifications, decisions and exact receipts remain authoritative within their recorded scope. This audit does not take ownership from the active release session.
+
 ## EQ130 release audit under qualification
 
 EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
