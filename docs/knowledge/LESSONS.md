@@ -1,3 +1,7 @@
+## EF-L054 — Physical pilot measurement and source admission are separate
+
+Frozen protocol/oracle and actual source/calculation/sink generation/catalog full-content parity must precede performance or readiness claims. Sample simultaneous live RSS, not separate process peak sums; Windows virtualenv launchers can hide actual allocator memory, so use real PID+creation identity and independently touched allocations. Preserve failed measurements and limits; source rights/PIT/calendar/warm-up/math/month/annual capacity remain source-specific even when synthetic package engineering qualifies. [Pre-code plan](../stories/EQ-066_PLAN.md) and [measurement API](../api/WORKER_PILOT_READINESS.md). No benchmark/release acceptance claimed in this lesson preparation.
+
 ## EF-L053 — Observed stage work and actual task acceptance are distinct
 
 [EQ065 final acceptance](https://github.com/atulsrivas1/equity-features/issues/73#issuecomment-6052115168) records actual final archive/source parity and full public readback. A retained Windows readiness timeout lacks pre-cleanup child state, so its cause remains unknown even after a bounded same-head retry and independent controlled probes pass. Preserve failed attempt/phase/limitations; a later pass is evidence, not a diagnosis. Recurrence requires diagnostic rework, not blind reruns or arbitrary timeout growth. Final evidence review also caught a default-code-page rewrite; restore exact historical UTF8 bytes and use explicit decoding rather than broad historical cleanup.
