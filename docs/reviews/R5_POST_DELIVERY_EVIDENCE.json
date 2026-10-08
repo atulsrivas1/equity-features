@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-08 America/New_York",
+  "scope": "Postrelease R5 source/evidence review; no private or R6 execution",
+  "heads": {
+    "worker": "0f41db20730bafa27d79d116f6432ff168959d08",
+    "canonical": "93545515f08a196b8701f9b40a21537a87c63b16",
+    "io": "4603c6e50331a5e8a82b13b62a0cdd5ffaa0e4bf"
+  },
+  "children": [
+    {
+      "issue": 65,
+      "story": "[EQ-057] Implement task/input/output manifest contracts",
+      "state": "closed",
+      "project_status": "Done"
+    },
+    {
+      "issue": 66,
+      "story": "[EQ-058] Implement session bars/trades/quotes commands",
+      "state": "closed",
+      "project_status": "Done"
+    },
+    {
+      "issue": 67,
+      "story": "[EQ-059] Implement history/baseline/reference/relative commands",
+      "state": "closed",
+      "project_status": "Done"
+    },
+    {
+      "issue": 68,
+      "story": "[EQ-060] Implement assembly and universe breadth barriers",
+      "state": "closed",
+      "project_status": "Done"
+    },
+    {
+      "issue": 69,
+      "story": "[EQ-061] Publish immutable typed output generations",
+      "state": "closed",
+      "project_status": "Done"
+    },
+    {
+      "issue": 70,
+      "story": "[EQ-062] Implement bounded supervisor and partitioning",
+      "state": "closed",
+      "project_status": "Done"
+    },
+    {
+      "issue": 71,
+      "story": "[EQ-063] Implement claims, retries, resume and cancellation",
+      "state": "closed",
+      "project_status": "Done"
+    },
+    {
+      "issue": 72,
+      "story": "[EQ-064] Implement serialized catalog publication",
+      "state": "closed",
+      "project_status": "Done"
+    },
+    {
+      "issue": 73,
+      "story": "[EQ-065] Add progress, diagnostics and end-to-end fault tests",
+      "state": "closed",
+      "project_status": "Done"
+    },
+    {
+      "issue": 74,
+      "story": "[EQ-066] Qualify pilot and historical generation readiness",
+      "state": "closed",
+      "project_status": "Done"
+    }
+  ],
+  "suite": {
+    "methods": 208,
+    "seconds": 339.367,
+    "result": "passed",
+    "environment": "Windows CPython3.12.10; nine locally built installed exact-source distributions"
+  },
+  "typing": {
+    "source_files": 13,
+    "result": "passed"
+  },
+  "pip_check": "passed",
+  "artifacts": [
+    {
+      "artifact_id": 11534832234,
+      "platform": "Windows",
+      "server_zip_sha256": "006d3c5fcfb31cf4992c19063603fd1cf0e8913d2597e52abeae6d92e9f7a6a0",
+      "files": 11,
+      "archive_hashes_verified": 10,
+      "final_manifest_sha256": "2596793173f62f4e9d5b4a2b71d6158f84667489400ecfbd7b632cdb2db12718",
+      "original_runtime_manifest_parity_required": false,
+      "expires_at": "2026-11-07T07:32:51Z",
+      "forms": 2,
+      "source_hashes_verified": 56
+    },
+    {
+      "artifact_id": 11534781250,
+      "platform": "Linux",
+      "server_zip_sha256": "8ceb0c807bcef4998300575f2ceabc2380472610efc59db97858c909cf2d352e",
+      "files": 11,
+      "archive_hashes_verified": 10,
+      "final_manifest_sha256": "ee970f241fba15fe5071fd35b8f49243faa201a0a39e17fe398d28b2b0b9e27b",
+      "original_runtime_manifest_parity_required": false,
+      "expires_at": "2026-11-07T07:24:54Z",
+      "forms": 2,
+      "source_hashes_verified": 56
+    }
+  ],
+  "extra_released_wheel_probes": {
+    "sinks": [
+      "parquet",
+      "duckdb"
+    ],
+    "finding": "BUG006 reproduced: COMMITTED foreign sink output, empty queue, zero subsequent drain records, false CALCULATION_FAILED primary"
+  },
+  "benchmark_audit": {
+    "measured_samples": 162,
+    "configurations": 54,
+    "excluded_reference_samples": 6,
+    "independent_arithmetic": "passed",
+    "extra_physical_samples": [
+      "large4096/parquet/process4",
+      "skew2528/duckdb/thread2"
+    ]
+  },
+  "core_package_tree": "1ad826074052160eba7280cbab8bd710b3ba1fe6",
+  "reviewers": [
+    "/root",
+    "/root/r5_commands_review",
+    "/root/r5_reliability_review",
+    "/root/r5_pilot_review"
+  ],
+  "limitations": [
+    "Local automated review, not human or hosted review",
+    "No local Linux execution; final Linux artifacts/CI evidence audited",
+    "Full original 162-sample performance campaign not repeated",
+    "No private rights/PIT/pilot/month/annual qualification",
+    "No implementation changes or BUG006 repair"
+  ]
+}

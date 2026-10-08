@@ -1,3 +1,7 @@
+## Postrelease defect scope — October 8, 2026
+
+[BUG006 #337](https://github.com/atulsrivas1/equity-features/issues/337) is a reproduced P2 default supervisor/shared-publisher completion-accounting defect in accepted workers0.1.0a11, linked to EQ062/EQ065/E08. It remains Backlog/unimplemented, with corrective release assignment/ownership pending; no accepted R5 milestone or receipt is silently reopened. Its issue specifies exact reproduction, independent both-sink regression, review and release gates. [Postdelivery review](reviews/R5_POST_DELIVERY_REVIEW.md) verifies the original release and explains the new finding. The134 EQ story rows and future scope are unchanged. Stop before R6 and keep private pilot/month/annual NOT_ADMITTED.
+
 ## R5 runtime release audit — October 8, 2026
 
 Nine prior worker stories are accepted. EQ066#74 Released/OPEN has actual-main native/artifact/source/archive/public-tree/receipt/report/attribution evidence; [R5 audit](R5_ACCEPTANCE.md) and [readiness matrix](api/WORKER_PILOT_READINESS.md) preserve its measured bounded defaults and private/month/annual NOT_ADMITTED gates. Final same-story evidence review/current CI/publication/readback/acceptance and aggregate all-ten/E08/milestone closure remain required. Scope and dependencies below are unchanged; stop before R6.

@@ -732,3 +732,8 @@ EF-L044 ordering correction: distinguish prerequisite-description reconciliation
 ## Planning coverage must follow the full approved scope — GOV016
 
 The synchronization audit found 134 active canonical EQ stories but only 129 structured backlog rows and a CI assertion fixed at129. Existing C1 scope EQ131–135 had been published as linked prose without entering that coverage gate. A green planning check established coverage of its own frozen list, not every approved story. Compare numbered issues, versioned rows, milestone assignments and CI inventory when scope changes; preserve retired identifiers. Similarly, reconcile epic child checkboxes against actual Closed/Project Done acceptance, leaving Released children unchecked. [Audit and exact limits](SYNCHRONIZATION_AUDIT.md) preserve this observation and correction. No new scope or numerical qualification follows.
+
+
+## Optional diagnostics must not determine publication ownership — BUG006
+
+Postrelease R5 review reproduced an unrelated producer's committed receipt being consumed by the default supervisor, while the reporter-enabled scoped drain preserves it. The208-method accepted suite and native artifact parity both pass; neither covered that default-path interaction. Compare observed/unobserved behavior under synchronized external producer submission, retaining original full sink readback and unrelated explicit-drain completion. Correct the queue ownership boundary, not merely the exception message or a filter after consumption. [Postrelease review](../reviews/R5_POST_DELIVERY_REVIEW.md), [BUG006](https://github.com/atulsrivas1/equity-features/issues/337). Preserve R5 original acceptance; no new repair or private/R6 readiness follows.
