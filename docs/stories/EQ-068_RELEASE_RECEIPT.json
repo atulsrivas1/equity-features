@@ -1,0 +1,213 @@
+{
+  "schema": "eq068-acquisition-native-audit1",
+  "source_head": "9473f8833da3a5d95e4192f813de041fd90db399",
+  "run_id": "37800295045",
+  "bundles": [
+    {
+      "id": 11559759898,
+      "name": "acquisition-9473f8833da3a5d95e4192f813de041fd90db399-windows-latest",
+      "zip_sha256": "b2070f4e874114011880b623a32496db471546d0b465c9bde25041232770763d",
+      "expires_at": "2026-11-07T15:24:30Z",
+      "manifest": {
+        "schema": "acquisition1",
+        "commit": "9473f8833da3a5d95e4192f813de041fd90db399",
+        "core_commit": "4689892117bdf70ef47726c1dee754e3e23b0658",
+        "source_dirty": false,
+        "python": "3.12.10",
+        "system": "Windows",
+        "archives": {
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": "54097268c067f2b794e6145a4ff40604afe1f90619ad3ddd97b2953d6a450abc",
+          "equity_feature_acquisition-0.1.0a0.tar.gz": "f96f487fbe658667a6bc3484b48a5cb0c013fb78e3a1608e02aa4e7666e22f9e",
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2",
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549",
+          "equity_features-0.0.4a4-py3-none-any.whl": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0"
+        },
+        "source_sha256": {
+          "packages/acquisition/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "packages/acquisition/pyproject.toml": "55e8f5ae80b8f3efc65f526a79a85ee7f0a9a446b8adb252e5cdf5d0fac4a227",
+          "packages/acquisition/README.md": "11d8095cef9f571b5d6c698513e107a6078b21957dd6ace60ba3426d889907af",
+          "packages/acquisition/src/equity_feature_acquisition/__init__.py": "97873433211f4190e8a8dc204fb5fc560ee528ad22f89a90749bc1522318a1a2",
+          "packages/acquisition/src/equity_feature_acquisition/cache.py": "24cada01ad84f23fc6899e0c6fbecb819b5a12d19a7724e0f91f45c487db897e",
+          "packages/acquisition/src/equity_feature_acquisition/controls.py": "debab9a7d5a75818f0e3eb1d878efd22d681a11d1ecd395f4f989ba6ef37420b",
+          "packages/acquisition/src/equity_feature_acquisition/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "packages/io-contracts/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "packages/io-contracts/pyproject.toml": "9fed91a3b763bdc59079e8915d1a597efaa132944117225d9f45ac6c911c4081",
+          "packages/io-contracts/README.md": "cd944a8640be237e10a1dea8140b8eeadd0e4969aecdd20e2abd6ee566b11ed5",
+          "packages/io-contracts/src/equity_feature_io_contracts/__init__.py": "4b8f12e8bc62dcee1c38a7b94b6a945862522d7da8368d27c786cacedccf6f94",
+          "packages/io-contracts/src/equity_feature_io_contracts/factories.py": "68c96e6b8ed7ebfd50420ef20091f3452fd38fc323254aa97c6a74473ff9fec8",
+          "packages/io-contracts/src/equity_feature_io_contracts/publication.py": "150aff12da3f760e4f2cd8e2f4980c31ee9056c25c5fc73c23e239784566f9d6",
+          "packages/io-contracts/src/equity_feature_io_contracts/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/acquisition/test_controls.py": "48343a20f57319bb45598d8aaee849d257ef1de115ad730c6545b3914027c373",
+          "tests/acquisition_goldens.json": "11b31684ee7f8fef33a094624d2b9a9212f5d95171ffd321f4df92adf33ab774",
+          "tests/acquisition_probe.py": "7e21ca4c55bf55f674e0e2981d6c3ab9545497ff8f593cda31fcba9c73a46c0b",
+          "examples/acquisition_consumer.py": "805ef380042ceaace3e43a5c5a56580fde2ee85127af7eb643284fdab4443d0e",
+          "tools/build_acquisition.py": "8df88958c5dda877fc528dae83d892b13ff2e036913dca94fd284d7751fe2dab",
+          "tools/build_foundation.py": "c5d7ffe187c13b4f11c706074725608963070b4610e2b6575fb00ab4a79dea91",
+          "requirements-dev.txt": "008a66fd483b8918eae1b2c63ce92ff0e8473e2b82fe44f319b6b0c70a531217",
+          ".github/workflows/acquisition.yml": "38496ed92add3136708c10a990f46bf40039a4638edb588aff47439eedf38cc6"
+        },
+        "forms": [
+          {
+            "installed_public_execution": true,
+            "versions": {
+              "equity-feature-acquisition": "0.1.0a0",
+              "equity-feature-io-contracts": "0.1.0a2",
+              "equity-feature-contracts": "0.0.4a4",
+              "equity-features": "0.0.4a4"
+            },
+            "tests_run": 32,
+            "failures": 0,
+            "skips": 0,
+            "third_party_transport": true,
+            "strict_typing": true,
+            "rejected_invalid_calls": 2,
+            "source_sha256": {
+              "tests\\acquisition\\test_controls.py": "48343a20f57319bb45598d8aaee849d257ef1de115ad730c6545b3914027c373",
+              "tests\\acquisition_goldens.json": "11b31684ee7f8fef33a094624d2b9a9212f5d95171ffd321f4df92adf33ab774",
+              "examples\\acquisition_consumer.py": "805ef380042ceaace3e43a5c5a56580fde2ee85127af7eb643284fdab4443d0e"
+            },
+            "form": "wheel",
+            "source_commit": "9473f8833da3a5d95e4192f813de041fd90db399",
+            "core_before_sha256": "1dbbecf44f84a36ba627523db947a78ca63539f6a26f0682749048d0716b09b6",
+            "core_after_sha256": "1dbbecf44f84a36ba627523db947a78ca63539f6a26f0682749048d0716b09b6"
+          },
+          {
+            "installed_public_execution": true,
+            "versions": {
+              "equity-feature-acquisition": "0.1.0a0",
+              "equity-feature-io-contracts": "0.1.0a2",
+              "equity-feature-contracts": "0.0.4a4",
+              "equity-features": "0.0.4a4"
+            },
+            "tests_run": 32,
+            "failures": 0,
+            "skips": 0,
+            "third_party_transport": true,
+            "strict_typing": true,
+            "rejected_invalid_calls": 2,
+            "source_sha256": {
+              "tests\\acquisition\\test_controls.py": "48343a20f57319bb45598d8aaee849d257ef1de115ad730c6545b3914027c373",
+              "tests\\acquisition_goldens.json": "11b31684ee7f8fef33a094624d2b9a9212f5d95171ffd321f4df92adf33ab774",
+              "examples\\acquisition_consumer.py": "805ef380042ceaace3e43a5c5a56580fde2ee85127af7eb643284fdab4443d0e"
+            },
+            "form": "sdist",
+            "source_commit": "9473f8833da3a5d95e4192f813de041fd90db399",
+            "core_before_sha256": "1dbbecf44f84a36ba627523db947a78ca63539f6a26f0682749048d0716b09b6",
+            "core_after_sha256": "1dbbecf44f84a36ba627523db947a78ca63539f6a26f0682749048d0716b09b6"
+          }
+        ]
+      },
+      "files": {
+        "equity_features-0.0.4a4-py3-none-any.whl": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0",
+        "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": "54097268c067f2b794e6145a4ff40604afe1f90619ad3ddd97b2953d6a450abc",
+        "equity_feature_acquisition-0.1.0a0.tar.gz": "f96f487fbe658667a6bc3484b48a5cb0c013fb78e3a1608e02aa4e7666e22f9e",
+        "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2",
+        "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549",
+        "manifest.json": "836a75f8196b9dda0938641d7a6d9b59261064e01320ff005447206d118b63c8"
+      }
+    },
+    {
+      "id": 11559734929,
+      "name": "acquisition-9473f8833da3a5d95e4192f813de041fd90db399-ubuntu-24.04",
+      "zip_sha256": "928b4dc1fab1d21068b670430f56cfeae07dbed60343a009531574cd47cb9c1e",
+      "expires_at": "2026-11-07T15:23:36Z",
+      "manifest": {
+        "schema": "acquisition1",
+        "commit": "9473f8833da3a5d95e4192f813de041fd90db399",
+        "core_commit": "4689892117bdf70ef47726c1dee754e3e23b0658",
+        "source_dirty": false,
+        "python": "3.12.15",
+        "system": "Linux",
+        "archives": {
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": "9b6dca40280850599db8e194fe280cd651aa06b7132998d55e61861dfdd2d1e3",
+          "equity_feature_acquisition-0.1.0a0.tar.gz": "447ffcf5d5adae758f5b2f897723c2cc6ca7b9940660aafe12c9154e80ea8f6a",
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99",
+          "equity_features-0.0.4a4-py3-none-any.whl": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e"
+        },
+        "source_sha256": {
+          "packages/acquisition/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "packages/acquisition/README.md": "11d8095cef9f571b5d6c698513e107a6078b21957dd6ace60ba3426d889907af",
+          "packages/acquisition/pyproject.toml": "55e8f5ae80b8f3efc65f526a79a85ee7f0a9a446b8adb252e5cdf5d0fac4a227",
+          "packages/acquisition/src/equity_feature_acquisition/__init__.py": "97873433211f4190e8a8dc204fb5fc560ee528ad22f89a90749bc1522318a1a2",
+          "packages/acquisition/src/equity_feature_acquisition/cache.py": "24cada01ad84f23fc6899e0c6fbecb819b5a12d19a7724e0f91f45c487db897e",
+          "packages/acquisition/src/equity_feature_acquisition/controls.py": "debab9a7d5a75818f0e3eb1d878efd22d681a11d1ecd395f4f989ba6ef37420b",
+          "packages/acquisition/src/equity_feature_acquisition/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "packages/io-contracts/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "packages/io-contracts/README.md": "cd944a8640be237e10a1dea8140b8eeadd0e4969aecdd20e2abd6ee566b11ed5",
+          "packages/io-contracts/pyproject.toml": "9fed91a3b763bdc59079e8915d1a597efaa132944117225d9f45ac6c911c4081",
+          "packages/io-contracts/src/equity_feature_io_contracts/__init__.py": "4b8f12e8bc62dcee1c38a7b94b6a945862522d7da8368d27c786cacedccf6f94",
+          "packages/io-contracts/src/equity_feature_io_contracts/factories.py": "68c96e6b8ed7ebfd50420ef20091f3452fd38fc323254aa97c6a74473ff9fec8",
+          "packages/io-contracts/src/equity_feature_io_contracts/publication.py": "150aff12da3f760e4f2cd8e2f4980c31ee9056c25c5fc73c23e239784566f9d6",
+          "packages/io-contracts/src/equity_feature_io_contracts/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/acquisition/test_controls.py": "48343a20f57319bb45598d8aaee849d257ef1de115ad730c6545b3914027c373",
+          "tests/acquisition_goldens.json": "11b31684ee7f8fef33a094624d2b9a9212f5d95171ffd321f4df92adf33ab774",
+          "tests/acquisition_probe.py": "7e21ca4c55bf55f674e0e2981d6c3ab9545497ff8f593cda31fcba9c73a46c0b",
+          "examples/acquisition_consumer.py": "805ef380042ceaace3e43a5c5a56580fde2ee85127af7eb643284fdab4443d0e",
+          "tools/build_acquisition.py": "8df88958c5dda877fc528dae83d892b13ff2e036913dca94fd284d7751fe2dab",
+          "tools/build_foundation.py": "c5d7ffe187c13b4f11c706074725608963070b4610e2b6575fb00ab4a79dea91",
+          "requirements-dev.txt": "008a66fd483b8918eae1b2c63ce92ff0e8473e2b82fe44f319b6b0c70a531217",
+          ".github/workflows/acquisition.yml": "38496ed92add3136708c10a990f46bf40039a4638edb588aff47439eedf38cc6"
+        },
+        "forms": [
+          {
+            "installed_public_execution": true,
+            "versions": {
+              "equity-feature-acquisition": "0.1.0a0",
+              "equity-feature-io-contracts": "0.1.0a2",
+              "equity-feature-contracts": "0.0.4a4",
+              "equity-features": "0.0.4a4"
+            },
+            "tests_run": 32,
+            "failures": 0,
+            "skips": 0,
+            "third_party_transport": true,
+            "strict_typing": true,
+            "rejected_invalid_calls": 2,
+            "source_sha256": {
+              "tests/acquisition/test_controls.py": "48343a20f57319bb45598d8aaee849d257ef1de115ad730c6545b3914027c373",
+              "tests/acquisition_goldens.json": "11b31684ee7f8fef33a094624d2b9a9212f5d95171ffd321f4df92adf33ab774",
+              "examples/acquisition_consumer.py": "805ef380042ceaace3e43a5c5a56580fde2ee85127af7eb643284fdab4443d0e"
+            },
+            "form": "wheel",
+            "source_commit": "9473f8833da3a5d95e4192f813de041fd90db399",
+            "core_before_sha256": "50102ef8803d5b250616057c8f3758bc0b69875439b9d79fc618c49ec9997e2b",
+            "core_after_sha256": "50102ef8803d5b250616057c8f3758bc0b69875439b9d79fc618c49ec9997e2b"
+          },
+          {
+            "installed_public_execution": true,
+            "versions": {
+              "equity-feature-acquisition": "0.1.0a0",
+              "equity-feature-io-contracts": "0.1.0a2",
+              "equity-feature-contracts": "0.0.4a4",
+              "equity-features": "0.0.4a4"
+            },
+            "tests_run": 32,
+            "failures": 0,
+            "skips": 0,
+            "third_party_transport": true,
+            "strict_typing": true,
+            "rejected_invalid_calls": 2,
+            "source_sha256": {
+              "tests/acquisition/test_controls.py": "48343a20f57319bb45598d8aaee849d257ef1de115ad730c6545b3914027c373",
+              "tests/acquisition_goldens.json": "11b31684ee7f8fef33a094624d2b9a9212f5d95171ffd321f4df92adf33ab774",
+              "examples/acquisition_consumer.py": "805ef380042ceaace3e43a5c5a56580fde2ee85127af7eb643284fdab4443d0e"
+            },
+            "form": "sdist",
+            "source_commit": "9473f8833da3a5d95e4192f813de041fd90db399",
+            "core_before_sha256": "50102ef8803d5b250616057c8f3758bc0b69875439b9d79fc618c49ec9997e2b",
+            "core_after_sha256": "50102ef8803d5b250616057c8f3758bc0b69875439b9d79fc618c49ec9997e2b"
+          }
+        ]
+      },
+      "files": {
+        "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": "9b6dca40280850599db8e194fe280cd651aa06b7132998d55e61861dfdd2d1e3",
+        "equity_feature_acquisition-0.1.0a0.tar.gz": "447ffcf5d5adae758f5b2f897723c2cc6ca7b9940660aafe12c9154e80ea8f6a",
+        "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+        "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99",
+        "equity_features-0.0.4a4-py3-none-any.whl": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e",
+        "manifest.json": "1f49b0341e1b3c92c9f05e69ff0b11fff5196167db32907c1f67deffe3b78b6f"
+      }
+    }
+  ]
+}

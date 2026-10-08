@@ -4,10 +4,11 @@ Canonical [story77](https://github.com/atulsrivas1/equity-features/issues/77),
 [plan](../stories/EQ-068_PLAN.md), [componentPR12](https://github.com/atulsrivas1/equity-feature-io/pull/12),
 [canonicalPR343](https://github.com/atulsrivas1/equity-features/pull/343).
 Experimental `equity-feature-acquisition==0.1.0a0` lives in equity-feature-io;
-the [public API and limitations](https://github.com/atulsrivas1/equity-feature-io/blob/codex/eq068-shared-acquisition/packages/acquisition/README.md)
-and [synthetic third-party client](https://github.com/atulsrivas1/equity-feature-io/blob/codex/eq068-shared-acquisition/examples/acquisition_consumer.py)
-are part of the same story. Source implemented; final review/native installed/main
-publication acceptance remains required. Live Project/issue records actual status.
+the [public API and limitations](https://github.com/atulsrivas1/equity-feature-io/blob/main/packages/acquisition/README.md)
+and [synthetic third-party client](https://github.com/atulsrivas1/equity-feature-io/blob/main/examples/acquisition_consumer.py)
+are part of the same story. Reviewed runtime source is published with native installed qualification;
+[actual source and release evidence](../stories/EQ-068_DELIVERY.md) retains all
+failures/limits. Final documentation/current-main acceptance remains required. Live Project/issue records actual status.
 
 `AcquisitionScope` wraps the existing canonical `AcquisitionRequest` and explicit
 provider/dataset/endpoint/mode/source/mapping revision. `DownloadApproval` binds
