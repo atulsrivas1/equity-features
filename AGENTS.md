@@ -1,3 +1,7 @@
+## Owner-authorized R6 execution and local review — October 8, 2026
+
+The owner requests a handoff and new session to complete bounded R6 EQ067–074 and explicitly answers "Authorize local review for R6 handoff and stories". Separate local Codex reviewers may cover GOV017 preparation and every R6 story, including final source/contract/docs/release evidence. Record exact heads, identity/checks/findings/disposition/limits; renew relevant coverage after changes. Author self-review/CI alone are insufficient; numerical/documentation/native/installed/publication/readback gates remain mandatory. This is local automated review, not human or hosted activation. The published R6_AUTONOMOUS_HANDOFF.md assigns execution to the newly dispatched session after handoff verification; earlier stop-before-R6 snapshots are superseded for that session only. No R7/private generation/registry/stable/destructive/recurring work is authorized.
+
 ## BUG006 authorized local review — October 8, 2026
 
 The owner explicitly requested the BUG006 fix and answered "Authorize local review for BUG006". Separate local Codex reviewers may inspect its final component/canonical patch and corrective release evidence. Record identity, exact heads, checks, findings/disposition and limitations; relevant changes require renewed final-head coverage. This is local automated review, not human review or hosted activation. Numerical/documentation/native/installed/publication/readback gates remain required. The authorization is bounded to BUG006, not R6 or private generation.

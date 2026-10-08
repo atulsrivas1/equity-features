@@ -747,3 +747,8 @@ A completion consumer must filter its owned task population before publication/r
 ## BUG006 verified delivery evidence — October 8, 2026
 
 [Repair delivery](../stories/BUG-006_DELIVERY.md) verifies admitted-identity filtering before publication/removal, preserving foreign pending entries and queue budgets regardless of diagnostics. Native/fresh wheel+sdist observed/unobserved both-sink regressions and separate extra BUSY/same-run retry/readback probes pass. Actual main per-platform archives/source hashes equal qualified source; original green a11 acceptance remains historical and did not cover this failure. Future completion consumers need ownership tests with and without optional telemetry; unrelated work must retain its own explicit completion drain. No broader production/concurrency/private-capacity conclusion is supported.
+
+
+## R6 admission and ownership preparation — October 8, 2026
+
+[Handoff](../R6_AUTONOMOUS_HANDOFF.md) reuses accepted R4.1 protocols and R5/R5.1 rather than inferring provider capability/rights from worker engineering qualification. Mock/fixture conformance does not supply live/account entitlement or required bounded provider integration proof. Preserve reporter-independent completion ownership from BUG006, exact witness/source/known-at/coverage binding, actual publication/readback and excluded failures. New execution ownership transfers only after verified package dispatch; preparation delivers no adapter and private monthly/annual generation remains gated.
