@@ -737,3 +737,13 @@ The synchronization audit found 134 active canonical EQ stories but only 129 str
 ## Optional diagnostics must not determine publication ownership — BUG006
 
 Postrelease R5 review reproduced an unrelated producer's committed receipt being consumed by the default supervisor, while the reporter-enabled scoped drain preserves it. The208-method accepted suite and native artifact parity both pass; neither covered that default-path interaction. Compare observed/unobserved behavior under synchronized external producer submission, retaining original full sink readback and unrelated explicit-drain completion. Correct the queue ownership boundary, not merely the exception message or a filter after consumption. [Postrelease review](../reviews/R5_POST_DELIVERY_REVIEW.md), [BUG006](https://github.com/atulsrivas1/equity-features/issues/337). Preserve R5 original acceptance; no new repair or private/R6 readiness follows.
+
+
+## BUG006 repair qualification — October 8, 2026
+
+A completion consumer must filter its owned task population before publication/removal, independent of telemetry. [BUG006](https://github.com/atulsrivas1/equity-features/issues/337) regressions prove the released default-path failure for both sinks while observed mode passes. Include full readback and a subsequent explicit drain of the foreign entry, rather than merely checking no exception. Patch/release gates remain pending; this is not qualification evidence for private workloads.
+
+
+## BUG006 verified delivery evidence — October 8, 2026
+
+[Repair delivery](../stories/BUG-006_DELIVERY.md) verifies admitted-identity filtering before publication/removal, preserving foreign pending entries and queue budgets regardless of diagnostics. Native/fresh wheel+sdist observed/unobserved both-sink regressions and separate extra BUSY/same-run retry/readback probes pass. Actual main per-platform archives/source hashes equal qualified source; original green a11 acceptance remains historical and did not cover this failure. Future completion consumers need ownership tests with and without optional telemetry; unrelated work must retain its own explicit completion drain. No broader production/concurrency/private-capacity conclusion is supported.
