@@ -1,3 +1,15 @@
+## EF-L056 native input-inventory correction
+
+[EQ068 delivery](../stories/EQ-068_DELIVERY.md) records the additional independent
+artifact-audit failure: collecting source inventory after setuptools includes
+untracked generated build/egg-info paths. Freeze committed inputs before building
+and assert exact Git tree path equality; downloaded native source receipts must
+read every input hash back from Git, not trust a green build. Corrected source and
+actual-main native archive/source parity pass; keep excluded receipt/candidates and
+cancellations visible. Stable provider errors need context removal; permission
+expiry must permit data expiry purge. These results do not qualify provider rights,
+acquisition consent, network billing or private execution.
+
 ## EF-L056 supplemental independent review evidence
 
 [EQ068 rework](https://github.com/atulsrivas1/equity-feature-io/pull/12#issuecomment-6062914124) adds two P2 corrections beyond the original29test coverage: monotonic time can advance between condition and sleep calculation, so recheck the actual timestamp against target/deadline before sleeping; permission expiry must not prevent purging expired cache entries.32-case corrected fixtures include these independent counterexamples and oversized-row nonpublication. Prior source/build evidence remains historical; final review/native/publication gates must be renewed. No performance or provider rights claim follows.
