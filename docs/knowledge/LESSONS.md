@@ -1,3 +1,7 @@
+## EF-L051 process-death qualification correction
+
+Failed local corrected build exposes native Windows self os._exit access violation AFTER actual commit/signal, reproduced independently without workers/SDK/events. Unknown native cause; source/native green does not override local failure. Use externally terminated still-live owner at identical pre-metadata boundary with explicit live BUSY, exact signal-exit and actual receipt/full-result recovery, never accept arbitrary AV exit as passing. Diagnostic bounded trials support fixture choice only; changed-fixture installed/native/repeat/review/release evidence required. [Failure/diagnostic evidence](../stories/EQ-063_DELIVERY.md). Earlier source/release-boundary lessons and successful superseded/native/failed local attempts preserved below.
+
 ## EF-L051 corrected release-boundary lesson
 
 [Separate review](https://github.com/atulsrivas1/equity-feature-workers/pull/16#issuecomment-6049204649) reproduced raw filesystem text from OS-lock finally-release after durable cancellation succeeded. Every lock boundary must normalize errors and guarantee later ownership cleanup; success of the protected body cannot erase cleanup failure, and cleanup failure cannot justify a blind computation/publication retry. Fence a failed-close handle, retain its descriptor for explicit cleanup retry, and recover actual sink commitment through existing intent/readback. Prior successful136/native candidate evidence is superseded; corrected tests/review/release pending. Preserve prior plan/source lessons below.
