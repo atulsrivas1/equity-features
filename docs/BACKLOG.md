@@ -1,3 +1,7 @@
+## R5 runtime release audit — October 8, 2026
+
+Nine prior worker stories are accepted. EQ066#74 Released/OPEN has actual-main native/artifact/source/archive/public-tree/receipt/report/attribution evidence; [R5 audit](R5_ACCEPTANCE.md) and [readiness matrix](api/WORKER_PILOT_READINESS.md) preserve its measured bounded defaults and private/month/annual NOT_ADMITTED gates. Final same-story evidence review/current CI/publication/readback/acceptance and aggregate all-ten/E08/milestone closure remain required. Scope and dependencies below are unchanged; stop before R6.
+
 ## EQ066 measured and source-qualified capture — October 8, 2026
 
 EQ057–065 have verified Closed/Project Done acceptance. EQ066#74 is Test/OPEN with the complete frozen 54-configuration/162-sample physical benchmark (zero skips, six excluded references), author208/independent208/strict13, actual native Windows/Linux four fresh forms and committed local repeat/native-Windows archive equality. [Source receipt](stories/EQ-066_SOURCE_RECEIPT.json), [raw measurements](stories/EQ-066_BENCHMARK.json) and [measured defaults/admission matrix](api/WORKER_PILOT_READINESS.md) bind source, mathematics, versions, hardware, counter limits and independent parity. Scope remains the versioned configured engineering/readiness qualification; no private pilot/month/annual admission. Final metadata review/current CI, guarded publication, actual-main artifacts/public-tree/receipt readback and acceptance remain pending. Complete bounded R5 then stop before R6; preserve unrelated GOV016/C1.
