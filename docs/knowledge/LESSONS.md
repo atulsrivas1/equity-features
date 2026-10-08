@@ -759,3 +759,24 @@ A completion consumer must filter its owned task population before publication/r
 ## R6 admission and ownership preparation — October 8, 2026
 
 [Handoff](../R6_AUTONOMOUS_HANDOFF.md) reuses accepted R4.1 protocols and R5/R5.1 rather than inferring provider capability/rights from worker engineering qualification. Mock/fixture conformance does not supply live/account entitlement or required bounded provider integration proof. Preserve reporter-independent completion ownership from BUG006, exact witness/source/known-at/coverage binding, actual publication/readback and excluded failures. New execution ownership transfers only after verified package dispatch; preparation delivers no adapter and private monthly/annual generation remains gated.
+## EF-L056 — Acquisition consent is separate from credentials and retention
+
+October8,2026: [EQ068 pre-code plan](../stories/EQ-068_PLAN.md),
+[public API](../api/ACQUISITION_CONTROLS.md),
+[componentPR12](https://github.com/atulsrivas1/equity-feature-io/pull/12).
+Bind explicit user approval to the full selected request/revisions and finite
+budgets before credential/transport. Reserve conservative integer cost across
+failed attempts; unknown cost never satisfies zero. Retry only typed safe
+idempotent failures with deadlines/cancellation. Redacting str(exception) alone
+leaves cause/context: discard the caught exception before creating fixed public
+errors. Cache use/retention needs its own immutable revision/authorization scope
+and finite capacity/TTL; cache hits grant no new network consent or known-at/rights
+witness. Cooperative callbacks and caller permission objects are trusted, not a
+sandbox/global billing meter/hard RSS bound. Source tests are synthetic; separate
+review/fresh native/publication/provider proof remain distinct gates. Preserve
+failures rather than presenting a fixture correction as a runtime defect: the first
+29-case draft failed on an incorrect AvailabilitySpec field name, then passed after
+using its accepted constructor. Future provider-specific SDK retries/byte accounting
+and account terms must be independently qualified. Superseded implicit-consent
+assumptions must not return via factory credentials, retries or cache fallback.
+
