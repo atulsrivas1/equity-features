@@ -1,3 +1,7 @@
+## Current R5 review and measured evidence — October 8, 2026
+
+Current canonical AGENTS.md authorizes separate local automated Codex reviewers for PR303 and all bounded R5 final heads. This supersedes the historical unresolved-authorization preparation text below; no hosted activation or human review is claimed. EQ066 now records [complete physical measurements](stories/EQ-066_BENCHMARK.json), [bounded measured defaults and private admission matrix](api/WORKER_PILOT_READINESS.md) and [actual source/native/repeat receipt](stories/EQ-066_SOURCE_RECEIPT.json). Publication/actual-main/readback/final acceptance remain separate gates. Earlier pre-code design/scope/failed review and native evidence remain preserved; stop before R6 after bounded R5 closure.
+
 ## Current R5 review authorization — October 7, 2026
 
 The owner authorized separate local Codex reviewers for PR303 and all R5 stories. See [review policy](CODE_REVIEW.md). This supersedes earlier pending-authorization statements below without waiving completed final-head review or other acceptance gates. PR303 planning remains under qualification; no R5 worker implementation starts here.
