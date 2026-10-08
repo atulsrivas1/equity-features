@@ -1,3 +1,7 @@
+## R6 execution handoff selected — October 8, 2026
+
+Owner requests a new session for R6 EQ067–074 under [E09](https://github.com/atulsrivas1/equity-features/issues/75)/[milestone7](https://github.com/atulsrivas1/equity-features/milestone/7). [GOV017](https://github.com/atulsrivas1/equity-features/issues/340) publishes and verifies the [handoff](R6_AUTONOMOUS_HANDOFF.md) before recording dispatch. Runtime stories are not complete or automatically Ready. Live Project owns actual status; original R5/R5.1 acceptance remains historical. The new session completes bounded R6 then stops before R7; private historical-generation gates remain independent.
+
 ## Bounded R5.1 correction — October 8, 2026
 
 R5's ten stories, E08 and milestone6 remain accepted/closed. Owner-selected [BUG006](https://github.com/atulsrivas1/equity-features/issues/337) is the sole [R5.1](https://github.com/atulsrivas1/equity-features/milestone/17) correction; source/review/native qualification is recorded in its [delivery](stories/BUG-006_DELIVERY.md). The live Project and issue own actual lifecycle; older dated captures below preserve history. No R6 or private generation is admitted.

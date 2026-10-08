@@ -1,3 +1,7 @@
+## Owner-directed bounded R6 execution — October 8, 2026
+
+R6's existing EQ067–074 scope (E09#75/milestone7) is selected for a new owner-requested session after accepted R5/R5.1. [GOV017#340](https://github.com/atulsrivas1/equity-features/issues/340) prepares/reviews/publishes/verifies/dispatches the [handoff](R6_AUTONOMOUS_HANDOFF.md) and [test strategy](R6_TEST_STRATEGY.md). Eight runtime stories remain Backlog at preparation; actual readiness/owner transfer belongs to live issues/Project. Proposed dependency-aware pull order does not add/remove acceptance or EQ rows. Separate local review explicitly authorized throughout R6; provider proof/access and private admission remain distinct. Stop after R6 before R7. Earlier stop-before-R6 snapshots below are historical/superseded for the dispatched session only.
+
 ## R5.1 actual delivery evidence — October 8, 2026
 
 The sole bounded corrective story [BUG006](https://github.com/atulsrivas1/equity-features/issues/337) delivers experimental workers0.1.0a12 with scoped supervisor publication and both-sink observed/unobserved regressions. [Delivery/source/release evidence](stories/BUG-006_DELIVERY.md) binds separate review, native/fresh-installed forms, actual main artifacts and per-platform source parity. Final documentation publication/readback and live acceptance gate Done. Original R5 and134 EQ scope rows remain historical/unchanged; R6/private generation remain gated.
