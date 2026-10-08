@@ -1,5 +1,8 @@
 ## EF-L054 — Physical pilot measurement and source admission are separate
 
+Installed qualification needs every committed helper used by acceptance tests, not merely packages plus test files. EQ066 native0b513 push37729003193/PR37729007327 failed bothOS when the preservation test imported the absent benchmark driver. Include exactly that committed tool in the isolated snapshot, preserve -I/site-packages checks and rerun native forms; author208/independent208 greens alone did not qualify installation. Suspended ownership runtime review was clean atc897/c347, but its unchanged builder also remained unqualified. No performance result follows from these source greens.
+
+
 Continued concrete ownership faults supersede the first job implementation: live handle-query errors could skip a preexisting launcher child, failed CloseHandle discarded job identity/fallback, and sampler dictionary mutation could bypass Linux group cleanup. [Preserved review rework](https://github.com/atulsrivas1/equity-features/issues/74#issuecomment-6052552837). Create Windows root suspended and verify its job before any instruction, then resume an exact verified primary thread; all descendants inherit ownership, avoiding a scheduling-sensitive capture workaround. Failures remain failures even after bounded fallback. Stop sampling before immutable retained-identity copying; never close a buffered pipe under a blocked reader. Focused8/58.395s and targeted native-fault cases passed; renewed whole-source/native/performance/release qualification remains pending.
 
 
