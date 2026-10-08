@@ -2,6 +2,8 @@
 
 Owner-directed bounded R6, October 8, 2026. Canonical [issue76](https://github.com/atulsrivas1/equity-features/issues/76), [E09](https://github.com/atulsrivas1/equity-features/issues/75), milestone7. Five provisional complexity points; no duration forecast. Execution owner: local Codex chat `01a11be8-7016-7a30-9eed-9624e91eb9e3`, author agent `/root`. Separate local final-head review is authorized by current AGENTS/review policy.
 
+Owner correction during execution: no further downloads unless explicitly approved by users. Public documentation reading and local work may continue; provider data, SDK/dependency packages and CI artifact downloads require explicit approval. The clean canonical clone was created before this correction. Do not infer download approval from bounded R6 implementation authority. Installed/native artifact and actual-provider gates remain required and may be blocked pending approval; they are not waived.
+
 ## Admission and first actions
 
 GOV017 is Closed/Project Done with [actual dispatch receipt](https://github.com/atulsrivas1/equity-features/issues/340#issuecomment-6062058111). Public canonical95412bdf2454d3f2c8a5f56a13fe3320ac344b90 and reviewed419517e8eef0b7641406a20ab5f390a331824fc8 have identical tree e164cd3254c86fe8312e78f80bf147463c794c35. Candidate six checks and actual-main docs37791899968/native37791899781 succeeded. I/O4603c6e50331a5e8a82b13b62a0cdd5ffaa0e4bf and workersdfa19c557bd0f7f9ac9e069bf5a4939bae32bb80 match accepted orientation; all three repositories have no open PRs at pull. Live EQ130/BUG006/GOV017 Done, eight R6 children Backlog. Preserve the dirty primary checkout; this branch starts in a fresh public-main clone.
