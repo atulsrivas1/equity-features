@@ -1,3 +1,7 @@
+## Historical eight-story package — superseded October 8, 2026
+
+The owner now defers EQ069/070/072/074 to open Backlog outside R6 and selects closure around accepted EQ067/068/071/073. Read [current scope decision](decisions/R6_SCOPE_CLOSURE.md) and [revised acceptance](R6_ACCEPTANCE.md), then live Project/GOV019/E09. The original mission/test gates below remain historical requirements for the deferred work; they no longer require all eight stories to finish within revised R6 or authorize their automatic execution after closure. Original provider criteria are not waived or represented as passed. No new R7/private/provider/cost/deployment authority follows from this supersession.
+
 # R6 autonomous execution handoff — October 8, 2026
 
 Owner explicitly requests a new session to complete bounded R6 and authorizes separate local Codex review for this handoff and all eight R6 stories. Preparation is [GOV017 #340](https://github.com/atulsrivas1/equity-features/issues/340); execution is [E09 #75](https://github.com/atulsrivas1/equity-features/issues/75), [milestone7](https://github.com/atulsrivas1/equity-features/milestone/7), EQ067–074. This direction supersedes the earlier stop-before-R6 instruction for the newly dispatched R6 session only. No adapter implementation is delivered by this handoff. The live Project/issue is status authority; dated captures below are baselines, not evergreen status claims.

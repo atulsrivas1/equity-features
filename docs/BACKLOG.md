@@ -1,3 +1,7 @@
+## Current owner-revised R6 scope — October 8, 2026
+
+Owner requests Databento/Massive returned to Backlog and R6 closed around accepted EQ067/068/071/073. [GOV019 #354](https://github.com/atulsrivas1/equity-features/issues/354) delivers the [scope decision](decisions/R6_SCOPE_CLOSURE.md) and [revised acceptance](R6_ACCEPTANCE.md). EQ069/070/072/074 remain open Backlog outside the R6 milestone, future release assignment pending; original acceptance and source/preparation branches/unmerged drafts are preserved. No provider or aggregate gate is falsely completed. Earlier all-eight execution/stop/unfinished captures below are historical and superseded for current scope by this owner decision. Actual closure/status belongs to live Project/E09/GOV019 receipts after reviewed publication/readback; no new R7/private/provider/stable/registry/recurring/destructive execution is authorized by this closure.
+
 ## Owner-directed bounded R6 execution — October 8, 2026
 
 R6's existing EQ067–074 scope (E09#75/milestone7) is selected for a new owner-requested session after accepted R5/R5.1. [GOV017#340](https://github.com/atulsrivas1/equity-features/issues/340) prepares/reviews/publishes/verifies/dispatches the [handoff](R6_AUTONOMOUS_HANDOFF.md) and [test strategy](R6_TEST_STRATEGY.md). Eight runtime stories remain Backlog at preparation; actual readiness/owner transfer belongs to live issues/Project. Proposed dependency-aware pull order does not add/remove acceptance or EQ rows. Separate local review explicitly authorized throughout R6; provider proof/access and private admission remain distinct. Stop after R6 before R7. Earlier stop-before-R6 snapshots below are historical/superseded for the dispatched session only.
@@ -166,7 +170,7 @@ Story completion follows the eight-stage lifecycle in PUBLIC_DEVELOPMENT.md and 
 | R4 DuckDB adapter | First real adapter using our optimized store | EQ-049–EQ-056 | R3 |
 | R4.1 Repository separation and extensible I/O | Separate calculation/I/O/worker repositories, preserve DuckDB compatibility, qualify input/sink extensions | EQ-121–EQ-130 | Accepted R4; before R5 |
 | R5 Independent workers | Bounded parallel feature generation and catalog publication in worker repository | EQ-057–EQ-066 | Accepted R4.1, including EQ-130 |
-| R6 Provider and file adapters | Direct provider access and bring-your-own-file workflows | EQ-067–EQ-074 | R4.1 I/O contracts/SDK; worker integration additionally needs R5 |
+| R6 Provider and file adapters | Accepted capability research, acquisition controls, local files and runner planning; providers deferred by owner | EQ-067/068/071/073 retained; EQ-069/070/072/074 deferred outside R6, future assignment pending | R4.1 I/O contracts/SDK; worker integration additionally needs accepted R5; [revised scope](decisions/R6_SCOPE_CLOSURE.md) |
 | R7 Remote access and LLM tools | Hosted slices/jobs, client SDK and MCP | EQ-075–EQ-084 | R5; provider-backed endpoints also need relevant R6 adapter |
 | R8 Advanced performance and research | Profile-driven acceleration and separate strategy/label packages | EQ-085–EQ-092 | R5 measurements; relevant earlier capabilities |
 | R9 Reproducible calculation evidence | Execution receipts, content fingerprints, replay bundles and explanations | EQ-096–EQ-100 | R3; real sources additionally R4/relevant R6; independent of R8 acceleration |

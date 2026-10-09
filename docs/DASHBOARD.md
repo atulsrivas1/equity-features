@@ -1,3 +1,7 @@
+## Current owner-revised R6 scope — October 8, 2026
+
+Owner requests Databento/Massive returned to Backlog and R6 closed around accepted EQ067/068/071/073. [GOV019 #354](https://github.com/atulsrivas1/equity-features/issues/354) delivers the [scope decision](decisions/R6_SCOPE_CLOSURE.md) and [revised acceptance](R6_ACCEPTANCE.md). EQ069/070/072/074 remain open Backlog outside the R6 milestone, future release assignment pending; original acceptance and source/preparation branches/unmerged drafts are preserved. No provider or aggregate gate is falsely completed. Earlier all-eight execution/stop/unfinished captures below are historical and superseded for current scope by this owner decision. Actual closure/status belongs to live Project/E09/GOV019 receipts after reviewed publication/readback; no new R7/private/provider/stable/registry/recurring/destructive execution is authorized by this closure.
+
 ## R6 execution handoff selected — October 8, 2026
 
 Owner requests a new session for R6 EQ067–074 under [E09](https://github.com/atulsrivas1/equity-features/issues/75)/[milestone7](https://github.com/atulsrivas1/equity-features/milestone/7). [GOV017](https://github.com/atulsrivas1/equity-features/issues/340) publishes and verifies the [handoff](R6_AUTONOMOUS_HANDOFF.md) before recording dispatch. Runtime stories are not complete or automatically Ready. Live Project owns actual status; original R5/R5.1 acceptance remains historical. The new session completes bounded R6 then stops before R7; private historical-generation gates remain independent.
