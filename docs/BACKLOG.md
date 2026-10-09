@@ -296,12 +296,12 @@ Default delivery is sequential. R6 adapter implementation may run independently 
 | --- | --- | --- | --- |
 | EQ-067 | R6 | Verify provider capabilities and contracts | Databento/Massive endpoints/SDKs/entitlements/history/live sampling and terms checked against actual implementation needs |
 | EQ-068 | R6 | Implement shared acquisition behavior | Safe credential injection, redacted errors, bounded retry/rate-limit/cancellation semantics, explicit cache policy; no secrets in results |
-| EQ-069 | R6 | Implement Databento adapter | Supported historical/direct-download/live modes mapped explicitly; conformance and recorded bounded integration proof |
-| EQ-070 | R6 | Implement Massive adapter | Supported data/reference endpoints normalized with honest capability/availability metadata; conformance and bounded integration proof |
+| EQ-069 | R6 | Implement Databento adapter | Supported historical/direct-download/live modes mapped explicitly; conformance and recorded bounded integration proof Deferred outside current R6 by [owner decision](decisions/R6_SCOPE_CLOSURE.md); original R6 label/criteria retained as planning history, future release pending. |
+| EQ-070 | R6 | Implement Massive adapter | Supported data/reference endpoints normalized with honest capability/availability metadata; conformance and bounded integration proof Deferred outside current R6 by [owner decision](decisions/R6_SCOPE_CLOSURE.md); original R6 label/criteria retained as planning history, future release pending. |
 | EQ-071 | R6 | Implement local CSV/Parquet/DBN adapters | Declared mapping/config, units/identity/order, bounded reads and unsupported schema errors; user fixture examples |
-| EQ-072 | R6 | Validate cross-provider composition | Explicit identity/session/unit/adjustment mapping and lineage; incompatible sources rejected rather than ticker-only joins |
+| EQ-072 | R6 | Validate cross-provider composition | Explicit identity/session/unit/adjustment mapping and lineage; incompatible sources rejected rather than ticker-only joins Deferred outside current R6 by [owner decision](decisions/R6_SCOPE_CLOSURE.md); original R6 label/criteria retained as planning history, future release pending. |
 | EQ-073 | R6 | Add user-facing runner acquisition planning | Feature requirements select installed capabilities; one-command/library flow works; unsupported/unauthorized inputs clearly reported |
-| EQ-074 | R6 | Qualify adapter releases and custom-adapter guide | Independent install/build/examples, provider matrix, cache/error tests and third-party fixture adapter passes development kit |
+| EQ-074 | R6 | Qualify adapter releases and custom-adapter guide | Independent install/build/examples, provider matrix, cache/error tests and third-party fixture adapter passes development kit Deferred outside current R6 by [owner decision](decisions/R6_SCOPE_CLOSURE.md); original R6 label/criteria retained as planning history, future release pending. |
 
 ## Epic E10 — Remote service, client and LLM access
 
