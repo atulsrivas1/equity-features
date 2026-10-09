@@ -818,3 +818,7 @@ failures rather than presenting a fixture correction as a runtime defect: the fi
 using its accepted constructor. Future provider-specific SDK retries/byte accounting
 and account terms must be independently qualified. Superseded implicit-consent
 assumptions must not return via factory credentials, retries or cache fallback.
+
+## R6 review: local controller budgets and aggregate acceptance — October 8, 2026
+
+[GOV018 review](../reviews/R6_CURRENT_REVIEW.md) independently exercises released acquisition/files/runner behavior and pending provider candidates while retaining live external gates. A fresh controller ledger can admit a reused approval again: provider APIs/plans place cumulative allocation across instances/failed calls on the trusted application. Qualification must enforce the owner's total allowance explicitly; local call limits and credential availability do not grant extra cost or data rights. Synthetic/native/install/source equality evidence does not establish actual provider entitlement or positive compatible composition. Keep those gates explicit, preserve accepted historical receipts and revisit only with verified bounded account-specific proof. No global billing meter, sandbox or R6 completion is inferred.
