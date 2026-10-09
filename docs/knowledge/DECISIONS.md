@@ -1,3 +1,7 @@
+## R6 scope closure selected by owner — October 8, 2026
+
+Owner explicitly moves Databento/Massive to Backlog and requests R6 closure. [GOV019](https://github.com/atulsrivas1/equity-features/issues/354)/[decision](../decisions/R6_SCOPE_CLOSURE.md)/[revised acceptance](../R6_ACCEPTANCE.md) retain four accepted runtime stories and defer dependent composition/provider-aggregate qualification. All four deferred issues stay open without R6 milestone/future release assignment; original criteria/source/tests/draft PRs remain preserved. This supersedes the all-eight R6 mission, not its unmet provider criteria. Actual closure follows reviewed publication/readback; R7 provider dependencies and private rights/admission remain separate. No R7 implementation is started by this decision.
+
 # Decision history
 
 Engineering summaries of owner decisions and accepted records, prepared October 5, 2026. Canonical specifications control details. Preserve supersession rather than silently replacing history.

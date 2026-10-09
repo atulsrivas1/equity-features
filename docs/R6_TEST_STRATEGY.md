@@ -1,3 +1,7 @@
+## Historical eight-story package — superseded October 8, 2026
+
+The owner now defers EQ069/070/072/074 to open Backlog outside R6 and selects closure around accepted EQ067/068/071/073. Read [current scope decision](decisions/R6_SCOPE_CLOSURE.md) and [revised acceptance](R6_ACCEPTANCE.md), then live Project/GOV019/E09. The original mission/test gates below remain historical requirements for the deferred work; they no longer require all eight stories to finish within revised R6 or authorize their automatic execution after closure. Original provider criteria are not waived or represented as passed. No new R7/private/provider/cost/deployment authority follows from this supersession.
+
 # R6 test and release strategy
 
 Companion to [execution handoff](R6_AUTONOMOUS_HANDOFF.md), [E09](https://github.com/atulsrivas1/equity-features/issues/75) and EQ067–074. This is preparation, not executed validation. Read existing [acquisition contract](contracts/ADAPTERS.md), [conformance kit](contracts/ADAPTER_KIT.md), [I/O architecture](IO_WORKER_ARCHITECTURE.md), canonical mathematical/timing specifications and actual story acceptance before freezing fixtures.
