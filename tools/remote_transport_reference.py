@@ -10,6 +10,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import re
 import struct
 
 from jsonschema import Draft202012Validator
@@ -35,6 +36,8 @@ def command_digest(payload: dict) -> str:
 
 
 def _integer(text: str, *, count: bool = False) -> int:
+    if type(text) is not str or re.fullmatch(r"0|-?[1-9][0-9]{0,18}", text) is None:
+        raise WireError("invalid_schema")
     value = int(text)
     if not (0 if count else I64_MIN) <= value <= I64_MAX:
         raise WireError("bounds")
@@ -53,10 +56,14 @@ def _walk(value, depth=0, counter=None, *, semantic=True):
         if semantic and value.get("type") == "int64":
             _integer(value["value"])
         elif semantic and value.get("type") == "float64":
+            if re.fullmatch(r"[0-9a-f]{16}", value["bits"]) is None:
+                raise WireError("invalid_schema")
             number = struct.unpack(">d", bytes.fromhex(value["bits"]))[0]
             if not math.isfinite(number):
                 raise WireError("invalid_schema")
         elif semantic and value.get("type") == "decimal128":
+            if re.fullmatch(r"0|-?[1-9][0-9]{0,37}", value["coefficient"]) is None:
+                raise WireError("invalid_schema")
             if type(value["scale"]) is not int:
                 raise WireError("invalid_schema")
             if not -(10**38) < int(value["coefficient"]) < 10**38:

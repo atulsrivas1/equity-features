@@ -184,21 +184,23 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 256,
-      "pattern": "^[^\\u0000-\\u001f\\u007f]+$"
+      "pattern": "^[^\\u0000-\\u001f\\u007f]+(?![\\s\\S])"
     },
     "id": {
       "type": "string",
       "minLength": 1,
       "maxLength": 128,
-      "pattern": "^[A-Za-z0-9_.:-]+$"
+      "pattern": "^[A-Za-z0-9_.:-]+(?![\\s\\S])"
     },
     "i64": {
       "type": "string",
-      "pattern": "^(0|-?[1-9][0-9]{0,18})$"
+      "pattern": "^(0|-?[1-9][0-9]{0,18})(?![\\s\\S])"
     },
     "digest": {
       "type": "string",
-      "pattern": "^[0-9a-f]{64}$"
+      "pattern": "^[0-9a-f]{64}(?![\\s\\S])",
+      "minLength": 64,
+      "maxLength": 64
     },
     "cell": {
       "oneOf": [
@@ -229,7 +231,9 @@
             },
             "bits": {
               "type": "string",
-              "pattern": "^[0-9a-f]{16}$"
+              "pattern": "^[0-9a-f]{16}(?![\\s\\S])",
+              "minLength": 16,
+              "maxLength": 16
             }
           },
           "required": [
@@ -246,7 +250,7 @@
             },
             "coefficient": {
               "type": "string",
-              "pattern": "^(0|-?[1-9][0-9]{0,37})$"
+              "pattern": "^(0|-?[1-9][0-9]{0,37})(?![\\s\\S])"
             },
             "scale": {
               "type": "integer",
@@ -336,7 +340,7 @@
                 "type": "string",
                 "minLength": 1,
                 "maxLength": 256,
-                "pattern": "^[^\\u0000-\\u001f\\u007f]+$"
+                "pattern": "^[^\\u0000-\\u001f\\u007f]+(?![\\s\\S])"
               },
               "additionalProperties": {
                 "$ref": "#/$defs/cell"
@@ -873,7 +877,7 @@
                 "type": "string",
                 "minLength": 1,
                 "maxLength": 256,
-                "pattern": "^[^\\u0000-\\u001f\\u007f]+$"
+                "pattern": "^[^\\u0000-\\u001f\\u007f]+(?![\\s\\S])"
               },
               "additionalProperties": {
                 "$ref": "#/$defs/cell"

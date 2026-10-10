@@ -224,6 +224,19 @@ class TransportVectors(unittest.TestCase):
         self.assertLess(len(wire(f)), 262144)
         self.error("bounds", f)
 
+    def test_trailing_newline_regressions(self):
+        for dtype, cell in (("int64", {"type": "int64", "value": "1\n"}),
+                            ("float64", {"type": "float64", "bits": "3ff0000000000000\n"}),
+                            ("decimal128", {"type": "decimal128", "coefficient": "1\n", "scale": 0})):
+            self.error("invalid_schema", self.cell(dtype, cell))
+        f = fixture("calculate")
+        for target, key in ((f, "request_id"), (f["payload"], "command_digest"),
+                            (f["payload"]["context"]["config"], "digest"),
+                            (f["payload"]["context"]["dataset"], "revision")):
+            original = target[key];target[key] += "\n"
+            self.error("invalid_schema", f, request=True)
+            target[key] = original
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
