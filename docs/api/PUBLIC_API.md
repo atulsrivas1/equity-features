@@ -1,3 +1,7 @@
+## EQ080 internal owned entry candidate
+
+Optional service.a3 internal operator configuration now freezes at most four owned-synthetic source profiles and validates complete startup-frame EOF before parent ACK/site/native/Service startup. It adds no HTTP inventory/code/path/argument operation, calculation API or hosted authorization. See [same-story boundary](../R7_QUOTA_CACHE_AUDIT.md) and [approved pre-code entry plan](../stories/EQ-080_OWNED_ENTRY_PLAN.md). Current separate source/artifact/full-map/release qualification remains pending.
+
 ## EQ080 retained result representation cache — development candidate
 
 Cache is internal and has no HTTP selector or added data rights. Store only original verified producer payload bytes under complete frozen server identity; rebuild each request frame/correlation/attachment. Every lookup re-verifies complete native forms and current authority, with final post-encoding/post-header rights/TTL and exact new transfer charge. Four entries/131072 duplicate bytes per principal, eight/262144 global, within shared original job+cache1MiB/2MiB. Original expiry never refreshes. Full/oversized-key cache uses ordinary verified delivery; no raw cache, deduplication, new native execution or speedup claim. Installed/current source/final story qualification remains pending.
