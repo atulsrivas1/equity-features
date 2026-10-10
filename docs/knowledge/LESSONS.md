@@ -1,3 +1,7 @@
+## EQ080 qualification claim precision
+
+Foreign pending publication preservation and already committed receipt preservation are distinct claims. Keep both actual persistent-sink regressions, and do not infer committed readback from an uncommitted pending item. Likewise corrupted cache bytes must never be emitted, but safe eviction with fully verified original fallback need not deny the whole request. Preserve superseded pre-code wording and document the current verified behavior; no rights or installed service backend is implied.
+
 ## EQ080 serialized-byte accounting lesson
 
 Valid JSON syntax is insufficient for accepted efio-json1: decode_result requires exact canonical encoding. Retained-encoder corruption can consume physical bytes even when delivery correctly denies it. Measure those bytes separately from a genuine cached original result, retain SDK original publication evidence, and do not claim corrupted forms are accepted payloads or counted ledger seeds are measured RSS. Current same-story fixtures document both refusal and admission accounting; failed30000 envelope/whitespace-visible assumptions preserved.
