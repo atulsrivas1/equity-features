@@ -1,0 +1,27 @@
+{
+  "schema": "equity.remote",
+  "version": "1.1",
+  "kind": "request",
+  "request_id": "request-1",
+  "payload": {
+    "operation": "slice",
+    "dataset": {
+      "dataset_id": "synthetic.features",
+      "revision": "owned-v1",
+      "snapshot_id": "snapshot-1",
+      "mapping_version": "mapping-1",
+      "source_id": "owned",
+      "input_id": "input-1"
+    },
+    "scope": {
+      "instrument_id": "owned:ONE",
+      "session_id": "session-1",
+      "start_ns": "9007199254740992",
+      "end_ns": "9007199254740993"
+    },
+    "columns": [
+      "session.trade.count"
+    ],
+    "cursor": null
+  }
+}

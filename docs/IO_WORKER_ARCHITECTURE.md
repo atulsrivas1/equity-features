@@ -144,6 +144,8 @@ not promised R4.1 implementations. Provider adapters remain R6 scope.
 
 ## Release order and gates
 
+R7 EQ077 introduces an optional equity-feature-service distribution in the worker companion, with its own pinned schema dependencies and installed/archive qualification. It is not a dependency of calculations, workers or I/O. Explicit operator registrations supply exact bounded native raw acquisition or immutable precomputed native results; HTTP credentials/grants/filtering/projection stay outside numerical code. Full native source/receipt/config/quality identities remain authoritative. [Service API and owned qualification](https://github.com/atulsrivas1/equity-feature-workers/blob/codex/eq077-authenticated-slices/docs/EQ077_SERVICE.md) records current candidate behavior and gates. The existing worker builder now snapshots packages/workers explicitly to preserve its separate qualification path. No external hosting, provider/private rights, job service or production operational readiness follows from this optional synthetic profile.
+
 Accepted R0–R4 -> **R4.1 repository separation and extensible I/O** -> R5 workers.
 R5 implementation is blocked until all R4.1 acceptance gates are verified.
 R6 provider/file adapters use the companion I/O repository; R7 services compose
