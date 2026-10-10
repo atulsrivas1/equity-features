@@ -1,3 +1,7 @@
+## EQ080 serialized-byte accounting lesson
+
+Valid JSON syntax is insufficient for accepted efio-json1: decode_result requires exact canonical encoding. Retained-encoder corruption can consume physical bytes even when delivery correctly denies it. Measure those bytes separately from a genuine cached original result, retain SDK original publication evidence, and do not claim corrupted forms are accepted payloads or counted ledger seeds are measured RSS. Current same-story fixtures document both refusal and admission accounting; failed30000 envelope/whitespace-visible assumptions preserved.
+
 ## EQ080 admission framing lesson — October10,2026 UTC
 
 An ACK of the first valid row on continuing diagnostics cannot guarantee prevention of future duplicate rows. Separate startup IPC whose complete bounded frame and EOF are observed before ACK makes the pre-start boundary enforceable. Later diagnostics have only post-admission failure semantics, never rollback. [Planning correction/review](https://github.com/atulsrivas1/equity-features/issues/90#issuecomment-6098555175) predates runtime. Preserve endpoint/CRT/reader ownership and initial-clock cleanup; no test or partial green checkpoint grants hosted rights or release acceptance. New runtime source/fault/installed review remains pending.
