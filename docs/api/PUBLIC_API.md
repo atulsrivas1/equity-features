@@ -1,3 +1,23 @@
+## EQ080 internal owned entry candidate
+
+Optional service.a3 internal operator configuration now freezes at most four owned-synthetic source profiles and validates complete startup-frame EOF before parent ACK/site/native/Service startup. It adds no HTTP inventory/code/path/argument operation, calculation API or hosted authorization. See [same-story boundary](../R7_QUOTA_CACHE_AUDIT.md) and [approved pre-code entry plan](../stories/EQ-080_OWNED_ENTRY_PLAN.md). Current separate source/artifact/full-map/release qualification remains pending.
+
+## EQ080 retained result representation cache — development candidate
+
+Cache is internal and has no HTTP selector or added data rights. Store only original verified producer payload bytes under complete frozen server identity; rebuild each request frame/correlation/attachment. Every lookup re-verifies complete native forms and current authority, with final post-encoding/post-header rights/TTL and exact new transfer charge. Four entries/131072 duplicate bytes per principal, eight/262144 global, within shared original job+cache1MiB/2MiB. Original expiry never refreshes. Full/oversized-key cache uses ordinary verified delivery; no raw cache, deduplication, new native execution or speedup claim. Installed/current source/final story qualification remains pending.
+
+## EQ080 staged header callback contract — development candidate
+
+Service header callback is trusted staging, not protected body visibility. Reentrant Service calls or previously prepared iterator emission inside it are explicitly rejected with fixed reentrant_header_callback before new protected work/audit mutation. Closing an abandoned prepared iterator is permitted. Renew current authority after callback and final diagnostic encoding before the one protected chunk. If authority/clock/accounting fails after headers were staged, body is aborted to empty; staged status/length may describe an incomplete response. A consumer must reject truncated/absent result data. No status replacement or durable/hosted guarantee. Pre-header credential retirement returns401 authentication. Current same-story review/WinLinux installed release qualification remains pending.
+
+## EQ080 internal audit development checkpoint
+
+Optional service.a3 can explicitly admit an owned synthetic finite audit store through Ledger(audit=...). It reserves HTTP/native diagnostic slots before protected work and records fixed redacted outcomes, with a separately provisioned exact-object reader. No remote audit operation or transport/calculation/worker/I/O change. This internal candidate remains In progress, not a qualified public deployment; mandatory guarded entry/cache/all32/current installed/release qualification remains pending.
+
+## EQ080 bootstrap foundation candidate
+
+Optional service0.1.0a3 defers native graph initialization until explicit public access, preserving existing exports. [Current implementation and remaining isolation gates](../R7_QUOTA_CACHE_AUDIT.md) records121 editable Windows tests/strict7, approved pre-code and actual start. Supervisor/cache/audit runtime and physical/installed/release qualification remain pending. Prior EQ079 is accepted6097119023; older pending captures below are history.
+
 ## R7 data-only transport design
 
 [Remote transport](REMOTE_TRANSPORT.md) defines lossless versioned JSON envelopes outside calculations. [Access policy](REMOTE_ACCESS_POLICY.md) and downstream authentication/native-conversion/authorization qualification remain required. The schema/reference verifier is a design deliverable, not an installed remote service/client or permission to deserialize executable Python objects.
