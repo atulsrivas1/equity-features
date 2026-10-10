@@ -16,6 +16,8 @@ Expanded development34 methods(7.900s), all34 frozen decision mappings, strict6 
 
 ## Remaining release gates
 
+Final source review /root/r7_policy_review inspected exact e46feb8/e8b2bfe, independently passed34 methods/decision mappings, strict6sourcefiles, owned HTTP,551 local links/planning/UTF8/schema parity, but found P2 producer command identity only syntax-checked. Actual structured fixture exposed stale trade command digest after changing its config/features. Registration now recomputes the accepted original calculate payload hash from original context/exact native scope and rejects mismatch; fixtures independently compute the correct producer digest and verify projection keeps it unchanged. Corrected35 methods(8.423s)/all34 decisions/strict6 pass. Story returned from Code review to In progress for actual rework; request renewed exact-head review after publication. Earlier e8b2bfe fresh artifacts/CI cannot accept this new runtime correction.
+
 - [ ] Complete separate final-head source/security/native/docs review and disposition.
 - [ ] Current canonical docs/transport/core and companion foundation/service Windows/Linux checks.
 - [ ] Exact final source repeat archives and fresh wheel/sdist light/full installed probes, example, strict public typing, native/HTTP/decision fixtures, dependency/core invariance and independent artifact receipts.
