@@ -896,7 +896,8 @@
                 "IntervalCoverage",
                 "BatchMetadata",
                 "IntervalSpec",
-                "AvailabilitySpec"
+                "AvailabilitySpec",
+                "QualityRow"
               ]
             },
             "fields": {
