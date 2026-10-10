@@ -1,0 +1,324 @@
+{
+  "schema": "equity.remote",
+  "version": "1.1",
+  "kind": "feature_slice",
+  "request_id": "request-1",
+  "payload": {
+    "dataset": {
+      "dataset_id": "synthetic.features",
+      "revision": "owned-v1",
+      "snapshot_id": "snapshot-1",
+      "mapping_version": "mapping-1",
+      "source_id": "owned",
+      "input_id": "input-1"
+    },
+    "scope": {
+      "instrument_id": "owned:ONE",
+      "session_id": "session-1",
+      "start_ns": "9007199254740992",
+      "end_ns": "9007199254740993"
+    },
+    "selected_features": [
+      {
+        "feature_id": "session.trade.count",
+        "algorithm_version": "v1"
+      }
+    ],
+    "feature_result": {
+      "context": {
+        "namespace": "owned.fixture",
+        "dataset": {
+          "dataset_id": "synthetic.trades",
+          "revision": "owned-v1",
+          "snapshot_id": "snapshot-1",
+          "mapping_version": "mapping-1",
+          "source_id": "owned",
+          "input_id": "input-1"
+        },
+        "config": {
+          "config_id": "owned.count",
+          "revision": "config-1",
+          "schema_version": "1",
+          "digest": "01658b149d09050f5a1f4885402dc953b8de6ab9bc341bdba80f44d377577e75",
+          "algorithm_version": "v1"
+        },
+        "registry_snapshot": "386db6c41ca29110708ddcbc8df1ef0539076d9fb91dd031f38fc5c434f83b25",
+        "math_policy_version": "v1",
+        "features": [
+          {
+            "feature_id": "session.trade.count",
+            "algorithm_version": "v1"
+          }
+        ],
+        "availability": {
+          "market_cutoff_ns": "9007199254740993",
+          "knowledge_cutoff_ns": "9007199254740993",
+          "evaluation_ns": "9007199254740994",
+          "mode": "known_at",
+          "reconstruction_reason": null
+        }
+      },
+      "command_digest": "123002f9490e9f22c8bafe4422d7e68bb905818c29a5d0b19b3e46ff299a0f1d",
+      "backend_id": "equity_features",
+      "backend_version": "0.0.4a4",
+      "metadata": {
+        "type": "record",
+        "name": "ResultMetadata",
+        "fields": {
+          "namespace": {
+            "type": "string",
+            "value": "owned.fixture"
+          },
+          "session_id": {
+            "type": "string",
+            "value": "session-1"
+          },
+          "availability": {
+            "type": "record",
+            "name": "AvailabilitySpec",
+            "fields": {
+              "market_cutoff_ns": {
+                "type": "int64",
+                "value": "9007199254740993"
+              },
+              "knowledge_cutoff_ns": {
+                "type": "int64",
+                "value": "9007199254740993"
+              },
+              "evaluation_ns": {
+                "type": "int64",
+                "value": "9007199254740994"
+              },
+              "mode": {
+                "type": "string",
+                "value": "known_at"
+              },
+              "reconstruction_reason": null
+            }
+          },
+          "config_digest": {
+            "type": "string",
+            "value": "01658b149d09050f5a1f4885402dc953b8de6ab9bc341bdba80f44d377577e75"
+          },
+          "inputs": {
+            "type": "list",
+            "items": [
+              {
+                "type": "record",
+                "name": "InputBinding",
+                "fields": {
+                  "role": {
+                    "type": "string",
+                    "value": "trades"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "value": "trade"
+                  },
+                  "metadata": {
+                    "type": "record",
+                    "name": "BatchMetadata",
+                    "fields": {
+                      "namespace": {
+                        "type": "string",
+                        "value": "owned.fixture"
+                      },
+                      "source": {
+                        "type": "record",
+                        "name": "SourceBinding",
+                        "fields": {
+                          "snapshot_id": {
+                            "type": "string",
+                            "value": "snapshot-1"
+                          },
+                          "mapping_version": {
+                            "type": "string",
+                            "value": "mapping-1"
+                          },
+                          "source_id": {
+                            "type": "string",
+                            "value": "owned"
+                          },
+                          "input_id": {
+                            "type": "string",
+                            "value": "input-1"
+                          }
+                        }
+                      },
+                      "coverage": {
+                        "type": "record",
+                        "name": "Coverage",
+                        "fields": {
+                          "expected": {
+                            "type": "int64",
+                            "value": "1"
+                          },
+                          "observed": {
+                            "type": "int64",
+                            "value": "1"
+                          },
+                          "complete": {
+                            "type": "bool",
+                            "value": true
+                          }
+                        }
+                      },
+                      "price_unit": {
+                        "type": "record",
+                        "name": "PriceUnit",
+                        "fields": {
+                          "scale": {
+                            "type": "int64",
+                            "value": "2"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "value": "USD"
+                          }
+                        }
+                      },
+                      "adjustment": {
+                        "type": "record",
+                        "name": "AdjustmentSpec",
+                        "fields": {
+                          "basis": {
+                            "type": "string",
+                            "value": "raw"
+                          },
+                          "policy_version": {
+                            "type": "string",
+                            "value": "raw-v1"
+                          },
+                          "action_snapshot": {
+                            "type": "string",
+                            "value": "none"
+                          },
+                          "anchor": {
+                            "type": "string",
+                            "value": "none"
+                          }
+                        }
+                      },
+                      "sampling": {
+                        "type": "string",
+                        "value": "none"
+                      },
+                      "quantity_unit": {
+                        "type": "string",
+                        "value": "shares"
+                      },
+                      "ordering": {
+                        "type": "string",
+                        "value": "declared"
+                      },
+                      "duplicate_policy": {
+                        "type": "string",
+                        "value": "reject"
+                      },
+                      "scope": {
+                        "type": "record",
+                        "name": "InputScope",
+                        "fields": {
+                          "start_ns": {
+                            "type": "int64",
+                            "value": "9007199254740992"
+                          },
+                          "end_ns": {
+                            "type": "int64",
+                            "value": "9007199254740993"
+                          },
+                          "eligibility_policy": {
+                            "type": "string",
+                            "value": "owned-v1"
+                          },
+                          "include_opening_auction": {
+                            "type": "bool",
+                            "value": false
+                          },
+                          "include_closing_auction": {
+                            "type": "bool",
+                            "value": false
+                          }
+                        }
+                      },
+                      "interval_coverage": {
+                        "type": "list",
+                        "items": []
+                      }
+                    }
+                  },
+                  "schema_version": {
+                    "type": "string",
+                    "value": "1"
+                  }
+                }
+              }
+            ]
+          },
+          "backend_id": {
+            "type": "string",
+            "value": "equity_features"
+          },
+          "backend_version": {
+            "type": "string",
+            "value": "0.0.4a4"
+          },
+          "evidence_limit": {
+            "type": "int64",
+            "value": "0"
+          },
+          "schema_version": {
+            "type": "string",
+            "value": "1"
+          },
+          "math_policy_version": {
+            "type": "string",
+            "value": "v1"
+          }
+        }
+      },
+      "columns": [
+        {
+          "feature_id": "session.trade.count",
+          "algorithm_version": "v1",
+          "schema_version": "1",
+          "dtype": "int64",
+          "unit": "trades",
+          "entities": [
+            {
+              "instrument_id": "owned:ONE",
+              "session_id": "session-1"
+            }
+          ],
+          "values": [
+            {
+              "type": "int64",
+              "value": "1"
+            }
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "entity": {
+            "instrument_id": "owned:ONE",
+            "session_id": "session-1"
+          },
+          "feature_id": "session.trade.count",
+          "status": "available",
+          "expected": "1",
+          "observed": "1",
+          "reasons": []
+        }
+      ],
+      "evidence": [],
+      "next_cursor": null,
+      "executed_features": [
+        {
+          "feature_id": "session.trade.count",
+          "algorithm_version": "v1"
+        }
+      ]
+    }
+  }
+}
