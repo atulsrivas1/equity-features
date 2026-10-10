@@ -1,3 +1,7 @@
+## EQ080 internal audit development checkpoint
+
+Optional service.a3 can explicitly admit an owned synthetic finite audit store through Ledger(audit=...). It reserves HTTP/native diagnostic slots before protected work and records fixed redacted outcomes, with a separately provisioned exact-object reader. No remote audit operation or transport/calculation/worker/I/O change. This internal candidate remains In progress, not a qualified public deployment; mandatory guarded entry/cache/all32/current installed/release qualification remains pending.
+
 ## EQ080 bootstrap foundation candidate
 
 Optional service0.1.0a3 defers native graph initialization until explicit public access, preserving existing exports. [Current implementation and remaining isolation gates](../R7_QUOTA_CACHE_AUDIT.md) records121 editable Windows tests/strict7, approved pre-code and actual start. Supervisor/cache/audit runtime and physical/installed/release qualification remain pending. Prior EQ079 is accepted6097119023; older pending captures below are history.
