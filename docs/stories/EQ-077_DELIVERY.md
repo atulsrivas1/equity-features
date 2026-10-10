@@ -1,0 +1,26 @@
+# EQ077 authenticated bounded slice delivery under qualification
+
+[Story87](https://github.com/atulsrivas1/equity-features/issues/87), [pre-code plan](EQ-077_PLAN.md), [canonicalPR358](https://github.com/atulsrivas1/equity-features/pull/358), [workerPR29](https://github.com/atulsrivas1/equity-feature-workers/pull/29). Live Project remains status authority. This document is candidate evidence, not release acceptance.
+
+The optional equity-feature-service0.1.0a0 distribution implements header credentials, explicit grants/rights, bounded slice/discovery, exact admitted raw acquisitions and native feature result projection. [Public service API/install/example](https://github.com/atulsrivas1/equity-feature-workers/blob/codex/eq077-authenticated-slices/docs/EQ077_SERVICE.md), [transport](../api/REMOTE_TRANSPORT.md), [architecture](../IO_WORKER_ARCHITECTURE.md) and [source decision](../decisions/R7_SLICE_SERVICE.md) define supported behavior and limitations. Calculations and accepted worker/I/O runtime/package inputs remain unchanged; the worker foundation build selector is explicitly narrowed to its existing package because optional service has separate qualification.
+
+## Candidate checks and failed evidence
+
+Published pre-code902435b/34784a9 and concrete source/schema d665d07/1f72d9d preceded runtime. Reviewer /root/r7_policy_review resolved pre-code P2: closed1.0 cannot preserve complete native feature data. Separately advertised1.1 wraps the original full producer payload;1.0 remains unchanged.
+
+Preliminary runtime review at canonical1facea0/worker7fbd67d independently reproduced3P2 defects: shorter accounting windows loosened policy limits, absent columns became fabricated nulls, and reference effective starts escaped scope. Corrected4637610 fixes60s windows, actual present columns and effective_start_half_open reference selection. Renewed reviewer independently passed23 methods/replayed adversaries, with no further concrete runtime/harness finding. Native reference effective ends may extend beyond selection; preserve original validity.
+
+Corrected4637610 local Windows committed-repeat/fresh wheel+sdist and actual service push38023960310/PR38023962630 Windows/Linux pass. Author/reviewer independently audited three artifact sets. PR merge32eada61b7c48e8cc88c3dc13fcfebc33cfead49 tree equals reviewed4637610. All21 source inputs,7 archive/dependency hashes perOS and native package/schema bytes match source; author also verified wheel RECORD. [Artifact/review receipt](https://github.com/atulsrivas1/equity-features/issues/87#issuecomment-6093790977). Foundation4637610 Linux failed KeyError because it enumerated optional service as a worker. Reviewed6602874 selector corrects this; current foundation evidence must supersede failure.
+
+Expanded development34 methods(7.900s), all34 frozen decision mappings, strict6 service source files and owned HTTP example pass. Fixtures now cover actual structured interval/nested quality, unavailable quality/null, malformed native result,100/101rows, exact262144/262145-byte responses, one-byte transfer excess, discovery/raw/derived separation, source/chunk/mapping/content tamper and producer ordering. First expanded32-method run failed nested quality value schema and expected ContractError where SDK exposes typed SinkError. Correct1.1 value-record vocabulary in addition to metadata;1.0 unchanged. These new source/fixture changes require renewed final review/current artifacts; earlier green evidence cannot accept changed schema/tests.
+
+## Remaining release gates
+
+- [ ] Complete separate final-head source/security/native/docs review and disposition.
+- [ ] Current canonical docs/transport/core and companion foundation/service Windows/Linux checks.
+- [ ] Exact final source repeat archives and fresh wheel/sdist light/full installed probes, example, strict public typing, native/HTTP/decision fixtures, dependency/core invariance and independent artifact receipts.
+- [ ] Guarded publication of paired PRs to main with exact reviewed tree/Atul attribution.
+- [ ] Actual-main CI/artifacts and independent public UTF-8 blob/tree/source-version readback.
+- [ ] Acceptance/evidence linked to story, truthful Released/Done lifecycle and issue closure.
+
+Declared channel is reviewed experimental source and bounded GitHub Actions artifacts, not registry/stable packages or an externally hosted service. This owned synthetic qualification confers no provider/hosted/private dataset rights, public operational approval, production TLS/issuer, durable multi-instance quota/cache/audit, physical retention deletion, job service, hard preemption or process RSS/CPU/SLO guarantees. Other R7 stories and private/provider/paid operations remain separately gated.
