@@ -1,3 +1,7 @@
+## EF-L067 byte budgets and accepted artifact provenance
+
+Count complete serialized forms and actual retained reservations, including Unicode escaping and receipt history; verify exact allow/deny and no eviction at finite caps. Sink factory creation may precede acquisition, while current authorization must still prevent native begin/commit. Maximum closed schema IDs differ from arbitrary Unicode labels. Dependency artifact verification preserves actual perOS accepted archive hashes; Windows CRLF source export is not a new runtime delta when the archive equals the independently accepted bytes. New helper initially failed rawLF comparison and was corrected with exact historical dependency proof, never blanket normalization. See [handoff](../SESSION_HANDOFF.md) and linked90-method/58public-input candidate evidence; final review/installed publication remains pending.
+
 ## EF-L067 retirement cleanup correction
 
 Finite cleanup must retain original admitted lifetime independently of mutable live authorization records. Grant removal is denial, not a missing-record exception that can kill shared execution or retain another owner's data. Credential removal must clear unauthorized terminal forms without blocking unrelated owners. Running reservations survive until real exit; tombstones survive to original expiry. Separate reviewer independently reproduced both failures; [corrective disposition](https://github.com/atulsrivas1/equity-features/issues/88#issuecomment-6095258027) records44 job/full79 development methods and pending final qualification.
