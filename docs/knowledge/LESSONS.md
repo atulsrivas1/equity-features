@@ -965,3 +965,6 @@ EQ077's reviewed candidate and actual-main service/foundation archives are equal
 
 
 EQ080 audit lesson corrective follow-up: [independent twoP2 findings](https://github.com/atulsrivas1/equity-features/issues/90#issuecomment-6097919208) show diagnostic encoding itself belongs before final authority/current interval transfer, and early denial must preserve the authenticated principal. Tests reproduce exact original expiry/1-byte principal and audit-time60s rollover. Corrected22audit/full154/strict9 pass; renewed independent current review/installed artifacts remain pending. Original151source/localfresh build success did not establish these adversaries; preserved as superseded history.
+
+
+EQ080 header staging lesson: [renewed independent findings](https://github.com/atulsrivas1/equity-features/issues/90#issuecomment-6098021325) prove a header callback is not the final protected body visibility point, and a preencoded diagnostic cannot assume no reentrant state change. Renew authority after staging; abort body if late authority fails, with explicit incomplete-response semantics. Reject nested controller/iterator emission and use current audit sequence/totals after a permitted close.27audit/full159/strict9bothplatform declarations pass; renewed exact-head/installed/release qualification remains pending. No mathematical or accepted worker/I/O change.

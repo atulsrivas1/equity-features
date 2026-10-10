@@ -1,3 +1,7 @@
+## EQ080 staged header callback contract — development candidate
+
+Service header callback is trusted staging, not protected body visibility. Reentrant Service calls or previously prepared iterator emission inside it are explicitly rejected with fixed reentrant_header_callback before new protected work/audit mutation. Closing an abandoned prepared iterator is permitted. Renew current authority after callback and final diagnostic encoding before the one protected chunk. If authority/clock/accounting fails after headers were staged, body is aborted to empty; staged status/length may describe an incomplete response. A consumer must reject truncated/absent result data. No status replacement or durable/hosted guarantee. Pre-header credential retirement returns401 authentication. Current same-story review/WinLinux installed release qualification remains pending.
+
 ## EQ080 internal audit development checkpoint
 
 Optional service.a3 can explicitly admit an owned synthetic finite audit store through Ledger(audit=...). It reserves HTTP/native diagnostic slots before protected work and records fixed redacted outcomes, with a separately provisioned exact-object reader. No remote audit operation or transport/calculation/worker/I/O change. This internal candidate remains In progress, not a qualified public deployment; mandatory guarded entry/cache/all32/current installed/release qualification remains pending.
