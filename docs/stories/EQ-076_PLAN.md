@@ -1,0 +1,15 @@
+# EQ076 transport design plan — October 9, 2026
+
+[Story86](https://github.com/atulsrivas1/equity-features/issues/86), E10 #84, R7 milestone8. EQ075 is accepted at canonical `65a8a9e644b9626e18739e229ef982797795698d`; [acceptance](https://github.com/atulsrivas1/equity-features/issues/85#issuecomment-6092142759) supersedes earlier review-pending captures. No competing R7 work is open; preserved R6 provider drafts remain outside this story. Five provisional complexity points, not days; one active story.
+
+## Outcome before implementation
+
+Freeze a data-only UTF-8 JSON wire contract, closed versioned envelopes, request selectors, response/job/error/result identities and lossless scalar encoding. Supply machine-readable schemas and independent owned boundary vectors plus an executable reference verifier. No network server, Python-object deserialization, provider request, new numerical formula/package, client or deployment. Reference verification is not production codec/authentication proof. Authentication/enforcement, scheduling, delivery, clients and hosted qualification remain later R7 stories.
+
+Integer data (signed int64 UTC nanoseconds, coefficients, counts) uses canonical decimal strings; float64 uses exact network-order IEEE754 bit strings, with nonfinite values rejected. Decimal128 coefficients/scales and recursive structured result cells preserve values/nulls without expanding unsupported capabilities. Preserve dataset/snapshot/mapping/source/input/algorithm/config/backend/math/schema and C/K/E identities separately. Config requests select a server-approved immutable config ID/revision/digest; transport digests do not replace canonical ConfigSpec digests or dataset/authentication admission. Approved remote configuration may expand through a separately versioned schema rather than uploading arbitrary objects/code.
+
+## Independent validation and accepted end state
+
+Literal vectors freeze int64 extrema, 2^53+1, 1ns separation, unknown versus zero, signed zero/subnormal/max-finite floats, decimal128 extrema/scale and exact structured cells. Negative vectors include JSON numeric int64, overflow/noncanonical integer syntax, duplicate names, malformed UTF-8/surrogates/NaN/infinity, oversize/deep payload, unrecognized version/fields, changed command identities, and mismatched success/error/job/quality states. Use an independent standards schema validator plus explicit semantic checks where JSON Schema alone cannot establish bounds, bit finiteness or identity relationships. Never claim structural schemas authenticate sources or implement service budgets.
+
+Update transport API/versioning/navigation, same-story validation/evidence, knowledge and exact handoff. Require separate owner-authorized R7 final-head review, local reference/doc checks, current applicable Windows/Linux CI, guarded publication and independent actual-main public/tree/attribution readback before Released/Done. Calculation/build inputs remain unchanged. EQ077 becomes the next dependency candidate only after this story acceptance and its own readiness; provider/private/deployment/stable/registry gates remain separate.

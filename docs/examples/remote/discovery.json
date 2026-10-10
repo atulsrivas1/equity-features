@@ -1,0 +1,18 @@
+{
+  "schema": "equity.remote",
+  "version": "1.0",
+  "kind": "discovery",
+  "request_id": "request-1",
+  "payload": {
+    "transport_versions": [
+      "1.0"
+    ],
+    "registry_snapshot": "386db6c41ca29110708ddcbc8df1ef0539076d9fb91dd031f38fc5c434f83b25",
+    "features": [
+      {
+        "feature_id": "session.trade.count",
+        "algorithm_version": "v1"
+      }
+    ]
+  }
+}

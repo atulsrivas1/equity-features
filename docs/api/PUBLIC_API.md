@@ -1,3 +1,7 @@
+## R7 data-only transport design
+
+[Remote transport](REMOTE_TRANSPORT.md) defines lossless versioned JSON envelopes outside calculations. [Access policy](REMOTE_ACCESS_POLICY.md) and downstream authentication/native-conversion/authorization qualification remain required. The schema/reference verifier is a design deliverable, not an installed remote service/client or permission to deserialize executable Python objects.
+
 # Current experimental public API
 
 EQ039 documents matching core pair0.0.4a4 and independently packaged consumer0.3.0. The delivered inventory is39 builtin batch IDs,23 session update/restore IDs and22 conditional merge IDs. All16 history/context/breadth R2 IDs remain batch-only; continuous quote merge is unsupported. Custom execution supports explicit canonical batch requests only. Read actual capabilities rather than inferring modes from a module name. This guide's consistency does not establish a stable API, broad platform promise or registry publication. [Compatibility](../COMPATIBILITY.md), [registry](../contracts/REGISTRY.md), [incremental matrix](INCREMENTAL.md).

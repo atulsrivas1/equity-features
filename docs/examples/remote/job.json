@@ -1,0 +1,13 @@
+{
+  "schema": "equity.remote",
+  "version": "1.0",
+  "kind": "job",
+  "request_id": "request-1",
+  "payload": {
+    "job_id": "job-1",
+    "command_digest": "123002f9490e9f22c8bafe4422d7e68bb905818c29a5d0b19b3e46ff299a0f1d",
+    "state": "queued",
+    "result_id": null,
+    "error": null
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "equity.remote",
+  "version": "1.0",
+  "kind": "slice",
+  "request_id": "request-1",
+  "payload": {
+    "dataset": {
+      "dataset_id": "synthetic.trades",
+      "revision": "owned-v1",
+      "snapshot_id": "snapshot-1",
+      "mapping_version": "mapping-1",
+      "source_id": "owned",
+      "input_id": "input-1"
+    },
+    "scope": {
+      "instrument_id": "owned:ONE",
+      "session_id": "session-1",
+      "start_ns": "9007199254740992",
+      "end_ns": "9007199254740993"
+    },
+    "columns": [
+      {
+        "name": "event_ns",
+        "dtype": "int64",
+        "unit": "UTCns",
+        "values": [
+          {
+            "type": "int64",
+            "value": "9007199254740992"
+          },
+          {
+            "type": "int64",
+            "value": "9007199254740993"
+          }
+        ]
+      },
+      {
+        "name": "known_at_ns",
+        "dtype": "int64",
+        "unit": "UTCns",
+        "values": [
+          null,
+          {
+            "type": "int64",
+            "value": "0"
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "type": "record",
+      "name": "BatchMetadata",
+      "fields": {
+        "namespace": {
+          "type": "string",
+          "value": "owned.fixture"
+        }
+      }
+    },
+    "next_cursor": null
+  }
+}
