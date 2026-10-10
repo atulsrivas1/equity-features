@@ -1,0 +1,1938 @@
+{
+  "canonical_commit": "8dade31cf1e0455b1a176970e01a6c6808ee306d",
+  "channel": "reviewed experimental public source and 30-day GitHub Actions artifacts; no registry or hosted service",
+  "decision_mappings": 30,
+  "delivery_methods": 30,
+  "foundation_review_url": "https://github.com/atulsrivas1/equity-features/issues/89#issuecomment-6096656605",
+  "job_methods": 55,
+  "limitations": [
+    "owned synthetic inputs only",
+    "no hosted/provider/private dataset rights",
+    "no public operational authorization",
+    "no stable/registry package release",
+    "no process RSS/CPU/production SLO claim",
+    "no durable restart recovery",
+    "finite complete JSON result/attachment only; no external physical storage cleanup or secure erase",
+    "fixed server-owned native registrations and trusted OwnedReceiptProfile",
+    "cooperative cancellation retains running capacity until actual exit"
+  ],
+  "public_foundation_source_inputs": [
+    {
+      "bytes": 1631,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "d232c0274b4cce6e2c972f970d0e2ebcdff04d4a",
+      "path": ".github/workflows/foundation.yml",
+      "repo": "equity-feature-workers",
+      "sha256": "c796a58b0ea4f4636b7784b2cce1ecdd09cb33c68a61b620030c023d1c83ff5e"
+    },
+    {
+      "bytes": 11357,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "path": "packages/service/LICENSE",
+      "repo": "equity-feature-workers",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 2678,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "cb598a2344919079206a08991d140fafb3b30939",
+      "path": "packages/service/README.md",
+      "repo": "equity-feature-workers",
+      "sha256": "a6c21d2352f3bdedcf1ab9a6ee4bedbf303e9c4f4bb37668335199512b91ad4a"
+    },
+    {
+      "bytes": 928,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "caa8caf1757a1ef052117dfbb02628548c970fe2",
+      "path": "packages/service/pyproject.toml",
+      "repo": "equity-feature-workers",
+      "sha256": "0933f4c9b2168cb541b490ac02e1d9b8596dbea3b51fbbc52e58bdab2f51a1b5"
+    },
+    {
+      "bytes": 439,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "e5d0b2f3ebed1a2a4241105733088ad8a4ccfcf2",
+      "path": "packages/service/src/equity_feature_service/__init__.py",
+      "repo": "equity-feature-workers",
+      "sha256": "2bef1cc582c020626d41b9b7bf360784ec44a54553eaf3d8a89032040f783d76"
+    },
+    {
+      "bytes": 6914,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "26f4deb65a73db91e3968e0fb5ecd7469a5f0248",
+      "path": "packages/service/src/equity_feature_service/codec.py",
+      "repo": "equity-feature-workers",
+      "sha256": "954db659f0b0e0edc4a917b0d28a76cc35479464c1cff45df730fedcdcf175ca"
+    },
+    {
+      "bytes": 14401,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "1387d1db390ee3f10fed0a90b587f8134ce9dc4c",
+      "path": "packages/service/src/equity_feature_service/datasets.py",
+      "repo": "equity-feature-workers",
+      "sha256": "41db66b5f84bdc79fe88f4f5eae9f8d380e3affa12086bcf1021e2ec3ae3914f"
+    },
+    {
+      "bytes": 1937,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a78f89f859bf0588a890a8b6829cf0eb0e949b91",
+      "path": "packages/service/src/equity_feature_service/duckdb.py",
+      "repo": "equity-feature-workers",
+      "sha256": "887540795f24b78fdb96ca2c48e5f1572669f50f130f79689fc17437412f971c"
+    },
+    {
+      "bytes": 38422,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a8d1beeab183604a4be260cac5c65bd352fca16d",
+      "path": "packages/service/src/equity_feature_service/jobs.py",
+      "repo": "equity-feature-workers",
+      "sha256": "4a5858b63ba8e36a7ab339ba1ac732d7335eda9a83df7607fab2cf4327528dfb"
+    },
+    {
+      "bytes": 1264,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "b76d71cb57396ac1beda658357ab1aadb01bb427",
+      "path": "packages/service/src/equity_feature_service/loopback.py",
+      "repo": "equity-feature-workers",
+      "sha256": "69cd65d929765961927c74a12ccfb199a53bf5a5435253559a61a8c06aeb321a"
+    },
+    {
+      "bytes": 0,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "packages/service/src/equity_feature_service/py.typed",
+      "repo": "equity-feature-workers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 30039,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "eb172e2d9f618ec528e679ddf1b4f5c066ee0335",
+      "path": "packages/service/src/equity_feature_service/schemas/remote-v1.1.schema.json",
+      "repo": "equity-feature-workers",
+      "sha256": "dda0f9d2e5968ff2ea3bf79f02740a18f9ae24cd93c492f7c38033883ed8a6b2"
+    },
+    {
+      "bytes": 28666,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "14868f6ff52788c93357a1a97b3f61505d7ea81c",
+      "path": "packages/service/src/equity_feature_service/schemas/remote-v1.schema.json",
+      "repo": "equity-feature-workers",
+      "sha256": "9d5e83f1d89bb34491d959158ae628e4b7b0590155244beb13945a3b94f362a0"
+    },
+    {
+      "bytes": 24115,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a50d7a9630d73a8a1e99ea14bfaefc5685801df7",
+      "path": "packages/service/src/equity_feature_service/service.py",
+      "repo": "equity-feature-workers",
+      "sha256": "d5e91dab3d6c2edf969920700e07c37de471b87d9b33913914e2308e367fbad1"
+    },
+    {
+      "bytes": 11357,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "path": "packages/workers/LICENSE",
+      "repo": "equity-feature-workers",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 14812,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "c48fada37854e5e754597e4781b9eb729b61eb93",
+      "path": "packages/workers/README.md",
+      "repo": "equity-feature-workers",
+      "sha256": "6bbe56ef10dc79c7a2c138ace79023d3cea3ecc76e35eb05d3b02c062b6b4a6a"
+    },
+    {
+      "bytes": 750,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "0c1876d49bb9fccbe9181c6ae2215e4ffdfe608e",
+      "path": "packages/workers/pyproject.toml",
+      "repo": "equity-feature-workers",
+      "sha256": "5db341c048458a36ae2c08267824216d5ff36a8218a6b950b774b593d5769ae8"
+    },
+    {
+      "bytes": 3208,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a4a0ae54c200eb5cffdf9b95aaead0afbc7f4dc1",
+      "path": "packages/workers/src/equity_feature_workers/__init__.py",
+      "repo": "equity-feature-workers",
+      "sha256": "0c4cf7430ea6a7d6e56960210b84e0d940942f4af0cc32a84a19bb32fd800b74"
+    },
+    {
+      "bytes": 12583,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "692e2627adf6545e4e493daae4640fae6c82078e",
+      "path": "packages/workers/src/equity_feature_workers/acquisition.py",
+      "repo": "equity-feature-workers",
+      "sha256": "6ae242f908ad65daf8e52027411371cd3d4d5443f37cba953eda5d8d5a8d3332"
+    },
+    {
+      "bytes": 5962,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a5bd6af9bfebc84cab26cd1b8a4d302dc3096ea8",
+      "path": "packages/workers/src/equity_feature_workers/acquisition_demo.py",
+      "repo": "equity-feature-workers",
+      "sha256": "ec68280e9134e9cca2382ccbc907e640229efa69b3b3c237a4e0a83601567786"
+    },
+    {
+      "bytes": 15829,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "e395711d4dca77c13fe6dd47927e23b6682ffa05",
+      "path": "packages/workers/src/equity_feature_workers/barriers.py",
+      "repo": "equity-feature-workers",
+      "sha256": "41d2be6c29475c0f0fa1a1c550a3dfa4200c9e105a88d6cc1d393640b2427cd9"
+    },
+    {
+      "bytes": 12477,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "77893f893f2159ca2094f2703e6e541d7cf6fda7",
+      "path": "packages/workers/src/equity_feature_workers/breadth_commands.py",
+      "repo": "equity-feature-workers",
+      "sha256": "0b055f8e53e8de84574617583677c4c175a22dc9669ab12de1b2aabb785d9648"
+    },
+    {
+      "bytes": 19385,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "400b4b6f396b777ff87d453e2baa5a43d6dd35c4",
+      "path": "packages/workers/src/equity_feature_workers/catalog.py",
+      "repo": "equity-feature-workers",
+      "sha256": "5bc4b309c844fad9b0463aeef224aab1e24c47a9fa436acbe0d4e9ebd4890ca6"
+    },
+    {
+      "bytes": 19814,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "2f8940ed0cf3a8615ca3f63705742dd590dbe0bb",
+      "path": "packages/workers/src/equity_feature_workers/claims.py",
+      "repo": "equity-feature-workers",
+      "sha256": "88b7f1fa702a69d9d76fff5cbce1a64744ed328860b1ec97f0eeefca1e65b5f4"
+    },
+    {
+      "bytes": 9889,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "b45e6efb7c74593e9f060535f3473e3c829b6f00",
+      "path": "packages/workers/src/equity_feature_workers/cli.py",
+      "repo": "equity-feature-workers",
+      "sha256": "aadb95c320173983010f8e4840ca121b8f7f463a6bfa8cc7491476e04283cb93"
+    },
+    {
+      "bytes": 19156,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "d0f88165bc4b5b7f595dd64a2ed7d4114cbb23b8",
+      "path": "packages/workers/src/equity_feature_workers/commands.py",
+      "repo": "equity-feature-workers",
+      "sha256": "73e2db3acb10d419c90a7024ff5a353997522926ed91317092c247dd9eacc4ec"
+    },
+    {
+      "bytes": 13672,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "fe6e7b360c959055e8b5fca8c19ce4ba1ae1b020",
+      "path": "packages/workers/src/equity_feature_workers/diagnostics.py",
+      "repo": "equity-feature-workers",
+      "sha256": "e45bfd0f7eb0ffa76c718c3fa0782f4c0fed0d2d31f4a62d24c2c6a052e72a13"
+    },
+    {
+      "bytes": 12636,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "05ee00c16007163f36b35505a977a6010e89060f",
+      "path": "packages/workers/src/equity_feature_workers/generations.py",
+      "repo": "equity-feature-workers",
+      "sha256": "6bca5e1d58a6d6a4d47b6f7a2e9565074a5e5fa9695ab1854808503f39acc3bc"
+    },
+    {
+      "bytes": 16827,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "c522ede37c46e209f06864c184f5e57180ae01f7",
+      "path": "packages/workers/src/equity_feature_workers/manifests.py",
+      "repo": "equity-feature-workers",
+      "sha256": "915071757d40d46c6d192f4687ca874935fe1100fdc3398675d00ed7a937b537"
+    },
+    {
+      "bytes": 14372,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "cb0c2a83395ea4d4a7b08b997fd41639e1d465e7",
+      "path": "packages/workers/src/equity_feature_workers/publication.py",
+      "repo": "equity-feature-workers",
+      "sha256": "a90bdafb224805fb3346e75948547635aeeef7a4e6c9de13c7895a8aa0b9f7de"
+    },
+    {
+      "bytes": 0,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "packages/workers/src/equity_feature_workers/py.typed",
+      "repo": "equity-feature-workers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 17364,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "5807bff1d29fbb86f74be4406c3c94ff043d3c9d",
+      "path": "packages/workers/src/equity_feature_workers/required_inputs.py",
+      "repo": "equity-feature-workers",
+      "sha256": "a7423f1ca2c619210a8fb5b462b436bec3825ec9532ddec1654cd96b2bac9116"
+    },
+    {
+      "bytes": 30445,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "e5a646c45a0b424dca946f1ca6bc3db5e64e9b72",
+      "path": "packages/workers/src/equity_feature_workers/supervisor.py",
+      "repo": "equity-feature-workers",
+      "sha256": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe"
+    },
+    {
+      "bytes": 407,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "cddfd14ff154266bb89e9ce21f9eeecbc73cbe6f",
+      "path": "requirements-dev.txt",
+      "repo": "equity-feature-workers",
+      "sha256": "77c5c3db6b91c3240c7be485e3c5bb7983aa23fdb6835789c3dabc0ebd2dc81c"
+    },
+    {
+      "bytes": 610,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "55b561db3002a6c73df3636790137b0a3bc91b83",
+      "path": "tests/acquisition_oracle.json",
+      "repo": "equity-feature-workers",
+      "sha256": "fa23dfa521034a3b8a3f111edc58c3736f80ad2cf2c053885f0fb95d97f26805"
+    },
+    {
+      "bytes": 2551,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "e8fee0ad596458e104e759bfa930cac7abd66922",
+      "path": "tests/acquisition_probe.py",
+      "repo": "equity-feature-workers",
+      "sha256": "32a94012e47667a64480694ee1011044f536d15d89435a57e0e050eb55d431bb"
+    },
+    {
+      "bytes": 1157,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "c0d5ff677653958ff3f0be990d2da5324539e1e2",
+      "path": "tests/barrier_fixture.py",
+      "repo": "equity-feature-workers",
+      "sha256": "9dd77c2ec9469d0caf948e3a652a622d1ae8e05605cfb3d90d1bcf8c81f7e22b"
+    },
+    {
+      "bytes": 509,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "138154a9f94030566ef2de65e5c068953fd09895",
+      "path": "tests/barrier_oracle.json",
+      "repo": "equity-feature-workers",
+      "sha256": "e3dddf9b07b54280124eebe1ef5db97b6b851ab836534b71dcc898bfaf850a75"
+    },
+    {
+      "bytes": 1044,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "47bdc80f270546efa3a6dffd3b420f7511b4dfb7",
+      "path": "tests/catalog_example.py",
+      "repo": "equity-feature-workers",
+      "sha256": "81901cc22284e3a4d29c9fd0b96c2047ce5813f7a4569248e037f2d3c3ad149d"
+    },
+    {
+      "bytes": 1064,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "94bc84764d2014add545247fda79b4d3d6e799df",
+      "path": "tests/catalog_oracle.json",
+      "repo": "equity-feature-workers",
+      "sha256": "379ccb0af4e4d994df619971fc77dc46556b18b1ad03c6c169024dae5e05caea"
+    },
+    {
+      "bytes": 1367,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "143e0461efcf5382415da1fc3d2aac3c2a3f3854",
+      "path": "tests/claims_example.py",
+      "repo": "equity-feature-workers",
+      "sha256": "de4886bd4daaebb34462fd3cd33089b7f6915ab69b0c69df6fccd387838e631b"
+    },
+    {
+      "bytes": 548,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "ffc0ffe8027a7a835bae4e80f872a7fbdfc93f78",
+      "path": "tests/claims_oracle.json",
+      "repo": "equity-feature-workers",
+      "sha256": "615e06f6a92724bf5817990a62b829347a7cf350f90d4079573a4974cf05e1ee"
+    },
+    {
+      "bytes": 895,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "b45469079c37c90fd601c1b0b600d8bf264da82a",
+      "path": "tests/diagnostic_oracle.json",
+      "repo": "equity-feature-workers",
+      "sha256": "3e0e5e2f9d38d9a2321233448914ca43b5ec32b30df5bd709ac8fd300a43abd3"
+    },
+    {
+      "bytes": 1741,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "9177a194432d5d9cf1aa7bc1fec55aa1af9dfb4e",
+      "path": "tests/diagnostics_example.py",
+      "repo": "equity-feature-workers",
+      "sha256": "ddaf471a19bfa33d715bd9b3e88a7cfdff23742380f2be52c1a387cae4e5e71f"
+    },
+    {
+      "bytes": 2081,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "0c42e13d4733da4dffe8f090b692804bdd50063a",
+      "path": "tests/make_manifest_oracle.py",
+      "repo": "equity-feature-workers",
+      "sha256": "5fa02096255ad1244eba7251f1da3eaf4b614172fba91de420dcdc256b5f6d87"
+    },
+    {
+      "bytes": 409,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "ee3e9158c38a93361d001680eea8948baee9584e",
+      "path": "tests/manifest_example.py",
+      "repo": "equity-feature-workers",
+      "sha256": "bf88eb1d618d5b1b876c01d59ce3a2abe8e6262a366aa464932bc5b7fb0349c7"
+    },
+    {
+      "bytes": 2482,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "979f3f30233868f818fe434b00d9df3c400be87b",
+      "path": "tests/manifest_fixture.py",
+      "repo": "equity-feature-workers",
+      "sha256": "1bceaf0c329b8f4e447a33ee16940c95c2671f6ce96468301820bd7d236de5d1"
+    },
+    {
+      "bytes": 1997,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "bf3e18fce2abda27a728ab9aeaf6910dda02620d",
+      "path": "tests/manifest_golden.json",
+      "repo": "equity-feature-workers",
+      "sha256": "8d4c28a152c1884b16137fde4064cf6434b73ede9331e568c8b0aabccb6cb232"
+    },
+    {
+      "bytes": 16444,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "75736979bb551b5346f6b5702a58df846c498af0",
+      "path": "tests/pilot_fixture.py",
+      "repo": "equity-feature-workers",
+      "sha256": "9e5a03483fed797a0c1c6e441991cfd66ede618f4ae26b26bfac48605ba12843"
+    },
+    {
+      "bytes": 13886,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "3b617e18f2f4095e3fdbb13278083e22359023f9",
+      "path": "tests/pilot_memory.py",
+      "repo": "equity-feature-workers",
+      "sha256": "685301f36aec8b998934abaab0c5bff2f19e756ffad3e5ed4a45742387a3d606"
+    },
+    {
+      "bytes": 2659,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a4eecc9f28b093ac52e7ab0afdafe14a21e46718",
+      "path": "tests/pilot_oracle.json",
+      "repo": "equity-feature-workers",
+      "sha256": "aa4920a1b3954a1803a752a7b9760417bff8c7300504d982822c51335add303a"
+    },
+    {
+      "bytes": 11553,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "5d76f8ffbf17bb15b8a12682ca7e8bf7ef4f17e6",
+      "path": "tests/pilot_process.py",
+      "repo": "equity-feature-workers",
+      "sha256": "2e473b3bc9edf56ef37c37bc0560feed8377fd8812142e9f1d7f424993e6997f"
+    },
+    {
+      "bytes": 4812,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "4f330ce5117b1f044b5f5c152e94d287233dc5ca",
+      "path": "tests/probe_foundation.py",
+      "repo": "equity-feature-workers",
+      "sha256": "5c55b7f603c6d0f819658a7a530d24fef5e4b00958db4f93141f27d6c4ea04de"
+    },
+    {
+      "bytes": 323,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "29003e4d41caff8c29ccf6c3b7e35aec5392fe95",
+      "path": "tests/publication_fixture.py",
+      "repo": "equity-feature-workers",
+      "sha256": "3ebdb52b3f523c5941b7a8f2af39cc30a3c7d69478f0b94f46c9f37680894255"
+    },
+    {
+      "bytes": 422,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "cefead3ca71f9faaff6ddb78ca4ae4b43eb92f15",
+      "path": "tests/publication_oracle.json",
+      "repo": "equity-feature-workers",
+      "sha256": "99a920394fb47c12a5d43f264b87ad7179ef7a192735752e858850114f5cde31"
+    },
+    {
+      "bytes": 4470,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a773afacd99ae8242bb312ec452528f550172c97",
+      "path": "tests/required_fixture.py",
+      "repo": "equity-feature-workers",
+      "sha256": "cf56a4760beda18de52491cc35000cbba94b03d34542b699fd86a345c55c00cd"
+    },
+    {
+      "bytes": 688,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "fd00024113333bfceca7a23065eb26419fb39983",
+      "path": "tests/required_oracle.json",
+      "repo": "equity-feature-workers",
+      "sha256": "565d94bd1ba5127a16acc7d9d07a7082d2308eb2888def98e0dce40340ff2b60"
+    },
+    {
+      "bytes": 824,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "b7f5840ad0891adf2059dc0c8cfdf147bf208506",
+      "path": "tests/service/fixtures/approved-config.json",
+      "repo": "equity-feature-workers",
+      "sha256": "d0626575709844b924fb5a0d7572bb2b82f5cb28287e643f36b7b508b5918c4e"
+    },
+    {
+      "bytes": 1487,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "866eee588df0c65b7f185091411f9d549a6328ab",
+      "path": "tests/service/fixtures/calculate.json",
+      "repo": "equity-feature-workers",
+      "sha256": "4d49e8473e68e195664c78e66e24279854df1294dfd8fe16f8384d31559a0be5"
+    },
+    {
+      "bytes": 139381,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "78ffc999822a5a46861d8d89b538df5737991b4a",
+      "path": "tests/service/fixtures/delivery_native.json",
+      "repo": "equity-feature-workers",
+      "sha256": "2ca65b4f548fe634e5acf7c7848cd4ae9de87420dbe35c3272d4937ba2df315a"
+    },
+    {
+      "bytes": 22366,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a2000dad298e6585082a0a8d4f42d531609cb32d",
+      "path": "tests/service/fixtures/jobs_native.json",
+      "repo": "equity-feature-workers",
+      "sha256": "73108af4d8678fc16beae1d099548895f3d6da92ef51625eae4877d7fb885ba7"
+    },
+    {
+      "bytes": 5896,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "bbe41e95e444a9fc12c11649ae64e9333e1aadb9",
+      "path": "tests/service/fixtures/service_decisions.json",
+      "repo": "equity-feature-workers",
+      "sha256": "36b60bb8d6702e7e6759ded67a465eed10910f52efbf163fd27d8bb7938d1ef7"
+    },
+    {
+      "bytes": 3912,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "97d09cad7476c0efc68959bb8250158342c3af76",
+      "path": "tests/service/test_decisions.py",
+      "repo": "equity-feature-workers",
+      "sha256": "1fce98d3b8c41a41ce3748f7fed7e07226e4f89340c0313b6fba4054a677d473"
+    },
+    {
+      "bytes": 21391,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "89c6bacc045eeea25b5dc3a2c910192edea2c1b8",
+      "path": "tests/service/test_delivery.py",
+      "repo": "equity-feature-workers",
+      "sha256": "8c05b5fbc70beab51887425fd81f97c4ab464d1c578848bd421f848283f20761"
+    },
+    {
+      "bytes": 6422,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "97489cc7ad574a572e27ca0f49f28a8265450e40",
+      "path": "tests/service/test_duckdb.py",
+      "repo": "equity-feature-workers",
+      "sha256": "8b72b927b7ddcb2e8f0c398ae63b9ae8cb3cf724420e3bf27dcd46a4dfd219e6"
+    },
+    {
+      "bytes": 60023,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "ef7e70357a7d788ca364f409365f74bafaa0dd3e",
+      "path": "tests/service/test_jobs.py",
+      "repo": "equity-feature-workers",
+      "sha256": "e2e039d2ad4afab305bb5ec894c46fb8ef9ac521d61e9109728925069f938cb7"
+    },
+    {
+      "bytes": 30720,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "7db49a5fc0cde96b64c25d4e270bc784655a4306",
+      "path": "tests/service/test_service.py",
+      "repo": "equity-feature-workers",
+      "sha256": "6b8295d77fd00e5ac1eb126eb0d167783b92bc5c34970e3c623915bf9285559a"
+    },
+    {
+      "bytes": 1507,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "7bc2a5d7e890ae0cbf735a3bc14df7ba0099c62e",
+      "path": "tests/supervisor_fixture.py",
+      "repo": "equity-feature-workers",
+      "sha256": "efe8db41324cc7afc37d3abeba19de8ac9961131b123d29791bc28141cdc1610"
+    },
+    {
+      "bytes": 245,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "72ac2daec3e9a3247a66d9d2f706bc9975c99d0b",
+      "path": "tests/supervisor_oracle.json",
+      "repo": "equity-feature-workers",
+      "sha256": "00d5e92ed5d7fd99e90fecc11d71b5dc78ace4c05f0920776f3db7d0c69338ba"
+    },
+    {
+      "bytes": 14410,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "29c27f8403880500c16faf1abb37c1cd3525cb47",
+      "path": "tests/test_acquisition.py",
+      "repo": "equity-feature-workers",
+      "sha256": "8adba7d8b4abbd5b46eafb81a56e2ca5d29132136bc9c2a55dbb273ca2b8eda5"
+    },
+    {
+      "bytes": 21136,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "2b29ec313824b669d95a441b9364a3247b2d0642",
+      "path": "tests/test_barriers.py",
+      "repo": "equity-feature-workers",
+      "sha256": "74f46761a3d6d25d600f45093cf529ca4952f56be8dcb905262e7b63621a8ce6"
+    },
+    {
+      "bytes": 25028,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "bc525090004238d7bec56a18af6aaa03bddc9b53",
+      "path": "tests/test_catalog.py",
+      "repo": "equity-feature-workers",
+      "sha256": "98691c0285dbe30cf66cba50d6639ae4dc788a22cdac9e7110faa6eeb144590f"
+    },
+    {
+      "bytes": 24383,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "7fa0ebc86bd9d1531a5a7cf357ae7e3e6522cbd6",
+      "path": "tests/test_claims.py",
+      "repo": "equity-feature-workers",
+      "sha256": "fe3ac4bab4d5456f57fca2a0cf7531700da61e8a285f5d5491dafa956f9841b8"
+    },
+    {
+      "bytes": 14526,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "2dc781449caebd5c796d113de77ada92867dc3c5",
+      "path": "tests/test_commands.py",
+      "repo": "equity-feature-workers",
+      "sha256": "2e45f5654e3fc7f66ef38490e6f9a1c05a42676c46ec3a6f8a7c117fa02c5ac5"
+    },
+    {
+      "bytes": 46374,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "aa85d8ac9917c55e8bef13ac15a6275ddc4c6557",
+      "path": "tests/test_diagnostics.py",
+      "repo": "equity-feature-workers",
+      "sha256": "c832ffeabb10cebe5391776485b1b1d5bab945a5e104f9f1da9458ea554b0ca2"
+    },
+    {
+      "bytes": 8657,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "fb9bb81a4c2ac569d1a69d9aa55ceec6caa3f7d5",
+      "path": "tests/test_manifests.py",
+      "repo": "equity-feature-workers",
+      "sha256": "c03fa655ccea1cc0d94b40e80129851d25624831143b0d38cb338c7a5fcb951c"
+    },
+    {
+      "bytes": 13896,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "2704b3696f876164d19540e815b7396ada13dd06",
+      "path": "tests/test_pilot.py",
+      "repo": "equity-feature-workers",
+      "sha256": "8943a6740ceb5dceb4ce03cfe29ccfc659021357fd13bf5a49b01c9a7582ed4d"
+    },
+    {
+      "bytes": 2042,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "776929ad55360974522def74df5489a21fe384c5",
+      "path": "tests/test_provenance.py",
+      "repo": "equity-feature-workers",
+      "sha256": "7565f51e70db63b79d6594b12f44b89f714fb7f758fcfee81e29c8aca2866d77"
+    },
+    {
+      "bytes": 22386,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "bd09f60e684518fa04fab02f11b08c6538750fff",
+      "path": "tests/test_publication.py",
+      "repo": "equity-feature-workers",
+      "sha256": "bff765ce6fd85eb295a708a8911cbe0312e3553cfbce99841b8295e0ffcafb10"
+    },
+    {
+      "bytes": 17027,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "ccbd70d660fc9c26413b4a787aae28bf98303a89",
+      "path": "tests/test_required_inputs.py",
+      "repo": "equity-feature-workers",
+      "sha256": "d33034bdef9d101a12ee6dde06231bf272b72d93c9f0bf85f6feb4a9e197faa5"
+    },
+    {
+      "bytes": 29142,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "0589679bb1ab55d136def6d44b84cdc3f0ff879c",
+      "path": "tests/test_supervisor.py",
+      "repo": "equity-feature-workers",
+      "sha256": "9c4a2a6714346de7a0fa330c0b17789f793d611a87838fb9b0603979f6e1b0e5"
+    },
+    {
+      "bytes": 8035,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "82838fe413c831ea569e6cf0b6e4a386ce92d0fa",
+      "path": "tools/benchmark_pipeline.py",
+      "repo": "equity-feature-workers",
+      "sha256": "93706b47578c7e31223b60cd3b02db4af6fc184173f728b241af29408dda5985"
+    },
+    {
+      "bytes": 9641,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "abc26b8590e738546c0c3d5974ea8dcc4ea3f1ac",
+      "path": "tools/benchmark_supervisor.py",
+      "repo": "equity-feature-workers",
+      "sha256": "5d196a373d39389bc55cf0c5184bc210e178f0e9b60c6de7a56e09e48f94a2e9"
+    },
+    {
+      "bytes": 15394,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "faf0b43de642c918314e9e02e6079bc76e3154a1",
+      "path": "tools/build_foundation.py",
+      "repo": "equity-feature-workers",
+      "sha256": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778"
+    },
+    {
+      "bytes": 9766,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "6cd7f43220b7ea7cce769614c72f5869b189c85e",
+      "path": "tools/build_service.py",
+      "repo": "equity-feature-workers",
+      "sha256": "7313832a256fe577326215b705164251f2cd3330d4e0a6070197f9828ffd2393"
+    },
+    {
+      "bytes": 7240,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "4d911b96b862718076d984a193a8461ab3e5b0fd",
+      "path": "tools/qualify_job_native.py",
+      "repo": "equity-feature-workers",
+      "sha256": "8eff6dbefeb79ccd07cbc7a18f6f66a4019ed8da82480086dd1e5380558274a6"
+    },
+    {
+      "bytes": 204,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "2f49ec56f36e0638116859c71570e365c60f46ca",
+      "path": "tools/requirements-service.txt",
+      "repo": "equity-feature-workers",
+      "sha256": "75de0d72695732f0b552b48059c3f46c4ac06277a4622e8e325d4ee37a1553ae"
+    }
+  ],
+  "public_service_source_inputs": [
+    {
+      "bytes": 1245,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "8663213eb7ffd582b450532fe7ea5a4d2e106976",
+      "path": ".github/workflows/service.yml",
+      "repo": "equity-feature-workers",
+      "sha256": "20f2a7c6b7c663e826ab431a89e8fc65d5c67de45b4d6d55f84359ca92e9d2c2"
+    },
+    {
+      "bytes": 3485,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "e6594da033d0cfab62f0b21de6fac055e3619897",
+      "path": "examples/service_owned.py",
+      "repo": "equity-feature-workers",
+      "sha256": "3dfec2eb57f903eac973dd266bacf1d1698fbf8cc12166b7f3c5fd8b9ddc38f7"
+    },
+    {
+      "bytes": 11357,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "path": "packages/service/LICENSE",
+      "repo": "equity-feature-workers",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 2678,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "cb598a2344919079206a08991d140fafb3b30939",
+      "path": "packages/service/README.md",
+      "repo": "equity-feature-workers",
+      "sha256": "a6c21d2352f3bdedcf1ab9a6ee4bedbf303e9c4f4bb37668335199512b91ad4a"
+    },
+    {
+      "bytes": 928,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "caa8caf1757a1ef052117dfbb02628548c970fe2",
+      "path": "packages/service/pyproject.toml",
+      "repo": "equity-feature-workers",
+      "sha256": "0933f4c9b2168cb541b490ac02e1d9b8596dbea3b51fbbc52e58bdab2f51a1b5"
+    },
+    {
+      "bytes": 439,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "e5d0b2f3ebed1a2a4241105733088ad8a4ccfcf2",
+      "path": "packages/service/src/equity_feature_service/__init__.py",
+      "repo": "equity-feature-workers",
+      "sha256": "2bef1cc582c020626d41b9b7bf360784ec44a54553eaf3d8a89032040f783d76"
+    },
+    {
+      "bytes": 6914,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "26f4deb65a73db91e3968e0fb5ecd7469a5f0248",
+      "path": "packages/service/src/equity_feature_service/codec.py",
+      "repo": "equity-feature-workers",
+      "sha256": "954db659f0b0e0edc4a917b0d28a76cc35479464c1cff45df730fedcdcf175ca"
+    },
+    {
+      "bytes": 14401,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "1387d1db390ee3f10fed0a90b587f8134ce9dc4c",
+      "path": "packages/service/src/equity_feature_service/datasets.py",
+      "repo": "equity-feature-workers",
+      "sha256": "41db66b5f84bdc79fe88f4f5eae9f8d380e3affa12086bcf1021e2ec3ae3914f"
+    },
+    {
+      "bytes": 1937,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a78f89f859bf0588a890a8b6829cf0eb0e949b91",
+      "path": "packages/service/src/equity_feature_service/duckdb.py",
+      "repo": "equity-feature-workers",
+      "sha256": "887540795f24b78fdb96ca2c48e5f1572669f50f130f79689fc17437412f971c"
+    },
+    {
+      "bytes": 38422,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a8d1beeab183604a4be260cac5c65bd352fca16d",
+      "path": "packages/service/src/equity_feature_service/jobs.py",
+      "repo": "equity-feature-workers",
+      "sha256": "4a5858b63ba8e36a7ab339ba1ac732d7335eda9a83df7607fab2cf4327528dfb"
+    },
+    {
+      "bytes": 1264,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "b76d71cb57396ac1beda658357ab1aadb01bb427",
+      "path": "packages/service/src/equity_feature_service/loopback.py",
+      "repo": "equity-feature-workers",
+      "sha256": "69cd65d929765961927c74a12ccfb199a53bf5a5435253559a61a8c06aeb321a"
+    },
+    {
+      "bytes": 0,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "packages/service/src/equity_feature_service/py.typed",
+      "repo": "equity-feature-workers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 30039,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "eb172e2d9f618ec528e679ddf1b4f5c066ee0335",
+      "path": "packages/service/src/equity_feature_service/schemas/remote-v1.1.schema.json",
+      "repo": "equity-feature-workers",
+      "sha256": "dda0f9d2e5968ff2ea3bf79f02740a18f9ae24cd93c492f7c38033883ed8a6b2"
+    },
+    {
+      "bytes": 28666,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "14868f6ff52788c93357a1a97b3f61505d7ea81c",
+      "path": "packages/service/src/equity_feature_service/schemas/remote-v1.schema.json",
+      "repo": "equity-feature-workers",
+      "sha256": "9d5e83f1d89bb34491d959158ae628e4b7b0590155244beb13945a3b94f362a0"
+    },
+    {
+      "bytes": 24115,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a50d7a9630d73a8a1e99ea14bfaefc5685801df7",
+      "path": "packages/service/src/equity_feature_service/service.py",
+      "repo": "equity-feature-workers",
+      "sha256": "d5e91dab3d6c2edf969920700e07c37de471b87d9b33913914e2308e367fbad1"
+    },
+    {
+      "bytes": 824,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "b7f5840ad0891adf2059dc0c8cfdf147bf208506",
+      "path": "tests/service/fixtures/approved-config.json",
+      "repo": "equity-feature-workers",
+      "sha256": "d0626575709844b924fb5a0d7572bb2b82f5cb28287e643f36b7b508b5918c4e"
+    },
+    {
+      "bytes": 1487,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "866eee588df0c65b7f185091411f9d549a6328ab",
+      "path": "tests/service/fixtures/calculate.json",
+      "repo": "equity-feature-workers",
+      "sha256": "4d49e8473e68e195664c78e66e24279854df1294dfd8fe16f8384d31559a0be5"
+    },
+    {
+      "bytes": 139381,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "78ffc999822a5a46861d8d89b538df5737991b4a",
+      "path": "tests/service/fixtures/delivery_native.json",
+      "repo": "equity-feature-workers",
+      "sha256": "2ca65b4f548fe634e5acf7c7848cd4ae9de87420dbe35c3272d4937ba2df315a"
+    },
+    {
+      "bytes": 22366,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "a2000dad298e6585082a0a8d4f42d531609cb32d",
+      "path": "tests/service/fixtures/jobs_native.json",
+      "repo": "equity-feature-workers",
+      "sha256": "73108af4d8678fc16beae1d099548895f3d6da92ef51625eae4877d7fb885ba7"
+    },
+    {
+      "bytes": 5896,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "bbe41e95e444a9fc12c11649ae64e9333e1aadb9",
+      "path": "tests/service/fixtures/service_decisions.json",
+      "repo": "equity-feature-workers",
+      "sha256": "36b60bb8d6702e7e6759ded67a465eed10910f52efbf163fd27d8bb7938d1ef7"
+    },
+    {
+      "bytes": 3912,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "97d09cad7476c0efc68959bb8250158342c3af76",
+      "path": "tests/service/test_decisions.py",
+      "repo": "equity-feature-workers",
+      "sha256": "1fce98d3b8c41a41ce3748f7fed7e07226e4f89340c0313b6fba4054a677d473"
+    },
+    {
+      "bytes": 21391,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "89c6bacc045eeea25b5dc3a2c910192edea2c1b8",
+      "path": "tests/service/test_delivery.py",
+      "repo": "equity-feature-workers",
+      "sha256": "8c05b5fbc70beab51887425fd81f97c4ab464d1c578848bd421f848283f20761"
+    },
+    {
+      "bytes": 6422,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "97489cc7ad574a572e27ca0f49f28a8265450e40",
+      "path": "tests/service/test_duckdb.py",
+      "repo": "equity-feature-workers",
+      "sha256": "8b72b927b7ddcb2e8f0c398ae63b9ae8cb3cf724420e3bf27dcd46a4dfd219e6"
+    },
+    {
+      "bytes": 60023,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "ef7e70357a7d788ca364f409365f74bafaa0dd3e",
+      "path": "tests/service/test_jobs.py",
+      "repo": "equity-feature-workers",
+      "sha256": "e2e039d2ad4afab305bb5ec894c46fb8ef9ac521d61e9109728925069f938cb7"
+    },
+    {
+      "bytes": 30720,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "7db49a5fc0cde96b64c25d4e270bc784655a4306",
+      "path": "tests/service/test_service.py",
+      "repo": "equity-feature-workers",
+      "sha256": "6b8295d77fd00e5ac1eb126eb0d167783b92bc5c34970e3c623915bf9285559a"
+    },
+    {
+      "bytes": 8035,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "82838fe413c831ea569e6cf0b6e4a386ce92d0fa",
+      "path": "tools/benchmark_pipeline.py",
+      "repo": "equity-feature-workers",
+      "sha256": "93706b47578c7e31223b60cd3b02db4af6fc184173f728b241af29408dda5985"
+    },
+    {
+      "bytes": 9641,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "abc26b8590e738546c0c3d5974ea8dcc4ea3f1ac",
+      "path": "tools/benchmark_supervisor.py",
+      "repo": "equity-feature-workers",
+      "sha256": "5d196a373d39389bc55cf0c5184bc210e178f0e9b60c6de7a56e09e48f94a2e9"
+    },
+    {
+      "bytes": 15394,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "faf0b43de642c918314e9e02e6079bc76e3154a1",
+      "path": "tools/build_foundation.py",
+      "repo": "equity-feature-workers",
+      "sha256": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778"
+    },
+    {
+      "bytes": 9766,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "6cd7f43220b7ea7cce769614c72f5869b189c85e",
+      "path": "tools/build_service.py",
+      "repo": "equity-feature-workers",
+      "sha256": "7313832a256fe577326215b705164251f2cd3330d4e0a6070197f9828ffd2393"
+    },
+    {
+      "bytes": 7240,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "4d911b96b862718076d984a193a8461ab3e5b0fd",
+      "path": "tools/qualify_job_native.py",
+      "repo": "equity-feature-workers",
+      "sha256": "8eff6dbefeb79ccd07cbc7a18f6f66a4019ed8da82480086dd1e5380558274a6"
+    },
+    {
+      "bytes": 204,
+      "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+      "git_blob_sha": "2f49ec56f36e0638116859c71570e365c60f46ca",
+      "path": "tools/requirements-service.txt",
+      "repo": "equity-feature-workers",
+      "sha256": "75de0d72695732f0b552b48059c3f46c4ac06277a4622e8e325d4ee37a1553ae"
+    },
+    {
+      "bytes": 11357,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "path": "packages/workers/LICENSE",
+      "repo": "equity-feature-workers",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 14812,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "c48fada37854e5e754597e4781b9eb729b61eb93",
+      "path": "packages/workers/README.md",
+      "repo": "equity-feature-workers",
+      "sha256": "6bbe56ef10dc79c7a2c138ace79023d3cea3ecc76e35eb05d3b02c062b6b4a6a"
+    },
+    {
+      "bytes": 750,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "0c1876d49bb9fccbe9181c6ae2215e4ffdfe608e",
+      "path": "packages/workers/pyproject.toml",
+      "repo": "equity-feature-workers",
+      "sha256": "5db341c048458a36ae2c08267824216d5ff36a8218a6b950b774b593d5769ae8"
+    },
+    {
+      "bytes": 3208,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "a4a0ae54c200eb5cffdf9b95aaead0afbc7f4dc1",
+      "path": "packages/workers/src/equity_feature_workers/__init__.py",
+      "repo": "equity-feature-workers",
+      "sha256": "0c4cf7430ea6a7d6e56960210b84e0d940942f4af0cc32a84a19bb32fd800b74"
+    },
+    {
+      "bytes": 12583,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "692e2627adf6545e4e493daae4640fae6c82078e",
+      "path": "packages/workers/src/equity_feature_workers/acquisition.py",
+      "repo": "equity-feature-workers",
+      "sha256": "6ae242f908ad65daf8e52027411371cd3d4d5443f37cba953eda5d8d5a8d3332"
+    },
+    {
+      "bytes": 5962,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "a5bd6af9bfebc84cab26cd1b8a4d302dc3096ea8",
+      "path": "packages/workers/src/equity_feature_workers/acquisition_demo.py",
+      "repo": "equity-feature-workers",
+      "sha256": "ec68280e9134e9cca2382ccbc907e640229efa69b3b3c237a4e0a83601567786"
+    },
+    {
+      "bytes": 15829,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "e395711d4dca77c13fe6dd47927e23b6682ffa05",
+      "path": "packages/workers/src/equity_feature_workers/barriers.py",
+      "repo": "equity-feature-workers",
+      "sha256": "41d2be6c29475c0f0fa1a1c550a3dfa4200c9e105a88d6cc1d393640b2427cd9"
+    },
+    {
+      "bytes": 12477,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "77893f893f2159ca2094f2703e6e541d7cf6fda7",
+      "path": "packages/workers/src/equity_feature_workers/breadth_commands.py",
+      "repo": "equity-feature-workers",
+      "sha256": "0b055f8e53e8de84574617583677c4c175a22dc9669ab12de1b2aabb785d9648"
+    },
+    {
+      "bytes": 19385,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "400b4b6f396b777ff87d453e2baa5a43d6dd35c4",
+      "path": "packages/workers/src/equity_feature_workers/catalog.py",
+      "repo": "equity-feature-workers",
+      "sha256": "5bc4b309c844fad9b0463aeef224aab1e24c47a9fa436acbe0d4e9ebd4890ca6"
+    },
+    {
+      "bytes": 19814,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "2f8940ed0cf3a8615ca3f63705742dd590dbe0bb",
+      "path": "packages/workers/src/equity_feature_workers/claims.py",
+      "repo": "equity-feature-workers",
+      "sha256": "88b7f1fa702a69d9d76fff5cbce1a64744ed328860b1ec97f0eeefca1e65b5f4"
+    },
+    {
+      "bytes": 9889,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "b45e6efb7c74593e9f060535f3473e3c829b6f00",
+      "path": "packages/workers/src/equity_feature_workers/cli.py",
+      "repo": "equity-feature-workers",
+      "sha256": "aadb95c320173983010f8e4840ca121b8f7f463a6bfa8cc7491476e04283cb93"
+    },
+    {
+      "bytes": 19156,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "d0f88165bc4b5b7f595dd64a2ed7d4114cbb23b8",
+      "path": "packages/workers/src/equity_feature_workers/commands.py",
+      "repo": "equity-feature-workers",
+      "sha256": "73e2db3acb10d419c90a7024ff5a353997522926ed91317092c247dd9eacc4ec"
+    },
+    {
+      "bytes": 13672,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "fe6e7b360c959055e8b5fca8c19ce4ba1ae1b020",
+      "path": "packages/workers/src/equity_feature_workers/diagnostics.py",
+      "repo": "equity-feature-workers",
+      "sha256": "e45bfd0f7eb0ffa76c718c3fa0782f4c0fed0d2d31f4a62d24c2c6a052e72a13"
+    },
+    {
+      "bytes": 12636,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "05ee00c16007163f36b35505a977a6010e89060f",
+      "path": "packages/workers/src/equity_feature_workers/generations.py",
+      "repo": "equity-feature-workers",
+      "sha256": "6bca5e1d58a6d6a4d47b6f7a2e9565074a5e5fa9695ab1854808503f39acc3bc"
+    },
+    {
+      "bytes": 16827,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "c522ede37c46e209f06864c184f5e57180ae01f7",
+      "path": "packages/workers/src/equity_feature_workers/manifests.py",
+      "repo": "equity-feature-workers",
+      "sha256": "915071757d40d46c6d192f4687ca874935fe1100fdc3398675d00ed7a937b537"
+    },
+    {
+      "bytes": 14372,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "cb0c2a83395ea4d4a7b08b997fd41639e1d465e7",
+      "path": "packages/workers/src/equity_feature_workers/publication.py",
+      "repo": "equity-feature-workers",
+      "sha256": "a90bdafb224805fb3346e75948547635aeeef7a4e6c9de13c7895a8aa0b9f7de"
+    },
+    {
+      "bytes": 0,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "packages/workers/src/equity_feature_workers/py.typed",
+      "repo": "equity-feature-workers",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 17364,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "5807bff1d29fbb86f74be4406c3c94ff043d3c9d",
+      "path": "packages/workers/src/equity_feature_workers/required_inputs.py",
+      "repo": "equity-feature-workers",
+      "sha256": "a7423f1ca2c619210a8fb5b462b436bec3825ec9532ddec1654cd96b2bac9116"
+    },
+    {
+      "bytes": 30445,
+      "commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+      "git_blob_sha": "e5a646c45a0b424dca946f1ca6bc3db5e64e9b72",
+      "path": "packages/workers/src/equity_feature_workers/supervisor.py",
+      "repo": "equity-feature-workers",
+      "sha256": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe"
+    },
+    {
+      "bytes": 11357,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "path": "examples/third_party/LICENSE",
+      "repo": "equity-feature-io",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 8618,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "460bddfd1b0db8d4b46fb31d984e88e3d86bff51",
+      "path": "examples/third_party/README.md",
+      "repo": "equity-feature-io",
+      "sha256": "b3b761926857cca38019feaa4222f29d185fa6281c8bd0ee8a93dc79708c36db"
+    },
+    {
+      "bytes": 562,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "0d6249daa71da672a12b5609cd0d90df1d74b155",
+      "path": "examples/third_party/pyproject.toml",
+      "repo": "equity-feature-io",
+      "sha256": "6a18ecca7843501349f75ec17782ae268e9dea97a015d1565a533e804498c389"
+    },
+    {
+      "bytes": 350,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "377384c2721534beb273b145ae91ab6d7ea910f9",
+      "path": "examples/third_party/src/equity_feature_example_extensions/__init__.py",
+      "repo": "equity-feature-io",
+      "sha256": "5b1383ffcf90e8bdd4ae1d9589acdd2c261c25dc9eb10d2aac9ce255082485c5"
+    },
+    {
+      "bytes": 4028,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "66c5e119fc27a20a9f7204b1e8c830cf77130239",
+      "path": "examples/third_party/src/equity_feature_example_extensions/demo.py",
+      "repo": "equity-feature-io",
+      "sha256": "a97a21d55475e1da98390409e1f3cb0d1becc0f91cc311c7eb6b19e84054a259"
+    },
+    {
+      "bytes": 1136,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "ffc8243dcb5056fb08e2ca1ed925ef94f290f018",
+      "path": "examples/third_party/src/equity_feature_example_extensions/factories.py",
+      "repo": "equity-feature-io",
+      "sha256": "6de8efcfc1ec1264b9630912c3a4800e89187b05004ce8e3cdba44f98ed82975"
+    },
+    {
+      "bytes": 1452,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "8950183c68b81d149b9832a5f7ec21c161d91cbc",
+      "path": "examples/third_party/src/equity_feature_example_extensions/protocol_stubs.py",
+      "repo": "equity-feature-io",
+      "sha256": "3542fa9428261d66b03bcae8089594f1e9510a97051bcb8c907251d635167d75"
+    },
+    {
+      "bytes": 0,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "examples/third_party/src/equity_feature_example_extensions/py.typed",
+      "repo": "equity-feature-io",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 8633,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "a2d643f019bf7d51e14a6bf546154fcda1eaab81",
+      "path": "examples/third_party/src/equity_feature_example_extensions/sink.py",
+      "repo": "equity-feature-io",
+      "sha256": "c446d03105bb0085df85c3cae5397842a01e7352c2636f748d7b2da3f5cc4184"
+    },
+    {
+      "bytes": 2559,
+      "commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "git_blob_sha": "f444de46153b7eb91ca93456b7b354a4345ab8ba",
+      "path": "examples/third_party/src/equity_feature_example_extensions/source.py",
+      "repo": "equity-feature-io",
+      "sha256": "3f0fa10fa1dc50b2cc0633a97208485d2ce6348bc97264784c3362d71c09af29"
+    }
+  ],
+  "publication_review_url": "https://github.com/atulsrivas1/equity-features/issues/89#issuecomment-6096565581",
+  "qualifications": [
+    {
+      "kind": "service",
+      "run_id": 38044728496,
+      "run_url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38044728496",
+      "systems": [
+        {
+          "archive_bytes": 340262,
+          "archive_sha256": "21867aeb6927e48ee75276f29c8f7f1e1e028e4dbd2cbe429b66bfe4c0cf3f05",
+          "archive_url": "https://api.github.com/repos/atulsrivas1/equity-feature-workers/actions/artifacts/11667567095/zip",
+          "artifact_id": 11667567095,
+          "expires_at": "2026-11-09T10:26:20Z",
+          "name": "service-3aeb69a346db93de842300166f54615dff19c8a1-windows-latest",
+          "qualification": {
+            "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+            "core_commit": "20c08c7370581d03c8a0404579667f68d67ac88b",
+            "dependencies": {
+              "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2",
+              "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": "05bc3655de76ad87a969ee7d4b1fd6def623c9cdf31cb0b3dc4753d9629127dc",
+              "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": "5f18bbc83ba79485d199794b172a6ed7b7ab259625c87f2a49cb7a80a0889ab8",
+              "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549",
+              "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": "ffe8e8ab4b1aa7cb94c11e9d7a11f1f4a8a87762aa5f5b49ad0f7f47aa65eebb",
+              "equity_feature_workers-0.1.0a13-py3-none-any.whl": "0da17f4d4b7d53f72f2b67aba4bfb3cc912b86d769dd142550c4748a3edb2324",
+              "equity_features-0.0.4a4-py3-none-any.whl": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0"
+            },
+            "epoch": 1700000000,
+            "example_source_inputs": {
+              "examples/third_party/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "examples/third_party/README.md": "b3b761926857cca38019feaa4222f29d185fa6281c8bd0ee8a93dc79708c36db",
+              "examples/third_party/pyproject.toml": "6a18ecca7843501349f75ec17782ae268e9dea97a015d1565a533e804498c389",
+              "examples/third_party/src/equity_feature_example_extensions/__init__.py": "5b1383ffcf90e8bdd4ae1d9589acdd2c261c25dc9eb10d2aac9ce255082485c5",
+              "examples/third_party/src/equity_feature_example_extensions/demo.py": "a97a21d55475e1da98390409e1f3cb0d1becc0f91cc311c7eb6b19e84054a259",
+              "examples/third_party/src/equity_feature_example_extensions/factories.py": "6de8efcfc1ec1264b9630912c3a4800e89187b05004ce8e3cdba44f98ed82975",
+              "examples/third_party/src/equity_feature_example_extensions/protocol_stubs.py": "3542fa9428261d66b03bcae8089594f1e9510a97051bcb8c907251d635167d75",
+              "examples/third_party/src/equity_feature_example_extensions/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "examples/third_party/src/equity_feature_example_extensions/sink.py": "c446d03105bb0085df85c3cae5397842a01e7352c2636f748d7b2da3f5cc4184",
+              "examples/third_party/src/equity_feature_example_extensions/source.py": "3f0fa10fa1dc50b2cc0633a97208485d2ce6348bc97264784c3362d71c09af29"
+            },
+            "forms": [
+              {
+                "consumer_positive_negative": true,
+                "core_before_after_sha256": "db20ba5413445137724cec9fc57663b4e135fdcb34574dd93f06e2932ad9971c",
+                "form": "wheel",
+                "installed_site_packages": true,
+                "light_optional_absence": true,
+                "native_http_tests": true,
+                "native_job_tests": true,
+                "strict_package_typing": true
+              },
+              {
+                "consumer_positive_negative": true,
+                "core_before_after_sha256": "db20ba5413445137724cec9fc57663b4e135fdcb34574dd93f06e2932ad9971c",
+                "form": "sdist",
+                "installed_site_packages": true,
+                "light_optional_absence": true,
+                "native_http_tests": true,
+                "native_job_tests": true,
+                "strict_package_typing": true
+              }
+            ],
+            "io_commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+            "machine": "AMD64",
+            "python": "3.12.10",
+            "repeat_artifacts": {
+              "equity_feature_service-0.1.0a2-py3-none-any.whl": "73d49c7d7b0996907e4996b730318ddd5999725d667e26aa7931059181902b79",
+              "equity_feature_service-0.1.0a2.tar.gz": "ef8d68477dbf56eeaa79497174c28c18694753644e5e9cb8ed9cec427f98b8b5"
+            },
+            "schema": "service1",
+            "source_inputs": {
+              ".github/workflows/service.yml": "20f2a7c6b7c663e826ab431a89e8fc65d5c67de45b4d6d55f84359ca92e9d2c2",
+              "examples/service_owned.py": "3dfec2eb57f903eac973dd266bacf1d1698fbf8cc12166b7f3c5fd8b9ddc38f7",
+              "packages/service/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "packages/service/README.md": "a6c21d2352f3bdedcf1ab9a6ee4bedbf303e9c4f4bb37668335199512b91ad4a",
+              "packages/service/pyproject.toml": "0933f4c9b2168cb541b490ac02e1d9b8596dbea3b51fbbc52e58bdab2f51a1b5",
+              "packages/service/src/equity_feature_service/__init__.py": "2bef1cc582c020626d41b9b7bf360784ec44a54553eaf3d8a89032040f783d76",
+              "packages/service/src/equity_feature_service/codec.py": "954db659f0b0e0edc4a917b0d28a76cc35479464c1cff45df730fedcdcf175ca",
+              "packages/service/src/equity_feature_service/datasets.py": "41db66b5f84bdc79fe88f4f5eae9f8d380e3affa12086bcf1021e2ec3ae3914f",
+              "packages/service/src/equity_feature_service/duckdb.py": "887540795f24b78fdb96ca2c48e5f1572669f50f130f79689fc17437412f971c",
+              "packages/service/src/equity_feature_service/jobs.py": "4a5858b63ba8e36a7ab339ba1ac732d7335eda9a83df7607fab2cf4327528dfb",
+              "packages/service/src/equity_feature_service/loopback.py": "69cd65d929765961927c74a12ccfb199a53bf5a5435253559a61a8c06aeb321a",
+              "packages/service/src/equity_feature_service/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "packages/service/src/equity_feature_service/schemas/remote-v1.1.schema.json": "dda0f9d2e5968ff2ea3bf79f02740a18f9ae24cd93c492f7c38033883ed8a6b2",
+              "packages/service/src/equity_feature_service/schemas/remote-v1.schema.json": "9d5e83f1d89bb34491d959158ae628e4b7b0590155244beb13945a3b94f362a0",
+              "packages/service/src/equity_feature_service/service.py": "d5e91dab3d6c2edf969920700e07c37de471b87d9b33913914e2308e367fbad1",
+              "tests/service/fixtures/approved-config.json": "d0626575709844b924fb5a0d7572bb2b82f5cb28287e643f36b7b508b5918c4e",
+              "tests/service/fixtures/calculate.json": "4d49e8473e68e195664c78e66e24279854df1294dfd8fe16f8384d31559a0be5",
+              "tests/service/fixtures/delivery_native.json": "2ca65b4f548fe634e5acf7c7848cd4ae9de87420dbe35c3272d4937ba2df315a",
+              "tests/service/fixtures/jobs_native.json": "73108af4d8678fc16beae1d099548895f3d6da92ef51625eae4877d7fb885ba7",
+              "tests/service/fixtures/service_decisions.json": "36b60bb8d6702e7e6759ded67a465eed10910f52efbf163fd27d8bb7938d1ef7",
+              "tests/service/test_decisions.py": "1fce98d3b8c41a41ce3748f7fed7e07226e4f89340c0313b6fba4054a677d473",
+              "tests/service/test_delivery.py": "8c05b5fbc70beab51887425fd81f97c4ab464d1c578848bd421f848283f20761",
+              "tests/service/test_duckdb.py": "8b72b927b7ddcb2e8f0c398ae63b9ae8cb3cf724420e3bf27dcd46a4dfd219e6",
+              "tests/service/test_jobs.py": "e2e039d2ad4afab305bb5ec894c46fb8ef9ac521d61e9109728925069f938cb7",
+              "tests/service/test_service.py": "6b8295d77fd00e5ac1eb126eb0d167783b92bc5c34970e3c623915bf9285559a",
+              "tools/benchmark_pipeline.py": "93706b47578c7e31223b60cd3b02db4af6fc184173f728b241af29408dda5985",
+              "tools/benchmark_supervisor.py": "5d196a373d39389bc55cf0c5184bc210e178f0e9b60c6de7a56e09e48f94a2e9",
+              "tools/build_foundation.py": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778",
+              "tools/build_service.py": "7313832a256fe577326215b705164251f2cd3330d4e0a6070197f9828ffd2393",
+              "tools/qualify_job_native.py": "8eff6dbefeb79ccd07cbc7a18f6f66a4019ed8da82480086dd1e5380558274a6",
+              "tools/requirements-service.txt": "75de0d72695732f0b552b48059c3f46c4ac06277a4622e8e325d4ee37a1553ae"
+            },
+            "system": "Windows",
+            "worker_commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+            "worker_source_inputs": {
+              "packages/workers/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "packages/workers/README.md": "6bbe56ef10dc79c7a2c138ace79023d3cea3ecc76e35eb05d3b02c062b6b4a6a",
+              "packages/workers/pyproject.toml": "5db341c048458a36ae2c08267824216d5ff36a8218a6b950b774b593d5769ae8",
+              "packages/workers/src/equity_feature_workers/__init__.py": "0c4cf7430ea6a7d6e56960210b84e0d940942f4af0cc32a84a19bb32fd800b74",
+              "packages/workers/src/equity_feature_workers/acquisition.py": "6ae242f908ad65daf8e52027411371cd3d4d5443f37cba953eda5d8d5a8d3332",
+              "packages/workers/src/equity_feature_workers/acquisition_demo.py": "ec68280e9134e9cca2382ccbc907e640229efa69b3b3c237a4e0a83601567786",
+              "packages/workers/src/equity_feature_workers/barriers.py": "41d2be6c29475c0f0fa1a1c550a3dfa4200c9e105a88d6cc1d393640b2427cd9",
+              "packages/workers/src/equity_feature_workers/breadth_commands.py": "0b055f8e53e8de84574617583677c4c175a22dc9669ab12de1b2aabb785d9648",
+              "packages/workers/src/equity_feature_workers/catalog.py": "5bc4b309c844fad9b0463aeef224aab1e24c47a9fa436acbe0d4e9ebd4890ca6",
+              "packages/workers/src/equity_feature_workers/claims.py": "88b7f1fa702a69d9d76fff5cbce1a64744ed328860b1ec97f0eeefca1e65b5f4",
+              "packages/workers/src/equity_feature_workers/cli.py": "aadb95c320173983010f8e4840ca121b8f7f463a6bfa8cc7491476e04283cb93",
+              "packages/workers/src/equity_feature_workers/commands.py": "73e2db3acb10d419c90a7024ff5a353997522926ed91317092c247dd9eacc4ec",
+              "packages/workers/src/equity_feature_workers/diagnostics.py": "e45bfd0f7eb0ffa76c718c3fa0782f4c0fed0d2d31f4a62d24c2c6a052e72a13",
+              "packages/workers/src/equity_feature_workers/generations.py": "6bca5e1d58a6d6a4d47b6f7a2e9565074a5e5fa9695ab1854808503f39acc3bc",
+              "packages/workers/src/equity_feature_workers/manifests.py": "915071757d40d46c6d192f4687ca874935fe1100fdc3398675d00ed7a937b537",
+              "packages/workers/src/equity_feature_workers/publication.py": "a90bdafb224805fb3346e75948547635aeeef7a4e6c9de13c7895a8aa0b9f7de",
+              "packages/workers/src/equity_feature_workers/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "packages/workers/src/equity_feature_workers/required_inputs.py": "a7423f1ca2c619210a8fb5b462b436bec3825ec9532ddec1654cd96b2bac9116",
+              "packages/workers/src/equity_feature_workers/supervisor.py": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe"
+            }
+          },
+          "receipt_sha256": "43fddc2fa2bbc48b35bd711591791cf8d25cfd4a6e7fa48433bc8e842524480e",
+          "system": "Windows"
+        },
+        {
+          "archive_bytes": 339457,
+          "archive_sha256": "0f09fdde1ed9c845171e7f7770ef680ff056f5cf66b99ac5bf4436af995f6105",
+          "archive_url": "https://api.github.com/repos/atulsrivas1/equity-feature-workers/actions/artifacts/11667262243/zip",
+          "artifact_id": 11667262243,
+          "expires_at": "2026-11-09T10:24:48Z",
+          "name": "service-3aeb69a346db93de842300166f54615dff19c8a1-ubuntu-24.04",
+          "qualification": {
+            "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+            "core_commit": "20c08c7370581d03c8a0404579667f68d67ac88b",
+            "dependencies": {
+              "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+              "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": "2abcd7084371e82e7ec887353a1159ed900616d764df36baafe49a2b57c9c676",
+              "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": "6bed73224f033f4d67ad7d519bce76c5b8d3f6076766ccc0726b6a36a9bf3bde",
+              "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99",
+              "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": "71c2316ab93d3382b24701ce6f4990b1355f90b8f66e562c8b1d34e539d60783",
+              "equity_feature_workers-0.1.0a13-py3-none-any.whl": "a4eae3ca4ae6e37d277e941958199b47b0dd0ce150064c0952c2d0269e042faf",
+              "equity_features-0.0.4a4-py3-none-any.whl": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e"
+            },
+            "epoch": 1700000000,
+            "example_source_inputs": {
+              "examples/third_party/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "examples/third_party/README.md": "b3b761926857cca38019feaa4222f29d185fa6281c8bd0ee8a93dc79708c36db",
+              "examples/third_party/pyproject.toml": "6a18ecca7843501349f75ec17782ae268e9dea97a015d1565a533e804498c389",
+              "examples/third_party/src/equity_feature_example_extensions/__init__.py": "5b1383ffcf90e8bdd4ae1d9589acdd2c261c25dc9eb10d2aac9ce255082485c5",
+              "examples/third_party/src/equity_feature_example_extensions/demo.py": "a97a21d55475e1da98390409e1f3cb0d1becc0f91cc311c7eb6b19e84054a259",
+              "examples/third_party/src/equity_feature_example_extensions/factories.py": "6de8efcfc1ec1264b9630912c3a4800e89187b05004ce8e3cdba44f98ed82975",
+              "examples/third_party/src/equity_feature_example_extensions/protocol_stubs.py": "3542fa9428261d66b03bcae8089594f1e9510a97051bcb8c907251d635167d75",
+              "examples/third_party/src/equity_feature_example_extensions/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "examples/third_party/src/equity_feature_example_extensions/sink.py": "c446d03105bb0085df85c3cae5397842a01e7352c2636f748d7b2da3f5cc4184",
+              "examples/third_party/src/equity_feature_example_extensions/source.py": "3f0fa10fa1dc50b2cc0633a97208485d2ce6348bc97264784c3362d71c09af29"
+            },
+            "forms": [
+              {
+                "consumer_positive_negative": true,
+                "core_before_after_sha256": "f659d93088e86f62f2eaba0dbe3b1890361fa6c1f432028d06116a4d0b4c4426",
+                "form": "wheel",
+                "installed_site_packages": true,
+                "light_optional_absence": true,
+                "native_http_tests": true,
+                "native_job_tests": true,
+                "strict_package_typing": true
+              },
+              {
+                "consumer_positive_negative": true,
+                "core_before_after_sha256": "f659d93088e86f62f2eaba0dbe3b1890361fa6c1f432028d06116a4d0b4c4426",
+                "form": "sdist",
+                "installed_site_packages": true,
+                "light_optional_absence": true,
+                "native_http_tests": true,
+                "native_job_tests": true,
+                "strict_package_typing": true
+              }
+            ],
+            "io_commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+            "machine": "x86_64",
+            "python": "3.12.15",
+            "repeat_artifacts": {
+              "equity_feature_service-0.1.0a2-py3-none-any.whl": "f20eaea9d32612c8d4bb92cfd7c2457463f18d8a546a000d99f437b9683c6c5e",
+              "equity_feature_service-0.1.0a2.tar.gz": "f03769ccfc36e4bdc6a629c82a79608ab3998cf27c10918fe95d58f57ed52aaf"
+            },
+            "schema": "service1",
+            "source_inputs": {
+              ".github/workflows/service.yml": "20f2a7c6b7c663e826ab431a89e8fc65d5c67de45b4d6d55f84359ca92e9d2c2",
+              "examples/service_owned.py": "3dfec2eb57f903eac973dd266bacf1d1698fbf8cc12166b7f3c5fd8b9ddc38f7",
+              "packages/service/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "packages/service/README.md": "a6c21d2352f3bdedcf1ab9a6ee4bedbf303e9c4f4bb37668335199512b91ad4a",
+              "packages/service/pyproject.toml": "0933f4c9b2168cb541b490ac02e1d9b8596dbea3b51fbbc52e58bdab2f51a1b5",
+              "packages/service/src/equity_feature_service/__init__.py": "2bef1cc582c020626d41b9b7bf360784ec44a54553eaf3d8a89032040f783d76",
+              "packages/service/src/equity_feature_service/codec.py": "954db659f0b0e0edc4a917b0d28a76cc35479464c1cff45df730fedcdcf175ca",
+              "packages/service/src/equity_feature_service/datasets.py": "41db66b5f84bdc79fe88f4f5eae9f8d380e3affa12086bcf1021e2ec3ae3914f",
+              "packages/service/src/equity_feature_service/duckdb.py": "887540795f24b78fdb96ca2c48e5f1572669f50f130f79689fc17437412f971c",
+              "packages/service/src/equity_feature_service/jobs.py": "4a5858b63ba8e36a7ab339ba1ac732d7335eda9a83df7607fab2cf4327528dfb",
+              "packages/service/src/equity_feature_service/loopback.py": "69cd65d929765961927c74a12ccfb199a53bf5a5435253559a61a8c06aeb321a",
+              "packages/service/src/equity_feature_service/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "packages/service/src/equity_feature_service/schemas/remote-v1.1.schema.json": "dda0f9d2e5968ff2ea3bf79f02740a18f9ae24cd93c492f7c38033883ed8a6b2",
+              "packages/service/src/equity_feature_service/schemas/remote-v1.schema.json": "9d5e83f1d89bb34491d959158ae628e4b7b0590155244beb13945a3b94f362a0",
+              "packages/service/src/equity_feature_service/service.py": "d5e91dab3d6c2edf969920700e07c37de471b87d9b33913914e2308e367fbad1",
+              "tests/service/fixtures/approved-config.json": "d0626575709844b924fb5a0d7572bb2b82f5cb28287e643f36b7b508b5918c4e",
+              "tests/service/fixtures/calculate.json": "4d49e8473e68e195664c78e66e24279854df1294dfd8fe16f8384d31559a0be5",
+              "tests/service/fixtures/delivery_native.json": "2ca65b4f548fe634e5acf7c7848cd4ae9de87420dbe35c3272d4937ba2df315a",
+              "tests/service/fixtures/jobs_native.json": "73108af4d8678fc16beae1d099548895f3d6da92ef51625eae4877d7fb885ba7",
+              "tests/service/fixtures/service_decisions.json": "36b60bb8d6702e7e6759ded67a465eed10910f52efbf163fd27d8bb7938d1ef7",
+              "tests/service/test_decisions.py": "1fce98d3b8c41a41ce3748f7fed7e07226e4f89340c0313b6fba4054a677d473",
+              "tests/service/test_delivery.py": "8c05b5fbc70beab51887425fd81f97c4ab464d1c578848bd421f848283f20761",
+              "tests/service/test_duckdb.py": "8b72b927b7ddcb2e8f0c398ae63b9ae8cb3cf724420e3bf27dcd46a4dfd219e6",
+              "tests/service/test_jobs.py": "e2e039d2ad4afab305bb5ec894c46fb8ef9ac521d61e9109728925069f938cb7",
+              "tests/service/test_service.py": "6b8295d77fd00e5ac1eb126eb0d167783b92bc5c34970e3c623915bf9285559a",
+              "tools/benchmark_pipeline.py": "93706b47578c7e31223b60cd3b02db4af6fc184173f728b241af29408dda5985",
+              "tools/benchmark_supervisor.py": "5d196a373d39389bc55cf0c5184bc210e178f0e9b60c6de7a56e09e48f94a2e9",
+              "tools/build_foundation.py": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778",
+              "tools/build_service.py": "7313832a256fe577326215b705164251f2cd3330d4e0a6070197f9828ffd2393",
+              "tools/qualify_job_native.py": "8eff6dbefeb79ccd07cbc7a18f6f66a4019ed8da82480086dd1e5380558274a6",
+              "tools/requirements-service.txt": "75de0d72695732f0b552b48059c3f46c4ac06277a4622e8e325d4ee37a1553ae"
+            },
+            "system": "Linux",
+            "worker_commit": "7d86deb94b6c338be9cc893c729352c59517e28f",
+            "worker_source_inputs": {
+              "packages/workers/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "packages/workers/README.md": "6bbe56ef10dc79c7a2c138ace79023d3cea3ecc76e35eb05d3b02c062b6b4a6a",
+              "packages/workers/pyproject.toml": "5db341c048458a36ae2c08267824216d5ff36a8218a6b950b774b593d5769ae8",
+              "packages/workers/src/equity_feature_workers/__init__.py": "0c4cf7430ea6a7d6e56960210b84e0d940942f4af0cc32a84a19bb32fd800b74",
+              "packages/workers/src/equity_feature_workers/acquisition.py": "6ae242f908ad65daf8e52027411371cd3d4d5443f37cba953eda5d8d5a8d3332",
+              "packages/workers/src/equity_feature_workers/acquisition_demo.py": "ec68280e9134e9cca2382ccbc907e640229efa69b3b3c237a4e0a83601567786",
+              "packages/workers/src/equity_feature_workers/barriers.py": "41d2be6c29475c0f0fa1a1c550a3dfa4200c9e105a88d6cc1d393640b2427cd9",
+              "packages/workers/src/equity_feature_workers/breadth_commands.py": "0b055f8e53e8de84574617583677c4c175a22dc9669ab12de1b2aabb785d9648",
+              "packages/workers/src/equity_feature_workers/catalog.py": "5bc4b309c844fad9b0463aeef224aab1e24c47a9fa436acbe0d4e9ebd4890ca6",
+              "packages/workers/src/equity_feature_workers/claims.py": "88b7f1fa702a69d9d76fff5cbce1a64744ed328860b1ec97f0eeefca1e65b5f4",
+              "packages/workers/src/equity_feature_workers/cli.py": "aadb95c320173983010f8e4840ca121b8f7f463a6bfa8cc7491476e04283cb93",
+              "packages/workers/src/equity_feature_workers/commands.py": "73e2db3acb10d419c90a7024ff5a353997522926ed91317092c247dd9eacc4ec",
+              "packages/workers/src/equity_feature_workers/diagnostics.py": "e45bfd0f7eb0ffa76c718c3fa0782f4c0fed0d2d31f4a62d24c2c6a052e72a13",
+              "packages/workers/src/equity_feature_workers/generations.py": "6bca5e1d58a6d6a4d47b6f7a2e9565074a5e5fa9695ab1854808503f39acc3bc",
+              "packages/workers/src/equity_feature_workers/manifests.py": "915071757d40d46c6d192f4687ca874935fe1100fdc3398675d00ed7a937b537",
+              "packages/workers/src/equity_feature_workers/publication.py": "a90bdafb224805fb3346e75948547635aeeef7a4e6c9de13c7895a8aa0b9f7de",
+              "packages/workers/src/equity_feature_workers/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "packages/workers/src/equity_feature_workers/required_inputs.py": "a7423f1ca2c619210a8fb5b462b436bec3825ec9532ddec1654cd96b2bac9116",
+              "packages/workers/src/equity_feature_workers/supervisor.py": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe"
+            }
+          },
+          "receipt_sha256": "a6ee0b6b3d5b0ecc24c9555acffe8c6fa65c3cae6600689ccdc8ee4e340b593c",
+          "system": "Linux"
+        }
+      ]
+    },
+    {
+      "kind": "foundation",
+      "run_id": 38044728545,
+      "run_url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38044728545",
+      "systems": [
+        {
+          "archive_bytes": 396652,
+          "archive_sha256": "a1707316363def7a51bddfa48a25bd9f6ba9fab895adee878f9eb829e2817cfc",
+          "archive_url": "https://api.github.com/repos/atulsrivas1/equity-feature-workers/actions/artifacts/11666942877/zip",
+          "artifact_id": 11666942877,
+          "expires_at": "2026-11-09T10:36:56Z",
+          "name": "foundation-3aeb69a346db93de842300166f54615dff19c8a1-windows-latest",
+          "qualification": {
+            "artifacts": {
+              "equity_feature_workers-0.1.0a13-py3-none-any.whl": "0da17f4d4b7d53f72f2b67aba4bfb3cc912b86d769dd142550c4748a3edb2324",
+              "equity_feature_workers-0.1.0a13.tar.gz": "d1b5a702812bbac6270eb54ab20eb21ac7bc1100d522412cee9107a92e594b0e"
+            },
+            "builder_sha256": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778",
+            "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+            "dependency_artifacts": {
+              "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": "54097268c067f2b794e6145a4ff40604afe1f90619ad3ddd97b2953d6a450abc",
+              "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2",
+              "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": "05bc3655de76ad87a969ee7d4b1fd6def623c9cdf31cb0b3dc4753d9629127dc",
+              "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": "fc0f132f477ddc595daccbdd5342b357aca5bcf689e2c70a7d3fe967b00da4c9",
+              "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": "5f18bbc83ba79485d199794b172a6ed7b7ab259625c87f2a49cb7a80a0889ab8",
+              "equity_feature_files-0.1.0a0-py3-none-any.whl": "36346e2c945bff70b46bc0bb11ff5f9f350e9df88cb3bc626a2e5039b37998f8",
+              "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549",
+              "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": "ffe8e8ab4b1aa7cb94c11e9d7a11f1f4a8a87762aa5f5b49ad0f7f47aa65eebb",
+              "equity_feature_parquet-0.1.0a1-py3-none-any.whl": "4119622e8603e1c0a53bae82ed5c97ef29cfa1119c5a02b36a2d9da0f6d3f445",
+              "equity_features-0.0.4a4-py3-none-any.whl": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0"
+            },
+            "dependency_commits": {
+              "equity-feature-io": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+              "equity-features": "20c08c7370581d03c8a0404579667f68d67ac88b"
+            },
+            "epoch": 1700000000,
+            "forms": [
+              {
+                "acquisition_full": {
+                  "acquisition_version": "0.1.0a0",
+                  "default_denied": true,
+                  "files_version": "0.1.0a0",
+                  "negative_public_typing": 2,
+                  "owned_csv_command": true,
+                  "verified_readback": true
+                },
+                "acquisition_light": {
+                  "default_denied": true,
+                  "light_import": true,
+                  "optional_demo_unavailable": true
+                },
+                "acquisition_oracle_sha256": "fa23dfa521034a3b8a3f111edc58c3736f80ad2cf2c053885f0fb95d97f26805",
+                "acquisition_tests_sha256": "8adba7d8b4abbd5b46eafb81a56e2ca5d29132136bc9c2a55dbb273ca2b8eda5",
+                "core_after_sha256": "18a58fd837f050a0d4cfb5f5ae2a05f1ab6efac70de96897d5318ed2990d1f54",
+                "core_before_sha256": "18a58fd837f050a0d4cfb5f5ae2a05f1ab6efac70de96897d5318ed2990d1f54",
+                "form": "wheel",
+                "independent_bar_goldens": true,
+                "installed_barrier_tests_passed": true,
+                "installed_catalog_example_passed": true,
+                "installed_catalog_tests_passed": true,
+                "installed_claim_example_passed": true,
+                "installed_claim_tests_passed": true,
+                "installed_command_tests_passed": true,
+                "installed_console_demo_passed": true,
+                "installed_diagnostic_example_passed": true,
+                "installed_diagnostic_tests_passed": true,
+                "installed_manifest_tests_passed": true,
+                "installed_optional_backend_versions": {
+                  "duckdb": "1.5.6",
+                  "equity-feature-duckdb-sink": "0.1.0a0",
+                  "equity-feature-parquet": "0.1.0a1",
+                  "pyarrow": "20.0.0"
+                },
+                "installed_optional_source_versions": {
+                  "equity-feature-duckdb": "0.1.0a8",
+                  "numpy": "2.2.6"
+                },
+                "installed_pilot_example_passed": true,
+                "installed_pilot_tests_passed": true,
+                "installed_publication_tests_passed": true,
+                "installed_required_input_tests_passed": true,
+                "installed_supervisor_tests_passed": true,
+                "installed_typing": true,
+                "inward_dependencies": true,
+                "packages": [
+                  "equity-feature-workers"
+                ],
+                "source_imports": false
+              },
+              {
+                "acquisition_full": {
+                  "acquisition_version": "0.1.0a0",
+                  "default_denied": true,
+                  "files_version": "0.1.0a0",
+                  "negative_public_typing": 2,
+                  "owned_csv_command": true,
+                  "verified_readback": true
+                },
+                "acquisition_light": {
+                  "default_denied": true,
+                  "light_import": true,
+                  "optional_demo_unavailable": true
+                },
+                "acquisition_oracle_sha256": "fa23dfa521034a3b8a3f111edc58c3736f80ad2cf2c053885f0fb95d97f26805",
+                "acquisition_tests_sha256": "8adba7d8b4abbd5b46eafb81a56e2ca5d29132136bc9c2a55dbb273ca2b8eda5",
+                "core_after_sha256": "18a58fd837f050a0d4cfb5f5ae2a05f1ab6efac70de96897d5318ed2990d1f54",
+                "core_before_sha256": "18a58fd837f050a0d4cfb5f5ae2a05f1ab6efac70de96897d5318ed2990d1f54",
+                "form": "sdist",
+                "independent_bar_goldens": true,
+                "installed_barrier_tests_passed": true,
+                "installed_catalog_example_passed": true,
+                "installed_catalog_tests_passed": true,
+                "installed_claim_example_passed": true,
+                "installed_claim_tests_passed": true,
+                "installed_command_tests_passed": true,
+                "installed_console_demo_passed": true,
+                "installed_diagnostic_example_passed": true,
+                "installed_diagnostic_tests_passed": true,
+                "installed_manifest_tests_passed": true,
+                "installed_optional_backend_versions": {
+                  "duckdb": "1.5.6",
+                  "equity-feature-duckdb-sink": "0.1.0a0",
+                  "equity-feature-parquet": "0.1.0a1",
+                  "pyarrow": "20.0.0"
+                },
+                "installed_optional_source_versions": {
+                  "equity-feature-duckdb": "0.1.0a8",
+                  "numpy": "2.2.6"
+                },
+                "installed_pilot_example_passed": true,
+                "installed_pilot_tests_passed": true,
+                "installed_publication_tests_passed": true,
+                "installed_required_input_tests_passed": true,
+                "installed_supervisor_tests_passed": true,
+                "installed_typing": true,
+                "inward_dependencies": true,
+                "packages": [
+                  "equity-feature-workers"
+                ],
+                "source_imports": false
+              }
+            ],
+            "machine": "AMD64",
+            "probe_sha256": "5c55b7f603c6d0f819658a7a530d24fef5e4b00958db4f93141f27d6c4ea04de",
+            "python": "3.12.10",
+            "schema": "foundation1",
+            "source_sha256": {
+              ".github/workflows/foundation.yml": "c796a58b0ea4f4636b7784b2cce1ecdd09cb33c68a61b620030c023d1c83ff5e",
+              "packages/service/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "packages/service/README.md": "a6c21d2352f3bdedcf1ab9a6ee4bedbf303e9c4f4bb37668335199512b91ad4a",
+              "packages/service/pyproject.toml": "0933f4c9b2168cb541b490ac02e1d9b8596dbea3b51fbbc52e58bdab2f51a1b5",
+              "packages/service/src/equity_feature_service/__init__.py": "2bef1cc582c020626d41b9b7bf360784ec44a54553eaf3d8a89032040f783d76",
+              "packages/service/src/equity_feature_service/codec.py": "954db659f0b0e0edc4a917b0d28a76cc35479464c1cff45df730fedcdcf175ca",
+              "packages/service/src/equity_feature_service/datasets.py": "41db66b5f84bdc79fe88f4f5eae9f8d380e3affa12086bcf1021e2ec3ae3914f",
+              "packages/service/src/equity_feature_service/duckdb.py": "887540795f24b78fdb96ca2c48e5f1572669f50f130f79689fc17437412f971c",
+              "packages/service/src/equity_feature_service/jobs.py": "4a5858b63ba8e36a7ab339ba1ac732d7335eda9a83df7607fab2cf4327528dfb",
+              "packages/service/src/equity_feature_service/loopback.py": "69cd65d929765961927c74a12ccfb199a53bf5a5435253559a61a8c06aeb321a",
+              "packages/service/src/equity_feature_service/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "packages/service/src/equity_feature_service/schemas/remote-v1.1.schema.json": "dda0f9d2e5968ff2ea3bf79f02740a18f9ae24cd93c492f7c38033883ed8a6b2",
+              "packages/service/src/equity_feature_service/schemas/remote-v1.schema.json": "9d5e83f1d89bb34491d959158ae628e4b7b0590155244beb13945a3b94f362a0",
+              "packages/service/src/equity_feature_service/service.py": "d5e91dab3d6c2edf969920700e07c37de471b87d9b33913914e2308e367fbad1",
+              "packages/workers/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "packages/workers/README.md": "6bbe56ef10dc79c7a2c138ace79023d3cea3ecc76e35eb05d3b02c062b6b4a6a",
+              "packages/workers/pyproject.toml": "5db341c048458a36ae2c08267824216d5ff36a8218a6b950b774b593d5769ae8",
+              "packages/workers/src/equity_feature_workers/__init__.py": "0c4cf7430ea6a7d6e56960210b84e0d940942f4af0cc32a84a19bb32fd800b74",
+              "packages/workers/src/equity_feature_workers/acquisition.py": "6ae242f908ad65daf8e52027411371cd3d4d5443f37cba953eda5d8d5a8d3332",
+              "packages/workers/src/equity_feature_workers/acquisition_demo.py": "ec68280e9134e9cca2382ccbc907e640229efa69b3b3c237a4e0a83601567786",
+              "packages/workers/src/equity_feature_workers/barriers.py": "41d2be6c29475c0f0fa1a1c550a3dfa4200c9e105a88d6cc1d393640b2427cd9",
+              "packages/workers/src/equity_feature_workers/breadth_commands.py": "0b055f8e53e8de84574617583677c4c175a22dc9669ab12de1b2aabb785d9648",
+              "packages/workers/src/equity_feature_workers/catalog.py": "5bc4b309c844fad9b0463aeef224aab1e24c47a9fa436acbe0d4e9ebd4890ca6",
+              "packages/workers/src/equity_feature_workers/claims.py": "88b7f1fa702a69d9d76fff5cbce1a64744ed328860b1ec97f0eeefca1e65b5f4",
+              "packages/workers/src/equity_feature_workers/cli.py": "aadb95c320173983010f8e4840ca121b8f7f463a6bfa8cc7491476e04283cb93",
+              "packages/workers/src/equity_feature_workers/commands.py": "73e2db3acb10d419c90a7024ff5a353997522926ed91317092c247dd9eacc4ec",
+              "packages/workers/src/equity_feature_workers/diagnostics.py": "e45bfd0f7eb0ffa76c718c3fa0782f4c0fed0d2d31f4a62d24c2c6a052e72a13",
+              "packages/workers/src/equity_feature_workers/generations.py": "6bca5e1d58a6d6a4d47b6f7a2e9565074a5e5fa9695ab1854808503f39acc3bc",
+              "packages/workers/src/equity_feature_workers/manifests.py": "915071757d40d46c6d192f4687ca874935fe1100fdc3398675d00ed7a937b537",
+              "packages/workers/src/equity_feature_workers/publication.py": "a90bdafb224805fb3346e75948547635aeeef7a4e6c9de13c7895a8aa0b9f7de",
+              "packages/workers/src/equity_feature_workers/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "packages/workers/src/equity_feature_workers/required_inputs.py": "a7423f1ca2c619210a8fb5b462b436bec3825ec9532ddec1654cd96b2bac9116",
+              "packages/workers/src/equity_feature_workers/supervisor.py": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe",
+              "requirements-dev.txt": "77c5c3db6b91c3240c7be485e3c5bb7983aa23fdb6835789c3dabc0ebd2dc81c",
+              "tests/acquisition_oracle.json": "fa23dfa521034a3b8a3f111edc58c3736f80ad2cf2c053885f0fb95d97f26805",
+              "tests/acquisition_probe.py": "32a94012e47667a64480694ee1011044f536d15d89435a57e0e050eb55d431bb",
+              "tests/barrier_fixture.py": "9dd77c2ec9469d0caf948e3a652a622d1ae8e05605cfb3d90d1bcf8c81f7e22b",
+              "tests/barrier_oracle.json": "e3dddf9b07b54280124eebe1ef5db97b6b851ab836534b71dcc898bfaf850a75",
+              "tests/catalog_example.py": "81901cc22284e3a4d29c9fd0b96c2047ce5813f7a4569248e037f2d3c3ad149d",
+              "tests/catalog_oracle.json": "379ccb0af4e4d994df619971fc77dc46556b18b1ad03c6c169024dae5e05caea",
+              "tests/claims_example.py": "de4886bd4daaebb34462fd3cd33089b7f6915ab69b0c69df6fccd387838e631b",
+              "tests/claims_oracle.json": "615e06f6a92724bf5817990a62b829347a7cf350f90d4079573a4974cf05e1ee",
+              "tests/diagnostic_oracle.json": "3e0e5e2f9d38d9a2321233448914ca43b5ec32b30df5bd709ac8fd300a43abd3",
+              "tests/diagnostics_example.py": "ddaf471a19bfa33d715bd9b3e88a7cfdff23742380f2be52c1a387cae4e5e71f",
+              "tests/make_manifest_oracle.py": "5fa02096255ad1244eba7251f1da3eaf4b614172fba91de420dcdc256b5f6d87",
+              "tests/manifest_example.py": "bf88eb1d618d5b1b876c01d59ce3a2abe8e6262a366aa464932bc5b7fb0349c7",
+              "tests/manifest_fixture.py": "1bceaf0c329b8f4e447a33ee16940c95c2671f6ce96468301820bd7d236de5d1",
+              "tests/manifest_golden.json": "8d4c28a152c1884b16137fde4064cf6434b73ede9331e568c8b0aabccb6cb232",
+              "tests/pilot_fixture.py": "9e5a03483fed797a0c1c6e441991cfd66ede618f4ae26b26bfac48605ba12843",
+              "tests/pilot_memory.py": "685301f36aec8b998934abaab0c5bff2f19e756ffad3e5ed4a45742387a3d606",
+              "tests/pilot_oracle.json": "aa4920a1b3954a1803a752a7b9760417bff8c7300504d982822c51335add303a",
+              "tests/pilot_process.py": "2e473b3bc9edf56ef37c37bc0560feed8377fd8812142e9f1d7f424993e6997f",
+              "tests/probe_foundation.py": "5c55b7f603c6d0f819658a7a530d24fef5e4b00958db4f93141f27d6c4ea04de",
+              "tests/publication_fixture.py": "3ebdb52b3f523c5941b7a8f2af39cc30a3c7d69478f0b94f46c9f37680894255",
+              "tests/publication_oracle.json": "99a920394fb47c12a5d43f264b87ad7179ef7a192735752e858850114f5cde31",
+              "tests/required_fixture.py": "cf56a4760beda18de52491cc35000cbba94b03d34542b699fd86a345c55c00cd",
+              "tests/required_oracle.json": "565d94bd1ba5127a16acc7d9d07a7082d2308eb2888def98e0dce40340ff2b60",
+              "tests/service/fixtures/approved-config.json": "d0626575709844b924fb5a0d7572bb2b82f5cb28287e643f36b7b508b5918c4e",
+              "tests/service/fixtures/calculate.json": "4d49e8473e68e195664c78e66e24279854df1294dfd8fe16f8384d31559a0be5",
+              "tests/service/fixtures/delivery_native.json": "2ca65b4f548fe634e5acf7c7848cd4ae9de87420dbe35c3272d4937ba2df315a",
+              "tests/service/fixtures/jobs_native.json": "73108af4d8678fc16beae1d099548895f3d6da92ef51625eae4877d7fb885ba7",
+              "tests/service/fixtures/service_decisions.json": "36b60bb8d6702e7e6759ded67a465eed10910f52efbf163fd27d8bb7938d1ef7",
+              "tests/service/test_decisions.py": "1fce98d3b8c41a41ce3748f7fed7e07226e4f89340c0313b6fba4054a677d473",
+              "tests/service/test_delivery.py": "8c05b5fbc70beab51887425fd81f97c4ab464d1c578848bd421f848283f20761",
+              "tests/service/test_duckdb.py": "8b72b927b7ddcb2e8f0c398ae63b9ae8cb3cf724420e3bf27dcd46a4dfd219e6",
+              "tests/service/test_jobs.py": "e2e039d2ad4afab305bb5ec894c46fb8ef9ac521d61e9109728925069f938cb7",
+              "tests/service/test_service.py": "6b8295d77fd00e5ac1eb126eb0d167783b92bc5c34970e3c623915bf9285559a",
+              "tests/supervisor_fixture.py": "efe8db41324cc7afc37d3abeba19de8ac9961131b123d29791bc28141cdc1610",
+              "tests/supervisor_oracle.json": "00d5e92ed5d7fd99e90fecc11d71b5dc78ace4c05f0920776f3db7d0c69338ba",
+              "tests/test_acquisition.py": "8adba7d8b4abbd5b46eafb81a56e2ca5d29132136bc9c2a55dbb273ca2b8eda5",
+              "tests/test_barriers.py": "74f46761a3d6d25d600f45093cf529ca4952f56be8dcb905262e7b63621a8ce6",
+              "tests/test_catalog.py": "98691c0285dbe30cf66cba50d6639ae4dc788a22cdac9e7110faa6eeb144590f",
+              "tests/test_claims.py": "fe3ac4bab4d5456f57fca2a0cf7531700da61e8a285f5d5491dafa956f9841b8",
+              "tests/test_commands.py": "2e45f5654e3fc7f66ef38490e6f9a1c05a42676c46ec3a6f8a7c117fa02c5ac5",
+              "tests/test_diagnostics.py": "c832ffeabb10cebe5391776485b1b1d5bab945a5e104f9f1da9458ea554b0ca2",
+              "tests/test_manifests.py": "c03fa655ccea1cc0d94b40e80129851d25624831143b0d38cb338c7a5fcb951c",
+              "tests/test_pilot.py": "8943a6740ceb5dceb4ce03cfe29ccfc659021357fd13bf5a49b01c9a7582ed4d",
+              "tests/test_provenance.py": "7565f51e70db63b79d6594b12f44b89f714fb7f758fcfee81e29c8aca2866d77",
+              "tests/test_publication.py": "bff765ce6fd85eb295a708a8911cbe0312e3553cfbce99841b8295e0ffcafb10",
+              "tests/test_required_inputs.py": "d33034bdef9d101a12ee6dde06231bf272b72d93c9f0bf85f6feb4a9e197faa5",
+              "tests/test_supervisor.py": "9c4a2a6714346de7a0fa330c0b17789f793d611a87838fb9b0603979f6e1b0e5",
+              "tools/benchmark_pipeline.py": "93706b47578c7e31223b60cd3b02db4af6fc184173f728b241af29408dda5985",
+              "tools/benchmark_supervisor.py": "5d196a373d39389bc55cf0c5184bc210e178f0e9b60c6de7a56e09e48f94a2e9",
+              "tools/build_foundation.py": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778",
+              "tools/build_service.py": "7313832a256fe577326215b705164251f2cd3330d4e0a6070197f9828ffd2393",
+              "tools/qualify_job_native.py": "8eff6dbefeb79ccd07cbc7a18f6f66a4019ed8da82480086dd1e5380558274a6",
+              "tools/requirements-service.txt": "75de0d72695732f0b552b48059c3f46c4ac06277a4622e8e325d4ee37a1553ae"
+            },
+            "system": "Windows"
+          },
+          "receipt_sha256": "3329ebe1e05b7f3043bff6d275461883f267124f81d53432fc8ff4c50e3b9bfa",
+          "system": "Windows"
+        },
+        {
+          "archive_bytes": 395195,
+          "archive_sha256": "cbf775bd87fe9d534d4905a85d5753e364d235327f05ea11c0c23be34fb65047",
+          "archive_url": "https://api.github.com/repos/atulsrivas1/equity-feature-workers/actions/artifacts/11666667596/zip",
+          "artifact_id": 11666667596,
+          "expires_at": "2026-11-09T10:29:44Z",
+          "name": "foundation-3aeb69a346db93de842300166f54615dff19c8a1-ubuntu-24.04",
+          "qualification": {
+            "artifacts": {
+              "equity_feature_workers-0.1.0a13-py3-none-any.whl": "a4eae3ca4ae6e37d277e941958199b47b0dd0ce150064c0952c2d0269e042faf",
+              "equity_feature_workers-0.1.0a13.tar.gz": "0382656756abe5d89f21a5e705d4a41451a8a64d5da652ea58e846a2e3cd9e21"
+            },
+            "builder_sha256": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778",
+            "commit": "3aeb69a346db93de842300166f54615dff19c8a1",
+            "dependency_artifacts": {
+              "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": "9b6dca40280850599db8e194fe280cd651aa06b7132998d55e61861dfdd2d1e3",
+              "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+              "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": "2abcd7084371e82e7ec887353a1159ed900616d764df36baafe49a2b57c9c676",
+              "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": "dd8f175dba3ef547401341102d7e7ae1bc41ec3c53a67cfbaaec91c29a52bc7d",
+              "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": "6bed73224f033f4d67ad7d519bce76c5b8d3f6076766ccc0726b6a36a9bf3bde",
+              "equity_feature_files-0.1.0a0-py3-none-any.whl": "f12cf7759f4669a7b007434ce062b1325bb1cd3b83c3b2e868dc6ce14117a5ee",
+              "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99",
+              "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": "71c2316ab93d3382b24701ce6f4990b1355f90b8f66e562c8b1d34e539d60783",
+              "equity_feature_parquet-0.1.0a1-py3-none-any.whl": "2cdca449df56260aa64becfe4ee856b752e906c766426a74dacab849b48f899c",
+              "equity_features-0.0.4a4-py3-none-any.whl": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e"
+            },
+            "dependency_commits": {
+              "equity-feature-io": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+              "equity-features": "20c08c7370581d03c8a0404579667f68d67ac88b"
+            },
+            "epoch": 1700000000,
+            "forms": [
+              {
+                "acquisition_full": {
+                  "acquisition_version": "0.1.0a0",
+                  "default_denied": true,
+                  "files_version": "0.1.0a0",
+                  "negative_public_typing": 2,
+                  "owned_csv_command": true,
+                  "verified_readback": true
+                },
+                "acquisition_light": {
+                  "default_denied": true,
+                  "light_import": true,
+                  "optional_demo_unavailable": true
+                },
+                "acquisition_oracle_sha256": "fa23dfa521034a3b8a3f111edc58c3736f80ad2cf2c053885f0fb95d97f26805",
+                "acquisition_tests_sha256": "8adba7d8b4abbd5b46eafb81a56e2ca5d29132136bc9c2a55dbb273ca2b8eda5",
+                "core_after_sha256": "2ce7c70146695d932f5721061962893d8ac412754997137c267cd14284870889",
+                "core_before_sha256": "2ce7c70146695d932f5721061962893d8ac412754997137c267cd14284870889",
+                "form": "wheel",
+                "independent_bar_goldens": true,
+                "installed_barrier_tests_passed": true,
+                "installed_catalog_example_passed": true,
+                "installed_catalog_tests_passed": true,
+                "installed_claim_example_passed": true,
+                "installed_claim_tests_passed": true,
+                "installed_command_tests_passed": true,
+                "installed_console_demo_passed": true,
+                "installed_diagnostic_example_passed": true,
+                "installed_diagnostic_tests_passed": true,
+                "installed_manifest_tests_passed": true,
+                "installed_optional_backend_versions": {
+                  "duckdb": "1.5.6",
+                  "equity-feature-duckdb-sink": "0.1.0a0",
+                  "equity-feature-parquet": "0.1.0a1",
+                  "pyarrow": "20.0.0"
+                },
+                "installed_optional_source_versions": {
+                  "equity-feature-duckdb": "0.1.0a8",
+                  "numpy": "2.2.6"
+                },
+                "installed_pilot_example_passed": true,
+                "installed_pilot_tests_passed": true,
+                "installed_publication_tests_passed": true,
+                "installed_required_input_tests_passed": true,
+                "installed_supervisor_tests_passed": true,
+                "installed_typing": true,
+                "inward_dependencies": true,
+                "packages": [
+                  "equity-feature-workers"
+                ],
+                "source_imports": false
+              },
+              {
+                "acquisition_full": {
+                  "acquisition_version": "0.1.0a0",
+                  "default_denied": true,
+                  "files_version": "0.1.0a0",
+                  "negative_public_typing": 2,
+                  "owned_csv_command": true,
+                  "verified_readback": true
+                },
+                "acquisition_light": {
+                  "default_denied": true,
+                  "light_import": true,
+                  "optional_demo_unavailable": true
+                },
+                "acquisition_oracle_sha256": "fa23dfa521034a3b8a3f111edc58c3736f80ad2cf2c053885f0fb95d97f26805",
+                "acquisition_tests_sha256": "8adba7d8b4abbd5b46eafb81a56e2ca5d29132136bc9c2a55dbb273ca2b8eda5",
+                "core_after_sha256": "2ce7c70146695d932f5721061962893d8ac412754997137c267cd14284870889",
+                "core_before_sha256": "2ce7c70146695d932f5721061962893d8ac412754997137c267cd14284870889",
+                "form": "sdist",
+                "independent_bar_goldens": true,
+                "installed_barrier_tests_passed": true,
+                "installed_catalog_example_passed": true,
+                "installed_catalog_tests_passed": true,
+                "installed_claim_example_passed": true,
+                "installed_claim_tests_passed": true,
+                "installed_command_tests_passed": true,
+                "installed_console_demo_passed": true,
+                "installed_diagnostic_example_passed": true,
+                "installed_diagnostic_tests_passed": true,
+                "installed_manifest_tests_passed": true,
+                "installed_optional_backend_versions": {
+                  "duckdb": "1.5.6",
+                  "equity-feature-duckdb-sink": "0.1.0a0",
+                  "equity-feature-parquet": "0.1.0a1",
+                  "pyarrow": "20.0.0"
+                },
+                "installed_optional_source_versions": {
+                  "equity-feature-duckdb": "0.1.0a8",
+                  "numpy": "2.2.6"
+                },
+                "installed_pilot_example_passed": true,
+                "installed_pilot_tests_passed": true,
+                "installed_publication_tests_passed": true,
+                "installed_required_input_tests_passed": true,
+                "installed_supervisor_tests_passed": true,
+                "installed_typing": true,
+                "inward_dependencies": true,
+                "packages": [
+                  "equity-feature-workers"
+                ],
+                "source_imports": false
+              }
+            ],
+            "machine": "x86_64",
+            "probe_sha256": "5c55b7f603c6d0f819658a7a530d24fef5e4b00958db4f93141f27d6c4ea04de",
+            "python": "3.12.15",
+            "schema": "foundation1",
+            "source_sha256": {
+              ".github/workflows/foundation.yml": "c796a58b0ea4f4636b7784b2cce1ecdd09cb33c68a61b620030c023d1c83ff5e",
+              "packages/service/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "packages/service/README.md": "a6c21d2352f3bdedcf1ab9a6ee4bedbf303e9c4f4bb37668335199512b91ad4a",
+              "packages/service/pyproject.toml": "0933f4c9b2168cb541b490ac02e1d9b8596dbea3b51fbbc52e58bdab2f51a1b5",
+              "packages/service/src/equity_feature_service/__init__.py": "2bef1cc582c020626d41b9b7bf360784ec44a54553eaf3d8a89032040f783d76",
+              "packages/service/src/equity_feature_service/codec.py": "954db659f0b0e0edc4a917b0d28a76cc35479464c1cff45df730fedcdcf175ca",
+              "packages/service/src/equity_feature_service/datasets.py": "41db66b5f84bdc79fe88f4f5eae9f8d380e3affa12086bcf1021e2ec3ae3914f",
+              "packages/service/src/equity_feature_service/duckdb.py": "887540795f24b78fdb96ca2c48e5f1572669f50f130f79689fc17437412f971c",
+              "packages/service/src/equity_feature_service/jobs.py": "4a5858b63ba8e36a7ab339ba1ac732d7335eda9a83df7607fab2cf4327528dfb",
+              "packages/service/src/equity_feature_service/loopback.py": "69cd65d929765961927c74a12ccfb199a53bf5a5435253559a61a8c06aeb321a",
+              "packages/service/src/equity_feature_service/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "packages/service/src/equity_feature_service/schemas/remote-v1.1.schema.json": "dda0f9d2e5968ff2ea3bf79f02740a18f9ae24cd93c492f7c38033883ed8a6b2",
+              "packages/service/src/equity_feature_service/schemas/remote-v1.schema.json": "9d5e83f1d89bb34491d959158ae628e4b7b0590155244beb13945a3b94f362a0",
+              "packages/service/src/equity_feature_service/service.py": "d5e91dab3d6c2edf969920700e07c37de471b87d9b33913914e2308e367fbad1",
+              "packages/workers/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+              "packages/workers/README.md": "6bbe56ef10dc79c7a2c138ace79023d3cea3ecc76e35eb05d3b02c062b6b4a6a",
+              "packages/workers/pyproject.toml": "5db341c048458a36ae2c08267824216d5ff36a8218a6b950b774b593d5769ae8",
+              "packages/workers/src/equity_feature_workers/__init__.py": "0c4cf7430ea6a7d6e56960210b84e0d940942f4af0cc32a84a19bb32fd800b74",
+              "packages/workers/src/equity_feature_workers/acquisition.py": "6ae242f908ad65daf8e52027411371cd3d4d5443f37cba953eda5d8d5a8d3332",
+              "packages/workers/src/equity_feature_workers/acquisition_demo.py": "ec68280e9134e9cca2382ccbc907e640229efa69b3b3c237a4e0a83601567786",
+              "packages/workers/src/equity_feature_workers/barriers.py": "41d2be6c29475c0f0fa1a1c550a3dfa4200c9e105a88d6cc1d393640b2427cd9",
+              "packages/workers/src/equity_feature_workers/breadth_commands.py": "0b055f8e53e8de84574617583677c4c175a22dc9669ab12de1b2aabb785d9648",
+              "packages/workers/src/equity_feature_workers/catalog.py": "5bc4b309c844fad9b0463aeef224aab1e24c47a9fa436acbe0d4e9ebd4890ca6",
+              "packages/workers/src/equity_feature_workers/claims.py": "88b7f1fa702a69d9d76fff5cbce1a64744ed328860b1ec97f0eeefca1e65b5f4",
+              "packages/workers/src/equity_feature_workers/cli.py": "aadb95c320173983010f8e4840ca121b8f7f463a6bfa8cc7491476e04283cb93",
+              "packages/workers/src/equity_feature_workers/commands.py": "73e2db3acb10d419c90a7024ff5a353997522926ed91317092c247dd9eacc4ec",
+              "packages/workers/src/equity_feature_workers/diagnostics.py": "e45bfd0f7eb0ffa76c718c3fa0782f4c0fed0d2d31f4a62d24c2c6a052e72a13",
+              "packages/workers/src/equity_feature_workers/generations.py": "6bca5e1d58a6d6a4d47b6f7a2e9565074a5e5fa9695ab1854808503f39acc3bc",
+              "packages/workers/src/equity_feature_workers/manifests.py": "915071757d40d46c6d192f4687ca874935fe1100fdc3398675d00ed7a937b537",
+              "packages/workers/src/equity_feature_workers/publication.py": "a90bdafb224805fb3346e75948547635aeeef7a4e6c9de13c7895a8aa0b9f7de",
+              "packages/workers/src/equity_feature_workers/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "packages/workers/src/equity_feature_workers/required_inputs.py": "a7423f1ca2c619210a8fb5b462b436bec3825ec9532ddec1654cd96b2bac9116",
+              "packages/workers/src/equity_feature_workers/supervisor.py": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe",
+              "requirements-dev.txt": "77c5c3db6b91c3240c7be485e3c5bb7983aa23fdb6835789c3dabc0ebd2dc81c",
+              "tests/acquisition_oracle.json": "fa23dfa521034a3b8a3f111edc58c3736f80ad2cf2c053885f0fb95d97f26805",
+              "tests/acquisition_probe.py": "32a94012e47667a64480694ee1011044f536d15d89435a57e0e050eb55d431bb",
+              "tests/barrier_fixture.py": "9dd77c2ec9469d0caf948e3a652a622d1ae8e05605cfb3d90d1bcf8c81f7e22b",
+              "tests/barrier_oracle.json": "e3dddf9b07b54280124eebe1ef5db97b6b851ab836534b71dcc898bfaf850a75",
+              "tests/catalog_example.py": "81901cc22284e3a4d29c9fd0b96c2047ce5813f7a4569248e037f2d3c3ad149d",
+              "tests/catalog_oracle.json": "379ccb0af4e4d994df619971fc77dc46556b18b1ad03c6c169024dae5e05caea",
+              "tests/claims_example.py": "de4886bd4daaebb34462fd3cd33089b7f6915ab69b0c69df6fccd387838e631b",
+              "tests/claims_oracle.json": "615e06f6a92724bf5817990a62b829347a7cf350f90d4079573a4974cf05e1ee",
+              "tests/diagnostic_oracle.json": "3e0e5e2f9d38d9a2321233448914ca43b5ec32b30df5bd709ac8fd300a43abd3",
+              "tests/diagnostics_example.py": "ddaf471a19bfa33d715bd9b3e88a7cfdff23742380f2be52c1a387cae4e5e71f",
+              "tests/make_manifest_oracle.py": "5fa02096255ad1244eba7251f1da3eaf4b614172fba91de420dcdc256b5f6d87",
+              "tests/manifest_example.py": "bf88eb1d618d5b1b876c01d59ce3a2abe8e6262a366aa464932bc5b7fb0349c7",
+              "tests/manifest_fixture.py": "1bceaf0c329b8f4e447a33ee16940c95c2671f6ce96468301820bd7d236de5d1",
+              "tests/manifest_golden.json": "8d4c28a152c1884b16137fde4064cf6434b73ede9331e568c8b0aabccb6cb232",
+              "tests/pilot_fixture.py": "9e5a03483fed797a0c1c6e441991cfd66ede618f4ae26b26bfac48605ba12843",
+              "tests/pilot_memory.py": "685301f36aec8b998934abaab0c5bff2f19e756ffad3e5ed4a45742387a3d606",
+              "tests/pilot_oracle.json": "aa4920a1b3954a1803a752a7b9760417bff8c7300504d982822c51335add303a",
+              "tests/pilot_process.py": "2e473b3bc9edf56ef37c37bc0560feed8377fd8812142e9f1d7f424993e6997f",
+              "tests/probe_foundation.py": "5c55b7f603c6d0f819658a7a530d24fef5e4b00958db4f93141f27d6c4ea04de",
+              "tests/publication_fixture.py": "3ebdb52b3f523c5941b7a8f2af39cc30a3c7d69478f0b94f46c9f37680894255",
+              "tests/publication_oracle.json": "99a920394fb47c12a5d43f264b87ad7179ef7a192735752e858850114f5cde31",
+              "tests/required_fixture.py": "cf56a4760beda18de52491cc35000cbba94b03d34542b699fd86a345c55c00cd",
+              "tests/required_oracle.json": "565d94bd1ba5127a16acc7d9d07a7082d2308eb2888def98e0dce40340ff2b60",
+              "tests/service/fixtures/approved-config.json": "d0626575709844b924fb5a0d7572bb2b82f5cb28287e643f36b7b508b5918c4e",
+              "tests/service/fixtures/calculate.json": "4d49e8473e68e195664c78e66e24279854df1294dfd8fe16f8384d31559a0be5",
+              "tests/service/fixtures/delivery_native.json": "2ca65b4f548fe634e5acf7c7848cd4ae9de87420dbe35c3272d4937ba2df315a",
+              "tests/service/fixtures/jobs_native.json": "73108af4d8678fc16beae1d099548895f3d6da92ef51625eae4877d7fb885ba7",
+              "tests/service/fixtures/service_decisions.json": "36b60bb8d6702e7e6759ded67a465eed10910f52efbf163fd27d8bb7938d1ef7",
+              "tests/service/test_decisions.py": "1fce98d3b8c41a41ce3748f7fed7e07226e4f89340c0313b6fba4054a677d473",
+              "tests/service/test_delivery.py": "8c05b5fbc70beab51887425fd81f97c4ab464d1c578848bd421f848283f20761",
+              "tests/service/test_duckdb.py": "8b72b927b7ddcb2e8f0c398ae63b9ae8cb3cf724420e3bf27dcd46a4dfd219e6",
+              "tests/service/test_jobs.py": "e2e039d2ad4afab305bb5ec894c46fb8ef9ac521d61e9109728925069f938cb7",
+              "tests/service/test_service.py": "6b8295d77fd00e5ac1eb126eb0d167783b92bc5c34970e3c623915bf9285559a",
+              "tests/supervisor_fixture.py": "efe8db41324cc7afc37d3abeba19de8ac9961131b123d29791bc28141cdc1610",
+              "tests/supervisor_oracle.json": "00d5e92ed5d7fd99e90fecc11d71b5dc78ace4c05f0920776f3db7d0c69338ba",
+              "tests/test_acquisition.py": "8adba7d8b4abbd5b46eafb81a56e2ca5d29132136bc9c2a55dbb273ca2b8eda5",
+              "tests/test_barriers.py": "74f46761a3d6d25d600f45093cf529ca4952f56be8dcb905262e7b63621a8ce6",
+              "tests/test_catalog.py": "98691c0285dbe30cf66cba50d6639ae4dc788a22cdac9e7110faa6eeb144590f",
+              "tests/test_claims.py": "fe3ac4bab4d5456f57fca2a0cf7531700da61e8a285f5d5491dafa956f9841b8",
+              "tests/test_commands.py": "2e45f5654e3fc7f66ef38490e6f9a1c05a42676c46ec3a6f8a7c117fa02c5ac5",
+              "tests/test_diagnostics.py": "c832ffeabb10cebe5391776485b1b1d5bab945a5e104f9f1da9458ea554b0ca2",
+              "tests/test_manifests.py": "c03fa655ccea1cc0d94b40e80129851d25624831143b0d38cb338c7a5fcb951c",
+              "tests/test_pilot.py": "8943a6740ceb5dceb4ce03cfe29ccfc659021357fd13bf5a49b01c9a7582ed4d",
+              "tests/test_provenance.py": "7565f51e70db63b79d6594b12f44b89f714fb7f758fcfee81e29c8aca2866d77",
+              "tests/test_publication.py": "bff765ce6fd85eb295a708a8911cbe0312e3553cfbce99841b8295e0ffcafb10",
+              "tests/test_required_inputs.py": "d33034bdef9d101a12ee6dde06231bf272b72d93c9f0bf85f6feb4a9e197faa5",
+              "tests/test_supervisor.py": "9c4a2a6714346de7a0fa330c0b17789f793d611a87838fb9b0603979f6e1b0e5",
+              "tools/benchmark_pipeline.py": "93706b47578c7e31223b60cd3b02db4af6fc184173f728b241af29408dda5985",
+              "tools/benchmark_supervisor.py": "5d196a373d39389bc55cf0c5184bc210e178f0e9b60c6de7a56e09e48f94a2e9",
+              "tools/build_foundation.py": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778",
+              "tools/build_service.py": "7313832a256fe577326215b705164251f2cd3330d4e0a6070197f9828ffd2393",
+              "tools/qualify_job_native.py": "8eff6dbefeb79ccd07cbc7a18f6f66a4019ed8da82480086dd1e5380558274a6",
+              "tools/requirements-service.txt": "75de0d72695732f0b552b48059c3f46c4ac06277a4622e8e325d4ee37a1553ae"
+            },
+            "system": "Linux"
+          },
+          "receipt_sha256": "b2c22b75e2e52e2aacf4c7fae4232daff9893f71796efd860a6acc7801da6e5f",
+          "system": "Linux"
+        }
+      ]
+    }
+  ],
+  "reviewer": "/root/r7_policy_review",
+  "schema": "eq079-experimental-delivery1",
+  "service_review_url": "https://github.com/atulsrivas1/equity-features/issues/89#issuecomment-6096579915",
+  "service_version": "0.1.0a2",
+  "source_review_url": "https://github.com/atulsrivas1/equity-features/issues/89#issuecomment-6096412601",
+  "stage": "qualified-experimental-source-and-actions-artifacts",
+  "tests_methods": 120,
+  "worker_commit": "3aeb69a346db93de842300166f54615dff19c8a1"
+}
