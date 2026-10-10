@@ -1,3 +1,7 @@
+## Retiring live identities
+
+An admitted job pins its original grant expiry for payload TTL and idempotency tombstone cleanup. Removing a current grant or credential denies further native work and retention; terminal payloads clear independently of polling. Cleanup, cancellation, finalization and shutdown use the pinned lifetime even after live authorization records disappear. Running capacity remains charged until native execution really exits. This candidate has44 job tests/full79 development tests passing; current artifact qualification and separate final review remain pending.
+
 ## EQ078 native asynchronous runtime development — October10,2026 UTC
 
 EQ078#88 is OPEN/In progress after actual separately reviewed concrete planning and guarded Ready/start admission (https://github.com/atulsrivas1/equity-features/issues/88#issuecomment-6094640060), owneratulsrivas1,13 provisional points, paired draftPR360/31. Optional service0.1.0a1 now implements one shared native execution thread with opaque queued/running/terminal job snapshots, original owner/grant/config/full executed-feature rights, fixed native source request/full binding/content verification and registered native plan_acquisition -> execute_plan -> commit/readback. Current source is a preliminary development checkpoint, not final review or accepted artifacts. Accepted worker/core/I/O package and transport1.0/1.1 bytes remain unchanged.
