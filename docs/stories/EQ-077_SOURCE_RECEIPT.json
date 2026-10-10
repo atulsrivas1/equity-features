@@ -1,0 +1,175 @@
+{
+  "canonical_review_commit": "ee6b39f555d82549a04dbee0b5c817817045a605",
+  "decision_mappings": 34,
+  "pending": [
+    "current foundation/canonical final-head CI",
+    "final documentation review",
+    "guarded paired main publication",
+    "actual-main artifacts and independent tree/blob/attribution readback",
+    "story acceptance"
+  ],
+  "reviewer": "/root/r7_policy_review",
+  "run_id": 38025187601,
+  "run_url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38025187601",
+  "schema": "eq077-service-source1",
+  "source_review_url": "https://github.com/atulsrivas1/equity-features/issues/87#issuecomment-6093913729",
+  "stage": "service-source-qualified-not-release-accepted",
+  "systems": [
+    {
+      "archive_bytes": 235231,
+      "archive_sha256": "c966c48a4ae0e69396759613d50775c53bd933a84ca1859fd2e950c8c412b488",
+      "archive_url": "https://api.github.com/repos/atulsrivas1/equity-feature-workers/actions/artifacts/11659903523/zip",
+      "artifact_id": 11659903523,
+      "expires_at": "2026-11-09T04:47:11Z",
+      "name": "service-447a0a24d4eb3e42be374b71344d4a561f00509d-windows-latest",
+      "qualification": {
+        "commit": "447a0a24d4eb3e42be374b71344d4a561f00509d",
+        "core_commit": "20c08c7370581d03c8a0404579667f68d67ac88b",
+        "dependencies": {
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2",
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": "05bc3655de76ad87a969ee7d4b1fd6def623c9cdf31cb0b3dc4753d9629127dc",
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549",
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": "ffe8e8ab4b1aa7cb94c11e9d7a11f1f4a8a87762aa5f5b49ad0f7f47aa65eebb",
+          "equity_features-0.0.4a4-py3-none-any.whl": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0"
+        },
+        "epoch": 1700000000,
+        "forms": [
+          {
+            "consumer_positive_negative": true,
+            "core_before_after_sha256": "a699acd93413f16fcfd3f06ca8df4b1fe0cd8d78e4781e511265b8c4c1cf9e0b",
+            "form": "wheel",
+            "installed_site_packages": true,
+            "light_optional_absence": true,
+            "native_http_tests": true,
+            "strict_package_typing": true
+          },
+          {
+            "consumer_positive_negative": true,
+            "core_before_after_sha256": "a699acd93413f16fcfd3f06ca8df4b1fe0cd8d78e4781e511265b8c4c1cf9e0b",
+            "form": "sdist",
+            "installed_site_packages": true,
+            "light_optional_absence": true,
+            "native_http_tests": true,
+            "strict_package_typing": true
+          }
+        ],
+        "io_commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+        "machine": "AMD64",
+        "python": "3.12.10",
+        "repeat_artifacts": {
+          "equity_feature_service-0.1.0a0-py3-none-any.whl": "f2063e8a983cbf0339ae6a244820be499965cb50afb579687945e20cdf5a5fcd",
+          "equity_feature_service-0.1.0a0.tar.gz": "56c28d63aaf3abf3d118faf9329468828acf5575df95372295e6cc6afdfc257b"
+        },
+        "schema": "service1",
+        "source_inputs": {
+          "examples/service_owned.py": "3dfec2eb57f903eac973dd266bacf1d1698fbf8cc12166b7f3c5fd8b9ddc38f7",
+          "packages/service/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "packages/service/README.md": "cd373a4d20adc6265f9506051840c853771b53c35f0002979de0c4452ef89e64",
+          "packages/service/pyproject.toml": "5075e06ef8972b5b180d7c5a31508d9fc124a984ddf3a852c6a52d23abcec8ab",
+          "packages/service/src/equity_feature_service/__init__.py": "8fe7937ea0f097ba62a1a8cf1ff3ba7b221d816d71f2ae0ae730e125d53932a2",
+          "packages/service/src/equity_feature_service/codec.py": "954db659f0b0e0edc4a917b0d28a76cc35479464c1cff45df730fedcdcf175ca",
+          "packages/service/src/equity_feature_service/datasets.py": "108a6d007dc241d533b38953d58f049839cb63a289afbdbff3f489f40e76807a",
+          "packages/service/src/equity_feature_service/duckdb.py": "887540795f24b78fdb96ca2c48e5f1572669f50f130f79689fc17437412f971c",
+          "packages/service/src/equity_feature_service/loopback.py": "69cd65d929765961927c74a12ccfb199a53bf5a5435253559a61a8c06aeb321a",
+          "packages/service/src/equity_feature_service/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "packages/service/src/equity_feature_service/schemas/remote-v1.1.schema.json": "dda0f9d2e5968ff2ea3bf79f02740a18f9ae24cd93c492f7c38033883ed8a6b2",
+          "packages/service/src/equity_feature_service/schemas/remote-v1.schema.json": "9d5e83f1d89bb34491d959158ae628e4b7b0590155244beb13945a3b94f362a0",
+          "packages/service/src/equity_feature_service/service.py": "1fea33a4acc5b4e1421f814fed33adbbfce868e114ee0c1fb58de5c8f954439d",
+          "tests/service/fixtures/approved-config.json": "d0626575709844b924fb5a0d7572bb2b82f5cb28287e643f36b7b508b5918c4e",
+          "tests/service/fixtures/calculate.json": "4d49e8473e68e195664c78e66e24279854df1294dfd8fe16f8384d31559a0be5",
+          "tests/service/fixtures/service_decisions.json": "36b60bb8d6702e7e6759ded67a465eed10910f52efbf163fd27d8bb7938d1ef7",
+          "tests/service/test_decisions.py": "1fce98d3b8c41a41ce3748f7fed7e07226e4f89340c0313b6fba4054a677d473",
+          "tests/service/test_duckdb.py": "8b72b927b7ddcb2e8f0c398ae63b9ae8cb3cf724420e3bf27dcd46a4dfd219e6",
+          "tests/service/test_service.py": "6b8295d77fd00e5ac1eb126eb0d167783b92bc5c34970e3c623915bf9285559a",
+          "tools/benchmark_pipeline.py": "93706b47578c7e31223b60cd3b02db4af6fc184173f728b241af29408dda5985",
+          "tools/benchmark_supervisor.py": "5d196a373d39389bc55cf0c5184bc210e178f0e9b60c6de7a56e09e48f94a2e9",
+          "tools/build_foundation.py": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778",
+          "tools/build_service.py": "a02a6b944728d3b6826a70ab1ce33b5ba4f2887deb39c039a6f2903ea8211d93",
+          "tools/requirements-service.txt": "75de0d72695732f0b552b48059c3f46c4ac06277a4622e8e325d4ee37a1553ae"
+        },
+        "system": "Windows"
+      },
+      "service_receipt_sha256": "47a42c040d9d860aa04d6a837a9bd88dccbf83f126807e76907a8381de43bf6a",
+      "system": "Windows"
+    },
+    {
+      "archive_bytes": 234460,
+      "archive_sha256": "53840feae4b591be89fc84e940920bf4d2d18c058e4eb41660445e243b755d93",
+      "archive_url": "https://api.github.com/repos/atulsrivas1/equity-feature-workers/actions/artifacts/11659768767/zip",
+      "artifact_id": 11659768767,
+      "expires_at": "2026-11-09T04:46:34Z",
+      "name": "service-447a0a24d4eb3e42be374b71344d4a561f00509d-ubuntu-24.04",
+      "qualification": {
+        "commit": "447a0a24d4eb3e42be374b71344d4a561f00509d",
+        "core_commit": "20c08c7370581d03c8a0404579667f68d67ac88b",
+        "dependencies": {
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": "2abcd7084371e82e7ec887353a1159ed900616d764df36baafe49a2b57c9c676",
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99",
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": "71c2316ab93d3382b24701ce6f4990b1355f90b8f66e562c8b1d34e539d60783",
+          "equity_features-0.0.4a4-py3-none-any.whl": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e"
+        },
+        "epoch": 1700000000,
+        "forms": [
+          {
+            "consumer_positive_negative": true,
+            "core_before_after_sha256": "f36ab4fbf926e2499815e07864c8adfed3a07202aa8177850b9f3da2c16b27a8",
+            "form": "wheel",
+            "installed_site_packages": true,
+            "light_optional_absence": true,
+            "native_http_tests": true,
+            "strict_package_typing": true
+          },
+          {
+            "consumer_positive_negative": true,
+            "core_before_after_sha256": "f36ab4fbf926e2499815e07864c8adfed3a07202aa8177850b9f3da2c16b27a8",
+            "form": "sdist",
+            "installed_site_packages": true,
+            "light_optional_absence": true,
+            "native_http_tests": true,
+            "strict_package_typing": true
+          }
+        ],
+        "io_commit": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+        "machine": "x86_64",
+        "python": "3.12.15",
+        "repeat_artifacts": {
+          "equity_feature_service-0.1.0a0-py3-none-any.whl": "dd48ceb27445162518c9c2e7920feea9a2c0634c41d60037c6d05013e7b8db80",
+          "equity_feature_service-0.1.0a0.tar.gz": "290008cc972d5895030792f3e958d1d4d6e360be8eed5817bcdc139b7c2a6ffc"
+        },
+        "schema": "service1",
+        "source_inputs": {
+          "examples/service_owned.py": "3dfec2eb57f903eac973dd266bacf1d1698fbf8cc12166b7f3c5fd8b9ddc38f7",
+          "packages/service/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "packages/service/README.md": "cd373a4d20adc6265f9506051840c853771b53c35f0002979de0c4452ef89e64",
+          "packages/service/pyproject.toml": "5075e06ef8972b5b180d7c5a31508d9fc124a984ddf3a852c6a52d23abcec8ab",
+          "packages/service/src/equity_feature_service/__init__.py": "8fe7937ea0f097ba62a1a8cf1ff3ba7b221d816d71f2ae0ae730e125d53932a2",
+          "packages/service/src/equity_feature_service/codec.py": "954db659f0b0e0edc4a917b0d28a76cc35479464c1cff45df730fedcdcf175ca",
+          "packages/service/src/equity_feature_service/datasets.py": "108a6d007dc241d533b38953d58f049839cb63a289afbdbff3f489f40e76807a",
+          "packages/service/src/equity_feature_service/duckdb.py": "887540795f24b78fdb96ca2c48e5f1572669f50f130f79689fc17437412f971c",
+          "packages/service/src/equity_feature_service/loopback.py": "69cd65d929765961927c74a12ccfb199a53bf5a5435253559a61a8c06aeb321a",
+          "packages/service/src/equity_feature_service/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "packages/service/src/equity_feature_service/schemas/remote-v1.1.schema.json": "dda0f9d2e5968ff2ea3bf79f02740a18f9ae24cd93c492f7c38033883ed8a6b2",
+          "packages/service/src/equity_feature_service/schemas/remote-v1.schema.json": "9d5e83f1d89bb34491d959158ae628e4b7b0590155244beb13945a3b94f362a0",
+          "packages/service/src/equity_feature_service/service.py": "1fea33a4acc5b4e1421f814fed33adbbfce868e114ee0c1fb58de5c8f954439d",
+          "tests/service/fixtures/approved-config.json": "d0626575709844b924fb5a0d7572bb2b82f5cb28287e643f36b7b508b5918c4e",
+          "tests/service/fixtures/calculate.json": "4d49e8473e68e195664c78e66e24279854df1294dfd8fe16f8384d31559a0be5",
+          "tests/service/fixtures/service_decisions.json": "36b60bb8d6702e7e6759ded67a465eed10910f52efbf163fd27d8bb7938d1ef7",
+          "tests/service/test_decisions.py": "1fce98d3b8c41a41ce3748f7fed7e07226e4f89340c0313b6fba4054a677d473",
+          "tests/service/test_duckdb.py": "8b72b927b7ddcb2e8f0c398ae63b9ae8cb3cf724420e3bf27dcd46a4dfd219e6",
+          "tests/service/test_service.py": "6b8295d77fd00e5ac1eb126eb0d167783b92bc5c34970e3c623915bf9285559a",
+          "tools/benchmark_pipeline.py": "93706b47578c7e31223b60cd3b02db4af6fc184173f728b241af29408dda5985",
+          "tools/benchmark_supervisor.py": "5d196a373d39389bc55cf0c5184bc210e178f0e9b60c6de7a56e09e48f94a2e9",
+          "tools/build_foundation.py": "f984e6d04cc0ca76c5ea41de816532f95033670481cc092ddcd17c89ff854778",
+          "tools/build_service.py": "a02a6b944728d3b6826a70ab1ce33b5ba4f2887deb39c039a6f2903ea8211d93",
+          "tools/requirements-service.txt": "75de0d72695732f0b552b48059c3f46c4ac06277a4622e8e325d4ee37a1553ae"
+        },
+        "system": "Linux"
+      },
+      "service_receipt_sha256": "11774ecf777c06b21de4b466e948e21d72002f473e1fe87b67d9da75279a1a07",
+      "system": "Linux"
+    }
+  ],
+  "tests_methods": 35,
+  "worker_commit": "447a0a24d4eb3e42be374b71344d4a561f00509d"
+}
