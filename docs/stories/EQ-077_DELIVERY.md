@@ -1,3 +1,19 @@
+# EQ077 authenticated bounded slice experimental delivery
+
+## EQ077 experimental main delivery qualified — October 10, 2026 UTC
+
+EQ077's authenticated bounded slice/discovery acceptance criteria are verified for owned synthetic registrations. Canonical main7743aa6c901e5bcde6968b5315cec1f0ee80b380 and worker maincb3223710f189fee515beb0b6fe1d9bcf79efd37 were delivered through PR358/29 after all18 current prepublication checks and completed separate source/security/native/docs/artifact review. /root/r7_policy_review independently verified exact main trees, all46 changed public UTF-8 blobs, Atul attribution and unchanged accepted worker/calculation/I/O inputs plus transport1.0. [Actual-main readback](https://github.com/atulsrivas1/equity-features/issues/87#issuecomment-6094079336).
+
+All actual-main canonical docs/reference/foundation and worker service/foundation Windows/Linux jobs passed. Actual-main service35 methods/all34 decision mappings, repeated wheel/sdist/fresh light-full installations, owned HTTP/example, strict package/consumer typing and core invariance passed. Independent reviewer approved [actual-main service artifacts](https://github.com/atulsrivas1/equity-features/issues/87#issuecomment-6094099233) and [actual-main foundation artifacts](https://github.com/atulsrivas1/equity-features/issues/87#issuecomment-6094182515). Author additionally verified four actual server ZIP digests/sizes/expiry, receipt/archive bytes and public source blobs. [Delivery receipt](https://github.com/atulsrivas1/equity-features/blob/codex/eq077-release-evidence/docs/stories/EQ-077_RELEASE_RECEIPT.json), Git LF SHA256e7455b250905b8cc425077ed389d80149af31d9b9d64c4683286308fddb47cff, binds both qualification families/per-OS receipts/dependencies/forms to exact actual mains. Preserve platform identities; no cross-OS archive equality inferred.
+
+This same-story documentation records qualified experimental source and30-day GitHub Actions artifacts for equity-feature-service0.1.0a0. Its final documentation review/publication/readback and live87 closure must be completed before Done; do not restart runtime implementation or infer status from older captures below. Then select dependency-satisfied EQ078#88 through published pre-code planning. E10#84/milestone8 remain open, EQ078–084Backlog at capture; all ten R7 criteria remain required for release closure. Provider/private/external hosting/paid/registry/stable operations stay separately gated. Exact mathematical/runtime/schema/source admission semantics are unchanged by this evidence update; no new tests or performance claims are introduced.
+
+Both story criteria are verified: exact instrument/session/feature filters, server-side authorization and actual parameterized DuckDB reads deny unrestricted SQL or injected logical selectors; validation and public API/design/example/decision/release evidence are linked. The service remains separately optional; existing calculations, workers and I/O packages retain their accepted boundaries and package bytes. No hosted dataset or operational approval follows from an installed capability.
+
+The dated qualification captures below preserve failures and superseded evidence. Their pending gates are historical; current actual-main qualification is above and final lifecycle authority is [story87](https://github.com/atulsrivas1/equity-features/issues/87).
+
+## Historical candidate evidence
+
 # EQ077 authenticated bounded slice delivery under qualification
 
 [Story87](https://github.com/atulsrivas1/equity-features/issues/87), [pre-code plan](EQ-077_PLAN.md), [canonicalPR358](https://github.com/atulsrivas1/equity-features/pull/358), [workerPR29](https://github.com/atulsrivas1/equity-feature-workers/pull/29). Live Project remains status authority. This document is candidate evidence, not release acceptance.
