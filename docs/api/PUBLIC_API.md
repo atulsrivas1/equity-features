@@ -1,3 +1,7 @@
+## EQ080 bootstrap foundation candidate
+
+Optional service0.1.0a3 defers native graph initialization until explicit public access, preserving existing exports. [Current implementation and remaining isolation gates](../R7_QUOTA_CACHE_AUDIT.md) records121 editable Windows tests/strict7, approved pre-code and actual start. Supervisor/cache/audit runtime and physical/installed/release qualification remain pending. Prior EQ079 is accepted6097119023; older pending captures below are history.
+
 ## R7 data-only transport design
 
 [Remote transport](REMOTE_TRANSPORT.md) defines lossless versioned JSON envelopes outside calculations. [Access policy](REMOTE_ACCESS_POLICY.md) and downstream authentication/native-conversion/authorization qualification remain required. The schema/reference verifier is a design deliverable, not an installed remote service/client or permission to deserialize executable Python objects.
