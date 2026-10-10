@@ -1,0 +1,11 @@
+{
+  "schema": "equity.remote",
+  "version": "1.0",
+  "kind": "error",
+  "request_id": "request-1",
+  "payload": {
+    "category": "contract",
+    "code": "incompatible_version",
+    "retryable": false
+  }
+}

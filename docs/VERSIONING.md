@@ -1,3 +1,7 @@
+## R7 transport identity
+
+[EQ076 wire contract](api/REMOTE_TRANSPORT.md) freezes explicitly supported transport1.0 independently of every identity below. Requests reference approved immutable configurations; wire command digests never replace canonical configuration, dataset, mathematics, source or worker receipt identity. Closed schemas reject unknown/future versions/fields; additions require their own advertised schema/version and migration fixtures. No numerical algorithm or package version changes with this transport design.
+
 # Experimental version identities and replay
 
 EQ044 documents the actual release interfaces, not a stable compatibility promise.
