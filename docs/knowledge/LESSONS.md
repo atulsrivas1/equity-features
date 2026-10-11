@@ -1,3 +1,11 @@
+## EF-L081: execution capacity and successful retained bytes
+
+Evidence: [corrected pre-execution epoch source](https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6105598413), [exact parent/copy source](https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6105762995), [actual Windows three-lane epoch composition](https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6105781357).
+
+Successful jobs retain native/wire/envelope/receipt bytes after releasing the execution slot. Do not copy cancelled/failed held0 expectations into successful-job barriers. The initial epoch entry rejected valid success; correct before execution to exact bounded retained-byte accounting and separately observe _running None/empty queue. Current Windows execution verifies both full byte-accounting/expiry snapshots after stable-key repeats and scheduler close. Prior failed/reworked source remains historical evidence.
+
+Scheduler/service replacement in one owner process is distinct from replacing that OS process. Observe old scheduler.close2True before creating the new scheduler, preserve old/new source counts separately, and explicitly close/observe the old MCP process before launching a new reference process. Backend old-native-ID denials differ from local process-opaque-reference rejection. Preserve source-independent complete producer hashes and scope every composed proof: reviewer environment reuse is not independent reinstall; Windows nativewheel feasibility is not Linux/forms/currentartifact/Ready/full24 acceptance.
+
 ## EF-L080: single process observation and post-operation witnesses
 
 Evidence: [scoped observer and dialogue correction](https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6105437126), [pre-execution final-expiry correction](https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6105472843), [actual Windows state composition](https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6105496884).
