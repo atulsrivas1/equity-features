@@ -1,3 +1,7 @@
+## EF-L085: certificate setup evidence is separate from TLS composition
+
+Approved fixed source and native executable/DLL pins preceded local synthetic key generation. Actual author exit/job-empty witnesses and separate read-only certificate/key identity, SAN, validity and keypair validation establish setup inputs only. A reviewer parsing generated files does not independently observe generator process exits; neither step proves TLS handshake or application dispatch. Freeze generated identities and keep key bytes outside publication before qualifying actual three-lane TLS service behavior. Evidence: https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6107363421 and https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6107393637. Initial command-name shadowing was independently found and corrected before generation; original REWORK preserved.
+
 ## EF-L081: execution capacity and successful retained bytes
 
 Evidence: [corrected pre-execution epoch source](https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6105598413), [exact parent/copy source](https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6105762995), [actual Windows three-lane epoch composition](https://github.com/atulsrivas1/equity-features/issues/93#issuecomment-6105781357).
