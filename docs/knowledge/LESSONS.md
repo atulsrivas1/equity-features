@@ -1,3 +1,7 @@
+## R7 qualification scope and enforcement engineering — October13
+
+The original EQ083 plan qualified cooperative service behavior; later requirements grew into unsupported whole-platform resource/finite-settlement engineering. Source inventory and desired invariants did not advance acceptance. Owner approved an explicit support-contract reset and separate SEC-001 #374; preserve rejected/failed evidence and qualify actual behavioral/installed/operational gates before closure. Do not silently widen or weaken a release guarantee, reuse a process-exit/PASS token as physical reclamation proof, or relabel historical feasibility as fresh composition acceptance. See [decision](../decisions/R7_SCOPE_RESET.md).
+
 ## EQ085 lesson: attribute costs before selecting an accelerator
 
 [Measured evidence](../stories/EQ-085_ANALYSIS.md) distinguishes unprofiled baseline from diagnostic call windows and retains complete result parity. Checked inward canonical conversion is comparable to checked aggregate cost at16384 syntheticrows, and codec validation has millions of diagnostic character-generator calls. Native/import/IO frames are opaque; cumulative time is nonadditive. Do not prescribe Rust or infer end-to-end speedups from diagnostic ranks. Compare a narrowly scoped semantics-preserving validation/materialization target before changing a numerical backend. Source bothOSinstalled-form compatibility is separate from physical ownership/ABI and finalmain acceptance.
