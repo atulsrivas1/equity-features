@@ -522,7 +522,15 @@
       "No additional local product/test/build/native load while timings run",
       "Ordinary background/OS cache/thermal state uncontrolled",
       "Current changed-input artifacts/final interpretation/source/main acceptance remain required"
-    ]
+    ],
+    "all_references_checkpoint": {
+      "references_completed": 8,
+      "noncapacity_samples_completed": 54,
+      "failures_recorded": 0,
+      "status": "running capacity measured cases; six sorts/18layout queries outstanding",
+      "public_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6181160855",
+      "limits": "Partial progress only; no full outcome or pooling"
+    }
   },
   "current4023_artifact_gate": {
     "source": "4023b86d28e5f63ae652a0255e133db8463902b5",
