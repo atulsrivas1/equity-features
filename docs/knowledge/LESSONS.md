@@ -1,3 +1,23 @@
+## EQ090 real optional-install and identity evidence
+
+Actual814 source passed repeat sixarchives and fresh wheel/sdist tenmethod fixtures, positive/negative installed typing, strategy-only importdenial, separate actualcoreproducer projection and complete core-before/after/archive payload parity. BothOS hosted checks passed; finalcurrenthead/main acceptance remain required. Keep method counts distinct from30strategy/8identity requirements and preserve original71proposal requirements for laterlabels. Added explicit goodA+badB semantic-admission regression makes the mixed-entity requirement direct, including unavailablebadB; its final review/execution is still pending. [Validation](../stories/EQ-090_VALIDATION.json) retains old failedattempts and exact scopes rather than relabeling a changed test head already qualified.
+
+## EQ090 alias guards and installed typing need actual evidence
+
+Separate acfba7b review7a02fc19 found that rejecting direct access names does not reject aliased forbidden imported members; the research guard now checks original imported names and has aliased load/dump adversaries. py.typed parity is not actual consumer typing: fresh wheel/sdist environments now specify positive/negative strictmypy probes with pinned devtools, no runtime dependency expansion. Source corrections are unqualified until actual execution; see [ledger](../stories/EQ-090_VALIDATION.json).
+
+## EQ090 actual hosted typing and package-boundary failures
+
+Source inspection approval is not execution evidence. First hosted0dcc qualification stopped at strict typing on bothOS and the existing fail-closed package allowlist. Preserve those actual failures in [validation](../stories/EQ-090_VALIDATION.json). New pure package admission requires an explicit research policy for dependencies/imports/accesses and adversarial fixtures; merely adding its folder to the core allowlist would leave its source unchecked. Keep the core/backend policy unchanged and review any narrow closed-codec field-lookup exception before qualification. Source corrections remain unqualified until new actual tests/artifacts pass.
+
+## EQ090 committed artifact closure correction
+
+Separate exact664db8a source review04181b93 found a concreteP2 provenance gap: hashing tracked files does not bind a later recursive live-directory copy. The corrected research builder creates a closed committed snapshot for package and executed fixture/example payloads, with start/end head, tracked roster, scoped clean status and actual materialization checks. Complete installed core payloads compare against selected archive sources. Original finding is preserved in [validation](../stories/EQ-090_VALIDATION.json); renewed source review and actual qualification remain pending.
+
+## EQ090 source preparation: preserve independent expected errors and isolation
+
+The accepted [30strategy requirements](../stories/EQ-089_FIXTURES.json) caught source-level Boolean-k/reconstruction error-code mismatches before execution; integer type errors now differ from bounds and request reconstruction is invalid_config. This is inspection evidence, not passed tests. [Qualification](../../tools/build_research.py) uses separate strategy-only and actual-producer environments, complete source/archive/RECORD maps, repeated archives and before/after core fingerprints. Existing core artifact gates stay intact. EQ088 frozen timing forbids added local tests/build while running; source preparation continues under the recorded WIP exception. Preserve this distinction in [current validation](../stories/EQ-090_VALIDATION.json) and handoff.
+
 ## EQ089 adopted design binds semantic comparability and complete content
 
 [Contract](../research/STRATEGY_LABEL_CONTRACTS.md), [decision](../decisions/R8_RESEARCH_CONTRACTS.md), [reviewed input packet](../stories/EQ-089_PLAN.md) preserve original numeric/state/config-semantic findings and resolutions. A feature ID/unit/version match does not make mixed horizons/baselines/bases comparable; mandatory calculation/input-semantic digests must agree on required cells. Metadata-only hashes cannot replace value/quality/evidence/revision content. Assess all required cells before false/unavailable precedence, and keep original signal admission separate from future label knowledge.71fixtures remain requirements until implemented/tested; exact docs review/actual-main gates precede contract acceptance. No runtime proof from a design review.

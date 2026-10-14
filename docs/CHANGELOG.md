@@ -1,3 +1,11 @@
+## EQ090 implemented candidate qualification — strategies0.1.0a1
+
+Implemented optional pure scanners over supplied supported features, complete source/config-content binding, unavailable-first rules and exact deterministic ranking/top-k/coverage. Actual814 candidate passed all14 hosted checks and local repeat archives/fresh wheel-sdist independent fixtures, installed typing and real core-producer/core-parity gates. Original failed source/CI attempts remain documented. Final changed-head/artifact/default-branch release acceptance is pending; EQ091labels/EQ092aggregate remain unfinished.
+
+## EQ090 in progress — optional scanner candidate
+
+Add immutable scanner/config/result types, complete content identities, strict five-feature and config/input-semantic admission, unavailable-first predicates, exact numeric ranking with Entity ties, top-k and coverage. Add synthetic independent fixtures, an external actual-core-producer projection example and dedicated bothOS repeat-wheel/sdist qualification. Candidate only: no successful runtime/install/release claim yet. Core APIs/build/dependencies remain unchanged; labels/final aggregate remain pending.
+
 ## EQ089 research contract definition — implementation pending
 
 Defines exact pure scanner/ranking/watchlist and forward price-return label contracts: five-feature whitelist, mandatory config/input-semantic comparability, unavailable-first coverage, exact stable ordering, original signal versus later label path/basis/maturity, numerical guards and full closed content identities. Preserves71hand-derived requirements and previous review corrections. Two independently optional package targets require only contracts0.0.4a4; core/I-O/workers/math/API/build/runtime/defaults unchanged. Documentation-only delivery; no new module/distribution/install/performance or executed71runtime-test claim. Implementation/actual qualification remain EQ090–092.
