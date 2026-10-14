@@ -1,3 +1,7 @@
+## EQ090 candidate compatibility — October14
+
+Optional strategies0.1.0a1 binds contracts0.0.4a4/Python3.12 and accepts only the five scalar feature IDs defined by [the accepted contract](research/STRATEGY_LABEL_CONTRACTS.md). It rejects unsupported columns, reconstruction, mixed cutoffs/session/namespace, duplicate cells and mismatched required config/input semantics before screening. Core package sources/build metadata/version/dependencies are unchanged. Strategy-only fresh environments and a separate actual-core-producer consumer are specified by [the new research qualification](../tools/build_research.py); execution/bothOS/current-main evidence is pending, so compatibility is not yet qualified. Labels and final cross-package acceptance remain EQ091/EQ092.
+
 ## R8 research contract targets
 
 [EQ089 v1](research/STRATEGY_LABEL_CONTRACTS.md) specifies two independently optional pure distributions, strategies/labels0.1.0a1 with contracts==0.0.4a4 and Python>=3.12,<3.13. No required features/columnar/each-other dependency; core imports remain unchanged. These are implementation targets, not qualified distribution/platform claims. EQ090/EQ091 and EQ092 retain real Windows/Linux wheel/sdist/version/import/source-map gates; unchanged existing compatibility facts follow.

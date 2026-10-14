@@ -1,0 +1,63 @@
+{
+  "schema": "eq090.validation:1",
+  "status": "SOURCE_CANDIDATE_NOT_RUNTIME_QUALIFIED",
+  "base": "60f8f698c7d50ce8636094bded70ec23c251b4e2",
+  "issue": 102,
+  "pull_request": 387,
+  "readiness_review_sha256": "9b414aa1d1fd83eb632474a664ec9f71eca3e3e681e81655dc4101363887a982",
+  "executed": [
+    "AST parsing of four package modules, test adapter, producer example and builder"
+  ],
+  "not_executed": [
+    "product imports",
+    "unit tests",
+    "mypy",
+    "builds",
+    "fresh installations",
+    "bothOS artifacts",
+    "final source review",
+    "main acceptance"
+  ],
+  "inspection_corrections": [
+    "Boolean k invalid_schema distinct from numeric bounds",
+    "request reconstruction invalid_config",
+    "immutable error code deletion guard"
+  ],
+  "limits": [
+    "EQ088 frozen benchmark inputs unchanged",
+    "No additional local tests/build/native while timings run",
+    "Source inspection is not runtime evidence"
+  ],
+  "fixture_requirements": {
+    "scan-tie-coverage": "pending runtime materialization check",
+    "permutation": "pending runtime materialization check",
+    "false-plus-ranking-missing": "pending runtime materialization check",
+    "no-predicates": "pending runtime materialization check",
+    "strict-boundary": "pending runtime materialization check",
+    "zero-k": "pending runtime materialization check",
+    "oversized-k": "pending runtime materialization check",
+    "empty": "pending runtime materialization check",
+    "all-missing": "pending runtime materialization check",
+    "exact-int-order": "pending runtime materialization check",
+    "negative-k": "pending runtime materialization check",
+    "bool-k": "pending runtime materialization check",
+    "duplicate-universe": "pending runtime materialization check",
+    "duplicate-cell": "pending runtime materialization check",
+    "outside-universe": "pending runtime materialization check",
+    "wrong-unit": "pending runtime materialization check",
+    "wrong-version": "pending runtime materialization check",
+    "future-result-cutoff": "pending runtime materialization check",
+    "mixed-session": "pending runtime materialization check",
+    "reconstruction": "pending runtime materialization check",
+    "label-namespace": "pending runtime materialization check",
+    "identity-value-change": "pending runtime materialization check",
+    "identity-quality-change": "pending runtime materialization check",
+    "mixed-return-horizon": "pending runtime materialization check",
+    "wrong-all-return-horizons": "pending runtime materialization check",
+    "mixed-adjustment-basis": "pending runtime materialization check",
+    "different-baseline-window": "pending runtime materialization check",
+    "different-eligibility-policy": "pending runtime materialization check",
+    "source-revision-same-semantics": "pending runtime materialization check",
+    "conflicting-rule-config": "pending runtime materialization check"
+  }
+}

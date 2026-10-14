@@ -1,3 +1,7 @@
+## EQ090 candidate implementation — October14
+
+[Scanners](research/SCANNERS.md) implement the accepted EQ089 pure consumer boundary in a separately optional package. `_model` owns frozen records/closed errors, `_codec` implements explicit complete record fields and normalized tagged identities, and `_engine` validates supplied cells before deterministic all-rule screening and ranking. No feature formula or adapter enters this package. Tests retain independent published goldens; the actual core producer/projection is an external example. Dedicated research artifacts avoid changing existing core packaging gates. Source review and execution/release evidence are pending.
+
 ## R8 research contract definition
 
 [Strategy and forward-label v1 contract](research/STRATEGY_LABEL_CONTRACTS.md) and [decision](decisions/R8_RESEARCH_CONTRACTS.md) define two independent pure optional consumers for EQ090/EQ091. Scanner uses supplied accepted core features and exact config/input-semantic identity; future labels have separate origin/path/maturity schemas. Core equations/API/imports/dependencies remain unchanged. This EQ089 documentation defines implementation targets; no research module/distribution or runtime test is delivered yet. Actual optional installation/causal consumer qualification remains EQ092.

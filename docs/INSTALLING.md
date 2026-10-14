@@ -1,3 +1,7 @@
+## EQ090 optional scanner candidate — October14
+
+The experimental `equity-feature-strategies==0.1.0a1` candidate requires Python>=3.12,<3.13 and exactly `equity-feature-contracts==0.0.4a4`; it has no features, labels or columnar dependency. Release/installed qualification remains pending. Once exact reviewed CI artifacts are qualified, install matching contracts and strategy wheels with `python -m pip install --no-index --no-deps <contracts-wheel> <strategies-wheel>` followed by `python -m pip check`. Sdist installation additionally needs the declared pinned setuptools80.9.0 build tool; no registry release is claimed. [Qualification tool](../tools/build_research.py) builds into `dist/research` independently of the existing six-artifact core gate and checks fresh wheel/sdist environments. The actual producer example explicitly installs features in a different consumer environment. Core install/API/version/dependencies remain unchanged.
+
 ## R8 research packages: specified, not yet installable
 
 [EQ089 contract](research/STRATEGY_LABEL_CONTRACTS.md) specifies optional equity-feature-strategies and equity-feature-labels0.1.0a1, each requiring only contracts0.0.4a4/Python3.12. EQ090/EQ091 must implement them and EQ092 must qualify actual artifacts before installation instructions can be supplied. Existing core/columnar install commands and supported package facts below remain unchanged; this documentation is not new wheel/native/install evidence or registry availability.

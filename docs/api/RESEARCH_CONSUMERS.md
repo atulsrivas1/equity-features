@@ -1,3 +1,7 @@
+## EQ090 scanner implementation candidate — October14
+
+`packages/strategies` now contains the scanner target below, with exact exports and immutable owned records. This branch is an unqualified implementation candidate: independent source review, meaningful execution, fresh Windows/Linux wheel/sdist artifacts and default-branch release gates remain pending. The label target is still unimplemented. See [scanner guide](../research/SCANNERS.md), [synthetic producer example](../../examples/research_scanner.py) and [validation ledger](../stories/EQ-090_VALIDATION.json). Earlier contract-only status below describes EQ089 delivery.
+
 # Pure research consumer API definition
 
 [EQ089#101](https://github.com/atulsrivas1/equity-features/issues/101) fixes this contract before implementation. Types and functions below are specified targets, not importable modules or qualified distributions yet. See [complete normative schemas/math/encoding/errors](../research/STRATEGY_LABEL_CONTRACTS.md) and [independent71requirements](../stories/EQ-089_FIXTURES.json).
