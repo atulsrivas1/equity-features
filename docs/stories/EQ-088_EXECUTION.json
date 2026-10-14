@@ -50,5 +50,43 @@
     "correct_results": 4,
     "profiled_sink_internal_errors": 2,
     "individual_setting_root_cause": "unproven"
+  },
+  "full_attempts": [
+    {
+      "head": "db7d34aaaedbd1fb63b1fc5375520ee102593a3a",
+      "status": "FAILED",
+      "report_sha256": "263d48cd861d5bede18a93845c0133f2156c3978478133ef07351bff2440f3c7",
+      "samples": 54,
+      "references": 6,
+      "diagnostics": 0,
+      "failure": "First capacity reference skipped RESOURCE_LIMIT; parent rejected skipped reference; no full acceptance"
+    }
+  ],
+  "capacity_diagnostic": {
+    "script_sha256": "4944b888ca9c631fce121ad4014533728a46e806336cb5ffe7f7c15cd67c464a",
+    "approval_sha256": "f97247b378b0b3924398077589e7e7e138567a1cf8ca5aaa4f41ace721f61e6a",
+    "report_sha256": "75b71add5cd413649c058e8e0623c969c6789d98704bc791bffc0e82e8a0566f",
+    "deadline_seconds": 180,
+    "child_exit": 1,
+    "callsite": "supervisor.run419 -> ProgressRecorder.group293 RESOURCE_LIMIT",
+    "source_input_installed_closure": true,
+    "design_review_sha256": "d2eb6f0bfb043f5d4a64d94ec3bcd8d4928b3a747a3156a5126aec69d7588e8c",
+    "limits": "Diagnostic only; text-normalized stdout/stderr digests, not a raw Windows CRLF identity claim"
+  },
+  "current_small_artifact_review": {
+    "head": "db7d34aaaedbd1fb63b1fc5375520ee102593a3a",
+    "sha256": "bde8f16a617c087d3f3f8e037b82148dc466b71331eec8db33831166623c2d5f",
+    "scope": "Current Linux/Windows PUSH artifacts; four fresh wheel/sdist smallsmokes only; no fullperformance/capacity/spill/layout acceptance"
+  },
+  "correction_candidate": {
+    "worker_head": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "protocol_revision": 3,
+    "reporter_limits": {
+      "max_tasks": 256,
+      "max_spans": 12800,
+      "max_bytes": 4194304
+    },
+    "reserved_capacity_bytes": 3801600,
+    "status": "SOURCE_PREPARED_NOT_EXECUTED_PENDING_REVIEW"
   }
 }

@@ -1,6 +1,12 @@
 # EQ088 frozen qualification protocol
 
-Revision 2, October14,2026; proposed before execution. Story [EQ088 #99](https://github.com/atulsrivas1/equity-features/issues/99), E11/R8. No measured result or Ready claimed. This packet selects scheduling/output qualification under the original acceptance. The earlier optional ASCII codec hypothesis is deferred: no codec candidate, I/O pin update, runtime/API/math/package/default change is proposed. No owner scope change or reduced acceptance is inferred.
+Revision 3, October14,2026; corrected after preserved failed full attempt. Revision2 remains in Git history. Story [EQ088 #99](https://github.com/atulsrivas1/equity-features/issues/99), E11/R8. No measured result or Ready claimed. This packet selects scheduling/output qualification under the original acceptance. The earlier optional ASCII codec hypothesis is deferred: no codec candidate, I/O pin update, runtime/API/math/package/default change is proposed. No owner scope change or reduced acceptance is inferred.
+
+## Qualification recorder capacity correction
+
+Original revision2/db7 full attempt failed after54samples/6references/0diagnostics: the64instrument Parquet reference returned logical RESOURCE_LIMIT. A separately reviewed180second owned diagnostic exposed supervisor.run419→ProgressRecorder.group293, with all158source/8installed archive-payload/input before-after checks unchanged. Production default recorder64tasks/4096spans is insufficient for the retained64preparations plus supervisor64, generation64 and catalog64 graph. This diagnosis does not establish a physical numerical-worker/sink capacity limit. Original54observations/raw failure remain preserved and cannot be pooled into the replacement full comparison.
+
+Qualification caller now explicitly supplies ProgressRecorder(max_tasks=256,max_spans=12800,max_bytes=4194304) for every workload. Existing production defaults, worker logical input/resident/CPU/in-flight, source/sink/native policies, population64*256 and formulas remain unchanged. Independent bound at N64: attempts4N=256; spans N*(1+(5+3N)+1+1)=12800; reserved bytes512+256*2048+12800*256=3801600, below the same4MiB allowance. All reports disclose these finite caller reporting limits; they are not a hard RSS guarantee. Pure regression must reproduce default denial and complete fourphase reservation at these limits before newnative. A fresh frozen head/newowned roots must execute all8references/72samples/6sorts/18queries; no hidden substitution or reuse of partial old timings. Exact renewed source/protocol review remains before execution.
 
 ## Fixed inputs and whole-pipeline matrix
 
