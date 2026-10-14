@@ -1,0 +1,178 @@
+{
+  "story": "EQ091#103",
+  "status": "Exact eaab022 hosted qualification passed; final docs/head/artifact review and current main acceptance pending",
+  "base": "709cb7d55ca806a2e493e8846b7a72b91ae3e2f4",
+  "readiness_head": "839ef6a3fcab1d18ec5914896886e38f09424fb2",
+  "readiness_review_sha256": "1435e3e2d63e2620d18f691ec262a3878e6c3f344bfa05d87cef10673e17ba55",
+  "pull": "https://github.com/atulsrivas1/equity-features/issues/103#issuecomment-6179673441",
+  "validation": [
+    "Source AST parsing only; no product code imported or executed",
+    "Actual bothOS hosted source strict typing/boundary/14 pure test methods (10 strategy and4 label)",
+    "Per OS: eight twice-built archive parity; four fresh component/form environments with fixtures and installed positive/negative mypy; two separate combined producer/scanner/label consumer/form environments; core payload/archive and before/after fingerprints; closed source/head/materialization parity",
+    "Author read-only collection verified both server ZIP digests, nine entries each, report schema2/currenthead/completed/8artifacts/4componentforms/2combinedforms/typing exit0and1"
+  ],
+  "not_executed": [
+    "No local product imports/tests/mypy/build/native added during EQ088 timing",
+    "Separate final source/docs/artifact assessment",
+    "Final-head current CI/artifacts and actual main delivery/readback"
+  ],
+  "label_requirement_mapping": {
+    "positive": "tests/research/test_labels.py",
+    "negative": "tests/research/test_labels.py",
+    "zero": "tests/research/test_labels.py",
+    "pending-horizon": "tests/research/test_labels.py",
+    "missing-endpoint": "tests/research/test_labels.py",
+    "missing-both": "tests/research/test_labels.py",
+    "missing-plus-future-basis": "tests/research/test_labels.py",
+    "future-horizon-missing-unknown": "tests/research/test_labels.py",
+    "future-endpoint-knowledge": "tests/research/test_labels.py",
+    "unknown-plus-future-knowledge": "tests/research/test_labels.py",
+    "basis-effective-after-horizon": "tests/research/test_labels.py",
+    "raw-split-movement": "tests/research/test_labels.py",
+    "later-adjusted-path": "tests/research/test_labels.py",
+    "dividend-price-only": "tests/research/test_labels.py",
+    "future-origin": "tests/research/test_labels.py",
+    "unknown-origin-basis": "tests/research/test_labels.py",
+    "zero-price": "tests/research/test_labels.py",
+    "negative-price": "tests/research/test_labels.py",
+    "nan-price": "tests/research/test_labels.py",
+    "infinite-price": "tests/research/test_labels.py",
+    "duplicate-timestamp": "tests/research/test_labels.py",
+    "endpoint-overflow": "tests/research/test_labels.py",
+    "zero-horizon": "tests/research/test_labels.py",
+    "basis-mismatch": "tests/research/test_labels.py",
+    "total-return-basis": "tests/research/test_labels.py",
+    "ratio-overflow": "tests/research/test_labels.py",
+    "ratio-underflow": "tests/research/test_labels.py",
+    "equal-max": "tests/research/test_labels.py",
+    "finite-subnormal-ratio": "tests/research/test_labels.py",
+    "revision": "tests/research/test_labels.py",
+    "causal-signal-invariance": "examples/research_labels.py",
+    "join-reject-future-known": "examples/research_labels.py",
+    "join-admit-boundary": "examples/research_labels.py"
+  },
+  "identity_requirement_mapping": {
+    "scalar-type": "tests/research/test_labels.py",
+    "signed-zero": "tests/research/test_labels.py",
+    "huge-int": "tests/research/test_labels.py",
+    "float-one": "tests/research/test_labels.py",
+    "domain-separation": "tests/research/test_labels.py",
+    "unknown-record": "tests/research/test_labels.py",
+    "surrogate-identity": "tests/research/test_labels.py",
+    "predicate-order": "examples/research_labels.py and existing test_strategies.py"
+  },
+  "limits": [
+    "No local extra runtime/build/typing/native during frozen EQ088 timings",
+    "Requirements are not runtime test counts",
+    "No performance/default adoption or stable registry claim",
+    "Core and accepted strategies package source unchanged"
+  ],
+  "source_review": {
+    "head": "eaab022b9058754af0360969894adac8ec5d381d",
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "sha256": "766c55bcfe47bc19694849bc61440b35bd2e8ede040cc5e1f9b0af3afe453f74",
+    "result": "Approved source for hosted qualification only; no actionable findings"
+  },
+  "hosted_checks": {
+    "head": "eaab022b9058754af0360969894adac8ec5d381d",
+    "result": "All14 candidate checks Success",
+    "research_push_run": 38646944319,
+    "research_pr_run": 38646949741,
+    "artifacts": [
+      {
+        "id": 11932642959,
+        "run_id": 38646944319,
+        "name": "research-eaab022b9058754af0360969894adac8ec5d381d-ubuntu-24.04",
+        "expires_at": "2026-11-13T22:21:52Z",
+        "sha256": "761f9883f6416595bc9af52546ac97c12fb71b8701c8ea06af087e646680a5c7",
+        "system": "Linux",
+        "entries": {
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+            "bytes": 69728
+          },
+          "equity_feature_contracts-0.0.4a4.tar.gz": {
+            "sha256": "f32a66f31759b10c9ac251f4dffb2388a3e2ce50d2e5e15c69ac7038828f97a9",
+            "bytes": 53768
+          },
+          "equity_feature_labels-0.1.0a1-py3-none-any.whl": {
+            "sha256": "7dc929b61c3f8550b6443d56aeee71905352e32db90d6b86fef80e3171ce904c",
+            "bytes": 11954
+          },
+          "equity_feature_labels-0.1.0a1.tar.gz": {
+            "sha256": "ffb199f297d5973badc9680a27dab2c881ff84d7b73b5539f19af53c25d2ca4b",
+            "bytes": 9736
+          },
+          "equity_feature_strategies-0.1.0a1-py3-none-any.whl": {
+            "sha256": "a68c50b03634356ec14072e3942a4a126744f3258589ddd6c4b75670b91a40d7",
+            "bytes": 15750
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e",
+            "bytes": 65151
+          },
+          "equity_feature_strategies-0.1.0a1.tar.gz": {
+            "sha256": "33eb6ff3c5316e92e4517af3917cf712b58d101be559421deeee88f975fb3c03",
+            "bytes": 13037
+          },
+          "equity_features-0.0.4a4.tar.gz": {
+            "sha256": "14e7b8b0ec1b245747d53081a73c9ef060c0f637d205ae97b5e14304b4d95c8f",
+            "bytes": 48412
+          },
+          "qualification.json": {
+            "sha256": "86c0a844ea2ce920a0da4133ef25b5d1fb197a7c5e814cdd59c48dd9e78b8d25",
+            "bytes": 105688
+          }
+        },
+        "status": "completed"
+      },
+      {
+        "id": 11931959367,
+        "run_id": 38646944319,
+        "name": "research-eaab022b9058754af0360969894adac8ec5d381d-windows-latest",
+        "expires_at": "2026-11-13T22:23:15Z",
+        "sha256": "01554cb3044e60c280dd9676b00519197fec8cb8dd98c69c0e578ad662ef85d7",
+        "system": "Windows",
+        "entries": {
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "sha256": "ce4f020e6b3f994714656e28d4d33bd617a5fb28bd5084ad74066e714c32de2d",
+            "bytes": 65170
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "sha256": "11b29b397f1225449fff8b074593a0b5e76a5f4eebf76434d195937fcd3e1151",
+            "bytes": 69743
+          },
+          "equity_features-0.0.4a4.tar.gz": {
+            "sha256": "08b7c1002099c877e25584a5ea6f6bdabcee81286dbc06a3fba9db53d7297ad7",
+            "bytes": 48557
+          },
+          "equity_feature_contracts-0.0.4a4.tar.gz": {
+            "sha256": "18e93f66044a760a97188ec7ba1f486cab6cbe960dfafe027c4db8bb3e53dcc7",
+            "bytes": 53911
+          },
+          "equity_feature_labels-0.1.0a1-py3-none-any.whl": {
+            "sha256": "6f545c9a380551b6b23c5c4ca5ae7c9444e26410b73efbd4e2032cc6ce626395",
+            "bytes": 11972
+          },
+          "equity_feature_labels-0.1.0a1.tar.gz": {
+            "sha256": "c0dee5dd2b694cc0a066643b71dc08ab7e3abe7166fe1c48cc082728fc34a7ad",
+            "bytes": 9790
+          },
+          "equity_feature_strategies-0.1.0a1-py3-none-any.whl": {
+            "sha256": "88d6504da1c00bb3df8cdfedc082c7740e746cb74236fd002244f47cf1d0542e",
+            "bytes": 15765
+          },
+          "equity_feature_strategies-0.1.0a1.tar.gz": {
+            "sha256": "9734d269e0770f46bcda56192a53b571b27b4e00138a116d173fc4b08b5fdebc",
+            "bytes": 13070
+          },
+          "qualification.json": {
+            "sha256": "e0b7af24bf181959013575453e1f8befdbcc6b3bc8122aad58a7d7dee181975b",
+            "bytes": 107687
+          }
+        },
+        "status": "completed"
+      }
+    ]
+  }
+}

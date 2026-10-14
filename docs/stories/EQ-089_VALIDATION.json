@@ -1,0 +1,20 @@
+{
+  "schema": "eq089-author-doc-validation1",
+  "base": "16d8c7c7cbc8f535577d4961e4b9693e621e5786",
+  "fixture_requirements": {
+    "strategy": 30,
+    "label": 33,
+    "identity": 8,
+    "product_tests_executed": false
+  },
+  "unchanged_reviewed_source_pins": true,
+  "independent_rational_hand_checks": 6,
+  "new_document_local_links": 10,
+  "changed_markdown_files": 13,
+  "runtime_build_package_inputs_changed": false,
+  "private_path_check": true,
+  "native_imports_or_builds_executed": false,
+  "scope": "author documentation checks, not separate review/runtime qualification",
+  "unique_fixture_requirement_ids": 71,
+  "standalone_binary64_boundary_checks": 4
+}

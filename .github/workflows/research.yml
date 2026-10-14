@@ -1,0 +1,32 @@
+name: Research package checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  research:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m pip install --no-deps --no-build-isolation -e packages/contracts -e packages/strategies -e packages/labels
+      - run: python -m pip check
+      - run: python tools/check_boundary.py
+      - run: python -m mypy --strict packages/strategies/src packages/labels/src
+      - run: python -I -m unittest discover -s tests/research
+      - run: python tools/build_research.py
+      - name: Retain exact research qualification and archives
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-${{ github.sha }}-${{ matrix.os }}
+          path: dist/research/
+          retention-days: 30
+          if-no-files-found: error

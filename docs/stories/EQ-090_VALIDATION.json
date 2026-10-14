@@ -1,0 +1,251 @@
+{
+  "schema": "eq090.validation:1",
+  "status": "AUTHOR_AND_HOSTED_814_QUALIFIED_FINAL_HEAD_PENDING",
+  "base": "60f8f698c7d50ce8636094bded70ec23c251b4e2",
+  "issue": 102,
+  "pull_request": 387,
+  "readiness_review_sha256": "9b414aa1d1fd83eb632474a664ec9f71eca3e3e681e81655dc4101363887a982",
+  "executed": [
+    "Source/UTF8/relative links/AST/whole-branch diff checks",
+    "Separate source reviews through exact814 v5; prior findings preserved",
+    "Local reviewed814 repeat six archives/source and complete RECORD maps",
+    "Local fresh wheel and sdist10method fixtures, positive/negative installed mypy, actual-core producer example and core archive/fingerprint parity",
+    "All14 actual hosted814 candidate checks Success, including bothOS research/source strictmypy/boundary/unit/core gates"
+  ],
+  "not_executed": [
+    "Final strengthened mixed-entity test delta",
+    "Final-head separate source/artifact review and current CI",
+    "Current default-branch release/readback/acceptance"
+  ],
+  "inspection_corrections": [
+    "Boolean k invalid_schema distinct from numeric bounds",
+    "request reconstruction invalid_config",
+    "immutable error code deletion guard",
+    "Author default Windows decode briefly re-encoded historical doc Unicode in unpushed cea899e; restored prior exact Git UTF8 bytes before renewed review/publication"
+  ],
+  "limits": [
+    "EQ088 frozen benchmark inputs unchanged",
+    "No additional local tests/build/native while timings run",
+    "Source inspection is not runtime evidence"
+  ],
+  "fixture_requirements": {
+    "scan-tie-coverage": "test_published_numeric_and_availability_goldens",
+    "permutation": "test_permutation_normalizes_all_presentations",
+    "false-plus-ranking-missing": "test_published_numeric_and_availability_goldens",
+    "no-predicates": "test_published_numeric_and_availability_goldens",
+    "strict-boundary": "test_published_numeric_and_availability_goldens",
+    "zero-k": "test_published_numeric_and_availability_goldens",
+    "oversized-k": "test_published_numeric_and_availability_goldens",
+    "empty": "test_published_numeric_and_availability_goldens",
+    "all-missing": "test_published_numeric_and_availability_goldens",
+    "exact-int-order": "test_published_numeric_and_availability_goldens",
+    "negative-k": "test_published_structural_errors",
+    "bool-k": "test_published_structural_errors",
+    "duplicate-universe": "test_published_structural_errors",
+    "duplicate-cell": "test_published_structural_errors",
+    "outside-universe": "test_published_structural_errors",
+    "wrong-unit": "test_published_structural_errors",
+    "wrong-version": "test_published_structural_errors",
+    "future-result-cutoff": "test_published_structural_errors",
+    "mixed-session": "test_published_structural_errors",
+    "reconstruction": "test_published_structural_errors",
+    "label-namespace": "test_published_structural_errors",
+    "identity-value-change": "test_content_values_quality_evidence_and_source_revisions",
+    "identity-quality-change": "test_content_values_quality_evidence_and_source_revisions",
+    "mixed-return-horizon": "test_real_config_horizon_and_baseline_mismatches",
+    "wrong-all-return-horizons": "test_real_config_horizon_and_baseline_mismatches",
+    "mixed-adjustment-basis": "test_semantic_adjustment_and_eligibility_mismatches_even_when_missing",
+    "different-baseline-window": "test_real_config_horizon_and_baseline_mismatches",
+    "different-eligibility-policy": "test_semantic_adjustment_and_eligibility_mismatches_even_when_missing",
+    "source-revision-same-semantics": "test_content_values_quality_evidence_and_source_revisions",
+    "conflicting-rule-config": "test_real_config_horizon_and_baseline_mismatches"
+  },
+  "source_review": {
+    "head": "664db8acb9d1edb177f9babef2f36f5cb2b0e701",
+    "reviewer": "/root/r8_preparation_review",
+    "sha256": "04181b9322eaf2634a99a442af3af3a8fed28f4e642206597dca00f78e03a678",
+    "findings": [
+      {
+        "priority": "P2",
+        "summary": "Live package copy could include untracked sources absent committed provenance",
+        "disposition": "Corrected candidate uses exact committed closed snapshot for packages and executed test/example inputs; start/end HEAD/roster/status/materialized-byte closure added. Renewed review pending."
+      }
+    ],
+    "limits": "Source/AST only, no runtime approval"
+  },
+  "renewed_source_review": {
+    "head": "bb6cb90b728094fcfd818c74067725dc07a7b7fc",
+    "reviewer": "/root/r8_preparation_review",
+    "sha256": "ddc36c549ea042b917e34e41e8b98f2090d7546e890dc858e5f05737cb8e0bfc",
+    "finding": "P2 source closure captured paths later rebound to artifact dict",
+    "disposition": "Frozen source_paths tuple and separate artifact_paths mapping; targeted renewed review pending",
+    "original_finding": "Committed snapshots addressed; historical UTF8 restoration verified",
+    "executed": "Source/AST only; no product import/test/build/mypy/native"
+  },
+  "first_hosted_attempt": {
+    "source": "0dcc44869761106a761a9b64acba6ca20c583cba",
+    "result": "FAILED_BEFORE_RESEARCH_RUNTIME_BUILD",
+    "source_review_sha256": "bf7143b805bd76f965994b5b9d2c0e299339436821e0f32a6592cb4a88a7c09a",
+    "evidence": [
+      {
+        "job": 116116659830,
+        "sha256": "62670eacc5d3321cf173202fd6329760413c5caef62b34dea5447b6f27ca1a1d",
+        "bytes": 25412
+      },
+      {
+        "job": 116116660033,
+        "sha256": "9c043837701b23ac2aa37363841a885570310778ec9e12f646b78ee9e762f73c",
+        "bytes": 24601
+      },
+      {
+        "job": 116116660009,
+        "sha256": "1c845ed4a6db44d73c844292a8b505d5f66df8142cfc2fecec296c29798f6087",
+        "bytes": 30146
+      }
+    ],
+    "failures": [
+      "BothOS research mypy: private code attribute annotation missing; redundant narrowed casts",
+      "Existing foundation boundary correctly rejects undeclared new package"
+    ],
+    "correction": "Declare typed private code storage/remove redundant casts; explicit separate contracts/stdlib-only research dependency/import/access policy and adversarial fixtures; original core policy unchanged",
+    "lifecycle_rework": "Code review -> In progress verified; issuecomment-6179009471",
+    "limits": "No research runtime test/build yet; pending renewed exact source review before changed push"
+  },
+  "source_review_v4": {
+    "head": "acfba7bca2990413eda17b772cd91bfc5c1bfaac",
+    "sha256": "7a02fc190f4f7d2315aacb745f2c40d51349e46e7200580bfab2dcfde31583bd",
+    "reviewer": "/root/r8_preparation_review",
+    "findings": [
+      {
+        "id": "EQ090-SOURCE-004",
+        "priority": "P2",
+        "summary": "Imported json.load/dump aliases bypassed research direct-name guard",
+        "correction": "Reject imported forbidden member names independent of alias; explicit alias negative fixtures"
+      },
+      {
+        "id": "EQ090-SOURCE-005",
+        "priority": "P2",
+        "summary": "Installed typing only marker/source checks",
+        "correction": "Fresh wheel/sdist positive/negative strictmypy consumers with pinned devtools; exact source/exit/output hashes recorded"
+      }
+    ],
+    "limits": "Corrections AST only; renewed final source review and actual hosted qualification required"
+  },
+  "approved_source": {
+    "head": "81404f5825455e1e900141d5f0f7d746701d20b7",
+    "report_sha256": "0fca5c4f3f73a89304a8e3becc624179fe8e8cbe7e548a87c9a200030b5befa7",
+    "reviewer": "/root/r8_preparation_review",
+    "disposition": "Both prior findings resolved; remote qualification permitted, not release approval"
+  },
+  "author_qualification": {
+    "head": "81404f5825455e1e900141d5f0f7d746701d20b7",
+    "report_sha256": "3705b6adc89145ecf5b2a3a1a3004d4fe6777c2185a7eee065958b9eb4df4feb",
+    "log_sha256": "0bdbd08cf0d4d1849bc0fbc430c9282d0a826e1f8d48bd2fb7871ceb0a7bafa4",
+    "status": "completed",
+    "forms": [
+      "wheel",
+      "sdist"
+    ],
+    "test_methods_per_form": 10,
+    "requirements": "30strategy plus8applicable closed-identity requirements; not71executedtests",
+    "archive_count": 6,
+    "source_input_count": 66,
+    "repeat_archive_parity": true,
+    "source_head_and_materialization_closure": true,
+    "installed_types_positive_exit": 0,
+    "installed_types_negative_exit": 1,
+    "producer": "actual core compute_trades, projected outsidepackage, handexpected count2/volume8/selectedA",
+    "core_changed": false
+  },
+  "hosted_qualification_814": {
+    "source": "81404f5825455e1e900141d5f0f7d746701d20b7",
+    "artifacts": [
+      {
+        "id": 11931386777,
+        "run_id": 38642365763,
+        "name": "research-81404f5825455e1e900141d5f0f7d746701d20b7-ubuntu-24.04",
+        "expires_at": "2026-11-13T21:43:45Z",
+        "sha256": "1288a26405e8ff2f25a37aed1c17c0cfd9353fa4301be293cb08af6dbb95b27f",
+        "system": "Linux",
+        "entries": {
+          "equity_feature_contracts-0.0.4a4.tar.gz": {
+            "sha256": "f32a66f31759b10c9ac251f4dffb2388a3e2ce50d2e5e15c69ac7038828f97a9",
+            "bytes": 53768
+          },
+          "equity_feature_strategies-0.1.0a1-py3-none-any.whl": {
+            "sha256": "a68c50b03634356ec14072e3942a4a126744f3258589ddd6c4b75670b91a40d7",
+            "bytes": 15750
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+            "bytes": 69728
+          },
+          "equity_feature_strategies-0.1.0a1.tar.gz": {
+            "sha256": "33eb6ff3c5316e92e4517af3917cf712b58d101be559421deeee88f975fb3c03",
+            "bytes": 13037
+          },
+          "equity_features-0.0.4a4.tar.gz": {
+            "sha256": "14e7b8b0ec1b245747d53081a73c9ef060c0f637d205ae97b5e14304b4d95c8f",
+            "bytes": 48412
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e",
+            "bytes": 65151
+          },
+          "qualification.json": {
+            "sha256": "14fed1372e6653bca6dc05df8f205de2cc2205ec44862ab387267baa0f47e98f",
+            "bytes": 86215
+          }
+        },
+        "status": "completed"
+      },
+      {
+        "id": 11931011875,
+        "run_id": 38642365763,
+        "name": "research-81404f5825455e1e900141d5f0f7d746701d20b7-windows-latest",
+        "expires_at": "2026-11-13T21:44:47Z",
+        "sha256": "0fe73cbd4e4225216229968b7ca3bb76c52cf756189219924ccfb2826d635a00",
+        "system": "Windows",
+        "entries": {
+          "equity_features-0.0.4a4.tar.gz": {
+            "sha256": "08b7c1002099c877e25584a5ea6f6bdabcee81286dbc06a3fba9db53d7297ad7",
+            "bytes": 48557
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "sha256": "ce4f020e6b3f994714656e28d4d33bd617a5fb28bd5084ad74066e714c32de2d",
+            "bytes": 65170
+          },
+          "equity_feature_contracts-0.0.4a4.tar.gz": {
+            "sha256": "18e93f66044a760a97188ec7ba1f486cab6cbe960dfafe027c4db8bb3e53dcc7",
+            "bytes": 53911
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "sha256": "11b29b397f1225449fff8b074593a0b5e76a5f4eebf76434d195937fcd3e1151",
+            "bytes": 69743
+          },
+          "equity_feature_strategies-0.1.0a1-py3-none-any.whl": {
+            "sha256": "88d6504da1c00bb3df8cdfedc082c7740e746cb74236fd002244f47cf1d0542e",
+            "bytes": 15765
+          },
+          "equity_feature_strategies-0.1.0a1.tar.gz": {
+            "sha256": "9734d269e0770f46bcda56192a53b571b27b4e00138a116d173fc4b08b5fdebc",
+            "bytes": 13070
+          },
+          "qualification.json": {
+            "sha256": "b5289737bee1f57cb449adb8372c394367c6bf93a957774930c2d3d3e9aec833",
+            "bytes": 87862
+          }
+        },
+        "status": "completed"
+      }
+    ],
+    "checks_success": 14
+  },
+  "final_test_delta": "Add explicit validA plus incompatibleB basis/policy variants, including unavailableB, retaining independent rejection expectations; pending exact source review/execution",
+  "actual_lifecycle_evidence": [
+    "https://github.com/atulsrivas1/equity-features/issues/102#issuecomment-6178666758",
+    "https://github.com/atulsrivas1/equity-features/issues/102#issuecomment-6178986955",
+    "https://github.com/atulsrivas1/equity-features/issues/102#issuecomment-6179009471",
+    "https://github.com/atulsrivas1/equity-features/issues/102#issuecomment-6179144945"
+  ]
+}

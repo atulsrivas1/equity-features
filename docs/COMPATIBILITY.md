@@ -1,3 +1,23 @@
+## EQ091 current candidate qualification passed — October 14
+
+Exact eaab022b9058754af0360969894adac8ec5d381d passed all14 candidate checks, including both Windows/Linux research jobs. PUSH run38646944319 artifacts Linux11932642959 SHA761f9883f6416595bc9af52546ac97c12fb71b8701c8ea06af087e646680a5c7 and Windows11931959367 SHA01554cb3044e60c280dd9676b00519197fec8cb8dd98c69c0e578ad662ef85d7 each contain eight archives plus completed schema2 qualification. Per OS, four fresh component/form environments passed independent fixtures and installed positive/negative typing, while two explicitly combined consumer/form environments passed actual core production, scanner/future-label invariance and as-of joins with complete core parity. Source head/materialization closure and twice-built archive parity passed. Four label methods cover30 standalone label requirements; the combined consumer covers the remaining three and predicate-order identity. This is candidate evidence, not completed release: separate final docs/artifact review, final-head current CI and actual main evidence remain. [Ledger](stories/EQ-091_VALIDATION.json).
+
+## EQ091 label compatibility candidate — October 14
+
+Labels0.1.0a1 is independently optional with contracts0.0.4a4, Python>=3.12,<3.13 and Apache2. Core and accepted strategies sources, versions and required dependencies remain unchanged. Closed raw/supplied-split basis, causal origin, exact elapsed endpoints and knowledge/state admission are specified in [the guide](research/FORWARD_LABELS.md). Research qualification schema2 adds labels, fresh component-only positive/negative typing and separate actual producer/causal consumer forms. Source/AST checks are not runtime or platform qualification; current bothOS/main evidence remains pending. EQ090 acceptance is independently recorded on #102 at main709cb7d.
+
+## EQ090 actual candidate evidence — October14
+
+81404f5 passed bothOS hosted candidate checks and local fresh wheel/sdist fixtures/installed positive-negative typing/actual-core producer with complete archive/source/RECORD maps. Each fresh strategy-only environment denied features/labels/numpy/pyarrow/duckdb imports; separate producer environments explicitly installed features. Core payloads match selected archives and remain byte-identical before/after strategy installation and execution. Existing core package sources/build metadata/versions/dependencies and original core boundary-policy function remain unchanged. The reviewed explicit research guard adds the new package without weakening core/backend policy. Final mixed-entity regression/head/current-main/artifact acceptance remains pending; see [ledger](stories/EQ-090_VALIDATION.json).
+
+## EQ090 candidate compatibility — October14
+
+Optional strategies0.1.0a1 binds contracts0.0.4a4/Python3.12 and accepts only the five scalar feature IDs defined by [the accepted contract](research/STRATEGY_LABEL_CONTRACTS.md). It rejects unsupported columns, reconstruction, mixed cutoffs/session/namespace, duplicate cells and mismatched required config/input semantics before screening. Core package sources/build metadata/version/dependencies are unchanged. Strategy-only fresh environments and a separate actual-core-producer consumer are specified by [the new research qualification](../tools/build_research.py); execution/bothOS/current-main evidence is pending, so compatibility is not yet qualified. Labels and final cross-package acceptance remain EQ091/EQ092.
+
+## R8 research contract targets
+
+[EQ089 v1](research/STRATEGY_LABEL_CONTRACTS.md) specifies two independently optional pure distributions, strategies/labels0.1.0a1 with contracts==0.0.4a4 and Python>=3.12,<3.13. No required features/columnar/each-other dependency; core imports remain unchanged. These are implementation targets, not qualified distribution/platform claims. EQ090/EQ091 and EQ092 retain real Windows/Linux wheel/sdist/version/import/source-map gates; unchanged existing compatibility facts follow.
+
 ## R8 optional accelerator outcome
 
 [EQ087 packaging decision](decisions/R8_ACCELERATOR_PACKAGING.md) follows accepted EQ086: no new calculator accelerator wheel/ABI/backend selector/fallback or thread policy. Core pair0.0.4a4 and existing optional columnar extra/definitions/version bounds remain unchanged; existing NumPy/PyArrow binaries are not a newly delivered EQ086 accelerator. No install command, platform support or example/API behavior changes. This documentation does not qualify new strategy/label distributions or claim a fresh native build/install/speedup.

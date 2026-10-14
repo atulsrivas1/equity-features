@@ -1,3 +1,19 @@
+## EQ091 current candidate qualification passed — October 14
+
+Exact eaab022b9058754af0360969894adac8ec5d381d passed all14 candidate checks, including both Windows/Linux research jobs. PUSH run38646944319 artifacts Linux11932642959 SHA761f9883f6416595bc9af52546ac97c12fb71b8701c8ea06af087e646680a5c7 and Windows11931959367 SHA01554cb3044e60c280dd9676b00519197fec8cb8dd98c69c0e578ad662ef85d7 each contain eight archives plus completed schema2 qualification. Per OS, four fresh component/form environments passed independent fixtures and installed positive/negative typing, while two explicitly combined consumer/form environments passed actual core production, scanner/future-label invariance and as-of joins with complete core parity. Source head/materialization closure and twice-built archive parity passed. Four label methods cover30 standalone label requirements; the combined consumer covers the remaining three and predicate-order identity. This is candidate evidence, not completed release: separate final docs/artifact review, final-head current CI and actual main evidence remain. [Ledger](stories/EQ-091_VALIDATION.json).
+
+## EQ091 label candidate — October 14
+
+[Forward labels](research/FORWARD_LABELS.md) implement the accepted independent pure boundary: _model owns exact frozen records, origin/basis/path admission and closed errors; _codec owns explicit complete fields/normalization/domains; _engine applies state precedence before quotient/subtraction. The package imports contracts/stdlib only. Separate examples own actual features/strategies integration and as-of revision selection. Original core boundary policy remains unchanged; the research guard explicitly admits and checks both optional packages. No core/strategy algorithm/version change. Review and runtime delivery are pending.
+
+## EQ090 candidate implementation — October14
+
+[Scanners](research/SCANNERS.md) implement the accepted EQ089 pure consumer boundary in a separately optional package. `_model` owns frozen records/closed errors, `_codec` implements explicit complete record fields and normalized tagged identities, and `_engine` validates supplied cells before deterministic all-rule screening and ranking. No feature formula or adapter enters this package. Tests retain independent published goldens; the actual core producer/projection is an external example. Dedicated research artifacts avoid changing existing core packaging gates. Source review and execution/release evidence are pending.
+
+## R8 research contract definition
+
+[Strategy and forward-label v1 contract](research/STRATEGY_LABEL_CONTRACTS.md) and [decision](decisions/R8_RESEARCH_CONTRACTS.md) define two independent pure optional consumers for EQ090/EQ091. Scanner uses supplied accepted core features and exact config/input-semantic identity; future labels have separate origin/path/maturity schemas. Core equations/API/imports/dependencies remain unchanged. This EQ089 documentation defines implementation targets; no research module/distribution or runtime test is delivered yet. Actual optional installation/causal consumer qualification remains EQ092.
+
 ## R8 optional accelerator outcome
 
 [EQ087 packaging decision](decisions/R8_ACCELERATOR_PACKAGING.md) follows accepted EQ086: no new calculator accelerator wheel/ABI/backend selector/fallback or thread policy. Core pair0.0.4a4 and existing optional columnar extra/definitions/version bounds remain unchanged; existing NumPy/PyArrow binaries are not a newly delivered EQ086 accelerator. No install command, platform support or example/API behavior changes. This documentation does not qualify new strategy/label distributions or claim a fresh native build/install/speedup.
