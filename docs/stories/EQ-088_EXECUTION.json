@@ -383,7 +383,7 @@
     "capacity_nominal_sampler_interval_ns": 25000000,
     "other_pipeline_child_seconds": 180,
     "other_nominal_sampler_interval_ns": 10000000,
-    "status": "prepared, exact source/protocol review pending; not executed",
+    "status": "Both fresh capacity preflights completed under360s/25ms; separate actual evidence review pending before full experiment",
     "preconditions": [
       "Exact changed source/protocol review",
       "Two fresh both-sink capacity preflights with complete closure and parity/goldens",
@@ -401,6 +401,112 @@
       "reporter admission",
       "eight references,72 samples,six sorts,18 queries",
       "adoption criteria"
+    ]
+  },
+  "revision4_source_review": {
+    "worker_head": "4023b86d28e5f63ae652a0255e133db8463902b5",
+    "canonical_protocol_head": "6fc6dc66a45b3d5915996abf3d92d3a0f3d4cc04",
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "report_sha256": "7cde6b4bb8f99a79f8939cec691a5e5f417898fd3559203136b39d8ef5c96266",
+    "findings": [],
+    "pure_test_result": "7 existing test_scaling_evidence methods passed in installed Python3.12.10; unittest exit0",
+    "pure_test_command": "python -I -m unittest discover -s tests -p test_scaling_evidence.py -v",
+    "driver_sha256": "1d9329fc37f04c34473b245e831dd3e933c7eb96b26cdee3d8a0d5184e7558e9",
+    "driver_review_sha256": "dc0ca29bbd9c8643925538355f41d67a44d84dcfc8c95bdb126500b1ae4af698",
+    "native_admission": "One fixed fresh both-sink capacity preflight only; running, no full invocation approved",
+    "public_source_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6180465957",
+    "formal_test_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6180470568",
+    "lifecycle": "In progress -> Code review -> Test, each actual Project readback confirmed",
+    "current_artifacts": "Changed-head4023 both-OS hosted qualification pending;915 does not cover these changes"
+  },
+  "revision4_preflight": {
+    "worker_head": "4023b86d28e5f63ae652a0255e133db8463902b5",
+    "raw_report_sha256": "a94229044248ef8e85c4227691eb074dc5fb77cae1c3c95dd5e1e1c225ad2772",
+    "driver_sha256": "1d9329fc37f04c34473b245e831dd3e933c7eb96b26cdee3d8a0d5184e7558e9",
+    "status": "completed-preflights-not-acceptance",
+    "samples": [
+      {
+        "backend": "parquet",
+        "tasks": 64,
+        "rows": 16384,
+        "content_sha256": "c1190f498e22cfc369db45875e8558bd3354cb28d7d8765a3ce5e94f9028a606",
+        "input_population": {
+          "catalog.duckdb": {
+            "bytes": 798720,
+            "sha256": "b123dc5a0e90152874c8768ecb8456c7f45f9ff431b953fdfaffcc963abf1c9f"
+          },
+          "optimized.parquet": {
+            "bytes": 8026,
+            "sha256": "42ff7bef364375df9cdb42e01369fb7c1ab3135f3537e8e194d0da98685636bb"
+          },
+          "original.parquet": {
+            "bytes": 8026,
+            "sha256": "42ff7bef364375df9cdb42e01369fb7c1ab3135f3537e8e194d0da98685636bb"
+          }
+        },
+        "pipeline_elapsed_ns": 78716207100,
+        "isolated_process_wall_ns": 80263436500,
+        "full_result_quality_evidence_input_parity": true,
+        "independent_five_trade_goldens": true,
+        "reporter_attempts": 256,
+        "reporter_reserved_bytes": 3801600,
+        "reporter_limits": {
+          "max_bytes": 4194304,
+          "max_spans": 12800,
+          "max_tasks": 256
+        },
+        "child_timeout_seconds": 360,
+        "nominal_sampler_interval_ns": 25000000,
+        "observed_frames": 2733,
+        "all_observed_identities_gone": true
+      },
+      {
+        "backend": "duckdb",
+        "tasks": 64,
+        "rows": 16384,
+        "content_sha256": "c1190f498e22cfc369db45875e8558bd3354cb28d7d8765a3ce5e94f9028a606",
+        "input_population": {
+          "catalog.duckdb": {
+            "bytes": 798720,
+            "sha256": "b123dc5a0e90152874c8768ecb8456c7f45f9ff431b953fdfaffcc963abf1c9f"
+          },
+          "optimized.parquet": {
+            "bytes": 8026,
+            "sha256": "42ff7bef364375df9cdb42e01369fb7c1ab3135f3537e8e194d0da98685636bb"
+          },
+          "original.parquet": {
+            "bytes": 8026,
+            "sha256": "42ff7bef364375df9cdb42e01369fb7c1ab3135f3537e8e194d0da98685636bb"
+          }
+        },
+        "pipeline_elapsed_ns": 219963810100,
+        "isolated_process_wall_ns": 223120225900,
+        "full_result_quality_evidence_input_parity": true,
+        "independent_five_trade_goldens": true,
+        "reporter_attempts": 256,
+        "reporter_reserved_bytes": 3801600,
+        "reporter_limits": {
+          "max_bytes": 4194304,
+          "max_spans": 12800,
+          "max_tasks": 256
+        },
+        "child_timeout_seconds": 360,
+        "nominal_sampler_interval_ns": 25000000,
+        "observed_frames": 7963,
+        "all_observed_identities_gone": true
+      }
+    ],
+    "source_unchanged": true,
+    "installed_unchanged": true,
+    "input_unchanged": true,
+    "owned_bytes_within_1GiB": true,
+    "interpretation": "Both fresh sequential physical-sink capacity cases completed with full parity/goldens under revision4, not full acceptance or timing comparison; separate evidence review pending",
+    "limits": [
+      "New admission; not an old180second pass",
+      "No pooled timing or hard RSS guarantee",
+      "Coarser sampling can miss peaks; short children have fewer observations",
+      "Observed cleanup cannot prove absence of unobserved descendants",
+      "Failure cleanup is not independently established without returned memory identities"
     ]
   }
 }

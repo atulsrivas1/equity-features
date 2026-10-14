@@ -1,3 +1,15 @@
+## EQ088 both revision 4 capacity preflights completed — October 14
+
+Frozen worker4023/driver1d9329fc completed both fresh sequential capacity cases, reporta9422904. Parquet isolated80.2634365s/pipeline78.7162071s; DuckDB isolated223.1202259s/pipeline219.9638101s, actual360s/25ms admission. Each64tasks/16384rows, full result/quality/evidence/input parity and independent five-trade goldens, reporter256attempts/3801600reserved bytes. Both content hashes agree. Source158/eightinstalled archive/input closure all true; observed sampled identities gone and ownedbytes within1GiB. Observed frames2733/7963; no hard RSS/complete-descendant or old180s success claim. These are preflights only, not full performance/adoption/acceptance.
+
+Separate evidence review requested before any fresh full03; no full invocation yet. Keep worker4023/protocol6fc frozen, preserve failedfulls/diagnostics/preflights separately, no pooling. Actual #99 Test, current bothOS CI/artifact still pending. #104 remains Test at qualified9896/localdocs8fbc reviewed1b97f3b7; final delivery waits88 and final integration must refresh historical diagnostic status. Six of eight R8 runtime accepted, incomplete. Continue actual full8/72/6/18 only after evidence approval, then source/artifact/main acceptance,92final/current/main and all8/epic/milestone gates.
+
+## EQ088 revision 4 reviewed and in Test — October 14
+
+Exact worker4023b86/protocol6fc6dc6 source review7cde6b4b passed without findings; seven existing pure scaling evidence tests passed in installed Python3.12.10. Exact two-case external driver1d9329fc passed reviewdc0ca29b. One fresh capacity preflight02 is executing Parquet then DuckDB at360s/25ms with full source/installed archive/input closure and independent parity/goldens. Source commits published to workerPR51 and ready canonicalPR385; current changed-input bothOS qualification pending. Actual #99 In progress→Code review→Test readbacks confirmed, public comments6180465957/6180470568. These are activity states, not runtime acceptance.
+
+Worker4023 source remains frozen. Separate actual both-sink preflight evidence review must precede any fresh complete8/72/6/18 run on new roots. No failed54sample populations/preflight pooling; original failures and diagnostic limitations preserved. EQ092 remains Test at qualified9896/localdocs8fbc, final delivery waits88. Six of eight original R8 runtime stories accepted; complete88 full/source/artifact/main delivery, then92final/current/main and all8/epic/milestone final gates. No R8 completion yet.
+
 ## EQ088 revision 4 prepared after bounded diagnostics — October 14
 
 The selected-line phase diagnostic at frozen915 timed out at180.219s; report2b2504b1/journal196records7850bytes/cecfefd4 reached generation.begin. Source/input/eight installed archive closure and observed identity cleanup were true. Tracing overhead prevents baseline timing or original root-cause inference; parent/Popen exit observations do not prove completed pipeline. Original full generation/catalog durable files show further progress but no final verification/close. Both diagnostics and failed full runs remain separate, with no acceptance.
