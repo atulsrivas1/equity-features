@@ -1,3 +1,7 @@
+## EQ091 actual acceptance; EQ092 readiness packet — October 14
+
+Labels0.1.0a1 is accepted #103Closed/Done at actual maina789c163, with all14 final candidate and seven actual-main checks/current bothOS forms independently verified (review93535d21; acceptance comment6180032194). The [EQ092 packet](stories/EQ-092_PLAN.md) now binds those actual prerequisites and exact chronological watchlist/return/revision/as-of fixtures. It is preparation only: no92 implementation/Ready/pull yet. EQ088 full validation remains frozen/running, so six of eight runtime stories are accepted and R8 remains incomplete. Earlier source/preparation snapshots are preserved as history.
+
 ## Current EQ091 implementation and qualification evidence — October 14
 
 EQ090 #102 is accepted at main709cb7d. EQ091 #103/PR388 now has pure labels0.1.0a1 source and same-story docs, separate exact-source review766c55bc and all14 eaab022 hosted candidate checks Success. BothOS schema2 artifacts qualify four isolated component/forms plus two combined consumer/forms per OS; [ledger](stories/EQ-091_VALIDATION.json) preserves exact IDs/hashes/requirements and remaining gates. This supersedes earlier preparation statements that labels are unimplemented. Final source/artifact review/currenthead/main release acceptance is still pending. EQ088 frozen full validation continues and EQ092 final aggregate remains unfinished; R8 is incomplete.

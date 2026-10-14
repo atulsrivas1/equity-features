@@ -1,3 +1,7 @@
+## EQ092 fixture choices precede chronological consumer implementation
+
+Separate preparation review caught a missing top_k and under-specified core trade/anchor facts before implementation. The revised [packet](../stories/EQ-092_PLAN.md) fixes top_k2, exact A/B/C rows/dispositions/coverage and actual per-entity trade prices/sizes/events/known-at/unit/config/source/basis. This makes the watchlist and forward-return goldens independently reviewable. Conditional reviewb6efec11 approved the corrected text; its original hash timing limitation is explicit rather than claiming an uncaptured original byte identity. Actual EQ091 acceptance now supplies the dependency binding; no92 runtime or readiness acceptance is inferred from preparation. Revisit if fixture/source policy or selection semantics changes.
+
 ## EQ091 observed isolation and causal consumer result
 
 Actual eaab022 bothOS schema2 qualification passed separate contracts+one-component environments for both wheel and sdist, installed typing and component fixtures, with sibling/features/native absence enforced. Separate combined environments ran the real producer/scanner/label/as-of example and preserved complete core payload/fingerprints. This supports the isolation design within CPython3.12 Windows/Linux evidence; it does not establish final/currentmain delivery or financial validity of supplied basis facts. [Ledger](../stories/EQ-091_VALIDATION.json) retains all requirements and pending review/release gates.
