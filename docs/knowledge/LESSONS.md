@@ -1,3 +1,7 @@
+## EQ091 observed isolation and causal consumer result
+
+Actual eaab022 bothOS schema2 qualification passed separate contracts+one-component environments for both wheel and sdist, installed typing and component fixtures, with sibling/features/native absence enforced. Separate combined environments ran the real producer/scanner/label/as-of example and preserved complete core payload/fingerprints. This supports the isolation design within CPython3.12 Windows/Linux evidence; it does not establish final/currentmain delivery or financial validity of supplied basis facts. [Ledger](../stories/EQ-091_VALIDATION.json) retains all requirements and pending review/release gates.
+
 ## EQ091 preparation: isolate pure suites from combined consumer requirements
 
 Accepted EQ089 requirements include future-label invariance and as-of joins, while the labels distribution must work without strategies/features installed. EQ091 separates the numerical/identity suite from an explicitly combined actual-core consumer and records which of the33 requirements each executes. The dedicated builder selects test_labels.py or test_strategies.py in separate fresh component environments; a combined environment runs integration. This prevents sibling dependencies from silently qualifying a supposedly standalone package. Source preparation only: execution/installed/current-main evidence is pending. [Plan](../stories/EQ-091_PLAN.md), [ledger](../stories/EQ-091_VALIDATION.json). Revisit if additional components or algorithms change the isolation/consumer contract.

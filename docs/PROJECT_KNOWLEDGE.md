@@ -1,3 +1,7 @@
+## Current EQ091 implementation and qualification evidence — October 14
+
+EQ090 #102 is accepted at main709cb7d. EQ091 #103/PR388 now has pure labels0.1.0a1 source and same-story docs, separate exact-source review766c55bc and all14 eaab022 hosted candidate checks Success. BothOS schema2 artifacts qualify four isolated component/forms plus two combined consumer/forms per OS; [ledger](stories/EQ-091_VALIDATION.json) preserves exact IDs/hashes/requirements and remaining gates. This supersedes earlier preparation statements that labels are unimplemented. Final source/artifact review/currenthead/main release acceptance is still pending. EQ088 frozen full validation continues and EQ092 final aggregate remains unfinished; R8 is incomplete.
+
 ## EQ090 accepted; EQ091 is next
 
 EQ090 scanner package is accepted at main709cb7d / PR387 after exact current bothOS and main checks/artifact/source review; issue102 Closed/Done and E12 checklist are verified. Acceptance: https://github.com/atulsrivas1/equity-features/issues/102#issuecomment-6179507604. Original R8 runtime acceptance is five of eight. EQ088 is frozen Test/full validation; EQ091/092 remain unimplemented. [EQ091's concrete packet](stories/EQ-091_PLAN.md) prepares exact API/math, independent fixtures and optional bothOS qualification. Project status remains the execution authority; preparation alone is not Ready or delivery.
