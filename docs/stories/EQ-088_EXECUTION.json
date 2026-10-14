@@ -352,5 +352,55 @@
       "No fullrerun, changed settings, timeout widening, pooling or acceptance"
     ],
     "next": "Independent evidence review; propose one same-deadline exact-code selected phase-line observer without native watchdog, then exact source review before any invocation"
+  },
+  "phase_diagnostic": {
+    "driver_sha256": "666f857c9595ae5c04751c9e25a8967880c5630f72c178d0a456df2fbbdf26aa",
+    "source_review_sha256": "1c6d142b64bf9e7ad36f8a363c692fbb0aa0cafa52ca5ff83dbe3038976cf93f",
+    "report_sha256": "2b2504b1434822c5a631fb756d2f01e8c181cd8b1a3de897cb7e0bcbf0bff8c7",
+    "worker_head": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "status": "TimeoutExpired",
+    "owned_call_seconds": 180.219,
+    "journal": {
+      "records": 196,
+      "bytes": 7850,
+      "sha256": "cecfefd430e005af8e2d31c08bcfe4d575860677d37fb49f0e4a269f2418397a",
+      "last_phase": "generation.begin"
+    },
+    "source_unchanged": true,
+    "installed_unchanged": true,
+    "input_unchanged": true,
+    "all_observed_identities_gone": true,
+    "limits": [
+      "Parent exit0 is evidence collection only; observed Popen exit0 does not establish pipeline completion",
+      "Tracing overhead prevents baseline timing or original-cause inference",
+      "Original full durable catalog/generation records show further progress, not final verification/close",
+      "No capacity, scheduling, spill or layout acceptance"
+    ]
+  },
+  "revision4_admission": {
+    "design_review_sha256": "deb13b725c51585da0b5838f6e293946c1cb23f32553ae5702e821e092103541",
+    "capacity_child_seconds": 360,
+    "capacity_nominal_sampler_interval_ns": 25000000,
+    "other_pipeline_child_seconds": 180,
+    "other_nominal_sampler_interval_ns": 10000000,
+    "status": "prepared, exact source/protocol review pending; not executed",
+    "preconditions": [
+      "Exact changed source/protocol review",
+      "Two fresh both-sink capacity preflights with complete closure and parity/goldens",
+      "Separate preflight evidence review before fresh full run"
+    ],
+    "limits": [
+      "New admission is not a pass under the old 180-second window",
+      "No pooling of failed full observations or preflights",
+      "Coarser sampling may miss peaks; no hard RSS guarantee"
+    ],
+    "unchanged": [
+      "production packages and pins",
+      "populations and goldens",
+      "native, logical and disk budgets",
+      "reporter admission",
+      "eight references,72 samples,six sorts,18 queries",
+      "adoption criteria"
+    ]
   }
 }

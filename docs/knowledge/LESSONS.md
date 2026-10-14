@@ -1,3 +1,7 @@
+## EQ088 failed deadlines require a disclosed fresh experiment
+
+A bounded phase observer changed execution overhead and therefore cannot establish the uninstrumented timeout cause. Durable output files establish only the reached write point. Revision4 changes the capacity observation window consistently across both sinks/modes/repeats, retaining all acceptance criteria and separate failed evidence. Both-sink preflights and independent evidence review precede any full replacement comparison. Coarser memory sampling remains observed, not a hard bound. [Protocol](../stories/EQ-088_PROTOCOL.md), [evidence](../stories/EQ-088_EXECUTION.json).
+
 ## EQ088 capacity preflight is specific to the physical sink
 
 Corrected915 reporter limits and Parquet64task preflight passed, but the second full run hit180s at the DuckDB64task reference after54samples/sevenreferences. This does not prove the same cause as the earlier recorder admission failure or establish an engine/host defect. Preflight evidence must name its backend; do not infer another sink fits the deadline. Retain both incomplete populations, diagnose the actual phase with a separately reviewed bounded instrumented child, and justify any later protocol change before execution. No widened limits or full acceptance follows from this observation. [Execution](../stories/EQ-088_EXECUTION.json).
