@@ -1,3 +1,7 @@
+## Selected finite protocol — October14
+
+[EQ-088_PROTOCOL.md](EQ-088_PROTOCOL.md) supersedes the tentative codec-first comparison below for execution. Original scheduling/output qualification is selected; codec fast path deferred. Exact4workload/2sink/3mode/3repeat matrix and bounded spill-policy/source-layout diagnostics are now concrete proposals awaiting separate readiness review. The original acceptance remains: end-to-end throughput/capacity/spill/query-pruning correctness, wider workers only on measured benefit. Existing zero-spill policy is retained and positive spill explicitly unsupported; no layout adopted from source-only diagnostics. Earlier unresolved proposals remain history, not executable defaults.
+
 # EQ088 whole-pipeline readiness proposal
 
 Local preparation only, October14,2026. [EQ088 #99](https://github.com/atulsrivas1/equity-features/issues/99), E11#95, R8 milestone9; provisional eight complexity points. No implementation, benchmark, independent review, Ready or acceptance. The live issue requires end-to-end throughput/capacity/spill/query-pruning evidence and correctness; more workers require measured benefit. Neither a codec microbenchmark nor a no-change native decision alone satisfies this story.

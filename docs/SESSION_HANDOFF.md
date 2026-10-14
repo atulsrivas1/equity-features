@@ -1,3 +1,11 @@
+## EQ087 accepted; EQ088 finite protocol preparation — October14
+
+EQ087#98/PR384 accepted at main16d8c7c7cbc8f535577d4961e4b9693e621e5786 after exactd3d1 source and independent actual-main fulltree/eightblob/metadata/publicUTF8/Atul-GitHub/noCoauthors review and all5actualmain jobsSuccess. Pending-CI condition satisfied by fresh actual readback. Released→Done and Closed98 verified; acceptance https://github.com/atulsrivas1/equity-features/issues/98#issuecomment-6177772954. E11 checklist reconciled; originalR8 runtime3of8accepted, governance separately accepted.
+
+EQ088 remains Backlog during finite protocol review. docs/stories/EQ-088_PROTOCOL.md selects original scheduling/output qualification, defers optional codec hypothesis, freezes4populations/2sinks/3modes/3repeats, actual zero-spill policy diagnostic and finite source-layout pruning evidence. No benchmark/result/native invocation or runtime change. Worker clean current95aa baseline selected on codex/eq088-pipeline-qualification; primary unrelated changes preserved. Review concrete protocol before Ready/public pull, then qualification-only harness/source review before execution. EQ089–092 remain unimplemented/Backlog. No R7 replay/provider/private/registry/admin/destructive/automation scope.
+
+Continuity read tooling encountered stdout cp1252 UnicodeEncodeError and a wrong-repository read of worker helper paths; both stopped read-only, corrected by explicitUTF8 and worker cwd. No source/runtime/test failure or mutation inferred.
+
 ## EQ087 active after accepted EQ086 — October14
 
 EQ086#97/PR383 accepted at actualmain abe8c561 after exactacb six-document review, independent main fulltree/publicUTF8/Atul-GitHub/noCoauthors/evidence/no-impact readback and all5actualmain checksSuccess. Source review was completed while foundation jobs ran; later actual5Success satisfied its condition without fabricating a new review/test. Actual Released→Done and Closed97 verified; acceptance https://github.com/atulsrivas1/equity-features/issues/97#issuecomment-6177479780. E11 checklist reconciled; originalR8 runtime2of8accepted, milestone9Open6open/3closed includinggov.
