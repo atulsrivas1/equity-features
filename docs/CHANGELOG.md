@@ -1,3 +1,11 @@
+## EQ091 current candidate qualification passed — October 14
+
+Exact eaab022b9058754af0360969894adac8ec5d381d passed all14 candidate checks, including both Windows/Linux research jobs. PUSH run38646944319 artifacts Linux11932642959 SHA761f9883f6416595bc9af52546ac97c12fb71b8701c8ea06af087e646680a5c7 and Windows11931959367 SHA01554cb3044e60c280dd9676b00519197fec8cb8dd98c69c0e578ad662ef85d7 each contain eight archives plus completed schema2 qualification. Per OS, four fresh component/form environments passed independent fixtures and installed positive/negative typing, while two explicitly combined consumer/form environments passed actual core production, scanner/future-label invariance and as-of joins with complete core parity. Source head/materialization closure and twice-built archive parity passed. Four label methods cover30 standalone label requirements; the combined consumer covers the remaining three and predicate-order identity. This is candidate evidence, not completed release: separate final docs/artifact review, final-head current CI and actual main evidence remain. [Ledger](stories/EQ-091_VALIDATION.json).
+
+## EQ091 candidate — unreleased
+
+Prepared optional pure labels0.1.0a1: immutable origin and full path identities, checked elapsed horizons, raw/supplied-split witnesses, pending/incomplete/mature knowledge precedence and explicit numerical/precision errors. Added independent requirements and actual producer/scanner/future-label/as-of consumer. Dedicated repeat eight-archive/fresh component typing and combined bothOS qualification prepared; execution and release pending. Core and strategies unchanged.
+
 ## EQ090 implemented candidate qualification — strategies0.1.0a1
 
 Implemented optional pure scanners over supplied supported features, complete source/config-content binding, unavailable-first rules and exact deterministic ranking/top-k/coverage. Actual814 candidate passed all14 hosted checks and local repeat archives/fresh wheel-sdist independent fixtures, installed typing and real core-producer/core-parity gates. Original failed source/CI attempts remain documented. Final changed-head/artifact/default-branch release acceptance is pending; EQ091labels/EQ092aggregate remain unfinished.

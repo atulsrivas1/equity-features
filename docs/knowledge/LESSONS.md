@@ -1,3 +1,15 @@
+## EQ091 observed isolation and causal consumer result
+
+Actual eaab022 bothOS schema2 qualification passed separate contracts+one-component environments for both wheel and sdist, installed typing and component fixtures, with sibling/features/native absence enforced. Separate combined environments ran the real producer/scanner/label/as-of example and preserved complete core payload/fingerprints. This supports the isolation design within CPython3.12 Windows/Linux evidence; it does not establish final/currentmain delivery or financial validity of supplied basis facts. [Ledger](../stories/EQ-091_VALIDATION.json) retains all requirements and pending review/release gates.
+
+## EQ091 preparation: isolate pure suites from combined consumer requirements
+
+Accepted EQ089 requirements include future-label invariance and as-of joins, while the labels distribution must work without strategies/features installed. EQ091 separates the numerical/identity suite from an explicitly combined actual-core consumer and records which of the33 requirements each executes. The dedicated builder selects test_labels.py or test_strategies.py in separate fresh component environments; a combined environment runs integration. This prevents sibling dependencies from silently qualifying a supposedly standalone package. Source preparation only: execution/installed/current-main evidence is pending. [Plan](../stories/EQ-091_PLAN.md), [ledger](../stories/EQ-091_VALIDATION.json). Revisit if additional components or algorithms change the isolation/consumer contract.
+
+## EQ090 release evidence and EQ091 preparation
+
+EQ090 acceptance followed actual current artifacts and default-branch publication, not a merged PR alone. Separate review c8b1a0ec and all seven main checks verified complete source/RECORD/installed typing/core parity after candidate review and all14 candidate checks. Original source/CI failures remain in [the ledger](../stories/EQ-090_VALIDATION.json). Carry its closed Git snapshots, import-alias adversaries and installed positive/negative typing into [EQ091](../stories/EQ-091_PLAN.md). Keep labels independently optional; test future-label causality in an explicitly combined consumer without adding sibling dependencies to either calculation package. No label runtime evidence is claimed by preparation.
+
 ## EQ090 real optional-install and identity evidence
 
 Actual814 source passed repeat sixarchives and fresh wheel/sdist tenmethod fixtures, positive/negative installed typing, strategy-only importdenial, separate actualcoreproducer projection and complete core-before/after/archive payload parity. BothOS hosted checks passed; finalcurrenthead/main acceptance remain required. Keep method counts distinct from30strategy/8identity requirements and preserve original71proposal requirements for laterlabels. Added explicit goodA+badB semantic-admission regression makes the mixed-entity requirement direct, including unavailablebadB; its final review/execution is still pending. [Validation](../stories/EQ-090_VALIDATION.json) retains old failedattempts and exact scopes rather than relabeling a changed test head already qualified.
