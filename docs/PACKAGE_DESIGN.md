@@ -1,3 +1,7 @@
+## R8 native calculator decision
+
+[EQ086 decision](decisions/R8_NATIVE_DECISION.md) selects no new native calculator backend for accepted EQ085 synthetic workloads. Existing Python/calculation/state/ownership/API/dependency/thread definitions are unchanged. Native acceleration remains conditional on named-kernel attribution, independent parity and measured benefit. EQ087 packaging and EQ088 whole-pipeline tuning retain their own acceptance. This documentation decision creates no new accelerator wheel or runtime capability.
+
 # Equity calculation packages — final design baseline
 
 ## Current architecture override — October 6, 2026

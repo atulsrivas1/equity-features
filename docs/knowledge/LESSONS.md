@@ -1,3 +1,7 @@
+## EQ086: adopt a bounded no-change decision when profiling does not select a native kernel
+
+[Decision](../decisions/R8_NATIVE_DECISION.md) follows accepted [EQ085 analysis](../stories/EQ-085_ANALYSIS.md), not a desired language rewrite. Standalone conversion/compute durations and nonadditive diagnostic frames do not prove a native end-to-end speedup. Keep math/state/API/dependencies/defaults unchanged, make packaging follow the actual outcome, and measure wider pipeline hypotheses separately. Revisit with a named bottleneck and frozen independent parity/performance contract; no universal claim about unobserved workloads. Documentation-only acceptance must not fabricate native build/install/performance evidence.
+
 ## R8 access readback: inspect direct issue-item identity before repeating a mutation
 
 GOV020#381 was added to Project2 and Backlog set; the broad item-list temporarily omitted the new item. Direct issue.projectItems readback verified the exact item/status, enabling actual Ready/Inprogress without replaying the add/edit. A cp1252 JSON decode failure was corrected to explicitUTF8, not treated as a failed mutation or runtime defect. Existing configured-account selection restored Atul access only after the owner asked for the listed restoration steps; no credentials/scopes were printed/refreshed. Gate evidence is actual actor/Project readback, not repeated historical failure or guessed authorization.

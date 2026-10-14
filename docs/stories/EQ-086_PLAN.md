@@ -1,3 +1,7 @@
+## Actual decision delivery — October14
+
+Accepted GOV020 publication is verified. EQ086 issue97 readiness/points/assignment were published, then actual Backlog→Ready→In progress read back. [Native decision](../decisions/R8_NATIVE_DECISION.md) selects the existing no-change alternative using unchanged accepted EQ085 evidence. Required exact-head review/current applicable checks/defaultbranch readback remain pending; earlier local-access/preparation snapshots below are history. No runtime/package/build/workflow/API/math change.
+
 # EQ086 native-kernel decision packet
 
 Prepared October 14, 2026. Local, unreviewed proposal for [EQ086 #97](https://github.com/atulsrivas1/equity-features/issues/97), E11 #95, R8 milestone9. Provisional five complexity points; no duration forecast. No Ready transition, implementation, independent review or acceptance is claimed.
