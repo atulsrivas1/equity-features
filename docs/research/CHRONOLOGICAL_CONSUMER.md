@@ -1,3 +1,7 @@
+## EQ092 component and chronological qualification passed — October 14
+
+Exact9896fbba8577b4cba8fd036a7c32e8b2911c79c5 passed all14 current hosted checks. Separate local automated qualification reviewa18dc52b verified both actual PUSH38649619590 artifacts: Linux11934561021 SHAbc6583a5954e672b6d63ce987b0dc9764ed206673b60a60532cc417ac99daa28; Windows11933513572 SHA9072625c3d3c195b1cb074cf31dfcee424818b79e0e0b7ff14fd5baf54f954d1. TwoZIPs/18entries/16archives/eightRECORDs/77sourcepins perOS, eight isolated component/forms and four combined/forms passed typing0and1, actual core-only preinstall versions/origins/absence, chronological watchlist/labels/revisions/asof and full core parity. No findings, no local product/native run for this story. This is qualified candidate evidence, not ReadyRelease/finalR8: final docs/currenthead/main delivery and actualEQ088 acceptance remain required. [Ledger](../stories/EQ-092_VALIDATION.json).
+
 # Chronological synthetic research targets
 
 EQ092 #104 candidate. The self-contained [example](../../examples/research_backtest.py)

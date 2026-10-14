@@ -1,7 +1,7 @@
 {
   "story": "EQ092#104",
   "base": "a789c163db011d9564f8c9293b010a3c90e70bae",
-  "status": "Frozen source candidate; exact source review and runtime pending",
+  "status": "Exact9896 source/current bothOS component/consumer qualification passed; final EQ088 aggregate and final docs/current/main delivery remain pending",
   "readiness_head": "ed5011bc5c2fd49eefcb48ad95c6c49da65d2a55",
   "readiness_review_sha256": "bdbe69ce6d5c51a1932c93742085ebc84ff5be555eebf0247e17a4d5bf706f05",
   "conditional_packet_review_sha256": "b6efec1178e5c3364edd51dc638c1d6d18b0c387e45325dba74b990e8d7e76f1",
@@ -11,13 +11,15 @@
   ],
   "pull": "https://github.com/atulsrivas1/equity-features/issues/104#issuecomment-6180063335",
   "checks": [
-    "Source AST and embedded programs parsed; git diff --check only"
+    "Source AST and embedded programs parsed; git diff --check only",
+    "BothOS current source typing/boundary/existing14research methods/repeat eight archives/fresh four component forms plus two combined forms perOS passed",
+    "Independent actualZIP/serverhash/18entries/16archives/eight wheelRECORDs/77Git sourcepins perOS verified",
+    "Actual fresh core-only versions/site-packages/optional absence checkpoints and chronological watchlist/return/known-at/revision/asof/negative/signalbytes assertions passed in all four combined forms; complete core source/archive/fingerprint parity retained"
   ],
   "not_executed": [
-    "New actual installed core-only probe and chronological example",
-    "Changed helper current bothOS fixture/typing/build/fresh forms/source/core parity",
-    "Exact final source/artifact/main acceptance",
-    "Final EQ088 and R8 aggregate gates"
+    "Final docs/source/current-head artifact review and delivery",
+    "Actual main checks/current artifacts/public source/Atul-GitHub/no-coauthor/readback acceptance",
+    "EQ088 full benchmark/delivery and final all-story/epic/milestone reconciliation"
   ],
   "fixture_goldens": {
     "ranked_selected": [
@@ -69,5 +71,117 @@
     "EQ088 failed54samples/sevenrefs not pooled with earlier failed54/preflight",
     "Temporary WIP is frozen92source/hosted qualification plus focused88triage; one native operation at a time",
     "Final R8 aggregate blocked on actual EQ088 acceptance"
-  ]
+  ],
+  "source_review": {
+    "head": "9896fbba8577b4cba8fd036a7c32e8b2911c79c5",
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "sha256": "03b9de20ffee0b4abb3ffc070839cfa7663c14a6e182f77ac53486ca5a42e47f",
+    "result": "Approved source for hosted qualification; no findings"
+  },
+  "qualification_review": {
+    "head": "9896fbba8577b4cba8fd036a7c32e8b2911c79c5",
+    "sha256": "a18dc52b74a96974368a98d18cda3f02234f084f910917e7e06f2b88cfdca2a0",
+    "result": "Current bothOS component/consumer evidence approved; no findings; not Ready to release"
+  },
+  "hosted_checks": {
+    "head": "9896fbba8577b4cba8fd036a7c32e8b2911c79c5",
+    "result": "All14 completed Success",
+    "research_push_run": 38649619590,
+    "artifacts": [
+      {
+        "id": 11934561021,
+        "run_id": 38649619590,
+        "name": "research-9896fbba8577b4cba8fd036a7c32e8b2911c79c5-ubuntu-24.04",
+        "expires_at": "2026-11-13T22:45:27Z",
+        "sha256": "bc6583a5954e672b6d63ce987b0dc9764ed206673b60a60532cc417ac99daa28",
+        "system": "Linux",
+        "entries": {
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+            "bytes": 69728
+          },
+          "equity_feature_labels-0.1.0a1-py3-none-any.whl": {
+            "sha256": "7dc929b61c3f8550b6443d56aeee71905352e32db90d6b86fef80e3171ce904c",
+            "bytes": 11954
+          },
+          "equity_feature_contracts-0.0.4a4.tar.gz": {
+            "sha256": "f32a66f31759b10c9ac251f4dffb2388a3e2ce50d2e5e15c69ac7038828f97a9",
+            "bytes": 53768
+          },
+          "equity_feature_labels-0.1.0a1.tar.gz": {
+            "sha256": "ffb199f297d5973badc9680a27dab2c881ff84d7b73b5539f19af53c25d2ca4b",
+            "bytes": 9736
+          },
+          "equity_feature_strategies-0.1.0a1-py3-none-any.whl": {
+            "sha256": "a68c50b03634356ec14072e3942a4a126744f3258589ddd6c4b75670b91a40d7",
+            "bytes": 15750
+          },
+          "equity_feature_strategies-0.1.0a1.tar.gz": {
+            "sha256": "33eb6ff3c5316e92e4517af3917cf712b58d101be559421deeee88f975fb3c03",
+            "bytes": 13037
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e",
+            "bytes": 65151
+          },
+          "equity_features-0.0.4a4.tar.gz": {
+            "sha256": "14e7b8b0ec1b245747d53081a73c9ef060c0f637d205ae97b5e14304b4d95c8f",
+            "bytes": 48412
+          },
+          "qualification.json": {
+            "sha256": "fb0704ddcc906f9882fe7525d18fc261c4b773e666495bfff9d4b38cee533587",
+            "bytes": 107001
+          }
+        },
+        "status": "completed"
+      },
+      {
+        "id": 11933513572,
+        "run_id": 38649619590,
+        "name": "research-9896fbba8577b4cba8fd036a7c32e8b2911c79c5-windows-latest",
+        "expires_at": "2026-11-13T22:46:40Z",
+        "sha256": "9072625c3d3c195b1cb074cf31dfcee424818b79e0e0b7ff14fd5baf54f954d1",
+        "system": "Windows",
+        "entries": {
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "sha256": "ce4f020e6b3f994714656e28d4d33bd617a5fb28bd5084ad74066e714c32de2d",
+            "bytes": 65170
+          },
+          "equity_features-0.0.4a4.tar.gz": {
+            "sha256": "08b7c1002099c877e25584a5ea6f6bdabcee81286dbc06a3fba9db53d7297ad7",
+            "bytes": 48557
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "sha256": "11b29b397f1225449fff8b074593a0b5e76a5f4eebf76434d195937fcd3e1151",
+            "bytes": 69743
+          },
+          "equity_feature_contracts-0.0.4a4.tar.gz": {
+            "sha256": "18e93f66044a760a97188ec7ba1f486cab6cbe960dfafe027c4db8bb3e53dcc7",
+            "bytes": 53911
+          },
+          "equity_feature_labels-0.1.0a1-py3-none-any.whl": {
+            "sha256": "6f545c9a380551b6b23c5c4ca5ae7c9444e26410b73efbd4e2032cc6ce626395",
+            "bytes": 11972
+          },
+          "equity_feature_labels-0.1.0a1.tar.gz": {
+            "sha256": "c0dee5dd2b694cc0a066643b71dc08ab7e3abe7166fe1c48cc082728fc34a7ad",
+            "bytes": 9790
+          },
+          "equity_feature_strategies-0.1.0a1-py3-none-any.whl": {
+            "sha256": "88d6504da1c00bb3df8cdfedc082c7740e746cb74236fd002244f47cf1d0542e",
+            "bytes": 15765
+          },
+          "equity_feature_strategies-0.1.0a1.tar.gz": {
+            "sha256": "9734d269e0770f46bcda56192a53b571b27b4e00138a116d173fc4b08b5fdebc",
+            "bytes": 13070
+          },
+          "qualification.json": {
+            "sha256": "7a8689d0046077a115c8a499b57f6aecd5cbe26c197c3467a20d29898a50bf37",
+            "bytes": 109042
+          }
+        },
+        "status": "completed"
+      }
+    ]
+  }
 }
