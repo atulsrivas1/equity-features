@@ -1,3 +1,7 @@
+## Actual outcome delivery — October14
+
+Accepted EQ086#97 selects no new calculator accelerator. This story's explicit no-change packaging alternative is now selected in [packaging decision](../decisions/R8_ACCELERATOR_PACKAGING.md). Scope/points/assignment and actual Ready/Inprogress verified after97Closed/Done. Final-head independent review/current applicableCI/defaultbranch acceptance remain pending. Historical preparation/access snapshots below are superseded for current execution; no new wheel/install/performance claim.
+
 # EQ087 optional accelerator packaging proposal
 
 Local unreviewed readiness preparation, October14,2026. [EQ087 #98](https://github.com/atulsrivas1/equity-features/issues/98), E11#95, R8 milestone9; provisional three complexity points. Blocked on accepted EQ086 outcome and verified Atul Project access. This packet does not mark either story Ready or accepted.

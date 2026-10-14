@@ -1,3 +1,7 @@
+## EQ087: packaging must follow the actual accelerator decision
+
+[No-new-accelerator outcome](../decisions/R8_ACCELERATOR_PACKAGING.md) follows accepted EQ086 rather than inventing native wheels or a fallback selector for an unselected kernel. Keep existing optional NumPy/PyArrow metadata distinct from a new accelerator; profiling thread1 is not a universal runtime policy. Metadata/source inspection and unchanged-code CI do not become a fresh wheel/install benchmark claim. Reassess supported ABI/platform/license/thread/fallback and exact fresh forms only if an actual accelerator is later selected; actual strategy/label distributions still need EQ092.
+
 ## EQ086: adopt a bounded no-change decision when profiling does not select a native kernel
 
 [Decision](../decisions/R8_NATIVE_DECISION.md) follows accepted [EQ085 analysis](../stories/EQ-085_ANALYSIS.md), not a desired language rewrite. Standalone conversion/compute durations and nonadditive diagnostic frames do not prove a native end-to-end speedup. Keep math/state/API/dependencies/defaults unchanged, make packaging follow the actual outcome, and measure wider pipeline hypotheses separately. Revisit with a named bottleneck and frozen independent parity/performance contract; no universal claim about unobserved workloads. Documentation-only acceptance must not fabricate native build/install/performance evidence.
