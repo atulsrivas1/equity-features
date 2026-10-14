@@ -194,6 +194,41 @@ print(json.dumps({p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).
     return actual
 
 
+def installed_typing(py, directory):
+    """Actual strict consumers against installed py.typed; type tools are not runtime deps."""
+    run(py, '-m', 'pip', 'install', '--no-deps', 'mypy==1.15.0',
+        'mypy_extensions==1.1.0', 'typing_extensions==4.16.0')
+    positive = '''from equity_feature_strategies import StrategyRequest, StrategyResult, StrategyError, scan, encode
+def consume(request: StrategyRequest) -> StrategyResult:
+    result: StrategyResult = scan(request)
+    content: bytes = encode(result)
+    identity: str = result.identity_digest
+    code: str = StrategyError('invalid_schema').code
+    assert content and identity and code
+    return result
+'''
+    negative = '''from equity_feature_strategies import StrategyResult, scan
+def invalid() -> StrategyResult:
+    return scan(23)
+'''
+    rows = {}
+    for name, source in (('positive', positive), ('negative', negative)):
+        path = directory / (name + '.py')
+        path.write_text(source, encoding='utf-8')
+        process = subprocess.run([str(py), '-I', '-m', 'mypy', '--strict', '--no-incremental',
+            '--python-executable', str(py), str(path)], cwd=directory, capture_output=True, encoding='utf-8')
+        output = process.stdout + process.stderr
+        if name == 'positive':
+            assert process.returncode == 0, output
+        else:
+            assert process.returncode == 1 and '[arg-type]' in output and 'scan' in output, output
+            assert 'import-untyped' not in output and 'import-not-found' not in output
+        rows[name] = {'source_sha256': sha(source.encode('utf-8')), 'exit_code': process.returncode,
+                      'output_sha256': sha(output.encode('utf-8'))}
+    run(py, '-m', 'pip', 'check')
+    return rows
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     assert not list(OUT.iterdir()), 'fresh dist/research required; preserve previous reports before rerun'
@@ -274,6 +309,7 @@ def main():
             run(py, '-m', 'pip', 'check')
             installed = installed_strategy(py, artifact_paths['strategies'])
             run(py, '-I', '-m', 'unittest', 'discover', '-s', verification / 'tests/research')
+            typing = installed_typing(py, isolated)
             after = fingerprint(py, ['equity_feature_contracts'])
             assert before == after, 'strategy install/execution changed contracts'
             # A distinct consumer environment explicitly installs features; strategy-only isolation stays meaningful.
@@ -286,7 +322,7 @@ def main():
             assert core_before == fingerprint(cpy, ['equity_feature_contracts', 'equity_features'])
             report['installed'].append({'form': form, 'strategy_source': installed, 'contracts_before_after': before,
                 'consumer_core_before_after': core_before, 'isolated_origins': True,
-                'independent_fixtures_passed': True, 'producer_example_passed': True})
+                'independent_fixtures_passed': True, 'producer_example_passed': True, 'installed_typing': typing})
             save()
     source_closure()
     report['source_head_and_materialization_closure'] = True

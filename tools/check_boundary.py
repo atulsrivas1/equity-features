@@ -144,6 +144,7 @@ def research_violations(source, *, codec=False):
                 if not node.module and any(a.name not in ('_model','_codec','_engine') for a in node.names):found.append('foreign relative namespace')
             elif (node.module or '').split('.')[0] not in allowed:found.append('forbidden research import')
             if any(a.name=='*' for a in node.names):found.append('wildcard import')
+            if any(a.name in DENIED or a.name.startswith(('read_','write_','__builtins__')) for a in node.names):found.append('forbidden research imported access')
         elif isinstance(node,(ast.Name,ast.Attribute)):
             name=node.id if isinstance(node,ast.Name) else node.attr
             if name=='getattr' and isinstance(node,ast.Name) and closed_field_lookup(parents.get(node)):continue
@@ -181,6 +182,8 @@ def check():
     for source in ('import equity_features','import equity_feature_labels','import numpy','import pyarrow',
                    'import os','from pathlib import Path','import socket','f=open','obj.connect()',
                    'obj.__dict__','x=getattr','getattr(value,name)','from .other import loader'):
+        assert research_violations(source),source
+    for source in ('from json import load as reader; reader(stream)', 'from json import dump as writer; writer(value,stream)'):
         assert research_violations(source),source
     assert not research_violations('from equity_feature_contracts import FeatureResult\nimport operator')
     assert not research_violations('def _fields(value):\n return {name:getattr(value,name) for name in ()}',codec=True)

@@ -1,3 +1,7 @@
+## EQ090 alias guards and installed typing need actual evidence
+
+Separate acfba7b review7a02fc19 found that rejecting direct access names does not reject aliased forbidden imported members; the research guard now checks original imported names and has aliased load/dump adversaries. py.typed parity is not actual consumer typing: fresh wheel/sdist environments now specify positive/negative strictmypy probes with pinned devtools, no runtime dependency expansion. Source corrections are unqualified until actual execution; see [ledger](../stories/EQ-090_VALIDATION.json).
+
 ## EQ090 actual hosted typing and package-boundary failures
 
 Source inspection approval is not execution evidence. First hosted0dcc qualification stopped at strict typing on bothOS and the existing fail-closed package allowlist. Preserve those actual failures in [validation](../stories/EQ-090_VALIDATION.json). New pure package admission requires an explicit research policy for dependencies/imports/accesses and adversarial fixtures; merely adding its folder to the core allowlist would leave its source unchecked. Keep the core/backend policy unchanged and review any narrow closed-codec field-lookup exception before qualification. Source corrections remain unqualified until new actual tests/artifacts pass.

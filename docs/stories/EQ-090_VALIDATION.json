@@ -111,5 +111,25 @@
     "correction": "Declare typed private code storage/remove redundant casts; explicit separate contracts/stdlib-only research dependency/import/access policy and adversarial fixtures; original core policy unchanged",
     "lifecycle_rework": "Code review -> In progress verified; issuecomment-6179009471",
     "limits": "No research runtime test/build yet; pending renewed exact source review before changed push"
+  },
+  "source_review_v4": {
+    "head": "acfba7bca2990413eda17b772cd91bfc5c1bfaac",
+    "sha256": "7a02fc190f4f7d2315aacb745f2c40d51349e46e7200580bfab2dcfde31583bd",
+    "reviewer": "/root/r8_preparation_review",
+    "findings": [
+      {
+        "id": "EQ090-SOURCE-004",
+        "priority": "P2",
+        "summary": "Imported json.load/dump aliases bypassed research direct-name guard",
+        "correction": "Reject imported forbidden member names independent of alias; explicit alias negative fixtures"
+      },
+      {
+        "id": "EQ090-SOURCE-005",
+        "priority": "P2",
+        "summary": "Installed typing only marker/source checks",
+        "correction": "Fresh wheel/sdist positive/negative strictmypy consumers with pinned devtools; exact source/exit/output hashes recorded"
+      }
+    ],
+    "limits": "Corrections AST only; renewed final source review and actual hosted qualification required"
   }
 }
