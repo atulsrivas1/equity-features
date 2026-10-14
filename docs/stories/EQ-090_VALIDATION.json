@@ -21,7 +21,8 @@
   "inspection_corrections": [
     "Boolean k invalid_schema distinct from numeric bounds",
     "request reconstruction invalid_config",
-    "immutable error code deletion guard"
+    "immutable error code deletion guard",
+    "Author default Windows decode briefly re-encoded historical doc Unicode in unpushed cea899e; restored prior exact Git UTF8 bytes before renewed review/publication"
   ],
   "limits": [
     "EQ088 frozen benchmark inputs unchanged",
