@@ -1,0 +1,34 @@
+{
+  "schema": "eq088-execution-continuity1",
+  "runtime_packages_changed": false,
+  "defaults_changed": false,
+  "full_protocol_executed": false,
+  "smokes": [
+    {
+      "head": "57d46642c13475f4322b493318d1e1c79dc26839",
+      "status": "failed",
+      "bytes": 53192,
+      "sha256": "145e5068e99533e35881be1e87a8fff1c38e72781e46306b4bfe4b77bc0299bf",
+      "references_completed": 2,
+      "small_pipeline_samples_completed": 2,
+      "completed_diagnostics": 0,
+      "error": "ParserException: JSON profiler format must be selected before output path"
+    },
+    {
+      "head": "7e2a57d6a27e68b6786ad5c2bc45bb4a5150e61f",
+      "status": "failed",
+      "bytes": 53209,
+      "sha256": "5c225617254451adb72a8d4ef4a7e6ad083dd490c6a52eeb5bea6c2408b0e679",
+      "references_completed": 2,
+      "small_pipeline_samples_completed": 2,
+      "completed_diagnostics": 0,
+      "error": "InternalException unique_ptrNULL at profiled sort fetchmany; cause unconfirmed"
+    }
+  ],
+  "source_reviews": {
+    "initial": "00c3daef02aad7460586ddcc11aadfd2210b650fa734531a6c2ef8c2eadfb1e4",
+    "corrected": "8d67639375b00360ccf2e2d698fd6536bee70d77ce2d8f799cb4a20062acfe1e",
+    "profiling_order": "0dcf73cd16986f2feeff5ceaccc359232a3bed71085cf51ec59704d76446d11b",
+    "capability_plan": "77a723a11ff71395f367f936515b596c275721a1bb203469aa57d005d1291292"
+  }
+}
