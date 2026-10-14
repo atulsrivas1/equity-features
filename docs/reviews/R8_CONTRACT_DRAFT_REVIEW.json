@@ -1,0 +1,96 @@
+{
+  "scope": "EQ087_AND_EQ089_LOCAL_DRAFT_SEMANTIC_REVIEW",
+  "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+  "date": "2026-10-14",
+  "timezone": "America/New_York",
+  "base": "da74650e03d67acc5de6f8881065518f68b1f24f",
+  "branch": "codex/r8-handoff",
+  "inspected_files": {
+    "docs/stories/EQ-087_PLAN.md": {
+      "git_lf_bytes": 3036,
+      "sha256": "9935a299d7ebb354a270ca46b544a4ab0da7602f0a6c0decbd27f4d893bd4400"
+    },
+    "docs/stories/EQ-089_CONTRACT_DRAFT.md": {
+      "git_lf_bytes": 10654,
+      "sha256": "be1b2d8ffabf7d1b7275c3b9fd8848a253bc7f9315151523ad1fc968c558f61f"
+    },
+    "packages/contracts/src/equity_feature_contracts/results.py": {
+      "git_lf_bytes": 34280,
+      "sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e"
+    },
+    "packages/contracts/src/equity_feature_contracts/specs.py": {
+      "git_lf_bytes": 11303,
+      "sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3"
+    },
+    "packages/contracts/pyproject.toml": {
+      "git_lf_bytes": 692,
+      "sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1"
+    },
+    "packages/features/pyproject.toml": {
+      "git_lf_bytes": 736,
+      "sha256": "ca095c7a8a7466de390ff943c4a33f6b41852a7b844d5d2d3291abb544be56d9"
+    }
+  },
+  "disposition": "REVIEWED_INCOMPLETE_PREPARATION; EQ087 conditional proposal consistent; EQ089 requires explicit Ready-blocker resolution",
+  "findings": [
+    {
+      "id": "R8-DRAFT-001",
+      "priority": 2,
+      "file": "docs/stories/EQ-089_CONTRACT_DRAFT.md",
+      "line": 29,
+      "title": "Freeze arithmetic overflow and underflow behavior for finite positive prices",
+      "trigger": "Admitted P0 near the smallest positive binary64 and P1=1.0 are both finite/positive, but the Float64 quotient cannot be finite. Very close/subnormal endpoints can also underflow differences or lose precision.",
+      "consequence": "Input-only finiteness does not define whether mature label values may be infinity, rejected, or represented differently; independent implementations can disagree and canonical finite-result serialization can fail.",
+      "requested_change": "Before Ready specify the Float64 operation order, finite-result/overflow policy and tolerance domain, then add independent extreme-range fixtures. Treat unsupported output range as a typed error or explicitly governed status; never serialize a mature nonfinite return.",
+      "disposition": "OPEN_READY_BLOCKER; no runtime defect claimed"
+    },
+    {
+      "id": "R8-DRAFT-002",
+      "priority": 2,
+      "file": "docs/stories/EQ-089_CONTRACT_DRAFT.md",
+      "line": 35,
+      "title": "Give pending and incomplete states a total precedence",
+      "trigger": "t1<=C, exact endpoint absent, and basis known-at unknown or later than K simultaneously meet the pending and incomplete definitions. Mixed false and unavailable scanner predicates likewise have no stated entity-state precedence at line17.",
+      "consequence": "The same valid immutable request can receive different status/reason outputs depending on check order, violating complete deterministic parity and maturity semantics.",
+      "requested_change": "Before Ready freeze a truth table for endpoint presence, horizon, endpoint/basis admission and invalid inputs, and a scanner mixed-predicate table. Include independent crossed-condition fixtures and preserve all required reason dispositions.",
+      "disposition": "OPEN_READY_BLOCKER; draft itself correctly declares remaining schema/status work"
+    }
+  ],
+  "executed_checks": [
+    "Read complete EQ087/EQ089 draft texts against live issue98/101 Open/milestone9 acceptance and current backlog/package design from earlier preparation review.",
+    "Read actual immutable FeatureColumn/QualityRow/ResultMetadata/FeatureResult and AvailabilitySpec/ConfigSpec definitions; no feature-row API invented. Available scalar requires nonnull, all other scalar status requires null; exact metadata namespace/session and known_at cutoff matching is conservative causal reuse.",
+    "Checked EQ087 distribution versions/Python/dependencies/extras/build/license/py.typed claims against two unchanged source pyproject.toml files. Metadata reading is not installed qualification.",
+    "Independently reasoned scanner A/B/E rank, A/B selection and4/5 coverage; simple rational label fixtures agree with written mathematics, exact endpoint and raw/split/dividend exclusions. No implementation or helper used to generate expected results.",
+    "Confirmed one-way proposed optional package ownership and future-label isolation; labels remain separate consumer schema with supplied basis/availability and no acquisition/calendars/orders.",
+    "Strict UTF8/GitLF identities for six files; source/metadata bytes match HEAD blobs. 3 relative links resolved; git diff --check passed."
+  ],
+  "remaining_before_ready": [
+    "Exact feature whitelist and supported algorithm/schema/unit/dtype bounds; signal namespace rejection rules.",
+    "Exact request/entity/result error/status schemas and full canonical config/input/output serialization; metadata.identity_digest binds metadata, not numeric payload. Decide full payload/quality/evidence content binding.",
+    "Exact namespace/session grouping policy for a potentially mixed declared universe, typed thresholds/k/horizon bounds and immutable input snapshots.",
+    "Anchor signal-time market/knowledge/basis witness admission and mature-label join cutoff rules must be explicit, including revisions and future adjustment facts.",
+    "Numerical Float64 tolerance/domain and crossed-state/mixed-predicate truth tables in findings.",
+    "Actual published issue/PR/points/first actions and separate final-head review; Atul/Project access; EQ087 accepted EQ086 outcome."
+  ],
+  "local_links": [
+    [
+      "docs/stories/EQ-087_PLAN.md",
+      "EQ-086_PLAN.md"
+    ],
+    [
+      "docs/stories/EQ-087_PLAN.md",
+      "EQ-085_SOURCE_QUALIFICATION.json"
+    ],
+    [
+      "docs/stories/EQ-087_PLAN.md",
+      "EQ-085_RELEASE_RECEIPT.json"
+    ]
+  ],
+  "limitations": [
+    "Local automated semantic review only, not human/hosted approval, final PR head, Ready, implementation acceptance or R8 completion.",
+    "No source import/execution, benchmark, package build/installation, native/artifact replay or GitHub mutations.",
+    "EQ089 explicitly incomplete: findings identify requirements to freeze before Ready, not an assertion that the draft claims runtime completeness.",
+    "Existing source read only; future exact schemas and implementations require independent review and relevant mathematical/causal/bothOS distribution gates.",
+    "Fresh access remains blocked per earlier readback; this review does not accept publication."
+  ]
+}

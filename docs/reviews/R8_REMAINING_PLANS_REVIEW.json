@@ -1,0 +1,100 @@
+{
+  "scope": "EQ088_EQ090_EQ091_EQ092_PREPARATION_PLAN_REVIEW",
+  "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+  "date": "2026-10-14",
+  "timezone": "America/New_York",
+  "base": "da74650e03d67acc5de6f8881065518f68b1f24f",
+  "inspected_files": {
+    "docs/stories/EQ-088_PLAN.md": {
+      "git_lf_bytes": 8229,
+      "sha256": "443258da69d808ec9ee4f0901b741314c11c5516b6d975ca219f69dd7ad8b307"
+    },
+    "docs/stories/EQ-090_PLAN.md": {
+      "git_lf_bytes": 4798,
+      "sha256": "9b0e4afa21f4ee59155e008e74a776816be714f9336019a73cbd2a9c8448afe0"
+    },
+    "docs/stories/EQ-091_PLAN.md": {
+      "git_lf_bytes": 4965,
+      "sha256": "ce0141d30d7eb100c09737d89d04e1cdc65738ec6cdeba3706057b2c5d15a3c7"
+    },
+    "docs/stories/EQ-092_PLAN.md": {
+      "git_lf_bytes": 5998,
+      "sha256": "dd4d831da23ddb93726190c84e6352f131a28106c625f1b826e985a2f782718c"
+    },
+    "docs/stories/EQ-089_SCHEMA_PROPOSAL.md": {
+      "git_lf_bytes": 22588,
+      "sha256": "864bd311588e894743f2b8e0e82319d41181ccb05dec113d83a652d4ecaa2d12"
+    },
+    "docs/stories/EQ-089_CONTRACT_DRAFT.md": {
+      "git_lf_bytes": 12646,
+      "sha256": "8294cf0e924b437537b04a4125fe03a052149092d58eefcce935355ada2bdc0f"
+    },
+    "docs/stories/EQ-089_FIXTURES.json": {
+      "git_lf_bytes": 22891,
+      "sha256": "70993a1f83a97ad98667431fc40a24c966847d22e30d886ad78a970cd796f3c5"
+    }
+  },
+  "read_only_remote_sources": [
+    {
+      "repo": "equity-feature-workers",
+      "ref": "95aa9ad25e3b095a7ea523140ce0f98fcad4d531",
+      "path": "tools/build_foundation.py",
+      "git_lf_bytes": 16462,
+      "sha256": "9de657127669eeef2a4e3581b20bf55714535eb95b6839aef3763b0ef7612aba"
+    },
+    {
+      "repo": "equity-feature-io",
+      "ref": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+      "path": "packages/io-sdk/src/equity_feature_io_sdk/codec.py",
+      "git_lf_bytes": 14737,
+      "sha256": "2dbd595418cb7c5ea5231b2c32863304399453a6a7ad46dcca0be55dbdcd2dfc"
+    }
+  ],
+  "disposition": "APPROVED_LOCAL_PREPARATION_ONLY; explicit unresolved EQ088 matrix/scope gates retained",
+  "findings": [],
+  "executed_checks": [
+    "Read all four complete proposed story plans against live issue99/102/103/104 acceptance; all remain Open. No checklist, runtime or Ready acceptance inferred.",
+    "EQ088 explicitly preserves required throughput/capacity/spill/query-pruning evidence, blocks Ready on finite source/API/host-budget matrix and codec-scope reconciliation, and does not substitute its codec hypothesis or uncontrolled old samples for original acceptance.",
+    "Reviewed proposed paired five-run/six-case baseline-candidate protocol:60 raw elapsed samples, same host/installed inputs, separate diagnostics/full parity, named10percent decision rule, honest shared-host/inconclusive/no-default-change limits.",
+    "Read exact live worker builder and accepted I/O codec as source text using read-only gh contents API; worker core20c08/I/O19aa pins and existing surrogate-loop target match proposal. No source module imported or executed.",
+    "EQ090/EQ091 import/package ownership, mandatory calculation+semantic binding, full content identity, deterministic selection and label admission/error/join protocol match corrected locally reviewed EQ089 schema/fixture pins.",
+    "EQ092 installation matrix arithmetic:2OS*2packages*2forms=8 independent installations, plus two both-package consumer environments. Separate core-only/optional import independence is explicitly required; actual final supported metadata/artifacts must be frozen, not asserted delivered.",
+    "Release/lifecycle/current-main artifact/source/RECORD/sdist/publicUTF8/Atul-GitHub gates retained; eight original EQ085-092 scope distinguished from actual milestone assigned issue totals after possible governance assignment.",
+    "StrictUTF8/GitLF identities and 5 relative Markdown link targets verified; git diff --check passed."
+  ],
+  "local_links": [
+    [
+      "docs/stories/EQ-088_PLAN.md",
+      "EQ-085_ANALYSIS.md"
+    ],
+    [
+      "docs/stories/EQ-090_PLAN.md",
+      "EQ-089_SCHEMA_PROPOSAL.md"
+    ],
+    [
+      "docs/stories/EQ-090_PLAN.md",
+      "EQ-089_FIXTURES.json"
+    ],
+    [
+      "docs/stories/EQ-091_PLAN.md",
+      "EQ-089_SCHEMA_PROPOSAL.md"
+    ],
+    [
+      "docs/stories/EQ-091_PLAN.md",
+      "EQ-089_CONTRACT_DRAFT.md"
+    ]
+  ],
+  "explicit_unresolved_gates": [
+    "EQ088 concrete finite scheduling/scale/deadline/resource/spill/pruning matrix must be specified and independently reviewed before Ready. Unsupported measurement capabilities cannot be called pass; public criterion reconciliation is required.",
+    "EQ088 codec inclusion needs explicit in-story reconciliation and actual ownership/source/build dependency pins. Consequential scope/public commitments require the owner decision where applicable.",
+    "EQ090/EQ091 require accepted EQ089, final exports/build/CI/version/fixture identities and verified public Ready/pull before implementation.",
+    "EQ092 actual compatible accepted distributions and finite final artifact/installation/example/version table before Ready; cannot qualify hypothetical artifacts.",
+    "Current access/live status/ownership/numbered governance/PR publication gates remain outstanding."
+  ],
+  "limits": [
+    "Local automated semantic preparation review only; no source execution/import, install/build, numerical benchmark, artifact replay or GitHub mutation.",
+    "No performance/capacity/spill/pruning success, Ready, implementation/runtime/release acceptance or R8 completion.",
+    "Finite concrete EQ088 matrix and actual final published heads were outside this frozen proposal; relevant new details/changes require renewed review.",
+    "Read-only source retrieval is inspection, not compatibility/native/installed qualification."
+  ]
+}

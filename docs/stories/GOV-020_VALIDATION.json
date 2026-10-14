@@ -1,0 +1,54 @@
+{
+  "story": "GOV020#381",
+  "date": "2026-10-14",
+  "scope": "documentation-only R8 handoff/readiness publication",
+  "actor": "atulsrivas1",
+  "project_access": "actual Project2 readback verified",
+  "source_base": "da74650e03d67acc5de6f8881065518f68b1f24f",
+  "author_checks": {
+    "strict_utf8_and_authored_scope": "PASS for30authored files before this validation record",
+    "private_path_key_token_pattern_screen": "PASS",
+    "planning_and_scope": "134active stories/39featureIDs/eight lifecycle stages PASS",
+    "reference_cases": {
+      "session": 17,
+      "quotes": 26,
+      "history": 31,
+      "context": 26,
+      "timing": 23,
+      "total": 123
+    },
+    "imports": "PASS",
+    "release_policy": "PASS",
+    "registry": "PASS",
+    "diff_check": "Corrected full staged branch against da746 PASS; original unstaged scope limitation preserved"
+  },
+  "preserved_tool_failures": [
+    {
+      "operation": "Project readback",
+      "failure": "default cp1252 decoding of UTF8 output failed after actual Backlog mutation",
+      "correction": "explicitUTF8 and direct issue.projectItems verified exact state; no mutation repeated"
+    },
+    {
+      "operation": "broad Project list",
+      "failure": "new issue381item not returned while direct issue.projectItems returned exact item/Backlog",
+      "correction": "direct identity/status readbacks used for Ready/Inprogress"
+    },
+    {
+      "operation": "timing reference invocation",
+      "failure": "author added -I although actual workflow command has no -I; sibling verifier import failed",
+      "correction": "actual workflow command passed all23timing cases; no source change"
+    },
+    {
+      "operation": "final complete base-to-head whitespace check",
+      "failure": "reviewer found new blank line at EOF in GOV-020_PLAN.md on e97b7b9; earlier unstaged diff did not check the newly committed file",
+      "correction": "trimmed extra EOF blank line; checked entire staged branch against da746 with git diff --cached base --check before correction commit"
+    }
+  ],
+  "limitations": [
+    "Author validation, not independent review or CI.",
+    "71 EQ089 fixture requirements are not product runtime tests.",
+    "No package/build/workflow/runtime change; no new native/install/benchmark evidence claimed.",
+    "Final exact-head review and relevantCI/defaultbranch publication readback remain pending.",
+    "Original8runtime stories are separate from milestone9 governance issue."
+  ]
+}

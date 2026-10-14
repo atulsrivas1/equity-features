@@ -1,0 +1,73 @@
+{
+  "scope": "EQ089_CORRECTED_PREPARATION_DRAFT_REVIEW",
+  "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+  "date": "2026-10-14",
+  "timezone": "America/New_York",
+  "base": "da74650e03d67acc5de6f8881065518f68b1f24f",
+  "inspected_files": {
+    "docs/stories/EQ-087_PLAN.md": {
+      "git_lf_bytes": 3036,
+      "sha256": "9935a299d7ebb354a270ca46b544a4ab0da7602f0a6c0decbd27f4d893bd4400"
+    },
+    "docs/stories/EQ-089_CONTRACT_DRAFT.md": {
+      "git_lf_bytes": 12646,
+      "sha256": "8294cf0e924b437537b04a4125fe03a052149092d58eefcce935355ada2bdc0f"
+    },
+    "packages/contracts/src/equity_feature_contracts/results.py": {
+      "git_lf_bytes": 34280,
+      "sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e"
+    },
+    "packages/contracts/src/equity_feature_contracts/specs.py": {
+      "git_lf_bytes": 11303,
+      "sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3"
+    },
+    "packages/contracts/pyproject.toml": {
+      "git_lf_bytes": 692,
+      "sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1"
+    },
+    "packages/features/pyproject.toml": {
+      "git_lf_bytes": 736,
+      "sha256": "ca095c7a8a7466de390ff943c4a33f6b41852a7b844d5d2d3291abb544be56d9"
+    }
+  },
+  "previous_review": {
+    "path": "docs/reviews/R8_CONTRACT_DRAFT_REVIEW.json",
+    "sha256": "7b4c38386b8fd1c731c40fb3d643e52b01b86cc02271b7db188cc2f65d4510c9",
+    "preserved": true
+  },
+  "disposition": "APPROVED_CORRECTED_LOCAL_PREPARATION_ONLY",
+  "findings": [],
+  "resolved_findings": [
+    {
+      "id": "R8-DRAFT-001",
+      "disposition": "RESOLVED_IN_DRAFT",
+      "evidence": "Line29 specifies binary64 quotient-then-minus-one, finite output guard, typed ratio underflow guard, finite nonzero subnormal rounding and explicit fixture tolerance; line41 adds extreme-range expected failures and equal-maximum zero."
+    },
+    {
+      "id": "R8-DRAFT-002",
+      "disposition": "RESOLVED_IN_DRAFT",
+      "evidence": "Line17 requires all predicate/ranking cells and unavailable before false; line35 specifies structural validation, future horizon pending, elapsed absent endpoint incomplete, future/unknown evidence pending, admitted finite numeric evaluation. Line41 adds crossed-condition expected statuses."
+    }
+  ],
+  "executed_checks": [
+    "Read complete corrected EQ089 draft and inspected exact renewed GitLF bytes, comparing unchanged EQ087 and four contract/metadata file pins to prior review.",
+    "Assessed explicit numeric operation order/domain and tolerance disclaimers against rational formula and extreme binary64 range conceptually; no product code or numeric experiment executed.",
+    "Assessed total scanner and maturity-state precedence and corresponding independent fixture expectations; corrected classifications resolve both earlier ambiguities.",
+    "git diff --check passed. StrictUTF8 decoding and unchanged prior-review SHA verified."
+  ],
+  "remaining_before_ready": [
+    "Exact feature whitelist and supported algorithm/schema/unit/dtype bounds; signal namespace rejection rules.",
+    "Exact request/entity/result error/status schemas and full canonical config/input/output serialization; metadata.identity_digest binds metadata, not numeric payload. Decide full payload/quality/evidence content binding.",
+    "Exact namespace/session grouping policy for a potentially mixed declared universe, typed thresholds/k/horizon bounds and immutable input snapshots.",
+    "Anchor signal-time market/knowledge/basis witness admission and mature-label join cutoff rules must be explicit, including revisions and future adjustment facts.",
+    "Freeze exact independent typed fixture tables including specified extreme and crossed-condition cases.",
+    "Publish issue/PR/points/first actions with verified Atul identity/Project access; separate final-head review remains mandatory."
+  ],
+  "limits": [
+    "Local automated semantic correction review, not human/hosted review, Ready or implementation acceptance.",
+    "Other exact feature whitelist, request/entity/error/status schemas, canonical full-payload identity/serialization, grouping and signal-time anchor/basis admission details remain preparation work.",
+    "No source execution/import, native/benchmark/install/artifact requalification, GitHub mutation or lifecycle transition.",
+    "EQ087 remains conditional on accepted EQ086; unchanged pin coverage carried from original draft review.",
+    "Future changed contracts/source and actual final PR/publication require renewed independent coverage and applicable mathematical/causal/package/release gates."
+  ]
+}

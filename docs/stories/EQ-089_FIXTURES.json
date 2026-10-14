@@ -1,0 +1,850 @@
+{
+  "schema": "eq089.independent-fixture-proposal:1",
+  "status": "HAND_DERIVED_REQUIREMENTS_NOT_EXECUTED_RUNTIME_TESTS",
+  "input_rights": "Synthetic facts only",
+  "record_convention": "Decimal integer strings denote exact int64; price/float strings denote finite Float64 parsed from the stated decimal unless float_hex is given. Expected fractions are mathematical goldens, compared using stated Float64 tolerance. Unlisted case fields inherit the complete logical defaults below; unknown fields reject invalid_schema. This is a fixture specification, not the production wire format.",
+  "strategy_defaults": {
+    "namespace": "synthetic",
+    "session_id": "S0",
+    "availability": {
+      "market_cutoff_ns": "100",
+      "knowledge_cutoff_ns": "100",
+      "evaluation_ns": "100",
+      "mode": "known_at",
+      "reconstruction_reason": null
+    },
+    "core_version": "0.0.4a4",
+    "schema_version": "1",
+    "algorithm_version": "v1",
+    "math_policy_version": "v1",
+    "predicate": {
+      "feature_id": "session.trade.count",
+      "dtype": "int64",
+      "unit": "trades",
+      "operator": "ge",
+      "threshold": "2"
+    },
+    "ranking": {
+      "feature_id": "session.trade.volume",
+      "dtype": "int64",
+      "unit": "shares",
+      "direction": "descending"
+    },
+    "top_k": "2",
+    "source": {
+      "source_id": "synthetic-fixture",
+      "snapshot_id": "snapshot-1",
+      "mapping_version": "mapping-1",
+      "input_id": "input-1"
+    },
+    "quality_for_nonnull_cell": {
+      "status": "available",
+      "expected": "1",
+      "observed": "1",
+      "reasons": []
+    },
+    "quality_for_null_cell": {
+      "status": "missing_input",
+      "expected": "1",
+      "observed": "0",
+      "reasons": [
+        "absent_input"
+      ]
+    },
+    "result_config_digest_rule": "Use 64 literal zero characters as the supplied core metadata config digest; it is a fixture identity, not a claimed computed configuration hash.",
+    "core_backend": {
+      "backend_id": "synthetic-fixture",
+      "backend_version": "fixture-v1",
+      "evidence_limit": "0",
+      "evidence": []
+    },
+    "scope": "A constructor adapter in the later test suite supplies valid core InputBinding/BatchMetadata and explicit single-session entity columns; the production scanner never invents quality or provenance. No source data or product helper calculates expected scanner outcomes.",
+    "requirement_config_digest_rule": "Each FeatureRequirement explicitly expects the supplied fixture metadata.config_digest (64 zero characters); real ConfigSpec horizon tests use independently supplied actual ConfigSpec.digest bindings, not an invented expected hash.",
+    "requirement_input_semantic_digest_rule": "Compute core-input-semantics:1 over the explicitly supplied baseline InputSemantic tuple in the fixture constructor; the expected baseline binding is fixed before candidate input mutations. No production scanner computes fixture goldens."
+  },
+  "strategy_cases": [
+    {
+      "id": "scan-tie-coverage",
+      "universe": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "cells": [
+        {
+          "entity": "A",
+          "count": "2",
+          "volume": "5"
+        },
+        {
+          "entity": "B",
+          "count": "3",
+          "volume": "5"
+        },
+        {
+          "entity": "C",
+          "count": "1",
+          "volume": "9"
+        },
+        {
+          "entity": "D",
+          "count": null,
+          "volume": "8"
+        },
+        {
+          "entity": "E",
+          "count": "4",
+          "volume": "4"
+        }
+      ],
+      "expected": {
+        "row_statuses": [
+          "matching",
+          "matching",
+          "nonmatching",
+          "unavailable",
+          "matching"
+        ],
+        "ranks": [
+          "1",
+          "2",
+          null,
+          null,
+          "3"
+        ],
+        "ranked": [
+          "A",
+          "B",
+          "E"
+        ],
+        "selected": [
+          "A",
+          "B"
+        ],
+        "expected": "5",
+        "eligible": "4",
+        "matching": "3",
+        "coverage_numerator": "4",
+        "coverage_denominator": "5",
+        "readiness": "incomplete"
+      }
+    },
+    {
+      "id": "permutation",
+      "base_case": "scan-tie-coverage",
+      "change": "Reverse universe, supplied result order, column order, entity/value pair order, quality order and evidence order together without changing logical bindings.",
+      "expected": "Identical canonical strategy result bytes and request/result content digests."
+    },
+    {
+      "id": "false-plus-ranking-missing",
+      "universe": [
+        "A"
+      ],
+      "cells": [
+        {
+          "entity": "A",
+          "count": "1",
+          "volume": null
+        }
+      ],
+      "expected": {
+        "status": "unavailable",
+        "predicate_state": "fail",
+        "ranking_reason": "missing_input",
+        "eligible": "0",
+        "ranked": [],
+        "readiness": "incomplete"
+      }
+    },
+    {
+      "id": "no-predicates",
+      "predicates": [],
+      "universe": [
+        "A"
+      ],
+      "cells": [
+        {
+          "entity": "A",
+          "volume": "5"
+        }
+      ],
+      "expected": {
+        "status": "matching",
+        "ranked": [
+          "A"
+        ],
+        "selected": [
+          "A"
+        ],
+        "eligible": "1",
+        "readiness": "complete"
+      }
+    },
+    {
+      "id": "strict-boundary",
+      "operator": "gt",
+      "universe": [
+        "A"
+      ],
+      "cells": [
+        {
+          "entity": "A",
+          "count": "2",
+          "volume": "5"
+        }
+      ],
+      "expected": {
+        "status": "nonmatching",
+        "ranked": [],
+        "eligible": "1",
+        "readiness": "complete"
+      }
+    },
+    {
+      "id": "zero-k",
+      "base_case": "scan-tie-coverage",
+      "top_k": "0",
+      "expected": {
+        "ranked": [
+          "A",
+          "B",
+          "E"
+        ],
+        "selected": [],
+        "readiness": "incomplete"
+      }
+    },
+    {
+      "id": "oversized-k",
+      "base_case": "scan-tie-coverage",
+      "top_k": "9223372036854775807",
+      "expected": {
+        "selected": [
+          "A",
+          "B",
+          "E"
+        ]
+      }
+    },
+    {
+      "id": "empty",
+      "universe": [],
+      "cells": [],
+      "expected": {
+        "rows": [],
+        "ranked": [],
+        "selected": [],
+        "expected": "0",
+        "eligible": "0",
+        "matching": "0",
+        "coverage_numerator": "0",
+        "coverage_denominator": "0",
+        "readiness": "empty_universe"
+      }
+    },
+    {
+      "id": "all-missing",
+      "universe": [
+        "A"
+      ],
+      "cells": [],
+      "expected": {
+        "status": "unavailable",
+        "predicate_reason": "absent_feature",
+        "ranking_reason": "absent_feature",
+        "coverage_numerator": "0",
+        "coverage_denominator": "1",
+        "ranked": [],
+        "readiness": "incomplete"
+      }
+    },
+    {
+      "id": "exact-int-order",
+      "universe": [
+        "A",
+        "B"
+      ],
+      "cells": [
+        {
+          "entity": "A",
+          "count": "2",
+          "volume": "9007199254740992"
+        },
+        {
+          "entity": "B",
+          "count": "2",
+          "volume": "9007199254740993"
+        }
+      ],
+      "expected": {
+        "ranked": [
+          "B",
+          "A"
+        ],
+        "selected": [
+          "B",
+          "A"
+        ],
+        "readiness": "complete"
+      }
+    },
+    {
+      "id": "negative-k",
+      "top_k": "-1",
+      "expected_error": "bounds"
+    },
+    {
+      "id": "bool-k",
+      "top_k": true,
+      "expected_error": "invalid_schema"
+    },
+    {
+      "id": "duplicate-universe",
+      "universe": [
+        "A",
+        "A"
+      ],
+      "expected_error": "duplicate"
+    },
+    {
+      "id": "duplicate-cell",
+      "universe": [
+        "A"
+      ],
+      "change": "Supply the same feature/entity cell in two results, identical or conflicting.",
+      "expected_error": "duplicate"
+    },
+    {
+      "id": "outside-universe",
+      "universe": [
+        "A"
+      ],
+      "cells": [
+        {
+          "entity": "B",
+          "count": "2",
+          "volume": "5"
+        }
+      ],
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "wrong-unit",
+      "predicate_unit": "shares",
+      "expected_error": "invalid_unit"
+    },
+    {
+      "id": "wrong-version",
+      "feature_algorithm_version": "v2",
+      "expected_error": "incompatible_version"
+    },
+    {
+      "id": "future-result-cutoff",
+      "result_knowledge_cutoff_ns": "101",
+      "result_evaluation_ns": "101",
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "mixed-session",
+      "result_session_id": "S1",
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "reconstruction",
+      "availability_mode": "reconstruction",
+      "expected_error": "invalid_config"
+    },
+    {
+      "id": "label-namespace",
+      "supplied_feature_id": "label.forward_price_return",
+      "expected_error": "unsupported_feature"
+    },
+    {
+      "id": "identity-value-change",
+      "base_case": "scan-tie-coverage",
+      "change": "Change E volume from 4 to 3 without changing metadata.",
+      "expected": "Full input/request/result content digests change despite unchanged core metadata.identity_digest."
+    },
+    {
+      "id": "identity-quality-change",
+      "base_case": "scan-tie-coverage",
+      "change": "Change an admitted quality/evidence or input source revision while maintaining a valid core result.",
+      "expected": "Full input/request/result content digests change."
+    },
+    {
+      "id": "mixed-return-horizon",
+      "universe": [
+        "A",
+        "B"
+      ],
+      "change": "Require history.return/v1 with expected_result_config_digest for period1 on the common session/cutoffs. Supply valid A period1 and valid B period252 results with their actual distinct ConfigSpec digests.",
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "wrong-all-return-horizons",
+      "universe": [
+        "A"
+      ],
+      "change": "Require history.return with expected period1 config digest; supply only a valid period252 result.",
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "mixed-adjustment-basis",
+      "universe": [
+        "A",
+        "B"
+      ],
+      "change": "Pin common raw InputSemantic digest and config. Supply B with split adjustment/action snapshot/anchor, even if its result metadata config_digest incorrectly repeats the raw expected digest.",
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "different-baseline-window",
+      "change": "Require baseline.relative_volume expected config with20prior sessions; supply result with5prior sessions config digest.",
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "different-eligibility-policy",
+      "change": "Keep declared result config digest but change a supplied InputScope eligibility_policy or auction policy relative to pinned InputSemantic projection.",
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "source-revision-same-semantics",
+      "base_case": "scan-tie-coverage",
+      "change": "Change snapshot_id/input_id consistently in valid source/evidence bindings, while preserving all configured input semantics.",
+      "expected": "Admission and numeric selection unchanged; full input/request/result identities change; expected_input_semantic_digest unchanged."
+    },
+    {
+      "id": "conflicting-rule-config",
+      "change": "Two predicates reference history.return with different expected config digests.",
+      "expected_error": "invalid_config"
+    }
+  ],
+  "label_defaults": {
+    "entity": {
+      "namespace": "synthetic",
+      "instrument_id": "A",
+      "session_id": "S0"
+    },
+    "origin_signal_availability": {
+      "market_cutoff_ns": "100",
+      "knowledge_cutoff_ns": "100",
+      "evaluation_ns": "100",
+      "mode": "known_at",
+      "reconstruction_reason": null
+    },
+    "origin_anchor": {
+      "event_ns": "100",
+      "price": "100.0",
+      "known_at_ns": "100",
+      "source_revision": "origin-1"
+    },
+    "origin_basis": {
+      "basis": "raw",
+      "policy_version": "raw-v1",
+      "action_snapshot": "none",
+      "anchor_id": "none",
+      "source_revision": "origin-basis-1",
+      "effective_ns": "100",
+      "known_at_ns": "100"
+    },
+    "signal_request_digest_rule": "64 literal a characters, a synthetic binding only",
+    "signal_result_digest_rule": "64 literal b characters, a synthetic binding only",
+    "origin_anchor_digest_rule": "Compute the specified label-origin:1 digest of the supplied origin; no hardcoded invented hash.",
+    "horizon_ns": "10",
+    "availability": {
+      "market_cutoff_ns": "110",
+      "knowledge_cutoff_ns": "110",
+      "evaluation_ns": "110",
+      "mode": "known_at",
+      "reconstruction_reason": null
+    },
+    "path_source_revision": "path-1",
+    "path_basis": {
+      "basis": "raw",
+      "policy_version": "raw-v1",
+      "action_snapshot": "none",
+      "anchor_id": "none",
+      "source_revision": "path-basis-1",
+      "effective_ns": "100",
+      "known_at_ns": "100"
+    },
+    "observations": [
+      {
+        "event_ns": "100",
+        "price": "100.0",
+        "known_at_ns": "100"
+      },
+      {
+        "event_ns": "110",
+        "price": "110.0",
+        "known_at_ns": "110"
+      }
+    ],
+    "finite_output_tolerance": {
+      "relative": "1e-12",
+      "absolute": "1e-12"
+    }
+  },
+  "label_cases": [
+    {
+      "id": "positive",
+      "expected": {
+        "status": "mature",
+        "fraction": [
+          "1",
+          "10"
+        ],
+        "label_known_at_ns": "110",
+        "horizon_endpoint_ns": "110",
+        "reasons": []
+      }
+    },
+    {
+      "id": "negative",
+      "endpoint_price": "90.0",
+      "expected": {
+        "status": "mature",
+        "fraction": [
+          "-1",
+          "10"
+        ],
+        "label_known_at_ns": "110"
+      }
+    },
+    {
+      "id": "zero",
+      "endpoint_price": "100.0",
+      "expected": {
+        "status": "mature",
+        "fraction": [
+          "0",
+          "1"
+        ],
+        "label_known_at_ns": "110"
+      }
+    },
+    {
+      "id": "pending-horizon",
+      "availability": {
+        "market_cutoff_ns": "109",
+        "knowledge_cutoff_ns": "110",
+        "evaluation_ns": "110"
+      },
+      "expected": {
+        "status": "pending",
+        "reasons": [
+          "horizon_not_elapsed"
+        ],
+        "value": null,
+        "label_known_at_ns": null
+      }
+    },
+    {
+      "id": "missing-endpoint",
+      "remove_event_ns": "110",
+      "expected": {
+        "status": "incomplete",
+        "reasons": [
+          "missing_horizon_endpoint"
+        ],
+        "value": null,
+        "label_known_at_ns": null
+      }
+    },
+    {
+      "id": "missing-both",
+      "observations": [],
+      "expected": {
+        "status": "incomplete",
+        "reasons": [
+          "missing_anchor_endpoint",
+          "missing_horizon_endpoint"
+        ],
+        "value": null
+      }
+    },
+    {
+      "id": "missing-plus-future-basis",
+      "remove_event_ns": "110",
+      "path_basis_known_at_ns": "111",
+      "expected": {
+        "status": "incomplete",
+        "reasons": [
+          "missing_horizon_endpoint"
+        ]
+      }
+    },
+    {
+      "id": "future-horizon-missing-unknown",
+      "remove_event_ns": "110",
+      "path_basis_known_at_ns": null,
+      "availability": {
+        "market_cutoff_ns": "109",
+        "knowledge_cutoff_ns": "110",
+        "evaluation_ns": "110"
+      },
+      "expected": {
+        "status": "pending",
+        "reasons": [
+          "horizon_not_elapsed"
+        ]
+      }
+    },
+    {
+      "id": "future-endpoint-knowledge",
+      "endpoint_known_at_ns": "111",
+      "expected": {
+        "status": "pending",
+        "reasons": [
+          "future_knowledge"
+        ],
+        "value": null
+      }
+    },
+    {
+      "id": "unknown-plus-future-knowledge",
+      "endpoint_known_at_ns": null,
+      "path_basis_known_at_ns": "111",
+      "expected": {
+        "status": "pending",
+        "reasons": [
+          "unknown_availability",
+          "future_knowledge"
+        ],
+        "value": null
+      }
+    },
+    {
+      "id": "basis-effective-after-horizon",
+      "path_basis_effective_ns": "111",
+      "expected": {
+        "status": "pending",
+        "reasons": [
+          "basis_not_effective"
+        ],
+        "value": null
+      }
+    },
+    {
+      "id": "raw-split-movement",
+      "endpoint_price": "50.0",
+      "expected": {
+        "status": "mature",
+        "fraction": [
+          "-1",
+          "2"
+        ]
+      }
+    },
+    {
+      "id": "later-adjusted-path",
+      "path_basis": {
+        "basis": "split",
+        "policy_version": "split-v1",
+        "action_snapshot": "split-snapshot-1",
+        "anchor_id": "split-anchor-1",
+        "source_revision": "split-basis-1",
+        "effective_ns": "105",
+        "known_at_ns": "110"
+      },
+      "observations": [
+        {
+          "event_ns": "100",
+          "price": "50.0",
+          "known_at_ns": "110"
+        },
+        {
+          "event_ns": "110",
+          "price": "50.0",
+          "known_at_ns": "110"
+        }
+      ],
+      "expected": {
+        "status": "mature",
+        "fraction": [
+          "0",
+          "1"
+        ],
+        "label_known_at_ns": "110",
+        "origin_anchor_price_unchanged": "100.0",
+        "identity": "different path/request/result from raw-split-movement; same immutable origin"
+      }
+    },
+    {
+      "id": "dividend-price-only",
+      "endpoint_price": "99.0",
+      "expected": {
+        "status": "mature",
+        "fraction": [
+          "-1",
+          "100"
+        ],
+        "cash_added": false
+      }
+    },
+    {
+      "id": "future-origin",
+      "origin_anchor_known_at_ns": "101",
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "unknown-origin-basis",
+      "origin_basis_known_at_ns": null,
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "zero-price",
+      "endpoint_price": "0.0",
+      "expected_error": "bounds"
+    },
+    {
+      "id": "negative-price",
+      "endpoint_price": "-1.0",
+      "expected_error": "bounds"
+    },
+    {
+      "id": "nan-price",
+      "endpoint_price": "NaN",
+      "expected_error": "bounds"
+    },
+    {
+      "id": "infinite-price",
+      "endpoint_price": "Infinity",
+      "expected_error": "bounds"
+    },
+    {
+      "id": "duplicate-timestamp",
+      "change": "Duplicate the observation at110 exactly or with a different price.",
+      "expected_error": "duplicate"
+    },
+    {
+      "id": "endpoint-overflow",
+      "horizon_ns": "9223372036854775807",
+      "expected_error": "bounds"
+    },
+    {
+      "id": "zero-horizon",
+      "horizon_ns": "0",
+      "expected_error": "bounds"
+    },
+    {
+      "id": "basis-mismatch",
+      "change": "Change endpoint basis action_snapshot only.",
+      "expected_error": "inconsistent_identity"
+    },
+    {
+      "id": "total-return-basis",
+      "path_basis_kind": "total_return",
+      "expected_error": "unsupported_adjustment"
+    },
+    {
+      "id": "ratio-overflow",
+      "anchor_price_hex": "0x0.0000000000001p-1022",
+      "endpoint_price_hex": "0x1.fffffffffffffp+1023",
+      "expected_error": "numerical_bounds"
+    },
+    {
+      "id": "ratio-underflow",
+      "anchor_price_hex": "0x1.fffffffffffffp+1023",
+      "endpoint_price_hex": "0x0.0000000000001p-1022",
+      "expected_error": "precision_bounds"
+    },
+    {
+      "id": "equal-max",
+      "anchor_price_hex": "0x1.fffffffffffffp+1023",
+      "endpoint_price_hex": "0x1.fffffffffffffp+1023",
+      "expected": {
+        "status": "mature",
+        "fraction": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "id": "finite-subnormal-ratio",
+      "anchor_price": "1.0",
+      "endpoint_price_hex": "0x0.0000000000001p-1022",
+      "expected": {
+        "status": "mature",
+        "rounded_float_hex": "-0x1.0000000000000p+0"
+      }
+    },
+    {
+      "id": "revision",
+      "path_source_revision": "path-2",
+      "expected": "New path/request/result identities even if return unchanged; original origin identity unchanged."
+    },
+    {
+      "id": "causal-signal-invariance",
+      "change": "Keep exact strategy request/source prefix and origin fixed; replace future label path prices, later adjustment facts and label evaluations.",
+      "expected": "Strategy result canonical bytes/digest identical; label request/result may differ; label cannot be supplied as a strategy FeatureResult."
+    },
+    {
+      "id": "join-reject-future-known",
+      "mature_label_known_at_ns": "110",
+      "join_availability": {
+        "market_cutoff_ns": "110",
+        "knowledge_cutoff_ns": "109",
+        "evaluation_ns": "110"
+      },
+      "expected": "No mature label admitted to as-of join."
+    },
+    {
+      "id": "join-admit-boundary",
+      "mature_label_known_at_ns": "110",
+      "join_availability": {
+        "market_cutoff_ns": "110",
+        "knowledge_cutoff_ns": "110",
+        "evaluation_ns": "110"
+      },
+      "expected": "Mature matching-origin explicitly selected revision admitted; signal inputs remain unchanged."
+    }
+  ],
+  "identity_cases": [
+    {
+      "id": "scalar-type",
+      "expected": "int1 and Float64 1.0 encode differently; booltrue distinct from both"
+    },
+    {
+      "id": "signed-zero",
+      "expected": "Float64 +0.0/-0.0 sort tied but content encodings differ"
+    },
+    {
+      "id": "huge-int",
+      "integer": "9007199254740993",
+      "expected_wire": {
+        "int": "9007199254740993"
+      }
+    },
+    {
+      "id": "float-one",
+      "expected_wire": {
+        "float64": "0x1.0000000000000p+0"
+      }
+    },
+    {
+      "id": "domain-separation",
+      "expected": "Identical encoded bytes with different listed domain prefixes produce different tested digests; no invented precomputed SHA values."
+    },
+    {
+      "id": "unknown-record",
+      "expected_error": "invalid_schema"
+    },
+    {
+      "id": "surrogate-identity",
+      "expected_error": "invalid_schema"
+    },
+    {
+      "id": "predicate-order",
+      "expected": "Swap two distinct predicates: config/request identity changes, even if selected entities happen to agree."
+    }
+  ],
+  "limits": [
+    "No implementation tests or benchmark executed for this file.",
+    "Later test fixtures must materialize actual valid core constructors independently; do not generate expected values from the production scanner/label/codec.",
+    "Public Ready/release requires actual access, reviewed final packet, issue/PR publication and applicable lifecycle gates."
+  ]
+}
