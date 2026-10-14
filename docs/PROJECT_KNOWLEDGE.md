@@ -1,3 +1,7 @@
+## EQ092 candidate and EQ088 second failure — October 14
+
+EQ092 #104 is In progress under PR389 with a prepared chronological actual-core/watchlist/labels/as-of example and explicit fresh core-only isolation checkpoint. Source/AST only; exact review and runtime/artifact/main gates pending. EQ088 full-02 failed at the DuckDB capacity180s reference after54samples/sevenrefs, separate from the first reporter admission failure; cause unknown. Bounded diagnostic plan review809de116 approves design only, exact driver required before execution. Both incomplete populations retained without pooling or complete-performance/default-adoption claims. EQ091 is accepted maina789/review93535d21; R8 remains six of eight runtime accepted. Consult live Project and [handoff](SESSION_HANDOFF.md).
+
 ## EQ091 actual acceptance; EQ092 readiness packet — October 14
 
 Labels0.1.0a1 is accepted #103Closed/Done at actual maina789c163, with all14 final candidate and seven actual-main checks/current bothOS forms independently verified (review93535d21; acceptance comment6180032194). The [EQ092 packet](stories/EQ-092_PLAN.md) now binds those actual prerequisites and exact chronological watchlist/return/revision/as-of fixtures. It is preparation only: no92 implementation/Ready/pull yet. EQ088 full validation remains frozen/running, so six of eight runtime stories are accepted and R8 remains incomplete. Earlier source/preparation snapshots are preserved as history.

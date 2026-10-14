@@ -1,0 +1,73 @@
+{
+  "story": "EQ092#104",
+  "base": "a789c163db011d9564f8c9293b010a3c90e70bae",
+  "status": "Frozen source candidate; exact source review and runtime pending",
+  "readiness_head": "ed5011bc5c2fd49eefcb48ad95c6c49da65d2a55",
+  "readiness_review_sha256": "bdbe69ce6d5c51a1932c93742085ebc84ff5be555eebf0247e17a4d5bf706f05",
+  "conditional_packet_review_sha256": "b6efec1178e5c3364edd51dc638c1d6d18b0c387e45325dba74b990e8d7e76f1",
+  "conditional_findings": [
+    "Missing top_k/full row dispositions and explicit actual core trade/anchor facts resolved before code",
+    "Original report captured revised shared packet hash after its earlier text read; no uncaptured original hash claimed"
+  ],
+  "pull": "https://github.com/atulsrivas1/equity-features/issues/104#issuecomment-6180063335",
+  "checks": [
+    "Source AST and embedded programs parsed; git diff --check only"
+  ],
+  "not_executed": [
+    "New actual installed core-only probe and chronological example",
+    "Changed helper current bothOS fixture/typing/build/fresh forms/source/core parity",
+    "Exact final source/artifact/main acceptance",
+    "Final EQ088 and R8 aggregate gates"
+  ],
+  "fixture_goldens": {
+    "ranked_selected": [
+      "A",
+      "B"
+    ],
+    "top_k": 2,
+    "row_status": [
+      "matching",
+      "matching",
+      "unavailable"
+    ],
+    "rank": [
+      1,
+      2,
+      null
+    ],
+    "eligible_expected": [
+      2,
+      3
+    ],
+    "readiness": "incomplete",
+    "original_returns": {
+      "A": [
+        1,
+        10
+      ],
+      "B": [
+        -1,
+        10
+      ]
+    },
+    "revised_adjusted_A_return": [
+      1,
+      5
+    ],
+    "original_known_at_ns": 110,
+    "revised_adjusted_known_at_ns": 120,
+    "endpoint_ns": 110
+  },
+  "environment_counts_per_os": {
+    "component_forms": 4,
+    "consumer_forms": 2,
+    "core_only_checkpoints_within_consumer_forms": 2
+  },
+  "limits": [
+    "No package source/version/required dependency or math change",
+    "No alpha/order/portfolio/provider/stable registry claims",
+    "EQ088 failed54samples/sevenrefs not pooled with earlier failed54/preflight",
+    "Temporary WIP is frozen92source/hosted qualification plus focused88triage; one native operation at a time",
+    "Final R8 aggregate blocked on actual EQ088 acceptance"
+  ]
+}
