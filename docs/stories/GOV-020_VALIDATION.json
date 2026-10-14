@@ -20,7 +20,7 @@
     "imports": "PASS",
     "release_policy": "PASS",
     "registry": "PASS",
-    "diff_check": "PASS"
+    "diff_check": "Corrected full staged branch against da746 PASS; original unstaged scope limitation preserved"
   },
   "preserved_tool_failures": [
     {
@@ -37,6 +37,11 @@
       "operation": "timing reference invocation",
       "failure": "author added -I although actual workflow command has no -I; sibling verifier import failed",
       "correction": "actual workflow command passed all23timing cases; no source change"
+    },
+    {
+      "operation": "final complete base-to-head whitespace check",
+      "failure": "reviewer found new blank line at EOF in GOV-020_PLAN.md on e97b7b9; earlier unstaged diff did not check the newly committed file",
+      "correction": "trimmed extra EOF blank line; checked entire staged branch against da746 with git diff --cached base --check before correction commit"
     }
   ],
   "limitations": [

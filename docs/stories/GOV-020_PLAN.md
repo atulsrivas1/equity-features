@@ -25,4 +25,3 @@ Existing separate local preparation reviews are linked in the draft; final exact
 Declared channel: reviewed documentation on default branch. Milestone9 assignment adds one governance issue to the original eight runtime stories: final assigned-issue count is9 if no further assignments change, with8originalruntime+1governance reported separately. Original R8 scope remains exactly EQ085–092; zeroopen and all accepted original stories are mandatory.
 
 Lifecycle: Backlog -> Ready -> In progress -> Code review -> Test -> Ready to release -> Released -> Done with actual evidence. No implementation is started by this issue. Next runtime story after accepted handoff is #97 with its explicit documented no-change alternative.
-
