@@ -1,3 +1,7 @@
+## EQ084: operational evidence requires actual replay and scoped cleanup
+
+A separate fresh-root replay confirmed all seven drills and complete original-state/golden/backup ledgers. Four fresh environments per run share one Windows host/interpreter/cache: report that limit. Planned process exit73 is not graceful scheduler close; retain UNKNOWN and require the specific owned-process/job/handle witnesses before recovery. Backups preserve immutable export/config bytes, not live volatile IDs; recompute explicitly after restore. Source review found cleanup and staged-lane coverage gaps before operations; preserve REWORK and renew coverage after correction. See ../stories/EQ-084_ACTUAL_OPERATIONS_EVIDENCE.json and ../stories/EQ-084_RUNBOOK.md.
+
 ## EQ083 actual-main acceptance preserves failure identity
 
 Current green source and artifact evidence does not erase failed source candidates or earlier native/setup runs. Review full fresh wheel/sdist light/native forms on each OS, exact server ZIP and original archive/installed identities, then freeze the genuinely qualified implementation heads. Additive delivery metadata needs source/input equivalence and public readback; it does not trigger a self-referential receipt regeneration loop. Cooperative callback/process cleanup remains separate from whole-platform enforcement owned by SEC374. See [EQ083 acceptance](../stories/EQ-083_ACCEPTANCE.md).
