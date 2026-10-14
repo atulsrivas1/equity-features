@@ -383,7 +383,7 @@
     "capacity_nominal_sampler_interval_ns": 25000000,
     "other_pipeline_child_seconds": 180,
     "other_nominal_sampler_interval_ns": 10000000,
-    "status": "Both fresh capacity preflights completed under360s/25ms; separate actual evidence review pending before full experiment",
+    "status": "Both capacity preflights independently verified; one fresh full03 executing at frozen4023/protocol6fc; no full acceptance claimed",
     "preconditions": [
       "Exact changed source/protocol review",
       "Two fresh both-sink capacity preflights with complete closure and parity/goldens",
@@ -507,6 +507,21 @@
       "Coarser sampling can miss peaks; short children have fewer observations",
       "Observed cleanup cannot prove absence of unobserved descendants",
       "Failure cleanup is not independently established without returned memory identities"
+    ],
+    "evidence_review_sha256": "af02601bee081bfb48e06ef994c3c317904c2280bba9188dddfd09932687c489",
+    "evidence_disposition": "Separate local automated reviewer verified both actual preflights and docs696, no findings; approved one fresh complete full03 only",
+    "public_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6180573172"
+  },
+  "revision4_full": {
+    "head": "4023b86d28e5f63ae652a0255e133db8463902b5",
+    "protocol_head": "6fc6dc66a45b3d5915996abf3d92d3a0f3d4cc04",
+    "status": "running, no outcome claimed",
+    "preflight_evidence_review_sha256": "af02601bee081bfb48e06ef994c3c317904c2280bba9188dddfd09932687c489",
+    "scope": "New full03 roots;8references/72samples/6sorts/18queries; no pooling prior failed populations/preflights",
+    "limits": [
+      "No additional local product/test/build/native load while timings run",
+      "Ordinary background/OS cache/thermal state uncontrolled",
+      "Current changed-input artifacts/final interpretation/source/main acceptance remain required"
     ]
   }
 }
