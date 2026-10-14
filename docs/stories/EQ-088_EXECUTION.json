@@ -321,5 +321,36 @@
       "Parquet-only capacity preflight did not qualify DuckDB deadline"
     ],
     "next": "Separate reviewed one-child same-deadline private stack diagnostic with complete source/input/installed archive closure and prelaunch journal; no native invocation yet"
+  },
+  "timeout_stack_diagnostic": {
+    "report_sha256": "46c343be2f95bc6957acad2ceb53f970dd8b4d829269a49a55acab087e003b8a",
+    "driver_sha256": "46fe5a712d714b8b8dd61207892edab4f9effe5114a26da75aa6a34a42945728",
+    "design_review_sha256": "809de11654286de6fbdc85dc25992da5ac9369e60b1d988b6c2a7e2b98b42485",
+    "original_driver_review_sha256": "8c3a64c9444b3702324b84cc217509125132914456db9d9b1c0136245695dd26",
+    "original_driver_finding": "Tuple-as-mapping cleanup observer fixed before invocation; originalfc3 preserved",
+    "corrected_source_review_sha256": "dba1346658df9ded7327c39b8eb50153878c148d19d23335020262cb6793019d",
+    "worker_head": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "child_exit_code": 3221225477,
+    "owned_call_wall_ns": 154953000000,
+    "deadline_seconds": 180,
+    "traceback_after_seconds": 150,
+    "stack_file": {
+      "bytes": 182,
+      "present": true,
+      "sha256": "d9abd2ac46b46ed18b67b195fe7debebb0d9ffbed99f7618efd11409d76b5159"
+    },
+    "source_unchanged": true,
+    "installed_unchanged": true,
+    "input_unchanged": true,
+    "original_popen_exit_code": 3221225477,
+    "all_observed_identities_gone": true,
+    "result": "Native child exit0xC0000005; one150s private truncated182byte stack shows json.dumps but no caller stage; cause unestablished",
+    "limits": [
+      "Diagnostic parentexit0 is evidence-collection completion, not child success",
+      "No cause attributed to faulthandler, JSON, DuckDB or runtime",
+      "Observed identity cleanup does not prove absence of unobserved descendants",
+      "No fullrerun, changed settings, timeout widening, pooling or acceptance"
+    ],
+    "next": "Independent evidence review; propose one same-deadline exact-code selected phase-line observer without native watchdog, then exact source review before any invocation"
   }
 }
