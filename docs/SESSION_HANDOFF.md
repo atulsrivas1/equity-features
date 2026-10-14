@@ -1,3 +1,7 @@
+## EQ090 source-closure shadowing correction — October14
+
+Renewed bb6cb90 source reviewddc36c54 confirmed closed snapshots/originalfinding resolved and historicalUTF8 restoration, but found newP2: the source-closure variable paths was rebound to an artifact dict, so final closure would fail unconditionally. Corrected to immutable source_paths tuple and separate artifact_paths mapping; targeted final source review pending before invocation. No qualification or product execution occurred; original findings retained in validation ledger. EQ088 remains frozen/running.
+
 ## EQ090 source-review correction pending renewed coverage — October14
 
 Exact664db8a review04181b93 found oneP2: the builder hashed trackedfiles but copied live package trees, so untracked sources could enter artifacts without Git binding. No additional algorithm defect found by source inspection; no runtime/import/build/mypy executed. Corrected candidate now constructs package and executed test/example snapshots only from committed Git bytes, rejects scoped source status/head/roster changes and compares complete materialized byte maps before/after. Core installed payloads also compare every module file against the selected archives. Renew exact corrected source review before new qualification push. Original finding/report retained; source-only checks do not establish runtime acceptance. EQ088 remains immutable running/noextra localbuild/test.

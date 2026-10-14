@@ -73,5 +73,14 @@
       }
     ],
     "limits": "Source/AST only, no runtime approval"
+  },
+  "renewed_source_review": {
+    "head": "bb6cb90b728094fcfd818c74067725dc07a7b7fc",
+    "reviewer": "/root/r8_preparation_review",
+    "sha256": "ddc36c549ea042b917e34e41e8b98f2090d7546e890dc858e5f05737cb8e0bfc",
+    "finding": "P2 source closure captured paths later rebound to artifact dict",
+    "disposition": "Frozen source_paths tuple and separate artifact_paths mapping; targeted renewed review pending",
+    "original_finding": "Committed snapshots addressed; historical UTF8 restoration verified",
+    "executed": "Source/AST only; no product import/test/build/mypy/native"
   }
 }

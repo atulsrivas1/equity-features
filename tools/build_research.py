@@ -204,12 +204,12 @@ def main():
         'tools/build_research.py', '.github/workflows/research.yml', 'requirements-dev.txt',
         'docs/stories/EQ-089_FIXTURES.json']
     head = report['source_commit']
-    paths = subprocess.check_output(['git', 'ls-files', '--', *scopes], cwd=ROOT, encoding='utf-8').splitlines()
-    assert paths
+    source_paths = tuple(subprocess.check_output(['git', 'ls-files', '--', *scopes], cwd=ROOT, encoding='utf-8').splitlines())
+    assert source_paths
     # Artifacts AND executed test/example inputs come only from this closed Git snapshot.
     # No recursive live-directory copy can smuggle untracked or ignored files into the build.
     snapshot, materialization = {}, {}
-    for relative in paths:
+    for relative in source_paths:
         committed = subprocess.check_output(['git', 'show', head + ':' + relative], cwd=ROOT)
         materialized = (ROOT / relative).read_bytes()
         assert materialized == committed or materialized.replace(b'\r\n', b'\n') == committed, 'uncommitted qualification bytes'
@@ -219,7 +219,7 @@ def main():
             'materialization': 'exact' if materialized == committed else 'CRLF-only', 'built_from': 'committed-Git-bytes'}
     def source_closure():
         assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, encoding='utf-8').strip() == head
-        assert subprocess.check_output(['git', 'ls-files', '--', *scopes], cwd=ROOT, encoding='utf-8').splitlines() == paths
+        assert tuple(subprocess.check_output(['git', 'ls-files', '--', *scopes], cwd=ROOT, encoding='utf-8').splitlines()) == source_paths
         assert not subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all', '--', *scopes], cwd=ROOT), 'qualification source changed'
         assert all((ROOT / name).read_bytes() == body for name, body in materialization.items()), 'materialized source changed'
     source_closure()
@@ -265,23 +265,23 @@ def main():
         report['repeat_archive_parity'] = True; save()
         for form in ('wheel', 'sdist'):
             suffix = '.whl' if form == 'wheel' else '.tar.gz'
-            paths = {name: next(OUT.glob(module + '-*' + suffix)) for name, (module, _) in PACKAGES.items()}
+            artifact_paths = {name: next(OUT.glob(module + '-*' + suffix)) for name, (module, _) in PACKAGES.items()}
             isolated = temp / ('isolated-' + form)
-            py = install([paths['contracts']], isolated)
+            py = install([artifact_paths['contracts']], isolated)
             before = fingerprint(py, ['equity_feature_contracts'])
-            installed_core_maps(before, {'contracts': paths['contracts']})
-            run(py, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', paths['strategies'])
+            installed_core_maps(before, {'contracts': artifact_paths['contracts']})
+            run(py, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', artifact_paths['strategies'])
             run(py, '-m', 'pip', 'check')
-            installed = installed_strategy(py, paths['strategies'])
+            installed = installed_strategy(py, artifact_paths['strategies'])
             run(py, '-I', '-m', 'unittest', 'discover', '-s', verification / 'tests/research')
             after = fingerprint(py, ['equity_feature_contracts'])
             assert before == after, 'strategy install/execution changed contracts'
             # A distinct consumer environment explicitly installs features; strategy-only isolation stays meaningful.
             consumer = temp / ('consumer-' + form)
-            cpy = install([paths['contracts'], paths['features']], consumer)
+            cpy = install([artifact_paths['contracts'], artifact_paths['features']], consumer)
             core_before = fingerprint(cpy, ['equity_feature_contracts', 'equity_features'])
-            installed_core_maps(core_before, {'contracts': paths['contracts'], 'features': paths['features']})
-            run(cpy, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', paths['strategies'])
+            installed_core_maps(core_before, {'contracts': artifact_paths['contracts'], 'features': artifact_paths['features']})
+            run(cpy, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', artifact_paths['strategies'])
             run(cpy, '-I', verification / 'examples/research_scanner.py')
             assert core_before == fingerprint(cpy, ['equity_feature_contracts', 'equity_features'])
             report['installed'].append({'form': form, 'strategy_source': installed, 'contracts_before_after': before,
