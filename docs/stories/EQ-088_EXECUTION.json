@@ -87,6 +87,33 @@
       "max_bytes": 4194304
     },
     "reserved_capacity_bytes": 3801600,
-    "status": "SOURCE_PREPARED_NOT_EXECUTED_PENDING_REVIEW"
+    "status": "SEPARATELY_REVIEWED_PURE7_AND_CAPACITY_PREFLIGHT_PASSED",
+    "source_review_sha256": "8c0bc80ec3afbfcf2e7d2ea3149356a331b00a6c16b29f3c0e8f704681379d94"
+  },
+  "capacity_preflight": {
+    "source": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "report_sha256": "0270e086600dbda23269825c4cf6c71cd2ba4a1efed9460b2b946748109b7e31",
+    "status": "completed-preflight-not-acceptance",
+    "tasks": 64,
+    "rows": 16384,
+    "reporter_attempts": 256,
+    "reporter_reserved_bytes": 3801600,
+    "all_parity_and_goldens": true,
+    "source_input_installed_closure": true,
+    "review_sha256": "be59674ceb31348dbe6b274243bcaee906c207694e5cd8d1e9e3dbbc9324eacf",
+    "limits": "Observed RSS exceeds logical128MiB reservation; no hard RSS guarantee. Not pooled into full comparison."
+  },
+  "new_full_attempt": {
+    "source": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "protocol_revision": 3,
+    "status": "STARTED_NOT_COMPLETE_NOT_ACCEPTED",
+    "planned_references": 8,
+    "planned_samples": 72,
+    "planned_sorts": 6,
+    "planned_layout_queries": 18,
+    "new_owned_roots": true,
+    "no_partial_or_preflight_pooling": true,
+    "public_start_evidence": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6179327194",
+    "local_build_test_load_ended_before_start": true
   }
 }
