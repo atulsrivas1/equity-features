@@ -1,3 +1,7 @@
+## Qualification evidence and remaining release gate — October14
+
+Exact81404f5 has all14 hosted candidate checks Success and completed local repeat sixarchive/fresh wheel+sdist qualification. Both forms execute10test methods covering the30published strategy requirements plus applicable8identity requirements, positive/negative installed typing and the real core-producer example. Full installed/archive/RECORD/source parity and before/after core fingerprints passed. Current hosted research artifacts are in [PUSH run38642365763](https://github.com/atulsrivas1/equity-features/actions/runs/38642365763), with30day retention; exact hashes/entry rosters are in [validation](../stories/EQ-090_VALIDATION.json). This is candidate qualification; independent final artifact/head review, the additional explicit mixed-entity regression and actual current-main publication/release remain before acceptance. Earlier source-only status below preserves the preparation sequence.
+
 # Pure scanners over supplied features
 
 EQ090#102 implementation candidate, experimental strategies0.1.0a1. Source review, runtime tests and fresh Windows/Linux artifacts remain pending; this is not release acceptance. The [accepted EQ089 contract](STRATEGY_LABEL_CONTRACTS.md) defines exact mathematics, fields, normalization and errors. Labels remain a separate future distribution.

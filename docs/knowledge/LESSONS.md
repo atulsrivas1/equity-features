@@ -1,3 +1,7 @@
+## EQ090 real optional-install and identity evidence
+
+Actual814 source passed repeat sixarchives and fresh wheel/sdist tenmethod fixtures, positive/negative installed typing, strategy-only importdenial, separate actualcoreproducer projection and complete core-before/after/archive payload parity. BothOS hosted checks passed; finalcurrenthead/main acceptance remain required. Keep method counts distinct from30strategy/8identity requirements and preserve original71proposal requirements for laterlabels. Added explicit goodA+badB semantic-admission regression makes the mixed-entity requirement direct, including unavailablebadB; its final review/execution is still pending. [Validation](../stories/EQ-090_VALIDATION.json) retains old failedattempts and exact scopes rather than relabeling a changed test head already qualified.
+
 ## EQ090 alias guards and installed typing need actual evidence
 
 Separate acfba7b review7a02fc19 found that rejecting direct access names does not reject aliased forbidden imported members; the research guard now checks original imported names and has aliased load/dump adversaries. py.typed parity is not actual consumer typing: fresh wheel/sdist environments now specify positive/negative strictmypy probes with pinned devtools, no runtime dependency expansion. Source corrections are unqualified until actual execution; see [ledger](../stories/EQ-090_VALIDATION.json).

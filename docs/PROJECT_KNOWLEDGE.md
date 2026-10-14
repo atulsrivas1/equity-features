@@ -1,3 +1,7 @@
+## EQ090 actual candidate qualification; R8 still incomplete — October14
+
+Strategies source81404f5 now has14hosted green checks plus local complete freshbothforms qualification; [ledger](stories/EQ-090_VALIDATION.json) pins actualbothOS artifacts and prior failures. Final stronger mixed-entity test/documentation head is under preparation; finalreview/currentCI/main release pending,102CodeReview. EQ088915f093 recorder-only caller correction/protocolrev3 sourceapproved/pure7passed; onecapacitypreflight running, fullcomparisonfailed54neverpooled. Originalruntime accepted4of8; labels103/aggregate104 unimplemented. CurrentProject remainsauthority.
+
 ## EQ090 source candidate after accepted EQ089 — October14
 
 EQ089101 accepted60f8f698; current runtime acceptance4of8. EQ090102 actually In progress at [pull evidence](https://github.com/atulsrivas1/equity-features/issues/102#issuecomment-6178666758). Optional strategy source/tests/example/builder/workflow are being prepared, without execution/review/release claim. See [scanner guide](research/SCANNERS.md) and [ledger](stories/EQ-090_VALIDATION.json). EQ088 remains frozen formalTest at workerdb7; no additional local tests/native/build during measurements. EQ091/092 remain unimplemented; original R8 incomplete.

@@ -187,6 +187,10 @@ class ScannerGoldens(unittest.TestCase):
         for metadata in changes:
             for scalar in (2, None):
                 self.error('inconsistent_identity', lambda: request(results=[result({C: [('A', scalar)]}, metadata=metadata)]))
+                # A valid raw entity cannot mask a later entity's incompatible basis/policy.
+                good = result({C: [('A', 2)]})
+                bad = result({C: [('B', scalar)]}, metadata=metadata)
+                self.error('inconsistent_identity', lambda: request(('A', 'B'), [good, bad]))
 
     def test_all_operators_float_thresholds_and_ascending_ties(self):
         feature = 'session.price.open_close_return'

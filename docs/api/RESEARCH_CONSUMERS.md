@@ -1,3 +1,7 @@
+## Implemented scanner candidate with actual qualification — October14
+
+`equity_feature_strategies` now implements the frozen target API below. Exact81404f5 passed all14 hosted checks and fresh local wheel/sdist fixtures/installed typing/actual-core-producer/core-parity qualification. The optional package requires contracts0.0.4a4 only. Final changed-head/artifact review, strengthened explicit mixed-entity regression and actual current-main release acceptance remain pending. Labels remain unimplemented. [Scanner guide](../research/SCANNERS.md) and [exact ledger](../stories/EQ-090_VALIDATION.json) distinguish actual evidence from historical contract/source-only preparation.
+
 ## EQ090 scanner implementation candidate — October14
 
 `packages/strategies` now contains the scanner target below, with exact exports and immutable owned records. This branch is an unqualified implementation candidate: independent source review, meaningful execution, fresh Windows/Linux wheel/sdist artifacts and default-branch release gates remain pending. The label target is still unimplemented. See [scanner guide](../research/SCANNERS.md), [synthetic producer example](../../examples/research_scanner.py) and [validation ledger](../stories/EQ-090_VALIDATION.json). Earlier contract-only status below describes EQ089 delivery.
