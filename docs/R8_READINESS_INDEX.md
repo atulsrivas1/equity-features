@@ -1,3 +1,7 @@
+## Current research contract navigation — October14
+
+[EQ089 implementation plan](stories/EQ-089_PLAN.md), [normative contract candidate](research/STRATEGY_LABEL_CONTRACTS.md), [API definition](api/RESEARCH_CONSUMERS.md) and [decision](decisions/R8_RESEARCH_CONTRACTS.md) now accompany draftPR386/issue101. Original proposals/reviews/71requirements below remain preserved input evidence, not delivered runtime tests. Current status/access/WIP comes from live Project and SESSION_HANDOFF.md: EQ088 frozenmeasurement inTest and independent EQ089 documentation under explicitWIPexception. No workerinput mutation or extra native/build activity whiletimingsrun.
+
 ## Current execution gate — October14,2026
 
 The owner requested the listed restoration/delivery steps. The existing local atulsrivas1 login was selected and actual gh API identity plus Project2 access verified. No new credential, sign-in or scope refresh was needed. This supersedes earlier pending-access snapshots for this session; it grants no general account administration. Owner-authorized local R8 review remains in effect. [GOV020#381](https://github.com/atulsrivas1/equity-features/issues/381) is assigned milestone9 and directly verified In progress after Ready. Its final exact-head review/CI/defaultbranch acceptance are pending; no remaining runtime story is Ready or implemented. Milestone9 now has eight original runtime stories plus one governance issue; report the actual nine-issue total separately from eight-runtime-story acceptance.

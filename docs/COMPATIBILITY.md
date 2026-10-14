@@ -1,3 +1,7 @@
+## R8 research contract targets
+
+[EQ089 v1](research/STRATEGY_LABEL_CONTRACTS.md) specifies two independently optional pure distributions, strategies/labels0.1.0a1 with contracts==0.0.4a4 and Python>=3.12,<3.13. No required features/columnar/each-other dependency; core imports remain unchanged. These are implementation targets, not qualified distribution/platform claims. EQ090/EQ091 and EQ092 retain real Windows/Linux wheel/sdist/version/import/source-map gates; unchanged existing compatibility facts follow.
+
 ## R8 optional accelerator outcome
 
 [EQ087 packaging decision](decisions/R8_ACCELERATOR_PACKAGING.md) follows accepted EQ086: no new calculator accelerator wheel/ABI/backend selector/fallback or thread policy. Core pair0.0.4a4 and existing optional columnar extra/definitions/version bounds remain unchanged; existing NumPy/PyArrow binaries are not a newly delivered EQ086 accelerator. No install command, platform support or example/API behavior changes. This documentation does not qualify new strategy/label distributions or claim a fresh native build/install/speedup.

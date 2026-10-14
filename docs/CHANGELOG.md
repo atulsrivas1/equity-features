@@ -1,3 +1,7 @@
+## EQ089 research contract definition — implementation pending
+
+Defines exact pure scanner/ranking/watchlist and forward price-return label contracts: five-feature whitelist, mandatory config/input-semantic comparability, unavailable-first coverage, exact stable ordering, original signal versus later label path/basis/maturity, numerical guards and full closed content identities. Preserves71hand-derived requirements and previous review corrections. Two independently optional package targets require only contracts0.0.4a4; core/I-O/workers/math/API/build/runtime/defaults unchanged. Documentation-only delivery; no new module/distribution/install/performance or executed71runtime-test claim. Implementation/actual qualification remain EQ090–092.
+
 EQ087#98: selected the explicit no-new-accelerator packaging outcome after accepted EQ086; unchanged core0.0.4a4 metadata, optional columnar dependencies, fallback/API/platform/thread definitions and install commands. No new binary/ABI/extra/backend selector, package version or runtime change; applicable review/publication acceptance pending.
 
 EQ086#97: documented evidence-backed no-native-change decision for accepted EQ085 workloads, preserving formulas/state/API/versions/dependencies/worker defaults. No Rust backend, new native artifact, benchmark, speedup or runtime change. EQ087 follows the no-new-accelerator outcome; EQ088 is separately measured. Exact-head review/publication acceptance remains required.

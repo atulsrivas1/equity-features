@@ -1,3 +1,7 @@
+## EQ089 adopted design binds semantic comparability and complete content
+
+[Contract](../research/STRATEGY_LABEL_CONTRACTS.md), [decision](../decisions/R8_RESEARCH_CONTRACTS.md), [reviewed input packet](../stories/EQ-089_PLAN.md) preserve original numeric/state/config-semantic findings and resolutions. A feature ID/unit/version match does not make mixed horizons/baselines/bases comparable; mandatory calculation/input-semantic digests must agree on required cells. Metadata-only hashes cannot replace value/quality/evidence/revision content. Assess all required cells before false/unavailable precedence, and keep original signal admission separate from future label knowledge.71fixtures remain requirements until implemented/tested; exact docs review/actual-main gates precede contract acceptance. No runtime proof from a design review.
+
 ## EQ087: packaging must follow the actual accelerator decision
 
 [No-new-accelerator outcome](../decisions/R8_ACCELERATOR_PACKAGING.md) follows accepted EQ086 rather than inventing native wheels or a fallback selector for an unselected kernel. Keep existing optional NumPy/PyArrow metadata distinct from a new accelerator; profiling thread1 is not a universal runtime policy. Metadata/source inspection and unchanged-code CI do not become a fresh wheel/install benchmark claim. Reassess supported ABI/platform/license/thread/fallback and exact fresh forms only if an actual accelerator is later selected; actual strategy/label distributions still need EQ092.
