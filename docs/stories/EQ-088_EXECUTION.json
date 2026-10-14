@@ -23,12 +23,32 @@
       "small_pipeline_samples_completed": 2,
       "completed_diagnostics": 0,
       "error": "InternalException unique_ptrNULL at profiled sort fetchmany; cause unconfirmed"
+    },
+    {
+      "head": "db7d34aaaedbd1fb63b1fc5375520ee102593a3a",
+      "status": "completed-protocol-not-automatic-acceptance",
+      "bytes": 145529,
+      "sha256": "8f51bf35d7faa1aeac10a87aaccf2e8d0b2ea0a84a06196a18fe6e161bf99436",
+      "references_completed": 2,
+      "small_pipeline_samples_completed": 2,
+      "completed_diagnostics": 4,
+      "limitation": "smoke-only; sink profiling unsupported; full performance/spill/capacity not yet executed"
     }
   ],
   "source_reviews": {
     "initial": "00c3daef02aad7460586ddcc11aadfd2210b650fa734531a6c2ef8c2eadfb1e4",
     "corrected": "8d67639375b00360ccf2e2d698fd6536bee70d77ce2d8f799cb4a20062acfe1e",
     "profiling_order": "0dcf73cd16986f2feeff5ceaccc359232a3bed71085cf51ec59704d76446d11b",
-    "capability_plan": "77a723a11ff71395f367f936515b596c275721a1bb203469aa57d005d1291292"
+    "capability_plan": "77a723a11ff71395f367f936515b596c275721a1bb203469aa57d005d1291292",
+    "capability_source": "05fe69ff63aca2f498ebc96d735d72df078e0176e2fbf3d4ec3bfc16abf397bd",
+    "sink_profile_correction": "cd284003d5a926ce3a36d6eba09d17f1de5fcdced2193f6e7ee12335b32f876a"
+  },
+  "capability": {
+    "head": "a88b43f7ab7047849e2278d94b0f59fce9415861",
+    "sha256": "03c4bc1b94550ae657819457f4e78383608aea7c02b3e18cbe213313818efce5",
+    "controls": 6,
+    "correct_results": 4,
+    "profiled_sink_internal_errors": 2,
+    "individual_setting_root_cause": "unproven"
   }
 }
