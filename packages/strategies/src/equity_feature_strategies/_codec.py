@@ -62,7 +62,7 @@ def _fields(value: object) -> dict[str, object]:
             if type(field) is str:
                 m.label(field)
     if type(value) is r.FeatureColumn:
-        column = cast(r.FeatureColumn, value)
+        column = value
         m.require(column.feature_id in m.FEATURES, 'unsupported_feature')
         m.version(column.schema_version, '1'); m.version(column.algorithm_version, 'v1')
         m.require(type(column.dtype) is r.ValueType and (column.dtype, column.unit) == m.FEATURES[column.feature_id], 'invalid_unit')
@@ -70,29 +70,29 @@ def _fields(value: object) -> dict[str, object]:
         fields['entities'] = tuple(pair[0] for pair in pairs)
         fields['values'] = tuple(pair[1] for pair in pairs)
     elif type(value) is r.QualityRow:
-        fields['reasons'] = tuple(sorted(cast(r.QualityRow, value).reasons, key=lambda reason: reason.value))
+        fields['reasons'] = tuple(sorted(value.reasons, key=lambda reason: reason.value))
     elif type(value) is r.ResultMetadata:
-        metadata = cast(r.ResultMetadata, value)
+        metadata = value
         m.version(metadata.schema_version, '1'); m.version(metadata.math_policy_version, 'v1')
         fields['inputs'] = tuple(sorted(metadata.inputs, key=lambda binding: binding.role))
     elif type(value) is r.InputBinding:
-        m.version(cast(r.InputBinding, value).schema_version, '1')
+        m.version(value.schema_version, '1')
     elif type(value) is i.BatchMetadata:
-        fields['interval_coverage'] = tuple(sorted(cast(i.BatchMetadata, value).interval_coverage, key=lambda row: row.name))
+        fields['interval_coverage'] = tuple(sorted(value.interval_coverage, key=lambda row: row.name))
     elif type(value) is s.AvailabilitySpec:
-        availability = cast(s.AvailabilitySpec, value)
+        availability = value
         m.require(availability.mode == 'known_at' and availability.reconstruction_reason is None, 'inconsistent_identity')
     elif type(value) is r.FeatureResult:
-        result = cast(r.FeatureResult, value)
+        result = value
         fields['values'] = tuple(sorted(result.values, key=lambda column: column.feature_id))
         fields['quality'] = tuple(sorted(result.quality, key=lambda row: (_entity(row.entity), row.feature_id)))
         fields['evidence'] = tuple(sorted(result.evidence, key=lambda row: _json(_encoded(row, set()))))
     elif type(value) is m.StrategyRequest:
-        request = cast(m.StrategyRequest, value)
+        request = value
         fields['universe'] = tuple(sorted(request.universe))
         fields['feature_results'] = tuple(sorted(request.feature_results, key=feature_result_digest))
     elif type(value) is m.StrategyResult:
-        output = cast(m.StrategyResult, value)
+        output = value
         fields['rows'] = tuple(sorted(output.rows, key=lambda row: row.entity))
         fields['input_content_digests'] = tuple(sorted(output.input_content_digests))
     return fields

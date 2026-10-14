@@ -1,3 +1,7 @@
+## EQ090 actual hosted typing and package-boundary failures
+
+Source inspection approval is not execution evidence. First hosted0dcc qualification stopped at strict typing on bothOS and the existing fail-closed package allowlist. Preserve those actual failures in [validation](../stories/EQ-090_VALIDATION.json). New pure package admission requires an explicit research policy for dependencies/imports/accesses and adversarial fixtures; merely adding its folder to the core allowlist would leave its source unchecked. Keep the core/backend policy unchanged and review any narrow closed-codec field-lookup exception before qualification. Source corrections remain unqualified until new actual tests/artifacts pass.
+
 ## EQ090 committed artifact closure correction
 
 Separate exact664db8a source review04181b93 found a concreteP2 provenance gap: hashing tracked files does not bind a later recursive live-directory copy. The corrected research builder creates a closed committed snapshot for package and executed fixture/example payloads, with start/end head, tracked roster, scoped clean status and actual materialization checks. Complete installed core payloads compare against selected archive sources. Original finding is preserved in [validation](../stories/EQ-090_VALIDATION.json); renewed source review and actual qualification remain pending.

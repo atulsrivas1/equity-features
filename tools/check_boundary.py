@@ -122,10 +122,41 @@ def violations(source):
     return sorted(set(found))
 
 
+def research_violations(source, *, codec=False):
+    """Separate stdlib/contracts-only policy; existing core/backend policy is unchanged."""
+    tree=ast.parse(source)
+    parents={child:node for node in ast.walk(tree) for child in ast.iter_child_nodes(node)}
+    allowed={'__future__','dataclasses','enum','typing','math','json','hashlib','re','operator','equity_feature_contracts'}
+    found=[]
+    def closed_field_lookup(node):
+        if not codec or not isinstance(node,ast.Call) or not isinstance(node.func,ast.Name) or node.func.id!='getattr':return False
+        if node.keywords or len(node.args)!=2 or not all(isinstance(a,ast.Name) for a in node.args):return False
+        if [a.id for a in node.args]!=['value','name']:return False
+        parent=parents.get(node)
+        while parent is not None and not isinstance(parent,ast.FunctionDef):parent=parents.get(parent)
+        return parent is not None and parent.name=='_fields'
+    for node in ast.walk(tree):
+        if isinstance(node,ast.Import):
+            if any(a.name.split('.')[0] not in allowed for a in node.names):found.append('forbidden research import')
+        elif isinstance(node,ast.ImportFrom):
+            if node.level:
+                if node.level!=1 or (node.module or '') not in ('','_model','_codec','_engine'):found.append('foreign relative import')
+                if not node.module and any(a.name not in ('_model','_codec','_engine') for a in node.names):found.append('foreign relative namespace')
+            elif (node.module or '').split('.')[0] not in allowed:found.append('forbidden research import')
+            if any(a.name=='*' for a in node.names):found.append('wildcard import')
+        elif isinstance(node,(ast.Name,ast.Attribute)):
+            name=node.id if isinstance(node,ast.Name) else node.attr
+            if name=='getattr' and isinstance(node,ast.Name) and closed_field_lookup(parents.get(node)):continue
+            if name in DENIED or name in ('__dict__','__getattribute__','__subclasses__') or name.startswith(('read_','write_','__builtins__')):
+                found.append('forbidden research access '+name)
+    return sorted(set(found))
+
+
 def check():
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
-    known_packages=set(pure_packages)
+    research=ROOT/'packages/strategies'
+    known_packages=set(pure_packages)|{research}
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
@@ -140,6 +171,20 @@ def check():
         assert violations(source),source
     for source in POSITIVE_FIXTURES:
         assert not violations(source),(source,violations(source))
+    if research.exists():
+        project=tomllib.loads((research/'pyproject.toml').read_text(encoding='utf-8'))['project']
+        assert project['dependencies']==['equity-feature-contracts==0.0.4a4']
+        assert not project.get('optional-dependencies',{}),'unreviewed research extras'
+        for path in research.glob('src/**/*.py'):
+            errors=research_violations(path.read_text(encoding='utf-8'),codec=path.name=='_codec.py')
+            assert not errors,f'{path.relative_to(ROOT)}: {errors}'
+    for source in ('import equity_features','import equity_feature_labels','import numpy','import pyarrow',
+                   'import os','from pathlib import Path','import socket','f=open','obj.connect()',
+                   'obj.__dict__','x=getattr','getattr(value,name)','from .other import loader'):
+        assert research_violations(source),source
+    assert not research_violations('from equity_feature_contracts import FeatureResult\nimport operator')
+    assert not research_violations('def _fields(value):\n return {name:getattr(value,name) for name in ()}',codec=True)
+    assert research_violations('def other(value):\n return getattr(value,name)',codec=True)
     print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified.')
 
 

@@ -82,5 +82,34 @@
     "disposition": "Frozen source_paths tuple and separate artifact_paths mapping; targeted renewed review pending",
     "original_finding": "Committed snapshots addressed; historical UTF8 restoration verified",
     "executed": "Source/AST only; no product import/test/build/mypy/native"
+  },
+  "first_hosted_attempt": {
+    "source": "0dcc44869761106a761a9b64acba6ca20c583cba",
+    "result": "FAILED_BEFORE_RESEARCH_RUNTIME_BUILD",
+    "source_review_sha256": "bf7143b805bd76f965994b5b9d2c0e299339436821e0f32a6592cb4a88a7c09a",
+    "evidence": [
+      {
+        "job": 116116659830,
+        "sha256": "62670eacc5d3321cf173202fd6329760413c5caef62b34dea5447b6f27ca1a1d",
+        "bytes": 25412
+      },
+      {
+        "job": 116116660033,
+        "sha256": "9c043837701b23ac2aa37363841a885570310778ec9e12f646b78ee9e762f73c",
+        "bytes": 24601
+      },
+      {
+        "job": 116116660009,
+        "sha256": "1c845ed4a6db44d73c844292a8b505d5f66df8142cfc2fecec296c29798f6087",
+        "bytes": 30146
+      }
+    ],
+    "failures": [
+      "BothOS research mypy: private code attribute annotation missing; redundant narrowed casts",
+      "Existing foundation boundary correctly rejects undeclared new package"
+    ],
+    "correction": "Declare typed private code storage/remove redundant casts; explicit separate contracts/stdlib-only research dependency/import/access policy and adversarial fixtures; original core policy unchanged",
+    "lifecycle_rework": "Code review -> In progress verified; issuecomment-6179009471",
+    "limits": "No research runtime test/build yet; pending renewed exact source review before changed push"
   }
 }

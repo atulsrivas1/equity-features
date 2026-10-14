@@ -28,6 +28,7 @@ T = TypeVar('T')
 class StrategyError(ValueError):
     """Closed immutable code with a fixed message that never echoes supplied facts."""
     __slots__ = ('__code',)
+    __code: str
 
     def __init__(self, code: str) -> None:
         if type(code) is not str or code not in CODES:
@@ -62,7 +63,7 @@ def label(value: object) -> None:
 
 
 def sha(value: object) -> None:
-    require(type(value) is str and re.fullmatch('[0-9a-f]{64}', cast(str, value)) is not None)
+    require(type(value) is str and re.fullmatch('[0-9a-f]{64}', value) is not None)
 
 
 def version(value: object, expected: str) -> None:
@@ -86,7 +87,7 @@ def scalar(value: object) -> None:
     if type(value) is int:
         integer(value, -(2**63))
     else:
-        require(type(value) is float and math.isfinite(cast(float, value)))
+        require(type(value) is float and math.isfinite(value))
 
 
 @dataclass(frozen=True, order=True)
@@ -319,8 +320,8 @@ class StrategyResult:
         rows = tuple(sorted(sequence(self.rows, StrategyRow), key=lambda r: r.entity))
         require(len({r.entity for r in rows}) == len(rows), 'duplicate')
         object.__setattr__(self, 'rows', rows)
-        for name in ('ranked', 'selected'):
-            object.__setattr__(self, name, sequence(getattr(self, name), Entity))
+        for name, items in (('ranked', self.ranked), ('selected', self.selected)):
+            object.__setattr__(self, name, sequence(items, Entity))
         for count in (self.expected, self.eligible, self.matching, self.coverage_numerator, self.coverage_denominator):
             integer(count)
         matches = sorted((r for r in rows if r.status == 'matching'), key=lambda r: cast(int, r.rank))

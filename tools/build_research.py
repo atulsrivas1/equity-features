@@ -201,7 +201,7 @@ def main():
         'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, encoding='utf-8').strip(),
         'epoch': EPOCH, 'sdist_policy': 'normalized TAR metadata; source payload unchanged', 'artifacts': {}, 'installed': [], 'source': {}, 'status': 'running'}
     scopes = ['packages/' + name for name in PACKAGES] + ['tests/research', 'examples/research_scanner.py',
-        'tools/build_research.py', '.github/workflows/research.yml', 'requirements-dev.txt',
+        'tools/build_research.py', 'tools/check_boundary.py', '.github/workflows/research.yml', 'requirements-dev.txt',
         'docs/stories/EQ-089_FIXTURES.json']
     head = report['source_commit']
     source_paths = tuple(subprocess.check_output(['git', 'ls-files', '--', *scopes], cwd=ROOT, encoding='utf-8').splitlines())

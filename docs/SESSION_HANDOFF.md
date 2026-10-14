@@ -1,3 +1,7 @@
+## EQ090 first hosted failure and rework — October14
+
+Actual0dcc source pushed/PR387ready, separate sourcebf7143b8 approvedremotequalification only; actual102CodeReview comment6178986955. First hosted research bothOS checks failed at mypy(privatecode annotation/redundantcasts), foundation checker correctly rejected the undeclared new package. Original3job logs/hashes retained in ledger; no research runtime/build success. ActualCodeReview→Inprogress rework comment6179009471 verified. Candidate corrects typing and adds explicit separate research stdlib/contracts-only dependency/import/access guard plus adversarial fixtures, retaining original core/backend policy. Closed codec lookup is narrowly allowed only exact getattr(value,name) within _fields in reviewed codec. Helper/workflow changes need renewed exact source review before changedpush. EQ088 stays frozen/running; no local runtime/test/mypy/build/native added.
+
 ## EQ090 source-closure shadowing correction — October14
 
 Renewed bb6cb90 source reviewddc36c54 confirmed closed snapshots/originalfinding resolved and historicalUTF8 restoration, but found newP2: the source-closure variable paths was rebound to an artifact dict, so final closure would fail unconditionally. Corrected to immutable source_paths tuple and separate artifact_paths mapping; targeted final source review pending before invocation. No qualification or product execution occurred; original findings retained in validation ledger. EQ088 remains frozen/running.
