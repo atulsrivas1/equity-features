@@ -1,3 +1,7 @@
+## R8 execution publication — GOV020
+
+[GOV020#381](https://github.com/atulsrivas1/equity-features/issues/381) publishes the bounded [R8 handoff](R8_AUTONOMOUS_HANDOFF.md) and [readiness packets](R8_READINESS_INDEX.md). Original scope EQ085–092 remains eight runtime stories. GOV020 is an additional milestone9 governance assignment, so aggregate reporting distinguishes actual nine assigned issues from eight original runtime acceptances. Local reviewer authorization is recorded in CODE_REVIEW.md; exact public lifecycle remains in the live Project. EQ088 finite benchmark/scope inputs and all implementation/release gates remain mandatory. No future release/provider/SEC scope is pulled into R8.
+
 R7 scope reset approved October13: original resilience/hosted operational gates remain; future [SEC-001 #374](https://github.com/atulsrivas1/equity-features/issues/374) is separate whole-platform enforcement and not a milestone8 prerequisite. See [decision](decisions/R7_SCOPE_RESET.md) and [revised EQ083 plan](stories/EQ-083_REVISED_PLAN.md). Eight accepted R7 stories unchanged; actual status follows live Project.
 
 ## EQ082 qualified MCP and frozen final delivery evidence

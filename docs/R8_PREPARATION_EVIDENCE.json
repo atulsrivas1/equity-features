@@ -1,0 +1,56 @@
+{
+  "status": "LOCAL_AUTHOR_PREPARATION_ONLY",
+  "date": "2026-10-14",
+  "base": "da74650e03d67acc5de6f8881065518f68b1f24f",
+  "checks": {
+    "markdown_utf8_files": 339,
+    "active_story_coverage": 134,
+    "lifecycle_stages": 8,
+    "new_packet_local_links": 11,
+    "accepted_evidence_unchanged": true,
+    "tracked_diff_documentation_only": true
+  },
+  "accepted_source_pins": {
+    "docs/stories/EQ-085_ANALYSIS.md": {
+      "git_lf_bytes": 6199,
+      "sha256": "ee8c0f7301a76c14442a86448d6d441d2b09231e92bd7624471f4fe306623dba"
+    },
+    "docs/stories/EQ-085_MEASURED.json": {
+      "git_lf_bytes": 4759842,
+      "sha256": "df84c1d149fabe8454d4d70504c4fd9d684d81fdb05a78fe9e95c954f2381d49"
+    },
+    "docs/stories/EQ-085_SUMMARY.json": {
+      "git_lf_bytes": 56558,
+      "sha256": "e2824e96f59510263d4c6ad9890ba3aaa8e421b4f48756178974416284117c5b"
+    },
+    "docs/stories/EQ-085_READINESS_REVIEW.json": {
+      "git_lf_bytes": 5815,
+      "sha256": "f40a38651a9f030004235c9a017fb165b52c0bfa54bde85471446892a450f28c"
+    },
+    "docs/stories/EQ-085_SOURCE_QUALIFICATION.json": {
+      "git_lf_bytes": 91073,
+      "sha256": "199d17c0bc6118661e2bbf478cca67736a1f8a7d37dad2cb14c1a65524d1f264"
+    },
+    "docs/stories/EQ-085_RELEASE_RECEIPT.json": {
+      "git_lf_bytes": 168750,
+      "sha256": "51a1b57a59730cdba691e2d0c3f59c38978518cc2658030c81dd8034f0c015ce"
+    }
+  },
+  "live_readback": {
+    "cli_actor": "monikasrivas1",
+    "project": "UNAVAILABLE_MISSING_READ_PROJECT",
+    "canonical_main": "da74650e03d67acc5de6f8881065518f68b1f24f",
+    "worker_main": "95aa9ad25e3b095a7ea523140ce0f98fcad4d531",
+    "milestone9": {
+      "state": "open",
+      "open_issues": 7,
+      "closed_issues": 1
+    },
+    "governance_identifier": "GOV020_CANDIDATE_ONLY"
+  },
+  "limitations": [
+    "No independent reviewer or hosted CI ran for these new packets.",
+    "No native execution, benchmark, artifact requalification, GitHub mutation or lifecycle transition.",
+    "Owner R8 review extension and setup-restored Atul Project access remain pending."
+  ]
+}

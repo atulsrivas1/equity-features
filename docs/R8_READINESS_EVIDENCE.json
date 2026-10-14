@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-14",
+  "status": "LOCAL_AUTHOR_PREPARATION_CHECKS_ONLY",
+  "base": "da74650e03d67acc5de6f8881065518f68b1f24f",
+  "checks": {
+    "public_markdown_utf8_files": 347,
+    "active_story_ids": 134,
+    "fixture_requirement_counts": {
+      "strategy_cases": 30,
+      "label_cases": 33,
+      "identity_cases": 8
+    },
+    "new_packet_relative_links": 21,
+    "hand_fraction_examples_checked": 6,
+    "standalone_binary64_extreme_expectations_checked": 4,
+    "current_reviewed_story_packet_pins_match": true,
+    "accepted_eq085_and_core_sources_unchanged": true
+  },
+  "current_reviews": {
+    "docs/reviews/R8_SCHEMA_REVIEW_V2.json": "7d8a746aa0fc6461b649aeca1610182b37eaf9cb267c019cbc36fef612156629",
+    "docs/reviews/R8_REMAINING_PLANS_REVIEW.json": "199cb47b29b53ebc5579af3a5a0f3668f3577e58b4e513c5f4d4941822b04bd8"
+  },
+  "unchanged_source_sha256": {
+    "docs/stories/EQ-085_MEASURED.json": "df84c1d149fabe8454d4d70504c4fd9d684d81fdb05a78fe9e95c954f2381d49",
+    "docs/stories/EQ-085_RELEASE_RECEIPT.json": "51a1b57a59730cdba691e2d0c3f59c38978518cc2658030c81dd8034f0c015ce",
+    "packages/contracts/src/equity_feature_contracts/results.py": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e",
+    "packages/contracts/src/equity_feature_contracts/specs.py": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3",
+    "packages/contracts/pyproject.toml": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1",
+    "packages/features/pyproject.toml": "ca095c7a8a7466de390ff943c4a33f6b41852a7b844d5d2d3291abb544be56d9"
+  },
+  "live_readback": {
+    "actor": "monikasrivas1",
+    "project_access": "MISSING_READ_PROJECT",
+    "canonical_main": "da74650e03d67acc5de6f8881065518f68b1f24f",
+    "worker_main": "95aa9ad25e3b095a7ea523140ce0f98fcad4d531",
+    "io_main": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+    "r8_open": 7,
+    "r8_closed": 1
+  },
+  "limitations": [
+    "71 fixtures are requirements, not 71 executed product tests.",
+    "Arithmetic checks use independent rational/builtin arithmetic only; no product code imported.",
+    "EQ088 finite scheduling/spill/pruning admission matrix and scope reconciliation remain unresolved.",
+    "No public Ready/lifecycle transition/GitHub mutation or implementation.",
+    "No installed artifact, native, performance, capacity or release acceptance.",
+    "Final published heads and changed source require relevant renewed independent review."
+  ]
+}

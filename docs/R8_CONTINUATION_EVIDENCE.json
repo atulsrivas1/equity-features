@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-14",
+  "status": "LOCAL_PREPARATION_CONTINUATION",
+  "owner_decision": "Authorize local review for the R8 handoff, remaining stories, and final delivery",
+  "review_policy": [
+    "AGENTS.md",
+    "docs/CODE_REVIEW.md"
+  ],
+  "preparation_review": "docs/reviews/R8_PREPARATION_REVIEW.json",
+  "review_scope_limit": "Frozen handoff/EQ086 preparation only; later EQ087/EQ089 drafts require their separate review.",
+  "source_pins": {
+    "packages/contracts/pyproject.toml": {
+      "git_lf_bytes": 692,
+      "sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1"
+    },
+    "packages/features/pyproject.toml": {
+      "git_lf_bytes": 736,
+      "sha256": "ca095c7a8a7466de390ff943c4a33f6b41852a7b844d5d2d3291abb544be56d9"
+    },
+    "packages/contracts/src/equity_feature_contracts/results.py": {
+      "git_lf_bytes": 34280,
+      "sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e"
+    },
+    "packages/contracts/src/equity_feature_contracts/specs.py": {
+      "git_lf_bytes": 11303,
+      "sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3"
+    }
+  },
+  "component_observations": {
+    "worker_clone_head": "28bc0959ed8c816cd49dc055e6c0f85b593acce6",
+    "worker_live_main": "95aa9ad25e3b095a7ea523140ce0f98fcad4d531",
+    "worker_clone_status": "clean; differs from current main; not selected for edits",
+    "observed_foundation_core_pin": "20c08c7370581d03c8a0404579667f68d67ac88b",
+    "observed_foundation_io_pin": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+    "io_clone_head": "19aa266b9debb92a6c5eb707baafeb9ae7a82942",
+    "io_clone_status": "clean, preserved"
+  },
+  "checks": [
+    "All frozen first-review file identities still matched after separate draft preparation.",
+    "Public Markdown UTF8, three local links in new EQ087/EQ089 drafts and git diff --check passed.",
+    "Source metadata/result/availability files remain unchanged."
+  ],
+  "failed_readonly_tool_attempts": [
+    "Initial package paths guessed distribution names rather than actual packages/contracts and packages/features; corrected after file inventory.",
+    "PowerShell wildcard codec path unsupported by rg; actual I/O codec path read directly after inventory."
+  ],
+  "limitations": [
+    "CLI actor still monikasrivas1 without read:project.",
+    "No GitHub mutation/lifecycle transition/publication or implementation.",
+    "No new benchmark, native or installed package qualification.",
+    "Original R8_PREPARATION_EVIDENCE.json records earlier checks and pending review decision; the actual owner grant above supersedes that pending snapshot."
+  ],
+  "draft_review": {
+    "original": "docs/reviews/R8_CONTRACT_DRAFT_REVIEW.json",
+    "eq087": "conditional metadata proposal supported",
+    "eq089": "two original findings resolved, no new findings; approved local preparation only; remaining schema/whitelist/serialization/admission details block Ready",
+    "runtime_checks": "not executed",
+    "corrected": "docs/reviews/R8_CONTRACT_DRAFT_REVIEW_V2.json"
+  }
+}

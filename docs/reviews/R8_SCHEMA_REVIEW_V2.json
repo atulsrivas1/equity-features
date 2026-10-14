@@ -1,0 +1,97 @@
+{
+  "scope": "EQ089_EXACT_SCHEMA_CORRECTION_REVIEW",
+  "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+  "date": "2026-10-14",
+  "timezone": "America/New_York",
+  "base": "da74650e03d67acc5de6f8881065518f68b1f24f",
+  "previous_review": {
+    "path": "docs/reviews/R8_SCHEMA_REVIEW.json",
+    "sha256": "6c4c64305f3583f196876787834b25b977b983a200507b1b8781e2af5a384f91",
+    "preserved": true
+  },
+  "inspected_files": {
+    "docs/stories/EQ-089_CONTRACT_DRAFT.md": {
+      "git_lf_bytes": 12646,
+      "sha256": "8294cf0e924b437537b04a4125fe03a052149092d58eefcce935355ada2bdc0f"
+    },
+    "docs/stories/EQ-089_SCHEMA_PROPOSAL.md": {
+      "git_lf_bytes": 22588,
+      "sha256": "864bd311588e894743f2b8e0e82319d41181ccb05dec113d83a652d4ecaa2d12"
+    },
+    "docs/stories/EQ-089_FIXTURES.json": {
+      "git_lf_bytes": 22891,
+      "sha256": "70993a1f83a97ad98667431fc40a24c966847d22e30d886ad78a970cd796f3c5"
+    },
+    "packages/contracts/src/equity_feature_contracts/_catalog.py": {
+      "git_lf_bytes": 50743,
+      "sha256": "338f2602231b8d9abedf39064c16fb361418a2f2fd6ca19310a1a76cb6ff3e54"
+    },
+    "packages/contracts/src/equity_feature_contracts/_implemented.py": {
+      "git_lf_bytes": 1628,
+      "sha256": "0f314e8f1e3a260b4d21855036d9d5c4d6ef6d71aa71aa4a59c01d9d6cb39ee5"
+    },
+    "packages/contracts/src/equity_feature_contracts/results.py": {
+      "git_lf_bytes": 34280,
+      "sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e"
+    },
+    "packages/contracts/src/equity_feature_contracts/specs.py": {
+      "git_lf_bytes": 11303,
+      "sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3"
+    },
+    "packages/contracts/src/equity_feature_contracts/inputs.py": {
+      "git_lf_bytes": 12415,
+      "sha256": "1084aed63b47e693ffbef92c34c7036040288f409d1f379bd1415d3b4ff5152a"
+    },
+    "packages/features/src/equity_features/history.py": {
+      "git_lf_bytes": 16910,
+      "sha256": "5b6f0f756b0a9706d00aad291ec50e8651e8b953ae8af527028339a026dd1fd1"
+    },
+    "docs/SESSION_HANDOFF.md": {
+      "git_lf_bytes": 718088,
+      "sha256": "0f80d754953680cbd407be66d95bd23605a90a1b8b3be8b7eda22426ee4aceed"
+    },
+    "docs/knowledge/LESSONS.md": {
+      "git_lf_bytes": 289092,
+      "sha256": "cef0270d409127d720a6386e3d6fb378e607cd62967cd327ea81503c3898da08"
+    }
+  },
+  "unchanged_prior_review_pins": [
+    "docs/stories/EQ-089_CONTRACT_DRAFT.md",
+    "packages/contracts/src/equity_feature_contracts/_catalog.py",
+    "packages/contracts/src/equity_feature_contracts/_implemented.py",
+    "packages/contracts/src/equity_feature_contracts/results.py",
+    "packages/contracts/src/equity_feature_contracts/specs.py",
+    "packages/contracts/src/equity_feature_contracts/inputs.py",
+    "packages/features/src/equity_features/history.py",
+    "docs/SESSION_HANDOFF.md",
+    "docs/knowledge/LESSONS.md"
+  ],
+  "disposition": "APPROVED_CORRECTED_LOCAL_DESIGN_PREPARATION_ONLY",
+  "findings": [],
+  "resolved_findings": [
+    {
+      "id": "R8-SCHEMA-001",
+      "disposition": "RESOLVED_IN_PROPOSED_CONTRACT",
+      "evidence": "FeatureRequirement now mandates expected_result_config_digest and expected_input_semantic_digest; every supplied required cell must match both. Same-feature conflicting requirements invalid_config. Complete closed InputSemantic projection separately binds basis/price units/source mapping/eligibility/scope despite repeated config digest claims; data snapshots/coverage retained in full identity, excluded only from strict semantic comparability. Seven new requirement fixture cases exercise mixed/wrong horizons, baseline period, adjustment identity, eligibility and source revision distinction."
+    }
+  ],
+  "executed_checks": [
+    "Read corrected schema changed configuration/admission/projection/domain/record sections against original full review and unchanged core sources.",
+    "Verified all six underlying catalog/result/spec/input/history source pins remain current HEAD blobs; corrected draft retains previous formulas/status/causality boundary decisions.",
+    "Assessed complete InputSemantic projection field names/types against actual InputBinding/BatchMetadata/PriceUnit/AdjustmentSpec/InputScope/IntervalCoverage. Role/schema/namespace/source mapping/basis/eligibility and scope participate; snapshot/input revision and coverage remain in full payload binding. Strict equivalence limitations and supplied-fact trust are explicit.",
+    "Parsed corrected independent fixture JSON; strategy30+label33+identity8=71 unique per-group case definitions. Seven new fixture requirements distinguish wrong config from unavailable cells and revision changes from semantic changes. Expected outcomes reviewed conceptually; no product implementation executed.",
+    "Strict UTF8 decoding and renewed GitLF SHA256/size pins recorded. git diff --check passed."
+  ],
+  "fixture_counts": {
+    "strategy_cases": 30,
+    "label_cases": 33,
+    "identity_cases": 8
+  },
+  "limits": [
+    "Preparation review of specified exact local contract documents; no Ready, public publication, runtime implementation or release acceptance.",
+    "No source import/execution, benchmark/native/install/artifact qualification or GitHub mutation. Stdlib JSON/source hashing only.",
+    "Concrete fixture materialization must construct actual valid core records independently and test all new expected digest/admission constraints when implemented.",
+    "Restored Atul Project access and numbered story/PR/points/dependency/current ownership gates remain required before public Ready/implementation.",
+    "Relevant later corrections/final PR head and actual distribution/source publication need renewed independent review."
+  ]
+}
