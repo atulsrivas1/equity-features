@@ -1,3 +1,7 @@
+## EQ088 capacity preflight is specific to the physical sink
+
+Corrected915 reporter limits and Parquet64task preflight passed, but the second full run hit180s at the DuckDB64task reference after54samples/sevenreferences. This does not prove the same cause as the earlier recorder admission failure or establish an engine/host defect. Preflight evidence must name its backend; do not infer another sink fits the deadline. Retain both incomplete populations, diagnose the actual phase with a separately reviewed bounded instrumented child, and justify any later protocol change before execution. No widened limits or full acceptance follows from this observation. [Execution](../stories/EQ-088_EXECUTION.json).
+
 ## EQ091 observed isolation and causal consumer result
 
 Actual eaab022 bothOS schema2 qualification passed separate contracts+one-component environments for both wheel and sdist, installed typing and component fixtures, with sibling/features/native absence enforced. Separate combined environments ran the real producer/scanner/label/as-of example and preserved complete core payload/fingerprints. This supports the isolation design within CPython3.12 Windows/Linux evidence; it does not establish final/currentmain delivery or financial validity of supplied basis facts. [Ledger](../stories/EQ-091_VALIDATION.json) retains all requirements and pending review/release gates.

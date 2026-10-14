@@ -286,5 +286,40 @@
       "Full-02 performance/capacity/spill/layout still running and separate",
       "Sink profile unsupported under unchanged policy; native operator counts are not physical disk-read proof"
     ]
+  },
+  "second_full_timeout": {
+    "head": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "raw_sha256": "3f6b43f4d853b6b1e85b6ac1ff5814cf8e560ac63ae751de9f02d76f677b8174",
+    "status": "failed",
+    "timed_records": 54,
+    "references": 7,
+    "diagnostics": 0,
+    "attempts": 62,
+    "last_attempt": {
+      "cleanup_outcome": "not-independently-established",
+      "ended_monotonic_ns": 50508296000000,
+      "error_type": "TimeoutExpired",
+      "identity": {
+        "backend": "duckdb",
+        "kind": "reference",
+        "mode": "sequential",
+        "workers": 1,
+        "workload": "capacity"
+      },
+      "private_traceback_retained": true,
+      "private_traceback_sha256": "49fe672097691a228d6dfc05ffe085689827462e915288552d96c2890391541f",
+      "started_monotonic_ns": 50328031000000,
+      "status": "failed",
+      "timeout": true
+    },
+    "scope": "Second full run exit1;180s owned child timeout at capacity DuckDB sequential1 reference; actual cause unconfirmed",
+    "limits": [
+      "No full scheduling/capacity/spill/layout acceptance",
+      "No pooling of two incomplete54sample runs or preflight",
+      "No deadline/resource/population change or unchanged full rerun",
+      "Cleanup uses existing owned finalizer but independent completion not established in report",
+      "Parquet-only capacity preflight did not qualify DuckDB deadline"
+    ],
+    "next": "Separate reviewed one-child same-deadline private stack diagnostic with complete source/input/installed archive closure and prelaunch journal; no native invocation yet"
   }
 }
