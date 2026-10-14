@@ -1,3 +1,7 @@
+## R8 optional accelerator outcome
+
+[EQ087 packaging decision](decisions/R8_ACCELERATOR_PACKAGING.md) follows accepted EQ086: no new calculator accelerator wheel/ABI/backend selector/fallback or thread policy. Core pair0.0.4a4 and existing optional columnar extra/definitions/version bounds remain unchanged; existing NumPy/PyArrow binaries are not a newly delivered EQ086 accelerator. No install command, platform support or example/API behavior changes. This documentation does not qualify new strategy/label distributions or claim a fresh native build/install/speedup.
+
 ## EQ130 release audit under qualification
 
 EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.

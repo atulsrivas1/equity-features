@@ -1,0 +1,13 @@
+# EQ087 optional accelerator packaging decision
+
+[EQ087#98](https://github.com/atulsrivas1/equity-features/issues/98), E11#95/R8milestone9, provisional3complexity points. [EQ086 accepted no-change outcome](https://github.com/atulsrivas1/equity-features/issues/97#issuecomment-6177479780) is verified Closed/Done. Actual Backlog→Ready→In progress was read back before this documentation delivery. The selected no-new-native-kernel outcome implies no new accelerator distribution, backend selector, ABI/build matrix, fallback implementation or thread policy. Existing Python APIs and calculations remain unchanged. The existing optional columnar extra is not relabeled as an EQ086 accelerator.
+
+Current unchanged source metadata: equity-feature-contracts0.0.4a4 has no mandatory dependencies and optional columnar numpy==2.2.6/pyarrow==20.0.0; equity-features0.0.4a4 requires contracts==0.0.4a4 and its optional columnar extra selects contracts[columnar]==0.0.4a4. Both support Python>=3.12,<3.13 with setuptools==80.9.0 build metadata and Apache-2.0. No new wheel/extra/version/dependency is introduced by this decision.
+
+Fallback means the existing selected calculation implementation remains the only supported calculator backend for these workloads; there is no accelerator import/detection path whose failure could change definitions. Existing caller/worker/backend resource controls remain explicit; the EQ085 profiling thread1 setting is a measurement boundary, not a new universal runtime thread policy. No native-thread/ABI/all-host claim follows from the no-change outcome.
+
+The accepted EQ085 bothOS qualification and frozen receipt remain scoped historical compatibility evidence. Source metadata inspection and current no-impact CI do not create a new native-wheel test, installation proof or cross-platform speed comparison. Actual new strategy/label packages still require their own EQ092 distribution qualification.
+
+Validation is the applicable documentation/source-metadata/UTF8/links/currentCI and exact-head separate review/defaultbranch-publication gates. Runtime/package/build/workflow inputs are unchanged, so no new native build/install/benchmark is claimed. Declared channel is reviewed documentation on default branch; acceptance remains pending until actual EQ087 lifecycle/readback.
+
+[Readiness plan](../stories/EQ-087_PLAN.md), [native decision](R8_NATIVE_DECISION.md), [accepted EQ085 qualification](../stories/EQ-085_SOURCE_QUALIFICATION.json) and [frozen receipt](../stories/EQ-085_RELEASE_RECEIPT.json). Formula/publicAPI/example/install-command impact: none; no new selector or accelerator command is introduced. Strategy/label package proposals retain their own acceptance and actual distribution gates.

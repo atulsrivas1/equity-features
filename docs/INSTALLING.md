@@ -1,3 +1,7 @@
+## R8 optional accelerator outcome
+
+[EQ087 packaging decision](decisions/R8_ACCELERATOR_PACKAGING.md) follows accepted EQ086: no new calculator accelerator wheel/ABI/backend selector/fallback or thread policy. Core pair0.0.4a4 and existing optional columnar extra/definitions/version bounds remain unchanged; existing NumPy/PyArrow binaries are not a newly delivered EQ086 accelerator. No install command, platform support or example/API behavior changes. This documentation does not qualify new strategy/label distributions or claim a fresh native build/install/speedup.
+
 # Install the qualified experimental distributions
 
 Use an actual successful **main** Foundation package checks bundle, named
