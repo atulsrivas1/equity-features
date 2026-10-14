@@ -59,5 +59,18 @@
     "different-eligibility-policy": "pending runtime materialization check",
     "source-revision-same-semantics": "pending runtime materialization check",
     "conflicting-rule-config": "pending runtime materialization check"
+  },
+  "source_review": {
+    "head": "664db8acb9d1edb177f9babef2f36f5cb2b0e701",
+    "reviewer": "/root/r8_preparation_review",
+    "sha256": "04181b9322eaf2634a99a442af3af3a8fed28f4e642206597dca00f78e03a678",
+    "findings": [
+      {
+        "priority": "P2",
+        "summary": "Live package copy could include untracked sources absent committed provenance",
+        "disposition": "Corrected candidate uses exact committed closed snapshot for packages and executed test/example inputs; start/end HEAD/roster/status/materialized-byte closure added. Renewed review pending."
+      }
+    ],
+    "limits": "Source/AST only, no runtime approval"
   }
 }

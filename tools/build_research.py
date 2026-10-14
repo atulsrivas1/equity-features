@@ -142,6 +142,17 @@ def install(paths, directory):
     return py
 
 
+def installed_core_maps(actual, paths):
+    """Verify every installed core package payload against its selected archive."""
+    for name, artifact in paths.items():
+        module = PACKAGES[name][0]
+        prefix = module + '/' if artifact.suffix == '.whl' else artifact.name.removesuffix('.tar.gz') + '/src/' + module + '/'
+        expected = {module + '/' + entry.removeprefix(prefix): sha(body)
+                    for entry, body in contents(artifact).items() if entry.startswith(prefix)}
+        assert expected
+        assert {entry: hashed for entry, hashed in actual.items() if entry.startswith(module + '/')} == expected
+
+
 def installed_strategy(py, artifact):
     files = contents(artifact)
     prefix = 'equity_feature_strategies/' if artifact.suffix == '.whl' else artifact.name.removesuffix('.tar.gz') + '/src/equity_feature_strategies/'
@@ -189,15 +200,29 @@ def main():
     report = {'schema': 'research-qualification:1', 'system': platform.system(), 'python': platform.python_version(),
         'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, encoding='utf-8').strip(),
         'epoch': EPOCH, 'sdist_policy': 'normalized TAR metadata; source payload unchanged', 'artifacts': {}, 'installed': [], 'source': {}, 'status': 'running'}
-    for name in PACKAGES:
-        paths = subprocess.check_output(['git', 'ls-files', 'packages/' + name], cwd=ROOT, encoding='utf-8').splitlines()
-        assert paths
-        for relative in paths:
-            committed = subprocess.check_output(['git', 'show', 'HEAD:' + relative], cwd=ROOT)
-            materialized = (ROOT / relative).read_bytes()
-            assert materialized == committed or materialized.replace(b'\r\n', b'\n') == committed, 'uncommitted package bytes'
-            report['source'][relative] = {'git_sha256': sha(committed), 'materialized_sha256': sha(materialized),
-                'materialization': 'exact' if materialized == committed else 'CRLF-only'}
+    scopes = ['packages/' + name for name in PACKAGES] + ['tests/research', 'examples/research_scanner.py',
+        'tools/build_research.py', '.github/workflows/research.yml', 'requirements-dev.txt',
+        'docs/stories/EQ-089_FIXTURES.json']
+    head = report['source_commit']
+    paths = subprocess.check_output(['git', 'ls-files', '--', *scopes], cwd=ROOT, encoding='utf-8').splitlines()
+    assert paths
+    # Artifacts AND executed test/example inputs come only from this closed Git snapshot.
+    # No recursive live-directory copy can smuggle untracked or ignored files into the build.
+    snapshot, materialization = {}, {}
+    for relative in paths:
+        committed = subprocess.check_output(['git', 'show', head + ':' + relative], cwd=ROOT)
+        materialized = (ROOT / relative).read_bytes()
+        assert materialized == committed or materialized.replace(b'\r\n', b'\n') == committed, 'uncommitted qualification bytes'
+        snapshot[relative] = committed
+        materialization[relative] = materialized
+        report['source'][relative] = {'git_sha256': sha(committed), 'materialized_sha256': sha(materialized),
+            'materialization': 'exact' if materialized == committed else 'CRLF-only', 'built_from': 'committed-Git-bytes'}
+    def source_closure():
+        assert subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, encoding='utf-8').strip() == head
+        assert subprocess.check_output(['git', 'ls-files', '--', *scopes], cwd=ROOT, encoding='utf-8').splitlines() == paths
+        assert not subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all', '--', *scopes], cwd=ROOT), 'qualification source changed'
+        assert all((ROOT / name).read_bytes() == body for name, body in materialization.items()), 'materialized source changed'
+    source_closure()
     def save():
         (OUT / 'qualification.json').write_text(json.dumps(report, sort_keys=True, indent=2) + '\n', encoding='utf-8')
     save()
@@ -205,14 +230,23 @@ def main():
     with tempfile.TemporaryDirectory(prefix='research-', dir=work) as temp:
         temp = Path(temp).resolve()
         assert temp.is_relative_to(work.resolve())
+        verification = temp / 'qualification-inputs'
+        for relative, body in snapshot.items():
+            target = verification / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(body)
         env = dict(os.environ, SOURCE_DATE_EPOCH=str(EPOCH), PYTHONHASHSEED='0')
         built = []
         for repeat in (0, 1):
             destination = temp / f'build-{repeat}'; destination.mkdir()
             for name in PACKAGES:
                 source = temp / f'source-{repeat}-{name}'
-                shutil.copytree(ROOT / 'packages' / name, source,
-                    ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.egg-info', 'build', 'dist'))
+                prefix = 'packages/' + name + '/'
+                for relative, body in snapshot.items():
+                    if relative.startswith(prefix):
+                        target = source / relative.removeprefix(prefix)
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        target.write_bytes(body)
                 run(sys.executable, '-m', 'build', '--no-isolation', '--outdir', destination, source, env=env)
                 for path in destination.glob('*.tar.gz'):
                     normalize(path)
@@ -235,23 +269,27 @@ def main():
             isolated = temp / ('isolated-' + form)
             py = install([paths['contracts']], isolated)
             before = fingerprint(py, ['equity_feature_contracts'])
+            installed_core_maps(before, {'contracts': paths['contracts']})
             run(py, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', paths['strategies'])
             run(py, '-m', 'pip', 'check')
             installed = installed_strategy(py, paths['strategies'])
-            run(py, '-I', '-m', 'unittest', 'discover', '-s', ROOT / 'tests/research')
+            run(py, '-I', '-m', 'unittest', 'discover', '-s', verification / 'tests/research')
             after = fingerprint(py, ['equity_feature_contracts'])
             assert before == after, 'strategy install/execution changed contracts'
             # A distinct consumer environment explicitly installs features; strategy-only isolation stays meaningful.
             consumer = temp / ('consumer-' + form)
             cpy = install([paths['contracts'], paths['features']], consumer)
             core_before = fingerprint(cpy, ['equity_feature_contracts', 'equity_features'])
+            installed_core_maps(core_before, {'contracts': paths['contracts'], 'features': paths['features']})
             run(cpy, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', paths['strategies'])
-            run(cpy, '-I', ROOT / 'examples/research_scanner.py')
+            run(cpy, '-I', verification / 'examples/research_scanner.py')
             assert core_before == fingerprint(cpy, ['equity_feature_contracts', 'equity_features'])
             report['installed'].append({'form': form, 'strategy_source': installed, 'contracts_before_after': before,
                 'consumer_core_before_after': core_before, 'isolated_origins': True,
                 'independent_fixtures_passed': True, 'producer_example_passed': True})
             save()
+    source_closure()
+    report['source_head_and_materialization_closure'] = True
     report['status'] = 'completed'; save()
 
 
