@@ -1,3 +1,7 @@
+## EQ091 label candidate — October 14
+
+[Forward labels](research/FORWARD_LABELS.md) implement the accepted independent pure boundary: _model owns exact frozen records, origin/basis/path admission and closed errors; _codec owns explicit complete fields/normalization/domains; _engine applies state precedence before quotient/subtraction. The package imports contracts/stdlib only. Separate examples own actual features/strategies integration and as-of revision selection. Original core boundary policy remains unchanged; the research guard explicitly admits and checks both optional packages. No core/strategy algorithm/version change. Review and runtime delivery are pending.
+
 ## EQ090 candidate implementation — October14
 
 [Scanners](research/SCANNERS.md) implement the accepted EQ089 pure consumer boundary in a separately optional package. `_model` owns frozen records/closed errors, `_codec` implements explicit complete record fields and normalized tagged identities, and `_engine` validates supplied cells before deterministic all-rule screening and ranking. No feature formula or adapter enters this package. Tests retain independent published goldens; the actual core producer/projection is an external example. Dedicated research artifacts avoid changing existing core packaging gates. Source review and execution/release evidence are pending.

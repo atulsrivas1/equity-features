@@ -1,3 +1,7 @@
+## EQ091 label API candidate — October 14
+
+The independently optional [forward labels](../research/FORWARD_LABELS.md) export __version__, Entity, BasisWitness, LabelOrigin, PriceObservation, LabelConfig, LabelRequest, LabelResult, LabelError, evaluate_label, encode, digest, origin_digest and path_content_digest. Exact records/state/error/identity rules follow the unchanged normative contract. Labels depend only on contracts and never enter signal inputs. Core/strategies API has no source change. Runtime and current release acceptance remain pending.
+
 ## R8 research contract boundary
 
 [Research consumer API definition](RESEARCH_CONSUMERS.md) fixes future scan/evaluate_label inputs/config/outputs/errors/identity and pure package boundaries. [Normative contract](../research/STRATEGY_LABEL_CONTRACTS.md) belongs to EQ089; executable APIs are still EQ090/EQ091 and distribution qualification EQ092. Existing core public API is unchanged and label schemas never enter core feature namespaces. No research import is claimed available yet.

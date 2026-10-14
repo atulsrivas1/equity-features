@@ -1,4 +1,4 @@
-"""EQ090 repeat archives and fresh installed consumers; separate from core artifact gates."""
+"""EQ090/EQ091 repeat archives and fresh installed consumers; separate from core artifact gates."""
 from __future__ import annotations
 
 import base64
@@ -22,7 +22,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist/research'
 EPOCH = 1700000000
 PACKAGES = {'contracts': ('equity_feature_contracts', '0.0.4a4'),
-            'features': ('equity_features', '0.0.4a4'), 'strategies': ('equity_feature_strategies', '0.1.0a1')}
+            'features': ('equity_features', '0.0.4a4'), 'strategies': ('equity_feature_strategies', '0.1.0a1'),
+            'labels': ('equity_feature_labels', '0.1.0a1')}
 
 
 def run(*args, cwd=ROOT, env=None):
@@ -77,7 +78,7 @@ def inspect(path, package, source):
     assert metadata['Version'] == version
     assert metadata['License-Expression'] == 'Apache-2.0'
     assert metadata['Requires-Python'] == '<3.13,>=3.12'
-    if package == 'strategies':
+    if package in ('strategies', 'labels'):
         assert metadata.get_all('Requires-Dist', []) == ['equity-feature-contracts==0.0.4a4']
     module_prefix = module + '/' if wheel else prefix + 'src/' + module + '/'
     expected = {p.relative_to(source / 'src').as_posix(): p.read_bytes()
@@ -153,9 +154,10 @@ def installed_core_maps(actual, paths):
         assert {entry: hashed for entry, hashed in actual.items() if entry.startswith(module + '/')} == expected
 
 
-def installed_strategy(py, artifact):
+def installed_component(py, artifact, component):
     files = contents(artifact)
-    prefix = 'equity_feature_strategies/' if artifact.suffix == '.whl' else artifact.name.removesuffix('.tar.gz') + '/src/equity_feature_strategies/'
+    module = PACKAGES[component][0]
+    prefix = module + '/' if artifact.suffix == '.whl' else artifact.name.removesuffix('.tar.gz') + '/src/' + module + '/'
     expected = {name.removeprefix(prefix): sha(body) for name, body in files.items() if name.startswith(prefix)}
     code = '''import ast,base64,csv,hashlib,importlib.util,io,json,sys
 from pathlib import Path
@@ -189,12 +191,15 @@ for path in root.rglob('*.py'):
 assert not any(name.split('.')[0] in ('equity_features','equity_feature_labels','numpy','pyarrow','duckdb') for name in sys.modules)
 print(json.dumps({p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in root.rglob('*') if p.is_file() and '__pycache__' not in p.parts},sort_keys=True))
 '''
+    if component == 'labels':
+        code = code.replace('equity_feature_labels', '__SIBLING__').replace('equity_feature_strategies', 'equity_feature_labels').replace('__SIBLING__', 'equity_feature_strategies')
+        code = code.replace('equity-feature-strategies', 'equity-feature-labels')
     actual = json.loads(subprocess.check_output([str(py), '-I', '-c', code], cwd=py.parent, encoding='utf-8'))
-    assert actual == expected, 'installed strategy differs from archive source'
+    assert actual == expected, 'installed component differs from archive source'
     return actual
 
 
-def installed_typing(py, directory):
+def installed_typing(py, directory, component):
     """Actual strict consumers against installed py.typed; type tools are not runtime deps."""
     run(py, '-m', 'pip', 'install', '--no-deps', 'mypy==1.15.0',
         'mypy_extensions==1.1.0', 'typing_extensions==4.16.0')
@@ -211,6 +216,10 @@ def consume(request: StrategyRequest) -> StrategyResult:
 def invalid() -> StrategyResult:
     return scan(23)
 '''
+    if component == 'labels':
+        positive = positive.replace('equity_feature_strategies', 'equity_feature_labels').replace('StrategyRequest', 'LabelRequest').replace('StrategyResult', 'LabelResult').replace('StrategyError', 'LabelError').replace('scan', 'evaluate_label')
+        negative = negative.replace('equity_feature_strategies', 'equity_feature_labels').replace('StrategyResult', 'LabelResult').replace('scan', 'evaluate_label')
+    operation = 'scan' if component == 'strategies' else 'evaluate_label'
     rows = {}
     for name, source in (('positive', positive), ('negative', negative)):
         path = directory / (name + '.py')
@@ -221,7 +230,7 @@ def invalid() -> StrategyResult:
         if name == 'positive':
             assert process.returncode == 0, output
         else:
-            assert process.returncode == 1 and '[arg-type]' in output and 'scan' in output, output
+            assert process.returncode == 1 and '[arg-type]' in output and operation in output, output
             assert 'import-untyped' not in output and 'import-not-found' not in output
         rows[name] = {'source_sha256': sha(source.encode('utf-8')), 'exit_code': process.returncode,
                       'output_sha256': sha(output.encode('utf-8'))}
@@ -232,10 +241,10 @@ def invalid() -> StrategyResult:
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     assert not list(OUT.iterdir()), 'fresh dist/research required; preserve previous reports before rerun'
-    report = {'schema': 'research-qualification:1', 'system': platform.system(), 'python': platform.python_version(),
+    report = {'schema': 'research-qualification:2', 'system': platform.system(), 'python': platform.python_version(),
         'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, encoding='utf-8').strip(),
-        'epoch': EPOCH, 'sdist_policy': 'normalized TAR metadata; source payload unchanged', 'artifacts': {}, 'installed': [], 'source': {}, 'status': 'running'}
-    scopes = ['packages/' + name for name in PACKAGES] + ['tests/research', 'examples/research_scanner.py',
+        'epoch': EPOCH, 'sdist_policy': 'normalized TAR metadata; source payload unchanged', 'artifacts': {}, 'installed': [], 'combined': [], 'source': {}, 'status': 'running'}
+    scopes = ['packages/' + name for name in PACKAGES] + ['tests/research', 'examples/research_scanner.py', 'examples/research_labels.py',
         'tools/build_research.py', 'tools/check_boundary.py', '.github/workflows/research.yml', 'requirements-dev.txt',
         'docs/stories/EQ-089_FIXTURES.json']
     head = report['source_commit']
@@ -294,35 +303,41 @@ def main():
                     else:
                         assert report['artifacts'][path.name] == inspection, 'repeat archive differs'
             built.append(destination)
-        assert len(report['artifacts']) == 6
+        assert len(report['artifacts']) == 8
         for path in built[0].iterdir():
             shutil.copyfile(path, OUT / path.name)
         report['repeat_archive_parity'] = True; save()
         for form in ('wheel', 'sdist'):
             suffix = '.whl' if form == 'wheel' else '.tar.gz'
             artifact_paths = {name: next(OUT.glob(module + '-*' + suffix)) for name, (module, _) in PACKAGES.items()}
-            isolated = temp / ('isolated-' + form)
-            py = install([artifact_paths['contracts']], isolated)
-            before = fingerprint(py, ['equity_feature_contracts'])
-            installed_core_maps(before, {'contracts': artifact_paths['contracts']})
-            run(py, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', artifact_paths['strategies'])
-            run(py, '-m', 'pip', 'check')
-            installed = installed_strategy(py, artifact_paths['strategies'])
-            run(py, '-I', '-m', 'unittest', 'discover', '-s', verification / 'tests/research')
-            typing = installed_typing(py, isolated)
-            after = fingerprint(py, ['equity_feature_contracts'])
-            assert before == after, 'strategy install/execution changed contracts'
-            # A distinct consumer environment explicitly installs features; strategy-only isolation stays meaningful.
+            for component in ('strategies', 'labels'):
+                isolated = temp / ('isolated-' + component + '-' + form)
+                py = install([artifact_paths['contracts']], isolated)
+                before = fingerprint(py, ['equity_feature_contracts'])
+                installed_core_maps(before, {'contracts': artifact_paths['contracts']})
+                run(py, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', artifact_paths[component])
+                run(py, '-m', 'pip', 'check')
+                installed = installed_component(py, artifact_paths[component], component)
+                run(py, '-I', '-m', 'unittest', 'discover', '-s', verification / 'tests/research', '-p', 'test_' + component + '.py')
+                typing = installed_typing(py, isolated, component)
+                after = fingerprint(py, ['equity_feature_contracts'])
+                assert before == after, 'research install/execution changed contracts'
+                report['installed'].append({'component': component, 'form': form, 'component_source': installed,
+                    'contracts_before_after': before, 'isolated_origins': True,
+                    'independent_fixtures_passed': True, 'installed_typing': typing})
+                save()
+            # Both research packages are explicit dependencies of this separate application.
             consumer = temp / ('consumer-' + form)
             cpy = install([artifact_paths['contracts'], artifact_paths['features']], consumer)
             core_before = fingerprint(cpy, ['equity_feature_contracts', 'equity_features'])
             installed_core_maps(core_before, {'contracts': artifact_paths['contracts'], 'features': artifact_paths['features']})
-            run(cpy, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', artifact_paths['strategies'])
+            run(cpy, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', artifact_paths['strategies'], artifact_paths['labels'])
+            run(cpy, '-m', 'pip', 'check')
             run(cpy, '-I', verification / 'examples/research_scanner.py')
+            run(cpy, '-I', verification / 'examples/research_labels.py')
             assert core_before == fingerprint(cpy, ['equity_feature_contracts', 'equity_features'])
-            report['installed'].append({'form': form, 'strategy_source': installed, 'contracts_before_after': before,
-                'consumer_core_before_after': core_before, 'isolated_origins': True,
-                'independent_fixtures_passed': True, 'producer_example_passed': True, 'installed_typing': typing})
+            report['combined'].append({'form': form, 'consumer_core_before_after': core_before,
+                'actual_core_producer_passed': True, 'signal_invariance_and_as_of_joins_passed': True})
             save()
     source_closure()
     report['source_head_and_materialization_closure'] = True

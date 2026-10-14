@@ -1,0 +1,71 @@
+{
+  "story": "EQ091#103",
+  "status": "source candidate, unexecuted; source review pending",
+  "base": "709cb7d55ca806a2e493e8846b7a72b91ae3e2f4",
+  "readiness_head": "839ef6a3fcab1d18ec5914896886e38f09424fb2",
+  "readiness_review_sha256": "1435e3e2d63e2620d18f691ec262a3878e6c3f344bfa05d87cef10673e17ba55",
+  "pull": "https://github.com/atulsrivas1/equity-features/issues/103#issuecomment-6179673441",
+  "validation": [
+    "Source AST parsing only; no product code imported or executed"
+  ],
+  "not_executed": [
+    "Standalone numerical/identity fixtures",
+    "Strict source/installed typing",
+    "Boundary runtime guard",
+    "Repeat artifacts/fresh forms",
+    "Combined actual producer/causal/as-of consumer",
+    "Current bothOS/main checks and actual artifacts",
+    "Exact source/final review"
+  ],
+  "label_requirement_mapping": {
+    "positive": "tests/research/test_labels.py",
+    "negative": "tests/research/test_labels.py",
+    "zero": "tests/research/test_labels.py",
+    "pending-horizon": "tests/research/test_labels.py",
+    "missing-endpoint": "tests/research/test_labels.py",
+    "missing-both": "tests/research/test_labels.py",
+    "missing-plus-future-basis": "tests/research/test_labels.py",
+    "future-horizon-missing-unknown": "tests/research/test_labels.py",
+    "future-endpoint-knowledge": "tests/research/test_labels.py",
+    "unknown-plus-future-knowledge": "tests/research/test_labels.py",
+    "basis-effective-after-horizon": "tests/research/test_labels.py",
+    "raw-split-movement": "tests/research/test_labels.py",
+    "later-adjusted-path": "tests/research/test_labels.py",
+    "dividend-price-only": "tests/research/test_labels.py",
+    "future-origin": "tests/research/test_labels.py",
+    "unknown-origin-basis": "tests/research/test_labels.py",
+    "zero-price": "tests/research/test_labels.py",
+    "negative-price": "tests/research/test_labels.py",
+    "nan-price": "tests/research/test_labels.py",
+    "infinite-price": "tests/research/test_labels.py",
+    "duplicate-timestamp": "tests/research/test_labels.py",
+    "endpoint-overflow": "tests/research/test_labels.py",
+    "zero-horizon": "tests/research/test_labels.py",
+    "basis-mismatch": "tests/research/test_labels.py",
+    "total-return-basis": "tests/research/test_labels.py",
+    "ratio-overflow": "tests/research/test_labels.py",
+    "ratio-underflow": "tests/research/test_labels.py",
+    "equal-max": "tests/research/test_labels.py",
+    "finite-subnormal-ratio": "tests/research/test_labels.py",
+    "revision": "tests/research/test_labels.py",
+    "causal-signal-invariance": "examples/research_labels.py",
+    "join-reject-future-known": "examples/research_labels.py",
+    "join-admit-boundary": "examples/research_labels.py"
+  },
+  "identity_requirement_mapping": {
+    "scalar-type": "tests/research/test_labels.py",
+    "signed-zero": "tests/research/test_labels.py",
+    "huge-int": "tests/research/test_labels.py",
+    "float-one": "tests/research/test_labels.py",
+    "domain-separation": "tests/research/test_labels.py",
+    "unknown-record": "tests/research/test_labels.py",
+    "surrogate-identity": "tests/research/test_labels.py",
+    "predicate-order": "examples/research_labels.py and existing test_strategies.py"
+  },
+  "limits": [
+    "No local extra runtime/build/typing/native during frozen EQ088 timings",
+    "Requirements are not runtime test counts",
+    "No performance/default adoption or stable registry claim",
+    "Core and accepted strategies package source unchanged"
+  ]
+}

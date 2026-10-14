@@ -1,3 +1,7 @@
+## EQ091 label compatibility candidate — October 14
+
+Labels0.1.0a1 is independently optional with contracts0.0.4a4, Python>=3.12,<3.13 and Apache2. Core and accepted strategies sources, versions and required dependencies remain unchanged. Closed raw/supplied-split basis, causal origin, exact elapsed endpoints and knowledge/state admission are specified in [the guide](research/FORWARD_LABELS.md). Research qualification schema2 adds labels, fresh component-only positive/negative typing and separate actual producer/causal consumer forms. Source/AST checks are not runtime or platform qualification; current bothOS/main evidence remains pending. EQ090 acceptance is independently recorded on #102 at main709cb7d.
+
 ## EQ090 actual candidate evidence — October14
 
 81404f5 passed bothOS hosted candidate checks and local fresh wheel/sdist fixtures/installed positive-negative typing/actual-core producer with complete archive/source/RECORD maps. Each fresh strategy-only environment denied features/labels/numpy/pyarrow/duckdb imports; separate producer environments explicitly installed features. Core payloads match selected archives and remain byte-identical before/after strategy installation and execution. Existing core package sources/build metadata/versions/dependencies and original core boundary-policy function remain unchanged. The reviewed explicit research guard adds the new package without weakening core/backend policy. Final mixed-entity regression/head/current-main/artifact acceptance remains pending; see [ledger](stories/EQ-090_VALIDATION.json).

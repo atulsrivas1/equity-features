@@ -1,3 +1,7 @@
+## EQ091 candidate — unreleased
+
+Prepared optional pure labels0.1.0a1: immutable origin and full path identities, checked elapsed horizons, raw/supplied-split witnesses, pending/incomplete/mature knowledge precedence and explicit numerical/precision errors. Added independent requirements and actual producer/scanner/future-label/as-of consumer. Dedicated repeat eight-archive/fresh component typing and combined bothOS qualification prepared; execution and release pending. Core and strategies unchanged.
+
 ## EQ090 implemented candidate qualification — strategies0.1.0a1
 
 Implemented optional pure scanners over supplied supported features, complete source/config-content binding, unavailable-first rules and exact deterministic ranking/top-k/coverage. Actual814 candidate passed all14 hosted checks and local repeat archives/fresh wheel-sdist independent fixtures, installed typing and real core-producer/core-parity gates. Original failed source/CI attempts remain documented. Final changed-head/artifact/default-branch release acceptance is pending; EQ091labels/EQ092aggregate remain unfinished.

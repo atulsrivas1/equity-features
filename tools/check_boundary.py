@@ -156,8 +156,8 @@ def research_violations(source, *, codec=False):
 def check():
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
-    research=ROOT/'packages/strategies'
-    known_packages=set(pure_packages)|{research}
+    research_packages=(ROOT/'packages/strategies',ROOT/'packages/labels')
+    known_packages=set(pure_packages)|set(research_packages)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
@@ -172,14 +172,15 @@ def check():
         assert violations(source),source
     for source in POSITIVE_FIXTURES:
         assert not violations(source),(source,violations(source))
-    if research.exists():
+    for research in research_packages:
+        if not research.exists(): continue
         project=tomllib.loads((research/'pyproject.toml').read_text(encoding='utf-8'))['project']
         assert project['dependencies']==['equity-feature-contracts==0.0.4a4']
         assert not project.get('optional-dependencies',{}),'unreviewed research extras'
         for path in research.glob('src/**/*.py'):
             errors=research_violations(path.read_text(encoding='utf-8'),codec=path.name=='_codec.py')
             assert not errors,f'{path.relative_to(ROOT)}: {errors}'
-    for source in ('import equity_features','import equity_feature_labels','import numpy','import pyarrow',
+    for source in ('import equity_features','import equity_feature_labels','import equity_feature_strategies','import numpy','import pyarrow',
                    'import os','from pathlib import Path','import socket','f=open','obj.connect()',
                    'obj.__dict__','x=getattr','getattr(value,name)','from .other import loader'):
         assert research_violations(source),source
