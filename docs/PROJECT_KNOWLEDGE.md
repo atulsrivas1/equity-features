@@ -1,3 +1,7 @@
+## EQ090 accepted; EQ091 is next
+
+EQ090 scanner package is accepted at main709cb7d / PR387 after exact current bothOS and main checks/artifact/source review; issue102 Closed/Done and E12 checklist are verified. Acceptance: https://github.com/atulsrivas1/equity-features/issues/102#issuecomment-6179507604. Original R8 runtime acceptance is five of eight. EQ088 is frozen Test/full validation; EQ091/092 remain unimplemented. [EQ091's concrete packet](stories/EQ-091_PLAN.md) prepares exact API/math, independent fixtures and optional bothOS qualification. Project status remains the execution authority; preparation alone is not Ready or delivery.
+
 ## EQ090 actual candidate qualification; R8 still incomplete — October14
 
 Strategies source81404f5 now has14hosted green checks plus local complete freshbothforms qualification; [ledger](stories/EQ-090_VALIDATION.json) pins actualbothOS artifacts and prior failures. Final stronger mixed-entity test/documentation head is under preparation; finalreview/currentCI/main release pending,102CodeReview. EQ088915f093 recorder-only caller correction/protocolrev3 sourceapproved/pure7passed; onecapacitypreflight running, fullcomparisonfailed54neverpooled. Originalruntime accepted4of8; labels103/aggregate104 unimplemented. CurrentProject remainsauthority.
