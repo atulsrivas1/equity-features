@@ -523,5 +523,177 @@
       "Ordinary background/OS cache/thermal state uncontrolled",
       "Current changed-input artifacts/final interpretation/source/main acceptance remain required"
     ]
+  },
+  "current4023_artifact_gate": {
+    "source": "4023b86d28e5f63ae652a0255e133db8463902b5",
+    "artifacts": [
+      {
+        "artifact_id": 11935526705,
+        "run_id": 38652081557,
+        "system": "Linux",
+        "sha256": "1fc8d2f535a1c82301499d601cc95235a52f04346562a107f29f1065282eaca8",
+        "expires_at": "2026-11-13T23:13:39Z",
+        "entries": {
+          "eq085-profile-sdist.json": {
+            "bytes": 1574426,
+            "sha256": "baeeb8fd086a7d162f21a276ca834c2653a8204c689e6734e40376f200b11a3b"
+          },
+          "eq088-scaling-sdist.json": {
+            "bytes": 137983,
+            "sha256": "10e116e62b0d6c17044f7b54e164871bb9c9e99a6351a8cd8ec9d124b6182846"
+          },
+          "eq085-profile-wheel.json": {
+            "bytes": 1573984,
+            "sha256": "bc4335d245f372f14ea2567bdcefd4a2587a2133f04b383dd16c0e6d9ed22cf4"
+          },
+          "eq088-scaling-wheel.json": {
+            "bytes": 137856,
+            "sha256": "92a8a69e63fad2fd7ed57c84594127ca7e3d13acb20de34959cba4c41de924a9"
+          },
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": {
+            "bytes": 13037,
+            "sha256": "9b6dca40280850599db8e194fe280cd651aa06b7132998d55e61861dfdd2d1e3"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 69728,
+            "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27770,
+            "sha256": "2abcd7084371e82e7ec887353a1159ed900616d764df36baafe49a2b57c9c676"
+          },
+          "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+            "bytes": 20177,
+            "sha256": "dd8f175dba3ef547401341102d7e7ae1bc41ec3c53a67cfbaaec91c29a52bc7d"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16572,
+            "sha256": "6bed73224f033f4d67ad7d519bce76c5b8d3f6076766ccc0726b6a36a9bf3bde"
+          },
+          "equity_feature_files-0.1.0a0-py3-none-any.whl": {
+            "bytes": 15074,
+            "sha256": "f12cf7759f4669a7b007434ce062b1325bb1cd3b83c3b2e868dc6ce14117a5ee"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11458,
+            "sha256": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18687,
+            "sha256": "71c2316ab93d3382b24701ce6f4990b1355f90b8f66e562c8b1d34e539d60783"
+          },
+          "equity_feature_parquet-0.1.0a1-py3-none-any.whl": {
+            "bytes": 17738,
+            "sha256": "2cdca449df56260aa64becfe4ee856b752e906c766426a74dacab849b48f899c"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71053,
+            "sha256": "a4eae3ca4ae6e37d277e941958199b47b0dd0ce150064c0952c2d0269e042faf"
+          },
+          "equity_feature_workers-0.1.0a13.tar.gz": {
+            "bytes": 57653,
+            "sha256": "0382656756abe5d89f21a5e705d4a41451a8a64d5da652ea58e846a2e3cd9e21"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65151,
+            "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e"
+          },
+          "manifest.json": {
+            "bytes": 24592,
+            "sha256": "71edf10bd7547d6469ffcdfba3122904df8502da27ca7d66a3e7008d7ade746a"
+          }
+        },
+        "wheel_records_verified": 11
+      },
+      {
+        "artifact_id": 11935478542,
+        "run_id": 38652081557,
+        "system": "Windows",
+        "sha256": "32a93bfeb11d949afc03d98f11087abfe9bee847bc76495b4bf8042e9306e7e6",
+        "expires_at": "2026-11-13T23:24:42Z",
+        "entries": {
+          "eq085-profile-sdist.json": {
+            "bytes": 1550172,
+            "sha256": "b19cb14b5fa13b1284cf90df0e3c07535d6048320c6fedec216902d7aacaa60d"
+          },
+          "eq085-profile-wheel.json": {
+            "bytes": 1551738,
+            "sha256": "fce13d22c52b45f7e8527fc50f9b67655ae0b011d920ccdda22896b09036bcc1"
+          },
+          "eq088-scaling-sdist.json": {
+            "bytes": 146110,
+            "sha256": "6f4c659fe58b077a82974f817f4489d8a2373f075af7c007ce807cb63319a5b0"
+          },
+          "eq088-scaling-wheel.json": {
+            "bytes": 146265,
+            "sha256": "bdf427632fa45bf1373299700d4d764e91ee26c6b68e1743ba356f7bbeb21fd6"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65462,
+            "sha256": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0"
+          },
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": {
+            "bytes": 13075,
+            "sha256": "54097268c067f2b794e6145a4ff40604afe1f90619ad3ddd97b2953d6a450abc"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 70077,
+            "sha256": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27794,
+            "sha256": "05bc3655de76ad87a969ee7d4b1fd6def623c9cdf31cb0b3dc4753d9629127dc"
+          },
+          "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+            "bytes": 20213,
+            "sha256": "fc0f132f477ddc595daccbdd5342b357aca5bcf689e2c70a7d3fe967b00da4c9"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16579,
+            "sha256": "5f18bbc83ba79485d199794b172a6ed7b7ab259625c87f2a49cb7a80a0889ab8"
+          },
+          "equity_feature_files-0.1.0a0-py3-none-any.whl": {
+            "bytes": 15086,
+            "sha256": "36346e2c945bff70b46bc0bb11ff5f9f350e9df88cb3bc626a2e5039b37998f8"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11470,
+            "sha256": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18702,
+            "sha256": "ffe8e8ab4b1aa7cb94c11e9d7a11f1f4a8a87762aa5f5b49ad0f7f47aa65eebb"
+          },
+          "equity_feature_parquet-0.1.0a1-py3-none-any.whl": {
+            "bytes": 17752,
+            "sha256": "4119622e8603e1c0a53bae82ed5c97ef29cfa1119c5a02b36a2d9da0f6d3f445"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71072,
+            "sha256": "0da17f4d4b7d53f72f2b67aba4bfb3cc912b86d769dd142550c4748a3edb2324"
+          },
+          "equity_feature_workers-0.1.0a13.tar.gz": {
+            "bytes": 57951,
+            "sha256": "d1b5a702812bbac6270eb54ab20eb21ac7bc1100d522412cee9107a92e594b0e"
+          },
+          "manifest.json": {
+            "bytes": 24897,
+            "sha256": "f44a740f1c27d134f3dad5334aa252662e309655b8eace6606b156d75ce1730b"
+          }
+        },
+        "wheel_records_verified": 11
+      }
+    ],
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "review_sha256": "7c38affd1cd8942fdd1e3978d5af7d61082f4a772546c46f765efab636a32b24",
+    "checks": "All24 current candidate checks and exact PUSH Typed foundation checks38652081557 Success",
+    "result": "No findings; complete bothOS archive/source/RECORD/current small smoke evidence verified",
+    "scope": "2ZIP/34entries/22wheel RECORDs/all11module source maps per OS/worker sdist/158current qualification source pins/EQ085 installed maps/four EQ088 forms",
+    "limits": [
+      "Actual small smoke180s/10ms; capacity360s/25ms declared separately",
+      "Full03 running; no full capacity/performance/spill/layout acceptance",
+      "No local reviewer product/native execution"
+    ],
+    "public_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6180744984"
   }
 }
