@@ -1,0 +1,79 @@
+{
+  "schema": "eq098.precode.paired-local-review.v1",
+  "reviewer": "/root/r9_plan_review, separate automated local Codex reviewer",
+  "reviewed_at_utc": "2026-10-15T14:10:32.297064+00:00",
+  "heads": {
+    "canonical": "dee51c54a2a89be09a247177f458edaecd961727",
+    "io": "10aae18808d9a730fb8759566e9568f970de8a46"
+  },
+  "bases": {
+    "canonical": "ec1e3b1b55a2c3e7e8a7c2ecddc43f11a99c72ca",
+    "io": "19aa266b9debb92a6c5eb707baafeb9ae7a82942"
+  },
+  "disposition": "changes_requested_before_Ready",
+  "findings": [
+    {
+      "priority": 2,
+      "title": "Freeze immutable public field types and replay outcome invariants",
+      "file": "docs/stories/EQ-098_PLAN.md",
+      "start": 9,
+      "end": 9,
+      "trigger": "A caller constructs BundleManifest or ReplayReport using the advertised public records. Field names are listed, but versions has no specified immutable in-memory representation/type, and several ReplayReport scalar/null types and status-state combinations remain unspecified at line41.",
+      "consequence": "Independent implementations can choose incompatible mutable dictionaries vs tuples/frozen version records, or accept contradictory report states such as matched with a nonverified compatibility/content state. The promise of exact known immutable records and meaningful typed outcomes is not yet a complete constructor contract.",
+      "requested_change": "Before Ready freeze exact public field types/tuple limits/ordering (especially BundleManifest.versions), ReplayReport scalar bounds and a closed outcome matrix mapping each status to execution/content/compatibility states, count, timing/match/output nullability. Add independent direct-constructor negatives for contradictory combinations."
+    },
+    {
+      "priority": 2,
+      "title": "Specify literal lexical token limits before JSON parsing",
+      "file": "docs/stories/EQ-098_PLAN.md",
+      "start": 27,
+      "end": 33,
+      "trigger": "A stored typed entry fits the32MiB aggregate and node/depth limits but contains one enormous integer token or escaped string token. The plan says number/string preflight exists but freezes no token grammar/length/counting rule before JSON loads or float.fromhex.",
+      "consequence": "The parser/reconstructor can materialize or process far larger primitive tokens than typed-json-v1 permits, and exact boundary/error fixtures cannot be independently specified from this packet. Post-reconstruction width/label checks do not establish the promised pre-parser admission rule.",
+      "requested_change": "Freeze conservative raw-token and decoded-string counting bounds and canonical numeric grammar before loads: e.g. typed integers at most38digits plus optionalminus with abs<10^38, bounded float64-hex strings before conversion, separate manifest/receipt integer rules, and bounded escaped payload/label tokens with surrogates rejected. State deterministic rejection and exact-limit/one-over tests. These remain application controls, not physical quotas."
+    }
+  ],
+  "filesGitSHA256": {
+    "canonical": {
+      "docs/CHANGELOG.md": "58549af3d54131d4754ca7b990c75c8c555935586531a1ab3d5377ebad642095",
+      "docs/EVIDENCE_ROADMAP.md": "96d9830704d6eea628edfa3b3770458d4fbefb191770fab7bd16ba8b7c1e5264",
+      "docs/PROJECT_KNOWLEDGE.md": "d5fc2dac9e887d6ef17048a6eed69554a00ccc23f265bd969b3a3d56b8edbd85",
+      "docs/SESSION_HANDOFF.md": "75c831593f5d98093038a8f64eb35d82a6be06ed79ec946622e7617cd1a23b91",
+      "docs/stories/EQ-098_BUNDLE_ORACLE.json": "383b19f5682f0efab728079cebb8be0c489b5f9defa2b604a72e355845e5b455",
+      "docs/stories/EQ-098_MANIFEST_ORACLE.json": "734c6b5d0bcfad9de52ce88ff8a6fb90dbea2218387f6c33d9c854270a1e7f6d",
+      "docs/stories/EQ-098_PLAN.md": "08124f6a00a6835bfe8484ad922263d965e52744d3da67074a11649235ef0152"
+    },
+    "io": {
+      "docs/CODE_REVIEW.md": "665b6af060946719e27de6d550c1a976d5e55630c1b4ec1606d3066e1cd1837c",
+      "docs/EQ098_PLAN.md": "f059083a1d018aff9ce8c16f5fbfa6bbcf29a59f85eaf113104cbbc3bb6c7f1c",
+      "docs/PROJECT_KNOWLEDGE.md": "3e0898c5d0648c548fc27e81d7c871831cc86234733668af06cada3fffd421c9",
+      "docs/SESSION_HANDOFF.md": "f8ab1215ada93a1a616ef69ab6d98a6b40a927a68427de1584afa1780e2730bb",
+      "tests/fixtures/bundle_oracle.json": "383b19f5682f0efab728079cebb8be0c489b5f9defa2b604a72e355845e5b455"
+    }
+  },
+  "coverage": [
+    "Separate pure evidence/math vs optional in-memory bundle distribution and explicit trusted replay extra",
+    "Closed fixed ASCII ZIP_STORED language/contiguous headers/EOCD/CRC/content identities; no extraction/path/URL/code resolution",
+    "Exact35record reconstruction and canonical re-encoding, immutable unavailable refs and complete receipt/config/result/input bindings",
+    "Fixed calculator fivefeature/dtype/unit/entity/versions shape, unavailable/missing cases, exact result parity and truthful source/rights limits",
+    "Synchronous boundedwork/oneinvoke/before-entry cancellation/after-return5sgate scope satisfies accepted application controls without an owned subprocess guarantee",
+    "Paired owner local-review grant, dependencies/lifecycle/docs/independent fixtures and Windows/Linux light/replay wheel/sdist/source/artifact/publication gates"
+  ],
+  "checks": {
+    "exact_clean_paired_heads_docs_fixture_only": "passed",
+    "live_draft_PR395_and_IO17_heads_bases": "passed",
+    "manifest_literal_hash_bytes": "1336/SHA734c6b5d...passed",
+    "archive_literal_hash_bytes": "11517/SHAf37d9fd6...passed",
+    "companion_fixture_exact_committed_copy": "passed",
+    "raw_local_headers_contiguity_EOCD_stored_metadata_CRC": "passed all5members",
+    "all_manifest_entry_hash_length_receipt_bindings": "passed",
+    "synthetic_fixed_five_values": "3,10,1011,101.1,10/3 matched data",
+    "new_runtime_implementation": "absent"
+  },
+  "limits": [
+    "Paired pre-code review only; original synchronous design critique was not Ready approval and this review requests two concrete corrections",
+    "No product/runtime/calculator test/build/install/benchmark/download or source/GitHub mutation executed; standard-library fixture data audit only",
+    "Renew affected exact-head coverage after corrections; implementation and current paired artifact/main acceptance remain mandatory"
+  ],
+  "review_script_sha256": "62740d55df05865238310e7619e232e2f924406de41f7d7c8faf8ee79b0430e9"
+}
