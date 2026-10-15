@@ -1,0 +1,34 @@
+{
+  "schema": "eq098-source-rework:1",
+  "reviewer": "Separate local Codex automated reviewer /root/r9_plan_review",
+  "original_heads": {
+    "canonical": "6001788358ea2e087c727faa8855dc38bf115344",
+    "companion": "9bd10876b289bf38a15ad44cb9cd3fa7b4a9d57d"
+  },
+  "original_raw_report_sha256": "d0de0d8fdc4f555561dcc98f70f2817d9dd6c56324d90a71fe4c8c9aa1abead9",
+  "original_disposition": "changes_requested",
+  "finding": {
+    "id": "EQ098-SRC-01",
+    "priority": 2,
+    "title": "Reject unsupported result math policy before fixed replay",
+    "repository": "companion",
+    "file": "packages/bundles/src/equity_feature_bundles/_binding.py",
+    "start_line": 41,
+    "end_line": 42,
+    "trigger": "A valid five-column v1 result is reissued with ResultMetadata.math_policy_version=v2 and a freshly bound full-content receipt. write_bundle/read_bundle admit it.",
+    "observed": "Independent controlled source probe invokes the fixed calculator once and reports mismatch (calculation_count=1), rather than refusing the unsupported policy before execution.",
+    "consequence": "Unknown mathematical policy versions enter session.compute_trades.v1 despite the frozen pre-execution version-admission contract; a mismatch is not the promised incompatible refusal.",
+    "requested_change": "Pin the supported result math_policy_version to v1 in the shared fixed-shape admission check, and add a consistent receipt/bundle negative with a private execution counter proving zero calls. Keep mismatch for supported-policy output disagreements.",
+    "basis": [
+      "docs/stories/EQ-098_PLAN.md:15",
+      "docs/stories/EQ-098_PLAN.md:27",
+      "docs/R9_TEST_STRATEGY.md:17"
+    ]
+  },
+  "correction": "Shared shape pins result schema1/math_policy_version v1 before export, read or replay; full receipt consistency alone is insufficient.",
+  "validation": "28 source methods passed, including independent all-hash-rebound unknown-policy archive and forged exact-wrapper zero-calculator-loader counter; supported v1 mismatch remains a returned one-call result.",
+  "corrective_source_log_sha256": "e8c09cd8e9e4ae57cfbe5f609a19f04d4466187a8871cccd578ca155b67719d7",
+  "qualification_scope": "No builder/install/bothOS/main delivery executed at this correction; renewed exact-head review pending.",
+  "retained_author_correction": "Before build, qualifier subprocess removes inherited mypy/Python search-path configuration; actual poisoned-environment child probe passed.",
+  "tool_history": "Initial inline environment probe shell-quote SyntaxError before execution; saved script succeeded. Raw failed/corrective source logs retained outside Git."
+}
