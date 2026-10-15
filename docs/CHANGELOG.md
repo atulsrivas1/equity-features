@@ -1,3 +1,7 @@
+## EQ097 qualified full-content candidate — October15,2026
+
+Evidence0.1.0a2 passed separate source and bothOS artifact/install/cost audit: six repeatarchives/fourfresh forms perOS/31tests/typing/actual examples. [Validation](stories/EQ-097_VALIDATION.json) preserves source/RECORD maps,48rawcostsamples, original failures and limitations. Typed-json-v1 full supplied content fingerprints retain exact precision/null/order/metadata/quality/evidence facts. Existing receipt schema/numerical packages unchanged; final currenthead/main publication/acceptance pending.
+
 ## EQ097 full supplied content fingerprint candidate — October15,2026
 
 Evidence0.1.0a2 adds closed typed-json-v1 batch/result/configuration encoding, bounded prevalidated chunks, streamed SHA256 and actual-content receipt generation/verification. Three independent known-byte oracles cover every root; all five batch kinds and13result alternatives are tested. Adds actual five-output producer example and fixed synthetic cost protocol to fresh qualification. Existing receipt schema and numerical package sources/versions remain unchanged. Source31tests/typing passed; final review/installed bothOS/current-main release evidence pending.

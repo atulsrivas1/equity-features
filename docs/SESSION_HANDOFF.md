@@ -1,3 +1,11 @@
+## EQ097 candidate qualification complete; final publication — October15,2026
+
+EQ097 executable candidate7ea1c721 passed separate source/security/API/docs/cost-protocol reviewc9b1c0b4 and bothOS artifact review15d76137, findings[]. All18candidate checks SUCCESS. PerOS sixrepeatarchives/72sourcepins/145entries/65RECORDrows/100Gitpayloads, fourfresh isolated/actual-core combined wheel/sdist consumers/31tests+typing/both actual examples passed. Local author Windows independently completed fourfresh forms, logSHAf6a753aa; not a reviewer reinstall. [Complete validation](stories/EQ-097_VALIDATION.json) preserves maps, raw48CIcostsamples/reviews and original fixture/tool failures.
+
+1000/10000row populations encode39215/417218bytes identically on bothOS. Timing is measured while tracemalloc active; existing supplied graphs/result/hash-only bytes are excluded from incremental Python peaks. No native/RSS/physical quota/deadline/speedup claim. Full content consistency does not prove execution/source truth. Existing numerical packages/versions and receipt schema are unchanged.
+
+This final documentation integration changes no executable/package/test/example/build/workflow bytes.197 remainsTest; next separate final docs/head review/current artifacts, then guarded ReadyRelease/merge and actual-main public source/Atul/currentbothOS artifact/install verification before Released/acceptance/Done. Link those subsequent outcomes externally on issue197 without a receipt-only tracked loop. Then EQ098's concrete data-only bundle/fixed trusted replay plan; EQ098–100 Backlog until actual pull. R9 remainsoneof5acceptedDone; preserve primary unrelated work and pausedR7automation.
+
 ## EQ097 implementation candidate — October15,2026
 
 EQ096 remains accepted Closed/Done at mainb307dde. EQ097's exact35record/three-oracle packet at2cbdd942 passed separate pre-code review954688f5; [actual Ready/pull](https://github.com/atulsrivas1/equity-features/issues/197#issuecomment-6193195699) read back Backlog→Ready→In progress and Atul assignment. Other R9 stories remain Backlog.

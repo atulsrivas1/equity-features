@@ -1,3 +1,7 @@
+## EQ097 independently qualified content candidate — October15,2026
+
+Full typed content evidence0.1.0a2 at7ea1c721 passed separate source/security/docs and actual bothOS archive/RECORD/source/install/cost audits, findings[]. [Frozen validation/maps/raw measurements](stories/EQ-097_VALIDATION.json).31methods/fourfresh forms perOS/typing/both examples preserve allfiveactualcorevalues and detect same-metadata changedcontent. Existing numerical versions/receipt schema remain unchanged. Current197Test: final docs/current artifacts/defaultbranch publication still required. Later bundle/replay/explanation/completeR9 claims remain separate.
+
 ## EQ097 content implementation under qualification — October15,2026
 
 [Typed content API](api/EVIDENCE_CONTENT.md) implements the reviewed logical encoding with exact integer/float64/null/unit/type/version/order facts and prevalidated streaming. Matching hashes verify supplied content consistency; they do not prove acquisition or that inputs caused execution. Actual synthetic producer values/quality/full metadata remain unchanged.31source methods/frozen oracles/typing pass; final review, installed bothOS measurements/artifacts and publication remain pending. EQ097 In progress; EQ096 accepted, other R9 stories Backlog.

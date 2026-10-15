@@ -1,3 +1,7 @@
+## EQ097 qualified experimental candidate forms — October15,2026
+
+Evidence0.1.0a2 with unchanged contracts/features0.0.4a4 passed actual Windows3.12.10/Linux3.12.15 wheel/sdist isolated/combined consumers and public typing. [Exact environment/source/archive maps](stories/EQ-097_VALIDATION.json). Existing receipt-json-v1 stays compatible; typed-json-v1 is a separate full-content preimage with strict contracts-version admission. Final currenthead/main release acceptance remains required; no universal future combinations or stable registry promise.
+
 ## EQ097 typed content candidate — October15,2026
 
 Optional evidence0.1.0a2 retains receipt schema1/receipt-json-v1 and contracts0.0.4a4. Typed content domain/schema1/typed-json-v1 uses exact root/record types and runtime contracts version; unsupported versions fail. Existing result/configuration metadata digests retain their original preimages. Content hashing is a new separate full-content preimage, not a silent migration of old digests. Source checks pass; installed Windows/Linux forms/current artifacts/main acceptance are pending.
