@@ -9,5 +9,19 @@
     "Exact initial trade-only physical profile; pure membership/reference checks do not imply native reference acquisition."
   ],
   "runtime_implemented": false,
-  "author_precode_correction": "Verified accepted commands.py: worker family/role trades, distinct from fixed producer/replay profile session.compute_trades.v1. No baseline manifest identity change or runtime failure."
+  "author_precode_correction": "Verified accepted commands.py: worker family/role trades, distinct from fixed producer/replay profile session.compute_trades.v1. No baseline manifest identity change or runtime failure.",
+  "initial_readiness_review": {
+    "head": "74212b8f4ad4dc077062e5300a4e71c1b93c3cd9",
+    "report_sha256": "099e2f824863b536da0ccf4aa34f1d6803cf01a60d3304e7edf4f187d3b795fe",
+    "disposition": "changes_requested_before_ready",
+    "findings": [
+      "Missing whole acquisition receipt/file/path/normalization graph preflight and byte accounting.",
+      "Exact store alone allows arbitrary dependency sink callbacks."
+    ],
+    "correction": [
+      "Explicit whole-graph/static-whitelist/cardinality/depth/node/string/work-estimate and total actual bytes preflight before identity/hash/codec.",
+      "Exact accepted DuckDBSink only; unsupported profile refuses before Store.read."
+    ],
+    "runtime_failure": false
+  }
 }

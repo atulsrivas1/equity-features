@@ -168,5 +168,51 @@
     "allentry-license-METADATA-RECORD-sdist-source-installedmaps",
     "fullbeforeafteroriginalsource-data-package-result-receipt parity",
     "currentfinalhead/main/artifacts/separate review/eightstage acceptance"
+  ],
+  "additional_preflight_controls": [
+    {
+      "id": "files33-before-identity",
+      "expected_error": "limit_exceeded",
+      "at_limit": 32,
+      "spy_identity_calls": 0
+    },
+    {
+      "id": "path4097-or-byte16385",
+      "expected_error": "limit_exceeded",
+      "at_limit_codepoints": 4096,
+      "at_limit_UTF8bytes": 16384
+    },
+    {
+      "id": "conversion17-unmapped65",
+      "expected_error": "limit_exceeded",
+      "at_limit": [
+        16,
+        64
+      ]
+    },
+    {
+      "id": "borrowed-graph-node-depth-estimate-total-byte",
+      "expected_error": "limit_exceeded",
+      "limits": {
+        "nodes_per_task": 32768,
+        "nodes_aggregate": 524288,
+        "depth": 16,
+        "estimate_per_task": 1048576,
+        "estimate_aggregate": 16777216,
+        "encoded_bytes_per_task": 1048576,
+        "encoded_bytes_aggregate": 16777216
+      },
+      "at_limit_controls": true,
+      "hash_encoder_calls_on_preflight_refusal": 0
+    },
+    {
+      "id": "unsupported-or-subclass-sink-before-store",
+      "expected_error": "unsupported_version",
+      "store_calls": 0
+    }
+  ],
+  "precode_findings_resolved": [
+    "Whole borrowed acquisition and operational receipt graphs bounded before hashing, including paths and normalization.",
+    "Exact DuckDBSink dependencies only in live profile; no arbitrary callback sink via exact GenerationStore."
   ]
 }
