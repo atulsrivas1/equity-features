@@ -839,5 +839,673 @@
     ],
     "numerical_disposition": "All timing/query/sort tables, host/RSS/disk/spill/layout interpretations passed original source review; no numerical or executable changes",
     "next": "Renew exact corrected-head review before publication"
+  },
+  "actual_main_gate_failure": {
+    "worker_main": "37fa3a5d6d8d6e2c1b8e697b38c6229ba066123a",
+    "canonical_main": "46c2c16a0bb736ef56b996bbf899e7824f8b85b8",
+    "run_id": 38664391026,
+    "job_id": 116192830706,
+    "platform": "Windows",
+    "form": "sdist",
+    "wheel_runner_completed": true,
+    "raw_public_log_bytes": 370770,
+    "raw_public_log_sha256": "d4781da5a7413393308ad9cab6304c544d8d27faded841c0f367f498cb6fcb8b",
+    "diagnosis_review_sha256": "486700f0db05b37cdfb2ff9dadaf4a42be928f23e6e5df4928f010c14be8d449",
+    "observed": "Generic case failure branch: nonzero exit OR stderr OR oversized stdout; exact failing group/cause/independent cleanup unestablished",
+    "status": "Ready to release returned to In progress",
+    "public_record": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6182222445"
+  },
+  "prepared_resilience_failure_observer": {
+    "head": "b7f06ebd70100b99d77d106af23dd333eff3cb79",
+    "changed_manifest_files": [
+      "tests/resilience/run_qualification.py",
+      "tests/qualification/test_resilience_records.py"
+    ],
+    "unchanged_manifest_files": 156,
+    "full_measurement_identity": "Frozen4023/revision4/rawcd77/closure602 unchanged; no currenthead full experiment claim",
+    "design": "Closed allowlisted group/bounded numeric exit/boolean failure flags only; raw output/certificates/paths/tokens stay private",
+    "unchanged": "Original failure conditions/deadlines/ownership/cleanup/group order/success report; no retry or production change",
+    "pending": [
+      "Final canonical exactsource/currentchecks and final candidate review",
+      "Guarded corrective merges and actual-main current source/artifact/check independent acceptance"
+    ],
+    "source_review_sha256": "2a6d4ffea81162ee5c2f9beeb6b850a395a4e01e9db69ad88f97e2668fe2ba3c",
+    "source_review_result": "No findings; approved exact b7f publication/changed hosted qualification; measurement-path observer-only non-impact verified",
+    "pure_tests": {
+      "methods": 9,
+      "new": 3,
+      "existing": 6,
+      "result": "PASS",
+      "executor": "separate local automated reviewer /root/r8_preparation_review",
+      "limits": "No product/native workload"
+    },
+    "worker_pr": "https://github.com/atulsrivas1/equity-feature-workers/pull/52"
+  },
+  "canonical_rework_preparation_review_sha256": "d8948615c3b234b098d6c5e231d84e198feb0d1b56b728418a72dcdf00cebbaa",
+  "current_corrective_candidate_qualification": {
+    "worker_head": "b7f06ebd70100b99d77d106af23dd333eff3cb79",
+    "worker_pr": "https://github.com/atulsrivas1/equity-feature-workers/pull/52",
+    "checks": "All24current checks SUCCESS",
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "foundation_review_sha256": "aa392b768b719395652ceb33b944128432c9e135eddd56e9b3767c414fb2d534",
+    "resilience_review_sha256": "c1a2294782599bd82fb93b75be1a407f8f54bca39a953d3b27bb4f0e58eb16cd",
+    "foundation_artifacts": [
+      {
+        "artifact_id": 11942210935,
+        "run_id": 38665990375,
+        "system": "Windows",
+        "sha256": "6950f492877684becc81fb77d373cd6e05ad3fac031ef42294aebf44f42fc580",
+        "expires_at": "2026-11-14T01:40:50Z",
+        "entries": {
+          "eq088-scaling-sdist.json": {
+            "bytes": 146151,
+            "sha256": "706ee64b185abc333264169f14d21094d87a0b490497f8ac401073654027470e"
+          },
+          "eq085-profile-wheel.json": {
+            "bytes": 1554407,
+            "sha256": "360ae3a25e2e4c296c760f9e6880e55a6031119253b6a30313563360aca0dbda"
+          },
+          "eq085-profile-sdist.json": {
+            "bytes": 1553513,
+            "sha256": "99c7b554ca7eb6414f4066c889a1d8177bc6f212a326e1816fde239dd26e682a"
+          },
+          "eq088-scaling-wheel.json": {
+            "bytes": 146116,
+            "sha256": "57cba653c418e11a7bff6c29b621f800b1067aff7fe33289e96a7070f017dfa4"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65462,
+            "sha256": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0"
+          },
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": {
+            "bytes": 13075,
+            "sha256": "54097268c067f2b794e6145a4ff40604afe1f90619ad3ddd97b2953d6a450abc"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 70077,
+            "sha256": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27794,
+            "sha256": "05bc3655de76ad87a969ee7d4b1fd6def623c9cdf31cb0b3dc4753d9629127dc"
+          },
+          "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+            "bytes": 20213,
+            "sha256": "fc0f132f477ddc595daccbdd5342b357aca5bcf689e2c70a7d3fe967b00da4c9"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16579,
+            "sha256": "5f18bbc83ba79485d199794b172a6ed7b7ab259625c87f2a49cb7a80a0889ab8"
+          },
+          "equity_feature_files-0.1.0a0-py3-none-any.whl": {
+            "bytes": 15086,
+            "sha256": "36346e2c945bff70b46bc0bb11ff5f9f350e9df88cb3bc626a2e5039b37998f8"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11470,
+            "sha256": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549"
+          },
+          "equity_feature_parquet-0.1.0a1-py3-none-any.whl": {
+            "bytes": 17752,
+            "sha256": "4119622e8603e1c0a53bae82ed5c97ef29cfa1119c5a02b36a2d9da0f6d3f445"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18702,
+            "sha256": "ffe8e8ab4b1aa7cb94c11e9d7a11f1f4a8a87762aa5f5b49ad0f7f47aa65eebb"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71072,
+            "sha256": "0da17f4d4b7d53f72f2b67aba4bfb3cc912b86d769dd142550c4748a3edb2324"
+          },
+          "equity_feature_workers-0.1.0a13.tar.gz": {
+            "bytes": 57951,
+            "sha256": "d1b5a702812bbac6270eb54ab20eb21ac7bc1100d522412cee9107a92e594b0e"
+          },
+          "manifest.json": {
+            "bytes": 24897,
+            "sha256": "a05d60af02cb2b426056796f54b5519c1bf60ca14964bdd30fee44a30474985c"
+          }
+        },
+        "wheel_records_verified": 11
+      },
+      {
+        "artifact_id": 11941341659,
+        "run_id": 38665990375,
+        "system": "Linux",
+        "sha256": "ad65de40dd159450903bf3eca8f01aad97cf43032fdf8be285784a2070183dac",
+        "expires_at": "2026-11-14T01:39:30Z",
+        "entries": {
+          "eq085-profile-wheel.json": {
+            "bytes": 1574783,
+            "sha256": "d4f638902882ba1d9e9825d64c574873d0ddb361c7b83064ce8225c5ad8deb84"
+          },
+          "eq088-scaling-wheel.json": {
+            "bytes": 137720,
+            "sha256": "d8549bffe87444445828d9615ad56e98ead38bc0bfea84cce46fd3c6b7d6da12"
+          },
+          "eq085-profile-sdist.json": {
+            "bytes": 1574871,
+            "sha256": "b426440a8f572e9bc44127d681bb29dbb3414d7c8920c3147ec039844e7cec73"
+          },
+          "eq088-scaling-sdist.json": {
+            "bytes": 137858,
+            "sha256": "764f1693b1c6a059f28659c2c69fc8d4ab342e351734ff3e07e3151edab318e5"
+          },
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": {
+            "bytes": 13037,
+            "sha256": "9b6dca40280850599db8e194fe280cd651aa06b7132998d55e61861dfdd2d1e3"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 69728,
+            "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27770,
+            "sha256": "2abcd7084371e82e7ec887353a1159ed900616d764df36baafe49a2b57c9c676"
+          },
+          "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+            "bytes": 20177,
+            "sha256": "dd8f175dba3ef547401341102d7e7ae1bc41ec3c53a67cfbaaec91c29a52bc7d"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16572,
+            "sha256": "6bed73224f033f4d67ad7d519bce76c5b8d3f6076766ccc0726b6a36a9bf3bde"
+          },
+          "equity_feature_files-0.1.0a0-py3-none-any.whl": {
+            "bytes": 15074,
+            "sha256": "f12cf7759f4669a7b007434ce062b1325bb1cd3b83c3b2e868dc6ce14117a5ee"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11458,
+            "sha256": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18687,
+            "sha256": "71c2316ab93d3382b24701ce6f4990b1355f90b8f66e562c8b1d34e539d60783"
+          },
+          "equity_feature_parquet-0.1.0a1-py3-none-any.whl": {
+            "bytes": 17738,
+            "sha256": "2cdca449df56260aa64becfe4ee856b752e906c766426a74dacab849b48f899c"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71053,
+            "sha256": "a4eae3ca4ae6e37d277e941958199b47b0dd0ce150064c0952c2d0269e042faf"
+          },
+          "equity_feature_workers-0.1.0a13.tar.gz": {
+            "bytes": 57653,
+            "sha256": "0382656756abe5d89f21a5e705d4a41451a8a64d5da652ea58e846a2e3cd9e21"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65151,
+            "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e"
+          },
+          "manifest.json": {
+            "bytes": 24592,
+            "sha256": "23d5fe94ff818f44711caea2cdc41e86b1e3d8010e7bf6990b25f75457028843"
+          }
+        },
+        "wheel_records_verified": 11
+      }
+    ],
+    "resilience_artifacts": [
+      {
+        "system": "Windows",
+        "artifact_id": 11942091173,
+        "run_id": 38665990358,
+        "sha256": "de3fa281b503019a38883644b77301524fc8aadeeb86d682860a215bca941805",
+        "expires_at": "2026-11-14T01:41:56Z",
+        "entries": {
+          "annotated_types-0.8.0-py3-none-any.whl": {
+            "bytes": 13427,
+            "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+          },
+          "attrs-26.1.0-py3-none-any.whl": {
+            "bytes": 67548,
+            "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+          },
+          "anyio-4.15.1-py3-none-any.whl": {
+            "bytes": 132079,
+            "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101"
+          },
+          "certifi-2026.7.22-py3-none-any.whl": {
+            "bytes": 136983,
+            "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775"
+          },
+          "cffi-2.1.1-cp312-cp312-win_amd64.whl": {
+            "bytes": 185919,
+            "sha256": "f53e442b08449d42821fa4a4fba000095af9f62742a500f978a9f557ec44339a"
+          },
+          "click-8.5.0-py3-none-any.whl": {
+            "bytes": 125251,
+            "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360"
+          },
+          "colorama-0.4.6-py2.py3-none-any.whl": {
+            "bytes": 25335,
+            "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
+          },
+          "cryptography-50.0.2-cp311-abi3-win_amd64.whl": {
+            "bytes": 3824692,
+            "sha256": "7afa5a6602a9f29af1f3a2965f831bae7c9d5d597b7cbb716d41ab3b7d89879c"
+          },
+          "duckdb-1.5.6-cp312-cp312-win_amd64.whl": {
+            "bytes": 13190189,
+            "sha256": "09ff51b230219f0d8b47fc8a1e17fb595ba9fab0c3d96a6de4d00b8ff86b3cf1"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65462,
+            "sha256": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0"
+          },
+          "equity_feature_client-0.1.0a0-py3-none-any.whl": {
+            "bytes": 30998,
+            "sha256": "881b6059a37b3b076f26ac2ddcf14c2fa343fb0292a6aba3fc7652df500540b1"
+          },
+          "equity_feature_client-0.1.0a0.tar.gz": {
+            "bytes": 23210,
+            "sha256": "fc4e2f93fbb6c382aa8842129435f7c5c176db277a414e69272af54daa9180bd"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 70077,
+            "sha256": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27794,
+            "sha256": "05bc3655de76ad87a969ee7d4b1fd6def623c9cdf31cb0b3dc4753d9629127dc"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16579,
+            "sha256": "5f18bbc83ba79485d199794b172a6ed7b7ab259625c87f2a49cb7a80a0889ab8"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11470,
+            "sha256": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18702,
+            "sha256": "ffe8e8ab4b1aa7cb94c11e9d7a11f1f4a8a87762aa5f5b49ad0f7f47aa65eebb"
+          },
+          "equity_feature_mcp-0.1.0a0-py3-none-any.whl": {
+            "bytes": 24171,
+            "sha256": "49358ab38934053bc55db5fbd1e06d62b692fd6a7dd62b8324300c7293a10f93"
+          },
+          "equity_feature_mcp-0.1.0a0.tar.gz": {
+            "bytes": 20853,
+            "sha256": "b10f2d8abd3bbaef4c4a1e3a45029e2c1b1c1d562e7a9a7ee1d5691d19e26c8a"
+          },
+          "equity_feature_service-0.1.0a3-py3-none-any.whl": {
+            "bytes": 53736,
+            "sha256": "f6be07ba2dc03ae0d5fee65e21a6ac615f544344df3d5517e0eb20b64db62f56"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71072,
+            "sha256": "0da17f4d4b7d53f72f2b67aba4bfb3cc912b86d769dd142550c4748a3edb2324"
+          },
+          "equity_feature_service-0.1.0a3.tar.gz": {
+            "bytes": 44046,
+            "sha256": "8b0c5a7dbbdcdf954a6a5825f4ef23800ffab3cee5633ca4609768d900bfd7b6"
+          },
+          "h11-0.16.0-py3-none-any.whl": {
+            "bytes": 37515,
+            "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+          },
+          "httpcore-1.0.9-py3-none-any.whl": {
+            "bytes": 78784,
+            "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+          },
+          "httpx-0.28.1-py3-none-any.whl": {
+            "bytes": 73517,
+            "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+          },
+          "httpx_sse-0.4.3-py3-none-any.whl": {
+            "bytes": 8960,
+            "sha256": "0ac1c9fe3c0afad2e0ebb25a934a59f4c7823b60792691f779fad2c5568830fc"
+          },
+          "idna-3.20-py3-none-any.whl": {
+            "bytes": 69583,
+            "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+          },
+          "jsonschema-4.26.0-py3-none-any.whl": {
+            "bytes": 90630,
+            "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+          },
+          "jsonschema_specifications-2025.9.1-py3-none-any.whl": {
+            "bytes": 18437,
+            "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+          },
+          "mcp-1.30.0-py3-none-any.whl": {
+            "bytes": 234581,
+            "sha256": "666edb5009503e1047c9d60346a756f94b261f05cc2625f23d41c728ffc484d0"
+          },
+          "mypy-1.15.0-cp312-cp312-win_amd64.whl": {
+            "bytes": 9366614,
+            "sha256": "171a9ca9a40cd1843abeca0e405bc1940cd9b305eaeea2dda769ba096932bb22"
+          },
+          "numpy-2.2.6-cp312-cp312-win_amd64.whl": {
+            "bytes": 12614190,
+            "sha256": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2"
+          },
+          "mypy_extensions-1.1.0-py3-none-any.whl": {
+            "bytes": 4963,
+            "sha256": "1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505"
+          },
+          "pip-25.1.1-py3-none-any.whl": {
+            "bytes": 1825227,
+            "sha256": "2913a38a2abf4ea6b64ab507bd9e967f3b53dc1ede74b01b0931e1ce548751af"
+          },
+          "pycparser-3.11-py3-none-any.whl": {
+            "bytes": 51178,
+            "sha256": "51d5a8ba2be0bbe440b99d2112604c95bbbc3c2748a64260186c541e1729cd80"
+          },
+          "pydantic-2.14.0-py3-none-any.whl": {
+            "bytes": 487109,
+            "sha256": "15fab1bea6f1dc5003b54fc2ecab230c1fd1dbade2acd4addc52d81e32416d4b"
+          },
+          "pydantic_core-2.50.0-cp312-cp312-win_amd64.whl": {
+            "bytes": 2171536,
+            "sha256": "1541c334af5d42cb9eb03862a9b4d2cfbfc670fd05172ec51f3ce02d704550f1"
+          },
+          "pydantic_settings-2.15.0-py3-none-any.whl": {
+            "bytes": 69413,
+            "sha256": "0ba092c291c94baceb5eff768aa0d56400a457585bc0175925a5a5510303da42"
+          },
+          "pyjwt-2.15.1-py3-none-any.whl": {
+            "bytes": 33860,
+            "sha256": "42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193"
+          },
+          "python_dotenv-1.2.4-py3-none-any.whl": {
+            "bytes": 23266,
+            "sha256": "42269a8a5b3fd54ffa6f3d84b18abed50064717576b4ecf03dc4a55d8aa04fdc"
+          },
+          "python_multipart-0.0.32-py3-none-any.whl": {
+            "bytes": 30042,
+            "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23"
+          },
+          "pywin32-312-cp312-cp312-win_amd64.whl": {
+            "bytes": 6914841,
+            "sha256": "b457f6d628a47e8a7346ce22acb7e1a46a4a78b52e1d17e1af56871bd19a93bc"
+          },
+          "referencing-0.37.0-py3-none-any.whl": {
+            "bytes": 26766,
+            "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+          },
+          "resilience-receipt.json": {
+            "bytes": 878406,
+            "sha256": "a339f959f0671fb9799f605967d1d61b1968ebe7293761939098ad860a33a1d5"
+          },
+          "rpds_py-2026.9.1-cp312-cp312-win_amd64.whl": {
+            "bytes": 222923,
+            "sha256": "5ce8943f79c2210f7abcc28e86367b03b28d95027fd01c46d2472373ae70c86f"
+          },
+          "sdist-runtime-report.json": {
+            "bytes": 162447,
+            "sha256": "e422b01231db46fe0e8fc47079c54b366e1085b9cbf2f92386e4f598f35f7df9"
+          },
+          "setuptools-80.9.0-py3-none-any.whl": {
+            "bytes": 1201486,
+            "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+          },
+          "sse_starlette-3.5.0-py3-none-any.whl": {
+            "bytes": 17407,
+            "sha256": "3e6e1070df3f0f5d9cea81496de92dbb72f6721871d99748ece67441dd8b7997"
+          },
+          "starlette-1.7.0-py3-none-any.whl": {
+            "bytes": 78980,
+            "sha256": "67f8e99895493dd2911a03f11314af6ceebeae4e704bb9f43dfc6a9db151c93e"
+          },
+          "typing_extensions-4.16.0-py3-none-any.whl": {
+            "bytes": 45571,
+            "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+          },
+          "typing_inspection-0.4.4-py3-none-any.whl": {
+            "bytes": 14750,
+            "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147"
+          },
+          "uvicorn-0.54.0-py3-none-any.whl": {
+            "bytes": 87427,
+            "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf"
+          },
+          "wheel-runtime-report.json": {
+            "bytes": 162444,
+            "sha256": "4c026681e9d885ab500525c6ddff9d36bf00ba2d98e5f64bfeb5a566546c8c0b"
+          }
+        },
+        "wheel_RECORDs_verified": 47,
+        "archive_entries_verified": 50,
+        "forms": 2,
+        "groups_per_form": 9
+      },
+      {
+        "system": "Linux",
+        "artifact_id": 11941521258,
+        "run_id": 38665990358,
+        "sha256": "e2227b61c740c82f622197f8ef93969ddd34c364f0a85b02153d5b90f95509a3",
+        "expires_at": "2026-11-14T01:39:21Z",
+        "entries": {
+          "annotated_types-0.8.0-py3-none-any.whl": {
+            "bytes": 13427,
+            "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
+          },
+          "anyio-4.15.1-py3-none-any.whl": {
+            "bytes": 132079,
+            "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101"
+          },
+          "attrs-26.1.0-py3-none-any.whl": {
+            "bytes": 67548,
+            "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+          },
+          "certifi-2026.7.22-py3-none-any.whl": {
+            "bytes": 136983,
+            "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775"
+          },
+          "cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl": {
+            "bytes": 221822,
+            "sha256": "c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf"
+          },
+          "click-8.5.0-py3-none-any.whl": {
+            "bytes": 125251,
+            "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360"
+          },
+          "cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl": {
+            "bytes": 4752576,
+            "sha256": "9dab55f57c74c3cad24c323bacbbd04be4705ba6eb0d92e920b1fc4837ed5079"
+          },
+          "duckdb-1.5.6-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl": {
+            "bytes": 21568087,
+            "sha256": "bc9619ed7d4ffa117b5155d84b44794366bb6635178d78ed5e13a6024845c757"
+          },
+          "equity_feature_client-0.1.0a0-py3-none-any.whl": {
+            "bytes": 30986,
+            "sha256": "ce763e19e46ea2ff8a77aa4af5ce554f3fb0a98de49800545d634543828e0d7c"
+          },
+          "equity_feature_client-0.1.0a0.tar.gz": {
+            "bytes": 23137,
+            "sha256": "d7dd0990ee9d289b1848deba30d713d5afc72f3e22d9fc1b21ae8f2dc623d54d"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 69728,
+            "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27770,
+            "sha256": "2abcd7084371e82e7ec887353a1159ed900616d764df36baafe49a2b57c9c676"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16572,
+            "sha256": "6bed73224f033f4d67ad7d519bce76c5b8d3f6076766ccc0726b6a36a9bf3bde"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11458,
+            "sha256": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18687,
+            "sha256": "71c2316ab93d3382b24701ce6f4990b1355f90b8f66e562c8b1d34e539d60783"
+          },
+          "equity_feature_mcp-0.1.0a0-py3-none-any.whl": {
+            "bytes": 24151,
+            "sha256": "fe79f437fc36bd533e40739c1d4c6fd9a5a12d99b6bc03e0f418dcf3059df1c3"
+          },
+          "equity_feature_mcp-0.1.0a0.tar.gz": {
+            "bytes": 20779,
+            "sha256": "92eb3ae3cef17ac2d34b874aa3991ef4a7ff40f2fe550270ce0f97d04f072b15"
+          },
+          "equity_feature_service-0.1.0a3-py3-none-any.whl": {
+            "bytes": 53724,
+            "sha256": "6be0bb94c570429830fedda22813cfd6cc06d73072ff540250be318fa3df54d5"
+          },
+          "equity_feature_service-0.1.0a3.tar.gz": {
+            "bytes": 43992,
+            "sha256": "159db0122c6b371d4352aebde331013bc8cb0912d635d5193c508d0ceb1fc43a"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71053,
+            "sha256": "a4eae3ca4ae6e37d277e941958199b47b0dd0ce150064c0952c2d0269e042faf"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65151,
+            "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e"
+          },
+          "h11-0.16.0-py3-none-any.whl": {
+            "bytes": 37515,
+            "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+          },
+          "httpcore-1.0.9-py3-none-any.whl": {
+            "bytes": 78784,
+            "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+          },
+          "httpx-0.28.1-py3-none-any.whl": {
+            "bytes": 73517,
+            "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+          },
+          "httpx_sse-0.4.3-py3-none-any.whl": {
+            "bytes": 8960,
+            "sha256": "0ac1c9fe3c0afad2e0ebb25a934a59f4c7823b60792691f779fad2c5568830fc"
+          },
+          "idna-3.20-py3-none-any.whl": {
+            "bytes": 69583,
+            "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+          },
+          "jsonschema-4.26.0-py3-none-any.whl": {
+            "bytes": 90630,
+            "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+          },
+          "jsonschema_specifications-2025.9.1-py3-none-any.whl": {
+            "bytes": 18437,
+            "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+          },
+          "mypy-1.15.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl": {
+            "bytes": 12410020,
+            "sha256": "8023ff13985661b50a5928fc7a5ca15f3d1affb41e5f0a9952cb68ef090b31ee"
+          },
+          "mypy_extensions-1.1.0-py3-none-any.whl": {
+            "bytes": 4963,
+            "sha256": "1be4cccdb0f2482337c4743e60421de3a356cd97508abadd57d47403e94f5505"
+          },
+          "numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": {
+            "bytes": 16527618,
+            "sha256": "fd83c01228a688733f1ded5201c678f0c53ecc1006ffbc404db9f7a899ac6249"
+          },
+          "mcp-1.30.0-py3-none-any.whl": {
+            "bytes": 234581,
+            "sha256": "666edb5009503e1047c9d60346a756f94b261f05cc2625f23d41c728ffc484d0"
+          },
+          "pip-25.1.1-py3-none-any.whl": {
+            "bytes": 1825227,
+            "sha256": "2913a38a2abf4ea6b64ab507bd9e967f3b53dc1ede74b01b0931e1ce548751af"
+          },
+          "pydantic-2.14.0-py3-none-any.whl": {
+            "bytes": 487109,
+            "sha256": "15fab1bea6f1dc5003b54fc2ecab230c1fd1dbade2acd4addc52d81e32416d4b"
+          },
+          "pydantic_core-2.50.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": {
+            "bytes": 2160358,
+            "sha256": "f187030fc3d62c668feb0f09e92852e0eb414d7fcefc4748f2e67d245aade37e"
+          },
+          "pycparser-3.11-py3-none-any.whl": {
+            "bytes": 51178,
+            "sha256": "51d5a8ba2be0bbe440b99d2112604c95bbbc3c2748a64260186c541e1729cd80"
+          },
+          "pydantic_settings-2.15.0-py3-none-any.whl": {
+            "bytes": 69413,
+            "sha256": "0ba092c291c94baceb5eff768aa0d56400a457585bc0175925a5a5510303da42"
+          },
+          "pyjwt-2.15.1-py3-none-any.whl": {
+            "bytes": 33860,
+            "sha256": "42d59d631f7768a1028a64c7ff581a9bf7519804daf91fc5b6c56e30eec5e193"
+          },
+          "python_dotenv-1.2.4-py3-none-any.whl": {
+            "bytes": 23266,
+            "sha256": "42269a8a5b3fd54ffa6f3d84b18abed50064717576b4ecf03dc4a55d8aa04fdc"
+          },
+          "python_multipart-0.0.32-py3-none-any.whl": {
+            "bytes": 30042,
+            "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23"
+          },
+          "referencing-0.37.0-py3-none-any.whl": {
+            "bytes": 26766,
+            "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+          },
+          "resilience-receipt.json": {
+            "bytes": 776556,
+            "sha256": "3767ca2cb235008e500c6bd0e2694dc193b75ed1af8c6d1476a9ddb467b43839"
+          },
+          "rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": {
+            "bytes": 371261,
+            "sha256": "addeda51556dac7c1a2f14cda62db8b621cd12afba3091d03a96c72932387eab"
+          },
+          "sdist-runtime-report.json": {
+            "bytes": 162437,
+            "sha256": "48a965cb8c4459cb6e5a9282bfb3a61f12b994b5dc61516b153aadf1d8c3fc1f"
+          },
+          "setuptools-80.9.0-py3-none-any.whl": {
+            "bytes": 1201486,
+            "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+          },
+          "sse_starlette-3.5.0-py3-none-any.whl": {
+            "bytes": 17407,
+            "sha256": "3e6e1070df3f0f5d9cea81496de92dbb72f6721871d99748ece67441dd8b7997"
+          },
+          "starlette-1.7.0-py3-none-any.whl": {
+            "bytes": 78980,
+            "sha256": "67f8e99895493dd2911a03f11314af6ceebeae4e704bb9f43dfc6a9db151c93e"
+          },
+          "typing_extensions-4.16.0-py3-none-any.whl": {
+            "bytes": 45571,
+            "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+          },
+          "typing_inspection-0.4.4-py3-none-any.whl": {
+            "bytes": 14750,
+            "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147"
+          },
+          "uvicorn-0.54.0-py3-none-any.whl": {
+            "bytes": 87427,
+            "sha256": "505bdb0f318731d45f1f712071fc781a8981f6847a31c902c9f5e652d4f67faf"
+          },
+          "wheel-runtime-report.json": {
+            "bytes": 162436,
+            "sha256": "2269682cc20e5b40cb388b81e06cda46b1387b8e4b962ffecfa0f5720d86048e"
+          }
+        },
+        "wheel_RECORDs_verified": 45,
+        "archive_entries_verified": 48,
+        "forms": 2,
+        "groups_per_form": 9
+      }
+    ],
+    "resilience_scope": "Four installed forms across bothOS;9groups/29reports per form; SDK/bootstrap/archive RECORDs/source/installed maps/typing/coreparity/reported cooperative cleanup verified",
+    "source_delta": "156of158full03filesexact; two failure-observer/purefixture deltas outside executed measurement path; full03frozen4023 not replayed",
+    "old_failure": "Original37faWindows sdist failure remains FAILED with originalcase/cause/independentcleanupunknown",
+    "limits": [
+      "No native failure summary observed in successful changed qualification; pure fixtures verify failure factors",
+      "No original-root-cause or retrospective cleanup inference",
+      "No product/native runtime replay by static artifact reviewer",
+      "Final canonical exactsource/currentchecks and actual-main source/artifact/check acceptance still required"
+    ],
+    "evidence_authority": "https://github.com/atulsrivas1/equity-features/issues/99"
+  },
+  "resilience_artifact_collector_correction": {
+    "original_source_sha256": "8f0b5ec1adc34bbcb8696f3c51299eaabdf9186f53a6568b4dc2a5ad0c37506b",
+    "finding": "Read-only collector counted NumPy directory ZIP entries as RECORD files and stopped",
+    "correction": "Verify all actual file entries only, retaining duplicate/original-spelling and complete file RECORD/hash closure; original preserved",
+    "limits": "Tool-only collection correction; no product or qualification rerun"
   }
 }
