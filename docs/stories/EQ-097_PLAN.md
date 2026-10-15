@@ -99,3 +99,5 @@ These are explicit hand-authored wire objects, not output from a dataclass/produ
 
 - `docs/stories/EQ-097_CONFIG_ORACLE.json`: 1341bytes; SHA256 `e1b12d267ef25cadd48549725e7ff1c8f1f4254bde30b910ee8fd27aaee5585d`; 129nodes; max container depth7.
 - `docs/stories/EQ-097_RESULT_ORACLE.json`: 1219bytes; SHA256 `4f78413ee898ed72031423695a16bdb4d8a3d7f5b38b4f814bd709fbed8dc287`; 121nodes; max container depth9.
+
+- `docs/stories/EQ-097_BATCH_ORACLE.json`: 1558bytes; SHA256 `fa7e282711dc54e88bf2ae51a247a4969ea416be74e1bfe3e4e633207998e1bf`; 183nodes; max container depth7. The explicit wire object is a structurally valid one-row TRADE batch with lexically sorted columns, null price/known-at, exact int64-min event time, order_key9007199254740993 and scale2/USD. It is a typed content fixture, not an asserted successful trade calculation. This third independent oracle closes known-byte coverage for all three root domains before production code.
