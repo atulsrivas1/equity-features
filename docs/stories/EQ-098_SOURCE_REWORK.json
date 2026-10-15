@@ -30,5 +30,66 @@
   "corrective_source_log_sha256": "e8c09cd8e9e4ae57cfbe5f609a19f04d4466187a8871cccd578ca155b67719d7",
   "qualification_scope": "No builder/install/bothOS/main delivery executed at this correction; renewed exact-head review pending.",
   "retained_author_correction": "Before build, qualifier subprocess removes inherited mypy/Python search-path configuration; actual poisoned-environment child probe passed.",
-  "tool_history": "Initial inline environment probe shell-quote SyntaxError before execution; saved script succeeded. Raw failed/corrective source logs retained outside Git."
+  "tool_history": "Initial inline environment probe shell-quote SyntaxError before execution; saved script succeeded. Raw failed/corrective source logs retained outside Git.",
+  "supplemental_static_request_finding": {
+    "raw_report_sha256": "35190527c00b1385342dab5e608afa74ac5fe3fef05342dcdf7ba524c08d2e74",
+    "heads": {
+      "canonical": "7e36df4c0d6018b8a06b636d290a7b35c222652a",
+      "companion": "bc675a888f8935039bc397266737dbbd358d2aee"
+    },
+    "prior_approved_source_report_sha256": "42e134112957a466e972518960ca50fec47a336ab33378d99cd13ffe5a6a5c13",
+    "finding": {
+      "id": "EQ098-SRC-02",
+      "priority": 2,
+      "file": "packages/bundles/src/equity_feature_bundles/_binding.py",
+      "start_line": 38,
+      "end_line": 40,
+      "title": "Reject empty fixed-request eligibility policy before replay invocation",
+      "trigger": "A zero-input missing-result bundle has a generic ConfigSpec eligibility_policy empty/whitespace string, updated result config_digest, and newly consistent receipt. Export/read admit it, since shape checks only the exact string type. Without an input scope no later equality check excludes it.",
+      "observed": "Controlled loader returns the unmodified accepted compute_trades, wrapped only with a call counter. Both empty and whitespace policies reach it once and return calculation_rejected.",
+      "impact": "A statically invalid fixed registry request is admitted to execution despite the planned configuration-mutation before-calculation gate. This does not produce an incorrect match or arbitrary execution, but breaches the zero-call request validation contract.",
+      "requested_change": "Require nonempty .strip() on the exact eligibility_policy string in shared shape admission, matching accepted bars._policy; add receipt-consistent zero-input negatives for export/read and forged-wrapper replay proving zero loader/calculator calls. Preserve valid missing-input replay and genuine post-invocation calculation_rejected reporting.",
+      "basis": [
+        "docs/stories/EQ-098_PLAN.md:35",
+        "docs/stories/EQ-098_PLAN.md:49",
+        "packages/features/src/equity_features/session/bars.py:28"
+      ]
+    },
+    "independent_original_observations": [
+      {
+        "policy": "",
+        "zero_input": true,
+        "write_read_admitted": true,
+        "status": "calculation_rejected",
+        "calculation_count": 1,
+        "actual_core_counter": 1
+      },
+      {
+        "policy": "   ",
+        "zero_input": true,
+        "write_read_admitted": true,
+        "status": "calculation_rejected",
+        "calculation_count": 1,
+        "actual_core_counter": 1
+      }
+    ],
+    "correction": "Require stripped nonempty eligibility_policy in shared fixed registry admission before export/read/replay.",
+    "corrective_tests": "29source methods pass, including empty/space/tab-newline zero-input export/read and forged-wrapper refusal with zero loader calls; valid missing input and genuine invoked-calculation rejection remain supported.",
+    "corrective_source_log_sha256": "78ee3b7541956b2bddb24f5359c8584f61d4f01dca5cbb8a059d6a246d5492c6",
+    "current_disposition": "Correction implemented/tested; renewed exact-head review and actual qualification pending."
+  },
+  "original_author_qualification": {
+    "heads": {
+      "canonical": "7e36df4c0d6018b8a06b636d290a7b35c222652a",
+      "io": "bc675a888f8935039bc397266737dbbd358d2aee"
+    },
+    "status": "completed",
+    "log_sha256": "ba262ad6e44d234652ca846db48590be84d7e2ba6aeb1ef5bcd4c2352755d6fd",
+    "archives": 8,
+    "source_pins": 79,
+    "fresh_forms": 4,
+    "source_methods": 28,
+    "scope": "Original Windows source/installed checked cases completed; subsequent P2 correction means this is not corrected-source/final bothOS acceptance. Original complete logs/maps/artifacts preserved; no failed/rework evidence relabeled."
+  },
+  "publication_tool_history": "First canonical source push succeeded; immediate PR head view was stale. Publication stopped before later mutations, then actual ref was verified and resumed without a duplicate push/comment. Source publication completed once at comment6194900924."
 }

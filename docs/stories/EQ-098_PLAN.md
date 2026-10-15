@@ -119,3 +119,8 @@ Original reviewer raw-report SHA30c196510707401335d8ace3717625ac8a3e3f19a3292eda
 ## Fixed mathematical-policy compatibility clarification
 
 The fixed session.compute_trades.v1 registry supports result metadata schema1 and math_policy_version v1 only, in addition to the exact installed package/backend/formula versions above. A newly consistent receipt declaring another mathematical policy must refuse unsupported_version BEFORE export/read/replay admission or any calculator invocation; a returned mismatch is reserved for supported-policy output differences. This clarifies the existing unknown-version refusal after source review EQ098-SRC-01; original changes-requested finding/disposition is retained in EQ-098_SOURCE_REWORK.json. No calculator or core policy was changed.
+
+The fixed eligibility_policy parameter must be an exact string with nonempty
+`.strip()`, including in a zero-input missing-result bundle. Generic ConfigSpec
+validity or a newly consistent receipt cannot defer this static request check
+until calculator invocation. Unsupported requests refuse before execution.
