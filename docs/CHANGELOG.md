@@ -1,3 +1,7 @@
+## EQ096 qualified receipt candidate — October15,2026
+
+The optional receipt contract/strict codec candidate passed independent source review and bothOS full archive/RECORD/source/install audit: six repeat archives and four fresh consumer forms perOS,20tests per consumer, installed typing, actual synthetic core values and unchanged original packages. [Validation](stories/EQ-096_VALIDATION.json) freezes exact maps/review limitations. This documentation-only integration leaves executable inputs unchanged; current-head/main publication/acceptance is still required. Content verification/bundle replay/explanations remain later R9 work, and no stable registry release is claimed.
+
 ## EQ096 receipt implementation candidate — October15,2026
 
 Implemented optional pure evidence0.1.0a1 receipt declarations/strict in-memory envelope codec and actual synthetic producer example, with independent known-byte/hash/negative fixtures and a dedicated repeat-build/fresh-consumer gate. No numerical/core source/version change. Reference hashes are supplied assertions; full content verification/replay/explanations remain later R9 stories. Source checks passed; final review/installed bothOS artifacts/main release evidence pending. Earlier pre-code preparation snapshots remain historical.
