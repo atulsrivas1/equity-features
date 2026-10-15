@@ -1,6 +1,6 @@
 {
   "schema": "eq103-binding-matrix:1",
-  "status": "implementation candidate; installed/current-head qualification pending",
+  "status": "21development methods and10supplied/21live installed cohorts qualified at sourceac1; final docs/currenthead/publication gates pending",
   "accepted_eq102_main": "a68ef449c29de49133e30f6ab7591fa26224537c",
   "source_truth_authenticated": false,
   "cases": [
@@ -53,7 +53,7 @@
       "layer": "explicit outer retained-pin acquisition, outside supplied binder"
     },
     {
-      "id": "wrong-source-snapshot-revision-role-config-context-entity-task-header",
+      "id": "wrong-retained-source-snapshot-revision-config-context-entity-task",
       "expected_error": "inconsistent_binding",
       "one_field_controls": true
     },
@@ -156,6 +156,11 @@
         "strict_admission": "denied",
         "full_result_receipt_unchanged": true
       }
+    },
+    {
+      "id": "unsupported-role-or-fixed-header-profile",
+      "expected_error": "unsupported_version",
+      "note": "Explicitly distinguishes unsupported selected profile from mismatching records within supported profile; original grouped precode expectation preserved in Git history."
     }
   ],
   "qualification": [

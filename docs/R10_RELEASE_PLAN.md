@@ -1,3 +1,7 @@
+## Current execution checkpoint — October15,2026
+
+GOV022/EQ101/EQ102 are accepted. EQ103's outer provenance source is qualified on Windows/Linux with independent source/artifact review; final documentation/currenthead/publication/main/lifecycle acceptance remains. EQ104/105 remain Backlog; R10 epic/milestone open. [Current handoff](SESSION_HANDOFF.md) and live Project govern execution; the preparation snapshots below remain historical, not current status. No scope or later-release authorization changes.
+
 # R10 release plan — point-in-time diagnostics
 
 Owner-selected October15,2026; [GOV022 #398](https://github.com/atulsrivas1/equity-features/issues/398), [epic194](https://github.com/atulsrivas1/equity-features/issues/194), [milestone11](https://github.com/atulsrivas1/equity-features/milestone/11). Runtime EQ101–105 remain Backlog at preparation. This packet authorizes no claim of implemented diagnostics. The owner's request covers bounded R10 work in this chat; the owner also explicitly authorized separate local review for PR399/the handoff, all five stories and final delivery under CODE_REVIEW.md. Permission does not establish completed review.

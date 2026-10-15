@@ -1,6 +1,6 @@
 {
   "schema": "eq103-validation:1",
-  "stage": "In progress implementation candidate",
+  "stage": "Test; source ac1 qualified, final documentation head/currentCI/publication pending",
   "accepted_base": "a68ef449c29de49133e30f6ab7591fa26224537c",
   "readiness_head": "da2cbb6d7fc7ec4b28ef56fda2fdec070057c3c0",
   "reviewer": "/root/r10_review",
@@ -24,10 +24,60 @@
     "eq103-expanded-binding-controls.log": "9dca55075d2f7e1c6fe4f10dabd7ca055e95caaf0ed06311f77334066ffbafdf",
     "eq103-expanded-binding-corrected.log": "2b775e1d28595f2236ea9325e5cdf07d788a951eaf7913a38274aafba3555fcf",
     "eq103-development-twenty.log": "922eddede5b84ff204782c8546a281b8155863b08ce2cbc6ec8c8cded6f3a06c",
-    "eq103-inventory-rework.log": "b39d84f81671f4c98df6e1a6efc84bbab5c96d6c8c6f72cba6f1c9a9c4e96cac"
+    "eq103-inventory-rework.log": "b39d84f81671f4c98df6e1a6efc84bbab5c96d6c8c6f72cba6f1c9a9c4e96cac",
+    "eq103-candidate-linux-job.log": "2bf4da6feb374fbac9aebb46fba4babeddc302b99dbf1b2c7b3d49567c2f7d06",
+    "eq103-candidate-windows-job.log": "8175bea390f1c7b4a2c35409dcd0d250f6cfa0b5762cff686dae9a1cd0499524"
   },
-  "installed_qualification": false,
-  "bothOS": false,
+  "installed_qualification": {
+    "author_system": "Windows",
+    "source": "ac1ec8edec77b6768bda2140c4f97c76ada13999",
+    "raw_log_sha256": "8b2720a57a9c5664e149cd982d7f83721f990a0cff82001c1525044f2925b8b1",
+    "qualification_sha256": "7261b09da628ff62b0945122eb33c93edea63d597dccf4e64eb5365f35a10060",
+    "archives": 20,
+    "repeated_builds": 2,
+    "fresh_forms": 4,
+    "supplied_methods_per_form": 10,
+    "live_methods_per_form": 21,
+    "diagnostic_methods_each": 14,
+    "evidence_methods_each": 31,
+    "strict_consumer_each": true,
+    "no_skips": true,
+    "source_closure": true,
+    "original_package_maps_unchanged": true,
+    "native_wheels": {
+      "duckdb-1.5.6-cp312-cp312-win_amd64.whl": {
+        "bytes": 13190189,
+        "sha256": "09ff51b230219f0d8b47fc8a1e17fb595ba9fab0c3d96a6de4d00b8ff86b3cf1"
+      },
+      "numpy-2.2.6-cp312-cp312-win_amd64.whl": {
+        "bytes": 12614190,
+        "sha256": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2"
+      },
+      "setuptools-80.9.0-py3-none-any.whl": {
+        "bytes": 1201486,
+        "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+      }
+    }
+  },
+  "bothOS": {
+    "source": "ac1ec8edec77b6768bda2140c4f97c76ada13999",
+    "workflow_run": 38800332372,
+    "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38800332372",
+    "current_PR_checks_success": 34,
+    "OS": [
+      "Linux",
+      "Windows"
+    ],
+    "archives_each": 20,
+    "archive_entries_each": 350,
+    "wheel_RECORD_rows_each": 150,
+    "Git_source_pins_each": 157,
+    "fresh_forms_each": 4,
+    "artifact_report_sha256": "71e0551256cc0ca4ac04b587a19f35be1c438e55fe6b4bc84d1c4638adece8ab",
+    "independent_artifact_review_sha256": "355f948a2591668c5574f5a363cb9207ae05e5d298b3b640edd24e24e2a5981c",
+    "review_findings": [],
+    "review_scope": "source/archive/project installed payload/metadata/license/dependencies/RECORD/raw log audit; captured native RECORD maps are not independent physical native rehash or reinstall"
+  },
   "released": false,
   "findings_disposition": "independent implementation review pending; original readiness findings preserved",
   "additional_controls": [
@@ -52,5 +102,17 @@
       }
     ],
     "correction": "Unique partition IDs and namespace/instrument/session entities before Store.read, three exact noStore spy controls; all21developmentmethodsPASS. Corrected exact-head review pending."
-  }
+  },
+  "corrected_source_review": {
+    "head": "ac1ec8edec77b6768bda2140c4f97c76ada13999",
+    "report_sha256": "bba3b6bc0e658463cc75e7e1501010015943cb9b9630ee9caaa4b83a0ce3e62a",
+    "findings": [],
+    "scope": "separate local automated source/native/security/builder/docs review;21pinned development methods, not independent reinstall"
+  },
+  "tool_only_history": [
+    "Successful source push followed by stale immediate PR head readback assertion before issue/PR/Project mutation; resumed readback after propagation, no duplicate push/comment/transition.",
+    "One PowerShell inline-Python helper generation failed parse before writing; copied exact original helper and applied narrow resume patch.",
+    "Public CI log API first refused ANSI escape output; explicit allow-escape-sequences then captured raw bytes into outside-repo files, never rendered escape stream to terminal."
+  ],
+  "final_gate": "Final docs delta review/current-head CI-artifacts, guarded publication, independent actual-main/source/publicUTF8/AtulGitHub/noCoauthors/currentmain artifacts and actual lifecycle acceptance pending. No R10 completion claim."
 }

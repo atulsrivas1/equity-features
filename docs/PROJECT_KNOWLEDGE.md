@@ -1,3 +1,7 @@
+## EQ103 qualified source and explicit review limits
+
+The outer supplied/live bridge passed source ac1 actual author Windows and currentbothOS20repeatarchive/fourfreshform qualification. Separate source review resolved duplicate entity/partition inventory beforeStore.read; independent artifact audit reconstructed all project installed bytes and actual raw test cohorts. Native installed RECORD captures do not become an independent native rehash/reinstall. [Current validation](stories/EQ-103_VALIDATION.json) preserves evidence and limitations; final currenthead/main/publication/acceptance pending. Unsupported profile errors differ from supported-record mismatches; original precode grouped wording is history.
+
 ## EQ103 actual outer candidate — October15,2026
 
 Selected outer provenance API distinguishes supplied retained-content consistency from actual accepted generation-store readback. Compound adapter source identities need a separate bounded256codepoint allowance; generic128labels would reject actual original-read2/retained-map1 values. Supplied-only cannot detect an external file mutation: retained-pin reacquisition is an independent native failure path. Publicly constructed completion/report data never proves code ran. [Current evidence/failures](stories/EQ-103_VALIDATION.json); installed/currentbothOS/release acceptance pending.

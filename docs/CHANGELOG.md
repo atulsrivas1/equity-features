@@ -1,3 +1,7 @@
+## EQ103 source-qualified experimental candidate
+
+Supplied retained-anchor binding and explicit actual generation readback passed source ac1 Windows/Linux20repeatarchive/fourfreshform installed qualification and independent source/artifact review. No baseline source/version/codec/math change. [Exact evidence/remaining delivery gates](stories/EQ-103_VALIDATION.json); this is not final R10 acceptance or a registry release.
+
 ## EQ103 outer provenance candidate — October15,2026
 
 Added typed supplied content binding and separate actual DuckDB generation readback, bounded borrowed-graph preflight and synthetic native composition. Development18methods/strict package typing pass; source/build/currentbothOS/release qualification pending. Preserved failed install/fixture/bound/mypy observations in validation.
