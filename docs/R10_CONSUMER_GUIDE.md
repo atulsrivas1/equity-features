@@ -1,6 +1,23 @@
+## Measured source qualification — October15,2026
+
+Reviewed source `86154ef76010d474fbc46a195d85bd03ec616b15` passed author Windows/fourfreshforms and [actual Windows/Linux workflow](https://github.com/atulsrivas1/equity-features/actions/runs/38811720198) with all42sourcechecks. Current source artifacts and all eightCImeasurement records/32workloads/640rawdurations were independently audited. Every form retains full independent snapshot and original input/result/receipt/source/package parity. The measurements below are the **wheel/pure subset** of that immutable source run; [all eight records/rawsamples/exact statistics](stories/EQ-105_MEASUREMENTS.json) include sdist/full forms and observed machine/CPU-count/Python/timer metadata. Ratio is rounded here; JSON retains exact reduced rationals. Fixed ordering/sharedprocess/uncontrolled machine load limit interpretation; no native speed extrapolation or general speedup promise.
+
+| OS / CPython | Workload | Baseline median ns | Wrapper median ns | Extra median ns | Wrapper/baseline |
+|---|---|---:|---:|---:|---:|
+| Linux / 3.12.15 | k1 | 54763/2 | 98519 | 142275/2 | ~3.598 |
+| Linux / 3.12.15 | k16 | 307305/2 | 486206 | 665107/2 | ~3.164 |
+| Linux / 3.12.15 | k32 | 576393/2 | 1793125/2 | 608366 | ~3.111 |
+| Linux / 3.12.15 | m512 | 1599416 | 1724555 | 125139 | ~1.078 |
+| Windows / 3.12.10 | k1 | 38350 | 132950 | 94600 | ~3.467 |
+| Windows / 3.12.10 | k16 | 225750 | 678250 | 452500 | ~3.004 |
+| Windows / 3.12.10 | k32 | 421900 | 1247900 | 826000 | ~2.958 |
+| Windows / 3.12.10 | m512 | 3100950 | 3327100 | 226150 | ~1.073 |
+
+Final documentation/currenthead/main artifacts and release acceptance remain pending at this checkpoint. Later executions retain their own sampled durations; they do not replace this source snapshot. Captured nativeRECORD audits are not independent physicalnative rehash/reinstall. The older source-only preparation sections below are historical and cannot override this measured scope.
+
 ## Implemented source candidate; installed qualification pending
 
-EQ105 is actual In progress after exact pre-code review. The source consumer and seven pure/one native development tests pass; its new sibling builder/workflow have not run. No actual installed timing result is claimed. Commands after installation: `python -I examples/r10_point_in_time.py` and `python -I tools/measure_r10.py --out NEW_MEASUREMENT.json` from the materialized reviewed source distribution; the latter writes only a new caller-selected outer qualification record. Pure package code performs no I/O. Build/install/example source materialization remains the reviewed builder responsibility.
+EQ105 is actual In progress after exact pre-code review. The source consumer and seven pure/one native development tests pass; its new sibling builder/workflow have not run. No actual installed timing result is claimed. Commands after installation: `python -I examples/r10_point_in_time.py` and `python -I tools/measure_r10.py --out NEW_MEASUREMENT.json` from the reviewed Git checkout or the builder’s exact Git materialization, using packages installed from selected wheels/sdists; these outer scripts are repository files rather than files installed by a project package archive; the latter writes only a new caller-selected outer qualification record. Pure package code performs no I/O. Build/install/example source materialization remains the reviewed builder responsibility.
 
 ## EQ105 pre-code packet; exact-head Ready review pending
 
