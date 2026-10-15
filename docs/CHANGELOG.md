@@ -1,3 +1,7 @@
+## EQ088 corrected qualification observed on both platforms
+
+Exact workerb7 passed all24current checks and separate bothOS foundation/resilience artifact review. Closed failure metadata preserves original assertions/deadlines and privacy;9puremethods passed. The old37fa failed sdist case/cause/cleanup remain unknown. Full measurements stay frozen4023, with two explicitly disclosed observer/test deltas and156exact original files; no production or numerical changes. [Ledger](stories/EQ-088_EXECUTION.json) and live issue99 retain exact current evidence and final actual-main release authority; current candidate success alone is not release acceptance.
+
 ## EQ088 actual-main resilience qualification rework
 
 The mandatory actual-main Windows sdist resilience wrapper failed; EQ088 returned to In progress, not accepted. Bounded qualification-only failure metadata and pure privacy fixtures are prepared at workerb7f06ebd70100b99d77d106af23dd333eff3cb79, with actual independent source review2a6 and all9purefixturesPASS; current changed hosted qualification/release gates remain pending. No package source/version/math/API/default change. Full03 remains frozen4023; the two observer/test manifest deltas must be disclosed and reviewed for measurement-path non-impact. [Execution ledger](stories/EQ-088_EXECUTION.json) preserves failure and exact remaining work.
