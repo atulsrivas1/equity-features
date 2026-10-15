@@ -1,3 +1,7 @@
+## Actual-main qualification correction
+
+The complete measured revision4 result below remains valid for frozen4023. Mandatory main Windows resilience failed in the fresh sdist case wrapper, so #99 returned In progress. See [execution ledger](EQ-088_EXECUTION.json) and live issue99. Closed privacy-preserving failure factors and independent pure fixtures are prepared; original failed-run group/cause/cleanup remain unknown. Candidate/current-main qualification and final accepted delivery remain required. No performance rerun, production change or original failure PASS is implied.
+
 ## Completed selected experiment (revision 4)
 
 The selected scheduling/output qualification now has a complete fresh eight-reference/72-sample/six-sort/18-query cohort, [verbatim measurements](EQ-088_MEASURED.json) and [analysis](EQ-088_ANALYSIS.md). It does not support wider default workers or a production layout change. Production packages, codec, formulas, APIs and pins remain unchanged; the qualification-only reporting/observation changes and all failures are explicit in the [protocol](EQ-088_PROTOCOL.md) and [execution ledger](EQ-088_EXECUTION.json). Original optional hypotheses below are preserved preparation history; the frozen protocol's three repetitions, not the earlier conditional proposal's sample count, govern this actual experiment. Independent final evidence/source/docs/current-head/main release gates remain required through [story99](https://github.com/atulsrivas1/equity-features/issues/99).

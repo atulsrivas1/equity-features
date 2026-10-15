@@ -839,5 +839,36 @@
     ],
     "numerical_disposition": "All timing/query/sort tables, host/RSS/disk/spill/layout interpretations passed original source review; no numerical or executable changes",
     "next": "Renew exact corrected-head review before publication"
+  },
+  "actual_main_gate_failure": {
+    "worker_main": "37fa3a5d6d8d6e2c1b8e697b38c6229ba066123a",
+    "canonical_main": "46c2c16a0bb736ef56b996bbf899e7824f8b85b8",
+    "run_id": 38664391026,
+    "job_id": 116192830706,
+    "platform": "Windows",
+    "form": "sdist",
+    "wheel_runner_completed": true,
+    "raw_public_log_bytes": 370770,
+    "raw_public_log_sha256": "d4781da5a7413393308ad9cab6304c544d8d27faded841c0f367f498cb6fcb8b",
+    "diagnosis_review_sha256": "486700f0db05b37cdfb2ff9dadaf4a42be928f23e6e5df4928f010c14be8d449",
+    "observed": "Generic case failure branch: nonzero exit OR stderr OR oversized stdout; exact failing group/cause/independent cleanup unestablished",
+    "status": "Ready to release returned to In progress",
+    "public_record": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6182222445"
+  },
+  "prepared_resilience_failure_observer": {
+    "head": "b7f06ebd70100b99d77d106af23dd333eff3cb79",
+    "changed_manifest_files": [
+      "tests/resilience/run_qualification.py",
+      "tests/qualification/test_resilience_records.py"
+    ],
+    "unchanged_manifest_files": 156,
+    "full_measurement_identity": "Frozen4023/revision4/rawcd77/closure602 unchanged; no currenthead full experiment claim",
+    "design": "Closed allowlisted group/bounded numeric exit/boolean failure flags only; raw output/certificates/paths/tokens stay private",
+    "unchanged": "Original failure conditions/deadlines/ownership/cleanup/group order/success report; no retry or production change",
+    "pending": [
+      "Exact source/privacy/dependency non-impact review",
+      "Three pure fixture methods plus existing relevant records",
+      "Fresh changed hosted qualification and actual final current-head/main release gates"
+    ]
   }
 }
