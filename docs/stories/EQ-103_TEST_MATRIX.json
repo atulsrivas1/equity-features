@@ -1,0 +1,172 @@
+{
+  "schema": "eq103-binding-matrix:1",
+  "status": "pre-code independent obligations, not executed",
+  "accepted_eq102_main": "a68ef449c29de49133e30f6ab7591fa26224537c",
+  "source_truth_authenticated": false,
+  "cases": [
+    {
+      "id": "supplied-consistent",
+      "expected": {
+        "mode": "supplied",
+        "generation_status": "not_checked",
+        "operational_readback": false
+      }
+    },
+    {
+      "id": "missing-provenance",
+      "expected_error": "missing_provenance"
+    },
+    {
+      "id": "explicit-observed-missing",
+      "expected": {
+        "input_state": "missing",
+        "content": null,
+        "operational_readback": false
+      }
+    },
+    {
+      "id": "complete-observed-empty",
+      "expected": {
+        "input_state": "empty",
+        "operational_readback": false
+      }
+    },
+    {
+      "id": "partial-with-gaps",
+      "expected": {
+        "input_state": "partial",
+        "gaps_retained": true,
+        "operational_readback": false
+      }
+    },
+    {
+      "id": "changed-normalized-cell-same-metadata",
+      "expected_error": "inconsistent_binding"
+    },
+    {
+      "id": "changed-observed-fingerprint-original-anchor-retained",
+      "expected_error": "inconsistent_binding"
+    },
+    {
+      "id": "changed-partition-original-pin-retained",
+      "expected_error": "inconsistent_binding",
+      "layer": "outer native acquisition/bridge fixed normalization"
+    },
+    {
+      "id": "wrong-source-snapshot-revision-role-config-context-entity-task-header",
+      "expected_error": "inconsistent_binding",
+      "one_field_controls": true
+    },
+    {
+      "id": "generation-missing-output",
+      "expected": {
+        "mode": "live",
+        "generation_status": "waiting",
+        "operational_readback": false
+      }
+    },
+    {
+      "id": "generation-resume-still-missing",
+      "expected": {
+        "mode": "live",
+        "generation_status": "waiting",
+        "operational_readback": false
+      }
+    },
+    {
+      "id": "generation-complete-after-second-publication",
+      "expected": {
+        "mode": "live",
+        "generation_status": "complete",
+        "operational_readback": true
+      }
+    },
+    {
+      "id": "generation-repeat-complete-no-new-compute",
+      "expected": {
+        "mode": "live",
+        "generation_status": "complete",
+        "operational_readback": true
+      }
+    },
+    {
+      "id": "forged-GenerationOutcome-as-store",
+      "expected_error": "invalid_schema"
+    },
+    {
+      "id": "wrong-generation-subset-order",
+      "expected_error": "inconsistent_binding",
+      "one_field_controls": true
+    },
+    {
+      "id": "duplicate-task-role",
+      "expected_error": "invalid_schema"
+    },
+    {
+      "id": "actual-readback-disagrees-with-retained-result-receipt",
+      "expected_error": "inconsistent_binding"
+    },
+    {
+      "id": "corrupt-stored-completion-or-native-output",
+      "expected_error": "readback_failed"
+    },
+    {
+      "id": "unsupported-family-reference-native-or-version",
+      "expected_error": "unsupported_version"
+    },
+    {
+      "id": "row513-or-task17-or-byte-cell-aggregate-above-limit",
+      "expected_error": "limit_exceeded",
+      "at_limit_controls": true
+    },
+    {
+      "id": "caller-list-mutation-generator-subclass-bool",
+      "expected_error": "invalid_schema",
+      "detachment_positive": true
+    },
+    {
+      "id": "native-K210",
+      "expected": {
+        "count": 3,
+        "volume": 10,
+        "notional": 1011,
+        "vwap": 101.1,
+        "mean_size_fraction": [
+          10,
+          3
+        ],
+        "all_quality": "available"
+      }
+    },
+    {
+      "id": "native-K200",
+      "expected": {
+        "all_quality": "missing_input",
+        "all_quality_reasons": [
+          "future_knowledge"
+        ],
+        "knowledge_findings": [
+          "passed",
+          "passed",
+          "failed"
+        ],
+        "late_reason": [
+          "late_knowledge"
+        ],
+        "strict_admission": "denied",
+        "full_result_receipt_unchanged": true
+      }
+    }
+  ],
+  "qualification": [
+    "20ownedwheel/sdistarchives repeated2",
+    "exactthreeRepoGitclosure",
+    "bothOSfourfreshsupplied-livewheel-sdistforms",
+    "strictpublicconsumers",
+    "pureoriginalroot/maps beforeouter install",
+    "actualnativeacquisition-publication-store-readback",
+    "allentry-license-METADATA-RECORD-sdist-source-installedmaps",
+    "fullbeforeafteroriginalsource-data-package-result-receipt parity",
+    "currentfinalhead/main/artifacts/separate review/eightstage acceptance"
+  ]
+}

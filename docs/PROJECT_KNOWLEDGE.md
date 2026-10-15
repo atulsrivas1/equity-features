@@ -1,3 +1,7 @@
+## EQ103 selected for concrete preparation — October15,2026
+
+EQ101/102 are accepted; [EQ102 acceptance](https://github.com/atulsrivas1/equity-features/issues/202#issuecomment-6200809345) binds unchanged pure core/evidence and the new diagnostic distribution. [Outer provenance plan](stories/EQ-103_PLAN.md) keeps acquisition/storage outside calculations and separates supplied content consistency from actual accepted backend readback. A new reusable outer package is proposed, not implemented or Ready. No new source/provider admission, native reference acquisition, registry or later-release scope.
+
 ## EQ102 source qualified; evidence-count correction — October15,2026
 
 Actual source2eb29851 author Windows completed8repeatarchives/fourfresh installed forms, each14diagnostic/31evidence methods/no skips and strict consumer, source/archive/installed maps and realproducer full parity. Current bothOS source-candidate workflow38794052992SUCCESS artifacts downloaded with actual ZIPsize/digest/everyentry/effectivePRmerge-tree equivalence. [Full validation](stories/EQ-102_VALIDATION.json). Independent audit pending; artifact review is not an independent reinstall.
