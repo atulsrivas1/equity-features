@@ -94,5 +94,24 @@ class BoundsTests(unittest.TestCase):
                 self.refusal('unsupported_version',lambda:verify_live_generation(store,replace(spec,tasks=(declared.expected_task,)),(dependency,),(declared,)))
             spy.assert_not_called();self.assertEqual(custom.mock_calls,[])
 
+    def test_duplicate_partition_and_entity_before_store(self):
+        a=replace(fixture(K=210),output=None)
+        b=replace(fixture(K=200),output=None)
+        # Distinct task hashes do not make duplicate entity/partition admissible.
+        self.assertNotEqual(a.expected_task.task_sha256,b.expected_task.task_sha256)
+        partition_other=replace(b,expected_task=replace(b.expected_task,partition_id='other'))
+        entity_other=replace(fixture(instrument='B'),output=None)
+        entity_other=replace(entity_other,expected_task=replace(entity_other.expected_task,partition_id='A-S'))
+        with tempfile.TemporaryDirectory() as folder:
+            store=GenerationStore(Path(folder),limits=BarrierLimits(),requirements=SinkRequirements())
+            spy=Mock(side_effect=AssertionError('Store must not execute'))
+            for second in (b,partition_other,entity_other):
+                values=(a,second)
+                spec=GenerationSpec('demo','job','G',tuple(v.expected_task for v in values))
+                dependencies=tuple(Dependency('d'+str(n),v.expected_task,None,None) for n,v in enumerate(values))
+                with patch.object(GenerationStore,'read',spy):
+                    self.refusal('invalid_schema',lambda:verify_live_generation(store,spec,dependencies,values))
+            spy.assert_not_called()
+
 
 if __name__=='__main__':unittest.main()

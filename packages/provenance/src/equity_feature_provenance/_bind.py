@@ -131,6 +131,10 @@ def verify_live_generation(store: GenerationStore, spec: GenerationSpec,
     require(len({d.instance_id for d in dependencies}) == len(dependencies), 'inconsistent_binding')
     require(all(task == observed.expected_task == dependency.task
         for task, observed, dependency in zip(spec.tasks, evidence, dependencies, strict=True)), 'inconsistent_binding')
+    partitions = tuple(item.expected_task.partition_id for item in evidence)
+    entities = tuple((item.expected_task.config.session.namespace, item.expected_task.instruments[0],
+        item.expected_task.config.session.session_id) for item in evidence)
+    require(len(set(partitions)) == len(partitions) and len(set(entities)) == len(entities))
     require(all(dependency.output == observed.output for dependency, observed in zip(dependencies, evidence, strict=True)), 'inconsistent_binding')
     sizes = tuple(_guard(lambda: _size(item)) for item in evidence)
     reports = tuple(_guard(lambda: _bind(item)) for item in evidence)

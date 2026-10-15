@@ -209,6 +209,16 @@
       "id": "unsupported-or-subclass-sink-before-store",
       "expected_error": "unsupported_version",
       "store_calls": 0
+    },
+    {
+      "id": "duplicate-entity-or-partition-even-distinct-taskSHA",
+      "expected_error": "invalid_schema",
+      "store_calls": 0,
+      "controls": [
+        "duplicateboth",
+        "sameentity-differentpartition",
+        "samepartition-differententity"
+      ]
     }
   ],
   "precode_findings_resolved": [
@@ -221,5 +231,5 @@
     "physical_file_change": "accepted original-pin reacquisition SourceError before binding; supplied-only cannot observe unseen disk changes",
     "task_revision": "observed output/task compared against retained expected task, not authenticated source revision"
   },
-  "implementation_method_count": 20
+  "implementation_method_count": 21
 }

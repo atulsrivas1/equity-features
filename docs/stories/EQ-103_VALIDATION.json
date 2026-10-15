@@ -6,7 +6,7 @@
   "reviewer": "/root/r10_review",
   "ready_report_sha256": "fa4b3e8c19a36f426df0d23c5d2ea82baf1352445c11116a64985884082d9aae",
   "development": {
-    "provenance_methods": 20,
+    "provenance_methods": 21,
     "actual_native": true,
     "strict_mypy_package_files": 4,
     "boundary_outer_negative": 8,
@@ -23,7 +23,8 @@
     "eq103-expanded-development.log": "d621fe0d3b7d0af6a1eff711e32c87847c2f038a4a9574075096080ff13ed70e",
     "eq103-expanded-binding-controls.log": "9dca55075d2f7e1c6fe4f10dabd7ca055e95caaf0ed06311f77334066ffbafdf",
     "eq103-expanded-binding-corrected.log": "2b775e1d28595f2236ea9325e5cdf07d788a951eaf7913a38274aafba3555fcf",
-    "eq103-development-twenty.log": "922eddede5b84ff204782c8546a281b8155863b08ce2cbc6ec8c8cded6f3a06c"
+    "eq103-development-twenty.log": "922eddede5b84ff204782c8546a281b8155863b08ce2cbc6ec8c8cded6f3a06c",
+    "eq103-inventory-rework.log": "b39d84f81671f4c98df6e1a6efc84bbab5c96d6c8c6f72cba6f1c9a9c4e96cac"
   },
   "installed_qualification": false,
   "bothOS": false,
@@ -33,6 +34,23 @@
     "Original snapshot/coverage/availability/revision/task-header and retained fingerprint refusals.",
     "Actual native result BLOB corruption after owned sink close; actual accepted readback normalizes readback_failed.",
     "First added coverage control was invalidly complete(expected4/observed3), rejected by baseline constructor before bridge; corrected valid complete=False field control, failure preserved.",
-    "Source599cee1 diffcheck trailing-blank finding did not prevent commit because shell command sequencing; trimmed in followup and checked using check=True before subsequent commit."
-  ]
+    "Source599cee1 diffcheck trailing-blank finding did not prevent commit because shell command sequencing; trimmed in followup and checked using check=True before subsequent commit.",
+    "Windows default cp1252 read in local24cfd06 followup corrupted two UTF8docs; detected before push/publication. Restored both from exact599committed UTF8 and applied intended method-count text; superseded local commit preserved, corrected bytes independently reviewed before qualification."
+  ],
+  "initial_source_review": {
+    "head": "599cee1ce57f9aa4c5a9d05c5a5b66a5b7dc8213",
+    "report_sha256": "3f1be57e497ab1305e2cc4dda423dea095885cbb29eb7df20e4006e146a15968",
+    "reviewer": "/root/r10_review",
+    "disposition": "changes_requested_before_qualification",
+    "findings": [
+      {
+        "priority": 2,
+        "file": "packages/provenance/src/equity_feature_provenance/_bind.py",
+        "location": "verify_live_generation inventory uniqueness guards",
+        "issue": "Only task digest and dependency instance IDs are checked for uniqueness. Two valid retained tasks for the same instrument/entity and partition but different availability configurations have different task hashes and are accepted. Pinned-source probe with fixture(A,K210) and fixture(A,K200), sameA-S partition, no outputs, returned waitingFalse afterStore.read rather than rejecting the duplicate entity/partition inventory promised by the plan.",
+        "requested_change": "Freeze and enforce supported generation uniqueness for entity and partition before Store.read, in addition to task digest/role checks. Add independent duplicate-entity/different-partition and duplicate-partition/different-entity controls, with an exact Store.read spy proving no operation occurs. Use the reviewed duplicate-inventory fixed code consistently in matrix/docs; do not relax the promised profile silently."
+      }
+    ],
+    "correction": "Unique partition IDs and namespace/instrument/session entities before Store.read, three exact noStore spy controls; all21developmentmethodsPASS. Corrected exact-head review pending."
+  }
 }
