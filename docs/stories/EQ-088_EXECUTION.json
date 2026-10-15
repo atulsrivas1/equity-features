@@ -2,7 +2,7 @@
   "schema": "eq088-execution-continuity1",
   "runtime_packages_changed": false,
   "defaults_changed": false,
-  "full_protocol_executed": false,
+  "full_protocol_executed": true,
   "smokes": [
     {
       "head": "57d46642c13475f4322b493318d1e1c79dc26839",
@@ -383,7 +383,7 @@
     "capacity_nominal_sampler_interval_ns": 25000000,
     "other_pipeline_child_seconds": 180,
     "other_nominal_sampler_interval_ns": 10000000,
-    "status": "Both capacity preflights independently verified; one fresh full03 executing at frozen4023/protocol6fc; no full acceptance claimed",
+    "status": "Full03 and one post-closure audit completed; independent substantive criteria reviewa6269f7f passed, final documentation/current candidate/main delivery gates pending",
     "preconditions": [
       "Exact changed source/protocol review",
       "Two fresh both-sink capacity preflights with complete closure and parity/goldens",
@@ -500,7 +500,7 @@
     "installed_unchanged": true,
     "input_unchanged": true,
     "owned_bytes_within_1GiB": true,
-    "interpretation": "Both fresh sequential physical-sink capacity cases completed with full parity/goldens under revision4, not full acceptance or timing comparison; separate evidence review pending",
+    "interpretation": "Both fresh sequential capacity cases completed under revision4 and passed separate evidence reviewaf02601b approving full03; preflight timings remain separate from full acceptance",
     "limits": [
       "New admission; not an old180second pass",
       "No pooled timing or hard RSS guarantee",
@@ -515,7 +515,7 @@
   "revision4_full": {
     "head": "4023b86d28e5f63ae652a0255e133db8463902b5",
     "protocol_head": "6fc6dc66a45b3d5915996abf3d92d3a0f3d4cc04",
-    "status": "running, no outcome claimed",
+    "status": "completed-protocol-not-automatic-acceptance",
     "preflight_evidence_review_sha256": "af02601bee081bfb48e06ef994c3c317904c2280bba9188dddfd09932687c489",
     "scope": "New full03 roots;8references/72samples/6sorts/18queries; no pooling prior failed populations/preflights",
     "limits": [
@@ -530,6 +530,91 @@
       "status": "running capacity measured cases; six sorts/18layout queries outstanding",
       "public_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6181160855",
       "limits": "Partial progress only; no full outcome or pooling"
+    },
+    "raw_report": "EQ-088_MEASURED.json",
+    "raw_sha256": "cd77e789f255874f903032e7c5555baa728f725ad89287deb888a8d3ed144294",
+    "raw_bytes": 1528616,
+    "records": 72,
+    "references": 8,
+    "sort_diagnostics": 6,
+    "layout_queries": 18,
+    "returned_attempts": 87,
+    "failures": 0,
+    "author_process_exit_code": 0,
+    "analysis": "EQ-088_ANALYSIS.md",
+    "scheduling_decision": {
+      "adopt_workers": null,
+      "reason": "negative or overlapping observations; retain sequential1",
+      "defaults_changed": false
+    },
+    "interpretation": "Independent substantive evidence reviewa6269f7f passed; final docs/current candidate source+checks/artifacts/actual-main publication gates pending",
+    "spill_observations": {
+      "all_six_completed_exact_population_payload_order": true,
+      "matched_positive_nonspill_count": 500000,
+      "source32MB_peak_temp_bytes": 43843584,
+      "matched_source256MB_peak_temp_bytes": 0,
+      "count2000000": {
+        "source32MB_peak_temp_bytes": 196837376,
+        "source256MB_peak_temp_bytes": 148406272,
+        "interpretation": "Both spill;256MB is not universally nonspill"
+      },
+      "sink_profile": "Unsupported under unchanged sink policy after preserved controls; no measured enforcement claim"
+    },
+    "layout_observations": {
+      "logical_cells": 65536,
+      "schema_fields": 22,
+      "files": 3,
+      "all_fields_and_schema_verified": true,
+      "queries": 18,
+      "full_golden": [
+        65536,
+        16777216
+      ],
+      "selective_golden": [
+        1024,
+        262144
+      ],
+      "C_statistics_range_exclusion": {
+        "excluded": 15,
+        "total": 16,
+        "kind": "metadata inference only"
+      },
+      "native_cumulative_rows_scanned_all_queries": 65536,
+      "production_layout_adopted": false,
+      "limits": "Native byte/operator counters do not establish physical disk reads; diagnostic query speed alone does not qualify receipt/writer/validator change"
+    },
+    "substantive_review": {
+      "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+      "report_sha256": "a6269f7fa976aeeaae43561e01b58fd4ba6feef51017f76e5fd22f339346dca3",
+      "findings": [],
+      "result": "Original EQ088 substantive criteria met under prospectively disclosed revision4; retain sequential1/current production layout",
+      "actual_checks": [
+        "158Git/worktree executable inputs",
+        "8current installed complete file/RECORD/accepted archive payload maps",
+        "4actual immutable input populations",
+        "87actual returned-file hashes/lengths and all result bindings",
+        "80pipeline parity and independent golden assertions",
+        "24independently recomputed timing groups/adoption rule",
+        "6completed exact population/payload/order sorts with4saved source native profiles",
+        "3actual65536cell layout file hashes/full22field schema readback and18saved query profiles"
+      ],
+      "limits": [
+        "Final documentation/current candidate checks-artifacts and actual-main delivery still pending",
+        "No Ready-to-release, Released, Done or final R8 approval",
+        "Historical failures/unknown original cleanup/native diagnostic cause remain unestablished",
+        "Shared host/sample/native counter limitations preserved"
+      ]
+    },
+    "worker_final_documentation_head": "3257caaa8630e3844820178f03def35f71d07df4",
+    "worker_qualification_inputs_equal_frozen4023": true,
+    "worker_final_documentation_review": {
+      "head": "3257caaa8630e3844820178f03def35f71d07df4",
+      "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+      "report_sha256": "dca6d10ff90584ab16ac4151fcd7f57d306e38c018577efcd6456f081d4c74e3",
+      "findings": [],
+      "scope": "One worker documentation file only; all158executable inputs/production/pins/defaults unchanged from4023",
+      "disposition": "Publication and hosted current-candidate qualification approved; not release acceptance",
+      "publication": "Pushed PR51/3257; new current-head checks/artifacts pending"
     }
   },
   "current4023_artifact_gate": {
@@ -713,11 +798,17 @@
     "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
     "admission": "One read-only stdlib metadata/file/read-only Git audit only after exact4023 full03 completes; no product imports or native-engine workloads",
     "scope": "158Git/worktree sources; eight accepted installed archive RECORD/payload maps unchanged; four input populations/80pipeline cases;87returned attempt-file hashes; deadline/sampler/matrix identities",
-    "status": "Prepared and reviewed, not executed while full timings run",
+    "status": "One approved read-only audit executed after full03 exit0, collector exit0",
     "limits": [
       "No separate spill/layout/adoption interpretation or release acceptance",
       "Runtime origins enforced in actual child harness, audit reads metadata/files only",
       "No retrospective independent cleanup guarantee for historical failed runs"
-    ]
+    ],
+    "output": "EQ-088_POST_CLOSURE.json",
+    "output_sha256": "602c46e2333a2c8e1a75993d485d81a1de27e1bc09baeab060fac7c55a9d3675",
+    "source_files": 158,
+    "installed_distributions": 8,
+    "returned_attempt_files": 87,
+    "result": "Actual frozen source/eight accepted installed RECORD+payload maps/four input populations/complete80pipelinecases/87returned-result files verified; no release acceptance"
   }
 }

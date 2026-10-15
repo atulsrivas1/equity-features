@@ -1,3 +1,7 @@
+## EQ088 matched controls are observed per population
+
+Full03 completed all72pipeline samples/eight references at one frozen revision4 source/input cohort; independent post-run source/install/input/87result-file closure passed. The500000-ID source32MB sort reports positive temp while its completed256MB match reports zero; at2000000IDs both settings spill. Never name a setting universally nonspill from one matched control. Sorted statistics imply15candidate row-group exclusions, but the native rows-scanned counter stays65536; retain metadata inference, engine counters and physical reads as distinct claims. Wider workers fail the frozen adoption rule, so keep sequential1 and production layout. [Measurements and limits](../stories/EQ-088_ANALYSIS.md), [raw](../stories/EQ-088_MEASURED.json). These substantive observations still require independent evidence/final release review.
+
 ## EQ088 failed deadlines require a disclosed fresh experiment
 
 A bounded phase observer changed execution overhead and therefore cannot establish the uninstrumented timeout cause. Durable output files establish only the reached write point. Revision4 changes the capacity observation window consistently across both sinks/modes/repeats, retaining all acceptance criteria and separate failed evidence. Both-sink preflights and independent evidence review precede any full replacement comparison. Coarser memory sampling remains observed, not a hard bound. [Protocol](../stories/EQ-088_PROTOCOL.md), [evidence](../stories/EQ-088_EXECUTION.json).
