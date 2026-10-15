@@ -50,3 +50,40 @@ No fields are silently defaulted on decode; omitted fields and extra fields fail
 Public evidence API/schema/threat/rights guide, package README/license, synthetic example, independent fixtures/tests, compatibility/version entry, changelog/knowledge lesson and handoff accompany implementation. Existing accepted source/artifact/FAILED/REWORK history is preserved. New tests/build/workflow source are part of the final reviewable story PR; do not call source-only approval execution evidence. No stable registry publication or date promise.
 
 Ready requires this complete packet, accepted dependency states (EQ013/039/044/048), the explicit local-review grant recorded in CODE_REVIEW, independent design review/findings disposition and exact issue/PR linkage. Then Ready→In progress for implementation; Code review→Test→Ready to release→Released→Done each needs actual evidence. R9 epic becomes In progress when its first child is actually pulled; remaining children stay Backlog. No R10/R11, signing/anchors/ledgers/PIT claims, provider/private acquisition or R7 automation work.
+
+## Review correction: exact wire and pre-projection bounds
+
+The original pre-code review requested an exact wire fixture and constructor bounds for nested metadata. These corrections are normative; no runtime had been written at review time. Original review/failure evidence remains retained. Initial docs-check invocation used the older primary working directory and failed its story count; the corrected isolated-clone invocation passed without a product change.
+
+Every object below is closed: exactly the listed keys, including explicit null optional values, with no defaults on decode. Array order is preserved except the explicit receipt-level role/feature/package sorting. JSON keys are sorted by the encoder. All keys and values form the digest preimage.
+
+| Object | Exact required keys / representation |
+| --- | --- |
+| root | canonicalization, configuration, domain, environment, evidence, execution, formulas, inputs, metadata, output, schema_version |
+| root.configuration / root.output / inputs[].content | algorithm, byte_length, canonicalization, digest, domain, schema_version |
+| root.inputs[] | content, input_id, role |
+| root.formulas[] | feature_id, formula_version |
+| root.environment | packages, platform, python_implementation, python_version |
+| environment.packages[] | name, version |
+| root.execution | clock_source, executed_at_ns, uncertainty_ns |
+| root.evidence | retained_count, state, total_count |
+| root.metadata | availability, backend_id, backend_version, config_digest, evidence_limit, inputs, math_policy_version, namespace, schema_version, session_id |
+| metadata.availability | evaluation_ns, knowledge_cutoff_ns, market_cutoff_ns, mode, reconstruction_reason |
+| metadata.inputs[] | kind, metadata, role, schema_version; kind is the exact DataKind string |
+| metadata.inputs[].metadata (BatchMetadata) | adjustment, coverage, duplicate_policy, interval_coverage, namespace, ordering, price_unit, quantity_unit, sampling, scope, source |
+| BatchMetadata.adjustment | action_snapshot, anchor, basis, policy_version |
+| BatchMetadata.coverage / interval_coverage[].coverage | complete, expected, observed |
+| BatchMetadata.source | input_id, mapping_version, snapshot_id, source_id |
+| BatchMetadata.price_unit | null or object currency, scale |
+| BatchMetadata.scope | null or object eligibility_policy, end_ns, include_closing_auction, include_opening_auction, start_ns |
+| BatchMetadata.interval_coverage[] | coverage, end_ns, name, start_ns |
+
+Nested objects reconstruct the exact existing AvailabilitySpec/InputBinding/BatchMetadata/AdjustmentSpec/Coverage/SourceBinding/PriceUnit/InputScope/IntervalCoverage classes. Existing contract validators remain applicable; EvidenceError normalizes invalid nested contracts into closed receipt errors without echoing data. Every supplied string at every nesting level obeys the same label code-point/UTF8/control/surrogate rules, including namespace, source/snapshot IDs, mode, reconstruction_reason, adjustment text, scope labels and interval names. Control means U+0000–001F or U+007F–009F; other Unicode code points are preserved. All integer values obey exact int64 constraints (nonnegative for counts/lengths/scale); booleans occur only in the documented typed bool fields.
+
+Before copying receipt sequences or projecting any metadata, validate concrete list/tuple type, check length first, then exact member types. In addition to64 metadata inputs, limit every BatchMetadata.interval_coverage to256 entries. Traverse the exact fixed nested metadata shape with a running value/key-node counter before allocating the wire projection; stop at32768 nodes. Thus the combination of individually permitted counts may still fail the aggregate bound. Complete typed metadata is borrowed only as immutable contract records with tuple children; no input list or mapping is retained. Out-of-bound lists are rejected before tuple conversion. Construction and encode both enforce the same metadata/string/count/node budgets; direct construction cannot bypass the decoder's limits.
+
+Node counting is lexical and exact: count one node for each object/array opening delimiter, each string token INCLUDING object keys, each integer token, and each true/false/null token. Closing delimiters/commas/colons/whitespace are not nodes. A container's depth is the number of currently open containers, including itself (root object depth1); max16 open containers, not16 primitive recursion levels. Decoder first checks bytes length, then an iterative lexical scan counts nodes/depth and bounds integer tokens to20 characters (optional leading minus plus at most19 digits), before json parsing. Strings are scanned with JSON quote/backslash escape state so delimiters within strings are inert. Syntax/escape/value validity is still validated by JSON parser and strict typed decoder. No object construction occurs before lexical budgets pass. Constructor/encoder node counts use the same object/key/value rules, with bounded traversal before building projection; final encoded bytes must also fit1MiB.
+
+The detached oracle in [EQ-096_RECEIPT_ORACLE.json](EQ-096_RECEIPT_ORACLE.json) is hand-authored ASCII bytes, no terminal newline, before any production helper exists. It deliberately supplies zero/one placeholder content hashes; this tests receipt-envelope identity, not verified content or a successful execution. A detached receipt can have no inputs, and formula declarations can be empty only for an empty actual result when make_receipt is used. The existing contract permits an empty ResultMetadata.inputs tuple. The actual calculator example is a separate positive producer fixture.
+
+Frozen oracle: 1313 bytes, SHA256 `a59809b288709a51abe17bd2fde1109d0c041cef61a352ebd5e8b68946ea2a86`, 107 nodes, maximum container depth4. SHA256 computed by independent standard-library hashlib over the literal file, not by a production receipt helper. Tests must compare actual bytes to this file and the literal digest; mutating the file and recomputing its expected hash together is not acceptance.
