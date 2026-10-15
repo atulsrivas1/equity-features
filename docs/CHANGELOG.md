@@ -1,3 +1,7 @@
+## Prepared R8 review and R9 plan — October14,2026
+
+Added an independently executed scoped R8 post-delivery review and evidence, plus the five-story R9 release/test plan. No package/runtime/math/API/dependency/default/version or earlier acceptance receipt changed. R9 remains Backlog/planning; this governance packet is not independently reviewed or released merely by being prepared. The owner explicitly authorized separate local review of GOV021#391/PR392 planning only. Completed exact-head review, applicable documentation checks and publication/readback remain required; runtime execution is not granted.
+
 ## EQ092 qualified chronological consumer and final delivery contract — October 14
 
 Actual9896 Windows/Linux wheel/sdist qualification and separate artifact review passed: eight isolated component forms plus four combined forms across bothOS, including actual core-only checkpoints, fixed chronological watchlist/return/revision/as-of and signal-byte invariance assertions. Accepted EQ088 complete measurements are integrated; sequential1/current production layout remain. [R8 evidence index](R8_ACCEPTANCE.md) links original-eight-story acceptance and final aggregate authority. No package source/version/required-dependency/math changes. Exact final candidate/current-main release and aggregate evidence is recorded on issue104; earlier candidate snapshots below are preserved history.

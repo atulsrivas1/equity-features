@@ -1,0 +1,408 @@
+{
+  "schema": "r8.post-delivery-review.v1",
+  "reviewer": "Parent development session automated Codex; separate from R8 execution session",
+  "scope": "Post-delivery source/contract/test/current-CI/research-artifact/saved-measurement review",
+  "heads": {
+    "equity-features": "43f3f39215e68a7133b2ac0e3f9910debd1dbf33",
+    "equity-feature-workers": "6538f21b441c8527b465899b98cfd0476e7af08a"
+  },
+  "findings": [],
+  "conclusion": "No actionable product finding identified within the inspected scope",
+  "local_checks": {
+    "reviewed_head": "43f3f39215e68a7133b2ac0e3f9910debd1dbf33",
+    "python": "3.12.10",
+    "source_tests_run": 14,
+    "source_tests_errors": 0,
+    "source_tests_failures": 0,
+    "independent_probes": [
+      "int64 above Float64 exact range and stable entity ties",
+      "exact top-k and complete declared coverage",
+      "universe permutation preserves complete output digest",
+      "same metadata different values changes content identity",
+      "hand-derived 100 to 110 return",
+      "knowledge cutoff before endpoint withholds return",
+      "unknown future path cannot expose label value",
+      "future path leaves immutable signal origin bytes unchanged",
+      "observation permutation preserves canonical request",
+      "duplicate path denied",
+      "bool horizon denied"
+    ],
+    "examples": [
+      {
+        "name": "research_scanner.py",
+        "stdout": "Synthetic installed producer/scanner count=2 volume=8 selected=A verified\n"
+      },
+      {
+        "name": "research_labels.py",
+        "stdout": "Actual core prefix count=2 volume=8; future-label invariance, rejection and as-of joins verified\n"
+      },
+      {
+        "name": "research_backtest.py",
+        "stdout": "Chronological synthetic targets: ranked/selected A,B; coverage2/3; returns+1/10,-1/10; revision+1/5; causal joins verified\n"
+      }
+    ],
+    "elapsed_seconds": 0.7649999999994179,
+    "origins": {
+      "equity_feature_contracts": "packages/contracts/src/equity_feature_contracts/__init__.py",
+      "equity_feature_strategies": "packages/strategies/src/equity_feature_strategies/__init__.py",
+      "equity_feature_labels": "packages/labels/src/equity_feature_labels/__init__.py"
+    },
+    "limits": [
+      "Source-checkout verification using the existing Python runtime; not a fresh installation.",
+      "No rerun of the full performance cohort, native benchmarks or private staging.",
+      "Linux/platform CI and archive evidence assessed separately."
+    ]
+  },
+  "actual_runs": [
+    {
+      "repo": "equity-features",
+      "id": 38671284575,
+      "name": "Foundation package checks",
+      "head": "43f3f39215e68a7133b2ac0e3f9910debd1dbf33",
+      "conclusion": "success"
+    },
+    {
+      "repo": "equity-features",
+      "id": 38671284577,
+      "name": "Documentation checks",
+      "head": "43f3f39215e68a7133b2ac0e3f9910debd1dbf33",
+      "conclusion": "success"
+    },
+    {
+      "repo": "equity-features",
+      "id": 38671284546,
+      "name": "Remote transport reference checks",
+      "head": "43f3f39215e68a7133b2ac0e3f9910debd1dbf33",
+      "conclusion": "success"
+    },
+    {
+      "repo": "equity-features",
+      "id": 38671284552,
+      "name": "Research package checks",
+      "head": "43f3f39215e68a7133b2ac0e3f9910debd1dbf33",
+      "conclusion": "success"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 38668374544,
+      "name": "EQ080 pre-code OS feasibility",
+      "head": "6538f21b441c8527b465899b98cfd0476e7af08a",
+      "conclusion": "success"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 38668374528,
+      "name": "Typed foundation checks",
+      "head": "6538f21b441c8527b465899b98cfd0476e7af08a",
+      "conclusion": "success"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 38668374472,
+      "name": "Optional Python client qualification",
+      "head": "6538f21b441c8527b465899b98cfd0476e7af08a",
+      "conclusion": "success"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 38668374467,
+      "name": "Optional bounded MCP qualification",
+      "head": "6538f21b441c8527b465899b98cfd0476e7af08a",
+      "conclusion": "success"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 38668374471,
+      "name": "Optional service qualification",
+      "head": "6538f21b441c8527b465899b98cfd0476e7af08a",
+      "conclusion": "success"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 38668374395,
+      "name": "EQ083 cooperative resilience qualification",
+      "head": "6538f21b441c8527b465899b98cfd0476e7af08a",
+      "conclusion": "success"
+    }
+  ],
+  "actual_jobs": [
+    {
+      "repo": "equity-features",
+      "id": 116214763519,
+      "name": "compatibility (ubuntu-24.04)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38671284575/job/116214763519"
+    },
+    {
+      "repo": "equity-features",
+      "id": 116214763833,
+      "name": "compatibility (windows-latest)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38671284575/job/116214763833"
+    },
+    {
+      "repo": "equity-features",
+      "id": 116214763710,
+      "name": "check",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38671284577/job/116214763710"
+    },
+    {
+      "repo": "equity-features",
+      "id": 116214763517,
+      "name": "wire (ubuntu-24.04)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38671284546/job/116214763517"
+    },
+    {
+      "repo": "equity-features",
+      "id": 116214763701,
+      "name": "wire (windows-latest)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38671284546/job/116214763701"
+    },
+    {
+      "repo": "equity-features",
+      "id": 116214763627,
+      "name": "research (windows-latest)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38671284552/job/116214763627"
+    },
+    {
+      "repo": "equity-features",
+      "id": 116214763765,
+      "name": "research (ubuntu-24.04)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38671284552/job/116214763765"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205425174,
+      "name": "host-probe (windows-latest)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374544/job/116205425174"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205425311,
+      "name": "host-probe (ubuntu-24.04)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374544/job/116205425311"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205424688,
+      "name": "foundation (windows-latest)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374528/job/116205424688"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205425063,
+      "name": "foundation (ubuntu-24.04)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374528/job/116205425063"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205424819,
+      "name": "client (windows-latest)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374472/job/116205424819"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205425175,
+      "name": "client (ubuntu-24.04)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374472/job/116205425175"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205424494,
+      "name": "mcp (ubuntu-24.04)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374467/job/116205424494"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205424977,
+      "name": "mcp (windows-latest)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374467/job/116205424977"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205424552,
+      "name": "service (windows-latest)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374471/job/116205424552"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205425416,
+      "name": "service (ubuntu-24.04)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374471/job/116205425416"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205424610,
+      "name": "resilience (ubuntu-24.04)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374395/job/116205424610"
+    },
+    {
+      "repo": "equity-feature-workers",
+      "id": 116205424735,
+      "name": "resilience (windows-latest)",
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38668374395/job/116205424735"
+    }
+  ],
+  "closed_issues": [
+    {
+      "number": 95,
+      "title": "[EPIC-E11] Profile-driven acceleration",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/95"
+    },
+    {
+      "number": 96,
+      "title": "[EQ-085] Identify actual compute and copy bottlenecks",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/96"
+    },
+    {
+      "number": 97,
+      "title": "[EQ-086] Add native hot kernels only where justified",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/97"
+    },
+    {
+      "number": 98,
+      "title": "[EQ-087] Qualify optional accelerator packaging",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/98"
+    },
+    {
+      "number": 99,
+      "title": "[EQ-088] Tune large-run scheduling and output layout",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/99"
+    },
+    {
+      "number": 100,
+      "title": "[EPIC-E12] Separate strategy and label packages",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/100"
+    },
+    {
+      "number": 101,
+      "title": "[EQ-089] Define strategy/label scope and contracts",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/101"
+    },
+    {
+      "number": 102,
+      "title": "[EQ-090] Implement configurable scanners/rankings/watchlists",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/102"
+    },
+    {
+      "number": 103,
+      "title": "[EQ-091] Implement forward labels and maturity",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/103"
+    },
+    {
+      "number": 104,
+      "title": "[EQ-092] Qualify strategy and label distributions",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/104"
+    },
+    {
+      "number": 381,
+      "title": "[GOV-020] Publish reviewed R8 execution and readiness handoff",
+      "state": "closed",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/381"
+    }
+  ],
+  "milestone": {
+    "number": 9,
+    "state": "closed",
+    "open_issues": 0,
+    "closed_issues": 9
+  },
+  "artifact_and_measurement_audit": {
+    "artifacts": [
+      {
+        "id": 11944362144,
+        "system": "Windows",
+        "source_pins": 77,
+        "archives": 8,
+        "archive_entries": 170,
+        "wheel_RECORD_rows": 75,
+        "source_payload_files_matched_to_Git": 110,
+        "reported_component_forms": 4,
+        "reported_combined_forms": 2,
+        "source_tree_fallback_reexecution": false
+      },
+      {
+        "id": 11944278139,
+        "system": "Linux",
+        "source_pins": 77,
+        "archives": 8,
+        "archive_entries": 170,
+        "wheel_RECORD_rows": 75,
+        "source_payload_files_matched_to_Git": 110,
+        "reported_component_forms": 4,
+        "reported_combined_forms": 2,
+        "source_tree_fallback_reexecution": false
+      }
+    ],
+    "measurement_saved_data_audit": {
+      "records": 72,
+      "references": 8,
+      "groups": 24,
+      "all_summary_medians_ranges_recomputed": true,
+      "all_recorded_parity_and_goldens_true": true,
+      "adopted_workers": null,
+      "default_policy": "retained sequential1",
+      "raw_measurement_sha256": "cd77e789f255874f903032e7c5555baa728f725ad89287deb888a8d3ed144294"
+    },
+    "limits": [
+      "No fresh installations performed by this audit; installed-form results are reviewed CI records.",
+      "No full benchmark/native/staging replay; recomputation uses accepted saved measurements.",
+      "Complete wheel RECORDs, archive entry maps and source payload bytes independently checked."
+    ]
+  },
+  "current_artifact_identities": [
+    {
+      "id": 11944362144,
+      "head": "43f3f39215e68a7133b2ac0e3f9910debd1dbf33",
+      "bytes": 296614,
+      "digest": "sha256:1836010a92dedd98b1eb47f9ff26fe7dae52804b98e6fc22c56f6f8edf8c55ef",
+      "expires_at": "2026-11-14T02:32:28Z"
+    },
+    {
+      "id": 11944278139,
+      "head": "43f3f39215e68a7133b2ac0e3f9910debd1dbf33",
+      "bytes": 293620,
+      "digest": "sha256:d096920711c01e697ca7ea9bd9e410704b053aca1456e51a99b7d595e352cbde",
+      "expires_at": "2026-11-14T02:30:47Z"
+    }
+  ],
+  "tool_corrections": [
+    "CLI comment read rejected an incompatible flag combination before any mutation.",
+    "Data-only audit initially expected generic completed status; corrected to exact completed-protocol-not-automatic-acceptance; original preserved."
+  ],
+  "no_product_changes": true,
+  "no_fresh_installation_or_benchmark_replay": true,
+  "planning_validation": {
+    "workflow_inline_check": "passed",
+    "reference_methods": 123,
+    "imports_release_registry": "passed",
+    "timing_initial_invocation": "isolated Python removed sibling script import: one ModuleNotFoundError; unchanged source passed actual workflow nonisolated invocation23methods"
+  }
+}
