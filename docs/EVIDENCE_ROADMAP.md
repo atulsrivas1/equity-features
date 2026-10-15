@@ -1,3 +1,13 @@
+## EQ098 implementation candidate; qualification pending — October15,2026
+
+Separate corrected pre-code review5109e1d1 at canonicalce7fa33e/companion9eae14f7 approved with no remaining findings. [Actual Ready evidence](https://github.com/atulsrivas1/equity-features/issues/198#issuecomment-6194312464) precedes actual Ready→In progress/Atul assignment. New companion bundles0.1.0a1 implements data-only fixed stored ZIP/strict manifest/35 closed typed branches/full supplied content binding and explicit optional fixed compute_trades replay. Root parsing never imports features; missing references never fetch. The five-second acceptance check runs after return and is not an interruption deadline. Existing core/evidence/old-I/O package sources/versions are unchanged.
+
+Independent pre-code11517byte ZIP/1336byte manifest decode and reproduce byte-for-byte. Source development tests, import boundary and strict typing are recorded separately from fresh installed/bothOS/current-main delivery, which remain pending. New source-closed qualifier pins canonical dependencyec1e3b1, repeats eight archives and verifies four fresh light/replay wheel/sdist forms, complete source/license/RECORD/maps and actual synthetic producer. No repeated accepted EQ097 cost benchmark or R8/R7 operations. EQ099/100 remain Backlog; R9twoof5Done, no complete-release claim.
+
+## Current R9 execution — October15,2026
+
+Owner authorized bounded R9 execution/local review throughout. EQ096/097 accepted ClosedDone, latest [acceptance197](https://github.com/atulsrivas1/equity-features/issues/197#issuecomment-6193790651) at main ec1e3b1. [EQ098 concrete preparation](stories/EQ-098_PLAN.md) is next, still Backlog until reviewed Ready/pull. EQ099–100 remain Backlog; R9twoof5 and epic/milestone open. Earlier planning-only stops below are historical; existing scope/dependency/source-independent boundaries remain normative.
+
 ## Current R9 preparation — October14,2026
 
 After accepted R8, the owner requests the next existing release plan. [R9_RELEASE_PLAN.md](R9_RELEASE_PLAN.md) and [R9_TEST_STRATEGY.md](R9_TEST_STRATEGY.md) refine the unchanged EQ096–100/E13/31-point roadmap under [GOV021#391](https://github.com/atulsrivas1/equity-features/issues/391). All runtime stories remain Backlog and no implementation/new session is started. The dated R2/R3 ownership directions below are historical; scope/dependencies/evidence boundaries remain valid. The owner now explicitly authorizes separate local review of this R9 planning packet only; exact final review/check/publication gates remain. No R9 runtime execution or later-story review grant follows from planning.

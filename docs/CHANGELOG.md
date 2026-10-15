@@ -1,3 +1,11 @@
+## EQ098 bundle/replay candidate — October15,2026
+
+New optional companion bundles0.1.0a1 provides deterministic bytes-only reproduction archives, strict closed reconstruction/full supplied content verification and explicit fixed trusted replay. Missing refs remain unavailable; cancellation before entry and a five-second after-return acceptance gate make no active-call interruption promise. No extraction, resolver or executable archive content. Candidate source is implemented; independent review/freshbothOS/current artifacts/paired-main release remain pending. Existing numerical/evidence/old-I/O packages unchanged.
+
+## EQ098 bundle/replay pre-code preparation — October15,2026
+
+After actual accepted EQ097/main ec1e3b1, prepared a complete companion ownership/data-only manifest/fixed stored archive/closed reconstruction/fixed replay/control/rights/qualification packet with independent1336byte manifest/11517byte ZIP oracle. No EQ098 runtime/package version or Ready admission delivered by this preparation. Existing numerical/evidence/oldI-O sources remain unchanged.
+
 ## EQ097 qualified full-content candidate — October15,2026
 
 Evidence0.1.0a2 passed separate source and bothOS artifact/install/cost audit: six repeatarchives/fourfresh forms perOS/31tests/typing/actual examples. [Validation](stories/EQ-097_VALIDATION.json) preserves source/RECORD maps,48rawcostsamples, original failures and limitations. Typed-json-v1 full supplied content fingerprints retain exact precision/null/order/metadata/quality/evidence facts. Existing receipt schema/numerical packages unchanged; final currenthead/main publication/acceptance pending.
@@ -593,3 +601,5 @@ EQ040 introduces independently packaged consumer0.3.0 walkthrough for installed 
 EQ053 optionala5 introduces acquisition1/VerificationPolicy and original-read2 source identities, with observed original content in occurrence IDs; experimental identity change is deliberate. Canonical schema1/puremath/core/runtimepins unchanged. Pre/post local hash equality has no atomic snapshot/provider/PIT/rewrite certification. Relevant actual installation/delivery gates remain.
 
 EQ056 prepares final bounded R4 acceptance for optional0.1.0a7 with unchanged purecore0.0.4a4/consumer0.4.0. Eight-story evidence, actual synthetic SDK/private independent goldens, installed artifact provenance, cost/source limits and current API/install/compatibility records are reconciled. No runtime/package/math/schema/mode change; final reviewed delivery/readback remains before R4 closure.
+
+EQ098 corrected candidate qualification: both OS current artifacts/four fresh forms/29-method cohorts independently audited; final publication remains gated. Full maps: canonical docs/stories/EQ-098_VALIDATION.json. Both source P2 findings and delivery-tooling corrections retained.

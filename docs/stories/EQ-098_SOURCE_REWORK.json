@@ -1,0 +1,96 @@
+{
+  "correction": "Shared shape pins result schema1/math_policy_version v1 before export, read or replay; full receipt consistency alone is insufficient.",
+  "corrective_source_log_sha256": "e8c09cd8e9e4ae57cfbe5f609a19f04d4466187a8871cccd578ca155b67719d7",
+  "final_corrected_review_sha256": "0b1c4daea7d25db1d6cfe92d983d51908148457d4f358867b006862f518c6bde",
+  "finding": {
+    "basis": [
+      "docs/stories/EQ-098_PLAN.md:15",
+      "docs/stories/EQ-098_PLAN.md:27",
+      "docs/R9_TEST_STRATEGY.md:17"
+    ],
+    "consequence": "Unknown mathematical policy versions enter session.compute_trades.v1 despite the frozen pre-execution version-admission contract; a mismatch is not the promised incompatible refusal.",
+    "end_line": 42,
+    "file": "packages/bundles/src/equity_feature_bundles/_binding.py",
+    "id": "EQ098-SRC-01",
+    "observed": "Independent controlled source probe invokes the fixed calculator once and reports mismatch (calculation_count=1), rather than refusing the unsupported policy before execution.",
+    "priority": 2,
+    "repository": "companion",
+    "requested_change": "Pin the supported result math_policy_version to v1 in the shared fixed-shape admission check, and add a consistent receipt/bundle negative with a private execution counter proving zero calls. Keep mismatch for supported-policy output disagreements.",
+    "start_line": 41,
+    "title": "Reject unsupported result math policy before fixed replay",
+    "trigger": "A valid five-column v1 result is reissued with ResultMetadata.math_policy_version=v2 and a freshly bound full-content receipt. write_bundle/read_bundle admit it."
+  },
+  "original_author_qualification": {
+    "archives": 8,
+    "fresh_forms": 4,
+    "heads": {
+      "canonical": "7e36df4c0d6018b8a06b636d290a7b35c222652a",
+      "io": "bc675a888f8935039bc397266737dbbd358d2aee"
+    },
+    "log_sha256": "ba262ad6e44d234652ca846db48590be84d7e2ba6aeb1ef5bcd4c2352755d6fd",
+    "scope": "Original Windows source/installed checked cases completed; subsequent P2 correction means this is not corrected-source/final bothOS acceptance. Original complete logs/maps/artifacts preserved; no failed/rework evidence relabeled.",
+    "source_methods": 28,
+    "source_pins": 79,
+    "status": "completed"
+  },
+  "original_disposition": "changes_requested",
+  "original_heads": {
+    "canonical": "6001788358ea2e087c727faa8855dc38bf115344",
+    "companion": "9bd10876b289bf38a15ad44cb9cd3fa7b4a9d57d"
+  },
+  "original_raw_report_sha256": "d0de0d8fdc4f555561dcc98f70f2817d9dd6c56324d90a71fe4c8c9aa1abead9",
+  "publication_tool_history": "First canonical source push succeeded; immediate PR head view was stale. Publication stopped before later mutations, then actual ref was verified and resumed without a duplicate push/comment. Source publication completed once at comment6194900924.",
+  "qualification_scope": "No builder/install/bothOS/main delivery executed at this correction; renewed exact-head review pending.",
+  "retained_author_correction": "Before build, qualifier subprocess removes inherited mypy/Python search-path configuration; actual poisoned-environment child probe passed.",
+  "reviewer": "Separate local Codex automated reviewer /root/r9_plan_review",
+  "schema": "eq098-source-rework:1",
+  "supplemental_static_request_finding": {
+    "correction": "Require stripped nonempty eligibility_policy in shared fixed registry admission before export/read/replay.",
+    "corrective_source_log_sha256": "78ee3b7541956b2bddb24f5359c8584f61d4f01dca5cbb8a059d6a246d5492c6",
+    "corrective_tests": "29source methods pass, including empty/space/tab-newline zero-input export/read and forged-wrapper refusal with zero loader calls; valid missing input and genuine invoked-calculation rejection remain supported.",
+    "current_disposition": "Resolved at e414f517/89a8a41f; separate corrected review0b1c4dae and fresh Windows/Linux installed qualification approved. Final publication remains separately gated.",
+    "finding": {
+      "basis": [
+        "docs/stories/EQ-098_PLAN.md:35",
+        "docs/stories/EQ-098_PLAN.md:49",
+        "packages/features/src/equity_features/session/bars.py:28"
+      ],
+      "end_line": 40,
+      "file": "packages/bundles/src/equity_feature_bundles/_binding.py",
+      "id": "EQ098-SRC-02",
+      "impact": "A statically invalid fixed registry request is admitted to execution despite the planned configuration-mutation before-calculation gate. This does not produce an incorrect match or arbitrary execution, but breaches the zero-call request validation contract.",
+      "observed": "Controlled loader returns the unmodified accepted compute_trades, wrapped only with a call counter. Both empty and whitespace policies reach it once and return calculation_rejected.",
+      "priority": 2,
+      "requested_change": "Require nonempty .strip() on the exact eligibility_policy string in shared shape admission, matching accepted bars._policy; add receipt-consistent zero-input negatives for export/read and forged-wrapper replay proving zero loader/calculator calls. Preserve valid missing-input replay and genuine post-invocation calculation_rejected reporting.",
+      "start_line": 38,
+      "title": "Reject empty fixed-request eligibility policy before replay invocation",
+      "trigger": "A zero-input missing-result bundle has a generic ConfigSpec eligibility_policy empty/whitespace string, updated result config_digest, and newly consistent receipt. Export/read admit it, since shape checks only the exact string type. Without an input scope no later equality check excludes it."
+    },
+    "heads": {
+      "canonical": "7e36df4c0d6018b8a06b636d290a7b35c222652a",
+      "companion": "bc675a888f8935039bc397266737dbbd358d2aee"
+    },
+    "independent_original_observations": [
+      {
+        "actual_core_counter": 1,
+        "calculation_count": 1,
+        "policy": "",
+        "status": "calculation_rejected",
+        "write_read_admitted": true,
+        "zero_input": true
+      },
+      {
+        "actual_core_counter": 1,
+        "calculation_count": 1,
+        "policy": "   ",
+        "status": "calculation_rejected",
+        "write_read_admitted": true,
+        "zero_input": true
+      }
+    ],
+    "prior_approved_source_report_sha256": "42e134112957a466e972518960ca50fec47a336ab33378d99cd13ffe5a6a5c13",
+    "raw_report_sha256": "35190527c00b1385342dab5e608afa74ac5fe3fef05342dcdf7ba524c08d2e74"
+  },
+  "tool_history": "Initial inline environment probe shell-quote SyntaxError before execution; saved script succeeded. Raw failed/corrective source logs retained outside Git.",
+  "validation": "28 source methods passed, including independent all-hash-rebound unknown-policy archive and forged exact-wrapper zero-calculator-loader counter; supported v1 mismatch remains a returned one-call result."
+}
