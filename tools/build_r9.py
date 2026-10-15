@@ -2,6 +2,7 @@
 from __future__ import annotations
 from email.parser import BytesParser
 import json
+import os
 from pathlib import Path
 import platform
 import shutil

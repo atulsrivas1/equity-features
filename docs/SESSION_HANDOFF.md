@@ -1,3 +1,7 @@
+## EQ100 qualifier import corrected after actual CI failure — October15,2026
+
+Source6b7f1eb actual R9 Windows/Linux jobs failed before package builds with NameError os: a used import was incorrectly removed during cleanup. Actual200/epic193CodeReview→Inprogress preceded correction. Restored import, raw logs and original failure scopes retained in EQ-100_VALIDATION.json. No accepted package defect, completed archive/form qualification or failed pass inferred. Corrected source needs renewed source/security/docs review/currentbothOS qualification; all release gates remain pending. No owner input missing.
+
 ## EQ100 implemented composition candidate — October15,2026
 
 Separate pre-code review79edaef6 approved b7a6202; actual Ready/Atul assignment/Inprogress preceded code. [R9 public reproduction](api/R9_REPRODUCTION.md) composes unchanged five package APIs, exact synthetic outputs/reference/cancel states and future-knowledge unavailable-quality fidelity. Ten composition methods check independent pre-code expectations and full replay fields; light forms skip three actual-producer cases. New two-repository source-closed tenarchive/fourform builder/workflow and30sample-perOS cost tool prepared, not yet qualified. Existing package/math/version sources unchanged.

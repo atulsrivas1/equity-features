@@ -41,6 +41,27 @@
         "Primary paragraph blank-line lookup stopped beforewrites; EOF-ownedline replacement verified unrelated bytes",
         "Long documentation shell command automatically rejected before execution; direct file patches completed authorized docs"
       ]
+    },
+    {
+      "scope": "Actual bothOS R9 CI at6b7f1eb",
+      "status": "FAILED",
+      "defect": "Qualifier NameError os before any package build after incorrectly removing used import",
+      "logs": [
+        {
+          "file": "eq100-source-failed-116545884379.log",
+          "sha256": "1d84592e58530474c111dffc86619a7fdc14b763ec8c2b830db0124e40db1e6a"
+        },
+        {
+          "file": "eq100-source-failed-116545884590.log",
+          "sha256": "28a414b4aa867571d95858ec037d0bf624081e87bb219a4152c27d73e0f2d02c"
+        },
+        {
+          "file": "eq100-source-failed-116545903673.log",
+          "sha256": "038be6c1f137dbfd5b80be4dff3dbce07a5621ba4dda7350651399a1a0edefce"
+        }
+      ],
+      "resolution": "Actual200/epic193CodeReview to Inprogress before restoring import; corrected source requires renewed review and fresh bothOS qualification",
+      "accepted_package_source_changed": false
     }
   ],
   "qualification": null,
