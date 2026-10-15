@@ -157,7 +157,8 @@ def check():
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
     research_packages=(ROOT/'packages/strategies',ROOT/'packages/labels')
-    known_packages=set(pure_packages)|set(research_packages)
+    evidence_packages=(ROOT/'packages/evidence',)
+    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
@@ -172,7 +173,7 @@ def check():
         assert violations(source),source
     for source in POSITIVE_FIXTURES:
         assert not violations(source),(source,violations(source))
-    for research in research_packages:
+    for research in (*research_packages,*evidence_packages):
         if not research.exists(): continue
         project=tomllib.loads((research/'pyproject.toml').read_text(encoding='utf-8'))['project']
         assert project['dependencies']==['equity-feature-contracts==0.0.4a4']

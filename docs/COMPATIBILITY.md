@@ -1,3 +1,11 @@
+## EQ096 qualified experimental forms — October15,2026
+
+Receipt schema1/receipt-json-v1, evidence0.1.0a1 and unchanged contracts/features0.0.4a4 passed bothOS candidate wheel/sdist forms and optional import/installed typing checks. [Frozen artifact/source maps](stories/EQ-096_VALIDATION.json) bind exact CPython/platform facts, not universal dependency combinations. Configuration/input/result reference domains/schema/canonicalization are independently versioned declarations. No change to existing core schema/math/result identities; full-content verification is not inferred from envelope validity. Current-head/default-branch acceptance remains required and no stable registry delivery is promised.
+
+## EQ096 optional receipt candidate — October15,2026
+
+New optional evidence0.1.0a1 targets CPython3.12/unchanged contracts0.0.4a4 and receipt schema1/receipt-json-v1. It neither upgrades core nor changes accepted config/result digests or math versions. Receipt schema/canonicalization/unknown fields fail closed; no automatic migration or arbitrary type loading. Environment/version facts are caller declarations, not compatibility proof. [API](api/EVIDENCE_RECEIPTS.md) and [exact schema/fixture](stories/EQ-096_PLAN.md). Runtime code/source checks are distinct from pending final review/bothOS fresh installed forms/artifact/main acceptance; no stable registry promise.
+
 ## R8 delivered contracts and consumer qualification
 
 Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.
