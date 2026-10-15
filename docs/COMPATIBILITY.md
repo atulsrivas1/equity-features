@@ -1,3 +1,7 @@
+## EQ105 source qualification boundary
+
+EQ105 changes no accepted package/version/math/schema/codec/receipt or replay profile. New private r10-measurement:1 JSON is outer qualification data, never a library decoder/input or source authentication. Fourpure/fullwheel-sdistforms/currentbothOS qualification pending. [Guide](R10_CONSUMER_GUIDE.md).
+
 ## EQ104 candidate compatibility
 
 Conformance0.1.0a1 is a new optional pure inward consumer of unchanged contracts/evidence/diagnostics. No accepted package source/version/schema/codec/catalog/math migration. Supplied diagnostic findings and content relations are test observations, not new execution/source capabilities. Historical invariance uses public existing history APIs; no extension of fixed R9 trade replay or generic context-receipt materialization. [Exact compatibility/limits](api/POINT_IN_TIME_CONFORMANCE.md). Fresh fourform/bothOS qualification remains pending.

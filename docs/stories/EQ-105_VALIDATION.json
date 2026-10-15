@@ -1,0 +1,146 @@
+{
+  "schema": "eq105-validation:1",
+  "stage": "Test; reviewed source qualified; final documentation/currenthead/main acceptance pending",
+  "accepted_base": "1e8f89fe27a7409a3030b22558cb84ab3ae86fde",
+  "runtime_implemented": true,
+  "measurements_executed": true,
+  "released": false,
+  "prior_tool_only_correction": {
+    "story": "EQ104 delivery helper",
+    "initial_review_sha256": "0736e92c44be193e2041dc7b8f5e94c6689d45ef623e839142465701af30223f",
+    "final_review_sha256": "d9008199e273e84bff8a961409b1f2d0e93a26ed17c67db8a5a0cd54a0136ae3",
+    "cause": "Copied durable publication journal label named203 while actual guarded mutation/readback targeted204.",
+    "correction": "Fixed label to204_actual before helper approval/execution; no wrong-story mutation occurred.",
+    "runtime_failure": false
+  },
+  "required": "ExactprecodeReadyreview/freshClosedDoneprerequisites then implementation, independent source/math/security/builder/docs, currentbothOS fourfreshforms22unchangedrepeatarchives/rawmeasurementparity/currenthead/main/publicUTF8/attribution/artifacts/lifecycle. No fabricated performance results.",
+  "ready_review_sha256": "c8f0ccac43ece1a5b961607c0fb456b446120388b3c44e1e404d8fb6a6b612a6",
+  "start_evidence": "https://github.com/atulsrivas1/equity-features/issues/205#issuecomment-6202782124",
+  "development": {
+    "methods": 8,
+    "pure_methods": 7,
+    "native_methods": 1,
+    "log_sha256": "44f8e3f15e5291dfb5e2477977cf413176bd30a4fefe09f4c167d37c53738e02",
+    "strict_consumer_files": 1,
+    "typing_log_sha256": "8e63ae22e8213e327a5e9cbd584067681681bd8ef7f25c869877887ccdcfc4ff",
+    "boundaries": {
+      "pure_negative": 42,
+      "pure_positive": 10,
+      "outer_negative": 8,
+      "outer_positive": 3,
+      "conformance_negative": 7,
+      "conformance_positive": 4
+    },
+    "benchmark_test_clock": "injected deterministic controls only, not actual performance samples",
+    "scope": "existing development environment with source imports; not fresh installed qualification"
+  },
+  "recipe": {
+    "new_builder": "tools/build_r10.py",
+    "new_workflow": ".github/workflows/r10.yml",
+    "archives": 22,
+    "repeat_builds": 2,
+    "forms_each_OS": 4,
+    "pure_distributions": 4,
+    "full_distributions": 13,
+    "source_pins_expected": 190,
+    "pure_release_methods": 7,
+    "full_release_methods": 8,
+    "retained_conformance_pure": 11,
+    "retained_conformance_full": 15,
+    "retained_provenance_full": 22,
+    "retained_diagnostic_each": 14,
+    "retained_evidence_each": 31,
+    "measurement_workloads": 4,
+    "warmup_pairs_per_workload": 3,
+    "sample_pairs_per_workload": 10,
+    "outer_invocations_per_form": 104,
+    "timed_outer_invocations_per_form": 80,
+    "nested_diagnostic_invocations_from_wrapper_per_form": 52,
+    "strict_consumers_each": 2,
+    "status": "Completed at reviewed source861 after cleanup and sourceclosure; later finalhead/currentmain qualification still required",
+    "final_documentation_source_pins_expected": 191
+  },
+  "clarifications": [
+    "104 outer baseline/wrapper invocations include52 wrapper invocations which themselves call the accepted evaluator once; total evaluator entries104 (52baseline+52nested), total public entries156 counting wrappers. Only80 outer calls timed,24 outer warmups. This clarifies accounting, no workload/math change.",
+    "New release native method reruns accepted actual pipeline example; accepted full15method conformance suite separately retains waiting/reopen/complete adversarial controls. Repeated cohorts are not new unique methods.",
+    "Measurement schema is private qualification data, no diagnostic/public wire schema/version or fixed replay-profile change."
+  ],
+  "current_runtime_qualified": true,
+  "source_review": {
+    "head": "86154ef76010d474fbc46a195d85bd03ec616b15",
+    "report_sha256": "a2af275326f835f00473d7c7cec0de2439e1a39325094e248df6085d877cee72",
+    "findings": [],
+    "scope": "separate local source/math/security/native/parser/builder/docs review and eight independent development methods, not independent reinstall"
+  },
+  "installed_qualification": {
+    "head": "86154ef76010d474fbc46a195d85bd03ec616b15",
+    "author_system": "Windows",
+    "qualification_sha256": "2d3da9efa1623169b7c828712a8ac6a75bd9f0d709d2e738bbd79a732f628b65",
+    "raw_log_sha256": "ea15a8eda4c814fc15fa5f0e27d5ece5bc8182fda9771af87fe1c79713a8c319",
+    "fresh_forms": 4,
+    "archives": 22,
+    "repeat_builds": 2,
+    "source_pins": 190,
+    "source_closure": true,
+    "actual_measurements_each": 4,
+    "pure_release_methods": 7,
+    "full_release_methods": 8,
+    "two_strict_consumers_each": true,
+    "original_installed_maps_unchanged": true,
+    "no_skips": true,
+    "native_wheels": {
+      "duckdb-1.5.6-cp312-cp312-win_amd64.whl": {
+        "bytes": 13190189,
+        "sha256": "09ff51b230219f0d8b47fc8a1e17fb595ba9fab0c3d96a6de4d00b8ff86b3cf1"
+      },
+      "numpy-2.2.6-cp312-cp312-win_amd64.whl": {
+        "bytes": 12614190,
+        "sha256": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2"
+      },
+      "setuptools-80.9.0-py3-none-any.whl": {
+        "bytes": 1201486,
+        "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+      }
+    }
+  },
+  "bothOS": {
+    "head": "86154ef76010d474fbc46a195d85bd03ec616b15",
+    "run": 38811720198,
+    "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38811720198",
+    "current_source_checks_success": 42,
+    "artifact_report_sha256": "6f0cd4d4b2a7c88feab95fb7a836e1fffc4b56dc5e5a90606bda32b9b819a55a",
+    "independent_artifact_review_sha256": "345d783080b93c351d897abea76231f6eb267faad250e34e774b637783d4f270",
+    "findings": [],
+    "archives_each": 22,
+    "entries_each": 373,
+    "RECORD_rows_each": 159,
+    "source_pins_each": 190,
+    "fresh_forms_each": 4,
+    "measurement_records": 8,
+    "workloads": 32,
+    "raw_durations": 640,
+    "measurements_verified": true,
+    "all22accepted_project_archives_identical_each_OS": true,
+    "scope": "actual ZIP/projectsource-payload/metadata-license-deps/RECORD/rawcohort/fullsnapshot/exactstats audit; native installedRECORD capture not independent physicalnative rehash/reinstall"
+  },
+  "logs": {
+    "eq105-source-linux-job.log": "cbf9c5f0c59671cc45c1b40cf465d17d09aa1d02535c1a06f9d8b669cceb0f05",
+    "eq105-source-windows-job.log": "aeb4aa20bf8aec050a8b0e732003e1feed36d81187a6f19c49f45bd202d8fc34"
+  },
+  "delivery_tool_corrections": [
+    {
+      "kind": "pre-execution P2 guard cardinality",
+      "initial_review_sha256": "9660f79e29a2842465f11d656e554f69a6c54ba8fb4c13194db3fc973e5a6738",
+      "corrected_review_sha256": "1d96c4373ede4c2bb2407c319509d8e6537703758e7ecad9407a507cbd80e87e",
+      "cause": "Added twoOS workflow raises19main/38candidate to21main/42candidate, not20/40.",
+      "correction": "Guards and evidence corrected to42/21 before execution; actual sourcePRinventory42 independentlyverified; no runtime failure or lifecycle mutation from the rejected helper."
+    },
+    {
+      "kind": "pre-execution P2 aggregate approval binding",
+      "initial_review_sha256": "58e3ace6ed32a17e1b191c6223251691ff6592b7d5e66d78ab6e28663acb96aa",
+      "corrected_review_sha256": "8e17896fbb6e83cd7cda8eb5eeb1bbc116bd9b2a811ef71b0e47c234d79d6d7a",
+      "cause": "Aggregate guard needed explicit approved disposition and collectedhead equality in addition to measurement/SHA binding.",
+      "correction": "Both guards added and independently approved before any aggregatehelper execution; no premature release claim."
+    }
+  ]
+}

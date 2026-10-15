@@ -1,3 +1,7 @@
+## EQ105 source qualification boundary
+
+EQ105 measurement and consumer tooling operate outside pure packages on fixed synthetic supplied fixtures. No credentials/provider acquisition or source-history authentication; metadata omits hostname/paths/secrets. Complete assertions/report parsing do not certify execution. Descriptive durations are not physical quotas, native deadlines or performance promises; malformed reports/timers refuse fixed codes. [Limits](docs/R10_CONSUMER_GUIDE.md).
+
 ## External conformance is not evidence authority
 
 Test snapshots and outcomes are ordinary locally constructible data. `check_diagnostics` invokes the accepted supplied-declaration evaluator; `compare_content` compares scalar fingerprints without verifying bytes or execution. Summary re-derives test matching and remaining unknowns; unknown and failed-partial assessments are never silently converted to safety. Caller code remains trusted local Python, not sandboxed against monkeypatching. Fixed bounded snapshots retain no request graphs, callbacks, paths, URLs, credentials or private exception text/context. No data rights, historical consumption, universal leakage detection or physical quota/deadline certification. Synthetic integration and explicit native costs stay outside pure calculations. [Contract](docs/api/POINT_IN_TIME_CONFORMANCE.md).

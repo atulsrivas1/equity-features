@@ -1,0 +1,1988 @@
+{
+  "schema": "eq105-measured-snapshot:1",
+  "selected_source": "86154ef76010d474fbc46a195d85bd03ec616b15",
+  "scope": "Immutable source-qualification CI snapshot; later finalhead/main runs have separate rawrecords and are audited without replacing this snapshot. Descriptive fixed-order/shared-process samples, not a performance promise. AuthorWindows sourcequalification separately passed; this numeric snapshot contains the eightCIforms only.",
+  "run": 38811720198,
+  "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38811720198",
+  "artifact_report_sha256": "6f0cd4d4b2a7c88feab95fb7a836e1fffc4b56dc5e5a90606bda32b9b819a55a",
+  "independent_artifact_review_sha256": "345d783080b93c351d897abea76231f6eb267faad250e34e774b637783d4f270",
+  "oracle_sha256": "816fd6d0cf22bf371866fa135fb5725c2dc27b828ecbd4081433c57c13c5a624",
+  "records": [
+    {
+      "system": "Linux",
+      "python": "3.12.15",
+      "form": "wheel",
+      "live_native": false,
+      "effective_source_commit": "86154ef76010d474fbc46a195d85bd03ec616b15",
+      "artifact_id": 12008264277,
+      "artifact_sha256": "69e34c7f3b93d15052df4dbbea0bc74a2ed6f3490fe999025ac37d997363a47a",
+      "qualification_sha256": "e446479c9f11834407f3d3b50c8c155496ce458a3dd1b196ad4eb873384b7fb3",
+      "metadata": {
+        "backend": "pure_python",
+        "cpu_count": 4,
+        "machine": "x86_64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.15",
+        "release": "6.17.0-1022-azure",
+        "requested_threads": null,
+        "system": "Linux",
+        "timer": "perf_counter_ns",
+        "timer_monotonic": true,
+        "timer_resolution_seconds": "1e-09"
+      },
+      "warmup_pairs": 3,
+      "sample_pairs": 10,
+      "pair_order": "baseline_then_wrapper",
+      "outer_invocations": 104,
+      "timed_outer_invocations": 80,
+      "nested_evaluator_invocations": 52,
+      "workloads": [
+        {
+          "id": "k1",
+          "checks": 1,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 33581,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 54763
+            },
+            "min_ns": 26490,
+            "raw_ns": [
+              28533,
+              28533,
+              27512,
+              26800,
+              27221,
+              26490,
+              30537,
+              27251,
+              26941,
+              33581
+            ]
+          },
+          "wrapper": {
+            "max_ns": 174344,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 98519
+            },
+            "min_ns": 96265,
+            "raw_ns": [
+              97928,
+              117808,
+              98529,
+              99661,
+              96265,
+              104428,
+              96586,
+              98509,
+              174344,
+              96827
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 2,
+            "numerator": 142275
+          },
+          "median_ratio": {
+            "denominator": 54763,
+            "numerator": 197038
+          },
+          "parity": true
+        },
+        {
+          "id": "k16",
+          "checks": 16,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 204249,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 307305
+            },
+            "min_ns": 151720,
+            "raw_ns": [
+              156056,
+              152612,
+              151720,
+              152882,
+              154083,
+              155095,
+              166773,
+              152480,
+              204249,
+              153222
+            ]
+          },
+          "wrapper": {
+            "max_ns": 503893,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 486206
+            },
+            "min_ns": 479325,
+            "raw_ns": [
+              483883,
+              479325,
+              485886,
+              487488,
+              486526,
+              490884,
+              483932,
+              480288,
+              487658,
+              503893
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 2,
+            "numerator": 665107
+          },
+          "median_ratio": {
+            "denominator": 307305,
+            "numerator": 972412
+          },
+          "parity": true
+        },
+        {
+          "id": "k32",
+          "checks": 32,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 300445,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 576393
+            },
+            "min_ns": 284421,
+            "raw_ns": [
+              290400,
+              297209,
+              300445,
+              294065,
+              286855,
+              289538,
+              286674,
+              284421,
+              286133,
+              285462
+            ]
+          },
+          "wrapper": {
+            "max_ns": 915976,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 1793125
+            },
+            "min_ns": 885882,
+            "raw_ns": [
+              906843,
+              894094,
+              904168,
+              896698,
+              898040,
+              895896,
+              896427,
+              887304,
+              915976,
+              885882
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 608366
+          },
+          "median_ratio": {
+            "denominator": 576393,
+            "numerator": 1793125
+          },
+          "parity": true
+        },
+        {
+          "id": "m512",
+          "checks": 4,
+          "facts": 512,
+          "baseline": {
+            "max_ns": 1656738,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 1599416
+            },
+            "min_ns": 1583918,
+            "raw_ns": [
+              1607013,
+              1594974,
+              1583918,
+              1592091,
+              1588535,
+              1593252,
+              1605360,
+              1608395,
+              1656738,
+              1603858
+            ]
+          },
+          "wrapper": {
+            "max_ns": 1793836,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 1724555
+            },
+            "min_ns": 1717390,
+            "raw_ns": [
+              1722208,
+              1723909,
+              1721106,
+              1725201,
+              1718431,
+              1717390,
+              1740776,
+              1793836,
+              1739503,
+              1730750
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 125139
+          },
+          "median_ratio": {
+            "denominator": 228488,
+            "numerator": 246365
+          },
+          "parity": true
+        }
+      ]
+    },
+    {
+      "system": "Linux",
+      "python": "3.12.15",
+      "form": "wheel",
+      "live_native": true,
+      "effective_source_commit": "86154ef76010d474fbc46a195d85bd03ec616b15",
+      "artifact_id": 12008264277,
+      "artifact_sha256": "69e34c7f3b93d15052df4dbbea0bc74a2ed6f3490fe999025ac37d997363a47a",
+      "qualification_sha256": "e446479c9f11834407f3d3b50c8c155496ce458a3dd1b196ad4eb873384b7fb3",
+      "metadata": {
+        "backend": "pure_python",
+        "cpu_count": 4,
+        "machine": "x86_64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.15",
+        "release": "6.17.0-1022-azure",
+        "requested_threads": null,
+        "system": "Linux",
+        "timer": "perf_counter_ns",
+        "timer_monotonic": true,
+        "timer_resolution_seconds": "1e-09"
+      },
+      "warmup_pairs": 3,
+      "sample_pairs": 10,
+      "pair_order": "baseline_then_wrapper",
+      "outer_invocations": 104,
+      "timed_outer_invocations": 80,
+      "nested_evaluator_invocations": 52,
+      "workloads": [
+        {
+          "id": "k1",
+          "checks": 1,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 28363,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 50917
+            },
+            "min_ns": 25188,
+            "raw_ns": [
+              28363,
+              27021,
+              25529,
+              25288,
+              25388,
+              25279,
+              26861,
+              25188,
+              25879,
+              25368
+            ]
+          },
+          "wrapper": {
+            "max_ns": 101113,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 92590
+            },
+            "min_ns": 90447,
+            "raw_ns": [
+              92670,
+              101113,
+              96256,
+              92500,
+              90447,
+              91178,
+              91279,
+              92781,
+              92510,
+              98630
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 2,
+            "numerator": 134263
+          },
+          "median_ratio": {
+            "denominator": 50917,
+            "numerator": 185180
+          },
+          "parity": true
+        },
+        {
+          "id": "k16",
+          "checks": 16,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 156417,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 145821
+            },
+            "min_ns": 143747,
+            "raw_ns": [
+              149015,
+              156417,
+              144198,
+              145170,
+              145951,
+              146101,
+              145831,
+              143747,
+              144849,
+              145811
+            ]
+          },
+          "wrapper": {
+            "max_ns": 476451,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 456186
+            },
+            "min_ns": 452715,
+            "raw_ns": [
+              467908,
+              457964,
+              453106,
+              454248,
+              454408,
+              454118,
+              452715,
+              459506,
+              461989,
+              476451
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 310365
+          },
+          "median_ratio": {
+            "denominator": 48607,
+            "numerator": 152062
+          },
+          "parity": true
+        },
+        {
+          "id": "k32",
+          "checks": 32,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 404062,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 276624
+            },
+            "min_ns": 273474,
+            "raw_ns": [
+              274576,
+              275166,
+              276338,
+              277270,
+              276910,
+              276298,
+              376761,
+              404062,
+              273474,
+              295728
+            ]
+          },
+          "wrapper": {
+            "max_ns": 1210543,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 1715317
+            },
+            "min_ns": 850137,
+            "raw_ns": [
+              851439,
+              857729,
+              857588,
+              1210543,
+              858119,
+              850288,
+              851830,
+              1001746,
+              885771,
+              850137
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 2,
+            "numerator": 1162069
+          },
+          "median_ratio": {
+            "denominator": 32544,
+            "numerator": 100901
+          },
+          "parity": true
+        },
+        {
+          "id": "m512",
+          "checks": 4,
+          "facts": 512,
+          "baseline": {
+            "max_ns": 1593994,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 1573592
+            },
+            "min_ns": 1563588,
+            "raw_ns": [
+              1573992,
+              1573192,
+              1583087,
+              1570117,
+              1563588,
+              1577138,
+              1593994,
+              1575034,
+              1569866,
+              1571629
+            ]
+          },
+          "wrapper": {
+            "max_ns": 1756189,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 3394579
+            },
+            "min_ns": 1685101,
+            "raw_ns": [
+              1714345,
+              1691311,
+              1700564,
+              1756189,
+              1685101,
+              1697269,
+              1687314,
+              1697310,
+              1699433,
+              1689748
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 2,
+            "numerator": 247395
+          },
+          "median_ratio": {
+            "denominator": 3147184,
+            "numerator": 3394579
+          },
+          "parity": true
+        }
+      ]
+    },
+    {
+      "system": "Linux",
+      "python": "3.12.15",
+      "form": "sdist",
+      "live_native": false,
+      "effective_source_commit": "86154ef76010d474fbc46a195d85bd03ec616b15",
+      "artifact_id": 12008264277,
+      "artifact_sha256": "69e34c7f3b93d15052df4dbbea0bc74a2ed6f3490fe999025ac37d997363a47a",
+      "qualification_sha256": "e446479c9f11834407f3d3b50c8c155496ce458a3dd1b196ad4eb873384b7fb3",
+      "metadata": {
+        "backend": "pure_python",
+        "cpu_count": 4,
+        "machine": "x86_64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.15",
+        "release": "6.17.0-1022-azure",
+        "requested_threads": null,
+        "system": "Linux",
+        "timer": "perf_counter_ns",
+        "timer_monotonic": true,
+        "timer_resolution_seconds": "1e-09"
+      },
+      "warmup_pairs": 3,
+      "sample_pairs": 10,
+      "pair_order": "baseline_then_wrapper",
+      "outer_invocations": 104,
+      "timed_outer_invocations": 80,
+      "nested_evaluator_invocations": 52,
+      "workloads": [
+        {
+          "id": "k1",
+          "checks": 1,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 29084,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 25619
+            },
+            "min_ns": 25309,
+            "raw_ns": [
+              26791,
+              26670,
+              25559,
+              25889,
+              25309,
+              25349,
+              29084,
+              25629,
+              25609,
+              25499
+            ]
+          },
+          "wrapper": {
+            "max_ns": 107092,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 93461
+            },
+            "min_ns": 90347,
+            "raw_ns": [
+              103717,
+              95795,
+              93040,
+              95475,
+              107092,
+              91358,
+              91969,
+              91779,
+              93882,
+              90347
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 67842
+          },
+          "median_ratio": {
+            "denominator": 25619,
+            "numerator": 93461
+          },
+          "parity": true
+        },
+        {
+          "id": "k16",
+          "checks": 16,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 153031,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 146492
+            },
+            "min_ns": 144969,
+            "raw_ns": [
+              146783,
+              145340,
+              147073,
+              146542,
+              146442,
+              145871,
+              147143,
+              144969,
+              145761,
+              153031
+            ]
+          },
+          "wrapper": {
+            "max_ns": 474138,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 463842
+            },
+            "min_ns": 456431,
+            "raw_ns": [
+              460226,
+              461659,
+              456431,
+              459736,
+              465274,
+              464543,
+              466276,
+              463141,
+              465114,
+              474138
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 317350
+          },
+          "median_ratio": {
+            "denominator": 73246,
+            "numerator": 231921
+          },
+          "parity": true
+        },
+        {
+          "id": "k32",
+          "checks": 32,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 286614,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 566027
+            },
+            "min_ns": 281857,
+            "raw_ns": [
+              282628,
+              282688,
+              283339,
+              284311,
+              282087,
+              281857,
+              282438,
+              286614,
+              285812,
+              284801
+            ]
+          },
+          "wrapper": {
+            "max_ns": 889987,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 1713263
+            },
+            "min_ns": 851169,
+            "raw_ns": [
+              854163,
+              856216,
+              855305,
+              851169,
+              852500,
+              857047,
+              859941,
+              863828,
+              889987,
+              861474
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 573618
+          },
+          "median_ratio": {
+            "denominator": 566027,
+            "numerator": 1713263
+          },
+          "parity": true
+        },
+        {
+          "id": "m512",
+          "checks": 4,
+          "facts": 512,
+          "baseline": {
+            "max_ns": 1573973,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 3121205
+            },
+            "min_ns": 1546621,
+            "raw_ns": [
+              1573973,
+              1565550,
+              1558469,
+              1565029,
+              1556296,
+              1572831,
+              1562736,
+              1547583,
+              1553712,
+              1546621
+            ]
+          },
+          "wrapper": {
+            "max_ns": 1696388,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 3369501
+            },
+            "min_ns": 1667314,
+            "raw_ns": [
+              1688897,
+              1693383,
+              1696388,
+              1682938,
+              1688146,
+              1686053,
+              1683448,
+              1673443,
+              1667314,
+              1669798
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 124148
+          },
+          "median_ratio": {
+            "denominator": 3121205,
+            "numerator": 3369501
+          },
+          "parity": true
+        }
+      ]
+    },
+    {
+      "system": "Linux",
+      "python": "3.12.15",
+      "form": "sdist",
+      "live_native": true,
+      "effective_source_commit": "86154ef76010d474fbc46a195d85bd03ec616b15",
+      "artifact_id": 12008264277,
+      "artifact_sha256": "69e34c7f3b93d15052df4dbbea0bc74a2ed6f3490fe999025ac37d997363a47a",
+      "qualification_sha256": "e446479c9f11834407f3d3b50c8c155496ce458a3dd1b196ad4eb873384b7fb3",
+      "metadata": {
+        "backend": "pure_python",
+        "cpu_count": 4,
+        "machine": "x86_64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.15",
+        "release": "6.17.0-1022-azure",
+        "requested_threads": null,
+        "system": "Linux",
+        "timer": "perf_counter_ns",
+        "timer_monotonic": true,
+        "timer_resolution_seconds": "1e-09"
+      },
+      "warmup_pairs": 3,
+      "sample_pairs": 10,
+      "pair_order": "baseline_then_wrapper",
+      "outer_invocations": 104,
+      "timed_outer_invocations": 80,
+      "nested_evaluator_invocations": 52,
+      "workloads": [
+        {
+          "id": "k1",
+          "checks": 1,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 27742,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 24687
+            },
+            "min_ns": 23956,
+            "raw_ns": [
+              27742,
+              25949,
+              25489,
+              24517,
+              24607,
+              24267,
+              26000,
+              23956,
+              24767,
+              24467
+            ]
+          },
+          "wrapper": {
+            "max_ns": 103526,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 89000
+            },
+            "min_ns": 85619,
+            "raw_ns": [
+              90357,
+              96506,
+              90026,
+              103526,
+              87152,
+              85619,
+              89125,
+              88875,
+              87572,
+              86992
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 64313
+          },
+          "median_ratio": {
+            "denominator": 24687,
+            "numerator": 89000
+          },
+          "parity": true
+        },
+        {
+          "id": "k16",
+          "checks": 16,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 140983,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 277951
+            },
+            "min_ns": 137488,
+            "raw_ns": [
+              140453,
+              140522,
+              137918,
+              139091,
+              139411,
+              140983,
+              138860,
+              137598,
+              137488,
+              138229
+            ]
+          },
+          "wrapper": {
+            "max_ns": 454808,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 869917
+            },
+            "min_ns": 432445,
+            "raw_ns": [
+              434728,
+              434097,
+              432445,
+              436781,
+              432484,
+              436521,
+              435189,
+              434247,
+              438503,
+              454808
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 295983
+          },
+          "median_ratio": {
+            "denominator": 277951,
+            "numerator": 869917
+          },
+          "parity": true
+        },
+        {
+          "id": "k32",
+          "checks": 32,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 277510,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 268667
+            },
+            "min_ns": 262818,
+            "raw_ns": [
+              266844,
+              262818,
+              264661,
+              265142,
+              267806,
+              269528,
+              270219,
+              273014,
+              272222,
+              277510
+            ]
+          },
+          "wrapper": {
+            "max_ns": 892080,
+            "median_ns": {
+              "denominator": 2,
+              "numerator": 1687405
+            },
+            "min_ns": 810056,
+            "raw_ns": [
+              810056,
+              825770,
+              825300,
+              832160,
+              840513,
+              848204,
+              846892,
+              856957,
+              892080,
+              871980
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 2,
+            "numerator": 1150071
+          },
+          "median_ratio": {
+            "denominator": 537334,
+            "numerator": 1687405
+          },
+          "parity": true
+        },
+        {
+          "id": "m512",
+          "checks": 4,
+          "facts": 512,
+          "baseline": {
+            "max_ns": 1575826,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 1547443
+            },
+            "min_ns": 1516555,
+            "raw_ns": [
+              1575826,
+              1559631,
+              1553031,
+              1544619,
+              1550267,
+              1550938,
+              1516555,
+              1528764,
+              1535655,
+              1539220
+            ]
+          },
+          "wrapper": {
+            "max_ns": 1723038,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 1670489
+            },
+            "min_ns": 1654084,
+            "raw_ns": [
+              1693344,
+              1670389,
+              1678100,
+              1670309,
+              1670589,
+              1675366,
+              1654084,
+              1723038,
+              1656467,
+              1664740
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 123046
+          },
+          "median_ratio": {
+            "denominator": 1547443,
+            "numerator": 1670489
+          },
+          "parity": true
+        }
+      ]
+    },
+    {
+      "system": "Windows",
+      "python": "3.12.10",
+      "form": "wheel",
+      "live_native": false,
+      "effective_source_commit": "86154ef76010d474fbc46a195d85bd03ec616b15",
+      "artifact_id": 12009435774,
+      "artifact_sha256": "508b7cc165cc5faf599de06aabc233bf4e716cdeab3d99148b362502f490ad6d",
+      "qualification_sha256": "7372002f389638fecffb3c0b6b66eaf81f7c9c58f2a3ab752f57cd0fa974d448",
+      "metadata": {
+        "backend": "pure_python",
+        "cpu_count": 4,
+        "machine": "AMD64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.10",
+        "release": "2025Server",
+        "requested_threads": null,
+        "system": "Windows",
+        "timer": "perf_counter_ns",
+        "timer_monotonic": true,
+        "timer_resolution_seconds": "1e-07"
+      },
+      "warmup_pairs": 3,
+      "sample_pairs": 10,
+      "pair_order": "baseline_then_wrapper",
+      "outer_invocations": 104,
+      "timed_outer_invocations": 80,
+      "nested_evaluator_invocations": 52,
+      "workloads": [
+        {
+          "id": "k1",
+          "checks": 1,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 40200,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 38350
+            },
+            "min_ns": 35300,
+            "raw_ns": [
+              39100,
+              38500,
+              40200,
+              36900,
+              38600,
+              35300,
+              39200,
+              36000,
+              38200,
+              36200
+            ]
+          },
+          "wrapper": {
+            "max_ns": 208500,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 132950
+            },
+            "min_ns": 127500,
+            "raw_ns": [
+              168800,
+              135900,
+              133600,
+              208500,
+              133600,
+              127500,
+              131600,
+              132300,
+              130300,
+              128400
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 94600
+          },
+          "median_ratio": {
+            "denominator": 767,
+            "numerator": 2659
+          },
+          "parity": true
+        },
+        {
+          "id": "k16",
+          "checks": 16,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 338700,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 225750
+            },
+            "min_ns": 223600,
+            "raw_ns": [
+              228700,
+              225300,
+              224100,
+              248600,
+              338700,
+              226500,
+              224800,
+              223600,
+              226200,
+              223800
+            ]
+          },
+          "wrapper": {
+            "max_ns": 847400,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 678250
+            },
+            "min_ns": 655700,
+            "raw_ns": [
+              692200,
+              662200,
+              658300,
+              664300,
+              847400,
+              777900,
+              704600,
+              769900,
+              659700,
+              655700
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 452500
+          },
+          "median_ratio": {
+            "denominator": 903,
+            "numerator": 2713
+          },
+          "parity": true
+        },
+        {
+          "id": "k32",
+          "checks": 32,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 570000,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 421900
+            },
+            "min_ns": 412200,
+            "raw_ns": [
+              452600,
+              424200,
+              414300,
+              412200,
+              445900,
+              414900,
+              570000,
+              419600,
+              446900,
+              418000
+            ]
+          },
+          "wrapper": {
+            "max_ns": 1282900,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 1247900
+            },
+            "min_ns": 1209500,
+            "raw_ns": [
+              1212600,
+              1282900,
+              1210700,
+              1244300,
+              1209500,
+              1251500,
+              1239500,
+              1255500,
+              1267100,
+              1254200
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 826000
+          },
+          "median_ratio": {
+            "denominator": 4219,
+            "numerator": 12479
+          },
+          "parity": true
+        },
+        {
+          "id": "m512",
+          "checks": 4,
+          "facts": 512,
+          "baseline": {
+            "max_ns": 3219600,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 3100950
+            },
+            "min_ns": 3085900,
+            "raw_ns": [
+              3219600,
+              3165400,
+              3180000,
+              3093800,
+              3106800,
+              3085900,
+              3091600,
+              3104900,
+              3097000,
+              3095800
+            ]
+          },
+          "wrapper": {
+            "max_ns": 3768800,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 3327100
+            },
+            "min_ns": 3272600,
+            "raw_ns": [
+              3396200,
+              3375700,
+              3768800,
+              3272600,
+              3321400,
+              3282300,
+              3332800,
+              3310600,
+              3407500,
+              3294200
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 226150
+          },
+          "median_ratio": {
+            "denominator": 62019,
+            "numerator": 66542
+          },
+          "parity": true
+        }
+      ]
+    },
+    {
+      "system": "Windows",
+      "python": "3.12.10",
+      "form": "wheel",
+      "live_native": true,
+      "effective_source_commit": "86154ef76010d474fbc46a195d85bd03ec616b15",
+      "artifact_id": 12009435774,
+      "artifact_sha256": "508b7cc165cc5faf599de06aabc233bf4e716cdeab3d99148b362502f490ad6d",
+      "qualification_sha256": "7372002f389638fecffb3c0b6b66eaf81f7c9c58f2a3ab752f57cd0fa974d448",
+      "metadata": {
+        "backend": "pure_python",
+        "cpu_count": 4,
+        "machine": "AMD64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.10",
+        "release": "2025Server",
+        "requested_threads": null,
+        "system": "Windows",
+        "timer": "perf_counter_ns",
+        "timer_monotonic": true,
+        "timer_resolution_seconds": "1e-07"
+      },
+      "warmup_pairs": 3,
+      "sample_pairs": 10,
+      "pair_order": "baseline_then_wrapper",
+      "outer_invocations": 104,
+      "timed_outer_invocations": 80,
+      "nested_evaluator_invocations": 52,
+      "workloads": [
+        {
+          "id": "k1",
+          "checks": 1,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 46300,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 38450
+            },
+            "min_ns": 36700,
+            "raw_ns": [
+              46300,
+              39900,
+              38100,
+              36800,
+              39700,
+              40100,
+              37700,
+              36700,
+              38800,
+              37000
+            ]
+          },
+          "wrapper": {
+            "max_ns": 209700,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 137300
+            },
+            "min_ns": 131600,
+            "raw_ns": [
+              142100,
+              138300,
+              134300,
+              209700,
+              155400,
+              134900,
+              131600,
+              137300,
+              132100,
+              137300
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 98850
+          },
+          "median_ratio": {
+            "denominator": 769,
+            "numerator": 2746
+          },
+          "parity": true
+        },
+        {
+          "id": "k16",
+          "checks": 16,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 247100,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 225100
+            },
+            "min_ns": 221700,
+            "raw_ns": [
+              226500,
+              222700,
+              221700,
+              244800,
+              222000,
+              224700,
+              232900,
+              225500,
+              223600,
+              247100
+            ]
+          },
+          "wrapper": {
+            "max_ns": 765600,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 658700
+            },
+            "min_ns": 648900,
+            "raw_ns": [
+              659400,
+              657500,
+              665100,
+              658000,
+              689100,
+              765600,
+              685200,
+              653900,
+              658000,
+              648900
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 433600
+          },
+          "median_ratio": {
+            "denominator": 2251,
+            "numerator": 6587
+          },
+          "parity": true
+        },
+        {
+          "id": "k32",
+          "checks": 32,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 707600,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 426000
+            },
+            "min_ns": 414300,
+            "raw_ns": [
+              416700,
+              422600,
+              414300,
+              432200,
+              417300,
+              435100,
+              429400,
+              442700,
+              418100,
+              707600
+            ]
+          },
+          "wrapper": {
+            "max_ns": 1503900,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 1256000
+            },
+            "min_ns": 1215300,
+            "raw_ns": [
+              1257000,
+              1251100,
+              1249700,
+              1222100,
+              1255000,
+              1215300,
+              1503900,
+              1362000,
+              1283300,
+              1308100
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 830000
+          },
+          "median_ratio": {
+            "denominator": 213,
+            "numerator": 628
+          },
+          "parity": true
+        },
+        {
+          "id": "m512",
+          "checks": 4,
+          "facts": 512,
+          "baseline": {
+            "max_ns": 3289800,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 3176750
+            },
+            "min_ns": 3158900,
+            "raw_ns": [
+              3222800,
+              3168300,
+              3182500,
+              3171000,
+              3289800,
+              3170700,
+              3208800,
+              3158900,
+              3169400,
+              3203800
+            ]
+          },
+          "wrapper": {
+            "max_ns": 3381400,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 3358250
+            },
+            "min_ns": 3336100,
+            "raw_ns": [
+              3381400,
+              3348000,
+              3336100,
+              3342600,
+              3357800,
+              3358700,
+              3360100,
+              3367300,
+              3346800,
+              3376500
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 181500
+          },
+          "median_ratio": {
+            "denominator": 12707,
+            "numerator": 13433
+          },
+          "parity": true
+        }
+      ]
+    },
+    {
+      "system": "Windows",
+      "python": "3.12.10",
+      "form": "sdist",
+      "live_native": false,
+      "effective_source_commit": "86154ef76010d474fbc46a195d85bd03ec616b15",
+      "artifact_id": 12009435774,
+      "artifact_sha256": "508b7cc165cc5faf599de06aabc233bf4e716cdeab3d99148b362502f490ad6d",
+      "qualification_sha256": "7372002f389638fecffb3c0b6b66eaf81f7c9c58f2a3ab752f57cd0fa974d448",
+      "metadata": {
+        "backend": "pure_python",
+        "cpu_count": 4,
+        "machine": "AMD64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.10",
+        "release": "2025Server",
+        "requested_threads": null,
+        "system": "Windows",
+        "timer": "perf_counter_ns",
+        "timer_monotonic": true,
+        "timer_resolution_seconds": "1e-07"
+      },
+      "warmup_pairs": 3,
+      "sample_pairs": 10,
+      "pair_order": "baseline_then_wrapper",
+      "outer_invocations": 104,
+      "timed_outer_invocations": 80,
+      "nested_evaluator_invocations": 52,
+      "workloads": [
+        {
+          "id": "k1",
+          "checks": 1,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 40900,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 37850
+            },
+            "min_ns": 34800,
+            "raw_ns": [
+              38900,
+              38800,
+              40900,
+              38000,
+              40300,
+              37700,
+              36100,
+              35100,
+              36600,
+              34800
+            ]
+          },
+          "wrapper": {
+            "max_ns": 200600,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 131750
+            },
+            "min_ns": 127700,
+            "raw_ns": [
+              136200,
+              139200,
+              133600,
+              200600,
+              137800,
+              129900,
+              128400,
+              129400,
+              127700,
+              129900
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 93900
+          },
+          "median_ratio": {
+            "denominator": 757,
+            "numerator": 2635
+          },
+          "parity": true
+        },
+        {
+          "id": "k16",
+          "checks": 16,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 311500,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 223400
+            },
+            "min_ns": 218400,
+            "raw_ns": [
+              223200,
+              223600,
+              222400,
+              222100,
+              238600,
+              218500,
+              218400,
+              226700,
+              311500,
+              228200
+            ]
+          },
+          "wrapper": {
+            "max_ns": 821900,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 659500
+            },
+            "min_ns": 651700,
+            "raw_ns": [
+              681500,
+              657500,
+              656700,
+              658100,
+              666300,
+              678900,
+              651700,
+              657400,
+              821900,
+              660900
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 436100
+          },
+          "median_ratio": {
+            "denominator": 2234,
+            "numerator": 6595
+          },
+          "parity": true
+        },
+        {
+          "id": "k32",
+          "checks": 32,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 593900,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 421800
+            },
+            "min_ns": 413500,
+            "raw_ns": [
+              416500,
+              424300,
+              417300,
+              414600,
+              413500,
+              593900,
+              468800,
+              419300,
+              431100,
+              426900
+            ]
+          },
+          "wrapper": {
+            "max_ns": 1390600,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 1245100
+            },
+            "min_ns": 1220300,
+            "raw_ns": [
+              1252300,
+              1273600,
+              1234400,
+              1244500,
+              1245700,
+              1390600,
+              1220300,
+              1239400,
+              1226500,
+              1259300
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 823300
+          },
+          "median_ratio": {
+            "denominator": 4218,
+            "numerator": 12451
+          },
+          "parity": true
+        },
+        {
+          "id": "m512",
+          "checks": 4,
+          "facts": 512,
+          "baseline": {
+            "max_ns": 3223300,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 3167100
+            },
+            "min_ns": 3149000,
+            "raw_ns": [
+              3223300,
+              3188300,
+              3174300,
+              3171100,
+              3163100,
+              3155500,
+              3153800,
+              3179800,
+              3149000,
+              3151800
+            ]
+          },
+          "wrapper": {
+            "max_ns": 3411600,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 3374500
+            },
+            "min_ns": 3344500,
+            "raw_ns": [
+              3375100,
+              3411600,
+              3366700,
+              3408900,
+              3344500,
+              3383800,
+              3353700,
+              3407200,
+              3350200,
+              3373900
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 207400
+          },
+          "median_ratio": {
+            "denominator": 1863,
+            "numerator": 1985
+          },
+          "parity": true
+        }
+      ]
+    },
+    {
+      "system": "Windows",
+      "python": "3.12.10",
+      "form": "sdist",
+      "live_native": true,
+      "effective_source_commit": "86154ef76010d474fbc46a195d85bd03ec616b15",
+      "artifact_id": 12009435774,
+      "artifact_sha256": "508b7cc165cc5faf599de06aabc233bf4e716cdeab3d99148b362502f490ad6d",
+      "qualification_sha256": "7372002f389638fecffb3c0b6b66eaf81f7c9c58f2a3ab752f57cd0fa974d448",
+      "metadata": {
+        "backend": "pure_python",
+        "cpu_count": 4,
+        "machine": "AMD64",
+        "python_implementation": "CPython",
+        "python_version": "3.12.10",
+        "release": "2025Server",
+        "requested_threads": null,
+        "system": "Windows",
+        "timer": "perf_counter_ns",
+        "timer_monotonic": true,
+        "timer_resolution_seconds": "1e-07"
+      },
+      "warmup_pairs": 3,
+      "sample_pairs": 10,
+      "pair_order": "baseline_then_wrapper",
+      "outer_invocations": 104,
+      "timed_outer_invocations": 80,
+      "nested_evaluator_invocations": 52,
+      "workloads": [
+        {
+          "id": "k1",
+          "checks": 1,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 42500,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 37750
+            },
+            "min_ns": 34500,
+            "raw_ns": [
+              39600,
+              42500,
+              37900,
+              36300,
+              39600,
+              38600,
+              37400,
+              36900,
+              37600,
+              34500
+            ]
+          },
+          "wrapper": {
+            "max_ns": 203000,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 132300
+            },
+            "min_ns": 126300,
+            "raw_ns": [
+              140700,
+              135100,
+              132100,
+              203000,
+              153400,
+              132500,
+              130200,
+              131600,
+              126300,
+              128700
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 94550
+          },
+          "median_ratio": {
+            "denominator": 755,
+            "numerator": 2646
+          },
+          "parity": true
+        },
+        {
+          "id": "k16",
+          "checks": 16,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 249100,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 222100
+            },
+            "min_ns": 221300,
+            "raw_ns": [
+              222100,
+              228100,
+              221600,
+              232100,
+              221300,
+              222100,
+              221300,
+              225000,
+              249100,
+              222100
+            ]
+          },
+          "wrapper": {
+            "max_ns": 828400,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 659550
+            },
+            "min_ns": 648100,
+            "raw_ns": [
+              679100,
+              655700,
+              663400,
+              649800,
+              828400,
+              702700,
+              648100,
+              655400,
+              754200,
+              652000
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 437450
+          },
+          "median_ratio": {
+            "denominator": 4442,
+            "numerator": 13191
+          },
+          "parity": true
+        },
+        {
+          "id": "k32",
+          "checks": 32,
+          "facts": 0,
+          "baseline": {
+            "max_ns": 425200,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 420900
+            },
+            "min_ns": 417200,
+            "raw_ns": [
+              422000,
+              421300,
+              420400,
+              417900,
+              420500,
+              423100,
+              417600,
+              421700,
+              417200,
+              425200
+            ]
+          },
+          "wrapper": {
+            "max_ns": 1284500,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 1250350
+            },
+            "min_ns": 1209700,
+            "raw_ns": [
+              1257600,
+              1284500,
+              1252700,
+              1243700,
+              1252900,
+              1227300,
+              1270200,
+              1214700,
+              1248000,
+              1209700
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 829450
+          },
+          "median_ratio": {
+            "denominator": 8418,
+            "numerator": 25007
+          },
+          "parity": true
+        },
+        {
+          "id": "m512",
+          "checks": 4,
+          "facts": 512,
+          "baseline": {
+            "max_ns": 3253400,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 3170100
+            },
+            "min_ns": 3155900,
+            "raw_ns": [
+              3248300,
+              3248400,
+              3253400,
+              3169200,
+              3164700,
+              3171000,
+              3165700,
+              3155900,
+              3157400,
+              3171800
+            ]
+          },
+          "wrapper": {
+            "max_ns": 3522700,
+            "median_ns": {
+              "denominator": 1,
+              "numerator": 3385400
+            },
+            "min_ns": 3331800,
+            "raw_ns": [
+              3443800,
+              3418500,
+              3522700,
+              3331800,
+              3451800,
+              3393100,
+              3377700,
+              3368900,
+              3364400,
+              3358400
+            ]
+          },
+          "extra_median_ns": {
+            "denominator": 1,
+            "numerator": 215300
+          },
+          "median_ratio": {
+            "denominator": 31701,
+            "numerator": 33854
+          },
+          "parity": true
+        }
+      ]
+    }
+  ]
+}

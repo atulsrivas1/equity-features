@@ -1,0 +1,34 @@
+{
+  "schema": "eq105-design-review:1",
+  "stage": "Exact precode Ready approved; implementation source review pending",
+  "accepted_base": "1e8f89fe27a7409a3030b22558cb84ab3ae86fde",
+  "dependency_acceptance": "https://github.com/atulsrivas1/equity-features/issues/204#issuecomment-6202751786",
+  "reviews": [
+    {
+      "reviewer": "/root/r10_review",
+      "report": "eq105-preparation-reviewer-report.json",
+      "sha256": "424cacbfcb4d9356851a8a2e9d75fc16114198327b256e07d6a60677c6ae0158",
+      "scope": "outside-repository preparation only; not actualReady"
+    },
+    {
+      "reviewer": "/root/r10_review",
+      "report": "eq105-preparation-corrected-reviewer-report.json",
+      "sha256": "51e62e3c20de40734135f51be6ff716497f639bf3e6cb68144294275676f39fa",
+      "scope": "outside-repository preparation only; not actualReady"
+    },
+    {
+      "reviewer": "/root/r10_review",
+      "report": "eq105-guide-preparation-reviewer-report.json",
+      "sha256": "d7790bf0b0e033c6ff99b085a858daa5cea2e0abf73593c39a4cdfaa98bbbd16",
+      "scope": "outside-repository preparation only; not actualReady"
+    }
+  ],
+  "implementation": true,
+  "measurement_results": false,
+  "ready_review": {
+    "head": "4834cc0219f0a72e3031320922ad429c10c52ee4",
+    "report_sha256": "c8f0ccac43ece1a5b961607c0fb456b446120388b3c44e1e404d8fb6a6b612a6",
+    "reviewer": "/root/r10_review",
+    "findings": []
+  }
+}
