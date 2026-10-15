@@ -1,10 +1,10 @@
 {
   "schema": "eq105-validation:1",
-  "stage": "Test; reviewed source qualified; final documentation/currenthead/main acceptance pending",
+  "stage": "Accepted Closed/ProjectDone; runtime delivery scope frozen, aggregateepic lifecycle tracked live",
   "accepted_base": "1e8f89fe27a7409a3030b22558cb84ab3ae86fde",
   "runtime_implemented": true,
   "measurements_executed": true,
-  "released": false,
+  "released": true,
   "prior_tool_only_correction": {
     "story": "EQ104 delivery helper",
     "initial_review_sha256": "0736e92c44be193e2041dc7b8f5e94c6689d45ef623e839142465701af30223f",
@@ -142,5 +142,22 @@
       "cause": "Aggregate guard needed explicit approved disposition and collectedhead equality in addition to measurement/SHA binding.",
       "correction": "Both guards added and independently approved before any aggregatehelper execution; no premature release claim."
     }
-  ]
+  ],
+  "accepted_runtime_main": "ea9a667c85d0d4eec207d1fe1fa4c5780d26b606",
+  "acceptance": "https://github.com/atulsrivas1/equity-features/issues/205#issuecomment-6203271322",
+  "actual_main_review_sha256": "a81adf78c3463b044af10de454c3a82c3ead42f703f37a48a03f45ba212c55b1",
+  "actual_main_artifact_review_sha256": "2861071f74792f1cf8f2cdfdb523daad0412c8f3dea41be5be5f10107f1ce340",
+  "actual_main_checks_success": 21,
+  "roadmap_no_scope_impact": {
+    "review_sha256": "4295bd43473d6c22a6ee9aed720dbaa09a6508a52e6f1fd8b35ccb3191367cdf",
+    "same_story_evidence": "https://github.com/atulsrivas1/equity-features/issues/205#issuecomment-6203199139",
+    "file_changed_in_eq105": false,
+    "current_handoff_refreshed_in_this_aggregate": true
+  },
+  "aggregate_preparation_tool_review": {
+    "initial_P3_sha256": "8b676d807496b77a805391b20743b236282a0cc78fae1a95e1a6cf732d7b4e8f",
+    "corrected_sixDOC_sha256": "a761dcc20a9ef734a9aa6c27d0c4f25da8f5cd5e33cc0f758ab31591a6d505a2",
+    "correction": "Check one-use candidate journal absence before any branch/file mutation; corrected before execution, no runtime failure."
+  },
+  "continuity_scope": "Aggregate metadata can receive a different Git commit; these fields bind the accepted EQ105 runtime main and do not claim the future metadata commit is a new runtime release."
 }
