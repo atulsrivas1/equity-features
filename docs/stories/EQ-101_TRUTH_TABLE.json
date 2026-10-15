@@ -817,6 +817,77 @@
         "unknown_prerequisites": 0,
         "age_ns": 18446744073709551615
       }
+    },
+    {
+      "id": "interval-future-end-missing-start",
+      "kind": "market_time",
+      "input": {
+        "open": 0,
+        "close": 200,
+        "time": 101,
+        "convention": "completed_interval",
+        "include_closing": false,
+        "start": null
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "market_bound",
+          "missing_market_fact"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "ordinary-at-cutoff-missing-session",
+      "kind": "market_time",
+      "input": {
+        "open": null,
+        "close": null,
+        "time": 100,
+        "convention": "ordinary_event",
+        "include_closing": false,
+        "start": null
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "market_bound",
+          "missing_session"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "closing-disabled-missing-observation",
+      "kind": "market_time",
+      "context": {
+        "C": 200,
+        "K": 200,
+        "E": 210
+      },
+      "input": {
+        "open": 0,
+        "close": 200,
+        "time": null,
+        "convention": "closing_auction",
+        "include_closing": false,
+        "start": null
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "market_bound",
+          "missing_market_fact"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
     }
   ],
   "admission_cases": [

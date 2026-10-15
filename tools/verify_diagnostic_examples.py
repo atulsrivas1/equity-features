@@ -26,12 +26,21 @@ def reference(kind, values, context):
         if values['time'] is None:absent('missing_market_fact')
         interval=values['convention']=='completed_interval'
         if interval and values['start'] is None:absent('missing_market_fact')
-        if not missing:
-            t=values['time'];limit=min(C,values['close'])
-            if interval:valid=values['open']<=values['start']<t<=limit
-            elif values['convention']=='closing_auction':valid=values['include_closing'] and t==values['close']==C
-            else:valid=values['open']<=t<limit
-            if not valid:failed.add('market_bound')
+        t=values['time'];start=values['start']
+        # Each visible comparison survives unrelated absent prerequisites.
+        if interval:
+            if t is not None and t>C:failed.add('market_bound')
+            if start is not None and start>=C:failed.add('market_bound')
+            if t is not None and start is not None and start>=t:failed.add('market_bound')
+            if session:
+                if t is not None and not values['open']<t<=values['close']:failed.add('market_bound')
+                if start is not None and not values['open']<=start<values['close']:failed.add('market_bound')
+        elif values['convention']=='closing_auction':
+            if t is not None and t!=C:failed.add('market_bound')
+            if session and (not values['include_closing'] or values['close']!=C):failed.add('market_bound')
+        else:
+            if t is not None and t>=C:failed.add('market_bound')
+            if session and t is not None and not values['open']<=t<values['close']:failed.add('market_bound')
     elif kind=='knowledge_time':
         if values['known'] is None:absent('missing_knowledge')
         elif values['known']>K:failed.add('late_knowledge')
@@ -85,9 +94,9 @@ def reference(kind, values, context):
 def verify(path):
     data=json.loads(path.read_bytes());assert data['fixture_schema']=='eq101-truth-table:1'
     assert set(data)=={'fixture_schema','context','scope','cases','admission_cases','required_structural_refusals'}
-    assert len(data['cases'])==35 and len(data['admission_cases'])==6
+    assert len(data['cases'])==38 and len(data['admission_cases'])==6
     assert {c['kind'] for c in data['cases']}==KINDS
-    cases={c['id']:c for c in data['cases']};assert len(cases)==35
+    cases={c['id']:c for c in data['cases']};assert len(cases)==38
     for case in cases.values():
         assert set(case) in ({'id','kind','input','expected'},{'id','kind','input','expected','context'})
         values=case['input']
@@ -120,7 +129,7 @@ def verify(path):
         assert observed==item['expected'],item['id']
     assert len(data['required_structural_refusals'])==18
     assert set(data['required_structural_refusals'].values())<={'invalid_schema','unsupported_version','inconsistent_binding','duplicate','limit_exceeded'}
-    print('EQ101 independent documentation reference:35check vectors/6admission aggregates verified;18future structural requirements declared, not executed runtime tests.')
+    print('EQ101 independent documentation reference:38check vectors/6admission aggregates verified;18future structural requirements declared, not executed runtime tests.')
 
 
 if __name__=='__main__':

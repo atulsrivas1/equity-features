@@ -1,5 +1,9 @@
 # EQ101 pre-code packet — diagnostic contract and independent fixtures
 
+## Reference rework before acceptance — October15,2026
+
+Independent final-source review at00e22e4 found the documentation verifier incorrectly withheld a visible market-bound failure when another prerequisite was missing. Actual Code review→In progress preceded correction. [Original source/reproducer/review](EQ-101_VERIFIER_REWORK.json), [public rework](https://github.com/atulsrivas1/equity-features/issues/201#issuecomment-6200166203). Corrected per-comparison market bounds and added3independent partial-evidence vectors; all original35expected cases remain unchanged. Current author documentation verification passes38check+6admission aggregates, with18future runtime structural requirements still unexecuted. No accepted R9 or diagnostic-package runtime defect inferred. Renewed final-head review/currentCI/actualmain acceptance remain required; prior35-vector/byte-equality snapshots below are superseded in this exact scope.
+
 ## Actual pull and specification validation — October15,2026
 
 Exact pre-code headbe7e1053981f2003bd106ecc3893f4f22ef22215 approved for Ready by separate /root/r10_review, reportSHA2561d2cd6cc728a601f5e1f3b17f2b779b70e8412328b365b6e268a0d53b2d99430, findings[]. Reviewer independently recomputed35check/six admission vectors. Fresh prerequisites/GOV022 accepted, then EQ101 actual Ready/Atul/In progress and epic194 actual Ready/In progress. [Start evidence](https://github.com/atulsrivas1/equity-features/issues/201#issuecomment-6200085501). Earlier Backlog/preparation statements below retain pre-code history.

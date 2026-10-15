@@ -1,3 +1,7 @@
+## EQ101 partial-evidence reference correction — October15,2026
+
+Before acceptance, independent review identified a documentation reference gap for visible market violations with missing operands. Actual rework preceded per-comparison correction and3new hand-authored controls; original35expected cases retained,38+6current reference vectors pass. [Failure/rework scope](stories/EQ-101_VERIFIER_REWORK.json). No accepted numerical or diagnostic-package runtime defect claimed; renewed review/publication pending.
+
 ## EQ101 independent specification verifier — October15,2026
 
 After reviewed readiness and actual pull, added stdlib documentation reference verification of the unchanged35check/six admission oracle and one documentation-CI step. No diagnostic runtime package/evaluator, numerical/library/source/version/dependency or package-build change.18structural requirements remain future EQ102 runtime obligations; final review/publication acceptance pending.
