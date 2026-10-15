@@ -1,3 +1,7 @@
+## R9 qualified reproducible-evidence composition
+
+[Installed public synthetic reproduction and measured costs](docs/api/R9_REPRODUCTION.md) compose accepted receipts/content/bundles/explanations with unchanged calculations. [Full qualification/evidence/limits](docs/R9_ACCEPTANCE.md); final main/lifecycle receipts on issues200/193 govern release completion. No source/original-execution/rights authentication.
+
 ## R9 final qualification candidate
 
 [Public synthetic reproduction](docs/api/R9_REPRODUCTION.md) and [acceptance gates](docs/R9_ACCEPTANCE.md) compose accepted receipts/content/bundles/explanations with unchanged calculations. Final bothOS qualification and R9acceptance remain pending.
