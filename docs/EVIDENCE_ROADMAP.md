@@ -1,3 +1,7 @@
+## Current R9 execution — October15,2026
+
+Owner authorized bounded R9 execution/local review throughout. EQ096/097 accepted ClosedDone, latest [acceptance197](https://github.com/atulsrivas1/equity-features/issues/197#issuecomment-6193790651) at main ec1e3b1. [EQ098 concrete preparation](stories/EQ-098_PLAN.md) is next, still Backlog until reviewed Ready/pull. EQ099–100 remain Backlog; R9twoof5 and epic/milestone open. Earlier planning-only stops below are historical; existing scope/dependency/source-independent boundaries remain normative.
+
 ## Current R9 preparation — October14,2026
 
 After accepted R8, the owner requests the next existing release plan. [R9_RELEASE_PLAN.md](R9_RELEASE_PLAN.md) and [R9_TEST_STRATEGY.md](R9_TEST_STRATEGY.md) refine the unchanged EQ096–100/E13/31-point roadmap under [GOV021#391](https://github.com/atulsrivas1/equity-features/issues/391). All runtime stories remain Backlog and no implementation/new session is started. The dated R2/R3 ownership directions below are historical; scope/dependencies/evidence boundaries remain valid. The owner now explicitly authorizes separate local review of this R9 planning packet only; exact final review/check/publication gates remain. No R9 runtime execution or later-story review grant follows from planning.

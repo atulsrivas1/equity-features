@@ -1,3 +1,7 @@
+## R9 two accepted; bundle/replay contract preparation — October15,2026
+
+[EQ097 accepted](https://github.com/atulsrivas1/equity-features/issues/197#issuecomment-6193790651), main ec1e3b1, independently ClosedDone; R9twoof5. [EQ098 pre-code](stories/EQ-098_PLAN.md) allocates optional companion byte-archive I/O and explicit trusted fixed replay outside kernels. Missing immutable refs stay unavailable; matching content/replay is not original-execution/source-rights authentication. A synchronous after-return budget gate is not an interruption deadline. Exact manifest/archive oracle precedes production. Complete paired Ready review/actual pull/implementation/freshbothOS/main delivery remain pending; no owner input needed for routine design.
+
 ## EQ097 independently qualified content candidate — October15,2026
 
 Full typed content evidence0.1.0a2 at7ea1c721 passed separate source/security/docs and actual bothOS archive/RECORD/source/install/cost audits, findings[]. [Frozen validation/maps/raw measurements](stories/EQ-097_VALIDATION.json).31methods/fourfresh forms perOS/typing/both examples preserve allfiveactualcorevalues and detect same-metadata changedcontent. Existing numerical versions/receipt schema remain unchanged. Current197Test: final docs/current artifacts/defaultbranch publication still required. Later bundle/replay/explanation/completeR9 claims remain separate.

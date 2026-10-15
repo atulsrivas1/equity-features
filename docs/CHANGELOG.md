@@ -1,3 +1,7 @@
+## EQ098 bundle/replay pre-code preparation — October15,2026
+
+After actual accepted EQ097/main ec1e3b1, prepared a complete companion ownership/data-only manifest/fixed stored archive/closed reconstruction/fixed replay/control/rights/qualification packet with independent1336byte manifest/11517byte ZIP oracle. No EQ098 runtime/package version or Ready admission delivered by this preparation. Existing numerical/evidence/oldI-O sources remain unchanged.
+
 ## EQ097 qualified full-content candidate — October15,2026
 
 Evidence0.1.0a2 passed separate source and bothOS artifact/install/cost audit: six repeatarchives/fourfresh forms perOS/31tests/typing/actual examples. [Validation](stories/EQ-097_VALIDATION.json) preserves source/RECORD maps,48rawcostsamples, original failures and limitations. Typed-json-v1 full supplied content fingerprints retain exact precision/null/order/metadata/quality/evidence facts. Existing receipt schema/numerical packages unchanged; final currenthead/main publication/acceptance pending.
