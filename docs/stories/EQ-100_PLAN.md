@@ -20,7 +20,7 @@ Causal boundary: thirdknown-at210 is admitted atK210;211 produces allfive nulls,
 
 ## Independent pre-code expectations and refusals
 
-[Hand expectations](EQ-100_EXPECTATIONS.json) freeze numeric seeds, state/count table, source semantics references and cost populations before implementation. SHA256 at preparation4c709ebb224342dcfd110a23e0c8a841218cd42e18b1d84f5445acb6cc609c35. Source references are exact committed Git bytes, not new runtime tests.
+[Hand expectations](EQ-100_EXPECTATIONS.json) freeze numeric seeds, state/count table, source semantics references and cost populations before implementation. Committed GitLF SHA256 f5db3d118ed6f2949c3379abb8ffaf013a94b35f1ce7ee9f4e4ffa97bcd2306f. The outside CRLF preparation file SHA256 was4c709ebb224342dcfd110a23e0c8a841218cd42e18b1d84f5445acb6cc609c35; LF normalization is byte-exact, with no semantic difference. Source references are exact committed Git bytes, not new runtime tests.
 
 A test-only standard-library ZIP packer uses accepted stored ZIP geometry: sortedASCII names, no compression, timestamp1980-01-01, create_system3/create_version20/extract_version20, mode0o100600, empty extras/comments. Verify it reproduces the original accepted valid bundle before applying canonical manifest registry=os.system or versions.features=9; both must refuse unsupported_version before any explicit replay. Exact result payload byte flip preserves original headers/CRC and must refuse integrity_mismatch. No private package codec used to generate expected values or by the public example. Counter/patch instrumentation is test-only and never becomes supported caller code.
 
