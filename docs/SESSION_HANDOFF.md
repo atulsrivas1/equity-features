@@ -1,3 +1,7 @@
+## EQ099 pre-code P2 corrections; renewed Ready review pending — October15,2026
+
+Separate complete review591ed022 at5fda304 found missing explicit config-to-result context linkage despite matching fingerprints, and an ambiguous nonempty evidence-reference JSON projection. Corrected packet pins configschema1/algorithmv1, namespace/session/availability/config_digest and focus-session equality before summary construction, with independently rebound context negatives. Exact nested index/row JSON plus independent4180byte retained/excluded/omitted oracle3513cdd0 now precedes production. Original report/disposition preserved in EQ-099_PRECODE_REVIEW.json; zero-evidence3829byte oracle/count cases unchanged.199 remains Backlog/no implementation until renewed complete Ready review. Accepted198 and R9threeof5Done unaffected; no owner input missing.
+
 ## EQ098 accepted; EQ099 concrete pre-code packet — October15,2026
 
 EQ098#198 accepted Closed/ProjectDone at pairedmain1b6bacc93fcb35a7490903c18d9a0be1507c2741/18d86761aa3eebb7414e51e8fa2aba089717b5eb, [actual acceptance](https://github.com/atulsrivas1/equity-features/issues/198#issuecomment-6196035459). All finalcandidate18+36/currentmain9+18jobs, independent public40UTF8blob/tree/Atul-GitHub-noCoauthors/current bothOS eightarchives/79pins/fourfreshforms maps passed; reviewer did not reinstall. Original P2/rework/author/tool scopes preserved in EQ098validation. R9threeof5Done;199/200Backlog, epic/milestone open. No repeat status rebuild or pausedR7automation change.

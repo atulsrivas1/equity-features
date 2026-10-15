@@ -1,0 +1,41 @@
+{
+  "schema": "eq099-precode-rework:1",
+  "head": "5fda304a4ff4b1e17d7a2f31ee2efe67582cd59c",
+  "reviewer": "Separate local Codex automated reviewer /root/r9_plan_review",
+  "raw_report_sha256": "591ed0220f8da821d369ae36b74abf5845b4a196f390923bbc6542a6c4456005",
+  "disposition": "changes_requested_precode",
+  "findings": [
+    {
+      "id": "EQ099-DESIGN-01",
+      "priority": 2,
+      "file": "docs/stories/EQ-099_PLAN.md",
+      "start_line": 19,
+      "title": "Require typed configuration-to-result context equality explicitly",
+      "trigger": "A different ConfigSpec.identity (or session/availability) is supplied with its actual new content fingerprint, while result.metadata keeps its old config_digest/context. Reissue the receipt through make_receipt using the new fingerprint. The specified make_receipt/equality sequence accepts these declarations.",
+      "consequence": "The explanation can expose result cutoffs/config identity as receipt-bound alongside a different supplied configuration, despite promising complete actual config/result binding. Content fingerprints alone do not connect those semantic facts.",
+      "requested_change": "Before constructing an explanation, require result.metadata.namespace/session_id/availability/config_digest equal configuration.session.namespace/session_id/availability/digest; require focused entity session match as applicable. Freeze configuration schema/algorithm compatibility too. Use explicit checks equivalent to accepted make_content_receipt context checks while retaining optional unavailable inputs; add independently consistent negative cases with actual updated configuration fingerprints/receipt rather than only stale-hash mutation.",
+      "probe": {
+        "make_receipt_accepts_rebound_configuration_claim": true,
+        "result_metadata_config_digest_equals_supplied_config_digest": false,
+        "make_content_receipt_refusal": "inconsistent_binding",
+        "scope": "Accepted foundation helpers/fixture only; no explanation runtime exists or was run."
+      }
+    },
+    {
+      "id": "EQ099-DESIGN-02",
+      "priority": 2,
+      "file": "docs/stories/EQ-099_PLAN.md",
+      "start_line": 23,
+      "title": "Freeze nonempty evidence-reference wire shape before implementation",
+      "trigger": "The record is EvidenceReference(index,row), but the projection says each index plus all11EvidenceRow fields, without stating whether row fields are nested under row or flattened. The only known-byte oracle has evidence=[], so both incompatible shapes satisfy it.",
+      "consequence": "An implementer must choose public JSON schema and evidence-null/enum projection behavior after Ready; there is no independent expected wire case proving the retained-reference portion of the promised bounded explanation API.",
+      "requested_change": "Add an exact EvidenceReference JSON key table (nested row or flattened, including full row keys and enum/null encoding), then independently hand-author at least one nonempty retained/excluded reference canonical oracle before production exists. Include index binding, displayed omission and derived reported_exclusion finding, and bind all receipt/output descriptors. The existing zero-evidence oracle and seven scalar count rows remain useful and should be retained."
+    }
+  ],
+  "corrections": [
+    "Explicit config.schema1/algorithmv1 plus namespace/session/availability/config_digest and focus session equality before constructing summaries; full supplied actual fingerprints do not replace semantic context checks.",
+    "Exact nested EvidenceReference JSON table and independently authored retained/excluded/omitted fixture before runtime."
+  ],
+  "renewed_review": "Pending; no Ready or runtime approval.",
+  "author_tool_history": "Outside documentation check initially used wrong cwd and failed AGENTS.md presence; correct core cwd passed. Corrective continuity generator accidentally included patch-prefix plus markers; visual read caught and removed before staging/publication. No product failure/failed pass."
+}
