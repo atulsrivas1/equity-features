@@ -6,6 +6,18 @@ The new research builder checks actual contracts/features imports, installed ver
 
 Separate preparation review caught a missing top_k and under-specified core trade/anchor facts before implementation. The revised [packet](../stories/EQ-092_PLAN.md) fixes top_k2, exact A/B/C rows/dispositions/coverage and actual per-entity trade prices/sizes/events/known-at/unit/config/source/basis. This makes the watchlist and forward-return goldens independently reviewable. Conditional reviewb6efec11 approved the corrected text; its original hash timing limitation is explicit rather than claiming an uncaptured original byte identity. Actual EQ091 acceptance now supplies the dependency binding; no92 runtime or readiness acceptance is inferred from preparation. Revisit if fixture/source policy or selection semantics changes.
 
+## EQ088 matched controls are observed per population
+
+Full03 completed all72pipeline samples/eight references at one frozen revision4 source/input cohort; independent post-run source/install/input/87result-file closure passed. The500000-ID source32MB sort reports positive temp while its completed256MB match reports zero; at2000000IDs both settings spill. Never name a setting universally nonspill from one matched control. Sorted statistics imply15candidate row-group exclusions, but the native rows-scanned counter stays65536; retain metadata inference, engine counters and physical reads as distinct claims. Wider workers fail the frozen adoption rule, so keep sequential1 and production layout. [Measurements and limits](../stories/EQ-088_ANALYSIS.md), [raw](../stories/EQ-088_MEASURED.json). These substantive observations still require independent evidence/final release review.
+
+## EQ088 failed deadlines require a disclosed fresh experiment
+
+A bounded phase observer changed execution overhead and therefore cannot establish the uninstrumented timeout cause. Durable output files establish only the reached write point. Revision4 changes the capacity observation window consistently across both sinks/modes/repeats, retaining all acceptance criteria and separate failed evidence. Both-sink preflights and independent evidence review precede any full replacement comparison. Coarser memory sampling remains observed, not a hard bound. [Protocol](../stories/EQ-088_PROTOCOL.md), [evidence](../stories/EQ-088_EXECUTION.json).
+
+## EQ088 capacity preflight is specific to the physical sink
+
+Corrected915 reporter limits and Parquet64task preflight passed, but the second full run hit180s at the DuckDB64task reference after54samples/sevenreferences. This does not prove the same cause as the earlier recorder admission failure or establish an engine/host defect. Preflight evidence must name its backend; do not infer another sink fits the deadline. Retain both incomplete populations, diagnose the actual phase with a separately reviewed bounded instrumented child, and justify any later protocol change before execution. No widened limits or full acceptance follows from this observation. [Execution](../stories/EQ-088_EXECUTION.json).
+
 ## EQ091 observed isolation and causal consumer result
 
 Actual eaab022 bothOS schema2 qualification passed separate contracts+one-component environments for both wheel and sdist, installed typing and component fixtures, with sibling/features/native absence enforced. Separate combined environments ran the real producer/scanner/label/as-of example and preserved complete core payload/fingerprints. This supports the isolation design within CPython3.12 Windows/Linux evidence; it does not establish final/currentmain delivery or financial validity of supplied basis facts. [Ledger](../stories/EQ-091_VALIDATION.json) retains all requirements and pending review/release gates.
@@ -41,6 +53,14 @@ The accepted [30strategy requirements](../stories/EQ-089_FIXTURES.json) caught s
 ## EQ089 adopted design binds semantic comparability and complete content
 
 [Contract](../research/STRATEGY_LABEL_CONTRACTS.md), [decision](../decisions/R8_RESEARCH_CONTRACTS.md), [reviewed input packet](../stories/EQ-089_PLAN.md) preserve original numeric/state/config-semantic findings and resolutions. A feature ID/unit/version match does not make mixed horizons/baselines/bases comparable; mandatory calculation/input-semantic digests must agree on required cells. Metadata-only hashes cannot replace value/quality/evidence/revision content. Assess all required cells before false/unavailable precedence, and keep original signal admission separate from future label knowledge.71fixtures remain requirements until implemented/tested; exact docs review/actual-main gates precede contract acceptance. No runtime proof from a design review.
+
+## EQ088 capacity must include the retained observation graph
+
+A64task workload is not64retained diagnostic records: the pilot records preparation, supervisor, generation and catalog phases. Actual faileddb7 capacity reference and bounded traced diagnostic locate default reporter admission, rather than proving worker/sink physical exhaustion. Explicit qualification-only256attempts/12800spans fits3801600bytes within existing4MiB; productiondefaults and original64population remain intact. Preserve oldfailed54timings without pooling; newprotocol/source tests/current artifacts and complete freshcomparison remain mandatory. See [revision3 protocol](../stories/EQ-088_PROTOCOL.md) and [execution evidence](../stories/EQ-088_EXECUTION.json).
+
+## EQ088 protocol review: preserve actual storage policy and population correctness
+
+Separate revision1 review371c7559 before execution found four concrete gaps: zero-spill sink evidence cannot fulfill a positive spill benchmark; count/sum cannot verify a sorted population; source-only layout queries do not qualify actual output projections and external file reads need a source-style connection; source256MB is not256MiB. Revision2 af14b8f5 resolves these with bounded separate spill/control, exact IDset/payload/order verification, closed22field output projection/current no-statistics controls, explicit actual counter/receipt limitations and exact units. [Protocol](../stories/EQ-088_PROTOCOL.md), [story99](https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6177864338). This is reviewed readiness/source preparation, not observed spill/pruning/performance. Revisit defaults only with full measured parity and relevant installed/publication gates.
 
 ## EQ087: packaging must follow the actual accelerator decision
 

@@ -1,0 +1,843 @@
+{
+  "schema": "eq088-execution-continuity1",
+  "runtime_packages_changed": false,
+  "defaults_changed": false,
+  "full_protocol_executed": true,
+  "smokes": [
+    {
+      "head": "57d46642c13475f4322b493318d1e1c79dc26839",
+      "status": "failed",
+      "bytes": 53192,
+      "sha256": "145e5068e99533e35881be1e87a8fff1c38e72781e46306b4bfe4b77bc0299bf",
+      "references_completed": 2,
+      "small_pipeline_samples_completed": 2,
+      "completed_diagnostics": 0,
+      "error": "ParserException: JSON profiler format must be selected before output path"
+    },
+    {
+      "head": "7e2a57d6a27e68b6786ad5c2bc45bb4a5150e61f",
+      "status": "failed",
+      "bytes": 53209,
+      "sha256": "5c225617254451adb72a8d4ef4a7e6ad083dd490c6a52eeb5bea6c2408b0e679",
+      "references_completed": 2,
+      "small_pipeline_samples_completed": 2,
+      "completed_diagnostics": 0,
+      "error": "InternalException unique_ptrNULL at profiled sort fetchmany; cause unconfirmed"
+    },
+    {
+      "head": "db7d34aaaedbd1fb63b1fc5375520ee102593a3a",
+      "status": "completed-protocol-not-automatic-acceptance",
+      "bytes": 145529,
+      "sha256": "8f51bf35d7faa1aeac10a87aaccf2e8d0b2ea0a84a06196a18fe6e161bf99436",
+      "references_completed": 2,
+      "small_pipeline_samples_completed": 2,
+      "completed_diagnostics": 4,
+      "limitation": "smoke-only; sink profiling unsupported; full performance/spill/capacity not yet executed"
+    }
+  ],
+  "source_reviews": {
+    "initial": "00c3daef02aad7460586ddcc11aadfd2210b650fa734531a6c2ef8c2eadfb1e4",
+    "corrected": "8d67639375b00360ccf2e2d698fd6536bee70d77ce2d8f799cb4a20062acfe1e",
+    "profiling_order": "0dcf73cd16986f2feeff5ceaccc359232a3bed71085cf51ec59704d76446d11b",
+    "capability_plan": "77a723a11ff71395f367f936515b596c275721a1bb203469aa57d005d1291292",
+    "capability_source": "05fe69ff63aca2f498ebc96d735d72df078e0176e2fbf3d4ec3bfc16abf397bd",
+    "sink_profile_correction": "cd284003d5a926ce3a36d6eba09d17f1de5fcdced2193f6e7ee12335b32f876a"
+  },
+  "capability": {
+    "head": "a88b43f7ab7047849e2278d94b0f59fce9415861",
+    "sha256": "03c4bc1b94550ae657819457f4e78383608aea7c02b3e18cbe213313818efce5",
+    "controls": 6,
+    "correct_results": 4,
+    "profiled_sink_internal_errors": 2,
+    "individual_setting_root_cause": "unproven"
+  },
+  "full_attempts": [
+    {
+      "head": "db7d34aaaedbd1fb63b1fc5375520ee102593a3a",
+      "status": "FAILED",
+      "report_sha256": "263d48cd861d5bede18a93845c0133f2156c3978478133ef07351bff2440f3c7",
+      "samples": 54,
+      "references": 6,
+      "diagnostics": 0,
+      "failure": "First capacity reference skipped RESOURCE_LIMIT; parent rejected skipped reference; no full acceptance"
+    }
+  ],
+  "capacity_diagnostic": {
+    "script_sha256": "4944b888ca9c631fce121ad4014533728a46e806336cb5ffe7f7c15cd67c464a",
+    "approval_sha256": "f97247b378b0b3924398077589e7e7e138567a1cf8ca5aaa4f41ace721f61e6a",
+    "report_sha256": "75b71add5cd413649c058e8e0623c969c6789d98704bc791bffc0e82e8a0566f",
+    "deadline_seconds": 180,
+    "child_exit": 1,
+    "callsite": "supervisor.run419 -> ProgressRecorder.group293 RESOURCE_LIMIT",
+    "source_input_installed_closure": true,
+    "design_review_sha256": "d2eb6f0bfb043f5d4a64d94ec3bcd8d4928b3a747a3156a5126aec69d7588e8c",
+    "limits": "Diagnostic only; text-normalized stdout/stderr digests, not a raw Windows CRLF identity claim"
+  },
+  "current_small_artifact_review": {
+    "head": "db7d34aaaedbd1fb63b1fc5375520ee102593a3a",
+    "sha256": "bde8f16a617c087d3f3f8e037b82148dc466b71331eec8db33831166623c2d5f",
+    "scope": "Current Linux/Windows PUSH artifacts; four fresh wheel/sdist smallsmokes only; no fullperformance/capacity/spill/layout acceptance"
+  },
+  "correction_candidate": {
+    "worker_head": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "protocol_revision": 3,
+    "reporter_limits": {
+      "max_tasks": 256,
+      "max_spans": 12800,
+      "max_bytes": 4194304
+    },
+    "reserved_capacity_bytes": 3801600,
+    "status": "SEPARATELY_REVIEWED_PURE7_AND_CAPACITY_PREFLIGHT_PASSED",
+    "source_review_sha256": "8c0bc80ec3afbfcf2e7d2ea3149356a331b00a6c16b29f3c0e8f704681379d94"
+  },
+  "capacity_preflight": {
+    "source": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "report_sha256": "0270e086600dbda23269825c4cf6c71cd2ba4a1efed9460b2b946748109b7e31",
+    "status": "completed-preflight-not-acceptance",
+    "tasks": 64,
+    "rows": 16384,
+    "reporter_attempts": 256,
+    "reporter_reserved_bytes": 3801600,
+    "all_parity_and_goldens": true,
+    "source_input_installed_closure": true,
+    "review_sha256": "be59674ceb31348dbe6b274243bcaee906c207694e5cd8d1e9e3dbbc9324eacf",
+    "limits": "Observed RSS exceeds logical128MiB reservation; no hard RSS guarantee. Not pooled into full comparison."
+  },
+  "new_full_attempt": {
+    "source": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "protocol_revision": 3,
+    "status": "STARTED_NOT_COMPLETE_NOT_ACCEPTED",
+    "planned_references": 8,
+    "planned_samples": 72,
+    "planned_sorts": 6,
+    "planned_layout_queries": 18,
+    "new_owned_roots": true,
+    "no_partial_or_preflight_pooling": true,
+    "public_start_evidence": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6179327194",
+    "local_build_test_load_ended_before_start": true
+  },
+  "current_915_both_os_artifacts": {
+    "worker_head": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "artifacts": [
+      {
+        "artifact_id": 11932141193,
+        "run_id": 38643079928,
+        "system": "Windows",
+        "sha256": "7afe424c6bd598e53fe672a911c63305d3bc49a4ee5643cc6edbab5e2315ec95",
+        "expires_at": "2026-11-13T22:05:52Z",
+        "entries": {
+          "eq085-profile-sdist.json": {
+            "bytes": 1551299,
+            "sha256": "b036823a4eb03b6c1f7aa1076f1e55017767c8a2dd7adffe65ddedca48640a4f"
+          },
+          "eq085-profile-wheel.json": {
+            "bytes": 1551250,
+            "sha256": "5330c429900fa786c4136a295d533fdf36db9b2818ef882950b0c4ce4e0423dc"
+          },
+          "eq088-scaling-sdist.json": {
+            "bytes": 145641,
+            "sha256": "6755a298073d65f45c61e279f4b3e38ef79274f6f04da4e117427589cb4bd679"
+          },
+          "eq088-scaling-wheel.json": {
+            "bytes": 145735,
+            "sha256": "fbf57cf702889fd1e7ff8f8d763d2ef7b9aee28a4d677857a540901bd2e7b644"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65462,
+            "sha256": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0"
+          },
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": {
+            "bytes": 13075,
+            "sha256": "54097268c067f2b794e6145a4ff40604afe1f90619ad3ddd97b2953d6a450abc"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 70077,
+            "sha256": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27794,
+            "sha256": "05bc3655de76ad87a969ee7d4b1fd6def623c9cdf31cb0b3dc4753d9629127dc"
+          },
+          "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+            "bytes": 20213,
+            "sha256": "fc0f132f477ddc595daccbdd5342b357aca5bcf689e2c70a7d3fe967b00da4c9"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16579,
+            "sha256": "5f18bbc83ba79485d199794b172a6ed7b7ab259625c87f2a49cb7a80a0889ab8"
+          },
+          "equity_feature_files-0.1.0a0-py3-none-any.whl": {
+            "bytes": 15086,
+            "sha256": "36346e2c945bff70b46bc0bb11ff5f9f350e9df88cb3bc626a2e5039b37998f8"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11470,
+            "sha256": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18702,
+            "sha256": "ffe8e8ab4b1aa7cb94c11e9d7a11f1f4a8a87762aa5f5b49ad0f7f47aa65eebb"
+          },
+          "equity_feature_parquet-0.1.0a1-py3-none-any.whl": {
+            "bytes": 17752,
+            "sha256": "4119622e8603e1c0a53bae82ed5c97ef29cfa1119c5a02b36a2d9da0f6d3f445"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71072,
+            "sha256": "0da17f4d4b7d53f72f2b67aba4bfb3cc912b86d769dd142550c4748a3edb2324"
+          },
+          "equity_feature_workers-0.1.0a13.tar.gz": {
+            "bytes": 57951,
+            "sha256": "d1b5a702812bbac6270eb54ab20eb21ac7bc1100d522412cee9107a92e594b0e"
+          },
+          "manifest.json": {
+            "bytes": 24897,
+            "sha256": "588753714edaeafc67b17b51eeb84637c8c92e06f20b337d6022d334ec04e61e"
+          }
+        },
+        "wheel_records_verified": 11
+      },
+      {
+        "artifact_id": 11931428965,
+        "run_id": 38643079928,
+        "system": "Linux",
+        "sha256": "c228e73fddb648e5c38230c8cd02250ce329c0292a8c5b3a17800b9349825dea",
+        "expires_at": "2026-11-13T21:57:47Z",
+        "entries": {
+          "eq085-profile-wheel.json": {
+            "bytes": 1574615,
+            "sha256": "43f5d64ffe215c34a0e35bf6b4a266cb6f735b1cde371a9bca648e5e368f231a"
+          },
+          "eq088-scaling-sdist.json": {
+            "bytes": 137201,
+            "sha256": "c56716661fd5f1b56ae6d80b51c5b9ecbfcd8ba4b439b57ab5f0a4c97e49dc34"
+          },
+          "eq085-profile-sdist.json": {
+            "bytes": 1574470,
+            "sha256": "380f92cf9119c325003de8b58e1943744f1b01bbb88d1fa110113c4f65c93301"
+          },
+          "eq088-scaling-wheel.json": {
+            "bytes": 137337,
+            "sha256": "46de303c426199590f751d4dedf769b12e09d487fcbe07c0b4ec871024060e7a"
+          },
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": {
+            "bytes": 13037,
+            "sha256": "9b6dca40280850599db8e194fe280cd651aa06b7132998d55e61861dfdd2d1e3"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 69728,
+            "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27770,
+            "sha256": "2abcd7084371e82e7ec887353a1159ed900616d764df36baafe49a2b57c9c676"
+          },
+          "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+            "bytes": 20177,
+            "sha256": "dd8f175dba3ef547401341102d7e7ae1bc41ec3c53a67cfbaaec91c29a52bc7d"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16572,
+            "sha256": "6bed73224f033f4d67ad7d519bce76c5b8d3f6076766ccc0726b6a36a9bf3bde"
+          },
+          "equity_feature_files-0.1.0a0-py3-none-any.whl": {
+            "bytes": 15074,
+            "sha256": "f12cf7759f4669a7b007434ce062b1325bb1cd3b83c3b2e868dc6ce14117a5ee"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11458,
+            "sha256": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18687,
+            "sha256": "71c2316ab93d3382b24701ce6f4990b1355f90b8f66e562c8b1d34e539d60783"
+          },
+          "equity_feature_parquet-0.1.0a1-py3-none-any.whl": {
+            "bytes": 17738,
+            "sha256": "2cdca449df56260aa64becfe4ee856b752e906c766426a74dacab849b48f899c"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71053,
+            "sha256": "a4eae3ca4ae6e37d277e941958199b47b0dd0ce150064c0952c2d0269e042faf"
+          },
+          "equity_feature_workers-0.1.0a13.tar.gz": {
+            "bytes": 57653,
+            "sha256": "0382656756abe5d89f21a5e705d4a41451a8a64d5da652ea58e846a2e3cd9e21"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65151,
+            "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e"
+          },
+          "manifest.json": {
+            "bytes": 24592,
+            "sha256": "d2e03934bf582fd5873561a1ad16c11fa9794624c76e19e3d18f57871819ff21"
+          }
+        },
+        "wheel_records_verified": 11
+      }
+    ],
+    "review_sha256": "8239e0adbb51bd0af77a7059e9d545420d81b68125da46505fef69fd51972bf3",
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "result": "Approved current both-OS small smoke/archive evidence only; no findings",
+    "checks": "All 24 current checks Success; exact PUSH Typed foundation run38643079928",
+    "scope": "Two ZIPs/34 entries/22 wheel RECORDs, all11 module source maps per OS, worker sdist/source, current installed EQ085 and four EQ088 form reports/158 source pins",
+    "limits": [
+      "No local product/native execution for artifact review",
+      "Full-02 performance/capacity/spill/layout still running and separate",
+      "Sink profile unsupported under unchanged policy; native operator counts are not physical disk-read proof"
+    ]
+  },
+  "second_full_timeout": {
+    "head": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "raw_sha256": "3f6b43f4d853b6b1e85b6ac1ff5814cf8e560ac63ae751de9f02d76f677b8174",
+    "status": "failed",
+    "timed_records": 54,
+    "references": 7,
+    "diagnostics": 0,
+    "attempts": 62,
+    "last_attempt": {
+      "cleanup_outcome": "not-independently-established",
+      "ended_monotonic_ns": 50508296000000,
+      "error_type": "TimeoutExpired",
+      "identity": {
+        "backend": "duckdb",
+        "kind": "reference",
+        "mode": "sequential",
+        "workers": 1,
+        "workload": "capacity"
+      },
+      "private_traceback_retained": true,
+      "private_traceback_sha256": "49fe672097691a228d6dfc05ffe085689827462e915288552d96c2890391541f",
+      "started_monotonic_ns": 50328031000000,
+      "status": "failed",
+      "timeout": true
+    },
+    "scope": "Second full run exit1;180s owned child timeout at capacity DuckDB sequential1 reference; actual cause unconfirmed",
+    "limits": [
+      "No full scheduling/capacity/spill/layout acceptance",
+      "No pooling of two incomplete54sample runs or preflight",
+      "No deadline/resource/population change or unchanged full rerun",
+      "Cleanup uses existing owned finalizer but independent completion not established in report",
+      "Parquet-only capacity preflight did not qualify DuckDB deadline"
+    ],
+    "next": "Separate reviewed one-child same-deadline private stack diagnostic with complete source/input/installed archive closure and prelaunch journal; no native invocation yet"
+  },
+  "timeout_stack_diagnostic": {
+    "report_sha256": "46c343be2f95bc6957acad2ceb53f970dd8b4d829269a49a55acab087e003b8a",
+    "driver_sha256": "46fe5a712d714b8b8dd61207892edab4f9effe5114a26da75aa6a34a42945728",
+    "design_review_sha256": "809de11654286de6fbdc85dc25992da5ac9369e60b1d988b6c2a7e2b98b42485",
+    "original_driver_review_sha256": "8c3a64c9444b3702324b84cc217509125132914456db9d9b1c0136245695dd26",
+    "original_driver_finding": "Tuple-as-mapping cleanup observer fixed before invocation; originalfc3 preserved",
+    "corrected_source_review_sha256": "dba1346658df9ded7327c39b8eb50153878c148d19d23335020262cb6793019d",
+    "worker_head": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "child_exit_code": 3221225477,
+    "owned_call_wall_ns": 154953000000,
+    "deadline_seconds": 180,
+    "traceback_after_seconds": 150,
+    "stack_file": {
+      "bytes": 182,
+      "present": true,
+      "sha256": "d9abd2ac46b46ed18b67b195fe7debebb0d9ffbed99f7618efd11409d76b5159"
+    },
+    "source_unchanged": true,
+    "installed_unchanged": true,
+    "input_unchanged": true,
+    "original_popen_exit_code": 3221225477,
+    "all_observed_identities_gone": true,
+    "result": "Native child exit0xC0000005; one150s private truncated182byte stack shows json.dumps but no caller stage; cause unestablished",
+    "limits": [
+      "Diagnostic parentexit0 is evidence-collection completion, not child success",
+      "No cause attributed to faulthandler, JSON, DuckDB or runtime",
+      "Observed identity cleanup does not prove absence of unobserved descendants",
+      "No fullrerun, changed settings, timeout widening, pooling or acceptance"
+    ],
+    "next": "Independent evidence review; propose one same-deadline exact-code selected phase-line observer without native watchdog, then exact source review before any invocation"
+  },
+  "phase_diagnostic": {
+    "driver_sha256": "666f857c9595ae5c04751c9e25a8967880c5630f72c178d0a456df2fbbdf26aa",
+    "source_review_sha256": "1c6d142b64bf9e7ad36f8a363c692fbb0aa0cafa52ca5ff83dbe3038976cf93f",
+    "report_sha256": "2b2504b1434822c5a631fb756d2f01e8c181cd8b1a3de897cb7e0bcbf0bff8c7",
+    "worker_head": "915f093582d0585e39fb037d81500cd27c093b1b",
+    "status": "TimeoutExpired",
+    "owned_call_seconds": 180.219,
+    "journal": {
+      "records": 196,
+      "bytes": 7850,
+      "sha256": "cecfefd430e005af8e2d31c08bcfe4d575860677d37fb49f0e4a269f2418397a",
+      "last_phase": "generation.begin"
+    },
+    "source_unchanged": true,
+    "installed_unchanged": true,
+    "input_unchanged": true,
+    "all_observed_identities_gone": true,
+    "limits": [
+      "Parent exit0 is evidence collection only; observed Popen exit0 does not establish pipeline completion",
+      "Tracing overhead prevents baseline timing or original-cause inference",
+      "Original full durable catalog/generation records show further progress, not final verification/close",
+      "No capacity, scheduling, spill or layout acceptance"
+    ]
+  },
+  "revision4_admission": {
+    "design_review_sha256": "deb13b725c51585da0b5838f6e293946c1cb23f32553ae5702e821e092103541",
+    "capacity_child_seconds": 360,
+    "capacity_nominal_sampler_interval_ns": 25000000,
+    "other_pipeline_child_seconds": 180,
+    "other_nominal_sampler_interval_ns": 10000000,
+    "status": "Full03 and one post-closure audit completed; independent substantive criteria reviewa6269f7f passed, final documentation/current candidate/main delivery gates pending",
+    "preconditions": [
+      "Exact changed source/protocol review",
+      "Two fresh both-sink capacity preflights with complete closure and parity/goldens",
+      "Separate preflight evidence review before fresh full run"
+    ],
+    "limits": [
+      "New admission is not a pass under the old 180-second window",
+      "No pooling of failed full observations or preflights",
+      "Coarser sampling may miss peaks; no hard RSS guarantee"
+    ],
+    "unchanged": [
+      "production packages and pins",
+      "populations and goldens",
+      "native, logical and disk budgets",
+      "reporter admission",
+      "eight references,72 samples,six sorts,18 queries",
+      "adoption criteria"
+    ]
+  },
+  "revision4_source_review": {
+    "worker_head": "4023b86d28e5f63ae652a0255e133db8463902b5",
+    "canonical_protocol_head": "6fc6dc66a45b3d5915996abf3d92d3a0f3d4cc04",
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "report_sha256": "7cde6b4bb8f99a79f8939cec691a5e5f417898fd3559203136b39d8ef5c96266",
+    "findings": [],
+    "pure_test_result": "7 existing test_scaling_evidence methods passed in installed Python3.12.10; unittest exit0",
+    "pure_test_command": "python -I -m unittest discover -s tests -p test_scaling_evidence.py -v",
+    "driver_sha256": "1d9329fc37f04c34473b245e831dd3e933c7eb96b26cdee3d8a0d5184e7558e9",
+    "driver_review_sha256": "dc0ca29bbd9c8643925538355f41d67a44d84dcfc8c95bdb126500b1ae4af698",
+    "native_admission": "One fixed fresh both-sink capacity preflight only; running, no full invocation approved",
+    "public_source_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6180465957",
+    "formal_test_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6180470568",
+    "lifecycle": "In progress -> Code review -> Test, each actual Project readback confirmed",
+    "current_artifacts": "Changed-head4023 both-OS hosted qualification pending;915 does not cover these changes"
+  },
+  "revision4_preflight": {
+    "worker_head": "4023b86d28e5f63ae652a0255e133db8463902b5",
+    "raw_report_sha256": "a94229044248ef8e85c4227691eb074dc5fb77cae1c3c95dd5e1e1c225ad2772",
+    "driver_sha256": "1d9329fc37f04c34473b245e831dd3e933c7eb96b26cdee3d8a0d5184e7558e9",
+    "status": "completed-preflights-not-acceptance",
+    "samples": [
+      {
+        "backend": "parquet",
+        "tasks": 64,
+        "rows": 16384,
+        "content_sha256": "c1190f498e22cfc369db45875e8558bd3354cb28d7d8765a3ce5e94f9028a606",
+        "input_population": {
+          "catalog.duckdb": {
+            "bytes": 798720,
+            "sha256": "b123dc5a0e90152874c8768ecb8456c7f45f9ff431b953fdfaffcc963abf1c9f"
+          },
+          "optimized.parquet": {
+            "bytes": 8026,
+            "sha256": "42ff7bef364375df9cdb42e01369fb7c1ab3135f3537e8e194d0da98685636bb"
+          },
+          "original.parquet": {
+            "bytes": 8026,
+            "sha256": "42ff7bef364375df9cdb42e01369fb7c1ab3135f3537e8e194d0da98685636bb"
+          }
+        },
+        "pipeline_elapsed_ns": 78716207100,
+        "isolated_process_wall_ns": 80263436500,
+        "full_result_quality_evidence_input_parity": true,
+        "independent_five_trade_goldens": true,
+        "reporter_attempts": 256,
+        "reporter_reserved_bytes": 3801600,
+        "reporter_limits": {
+          "max_bytes": 4194304,
+          "max_spans": 12800,
+          "max_tasks": 256
+        },
+        "child_timeout_seconds": 360,
+        "nominal_sampler_interval_ns": 25000000,
+        "observed_frames": 2733,
+        "all_observed_identities_gone": true
+      },
+      {
+        "backend": "duckdb",
+        "tasks": 64,
+        "rows": 16384,
+        "content_sha256": "c1190f498e22cfc369db45875e8558bd3354cb28d7d8765a3ce5e94f9028a606",
+        "input_population": {
+          "catalog.duckdb": {
+            "bytes": 798720,
+            "sha256": "b123dc5a0e90152874c8768ecb8456c7f45f9ff431b953fdfaffcc963abf1c9f"
+          },
+          "optimized.parquet": {
+            "bytes": 8026,
+            "sha256": "42ff7bef364375df9cdb42e01369fb7c1ab3135f3537e8e194d0da98685636bb"
+          },
+          "original.parquet": {
+            "bytes": 8026,
+            "sha256": "42ff7bef364375df9cdb42e01369fb7c1ab3135f3537e8e194d0da98685636bb"
+          }
+        },
+        "pipeline_elapsed_ns": 219963810100,
+        "isolated_process_wall_ns": 223120225900,
+        "full_result_quality_evidence_input_parity": true,
+        "independent_five_trade_goldens": true,
+        "reporter_attempts": 256,
+        "reporter_reserved_bytes": 3801600,
+        "reporter_limits": {
+          "max_bytes": 4194304,
+          "max_spans": 12800,
+          "max_tasks": 256
+        },
+        "child_timeout_seconds": 360,
+        "nominal_sampler_interval_ns": 25000000,
+        "observed_frames": 7963,
+        "all_observed_identities_gone": true
+      }
+    ],
+    "source_unchanged": true,
+    "installed_unchanged": true,
+    "input_unchanged": true,
+    "owned_bytes_within_1GiB": true,
+    "interpretation": "Both fresh sequential capacity cases completed under revision4 and passed separate evidence reviewaf02601b approving full03; preflight timings remain separate from full acceptance",
+    "limits": [
+      "New admission; not an old180second pass",
+      "No pooled timing or hard RSS guarantee",
+      "Coarser sampling can miss peaks; short children have fewer observations",
+      "Observed cleanup cannot prove absence of unobserved descendants",
+      "Failure cleanup is not independently established without returned memory identities"
+    ],
+    "evidence_review_sha256": "af02601bee081bfb48e06ef994c3c317904c2280bba9188dddfd09932687c489",
+    "evidence_disposition": "Separate local automated reviewer verified both actual preflights and docs696, no findings; approved one fresh complete full03 only",
+    "public_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6180573172"
+  },
+  "revision4_full": {
+    "head": "4023b86d28e5f63ae652a0255e133db8463902b5",
+    "protocol_head": "6fc6dc66a45b3d5915996abf3d92d3a0f3d4cc04",
+    "status": "completed-protocol-not-automatic-acceptance",
+    "preflight_evidence_review_sha256": "af02601bee081bfb48e06ef994c3c317904c2280bba9188dddfd09932687c489",
+    "scope": "New full03 roots;8references/72samples/6sorts/18queries; no pooling prior failed populations/preflights",
+    "limits": [
+      "No additional local product/test/build/native load while timings run",
+      "Ordinary background/OS cache/thermal state uncontrolled",
+      "Current changed-input artifacts/final interpretation/source/main acceptance remain required"
+    ],
+    "all_references_checkpoint": {
+      "references_completed": 8,
+      "noncapacity_samples_completed": 54,
+      "failures_recorded": 0,
+      "status": "running capacity measured cases; six sorts/18layout queries outstanding",
+      "public_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6181160855",
+      "limits": "Partial progress only; no full outcome or pooling"
+    },
+    "raw_report": "EQ-088_MEASURED.json",
+    "raw_sha256": "cd77e789f255874f903032e7c5555baa728f725ad89287deb888a8d3ed144294",
+    "raw_bytes": 1528616,
+    "records": 72,
+    "references": 8,
+    "sort_diagnostics": 6,
+    "layout_queries": 18,
+    "returned_attempts": 87,
+    "failures": 0,
+    "author_process_exit_code": 0,
+    "analysis": "EQ-088_ANALYSIS.md",
+    "scheduling_decision": {
+      "adopt_workers": null,
+      "reason": "negative or overlapping observations; retain sequential1",
+      "defaults_changed": false
+    },
+    "interpretation": "Independent substantive evidence reviewa6269f7f passed; final docs/current candidate source+checks/artifacts/actual-main publication gates pending",
+    "spill_observations": {
+      "all_six_completed_exact_population_payload_order": true,
+      "matched_positive_nonspill_count": 500000,
+      "source32MB_peak_temp_bytes": 43843584,
+      "matched_source256MB_peak_temp_bytes": 0,
+      "count2000000": {
+        "source32MB_peak_temp_bytes": 196837376,
+        "source256MB_peak_temp_bytes": 148406272,
+        "interpretation": "Both spill;256MB is not universally nonspill"
+      },
+      "sink_profile": "Unsupported under unchanged sink policy after preserved controls; no measured enforcement claim"
+    },
+    "layout_observations": {
+      "logical_cells": 65536,
+      "schema_fields": 22,
+      "files": 3,
+      "all_fields_and_schema_verified": true,
+      "queries": 18,
+      "full_golden": [
+        65536,
+        16777216
+      ],
+      "selective_golden": [
+        1024,
+        262144
+      ],
+      "C_statistics_range_exclusion": {
+        "excluded": 15,
+        "total": 16,
+        "kind": "metadata inference only"
+      },
+      "native_cumulative_rows_scanned_all_queries": 65536,
+      "production_layout_adopted": false,
+      "limits": "Native byte/operator counters do not establish physical disk reads; diagnostic query speed alone does not qualify receipt/writer/validator change"
+    },
+    "substantive_review": {
+      "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+      "report_sha256": "a6269f7fa976aeeaae43561e01b58fd4ba6feef51017f76e5fd22f339346dca3",
+      "findings": [],
+      "result": "Original EQ088 substantive criteria met under prospectively disclosed revision4; retain sequential1/current production layout",
+      "actual_checks": [
+        "158Git/worktree executable inputs",
+        "8current installed complete file/RECORD/accepted archive payload maps",
+        "4actual immutable input populations",
+        "87actual returned-file hashes/lengths and all result bindings",
+        "80pipeline parity and independent golden assertions",
+        "24independently recomputed timing groups/adoption rule",
+        "6completed exact population/payload/order sorts with4saved source native profiles",
+        "3actual65536cell layout file hashes/full22field schema readback and18saved query profiles"
+      ],
+      "limits": [
+        "Final documentation/current candidate checks-artifacts and actual-main delivery still pending",
+        "No Ready-to-release, Released, Done or final R8 approval",
+        "Historical failures/unknown original cleanup/native diagnostic cause remain unestablished",
+        "Shared host/sample/native counter limitations preserved"
+      ]
+    },
+    "worker_final_documentation_head": "3257caaa8630e3844820178f03def35f71d07df4",
+    "worker_qualification_inputs_equal_frozen4023": true,
+    "worker_final_documentation_review": {
+      "head": "3257caaa8630e3844820178f03def35f71d07df4",
+      "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+      "report_sha256": "dca6d10ff90584ab16ac4151fcd7f57d306e38c018577efcd6456f081d4c74e3",
+      "findings": [],
+      "scope": "One worker documentation file only; all158executable inputs/production/pins/defaults unchanged from4023",
+      "disposition": "Publication and hosted current-candidate qualification approved; not release acceptance",
+      "publication": "Pushed PR51/3257; new current-head checks/artifacts pending"
+    }
+  },
+  "current4023_artifact_gate": {
+    "source": "4023b86d28e5f63ae652a0255e133db8463902b5",
+    "artifacts": [
+      {
+        "artifact_id": 11935526705,
+        "run_id": 38652081557,
+        "system": "Linux",
+        "sha256": "1fc8d2f535a1c82301499d601cc95235a52f04346562a107f29f1065282eaca8",
+        "expires_at": "2026-11-13T23:13:39Z",
+        "entries": {
+          "eq085-profile-sdist.json": {
+            "bytes": 1574426,
+            "sha256": "baeeb8fd086a7d162f21a276ca834c2653a8204c689e6734e40376f200b11a3b"
+          },
+          "eq088-scaling-sdist.json": {
+            "bytes": 137983,
+            "sha256": "10e116e62b0d6c17044f7b54e164871bb9c9e99a6351a8cd8ec9d124b6182846"
+          },
+          "eq085-profile-wheel.json": {
+            "bytes": 1573984,
+            "sha256": "bc4335d245f372f14ea2567bdcefd4a2587a2133f04b383dd16c0e6d9ed22cf4"
+          },
+          "eq088-scaling-wheel.json": {
+            "bytes": 137856,
+            "sha256": "92a8a69e63fad2fd7ed57c84594127ca7e3d13acb20de34959cba4c41de924a9"
+          },
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": {
+            "bytes": 13037,
+            "sha256": "9b6dca40280850599db8e194fe280cd651aa06b7132998d55e61861dfdd2d1e3"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 69728,
+            "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27770,
+            "sha256": "2abcd7084371e82e7ec887353a1159ed900616d764df36baafe49a2b57c9c676"
+          },
+          "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+            "bytes": 20177,
+            "sha256": "dd8f175dba3ef547401341102d7e7ae1bc41ec3c53a67cfbaaec91c29a52bc7d"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16572,
+            "sha256": "6bed73224f033f4d67ad7d519bce76c5b8d3f6076766ccc0726b6a36a9bf3bde"
+          },
+          "equity_feature_files-0.1.0a0-py3-none-any.whl": {
+            "bytes": 15074,
+            "sha256": "f12cf7759f4669a7b007434ce062b1325bb1cd3b83c3b2e868dc6ce14117a5ee"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11458,
+            "sha256": "ef4deb9adc03b0e77075a36236fc20fe30d9373218386a60dc769d0145c09c99"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18687,
+            "sha256": "71c2316ab93d3382b24701ce6f4990b1355f90b8f66e562c8b1d34e539d60783"
+          },
+          "equity_feature_parquet-0.1.0a1-py3-none-any.whl": {
+            "bytes": 17738,
+            "sha256": "2cdca449df56260aa64becfe4ee856b752e906c766426a74dacab849b48f899c"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71053,
+            "sha256": "a4eae3ca4ae6e37d277e941958199b47b0dd0ce150064c0952c2d0269e042faf"
+          },
+          "equity_feature_workers-0.1.0a13.tar.gz": {
+            "bytes": 57653,
+            "sha256": "0382656756abe5d89f21a5e705d4a41451a8a64d5da652ea58e846a2e3cd9e21"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65151,
+            "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e"
+          },
+          "manifest.json": {
+            "bytes": 24592,
+            "sha256": "71edf10bd7547d6469ffcdfba3122904df8502da27ca7d66a3e7008d7ade746a"
+          }
+        },
+        "wheel_records_verified": 11
+      },
+      {
+        "artifact_id": 11935478542,
+        "run_id": 38652081557,
+        "system": "Windows",
+        "sha256": "32a93bfeb11d949afc03d98f11087abfe9bee847bc76495b4bf8042e9306e7e6",
+        "expires_at": "2026-11-13T23:24:42Z",
+        "entries": {
+          "eq085-profile-sdist.json": {
+            "bytes": 1550172,
+            "sha256": "b19cb14b5fa13b1284cf90df0e3c07535d6048320c6fedec216902d7aacaa60d"
+          },
+          "eq085-profile-wheel.json": {
+            "bytes": 1551738,
+            "sha256": "fce13d22c52b45f7e8527fc50f9b67655ae0b011d920ccdda22896b09036bcc1"
+          },
+          "eq088-scaling-sdist.json": {
+            "bytes": 146110,
+            "sha256": "6f4c659fe58b077a82974f817f4489d8a2373f075af7c007ce807cb63319a5b0"
+          },
+          "eq088-scaling-wheel.json": {
+            "bytes": 146265,
+            "sha256": "bdf427632fa45bf1373299700d4d764e91ee26c6b68e1743ba356f7bbeb21fd6"
+          },
+          "equity_features-0.0.4a4-py3-none-any.whl": {
+            "bytes": 65462,
+            "sha256": "0ff0745acf75f45ae7a2b38c7c106af200448f3026e4997fd0747101c79071f0"
+          },
+          "equity_feature_acquisition-0.1.0a0-py3-none-any.whl": {
+            "bytes": 13075,
+            "sha256": "54097268c067f2b794e6145a4ff40604afe1f90619ad3ddd97b2953d6a450abc"
+          },
+          "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+            "bytes": 70077,
+            "sha256": "3fb31963c1f51b64c4b82fc874c1c38cc9c73461b933fb06d52f84bb29b7c7b2"
+          },
+          "equity_feature_duckdb-0.1.0a8-py3-none-any.whl": {
+            "bytes": 27794,
+            "sha256": "05bc3655de76ad87a969ee7d4b1fd6def623c9cdf31cb0b3dc4753d9629127dc"
+          },
+          "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+            "bytes": 20213,
+            "sha256": "fc0f132f477ddc595daccbdd5342b357aca5bcf689e2c70a7d3fe967b00da4c9"
+          },
+          "equity_feature_example_extensions-0.1.0a0-py3-none-any.whl": {
+            "bytes": 16579,
+            "sha256": "5f18bbc83ba79485d199794b172a6ed7b7ab259625c87f2a49cb7a80a0889ab8"
+          },
+          "equity_feature_files-0.1.0a0-py3-none-any.whl": {
+            "bytes": 15086,
+            "sha256": "36346e2c945bff70b46bc0bb11ff5f9f350e9df88cb3bc626a2e5039b37998f8"
+          },
+          "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+            "bytes": 11470,
+            "sha256": "d0027f97200149bcb05f7e8cf8a969a12e66cda6cc23ee5425fdaa175fdc7549"
+          },
+          "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+            "bytes": 18702,
+            "sha256": "ffe8e8ab4b1aa7cb94c11e9d7a11f1f4a8a87762aa5f5b49ad0f7f47aa65eebb"
+          },
+          "equity_feature_parquet-0.1.0a1-py3-none-any.whl": {
+            "bytes": 17752,
+            "sha256": "4119622e8603e1c0a53bae82ed5c97ef29cfa1119c5a02b36a2d9da0f6d3f445"
+          },
+          "equity_feature_workers-0.1.0a13-py3-none-any.whl": {
+            "bytes": 71072,
+            "sha256": "0da17f4d4b7d53f72f2b67aba4bfb3cc912b86d769dd142550c4748a3edb2324"
+          },
+          "equity_feature_workers-0.1.0a13.tar.gz": {
+            "bytes": 57951,
+            "sha256": "d1b5a702812bbac6270eb54ab20eb21ac7bc1100d522412cee9107a92e594b0e"
+          },
+          "manifest.json": {
+            "bytes": 24897,
+            "sha256": "f44a740f1c27d134f3dad5334aa252662e309655b8eace6606b156d75ce1730b"
+          }
+        },
+        "wheel_records_verified": 11
+      }
+    ],
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "review_sha256": "7c38affd1cd8942fdd1e3978d5af7d61082f4a772546c46f765efab636a32b24",
+    "checks": "All24 current candidate checks and exact PUSH Typed foundation checks38652081557 Success",
+    "result": "No findings; complete bothOS archive/source/RECORD/current small smoke evidence verified",
+    "scope": "2ZIP/34entries/22wheel RECORDs/all11module source maps per OS/worker sdist/158current qualification source pins/EQ085 installed maps/four EQ088 forms",
+    "limits": [
+      "Actual small smoke180s/10ms; capacity360s/25ms declared separately",
+      "Full03 running; no full capacity/performance/spill/layout acceptance",
+      "No local reviewer product/native execution"
+    ],
+    "public_comment": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6180744984"
+  },
+  "post_full_audit_preparation": {
+    "original_source_sha256": "07b1376e5c00f9ce598e75ffd54b95b2f285234c859dad7716b4863e25b3d092",
+    "original_review_sha256": "b9e806798c77676b7b38e3f505233d86062fe680fe0dee7945dcd01be924f869",
+    "finding": "P2: count-two reference check omitted exact Parquet/DuckDB sequential1 identities; fixed before any audit execution",
+    "corrected_source_sha256": "5274d89591feb957dd284614a9119b041fa44c9a4f3a650a02926fedef6a7614",
+    "corrected_review_sha256": "5a02f02b19c98309b26a4de80feb790a9296dad207e062b95a76d752576a8393",
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "admission": "One read-only stdlib metadata/file/read-only Git audit only after exact4023 full03 completes; no product imports or native-engine workloads",
+    "scope": "158Git/worktree sources; eight accepted installed archive RECORD/payload maps unchanged; four input populations/80pipeline cases;87returned attempt-file hashes; deadline/sampler/matrix identities",
+    "status": "One approved read-only audit executed after full03 exit0, collector exit0",
+    "limits": [
+      "No separate spill/layout/adoption interpretation or release acceptance",
+      "Runtime origins enforced in actual child harness, audit reads metadata/files only",
+      "No retrospective independent cleanup guarantee for historical failed runs"
+    ],
+    "output": "EQ-088_POST_CLOSURE.json",
+    "output_sha256": "602c46e2333a2c8e1a75993d485d81a1de27e1bc09baeab060fac7c55a9d3675",
+    "source_files": 158,
+    "installed_distributions": 8,
+    "returned_attempt_files": 87,
+    "result": "Actual frozen source/eight accepted installed RECORD+payload maps/four input populations/complete80pipelinecases/87returned-result files verified; no release acceptance"
+  },
+  "final_documentation_continuity_correction": {
+    "reviewed_candidate": "4e7b5d12cd6e9bf4e39e2b9a307e07525ce74521",
+    "finding": "Top handoff stale: described worker exactreview/publication and canonical commit as not completed despite actual dca6/push/committed result",
+    "correction": "New top handoff states actual reviewed/published3257, current hosted qualification pending, committed canonical result candidate and exact next publication/current-head/main gates",
+    "limits": "No numerical/measurement/protocol/executable/package/pin/default changes; exact correctedhead review still required"
+  },
+  "canonical_final_source_review_corrections": {
+    "original_candidate": "4e7b5d12cd6e9bf4e39e2b9a307e07525ce74521",
+    "original_review_sha256": "f1ec70e27cddfc3047df23fc182a1380b826e89d52620c8f3c2bb5a6c2568a05",
+    "findings": [
+      {
+        "priority": "P2",
+        "finding": "Top handoff repeated completed worker exact-review/publication gates and called canonical result uncommitted",
+        "correction": "Superseded by actual reviewed/published3257/currentqualification and committed corrected canonical candidate resume steps"
+      },
+      {
+        "priority": "P2",
+        "finding": "Git text normalization changed archived raw CRLF bytes to LF despite a verbatim cd77 identity claim",
+        "original_raw_sha256": "cd77e789f255874f903032e7c5555baa728f725ad89287deb888a8d3ed144294",
+        "original_raw_bytes": 1528616,
+        "prior_normalized_git_blob_sha256": "c3f73c6ee7a978fed99baad832e0b7a939ad7cbc4bf2f71b474efbb009fce85d",
+        "prior_normalized_git_blob_bytes": 1464012,
+        "CRLF_count": 64604,
+        "correction": "Narrow exact-path .gitattributes -text -diff preserves original archived raw bytes; staged Git blob size/hash checked, JSON values equal prior LF materialization"
+      }
+    ],
+    "numerical_disposition": "All timing/query/sort tables, host/RSS/disk/spill/layout interpretations passed original source review; no numerical or executable changes",
+    "next": "Renew exact corrected-head review before publication"
+  }
+}

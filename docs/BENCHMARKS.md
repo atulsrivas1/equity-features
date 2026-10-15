@@ -1,3 +1,7 @@
+## EQ088 completed whole-pipeline and output qualification
+
+[Measured analysis](stories/EQ-088_ANALYSIS.md) and [verbatim raw evidence](stories/EQ-088_MEASURED.json) record one frozen Windows revision4 cohort: eight references,72pipeline samples,six sort diagnostics and18layout queries, all completed with full applicable correctness. Shared-host three-sample comparisons retain sequential1 and the current no-statistics production layout. The500000-ID source pair actually spills at32MB and has a matched completed256MB zero-reported-temp control; both settings spill at2000000IDs. Configuration is not a hard RSS guarantee. Sink profiling remains unsupported under unchanged zero-spill policy. Exact source/installed/input/attempt-file closure, failed histories, coarser capacity observation window and all limitations are retained; current release authority is [story99](https://github.com/atulsrivas1/equity-features/issues/99).
+
 # Representative experimental benchmark baseline
 
 EQ041 measures the existing checked Python implementation, not a proposed accelerated backend. Corepair0.0.4a4 and consumer0.3.0 are unchanged. [Plan](stories/EQ-041_PLAN.md), [harness](../benchmarks/run_baseline.py). Inputs are synthetic, supplied in memory; harness timing, process inspection and result publication are outside both core packages.
