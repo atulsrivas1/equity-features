@@ -1,3 +1,9 @@
+## Pure research consumers and R8 evidence
+
+Optional `equity-feature-strategies` and `equity-feature-labels` version0.1.0a1 consume supplied facts and depend only on core contracts0.0.4a4. Core contracts/features0.0.4a4 keep their source-independent calculations and required dependencies. See the [scanner guide](docs/research/SCANNERS.md), [forward-label guide](docs/research/FORWARD_LABELS.md), [chronological consumer guide](docs/research/CHRONOLOGICAL_CONSUMER.md) and [synthetic backtest example](examples/research_backtest.py).
+
+[Installation and tested compatibility](docs/INSTALLING.md) uses reviewed GitHub source and finite-retention experimental wheel/sdist artifacts. [R8 evidence and acceptance authority](docs/R8_ACCEPTANCE.md) records measured decisions, supported qualification and final delivery links. The measured result retains sequential1/current production layout; no new native accelerator or production-layout change is implied. Supplied research facts and examples do not model trading fills/costs/portfolios or establish alpha/provider rights. Earlier preparation and release snapshots below preserve history; the live Project and closing story acceptance own current status.
+
 ## EQ085 synthetic profiling evidence
 
 A developer tool now separates unprofiled compute/conversion/pipeline timings from diagnostic profiles, using owned synthetic inputs and complete result parity. See the [measured findings](docs/stories/EQ-085_ANALYSIS.md) and [method/command/limits](docs/api/PROFILING.md). Validation/materialization and broader pipeline calls are candidates for comparison; no native accelerator or speedup is delivered. Final delivery review/readback is pending. R7 remains incomplete with EQ083 parked and its automation paused.

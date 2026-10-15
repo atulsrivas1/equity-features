@@ -70,6 +70,7 @@ This is an integration demonstration with trusted supplied synthetic facts. It
 does not model orders, fills, costs, portfolio state, alpha, provider rights or
 authentic corporate actions. No new calculation or calendar convention is added.
 See [scanners](SCANNERS.md), [labels](FORWARD_LABELS.md) and the
-[validation ledger](../stories/EQ-092_VALIDATION.json). EQ088 full measurement and
-delivery, all eight runtime story acceptances, both epics and milestone9 remain
-required before final R8 completion; current source preparation cannot close them.
+[validation ledger](../stories/EQ-092_VALIDATION.json). EQ088 complete measurement/delivery is separately accepted through story99. Final
+EQ092 candidate/main acceptance and all-eight-story/epic/milestone reconciliation
+follow the [evidence index](../R8_ACCEPTANCE.md) and live story104. A qualified
+consumer example alone cannot close those aggregate gates.

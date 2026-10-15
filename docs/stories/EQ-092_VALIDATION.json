@@ -1,7 +1,7 @@
 {
   "story": "EQ092#104",
   "base": "a789c163db011d9564f8c9293b010a3c90e70bae",
-  "status": "Exact9896 source/current bothOS component/consumer qualification passed; final EQ088 aggregate and final docs/current/main delivery remain pending",
+  "status": "Qualified9896 executable inputs unchanged; accepted EQ088 main integrated; final docs/current candidate/main release and aggregate evidence recorded on story104",
   "readiness_head": "ed5011bc5c2fd49eefcb48ad95c6c49da65d2a55",
   "readiness_review_sha256": "bdbe69ce6d5c51a1932c93742085ebc84ff5be555eebf0247e17a4d5bf706f05",
   "conditional_packet_review_sha256": "b6efec1178e5c3364edd51dc638c1d6d18b0c387e45325dba74b990e8d7e76f1",
@@ -15,11 +15,6 @@
     "BothOS current source typing/boundary/existing14research methods/repeat eight archives/fresh four component forms plus two combined forms perOS passed",
     "Independent actualZIP/serverhash/18entries/16archives/eight wheelRECORDs/77Git sourcepins perOS verified",
     "Actual fresh core-only versions/site-packages/optional absence checkpoints and chronological watchlist/return/known-at/revision/asof/negative/signalbytes assertions passed in all four combined forms; complete core source/archive/fingerprint parity retained"
-  ],
-  "not_executed": [
-    "Final docs/source/current-head artifact review and delivery",
-    "Actual main checks/current artifacts/public source/Atul-GitHub/no-coauthor/readback acceptance",
-    "EQ088 full benchmark/delivery and final all-story/epic/milestone reconciliation"
   ],
   "fixture_goldens": {
     "ranked_selected": [
@@ -66,11 +61,12 @@
     "core_only_checkpoints_within_consumer_forms": 2
   },
   "limits": [
-    "No package source/version/required dependency or math change",
-    "No alpha/order/portfolio/provider/stable registry claims",
-    "EQ088 failed54samples/sevenrefs not pooled with earlier failed54/preflight",
-    "Temporary WIP is frozen92source/hosted qualification plus focused88triage; one native operation at a time",
-    "Final R8 aggregate blocked on actual EQ088 acceptance"
+    "No package source/version/required dependency or mathematical change",
+    "Observed CPython3.12 Windows/Linux wheel/sdist matrix; no all-platform or production performance claim",
+    "Four component forms plus two combined forms perOS; core-only checkpoints inside combined forms are not additional environments",
+    "Supplied synthetic facts; no alpha/order/fills/costs/portfolio/provider/stable registry claim",
+    "EQ088 complete cohort preserves failed partial populations/diagnostics/preflights without pooling",
+    "This ledger freezes a qualification/preparation checkpoint; final identities/results and aggregate completion use the linked story104 acceptance authority"
   ],
   "source_review": {
     "head": "9896fbba8577b4cba8fd036a7c32e8b2911c79c5",
@@ -183,5 +179,48 @@
         "status": "completed"
       }
     ]
-  }
+  },
+  "remaining_at_final_documentation_preparation": [
+    "Final integrated exact source/docs/current-head review and candidate artifacts/checks before Ready to release",
+    "Guarded merge then final actual-main source/check/artifact/publication/attribution acceptance before Released/Done",
+    "EQ092 closing acceptance and final all-story/epic/milestone independent reconciliation"
+  ],
+  "superseded_preintegration_pending_snapshot": [
+    "Final docs/source/current-head artifact review and delivery",
+    "Actual main checks/current artifacts/public source/Atul-GitHub/no-coauthor/readback acceptance",
+    "EQ088 full benchmark/delivery and final all-story/epic/milestone reconciliation"
+  ],
+  "preintegration_limit_snapshot": [
+    "No package source/version/required dependency or math change",
+    "No alpha/order/portfolio/provider/stable registry claims",
+    "EQ088 failed54samples/sevenrefs not pooled with earlier failed54/preflight",
+    "Temporary WIP is frozen92source/hosted qualification plus focused88triage; one native operation at a time",
+    "Final R8 aggregate blocked on actual EQ088 acceptance"
+  ],
+  "accepted_eq088": {
+    "canonical_main": "26c5d036335daa7ba291da8b47030b4c690a736e",
+    "worker_main": "6538f21b441c8527b465899b98cfd0476e7af08a",
+    "acceptance": "https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6182885908",
+    "actual_main_review_sha256": "d02b33a5ae9595af8978a320346875661c1ebc2ee204452686b5ee227029fd47",
+    "substantive_review_sha256": "a6269f7fa976aeeaae43561e01b58fd4ba6feef51017f76e5fd22f339346dca3",
+    "results": "Frozen4023 complete8references/72samples/6sorts/18queries; retain sequential1/currentlayout; no failed/preflight pooling",
+    "observer_delta": "Two qualification-only failure-observer/purefixture files changed,156of158 frozen files exact; independent measurement-path non-impact/current corrected qualification verified. Old37fa Windows resilience failure remains FAILED with original case/cause/independent cleanup unknown"
+  },
+  "local_integration": {
+    "head": "66ab6e47af31141cbaca462308357ea8107d3009",
+    "result": "Five prepend-only conflicts resolved by preserving independent EQ092 prefixes and entire incoming EQ088 documents including middle corrections; executable inputs unchanged",
+    "source_preparation_note": "First resolver stopped before mutation on unexpected fifth PACKAGE_DESIGN conflict; inspected and added exact scoped file, then resolved and committed all five. No qualification failure or data change.",
+    "accepted_corrective_main_integration_head": "9cb59dbecf475724bafce9e1872f084f7eb5e5db"
+  },
+  "final_documentation_preparation_review": {
+    "sha256": "57497fba08535473684aa559daaa54a39507d41a6916d8a49ded2a3f2e949538",
+    "reviewer": "/root/r8_preparation_review, separate local automated Codex reviewer",
+    "findings": [
+      "Separate candidate-before-ReadyRelease from guarded merge/main-before-ReleasedDone",
+      "Verify actual public acceptance comment author/issue/main/review bindings rather than URL prefix alone",
+      "Replace stale focused88triage and accepted88 blocker limits while preserving the original snapshot"
+    ],
+    "correction": "Unexecuted generator corrected before actual final documentation generation; generated exact-head review remains a separate mandatory gate"
+  },
+  "final_evidence_authority": "https://github.com/atulsrivas1/equity-features/issues/104"
 }
