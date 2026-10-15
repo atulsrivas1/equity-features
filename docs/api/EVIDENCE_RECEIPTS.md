@@ -1,6 +1,6 @@
 # Experimental receipt contracts — EQ096
 
-Optional package `equity-feature-evidence==0.1.0a1`, Python3.12, depends only on
+Optional package `equity-feature-evidence==0.1.0a2`, Python3.12, depends only on
 `equity-feature-contracts==0.0.4a4`. Core numerical packages never import it.
 The normative schema, fixed support, canonical bytes, limits and known-hash oracle
 are in [EQ096's packet](../stories/EQ-096_PLAN.md). This is an experimental API;
@@ -59,3 +59,5 @@ Schema1/canonicalization versions are immutable. Unknown versions fail rather th
 best-effort reinterpretation. Future migration must name the new schema and retain
 old receipt bytes/digests. No existing core result/config/version changes occur here;
 installing the optional package is not a core upgrade or stable registry promise.
+
+EQ097 candidate adds [actual supplied content verification](EVIDENCE_CONTENT.md) while preserving these supplied-reference/schema semantics. Its final delivery gates remain separate.

@@ -1,3 +1,7 @@
+## EQ097 content implementation under qualification — October15,2026
+
+[Typed content API](api/EVIDENCE_CONTENT.md) implements the reviewed logical encoding with exact integer/float64/null/unit/type/version/order facts and prevalidated streaming. Matching hashes verify supplied content consistency; they do not prove acquisition or that inputs caused execution. Actual synthetic producer values/quality/full metadata remain unchanged.31source methods/frozen oracles/typing pass; final review, installed bothOS measurements/artifacts and publication remain pending. EQ097 In progress; EQ096 accepted, other R9 stories Backlog.
+
 ## R9 first story accepted; next content identity decisions — October15,2026
 
 [EQ096 actual acceptance](https://github.com/atulsrivas1/equity-features/issues/196#issuecomment-6192835359) completes optional pure receipt contracts0.1.0a1; one of five R9 stories accepted Done, epic/milestone still open. [EQ097 pre-code plan](stories/EQ-097_PLAN.md) freezes full typed logical encoding, primitive/order/domain/version/budget semantics, independent wire/hash oracles and measured streaming/materialization protocol before implementation. Metadata identity or an asserted content hash is not proof of supplied values. Existing receipt schema/source-independent math and accepted R8/R7 remain unchanged; current Project owns the Ready/implementation gate.

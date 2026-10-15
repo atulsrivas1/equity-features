@@ -1,3 +1,7 @@
+## EQ097 full supplied content fingerprint candidate — October15,2026
+
+Evidence0.1.0a2 adds closed typed-json-v1 batch/result/configuration encoding, bounded prevalidated chunks, streamed SHA256 and actual-content receipt generation/verification. Three independent known-byte oracles cover every root; all five batch kinds and13result alternatives are tested. Adds actual five-output producer example and fixed synthetic cost protocol to fresh qualification. Existing receipt schema and numerical package sources/versions remain unchanged. Source31tests/typing passed; final review/installed bothOS/current-main release evidence pending.
+
 ## EQ097 typed content preparation — October15,2026
 
 After accepted EQ096/PR393/mainb307dde, prepared exact logical content encoding/API/budget/performance/independent-oracle decisions for existing EQ097. No new content fingerprint runtime or package version is delivered by this preparation. Separate Ready design review and all implementation/artifact/publication gates remain required. Accepted receipt0.1.0a1 and original numerical packages/versions are unchanged.
