@@ -1,8 +1,8 @@
 {
   "schema": "eq105-validation:1",
-  "stage": "Backlog; precode tracked packet awaiting exacthead review",
+  "stage": "In progress; source implementation/development checks complete, separate source/builder review pending",
   "accepted_base": "1e8f89fe27a7409a3030b22558cb84ab3ae86fde",
-  "runtime_implemented": false,
+  "runtime_implemented": true,
   "measurements_executed": false,
   "released": false,
   "prior_tool_only_correction": {
@@ -13,5 +13,55 @@
     "correction": "Fixed label to204_actual before helper approval/execution; no wrong-story mutation occurred.",
     "runtime_failure": false
   },
-  "required": "ExactprecodeReadyreview/freshClosedDoneprerequisites then implementation, independent source/math/security/builder/docs, currentbothOS fourfreshforms22unchangedrepeatarchives/rawmeasurementparity/currenthead/main/publicUTF8/attribution/artifacts/lifecycle. No fabricated performance results."
+  "required": "ExactprecodeReadyreview/freshClosedDoneprerequisites then implementation, independent source/math/security/builder/docs, currentbothOS fourfreshforms22unchangedrepeatarchives/rawmeasurementparity/currenthead/main/publicUTF8/attribution/artifacts/lifecycle. No fabricated performance results.",
+  "ready_review_sha256": "c8f0ccac43ece1a5b961607c0fb456b446120388b3c44e1e404d8fb6a6b612a6",
+  "start_evidence": "https://github.com/atulsrivas1/equity-features/issues/205#issuecomment-6202782124",
+  "development": {
+    "methods": 8,
+    "pure_methods": 7,
+    "native_methods": 1,
+    "log_sha256": "44f8e3f15e5291dfb5e2477977cf413176bd30a4fefe09f4c167d37c53738e02",
+    "strict_consumer_files": 1,
+    "typing_log_sha256": "8e63ae22e8213e327a5e9cbd584067681681bd8ef7f25c869877887ccdcfc4ff",
+    "boundaries": {
+      "pure_negative": 42,
+      "pure_positive": 10,
+      "outer_negative": 8,
+      "outer_positive": 3,
+      "conformance_negative": 7,
+      "conformance_positive": 4
+    },
+    "benchmark_test_clock": "injected deterministic controls only, not actual performance samples",
+    "scope": "existing development environment with source imports; not fresh installed qualification"
+  },
+  "recipe": {
+    "new_builder": "tools/build_r10.py",
+    "new_workflow": ".github/workflows/r10.yml",
+    "archives": 22,
+    "repeat_builds": 2,
+    "forms_each_OS": 4,
+    "pure_distributions": 4,
+    "full_distributions": 13,
+    "source_pins_expected": 190,
+    "pure_release_methods": 7,
+    "full_release_methods": 8,
+    "retained_conformance_pure": 11,
+    "retained_conformance_full": 15,
+    "retained_provenance_full": 22,
+    "retained_diagnostic_each": 14,
+    "retained_evidence_each": 31,
+    "measurement_workloads": 4,
+    "warmup_pairs_per_workload": 3,
+    "sample_pairs_per_workload": 10,
+    "outer_invocations_per_form": 104,
+    "timed_outer_invocations_per_form": 80,
+    "nested_diagnostic_invocations_from_wrapper_per_form": 52,
+    "strict_consumers_each": 2,
+    "status": "UNEXECUTED until exact source/builder review"
+  },
+  "clarifications": [
+    "104 outer baseline/wrapper invocations include52 wrapper invocations which themselves call the accepted evaluator once; total evaluator entries104 (52baseline+52nested), total public entries156 counting wrappers. Only80 outer calls timed,24 outer warmups. This clarifies accounting, no workload/math change.",
+    "New release native method reruns accepted actual pipeline example; accepted full15method conformance suite separately retains waiting/reopen/complete adversarial controls. Repeated cohorts are not new unique methods.",
+    "Measurement schema is private qualification data, no diagnostic/public wire schema/version or fixed replay-profile change."
+  ]
 }

@@ -1,3 +1,7 @@
+## Implemented source candidate; installed qualification pending
+
+EQ105 is actual In progress after exact pre-code review. The source consumer and seven pure/one native development tests pass; its new sibling builder/workflow have not run. No actual installed timing result is claimed. Commands after installation: `python -I examples/r10_point_in_time.py` and `python -I tools/measure_r10.py --out NEW_MEASUREMENT.json` from the materialized reviewed source distribution; the latter writes only a new caller-selected outer qualification record. Pure package code performs no I/O. Build/install/example source materialization remains the reviewed builder responsibility.
+
 ## EQ105 pre-code packet; exact-head Ready review pending
 
 EQ104 is now [accepted](https://github.com/atulsrivas1/equity-features/issues/204#issuecomment-6202751786) at main `1e8f89fe27a7409a3030b22558cb84ab3ae86fde`. EQ105 remains Backlog/unassigned; the preparation statements below preserve their original historical scope. No EQ105 runtime/measurement/build implementation or results exist.

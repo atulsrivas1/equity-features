@@ -1,6 +1,6 @@
 {
   "schema": "eq105-design-review:1",
-  "stage": "precode; exact tracked-head Ready review pending",
+  "stage": "Exact precode Ready approved; implementation source review pending",
   "accepted_base": "1e8f89fe27a7409a3030b22558cb84ab3ae86fde",
   "dependency_acceptance": "https://github.com/atulsrivas1/equity-features/issues/204#issuecomment-6202751786",
   "reviews": [
@@ -23,6 +23,12 @@
       "scope": "outside-repository preparation only; not actualReady"
     }
   ],
-  "implementation": false,
-  "measurement_results": false
+  "implementation": true,
+  "measurement_results": false,
+  "ready_review": {
+    "head": "4834cc0219f0a72e3031320922ad429c10c52ee4",
+    "report_sha256": "c8f0ccac43ece1a5b961607c0fb456b446120388b3c44e1e404d8fb6a6b612a6",
+    "reviewer": "/root/r10_review",
+    "findings": []
+  }
 }
