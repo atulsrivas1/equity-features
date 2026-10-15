@@ -1,3 +1,7 @@
+## EQ104 experimental source candidate
+
+Add optional pure conformance0.1.0a1 with complete independent diagnostic assertions, missing-preserving content comparisons and derived summaries.15 development methods/public pure+actual history/native examples/strict types/boundaries pass. Existing accepted sources/math/versions unchanged. [Exact pending review/installed/publication gates and corrections](stories/EQ-104_VALIDATION.json); source passes are not delivery acceptance.
+
 ## EQ103 corrected source qualification complete — October15,2026
 
 Corrected source e227b8507fd402db8c3ace089fefa77f4cec9cdf completed author Windows and [Windows/Linux workflow38803028023](https://github.com/atulsrivas1/equity-features/actions/runs/38803028023):20 repeat-built archives,157 three-repository source pins and four fresh forms perOS. Each supplied form ran11 provenance methods; each live form22; every form also ran14 diagnostic and31 evidence methods, strict consumer checks and original package/source/result/receipt/quality parity, with no skips. Both actual native examples passed perOS. All34 source PR checks passed. Separate /root/r10_review approved the corrected source and artifact audit. Captured native RECORD maps are not an independent physical native rehash or reinstall.

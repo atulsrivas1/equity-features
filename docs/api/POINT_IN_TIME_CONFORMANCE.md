@@ -1,3 +1,7 @@
+## Implemented source candidate
+
+The selected API is now implemented in packages/conformance, pending separate source/installed/publication acceptance. [Development evidence and preserved corrections](../stories/EQ-104_VALIDATION.json), [pure executable example](../../examples/conformance_declarations.py), [actual pipeline example](../../examples/conformance_pipeline.py). The earlier specification-only statement below is preparation history. Summary requires1..32outcomes; empty refuseslimit_exceeded instead of vacuous success. Full input content changes when future-slot input changes; original history input/context/config/result snapshots remain unchanged by comparison. No generic historical receipt-content or replay profile is invented; full original receipt-content parity is demonstrated by the supported trade pipeline. Error normalization discards underlying exception context as well as text. No qualification or release claim by source implementation alone.
+
 # External point-in-time conformance — EQ104 selected specification
 
 No conformance package is implemented at this preparation checkpoint. [Exact API/data/refusal/work-bound specification](../stories/EQ-104_PLAN.md), [independent oracle](../stories/EQ-104_CONFORMANCE_ORACLE.json). Selected optional equity-feature-conformance0.1.0a1 has only contracts/evidence/diagnostics dependencies; calculators/acquisition/storage/workers/provenance/native imports stay outside the pure runner.

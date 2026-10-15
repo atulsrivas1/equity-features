@@ -1,3 +1,7 @@
+## EQ104 candidate compatibility
+
+Conformance0.1.0a1 is a new optional pure inward consumer of unchanged contracts/evidence/diagnostics. No accepted package source/version/schema/codec/catalog/math migration. Supplied diagnostic findings and content relations are test observations, not new execution/source capabilities. Historical invariance uses public existing history APIs; no extension of fixed R9 trade replay or generic context-receipt materialization. [Exact compatibility/limits](api/POINT_IN_TIME_CONFORMANCE.md). Fresh fourform/bothOS qualification remains pending.
+
 ## EQ103 candidate boundary
 
 No accepted package/version/result/catalog/codec/formula changes. New outer provenance0.1.0a1 requires CPython3.12 and exact accepted IO18d86761/worker6538f21 pins; native dependencies remain explicit. Only trade acquisition and five existing compute_trades outputs are supported. [Trust/bounds](api/PROVENANCE.md).

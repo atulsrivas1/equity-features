@@ -1,3 +1,8 @@
+## R10 content comparison needs a supported input representation
+
+The actual history API includes a declared history_context binding but does not hand callers a canonical context batch. Do not fabricate one to satisfy a generic receipt helper or expand fixed R9 replay by inference. History conformance compares full input/context/config/result identities; actual trade receipts separately verify their complete supported content chain. Unknown expectations can match while remaining unknown, and a source fixture import collision is a harness failure, not a calculation defect. [Implementation evidence/correction](../stories/EQ-104_VALIDATION.json).
+
+
 ## R10 conformance preparation: test matching is not safety
 
 After EQ103 actual acceptance, EQ104 selects an external comparison harness rather than allowing supplied reports to claim execution. Unknown test outcomes can correctly match expectations while remaining unknown; failed diagnostics may still carry missing prerequisites. Full content changes can be metadata/evidence differences, so a comparator must not infer numerical contamination. Preserve independently written expected findings/counts and original content anchors. [Plan and review history](../stories/EQ-104_PLAN.md). An initial unexecuted late-trade filtering idea was rejected against accepted unavailable-quality semantics; supported unused future-history-slot mutation is the selected invariant. No runtime result is claimed by preparation.

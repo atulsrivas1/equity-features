@@ -1,0 +1,75 @@
+{
+  "schema": "eq104-validation:1",
+  "stage": "In progress; source implementation complete, separate source/builder review pending",
+  "accepted_base": "648a90480a167dd0507ff7a752363aa113ef7b44",
+  "ready_head": "72b3afe395aa9b1263fdf8d5e6ec910e3145b181",
+  "ready_review_sha256": "cbc8f5cd5b12d215a7a96529549816a9c5c893c1ada90fd3e647603e33376d6a",
+  "start_evidence": "https://github.com/atulsrivas1/equity-features/issues/204#issuecomment-6202175578",
+  "current_runtime_qualified": false,
+  "released": false,
+  "development": {
+    "source_methods": 15,
+    "pure_methods": 11,
+    "actual_history_methods": 2,
+    "actual_native_pipeline_methods": 2,
+    "strict_mypy_files": 3,
+    "pure_boundary_negative": 42,
+    "pure_boundary_positive": 10,
+    "outer_boundary_negative": 8,
+    "outer_boundary_positive": 3,
+    "conformance_boundary_negative": 7,
+    "conformance_boundary_positive": 4,
+    "both_public_examples_passed": true,
+    "scope": "source imports in existing development environment, not fresh installed qualification"
+  },
+  "logs": {
+    "eq104-initial-development.log": "751baafc2d47da57d02b1e2408e773f860ccb958facc81c6395fe6c4c30ad4ae",
+    "eq104-integration-development.log": "728b2168f01d18a6c1f491e2ee369082f7d5a7a17d102d55bd29b37b833658c0",
+    "eq104-integration-corrected.log": "203f49c40c614c26a1b552f6643d25a524525144fb93b9242245000db83e973b",
+    "eq104-development-final.log": "792d1accc42f1f180cd749e4f09bdc1f87d873adce05e5d746a79144cf8eecc7"
+  },
+  "failures_and_corrections": [
+    {
+      "kind": "development fixture import failure",
+      "log": "eq104-integration-development.log",
+      "cause": "Adding sibling provenance fixture directory at sys.path front caused unittest to import its same-named test_supplied rather than the conformance test.",
+      "correction": "Append only the fixed copied fixture directory; no project package source fallback. Renewed15method suite/both public examples/strict typing/boundaries pass. No baseline runtime defect inferred."
+    },
+    {
+      "kind": "tool-only readiness guard",
+      "cause": "Author helper expected approved-prefixed disposition, but exact independent response was ready_approved. Guard rejected before GitHub/Project mutations.",
+      "correction": "Require exact ready_approved; then fresh prerequisites and actualReady/Atul/Inprogress completed once."
+    },
+    {
+      "kind": "read-only filename guesses",
+      "cause": "Several guessed documentation/fixture filenames did not exist; no source absence or product failure inferred.",
+      "correction": "rg inventory located docs/INSTALLING.md and rootSECURITY.md plus actual fixture/module paths; no mutation by failed reads."
+    }
+  ],
+  "precode_clarifications": [
+    {
+      "issue": "Generic whole-input/receipt wording would suggest unsupported historical receipt-content materialization.",
+      "actual_contract": "Public history result includes declared history_context binding but supplies no canonical context batch; accepted R9 replay remains fixed trade profile.",
+      "selected_evidence": "History uses full input/context/config/result content/identity invariance and original snapshots; no invented canonical history_context payload or new receipt/replay profile. Native trade pipeline retains original full receipt/content verification and actual storage readback."
+    },
+    {
+      "issue": "Empty summary would allow vacuous success.",
+      "selected_evidence": "Concrete nonempty1..32 summary bound, empty typedlimit_exceeded, tested alongside32/33 and256/288finding aggregate boundaries."
+    }
+  ],
+  "qualification_recipe": {
+    "archives": 22,
+    "repeated_builds": 2,
+    "forms": 4,
+    "pure": 2,
+    "full_native": 2,
+    "pure_methods_expected": 11,
+    "full_conformance_methods_expected": 15,
+    "provenance_methods_full": 22,
+    "diagnostic_methods_each": 14,
+    "evidence_methods_each": 31,
+    "source": "fixed threeRepo Git object materialization; source closure and immutable companion refs",
+    "status": "UNEXECUTED; new builder/workflow source requires independent review before execution"
+  },
+  "final_gate": "Separate exact source/security/math/builder/docs review, reviewed-source fresh fourforms/currentbothOS ZIP/artifact audit/finalhead/publication/independent actualmain/currentmain artifacts and actual lifecycle acceptance remain mandatory. R10/EQ105 not complete."
+}

@@ -122,13 +122,14 @@ def violations(source):
     return sorted(set(found))
 
 
-def research_violations(source, *, codec=False, explanation=False, diagnostics=False):
+def research_violations(source, *, codec=False, explanation=False, diagnostics=False, conformance=False):
     """Separate stdlib/contracts-only policy; existing core/backend policy is unchanged."""
     tree=ast.parse(source)
     parents={child:node for node in ast.walk(tree) for child in ast.iter_child_nodes(node)}
     allowed={'__future__','dataclasses','enum','typing','math','json','hashlib','re','operator','equity_feature_contracts'}
     if explanation: allowed.add('equity_feature_evidence')
     if diagnostics: allowed={'__future__','dataclasses','typing','equity_feature_contracts','equity_feature_evidence'}
+    if conformance: allowed={'__future__','dataclasses','typing','equity_feature_contracts','equity_feature_evidence','equity_feature_diagnostics'}
     found=[]
     def closed_field_lookup(node):
         if not codec or not isinstance(node,ast.Call) or not isinstance(node.func,ast.Name) or node.func.id!='getattr':return False
@@ -143,17 +144,21 @@ def research_violations(source, *, codec=False, explanation=False, diagnostics=F
         elif isinstance(node,ast.ImportFrom):
             if node.level:
                 relative=('', '_model', '_evaluate') if diagnostics else (('', '_explain') if explanation else ('','_model','_codec','_engine','_content'))
+                if conformance: relative=('', '_model', '_run')
                 if node.level!=1 or (node.module or '') not in relative:found.append('foreign relative import')
                 namespace=('_model','_evaluate') if diagnostics else ('_model','_codec','_engine','_content')
+                if conformance: namespace=('_model','_run')
                 if not node.module and any(a.name not in namespace for a in node.names):found.append('foreign relative namespace')
             elif (node.module or '').split('.')[0] not in allowed:found.append('forbidden research import')
             if any(a.name=='*' for a in node.names):found.append('wildcard import')
             if any(a.name in DENIED or a.name.startswith(('read_','write_','__builtins__')) for a in node.names):found.append('forbidden research imported access')
+            if conformance and any(a.name in ('fingerprint_result','fingerprint_batch','fingerprint_config','canonical_content','content_chunks','make_content_receipt','receipt_digest','verify_content') for a in node.names):found.append('unselected conformance content operation')
         elif isinstance(node,(ast.Name,ast.Attribute)):
             name=node.id if isinstance(node,ast.Name) else node.attr
             if name=='getattr' and isinstance(node,ast.Name) and closed_field_lookup(parents.get(node)):continue
             if name in DENIED or name in ('__dict__','__getattribute__','__subclasses__') or name.startswith(('read_','write_','__builtins__')):
                 found.append('forbidden research access '+name)
+            if conformance and name in ('fingerprint_result','fingerprint_batch','fingerprint_config','canonical_content','content_chunks','make_content_receipt','receipt_digest','verify_content'):found.append('unselected conformance content operation')
     return sorted(set(found))
 
 
@@ -190,7 +195,8 @@ def check():
     explanation_packages=(ROOT/'packages/explanations',)
     diagnostic_packages=(ROOT/'packages/diagnostics',)
     provenance_packages=(ROOT/'packages/provenance',)
-    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)
+    conformance_packages=(ROOT/'packages/conformance',)
+    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)|set(conformance_packages)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
@@ -261,7 +267,22 @@ def check():
         assert provenance_violations(source),source
     for source in ('from equity_feature_workers import GenerationStore','from ._preflight import preflight','def _fields(value):\n return tuple((name,getattr(value,name)) for name in ())'):
         assert not provenance_violations(source),source
-    print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; outer profile 8 negative/3 positive controls.')
+    for root in conformance_packages:
+        if not root.exists():continue
+        project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
+        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2','equity-feature-diagnostics==0.1.0a1']
+        assert not project.get('optional-dependencies',{})
+        for path in root.glob('src/**/*.py'):
+            errors=research_violations(path.read_text(encoding='utf-8'),conformance=True);assert not errors,(path,errors)
+    conformance_negative=('import equity_features','import equity_feature_provenance','import time',
+        'from pathlib import Path','from equity_feature_evidence import fingerprint_result',
+        'x=getattr(obj,name)','from .other import factory')
+    conformance_positive=('from equity_feature_diagnostics import evaluate_diagnostics',
+        'import equity_feature_diagnostics as d','from ._run import check_diagnostics',
+        'from dataclasses import dataclass\nfrom equity_feature_evidence import ContentFingerprint')
+    for source in conformance_negative:assert research_violations(source,conformance=True),source
+    for source in conformance_positive:assert not research_violations(source,conformance=True),source
+    print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; outer profile 8 negative/3 positive; conformance 7 negative/4 positive controls.')
 
 
 if __name__=='__main__': check()

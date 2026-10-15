@@ -1,3 +1,7 @@
+## External conformance implementation candidate
+
+[Point-in-time conformance](docs/api/POINT_IN_TIME_CONFORMANCE.md) adds an optional pure runner with only contracts/evidence/diagnostics dependencies. Independent literal scenarios, actual unused-future-history-slot invariance and public native integration pass source development; [remaining review and installed gates](docs/stories/EQ-104_VALIDATION.json) precede delivery. Matching an unknown assertion is not safety. EQ103 provenance is [accepted](https://github.com/atulsrivas1/equity-features/issues/203#issuecomment-6202123037); older candidate snapshots below retain their original scopes.
+
 ## Outer provenance implementation candidate
 
 [Explicit supplied bindings and actual generation readback](docs/api/PROVENANCE.md) adds an outer package with pinned native adapter/sink/worker costs. Pure diagnostics/calculations remain independent. EQ103 development passes do not constitute release acceptance; see current validation.

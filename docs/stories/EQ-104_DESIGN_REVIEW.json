@@ -14,5 +14,22 @@
   ],
   "disposition": "Selected narrow function API with owned scalar snapshots, explicit mismatch/refusal/count/unknown rules and one22archive/fourform threeRepo recipe. Exact scalar/refusal and public constructor mappings now fixed in plan; renewed exact-head readiness review required.",
   "unexecuted_idea_correction": "Initial trade-filter invariance idea was discarded before Ready: late knowledge makes accepted trades unavailable. Selected supported public history unusedS6 invariance with independent5/21-to1/3 fractions. Different input/receipt fingerprints are expected across changed inputs; original snapshots never mutated.",
-  "findings_not_claimed_resolved_by_self_review": true
+  "findings_not_claimed_resolved_by_self_review": true,
+  "ready_review": {
+    "head": "72b3afe395aa9b1263fdf8d5e6ec910e3145b181",
+    "sha256": "cbc8f5cd5b12d215a7a96529549816a9c5c893c1ada90fd3e647603e33376d6a",
+    "disposition": "ready_approved",
+    "findings": []
+  },
+  "implementation_clarifications": [
+    {
+      "issue": "Generic whole-input/receipt wording would suggest unsupported historical receipt-content materialization.",
+      "actual_contract": "Public history result includes declared history_context binding but supplies no canonical context batch; accepted R9 replay remains fixed trade profile.",
+      "selected_evidence": "History uses full input/context/config/result content/identity invariance and original snapshots; no invented canonical history_context payload or new receipt/replay profile. Native trade pipeline retains original full receipt/content verification and actual storage readback."
+    },
+    {
+      "issue": "Empty summary would allow vacuous success.",
+      "selected_evidence": "Concrete nonempty1..32 summary bound, empty typedlimit_exceeded, tested alongside32/33 and256/288finding aggregate boundaries."
+    }
+  ]
 }
