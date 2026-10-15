@@ -1,3 +1,15 @@
+## R10 authorized local review — October15,2026
+
+The owner explicitly answers "Authorize local review throughout R10" for the concrete handoff in PR399 and all R10 stories EQ101–105, including final delivery. Separate local Codex reviewers may review GOV022, each pre-code plan, implementation, affected contracts/callers, final heads, actual artifacts and final publication/acceptance. Record reviewer identity, exact heads/frozen source identities, executed checks, findings/disposition and limitations; renew affected coverage after changes. Author self-review and CI alone remain insufficient. This is local automated review, not hosted activation or human review. Applicable numerical/documentation/installed Windows/Linux/source/archive/RECORD/publication/lifecycle gates remain mandatory.
+
+This supersedes the pending R10 alternative-review decision below. It does not authorize R11+, provider/private acquisition, paid operations, account administration, stable registry/public service exposure, destructive or recurring work. Preserve unrelated primary edits, accepted releases and paused R7 automation; one active R10 implementation at a time.
+
+## Historical R10 execution selection; review route was pending — October15,2026
+
+The owner requests the R10 handoff package and work on R10 in this conversation. [GOV022 #398](https://github.com/atulsrivas1/equity-features/issues/398) prepares the concrete handoff and EQ101–105 gates. This selects bounded R10 design/implementation subject to ordinary readiness, review and delivery requirements; it creates no new session or automation.
+
+The prior local alternative-review grant below is expressly R9-specific. No separate R10 local-review extension or completed hosted review has yet been recorded. Obtain a completed supported separate review, or the owner's explicit alternative-review decision covering GOV022 and R10 EQ101–105/final delivery, before merging this packet or runtime Ready. Do not treat preparation, self-review or CI as the separate review. Record any actual decision here without claiming hosted activation or human review; all numerical/documentation/installed/publication gates remain mandatory.
+
 ## R9 execution authorized local review — October15,2026
 
 The owner requests R9 execution and explicitly answers "Authorize local review throughout R9" for EQ096–100, including final delivery. Separate local Codex reviewers may cover each pre-code plan, implementation, final head, affected contracts/callers, actual artifacts and final publication/acceptance. Record identity, exact heads/frozen identities, executed checks, findings/disposition and limitations; renew relevant coverage after changes. Author self-review and CI alone remain insufficient. This is local automated review, not hosted activation or human review. All applicable numerical, documentation, installed Windows/Linux forms, source/RECORD/artifact and publication/lifecycle gates remain mandatory.
