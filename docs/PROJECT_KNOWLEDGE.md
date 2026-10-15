@@ -1,3 +1,7 @@
+## R9 first story accepted; next content identity decisions — October15,2026
+
+[EQ096 actual acceptance](https://github.com/atulsrivas1/equity-features/issues/196#issuecomment-6192835359) completes optional pure receipt contracts0.1.0a1; one of five R9 stories accepted Done, epic/milestone still open. [EQ097 pre-code plan](stories/EQ-097_PLAN.md) freezes full typed logical encoding, primitive/order/domain/version/budget semantics, independent wire/hash oracles and measured streaming/materialization protocol before implementation. Metadata identity or an asserted content hash is not proof of supplied values. Existing receipt schema/source-independent math and accepted R8/R7 remain unchanged; current Project owns the Ready/implementation gate.
+
 ## EQ096 independently qualified candidate — October15,2026
 
 Optional receipt contracts0.1.0a1 at de728184 passed separate source/security/docs and bothOS CI/artifact audits, with no actionable findings; [complete maps/limits](stories/EQ-096_VALIDATION.json) and issue196 hold acceptance authority. Four fresh forms perOS include both wheel/sdist isolated evidence-only and actual-core combined consumers. Original numerical packages/versions are unchanged. Current story is Test; final documentation/current artifacts/actual-main publication gates remain before Done, and R9's other four capabilities are not claimed delivered. Supplied content references remain assertions until EQ097 verifies actual bytes. Earlier preparation/qualification-pending paragraphs are dated snapshots, not current execution authority.
