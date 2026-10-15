@@ -8,5 +8,6 @@
     "Public GenerationOutcome flags never authority; explicit accepted GenerationStore.read alone owns live completion/readback, waiting remains false.",
     "Exact initial trade-only physical profile; pure membership/reference checks do not imply native reference acquisition."
   ],
-  "runtime_implemented": false
+  "runtime_implemented": false,
+  "author_precode_correction": "Verified accepted commands.py: worker family/role trades, distinct from fixed producer/replay profile session.compute_trades.v1. No baseline manifest identity change or runtime failure."
 }
