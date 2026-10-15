@@ -119,5 +119,12 @@
       "bothOS fourfresh forms",
       "original R9 package sources unchanged"
     ]
-  }
+  },
+  "refusal_paths": {
+    "unknown_kind": "MembershipCheck.selected_kind=unsupported_membership_kind -> unsupported_version",
+    "mixed_membership_kind": "supported selected kind with another supported fact kind -> inconsistent_binding",
+    "wrong_reference_kind": "supported selected kind with another supported ReferenceDeclaration.fact_kind -> inconsistent_binding",
+    "unsupported_borrowed_record": "exact borrowed record field supplied unrelated type -> invalid_schema"
+  },
+  "precode_review_correction": "Original unknown_kind path ambiguity reported before Ready; concrete constructor path now frozen, no runtime execution."
 }
