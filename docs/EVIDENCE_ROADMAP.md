@@ -1,6 +1,6 @@
 ## Current R9 preparation — October14,2026
 
-After accepted R8, the owner requests the next existing release plan. [R9_RELEASE_PLAN.md](R9_RELEASE_PLAN.md) and [R9_TEST_STRATEGY.md](R9_TEST_STRATEGY.md) refine the unchanged EQ096–100/E13/31-point roadmap under [GOV021#391](https://github.com/atulsrivas1/equity-features/issues/391). All runtime stories remain Backlog and no implementation/new session is started. The dated R2/R3 ownership directions below are historical; scope/dependencies/evidence boundaries remain valid. R9 planning publication still needs its own required review route; the bounded R8 local grant is not automatically extended.
+After accepted R8, the owner requests the next existing release plan. [R9_RELEASE_PLAN.md](R9_RELEASE_PLAN.md) and [R9_TEST_STRATEGY.md](R9_TEST_STRATEGY.md) refine the unchanged EQ096–100/E13/31-point roadmap under [GOV021#391](https://github.com/atulsrivas1/equity-features/issues/391). All runtime stories remain Backlog and no implementation/new session is started. The dated R2/R3 ownership directions below are historical; scope/dependencies/evidence boundaries remain valid. The owner now explicitly authorizes separate local review of this R9 planning packet only; exact final review/check/publication gates remain. No R9 runtime execution or later-story review grant follows from planning.
 
 # Evidence and agent research roadmap
 

@@ -1,6 +1,6 @@
 ## Prepared R8 review and R9 plan — October14,2026
 
-Added an independently executed scoped R8 post-delivery review and evidence, plus the five-story R9 release/test plan. No package/runtime/math/API/dependency/default/version or earlier acceptance receipt changed. R9 remains Backlog/planning; this governance packet is not independently reviewed or released merely by being prepared. Review-route, applicable documentation checks and publication/readback remain required under GOV021#391.
+Added an independently executed scoped R8 post-delivery review and evidence, plus the five-story R9 release/test plan. No package/runtime/math/API/dependency/default/version or earlier acceptance receipt changed. R9 remains Backlog/planning; this governance packet is not independently reviewed or released merely by being prepared. The owner explicitly authorized separate local review of GOV021#391/PR392 planning only. Completed exact-head review, applicable documentation checks and publication/readback remain required; runtime execution is not granted.
 
 ## EQ092 qualified chronological consumer and final delivery contract — October 14
 
