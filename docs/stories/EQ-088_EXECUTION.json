@@ -810,5 +810,11 @@
     "installed_distributions": 8,
     "returned_attempt_files": 87,
     "result": "Actual frozen source/eight accepted installed RECORD+payload maps/four input populations/complete80pipelinecases/87returned-result files verified; no release acceptance"
+  },
+  "final_documentation_continuity_correction": {
+    "reviewed_candidate": "4e7b5d12cd6e9bf4e39e2b9a307e07525ce74521",
+    "finding": "Top handoff stale: described worker exactreview/publication and canonical commit as not completed despite actual dca6/push/committed result",
+    "correction": "New top handoff states actual reviewed/published3257, current hosted qualification pending, committed canonical result candidate and exact next publication/current-head/main gates",
+    "limits": "No numerical/measurement/protocol/executable/package/pin/default changes; exact correctedhead review still required"
   }
 }
