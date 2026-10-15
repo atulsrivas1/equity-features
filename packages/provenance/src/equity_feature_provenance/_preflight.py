@@ -288,4 +288,3 @@ def freeze_task(value: TaskEvidence) -> tuple[w.TaskManifest, tuple[AcquiredInpu
     except ProvenanceError: raise
     except Exception: pass
     raise ProvenanceError()
-

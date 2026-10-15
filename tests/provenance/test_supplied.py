@@ -55,6 +55,21 @@ class SuppliedTests(unittest.TestCase):
         self.reject('inconsistent_binding',lambda:bind_supplied_provenance(replace(value,expected_task=task)))
         self.reject('inconsistent_binding',lambda:bind_supplied_provenance(replace(value,receipt=other.receipt)))
 
+    def test_original_revision_snapshot_coverage_headers_and_content_anchor(self):
+        value=fixture();acquired=value.acquired[0];task=value.expected_task
+        for receipt in (replace(acquired.receipt,source=replace(acquired.receipt.source,snapshot_id='wrong')),
+                        replace(acquired.receipt,coverage=replace(acquired.receipt.coverage,complete=False)),
+                        replace(acquired.receipt,availability=replace(acquired.receipt.availability,evaluation_ns=211))):
+            self.reject('inconsistent_binding',lambda:bind_supplied_provenance(replace(value,
+                acquired=(replace(acquired,receipt=receipt),))))
+        revised=replace(task,inputs=(replace(task.inputs[0],revision_id='other-revision'),))
+        self.reject('inconsistent_binding',lambda:bind_supplied_provenance(replace(value,output=replace(value.output,task=revised))))
+        fingerprint=replace(value.receipt.inputs[0].content,digest='0'*64)
+        retained=replace(value.receipt,inputs=(replace(value.receipt.inputs[0],content=fingerprint),))
+        self.reject('inconsistent_binding',lambda:bind_supplied_provenance(replace(value,receipt=retained)))
+        header=replace(task.features[0],unit='wrong')
+        self.reject('unsupported_version',lambda:bind_supplied_provenance(replace(value,expected_task=replace(task,features=(header,)+task.features[1:]))))
+
     def test_missing_provenance_and_forged_outcome_not_store(self):
         value=fixture()
         self.reject('missing_provenance',lambda:replace(value,acquired=()))

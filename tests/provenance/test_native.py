@@ -99,5 +99,24 @@ class NativeTests(unittest.TestCase):
             # Supplied-only has no I/O and cannot observe this external change.
             self.assertFalse(bind_supplied_provenance(value).operational_readback)
 
+    def test_actual_native_output_corruption_never_waiting_or_complete(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);create(root/'inputs');value=acquire(root/'inputs')
+            spec=GenerationSpec('demo','job','G',(value.expected_task,))
+            generation=store(root/'generations');path=root/'sink.duckdb'
+            with DuckDBSink(path,'synthetic-output',limits=LIMITS) as sink:
+                value=publish(sink,value);dependencies=deps((value,),sink)
+                self.assertTrue(generation.publish(spec,dependencies).complete)
+                self.assertTrue(verify_live_generation(generation,spec,dependencies,(value,)).operational_readback)
+            # Owned fault injection after the sink closes. This uses the actual
+            # pinned storage layout; no fake adapter/store completion is supplied.
+            import duckdb
+            with duckdb.connect(str(path)) as connection:
+                connection.execute('UPDATE efio_results SET record=?',[b'corrupt-original-result'])
+            with DuckDBSink(path,'synthetic-output',limits=LIMITS) as sink:
+                with self.assertRaises(ProvenanceError) as caught:
+                    verify_live_generation(generation,spec,deps((value,),sink),(value,))
+                self.assertEqual(caught.exception.code,'readback_failed')
+
 
 if __name__=='__main__':unittest.main()

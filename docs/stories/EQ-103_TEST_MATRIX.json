@@ -50,7 +50,7 @@
     {
       "id": "changed-partition-original-pin-retained",
       "expected_error": "accepted SourceError during retained-pin reacquisition; binder not called",
-      "layer": "outer native acquisition/bridge fixed normalization"
+      "layer": "explicit outer retained-pin acquisition, outside supplied binder"
     },
     {
       "id": "wrong-source-snapshot-revision-role-config-context-entity-task-header",
@@ -220,5 +220,6 @@
     "cancellation": "fixed cancelled code, cooperative semantics",
     "physical_file_change": "accepted original-pin reacquisition SourceError before binding; supplied-only cannot observe unseen disk changes",
     "task_revision": "observed output/task compared against retained expected task, not authenticated source revision"
-  }
+  },
+  "implementation_method_count": 20
 }

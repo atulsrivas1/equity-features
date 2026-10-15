@@ -6,7 +6,7 @@
   "reviewer": "/root/r10_review",
   "ready_report_sha256": "fa4b3e8c19a36f426df0d23c5d2ea82baf1352445c11116a64985884082d9aae",
   "development": {
-    "provenance_methods": 18,
+    "provenance_methods": 20,
     "actual_native": true,
     "strict_mypy_package_files": 4,
     "boundary_outer_negative": 8,
@@ -20,10 +20,19 @@
     "eq103-native-generated-identity.log": "693d5f20c63da114207d5658a0523ce2b5890320deff17d7c1794d0e1aad1df6",
     "eq103-native-development-pass.log": "5570bb5836ea8ea37930f395c24703568244cacc355ae4296a9b85844b37b277",
     "eq103-initial-mypy.log": "5f42afc38ad1784053b1fa02b625dc5e86b69b78393abe8a0005c1889c956f52",
-    "eq103-expanded-development.log": "d621fe0d3b7d0af6a1eff711e32c87847c2f038a4a9574075096080ff13ed70e"
+    "eq103-expanded-development.log": "d621fe0d3b7d0af6a1eff711e32c87847c2f038a4a9574075096080ff13ed70e",
+    "eq103-expanded-binding-controls.log": "9dca55075d2f7e1c6fe4f10dabd7ca055e95caaf0ed06311f77334066ffbafdf",
+    "eq103-expanded-binding-corrected.log": "2b775e1d28595f2236ea9325e5cdf07d788a951eaf7913a38274aafba3555fcf",
+    "eq103-development-twenty.log": "922eddede5b84ff204782c8546a281b8155863b08ce2cbc6ec8c8cded6f3a06c"
   },
   "installed_qualification": false,
   "bothOS": false,
   "released": false,
-  "findings_disposition": "independent implementation review pending; original readiness findings preserved"
+  "findings_disposition": "independent implementation review pending; original readiness findings preserved",
+  "additional_controls": [
+    "Original snapshot/coverage/availability/revision/task-header and retained fingerprint refusals.",
+    "Actual native result BLOB corruption after owned sink close; actual accepted readback normalizes readback_failed.",
+    "First added coverage control was invalidly complete(expected4/observed3), rejected by baseline constructor before bridge; corrected valid complete=False field control, failure preserved.",
+    "Source599cee1 diffcheck trailing-blank finding did not prevent commit because shell command sequencing; trimmed in followup and checked using check=True before subsequent commit."
+  ]
 }
