@@ -140,8 +140,8 @@ def research_violations(source, *, codec=False):
             if any(a.name.split('.')[0] not in allowed for a in node.names):found.append('forbidden research import')
         elif isinstance(node,ast.ImportFrom):
             if node.level:
-                if node.level!=1 or (node.module or '') not in ('','_model','_codec','_engine'):found.append('foreign relative import')
-                if not node.module and any(a.name not in ('_model','_codec','_engine') for a in node.names):found.append('foreign relative namespace')
+                if node.level!=1 or (node.module or '') not in ('','_model','_codec','_engine','_content'):found.append('foreign relative import')
+                if not node.module and any(a.name not in ('_model','_codec','_engine','_content') for a in node.names):found.append('foreign relative namespace')
             elif (node.module or '').split('.')[0] not in allowed:found.append('forbidden research import')
             if any(a.name=='*' for a in node.names):found.append('wildcard import')
             if any(a.name in DENIED or a.name.startswith(('read_','write_','__builtins__')) for a in node.names):found.append('forbidden research imported access')

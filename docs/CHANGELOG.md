@@ -1,3 +1,15 @@
+## EQ097 qualified full-content candidate — October15,2026
+
+Evidence0.1.0a2 passed separate source and bothOS artifact/install/cost audit: six repeatarchives/fourfresh forms perOS/31tests/typing/actual examples. [Validation](stories/EQ-097_VALIDATION.json) preserves source/RECORD maps,48rawcostsamples, original failures and limitations. Typed-json-v1 full supplied content fingerprints retain exact precision/null/order/metadata/quality/evidence facts. Existing receipt schema/numerical packages unchanged; final currenthead/main publication/acceptance pending.
+
+## EQ097 full supplied content fingerprint candidate — October15,2026
+
+Evidence0.1.0a2 adds closed typed-json-v1 batch/result/configuration encoding, bounded prevalidated chunks, streamed SHA256 and actual-content receipt generation/verification. Three independent known-byte oracles cover every root; all five batch kinds and13result alternatives are tested. Adds actual five-output producer example and fixed synthetic cost protocol to fresh qualification. Existing receipt schema and numerical package sources/versions remain unchanged. Source31tests/typing passed; final review/installed bothOS/current-main release evidence pending.
+
+## EQ097 typed content preparation — October15,2026
+
+After accepted EQ096/PR393/mainb307dde, prepared exact logical content encoding/API/budget/performance/independent-oracle decisions for existing EQ097. No new content fingerprint runtime or package version is delivered by this preparation. Separate Ready design review and all implementation/artifact/publication gates remain required. Accepted receipt0.1.0a1 and original numerical packages/versions are unchanged.
+
 ## EQ096 qualified receipt candidate — October15,2026
 
 The optional receipt contract/strict codec candidate passed independent source review and bothOS full archive/RECORD/source/install audit: six repeat archives and four fresh consumer forms perOS,20tests per consumer, installed typing, actual synthetic core values and unchanged original packages. [Validation](stories/EQ-096_VALIDATION.json) freezes exact maps/review limitations. This documentation-only integration leaves executable inputs unchanged; current-head/main publication/acceptance is still required. Content verification/bundle replay/explanations remain later R9 work, and no stable registry release is claimed.

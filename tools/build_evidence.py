@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist/evidence'
 EPOCH = 1700000000
 PACKAGES = {'contracts':('equity_feature_contracts','0.0.4a4'),
-            'features':('equity_features','0.0.4a4'), 'evidence':('equity_feature_evidence','0.1.0a1')}
+            'features':('equity_features','0.0.4a4'), 'evidence':('equity_feature_evidence','0.1.0a2')}
 
 
 def run(*args, cwd=ROOT, env=None):
@@ -135,7 +135,8 @@ def install(paths, directory):
 def main():
     OUT.mkdir(parents=True,exist_ok=True); assert not list(OUT.iterdir()), 'fresh dist/evidence required; preserve old qualification'
     head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,encoding='utf-8').strip()
-    scopes=['packages/'+p for p in PACKAGES]+['tests/evidence','examples/evidence_receipt.py',
+    scopes=['packages/'+p for p in PACKAGES]+['tests/evidence','examples/evidence_receipt.py','examples/evidence_content.py','examples/evidence_content_cost.py',
+        'docs/stories/EQ-097_CONFIG_ORACLE.json','docs/stories/EQ-097_RESULT_ORACLE.json','docs/stories/EQ-097_BATCH_ORACLE.json',
         'docs/stories/EQ-096_RECEIPT_ORACLE.json','tools/build_evidence.py','tools/check_boundary.py',
         '.github/workflows/evidence.yml','requirements-dev.txt']
     paths=tuple(subprocess.check_output(['git','ls-files','--',*scopes],cwd=ROOT,encoding='utf-8').splitlines())
@@ -191,10 +192,16 @@ def main():
                 if not combined:
                     run(py,'-I','-c',"import importlib.util; assert all(importlib.util.find_spec(n) is None for n in ('equity_features','equity_feature_io_contracts','equity_feature_workers','equity_feature_strategies','equity_feature_labels'))",cwd=py.parent)
                 run(py,'-I','-m','unittest','discover','-s',verification/'tests/evidence',cwd=py.parent)
-                if combined: run(py,'-I',verification/'examples/evidence_receipt.py',cwd=py.parent)
+                if combined:
+                    run(py,'-I',verification/'examples/evidence_receipt.py',cwd=py.parent)
+                    run(py,'-I',verification/'examples/evidence_content.py',cwd=py.parent)
+                    if form == 'wheel':
+                        cost=json.loads(subprocess.check_output([str(py),'-I',str(verification/'examples/evidence_content_cost.py')],cwd=py.parent,encoding='utf-8'))
+                        assert len(cost['samples'])==24 and all(x['parity'] for x in cost['samples'])
+                        report['content_cost']=cost; save()
                 assert after==installed_map(py,[*modules,'equity_feature_evidence'])
                 typing=py.parent/'evidence_typed_consumer.py'
-                typing.write_text('from equity_feature_evidence import ExecutionClaim, ExecutionReceipt, decode_receipt\nclaim: ExecutionClaim = ExecutionClaim()\nreceipt: ExecutionReceipt = decode_receipt(b"{}")\n',encoding='utf-8')
+                typing.write_text('from equity_feature_evidence import ExecutionClaim, ExecutionReceipt, decode_receipt, fingerprint_config, content_chunks\nfrom equity_feature_contracts import ConfigSpec\ndef typed(config: ConfigSpec) -> int:\n    return fingerprint_config(config).byte_length + sum(len(c) for c in content_chunks(config))\nclaim: ExecutionClaim = ExecutionClaim()\nreceipt: ExecutionReceipt = decode_receipt(b"{}")\n',encoding='utf-8')
                 run(sys.executable,'-m','mypy','--strict','--python-executable',py,typing,cwd=py.parent)
                 report['installed'].append({'form':form,'combined_actual_core_producer':combined,'optional_independence':not combined,
                     'installed_map':after,'unchanged_original_packages':True,'tests_passed':True,'typing_passed':True}); save()

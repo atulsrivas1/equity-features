@@ -1,3 +1,15 @@
+## EQ097 independently qualified content candidate — October15,2026
+
+Full typed content evidence0.1.0a2 at7ea1c721 passed separate source/security/docs and actual bothOS archive/RECORD/source/install/cost audits, findings[]. [Frozen validation/maps/raw measurements](stories/EQ-097_VALIDATION.json).31methods/fourfresh forms perOS/typing/both examples preserve allfiveactualcorevalues and detect same-metadata changedcontent. Existing numerical versions/receipt schema remain unchanged. Current197Test: final docs/current artifacts/defaultbranch publication still required. Later bundle/replay/explanation/completeR9 claims remain separate.
+
+## EQ097 content implementation under qualification — October15,2026
+
+[Typed content API](api/EVIDENCE_CONTENT.md) implements the reviewed logical encoding with exact integer/float64/null/unit/type/version/order facts and prevalidated streaming. Matching hashes verify supplied content consistency; they do not prove acquisition or that inputs caused execution. Actual synthetic producer values/quality/full metadata remain unchanged.31source methods/frozen oracles/typing pass; final review, installed bothOS measurements/artifacts and publication remain pending. EQ097 In progress; EQ096 accepted, other R9 stories Backlog.
+
+## R9 first story accepted; next content identity decisions — October15,2026
+
+[EQ096 actual acceptance](https://github.com/atulsrivas1/equity-features/issues/196#issuecomment-6192835359) completes optional pure receipt contracts0.1.0a1; one of five R9 stories accepted Done, epic/milestone still open. [EQ097 pre-code plan](stories/EQ-097_PLAN.md) freezes full typed logical encoding, primitive/order/domain/version/budget semantics, independent wire/hash oracles and measured streaming/materialization protocol before implementation. Metadata identity or an asserted content hash is not proof of supplied values. Existing receipt schema/source-independent math and accepted R8/R7 remain unchanged; current Project owns the Ready/implementation gate.
+
 ## EQ096 independently qualified candidate — October15,2026
 
 Optional receipt contracts0.1.0a1 at de728184 passed separate source/security/docs and bothOS CI/artifact audits, with no actionable findings; [complete maps/limits](stories/EQ-096_VALIDATION.json) and issue196 hold acceptance authority. Four fresh forms perOS include both wheel/sdist isolated evidence-only and actual-core combined consumers. Original numerical packages/versions are unchanged. Current story is Test; final documentation/current artifacts/actual-main publication gates remain before Done, and R9's other four capabilities are not claimed delivered. Supplied content references remain assertions until EQ097 verifies actual bytes. Earlier preparation/qualification-pending paragraphs are dated snapshots, not current execution authority.

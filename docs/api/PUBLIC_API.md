@@ -1,3 +1,7 @@
+## EQ097 qualified optional supplied-content candidate — October15,2026
+
+[Typed content API](EVIDENCE_CONTENT.md) at7ea1c721 passed separate source/security/docs and Windows/Linux archive/installed/cost review. [Complete validation](../stories/EQ-097_VALIDATION.json) binds actual maps and raw measurements. Full content verification detects changed values under identical metadata; it does not authenticate sources or prove those inputs caused execution. No numerical/core/schema upgrade. Currenthead/defaultbranch acceptance remains on issue197.
+
 ## EQ096 qualified optional receipt candidate — October15,2026
 
 [Receipt contracts](EVIDENCE_RECEIPTS.md) passed independent source/security/docs and Windows/Linux artifact/installed-consumer review at de728184. No numerical/core behavior/version change. [Complete validation](../stories/EQ-096_VALIDATION.json) freezes source/archive/RECORD maps, checks, typed/negative/oracle and actual-core example evidence; final current-head/main release acceptance remains on story196. Pure declarations and envelope identity do not recompute supplied content hashes or authenticate execution/source facts. Other R9 capabilities remain later work.
