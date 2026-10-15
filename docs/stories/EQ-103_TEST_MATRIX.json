@@ -1,6 +1,6 @@
 {
   "schema": "eq103-binding-matrix:1",
-  "status": "Constructor-role P2 rework;22development methods pass; corrected installed/currenthead qualification pending",
+  "status": "Corrected e227 qualified:22development methods;11supplied/22live installed cohorts, bothOS fourforms; final docs/currenthead/main acceptance pending",
   "accepted_eq102_main": "a68ef449c29de49133e30f6ab7591fa26224537c",
   "source_truth_authenticated": false,
   "cases": [
