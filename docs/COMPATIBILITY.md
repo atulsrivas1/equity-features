@@ -1,3 +1,7 @@
+## EQ102 compatibility candidate — October15,2026
+
+Diagnostics0.1.0a1 is an optional inward consumer of unchanged contracts0.0.4a4/evidence0.1.0a2. No existing source/version/dependency/result bytes migrate; core never imports diagnostics. First API is typed in-memory only, no diagnostic codec/digest. Existing inputs remain borrowed immutable supplied declarations; source/history/rights/original execution are unverified. BothOS fresh forms remain pending.
+
 ## EQ101 selected future diagnostic compatibility — specification candidate
 
 [Contract](api/POINT_IN_TIME_DIAGNOSTICS.md) selects a separate pure diagnostics0.1.0a1/CPython3.12 distribution with exact accepted contracts0.0.4a4/evidence0.1.0a2 dependencies; no package is implemented by EQ101. Existing core/evidence/explanations/bundle sources/versions/wire identities remain unchanged. Exact adjustment-declaration comparison performs no scale conversion and does not assert universal economic incompatibility. No diagnostic wire codec or automatic migration; actual optional installed compatibility remains EQ102/105 qualification.

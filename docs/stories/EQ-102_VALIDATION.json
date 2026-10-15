@@ -1,0 +1,47 @@
+{
+  "scope": "development source-path only; installed/bothOS not yet qualified",
+  "initial_failure": {
+    "log_sha256": "a4ddbd8d5e57b8d5091093f440840819c3f6f3b6d2423b4774df8fc882e086c0",
+    "methods": 9,
+    "errors": 2,
+    "reason": "Test-only mapper sliced slash-delimited adjustment shorthand as characters. Split by slash before constructing accepted ActionPolicy; literal oracle and runtime evaluator unchanged.",
+    "failed_pass_claimed": false
+  },
+  "remaining": [
+    "exact source review",
+    "current source checks",
+    "committed-source repeat builds",
+    "fresh four forms bothOS",
+    "final head/artifacts/main/lifecycle acceptance"
+  ],
+  "development": {
+    "runtime_methods": 14,
+    "runtime_errors": 0,
+    "runtime_failures": 0,
+    "runtime_skips": 0,
+    "runtime_log_sha256": "64880296e7b7a366a137758e0a1d279aefd55d72980de64ea3cf5385334477dc",
+    "evidence_methods": 31,
+    "evidence_errors": 0,
+    "evidence_failures": 0,
+    "evidence_skips": 0,
+    "evidence_log_sha256": "ee13f5235a113e602d0e3bb0222d4b974d5fbf128cef66ecb1a8080d699b5187",
+    "strict_mypy_files": 4,
+    "boundary_existing_negative_positive": [
+      42,
+      10
+    ],
+    "diagnostic_boundary_negative_positive": [
+      10,
+      4
+    ],
+    "literal_checks_aggregates_refusals": [
+      38,
+      6,
+      18
+    ],
+    "examples": [
+      "isolated declarations",
+      "actual compute_trades/full result+receipt parity and unavailable quality"
+    ]
+  }
+}
