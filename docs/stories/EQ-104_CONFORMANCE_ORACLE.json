@@ -1,0 +1,629 @@
+{
+  "schema": "eq104-conformance-oracle:1",
+  "status": "hand-authored pre-code expected assertions; runtime unimplemented",
+  "defaults": {
+    "namespace": "demo",
+    "entity": [
+      "A",
+      "S"
+    ],
+    "C": 100,
+    "K": 100,
+    "E": 120,
+    "policy": [
+      "strict",
+      "deny"
+    ],
+    "check_id": "check",
+    "subject_id": "subject",
+    "content": null
+  },
+  "diagnostic_cases": [
+    {
+      "id": "ordinary-clean",
+      "kind": "market_time",
+      "input": {
+        "session": [
+          0,
+          200
+        ],
+        "observed": 99,
+        "convention": "ordinary_event"
+      },
+      "expected": [
+        "passed",
+        [],
+        0,
+        null,
+        "admitted"
+      ]
+    },
+    {
+      "id": "ordinary-boundary-contaminated",
+      "kind": "market_time",
+      "input": {
+        "session": [
+          0,
+          200
+        ],
+        "observed": 100,
+        "convention": "ordinary_event"
+      },
+      "expected": [
+        "failed",
+        [
+          "market_bound"
+        ],
+        0,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "knowledge-equality-clean",
+      "kind": "knowledge_time",
+      "input": {
+        "known": 100
+      },
+      "expected": [
+        "passed",
+        [],
+        0,
+        null,
+        "admitted"
+      ]
+    },
+    {
+      "id": "knowledge-late-contaminated",
+      "kind": "knowledge_time",
+      "input": {
+        "known": 101
+      },
+      "expected": [
+        "failed",
+        [
+          "late_knowledge"
+        ],
+        0,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "knowledge-absent-unknown",
+      "kind": "knowledge_time",
+      "input": {
+        "known": null
+      },
+      "expected": [
+        "unknown",
+        [
+          "missing_knowledge"
+        ],
+        1,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "knowledge-unknown-explicit-allow",
+      "kind": "knowledge_time",
+      "input": {
+        "known": null
+      },
+      "policy": [
+        "strict",
+        "allow"
+      ],
+      "expected": [
+        "unknown",
+        [
+          "missing_knowledge"
+        ],
+        1,
+        null,
+        "admitted"
+      ]
+    },
+    {
+      "id": "late-advisory",
+      "kind": "knowledge_time",
+      "input": {
+        "known": 101
+      },
+      "policy": [
+        "advisory",
+        "deny"
+      ],
+      "expected": [
+        "failed",
+        [
+          "late_knowledge"
+        ],
+        0,
+        null,
+        "not_applied"
+      ]
+    },
+    {
+      "id": "context-clean",
+      "kind": "declared_context",
+      "input": {
+        "availability": [
+          100,
+          100,
+          120,
+          "known_at"
+        ]
+      },
+      "expected": [
+        "passed",
+        [],
+        0,
+        null,
+        "admitted"
+      ]
+    },
+    {
+      "id": "context-reconstruction",
+      "kind": "declared_context",
+      "input": {
+        "availability": [
+          100,
+          100,
+          120,
+          "reconstruction"
+        ]
+      },
+      "expected": [
+        "failed",
+        [
+          "reconstruction_context"
+        ],
+        0,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "context-cutoff-substitution",
+      "kind": "declared_context",
+      "input": {
+        "availability": [
+          101,
+          100,
+          120,
+          "known_at"
+        ]
+      },
+      "expected": [
+        "failed",
+        [
+          "market_cutoff_mismatch"
+        ],
+        0,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "historical-universe-clean",
+      "kind": "membership",
+      "input": {
+        "observed": 1,
+        "complete": true,
+        "history": "historical",
+        "facts": [
+          [
+            0,
+            "r0",
+            0,
+            null,
+            90,
+            "U"
+          ]
+        ]
+      },
+      "expected": [
+        "passed",
+        [],
+        0,
+        null,
+        "admitted"
+      ]
+    },
+    {
+      "id": "current-only-universe-unknown",
+      "kind": "membership",
+      "input": {
+        "observed": 1,
+        "complete": true,
+        "history": "current_only",
+        "facts": [
+          [
+            0,
+            "r0",
+            0,
+            null,
+            90,
+            "U"
+          ]
+        ]
+      },
+      "expected": [
+        "unknown",
+        [
+          "historical_proof_unknown"
+        ],
+        1,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "historical-explicit-absence",
+      "kind": "membership",
+      "input": {
+        "observed": 0,
+        "complete": true,
+        "history": "historical",
+        "facts": []
+      },
+      "expected": [
+        "failed",
+        [
+          "membership_absent"
+        ],
+        0,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "projected-away-not-absence",
+      "kind": "membership",
+      "input": {
+        "observed": 1,
+        "complete": true,
+        "history": "historical",
+        "facts": []
+      },
+      "expected": [
+        "unknown",
+        [
+          "incomplete_projection"
+        ],
+        1,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "late-current-visible-failure",
+      "kind": "membership",
+      "input": {
+        "observed": 1,
+        "complete": true,
+        "history": "current_only",
+        "facts": [
+          [
+            0,
+            "r0",
+            0,
+            null,
+            101,
+            "U"
+          ]
+        ]
+      },
+      "expected": [
+        "failed",
+        [
+          "historical_proof_unknown",
+          "late_knowledge"
+        ],
+        1,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "overlapping-universe",
+      "kind": "membership",
+      "input": {
+        "observed": 2,
+        "complete": true,
+        "history": "historical",
+        "facts": [
+          [
+            0,
+            "r0",
+            0,
+            null,
+            90,
+            "U"
+          ],
+          [
+            1,
+            "r1",
+            50,
+            null,
+            90,
+            "U"
+          ]
+        ]
+      },
+      "expected": [
+        "failed",
+        [
+          "ambiguous_membership"
+        ],
+        0,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "revision-clean",
+      "kind": "revision",
+      "input": {
+        "expected": [
+          "snapshot1",
+          "revision1"
+        ],
+        "observed": [
+          "snapshot1",
+          "revision1"
+        ],
+        "start": 0,
+        "end": null,
+        "known": 90
+      },
+      "expected": [
+        "passed",
+        [],
+        0,
+        null,
+        "admitted"
+      ]
+    },
+    {
+      "id": "revision-substitution",
+      "kind": "revision",
+      "input": {
+        "expected": [
+          "snapshot1",
+          "revision1"
+        ],
+        "observed": [
+          "snapshot1",
+          "revision2"
+        ],
+        "start": 0,
+        "end": null,
+        "known": 90
+      },
+      "expected": [
+        "failed",
+        [
+          "revision_mismatch"
+        ],
+        0,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "adjustment-clean",
+      "kind": "adjustment",
+      "input": {
+        "expected_scale": 0,
+        "observed_scale": 0
+      },
+      "expected": [
+        "passed",
+        [],
+        0,
+        null,
+        "admitted"
+      ]
+    },
+    {
+      "id": "adjustment-scale-mismatch",
+      "kind": "adjustment",
+      "input": {
+        "expected_scale": 0,
+        "observed_scale": 2
+      },
+      "expected": [
+        "failed",
+        [
+          "adjustment_mismatch"
+        ],
+        0,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "freshness-equality-clean",
+      "kind": "freshness",
+      "input": {
+        "target": 100,
+        "observed": 90,
+        "tolerance": 10
+      },
+      "expected": [
+        "passed",
+        [],
+        0,
+        10,
+        "admitted"
+      ]
+    },
+    {
+      "id": "freshness-stale",
+      "kind": "freshness",
+      "input": {
+        "target": 100,
+        "observed": 89,
+        "tolerance": 10
+      },
+      "expected": [
+        "failed",
+        [
+          "stale_observation"
+        ],
+        0,
+        11,
+        "denied"
+      ]
+    },
+    {
+      "id": "freshness-future",
+      "kind": "freshness",
+      "input": {
+        "target": 100,
+        "observed": 101,
+        "tolerance": 10
+      },
+      "expected": [
+        "failed",
+        [
+          "future_observation"
+        ],
+        0,
+        null,
+        "denied"
+      ]
+    },
+    {
+      "id": "visible-market-partial",
+      "kind": "market_time",
+      "input": {
+        "session": [
+          0,
+          200
+        ],
+        "observed": 101,
+        "convention": "completed_interval",
+        "start": null
+      },
+      "expected": [
+        "failed",
+        [
+          "market_bound",
+          "missing_market_fact"
+        ],
+        1,
+        null,
+        "denied"
+      ]
+    }
+  ],
+  "expected_tuple_fields": [
+    "status",
+    "sorted_reasons",
+    "unknown_prerequisites",
+    "age_ns",
+    "admission"
+  ],
+  "identity_defaults": "Each finding check_id=check/subject_id=subject/contentNone/kind=input kind; severity derived solely from literal status, assessed literal unknown_count==0. Single finding counts explicitly derived from these independent literals, not evaluator output; not_requested is fixed seven-kind complement. Additional negative expectations deliberately perturb every field/count/order/admission.",
+  "content_cases": [
+    {
+      "id": "equal",
+      "before": "a",
+      "after": "a",
+      "expected": "equal"
+    },
+    {
+      "id": "different",
+      "before": "a",
+      "after": "b",
+      "expected": "different"
+    },
+    {
+      "id": "missing-before",
+      "before": null,
+      "after": "a",
+      "expected": "unknown"
+    },
+    {
+      "id": "missing-after",
+      "before": "a",
+      "after": null,
+      "expected": "unknown"
+    },
+    {
+      "id": "both-missing",
+      "before": null,
+      "after": null,
+      "expected": "unknown"
+    },
+    {
+      "id": "deliberately-wrong-equality",
+      "before": "a",
+      "after": "b",
+      "expected": "equal",
+      "matched": false
+    }
+  ],
+  "actual_history_goldens": {
+    "closes": [
+      100,
+      110,
+      105,
+      120,
+      115,
+      130,
+      999
+    ],
+    "target": 5,
+    "period": 3,
+    "return_fraction": [
+      5,
+      21
+    ],
+    "future_close_replacement": 12345,
+    "expected_full_result_relation": "equal",
+    "contaminated_target_close": 140,
+    "contaminated_return_fraction": [
+      1,
+      3
+    ],
+    "contaminated_relation": "different",
+    "quality": [
+      "available",
+      4,
+      4
+    ]
+  },
+  "actual_native_goldens": {
+    "C": 200,
+    "K": 210,
+    "E": 210,
+    "trade_prices": [
+      100,
+      102,
+      101
+    ],
+    "sizes": [
+      2,
+      3,
+      5
+    ],
+    "count": 3,
+    "volume": 10,
+    "notional": 1011,
+    "vwap_fraction": [
+      1011,
+      10
+    ],
+    "mean_size_fraction": [
+      10,
+      3
+    ],
+    "K200_quality": "missing_input/future_knowledge; do not silently filter to two rows"
+  },
+  "mapping": "Normative exact shorthand-to-public-record mapping and scalar/refusal rules in EQ-104_PLAN.md; membership effective_ns100/kinduniverse_membership/scopeU, complete ActionPolicy/PriceUnit and synthetic scalar fingerprint identities fixed there."
+}

@@ -1,3 +1,7 @@
+## R10 conformance preparation: test matching is not safety
+
+After EQ103 actual acceptance, EQ104 selects an external comparison harness rather than allowing supplied reports to claim execution. Unknown test outcomes can correctly match expectations while remaining unknown; failed diagnostics may still carry missing prerequisites. Full content changes can be metadata/evidence differences, so a comparator must not infer numerical contamination. Preserve independently written expected findings/counts and original content anchors. [Plan and review history](../stories/EQ-104_PLAN.md). An initial unexecuted late-trade filtering idea was rejected against accepted unavailable-quality semantics; supported unused future-history-slot mutation is the selected invariant. No runtime result is claimed by preparation.
+
 ## EQ103 constructor boundaries need their own controls
 
 An aggregate generation inventory test does not cover duplicate acquisitions within one TaskEvidence. The frozen duplicate-role error contract was not exercised by the initial21methods; a targeted public constructor probe found the missing-versus-duplicate classification error. Preserve the prior passing evidence as scoped history, rework before publication and add an explicit empty/duplicate constructor control rather than changing the frozen expected code. [Finding/correction](../stories/EQ-103_VALIDATION.json).

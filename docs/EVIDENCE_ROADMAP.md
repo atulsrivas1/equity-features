@@ -1,3 +1,11 @@
+## EQ103 accepted; EQ104 pre-code conformance packet — October15,2026
+
+EQ103 [accepted](https://github.com/atulsrivas1/equity-features/issues/203#issuecomment-6202123037) at actual main 648a90480a167dd0507ff7a752363aa113ef7b44/PR402 after separate final source/docs/main/currentbothOS artifact review/all34candidate17mainchecks.20repeatarchives/fourfreshforms eachOS,11supplied or22live provenance methods plus14diagnostic31evidence eachform. Both sourceP2s and previous scoped passes/failures preserved; supplied consistency remains distinct from actual fixed generation readback, native RECORD capture is not independent native rehash/reinstall.
+
+EQ104 [plan](stories/EQ-104_PLAN.md), [oracle](stories/EQ-104_CONFORMANCE_ORACLE.json), [API specification](api/POINT_IN_TIME_CONFORMANCE.md) select a separate optional pure comparison harness,24diagnostic/6content hand-authored assertions plus actual future-history/native public integration goldens. Preparation reviews require exact scalar/mapping rules now fixed; separate final readiness review is pending.204 remains Backlog/unassigned, no runtime package/source/builder/workflow is implemented. EQ105 remains dependent Backlog;194/milestone11 open, R10 not complete.
+
+Next independent exact precode review/fresh dependencies→actualReady/Atul/Inprogress, then implementation and same-story docs/tests; separate source/security/builder review before executing the new threeRepo22repeatarchive/fourfreshform bothOS qualification. Preserve accepted packages/companions/unrelated primary/pausedR7automation. User local-review grant covers all R10, no new owner input missing. Earlier checkpoint statements below are scoped history, not current status authority.
+
 ## EQ102 implemented candidate; qualification pending — October15,2026
 
 EQ101 is accepted through PR400/mainc6c5c100. EQ102 actual Ready/Atul/In progress followed separate corrected readiness review251b76ab and fresh201/38/41ClosedDone. New optional pure source candidate implements the accepted checks; [validation](stories/EQ-102_VALIDATION.json) distinguishes development evidence from pending installed/bothOS/currentmain acceptance. EQ103-105 remain Backlog and R10 open.

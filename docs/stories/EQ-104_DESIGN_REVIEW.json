@@ -1,0 +1,18 @@
+{
+  "schema": "eq104-design-review:1",
+  "reviewer": "/root/r10_review",
+  "stage": "preparation reviews, not Ready approval",
+  "reports": [
+    {
+      "sha256": "38c0d06aa508ab5af64568d951e568bf7d304947ef4ac6781adaf4f1d3dac806",
+      "scope": "initial architecture gaps: retained borrowed graph, complete expected output comparison, unknown overlap, qualification topology"
+    },
+    {
+      "sha256": "82592d4d57f449b299549c7649b7d7ac54bde559d87b698790811023ab402fc1",
+      "scope": "remaining P2 scalar bounds and deterministic oracle mappings; no runtime execution"
+    }
+  ],
+  "disposition": "Selected narrow function API with owned scalar snapshots, explicit mismatch/refusal/count/unknown rules and one22archive/fourform threeRepo recipe. Exact scalar/refusal and public constructor mappings now fixed in plan; renewed exact-head readiness review required.",
+  "unexecuted_idea_correction": "Initial trade-filter invariance idea was discarded before Ready: late knowledge makes accepted trades unavailable. Selected supported public history unusedS6 invariance with independent5/21-to1/3 fractions. Different input/receipt fingerprints are expected across changed inputs; original snapshots never mutated.",
+  "findings_not_claimed_resolved_by_self_review": true
+}
