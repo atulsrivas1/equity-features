@@ -1,3 +1,9 @@
+## R9 execution authorized local review — October15,2026
+
+The owner requests R9 execution and explicitly answers "Authorize local review throughout R9" for EQ096–100, including final delivery. Separate local Codex reviewers may cover each pre-code plan, implementation, final head, affected contracts/callers, actual artifacts and final publication/acceptance. Record identity, exact heads/frozen identities, executed checks, findings/disposition and limitations; renew relevant coverage after changes. Author self-review and CI alone remain insufficient. This is local automated review, not hosted activation or human review. All applicable numerical, documentation, installed Windows/Linux forms, source/RECORD/artifact and publication/lifecycle gates remain mandatory.
+
+This supersedes only the prior planning-only execution/review stop for bounded R9. It does not authorize R10/R11, provider/private acquisition, account administration, paid operations, stable registry publication, public service exposure, R7 automation, destructive or recurring work. Preserve accepted R8 and unrelated primary edits. One active R9 implementation at a time.
+
 ## R9 planning-only authorized local review — October14,2026
 
 The owner explicitly answered "Authorize local review of the R9 plan" for the concrete governance packet GOV021#391/PR392. A separate local Codex reviewer may inspect its R8 post-delivery review/evidence, R9 release/test plan, continuity and this policy clarification, including exact final candidate and publication/readback coverage. Record reviewer identity, exact heads, executed checks, findings/disposition and limitations; renew affected coverage after changes. Author self-review and CI alone remain insufficient. This is automated local review, not human or hosted activation. Applicable documentation/check/publication and lifecycle gates remain mandatory.
