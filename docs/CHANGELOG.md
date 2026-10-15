@@ -1,3 +1,7 @@
+## EQ098 bundle/replay candidate — October15,2026
+
+New optional companion bundles0.1.0a1 provides deterministic bytes-only reproduction archives, strict closed reconstruction/full supplied content verification and explicit fixed trusted replay. Missing refs remain unavailable; cancellation before entry and a five-second after-return acceptance gate make no active-call interruption promise. No extraction, resolver or executable archive content. Candidate source is implemented; independent review/freshbothOS/current artifacts/paired-main release remain pending. Existing numerical/evidence/old-I/O packages unchanged.
+
 ## EQ098 bundle/replay pre-code preparation — October15,2026
 
 After actual accepted EQ097/main ec1e3b1, prepared a complete companion ownership/data-only manifest/fixed stored archive/closed reconstruction/fixed replay/control/rights/qualification packet with independent1336byte manifest/11517byte ZIP oracle. No EQ098 runtime/package version or Ready admission delivered by this preparation. Existing numerical/evidence/oldI-O sources remain unchanged.
