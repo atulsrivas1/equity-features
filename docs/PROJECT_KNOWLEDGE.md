@@ -1,3 +1,7 @@
+## EQ096 receipt candidate — October15,2026
+
+R9 execution is authorized with separate local review throughout. EQ096 is actually In progress after its reviewed Ready packet; other runtime children remain Backlog. Optional pure receipt contracts are implemented under PR393 without changing core numerical packages. Source checks pass, but separate final implementation review, fresh installed bothOS artifacts and actual-main delivery remain pending. [API](api/EVIDENCE_RECEIPTS.md), [schema/independent oracle](stories/EQ-096_PLAN.md), [Ready pull](https://github.com/atulsrivas1/equity-features/issues/196#issuecomment-6192215404). EQ097 computes actual typed content fingerprints; EQ096 does not claim content verification from a supplied hash. R8/R7 acceptance/failed histories remain intact.
+
 ## R9 execution selection — October15,2026
 
 The owner requests execution after [GOV021 accepted planning](https://github.com/atulsrivas1/equity-features/issues/391#issuecomment-6184074657), and explicitly authorizes separate local review throughout R9. [EQ096 pre-code packet](stories/EQ-096_PLAN.md) selects optional pure evidence contracts, without numerical/core behavior changes. EQ097 content hashing, EQ098 separate I/O/replay, EQ099 explanations and EQ100 qualification follow dependency order. Prior planning-only execution stops are superseded by this bounded owner direction; existing scope/privacy/lifecycle and final artifact gates remain mandatory. Live Project owns actual readiness. No R9 capability is implemented by this selection; R8/R7 evidence is preserved.

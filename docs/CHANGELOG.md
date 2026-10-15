@@ -1,3 +1,7 @@
+## EQ096 receipt implementation candidate — October15,2026
+
+Implemented optional pure evidence0.1.0a1 receipt declarations/strict in-memory envelope codec and actual synthetic producer example, with independent known-byte/hash/negative fixtures and a dedicated repeat-build/fresh-consumer gate. No numerical/core source/version change. Reference hashes are supplied assertions; full content verification/replay/explanations remain later R9 stories. Source checks passed; final review/installed bothOS artifacts/main release evidence pending. Earlier pre-code preparation snapshots remain historical.
+
 ## R9 EQ096 pre-code preparation — October15,2026
 
 Published the concrete optional evidence/receipt contract packet and recorded owner-authorized R9 execution/local review. No receipt runtime, fingerprint verifier, bundle/replay, explanation API or numerical change is delivered by this preparation. R9 plan scope and accepted R8/R7 releases remain unchanged.

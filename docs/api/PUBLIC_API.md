@@ -1,3 +1,7 @@
+## EQ096 experimental receipt candidate — October15,2026
+
+[Receipt API and limitations](EVIDENCE_RECEIPTS.md) describes optional equity-feature-evidence0.1.0a1, depending only on unchanged contracts0.0.4a4. Closed immutable declarations, exact bounded in-memory receipt codec, structural result/formula/input binding and a synthetic actual-core example are implemented. Supplied content references are assertions until EQ097 computes/verifies full typed content; no I/O/replay/explanation service or numerical change. This is a candidate, not accepted release evidence. See PR393/story196 for actual review, installed/current artifact and default-branch gates.
+
 ## R8 delivered contracts and consumer qualification
 
 Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.

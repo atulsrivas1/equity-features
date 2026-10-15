@@ -1,3 +1,11 @@
+## EQ096 implementation candidate — October15,2026
+
+Owner authorization covers R9 execution/local reviewers throughout all five stories/final delivery. Separate pre-code review requested two P2 corrections; final packet2fe55df passed with findings[] (report SHAb7cdd9d983673bcf0789e3053108af2c5af9d6d9aaba7244f2134feeb6fb33b4). [Actual Ready→In progress pull](https://github.com/atulsrivas1/equity-features/issues/196#issuecomment-6192215404) followed current dependency readbacks; story196 assigned and R9epic193 In progress, other children Backlog. PR393 remains the single story PR.
+
+Implemented optional pure receipt records/strict bounded in-memory codec and actual synthetic core producer example, with a separate evidence packaging/workflow gate. Twenty source receipt tests, strict mypy and existing42negative/10positive pure-boundary fixtures passed before final implementation documentation. No source/config/math/version changes in contracts/features/strategies/labels; unchanged core example3/10/1011/101.1 preserved. All supplied fingerprint claims remain declarations; full typed verification belongs to EQ097. No installed/bothOS/current artifact/main approval claimed yet.
+
+Next: freeze/review implementation head, run source-closed repeat wheel/sdist builds and fresh isolated/combined consumers on bothOS; retain failed/corrective logs honestly. Resolve actual findings, verify final head/current artifacts and actual-main source/install publication before Released/Done. No self-referential receipt loop or unchanged R8/R7 replay. Earlier pre-code Backlog snapshots below are historical. Preserve primary unrelated edits and paused R7 automation. Tool-only guessed source/helper paths were corrected by tracked inventory, no product failure.
+
 ## R9 execution begins — October15,2026
 
 GOV021#391 is accepted Closed/ProjectDone; PR392 published the reviewed R9 plan at canonicalc2bd46a4c9cdb4df181b18882d64cc8863c79460. [Planning acceptance](https://github.com/atulsrivas1/equity-features/issues/391#issuecomment-6184074657). The owner now requests R9 execution and separately authorizes local review throughout all five stories and final delivery. Earlier planning-only stops remain historical. R8 stays accepted; its original checks/artifacts/FAILED histories are preserved, not replayed for status.
