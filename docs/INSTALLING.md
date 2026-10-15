@@ -1,3 +1,7 @@
+## R9 final composition candidate
+
+[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
+
 ## Optional explanations candidate
 
 Install the matching experimental explanations0.1.0a1 plus contracts0.0.4a4/evidence0.1.0a2 archives from reviewed current GitHub CI delivery. Calculator is optional for the external example; pure root never imports it. [API/limits/version policy](api/CALCULATION_EXPLANATIONS.md). No stable registry publication or automatic dependency upgrade claimed; final artifact acceptance remains pending.

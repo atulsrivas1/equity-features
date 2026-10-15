@@ -1,3 +1,7 @@
+## R9 final composition candidate
+
+[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
+
 ## EQ099 standalone explanations candidate
 
 Python>=3.12,<3.13; explanations0.1.0a1 requires contracts==0.0.4a4/evidence==0.1.0a2. Accepted bundle0.1.0a1 and old numerical/I-O versions unchanged. Only fixed39catalog/schema1/algorithmv1/mathv1/python-exact0.0.4a4 result declarations supported. No latest matching, custom registry or migration by inference. [API](api/CALCULATION_EXPLANATIONS.md).

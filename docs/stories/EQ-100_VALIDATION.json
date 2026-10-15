@@ -1,0 +1,55 @@
+{
+  "schema": "eq100-validation:1",
+  "status": "implemented_source_not_release_qualified",
+  "precode": {
+    "head": "b7a6202ca2fa6d071781eafcab8013ff417b0ac5",
+    "review_sha256": "79edaef6ffac4b30864ab32b96caf72d2b4f9d492495cd160630e475378201a4",
+    "expectations_git_sha256": "f5db3d118ed6f2949c3379abb8ffaf013a94b35f1ce7ee9f4e4ffa97bcd2306f"
+  },
+  "development": {
+    "composition_methods": 10,
+    "current_log_sha256": "dcf5c7587e92b032725bf359d219df167cf4db504f411b0458cef59335c8c326",
+    "installed_development_log_sha256": "c1b6debd4faa297fec3e7f45c29528c887b773d54be5a859a26bb62fd27b7010",
+    "strict_example_files": 1,
+    "boundary_negative": 42,
+    "boundary_positive": 10,
+    "docs_stories": 134,
+    "feature_ids": 39,
+    "final_four_form_bothOS": false
+  },
+  "history": [
+    {
+      "scope": "source-path development",
+      "status": "FAILED",
+      "methods": 10,
+      "failures": 5,
+      "log_sha256": "661a01f7afceb8417c2da8e57ac03ce7c93ff73b7c42fc43765c9709e1540055",
+      "diagnosis": "Fixed replay returned incompatible because actual installed package metadata was absent. New exact isolated development install passed; source-path discovery never relabeled installed proof."
+    },
+    {
+      "scope": "precode fixture bytes",
+      "status": "refined_before_implementation",
+      "preparation_CRLF_sha256": "4c709ebb224342dcfd110a23e0c8a841218cd42e18b1d84f5445acb6cc609c35",
+      "committed_GitLF_sha256": "f5db3d118ed6f2949c3379abb8ffaf013a94b35f1ce7ee9f4e4ffa97bcd2306f",
+      "normalized_equal": true
+    },
+    {
+      "scope": "tool-only",
+      "status": "corrected",
+      "facts": [
+        "GitHub issueedit CRLF normalization caused strict readback assertion after successful edit; normalized equality verified, missingcomment only resumed",
+        "Primary paragraph blank-line lookup stopped beforewrites; EOF-ownedline replacement verified unrelated bytes",
+        "Long documentation shell command automatically rejected before execution; direct file patches completed authorized docs"
+      ]
+    }
+  ],
+  "qualification": null,
+  "source_review": null,
+  "accepted_package_source_changes": false,
+  "R9_complete": false,
+  "limits": [
+    "Development installed tests are not final source-closed repeat archives/fresh bothOS current delivery",
+    "Content/replay consistency never authenticates source/original execution/environment/rights or suitability",
+    "Thirty measured samples perOS are planned until actually executed; no invented results or hard interruption/RSS/physical claim"
+  ]
+}
