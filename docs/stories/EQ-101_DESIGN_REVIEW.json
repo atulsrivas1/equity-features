@@ -1,0 +1,68 @@
+{
+  "story": "EQ101",
+  "scope": "Pre-Ready design review; no implemented evaluator or product failure",
+  "reviewer": "/root/r10_review",
+  "original_findings": [
+    {
+      "priority": 1,
+      "location": "MembershipCheck and ReferenceDeclaration completeness",
+      "issue": "Reference observed count and complete flag do not establish completeness of the projected target fact tuple. A complete reference with observed=10 and empty supplied facts currently permits membership_absent, although the relevant membership row might be omitted from the projection. Thus absence can become a false observed failure rather than unknown.",
+      "requested_change": "Freeze the governed target population and its completeness contract. One bounded option is a homogeneous target-entity/kind reference declaration whose complete projection requires len(facts)==observed and exact row indices; alternatively retain explicit bound projection-completeness evidence. Missing projection coverage must stay unknown, while genuine complete historical empty population may fail absence. Add independent omitted-row versus complete-empty controls."
+    },
+    {
+      "priority": 2,
+      "location": "MembershipCheck fixed fields",
+      "issue": "No selected fact_kind is declared although both universe_membership and sector_membership are supported. A sector fact can satisfy a universe expectation with matching text, or valid simultaneous sector/universe rows can be incorrectly treated as overlapping membership.",
+      "requested_change": "Add a closed selected kind or make the declaration explicitly homogeneous and typed. Define how irrelevant kinds are rejected or excluded before overlap/knowledge evaluation, and test identical-text cross-kind and simultaneous sector/universe cases."
+    },
+    {
+      "priority": 2,
+      "location": "MarketCheck SessionSpec binding",
+      "issue": "ReferenceDeclaration explicitly matches context namespace/entity, but MarketCheck does not require supplied session namespace/session_id to match DecisionContext namespace/entity.session_id. Matching numeric bounds from a foreign session could pass the declared selected observation.",
+      "requested_change": "Require exact session namespace/session identity binding, with inconsistent_binding on contradiction; add independently expected foreign-namespace/session controls."
+    },
+    {
+      "priority": 2,
+      "location": "Finding assessed and unknown_prerequisites",
+      "issue": "Counts are promised exact but decisive supported comparison and missing condition categories are not enumerated. Examples with null ContextCheck, membership missing reference plus missing history/text, or RevisionCheck missing identity/start/knowledge admit multiple reasonable counts and assessed values.",
+      "requested_change": "Freeze per-kind named condition categories, which conditions are evaluated when other operands are absent, assessed aggregation and unknown-count deduplication. Independent fixtures must bind these exact outputs, including failed-plus-unknown precedence."
+    }
+  ],
+  "additional_decisions": [
+    "Clarify semantic request duplication: unique check_id alone permits repeated identical kind/subject checks under different IDs. Either reject repeated semantic identities or explicitly state counts are requested-check counts rather than deduplicated subjects; not_requested should use the fixed kind domain.",
+    "Precisely list all borrowed nested fields subject to string/count validation; current '256 governed identity items in any borrowed context if present' has no concrete applicable field in the selected DecisionContext/AvailabilitySpec and should be mapped or removed.",
+    "Retain the strict exact-declaration adjustment comparison label: unequal scales fail this selected exact-compatibility check even when accepted numeric contracts permit explicit exact conversion. Do not present that failure as universal economic incompatibility."
+  ],
+  "intermediate_findings": [
+    {
+      "priority": 2,
+      "location": "DiagnosticReport zero-assessment sentence",
+      "issue": "Zero assessable facts produces unknown findings contradicts new assessed definition and failed-plus-missing precedence: future effective query with absent reference fails despite assessedFalse. Zero completed assessments alone must not override a visible violation.",
+      "requested_change": "Restrict unknown conclusion to missing required proof with no observed violation, retaining exact failed-plus-unknown behavior."
+    },
+    {
+      "priority": 2,
+      "location": "Unique check IDs and denominator claim",
+      "issue": "Different check IDs can repeat the same semantic kind/subject request, so unique IDs do not prevent semantic duplicate denominators as claimed.",
+      "requested_change": "Freeze unique(kind,subject_id) or explicitly document counts as distinct requests and remove subject deduplication/replay claim."
+    },
+    {
+      "priority": 2,
+      "location": "256 governed identity items bound",
+      "issue": "The selected DecisionContext/AvailabilitySpec has no declared governed-identity collection, leaving the bound without an exact field or measurable at/above test.",
+      "requested_change": "Name the actual selected collection or remove this inapplicable bound; keep selected SessionSpec intervals and all nested labels explicitly bounded."
+    }
+  ],
+  "disposition": "Corrected specification candidate; final independent readiness review remains required",
+  "corrections": [
+    "Homogeneous explicit selected kind plus exact full projection cardinality/indices; omitted rows unknown, explicit complete empty distinct.",
+    "Market session bound to namespace/entity.session.",
+    "Exact per-kind missing categories, assessed iff zero unknown prerequisites, visible violations preserved with missing proof.",
+    "Semantic duplicates rejected, nested bounds explicit, exact adjustment declaration comparison not universal economic incompatibility.",
+    "Zero completed assessments does not suppress visible failure; content field included explicitly in finding signature."
+  ],
+  "raw_report_sha256": {
+    "eq101-design-preparation-review.json": "8d30365cfe0d101366645bd9a5f54352933d08707f1351f5c3d88a165d582975",
+    "eq101-design-correction-review.json": "021af97356e89ca472a71ec034b37a317b96542ca681232d392866f569d2243e"
+  }
+}

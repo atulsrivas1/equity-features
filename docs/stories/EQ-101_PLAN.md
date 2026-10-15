@@ -1,42 +1,31 @@
-# EQ101 preparation — diagnostic findings and admissibility
+# EQ101 pre-code packet — diagnostic contract and independent fixtures
 
-[Issue201](https://github.com/atulsrivas1/equity-features/issues/201), [epic194](https://github.com/atulsrivas1/equity-features/issues/194), R10. Provisional5points estimate complexity, not days. This preparation accompanies GOV022; it is not the complete reviewed pre-code freeze or implemented API. Runtime remains Backlog until the handoff/review route and the remaining concrete schema/oracle decisions below are resolved.
+Issue [201](https://github.com/atulsrivas1/equity-features/issues/201), epic194, R10 milestone11; provisional5points are complexity, not days. Owner authorized bounded R10 and separate local review throughout. [Handoff](../R10_AUTONOMOUS_HANDOFF.md) GOV022#398 is accepted via PR399 at main04ff3bf77dae02c20c3e5b5f8f8ccac2446f9204, [acceptance](https://github.com/atulsrivas1/equity-features/issues/398#issuecomment-6199959132). EQ101 remains Backlog until this complete candidate has separate readiness review and live dependency readback; no implemented optional package or Ready claim in preparation.
 
-## Dependencies and smallest accepted outcome
+## Included outcome and no-impact boundary
 
-EQ096 #196, EQ033 #38 and EQ037 #42 were freshly read Closed/ProjectDone; R9 final acceptance is linked in the R10 handoff. Read accepted timing/action/reference contracts and source before choosing records. EQ101 owns a versioned diagnostic specification and independent expected boundary fixtures with validation, package ownership and consumer examples of the declared schema. EQ102 owns actual membership/revision evaluation. Do not deliver a placeholder runtime evaluator or claim an unimplemented diagnostic check is running.
+Freeze the [normative diagnostic specification](../api/POINT_IN_TIME_DIAGNOSTICS.md), [hand-authored truth table](EQ-101_TRUTH_TABLE.json), minimal nonexecuting typed consumer and independent documentation/reference verifier. EQ101 specifies records and findings; EQ102 implements/evaluates them. No placeholder runtime module/package, package version/dependency change, wire codec, arbitrary code/path resolver, calculation/math migration or source acquisition. Optional diagnostics name/version/import boundaries are now selected in the contract for future EQ102; proposed handoff allocation is settled without changing accepted libraries.
 
-Recommended optional pure allocation is `equity-feature-diagnostics` / `equity_feature_diagnostics` under canonical `packages/diagnostics`, initial experimental0.1.0a1; exact inward dependencies on contracts0.0.4a4/evidence0.1.0a2, no feature/adapter/worker import on the root. These are proposals to freeze in the final EQ101 packet. No change to core math, schemas or existing digest meanings.
+This specification-only allocation matches existing EQ101 acceptance (specify policy/schema/tests) and EQ102 implementation ownership. The public example is clearly nonexecuting until EQ102; documentation verification tests truth-table arithmetic and structure, not a nonexistent diagnostic implementation. Runtime qualification and installed package tests remain EQ102/105 gates.
 
-## Proposed contract decisions
+## Prerequisites, first actions and decisions
 
-Each requested check has immutable policy/check/version/subject identities, explicit supplied evidence references, a passed/failed/unknown result, reason and coverage. Nonrequested checks are separately identifiable and cannot count as passed. Syntax/identity/version contradictions are typed validation errors. Advisory immutable reporting is the default; strict admission, if selected, separately declines according to named failure/unknown policies without rewriting the finding's evidence state. No aggregate safety score.
+EQ096#196/EQ033#38/EQ037#42 were freshly verified Closed/ProjectDone; re-read live before Ready. Relevant source: accepted contracts policies/specs/inputs, TIMING_ADJUSTMENT_POLICY, ACTION_POLICIES, evidence content and owner-corrected AGENT_EVIDENCE_DESIGN. Preserve C/K/E versus real execution time; equal known-at is admitted, effective intervals are half-open, reconstruction remains distinct, absent historical proof cannot become safety. Advisory finding status and separately selected strict admission never rewrite each other.
 
-Separate checks: ordinary/exceptional market-bound admission; consumed known-at availability; requested-versus-declared C/K/E policy; reconstruction versus causal declaration; historical membership/classification coverage; revision identity/availability; adjustment compatibility; explicit freshness age. The full freeze must define which are schema declarations in EQ101 and which evaluators are implemented in EQ102, without expanding existing acceptance.
+Separate design review caught four concrete pre-freeze gaps; [original findings and corrections](EQ-101_DESIGN_REVIEW.json) remain preserved. Final spec requires explicit membership kind, homogeneous full reference projection/row coverage, exact market session binding and a per-kind missing-prerequisite table. Repeated semantic kind/subject requests fail duplicate; literal counts do not authenticate semantic aliases. Exact adjustment declaration mismatch is not a claim that explicit numerical scale conversion is impossible.
 
-Source identity, execution environment and timestamps are supplied facts. Real execution time never substitutes for simulated decision E. K is a bound; a later declared K is a policy mismatch, not proof that each consumed fact was late. Current-only membership and absent acquisition proof cannot be repaired by hashes or a self-consistent receipt. Zero assessed population remains not evaluated, not zero leakage.
+Before implementation, publish this packet/oracle, obtain exact-head independent semantic/readiness approval, verify live prerequisites, then actual Ready/assignAtul/In progress. Implement only the independent documentation verifier and same-story API/examples/compatibility/security/lesson/handoff evidence in this story. Do not pull EQ102 until actual EQ101 specification acceptance and its own concrete reviewed implementation plan.
 
-## Independent seeds to freeze before runtime
+## Frozen fixture and verification protocol
 
-| Seed | Supplied facts | Expected policy distinction |
-| --- | --- | --- |
-| ordinary-before | Session0..200, C100, event99 | Market-bound pass |
-| ordinary-at | Same, event100 | Market-bound fail; ordinary upper bound is exclusive |
-| closing-exception | Session0..200, C200, closing-auction event200 | Pass only under existing explicit closing-auction inclusion |
-| known-equality | K100, consumed known_at100 | Knowledge pass |
-| known-later | K100, consumed known_at101 | Observed later-knowledge failure |
-| known-missing | K100, consumed known_at null | Unknown knowledge; no invented time |
-| bound-mismatch | Requested K100, declared K110, E120, all supplied known_at90 | Policy mismatch; do not assert each row was future knowledge |
-| membership-end | Effective[20,100), query100 | Outside effective interval, distinct from absent proof |
-| current-only | Current snapshot supplied for historical query without history | Historical evidence unknown, not certified empty or safe |
-| revision-later | Effective20, exact selected revision known_at101, K100 | Knowledge failure despite old effective time |
-| freshness-edge | Target100, observation90, tolerance10 under selected age basis | Age10 admitted; observation89 exceeds tolerance |
-| no-assessment | No assessable required facts | Unknown/not evaluated; denominator0 and ratio null |
+35 hand-authored check vectors across all seven selected kinds and six explicit policy/count aggregates. They bind literal status/reasons/assessed/missing-category count/age, half-open/equality neighbors, unknowns, projection versus explicit empty, future excluded reference rows, overlap, failed-plus-unknown precedence, adjustment exact scale distinction, and derived2^64-1 freshness without wrap.18named structural refusal requirements freeze codes for future implemented EQ102 constructors/evaluator; they are not falsely counted as executed structural runtime tests in EQ101.
 
-These seeds are independent design expectations, not executed test results. Final fixtures must name exact supported types, contexts, policy modes, counts/reasons and byte/hash representations if encoded, including closing-event discriminator and completeness evidence. Validate the fixture constructors independently against existing contracts; preserve failed fixture attempts honestly. Add reconstruction, unknown/contradictory policy, duplicate/mismatched references and int64 extremes before Ready.
+The documentation verifier reads the literal oracle and compares independently coded integer/interval/equality reference formulas. It imports no diagnostic implementation, core calculator, adapter, worker or future package. Expected JSON is not regenerated from that verifier. It verifies closed fixture keys/IDs/kinds, sorted unique reasons, exact count reconciliation, severity/admission logic and required refusal domain, plus supported record shorthand constructors against accepted contract semantics where relevant. Runtime exact-type/refusal/immutability/resource boundaries remain explicit EQ102 tests, not inferred from this verifier.
 
-## Remaining Ready decisions and delivery
+First run failures, if any, remain recorded; correct a wrong fixture or reference verifier against normative semantics with separate review rather than weakening a production assertion. Content references remain declarations; no authenticated source/consumption/rights/time claim.
 
-Freeze concrete records/check IDs, schema/canonicalization and compatibility; status/reason/severity/admission table; subject/evidence coverage and trust assumptions; literal counts/byte/depth/node limits with preflight order; exact fixture/oracle source and minimal public consumer; documentation and applicable validation. No arbitrary code/path/URL resolver, fetching, clock, scheduling or publication in pure code.
+## Accepted end state and delivery gates
 
-Publish that completed packet and independent review before actual Ready/assignment/In progress. EQ101 specification delivery uses relevant schema/math/reference/documentation checks; a later installable implementation requires its own current Windows/Linux forms and exact source/artifact maps. Final-head separate review and actual main/readback/acceptance precede Done. Update public API/decision/example/compatibility/rights/lesson/handoff and issue/PR in the same story. Review request or green docs alone is not accepted runtime. Continue EQ102 only after EQ101 acceptance and its own concrete reviewed readiness packet.
+Actual Backlog→Ready→In progress→Code review→Test→Ready to release→Released→Done, exact final-head separate semantic/source/docs review and findings disposition, applicable current documentation/reference checks, actual public main/source/tree/Atul-GitHub/noCoauthors readback, independent actual-main docs-only review and acceptance. Complete API/spec/oracle/nonexecuting example, changelog/compatibility/security/no-impact decisions, evidence-linked lesson and session continuity plus issue/PR in the same change. No wheel/build/install claim is necessary for no package/runtime/build/workflow changes; never relabel old R9 artifacts as diagnostic qualification.
+
+EQ101 acceptance proves a qualified versioned specification and independent truth table, not an implemented detector. At acceptance choose EQ102 only after its complete pre-code contract/independent fixtures and applicable review. R10 aggregate remains open, with governance398 separately accepted, and R11+/provider/private/admin/paid/publicservice/registry/automation excluded.

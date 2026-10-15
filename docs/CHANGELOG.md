@@ -1,3 +1,7 @@
+## EQ101 diagnostic specification candidate — October15,2026
+
+Prepared separate optional diagnostic record/check/policy contract,35independent check vectors/six admission aggregates and18future structural refusal requirements. Preserved and corrected pre-Ready projection/kind/session/count findings; no implemented evaluator or package yet. EQ102 owns runtime. GOV022 handoff accepted at04ff3 with actual independent main/closure readback; [current EQ101 gates](stories/EQ-101_PLAN.md).
+
 ## R10 review route authorized — October15,2026
 
 Owner-authorized separate local automated review covers the handoff/GOV022, EQ101–105 and final R10 delivery. Applicable review/check/source/installed/publication gates remain required; no runtime implementation or acceptance inferred from this permission.

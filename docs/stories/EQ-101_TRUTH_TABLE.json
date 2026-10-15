@@ -1,0 +1,949 @@
+{
+  "fixture_schema": "eq101-truth-table:1",
+  "context": {
+    "namespace": "demo",
+    "instrument": "A",
+    "session": "S",
+    "C": 100,
+    "K": 100,
+    "E": 120
+  },
+  "scope": "Independent hand-authored specification oracle, not a diagnostic request wire format or executed implementation",
+  "cases": [
+    {
+      "id": "market-before",
+      "kind": "market_time",
+      "input": {
+        "open": 0,
+        "close": 200,
+        "time": 99,
+        "convention": "ordinary_event",
+        "include_closing": false,
+        "start": null
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "market-at",
+      "kind": "market_time",
+      "input": {
+        "open": 0,
+        "close": 200,
+        "time": 100,
+        "convention": "ordinary_event",
+        "include_closing": false,
+        "start": null
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "market_bound"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "market-missing",
+      "kind": "market_time",
+      "input": {
+        "open": 0,
+        "close": 200,
+        "time": null,
+        "convention": "ordinary_event",
+        "include_closing": false,
+        "start": null
+      },
+      "expected": {
+        "status": "unknown",
+        "reasons": [
+          "missing_market_fact"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "closing-enabled",
+      "kind": "market_time",
+      "context": {
+        "C": 200,
+        "K": 200,
+        "E": 210
+      },
+      "input": {
+        "open": 0,
+        "close": 200,
+        "time": 200,
+        "convention": "closing_auction",
+        "include_closing": true,
+        "start": null
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "closing-disabled",
+      "kind": "market_time",
+      "context": {
+        "C": 200,
+        "K": 200,
+        "E": 210
+      },
+      "input": {
+        "open": 0,
+        "close": 200,
+        "time": 200,
+        "convention": "closing_auction",
+        "include_closing": false,
+        "start": null
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "market_bound"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "interval-equality",
+      "kind": "market_time",
+      "input": {
+        "open": 0,
+        "close": 200,
+        "time": 100,
+        "convention": "completed_interval",
+        "include_closing": false,
+        "start": 90
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "interval-forming",
+      "kind": "market_time",
+      "input": {
+        "open": 0,
+        "close": 200,
+        "time": 101,
+        "convention": "completed_interval",
+        "include_closing": false,
+        "start": 90
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "market_bound"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "known-equality",
+      "kind": "knowledge_time",
+      "input": {
+        "known": 100
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "known-later",
+      "kind": "knowledge_time",
+      "input": {
+        "known": 101
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "late_knowledge"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "known-null",
+      "kind": "knowledge_time",
+      "input": {
+        "known": null
+      },
+      "expected": {
+        "status": "unknown",
+        "reasons": [
+          "missing_knowledge"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "context-equal",
+      "kind": "declared_context",
+      "input": {
+        "C": 100,
+        "K": 100,
+        "E": 120,
+        "mode": "known_at"
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "context-K-mismatch",
+      "kind": "declared_context",
+      "input": {
+        "C": 100,
+        "K": 110,
+        "E": 120,
+        "mode": "known_at"
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "knowledge_cutoff_mismatch"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "reconstruction",
+      "kind": "declared_context",
+      "input": {
+        "C": 100,
+        "K": 100,
+        "E": 120,
+        "mode": "reconstruction"
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "reconstruction_context"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "context-null",
+      "kind": "declared_context",
+      "input": null,
+      "expected": {
+        "status": "unknown",
+        "reasons": [
+          "missing_context"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "membership-active",
+      "kind": "membership",
+      "input": {
+        "query": 50,
+        "scope": "U",
+        "selected_kind": "universe_membership",
+        "history": "historical",
+        "reference": {
+          "observed": 1,
+          "complete": true
+        },
+        "facts": [
+          [
+            0,
+            "r0",
+            20,
+            100,
+            100,
+            "U"
+          ]
+        ]
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "membership-end-exclusive",
+      "kind": "membership",
+      "input": {
+        "query": 100,
+        "scope": "U",
+        "selected_kind": "universe_membership",
+        "history": "historical",
+        "reference": {
+          "observed": 1,
+          "complete": true
+        },
+        "facts": [
+          [
+            0,
+            "r0",
+            20,
+            100,
+            90,
+            "U"
+          ]
+        ]
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "membership_absent"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "membership-current-only",
+      "kind": "membership",
+      "input": {
+        "query": 50,
+        "scope": "U",
+        "selected_kind": "universe_membership",
+        "history": "current_only",
+        "reference": {
+          "observed": 1,
+          "complete": true
+        },
+        "facts": [
+          [
+            0,
+            "r0",
+            20,
+            100,
+            90,
+            "U"
+          ]
+        ]
+      },
+      "expected": {
+        "status": "unknown",
+        "reasons": [
+          "historical_proof_unknown"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "membership-omitted-projection",
+      "kind": "membership",
+      "input": {
+        "query": 50,
+        "scope": "U",
+        "selected_kind": "universe_membership",
+        "history": "historical",
+        "reference": {
+          "observed": 10,
+          "complete": true
+        },
+        "facts": []
+      },
+      "expected": {
+        "status": "unknown",
+        "reasons": [
+          "incomplete_projection"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "membership-explicit-empty",
+      "kind": "membership",
+      "input": {
+        "query": 50,
+        "scope": "U",
+        "selected_kind": "universe_membership",
+        "history": "historical",
+        "reference": {
+          "observed": 0,
+          "complete": true
+        },
+        "facts": []
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "membership_absent"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "membership-incomplete-late",
+      "kind": "membership",
+      "input": {
+        "query": 50,
+        "scope": "U",
+        "selected_kind": "universe_membership",
+        "history": "historical",
+        "reference": {
+          "observed": 1,
+          "complete": false
+        },
+        "facts": [
+          [
+            0,
+            "r0",
+            20,
+            100,
+            101,
+            "U"
+          ]
+        ]
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "incomplete_reference",
+          "late_knowledge"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "membership-excluded-future",
+      "kind": "membership",
+      "input": {
+        "query": 50,
+        "scope": "U",
+        "selected_kind": "universe_membership",
+        "history": "historical",
+        "reference": {
+          "observed": 2,
+          "complete": true
+        },
+        "facts": [
+          [
+            0,
+            "r0",
+            20,
+            60,
+            90,
+            "U"
+          ],
+          [
+            1,
+            "r1",
+            60,
+            null,
+            1000,
+            "U"
+          ]
+        ]
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "membership-overlap",
+      "kind": "membership",
+      "input": {
+        "query": 50,
+        "scope": "U",
+        "selected_kind": "universe_membership",
+        "history": "historical",
+        "reference": {
+          "observed": 2,
+          "complete": true
+        },
+        "facts": [
+          [
+            0,
+            "r0",
+            20,
+            100,
+            90,
+            "U"
+          ],
+          [
+            1,
+            "r1",
+            40,
+            null,
+            90,
+            "U"
+          ]
+        ]
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "ambiguous_membership"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "membership-future-query-missing-proof",
+      "kind": "membership",
+      "input": {
+        "query": 101,
+        "scope": "U",
+        "selected_kind": "universe_membership",
+        "history": "unknown",
+        "reference": null,
+        "facts": []
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "future_effective_query",
+          "historical_proof_unknown",
+          "missing_reference"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 2,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "revision-equal",
+      "kind": "revision",
+      "input": {
+        "expected": [
+          "snap1",
+          "rev1"
+        ],
+        "observed": [
+          "snap1",
+          "rev1"
+        ],
+        "start": 20,
+        "end": 100,
+        "query": 50,
+        "known": 100
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "revision-changed",
+      "kind": "revision",
+      "input": {
+        "expected": [
+          "snap1",
+          "rev1"
+        ],
+        "observed": [
+          "snap2",
+          "rev2"
+        ],
+        "start": 20,
+        "end": 100,
+        "query": 50,
+        "known": 90
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "revision_mismatch"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "revision-late",
+      "kind": "revision",
+      "input": {
+        "expected": [
+          "snap1",
+          "rev1"
+        ],
+        "observed": [
+          "snap1",
+          "rev1"
+        ],
+        "start": 20,
+        "end": 100,
+        "query": 50,
+        "known": 101
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "late_knowledge"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "revision-two-missing-identities",
+      "kind": "revision",
+      "input": {
+        "expected": null,
+        "observed": null,
+        "start": 20,
+        "end": 100,
+        "query": 50,
+        "known": 90
+      },
+      "expected": {
+        "status": "unknown",
+        "reasons": [
+          "missing_revision_identity"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 2,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "adjustment-equal",
+      "kind": "adjustment",
+      "input": {
+        "expected": "raw/raw-v1/snap0/anchor0/caller_transformed/raw_shares/none",
+        "observed": "raw/raw-v1/snap0/anchor0/caller_transformed/raw_shares/none",
+        "expected_unit": [
+          0,
+          "USD"
+        ],
+        "observed_unit": [
+          0,
+          "USD"
+        ]
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "adjustment-scale-mismatch",
+      "kind": "adjustment",
+      "input": {
+        "expected": "raw/raw-v1/snap0/anchor0/caller_transformed/raw_shares/none",
+        "observed": "raw/raw-v1/snap0/anchor0/caller_transformed/raw_shares/none",
+        "expected_unit": [
+          0,
+          "USD"
+        ],
+        "observed_unit": [
+          2,
+          "USD"
+        ]
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "adjustment_mismatch"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "adjustment-four-missing",
+      "kind": "adjustment",
+      "input": {
+        "expected": null,
+        "observed": null,
+        "expected_unit": null,
+        "observed_unit": null
+      },
+      "expected": {
+        "status": "unknown",
+        "reasons": [
+          "missing_adjustment"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 4,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "freshness-edge",
+      "kind": "freshness",
+      "input": {
+        "basis": "market_observation",
+        "target": 100,
+        "observed": 90,
+        "tolerance": 10
+      },
+      "expected": {
+        "status": "passed",
+        "reasons": [],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": 10
+      }
+    },
+    {
+      "id": "freshness-stale",
+      "kind": "freshness",
+      "input": {
+        "basis": "market_observation",
+        "target": 100,
+        "observed": 89,
+        "tolerance": 10
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "stale_observation"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": 11
+      }
+    },
+    {
+      "id": "freshness-future",
+      "kind": "freshness",
+      "input": {
+        "basis": "reference_publication",
+        "target": 100,
+        "observed": 101,
+        "tolerance": 10
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "future_observation"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "freshness-null",
+      "kind": "freshness",
+      "input": {
+        "basis": "tool_read",
+        "target": 100,
+        "observed": null,
+        "tolerance": 10
+      },
+      "expected": {
+        "status": "unknown",
+        "reasons": [
+          "missing_observation"
+        ],
+        "assessed": false,
+        "unknown_prerequisites": 1,
+        "age_ns": null
+      }
+    },
+    {
+      "id": "freshness-int64-extremes",
+      "kind": "freshness",
+      "input": {
+        "basis": "market_observation",
+        "target": 9223372036854775807,
+        "observed": -9223372036854775808,
+        "tolerance": 9223372036854775807
+      },
+      "expected": {
+        "status": "failed",
+        "reasons": [
+          "stale_observation"
+        ],
+        "assessed": true,
+        "unknown_prerequisites": 0,
+        "age_ns": 18446744073709551615
+      }
+    }
+  ],
+  "admission_cases": [
+    {
+      "id": "advisory-failure",
+      "mode": "advisory",
+      "unknown_action": "deny",
+      "case_ids": [
+        "market-at",
+        "known-null"
+      ],
+      "expected": {
+        "admission": "not_applied",
+        "requested": 2,
+        "passed": 0,
+        "failed": 1,
+        "unknown": 1,
+        "assessed": 1,
+        "unknown_prerequisites": 1
+      }
+    },
+    {
+      "id": "strict-failure",
+      "mode": "strict",
+      "unknown_action": "allow",
+      "case_ids": [
+        "market-at",
+        "known-null"
+      ],
+      "expected": {
+        "admission": "denied",
+        "requested": 2,
+        "passed": 0,
+        "failed": 1,
+        "unknown": 1,
+        "assessed": 1,
+        "unknown_prerequisites": 1
+      }
+    },
+    {
+      "id": "strict-unknown-deny",
+      "mode": "strict",
+      "unknown_action": "deny",
+      "case_ids": [
+        "known-null"
+      ],
+      "expected": {
+        "admission": "denied",
+        "requested": 1,
+        "passed": 0,
+        "failed": 0,
+        "unknown": 1,
+        "assessed": 0,
+        "unknown_prerequisites": 1
+      }
+    },
+    {
+      "id": "strict-unknown-allow",
+      "mode": "strict",
+      "unknown_action": "allow",
+      "case_ids": [
+        "known-null"
+      ],
+      "expected": {
+        "admission": "admitted",
+        "requested": 1,
+        "passed": 0,
+        "failed": 0,
+        "unknown": 1,
+        "assessed": 0,
+        "unknown_prerequisites": 1
+      }
+    },
+    {
+      "id": "strict-pass",
+      "mode": "strict",
+      "unknown_action": "deny",
+      "case_ids": [
+        "market-before",
+        "known-equality"
+      ],
+      "expected": {
+        "admission": "admitted",
+        "requested": 2,
+        "passed": 2,
+        "failed": 0,
+        "unknown": 0,
+        "assessed": 2,
+        "unknown_prerequisites": 0
+      }
+    },
+    {
+      "id": "zero-completed-visible-failure",
+      "mode": "strict",
+      "unknown_action": "allow",
+      "case_ids": [
+        "membership-future-query-missing-proof"
+      ],
+      "expected": {
+        "admission": "denied",
+        "requested": 1,
+        "passed": 0,
+        "failed": 1,
+        "unknown": 0,
+        "assessed": 0,
+        "unknown_prerequisites": 2
+      }
+    }
+  ],
+  "required_structural_refusals": {
+    "mixed_membership_kind": "inconsistent_binding",
+    "wrong_reference_kind": "inconsistent_binding",
+    "wrong_session_namespace": "inconsistent_binding",
+    "wrong_session_id": "inconsistent_binding",
+    "duplicate_check_id": "duplicate",
+    "duplicate_kind_subject": "duplicate",
+    "missing_reference_with_facts": "inconsistent_binding",
+    "duplicate_reference_id": "duplicate",
+    "duplicate_reference_row": "duplicate",
+    "row_index_outside_population": "inconsistent_binding",
+    "bool_as_int": "invalid_schema",
+    "unknown_version": "unsupported_version",
+    "unknown_kind": "unsupported_version",
+    "oversized_nested_identity": "limit_exceeded",
+    "too_many_checks": "limit_exceeded",
+    "too_many_facts": "limit_exceeded",
+    "aggregate_fact_limit": "limit_exceeded",
+    "unsupported_borrowed_record": "invalid_schema"
+  }
+}
