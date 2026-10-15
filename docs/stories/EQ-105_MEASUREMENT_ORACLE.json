@@ -1,0 +1,944 @@
+{
+  "schema": "eq105-measurement-oracle:1",
+  "status": "precode_literal_assertions_not_runtime_results",
+  "warmup_pairs": 3,
+  "sample_pairs": 10,
+  "pair_order": "baseline_then_wrapper",
+  "workloads": [
+    {
+      "id": "k1",
+      "checks": 1,
+      "facts": 0,
+      "expected_snapshot": {
+        "context": {
+          "namespace": "demo",
+          "instrument_id": "A",
+          "session_id": "S",
+          "market_cutoff_ns": 100,
+          "knowledge_cutoff_ns": 100,
+          "evaluation_ns": 120
+        },
+        "policy": {
+          "policy_id": "case-policy",
+          "mode": "strict",
+          "unknown_action": "deny"
+        },
+        "findings": [
+          {
+            "check_id": "k0",
+            "subject_id": "s0",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          }
+        ],
+        "requested_count": 1,
+        "passed_count": 1,
+        "failed_count": 0,
+        "unknown_count": 0,
+        "assessed_count": 1,
+        "unknown_prerequisite_count": 0,
+        "not_requested": [
+          "adjustment",
+          "declared_context",
+          "freshness",
+          "market_time",
+          "membership",
+          "revision"
+        ],
+        "admission": "admitted",
+        "source_authenticated": false,
+        "historical_acquisition_verified": false,
+        "schema_version": "1"
+      }
+    },
+    {
+      "id": "k16",
+      "checks": 16,
+      "facts": 0,
+      "expected_snapshot": {
+        "context": {
+          "namespace": "demo",
+          "instrument_id": "A",
+          "session_id": "S",
+          "market_cutoff_ns": 100,
+          "knowledge_cutoff_ns": 100,
+          "evaluation_ns": 120
+        },
+        "policy": {
+          "policy_id": "case-policy",
+          "mode": "strict",
+          "unknown_action": "deny"
+        },
+        "findings": [
+          {
+            "check_id": "k0",
+            "subject_id": "s0",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k1",
+            "subject_id": "s1",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k2",
+            "subject_id": "s2",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k3",
+            "subject_id": "s3",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k4",
+            "subject_id": "s4",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k5",
+            "subject_id": "s5",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k6",
+            "subject_id": "s6",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k7",
+            "subject_id": "s7",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k8",
+            "subject_id": "s8",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k9",
+            "subject_id": "s9",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k10",
+            "subject_id": "s10",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k11",
+            "subject_id": "s11",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k12",
+            "subject_id": "s12",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k13",
+            "subject_id": "s13",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k14",
+            "subject_id": "s14",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k15",
+            "subject_id": "s15",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          }
+        ],
+        "requested_count": 16,
+        "passed_count": 16,
+        "failed_count": 0,
+        "unknown_count": 0,
+        "assessed_count": 16,
+        "unknown_prerequisite_count": 0,
+        "not_requested": [
+          "adjustment",
+          "declared_context",
+          "freshness",
+          "market_time",
+          "membership",
+          "revision"
+        ],
+        "admission": "admitted",
+        "source_authenticated": false,
+        "historical_acquisition_verified": false,
+        "schema_version": "1"
+      }
+    },
+    {
+      "id": "k32",
+      "checks": 32,
+      "facts": 0,
+      "expected_snapshot": {
+        "context": {
+          "namespace": "demo",
+          "instrument_id": "A",
+          "session_id": "S",
+          "market_cutoff_ns": 100,
+          "knowledge_cutoff_ns": 100,
+          "evaluation_ns": 120
+        },
+        "policy": {
+          "policy_id": "case-policy",
+          "mode": "strict",
+          "unknown_action": "deny"
+        },
+        "findings": [
+          {
+            "check_id": "k0",
+            "subject_id": "s0",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k1",
+            "subject_id": "s1",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k2",
+            "subject_id": "s2",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k3",
+            "subject_id": "s3",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k4",
+            "subject_id": "s4",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k5",
+            "subject_id": "s5",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k6",
+            "subject_id": "s6",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k7",
+            "subject_id": "s7",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k8",
+            "subject_id": "s8",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k9",
+            "subject_id": "s9",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k10",
+            "subject_id": "s10",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k11",
+            "subject_id": "s11",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k12",
+            "subject_id": "s12",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k13",
+            "subject_id": "s13",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k14",
+            "subject_id": "s14",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k15",
+            "subject_id": "s15",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k16",
+            "subject_id": "s16",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k17",
+            "subject_id": "s17",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k18",
+            "subject_id": "s18",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k19",
+            "subject_id": "s19",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k20",
+            "subject_id": "s20",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k21",
+            "subject_id": "s21",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k22",
+            "subject_id": "s22",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k23",
+            "subject_id": "s23",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k24",
+            "subject_id": "s24",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k25",
+            "subject_id": "s25",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k26",
+            "subject_id": "s26",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k27",
+            "subject_id": "s27",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k28",
+            "subject_id": "s28",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k29",
+            "subject_id": "s29",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k30",
+            "subject_id": "s30",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "k31",
+            "subject_id": "s31",
+            "kind": "knowledge_time",
+            "content": null,
+            "status": "passed",
+            "severity": "info",
+            "reasons": [],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          }
+        ],
+        "requested_count": 32,
+        "passed_count": 32,
+        "failed_count": 0,
+        "unknown_count": 0,
+        "assessed_count": 32,
+        "unknown_prerequisite_count": 0,
+        "not_requested": [
+          "adjustment",
+          "declared_context",
+          "freshness",
+          "market_time",
+          "membership",
+          "revision"
+        ],
+        "admission": "admitted",
+        "source_authenticated": false,
+        "historical_acquisition_verified": false,
+        "schema_version": "1"
+      }
+    },
+    {
+      "id": "m512",
+      "checks": 4,
+      "facts": 512,
+      "expected_snapshot": {
+        "context": {
+          "namespace": "demo",
+          "instrument_id": "A",
+          "session_id": "S",
+          "market_cutoff_ns": 100,
+          "knowledge_cutoff_ns": 100,
+          "evaluation_ns": 120
+        },
+        "policy": {
+          "policy_id": "case-policy",
+          "mode": "strict",
+          "unknown_action": "deny"
+        },
+        "findings": [
+          {
+            "check_id": "c0",
+            "subject_id": "s0",
+            "kind": "membership",
+            "content": null,
+            "status": "failed",
+            "severity": "error",
+            "reasons": [
+              "membership_absent"
+            ],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "c1",
+            "subject_id": "s1",
+            "kind": "membership",
+            "content": null,
+            "status": "failed",
+            "severity": "error",
+            "reasons": [
+              "membership_absent"
+            ],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "c2",
+            "subject_id": "s2",
+            "kind": "membership",
+            "content": null,
+            "status": "failed",
+            "severity": "error",
+            "reasons": [
+              "membership_absent"
+            ],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          },
+          {
+            "check_id": "c3",
+            "subject_id": "s3",
+            "kind": "membership",
+            "content": null,
+            "status": "failed",
+            "severity": "error",
+            "reasons": [
+              "membership_absent"
+            ],
+            "assessed": true,
+            "unknown_prerequisites": 0,
+            "age_ns": null
+          }
+        ],
+        "requested_count": 4,
+        "passed_count": 0,
+        "failed_count": 4,
+        "unknown_count": 0,
+        "assessed_count": 4,
+        "unknown_prerequisite_count": 0,
+        "not_requested": [
+          "adjustment",
+          "declared_context",
+          "freshness",
+          "knowledge_time",
+          "market_time",
+          "revision"
+        ],
+        "admission": "denied",
+        "source_authenticated": false,
+        "historical_acquisition_verified": false,
+        "schema_version": "1"
+      }
+    }
+  ],
+  "statistics_controls": [
+    {
+      "id": "half_negative",
+      "baseline_raw_ns": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "wrapper_raw_ns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "baseline_min_ns": 1,
+      "baseline_max_ns": 10,
+      "baseline_median_ns": {
+        "numerator": 11,
+        "denominator": 2
+      },
+      "wrapper_min_ns": 0,
+      "wrapper_max_ns": 9,
+      "wrapper_median_ns": {
+        "numerator": 9,
+        "denominator": 2
+      },
+      "extra_median_ns": {
+        "numerator": -1,
+        "denominator": 1
+      },
+      "median_ratio": {
+        "numerator": 9,
+        "denominator": 11
+      }
+    },
+    {
+      "id": "zero_baseline",
+      "baseline_raw_ns": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "wrapper_raw_ns": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "baseline_min_ns": 0,
+      "baseline_max_ns": 0,
+      "baseline_median_ns": {
+        "numerator": 0,
+        "denominator": 1
+      },
+      "wrapper_min_ns": 1,
+      "wrapper_max_ns": 1,
+      "wrapper_median_ns": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "extra_median_ns": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "median_ratio": null
+    }
+  ],
+  "raw_clock_controls": [
+    {
+      "reads": [
+        100,
+        99
+      ],
+      "code": "invalid_measurement"
+    },
+    {
+      "reads": [
+        true,
+        101
+      ],
+      "code": "invalid_measurement"
+    },
+    {
+      "reads": [
+        100,
+        101.0
+      ],
+      "code": "invalid_measurement"
+    },
+    {
+      "reads": [
+        100,
+        9223372036854775808
+      ],
+      "code": "invalid_measurement"
+    },
+    {
+      "reads": [
+        100,
+        100
+      ],
+      "expected_ns": 0
+    }
+  ],
+  "claims": "Independent manual expected arithmetic/scalar snapshots only; no diagnostic evaluation or measured timing executed."
+}

@@ -1,3 +1,7 @@
+## R10 finite measurement qualification
+
+Freeze full expected snapshots and measurement arithmetic independently before timing. Negative observed wrapper differences are valid descriptive samples; a zero baseline has no ratio. Record fixed ordering, shared process, timer resolution and per-form environment. Capture extra measurements inside fresh environments before their owned cleanup; previous builder output cannot preserve destroyed environments. EQ105 is precode only; [plan](../stories/EQ-105_PLAN.md). EQ104 tool-only wrong-story journal label was corrected before execution; actual mutation/readback always targeted204, original review preserved in EQ105 validation.
+
 ## R10 content comparison needs a supported input representation
 
 The actual history API includes a declared history_context binding but does not hand callers a canonical context batch. Do not fabricate one to satisfy a generic receipt helper or expand fixed R9 replay by inference. History conformance compares full input/context/config/result identities; actual trade receipts separately verify their complete supported content chain. Unknown expectations can match while remaining unknown, and a source fixture import collision is a harness failure, not a calculation defect. [Implementation evidence/correction](../stories/EQ-104_VALIDATION.json).

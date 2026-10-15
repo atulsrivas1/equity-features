@@ -1,0 +1,17 @@
+{
+  "schema": "eq105-validation:1",
+  "stage": "Backlog; precode tracked packet awaiting exacthead review",
+  "accepted_base": "1e8f89fe27a7409a3030b22558cb84ab3ae86fde",
+  "runtime_implemented": false,
+  "measurements_executed": false,
+  "released": false,
+  "prior_tool_only_correction": {
+    "story": "EQ104 delivery helper",
+    "initial_review_sha256": "0736e92c44be193e2041dc7b8f5e94c6689d45ef623e839142465701af30223f",
+    "final_review_sha256": "d9008199e273e84bff8a961409b1f2d0e93a26ed17c67db8a5a0cd54a0136ae3",
+    "cause": "Copied durable publication journal label named203 while actual guarded mutation/readback targeted204.",
+    "correction": "Fixed label to204_actual before helper approval/execution; no wrong-story mutation occurred.",
+    "runtime_failure": false
+  },
+  "required": "ExactprecodeReadyreview/freshClosedDoneprerequisites then implementation, independent source/math/security/builder/docs, currentbothOS fourfreshforms22unchangedrepeatarchives/rawmeasurementparity/currenthead/main/publicUTF8/attribution/artifacts/lifecycle. No fabricated performance results."
+}
