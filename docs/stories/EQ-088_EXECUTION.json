@@ -816,5 +816,28 @@
     "finding": "Top handoff stale: described worker exactreview/publication and canonical commit as not completed despite actual dca6/push/committed result",
     "correction": "New top handoff states actual reviewed/published3257, current hosted qualification pending, committed canonical result candidate and exact next publication/current-head/main gates",
     "limits": "No numerical/measurement/protocol/executable/package/pin/default changes; exact correctedhead review still required"
+  },
+  "canonical_final_source_review_corrections": {
+    "original_candidate": "4e7b5d12cd6e9bf4e39e2b9a307e07525ce74521",
+    "original_review_sha256": "f1ec70e27cddfc3047df23fc182a1380b826e89d52620c8f3c2bb5a6c2568a05",
+    "findings": [
+      {
+        "priority": "P2",
+        "finding": "Top handoff repeated completed worker exact-review/publication gates and called canonical result uncommitted",
+        "correction": "Superseded by actual reviewed/published3257/currentqualification and committed corrected canonical candidate resume steps"
+      },
+      {
+        "priority": "P2",
+        "finding": "Git text normalization changed archived raw CRLF bytes to LF despite a verbatim cd77 identity claim",
+        "original_raw_sha256": "cd77e789f255874f903032e7c5555baa728f725ad89287deb888a8d3ed144294",
+        "original_raw_bytes": 1528616,
+        "prior_normalized_git_blob_sha256": "c3f73c6ee7a978fed99baad832e0b7a939ad7cbc4bf2f71b474efbb009fce85d",
+        "prior_normalized_git_blob_bytes": 1464012,
+        "CRLF_count": 64604,
+        "correction": "Narrow exact-path .gitattributes -text -diff preserves original archived raw bytes; staged Git blob size/hash checked, JSON values equal prior LF materialization"
+      }
+    ],
+    "numerical_disposition": "All timing/query/sort tables, host/RSS/disk/spill/layout interpretations passed original source review; no numerical or executable changes",
+    "next": "Renew exact corrected-head review before publication"
   }
 }

@@ -1,0 +1,2 @@
+# Preserve the original EQ088 evidence bytes and recorded SHA256.
+/docs/stories/EQ-088_MEASURED.json -text -diff
