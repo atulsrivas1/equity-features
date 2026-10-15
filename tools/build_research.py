@@ -1,4 +1,4 @@
-"""EQ090/EQ091 repeat archives and fresh installed consumers; separate from core artifact gates."""
+"""R8 repeat archives and fresh installed consumers; separate from core artifact gates."""
 from __future__ import annotations
 
 import base64
@@ -75,6 +75,7 @@ def inspect(path, package, source):
     metadata_name = next(n for n in files if n.endswith('/METADATA' if wheel else '/PKG-INFO') and
         (wheel or n == prefix + 'PKG-INFO'))
     metadata = BytesParser().parsebytes(files[metadata_name])
+    assert metadata['Name'] == module.replace('_', '-')
     assert metadata['Version'] == version
     assert metadata['License-Expression'] == 'Apache-2.0'
     assert metadata['Requires-Python'] == '<3.13,>=3.12'
@@ -152,6 +153,31 @@ def installed_core_maps(actual, paths):
                     for entry, body in contents(artifact).items() if entry.startswith(prefix)}
         assert expected
         assert {entry: hashed for entry, hashed in actual.items() if entry.startswith(module + '/')} == expected
+
+
+def core_only(py):
+    """Actual installed imports before either research distribution is installed."""
+    code = '''import importlib.util,json,sys
+from pathlib import Path
+from importlib.metadata import distribution
+import equity_feature_contracts as c
+import equity_features as f
+assert c.__version__==f.__version__=='0.0.4a4'
+assert distribution('equity-feature-contracts').version=='0.0.4a4'
+assert distribution('equity-features').version=='0.0.4a4'
+assert distribution('equity-feature-contracts').requires is not None
+required=[r for r in distribution('equity-features').requires if ';' not in r]
+assert required==['equity-feature-contracts==0.0.4a4']
+assert all('equity-feature-strategies' not in r and 'equity-feature-labels' not in r for d in ('equity-feature-contracts','equity-features') for r in distribution(d).requires)
+for module in (c,f):
+    root=Path(module.__file__).resolve().parent
+    assert 'site-packages' in root.parts and (root/'py.typed').is_file()
+absent=('equity_feature_strategies','equity_feature_labels','numpy','pyarrow','duckdb')
+assert all(importlib.util.find_spec(name) is None for name in absent)
+assert not any(name.split('.')[0] in absent for name in sys.modules)
+print(json.dumps({'contracts_version':c.__version__,'features_version':f.__version__,'site_packages_origins':True,'optional_and_native_absent':list(absent),'required_features_dependency':required},sort_keys=True))
+'''
+    return json.loads(subprocess.check_output([str(py), '-I', '-c', code], cwd=py.parent, encoding='utf-8'))
 
 
 def installed_component(py, artifact, component):
@@ -244,7 +270,7 @@ def main():
     report = {'schema': 'research-qualification:2', 'system': platform.system(), 'python': platform.python_version(),
         'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, encoding='utf-8').strip(),
         'epoch': EPOCH, 'sdist_policy': 'normalized TAR metadata; source payload unchanged', 'artifacts': {}, 'installed': [], 'combined': [], 'source': {}, 'status': 'running'}
-    scopes = ['packages/' + name for name in PACKAGES] + ['tests/research', 'examples/research_scanner.py', 'examples/research_labels.py',
+    scopes = ['packages/' + name for name in PACKAGES] + ['tests/research', 'examples/research_scanner.py', 'examples/research_labels.py', 'examples/research_backtest.py',
         'tools/build_research.py', 'tools/check_boundary.py', '.github/workflows/research.yml', 'requirements-dev.txt',
         'docs/stories/EQ-089_FIXTURES.json']
     head = report['source_commit']
@@ -331,13 +357,16 @@ def main():
             cpy = install([artifact_paths['contracts'], artifact_paths['features']], consumer)
             core_before = fingerprint(cpy, ['equity_feature_contracts', 'equity_features'])
             installed_core_maps(core_before, {'contracts': artifact_paths['contracts'], 'features': artifact_paths['features']})
+            core_isolation = core_only(cpy)
             run(cpy, '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-build-isolation', artifact_paths['strategies'], artifact_paths['labels'])
             run(cpy, '-m', 'pip', 'check')
             run(cpy, '-I', verification / 'examples/research_scanner.py')
             run(cpy, '-I', verification / 'examples/research_labels.py')
+            run(cpy, '-I', verification / 'examples/research_backtest.py')
             assert core_before == fingerprint(cpy, ['equity_feature_contracts', 'equity_features'])
             report['combined'].append({'form': form, 'consumer_core_before_after': core_before,
-                'actual_core_producer_passed': True, 'signal_invariance_and_as_of_joins_passed': True})
+                'actual_core_producer_passed': True, 'signal_invariance_and_as_of_joins_passed': True,
+                'chronological_watchlist_labels_revisions_passed': True, 'core_only_isolation': core_isolation})
             save()
     source_closure()
     report['source_head_and_materialization_closure'] = True

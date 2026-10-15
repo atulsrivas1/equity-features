@@ -1,3 +1,15 @@
+## R8 close the measured decision and qualify the actual delivered consumer
+
+Complete EQ088 measurements support retaining sequential1/current production layout; positive spill, reported zero controls and row-group metadata must stay distinct from configured memory limits or physical reads. EQ092's actual producer/scanner/label consumer and core-only checkpoints passed separate bothOS archive/installed review at9896. Final documentation integration preserves those executable inputs but still requires exact current candidate and actual-main artifact/readback evidence. [Evidence index](../R8_ACCEPTANCE.md) links the actual acceptance authority and original failed histories; never replace current-head qualification with an older green report or count checkpoints as extra environments.
+
+## EQ092 distinguish core-only checkpoints from fresh environment counts
+
+The new research builder checks actual contracts/features imports, installed versions/site-packages origins and absence of both research/native packages before explicitly installing research in each fresh combined consumer/form environment. Four component/forms and two consumer/forms per OS remain six environments, not eight; a core-only checkpoint is not another installation. The chronological example preserves independent full row/selection/coverage/return/knowledge/revision goldens and original signal bytes. Source preparation only; [ledger](../stories/EQ-092_VALIDATION.json) retains actual pending gates. No package algorithm/source change or runtime evidence yet. Revisit if package dependencies or selected consumer forms change.
+
+## EQ092 fixture choices precede chronological consumer implementation
+
+Separate preparation review caught a missing top_k and under-specified core trade/anchor facts before implementation. The revised [packet](../stories/EQ-092_PLAN.md) fixes top_k2, exact A/B/C rows/dispositions/coverage and actual per-entity trade prices/sizes/events/known-at/unit/config/source/basis. This makes the watchlist and forward-return goldens independently reviewable. Conditional reviewb6efec11 approved the corrected text; its original hash timing limitation is explicit rather than claiming an uncaptured original byte identity. Actual EQ091 acceptance now supplies the dependency binding; no92 runtime or readiness acceptance is inferred from preparation. Revisit if fixture/source policy or selection semantics changes.
+
 ## A fresh diagnostic pass does not explain the original failure
 
 Corrective EQ088 b7 passed current bothOS foundation/resilience qualification and independent complete source/archive/installed review. This supports the tested current inputs and unchanged failure policy; the old37fa sdist failure still has unknown case/cause/independent cleanup. Its new failure-only summary was verified by pure injection fixtures, not observed on a failing native case. [Ledger](../stories/EQ-088_EXECUTION.json) preserves exact current artifacts/reviews and frozen4023 measurements with156same/twoobserver deltas. Keep current provenance, historical failure and proven non-impact distinct, and require actual-main gates before release.

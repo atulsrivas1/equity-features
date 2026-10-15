@@ -1,3 +1,7 @@
+## Execution record and current authority
+
+The preparation/access/GOV020-pending snapshots below are historical. GOV020 and EQ085–091, including complete EQ088 measured qualification, are accepted; final EQ092 release and aggregate evidence is recorded through the [R8 delivery index](R8_ACCEPTANCE.md), story104 and the live Project. Existing scoped Atul access and owner-authorized local review were verified during execution. Follow SESSION_HANDOFF.md and those public acceptance records for actual resume/completion; do not restart this preparation packet, R7 operations or an already accepted story.
+
 ## Current execution gate — October14,2026
 
 The owner requested the listed restoration/delivery steps. The existing local atulsrivas1 login was selected and actual gh API identity plus Project2 access verified. No new credential, sign-in or scope refresh was needed. This supersedes earlier pending-access snapshots for this session; it grants no general account administration. Owner-authorized local R8 review remains in effect. [GOV020#381](https://github.com/atulsrivas1/equity-features/issues/381) is assigned milestone9 and directly verified In progress after Ready. Its final exact-head review/CI/defaultbranch acceptance are pending; no remaining runtime story is Ready or implemented. Milestone9 now has eight original runtime stories plus one governance issue; report the actual nine-issue total separately from eight-runtime-story acceptance.

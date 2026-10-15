@@ -1,3 +1,9 @@
+## R8 delivered contracts and consumer qualification
+
+Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.
+
+Final EQ092 source/docs/current-candidate/current-main release evidence and aggregate acceptance are recorded on [story104](https://github.com/atulsrivas1/equity-features/issues/104) and the [R8 evidence index](../R8_ACCEPTANCE.md). GitHub reviewed source/finite-retention experimental CI artifacts are the channel. No new numerical API/schema/default, stable registry, provider or trading-profitability claim. Earlier candidate/preparation snapshots below are historical.
+
 ## Implemented scanner candidate with actual qualification — October14
 
 `equity_feature_strategies` now implements the frozen target API below. Exact81404f5 passed all14 hosted checks and fresh local wheel/sdist fixtures/installed typing/actual-core-producer/core-parity qualification. The optional package requires contracts0.0.4a4 only. Final changed-head/artifact review, strengthened explicit mixed-entity regression and actual current-main release acceptance remain pending. Labels remain unimplemented. [Scanner guide](../research/SCANNERS.md) and [exact ledger](../stories/EQ-090_VALIDATION.json) distinguish actual evidence from historical contract/source-only preparation.

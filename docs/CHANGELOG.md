@@ -1,3 +1,11 @@
+## EQ092 qualified chronological consumer and final delivery contract — October 14
+
+Actual9896 Windows/Linux wheel/sdist qualification and separate artifact review passed: eight isolated component forms plus four combined forms across bothOS, including actual core-only checkpoints, fixed chronological watchlist/return/revision/as-of and signal-byte invariance assertions. Accepted EQ088 complete measurements are integrated; sequential1/current production layout remain. [R8 evidence index](R8_ACCEPTANCE.md) links original-eight-story acceptance and final aggregate authority. No package source/version/required-dependency/math changes. Exact final candidate/current-main release and aggregate evidence is recorded on issue104; earlier candidate snapshots below are preserved history.
+
+## EQ092 chronological consumer candidate — October 14
+
+The [chronological synthetic consumer](research/CHRONOLOGICAL_CONSUMER.md) prepares actual core-produced A/B watchlist ties/coverage and explicit future-label maturity/revision/as-of joins with independent goldens. Package sources/versions/required dependencies remain unchanged: contracts/features0.0.4a4, independently optional strategies/labels0.1.0a1. The dedicated schema2 gate adds an explicit fresh core-only import/version/origin/absence checkpoint and closed third consumer example in each combined wheel/sdist form, retaining all isolated component fixtures/installed typing/eight repeat archives/core parity on bothOS. Archive metadata names are now explicitly checked. Source/AST checks only; no runtime/current artifact qualification or final R8 acceptance yet. [Ledger](stories/EQ-092_VALIDATION.json).
+
 ## EQ088 corrected qualification observed on both platforms
 
 Exact workerb7 passed all24current checks and separate bothOS foundation/resilience artifact review. Closed failure metadata preserves original assertions/deadlines and privacy;9puremethods passed. The old37fa failed sdist case/cause/cleanup remain unknown. Full measurements stay frozen4023, with two explicitly disclosed observer/test deltas and156exact original files; no production or numerical changes. [Ledger](stories/EQ-088_EXECUTION.json) and live issue99 retain exact current evidence and final actual-main release authority; current candidate success alone is not release acceptance.
