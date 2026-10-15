@@ -1,0 +1,282 @@
+{
+  "schema": "r9-composition-expectations:1",
+  "independent_before_implementation": true,
+  "source_references": {
+    "canonical": {
+      "head": "1bc2eb89f0d6102f8c71e767349cbf631e584a5d",
+      "files": {
+        "packages/features/src/equity_features/session/trades.py": "88917d0a6f40de7c6141d807c4e0356739129bd993e46b5238a23fe49560c7ef",
+        "packages/features/src/equity_features/session/_reductions.py": "bede8e3124071ec47a8aaddc54c4b8b4ca4bfaf46a4fb7d081b6cb41edca501b",
+        "packages/contracts/src/equity_feature_contracts/validation.py": "ade9ca17b65a5b08bf82de24169261a64c6e384b503cf92e474f85ecd8cdc9e9",
+        "packages/contracts/src/equity_feature_contracts/specs.py": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3",
+        "tools/build_explanations.py": "969d52d4e5b9b748c1945fa559aed390286d2eb5632c45a6402d7e868c600c04"
+      }
+    },
+    "io": {
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "files": {
+        "packages/bundles/src/equity_feature_bundles/_archive.py": "e5c398d0691c8d3edee3808ca6361f934e0b335c534e1b353e5f0f4bae1c27e4",
+        "packages/bundles/src/equity_feature_bundles/_model.py": "5afd1bdd8e2b2c9e9d2695c48af0ef3a81953f8d2a5177cdc52febad104b2352",
+        "packages/bundles/src/equity_feature_bundles/replay.py": "4df63e11386cfbd998a31997ab3dc68a3a5ec7568df608325ee00a42d01f618c",
+        "packages/bundles/src/equity_feature_bundles/_binding.py": "4b79bd2ab835dc89b5399fe10a7bbfbec4b37fbc3e434a15f12c6904e6199f86"
+      }
+    }
+  },
+  "normal": {
+    "prices": [
+      100,
+      102,
+      101
+    ],
+    "sizes": [
+      2,
+      3,
+      5
+    ],
+    "event_ns": [
+      110,
+      130,
+      160
+    ],
+    "known_at_ns": [
+      110,
+      130,
+      210
+    ],
+    "C": 200,
+    "K": 210,
+    "E": 210,
+    "values": [
+      3,
+      10,
+      1011,
+      101.1,
+      3.3333333333333335
+    ],
+    "replay": "matched",
+    "calculation_count": 1,
+    "source_authenticated": false,
+    "execution_verified": false,
+    "declared_environment_verified": false,
+    "findings": [
+      "global_evidence_not_supplied"
+    ],
+    "direct_producer_calls": 1
+  },
+  "future_knowledge": {
+    "third_known_at_ns": 211,
+    "values": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "status": "missing_input",
+    "reasons": [
+      "future_knowledge"
+    ],
+    "expected": 3,
+    "observed": 3,
+    "replay": "matched",
+    "calculation_count": 1,
+    "finding": "result_unavailable",
+    "findings": [
+      "global_evidence_not_supplied",
+      "result_unavailable"
+    ]
+  },
+  "missing_batch": {
+    "values": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "status": "missing_input",
+    "reasons": [
+      "absent_input"
+    ],
+    "expected": null,
+    "observed": 0,
+    "combined_replay": "matched",
+    "calculation_count": 1,
+    "findings": [
+      "global_evidence_not_supplied",
+      "result_unavailable"
+    ]
+  },
+  "states": {
+    "missing_reference": {
+      "status": "unavailable",
+      "calculation_count": 0
+    },
+    "explicit_reference_resolution": {
+      "status": "matched",
+      "calculation_count": 1
+    },
+    "cancel_before_start": {
+      "status": "cancelled_before_start",
+      "calculation_count": 0
+    },
+    "calculator_absent": {
+      "status": "incompatible",
+      "calculation_count": 0
+    }
+  },
+  "refusals": {
+    "result_payload_crc": "integrity_mismatch",
+    "manifest_registry": "unsupported_version",
+    "manifest_features_version": "unsupported_version",
+    "caller_changed_size_same_metadata": "integrity_mismatch"
+  },
+  "costs": {
+    "populations": [
+      10,
+      1000
+    ],
+    "repeats": 3,
+    "phases": [
+      "calculate",
+      "receipt_encode",
+      "explain_encode",
+      "bundle_write",
+      "read_replay_explain_encode"
+    ],
+    "samples_per_os": 30,
+    "expected_per_population": {
+      "10": [
+        10,
+        10,
+        1000,
+        100.0,
+        1.0
+      ],
+      "1000": [
+        1000,
+        1000,
+        100000,
+        100.0,
+        1.0
+      ]
+    },
+    "traced_python_peak_not_RSS": true,
+    "hard_deadline_claim": false,
+    "measurement_order": "population10then1000; repeat0then1then2; five phases in listed order; no warmup or randomization",
+    "preowned": {
+      "calculate": [
+        "config",
+        "batch",
+        "entity"
+      ],
+      "receipt_encode": [
+        "config",
+        "batch",
+        "entity",
+        "baseline_result"
+      ],
+      "explain_encode": [
+        "config",
+        "batch",
+        "entity",
+        "baseline_result",
+        "baseline_receipt"
+      ],
+      "bundle_write": [
+        "config",
+        "batch",
+        "entity",
+        "baseline_result",
+        "baseline_receipt",
+        "publication"
+      ],
+      "read_replay_explain_encode": [
+        "baseline_bundle_bytes"
+      ]
+    },
+    "retained_at_trace_end": {
+      "calculate": [
+        "result"
+      ],
+      "receipt_encode": [
+        "receipt",
+        "receipt_bytes"
+      ],
+      "explain_encode": [
+        "explanation",
+        "explanation_bytes"
+      ],
+      "bundle_write": [
+        "bundle_bytes"
+      ],
+      "read_replay_explain_encode": [
+        "decoded_bundle",
+        "replay_report",
+        "explanation",
+        "explanation_bytes"
+      ]
+    }
+  },
+  "retention": {
+    "library_persistence": false,
+    "library_TTL": null,
+    "CI_days": 30,
+    "caller_responsibility": true,
+    "digest_reconstructs_missing_inputs": false
+  },
+  "reference_explanation_findings": [
+    "input_content_unverified",
+    "global_evidence_not_supplied"
+  ],
+  "replay_reports": {
+    "matched": {
+      "status": "matched",
+      "execution_state": "returned",
+      "content_state": "verified",
+      "compatibility_state": "verified",
+      "calculation_count": 1,
+      "result_match": true,
+      "replayed_output_present": true,
+      "elapsed_ns_policy": "integer0through5000000000",
+      "declared_environment_verified": false
+    },
+    "unavailable": {
+      "status": "unavailable",
+      "execution_state": "not_started",
+      "content_state": "unavailable",
+      "compatibility_state": "not_checked",
+      "calculation_count": 0,
+      "result_match": null,
+      "replayed_output_present": false,
+      "elapsed_ns_policy": "null",
+      "declared_environment_verified": false
+    },
+    "cancelled_before_start": {
+      "status": "cancelled_before_start",
+      "execution_state": "not_started",
+      "content_state": "not_checked",
+      "compatibility_state": "not_checked",
+      "calculation_count": 0,
+      "result_match": null,
+      "replayed_output_present": false,
+      "elapsed_ns_policy": "null",
+      "declared_environment_verified": false
+    },
+    "incompatible": {
+      "status": "incompatible",
+      "execution_state": "not_started",
+      "content_state": "verified",
+      "compatibility_state": "incompatible",
+      "calculation_count": 0,
+      "result_match": null,
+      "replayed_output_present": false,
+      "elapsed_ns_policy": "null",
+      "declared_environment_verified": false
+    }
+  },
+  "precode_refinement": {
+    "initial_sha256": "4239655ab5a1df4b3fb748ceba96fb4d9361519fbe7c1a7e5f9ec2ee62a10324",
+    "reason": "Separate proposal review requested full report fields/count distinctions and precise measurement boundaries; no implementation yet."
+  }
+}

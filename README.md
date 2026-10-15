@@ -1,3 +1,11 @@
+## R9 qualified reproducible-evidence composition
+
+[Installed public synthetic reproduction and measured costs](docs/api/R9_REPRODUCTION.md) compose accepted receipts/content/bundles/explanations with unchanged calculations. [Full qualification/evidence/limits](docs/R9_ACCEPTANCE.md); final main/lifecycle receipts on issues200/193 govern release completion. No source/original-execution/rights authentication.
+
+## R9 final qualification candidate
+
+[Public synthetic reproduction](docs/api/R9_REPRODUCTION.md) and [acceptance gates](docs/R9_ACCEPTANCE.md) compose accepted receipts/content/bundles/explanations with unchanged calculations. Final bothOS qualification and R9acceptance remain pending.
+
 ## Experimental bounded calculation explanations
 
 Optional pure explanations0.1.0a1 extends supplied receipt/content verification with typed bounded formula/quality/input declarations and reported references. [API](docs/api/CALCULATION_EXPLANATIONS.md); accepted numerical/evidence/bundle sources and pins unchanged. Source candidate only until actual publication gates.

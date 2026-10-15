@@ -1,3 +1,11 @@
+## R9 corrected-source final composition qualified — October15,2026
+
+[Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.
+
+## R9 final composition candidate
+
+[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
+
 ## EQ099 corrected candidate qualification
 
 Source and bothOS artifact audits passed:27distinct methods, two pre-code wire oracles, seven proof states, actual fresh light/combined forms, eight archives/76sourcepins perOS. Original pre-code/source P2 and fixture/tool scopes retained; exact maps in stories/EQ-099_VALIDATION.json. Final current docs/main publication and acceptance remain separately gated. No numerical/evidence/bundle source/version changes.

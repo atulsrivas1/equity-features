@@ -1,3 +1,7 @@
+## EQ100 final qualification selection — October15,2026
+
+Owner-authorized R9 execution/local review supersedes the historical planning-only stop. EQ096–099 now accepted Closed/Done; EQ100 remains Backlog until complete [pre-code packet](stories/EQ-100_PLAN.md) review. Accepted five package versions remain unchanged; final qualification adds synthetic installed composition/measured overhead and full release acceptance only. R7 automation remains paused.
+
 ## EQ099 allocation refinement — October15,2026
 
 The optional pure explanations distribution0.1.0a1 depends on accepted evidence0.1.0a2/contracts0.0.4a4, preserving accepted receipt/bundle exact pins. This refines the proposed single-evidence-distribution allocation within existing EQ099 scope. [Complete pre-code contract](stories/EQ-099_PLAN.md); no runtime/Ready implied.

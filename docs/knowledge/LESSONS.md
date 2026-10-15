@@ -1,3 +1,7 @@
+## EQ100 installed compatibility and fidelity versus suitability
+
+The source-path10-method development run had five incompatible outcomes because replay checks real installed distribution metadata. Exact source installation in a new development environment passed10methods; source discovery is not installed release proof. Fresh bothOS wheel/sdist maps remain mandatory. A future-knowledge row yields five nulls/missing_input/future_knowledge/observed3: replay can match those unavailable facts without certifying suitability. [Independent states](../stories/EQ-100_EXPECTATIONS.json), [protocol](../stories/EQ-100_PLAN.md). Revisit on registry/compatibility/quality or qualification changes; retain failed logs and do not relax assertions.
+
 ## EQ099 bind catalog output type and unit across the full result
 
 A consistent receipt can bind a wrongly typed or labeled column without proving it implements the named formula. Separate source review74f84a01 found count/string/invented-unit admitted; corrected preflight checks every column against catalog dtype/unit before selecting the focused explanation. Focused/unfocused rebound negatives now pass. [Original finding](../stories/EQ-099_SOURCE_REWORK.json). Revisit on catalog/output/registry support changes; retain earlier checked cases without promoting them to corrected-source qualification.
