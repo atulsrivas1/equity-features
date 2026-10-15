@@ -1,0 +1,38 @@
+{
+  "head": "00e22e497d934a9fc76ebfc2b8d20ab0b3c7e247",
+  "scope": "Independent documentation reference verifier before acceptance",
+  "finding_priority": 2,
+  "original_source_sha256": "930520fbb641a02a94dfbcb18ca904fdcbc17eb84cb6617a8f64822106c33df6",
+  "original_observed": {
+    "status": "unknown",
+    "reasons": [
+      "missing_market_fact"
+    ],
+    "assessed": false,
+    "unknown_prerequisites": 1,
+    "age_ns": null
+  },
+  "required": {
+    "status": "failed",
+    "reasons": [
+      "market_bound",
+      "missing_market_fact"
+    ],
+    "assessed": false,
+    "unknown_prerequisites": 1,
+    "age_ns": null
+  },
+  "actual_stage": "In progress",
+  "evidence": "https://github.com/atulsrivas1/equity-features/issues/201#issuecomment-6200166203",
+  "steps": [
+    "201_actual_Code review_to_In progress_before_correction"
+  ],
+  "original_review_sha256": "df8f6bebae8f043beb5b0cc857bec05b98b07e38d4fcd6de48f2d85cd2d84b1c",
+  "correction": "Evaluate every supplied market bound independently, preserve missing-prerequisite categories; add3literal cases, original35 unchanged",
+  "new_cases": [
+    "interval-future-end-missing-start",
+    "ordinary-at-cutoff-missing-session",
+    "closing-disabled-missing-observation"
+  ],
+  "remaining": "renewed exact-head review and currentCI/main/acceptance"
+}

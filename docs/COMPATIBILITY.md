@@ -1,3 +1,7 @@
+## EQ101 selected future diagnostic compatibility — specification candidate
+
+[Contract](api/POINT_IN_TIME_DIAGNOSTICS.md) selects a separate pure diagnostics0.1.0a1/CPython3.12 distribution with exact accepted contracts0.0.4a4/evidence0.1.0a2 dependencies; no package is implemented by EQ101. Existing core/evidence/explanations/bundle sources/versions/wire identities remain unchanged. Exact adjustment-declaration comparison performs no scale conversion and does not assert universal economic incompatibility. No diagnostic wire codec or automatic migration; actual optional installed compatibility remains EQ102/105 qualification.
+
 ## R9 corrected-source final composition qualified — October15,2026
 
 [Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.

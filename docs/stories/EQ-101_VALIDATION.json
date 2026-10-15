@@ -1,0 +1,40 @@
+{
+  "story": "EQ101",
+  "scope": "Specification and independent documentation reference checks, not an implemented diagnostic evaluator",
+  "precode_head": "be7e1053981f2003bd106ecc3893f4f22ef22215",
+  "precode_review_sha256": "1d2cd6cc728a601f5e1f3b17f2b779b70e8412328b365b6e268a0d53b2d99430",
+  "actual_pull_evidence": "https://github.com/atulsrivas1/equity-features/issues/201#issuecomment-6200085501",
+  "author_checks": {
+    "markdown_utf8": 383,
+    "active_story_ids": 134,
+    "check_vectors": 38,
+    "admission_aggregates": 6,
+    "future_structural_requirements_declared_not_executed": 18,
+    "reference_exit": 0,
+    "original35expected_cases_unchanged": true,
+    "new_partial_market_controls": 3,
+    "reference_log_sha256": "41ffa780553efce2dfa3c74c85a5347cbc4cfbf7ed5ff01ed5db78ad4821e68f",
+    "diff_check": true,
+    "changed_scope": "docs plus independent verifier and documentation CI step; no library/package/build/version/dependency changes"
+  },
+  "canonical_LF_input_sha256": {
+    "tools/verify_diagnostic_examples.py": "8017a6329f0524600cc27af9805223589d1b1f831b492cbeb69e6097580acb96",
+    ".github/workflows/docs.yml": "753096301cf23fe22ee260702d4f6db587d2b76729075cf2d0bba8d3c0b7fbb4",
+    "docs/api/POINT_IN_TIME_DIAGNOSTICS.md": "540ddc8a5607c06103f91ed16eb193834153b1f148e5e9060379315fbbd9e07c",
+    "docs/stories/EQ-101_TRUTH_TABLE.json": "18ed67e165e1fc41e613645a71524ca27ae096eaf2e30b5ec5a741d8f73226d8"
+  },
+  "preserved_design_findings": "EQ-101_DESIGN_REVIEW.json",
+  "preserved_verifier_rework": "EQ-101_VERIFIER_REWORK.json",
+  "remaining_gates": [
+    "Renewed separate exact final-head semantic/security/docs review",
+    "Current relevant documentation CI",
+    "Guarded actual-main/public source/attribution readback",
+    "Independent actual-main review and actual Released/acceptance/Done"
+  ],
+  "limits": [
+    "38+6 reference vectors are not runtime package tests",
+    "18 structural cases remain future EQ102 obligations",
+    "No diagnostic wheels/sdists/reinstall/benchmark/native qualification claimed",
+    "Facts/content/rights/execution/history remain declarations within named checks"
+  ]
+}

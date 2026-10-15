@@ -1,3 +1,15 @@
+## EQ101 partial-evidence reference correction — October15,2026
+
+Before acceptance, independent review identified a documentation reference gap for visible market violations with missing operands. Actual rework preceded per-comparison correction and3new hand-authored controls; original35expected cases retained,38+6current reference vectors pass. [Failure/rework scope](stories/EQ-101_VERIFIER_REWORK.json). No accepted numerical or diagnostic-package runtime defect claimed; renewed review/publication pending.
+
+## EQ101 independent specification verifier — October15,2026
+
+After reviewed readiness and actual pull, added stdlib documentation reference verification of the unchanged35check/six admission oracle and one documentation-CI step. No diagnostic runtime package/evaluator, numerical/library/source/version/dependency or package-build change.18structural requirements remain future EQ102 runtime obligations; final review/publication acceptance pending.
+
+## EQ101 diagnostic specification candidate — October15,2026
+
+Prepared separate optional diagnostic record/check/policy contract,35independent check vectors/six admission aggregates and18future structural refusal requirements. Preserved and corrected pre-Ready projection/kind/session/count findings; no implemented evaluator or package yet. EQ102 owns runtime. GOV022 handoff accepted at04ff3 with actual independent main/closure readback; [current EQ101 gates](stories/EQ-101_PLAN.md).
+
 ## R10 review route authorized — October15,2026
 
 Owner-authorized separate local automated review covers the handoff/GOV022, EQ101–105 and final R10 delivery. Applicable review/check/source/installed/publication gates remain required; no runtime implementation or acceptance inferred from this permission.
