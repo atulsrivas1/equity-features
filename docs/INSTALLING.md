@@ -1,3 +1,7 @@
+## EQ102 diagnostic candidate installation — October15,2026
+
+New experimental equity-feature-diagnostics0.1.0a1 requires exact contracts0.0.4a4 and evidence0.1.0a2 on CPython3.12. It needs no calculator/adapter/worker. Build with python tools/build_diagnostics.py from its reviewed committed checkout and fresh owned dist/diagnostics; qualification artifacts are not yet accepted or stable registry releases. Do not relabel older R9 artifacts as diagnostics. Full installed wheel/sdist verification on Windows/Linux is a delivery gate.
+
 ## R9 corrected-source final composition qualified — October15,2026
 
 [Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.

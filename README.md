@@ -1,3 +1,7 @@
+## Optional point-in-time diagnostics candidate — October15,2026
+
+[Diagnostic contract](docs/api/POINT_IN_TIME_DIAGNOSTICS.md), [pure consumer](examples/diagnostic_declarations.py) and [actual-producer composition](examples/diagnostic_producer.py) implement supplied-record checks in optional diagnostics0.1.0a1. Qualification/publication are pending; no registry availability or complete R10 claim. Existing calculations and dependency versions remain unchanged.
+
 ## R9 qualified reproducible-evidence composition
 
 [Installed public synthetic reproduction and measured costs](docs/api/R9_REPRODUCTION.md) compose accepted receipts/content/bundles/explanations with unchanged calculations. [Full qualification/evidence/limits](docs/R9_ACCEPTANCE.md); final main/lifecycle receipts on issues200/193 govern release completion. No source/original-execution/rights authentication.

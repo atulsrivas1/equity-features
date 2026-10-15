@@ -1,3 +1,7 @@
+## EQ102 implementation candidate — October15,2026
+
+Added optional pure typed diagnostics with all seven accepted checks, explicit admission/unknown counts, bounded full-projection semantics, literal oracle/refusal tests and actual synthetic producer parity example. New source-closed repeatarchive/fresh installed builder and bothOS workflow await execution/current-head qualification. Initial test-mapper adjustment shorthand failure is preserved in validation; no accepted runtime defect inferred.
+
 ## EQ101 partial-evidence reference correction — October15,2026
 
 Before acceptance, independent review identified a documentation reference gap for visible market violations with missing operands. Actual rework preceded per-comparison correction and3new hand-authored controls; original35expected cases retained,38+6current reference vectors pass. [Failure/rework scope](stories/EQ-101_VERIFIER_REWORK.json). No accepted numerical or diagnostic-package runtime defect claimed; renewed review/publication pending.

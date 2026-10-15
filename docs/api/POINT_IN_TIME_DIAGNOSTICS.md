@@ -1,3 +1,7 @@
+## EQ102 implementation candidate
+
+The typed optional API described below is now implemented in packages/diagnostics, pending its own source/installed/bothOS/publication acceptance. [Pure example](../../examples/diagnostic_declarations.py) and [actual producer example](../../examples/diagnostic_producer.py) are executable consumers. Original EQ101 specification-only statements below describe that accepted story, not a claim that EQ102 is complete. Content is keyword-only on check constructors; report counts/admission are derived init=False. [Current validation](../stories/EQ-102_VALIDATION.json).
+
 # Point-in-time diagnostic contract — EQ101 candidate
 
 Design-only specification for EQ101; no evaluator is implemented here. EQ102 implements this optional pure API, subject to its own reviewed Ready packet and installed qualification. R10 does not alter core calculations, accepted schemas, source admission or R9 replay support.

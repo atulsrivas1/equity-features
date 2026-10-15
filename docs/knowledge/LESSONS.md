@@ -1,3 +1,7 @@
+## EF-L090: keep oracle notation outside runtime semantics — October15,2026
+
+EQ102 development initially failed two adjustment oracle cases because a test mapper treated slash-delimited shorthand as an array. Splitting the notation fixed only test construction; literal expectations and pure evaluator were unchanged. Preserve original raw failure and separate development versus installed evidence in [EQ102 validation](../stories/EQ-102_VALIDATION.json). Accepted reference P2 partial-market controls remain independent regressions. Never make a runtime accept malformed borrowed policy merely to fit a mapper.
+
 ## EQ101 partial proof cannot hide a visible violation
 
 Final documentation-source review at00e22e4 found a global missing-prerequisite guard suppressed a known interval end>C failure when start was absent. Corrected reference evaluates each supplied comparison independently, preserving failed status alongside unknown prerequisites;3new literal partial-market controls extend the original35vectors. [Original finding/reproducer/actual rework](../stories/EQ-101_VERIFIER_REWORK.json). This is a pre-acceptance documentation-reference gap, not an implemented package or accepted R9 failure. Revisit on every evaluator/check schema: test partial contradictory facts, not only fully present or fully absent cases.
