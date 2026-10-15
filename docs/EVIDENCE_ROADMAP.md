@@ -1,3 +1,7 @@
+## EQ099 implementation candidate
+
+EQ096–098 accepted; EQ099 standalone pure bounded explanations/source candidate, EQ100Backlog. [Exact API](api/CALCULATION_EXPLANATIONS.md) and pre-code contract preserve content consistency versus reported references/original execution truth. Current Project owns status; no completeR9 claim.
+
 ## EQ098 implementation candidate; qualification pending — October15,2026
 
 Separate corrected pre-code review5109e1d1 at canonicalce7fa33e/companion9eae14f7 approved with no remaining findings. [Actual Ready evidence](https://github.com/atulsrivas1/equity-features/issues/198#issuecomment-6194312464) precedes actual Ready→In progress/Atul assignment. New companion bundles0.1.0a1 implements data-only fixed stored ZIP/strict manifest/35 closed typed branches/full supplied content binding and explicit optional fixed compute_trades replay. Root parsing never imports features; missing references never fetch. The five-second acceptance check runs after return and is not an interruption deadline. Existing core/evidence/old-I/O package sources/versions are unchanged.

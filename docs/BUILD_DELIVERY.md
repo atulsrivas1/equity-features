@@ -1,3 +1,7 @@
+## EQ099 explanations delivery gate
+
+New tools/build_explanations.py prepares two repeat builds/eight archives and four fresh wheel/sdist light/actual-core combined consumers, full source/license/metadata/RECORD/sdist/installed maps and typing. Child environments remove inherited mypy/Python search paths; committed Git snapshot/materialization/source closure is enforced. New Windows/Linux workflow/current server artifact/default-main review remains required; source tests are not installed delivery. No repeated accepted cost benchmark.
+
 ## R8 delivered contracts and consumer qualification
 
 Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.

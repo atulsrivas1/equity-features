@@ -122,11 +122,12 @@ def violations(source):
     return sorted(set(found))
 
 
-def research_violations(source, *, codec=False):
+def research_violations(source, *, codec=False, explanation=False):
     """Separate stdlib/contracts-only policy; existing core/backend policy is unchanged."""
     tree=ast.parse(source)
     parents={child:node for node in ast.walk(tree) for child in ast.iter_child_nodes(node)}
     allowed={'__future__','dataclasses','enum','typing','math','json','hashlib','re','operator','equity_feature_contracts'}
+    if explanation: allowed.add('equity_feature_evidence')
     found=[]
     def closed_field_lookup(node):
         if not codec or not isinstance(node,ast.Call) or not isinstance(node.func,ast.Name) or node.func.id!='getattr':return False
@@ -140,7 +141,8 @@ def research_violations(source, *, codec=False):
             if any(a.name.split('.')[0] not in allowed for a in node.names):found.append('forbidden research import')
         elif isinstance(node,ast.ImportFrom):
             if node.level:
-                if node.level!=1 or (node.module or '') not in ('','_model','_codec','_engine','_content'):found.append('foreign relative import')
+                relative=('', '_explain') if explanation else ('','_model','_codec','_engine','_content')
+                if node.level!=1 or (node.module or '') not in relative:found.append('foreign relative import')
                 if not node.module and any(a.name not in ('_model','_codec','_engine','_content') for a in node.names):found.append('foreign relative namespace')
             elif (node.module or '').split('.')[0] not in allowed:found.append('forbidden research import')
             if any(a.name=='*' for a in node.names):found.append('wildcard import')
@@ -158,7 +160,8 @@ def check():
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
     research_packages=(ROOT/'packages/strategies',ROOT/'packages/labels')
     evidence_packages=(ROOT/'packages/evidence',)
-    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)
+    explanation_packages=(ROOT/'packages/explanations',)
+    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
@@ -185,6 +188,18 @@ def check():
                    'import os','from pathlib import Path','import socket','f=open','obj.connect()',
                    'obj.__dict__','x=getattr','getattr(value,name)','from .other import loader'):
         assert research_violations(source),source
+    for root in explanation_packages:
+        if not root.exists(): continue
+        project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
+        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2']
+        assert not project.get('optional-dependencies',{})
+        for path in root.glob('src/**/*.py'):
+            errors=research_violations(path.read_text(encoding='utf-8'),explanation=True)
+            assert not errors,f'{path.relative_to(ROOT)}: {errors}'
+    assert research_violations('import equity_feature_evidence')
+    assert not research_violations('from equity_feature_evidence import encode_receipt',explanation=True)
+    for source in ('import equity_features','import pathlib','from ._codec import decode','x=getattr(obj,name)'):
+        assert research_violations(source,explanation=True),source
     for source in ('from json import load as reader; reader(stream)', 'from json import dump as writer; writer(value,stream)'):
         assert research_violations(source),source
     assert not research_violations('from equity_feature_contracts import FeatureResult\nimport operator')
