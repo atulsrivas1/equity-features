@@ -1,3 +1,9 @@
+## Current orientation — R9 accepted; R10 selected for handoff/work
+
+October15,2026: [R9 final acceptance](https://github.com/atulsrivas1/equity-features/issues/193#issuecomment-6197886354) and [independent post-delivery review](https://github.com/atulsrivas1/equity-features/issues/193#issuecomment-6198066152) supersede earlier candidate-stage status below. All five stories and epic are Closed/Done; milestone10 closed. No blocking product finding from the scoped fresh audit; content/replay truth remains distinct from source/original execution/rights/suitability.
+
+The owner selected [R10 handoff/work](R10_AUTONOMOUS_HANDOFF.md), GOV022#398, existing EQ101–105/E14#194/milestone11 in this conversation. Preparation and current review-route gate are recorded in [SESSION_HANDOFF](SESSION_HANDOFF.md); no runtime Ready/implementation or local-review extension is implied. Pure diagnostics, existing provenance ownership, independent temporal/unknown fixtures and one active story preserve existing calculations and source rights. Read the handoff/test strategy and live Project before resuming. No new session/automation or later-release operations.
+
 ## EQ100 corrected-source composition qualified; final publication gates — October15,2026
 
 Corrected source5eb6ec34 approved e4b59e00; independent actualbothOS artifact audit79a53a3b findings[]. All26source-candidate checks SUCCESS; Windows3.12.10/Linux3.12.15 each tenrepeatarchives/201entries/88RECORDrows/99pins/fourfresh light-combined wheel-sdist forms and30raw measured samples.31evidence/27explanation/29bundle/10composition methods perform; light skips six explicit calculator cases, combined none. Repeated cohorts are not new unique methods. Reviewer audited actual maps/logs/samples, not a reinstall. Actual author Windows completed fourfresh forms/30samples exit0, rawlogSHA54deb5f55225d0de3d7071b8e34c82f3587fef48a83313624d235159d5b18b8f.

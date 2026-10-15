@@ -1,3 +1,7 @@
+## R10 execution preparation — October15,2026
+
+The owner selected existing R10 EQ101–105 after [accepted R9](https://github.com/atulsrivas1/equity-features/issues/193#issuecomment-6197886354) and [fresh independent review](https://github.com/atulsrivas1/equity-features/issues/193#issuecomment-6198066152). [R10 handoff](R10_AUTONOMOUS_HANDOFF.md), [release/test plan](R10_RELEASE_PLAN.md) and [verification strategy](R10_TEST_STRATEGY.md) govern concrete preparation under GOV022#398. Existing story allocation/dependencies/31provisionalpoints retained; runtime remains Backlog until complete review/readiness. No new session, automation, R11+ or provider/private/operational scope.
+
 ## R9 corrected-source final composition qualified — October15,2026
 
 [Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.

@@ -1,3 +1,7 @@
+## R10 handoff and preparation — October15,2026
+
+Prepared [execution handoff](R10_AUTONOMOUS_HANDOFF.md), [release plan](R10_RELEASE_PLAN.md), [test strategy](R10_TEST_STRATEGY.md) and first EQ101 decision/fixture packet under GOV022#398. Owner selected bounded R10 work; separate review route/final documentation publication remain pending. R9 acceptance/post-delivery review now linked from current continuity. No runtime/package/formula/dependency/version/build/workflow or existing acceptance evidence changes; no diagnostic implementation or release yet.
+
 ## R9 corrected-source final composition qualified — October15,2026
 
 [Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.

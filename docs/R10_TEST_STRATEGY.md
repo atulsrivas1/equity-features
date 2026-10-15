@@ -1,0 +1,36 @@
+# R10 verification strategy
+
+Prepared under [GOV022](https://github.com/atulsrivas1/equity-features/issues/398), with [handoff](R10_AUTONOMOUS_HANDOFF.md) and [release plan](R10_RELEASE_PLAN.md). This is a planned protocol, not executed R10 tests. Freeze exact supported schemas, limits and independent expected cases in each story before Ready. Separate author checks, independent automated review, candidate CI, installed artifact evidence and actual-main acceptance.
+
+## Temporal and policy truth tables
+
+- Preserve ordinary market eligibility `open <= event < C`, the existing closing-auction exception at close when explicitly enabled, and completed-bar `end <= C` policy. Test equality and one nanosecond on each side, seed/prior context and false coverage. No generic `event <= C` shortcut.
+- In known-at mode test `known_at == K` admitted, `K+1` observed later knowledge, null knowledge unknown. Match exact entity/source/revision/context. Separately test a requested K policy mismatch with all actual rows known earlier; do not mislabel every input as future knowledge.
+- Real execution timestamp today does not replace simulated E; C/K exceeding E in causal mode are invalid according to existing contracts. Reconstruction retains later/unknown knowledge and its explicit reason; it cannot produce a causal pass by changing a label.
+- Membership uses `[effective_start,effective_end)` with absent end explicitly unbounded, exact universe/classification/entity and source/revision plus knowledge. Cover additions, deletions/delisted members, overlapping/conflicting facts, gaps, current-only lists and incomplete supplied populations. Unknown facts do not become empty membership.
+- Revisions bind original snapshot/content and known-at independently of effective time. A later correction cannot substitute for a historical revision silently. Action basis/policy/anchor/snapshot/currency and scale comparison reuse accepted semantics; unknown action proof differs from contradictory basis.
+- Freshness has explicit age basis, target and tolerance. Test age exactly tolerance, one above, absent observation time, future observation time and signed-int extremes without arithmetic wrap. Do not equate reference-publication age, market-observation age and tool-read age.
+
+Freeze hand-derived expectations before evaluator code. Independent oracle generation must not call the implementation under test or derive expected statuses from its outputs. For each selected check retain status/reason, evaluated subject identity, supplied versus missing evidence and coverage. Requested, evaluated, unknown and nonrequested counts must reconcile; zero denominator is not evaluated. Invalid schemas/types/versions/duplicate identities are errors rather than innocuous unknown outcomes.
+
+## Immutable records, identities and bounds
+
+Prove caller-container detachment, exact bool/int distinctions, strict enums/versions, deterministic presentation order versus semantic order, duplicate/forward/conflicting reference handling and immutable result/calculation parity. If introducing encoding, define exact numeric/string/null representation, domains and canonical bytes; hand-authored known byte/hash vectors and one-field mutations cover content, policy, C/K/E, subject, revisions, quality and evidence. Existing metadata digests stay in their original domain.
+
+Freeze per-story literal limits for subjects, facts, findings, evidence detail, strings, encoded bytes/depth/nodes, and prevalidation order. Test exactly at/one above each limit and aggregate work before large materialization. Return explicit unknown or typed refusal for incomplete required evidence, according to the reviewed contract. Application limits and observed allocations are not physical memory quotas or hard interruption guarantees. Do not claim cancellation of a synchronous call before it actually returns or settles.
+
+## Provenance composition and adversarial conformance
+
+Use actual accepted synthetic acquisition/task/output objects through their public installed APIs, not same-shaped fake dictionaries. Link immutable content/receipt/config/result/generation identities and declared source evidence. Verify changed input with identical metadata, changed partitions, missing source evidence, duplicate/cross-generation references, resume/retry histories and complete versus partial generations. Do not infer admission from a path, matching file bytes, commit marker or local producer assertion alone. Preserve borrowed inputs and original metadata/source bytes.
+
+EQ104's external suite pairs clean/contaminated/unknown examples with independent expected findings. Cover future observations and late revisions outside the governed population, current-versus-historical universes, excluded versus consumed facts, reconstruction and missing authority. Prove future-input invariance of admitted calculations and that reported unavailable results can reproduce without becoming safe historical evidence. List supported attack classes and explicit unobservable omissions, fabricated timestamps and model-training contamination. False-positive/unknown cases are part of acceptance.
+
+## Installed compatibility and release evidence
+
+New pure roots must import without calculators, adapters, workers, native/columnar/provider modules; confirm absence before and after optional installation. Existing package sources, dependencies, versions, result bytes and public examples remain unchanged unless a separately reviewed change requires evolution. Full result comparisons include metadata, status, quality and retained evidence, not selected scalar values alone.
+
+Qualify actual supported CPython3.12 Windows/Linux wheel and sdist forms for changed distributions and explicit combined consumers. Verify installed `-I`/site-packages origins, no source-tree fallback, exact dependency metadata, strict public consumer typing, independent fixtures and examples. Source maps include every selected package, fixture, helper and build/workflow input from committed bytes. Repeat archive builds, complete every-entry license/METADATA/RECORD/sdist/source and installed payload maps, current head/size/digest/expiry and actual downloaded artifact bytes bind the evidence. Do not claim all platforms/future dependency combinations or independent reinstall from a ZIP audit.
+
+Measure one frozen bounded-work protocol only when the story makes a performance/resource claim or its acceptance requests it. Report populations, raw samples, preparation/warmup/order, environment, method and parity. Timings/allocations are observations, not SLOs, universal detector accuracy, total physical memory or deadline guarantees. Do not rerun R9 benchmarks as new diagnostic measurements.
+
+Separate final-head contract/security/docs review and findings disposition precede formal Test. Actual final main/public source attribution and current artifact/install equivalence precede Released/acceptance/Done. Preserve original FAILED/REWORK and corrected scope; no merge-only completion or recursive receipt-only commits. Final aggregate verifies all five runtime acceptances, GOV022, epic194 actual lifecycle and milestone11 exact seven members/zero-open/closed. R11+, providers/private acquisition, registry/public services/account admin and paused R7 automation remain excluded.
