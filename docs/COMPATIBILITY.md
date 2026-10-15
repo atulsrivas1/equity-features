@@ -1,3 +1,7 @@
+## EQ099 standalone explanations candidate
+
+Python>=3.12,<3.13; explanations0.1.0a1 requires contracts==0.0.4a4/evidence==0.1.0a2. Accepted bundle0.1.0a1 and old numerical/I-O versions unchanged. Only fixed39catalog/schema1/algorithmv1/mathv1/python-exact0.0.4a4 result declarations supported. No latest matching, custom registry or migration by inference. [API](api/CALCULATION_EXPLANATIONS.md).
+
 ## EQ097 qualified experimental candidate forms — October15,2026
 
 Evidence0.1.0a2 with unchanged contracts/features0.0.4a4 passed actual Windows3.12.10/Linux3.12.15 wheel/sdist isolated/combined consumers and public typing. [Exact environment/source/archive maps](stories/EQ-097_VALIDATION.json). Existing receipt-json-v1 stays compatible; typed-json-v1 is a separate full-content preimage with strict contracts-version admission. Final currenthead/main release acceptance remains required; no universal future combinations or stable registry promise.

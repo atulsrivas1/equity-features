@@ -1,3 +1,7 @@
+## Optional explanations candidate
+
+Install the matching experimental explanations0.1.0a1 plus contracts0.0.4a4/evidence0.1.0a2 archives from reviewed current GitHub CI delivery. Calculator is optional for the external example; pure root never imports it. [API/limits/version policy](api/CALCULATION_EXPLANATIONS.md). No stable registry publication or automatic dependency upgrade claimed; final artifact acceptance remains pending.
+
 ## R8 delivered contracts and consumer qualification
 
 Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.

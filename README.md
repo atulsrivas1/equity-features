@@ -1,3 +1,7 @@
+## Experimental bounded calculation explanations
+
+Optional pure explanations0.1.0a1 extends supplied receipt/content verification with typed bounded formula/quality/input declarations and reported references. [API](docs/api/CALCULATION_EXPLANATIONS.md); accepted numerical/evidence/bundle sources and pins unchanged. Source candidate only until actual publication gates.
+
 ## Pure research consumers and R8 evidence
 
 Optional `equity-feature-strategies` and `equity-feature-labels` version0.1.0a1 consume supplied facts and depend only on core contracts0.0.4a4. Core contracts/features0.0.4a4 keep their source-independent calculations and required dependencies. See the [scanner guide](docs/research/SCANNERS.md), [forward-label guide](docs/research/FORWARD_LABELS.md), [chronological consumer guide](docs/research/CHRONOLOGICAL_CONSUMER.md) and [synthetic backtest example](examples/research_backtest.py).

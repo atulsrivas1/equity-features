@@ -1,3 +1,7 @@
+## EQ099 source candidate
+
+New standalone pure explanations0.1.0a1: supplied full-content/context validation, bounded typed catalog/quality/input declarations, reported references and explicit global-versus-focused omission findings. No changes to accepted math/core/evidence/bundle pins.26source methods/known wire fixtures/typing/boundary passed; fresh installed/bothOS/main acceptance pending.
+
 ## EQ098 bundle/replay candidate — October15,2026
 
 New optional companion bundles0.1.0a1 provides deterministic bytes-only reproduction archives, strict closed reconstruction/full supplied content verification and explicit fixed trusted replay. Missing refs remain unavailable; cancellation before entry and a five-second after-return acceptance gate make no active-call interruption promise. No extraction, resolver or executable archive content. Candidate source is implemented; independent review/freshbothOS/current artifacts/paired-main release remain pending. Existing numerical/evidence/old-I/O packages unchanged.

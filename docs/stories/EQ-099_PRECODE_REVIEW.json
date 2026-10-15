@@ -36,6 +36,12 @@
     "Explicit config.schema1/algorithmv1 plus namespace/session/availability/config_digest and focus session equality before constructing summaries; full supplied actual fingerprints do not replace semantic context checks.",
     "Exact nested EvidenceReference JSON table and independently authored retained/excluded/omitted fixture before runtime."
   ],
-  "renewed_review": "Pending; no Ready or runtime approval.",
+  "renewed_review": {
+    "head": "e3a916890543692a70a3b6f32300209a1a80baf8",
+    "raw_report_sha256": "a1e4140e3142ccfa41c61fbb63ee9a6d397b7b47736a36c85a2a5dd6173e3844",
+    "disposition": "approved_precode_ready_design_no_actionable_findings",
+    "findings": [],
+    "ready_evidence": "https://github.com/atulsrivas1/equity-features/issues/199#issuecomment-6196207086"
+  },
   "author_tool_history": "Outside documentation check initially used wrong cwd and failed AGENTS.md presence; correct core cwd passed. Corrective continuity generator accidentally included patch-prefix plus markers; visual read caught and removed before staging/publication. No product failure/failed pass."
 }
