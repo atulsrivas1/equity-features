@@ -1,3 +1,7 @@
+## R10 review route authorized — October15,2026
+
+Owner-authorized separate local automated review covers the handoff/GOV022, EQ101–105 and final R10 delivery. Applicable review/check/source/installed/publication gates remain required; no runtime implementation or acceptance inferred from this permission.
+
 ## R10 handoff and preparation — October15,2026
 
 Prepared [execution handoff](R10_AUTONOMOUS_HANDOFF.md), [release plan](R10_RELEASE_PLAN.md), [test strategy](R10_TEST_STRATEGY.md) and first EQ101 decision/fixture packet under GOV022#398. Owner selected bounded R10 work; separate review route/final documentation publication remain pending. R9 acceptance/post-delivery review now linked from current continuity. No runtime/package/formula/dependency/version/build/workflow or existing acceptance evidence changes; no diagnostic implementation or release yet.

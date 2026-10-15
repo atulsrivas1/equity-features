@@ -1,4 +1,10 @@
-## R10 execution selected; review-route decision pending — October15,2026
+## R10 authorized local review — October15,2026
+
+The owner explicitly answers "Authorize local review throughout R10" for the concrete handoff in PR399 and all R10 stories EQ101–105, including final delivery. Separate local Codex reviewers may review GOV022, each pre-code plan, implementation, affected contracts/callers, final heads, actual artifacts and final publication/acceptance. Record reviewer identity, exact heads/frozen source identities, executed checks, findings/disposition and limitations; renew affected coverage after changes. Author self-review and CI alone remain insufficient. This is local automated review, not hosted activation or human review. Applicable numerical/documentation/installed Windows/Linux/source/archive/RECORD/publication/lifecycle gates remain mandatory.
+
+This supersedes the pending R10 alternative-review decision below. It does not authorize R11+, provider/private acquisition, paid operations, account administration, stable registry/public service exposure, destructive or recurring work. Preserve unrelated primary edits, accepted releases and paused R7 automation; one active R10 implementation at a time.
+
+## Historical R10 execution selection; review route was pending — October15,2026
 
 The owner requests the R10 handoff package and work on R10 in this conversation. [GOV022 #398](https://github.com/atulsrivas1/equity-features/issues/398) prepares the concrete handoff and EQ101–105 gates. This selects bounded R10 design/implementation subject to ordinary readiness, review and delivery requirements; it creates no new session or automation.
 

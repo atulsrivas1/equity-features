@@ -1,3 +1,7 @@
+## R10 local review authorized — October15,2026
+
+The owner explicitly answered "Authorize local review throughout R10" for PR399/GOV022 and EQ101–105 including final delivery. CODE_REVIEW.md records the actual bounded alternative-review decision; no per-story repeat permission, hosted activation or human review implied. The former pending-review-route paragraph below is historical. Next complete separate exact-head handoff review/applicable checks/actual-main/governance acceptance, then the full independently reviewed EQ101 readiness packet before implementation. Runtime remains Backlog until its own gates pass; no R11+/provider/private/admin/paid/publicservice/registry/automation scope.
+
 ## R10 handoff preparation — October15,2026
 
 The owner requested the [R10 execution handoff](R10_AUTONOMOUS_HANDOFF.md) and work on existing EQ101–105 in this chat. [GOV022 #398](https://github.com/atulsrivas1/equity-features/issues/398) actually moved Backlog→Ready→In progress and is assigned to Atul in milestone11; it is separate governance, not a sixth runtime story. [Release plan](R10_RELEASE_PLAN.md), [test strategy](R10_TEST_STRATEGY.md) and [EQ101 preparation](stories/EQ-101_PLAN.md) are proposed documentation. All five runtime issues201–205 and epic194 remain Backlog; no diagnostic runtime or Ready claim.
