@@ -1,11 +1,11 @@
 {
   "schema": "eq104-validation:1",
-  "stage": "In progress; source implementation complete, separate source/builder review pending",
+  "stage": "Test; source qualified; final documentation head/publication/actual-main acceptance pending",
   "accepted_base": "648a90480a167dd0507ff7a752363aa113ef7b44",
   "ready_head": "72b3afe395aa9b1263fdf8d5e6ec910e3145b181",
   "ready_review_sha256": "cbc8f5cd5b12d215a7a96529549816a9c5c893c1ada90fd3e647603e33376d6a",
   "start_evidence": "https://github.com/atulsrivas1/equity-features/issues/204#issuecomment-6202175578",
-  "current_runtime_qualified": false,
+  "current_runtime_qualified": true,
   "released": false,
   "development": {
     "source_methods": 15,
@@ -26,7 +26,9 @@
     "eq104-initial-development.log": "751baafc2d47da57d02b1e2408e773f860ccb958facc81c6395fe6c4c30ad4ae",
     "eq104-integration-development.log": "728b2168f01d18a6c1f491e2ee369082f7d5a7a17d102d55bd29b37b833658c0",
     "eq104-integration-corrected.log": "203f49c40c614c26a1b552f6643d25a524525144fb93b9242245000db83e973b",
-    "eq104-development-final.log": "792d1accc42f1f180cd749e4f09bdc1f87d873adce05e5d746a79144cf8eecc7"
+    "eq104-development-final.log": "792d1accc42f1f180cd749e4f09bdc1f87d873adce05e5d746a79144cf8eecc7",
+    "eq104-source-linux-job.log": "9bd61f28153ef3bd16b182a7789cefad22c0641910b8dfbb2f10baede8a8c195",
+    "eq104-source-windows-job.log": "0b559190ed9254d5ad84d2f58464ab92a9384646e34c728e2dae2fb13f669268"
   },
   "failures_and_corrections": [
     {
@@ -69,7 +71,60 @@
     "diagnostic_methods_each": 14,
     "evidence_methods_each": 31,
     "source": "fixed threeRepo Git object materialization; source closure and immutable companion refs",
-    "status": "UNEXECUTED; new builder/workflow source requires independent review before execution"
+    "status": "Completed at reviewed source554141bf; all four fresh forms perOS and author Windows passed after cleanup/source closure."
   },
-  "final_gate": "Separate exact source/security/math/builder/docs review, reviewed-source fresh fourforms/currentbothOS ZIP/artifact audit/finalhead/publication/independent actualmain/currentmain artifacts and actual lifecycle acceptance remain mandatory. R10/EQ105 not complete."
+  "final_gate": "Separate exact source/security/math/builder/docs review, reviewed-source fresh fourforms/currentbothOS ZIP/artifact audit/finalhead/publication/independent actualmain/currentmain artifacts and actual lifecycle acceptance remain mandatory. R10/EQ105 not complete.",
+  "source_review": {
+    "head": "554141bf2b32d4dbd3db5e42e85f387c09cdcbd6",
+    "report_sha256": "cf2f8bbe85946e3db1038a15de524940981bdcaeaf6ee6c4ca30b66117976680",
+    "findings": [],
+    "scope": "Separate local source/builder/security/math/docs review and independent15method source run. Reviewer development environment lacked mypy; author strict3file check and fresh consumers passed. Not independent reinstall."
+  },
+  "installed_qualification": {
+    "head": "554141bf2b32d4dbd3db5e42e85f387c09cdcbd6",
+    "author_system": "Windows",
+    "qualification_sha256": "778e4c3ce3e61624559614ca9d8eb9491c1cffee687d6bcd7fe123ead97e5636",
+    "raw_log_sha256": "8b03df194355533bf2a9701667b0420398f786d643460e3d9a2591dcc852faa8",
+    "archives": 22,
+    "repeated_builds": 2,
+    "fresh_forms": 4,
+    "pure_methods_per_pure_form": 11,
+    "conformance_methods_per_full_form": 15,
+    "provenance_methods_per_full_form": 22,
+    "diagnostic_methods_each": 14,
+    "evidence_methods_each": 31,
+    "strict_consumer_each": true,
+    "no_skips": true,
+    "source_closure": true,
+    "original_package_maps_unchanged": true,
+    "native_wheels": {
+      "duckdb-1.5.6-cp312-cp312-win_amd64.whl": {
+        "bytes": 13190189,
+        "sha256": "09ff51b230219f0d8b47fc8a1e17fb595ba9fab0c3d96a6de4d00b8ff86b3cf1"
+      },
+      "numpy-2.2.6-cp312-cp312-win_amd64.whl": {
+        "bytes": 12614190,
+        "sha256": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2"
+      },
+      "setuptools-80.9.0-py3-none-any.whl": {
+        "bytes": 1201486,
+        "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+      }
+    }
+  },
+  "bothOS": {
+    "head": "554141bf2b32d4dbd3db5e42e85f387c09cdcbd6",
+    "workflow_run": 38808031886,
+    "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38808031886",
+    "current_PR_checks_success": 38,
+    "archives_each": 22,
+    "archive_entries_each": 373,
+    "wheel_RECORD_rows_each": 159,
+    "Git_source_pins_each": 177,
+    "fresh_forms_each": 4,
+    "artifact_report_sha256": "1f30247cab79bd4eddb260f0fc8f7be5d6cbc52fcbd7a4d2f1226fa339b4fef1",
+    "independent_artifact_review_sha256": "b9c3c4b722ee0b646b290c07d6b5924abc4a7d5fc076836f99fd9cc49ce58c55",
+    "review_findings": [],
+    "limits": "Every project installed payload/archive/source/metadata/license/dependency/RECORD/raw log audited. Native RECORD capture is not independent physical native rehash or reinstall."
+  }
 }
