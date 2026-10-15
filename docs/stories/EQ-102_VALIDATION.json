@@ -1,5 +1,5 @@
 {
-  "scope": "development source-path only; installed/bothOS not yet qualified",
+  "scope": "Author development and actual Windows fresh forms plus current bothOS source-candidate artifact evidence; final reviewed head/publication/main/lifecycle still pending",
   "initial_failure": {
     "log_sha256": "a4ddbd8d5e57b8d5091093f440840819c3f6f3b6d2423b4774df8fc882e086c0",
     "methods": 9,
@@ -8,11 +8,10 @@
     "failed_pass_claimed": false
   },
   "remaining": [
-    "exact source review",
-    "current source checks",
-    "committed-source repeat builds",
-    "fresh four forms bothOS",
-    "final head/artifacts/main/lifecycle acceptance"
+    "renewed corrected final-head source/docs review",
+    "independent bothOS artifact audit",
+    "current corrected final-head checks/artifacts",
+    "guarded main/independent publication/lifecycle acceptance"
   ],
   "development": {
     "runtime_methods": 14,
@@ -31,7 +30,7 @@
       10
     ],
     "diagnostic_boundary_negative_positive": [
-      10,
+      9,
       4
     ],
     "literal_checks_aggregates_refusals": [
@@ -43,5 +42,92 @@
       "isolated declarations",
       "actual compute_trades/full result+receipt parity and unavailable quality"
     ]
-  }
+  },
+  "source_review": {
+    "reviewer": "/root/r10_review",
+    "head": "2eb2985104ae1b8451e91ddba0432bd4e17689b0",
+    "report_sha256": "c1116690623c35d80248e73c1a092df18ea6f6df0a033021ffc6980ad2c7309c",
+    "finding": "Documentation claimed10 diagnostic negative boundary controls; actual tuple has9. Corrected to9/4, no redundant new control, no evaluator/security/builder defect found.",
+    "disposition": "evidence-count correction only; renewed final-head review pending",
+    "actual_rework": "Code review -> In progress before correction",
+    "independent_runtime_methods": 14
+  },
+  "author_windows": {
+    "source_commit": "2eb2985104ae1b8451e91ddba0432bd4e17689b0",
+    "python": "3.12.10",
+    "raw_log_sha256": "06814204ead6ce00e5df9f5b08bebaf86fe5be32a1635f172f51ec5be844473b",
+    "report_sha256": "251cb7643c889b93d4500c04a298802f68e5eeaeaa05e055ef8c9044a6ec3875",
+    "status": "completed",
+    "exit_code": 0,
+    "archives": 8,
+    "repeat_archive_parity": true,
+    "fresh_forms": [
+      [
+        "wheel",
+        false
+      ],
+      [
+        "wheel",
+        true
+      ],
+      [
+        "sdist",
+        false
+      ],
+      [
+        "sdist",
+        true
+      ]
+    ],
+    "diagnostic_methods_per_form": 14,
+    "evidence_methods_per_form": 31,
+    "skips_per_form": 0,
+    "strict_consumer": true,
+    "complete_source_archive_installed_maps_verified": true,
+    "independent_reinstall": false
+  },
+  "bothOS_source_candidate": {
+    "head": "2eb2985104ae1b8451e91ddba0432bd4e17689b0",
+    "run": 38794052992,
+    "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38794052992",
+    "workflow_conclusion": "success",
+    "collector_report_sha256": "12861effba72512c2a5162f1f64371f83a5a9f0593a58b53be8bc226b4960271",
+    "reports": [
+      {
+        "name": "diagnostics-40202175b664e772f51e8ef60b5858344a1ca9e3-ubuntu-24.04",
+        "artifact_id": 12000812629,
+        "expires_at": "2026-11-14T19:28:45Z",
+        "zip_bytes": 299342,
+        "zip_sha256": "56c1423abdb0e582277d9c679bbad85a51f939847e25e19d4fe163a8dccd5dc9",
+        "effective_source_commit": "40202175b664e772f51e8ef60b5858344a1ca9e3",
+        "python": "3.12.15",
+        "system": "Linux",
+        "archives": 8,
+        "fresh_forms": 4,
+        "source_count": 88,
+        "source_tree_equals_candidate": true
+      },
+      {
+        "name": "diagnostics-40202175b664e772f51e8ef60b5858344a1ca9e3-windows-latest",
+        "artifact_id": 12001821599,
+        "expires_at": "2026-11-14T19:30:09Z",
+        "zip_bytes": 302512,
+        "zip_sha256": "f0802c2b1c3e287865eff7536aa882e4f0c9b5bc8d7845c9e8c30242c3166961",
+        "effective_source_commit": "40202175b664e772f51e8ef60b5858344a1ca9e3",
+        "python": "3.12.10",
+        "system": "Windows",
+        "archives": 8,
+        "fresh_forms": 4,
+        "source_count": 88,
+        "source_tree_equals_candidate": true
+      }
+    ],
+    "independent_artifact_review": "pending",
+    "independent_reinstall": false
+  },
+  "tooling_history": [
+    "Code-review transition succeeded then journal expected28files asserted against actual27; resumed missing read-only journal without duplicate issue/status mutations.",
+    "Count-rework transition succeeded then helper attempted JSON parse of empty gh output; current Inprogress verified and missing journal written without repeating transition.",
+    "Artifact collector initially assumed branch SHA in PR artifact names; actual GitHub PR checkout uses synthetic merge. Corrected exact effective commit/tree==candidate/branch-parent checks and raw artifact identities, no changed product or rerun."
+  ]
 }

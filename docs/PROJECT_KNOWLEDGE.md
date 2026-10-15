@@ -1,3 +1,9 @@
+## EQ102 source qualified; evidence-count correction — October15,2026
+
+Actual source2eb29851 author Windows completed8repeatarchives/fourfresh installed forms, each14diagnostic/31evidence methods/no skips and strict consumer, source/archive/installed maps and realproducer full parity. Current bothOS source-candidate workflow38794052992SUCCESS artifacts downloaded with actual ZIPsize/digest/everyentry/effectivePRmerge-tree equivalence. [Full validation](stories/EQ-102_VALIDATION.json). Independent audit pending; artifact review is not an independent reinstall.
+
+Separate source reviewer found no evaluator/security/builder defect; one P2 corrects the evidence count to9diagnostic negative/4positive controls, original10claim/report preserved. Actual CodeReview→Inprogress preceded documentation correction, no executable/package/test/build/workflow bytes change. Initial adjustment mapper failure and three tool-only journal/collector corrections are preserved. Next exact correctedhead source/docs review/currentCI/artifactaudit, actualCodeReview→TestReadyRelease/guardedmain/independentactualmain→ReleasedDone. Other runtime stories Backlog; R10 not complete. No owner input missing. Preserve accepted sources/unrelated primary/pausedR7automation.
+
 ## EQ102 implementation selected for preparation — October15,2026
 
 EQ101 contract is [accepted](https://github.com/atulsrivas1/equity-features/issues/201#issuecomment-6200350394) at c6c5c100931b462107d140a38cb368da0887d74a; no evaluator package was delivered by that specification. [EQ102 plan](stories/EQ-102_PLAN.md) owns all seven optional typed checks/admission, independent38+6oracle mapping and18structural refusal runtime obligations. Pure package boundary/exact dependencies/source-closed repeatarchives/fourfreshbothOS forms are required; preparation is not implementation or Ready. No change to existing calculation or package source/version is planned.
