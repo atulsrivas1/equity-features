@@ -1,3 +1,7 @@
+## Post-R8 orientation — October14,2026
+
+[R8 independent post-delivery review](reviews/R8_POST_DELIVERY_REVIEW.md) supports its accepted closed experimental delivery within the recorded scope; no new product finding. Current acceptance/source/artifact/local checks and measurement-review limits are in [evidence](reviews/R8_POST_DELIVERY_EVIDENCE.json). Existing R8/R7 receipt and failure histories remain intact. [R9 planning](R9_RELEASE_PLAN.md) now prepares the next existing five-story release; it does not authorize implementation, a new session or a local-review extension by inference. See [GOV021#391](https://github.com/atulsrivas1/equity-features/issues/391) and current handoff. Live GitHub Project remains the lifecycle authority.
+
 ## Final R8 delivery handoff and acceptance authority — October 14
 
 EQ088 #99 is Closed/Done at canonical main26c5d036335daa7ba291da8b47030b4c690a736e after complete measured qualification, current worker/canonical checks and bothOS artifact/source/main review. [Actual acceptance](https://github.com/atulsrivas1/equity-features/issues/99#issuecomment-6182885908). This final packet was prepared with seven original runtime stories accepted and EQ092 #104 in Test; that is a frozen publication checkpoint, not a live status claim. [R8 evidence index](R8_ACCEPTANCE.md), [story104 closing acceptance](https://github.com/atulsrivas1/equity-features/issues/104), live Project and milestone9 own subsequent exact identities, current evidence and completion.
