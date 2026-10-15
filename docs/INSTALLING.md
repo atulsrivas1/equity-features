@@ -1,3 +1,7 @@
+## EQ103 candidate installation
+
+Provenance0.1.0a1 explicitly depends on accepted worker/SDK/DuckDB packages and DuckDB1.5.6/NumPy2.2.6. It is not a pure diagnostics extra. [Outer API](api/PROVENANCE.md) and story validation govern support; no registry publication or fresh installed qualification claimed yet.
+
 ## EQ102 diagnostic candidate installation — October15,2026
 
 New experimental equity-feature-diagnostics0.1.0a1 requires exact contracts0.0.4a4 and evidence0.1.0a2 on CPython3.12. It needs no calculator/adapter/worker. Build with python tools/build_diagnostics.py from its reviewed committed checkout and fresh owned dist/diagnostics; qualification artifacts are not yet accepted or stable registry releases. Do not relabel older R9 artifacts as diagnostics. Full installed wheel/sdist verification on Windows/Linux is a delivery gate.

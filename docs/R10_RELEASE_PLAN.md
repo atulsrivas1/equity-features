@@ -1,3 +1,15 @@
+## EQ103 corrected source qualification complete — October15,2026
+
+Corrected source e227b8507fd402db8c3ace089fefa77f4cec9cdf completed author Windows and [Windows/Linux workflow38803028023](https://github.com/atulsrivas1/equity-features/actions/runs/38803028023):20 repeat-built archives,157 three-repository source pins and four fresh forms perOS. Each supplied form ran11 provenance methods; each live form22; every form also ran14 diagnostic and31 evidence methods, strict consumer checks and original package/source/result/receipt/quality parity, with no skips. Both actual native examples passed perOS. All34 source PR checks passed. Separate /root/r10_review approved the corrected source and artifact audit. Captured native RECORD maps are not an independent physical native rehash or reinstall.
+
+Both P2 corrections remain explicit: duplicate entity/partition inventory is rejected before Store.read; duplicate acquisition roles return invalid_schema while empty acquisition remains missing_provenance. Prior ac1/50 passes and reviews retain their original scope. [Validation and immutable hashes](stories/EQ-103_VALIDATION.json) preserve failures, corrections and limitations. Supplied evidence remains unauthenticated and cannot prove execution; only actual fixed generation readback returns complete. No accepted baseline package/version/math/codec change.
+
+Actual203 remains Test. Final documentation delta review, current final-head CI/artifacts, guarded publication, independent actual-main/public UTF8/attribution/current artifacts and Released/Done acceptance remain required. EQ104/105 stay Backlog; R10 is not complete. No new owner input is missing.
+
+## Current execution checkpoint — October15,2026
+
+GOV022/EQ101/EQ102 are accepted. EQ103's outer provenance source is qualified on Windows/Linux with independent source/artifact review; final documentation/currenthead/publication/main/lifecycle acceptance remains. EQ104/105 remain Backlog; R10 epic/milestone open. [Current handoff](SESSION_HANDOFF.md) and live Project govern execution; the preparation snapshots below remain historical, not current status. No scope or later-release authorization changes.
+
 # R10 release plan — point-in-time diagnostics
 
 Owner-selected October15,2026; [GOV022 #398](https://github.com/atulsrivas1/equity-features/issues/398), [epic194](https://github.com/atulsrivas1/equity-features/issues/194), [milestone11](https://github.com/atulsrivas1/equity-features/milestone/11). Runtime EQ101–105 remain Backlog at preparation. This packet authorizes no claim of implemented diagnostics. The owner's request covers bounded R10 work in this chat; the owner also explicitly authorized separate local review for PR399/the handoff, all five stories and final delivery under CODE_REVIEW.md. Permission does not establish completed review.

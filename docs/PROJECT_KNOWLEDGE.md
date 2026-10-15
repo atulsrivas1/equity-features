@@ -1,3 +1,29 @@
+## EQ103 corrected source qualification complete — October15,2026
+
+Corrected source e227b8507fd402db8c3ace089fefa77f4cec9cdf completed author Windows and [Windows/Linux workflow38803028023](https://github.com/atulsrivas1/equity-features/actions/runs/38803028023):20 repeat-built archives,157 three-repository source pins and four fresh forms perOS. Each supplied form ran11 provenance methods; each live form22; every form also ran14 diagnostic and31 evidence methods, strict consumer checks and original package/source/result/receipt/quality parity, with no skips. Both actual native examples passed perOS. All34 source PR checks passed. Separate /root/r10_review approved the corrected source and artifact audit. Captured native RECORD maps are not an independent physical native rehash or reinstall.
+
+Both P2 corrections remain explicit: duplicate entity/partition inventory is rejected before Store.read; duplicate acquisition roles return invalid_schema while empty acquisition remains missing_provenance. Prior ac1/50 passes and reviews retain their original scope. [Validation and immutable hashes](stories/EQ-103_VALIDATION.json) preserve failures, corrections and limitations. Supplied evidence remains unauthenticated and cannot prove execution; only actual fixed generation readback returns complete. No accepted baseline package/version/math/codec change.
+
+Actual203 remains Test. Final documentation delta review, current final-head CI/artifacts, guarded publication, independent actual-main/public UTF8/attribution/current artifacts and Released/Done acceptance remain required. EQ104/105 stay Backlog; R10 is not complete. No new owner input is missing.
+
+## EQ103 duplicate acquisition-role rework — before publication
+
+Final targeted review reproduced an uncovered frozen matrix case at sourceac1/finaldocs50: public TaskEvidence(acquired=(a,a)) returned missing_provenance, while duplicate-task-role requires invalid_schema. Empty input correctly returns missing_provenance. Prior18/21method passes and source/artifact reviews retain their recorded scope; they do not establish this missing case. Actual203Test→In progress preceded the narrow code correction; no publication/acceptance occurred.
+
+The constructor now rejects empty first as missing_provenance, then non-single cardinality as invalid_schema before iteration/cloning. One explicit public constructor test independently verifies both boundaries;22development methods, strictmypy4files and unchanged boundary controls pass. Installed forms now expect11supplied or22live methods plus unchanged14diagnostic31evidence eachform, pending actual renewed execution. [Full original finding/log/transition scope](stories/EQ-103_VALIDATION.json). Next corrected exactsource review→reviewedsource/currentbothOS20repeatarchive/fourfreshform qualification→finalreview/publication/independentmain acceptance. R10 remains open, EQ104/105Backlog; no owner input missing.
+
+## EQ103 qualified source and explicit review limits
+
+The outer supplied/live bridge passed source ac1 actual author Windows and currentbothOS20repeatarchive/fourfreshform qualification. Separate source review resolved duplicate entity/partition inventory beforeStore.read; independent artifact audit reconstructed all project installed bytes and actual raw test cohorts. Native installed RECORD captures do not become an independent native rehash/reinstall. [Current validation](stories/EQ-103_VALIDATION.json) preserves evidence and limitations; final currenthead/main/publication/acceptance pending. Unsupported profile errors differ from supported-record mismatches; original precode grouped wording is history.
+
+## EQ103 actual outer candidate — October15,2026
+
+Selected outer provenance API distinguishes supplied retained-content consistency from actual accepted generation-store readback. Compound adapter source identities need a separate bounded256codepoint allowance; generic128labels would reject actual original-read2/retained-map1 values. Supplied-only cannot detect an external file mutation: retained-pin reacquisition is an independent native failure path. Publicly constructed completion/report data never proves code ran. [Current evidence/failures](stories/EQ-103_VALIDATION.json); installed/currentbothOS/release acceptance pending.
+
+## EQ103 selected for concrete preparation — October15,2026
+
+EQ101/102 are accepted; [EQ102 acceptance](https://github.com/atulsrivas1/equity-features/issues/202#issuecomment-6200809345) binds unchanged pure core/evidence and the new diagnostic distribution. [Outer provenance plan](stories/EQ-103_PLAN.md) keeps acquisition/storage outside calculations and separates supplied content consistency from actual accepted backend readback. A new reusable outer package is proposed, not implemented or Ready. No new source/provider admission, native reference acquisition, registry or later-release scope.
+
 ## EQ102 source qualified; evidence-count correction — October15,2026
 
 Actual source2eb29851 author Windows completed8repeatarchives/fourfresh installed forms, each14diagnostic/31evidence methods/no skips and strict consumer, source/archive/installed maps and realproducer full parity. Current bothOS source-candidate workflow38794052992SUCCESS artifacts downloaded with actual ZIPsize/digest/everyentry/effectivePRmerge-tree equivalence. [Full validation](stories/EQ-102_VALIDATION.json). Independent audit pending; artifact review is not an independent reinstall.

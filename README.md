@@ -1,3 +1,7 @@
+## Outer provenance implementation candidate
+
+[Explicit supplied bindings and actual generation readback](docs/api/PROVENANCE.md) adds an outer package with pinned native adapter/sink/worker costs. Pure diagnostics/calculations remain independent. EQ103 development passes do not constitute release acceptance; see current validation.
+
 ## Optional point-in-time diagnostics candidate — October15,2026
 
 [Diagnostic contract](docs/api/POINT_IN_TIME_DIAGNOSTICS.md), [pure consumer](examples/diagnostic_declarations.py) and [actual-producer composition](examples/diagnostic_producer.py) implement supplied-record checks in optional diagnostics0.1.0a1. Qualification/publication are pending; no registry availability or complete R10 claim. Existing calculations and dependency versions remain unchanged.

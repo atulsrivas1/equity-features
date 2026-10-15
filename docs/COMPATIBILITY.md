@@ -1,3 +1,7 @@
+## EQ103 candidate boundary
+
+No accepted package/version/result/catalog/codec/formula changes. New outer provenance0.1.0a1 requires CPython3.12 and exact accepted IO18d86761/worker6538f21 pins; native dependencies remain explicit. Only trade acquisition and five existing compute_trades outputs are supported. [Trust/bounds](api/PROVENANCE.md).
+
 ## EQ102 compatibility candidate — October15,2026
 
 Diagnostics0.1.0a1 is an optional inward consumer of unchanged contracts0.0.4a4/evidence0.1.0a2. No existing source/version/dependency/result bytes migrate; core never imports diagnostics. First API is typed in-memory only, no diagnostic codec/digest. Existing inputs remain borrowed immutable supplied declarations; source/history/rights/original execution are unverified. BothOS fresh forms remain pending.

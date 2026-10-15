@@ -1,0 +1,199 @@
+{
+  "schema": "eq103-validation:1",
+  "stage": "Test; corrected e227 source qualified; final documentation head/publication/main acceptance pending",
+  "accepted_base": "a68ef449c29de49133e30f6ab7591fa26224537c",
+  "readiness_head": "da2cbb6d7fc7ec4b28ef56fda2fdec070057c3c0",
+  "reviewer": "/root/r10_review",
+  "ready_report_sha256": "fa4b3e8c19a36f426df0d23c5d2ea82baf1352445c11116a64985884082d9aae",
+  "development": {
+    "provenance_methods": 22,
+    "actual_native": true,
+    "strict_mypy_package_files": 4,
+    "boundary_outer_negative": 8,
+    "boundary_outer_positive": 3
+  },
+  "logs": {
+    "eq103-development-install.log": "74299dc034d06592810d74015746cb4a2ae459128f9a2d87f6ed22fe4ae57612",
+    "eq103-initial-runtime.log": "68a98033e7b31f3682b92340426fb7e20a49fb25d20d6cbff3def63a38c984c0",
+    "eq103-first-native.log": "d24bcfc4712e184b7aa945abfb51f7eed6bcb6ed4716b2d22461748c5ca12f84",
+    "eq103-native-corrected-fixture.log": "3d40e6582e38e49ff5f6d67d7230a90f15c8483b56a18a5ff5cc17b18f07920a",
+    "eq103-native-generated-identity.log": "693d5f20c63da114207d5658a0523ce2b5890320deff17d7c1794d0e1aad1df6",
+    "eq103-native-development-pass.log": "5570bb5836ea8ea37930f395c24703568244cacc355ae4296a9b85844b37b277",
+    "eq103-initial-mypy.log": "5f42afc38ad1784053b1fa02b625dc5e86b69b78393abe8a0005c1889c956f52",
+    "eq103-expanded-development.log": "d621fe0d3b7d0af6a1eff711e32c87847c2f038a4a9574075096080ff13ed70e",
+    "eq103-expanded-binding-controls.log": "9dca55075d2f7e1c6fe4f10dabd7ca055e95caaf0ed06311f77334066ffbafdf",
+    "eq103-expanded-binding-corrected.log": "2b775e1d28595f2236ea9325e5cdf07d788a951eaf7913a38274aafba3555fcf",
+    "eq103-development-twenty.log": "922eddede5b84ff204782c8546a281b8155863b08ce2cbc6ec8c8cded6f3a06c",
+    "eq103-inventory-rework.log": "b39d84f81671f4c98df6e1a6efc84bbab5c96d6c8c6f72cba6f1c9a9c4e96cac",
+    "eq103-candidate-linux-job.log": "2bf4da6feb374fbac9aebb46fba4babeddc302b99dbf1b2c7b3d49567c2f7d06",
+    "eq103-candidate-windows-job.log": "8175bea390f1c7b4a2c35409dcd0d250f6cfa0b5762cff686dae9a1cd0499524",
+    "eq103-role-candidate-linux-job.log": "4038f0550a7023811d56053799c244489775980ff3bca1c6f50cc9b1b21fe815",
+    "eq103-role-candidate-windows-job.log": "b9af21a102452b0abc61fcbac5a95a8e6f70fc20e83f391d3ec1f4171c3c7764"
+  },
+  "installed_qualification": {
+    "author_system": "Windows",
+    "source": "e227b8507fd402db8c3ace089fefa77f4cec9cdf",
+    "raw_log_sha256": "5dc08bff07db03557c1f3737aff8f3e87459f8e87eeb0b68f055ce3ae5397253",
+    "qualification_sha256": "43750adb15ed21bbc62b57e3da3de67f6ea999e4228cd1882935a6b97da615ae",
+    "archives": 20,
+    "repeated_builds": 2,
+    "fresh_forms": 4,
+    "supplied_methods_per_form": 11,
+    "live_methods_per_form": 22,
+    "diagnostic_methods_each": 14,
+    "evidence_methods_each": 31,
+    "strict_consumer_each": true,
+    "no_skips": true,
+    "source_closure": true,
+    "original_package_maps_unchanged": true,
+    "native_wheels": {
+      "duckdb-1.5.6-cp312-cp312-win_amd64.whl": {
+        "bytes": 13190189,
+        "sha256": "09ff51b230219f0d8b47fc8a1e17fb595ba9fab0c3d96a6de4d00b8ff86b3cf1"
+      },
+      "numpy-2.2.6-cp312-cp312-win_amd64.whl": {
+        "bytes": 12614190,
+        "sha256": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2"
+      },
+      "setuptools-80.9.0-py3-none-any.whl": {
+        "bytes": 1201486,
+        "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+      }
+    }
+  },
+  "bothOS": {
+    "source": "e227b8507fd402db8c3ace089fefa77f4cec9cdf",
+    "workflow_run": 38803028023,
+    "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38803028023",
+    "current_PR_checks_success": 34,
+    "OS": [
+      "Linux",
+      "Windows"
+    ],
+    "archives_each": 20,
+    "archive_entries_each": 350,
+    "wheel_RECORD_rows_each": 150,
+    "Git_source_pins_each": 157,
+    "fresh_forms_each": 4,
+    "artifact_report_sha256": "c966235c06c80c7205ac688bd9a675b9b2c511ba3cc01aa99f656b03dff5c6d2",
+    "independent_artifact_review_sha256": "c2a5585bc330428e22ebd59b1dc6a4f7619b66825efc8cfdb209c9f4fa587cb3",
+    "review_findings": [],
+    "review_scope": "source/archive/project installed payload/metadata/license/dependencies/RECORD/raw log audit; captured native RECORD maps are not independent physical native rehash or reinstall"
+  },
+  "released": false,
+  "findings_disposition": "Both P2 findings corrected and independently reviewed before publication: duplicate entity/partition inventory, then duplicate acquisition-role cardinality. Original failures and prior scoped passes preserved.",
+  "additional_controls": [
+    "Original snapshot/coverage/availability/revision/task-header and retained fingerprint refusals.",
+    "Actual native result BLOB corruption after owned sink close; actual accepted readback normalizes readback_failed.",
+    "First added coverage control was invalidly complete(expected4/observed3), rejected by baseline constructor before bridge; corrected valid complete=False field control, failure preserved.",
+    "Source599cee1 diffcheck trailing-blank finding did not prevent commit because shell command sequencing; trimmed in followup and checked using check=True before subsequent commit.",
+    "Windows default cp1252 read in local24cfd06 followup corrupted two UTF8docs; detected before push/publication. Restored both from exact599committed UTF8 and applied intended method-count text; superseded local commit preserved, corrected bytes independently reviewed before qualification."
+  ],
+  "initial_source_review": {
+    "head": "599cee1ce57f9aa4c5a9d05c5a5b66a5b7dc8213",
+    "report_sha256": "3f1be57e497ab1305e2cc4dda423dea095885cbb29eb7df20e4006e146a15968",
+    "reviewer": "/root/r10_review",
+    "disposition": "changes_requested_before_qualification",
+    "findings": [
+      {
+        "priority": 2,
+        "file": "packages/provenance/src/equity_feature_provenance/_bind.py",
+        "location": "verify_live_generation inventory uniqueness guards",
+        "issue": "Only task digest and dependency instance IDs are checked for uniqueness. Two valid retained tasks for the same instrument/entity and partition but different availability configurations have different task hashes and are accepted. Pinned-source probe with fixture(A,K210) and fixture(A,K200), sameA-S partition, no outputs, returned waitingFalse afterStore.read rather than rejecting the duplicate entity/partition inventory promised by the plan.",
+        "requested_change": "Freeze and enforce supported generation uniqueness for entity and partition before Store.read, in addition to task digest/role checks. Add independent duplicate-entity/different-partition and duplicate-partition/different-entity controls, with an exact Store.read spy proving no operation occurs. Use the reviewed duplicate-inventory fixed code consistently in matrix/docs; do not relax the promised profile silently."
+      }
+    ],
+    "correction": "Unique partition IDs and namespace/instrument/session entities before Store.read, three exact noStore spy controls; all21developmentmethodsPASS. Corrected exact-head review pending."
+  },
+  "corrected_source_review": {
+    "head": "e227b8507fd402db8c3ace089fefa77f4cec9cdf",
+    "report_sha256": "3d254e34e18ecc9122d51e2746ed978970b9aa60c49608aca908653b2170ccb0",
+    "findings": [],
+    "scope": "separate local automated source review;22 pinned development methods, not independent reinstall"
+  },
+  "tool_only_history": [
+    "Successful source push followed by stale immediate PR head readback assertion before issue/PR/Project mutation; resumed readback after propagation, no duplicate push/comment/transition.",
+    "One PowerShell inline-Python helper generation failed parse before writing; copied exact original helper and applied narrow resume patch.",
+    "Public CI log API first refused ANSI escape output; explicit allow-escape-sequences then captured raw bytes into outside-repo files, never rendered escape stream to terminal."
+  ],
+  "final_gate": "Final docs delta review/current-head CI-artifacts, guarded publication, independent actual-main/source/publicUTF8/AtulGitHub/noCoauthors/currentmain artifacts and actual lifecycle acceptance pending. No R10 completion claim.",
+  "duplicate_role_rework": {
+    "review_report_sha256": "93036cac1c150d5c9367cf52cae735902b8930baf4836c0075cbb9544e8cdf50",
+    "reviewer": "/root/r10_review",
+    "prior_source": "50a01758920bd40947b3e3285e580f16d74c37c1",
+    "finding": "Duplicate acquired-role tuple incorrectly returned missing_provenance instead of frozen invalid_schema; emptytuple correctly missing. Public TaskEvidence constructor, not foreign-constructor behavior.",
+    "correction": "First reject empty acquisition tuple as missing_provenance, then reject non-single cardinality as invalid_schema before iteration/cloning.",
+    "development_methods": 22,
+    "new_supplied_method": "test_duplicate_acquisition_roles_are_invalid_not_missing",
+    "raw_log_sha256": "dbf1dc2137b5ab187945515a319c76a84f9f66772f06e3840206b9fe7f4685d4",
+    "typing_files_passed": 4,
+    "boundary_passed": true,
+    "corrected_source_review": {
+      "head": "e227b8507fd402db8c3ace089fefa77f4cec9cdf",
+      "report_sha256": "3d254e34e18ecc9122d51e2746ed978970b9aa60c49608aca908653b2170ccb0",
+      "findings": [],
+      "scope": "separate local automated source review;22 pinned development methods, not independent reinstall"
+    },
+    "renewed_installed_currenthead_qualification": "completed at e227;11supplied/22live per respective fresh form, bothOS and author Windows",
+    "prior_qualification_scope": "Prior source ac1/50 evidence and reviews retained, never a proof that this uncovered constructor case passed; no accepted baseline defect or publication occurred."
+  },
+  "current_runtime_qualified": true,
+  "prior_ac1_qualification": {
+    "installed_qualification": {
+      "author_system": "Windows",
+      "source": "ac1ec8edec77b6768bda2140c4f97c76ada13999",
+      "raw_log_sha256": "8b2720a57a9c5664e149cd982d7f83721f990a0cff82001c1525044f2925b8b1",
+      "qualification_sha256": "7261b09da628ff62b0945122eb33c93edea63d597dccf4e64eb5365f35a10060",
+      "archives": 20,
+      "repeated_builds": 2,
+      "fresh_forms": 4,
+      "supplied_methods_per_form": 10,
+      "live_methods_per_form": 21,
+      "diagnostic_methods_each": 14,
+      "evidence_methods_each": 31,
+      "strict_consumer_each": true,
+      "no_skips": true,
+      "source_closure": true,
+      "original_package_maps_unchanged": true,
+      "native_wheels": {
+        "duckdb-1.5.6-cp312-cp312-win_amd64.whl": {
+          "bytes": 13190189,
+          "sha256": "09ff51b230219f0d8b47fc8a1e17fb595ba9fab0c3d96a6de4d00b8ff86b3cf1"
+        },
+        "numpy-2.2.6-cp312-cp312-win_amd64.whl": {
+          "bytes": 12614190,
+          "sha256": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2"
+        },
+        "setuptools-80.9.0-py3-none-any.whl": {
+          "bytes": 1201486,
+          "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+        }
+      }
+    },
+    "bothOS": {
+      "source": "ac1ec8edec77b6768bda2140c4f97c76ada13999",
+      "workflow_run": 38800332372,
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/38800332372",
+      "current_PR_checks_success": 34,
+      "OS": [
+        "Linux",
+        "Windows"
+      ],
+      "archives_each": 20,
+      "archive_entries_each": 350,
+      "wheel_RECORD_rows_each": 150,
+      "Git_source_pins_each": 157,
+      "fresh_forms_each": 4,
+      "artifact_report_sha256": "71e0551256cc0ca4ac04b587a19f35be1c438e55fe6b4bc84d1c4638adece8ab",
+      "independent_artifact_review_sha256": "355f948a2591668c5574f5a363cb9207ae05e5d298b3b640edd24e24e2a5981c",
+      "review_findings": [],
+      "review_scope": "source/archive/project installed payload/metadata/license/dependencies/RECORD/raw log audit; captured native RECORD maps are not independent physical native rehash or reinstall"
+    },
+    "corrected_source_review": {
+      "head": "ac1ec8edec77b6768bda2140c4f97c76ada13999",
+      "report_sha256": "bba3b6bc0e658463cc75e7e1501010015943cb9b9630ee9caaa4b83a0ce3e62a",
+      "findings": [],
+      "scope": "separate local automated source/native/security/builder/docs review;21pinned development methods, not independent reinstall"
+    }
+  }
+}

@@ -1,3 +1,19 @@
+## EQ103 corrected source qualification complete — October15,2026
+
+Corrected source e227b8507fd402db8c3ace089fefa77f4cec9cdf completed author Windows and [Windows/Linux workflow38803028023](https://github.com/atulsrivas1/equity-features/actions/runs/38803028023):20 repeat-built archives,157 three-repository source pins and four fresh forms perOS. Each supplied form ran11 provenance methods; each live form22; every form also ran14 diagnostic and31 evidence methods, strict consumer checks and original package/source/result/receipt/quality parity, with no skips. Both actual native examples passed perOS. All34 source PR checks passed. Separate /root/r10_review approved the corrected source and artifact audit. Captured native RECORD maps are not an independent physical native rehash or reinstall.
+
+Both P2 corrections remain explicit: duplicate entity/partition inventory is rejected before Store.read; duplicate acquisition roles return invalid_schema while empty acquisition remains missing_provenance. Prior ac1/50 passes and reviews retain their original scope. [Validation and immutable hashes](stories/EQ-103_VALIDATION.json) preserve failures, corrections and limitations. Supplied evidence remains unauthenticated and cannot prove execution; only actual fixed generation readback returns complete. No accepted baseline package/version/math/codec change.
+
+Actual203 remains Test. Final documentation delta review, current final-head CI/artifacts, guarded publication, independent actual-main/public UTF8/attribution/current artifacts and Released/Done acceptance remain required. EQ104/105 stay Backlog; R10 is not complete. No new owner input is missing.
+
+## EQ103 source-qualified experimental candidate
+
+Supplied retained-anchor binding and explicit actual generation readback passed source ac1 Windows/Linux20repeatarchive/fourfreshform installed qualification and independent source/artifact review. No baseline source/version/codec/math change. [Exact evidence/remaining delivery gates](stories/EQ-103_VALIDATION.json); this is not final R10 acceptance or a registry release.
+
+## EQ103 outer provenance candidate — October15,2026
+
+Added typed supplied content binding and separate actual DuckDB generation readback, bounded borrowed-graph preflight and synthetic native composition. Development18methods/strict package typing pass; source/build/currentbothOS/release qualification pending. Preserved failed install/fixture/bound/mypy observations in validation.
+
 ## EQ102 implementation candidate — October15,2026
 
 Added optional pure typed diagnostics with all seven accepted checks, explicit admission/unknown counts, bounded full-projection semantics, literal oracle/refusal tests and actual synthetic producer parity example. New source-closed repeatarchive/fresh installed builder and bothOS workflow await execution/current-head qualification. Initial test-mapper adjustment shorthand failure is preserved in validation; no accepted runtime defect inferred.
