@@ -21,7 +21,7 @@ input must match its complete fingerprint and result input metadata. An omitted
 batch leaves its typed input declaration present with content_verified=False;
 the package does not fetch it. Supported result columns use the fixed accepted
 39 built-in catalog/schema1/algorithmv1/mathv1/python-exact0.0.4a4 declarations.
-Custom registry/callback execution and unknown versions are refused.
+Every result column must match its catalog output type and unit, including columns outside the focus. Custom registry/callback execution and unknown versions are refused.
 
 Public frozen records: InputSummary(binding,content,content_verified),
 EvidenceReference(index,row), ExplanationFinding(code,role=None,evidence_index=None),
@@ -90,8 +90,8 @@ in-memory application work, separate from operating-system enforcement.
 
 The [actual synthetic example](../../examples/evidence_explanation.py) preserves
 3 trades/10 shares/notional1011/vwap101.1/mean_size10/3. The nonempty wire oracle
-uses independently hand-reported evidence, not actual producer retention. First
-source validation passed26methods and typing; final reviewed fresh Windows/Linux
+uses independently hand-reported evidence, not actual producer retention. Corrected
+source validation passed27methods and typing; final reviewed fresh Windows/Linux
 wheel/sdist/current artifacts/default-main delivery remains required. Experimental
 channel is reviewed GitHub source/current finite-retention CI artifacts; no stable
 registry availability is promised. Future schema/catalog/dependency extensions

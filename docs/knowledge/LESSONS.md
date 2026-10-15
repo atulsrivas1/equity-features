@@ -1,3 +1,7 @@
+## EQ099 bind catalog output type and unit across the full result
+
+A consistent receipt can bind a wrongly typed or labeled column without proving it implements the named formula. Separate source review74f84a01 found count/string/invented-unit admitted; corrected preflight checks every column against catalog dtype/unit before selecting the focused explanation. Focused/unfocused rebound negatives now pass. [Original finding](../stories/EQ-099_SOURCE_REWORK.json). Revisit on catalog/output/registry support changes; retain earlier checked cases without promoting them to corrected-source qualification.
+
 ## EQ099 bind semantic configuration context as well as full hashes
 
 A consistently reissued receipt can carry a different actual configuration fingerprint while result.metadata retains the old context. Full hashes alone do not connect them; explicit namespace/session/availability/config_digest equality is required. Separate pre-code review591ed022 caught this before runtime and also required a nonempty nested reference oracle. [Original findings](../stories/EQ-099_PRECODE_REVIEW.json), [contract/oracles](../stories/EQ-099_PLAN.md). Preserve global disclosure versus focused display omission, typed quality reasons and reported-reference versus original-consumption truth. Revisit on schema/binding/catalog/context changes.

@@ -1,0 +1,40 @@
+{
+  "schema": "eq099-source-rework:1",
+  "head": "0a972338d40b83c54fab270da8c1c03fedad5054",
+  "reviewer": "Separate local Codex automated reviewer /root/r9_plan_review",
+  "raw_report_sha256": "74f84a019b6a946fd169e3792f9e038a173d256a684e9d0927d73f13125601d3",
+  "disposition": "changes_requested",
+  "findings": [
+    {
+      "id": "EQ099-SRC-01",
+      "priority": 2,
+      "file": "packages/explanations/src/equity_feature_explanations/_explain.py",
+      "start_line": 307,
+      "end_line": 308,
+      "title": "Validate catalog output dtype and unit before admitting the explanation",
+      "trigger": "Construct a legal generic FeatureColumn for session.trade.count/v1/schema1 with dtype STRING, unit invented-unit and value not-a-count; recompute the full content receipt consistently. explain_result admits it and emits formula n=len(T).",
+      "consequence": "Generic FeatureResult validity and correct ID/version do not establish the declared built-in output schema. The package admits a column outside the fixed catalog/schema contract, so a receipt-consistent wrong output signature is described as the supported built-in formula. This is schema compatibility, not a demand to prove numerical correctness.",
+      "requested_change": "Validate every result column against the accepted FeatureDefinition output dtype/unit (and applicable declared schema constraints), not only its ID/version. Preserve generic value-content consistency semantics. Add receipt-consistent wrong-dtype and wrong-unit negatives, including an unfocused column so full-result admission is exercised; apply the equivalent direct Explanation/receipt rules where the full column is available.",
+      "basis": [
+        "docs/stories/EQ-099_PLAN.md:59",
+        "docs/api/CALCULATION_EXPLANATIONS.md supported result catalog/schema declarations",
+        "packages/contracts/src/equity_feature_contracts/registry.py FeatureDefinition.outputs"
+      ],
+      "probe": {
+        "feature": "session.trade.count",
+        "actual_catalog_dtype": "int64",
+        "actual_catalog_unit": "trades",
+        "supplied_dtype": "string",
+        "supplied_unit": "invented-unit",
+        "receipt_consistent": true,
+        "admitted": true,
+        "formula": "n=len(T)"
+      }
+    }
+  ],
+  "correction": "Every full-result column now requires exactly one accepted catalog output with matching ValueType.value and unit, in addition to schema/algorithm checks. Focus filtering cannot hide an unsupported output shape.",
+  "validation": "27source methods pass, including four independently rebound focused/unfocused dtype and unit negatives; original26cases/wireoracles/count states/actual producer cases remain. Strict3files/boundary passed.",
+  "corrective_log_sha256": "228d9e6148f9d0305cf46591daceb9fd56f1dc5fc2c77231ba5ca66a8ac54123",
+  "renewed_review": "Pending; no qualification or source acceptance inferred.",
+  "tool_history": "Rework status mutation/readback and journal completed before cp1252 console arrow printing failed; journal readback verified, no duplicate mutation/rerun. Embedded qualifier typing-consumer source was checked by AST; an overstrict escaped-newline guard stopped before edits, actual literal was already correct."
+}

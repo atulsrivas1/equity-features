@@ -305,5 +305,21 @@ class ExplanationTests(unittest.TestCase):
             value.formula_version, value.formula, value.formula_document, value.quality, value.inputs,
             value.evidence, value.selected_retained_count, value.display_limit))
 
+    def test_focused_and_unfocused_catalog_dtype_units(self):
+        cfg, batch, base, _, entity, fid = fixture()
+        focused = base.values[0]
+        other_id = 'session.trade.volume'
+        other = FeatureColumn(other_id, 'v1', ValueType.INT64, 'shares', (entity,), (10,))
+        other_quality = replace(base.quality[0], feature_id=other_id)
+        cases = [((replace(focused, dtype=ValueType.STRING, values=('3',)),), base.quality),
+            ((replace(focused, unit='invented'),), base.quality),
+            ((focused, replace(other, dtype=ValueType.FLOAT64, values=(10.0,))), base.quality + (other_quality,)),
+            ((focused, replace(other, unit='invented')), base.quality + (other_quality,))]
+        for columns, quality in cases:
+            with self.subTest(columns=columns):
+                result = replace(base, values=columns, quality=quality)
+                updated = receipt(cfg, batch, result)
+                self.rejects('inconsistent_binding', lambda: self.operation((cfg, batch, result, updated, entity, fid)))
+
 
 if __name__ == '__main__': unittest.main()

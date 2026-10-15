@@ -305,7 +305,10 @@ def explain_result(result: FeatureResult, receipt: ExecutionReceipt, configurati
         FeatureResult(result.values, result.quality, result.metadata, result.evidence)
         registry = builtin_registry()
         for column in result.values:
-            _require(column.schema_version == '1' and column.algorithm_version == registry.get(column.feature_id).algorithm_version == 'v1', 'unsupported_version')
+            definition = registry.get(column.feature_id)
+            _require(column.schema_version == '1' and column.algorithm_version == definition.algorithm_version == 'v1', 'unsupported_version')
+            _require(len(definition.outputs) == 1 and column.dtype.value == definition.outputs[0].dtype
+                and column.unit == definition.outputs[0].unit, 'inconsistent_binding')
         expected = make_receipt(result, configuration=config_fp, inputs=receipt.inputs, output=output_fp,
             formulas=tuple(FormulaBinding(x.feature_id, x.algorithm_version) for x in result.values),
             environment=receipt.environment, execution=receipt.execution, evidence=receipt.evidence)
