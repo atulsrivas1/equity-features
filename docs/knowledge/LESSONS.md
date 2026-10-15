@@ -1,3 +1,7 @@
+## EF-L107 — Test generated identities and observation authority
+
+EQ103 native development showed accepted compound adapter IDs exceed a generic128label bound; a narrowly named generated-identity cap preserves exact source contracts without widening ordinary labels. A supplied-only verifier cannot discover later disk mutation; explicit retained-pin native acquisition owns that observation. Public completion dataclasses cannot substitute for actual generation-store full readback. [Evidence](../stories/EQ-103_VALIDATION.json); development findings do not imply accepted baseline runtime defects.
+
 ## EF-L090: keep oracle notation outside runtime semantics — October15,2026
 
 EQ102 development initially failed two adjustment oracle cases because a test mapper treated slash-delimited shorthand as an array. Splitting the notation fixed only test construction; literal expectations and pure evaluator were unchanged. Preserve original raw failure and separate development versus installed evidence in [EQ102 validation](../stories/EQ-102_VALIDATION.json). Accepted reference P2 partial-market controls remain independent regressions. Never make a runtime accept malformed borrowed policy merely to fit a mapper.

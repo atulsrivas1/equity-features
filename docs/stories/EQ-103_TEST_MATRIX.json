@@ -1,6 +1,6 @@
 {
   "schema": "eq103-binding-matrix:1",
-  "status": "pre-code independent obligations, not executed",
+  "status": "implementation candidate; installed/current-head qualification pending",
   "accepted_eq102_main": "a68ef449c29de49133e30f6ab7591fa26224537c",
   "source_truth_authenticated": false,
   "cases": [
@@ -49,7 +49,7 @@
     },
     {
       "id": "changed-partition-original-pin-retained",
-      "expected_error": "inconsistent_binding",
+      "expected_error": "accepted SourceError during retained-pin reacquisition; binder not called",
       "layer": "outer native acquisition/bridge fixed normalization"
     },
     {
@@ -214,5 +214,11 @@
   "precode_findings_resolved": [
     "Whole borrowed acquisition and operational receipt graphs bounded before hashing, including paths and normalization.",
     "Exact DuckDBSink dependencies only in live profile; no arbitrary callback sink via exact GenerationStore."
-  ]
+  ],
+  "implementation_clarifications": {
+    "generated_identity_fields": "SourceBinding.mapping_version/input_id and InputFingerprint.input_id 256codepoints/1024UTF8bytes only",
+    "cancellation": "fixed cancelled code, cooperative semantics",
+    "physical_file_change": "accepted original-pin reacquisition SourceError before binding; supplied-only cannot observe unseen disk changes",
+    "task_revision": "observed output/task compared against retained expected task, not authenticated source revision"
+  }
 }

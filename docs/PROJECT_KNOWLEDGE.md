@@ -1,3 +1,7 @@
+## EQ103 actual outer candidate — October15,2026
+
+Selected outer provenance API distinguishes supplied retained-content consistency from actual accepted generation-store readback. Compound adapter source identities need a separate bounded256codepoint allowance; generic128labels would reject actual original-read2/retained-map1 values. Supplied-only cannot detect an external file mutation: retained-pin reacquisition is an independent native failure path. Publicly constructed completion/report data never proves code ran. [Current evidence/failures](stories/EQ-103_VALIDATION.json); installed/currentbothOS/release acceptance pending.
+
 ## EQ103 selected for concrete preparation — October15,2026
 
 EQ101/102 are accepted; [EQ102 acceptance](https://github.com/atulsrivas1/equity-features/issues/202#issuecomment-6200809345) binds unchanged pure core/evidence and the new diagnostic distribution. [Outer provenance plan](stories/EQ-103_PLAN.md) keeps acquisition/storage outside calculations and separates supplied content consistency from actual accepted backend readback. A new reusable outer package is proposed, not implemented or Ready. No new source/provider admission, native reference acquisition, registry or later-release scope.

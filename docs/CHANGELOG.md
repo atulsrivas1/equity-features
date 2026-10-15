@@ -1,3 +1,7 @@
+## EQ103 outer provenance candidate — October15,2026
+
+Added typed supplied content binding and separate actual DuckDB generation readback, bounded borrowed-graph preflight and synthetic native composition. Development18methods/strict package typing pass; source/build/currentbothOS/release qualification pending. Preserved failed install/fixture/bound/mypy observations in validation.
+
 ## EQ102 implementation candidate — October15,2026
 
 Added optional pure typed diagnostics with all seven accepted checks, explicit admission/unknown counts, bounded full-projection semantics, literal oracle/refusal tests and actual synthetic producer parity example. New source-closed repeatarchive/fresh installed builder and bothOS workflow await execution/current-head qualification. Initial test-mapper adjustment shorthand failure is preserved in validation; no accepted runtime defect inferred.

@@ -157,6 +157,31 @@ def research_violations(source, *, codec=False, explanation=False, diagnostics=F
     return sorted(set(found))
 
 
+def provenance_violations(source):
+    """Explicit outer profile; never added to the pure calculation allowlist."""
+    tree=ast.parse(source);found=[]
+    allowed={'__future__','dataclasses','typing','datetime','math','json',
+        'equity_feature_contracts','equity_feature_evidence','equity_feature_io_contracts',
+        'equity_feature_io_sdk','equity_feature_duckdb','equity_feature_duckdb_sink','equity_feature_workers'}
+    parents={child:node for node in ast.walk(tree) for child in ast.iter_child_nodes(node)}
+    for node in ast.walk(tree):
+        if isinstance(node,ast.Import):
+            if any(a.name.split('.')[0] not in allowed for a in node.names):found.append('unsupported outer import')
+        if isinstance(node,ast.ImportFrom):
+            if node.level:
+                if node.level!=1 or node.module not in ('_model','_bind','_preflight'):found.append('unsupported outer relative')
+            elif (node.module or '').split('.')[0] not in allowed:found.append('unsupported outer import')
+            if any(a.name=='*' or a.name.startswith(('compute_','__builtins__')) for a in node.names):found.append('unsupported outer import access')
+        if isinstance(node,(ast.Name,ast.Attribute)):
+            name=node.id if isinstance(node,ast.Name) else node.attr
+            if name in ('open','eval','exec','compile','__import__','__dict__','__getattribute__','__subclasses__','connect','acquire','system','popen') or name.startswith(('compute_','read_','write_','__builtins__')):found.append('unsupported outer access')
+        if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id=='getattr':
+            parent=parents.get(node)
+            while parent is not None and not isinstance(parent,ast.FunctionDef):parent=parents.get(parent)
+            if parent is None or parent.name!='_fields' or len(node.args)!=2 or not all(isinstance(a,ast.Name) for a in node.args) or [a.id for a in node.args]!=['value','name'] or node.keywords:found.append('unsupported outer reflection')
+    return sorted(set(found))
+
+
 def check():
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
@@ -164,7 +189,8 @@ def check():
     evidence_packages=(ROOT/'packages/evidence',)
     explanation_packages=(ROOT/'packages/explanations',)
     diagnostic_packages=(ROOT/'packages/diagnostics',)
-    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)
+    provenance_packages=(ROOT/'packages/provenance',)
+    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
@@ -224,7 +250,18 @@ def check():
                    'from . import _model','from equity_feature_evidence import ContentFingerprint',
                    'from equity_feature_contracts import policies as p\nfrom dataclasses import dataclass'):
         assert not research_violations(source,diagnostics=True),source
-    print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified.')
+    for root in provenance_packages:
+        if not root.exists():continue
+        project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
+        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2','equity-feature-diagnostics==0.1.0a1','equity-feature-workers==0.1.0a13','equity-feature-io-contracts==0.1.0a2','equity-feature-io-sdk==0.1.0a2','equity-feature-duckdb==0.1.0a8','equity-feature-duckdb-sink==0.1.0a0']
+        assert not project.get('optional-dependencies',{})
+        for path in root.glob('src/**/*.py'):
+            errors=provenance_violations(path.read_text(encoding='utf-8'));assert not errors,(path,errors)
+    for source in ('import pathlib','import socket','import equity_features','open("x")','from .other import factory','x=getattr(obj,name)','from equity_features.session import compute_trades','obj.__dict__'):
+        assert provenance_violations(source),source
+    for source in ('from equity_feature_workers import GenerationStore','from ._preflight import preflight','def _fields(value):\n return tuple((name,getattr(value,name)) for name in ())'):
+        assert not provenance_violations(source),source
+    print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; outer profile 8 negative/3 positive controls.')
 
 
 if __name__=='__main__': check()

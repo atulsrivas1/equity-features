@@ -1,0 +1,29 @@
+{
+  "schema": "eq103-validation:1",
+  "stage": "In progress implementation candidate",
+  "accepted_base": "a68ef449c29de49133e30f6ab7591fa26224537c",
+  "readiness_head": "da2cbb6d7fc7ec4b28ef56fda2fdec070057c3c0",
+  "reviewer": "/root/r10_review",
+  "ready_report_sha256": "fa4b3e8c19a36f426df0d23c5d2ea82baf1352445c11116a64985884082d9aae",
+  "development": {
+    "provenance_methods": 18,
+    "actual_native": true,
+    "strict_mypy_package_files": 4,
+    "boundary_outer_negative": 8,
+    "boundary_outer_positive": 3
+  },
+  "logs": {
+    "eq103-development-install.log": "74299dc034d06592810d74015746cb4a2ae459128f9a2d87f6ed22fe4ae57612",
+    "eq103-initial-runtime.log": "68a98033e7b31f3682b92340426fb7e20a49fb25d20d6cbff3def63a38c984c0",
+    "eq103-first-native.log": "d24bcfc4712e184b7aa945abfb51f7eed6bcb6ed4716b2d22461748c5ca12f84",
+    "eq103-native-corrected-fixture.log": "3d40e6582e38e49ff5f6d67d7230a90f15c8483b56a18a5ff5cc17b18f07920a",
+    "eq103-native-generated-identity.log": "693d5f20c63da114207d5658a0523ce2b5890320deff17d7c1794d0e1aad1df6",
+    "eq103-native-development-pass.log": "5570bb5836ea8ea37930f395c24703568244cacc355ae4296a9b85844b37b277",
+    "eq103-initial-mypy.log": "5f42afc38ad1784053b1fa02b625dc5e86b69b78393abe8a0005c1889c956f52",
+    "eq103-expanded-development.log": "d621fe0d3b7d0af6a1eff711e32c87847c2f038a4a9574075096080ff13ed70e"
+  },
+  "installed_qualification": false,
+  "bothOS": false,
+  "released": false,
+  "findings_disposition": "independent implementation review pending; original readiness findings preserved"
+}
