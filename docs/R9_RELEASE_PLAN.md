@@ -1,3 +1,7 @@
+## EQ099 allocation refinement — October15,2026
+
+The optional pure explanations distribution0.1.0a1 depends on accepted evidence0.1.0a2/contracts0.0.4a4, preserving accepted receipt/bundle exact pins. This refines the proposed single-evidence-distribution allocation within existing EQ099 scope. [Complete pre-code contract](stories/EQ-099_PLAN.md); no runtime/Ready implied.
+
 # R9 release plan — reproducible calculation evidence
 
 Prepared October14,2026 under [GOV021#391](https://github.com/atulsrivas1/equity-features/issues/391), following the [R8 post-delivery review](reviews/R8_POST_DELIVERY_REVIEW.md). This is a concrete proposal for the next existing release, not implementation, Ready admission or an accepted API. No new execution session, date, automation, provider acquisition or deployment is started by planning.
