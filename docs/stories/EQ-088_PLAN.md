@@ -1,6 +1,6 @@
 ## Actual-main qualification correction
 
-The complete measured revision4 result below remains valid for frozen4023. Mandatory main Windows resilience failed in the fresh sdist case wrapper, so #99 returned In progress. See [execution ledger](EQ-088_EXECUTION.json) and live issue99. Closed privacy-preserving failure factors and independent pure fixtures are prepared; original failed-run group/cause/cleanup remain unknown. Candidate/current-main qualification and final accepted delivery remain required. No performance rerun, production change or original failure PASS is implied.
+The complete measured revision4 result below remains valid for frozen4023. Mandatory main Windows resilience failed in the fresh sdist case wrapper, so #99 returned In progress. See [execution ledger](EQ-088_EXECUTION.json) and live issue99. Closed privacy-preserving failure factors passed exact worker source review2a6 and all9purefixturesPASS; original failed-run group/cause/cleanup remain unknown. Candidate/current-main qualification and final accepted delivery remain required. No performance rerun, production change or original failure PASS is implied.
 
 ## Completed selected experiment (revision 4)
 

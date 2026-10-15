@@ -1,6 +1,6 @@
 ## EQ088 actual-main resilience qualification rework
 
-The mandatory actual-main Windows sdist resilience wrapper failed; EQ088 returned to In progress, not accepted. Bounded qualification-only failure metadata and pure privacy fixtures are prepared at workerb7f06ebd70100b99d77d106af23dd333eff3cb79, pending independent source review/execution/current release gates. No package source/version/math/API/default change. Full03 remains frozen4023; the two observer/test manifest deltas must be disclosed and reviewed for measurement-path non-impact. [Execution ledger](stories/EQ-088_EXECUTION.json) preserves failure and exact remaining work.
+The mandatory actual-main Windows sdist resilience wrapper failed; EQ088 returned to In progress, not accepted. Bounded qualification-only failure metadata and pure privacy fixtures are prepared at workerb7f06ebd70100b99d77d106af23dd333eff3cb79, with actual independent source review2a6 and all9purefixturesPASS; current changed hosted qualification/release gates remain pending. No package source/version/math/API/default change. Full03 remains frozen4023; the two observer/test manifest deltas must be disclosed and reviewed for measurement-path non-impact. [Execution ledger](stories/EQ-088_EXECUTION.json) preserves failure and exact remaining work.
 
 ## EQ088 scheduling and output evidence
 
