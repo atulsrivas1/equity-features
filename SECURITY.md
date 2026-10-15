@@ -1,3 +1,7 @@
+## External conformance is not evidence authority
+
+Test snapshots and outcomes are ordinary locally constructible data. `check_diagnostics` invokes the accepted supplied-declaration evaluator; `compare_content` compares scalar fingerprints without verifying bytes or execution. Summary re-derives test matching and remaining unknowns; unknown and failed-partial assessments are never silently converted to safety. Caller code remains trusted local Python, not sandboxed against monkeypatching. Fixed bounded snapshots retain no request graphs, callbacks, paths, URLs, credentials or private exception text/context. No data rights, historical consumption, universal leakage detection or physical quota/deadline certification. Synthetic integration and explicit native costs stay outside pure calculations. [Contract](docs/api/POINT_IN_TIME_CONFORMANCE.md).
+
 ## Supplied diagnostics and caller authority — October15,2026
 
 Diagnostics assess supplied bounded declarations. Callers control timestamps/completeness/identity/content references and may fabricate them; a report authenticates none of these. It does not inspect unseen rows or infer consumption from a matching hash. Strict allow-unknown admission retains unknown findings and is caller policy. No callbacks/paths/network/clock/credentials/codec are accepted. Caller retains evidence only under its own access/rights/retention policy. Application count bounds are not physical memory or interruption guarantees.

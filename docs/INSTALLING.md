@@ -1,3 +1,7 @@
+## EQ104 candidate installation boundary
+
+New optional equity-feature-conformance0.1.0a1 requires CPython3.12 and exact contracts0.0.4a4/evidence0.1.0a2/diagnostics0.1.0a1; pure roots need no calculator/adapter/worker/native dependency. The separate full integration requires accepted provenance and pinned IO/worker distributions plus DuckDB1.5.6/NumPy2.2.6. After separate source review, `python tools/build_conformance.py --io <accepted-io-checkout> --workers <accepted-workers-checkout>` with a fresh output directory builds22repeatarchives/fourfreshpure-fullforms. Existing source pins are enforced by the builder, which reads Git objects and does not reset companion checkouts. It has not been executed at this checkpoint. [API/commands/examples](api/POINT_IN_TIME_CONFORMANCE.md), [validation](stories/EQ-104_VALIDATION.json). Experimental source/artifact channel only; no stable registry publication.
+
 ## EQ103 candidate installation
 
 Provenance0.1.0a1 explicitly depends on accepted worker/SDK/DuckDB packages and DuckDB1.5.6/NumPy2.2.6. It is not a pure diagnostics extra. [Outer API](api/PROVENANCE.md) and story validation govern support; no registry publication or fresh installed qualification claimed yet.
