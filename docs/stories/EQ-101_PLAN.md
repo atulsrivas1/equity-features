@@ -1,5 +1,11 @@
 # EQ101 pre-code packet — diagnostic contract and independent fixtures
 
+## Actual pull and specification validation — October15,2026
+
+Exact pre-code headbe7e1053981f2003bd106ecc3893f4f22ef22215 approved for Ready by separate /root/r10_review, reportSHA2561d2cd6cc728a601f5e1f3b17f2b779b70e8412328b365b6e268a0d53b2d99430, findings[]. Reviewer independently recomputed35check/six admission vectors. Fresh prerequisites/GOV022 accepted, then EQ101 actual Ready/Atul/In progress and epic194 actual Ready/In progress. [Start evidence](https://github.com/atulsrivas1/equity-features/issues/201#issuecomment-6200085501). Earlier Backlog/preparation statements below retain pre-code history.
+
+Implemented only the independent standard-library documentation verifier in tools/verify_diagnostic_examples.py and one documentation-CI step. No runtime package/evaluator/build recipe or existing library/version/dependency changed. Verifier independently compares35literal check vectors and6admission/count aggregates;18structural refusal requirements are declared future runtime tests, not executed constructor tests. No original oracle expected value changed. [Validation record](EQ-101_VALIDATION.json); exact final-head separate review/current documentation CI/actual main/acceptance remain required. README numerical capabilities/install/license policy unchanged because EQ101 adds no installable API; security/source/rights limits are explicit in the specification.
+
 Issue [201](https://github.com/atulsrivas1/equity-features/issues/201), epic194, R10 milestone11; provisional5points are complexity, not days. Owner authorized bounded R10 and separate local review throughout. [Handoff](../R10_AUTONOMOUS_HANDOFF.md) GOV022#398 is accepted via PR399 at main04ff3bf77dae02c20c3e5b5f8f8ccac2446f9204, [acceptance](https://github.com/atulsrivas1/equity-features/issues/398#issuecomment-6199959132). EQ101 remains Backlog until this complete candidate has separate readiness review and live dependency readback; no implemented optional package or Ready claim in preparation.
 
 ## Included outcome and no-impact boundary
