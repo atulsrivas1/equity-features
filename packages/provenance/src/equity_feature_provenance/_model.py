@@ -69,7 +69,8 @@ class TaskEvidence:
         require(type(self.expected_task) is TaskManifest and type(self.result) is FeatureResult)
         require(type(self.receipt) is ExecutionReceipt, 'missing_provenance')
         require(type(self.acquired) in (tuple, list))
-        require(len(self.acquired) == 1, 'missing_provenance')
+        require(len(self.acquired) > 0, 'missing_provenance')
+        require(len(self.acquired) == 1)
         require(all(type(a) is AcquiredInput for a in self.acquired))
         require(self.output is None or type(self.output) is OutputManifest)
         from ._preflight import freeze_task

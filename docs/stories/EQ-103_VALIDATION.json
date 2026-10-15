@@ -1,6 +1,6 @@
 {
   "schema": "eq103-validation:1",
-  "stage": "Test; source ac1 qualified, final documentation head/currentCI/publication pending",
+  "stage": "In progress; actual Test\u2192In progress for duplicate acquisition-role error mismatch before publication",
   "accepted_base": "a68ef449c29de49133e30f6ab7591fa26224537c",
   "readiness_head": "da2cbb6d7fc7ec4b28ef56fda2fdec070057c3c0",
   "reviewer": "/root/r10_review",
@@ -114,5 +114,21 @@
     "One PowerShell inline-Python helper generation failed parse before writing; copied exact original helper and applied narrow resume patch.",
     "Public CI log API first refused ANSI escape output; explicit allow-escape-sequences then captured raw bytes into outside-repo files, never rendered escape stream to terminal."
   ],
-  "final_gate": "Final docs delta review/current-head CI-artifacts, guarded publication, independent actual-main/source/publicUTF8/AtulGitHub/noCoauthors/currentmain artifacts and actual lifecycle acceptance pending. No R10 completion claim."
+  "final_gate": "Final docs delta review/current-head CI-artifacts, guarded publication, independent actual-main/source/publicUTF8/AtulGitHub/noCoauthors/currentmain artifacts and actual lifecycle acceptance pending. No R10 completion claim.",
+  "duplicate_role_rework": {
+    "review_report_sha256": "93036cac1c150d5c9367cf52cae735902b8930baf4836c0075cbb9544e8cdf50",
+    "reviewer": "/root/r10_review",
+    "prior_source": "50a01758920bd40947b3e3285e580f16d74c37c1",
+    "finding": "Duplicate acquired-role tuple incorrectly returned missing_provenance instead of frozen invalid_schema; emptytuple correctly missing. Public TaskEvidence constructor, not foreign-constructor behavior.",
+    "correction": "First reject empty acquisition tuple as missing_provenance, then reject non-single cardinality as invalid_schema before iteration/cloning.",
+    "development_methods": 22,
+    "new_supplied_method": "test_duplicate_acquisition_roles_are_invalid_not_missing",
+    "raw_log_sha256": "dbf1dc2137b5ab187945515a319c76a84f9f66772f06e3840206b9fe7f4685d4",
+    "typing_files_passed": 4,
+    "boundary_passed": true,
+    "corrected_source_review": "pending",
+    "renewed_installed_currenthead_qualification": "pending",
+    "prior_qualification_scope": "Prior source ac1/50 evidence and reviews retained, never a proof that this uncovered constructor case passed; no accepted baseline defect or publication occurred."
+  },
+  "current_runtime_qualified": false
 }

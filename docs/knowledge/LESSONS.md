@@ -1,3 +1,7 @@
+## EQ103 constructor boundaries need their own controls
+
+An aggregate generation inventory test does not cover duplicate acquisitions within one TaskEvidence. The frozen duplicate-role error contract was not exercised by the initial21methods; a targeted public constructor probe found the missing-versus-duplicate classification error. Preserve the prior passing evidence as scoped history, rework before publication and add an explicit empty/duplicate constructor control rather than changing the frozen expected code. [Finding/correction](../stories/EQ-103_VALIDATION.json).
+
 ## EF-L107 — Test generated identities and observation authority
 
 EQ103 native development showed accepted compound adapter IDs exceed a generic128label bound; a narrowly named generated-identity cap preserves exact source contracts without widening ordinary labels. A supplied-only verifier cannot discover later disk mutation; explicit retained-pin native acquisition owns that observation. Public completion dataclasses cannot substitute for actual generation-store full readback. [Evidence](../stories/EQ-103_VALIDATION.json); development findings do not imply accepted baseline runtime defects.

@@ -77,6 +77,11 @@ class SuppliedTests(unittest.TestCase):
         spec=GenerationSpec('demo','job','G',(value.expected_task,))
         self.reject('invalid_schema',lambda:verify_live_generation(GenerationOutcome(True,None,()),spec,(),(value,)))
 
+    def test_duplicate_acquisition_roles_are_invalid_not_missing(self):
+        value=fixture();acquired=value.acquired[0]
+        self.reject('invalid_schema',lambda:replace(value,acquired=(acquired,acquired)))
+        self.reject('missing_provenance',lambda:replace(value,acquired=()))
+
     def test_borrowed_list_detachment(self):
         value=fixture();original=value.acquired[0].receipt
         conversions=[PriceConversion('price','integer','none',0)]

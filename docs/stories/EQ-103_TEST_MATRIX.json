@@ -1,6 +1,6 @@
 {
   "schema": "eq103-binding-matrix:1",
-  "status": "21development methods and10supplied/21live installed cohorts qualified at sourceac1; final docs/currenthead/publication gates pending",
+  "status": "Constructor-role P2 rework;22development methods pass; corrected installed/currenthead qualification pending",
   "accepted_eq102_main": "a68ef449c29de49133e30f6ab7591fa26224537c",
   "source_truth_authenticated": false,
   "cases": [
@@ -224,6 +224,12 @@
         "sameentity-differentpartition",
         "samepartition-differententity"
       ]
+    },
+    {
+      "id": "duplicate-acquired-role-public-constructor-versus-empty",
+      "duplicate_expected_error": "invalid_schema",
+      "empty_expected_error": "missing_provenance",
+      "source_operation_calls": 0
     }
   ],
   "precode_findings_resolved": [
@@ -236,5 +242,5 @@
     "physical_file_change": "accepted original-pin reacquisition SourceError before binding; supplied-only cannot observe unseen disk changes",
     "task_revision": "observed output/task compared against retained expected task, not authenticated source revision"
   },
-  "implementation_method_count": 21
+  "implementation_method_count": 22
 }
