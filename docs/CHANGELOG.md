@@ -1,3 +1,7 @@
+## EQ099 corrected candidate qualification
+
+Source and bothOS artifact audits passed:27distinct methods, two pre-code wire oracles, seven proof states, actual fresh light/combined forms, eight archives/76sourcepins perOS. Original pre-code/source P2 and fixture/tool scopes retained; exact maps in stories/EQ-099_VALIDATION.json. Final current docs/main publication and acceptance remain separately gated. No numerical/evidence/bundle source/version changes.
+
 ## EQ099 source candidate
 
 New standalone pure explanations0.1.0a1: supplied full-content/context validation, bounded typed catalog/quality/input declarations, reported references and explicit global-versus-focused omission findings. No changes to accepted math/core/evidence/bundle pins.26source methods/known wire fixtures/typing/boundary passed; fresh installed/bothOS/main acceptance pending.

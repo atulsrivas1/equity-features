@@ -91,8 +91,7 @@ in-memory application work, separate from operating-system enforcement.
 The [actual synthetic example](../../examples/evidence_explanation.py) preserves
 3 trades/10 shares/notional1011/vwap101.1/mean_size10/3. The nonempty wire oracle
 uses independently hand-reported evidence, not actual producer retention. Corrected
-source validation passed27methods and typing; final reviewed fresh Windows/Linux
-wheel/sdist/current artifacts/default-main delivery remains required. Experimental
+source validation passed27methods and typing; current source-candidate Windows/Linux fresh wheel/sdist archives/maps passed independent audit in [validation](../stories/EQ-099_VALIDATION.json). Final documentation-head/current actual-main publication and acceptance remain separate gates; see [issue199](https://github.com/atulsrivas1/equity-features/issues/199) for subsequent outcomes. Experimental
 channel is reviewed GitHub source/current finite-retention CI artifacts; no stable
 registry availability is promised. Future schema/catalog/dependency extensions
 need explicit versioning and renewed fixtures/qualification.
