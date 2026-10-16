@@ -177,8 +177,8 @@ class ContinuousContracts(unittest.TestCase):
         self.error('incompatible_version', c.from_json, json.dumps(root).encode())
         self.error('invalid_schema', c.to_json, IntervalSpec('old-core', 1, 2))
         self.error('invalid_schema', c.from_json, raw.decode())
-        self.assertNotIn('compute_basis', c.__all__)
-        self.assertFalse(hasattr(c, 'compute_basis'))
+        self.assertIn('compute_basis', c.__all__)
+        self.assertTrue(callable(c.compute_basis))
 
     def test_typed_byte_limits_precede_json_parser(self):
         for decoder, size in [(c.config_from_json, 65536), (c.input_from_json, 16777216),

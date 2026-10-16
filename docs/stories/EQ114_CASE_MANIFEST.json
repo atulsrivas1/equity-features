@@ -1,0 +1,711 @@
+{
+  "scope": "conditional preparation; EQ114 remains Backlog until EQ113 Done and public Ready review",
+  "source_map": {
+    "docs/stories/EQ112_FIXTURES.json": "38a4786b62ecc8f14d83cb02f6b66038f1a4599462cf528eca0348fe21303f94",
+    "docs/stories/EQ113_ADMISSION_FIXTURES.json": "3fdd3a09b3188aa5df48766da826a9bf4fb64f2536c98fe7272b24711fb3e7ae"
+  },
+  "counts": {
+    "full_result": 65,
+    "structural_error": 32,
+    "arithmetic_overflow": 2
+  },
+  "records": [
+    {
+      "case_id": "basis_positive",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "be8d245fe3973044c5855519eea9c1fe6a71a91f10189e9ffbf7298e849acd9f"
+    },
+    {
+      "case_id": "basis_independent_scales",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "475d4ee7f8e14580cd1e721f3cbfbc24087eacc4eda45ae851543b465e4ad9fc"
+    },
+    {
+      "case_id": "basis_conversion_two_reference_units",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "94cc279df1ff2acf1d2dc2d0deb03332c25048623ede1211f921bd4469adbbcb"
+    },
+    {
+      "case_id": "basis_rational",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "3e63581e0d3ad35c45b66151e00c18c0024250114d7eb47a9a302e2460fb8110"
+    },
+    {
+      "case_id": "basis_negative",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "a5efccaf3a3678f38d6717844fc063b0deab5e9b2a61e070ecd133d776c1e293"
+    },
+    {
+      "case_id": "basis_zero_is_available",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "ffb7bc688129ee9da380f5cd799ce1d267897c4f563e920a21df3ca61b9b9eea"
+    },
+    {
+      "case_id": "basis_no_future_nearest_reference",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "270bac4d4e0cbe63359ddaf7b33dd360d82c2f5edf8c18a659aceb0c01dfcf9c"
+    },
+    {
+      "case_id": "basis_latest_known_continuous",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "4803a2b463c27961d6fd4d5b7dd2bc1cc9e89bb387d794876189ffe7ea381730"
+    },
+    {
+      "case_id": "basis_null_selected_no_fallback",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "6bd5637eddf5e539f3833a3d0d1dcd09e5470794e5dee83ef08991ae971c73d9"
+    },
+    {
+      "case_id": "basis_age_equality",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "c57dba5e2b0192816dcccf26b0bbb6a8481565967078ab7298d0106a26a487b5"
+    },
+    {
+      "case_id": "basis_age_one_over_no_fallback",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "14a22559e8303b7a108db9f90fca51bda3fe7ac762c96013feb91ab52d4aa138"
+    },
+    {
+      "case_id": "basis_unknown_mapping",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "7d14df55bdec2ab155a99358493fd49ee566c6608a0e6b004bf474241085be28"
+    },
+    {
+      "case_id": "basis_late_mapping",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "1c0a3782211bd0726519de69272c71c1c8fa1acf6d8ed0f8bbd7df41b6cc7406"
+    },
+    {
+      "case_id": "basis_effective_end_excluded",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "b50b514270723227592bbdaa4426843cc53829552beae456b0bbedaed985166c"
+    },
+    {
+      "case_id": "basis_effective_start_equality",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "8ca166cc247b7f0ccf47009eb16917cd97575afb746f4cfadebb5c3679e0ff25"
+    },
+    {
+      "case_id": "basis_anchor_feed_outage",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "3da2c404b01b49da437a976549c4f091c3b2e0da00488e3298251c95045907d0"
+    },
+    {
+      "case_id": "basis_feed_unknown_knowledge",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "857ae3ff9f93dc06899d79b1b15b5fc23eabd974f68fb99e21827a8f6a6bcd94"
+    },
+    {
+      "case_id": "basis_coverage_not_complete",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "d310ac45f4e602a647c02314c5df8f10bb11af836eaf5baf1507d1f380a009d7"
+    },
+    {
+      "case_id": "basis_coverage_known_too_late",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "dcae98b040d5af99d1701b3f7000b8db5fe1aa5e5881ee9289837d3e29e2c196"
+    },
+    {
+      "case_id": "basis_coverage_before_scope_end_error",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_schema",
+      "fixture_case_sha256": "22cceb91e8c3234cbf93382a60efad5f5554c9d0b00063f165a7a55d37ed0bca"
+    },
+    {
+      "case_id": "malformed_boolean_price",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_schema",
+      "fixture_case_sha256": "713553192305e846d4f67dd62ff0b1bdb511d184bc02a19619d97b3c99e6f62f"
+    },
+    {
+      "case_id": "malformed_zero_price",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "bounds",
+      "fixture_case_sha256": "887b1ba7db93eb7966b80d09c8730aded1a1a69ef18fa48a024cfee60851a8d6"
+    },
+    {
+      "case_id": "malformed_mapping_zero_denominator",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "bounds",
+      "fixture_case_sha256": "1e4ecab7573829b8c6e3cbfeadd87a8302ecb369dcc421529fad886ddf4475c2"
+    },
+    {
+      "case_id": "malformed_cross_currency",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_unit",
+      "fixture_case_sha256": "ace8d8ee03803b14213aa279de5889f95ccf6df9a25f21b9381bf688806e80c1"
+    },
+    {
+      "case_id": "malformed_mapping_units",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "inconsistent_identity",
+      "fixture_case_sha256": "743cfefe180ee6ec0ee76da5f6356278b588fc8a15f8315f452e074e30d58851"
+    },
+    {
+      "case_id": "malformed_known_before_event",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_schema",
+      "fixture_case_sha256": "9dc48fe2ac3f33b5cccdd2eb372ac0860b790146c7fe46889fd1935cfd48f793"
+    },
+    {
+      "case_id": "unsupported_reconstruction",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "unsupported_capability",
+      "fixture_case_sha256": "0ece054145508c72b0416cf163fbcbe008c8de34dc9d045d691143fb3472dd29"
+    },
+    {
+      "case_id": "unsupported_duration_weighting",
+      "function": "compute_freeze",
+      "expectation": "structural_error",
+      "error_code": "unsupported_capability",
+      "fixture_case_sha256": "9c2d203b49cf34c145e15ee734d0f4b1cab1da97f226ad7fa91602a63af182dc"
+    },
+    {
+      "case_id": "freeze_count_weighted_all_samples",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "dc3774706597bc8dd69bea0b1bbadc91646f72d576668376f7d0d0a3f0f527e2"
+    },
+    {
+      "case_id": "freeze_top_one_does_not_change_mean",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "01fb93a30e4c105cf18043c0cf345bb32c2d9e6904aad23b97b17152ed304140"
+    },
+    {
+      "case_id": "freeze_unknown_population_not_filtered",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "1a348c2c79fdd31a91ecb115764357ff0107c323aa62e08016cc53cb5e11471a"
+    },
+    {
+      "case_id": "freeze_last_reference_unknown_no_fallback",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "f5478f56605f34f01269d205f839ed878e893dd3524007ebb79d32b672f2a05b"
+    },
+    {
+      "case_id": "freeze_last_reference_outage_no_fallback",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "1bfbb11380e82a6bfac660967396c7eb35208ecf72fbce7ab8c972c24f4e00ed"
+    },
+    {
+      "case_id": "freeze_reference_freeze_gap",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "474e7d1cde43a620f9b3db5c0f85f24633a4add1bb10ea3715dbcbb7241b0a4a"
+    },
+    {
+      "case_id": "freeze_duplicate_observation_id",
+      "function": "compute_freeze",
+      "expectation": "structural_error",
+      "error_code": "duplicate",
+      "fixture_case_sha256": "4e4073870ff3d1ad7431559818c9e9875cfb68be812efb9abd8e049bea9c5199"
+    },
+    {
+      "case_id": "freeze_reversed_order",
+      "function": "compute_freeze",
+      "expectation": "structural_error",
+      "error_code": "invalid_order",
+      "fixture_case_sha256": "86a086a1e2b3705596e9738828f001dc8aa49f78e1026be73c13805b7c55b136"
+    },
+    {
+      "case_id": "freeze_complete_empty_no_conversion_consumed",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "109051bf7a2a010873f4d7198e27d5dc15d63f9acf31f51562449eef59fa5b60"
+    },
+    {
+      "case_id": "freeze_empty_incomplete_dominates",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "094e1cd78a7a57cfdf37c8949d76ce63a66157c616f53d6c71ff637c80fa958f"
+    },
+    {
+      "case_id": "freeze_empty_missing_held_reference_dominates",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "d01cd71f692b77a15fde07494104da260d2234890816a8ec1d8ab7aa2b58b85c"
+    },
+    {
+      "case_id": "freeze_empty_unsupported_weighting_still_error",
+      "function": "compute_freeze",
+      "expectation": "structural_error",
+      "error_code": "unsupported_capability",
+      "fixture_case_sha256": "0c24357168424ad17bdecf1a8662dc27c1748c5d900f818dee4f072e1e3ed55e"
+    },
+    {
+      "case_id": "reopen_gap_and_premium",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "4880b169a995f1acb3a442d10b729e762324f5dc7c4a6ff36bd08a23654fc8f4"
+    },
+    {
+      "case_id": "reopen_first_unknown_no_skip",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "674332309431b9f4c3a76d8729736fa12f363507000d7d927636a50307b546cc"
+    },
+    {
+      "case_id": "reopen_first_late_no_skip",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "e44538ebf510ef50909288662f484332859a1f6a2ff4ac16eb2ce722a4823089"
+    },
+    {
+      "case_id": "reopen_available_at_consumed_late_fact",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "6f8da5fa4c1b77b4d4c4495042bf8dcb26fe59429b0486f5b2f6726c06a9aec1"
+    },
+    {
+      "case_id": "reopen_continuous_at_boundary_rejected_by_scope",
+      "function": "compute_reopen",
+      "expectation": "structural_error",
+      "error_code": "bounds",
+      "fixture_case_sha256": "fc8bef5e8e8e98ee6829ea8eb5b607d1a87911ab30460a76636119d87ad2890b"
+    },
+    {
+      "case_id": "reopen_no_actual_freeze_transition",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "e54846c131d10d2c0ca056f615aff5272eeacc9a8ac15815c2080337a3ec6433"
+    },
+    {
+      "case_id": "basis_rational_difference_overflow",
+      "function": "compute_basis",
+      "expectation": "arithmetic_overflow",
+      "error_code": "overflow",
+      "fixture_case_sha256": "5e9c99b3677b88efec66ba2f0bd58237abe0d838537465acda637282f6686908"
+    },
+    {
+      "case_id": "freeze_checked_abs_sum_overflow",
+      "function": "compute_freeze",
+      "expectation": "arithmetic_overflow",
+      "error_code": "overflow",
+      "fixture_case_sha256": "b6c2c7b76de5e3b3716be59a2012fbfbc8990ad921f47a24c7fe576bb40929fd"
+    },
+    {
+      "case_id": "adjusted_split_refused",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "unsupported_adjustment",
+      "fixture_case_sha256": "bd944c498d2bec0b8516c30325db71cab4566123cb73795ee1be1f5d8b77f5d2"
+    },
+    {
+      "case_id": "custom_raw_action_snapshot_refused",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "unsupported_adjustment",
+      "fixture_case_sha256": "4e0c75aac16ec0e1264c51832166c35a00e274f1f1e93e99f84799fb06ff80f3"
+    },
+    {
+      "case_id": "basis_order_bool_refused",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_schema",
+      "fixture_case_sha256": "62f64e97ed74030f42996374cb55bd8251d17b552360b913a48807a3f2d698c2"
+    },
+    {
+      "case_id": "basis_order_negative_refused",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "bounds",
+      "fixture_case_sha256": "2400f0a4d01776ad114bf9667e23c6c37458d55839acacaa8e07fa23f09c7d32"
+    },
+    {
+      "case_id": "basis_cross_leg_same_id_admitted",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "cd95ace5499132010f4bc80ddaee8b5e724d991c96e80d56824bd30f8c5d2c18"
+    },
+    {
+      "case_id": "basis_feed_unknown_coverage_multifailure",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "3d9d0129dc689ca07303939afccd3b32d208e16fc3b86bdee162355cd2eeda13"
+    },
+    {
+      "case_id": "malformed_precedes_unavailable",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_schema",
+      "fixture_case_sha256": "061043f915ec7e4bad589fe700cc8434e9d3b644a1cf6ca59b90bdf397a311af"
+    },
+    {
+      "case_id": "missing_mapping_precedes_unconsumed_overflow",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "9308828e77b618305bda206ed03c2a2fa245c8cbbce26c8d683b0a9a4826de21"
+    },
+    {
+      "case_id": "basis_coverage_unknown_time",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "c03f26399ce3f671aec43ddbc615a6c3c57fb0288e67598b0dacaaa53d7e3824"
+    },
+    {
+      "case_id": "basis_consumed_feed_known_after_prices_and_window",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "dd64688071f7a9c3eb07429bd7f03461fa2863912338c0b8f13d6420b93961c1"
+    },
+    {
+      "case_id": "basis_consumed_conversion_known_after_prices_and_window",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "e2d38793c43ba307732d657f595743878daef8ddc6ff580c6086e80ebd08e876"
+    },
+    {
+      "case_id": "basis_consumed_coverage_known_after_prices_and_window",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "9c4eb3ef015c9b63adadf3880ba47aa63f9f04762250860991d44575d72b3b0c"
+    },
+    {
+      "case_id": "basis_selected_live_anchor_outage",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "26f16ef67f0ab457967238e733b680e13890c389f7eb1a9bf105b4fd4a9f769d"
+    },
+    {
+      "case_id": "basis_selected_outage_anchor_live",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "094325e21b6c600be56a7c48333a696038238bdd7bd9e38371f221159c4d0160"
+    },
+    {
+      "case_id": "basis_failed_latest_mapping_no_older_observation_fallback",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "1c9578e4ef30d15ae66e72bdfb3eb2df72ac754623f2fc1cbdc399bba27635ef"
+    },
+    {
+      "case_id": "basis_same_event_order_lexical_tie",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "e48e69463f632b1f66b64ebfc15a937b112e5883f5b15b23ee832c0619daadf6"
+    },
+    {
+      "case_id": "basis_reversed_lexical_tie_refused",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_order",
+      "fixture_case_sha256": "f3de4df0c5aedbd4765961f1100304260368732de698a5af6e1d1aac64644e5d"
+    },
+    {
+      "case_id": "overlapping_same_feed_domain_refused",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_schema",
+      "fixture_case_sha256": "f07bd7d22da48edff1798f0c3e8c25d40955af64d8bfef88038f6f463d62079e"
+    },
+    {
+      "case_id": "overlapping_same_mapping_domain_refused",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_schema",
+      "fixture_case_sha256": "dce5a6e77d382638bc3c9c14361805f6ae2648e11cbda2e87db442ee323dd854"
+    },
+    {
+      "case_id": "reopen_reference_at_R_equality",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "4c25ca20adaa6883f8dcc94be7838cb9028cc5ce649ed0b0ff40aba58e233121"
+    },
+    {
+      "case_id": "reopen_age_and_mismatch_equalities",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "d5a1b160e841afb4fc8fb0e3033119d5a5ea54ce870525b8ea03e5e46c78d05a"
+    },
+    {
+      "case_id": "reopen_mismatch_one_over",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "43a7e0ae2e11140b664f3ac34f7b303628b92d307e3cde043b151006f77d4727"
+    },
+    {
+      "case_id": "reopen_reference_age_one_over",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "1a9c69065f7d1ce31b6a4b07b848d32837789a0c9f6e4aa466014dbb0c351b7e"
+    },
+    {
+      "case_id": "reopen_continuous_age_one_over",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "1ca61384dbb7ab548e6ad5e95b3c0b7653587bd3dedcb8933bb6e808bd1d8801"
+    },
+    {
+      "case_id": "freeze_held_feed_unknown",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "bdec02a06e18579c6ea00e5e04e690d4432305449e92caa90d822d0bba49f2eb"
+    },
+    {
+      "case_id": "freeze_held_feed_late",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "b7c5f264c0211006e3f66b658a9786f55030f5545fb2fed9f77da9cf3360b247"
+    },
+    {
+      "case_id": "freeze_live_boundary_wrong_before_R",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "d7b9358e6fd59f7e9b3b14dd04edea24651f219bcd9521bed784fca2fca70028"
+    },
+    {
+      "case_id": "reopen_live_starts_after_R",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "7beedae2f5ee3c124ee114f09b827aa31d8d7369ff960c5141aef6b1c1d9417c"
+    },
+    {
+      "case_id": "normalization_large_products_reduce_before_check",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "5ac6bcbeb70fd48eaf8b14c2ca06011f3a4190f776b75a67686ecd2aa9de5868"
+    },
+    {
+      "case_id": "basis_unrelated_future_unknown_facts_bound_unconsumed",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "8813d9da30a9e0bd622be2380ff16fe272a29c51dfe1c83326e65fb6f4ec7217"
+    },
+    {
+      "case_id": "basis_only_continuous_unknown",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "17c90433d0158ae9196671d7386340cfc865da76617c0f2d83918fea84a24431"
+    },
+    {
+      "case_id": "basis_only_continuous_future_knowledge",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "a439ae052c44c2afa50d33e8385594465024d5a16cd2acc6a061ab3f578508b9"
+    },
+    {
+      "case_id": "basis_continuous_unknown_and_future_only",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "81123f2b3f541dfe99b313c885b277d1d5713936db6bc8fd13a74c2ed4564519"
+    },
+    {
+      "case_id": "basis_reference_unknown_only",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "93805933d4b0e372731d60375ee759597ac129c228e99bad595c11e3b3889839"
+    },
+    {
+      "case_id": "basis_reference_future_only",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "dbd96a726da754298f0396b92f9f3c4ad800b55a8b472dbc2f73879f0bdf854a"
+    },
+    {
+      "case_id": "basis_market_future_only_is_absent",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "5a9811eefc89a27cb6a2071f20bcb50c90ae53b2f8b87c476ec7996431dedb04"
+    },
+    {
+      "case_id": "basis_reference_latest_known_excludes_late",
+      "function": "compute_basis",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "f3e0a2a53cc5d49ff89a744eb7c879d807d9e900af7ec57c001f3f731edb231e"
+    },
+    {
+      "case_id": "basis_anchor_required",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_config",
+      "fixture_case_sha256": "2a13504ddb27125692ea44d815a779b3f27ce0d19ae55ec6b55c299aa0a2b438"
+    },
+    {
+      "case_id": "basis_unused_reopen_refused",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_config",
+      "fixture_case_sha256": "739de67311951cf1f8d472aa29a7333891885d279ade2b9804f25ea5873e4998"
+    },
+    {
+      "case_id": "basis_anchor_at_window_end_refused",
+      "function": "compute_basis",
+      "expectation": "structural_error",
+      "error_code": "invalid_config",
+      "fixture_case_sha256": "ba9c4f3bfdd9da7f4bce0aa11dba48fee704fe78ec5c37a7bef4bebc2980d535"
+    },
+    {
+      "case_id": "freeze_unused_anchor_refused",
+      "function": "compute_freeze",
+      "expectation": "structural_error",
+      "error_code": "invalid_config",
+      "fixture_case_sha256": "a2f48b4c0b6d7feaaf63d504bd4561dde7066f7892b2af54a98fa87d3e3ca525"
+    },
+    {
+      "case_id": "freeze_unused_reopen_refused",
+      "function": "compute_freeze",
+      "expectation": "structural_error",
+      "error_code": "invalid_config",
+      "fixture_case_sha256": "2d0c81c804463f47a0bc0caac5350991be5601fe4d97e19cb7bfeda15c9a40dc"
+    },
+    {
+      "case_id": "reopen_boundary_required",
+      "function": "compute_reopen",
+      "expectation": "structural_error",
+      "error_code": "invalid_config",
+      "fixture_case_sha256": "728ce1acc571dfb21e4cc3e3372f63f77d49b3f13084e4a1c60e343c775deb2b"
+    },
+    {
+      "case_id": "reopen_unused_anchor_refused",
+      "function": "compute_reopen",
+      "expectation": "structural_error",
+      "error_code": "invalid_config",
+      "fixture_case_sha256": "30742d8e3f7782b1eb22d515d420c5244c729693910dde99ee11e3b81823e63b"
+    },
+    {
+      "case_id": "reopen_boundary_at_window_start_refused",
+      "function": "compute_reopen",
+      "expectation": "structural_error",
+      "error_code": "invalid_config",
+      "fixture_case_sha256": "b0645fa336e4b84a9e8b2fdfc7b9105aaef69551a8b4d33919393582995bfa16"
+    },
+    {
+      "case_id": "reopen_boundary_at_window_end_refused",
+      "function": "compute_reopen",
+      "expectation": "structural_error",
+      "error_code": "invalid_config",
+      "fixture_case_sha256": "5504ea78f650b2dfc90d7fd90d55afb51c754f0381c57f1138852491237f3fac"
+    },
+    {
+      "case_id": "reopen_reference_preboundary_rows_not_selected",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "2845728379d7083eeb1cd068a5a29243deb9e42dba1bd0503030ceb1385c7ced"
+    },
+    {
+      "case_id": "reopen_pre_scope_not_analysis_start_refused",
+      "function": "compute_reopen",
+      "expectation": "structural_error",
+      "error_code": "bounds",
+      "fixture_case_sha256": "eae854e31d040b1263b787fe3ee8ab6f9c0504a04f7ef4ba369ef835a1d015f8"
+    },
+    {
+      "case_id": "reopen_reference_scope_not_analysis_end_refused",
+      "function": "compute_reopen",
+      "expectation": "structural_error",
+      "error_code": "bounds",
+      "fixture_case_sha256": "9bdb2ad79615f7134dde45d0b62009a34c8922accd8313fe1b046102a318708a"
+    },
+    {
+      "case_id": "freeze_event_time_conversion_change",
+      "function": "compute_freeze",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "0fb933dd707b371c395980f786f1f8c99823f8aec81808e49b43cf648b460664"
+    },
+    {
+      "case_id": "reopen_uses_preboundary_conversion_before_change",
+      "function": "compute_reopen",
+      "expectation": "full_result",
+      "error_code": null,
+      "fixture_case_sha256": "5cfade39af2c6e2b9119db4e52806b44f26250aaafc36db24984614461043947"
+    }
+  ],
+  "product_imports": 0,
+  "product_tests": 0,
+  "implementation": false,
+  "accepted": false
+}

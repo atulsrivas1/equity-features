@@ -1,0 +1,58 @@
+{
+  "story": 216,
+  "stage": "prepared only; public review and accepted dependencies required",
+  "source_map": {
+    "EQ114_PLAN.md": "fcab81d98ab7bcb94fbf865f1b9b1ad2b8bf789407521ae1818f0c04af3d4ba1",
+    "EQ114_CASE_MANIFEST.json": "7e4563943691c2f71f79bea7a86dcf3d09cb2ba4994887682599fe2d44f6d91a",
+    "EQ114_OVERSIZE_INPUT.json": "f0bec7b0d8ee164168e8586ee259c1739b47ba110a70ebe0cf8af45d28db1a2f"
+  },
+  "normative_source_map": {
+    "docs/stories/EQ112_MATHEMATICS.md": "fadd26d03f20545032d3d2a2e108dbf699a03dd4714c997deb2ed8f7b49cabec",
+    "docs/stories/EQ112_DECISIONS.md": "5f3ff9a8909b34864bf2cfae7451de3032250957ce43770a6f537565d283fabf",
+    "docs/stories/EQ112_FIXTURES.json": "38a4786b62ecc8f14d83cb02f6b66038f1a4599462cf528eca0348fe21303f94",
+    "docs/stories/EQ112_SCHEMAS.json": "1b931b3a180d955fb0e21d7d2d0d114b8d793849ad004c292e16b3ad73cbec63",
+    "docs/stories/EQ113_ADMISSION_FIXTURES.json": "3fdd3a09b3188aa5df48766da826a9bf4fb64f2536c98fe7272b24711fb3e7ae"
+  },
+  "readiness_approved": false,
+  "implemented": false,
+  "accepted": false,
+  "product_tests_executed": 0,
+  "package_versions": {
+    "continuous": "0.1.0a2",
+    "contracts": "0.0.4a4",
+    "features": "0.0.4a4"
+  },
+  "counts": {
+    "full_results": 65,
+    "structural_errors": 32,
+    "arithmetic_overflows": 2
+  },
+  "oversize": {
+    "rows": 4096,
+    "utf8_id_bytes": 128,
+    "escaped_id_body_bytes": 376,
+    "selected_id_bodies_lower_bound": 1540096,
+    "input_bytes": 1885760,
+    "expected_error": "bounds"
+  },
+  "reviews": [
+    {
+      "report": "eq114-plan-preparation-reviewer-report.json",
+      "sha256": "1dc36f7562dbd7705d87e3151fc4ca2ce8800e72c8f5d9aa4977761d6d8ad81c",
+      "reviewer": "/root/r9_plan_review"
+    },
+    {
+      "report": "eq114-case-manifest-reviewer-report.json",
+      "sha256": "709cf60ff343640eabea35dc4c46850395fdff8b25c92819470e5cb41c004aea",
+      "reviewer": "/root/r9_plan_review"
+    }
+  ],
+  "required_live_dependencies": [
+    214,
+    215,
+    21,
+    24,
+    41
+  ],
+  "required_gate": "Separate final prepared/public Ready reviews, then actual Ready/In progress before implementation; source/controller review before build qualification; actual54/27 and current bothOS four forms/archives before Done."
+}

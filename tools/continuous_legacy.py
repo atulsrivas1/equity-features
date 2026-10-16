@@ -1,6 +1,7 @@
 """Installed contracts-only compatibility golden, identical before/after opt-in install."""
 import hashlib
 import json
+import sys
 from equity_feature_contracts import (ConfigSpec,Parameter,SessionSpec,IntervalSpec,WindowSpec,
     AvailabilitySpec,PriceUnit,builtin_registry)
 
@@ -24,6 +25,11 @@ def main():
     assert c.to_json()==raw;assert ConfigSpec.from_json(raw)==c
     assert c.digest=='d8ff9ddb56cf26be7e9550874f8891f4db5d3ee38ed3b6a7ac9a100a5fa9d8fc'
     assert len(builtin_registry().list_features())==39
+    if '--continuous' in sys.argv:
+        before=builtin_registry().list_features()
+        from equity_feature_continuous import list_features
+        assert len(list_features())==6
+        assert builtin_registry().list_features()==before
     print('Legacy ConfigSpec1 golden d8ff9ddb/39IDs unchanged.')
 
 if __name__=='__main__':main()

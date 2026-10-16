@@ -1,0 +1,140 @@
+{
+  "story": 216,
+  "stage": "Prequalification source snapshot; actual current delivery is recorded on live story216",
+  "precode": {
+    "head": "5674a8f61804576a0820721babff13b24273a40e",
+    "public_review_sha256": "5aaa98669571618268843c37236084f723e98f59f5788ec87bdd36200fde6aa1"
+  },
+  "version": "0.1.0a2",
+  "old_versions_unchanged": true,
+  "algorithm_schema_unchanged": "1",
+  "source_tests": {
+    "initial_methods": 31,
+    "initial_exit": 0,
+    "new_empty_regression_methods": 32,
+    "new_empty_regression_exit": 1,
+    "corrected_methods": 32,
+    "corrected_exit": 0,
+    "full_result_cases": 65,
+    "structural_cases": 32,
+    "arithmetic_overflows": 2,
+    "old_codec_records": 219,
+    "strict_source_files": 6,
+    "strict_exit": 0,
+    "boundary_exit": 0
+  },
+  "raw_log_sha256": {
+    "eq114-first-unit-author.log": "7dfa009a2af7717faf0cf5ac9c48080d11293ce5461131dbf47d9e9e7a12bc1e",
+    "eq114-first-mypy-author.log": "90377c8fd97127580c93ac5740d596c9ebc9db94dafa6560ee11fe16b4460c62",
+    "eq114-first-boundary-author.log": "625bdc4045909171963a8fc5a641df1d1697c1cddad33b1f614fab608a4a90ae",
+    "eq114-empty-regression-unit-author.log": "c126f2d107a289da89b76520ff5e185046a1602280e1f949373288dbf06c0674",
+    "eq114-empty-corrected-unit-author.log": "15ab0ddacdef2b9238c6ca47b2e6b6e5680456065563818bf761ed673f51214f"
+  },
+  "runtime_review_complete": true,
+  "build_controller_review_complete": true,
+  "fresh_installed_qualification": false,
+  "current_candidate_ci": false,
+  "main_acceptance": false,
+  "failures_preserved": [
+    "Empty-freeze stale-held-reference source regression: invalid blocked/mismatch role; corrected with actual-population guard.",
+    "All EQ113 failed author qualifications/source reviews remain preserved by immutable validation/history.",
+    "Conditional data preparer assertion corrected before writing output; original99literals unchanged.",
+    "Precode publisher selected-main collision guard corrected before execution; initial review hash-timing limitation preserved.",
+    "First workingfreeze blanketCRLF count assertion stopped before receipt; raw EQ088 measurement bytes preserved, Git-attribute-aware30path selection corrected.",
+    "External proof-tool preparation capture preserved exact; artifact literal-match guards stopped before output, then corrected before any verifier execution."
+  ],
+  "limits": [
+    "Source development interpreter checks are not fresh installations or independent reinstall.",
+    "No performance, physical memory/deadline, source truth, provider rights or stable publication claim."
+  ],
+  "reviewers": [
+    {
+      "reviewer": "/root/r9_plan_review",
+      "report_sha256": "6e78f42da805a45cccc392a2ede797c210e15732531beb640fe746c859b1c185",
+      "scope": "Frozen17file runtime/math source; separate process32source methods, strict6, boundary controls and100additional pure controls",
+      "limits": "Local automated source review, not human/hosted review, fresh install, native or artifact acceptance."
+    },
+    {
+      "reviewer": "/root/r10_review",
+      "report_sha256": "aebb12f341be3475c8836031e588f95c12a81f943f85ed431f74f2e2767e3095",
+      "scope": "Exact30changed/104effective source/build/typing freeze; unchanged accepted archive/installed helpers; separate source positive/exact8negative/example and sameprocesslegacy39 checks",
+      "limits": "No build/install/native/network or current CI/artifact execution; runtime/math remains separate6e78 review."
+    }
+  ],
+  "source_typing": {
+    "scope": "source paths/existing development interpreter, no fresh installation",
+    "expected_diagnostics": {
+      "mypy_version": "1.15.0",
+      "diagnostics": [
+        {
+          "line": 12,
+          "code": "arg-type",
+          "contains": "PriceObservation"
+        },
+        {
+          "line": 13,
+          "code": "arg-type",
+          "contains": "MetricValue"
+        },
+        {
+          "line": 14,
+          "code": "arg-type",
+          "contains": "config_from_json"
+        },
+        {
+          "line": 15,
+          "code": "arg-type",
+          "contains": "consume_old"
+        },
+        {
+          "line": 16,
+          "code": "misc",
+          "contains": "read-only"
+        },
+        {
+          "line": 16,
+          "code": "assignment",
+          "contains": "Incompatible types in assignment"
+        },
+        {
+          "line": 17,
+          "code": "arg-type",
+          "contains": "compute_basis"
+        },
+        {
+          "line": 18,
+          "code": "arg-type",
+          "contains": "require_capability"
+        }
+      ]
+    },
+    "records": {
+      "positive": {
+        "exit_code": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "negative": {
+        "exit_code": 1,
+        "raw_sha256": "4c9498327a04ac9164aa5034d16ce36b007c4e2fee289df5d097e8597753bbd3"
+      },
+      "execution": {
+        "exit_code": 0,
+        "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "first_fresh_qualification": "Dedicated actual current GitHub Actions Windows/Linux four-form CI; no separate author reinstall/build claimed",
+  "snapshot_semantics": "CI, installed and main flags describe this source freeze before first qualification; they do not replace live lifecycle or later delivery evidence.",
+  "proof_tools_review": {
+    "reviewer": "/root/r9_independent_audit",
+    "report_sha256": "e242113b9085c12af1b5d118cf3790af15321d376569fb6e6a736b1dc7400851",
+    "scope": "Exact104input selection/54and27gate preservation and49inert controls; not executed current CI/artifact qualification"
+  },
+  "publication_tool_review_history": {
+    "initial_report_sha256": "b2e32b5e16d7c7bd7603f32a2b2cfc270d840ae6c130b5922671b0cdc64942c6",
+    "finding": "EQ114-PUB-01: seven inert suffix controls exposed missing fresh PR/issue identity guards before ready/Project mutation",
+    "correction": "Full PR identity before patch/ready and after readiness, plus fresh original-body/owner/8points lifecycle checks before and after Project edit. Corrected source requires completed exact tool review before any actual execution.",
+    "actual_controller_execution_at_snapshot": false,
+    "scope": "Tool-only source review; no wrong actual PR or lifecycle mutation occurred."
+  }
+}
