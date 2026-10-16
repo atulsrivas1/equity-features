@@ -24324,6 +24324,701 @@
         "result": null
       },
       "expected_result": null
+    },
+    {
+      "case_id": "freeze_event_time_conversion_change",
+      "input": {
+        "config": {
+          "identity": "synthetic-cross-venue",
+          "schema_version": "1",
+          "algorithm_version": "1",
+          "operation": "freeze",
+          "window": {
+            "name": "analysis",
+            "start_ns": 100,
+            "end_ns": 106
+          },
+          "availability": {
+            "market_cutoff_ns": 110,
+            "knowledge_cutoff_ns": 110,
+            "evaluation_ns": 110,
+            "mode": "known_at",
+            "reconstruction_reason": null
+          },
+          "anchor_ns": null,
+          "reopen_ns": null,
+          "max_continuous_age_ns": 10,
+          "max_reference_age_ns": 10,
+          "max_mismatch_ns": 10,
+          "top_k": 2,
+          "weighting": "observation_count",
+          "reference_mode": "supplied_last_trade"
+        },
+        "continuous": {
+          "instrument_id": "c",
+          "feed_id": "c-feed",
+          "product_id": "c-product",
+          "underlying_id": "synthetic-underlying",
+          "quantity_unit": "unit",
+          "price_kind": "last_trade",
+          "source": {
+            "source_id": "synthetic",
+            "snapshot_id": "c-snapshot-1",
+            "mapping_version": "direct-v1",
+            "input_id": "c-input"
+          },
+          "price_unit": {
+            "scale": 0,
+            "currency": "USD"
+          },
+          "adjustment": {
+            "basis": "raw",
+            "policy_version": "raw-v1",
+            "action_snapshot": "none",
+            "anchor": "none"
+          },
+          "scope": {
+            "name": "c-delivery",
+            "start_ns": 100,
+            "end_ns": 106
+          },
+          "coverage": {
+            "expected": 3,
+            "observed": 3,
+            "complete": true
+          },
+          "coverage_known_at_ns": 106,
+          "observations": [
+            {
+              "observation_id": "c1",
+              "event_ns": 101,
+              "order_key": 0,
+              "price": 101,
+              "known_at_ns": 101
+            },
+            {
+              "observation_id": "c2",
+              "event_ns": 102,
+              "order_key": 0,
+              "price": 98,
+              "known_at_ns": 102
+            },
+            {
+              "observation_id": "c3",
+              "event_ns": 104,
+              "order_key": 0,
+              "price": 102,
+              "known_at_ns": 104
+            }
+          ]
+        },
+        "reference": {
+          "instrument_id": "r",
+          "feed_id": "r-feed",
+          "product_id": "r-product",
+          "underlying_id": "synthetic-underlying",
+          "quantity_unit": "unit",
+          "price_kind": "last_trade",
+          "source": {
+            "source_id": "synthetic",
+            "snapshot_id": "r-snapshot-1",
+            "mapping_version": "direct-v1",
+            "input_id": "r-input"
+          },
+          "price_unit": {
+            "scale": 0,
+            "currency": "USD"
+          },
+          "adjustment": {
+            "basis": "raw",
+            "policy_version": "raw-v1",
+            "action_snapshot": "none",
+            "anchor": "none"
+          },
+          "scope": {
+            "name": "r-delivery",
+            "start_ns": 90,
+            "end_ns": 100
+          },
+          "coverage": {
+            "expected": 1,
+            "observed": 1,
+            "complete": true
+          },
+          "coverage_known_at_ns": 100,
+          "observations": [
+            {
+              "observation_id": "r1",
+              "event_ns": 99,
+              "order_key": 0,
+              "price": 100,
+              "known_at_ns": 99
+            }
+          ]
+        },
+        "feed_facts": [
+          {
+            "fact_id": "c-live",
+            "revision": "1",
+            "feed_id": "c-feed",
+            "product_id": "c-product",
+            "interval": {
+              "name": "c-live",
+              "start_ns": 90,
+              "end_ns": 110
+            },
+            "state": "live",
+            "known_at_ns": 80
+          },
+          {
+            "fact_id": "r-live",
+            "revision": "1",
+            "feed_id": "r-feed",
+            "product_id": "r-product",
+            "interval": {
+              "name": "r-live",
+              "start_ns": 90,
+              "end_ns": 100
+            },
+            "state": "live",
+            "known_at_ns": 80
+          },
+          {
+            "fact_id": "r-freeze",
+            "revision": "1",
+            "feed_id": "r-feed",
+            "product_id": "r-product",
+            "interval": {
+              "name": "r-freeze",
+              "start_ns": 100,
+              "end_ns": 106
+            },
+            "state": "scheduled_freeze",
+            "known_at_ns": 90
+          }
+        ],
+        "conversion_facts": [
+          {
+            "fact_id": "conversion-1",
+            "revision": "1",
+            "continuous_instrument_id": "c",
+            "reference_instrument_id": "r",
+            "underlying_id": "synthetic-underlying",
+            "continuous_quantity_unit": "unit",
+            "reference_quantity_unit": "unit",
+            "currency": "USD",
+            "interval": {
+              "name": "mapping",
+              "start_ns": 90,
+              "end_ns": 102
+            },
+            "reference_units_numerator": 1,
+            "continuous_units_denominator": 1,
+            "known_at_ns": 80
+          },
+          {
+            "fact_id": "conversion-2",
+            "revision": "1",
+            "continuous_instrument_id": "c",
+            "reference_instrument_id": "r",
+            "underlying_id": "synthetic-underlying",
+            "continuous_quantity_unit": "unit",
+            "reference_quantity_unit": "unit",
+            "currency": "USD",
+            "interval": {
+              "name": "mapping-2",
+              "start_ns": 102,
+              "end_ns": 110
+            },
+            "reference_units_numerator": 2,
+            "continuous_units_denominator": 1,
+            "known_at_ns": 80
+          }
+        ]
+      },
+      "config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "input_digest": "8177565cd8bddc78a3b10824383e767b686943478f63af58874a44665e56e2f5",
+      "expected_result": {
+        "algorithm_version": "1",
+        "operation": "freeze",
+        "config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+        "input_digest": "8177565cd8bddc78a3b10824383e767b686943478f63af58874a44665e56e2f5",
+        "status": "available",
+        "roles": [
+          {
+            "role": "continuous_coverage",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/continuous/scope",
+              "/continuous/coverage",
+              "/continuous/coverage_known_at_ns"
+            ]
+          },
+          {
+            "role": "reference_coverage",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/reference/scope",
+              "/reference/coverage",
+              "/reference/coverage_known_at_ns"
+            ]
+          },
+          {
+            "role": "continuous",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/continuous/observations/0",
+              "/continuous/observations/1",
+              "/continuous/observations/2"
+            ]
+          },
+          {
+            "role": "reference",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/reference/observations/0"
+            ]
+          },
+          {
+            "role": "continuous_feed",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/feed_facts/0"
+            ]
+          },
+          {
+            "role": "reference_feed",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/feed_facts/1",
+              "/feed_facts/2"
+            ]
+          },
+          {
+            "role": "conversion",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/conversion_facts/0",
+              "/conversion_facts/1"
+            ]
+          }
+        ],
+        "metrics": [
+          {
+            "id": "cross_venue.freeze_max_abs",
+            "value": {
+              "numerator": 51,
+              "denominator": 1
+            }
+          },
+          {
+            "id": "cross_venue.freeze_mean_abs",
+            "value": {
+              "numerator": 101,
+              "denominator": 3
+            }
+          }
+        ],
+        "selected": [
+          {
+            "role": "continuous",
+            "observation_id": "c1"
+          },
+          {
+            "role": "continuous",
+            "observation_id": "c2"
+          },
+          {
+            "role": "continuous",
+            "observation_id": "c3"
+          },
+          {
+            "role": "reference",
+            "observation_id": "r1"
+          }
+        ],
+        "top_k": [
+          {
+            "role": "continuous",
+            "observation_id": "c2",
+            "reference_id": "r1",
+            "conversion_fact_id": "conversion-2",
+            "deviation": {
+              "numerator": -51,
+              "denominator": 1
+            }
+          },
+          {
+            "role": "continuous",
+            "observation_id": "c3",
+            "reference_id": "r1",
+            "conversion_fact_id": "conversion-2",
+            "deviation": {
+              "numerator": -49,
+              "denominator": 1
+            }
+          }
+        ],
+        "population_count": 3,
+        "available_at_ns": 106
+      },
+      "expected_result_digest": "033e5ffbac10227f7868cad9b854ef614a04b670c544ffafdeb542cebc5cae8d",
+      "expected_error": null,
+      "compact_oracle": {
+        "status": "available",
+        "reasons": [],
+        "values": {
+          "freeze_max_abs": [
+            51,
+            1
+          ],
+          "freeze_mean_abs": [
+            101,
+            3
+          ]
+        },
+        "selected_observation_ids": [
+          "c1",
+          "c2",
+          "c3",
+          "r1"
+        ],
+        "available_at_ns": 106,
+        "top_k": [
+          "c2",
+          "c3"
+        ],
+        "population_count": 3
+      }
+    },
+    {
+      "case_id": "reopen_uses_preboundary_conversion_before_change",
+      "input": {
+        "config": {
+          "identity": "synthetic-cross-venue",
+          "schema_version": "1",
+          "algorithm_version": "1",
+          "operation": "reopen",
+          "window": {
+            "name": "analysis",
+            "start_ns": 190,
+            "end_ns": 205
+          },
+          "availability": {
+            "market_cutoff_ns": 205,
+            "knowledge_cutoff_ns": 205,
+            "evaluation_ns": 205,
+            "mode": "known_at",
+            "reconstruction_reason": null
+          },
+          "anchor_ns": null,
+          "reopen_ns": 200,
+          "max_continuous_age_ns": 10,
+          "max_reference_age_ns": 10,
+          "max_mismatch_ns": 10,
+          "top_k": 2,
+          "weighting": "observation_count",
+          "reference_mode": "supplied_last_trade"
+        },
+        "continuous": {
+          "instrument_id": "c",
+          "feed_id": "c-feed",
+          "product_id": "c-product",
+          "underlying_id": "synthetic-underlying",
+          "quantity_unit": "unit",
+          "price_kind": "last_trade",
+          "source": {
+            "source_id": "synthetic",
+            "snapshot_id": "c-snapshot-1",
+            "mapping_version": "direct-v1",
+            "input_id": "c-input"
+          },
+          "price_unit": {
+            "scale": 0,
+            "currency": "USD"
+          },
+          "adjustment": {
+            "basis": "raw",
+            "policy_version": "raw-v1",
+            "action_snapshot": "none",
+            "anchor": "none"
+          },
+          "scope": {
+            "name": "c-delivery",
+            "start_ns": 190,
+            "end_ns": 200
+          },
+          "coverage": {
+            "expected": 1,
+            "observed": 1,
+            "complete": true
+          },
+          "coverage_known_at_ns": 200,
+          "observations": [
+            {
+              "observation_id": "c1",
+              "event_ns": 199,
+              "order_key": 0,
+              "price": 120,
+              "known_at_ns": 200
+            }
+          ]
+        },
+        "reference": {
+          "instrument_id": "r",
+          "feed_id": "r-feed",
+          "product_id": "r-product",
+          "underlying_id": "synthetic-underlying",
+          "quantity_unit": "unit",
+          "price_kind": "last_trade",
+          "source": {
+            "source_id": "synthetic",
+            "snapshot_id": "r-snapshot-1",
+            "mapping_version": "direct-v1",
+            "input_id": "r-input"
+          },
+          "price_unit": {
+            "scale": 0,
+            "currency": "USD"
+          },
+          "adjustment": {
+            "basis": "raw",
+            "policy_version": "raw-v1",
+            "action_snapshot": "none",
+            "anchor": "none"
+          },
+          "scope": {
+            "name": "r-delivery",
+            "start_ns": 200,
+            "end_ns": 205
+          },
+          "coverage": {
+            "expected": 1,
+            "observed": 1,
+            "complete": true
+          },
+          "coverage_known_at_ns": 205,
+          "observations": [
+            {
+              "observation_id": "r1",
+              "event_ns": 201,
+              "order_key": 0,
+              "price": 125,
+              "known_at_ns": 203
+            }
+          ]
+        },
+        "feed_facts": [
+          {
+            "fact_id": "c-live",
+            "revision": "1",
+            "feed_id": "c-feed",
+            "product_id": "c-product",
+            "interval": {
+              "name": "c-live",
+              "start_ns": 190,
+              "end_ns": 205
+            },
+            "state": "live",
+            "known_at_ns": 180
+          },
+          {
+            "fact_id": "r-freeze",
+            "revision": "1",
+            "feed_id": "r-feed",
+            "product_id": "r-product",
+            "interval": {
+              "name": "r-freeze",
+              "start_ns": 190,
+              "end_ns": 200
+            },
+            "state": "scheduled_freeze",
+            "known_at_ns": 180
+          },
+          {
+            "fact_id": "r-live",
+            "revision": "1",
+            "feed_id": "r-feed",
+            "product_id": "r-product",
+            "interval": {
+              "name": "r-live",
+              "start_ns": 200,
+              "end_ns": 205
+            },
+            "state": "live",
+            "known_at_ns": 200
+          }
+        ],
+        "conversion_facts": [
+          {
+            "fact_id": "conversion-1",
+            "revision": "1",
+            "continuous_instrument_id": "c",
+            "reference_instrument_id": "r",
+            "underlying_id": "synthetic-underlying",
+            "continuous_quantity_unit": "unit",
+            "reference_quantity_unit": "unit",
+            "currency": "USD",
+            "interval": {
+              "name": "mapping",
+              "start_ns": 190,
+              "end_ns": 200
+            },
+            "reference_units_numerator": 1,
+            "continuous_units_denominator": 1,
+            "known_at_ns": 180
+          },
+          {
+            "fact_id": "conversion-2",
+            "revision": "1",
+            "continuous_instrument_id": "c",
+            "reference_instrument_id": "r",
+            "underlying_id": "synthetic-underlying",
+            "continuous_quantity_unit": "unit",
+            "reference_quantity_unit": "unit",
+            "currency": "USD",
+            "interval": {
+              "name": "mapping-2",
+              "start_ns": 200,
+              "end_ns": 205
+            },
+            "reference_units_numerator": 2,
+            "continuous_units_denominator": 1,
+            "known_at_ns": 180
+          }
+        ]
+      },
+      "config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "input_digest": "2aa1fa77924aa963ec5ffb0c34b4376ea9d88d85a7f50ebc5165d81ce89affe0",
+      "expected_result": {
+        "algorithm_version": "1",
+        "operation": "reopen",
+        "config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+        "input_digest": "2aa1fa77924aa963ec5ffb0c34b4376ea9d88d85a7f50ebc5165d81ce89affe0",
+        "status": "available",
+        "roles": [
+          {
+            "role": "continuous_coverage",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/continuous/scope",
+              "/continuous/coverage",
+              "/continuous/coverage_known_at_ns"
+            ]
+          },
+          {
+            "role": "reference_coverage",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/reference/scope",
+              "/reference/coverage",
+              "/reference/coverage_known_at_ns"
+            ]
+          },
+          {
+            "role": "continuous",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/continuous/observations/0"
+            ]
+          },
+          {
+            "role": "reference",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/reference/observations/0"
+            ]
+          },
+          {
+            "role": "continuous_feed",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/feed_facts/0"
+            ]
+          },
+          {
+            "role": "reference_feed",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/feed_facts/1",
+              "/feed_facts/2"
+            ]
+          },
+          {
+            "role": "conversion",
+            "status": "ready",
+            "reasons": [],
+            "proofs": [
+              "/conversion_facts/0"
+            ]
+          }
+        ],
+        "metrics": [
+          {
+            "id": "cross_venue.reopen_gap",
+            "value": {
+              "numerator": -5,
+              "denominator": 1
+            }
+          },
+          {
+            "id": "cross_venue.reopen_premium",
+            "value": {
+              "numerator": -1,
+              "denominator": 25
+            }
+          }
+        ],
+        "selected": [
+          {
+            "role": "continuous",
+            "observation_id": "c1"
+          },
+          {
+            "role": "reference",
+            "observation_id": "r1"
+          }
+        ],
+        "top_k": [],
+        "population_count": null,
+        "available_at_ns": 205
+      },
+      "expected_result_digest": "c1549d7e1ff176b9e0655c0c54732936a85ef3b6da7a2bf70d523e37389ebc13",
+      "expected_error": null,
+      "compact_oracle": {
+        "status": "available",
+        "reasons": [],
+        "values": {
+          "reopen_gap": [
+            -5,
+            1
+          ],
+          "reopen_premium": [
+            -1,
+            25
+          ]
+        },
+        "selected_observation_ids": [
+          "c1",
+          "r1"
+        ],
+        "available_at_ns": 205,
+        "top_k": [],
+        "population_count": null
+      }
     }
   ],
   "rational_cases": [
@@ -24431,5 +25126,11 @@
       "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n",
       "expected_error": "invalid_schema"
     }
-  ]
+  ],
+  "ratio_extension_history": {
+    "previous_fixture_sha256": "d9cdf3c4ad10c94161937e2275466b153e6ce362643321ca8336b4da34984bee",
+    "previous_operation_records": 97,
+    "added_records": 2,
+    "scope": "Public candidate review found original changing-ratios criterion lacked admitted same-pair effective boundary examples. Earlier97 records preserved byte-for-byte as parsed values; no product/kernel execution."
+  }
 }

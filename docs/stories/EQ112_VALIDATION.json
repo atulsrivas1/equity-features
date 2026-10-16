@@ -7,11 +7,11 @@
   "base": "6e0bd77c70fe20ab9f35368432a84b38a2e946ac",
   "prepared_report_sha256": "80f40bbeb643a8574d0d230af904dad18c74d7bb215f8b5a808f0c80fac3e569",
   "public_readiness_review_sha256": "6f1a7dadccc572872ec34e33725cc186ceaba378b4292d1ffb8fbee5627a632c",
-  "operation_literal_records": 97,
+  "operation_literal_records": 99,
   "rational_boundaries": 6,
   "arithmetic_controls": 1,
   "codec_controls": 3,
-  "prepared_structural_envelopes_checked": 189,
+  "prepared_structural_envelopes_checked": 195,
   "product_tests_executed": 0,
   "installable_package_changes": 0,
   "kernel_implemented": false,
@@ -24,6 +24,11 @@
     "Prepared UTF8 texts projected toGitLF; internal readiness map refreshed for exact public bytes only.",
     "No new numerical implementation executes or derives its own expected values.",
     "The initial admission-controller review identified a missing assignment/points readback guard. It was corrected and all21 inert controls approved in report e860e421746ab9ae95eb09d21f2dc1aca83eae6b67c06d6d62927432032692fa before actual admission.",
-    "A later preparation read guessed an absent publisher filename; no files or product state changed. Actual file inventory located eq111_publish_corrective.py."
-  ]
+    "A later preparation read guessed an absent publisher filename; no files or product state changed. Actual file inventory located eq111_publish_corrective.py.",
+    "Publisher initial PUBLISH01 whitespace parser rejected validstatus before writes; rawNULstatus correction independently approved ac4dc333 before actual60345f0 publication.",
+    "Acceptance-tool initial CLOSE01 stale-current guard identified inertly and corrected before any delivery/acceptance execution; final toolreview a60c8cd2.",
+    "Original97 operation preparation/189schema/257digest checks remain their exactscope. New99 corpus has195structural envelopes and263digests; no productkernel execution.",
+    "Ratio extension materialization completed, then git diff --check rejected two extra blank EOF lines before commit/publication. Trimmed only final blank lines; no generator rerun or product failure."
+  ],
+  "public_review_correction": "Changing-ratios positive boundary coverage; original97 inputs/results unchanged, appended2independent literals; previousapproval missedabsence; renewed review/CI/main pending."
 }

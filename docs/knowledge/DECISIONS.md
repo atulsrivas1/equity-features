@@ -1,3 +1,7 @@
+## EQ112 changing-ratios coverage correction
+
+Actual public review at60345f0 found that the original changing-ratios criterion lacked admitted same-pair nonoverlapping conversion changes. The first97 literal records remain unchanged; two appended full-input/full-result examples now make99. Freeze101/98/102 against100 with1:1 before102 and2:1 from102 gives deviations1,-51,-49, max51 and observation mean101/3; topK c2,c3 binds conversion-2, and conversion proofs include both facts. At reopenR200, continuous199 still uses the old1:1 factor despite a2:1 factor effective atR; gap-5/premium-1/25 remains, only the old mapping is consumed, and the full input digest binds both facts. These are independent literal/data-tool expectations, not executed kernels. Earlier prepared/public approval missed this absence and is preserved with its exact97-record scope. EQ112 returned Code review to In progress before correction; renewed final working/public/current CI/main gates remain.
+
 ## EQ112 explicit initial raw-only profile
 
 Adjusted-snapshot availability lacks the required original proof in reused AdjustmentSpec. The new optional profile refuses nonraw/custom adjustment rather than treating historical price timestamps as adjustment knowledge; existing core adjusted behavior remains unchanged. Own schema1/result and contracts-only dependency preserve oldConfigSpec1/39IDs. The six proposed batch IDs do not imply old Arrow/state/worker/MCP/receipt support. See the [EQ112 decisions](../stories/EQ112_DECISIONS.md).

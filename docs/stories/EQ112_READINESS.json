@@ -3,7 +3,7 @@
   "epic": 212,
   "milestone": 13,
   "points": 5,
-  "stage": "Backlog; preparation only until EQ111 accepted and final public packet reviewed",
+  "stage": "In progress; public review changing-ratios coverage correction; final review/CI/main pending",
   "depends_on": [
     {
       "story": "EQ111",
@@ -26,18 +26,18 @@
   "installed_qualification_story": 217,
   "product_code_changes": 0,
   "product_tests_executed": 0,
-  "operation_fixtures": 97,
+  "operation_fixtures": 99,
   "rational_constructor_boundaries": 6,
   "large_rational_arithmetic_controls": 1,
   "codec_controls": 3,
-  "structural_preparation_envelopes_checked": 189,
+  "structural_preparation_envelopes_checked": 195,
   "readiness_approved": false,
   "accepted": false,
   "source_map": {
-    "EQ112_DECISIONS.md": "9432b46e0e3729992ae673efba3ddf880b9277ba35c6231c0ace59ac7db3c3ae",
-    "EQ112_FIXTURES.json": "d9cdf3c4ad10c94161937e2275466b153e6ce362643321ca8336b4da34984bee",
+    "EQ112_DECISIONS.md": "5f3ff9a8909b34864bf2cfae7451de3032250957ce43770a6f537565d283fabf",
+    "EQ112_FIXTURES.json": "38a4786b62ecc8f14d83cb02f6b66038f1a4599462cf528eca0348fe21303f94",
     "EQ112_MATHEMATICS.md": "fadd26d03f20545032d3d2a2e108dbf699a03dd4714c997deb2ed8f7b49cabec",
-    "EQ112_PLAN.md": "e3189310959c4a52497e98290877fbfd315c716aa328d70adf36eceb93983d01",
+    "EQ112_PLAN.md": "151a68b965d443816e42e57d7a06cc99fa89222fba1b2fae88088b185d8dbd4c",
     "EQ112_SCHEMAS.json": "1b931b3a180d955fb0e21d7d2d0d114b8d793849ad004c292e16b3ad73cbec63"
   },
   "prior_review_reports": {
@@ -56,11 +56,13 @@
     "Two empty-role readiness contradictions corrected in the independent literal projection and confirmed in targeted review.",
     "Readiness preparer initially used story digits as issue numbers for EQ006/EQ033; corrected against saved actual dependency identities before publication/readiness review.",
     "Full prepared review4488 identified basis no-known candidate classification, operation fields, mojibake and digest final-LF admission. Explicit tables/95operation controls and length64 schema corrected before public readiness; old six-file packet and report preserved. Renewed validation/public review remain pending.",
-    "ExistingDEV Draft202012 tool validated the corrected schema and189positive/quality envelopes, with no product imports/install. Reused tool-result metadata filename now records189; prior165count remains in separate finite-subset receipt and independent review, not relabeled. Future tool receipts use content-addressed names."
+    "ExistingDEV Draft202012 tool validated the corrected schema and189positive/quality envelopes, with no product imports/install. Reused tool-result metadata filename now records189; prior165count remains in separate finite-subset receipt and independent review, not relabeled. Future tool receipts use content-addressed names.",
+    "Actual60345f0 public reviewer found missing admitted effective-ratio-change cases; earlier97reviewscope preserved; appendfreeze/reopen2literal controls and returnInprogress. No runtime test failed."
   ],
   "limits": [
     "Independent golden hashes use stdlib canonical JSON/SHA256, not future production serializers.",
     "Logical bounds are not whole-process physical memory or deadline guarantees.",
     "No new package/schema runtime, worker/MCP wiring, provider data/rights/hosting/registry/admin/spending/trading or R13 work."
-  ]
+  ],
+  "historical_precode_readiness": "OriginalReady/Inprogress followed actual public97record approval; current correction renews review, not fabricated secondReady."
 }
