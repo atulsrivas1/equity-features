@@ -226,6 +226,26 @@ AGENT_POSITIVE_FIXTURES=('from equity_feature_contracts import AvailabilitySpec'
     'import hashlib\nimport json\nx=json.dumps({"synthetic":True})')
 
 
+def ledger_violations(source, *, storage=False):
+    """External storage is explicit; no private event codec or execution imports."""
+    allowed={'__future__','dataclasses','enum','json','re','typing','equity_feature_agent_evidence'}
+    if storage:allowed|={'contextlib','os','pathlib','sqlite3','stat','urllib'}
+    errors=[]
+    for node in ast.walk(ast.parse(source)):
+        if isinstance(node,ast.Import):
+            for name in node.names:
+                if name.name.split('.')[0] not in allowed:errors.append('import '+name.name)
+        if isinstance(node,ast.ImportFrom):
+            if node.level:
+                if node.module not in (None,'_model','_verify','_schema','_store'):errors.append('relative import')
+            elif (node.module or '').split('.')[0] not in allowed:errors.append('import '+str(node.module))
+            if (node.module or '').startswith('equity_feature_agent_evidence.') or any(x.name=='*' for x in node.names):errors.append('private or wildcard import')
+        if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id in {'eval','exec','compile','__import__','globals','locals'}:errors.append('dynamic execution')
+        if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id=='getattr':
+            if not (storage and len(node.args)>=2 and isinstance(node.args[1],ast.Constant) and node.args[1].value=='sqlite_errorcode'):errors.append('dynamic access')
+    return errors
+
+
 def check():
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
@@ -236,7 +256,8 @@ def check():
     provenance_packages=(ROOT/'packages/provenance',)
     conformance_packages=(ROOT/'packages/conformance',)
     agent_packages=(ROOT/'packages/agent-evidence',)
-    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)|set(conformance_packages)|set(agent_packages)
+    ledger_packages=(ROOT/'packages/agent-ledger',)
+    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)|set(conformance_packages)|set(agent_packages)|set(ledger_packages)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
@@ -331,6 +352,19 @@ def check():
             errors=agent_violations(path.read_text(encoding='utf-8'));assert not errors,(path,errors)
     for source in AGENT_NEGATIVE_FIXTURES:assert agent_violations(source),source
     for source in AGENT_POSITIVE_FIXTURES:assert not agent_violations(source),source
+    for root in ledger_packages:
+        if not root.exists():continue
+        project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
+        assert project['dependencies']==['equity-feature-agent-evidence==0.1.0a1'] and not project.get('optional-dependencies',{})
+        for path in root.glob('src/**/*.py'):
+            errors=ledger_violations(path.read_text(encoding='utf-8'),storage=path.name=='_store.py');assert not errors,(path,errors)
+    for source in ['import socket','import subprocess','import equity_features','from equity_feature_agent_evidence._codec import decode_event','from equity_feature_agent_evidence import *','eval(x)','__import__(x)','getattr(obj,name)']:
+        assert ledger_violations(source,storage=True),source
+    for source in ['import os','import sqlite3','from pathlib import Path']:
+        assert ledger_violations(source),source
+        assert not ledger_violations(source,storage=True),source
+    for source in ['from equity_feature_agent_evidence import EventRecord','from ._model import Checkpoint','import json']:
+        assert not ledger_violations(source),source
     print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; outer profile 8 negative/3 positive; conformance 7 negative/4 positive; agent {len(AGENT_NEGATIVE_FIXTURES)} negative/{len(AGENT_POSITIVE_FIXTURES)} positive controls.')
 
 

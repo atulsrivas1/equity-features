@@ -1,3 +1,9 @@
+## EQ107 source implementation and ordinary development — October15,2026
+
+EQ107#207 is actual In progress/Atul after [reviewed admission](https://github.com/atulsrivas1/equity-features/issues/207#issuecomment-6206228977) at b46156a, separate readiness review findings[]. External optional agent-ledger0.1.0a1 now implements exact rollback-journal schema, canonical rows/indexed references, expected-head append, unknown-commit poison/reconciliation, full anchored verification and fixed-terminal pages. [API](AGENT_LEDGER_API.md), [contract](stories/EQ-107_CONTRACT.md), [validation](stories/EQ-107_VALIDATION.json).
+
+Ordinary source-development:34pure/store methods passed, separate actual-producer method passed, strict6files/boundary/example passed. Full4096-event and32MiB canonical-byte fixtures are actual valid rows, not fake quota metadata. Initial harness/type failures and corrections retained; subsequent close/read-rollback controls passed. No process-death/installed/bothOS/archive/release proof. Exact source/API/security/tests/docs review is next; new crash entry/owners/builder/controller remain unimplemented/unreviewed and must be frozen/reviewed before physical execution. EQ106 accepted; EQ108–110Backlog/E15Inprogress/milestone12open. R11 unfinished; all-R11 review grant persists. Older snapshots below are history.
+
 ## EQ107 literal foreign-chain correction — October15,2026
 
 Renewed review found three foreign-chain proposal vectors failed accepted event-reference validation before the intended reconciliation check. Both event and nested request now use the same foreign chain, preserving a valid event while disagreeing with the supplied prior checkpoint. This is a fixture correction before Ready; no database/runtime result is claimed. [Disposition](stories/EQ-107_VALIDATION.json). Older snapshots below remain history.

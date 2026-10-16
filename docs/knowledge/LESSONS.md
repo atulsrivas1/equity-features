@@ -1,3 +1,7 @@
+## Explicit connection ownership in SQLite test fixtures — October15,2026
+
+SQLite connection context managers commit/roll back but do not close the connection. EQ107 initial Windows fixture cleanup failed with live fixture connections. Register and explicitly close every fixture connection before verified owned-root cleanup; preserve failed-run evidence rather than calling cleanup successful. [Source-development record](../stories/EQ-107_VALIDATION.json). This correction is not proof of physical crash/power-loss cleanup.
+
 ## EQ107 validate requests before classifying history — October15,2026
 
 Freeze exact public result constructors and proposal/base agreement before runtime Ready. A valid event can still be an invalid next append for a supplied checkpoint; do not classify it absent or found. Directly constructed status records establish structural consistency only. [Corrected contract](../stories/EQ-107_CONTRACT.md), [review disposition](../stories/EQ-107_VALIDATION.json). No product test or completed readiness is inferred.
