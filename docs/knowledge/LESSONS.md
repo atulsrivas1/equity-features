@@ -1614,3 +1614,7 @@ Independent source allocation found unsupported prose lacked an explicit DEFER a
 ## EQ109: original wheel payload equality includes declared installed relocation
 
 The fourth run passed typed/strict/native checks but the inherited checker rejected pywin32 scripts relocated by wheel installation. Compare each original member against its owning installed RECORD and exact destination; bind the finite supported archive and member hashes, and reject unsupported relocation or rewriting. Generated entrypoint executables remain separate outputs. Independent retained parity and22 rejection controls approve the narrow source correction only. Preserve all four failures and qualify a distinct corrected-input cohort. Evidence: [fourth failure](../stories/EQ-109_FOURTH_FAILURE.json).
+
+## EQ109: finish immutable review records before freezing their hashes
+
+The author consumed an already approved report while the reviewer was still adding supplemental controls. That changed the filename hash after publication. Exact original bytes were recovered and matched against the frozen SHA, the supplemental review retained separately, and consistency restored before the fresh author run. Wait for the reviewer final completion notice, then freeze immutable report paths; never rewrite a published freeze to hide the race. Current corrected-input source qualification subsequently passed independently audited author/currentCI cohorts. Evidence: [execution](../stories/EQ-109_EXECUTION.json).
