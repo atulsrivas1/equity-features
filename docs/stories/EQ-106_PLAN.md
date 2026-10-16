@@ -35,7 +35,7 @@ Internal consistency verifies only the supplied records and context. A shortened
 3. Required versus optional actor/model/time/reference/disclosure fields, cross-kind prior-reference rules and bounded continuation context.
 4. Exact privacy/retention/redaction/migration policy and supported public example; no secret-detection or historical-authenticity guarantee.
 5. Complete independent cases, pure import boundary, owned source/fresh installed wheel-sdist Windows/Linux qualification design and same-story documentation map.
-6. Supported separate R11 review route and exact pre-code Ready approval. The previous R10 local-review grant does not establish this decision.
+6. Completed separate exact pre-code Ready review. The owner has explicitly authorized separate local review throughout R11, including this story and final delivery; authorization does not establish completed review.
 
 ## Accepted end state
 

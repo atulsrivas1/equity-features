@@ -1,7 +1,7 @@
 {
   "story": "GOV-023",
   "issue": 406,
-  "stage": "In progress: concrete handoff preparation; separate R11 review route pending",
+  "stage": "Code review: concrete handoff and owner-authorized separate local R11 review",
   "runtime_implemented": false,
   "released": false,
   "accepted_starting_main": "87fbe4a9fb2a62aefa34c4f90164dc14407eb90a",
@@ -32,8 +32,13 @@
     "Packet preparation completed; auxiliary git diff/status used external preparation cwd and failed. Corrected checks use explicit canonical cwd; no repeated preparation or product operation."
   ],
   "remaining": [
-    "Supported R11 separate review route and completed exact-head review, then current checks/public main verification and governance lifecycle.",
+    "Completed separate exact-head review, current checks/public-main verification and governance lifecycle.",
     "EQ106 exact schema, independent canonical oracle, complete readiness decisions and review before runtime Ready.",
     "Each R11 implementation story and final delivery retains its own original acceptance and actual lifecycle gates."
-  ]
+  ],
+  "review_route": {
+    "owner_answer": "Authorize local review throughout R11",
+    "scope": "PR407 handoff, EQ106\u2013110 including necessary worker/MCP changes, and final delivery",
+    "completed_review": false
+  }
 }

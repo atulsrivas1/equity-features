@@ -1,4 +1,10 @@
-## R11 selected; separate review route pending — October15,2026
+## R11 authorized local review — October15,2026
+
+The owner explicitly answers "Authorize local review throughout R11" for the concrete handoff in PR407, all EQ106–110 stories (including necessary worker/MCP changes) and final delivery. Separate local Codex reviewers may inspect governance, each pre-code plan, implementation, affected contracts/callers, final heads, actual artifacts, publication and aggregate acceptance. Record reviewer identity, exact heads/source identities, executed checks, findings/disposition and limitations; renew affected coverage after changes. Author self-review and CI alone remain insufficient. This is automated local review, not hosted activation or human review. All numerical/documentation/installed Windows/Linux/source/archive/RECORD/publication/lifecycle gates remain mandatory.
+
+This supersedes the pending R11 review-route decision below. Permission is not completed review and does not waive story readiness. It adds no R12+, provider/private acquisition, paid model/API use, account administration, public hosting, stable registry, trading execution, destructive or recurring work. Preserve accepted releases, unrelated primary work and paused R7automation; one active R11 runtime story at a time. No further per-story permission question is required within this grant.
+
+## Historical R11 selection; review route was pending — October15,2026
 
 The owner requests R10 review, an R11 handoff and R11 work in this conversation. [GOV023#406](https://github.com/atulsrivas1/equity-features/issues/406) prepares the concrete handoff and existing EQ106–110 gates. This selects bounded R11 preparation/implementation subject to ordinary readiness and review; it creates no session or automation.
 
