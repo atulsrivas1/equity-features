@@ -1,3 +1,7 @@
+## EQ111 full-suite integration rework
+
+Candidate61f52fc discovered all16 new probes in the full649-test source suite. Two existing purity-audit count assertions failed because they retained the prior619/593 totals; no numerical probe failure was reported. Corrective635/609/609 expectations retain all denial, Arrow bridge, no-error/no-skip and module-data mutation checks. The failed logs and earlier focused passes retain their separate scopes. Current corrected bothOS CI/public review/main delivery remain pending; no Done or new installed capability claim. The immediate postpush identity refusal occurred before any PR/Project mutation; its reviewed resume was not executed after this rework was found.
+
 # EQ111 finite continuous-session capability assessment
 
 [Story213](https://github.com/atulsrivas1/equity-features/issues/213), [E16](https://github.com/atulsrivas1/equity-features/issues/212), [PR416](https://github.com/atulsrivas1/equity-features/pull/416). Executed source assessment; final candidate/main CI, documentation review and acceptance remain separate. [Validation](EQ-111_VALIDATION.json) binds source and results. The [packet](EQ111_READINESS.json) and [frozen probe](EQ111_PROBE.py.txt) were publicly reviewed before Ready/In progress and execution.

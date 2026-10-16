@@ -46,6 +46,18 @@
     "Identical duplicate probe method removed before execution; final16definitions/16unique, initial source retained.",
     "Governance tooling findings/corrections, CLI output/metadata normalization, superseded-draft CI cancellations and completed-run cancellation race retained externally; no product PASS substitution.",
     "GitHub removed the merged short-lived branch. Read-only main capture refused its missing ref, then a reviewed main-only fetch correction passed; no CI rerun or runtime failure.",
-    "Bulk documentation shell command rejected by automatic approval review before any write; direct finite file patches used instead."
-  ]
+    "Bulk documentation shell command rejected by automatic approval review before any write; direct finite file patches used instead.",
+    "Final publisher committed/pushed61f52fc9bce8dbdb2fbd2e4927a432ca2947ac2f, then immediate PR identity readback refused before PR or Project mutation. Fresh readback matched; cause not established. Reviewed resume was not executed after CI found rework.",
+    "Actual candidate Windows foundation job117082388889 ran649 source tests and failed two purity audit count assertions:635versus619 and609versus593 after discovering the new16. The earlier focused author/reviewer16passes remain scoped; this failed fullsuite is not PASS. Raw failure log SHA256 0352193483cd98e1ab05f91ad4effaff377739be02542ca45162d5ccd3f898e1.",
+    "Correction changes only three purity audit count literals to635/609/609 and adds an explanatory comment; no exclusions, denied entrypoints, bridge cases, mutation snapshots or result-success checks are weakened. Fresh bothOS fullsuite/currenthead gates still required.",
+    "Diagnostic CLI log display encountered a local cp1252 UnicodeEncodeError after raw bytes were saved; saved log read directly. One still-running workflow log was unavailable; neither is a product test result."
+  ],
+  "full_suite_rework": {
+    "failed_head": "61f52fc9bce8dbdb2fbd2e4927a432ca2947ac2f",
+    "source_tests_run": 649,
+    "failures": 2,
+    "failed_job": 117082388889,
+    "correction": "test_purity_audit count expectations635/609/609; unchanged audit coverage",
+    "corrective_full_suite_pending": true
+  }
 }

@@ -1,3 +1,7 @@
+## EQ111 full discovery and nested purity audits
+
+A focused new probe pass does not establish integration with an existing aggregate audit. Candidate61f52fc added16 discoverable fixtures while the nested purity audits retained619/593 expectations; actual649-test CI failed two count assertions. Correct only the three named totals635/609/609 after verifying selection, retain denial/bridge/mutation/no-skip/no-error checks and rerun the affected audit plus current bothOS CI. Preserve the failed candidate; do not exclude the new tests to obtain green.
+
 ## EQ111: interval labels are not operational market policies
 
 [Sixteen executed public probes](../stories/EQ-111_CAPABILITY.md) demonstrate finite continuous reuse, but a named scheduled-freeze interval does not block an event and a full governed-slot count does not certify delivered history. Prove exact public construction and independent numerical/boundary/config oracles before adding types. Distinguish supplied civil bounds from calendar discovery, source probes from fresh installs, and scoped schema rejection from universal impossibility. [Evidence](../stories/EQ-111_VALIDATION.json) retains actual review/source/results and later-story obligations.
