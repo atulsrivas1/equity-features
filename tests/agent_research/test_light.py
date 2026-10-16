@@ -17,5 +17,22 @@ class LightTests(unittest.TestCase):
         self.assertEqual((observed.status,observed.calculation_count),('incompatible',0))
         self.assertNotIn('equity_features.session',sys.modules)
 
+    def test_C25_unsupported_registry_refuses_without_calculator(self) -> None:
+        import io,json,zipfile
+        from equity_feature_bundles import PublicationDeclaration,write_bundle,read_bundle,BundleError
+        from equity_feature_evidence import decode_receipt
+        cfg,batch,result=fixture()
+        raw=write_bundle(decode_receipt(reports()[0]),cfg,result,(('trades',batch),),PublicationDeclaration('synthetic','Synthetic example','caller_owned'))
+        out=io.BytesIO()
+        with zipfile.ZipFile(io.BytesIO(raw)) as source,zipfile.ZipFile(out,'w') as target:
+            for name in source.namelist():
+                data=source.read(name)
+                if name=='manifest.json':
+                    value=json.loads(data);value['registry']='caller.plugin'
+                    data=json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode('ascii')
+                target.writestr(name,data)
+        with self.assertRaises(BundleError):read_bundle(out.getvalue())
+        self.assertIsNone(importlib.util.find_spec('equity_features'))
+
 
 if __name__=='__main__':unittest.main()
