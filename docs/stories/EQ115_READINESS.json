@@ -1,0 +1,50 @@
+{
+  "story": 217,
+  "stage": "prepared only; actual accepted dependencies and public review required",
+  "source_map": {
+    "EQ115_DELIVERY_DESIGN.md": "d32535bac794370df9bdeb5bdbef37708b2daec1aeed77856a32c734325e17a2",
+    "EQ115_PLAN.md": "f649561cc1f2299b82ee4022c6ba6c4d7dd4f1cf2db7d4f304030cc03956d5c3",
+    "EQ115_SYNTHETIC_ORACLES.json": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53"
+  },
+  "normative_source_map": {
+    "docs/stories/EQ112_MATHEMATICS.md": "fadd26d03f20545032d3d2a2e108dbf699a03dd4714c997deb2ed8f7b49cabec",
+    "docs/stories/EQ112_DECISIONS.md": "5f3ff9a8909b34864bf2cfae7451de3032250957ce43770a6f537565d283fabf",
+    "docs/stories/EQ112_FIXTURES.json": "38a4786b62ecc8f14d83cb02f6b66038f1a4599462cf528eca0348fe21303f94",
+    "docs/stories/EQ112_SCHEMAS.json": "1b931b3a180d955fb0e21d7d2d0d114b8d793849ad004c292e16b3ad73cbec63",
+    "docs/stories/EQ114_PLAN.md": "fcab81d98ab7bcb94fbf865f1b9b1ad2b8bf789407521ae1818f0c04af3d4ba1",
+    "docs/stories/EQ114_CASE_MANIFEST.json": "7e4563943691c2f71f79bea7a86dcf3d09cb2ba4994887682599fe2d44f6d91a",
+    "docs/CONTINUOUS_API.md": "46163934a316eaeb20012db1eb589d7692f7e663e39e67239295606dbe55f678",
+    "tools/build_continuous.py": "dfc8a43e9c63d15acb405cc538d99a32c1c7da8e345f0f87f226902f97c04ddb",
+    "packages/continuous/src/equity_feature_continuous/_engine.py": "8aed8e345c779b96435e5d592769a713a7b36e3a680ea3f29da917adda240e48",
+    "packages/continuous/src/equity_feature_continuous/_registry.py": "b28ad4c597f0211357926bc173e8c076c6f26184a9666b16f9b419f0d894df3c"
+  },
+  "readiness_approved": false,
+  "implemented": false,
+  "accepted": false,
+  "product_tests_executed": 0,
+  "package_versions": {
+    "continuous": "0.1.0a2",
+    "contracts": "0.0.4a4",
+    "features": "0.0.4a4"
+  },
+  "counts": {
+    "new_full_results": 12,
+    "new_declared_digests": 36,
+    "old_kernel_allocations_unchanged": 99,
+    "old_codec_vectors_unchanged": 219
+  },
+  "required_live_dependencies": [
+    213,
+    214,
+    215,
+    216,
+    51,
+    54
+  ],
+  "preparation_review": {
+    "reviewer": "/root/r9_plan_review",
+    "sha256": "32f2e7c3648cc499b23cb76f668b6cb16f1578e81024c3492616de37bc23467a",
+    "product_execution": false
+  },
+  "required_gate": "Exact public Ready review after actual216Done, then Ready/In progress before consumer implementation. Source/controller review before current candidate54/bothOS4forms. Actual main27/current2ZIPs/mainreview precede Released/Done."
+}
