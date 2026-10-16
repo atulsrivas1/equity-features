@@ -1,3 +1,7 @@
+## EQ111: reuse finite SessionSpec; keep feed/duration semantics explicit
+
+[Executed assessment](../stories/EQ-111_CAPABILITY.md) and [validation](../stories/EQ-111_VALIDATION.json) demonstrate finite continuous partitions through existing exact public types/kernel. Choose no new session type, schema1 subtype/coercion or core version/math change. Specific constructor refusals and nongating named intervals establish direct-policy gaps, not universal representational impossibility. EQ112/113 retain supplied feed/product/effective/known-at, duration and cross-venue decision ownership. Source-review/CI/publication/acceptance gates remain; probes alone are not Done. Earlier decisions keep their scopes.
+
 ## Owner selects original R12 after R11 delivery — October16,2026
 
 R12 preparation/execution is selected via [GOV024#414](https://github.com/atulsrivas1/equity-features/issues/414), preserving original EQ111–115/31points and accepted releases. Reuse finite SessionSpec where probes demonstrate sufficiency; EQ111gap evidence and EQ112frozen mathematics precede any new contract/kernel. [Release](../R12_RELEASE_PLAN.md), [handoff](../R12_AUTONOMOUS_HANDOFF.md). Fresh R11 review found no new actionable issue. The owner explicitly authorized separate local review throughout R12, concretePR415/EQ111–115/necessary companion changes/final delivery. Completed exact review and all other gates remain preparation/acceptance requirements. No new runtime, market/provider/operational or later-release scope is inferred. Earlier unselected-R12 notes remain history.

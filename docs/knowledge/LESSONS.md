@@ -1,3 +1,11 @@
+## EQ111 full discovery and nested purity audits
+
+A focused new probe pass does not establish integration with an existing aggregate audit. Candidate61f52fc added16 discoverable fixtures while the nested purity audits retained619/593 expectations; actual649-test CI failed two count assertions. Correct only the three named totals635/609/609 after verifying selection, retain denial/bridge/mutation/no-skip/no-error checks and rerun the affected audit plus current bothOS CI. Preserve the failed candidate; do not exclude the new tests to obtain green.
+
+## EQ111: interval labels are not operational market policies
+
+[Sixteen executed public probes](../stories/EQ-111_CAPABILITY.md) demonstrate finite continuous reuse, but a named scheduled-freeze interval does not block an event and a full governed-slot count does not certify delivered history. Prove exact public construction and independent numerical/boundary/config oracles before adding types. Distinguish supplied civil bounds from calendar discovery, source probes from fresh installs, and scoped schema rejection from universal impossibility. [Evidence](../stories/EQ-111_VALIDATION.json) retains actual review/source/results and later-story obligations.
+
 ## R11 postdelivery review and next-release boundaries — October16,2026
 
 A fresh [independent R11 review](../reviews/R11_POST_DELIVERY_REVIEW.md) found no new actionable issue across118pure methods and exact delivered source/current closure. It preserved3initial reviewer-control construction errors as harness errors, not product findings; corrected independent controls passed. Keep reviewed code, review harness, actual release cohorts and later planning source distinct. Fresh source/API checks do not become SQLite/native/SDK/installed qualification, and prior local-review authorization does not extend automatically to a new release. [R12 handoff](../R12_AUTONOMOUS_HANDOFF.md) prepares the original five-story sequence with an explicit R12 review decision before readiness; the owner subsequently granted all-R12 local review, preserving the completed-review and numerical/publication gates.

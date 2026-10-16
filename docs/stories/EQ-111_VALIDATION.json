@@ -1,0 +1,63 @@
+{
+  "story": 213,
+  "epic": 212,
+  "milestone": 13,
+  "stage": "In progress; source assessment executed; final delivery gates pending",
+  "pre_execution_head": "c680ac25c2bff7588ca2fad762f89726da8320af",
+  "source_packet": "EQ111_READINESS.json",
+  "probe": "EQ111_PROBE.py.txt",
+  "test": "tests/unit/test_continuous_capability.py",
+  "probe_and_test_sha256": "dd1dbe4d499860f86e11e7afbebe35271ad4e4262d564e2ce39d47707bf6a94b",
+  "author": {
+    "methods": 16,
+    "exit_code": 0,
+    "raw_log_sha256": "ca913f8a366b2b9e27a143b78d7748c04f76d2055ebe6b5e5408eefad937206f",
+    "source_imports": true,
+    "fresh_install": false,
+    "native_service_composition": false
+  },
+  "reviewer": {
+    "identity": "/root/r10_review",
+    "report_sha256": "13b3c16891850cf99dc6c0688feb43722c570b30d83615d857d04b5130cb3de4",
+    "raw_log_sha256": "62d1bda728dd4065dada58249785cdc22e6180c8f12d9a32d42bfbbccf08e18f",
+    "methods": 16,
+    "findings": [],
+    "same_existing_environment_separate_process": true,
+    "independent_reinstall": false
+  },
+  "readiness_review_sha256": "fc3883a0c7f2a7c1fe4ebdc67bb331ba375b38bb2d73c59cd860626e56ebc84d",
+  "governance_acceptance": "https://github.com/atulsrivas1/equity-features/issues/414#issuecomment-6219885303",
+  "pre_execution_inputs": 58,
+  "legacy_config_sha256": "d8ff9ddb56cf26be7e9550874f8891f4db5d3ee38ed3b6a7ac9a100a5fa9d8fc",
+  "contracts_version": "0.0.4a4",
+  "features_version": "0.0.4a4",
+  "decisions": [
+    "Reuse finite SessionSpec; no new session type.",
+    "Keep governed count, missing-slot coverage and duration semantics distinct.",
+    "Assign direct feed/product-state and causal two-leg behavior to112/113; generic interval labels do not implement those policies.",
+    "Preserve schema1, package versions, math and digests; no installable package change."
+  ],
+  "full_R12_implemented": false,
+  "accepted": false,
+  "final_current_CI_pending": true,
+  "final_public_source_review_pending": true,
+  "history": [
+    "Pre-execution preparer refused an absent guessed API-doc path before receipt; actual inventory corrected.",
+    "Identical duplicate probe method removed before execution; final16definitions/16unique, initial source retained.",
+    "Governance tooling findings/corrections, CLI output/metadata normalization, superseded-draft CI cancellations and completed-run cancellation race retained externally; no product PASS substitution.",
+    "GitHub removed the merged short-lived branch. Read-only main capture refused its missing ref, then a reviewed main-only fetch correction passed; no CI rerun or runtime failure.",
+    "Bulk documentation shell command rejected by automatic approval review before any write; direct finite file patches used instead.",
+    "Final publisher committed/pushed61f52fc9bce8dbdb2fbd2e4927a432ca2947ac2f, then immediate PR identity readback refused before PR or Project mutation. Fresh readback matched; cause not established. Reviewed resume was not executed after CI found rework.",
+    "Actual candidate Windows foundation job117082388889 ran649 source tests and failed two purity audit count assertions:635versus619 and609versus593 after discovering the new16. The earlier focused author/reviewer16passes remain scoped; this failed fullsuite is not PASS. Raw failure log SHA256 0352193483cd98e1ab05f91ad4effaff377739be02542ca45162d5ccd3f898e1.",
+    "Correction changes only three purity audit count literals to635/609/609 and adds an explanatory comment; no exclusions, denied entrypoints, bridge cases, mutation snapshots or result-success checks are weakened. Fresh bothOS fullsuite/currenthead gates still required.",
+    "Diagnostic CLI log display encountered a local cp1252 UnicodeEncodeError after raw bytes were saved; saved log read directly. One still-running workflow log was unavailable; neither is a product test result."
+  ],
+  "full_suite_rework": {
+    "failed_head": "61f52fc9bce8dbdb2fbd2e4927a432ca2947ac2f",
+    "source_tests_run": 649,
+    "failures": 2,
+    "failed_job": 117082388889,
+    "correction": "test_purity_audit count expectations635/609/609; unchanged audit coverage",
+    "corrective_full_suite_pending": true
+  }
+}
