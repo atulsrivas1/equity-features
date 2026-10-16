@@ -1,3 +1,7 @@
+## EQ113 optional continuous contracts candidate
+
+A new optional contracts/codecs package0.1.0a1 is under development for supplied continuous/cross-venue snapshots and exact rational identities. [API](CONTINUOUS_API.md), [story215](https://github.com/atulsrivas1/equity-features/issues/215). Source tests and strict typing pass after recorded admission corrections; independent source/build review and fresh installed/bothOS artifacts remain pending. Six calculation IDs belong to EQ114. Existing core packages and39 IDs remain unchanged; no stable registry release or provider truth is claimed.
+
 ## R11 experimental local integration and positioning
 
 The [R11 receipt](R11_ACCEPTANCE.md) documents immutable declared events, caller-owned local ledger/anchors, existing-server evidence tools and synthetic external research/replay. [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) records actual aggregate publication and acceptance. The integrated change is documentation only; accepted numerical/package/protocol identities remain unchanged. All original failed runs, corrected review findings and scoped qualification evidence are preserved. This is not stable registry publication, a new hosted service, trading authority or compliance certification.

@@ -1,0 +1,11 @@
+{
+  "mypy_version": "1.15.0",
+  "diagnostics": [
+    {"line": 12, "code": "arg-type", "contains": "PriceObservation"},
+    {"line": 13, "code": "arg-type", "contains": "MetricValue"},
+    {"line": 14, "code": "arg-type", "contains": "config_from_json"},
+    {"line": 15, "code": "arg-type", "contains": "consume_old"},
+    {"line": 16, "code": "misc", "contains": "read-only"},
+    {"line": 16, "code": "assignment", "contains": "Incompatible types in assignment"}
+  ]
+}

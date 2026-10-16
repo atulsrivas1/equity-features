@@ -256,6 +256,72 @@ def ledger_violations(source, *, storage=False):
     return errors
 
 
+def continuous_violations(source):
+    """Dedicated continuous contracts policy; not a Python sandbox."""
+    tree=ast.parse(source);found=[]
+    allowed={'__future__','dataclasses','typing','fractions','json','hashlib'}
+    relative={'_model','_rational','_codec'}
+    public={'AvailabilitySpec','IntervalSpec','SourceBinding','PriceUnit',
+            'AdjustmentSpec','Coverage','ContractError','ErrorCode'}
+    parents={child:node for node in ast.walk(tree) for child in ast.iter_child_nodes(node)}
+    for node in ast.walk(tree):
+        if isinstance(node,ast.Import):
+            if any(x.name not in allowed for x in node.names):found.append('unsupported continuous import')
+        elif isinstance(node,ast.ImportFrom):
+            if node.level:
+                if node.level!=1 or (node.module or '') not in relative|{''}:found.append('unsupported continuous relative')
+                if not node.module and any(x.name not in relative for x in node.names):found.append('unsupported continuous namespace')
+            elif node.module=='equity_feature_contracts':
+                if any(x.name not in public for x in node.names):found.append('unsupported continuous public import')
+            elif node.module not in allowed:found.append('unsupported continuous import')
+            if any(x.name=='*' or x.name in DENIED for x in node.names):found.append('unsupported continuous imported access')
+        elif isinstance(node,(ast.Name,ast.Attribute)):
+            name=node.id if isinstance(node,ast.Name) else node.attr
+            # A scalar loop variable named time is not clock access; imports of
+            # clock modules are forbidden above and attribute time stays denied.
+            denied=DENIED-{'time'} if isinstance(node,ast.Name) else DENIED
+            if name in denied or name in {'__dict__','__getattribute__','__subclasses__','__setattr__','input','print','read','write','close','flush'} or name.startswith(('read_','write_','__builtins__')):
+                # Frozen initializers may set one literal owned field on self.
+                call=parents.get(node);function=call
+                while function is not None and not isinstance(function,ast.FunctionDef):function=parents.get(function)
+                owner=parents.get(function)
+                fields={statement.target.id for statement in owner.body if isinstance(statement,ast.AnnAssign) and isinstance(statement.target,ast.Name)} if isinstance(owner,ast.ClassDef) else set()
+                fixed=(name=='__setattr__' and isinstance(node,ast.Attribute) and isinstance(node.value,ast.Name) and node.value.id=='object'
+                       and isinstance(call,ast.Call) and call.func is node and len(call.args)==3 and not call.keywords
+                       and isinstance(call.args[0],ast.Name) and call.args[0].id=='self'
+                       and isinstance(call.args[1],ast.Constant) and type(call.args[1].value) is str
+                       and call.args[1].value in fields
+                       and function is not None and function.name in ('__init__','__post_init__'))
+                if not fixed:found.append('unsupported continuous access '+name)
+    return sorted(set(found))
+
+
+def check_continuous():
+    root=ROOT/'packages/continuous'
+    if not root.exists():return
+    project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
+    assert project['dependencies']==['equity-feature-contracts==0.0.4a4']
+    assert not project.get('optional-dependencies',{}),'unreviewed continuous extras'
+    for path in root.glob('src/**/*.py'):
+        errors=continuous_violations(path.read_text(encoding='utf-8'))
+        assert not errors,(path.relative_to(ROOT),errors)
+    negative=('import os','import equity_features','import fractions.private',
+              'from equity_feature_contracts._codec import encode','from equity_feature_contracts import to_json',
+              'from .other import f','from .._model import X','from . import other',
+              'from json import load as f; f(stream)','import json as j; f=j.dump; f(x,s)',
+              'x=getattr','f=open','x.__dict__','object.__setattr__(x,name,value)',
+              'def __init__(self):\n object.__setattr__(self,name,value)',
+              'def other(self):\n object.__setattr__(self,"x",value)',
+              'class X:\n x: int\n def __init__(self):\n  object.__setattr__(self,"undeclared",value)')
+    positive=('from fractions import Fraction','import json as j; j.loads(b"{}")',
+              'from . import _model as m','from ._rational import Rational',
+              'from equity_feature_contracts import AvailabilitySpec',
+              'class X:\n x: int\n def __init__(self):\n  object.__setattr__(self,"x",value)')
+    for source in negative:assert continuous_violations(source),source
+    for source in positive:assert not continuous_violations(source),(source,continuous_violations(source))
+    print(f'Continuous static policy: {len(negative)} negative/{len(positive)} positive controls; not a Python sandbox.')
+
+
 def check():
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
@@ -267,8 +333,11 @@ def check():
     conformance_packages=(ROOT/'packages/conformance',)
     agent_packages=(ROOT/'packages/agent-evidence',)
     ledger_packages=(ROOT/'packages/agent-ledger',)
+    continuous_packages=(ROOT/'packages/continuous',)
     known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)|set(conformance_packages)|set(agent_packages)|set(ledger_packages)
+    known_packages|=set(continuous_packages)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
+    check_continuous()
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
         deps=list(project['dependencies'])

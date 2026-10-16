@@ -1,3 +1,7 @@
+## EQ113 optional continuous contracts candidate
+
+A new optional contracts/codecs package0.1.0a1 is under development for supplied continuous/cross-venue snapshots and exact rational identities. [API](docs/CONTINUOUS_API.md), [story215](https://github.com/atulsrivas1/equity-features/issues/215). Source tests and strict typing pass after recorded admission corrections; independent source/build review and fresh installed/bothOS artifacts remain pending. Six calculation IDs belong to EQ114. Existing core packages and39 IDs remain unchanged; no stable registry release or provider truth is claimed.
+
 ## Experimental local agent research evidence
 
 R11 combines immutable declared event evidence, a caller-owned SQLite ledger, owner-prepared evidence tools on the existing local MCP server, and synthetic external research with explicit supported replay. [Supported surface, evidence and limits](docs/R11_ACCEPTANCE.md); [aggregate delivery authority](https://github.com/atulsrivas1/equity-features/issues/210). Child-story acceptance and current release status are linked there. No model framework, trading execution, authenticated source history, hosted deployment or compliance certification is implied.

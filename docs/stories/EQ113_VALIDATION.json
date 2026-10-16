@@ -1,0 +1,39 @@
+{
+  "story": 215,
+  "stage": "In progress; source implementation unqualified/unreleased",
+  "version": "0.1.0a1",
+  "public_precode_head": "0c1be7fbd34250fa178f799805066e2316c8ac7f",
+  "accepted_base": "dff060d7f426d7c09e4e90424dc862631df7350f",
+  "ordinary_source_methods": 19,
+  "archive_policy_methods": 5,
+  "production_codec_digest_records": {
+    "config": 87,
+    "input": 67,
+    "result": 65,
+    "total": 219
+  },
+  "independent_math_data_digests": 263,
+  "strict_source_files": 4,
+  "actual_build_install_executed": false,
+  "kernels_executed": false,
+  "history": [
+    "Initial13source methods passed; additional two compound/callback methods exposed3failures. Exactfailedsource andlog retained. Corrected15methods passed.",
+    "Strictmypy initially failed3redundantcasts; castsremoved withoutweakening; corrected4files passed.",
+    "Independent initial14mapreview719bb2 changesrequested SRC01trimmedlabels/SRC02selectedcap-order-cardinality/SRC03nestedrolecallback; earlier15pass didnotcoverthese.",
+    "Renewed review29dd resolvedSRC01SRC03 but retainedSRC02-R1 unavailablefreeze nullpopulation; corrected mandatorycount with direct/decode/revalidation negatives.",
+    "New sharedcontinuous checker initially rejected scalarvariabletime and Rational postinit literalsetattr. Narrow structural adjustments admitonly scalar time names and owneddeclaredliteralfields in initializers; imports/clockattributes/dynamicsetattr staydenied.17negative6positive andalloldpolicyfixturespassed.",
+    "Two read-only guessedpath reads failed; actual files then inventoried; no product failure orwrites."
+  ],
+  "reviews": {
+    "eq113-data-codec-reviewer-report.json": "719bb2e14a1cf1319009cd10de9f324a68e0b0695175e7c37a9e255d8465f46b",
+    "eq113-data-codec-corrected-reviewer-report.json": "29dd0c6c11c42c9026a68749052bffcd099390297c093fc5ca0a1287a63b2c71",
+    "eq113-data-codec-final-reviewer-report.json": "a4c9bc376fcbad87a66c95bdf93ba72b39ad736a00c9fcc3ad5b75033f5b7eb3"
+  },
+  "logs": {
+    "eq113-final-source-author.log": "ae9bb318f260c7f5738566919e6781f7d72cc932f720c66e62bce5875f9a0055",
+    "eq113-final-source-mypy-author.log": "21ec88ce7084a459a437535ac131f72dc5b5ce4f759efb56739e38d71f16e750",
+    "eq113-source-contracts-author-adversarial-failed.log": "3c9c930badaee0fd5ced3b241b3729a871d2477d86cc433a875ab7fb53c665e9",
+    "eq113-mypy-author-initial.log": "27f67573a96ec1c03b29968a6f5210961dcc30e0f3deae84c49031718dc9787e"
+  },
+  "data_codec_source_disposition": "approved exact final14filefreeze b25aaf1e;19methods strict4files 26independentcontrols; no builder/install"
+}
