@@ -1,0 +1,26 @@
+{
+  "reviewer": "/root/r9_plan_review",
+  "disposition": "approved_boundary_corrected_prepared_EQ113_packet_conditional_not_runtime_Ready",
+  "findings": [],
+  "prepared_report_sha256": "4baa5c26b4ca4997a62933967c30cf59095683650270482672597b670384522c",
+  "prepared_source_map": {
+    "EQ113_ADMISSION_FIXTURES.json": "3fdd3a09b3188aa5df48766da826a9bf4fb64f2536c98fe7272b24711fb3e7ae",
+    "EQ113_BUILD_DESIGN.md": "dab0c306b6c03a607e1a4d7b16fd1a95effec299dd5b34c751135317a0c3db65",
+    "EQ113_PLAN.md": "9307cb8a1649ccd05281697c6394b49779b469095778e50cf97592567c91c592",
+    "EQ113_READINESS.json": "9e8ae5c438e8612524bc558eb15a2945ecae722fdc9c4a795aa0eb65c6a34340"
+  },
+  "actual_dependencies_before_publication": [
+    213,
+    214,
+    54
+  ],
+  "conditions": [
+    "Separate actualpublicsource/readiness review still required before215Ready/Inprogress.",
+    "No package/test/workflow implementation before215Inprogress; no build/install before complete source/controller review."
+  ],
+  "limits": [
+    "Automated local review, not human/hosted review.",
+    "99 independent literal cases and structural admission table are not executed codecs/kernels.",
+    "No source package/runtime/build/workflow implementation in this publication."
+  ]
+}
