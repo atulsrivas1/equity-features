@@ -1606,3 +1606,11 @@ The second actual qualification rejected accepted worker archive bytes because C
 ## EQ109: isolated example launchers need an explicit owned helper path
 
 The third actual qualification passed two lightforms and all eight first-integration native scenarios, then failed a direct typed-example invocation because -I removes the adjacent script search path. A frozen owned launcher can explicitly add only selected example/test directories and run the fixed example while package imports remain installed. Source review must cover the actual isolated invocation, not infer it from in-process typing/unit passes. Preserve partial results and the failed attempt; qualify a distinct corrected cohort. Evidence: [third failure](../stories/EQ-109_THIRD_FAILURE.json).
+
+## EQ109: case identifiers and method counts do not establish the promised vector
+
+Independent source allocation found unsupported prose lacked an explicit DEFER assertion and missing-input/wrong-explanation was only exercised with malformed diagnostics. Add the exact promised vectors and real replay counters, retain the original findings, and renew the immutable input/qualification rather than treating old cohort counts as corrected-case evidence. Label genuinely composite independent axes separately from directly executed complete tuples. [Evidence](../stories/EQ-109_CASE_REWORK.json).
+
+## EQ109: original wheel payload equality includes declared installed relocation
+
+The fourth run passed typed/strict/native checks but the inherited checker rejected pywin32 scripts relocated by wheel installation. Compare each original member against its owning installed RECORD and exact destination; bind the finite supported archive and member hashes, and reject unsupported relocation or rewriting. Generated entrypoint executables remain separate outputs. Independent retained parity and22 rejection controls approve the narrow source correction only. Preserve all four failures and qualify a distinct corrected-input cohort. Evidence: [fourth failure](../stories/EQ-109_FOURTH_FAILURE.json).
