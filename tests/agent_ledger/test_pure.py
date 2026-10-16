@@ -97,7 +97,15 @@ class PureTests(unittest.TestCase):
         es=events();p=l.Page(cp(0),cp(4),cp(4),es[:4])
         self.rejected(lambda:l.verify_page(p,start=cp(0),through=cp(12)),'inconsistent_chain')
         self.rejected(lambda:l.verify_page(p,start=cp(1),through=cp(4)),'inconsistent_chain')
-        self.rejected(lambda:l.verify_page(l.Page(cp(0),cp(0),cp(12),[]),start=cp(0),through=cp(12)),'inconsistent_chain')
+        self.rejected(lambda:l.verify_page(l.Page(cp(0),cp(0),cp(12),[]),start=cp(0),through=cp(12)))
+        for case in load('PAGES')['negative']:
+            with self.subTest(case=case['id']):
+                self.rejected(lambda:l.verify_page(page_case(case),start=checkpoint(case['start']),through=checkpoint(case['through']),prior=[a.decode_event(x.encode('ascii')) for x in case['prior_ascii']]),case['expected_error'])
+        es=events();ref=replace(a.event_reference(es[0]),event_id='demo:later')
+        call=replace(es[2],subject=replace(es[2].subject,request=ref))
+        result=replace(es[3],event_id='demo:later',previous_hash=a.event_digest(call),subject=replace(es[3].subject,call=a.event_reference(call)))
+        end=l.Checkpoint('demo:chain',4,a.event_digest(result))
+        self.rejected(lambda:l.verify_page(l.Page(cp(2),end,end,[call,result]),start=cp(2),through=end),'inconsistent_reference')
 
     def test_asof_recording_order(self):
         es=events();self.assertEqual(es[0].recorded.at_ns,es[1].recorded.at_ns)

@@ -104,13 +104,16 @@ class CrashTests(unittest.TestCase):
                     if len(bucket)!=1 or type(bucket[0]) is not bytes or bucket[0]:errors.append(ValueError('child output/reader failure'))
                 for pipe in (child.stdin,child.stdout,child.stderr):
                     if pipe is None or not pipe.closed:errors.append(ValueError('pipe close unconfirmed'))
+            if body_ok and time.monotonic()-started>20:
+                errors.append(ValueError('diagnostic elapsed bound, not preemptive kernel deadline'))
             if body_ok and settled and not errors:
                 assert root.parent==parent and root.name.startswith('eq107-crash-') and not root.is_symlink()
                 shutil.rmtree(root);assert not root.exists()
+            else:
+                print('Retained owned crash qualification root:',root)
             # Failed/unknown tests retain the exact owned root, never auto-delete evidence.
             if errors and not active_exception:raise ValueError('owned crash cleanup failed') from errors[0]
         self.assertTrue(body_ok and settled and not errors)
-        self.assertLessEqual(time.monotonic()-started,20, 'diagnostic elapsed bound, not preemptive kernel deadline')
 
     def test_before_begin(self):self.exercise('before_BEGIN')
     def test_after_insert(self):self.exercise('after_INSERT')

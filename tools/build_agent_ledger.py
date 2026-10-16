@@ -313,6 +313,7 @@ finally:store.close()
     closure()
     assert owned.parent==work and owned.name.startswith('agent-ledger-') and not owned.is_symlink()
     shutil.rmtree(owned);assert not owned.exists()
+    closure()
     report['owned_temporary_cleanup_completed']=True;report['source_head_and_materialization_closure']=True;report['status']='completed';save()
 
 if __name__=='__main__':main()

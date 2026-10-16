@@ -74,7 +74,7 @@ def verify_page(page: m.Page, *, start: m.Checkpoint, through: m.Checkpoint,
     resolved: list[EventReference] = []; unresolved: list[EventReference] = []
     seen: set[EventReference] = set(); cited_ids: dict[str, EventReference] = {}; cited_seqs: dict[int, EventReference] = {}
     current = start
-    m.require(bool(page.events) or start == through, 'inconsistent_chain')
+    m.require(bool(page.events) or start == through)
     for value in page.events:
         m.require(value.chain_id == start.chain_id and value.sequence == current.sequence + 1 and value.previous_hash == current.head_hash and value.sequence <= through.sequence, 'inconsistent_chain')
         m.require(value.event_id not in ids and value.sequence not in seqs, 'duplicate')
@@ -89,7 +89,10 @@ def verify_page(page: m.Page, *, start: m.Checkpoint, through: m.Checkpoint,
             if ref not in seen:
                 target.append(ref); seen.add(ref)
             cited_ids[ref.event_id] = ref; cited_seqs[ref.sequence] = ref
-        own = event_reference(value); ids[value.event_id] = own; seqs[value.sequence] = own
+        own = event_reference(value)
+        for cited in (cited_ids.get(own.event_id), cited_seqs.get(own.sequence)):
+            m.require(cited is None or cited == own, 'inconsistent_reference')
+        ids[value.event_id] = own; seqs[value.sequence] = own
         current = m.Checkpoint(start.chain_id, value.sequence, own.digest)
     m.require(current == page.after, 'inconsistent_chain')
     if current.sequence == through.sequence:

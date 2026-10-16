@@ -1,3 +1,7 @@
+## EQ107 persistence is separate from evidence authority — October15,2026
+
+Local ledger implementation is in source development, not released. Persistence/integrity/externally supplied anchors do not establish actor/model/human authority, historical completeness, rights or signing/witness trust. R13 remains separate. No deletion/erasure/retention service is introduced. [Ledger limits](AGENT_LEDGER_API.md); R11 remains open through EQ108–110 and aggregate acceptance.
+
 ## EQ106 implementation candidate; qualification unexecuted — October15,2026
 
 GOV023#406 is accepted Closed/Done at main1774e99d3d89b8c505ff22555f1e6703843b8bf7. EQ106 exact pre-code packet24e0421 received separate Ready review with findings[]; [actual Ready/Atul/In progress](https://github.com/atulsrivas1/equity-features/issues/206#issuecomment-6205305681), epic195 In progress. EQ107–110 remain Backlog. New optional pure agent-evidence0.1.0a1 source implements the closed declaration/codec/supplied-payload/reference API; [public guide](AGENT_EVENTS_API.md), [frozen contract](stories/EQ-106_CONTRACT.md), original independent cases and [validation](stories/EQ-106_VALIDATION.json) distinguish implementation from qualification.

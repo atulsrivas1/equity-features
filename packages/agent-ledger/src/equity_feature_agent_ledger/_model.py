@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from enum import Enum
 import json
 import re
+from typing import Literal
 from equity_feature_agent_evidence import (
     AgentEvidenceError, EventRecord, EventReference, encode_event, decode_event,
 )
@@ -134,13 +135,13 @@ class PageVerification:
     reached_terminal: bool
     resolved: tuple[EventReference, ...]
     unresolved: tuple[EventReference, ...]
-    prior_global_uniqueness: str
-    prior_membership: str
+    prior_global_uniqueness: Literal['not_verified']
+    prior_membership: Literal['not_verified']
 
     def __init__(self, after: Checkpoint, reached_terminal: bool,
                  resolved: list[EventReference] | tuple[EventReference, ...],
                  unresolved: list[EventReference] | tuple[EventReference, ...],
-                 prior_global_uniqueness: str = 'not_verified', prior_membership: str = 'not_verified') -> None:
+                 prior_global_uniqueness: Literal['not_verified'] = 'not_verified', prior_membership: Literal['not_verified'] = 'not_verified') -> None:
         object.__setattr__(self, 'after', checkpoint(after))
         require(type(reached_terminal) is bool)
         require(type(resolved) in (list, tuple) and type(unresolved) in (list, tuple))

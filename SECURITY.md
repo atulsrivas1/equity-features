@@ -1,3 +1,7 @@
+## EQ107 local storage and anchor boundaries — October15,2026
+
+The optional ledger accepts a trusted owner path outside calculations/MCP. Canonical-byte caps exclude physical pages/journals/nodes; no hard filesystem deadline, hostile-path sandbox, power-loss or hosted recovery proof. Uncertain transaction outcomes poison and never automatically replay. Pages match supplied content without proving prior membership; only externally retained trusted anchors detect corresponding suffix/replacement changes. Redact before append: corrections retain original plaintext/backups. Static import checks are development policy, not a Python sandbox. [Contract](docs/stories/EQ-107_CONTRACT.md). Qualification remains pending.
+
 ## EQ106 source candidate compatibility and authority
 
 The EQ106 pure event source candidate accepts explicit public/synthetic scalar declarations, not automatic model/prompt/tool/credential capture. Missing/redacted/truncated evidence remains explicit. Actor/model/clock/approval/cancellation labels and hashes confer no authentication, permission, source-consumption/history completeness or operational authority. Mislabelled caller secrets are not universally detectable. Fixed errors exclude payloads/original exception context. Canonical byte/node/depth/collection caps are application limits, not process containment/physical quotas/deadlines. [API/retention/anchor limits](docs/AGENT_EVENTS_API.md).

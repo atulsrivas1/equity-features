@@ -230,17 +230,24 @@ def ledger_violations(source, *, storage=False):
     """External storage is explicit; no private event codec or execution imports."""
     allowed={'__future__','dataclasses','enum','json','re','typing','equity_feature_agent_evidence'}
     if storage:allowed|={'contextlib','os','pathlib','sqlite3','stat','urllib'}
+    event_public={'AgentEvidenceError','EventRecord','EventReference','encode_event','decode_event','EventKind','event_reference','ToolCallSubject','ToolResultSubject','FeatureReadSubject','DecisionSubject','HumanReviewSubject','CancellationSubject','ErrorSubject','CorrectionSubject'}
     errors=[]
     for node in ast.walk(ast.parse(source)):
         if isinstance(node,ast.Import):
             for name in node.names:
                 if name.name.split('.')[0] not in allowed:errors.append('import '+name.name)
+                if name.name.startswith('equity_feature_agent_evidence.'):errors.append('private event import')
         if isinstance(node,ast.ImportFrom):
             if node.level:
                 if node.module not in (None,'_model','_verify','_schema','_store'):errors.append('relative import')
+                if node.module is None and any(x.name not in ('_model','_verify','_schema','_store') for x in node.names):errors.append('unknown relative member')
             elif (node.module or '').split('.')[0] not in allowed:errors.append('import '+str(node.module))
+            if node.module=='equity_feature_agent_evidence' and any(x.name not in event_public for x in node.names):errors.append('unreviewed event member')
             if (node.module or '').startswith('equity_feature_agent_evidence.') or any(x.name=='*' for x in node.names):errors.append('private or wildcard import')
         if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id in {'eval','exec','compile','__import__','globals','locals'}:errors.append('dynamic execution')
+        if not storage and isinstance(node,ast.Call):
+            called=node.func.id if isinstance(node.func,ast.Name) else node.func.attr if isinstance(node.func,ast.Attribute) else ''
+            if called in DENIED or called in {'read','read_bytes','read_text','write','write_bytes','write_text','input','print','unlink','mkdir','rmdir','remove','replace','rename','close','flush'}:errors.append('pure side effect')
         if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id=='getattr':
             if not (storage and len(node.args)>=2 and isinstance(node.args[1],ast.Constant) and node.args[1].value=='sqlite_errorcode'):errors.append('dynamic access')
     return errors
@@ -358,13 +365,16 @@ def check():
         assert project['dependencies']==['equity-feature-agent-evidence==0.1.0a1'] and not project.get('optional-dependencies',{})
         for path in root.glob('src/**/*.py'):
             errors=ledger_violations(path.read_text(encoding='utf-8'),storage=path.name=='_store.py');assert not errors,(path,errors)
-    for source in ['import socket','import subprocess','import equity_features','from equity_feature_agent_evidence._codec import decode_event','from equity_feature_agent_evidence import *','eval(x)','__import__(x)','getattr(obj,name)']:
+    for source in ['import socket','import subprocess','import equity_features','from equity_feature_agent_evidence._codec import decode_event','import equity_feature_agent_evidence._codec','from equity_feature_agent_evidence import _codec','from . import arbitrary_module','from equity_feature_agent_evidence import *','eval(x)','__import__(x)','getattr(obj,name)']:
         assert ledger_violations(source,storage=True),source
     for source in ['import os','import sqlite3','from pathlib import Path']:
         assert ledger_violations(source),source
         assert not ledger_violations(source,storage=True),source
+    for source in ['open("synthetic")','value.read()','value.write_bytes(b"x")']:
+        assert ledger_violations(source),source
     for source in ['from equity_feature_agent_evidence import EventRecord','from ._model import Checkpoint','import json']:
         assert not ledger_violations(source),source
+    print('External ledger static policy: 17 negative/6 positive controls; pure files cannot access storage, private event codecs or unreviewed relative modules. This is not a Python sandbox.')
     print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; outer profile 8 negative/3 positive; conformance 7 negative/4 positive; agent {len(AGENT_NEGATIVE_FIXTURES)} negative/{len(AGENT_POSITIVE_FIXTURES)} positive controls.')
 
 

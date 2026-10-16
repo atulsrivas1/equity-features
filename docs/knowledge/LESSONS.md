@@ -1,3 +1,7 @@
+## Preserve uncertain transaction and contradictory page evidence — October15,2026
+
+A transaction flag becoming false is not a successful rollback acknowledgment. Distinguish BEGIN refusal from an unexpectedly ended entered transaction; preserve unknown and deny replay. A page cannot prove unseen prior membership, but supplied later rows can directly contradict earlier citation identity and must refuse. Run immutable negative tables rather than only handwritten equivalents. Preserve failed process witnesses before elapsed-budget refusal. [Original review and correction evidence](../stories/EQ-107_VALIDATION.json).
+
 ## Explicit connection ownership in SQLite test fixtures — October15,2026
 
 SQLite connection context managers commit/roll back but do not close the connection. EQ107 initial Windows fixture cleanup failed with live fixture connections. Register and explicitly close every fixture connection before verified owned-root cleanup; preserve failed-run evidence rather than calling cleanup successful. [Source-development record](../stories/EQ-107_VALIDATION.json). This correction is not proof of physical crash/power-loss cleanup.

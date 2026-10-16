@@ -117,22 +117,28 @@ class Ledger:
             # Keep the connection reference so explicit close may retry. Never claim cleanup.
             pass
 
-    def _rollback(self, exc: BaseException) -> None:
+    def _rollback(self, exc: BaseException, started: bool = False) -> None:
         try:
-            if self._conn.in_transaction: self._conn.execute('ROLLBACK')
+            active = self._conn.in_transaction
+            if active:
+                self._conn.execute('ROLLBACK')
         except BaseException as rollback:
             self._poison(); raise m.LedgerError('outcome_unknown') from rollback
+        if started and not active:
+            self._poison(); raise m.LedgerError('outcome_unknown') from exc
         if isinstance(exc, m.LedgerError): raise exc
         raise _error(exc) from exc
 
     @contextmanager
     def _read(self) -> Iterator[None]:
         self._live()
+        started = False
         try:
             self._conn.execute('BEGIN')
+            started = True
             yield
         except BaseException as exc:
-            self._rollback(exc)
+            self._rollback(exc, started)
         else:
             try: self._conn.execute('ROLLBACK')
             except BaseException as exc:
@@ -215,8 +221,10 @@ class Ledger:
     def append(self, event: EventRecord, *, expected: m.Checkpoint) -> m.Checkpoint:
         self._live(); value = m.event(event); expected = m.checkpoint(expected)
         raw = encode_event(value); ref = event_reference(value)
+        started = False
         try:
             self._conn.execute('BEGIN IMMEDIATE')
+            started = True
             self._schema(); head, total = self._head()
             m.require(head == expected, 'stale_checkpoint')
             m.require(value.chain_id == head.chain_id and value.sequence == head.sequence + 1 and value.previous_hash == head.head_hash, 'inconsistent_chain')
@@ -228,7 +236,7 @@ class Ledger:
             self._conn.execute(_INSERT, (value.sequence, value.event_id, value.kind.value, value.previous_hash, ref.digest, raw, len(raw)))
             self._conn.execute(_UPDATE, (value.sequence, ref.digest, total + len(raw)))
         except BaseException as exc:
-            self._rollback(exc)
+            self._rollback(exc, started)
         try:
             self._conn.execute('COMMIT')
         except BaseException as exc:

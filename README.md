@@ -1,3 +1,7 @@
+## EQ107 local agent ledger in development — October15,2026
+
+[Optional local agent ledger](docs/AGENT_LEDGER_API.md) implements external SQLite persistence, expected-head append, anchored integrity checks and contiguous pages. Source-development checks pass; separate review and fresh process/installed qualification are pending. EQ106 is accepted; R11 is unfinished. Existing calculations and event/content/receipt identities remain unchanged.
+
 ## EQ105 source qualification boundary
 
 R10 consumer qualification source now includes [the minimum-evidence guide](docs/R10_CONSUMER_GUIDE.md) and `examples/r10_point_in_time.py`. It preserves failure/unknown/not_requested; optional conformance matching is not safety. Fresh installed measurement/release qualification remains pending.

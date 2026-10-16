@@ -1,7 +1,7 @@
 {
   "status": "implemented_source_development_In_progress_pending_separate_source_and_qualification_reviews",
   "base": "2462ded4742ff5ff7c28578b6fc30126c8a47a53",
-  "scope": "Bounded EQ107/R11 original8provisionalpoints; no product source, numerical/schema/version/receipt changes or broader operation.",
+  "scope": "Bounded EQ107/R11 original8provisionalpoints. New optional external ledger product source; existing accepted calculation/event/content/receipt sources, schemas, versions and numerical behavior unchanged.",
   "prerequisites": {
     "EQ106_acceptance": "https://github.com/atulsrivas1/equity-features/issues/206#issuecomment-6205931841",
     "EQ106_closure_review_sha256": "59cfbe53387415957b49cb73ebbf74bcbb40db4edd592d9480f803f27045c83e",
@@ -58,7 +58,7 @@
     "result_constructor_negatives": 27
   },
   "remaining": [
-    "Separate exact source/API/security/docs/tests/boundary review and findings resolution.",
+    "Renewed exact source/API/security/docs/tests/boundary review after corrections.",
     "New fixed crash entry/platform owners/builder/controller freeze and separate review before any physical qualification.",
     "Fresh author and bothOS four forms/ten archives/eight accepted identities/full producer parity.",
     "Finalhead/main/currentartifacts/publication/lifecycle gates; then EQ108-110."
@@ -140,5 +140,67 @@
     "read_close_correction": "Failed read-transaction rollback now poisons/returns outcome_unknown; failed close poisons and may be explicitly retried. Actual same-process proxy controls passed after correction.",
     "tool_history": "Two PowerShell inline Python draft edits failed syntax parsing before writes; switched to saved UTF8 scripts/apply_patch. No partial product mutation from failed draft edits.",
     "scope": "Existing CPython3.12 author Windows source development; no fresh install/Linux/process-death/build/artifact/release qualification."
+  },
+  "source_review_corrections": {
+    "reviewed_head": "6dd57f5e41787a7755b9b6c5e511783b0b835703",
+    "report_sha256": "416fbc12447c405c86cc09a5b95c4fd0e82370502d86e52288283d6862239cc6",
+    "findings": [
+      "P2 SRC01 track entered transaction; ended precommit/read transaction without confirmed rollback poisons/outcome_unknown. BEGIN lock refusal remains known busy.",
+      "P2 SRC02 compare observed own page identity against earlier unresolved citation IDs/sequences; direct split identity refuses.",
+      "P2 SRC03 execute all10unchanged frozen negative page vectors; empty nonterminal returns frozen invalid_schema.",
+      "P2 SRC04 deny direct/private event imports, unknown owned relative members and pure-file side effects, with explicit static boundary controls.",
+      "P3 DOC01 distinguish new ledger source from unchanged accepted packages."
+    ],
+    "corrective_checks": {
+      "passed": true,
+      "scope": "corrective ordinary source development; no installed/process-crash/helper/builder execution",
+      "steps": [
+        {
+          "name": "ordinary",
+          "exit": 0,
+          "log": "eq107-source-corrective-ordinary.log",
+          "sha256": "b1bc6f0a9bf03e259e298413a0753a50d08daab811896540cce3e1f41e410781"
+        },
+        {
+          "name": "producer",
+          "exit": 0,
+          "log": "eq107-source-corrective-producer.log",
+          "sha256": "f852e34fcdd7a1aaca157f9be29a9df37640636f9f1164e6e164da43ec2e0436"
+        },
+        {
+          "name": "typing",
+          "exit": 0,
+          "log": "eq107-source-corrective-typing.log",
+          "sha256": "90377c8fd97127580c93ac5740d596c9ebc9db94dafa6560ee11fe16b4460c62"
+        },
+        {
+          "name": "boundary",
+          "exit": 0,
+          "log": "eq107-source-corrective-boundary.log",
+          "sha256": "993062ce0dcc4c03d0fc54e78bcb147999ebc466a6b915f2a7c78da6349a71d1"
+        }
+      ]
+    },
+    "final_close_read_regression_sha256": "7b5978f1c021980156b9e896e6dc56b98d22a51357aec5488845adc7ee94123e",
+    "status": "corrected_pending_renewed_exact_source_review",
+    "limits": "Same-process SQLite proxies and ordinary source checks only, not process death or installed qualification."
+  },
+  "qualification_preparation": {
+    "head": "6e1fdcef5380f671781329eb50cc1495b4ad8a8b",
+    "report_sha256": "4ff196919fd04b52f4ccc1b6626cbdbd13eebd711ee0a50e7bef5e1a9c04701e",
+    "review": "/root/r9_plan_review; one P2 failure-evidence deletion before elapsed bound",
+    "correction": "Elapsed check before successful root deletion; failures log/retain owned root. Builder source closure is also checked after successful owned cleanup.",
+    "implemented_sources": [
+      "fixed proposal/entry",
+      "Windows atomic job/handle owner",
+      "Linux direct child owner",
+      "four crash methods",
+      "sibling ten-archive/four-form builder",
+      "twoOS workflow",
+      "eight inert archive controls"
+    ],
+    "executed_process_crash_methods": 0,
+    "build_install_executed": false,
+    "remaining": "Separate exact final builder/entry/owner/controller review before any native/build/install execution."
   }
 }

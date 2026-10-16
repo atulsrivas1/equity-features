@@ -1,3 +1,7 @@
+## EQ107 optional ledger source candidate — October15,2026
+
+Experimental agent-ledger0.1.0a1 requires Python>=3.12,<3.13 and exact agent-evidence0.1.0a1. Existing accepted packages/versions and canonical event/content/receipt identities are unchanged. SQLite is the actual selected CPython stdlib dependency; supported Windows/Linux versions/pragmas require fresh qualification. Open refuses unsupported profiles without application migration/repair; SQLite journal recovery can physically write. [API](AGENT_LEDGER_API.md). No registry/stable or independent native ABI/security qualification is implied.
+
 ## EQ106 source candidate compatibility and authority
 
 New optional agent-evidence0.1.0a1 source candidate depends inward only on exact contracts0.0.4a4/evidence0.1.0a2. No existing package version, formula, result/quality/receipt/content schema or import direction changes. Existing consumers need no migration. Exact event v1/agent-event-json-v1 refuses unknown fields/tags/versions; future migration must preserve original evidence and be explicitly versioned. Source candidate is not installed release qualification. [API/privacy/limits](AGENT_EVENTS_API.md).

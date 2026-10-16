@@ -71,16 +71,24 @@ class StoreTests(unittest.TestCase):
             def execute(self,sql,*args):
                 self.calls.append(sql)
                 if self.mode=='rollback' and sql=='ROLLBACK':raise sqlite3.OperationalError('synthetic rollback failure')
+                if self.mode in ('ended_commit','ended_rollback') and sql.startswith('UPDATE metadata'):
+                    self.c.execute('COMMIT' if self.mode=='ended_commit' else 'ROLLBACK')
+                    raise sqlite3.OperationalError('synthetic ended transaction before acknowledgment')
                 result=self.c.execute(sql,*args)
                 if self.mode=='commit' and sql=='COMMIT':raise sqlite3.OperationalError('synthetic lost acknowledgment')
                 return result
-        for mode in ['commit','rollback']:
+        for mode in ['commit','rollback','ended_commit','ended_rollback']:
             db,p=self.store(1);proxy=Proxy(db._conn,mode);db._conn=proxy
-            proposal=events()[1] if mode=='commit' else replace(events()[1],previous_hash='f'*64)
+            proposal=replace(events()[1],previous_hash='f'*64) if mode=='rollback' else events()[1]
             self.rejected(lambda:db.append(proposal,expected=cp(1)),'outcome_unknown')
             self.rejected(db.head,'closed');self.assertEqual(proxy.calls.count('COMMIT'),1 if mode=='commit' else 0)
-            reopened=self.own(l.Ledger.open(str(p)));self.assertEqual(reopened.head(),cp(2 if mode=='commit' else 1))
-            self.assertEqual(reopened.reconcile(events()[1],expected_before=cp(1)).status.value,'found_exact' if mode=='commit' else 'absent_at_unchanged_head')
+            if mode=='ended_commit':
+                # The proxy committed INSERT before metadata; this is actual corrupt fixture state,
+                # not an alleged supported writer. Reopen must reject it, never silently repair.
+                self.rejected(lambda:l.Ledger.open(str(p)),'inconsistent_chain')
+            else:
+                reopened=self.own(l.Ledger.open(str(p)));self.assertEqual(reopened.head(),cp(2 if mode=='commit' else 1))
+                self.assertEqual(reopened.reconcile(events()[1],expected_before=cp(1)).status.value,'found_exact' if mode=='commit' else 'absent_at_unchanged_head')
     def test_reconciliation(self):
         for c in load('ORACLE')['reconciliation_cases']:
             with self.subTest(case=c['id']):
@@ -168,13 +176,17 @@ class StoreTests(unittest.TestCase):
         db,p=self.store(0);db._conn=CloseProxy(db._conn)
         self.rejected(db.close,'storage_error');self.rejected(db.head,'closed');db.close();db.close()
         class ReadProxy:
-            def __init__(self,c):self.c=c
+            def __init__(self,c,ended=False):self.c=c;self.ended=ended
             def __getattr__(self,name):return getattr(self.c,name)
             def execute(self,sql,*args):
+                if self.ended and sql=='PRAGMA application_id':
+                    self.c.execute('ROLLBACK')
+                    raise sqlite3.OperationalError('synthetic unexpectedly ended read')
                 result=self.c.execute(sql,*args)
                 if sql=='ROLLBACK':raise sqlite3.OperationalError('synthetic lost read rollback acknowledgment')
                 return result
-        db,p=self.store(0);db._conn=ReadProxy(db._conn)
-        self.rejected(db.head,'outcome_unknown');self.rejected(db.head,'closed');db.close()
+        for ended in [False,True]:
+            db,p=self.store(0);db._conn=ReadProxy(db._conn,ended)
+            self.rejected(db.head,'outcome_unknown');self.rejected(db.head,'closed');db.close()
 
 if __name__=='__main__':unittest.main()
