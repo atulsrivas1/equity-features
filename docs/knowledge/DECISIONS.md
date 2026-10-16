@@ -1,3 +1,7 @@
+## EQ106 source and qualification separation
+
+Retain exact original2byte/hash and12all-kind/54refusal23variant/40operation planning inputs. New optional pure package, no calculator/evidence dependency inversion. Separate declaration-only and actual public producer suites avoid masking unavailable producer imports as skipped tests. Derive a new frozen qualification entry from the accepted builder, never edit accepted archive source, and compare the six accepted archive identities on both OS. No builder or CI execution before separate exact source review. [Qualification](../stories/EQ-106_QUALIFICATION_PLAN.md).
+
 ## EQ106 closed pure event contract
 
 Freeze exact event domain/schema/canonicalization, explicit declaration/missing states, immutable detached kind-specific subjects and bounded supplied reference/content checks before implementation. External ledger/global uniqueness/anchors remain EQ107; no numerical/receipt/native-service schema change. List/tuple constructor unions must agree with public typing while stored fields remain owned tuples. See [contract](../stories/EQ-106_CONTRACT.md) and [qualification](../stories/EQ-106_QUALIFICATION_PLAN.md).

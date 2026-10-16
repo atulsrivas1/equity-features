@@ -1,3 +1,7 @@
+## EQ106 closed contract implementation candidate
+
+The exact [EQ106 contract](stories/EQ-106_CONTRACT.md) now has source implementation and development checks; actual206 In progress after separate pre-code Ready approval. [Public API](AGENT_EVENTS_API.md) and [validation](stories/EQ-106_VALIDATION.json) record missing/identity/time/ownership/refusal limits and remaining independent source/controller/bothOS installed qualification. No released event package, external ledger, MCP extension or complete R11 is claimed. Earlier proposal/status paragraphs below retain their historical scope; exact current contract governs this candidate.
+
 ## R11 execution selection — October15,2026
 
 The owner now selects the existing R11 work. [Concrete handoff](R11_AUTONOMOUS_HANDOFF.md), [release plan](R11_RELEASE_PLAN.md) and [EQ106 plan](stories/EQ-106_PLAN.md) refine preparation under [GOV023#406](https://github.com/atulsrivas1/equity-features/issues/406). The corrected contracts and limitations below remain design inputs; old planning-only status is historical. Runtime stories are still Backlog until separate readiness; the owner has authorized separate local R11 review, but no completed readiness review or implementation is claimed.

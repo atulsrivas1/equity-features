@@ -1,3 +1,7 @@
+## EQ106 adversarial validation-order corrections
+
+Passing original literal/negative cases did not establish every multi-fault precedence. Independent probes caught eager later nested errors, all-member type scans skipping an earlier semantic error, wrong-type nested versions misclassified as unsupported, and subject shallow-key preflight ordering. Preserve each report; correct before installed qualification and add independent regressions. [Validation](../stories/EQ-106_VALIDATION.json).
+
 ## EQ106 identities and ownership before implementation
 
 A reference ID-only lookup can hide a conflicting sequence; check both dimensions and distinguish missing from inconsistent. Frozen nested wrappers can still be mutated through caller-owned originals; reconstruct accepted public values on retention and revalidate on encoding. Constructor aggregate limits and typed input/storage agreement belong in the pre-code contract. Independent literal fixtures and reviewer controls precede production code; fixture verification is not runtime qualification. See [plan](../stories/EQ-106_PLAN.md).
