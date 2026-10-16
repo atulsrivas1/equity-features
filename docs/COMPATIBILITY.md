@@ -1,3 +1,11 @@
+## R11 compatibility and migration
+
+[Aggregate receipt](R11_ACCEPTANCE.md) connects the accepted event/ledger/MCP/consumer APIs, exact supported experimental versions and current delivery evidence. EQ110 changes documentation only: accepted package versions, numerical algorithms, result/receipt/content/event codecs, fixed replay registry, dependencies, examples and qualification inputs stay unchanged. No migration or new handler is introduced. Optional declaration/light installations remain distinct from native integration forms. Retain complete original producer/quality/context bytes and explicit unavailable/unknown states. The reference-only MCP explanation does not become input-content verification when the external consumer separately verifies its supplied batch.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
 ## EQ109 external examples and compatibility
 
 [Agent research](AGENT_RESEARCH.md) adds examples, not package/public protocol/schema/algorithm changes. Fixed optional dependencies remain frozen in its profile. MCP explanations stay reference-only (`content_verified=False`); outer supplied-batch consistency is separate. Existing content/receipt/event/ledger identities, native authority and no automatic replay semantics remain. No migration is required for accepted package users. [Executed source qualification](stories/EQ-109_EXECUTION.json) records fresh author/current-CI cohorts and scoped audits; current delivery/acceptance is authoritative on [story209](https://github.com/atulsrivas1/equity-features/issues/209). A source-qualified example is not a source-authenticity, production-hosting or trading certification. Earlier dated candidate entries below retain historical scope.

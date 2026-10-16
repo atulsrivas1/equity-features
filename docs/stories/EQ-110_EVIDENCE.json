@@ -23,6 +23,10 @@
     "main_publication_sha256": "c7e6a8c83232d6ea2125ceb803e7a0675fa08e31354dc68a8d8453d135937b52",
     "run": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/38879633083"
   },
+  "admission": {
+    "comment": "https://github.com/atulsrivas1/equity-features/issues/210#issuecomment-6212612632",
+    "readiness_review_sha256": "7d131edb57f02eca4309b201a5cf5b1c449c0f6f46db5a64178bdbf2a11a0e40"
+  },
   "dependency_states": {
     "200": {
       "projectItems": [
@@ -135,6 +139,22 @@
       "docs/PROJECT_KNOWLEDGE.md",
       "docs/SESSION_HANDOFF.md"
     ]
+  },
+  "final_doc_correction_evidence": {
+    "eq110-artifact-collector-reviewer-report.json": "bc8c1f635e756c967c112eb8879ddd915e9b8c576ad86a3d580a2f58de123c7b",
+    "eq110-ci-capture-tooling-initial-reviewer-report.json": "d984b42e123a47815be9c117f81e256fba1796157b152480558a52d8c99f180f",
+    "eq110-delivery-publication-tooling-initial-reviewer-report.json": "536ce801930a164072ee8bd9f87d8a2aa3ea957d9da490aae455c2dbc3f5935c",
+    "eq110-final-docs-initial-capture.json": "4d8d828efcd13d8a24a8a12c523b75e7021dc35c3adf229ddaee722593f1e667",
+    "eq110-final-docs-initial-reviewer-report.json": "81f8efab6cf4a9b791970a3df6859336bb74aee2fef1765b9ea95d598cd81819"
+  },
+  "implementation_prepared_reviews": {
+    "eq110-admission-tooling-reviewer-report.json": "7b83d3d6aa6bbc6167c35e2f4e3101e4b7a21bd86a9d8d629e1a89b18ed2885b",
+    "eq110-input-map-tooling-reviewer-report.json": "cc985e09f9803f9928201e6af30bbd71de9461cd92c13a0bef4af264e4c70b4c",
+    "eq110-precode-preparation-tooling-reviewer-report.json": "7f98091b8a2ea6a3354c32848b50db7a3eb9a690de5f7f35d542d5cb258c2955",
+    "eq110-precode-publication-tooling-reviewer-report.json": "f526fd382f16e925d00d4e7349272595be7cfeb05d98c0a7e9cbf7ee9436a854",
+    "eq110-prepared-navigation-semantics-reviewer-report.json": "a8114919e76c9dbc6b54020dd74cb4227f65a069513ec6dbf7fa0a6d73f978dc",
+    "eq110-prepared-receipt-reviewer-report.json": "30aaf66df35d30a98c9e0f6b3de62ca9ca7d9485d67d3a4a523b9f28c0b520fd",
+    "eq110-public-precode-readiness-reviewer-report.json": "7d131edb57f02eca4309b201a5cf5b1c449c0f6f46db5a64178bdbf2a11a0e40"
   },
   "original_210_body": "## Outcome\n\nQualify agent evidence release and positioning limits.\n\nEpic: https://github.com/atulsrivas1/equity-features/issues/195 | Release: R11 | Provisional story points: 5 (complexity, not days).\nDependencies: EQ-106\u2013EQ-109, EQ-100, EQ-105, EQ-084 for hosted scope. Existing release gates apply. Status: Backlog; no implementation authorized by planning alone.\n\n## Start and design\n\nRead accepted result/availability/adapter contracts and dependency receipts; publish the pre-code plan, freeze public schemas and hand-derived cases, then implement the smallest public API demonstration. Separate calculation, acquisition, storage and orchestration responsibilities.\n\n## Acceptance criteria\n\n- [ ] Release receipt covers service threat model, access isolation, replay, ledger limits, compatibility and examples; messaging states reproducible evidence and declared checks, not compliance certification or unique-market claims.\n- [ ] Independent tests and documented limits pass on the final reviewed commit.\n- [ ] Public API/schema, examples, decision/migration guidance and delivery receipt updated alongside code.\n- [ ] Follow Backlog \u2192 Ready \u2192 In progress \u2192 Code review \u2192 Test \u2192 Ready to release \u2192 Released \u2192 Done with actual gates and post-delivery verification.\n\n## Required tests\n\nInstalled artifacts, MCP end-to-end, tamper/replay/isolation failure tests and supported-platform checks.\n\n## Open design questions\n\nLocal/hosted release scope and future independent security assessment. Settle in the pre-code plan; do not silently assume guarantees.\n\n## Documentation and accepted end state\n\nUpdate docs/EVIDENCE_ROADMAP.md, relevant API/contracts, synthetic installed examples, compatibility/security/rights guidance and SESSION_HANDOFF.md. End state: a qualified experimental capability with linked acceptance and reproducible delivery evidence; source truth, profitability and regulatory compliance are not certified.\n",
   "prepared_reviews": {
@@ -8648,15 +8668,26 @@
     }
   },
   "review_history": {
+    "ADMIT01": "First pre-execution source review identified a missing fresh candidate-ref check; direct canonical git/ref equality was added before execution. The initial saved report/source captured the corrected guard after a coordination race; its subset probe omitted that standalone guard and is not evidence of a vulnerable current full controller. Initial and final reports remain preserved; final complete-source controls passed. No incorrect admission occurred.",
+    "ADMIT02": "Pre-execution downstream review found that the admission comment step preceded the final original-body readback. Added a distinct successful completion marker after actual body/state/Atul readback; the docs preparer requires that final marker and refuses an earlier partial comment step. No incomplete admission was consumed.",
+    "CI01": "New EQ110 capture initially called an unchanged gate hardcoded to the old EQ109 branch/PRs. Prepared a parameterized EQ110 gate with explicit actual branch/PR identities; exact separate review is mandatory before capture. Original EQ109 gate and accepted evidence stay unchanged. No real CI failure was inferred from this unexecuted adapter defect.",
+    "COLLECT01": "The new EQ110 collector initially inherited an unescaped filename-regex dot. Changed to a literal .json suffix before any collector use; old EQ109 collector/evidence unchanged. No workspace escape, runtime bug or failed download was inferred.",
     "EQ110PREP01": "Pre-execution reviewer found Git branch lookup errors accepted as absence. Corrected to exact returncode1 before either checkout mutation; original source and initial report retained.",
+    "FIN01": "Final actual working-doc review found an impossible sequence requiring all seven milestone members/zero open before closing the included open epic. Corrected both current handoff prefixes: first verify five stories plus GOV023 Done; finish/close the epic through its remaining lifecycle; then verify all exact seven Closed/Done/zero open before milestone closure. Earlier prepared semantic review missed this wording; its initial/final reports and exact failed-prefix capture remain preserved.",
+    "NAV01": "Prepared navigation review found that replacing the stale MCP introduction would remove four direct contract/oracle/admission/validation links. All four explicit relative links were restored in the timeless replacement before repository writes; original prepared text and initial review remain preserved.",
+    "PUB01": "Pre-execution delivery publisher review moved original-body marker/tail validation before any commit, push, PR or lifecycle mutation; the original late guard source/report are preserved. No malformed actual issue or executed publication failure was claimed.",
     "RECP01": "Prepared receipt conflated absent retained input unavailable0 with valid unavailable-quality replay possible matched1; corrected before packet/publication. Advisory unknown policy and <=128ASCII bound clarified. Original draft/review retained."
   },
   "schema": "equity.r11.aggregate-delivery-evidence.v1",
-  "scope": "Pre-code packet; no EQ110 runtime change, Ready or acceptance.",
+  "scope": "EQ110 documentation-only implementation candidate; no aggregate acceptance or runtime change.",
   "scope_decision": {
     "external_human_security_assessment": "deferred; none performed; future trust expansion requires its own admission",
     "local_experimental_only": true,
     "new_hosted_scope": false,
     "runtime_changes": false
+  },
+  "superseded_current_entry_headers": {
+    "canonical/docs/MCP_EVIDENCE_API.md": "# Experimental owner-prepared MCP evidence\n\nEQ108 implementation candidate, **unqualified and unreleased**. MCP0.1.0a1 extends the existing server with five tools. [Story208](https://github.com/atulsrivas1/equity-features/issues/208), [contract](stories/EQ-108_CONTRACT.md), [literal expectations](stories/EQ-108_ORACLES.json), [admission](stories/EQ-108_ADMISSION.json), [validation](stories/EQ-108_VALIDATION.json). Current GitHub Project is status authority.",
+    "worker/docs/MCP_EVIDENCE_API.md": "# Experimental owner-prepared MCP evidence\n\nEQ108 implementation candidate, **unqualified and unreleased**. MCP0.1.0a1 extends the existing server with five tools. [Story208](https://github.com/atulsrivas1/equity-features/issues/208), [contract](stories/EQ-108_CONTRACT.md), [literal expectations](stories/EQ-108_ORACLES.json), [admission](stories/EQ-108_ADMISSION.json), [validation](stories/EQ-108_VALIDATION.json). Current GitHub Project is status authority."
   }
 }

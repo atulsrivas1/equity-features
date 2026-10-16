@@ -1,3 +1,13 @@
+## R11 aggregate delivery and resume
+
+GOV023 and EQ106–109 are accepted through their linked issues/receipts. [R11 supported surface, evidence and limits](R11_ACCEPTANCE.md) connects the complete original criteria and current artifact/publication authority. [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) and [E15/milestone12](https://github.com/atulsrivas1/equity-features/issues/195) own actual aggregate closure. Before claiming completion, verify exact final candidate/main reviews and required checks, current two-OS artifacts, all five children+GOV023 Done and all seven original milestone members Closed/Done with zero open. No future-commit self-receipt is needed.
+
+All earlier failures, superseded assumptions and local automated review scopes below remain preserved. Any future session starts from the live issue/Project plus this receipt. R12 is unselected; no operational/model/provider/private/paid/registry scope or paused R7 automation change follows from this handoff.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
 ## EQ107 corrected source qualification — October15,2026
 
 The optional local agent ledger0.1.0a1 has completed corrected source qualification at `8d7ef728c05a0d56b124e2cef58efa91a3a54c32`: actual author Windows and current CI Windows/Linux each build ten repeat-equal archives, preserve eight accepted identities, and test four fresh store-light/producer wheel/sdist forms. Each OS executes320 installed method invocations plus8 outer inert archive controls, with17 distinct raw logs and full source/member/metadata/license/RECORD/installed maps. Four actual child-death SQL cut points per form retain canonical-prefix/full verification and uncertain-proposal reconciliation; original config/input/result/quality/source/receipt parity remains unchanged.

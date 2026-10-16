@@ -1,3 +1,13 @@
+## R11 aggregate evidence reuse and unavailable replay
+
+[EQ110](https://github.com/atulsrivas1/equity-features/issues/210) freezes exact documentation paths and compares the complete remaining tracked input set before reusing accepted runtime evidence. A docs-only label is insufficient: original runtime heads, current candidate/main heads, automatic new CI and current artifact identities remain distinct. Current stale entry headers belong in the bounded aggregate documentation pass; immutable old plans and failures remain history.
+
+Prepared receipt review corrected RECP01 before publication: absent retained input yields unavailable with zero calculator calls, whereas replay of a valid unavailable/missing_input/future_knowledge result can reproduce its original quality and match with one call. Incompatible0, cancelled_before_start0 and inconsistent-report refusal are separate. The example's advisory unknown policy is not a universal strict-policy rule. [Receipt and limits](../R11_ACCEPTANCE.md). Exact final source/artifact/acceptance authority remains live rather than inferred from this lesson.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
 ## EQ109: source capture must include loader side effects
 
 The first actual qualification failed before builds because importing its fixed archive auditor added a bytecode cache inside the selected source snapshot. All39 original files matched, but exact membership correctly refused the fortieth file. Source review had missed this ordering effect. Suppress bytecode only for that fixed helper load, restore the prior interpreter flag on success and error, and keep full membership validation. A blanket cache exclusion would hide unknown input writes. Six isolated dummy-loader controls are source evidence; a distinct fresh qualification must still run. Preserve the [failed attempt and separate diagnosis](../stories/EQ-109_FIRST_FAILURE.json).

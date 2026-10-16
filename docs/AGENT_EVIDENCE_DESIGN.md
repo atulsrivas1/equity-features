@@ -1,3 +1,11 @@
+## Implemented local contracts and release evidence
+
+Accepted [EQ106](https://github.com/atulsrivas1/equity-features/issues/206), [EQ107](https://github.com/atulsrivas1/equity-features/issues/207), [EQ108](https://github.com/atulsrivas1/equity-features/issues/208) and [EQ109](https://github.com/atulsrivas1/equity-features/issues/209) implement the experimental declared-event/local-ledger/existing-MCP/synthetic-consumer surface. [R11 receipt](R11_ACCEPTANCE.md) records their exact evidence and authority/retention/replay limits; [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) is aggregate delivery authority. The earlier proposal/status snapshots below are historical. No new event, hashing, result, receipt, diagnostic or replay semantics are introduced by EQ110.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
 ## EQ106 accepted; EQ107 pre-code preparation — October15,2026
 
 EQ106 is [accepted Closed/Done](https://github.com/atulsrivas1/equity-features/issues/206#issuecomment-6205931841) at actualmain2462ded4742ff5ff7c28578b6fc30126c8a47a53/PR408, all46candidate/23main checks, independent source/finaldocs/currentbothOS/publicmain/closure review findings[]. Its exact experimental package/fixtures/parity and all prior corrections remain scoped evidence, not independent reinstall/native or full R11 acceptance. Do not rerun accepted closure.

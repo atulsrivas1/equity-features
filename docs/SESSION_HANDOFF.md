@@ -1,3 +1,13 @@
+## R11 aggregate delivery resume
+
+Start with the [R11 receipt](R11_ACCEPTANCE.md), [EQ110](https://github.com/atulsrivas1/equity-features/issues/210), [E15](https://github.com/atulsrivas1/equity-features/issues/195) and current milestone12. EQ106–109/GOV023 retain accepted child receipts. The exact EQ110 documentation allowlist excludes package/source/example/test/workflow/config changes; full effective-input maps and current artifact identities distinguish retained qualification from actual new-head CI. Finish the actual remaining EQ110 review/check/main/artifact/lifecycle gates, verify the five stories plus GOV023 are Closed/Done, then complete the epic’s remaining real lifecycle and close it. Only after that, verify the exact seven milestone members are all Closed/Done with zero open before closing the milestone.
+
+Separate local review throughout R11 is authorized. Preserve original failed runs/review findings, retained-input unavailable0 versus valid unavailable-quality replay match, advisory/strict unknown distinctions, source-truth/anchor/retention limits, accepted prior releases, unrelated primary edits and paused R7 automation. Do not start R12 or new hosted/model/provider/paid/admin/registry work from historical instructions.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
 ## EQ110 paired documentation delivery preparation
 
 EQ106–109 are accepted; [EQ109 acceptance](https://github.com/atulsrivas1/equity-features/issues/209#issuecomment-6212532661). The exact [EQ110 plan](stories/EQ-110_PLAN.md) and [effective-input evidence](stories/EQ-110_EVIDENCE.json) freeze16canonical/5worker documentation paths. All runtime, examples, tests, package metadata, workflows and original fixtures remain unchanged. EQ110 is Backlog/unassigned pending separate published-packet readiness review; no aggregate acceptance is claimed. Original child failures/reviews and earlier snapshots remain historical. Existing all-R11 local-review authorization applies; R7 automation stays paused.
