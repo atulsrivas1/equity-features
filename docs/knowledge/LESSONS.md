@@ -1602,3 +1602,7 @@ Separate builder review caught three P2 gaps before any new build/install/CI/pus
 ## EQ109: expected metadata must match the pinned serializer
 
 The second actual qualification rejected accepted worker archive bytes because ConfigParser added a final blank LF absent from setuptools80.9 output. Twelve project gates completed but no fresh forms ran. Independent archive parity identifies a checker defect, not a product defect. Render exact sorted group/name metadata from the selected profile, keep received bytes exact, and test actual accepted metadata plus newline/value/group mutations. Preserve both failed attempts and review misses; require a distinct fresh qualification. Evidence: [second failure](../stories/EQ-109_SECOND_FAILURE.json).
+
+## EQ109: isolated example launchers need an explicit owned helper path
+
+The third actual qualification passed two lightforms and all eight first-integration native scenarios, then failed a direct typed-example invocation because -I removes the adjacent script search path. A frozen owned launcher can explicitly add only selected example/test directories and run the fixed example while package imports remain installed. Source review must cover the actual isolated invocation, not infer it from in-process typing/unit passes. Preserve partial results and the failed attempt; qualify a distinct corrected cohort. Evidence: [third failure](../stories/EQ-109_THIRD_FAILURE.json).
