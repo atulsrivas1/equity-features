@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import hashlib
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import platform
 import re
 import shutil
@@ -65,6 +65,19 @@ def typing(py,verification,cwd):
     run(py,'-I','-B',example/'continuous_positive.py',cwd=cwd)
     return {'positive_sha256':sha(positive),'negative_sha256':sha(result.stdout),
             'negative_diagnostics':expected['diagnostics'],'mypy':expected['mypy_version']}
+
+
+def verify_sdist_rebuild_inputs(selected,files,prefix,module):
+    """Permit only pinned setuptools' exact generated SOURCES transition."""
+    manifest=prefix+'src/'+module+'.egg-info/SOURCES.txt'
+    expected=dict(files)
+    names=set(files[manifest].decode('utf-8').splitlines())|{'setup.cfg'}
+    ordered=sorted(names,key=lambda name:(str(PurePosixPath(name).parent),PurePosixPath(name).name))
+    # setuptools80.9.0 manifest_maker writes POSIX UTF8 lines, no final LF.
+    expected[manifest]='\n'.join(ordered).encode('utf-8')
+    for relative,body in expected.items():
+        assert (selected/relative.removeprefix(prefix)).read_bytes()==body, ('SDist rebuild changed selected input',relative)
+    return {name:{'sha256':sha(body),'bytes':len(body)} for name,body in sorted(expected.items())}
 
 
 def main():
@@ -169,12 +182,15 @@ def main():
             assert {prefix+p.relative_to(selected).as_posix():p.read_bytes() for p in selected.rglob('*') if p.is_file()}==files
             dest=owned/('rebuilt-'+name);dest.mkdir()
             run(sys.executable,'-I','-B','-m','build','--wheel','--no-isolation','--outdir',dest,selected,env=env)
-            assert all((selected/relative.removeprefix(prefix)).read_bytes()==body for relative,body in files.items()), 'SDist rebuild changed selected input'
+            after_materialization=verify_sdist_rebuild_inputs(selected,files,prefix,module)
             wheel=dest/(module+'-'+version+'-py3-none-any.whl')
             actual,rebuilt_receipt=inspect(wheel,source_maps[name],module)
             assert actual==wheel_files[name], 'selected SDist rebuilt wheel differs'
             rebuilt[name]=wheel
-            report.setdefault('selected_sdist_rebuilds',{})[name]={'materialized_entries':receipt['entries'],'rebuilt':rebuilt_receipt}
+            report.setdefault('selected_sdist_rebuilds',{})[name]={'materialized_entries':receipt['entries'],
+                'after_build_selected_entries':after_materialization,
+                'generated_manifest_transition':'setuptools80.9.0 adds existing setup.cfg; dirname/basename sorted UTF8 LF without final LF',
+                'rebuilt':rebuilt_receipt}
         for form in ('light-wheel','light-sdist','combined-wheel','combined-sdist'):
             selected=rebuilt if form.endswith('sdist') else {name:archives[name,'.whl'] for name in PACKAGES}
             directory=owned/form;run(sys.executable,'-I','-B','-m','venv',directory)
