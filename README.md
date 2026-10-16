@@ -1,3 +1,7 @@
+## Synthetic external research and explicit replay
+
+[EQ109's experimental external example](docs/AGENT_RESEARCH.md) checks a fixed synthetic count narrative, full supplied evidence, explicit supported replay and independently anchored local ledger history. It only DEFERs or REJECTs under the selected unknown advisory policy. [Executed qualification](docs/stories/EQ-109_EXECUTION.json) binds corrected-input author Windows and CI Windows/Linux four-form cohorts,202 test invocations and16 official SDK/native scenario records per cohort, with independent scoped artifact audits. Counts are not unique methods. Current final-head/main delivery and acceptance are recorded on [story209](https://github.com/atulsrivas1/equity-features/issues/209); source qualification alone is not release acceptance. R11 aggregate delivery is separately tracked by [EQ110](https://github.com/atulsrivas1/equity-features/issues/210). Older candidate-status snapshots below retain their historical scopes.
+
 ## EQ108 implementation candidate — unqualified/unreleased
 
 The existing MCP server0.1.0a1 proposes five optional owner-prepared evidence tools; base dependencies and accepted calculations remain unchanged. [API, authority, privacy, unknowns and migration](docs/MCP_EVIDENCE_API.md) describes logical bounds, per-read native authorization, declared unverified inputs, retained plaintext and current qualification limits. Source review passed its recorded scope; fresh native/installed/bothOS/current artifacts/main release remain unfinished.

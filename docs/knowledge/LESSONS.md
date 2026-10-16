@@ -1,3 +1,21 @@
+## EQ109: source capture must include loader side effects
+
+The first actual qualification failed before builds because importing its fixed archive auditor added a bytecode cache inside the selected source snapshot. All39 original files matched, but exact membership correctly refused the fortieth file. Source review had missed this ordering effect. Suppress bytecode only for that fixed helper load, restore the prior interpreter flag on success and error, and keep full membership validation. A blanket cache exclusion would hide unknown input writes. Six isolated dummy-loader controls are source evidence; a distinct fresh qualification must still run. Preserve the [failed attempt and separate diagnosis](../stories/EQ-109_FIRST_FAILURE.json).
+
+## EQ109: bound report identities and preserve catalog semantics
+
+Independent source review SRC01-05 found metaclass callbacks/raw malformed errors, unbound result text and retention based on caller claims. Corrections use exact identity-only admission/private bounded copies, full selected producer context, actual referenced bytes and fixed report-kind digests. Ordinary source checks also caught the accepted catalog's reference-only explanation requirement; outer input verification must remain a separate fact rather than changing content_verified declarations. [History](../stories/EQ-109_VALIDATION.json), [guide](../AGENT_RESEARCH.md). Source success is not installed/native/bothOS qualification.
+
+## EQ109: separate fidelity from admission
+
+Pre-code independent DESIGN01/02 review found an unreachable advisory OBSERVE outcome and underspecified report/graph validation. The corrected selected example only DEFERs or REJECTs, compares full bound report bytes, records missing retained inputs independently and bounds/copies known typed graphs before fingerprints. Matching arithmetic/replay/chain cannot grant diagnostic admission. [Profile](../stories/EQ-109_PROFILE.json), [preserved review](../stories/EQ-109_VALIDATION.json). This is corrected design awaiting renewed review, not implementation evidence.
+
+## EQ108 delivery and EQ109 retained-input bridge — October16,2026
+
+[EQ108 acceptance](https://github.com/atulsrivas1/equity-features/issues/208#issuecomment-6209046467) preserves failed author/reader and pre-execution helper findings. Windows source/controller text must be explicitly UTF8 on read and write; default cp1252 corrupted an arrow literal. Test the whole actual acceptance render/privacy gate, not only isolated predicates: a drive-path regex initially matched legitimate https. GitHub registered workflow display can retain one old label; bind exact repository/path/workflowID plus actual source/run/head/event/attempt/jobs and preserve the observed display separately, never accept arbitrary aliases. These corrections happened before delivery mutation and are not product runtime failures.
+
+For a replay consumer, a well-formed receipt with declared unknown/zero input fingerprints is not a retained-input receipt. Use actual fixed owner batch/config/result through accepted public content verification or explicitly report unavailable. Keep MCP unverified declaration flags separate from external supplied-byte consistency, and both separate from source/execution authenticity. Exact independent data/source and unknown diagnostic outcomes belong in the next pre-code packet; see [EQ109](../stories/EQ-109_PLAN.md). No old failed evidence or unverified input becomes a pass.
+
 ## EQ108 raw versus effective dependency source — October16,2026
 
 Git archive may materialize text with repository/platform EOL rules. Keep literal Git identity separate from exact effective bytes and validate a whole explicit profile, never per-file fallback or arbitrary normalization. EQ108 Windows optional22 and selected-core51 source profiles use complete LF→CRLF (19/49 changed files); Linux is raw Git. Actual CI Git config and a separate materialized-core map were not captured, so do not manufacture those witnesses. Bind dependencies by explicit package→commit origins, not a generic same-name catalog. Full offline testing of the real artifact reader path caught both an origin overwrite and omitted core profile that isolated validators missed. [Executed qualification/review history](../stories/EQ-108_EXECUTION.json) preserves failed reader runs and both failed author roots; only the corrected actual data/audits support the source-qualified snapshot.
@@ -1580,3 +1598,31 @@ EQ080 qualification lesson: [scoped cache source review](https://github.com/atul
 ## Pre-execution archive/controller correction
 
 Separate builder review caught three P2 gaps before any new build/install/CI/push: long-description/source README drift, directory and Windows-normalized physical ZIP names omitted by file-only checks, and a branch-name push not bound to the reviewed SHA. The corrected builder compares pinned pyproject metadata/dependencies/extras and exact sdist README/LF-normalized metadata body; validates every physical member before filtering/normalizing, including directory/path/control/NUL/alias/special/link modes; retains complete member maps. The controller pushes the reviewed SHA refspec and checks its own reviewed source hash. Eight independent inert archive-control methods run before build (separate from the26pure/1producer/31accepted installed cohorts), giving18outer files:8archives,9suite logs and qualification.json. No builder execution/qualification is inferred from these tests; corrected exact separate approval is still required. Original reports and fixture-only cache failure remain in validation.
+
+## EQ109: expected metadata must match the pinned serializer
+
+The second actual qualification rejected accepted worker archive bytes because ConfigParser added a final blank LF absent from setuptools80.9 output. Twelve project gates completed but no fresh forms ran. Independent archive parity identifies a checker defect, not a product defect. Render exact sorted group/name metadata from the selected profile, keep received bytes exact, and test actual accepted metadata plus newline/value/group mutations. Preserve both failed attempts and review misses; require a distinct fresh qualification. Evidence: [second failure](../stories/EQ-109_SECOND_FAILURE.json).
+
+## EQ109: isolated example launchers need an explicit owned helper path
+
+The third actual qualification passed two lightforms and all eight first-integration native scenarios, then failed a direct typed-example invocation because -I removes the adjacent script search path. A frozen owned launcher can explicitly add only selected example/test directories and run the fixed example while package imports remain installed. Source review must cover the actual isolated invocation, not infer it from in-process typing/unit passes. Preserve partial results and the failed attempt; qualify a distinct corrected cohort. Evidence: [third failure](../stories/EQ-109_THIRD_FAILURE.json).
+
+## EQ109: case identifiers and method counts do not establish the promised vector
+
+Independent source allocation found unsupported prose lacked an explicit DEFER assertion and missing-input/wrong-explanation was only exercised with malformed diagnostics. Add the exact promised vectors and real replay counters, retain the original findings, and renew the immutable input/qualification rather than treating old cohort counts as corrected-case evidence. Label genuinely composite independent axes separately from directly executed complete tuples. [Evidence](../stories/EQ-109_CASE_REWORK.json).
+
+## EQ109: original wheel payload equality includes declared installed relocation
+
+The fourth run passed typed/strict/native checks but the inherited checker rejected pywin32 scripts relocated by wheel installation. Compare each original member against its owning installed RECORD and exact destination; bind the finite supported archive and member hashes, and reject unsupported relocation or rewriting. Generated entrypoint executables remain separate outputs. Independent retained parity and22 rejection controls approve the narrow source correction only. Preserve all four failures and qualify a distinct corrected-input cohort. Evidence: [fourth failure](../stories/EQ-109_FOURTH_FAILURE.json).
+
+## EQ109: finish immutable review records before freezing their hashes
+
+The author consumed an already approved report while the reviewer was still adding supplemental controls. That changed the filename hash after publication. Exact original bytes were recovered and matched against the frozen SHA, the supplemental review retained separately, and consistency restored before the fresh author run. Wait for the reviewer final completion notice, then freeze immutable report paths; never rewrite a published freeze to hide the race. Current corrected-input source qualification subsequently passed independently audited author/currentCI cohorts. Evidence: [execution](../stories/EQ-109_EXECUTION.json).
+
+## EQ109: final documentation review includes public entry points
+
+A six/five-file qualification-metadata review did not cover the unchanged public guide, compatibility and roadmap pages, which still described qualification as unexecuted. A separate pre-acceptance completeness pass caught those contradictions. Review the actual public navigation/API/example entry points as well as the new evidence packet, and use timeless specifications plus live delivery links instead of undated current-status claims. Preserve the original scoped approval and findings; correct before acceptance. Evidence: [guide correction](../stories/EQ-109_DOCS_CORRECTION.json).
+
+## EQ109: freeze a finite navigation inventory, not only a changed-file packet
+
+The first guide fix covered five pages but missed current EQ109 headers in README, two API guides and changelog. A finite inventory of every changed Markdown entry point (14canonical/7worker) found exactly four remaining contradictions and distinguished them from immutable preparation/history/normative gates. Record that classification alongside exact review maps; correct current entry points together and stop expanding into unrelated historical documents. No runtime or worker change is required. Evidence: [finite navigation review](../stories/EQ-109_NAVIGATION_REVIEW.json).
