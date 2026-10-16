@@ -1,3 +1,11 @@
+## R11 experimental local integration and positioning
+
+The [R11 receipt](R11_ACCEPTANCE.md) documents immutable declared events, caller-owned local ledger/anchors, existing-server evidence tools and synthetic external research/replay. [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) records actual aggregate publication and acceptance. The integrated change is documentation only; accepted numerical/package/protocol identities remain unchanged. All original failed runs, corrected review findings and scoped qualification evidence are preserved. This is not stable registry publication, a new hosted service, trading authority or compliance certification.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
 ## EQ109 synthetic external research and explicit replay examples
 
 Add fixed synthetic external research assessment/typed replay and MCP consumer examples, bounded input/report admission, actual-byte retention and independently anchored event/ledger composition. [Execution](stories/EQ-109_EXECUTION.json) binds completed corrected-input author/current-CI Windows/Linux source qualification and independent scoped artifact audits; [story209](https://github.com/atulsrivas1/equity-features/issues/209) records current final-head/main delivery and acceptance. Source qualification is distinct from released delivery and R11 aggregate acceptance. All four failed author runs and design/source/compatibility/typecheck/coverage/tooling corrections remain preserved. No package version, math, protocol, source-authenticity or hosted-operation change. [Guide](AGENT_RESEARCH.md), [validation](stories/EQ-109_VALIDATION.json). Earlier dated candidate entries below retain historical scopes.

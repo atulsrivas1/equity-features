@@ -1,3 +1,15 @@
+## R11 local surface and aggregate delivery
+
+The accepted event/ledger/MCP/synthetic-consumer children are connected by the [R11 receipt](R11_ACCEPTANCE.md) and [EQ110 aggregate authority](https://github.com/atulsrivas1/equity-features/issues/210). Whole tracked source/config/workflow/test/package/example invariance binds reused runtime evidence to its actual execution heads; any automatically generated required current CI/artifacts have their own provenance. Current public documentation/attribution, final-head/main checks, artifact audits, original criteria and lifecycle are independently verified before completion. All four EQ109 failures and corrected RECP01 retained-input/quality/policy wording remain scoped history. Read live E15/milestone12 for closure; source qualification, merge or preparation alone is insufficient. R12 unselected; unrelated primary work and paused R7 automation preserved.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
+## EQ110 paired documentation delivery preparation
+
+EQ106–109 are accepted; [EQ109 acceptance](https://github.com/atulsrivas1/equity-features/issues/209#issuecomment-6212532661). The exact [EQ110 plan](stories/EQ-110_PLAN.md) and [effective-input evidence](stories/EQ-110_EVIDENCE.json) freeze16canonical/5worker documentation paths. All runtime, examples, tests, package metadata, workflows and original fixtures remain unchanged. EQ110 is Backlog/unassigned pending separate published-packet readiness review; no aggregate acceptance is claimed. Original child failures/reviews and earlier snapshots remain historical. Existing all-R11 local-review authorization applies; R7 automation stays paused.
+
 ## EQ109 finite canonical navigation completion — October16,2026
 
 The additional [finite navigation review](stories/EQ-109_NAVIGATION_REVIEW.json) classifies every changed public Markdown page since the EQ108 base:14canonical and7worker. GUIDE03 identified four remaining canonical README/event-API/ledger-API/changelog current headers that still described completed source qualification as pending. Timeless summaries now link actual execution/live209 delivery and preserve complete historical tails. Original frozen plans, normative decision gates, retrospective records and all worker documentation remain in their stated scopes. This supplements the earlier five-page GUIDE01/02 correction and preserves its scoped reviews.

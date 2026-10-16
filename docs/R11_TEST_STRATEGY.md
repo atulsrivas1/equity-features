@@ -1,3 +1,11 @@
+## Executed evidence and original strategy
+
+The [R11 receipt](R11_ACCEPTANCE.md) allocates accepted child evidence, complete effective-input invariance and new aggregate checks to the original release criteria. EQ109's executed cohorts have four fresh light/integration wheel/SDist forms,202 ordinary installed method invocations and16 actual official SDK/native scenario records per OS; overlap/composite axes and reviewer limitations are explicit. Earlier EQ106–108 event/ledger/process-death/MCP/grant/isolation/expiry/tamper controls retain their distinct receipts and counts. None is claimed as an independent reinstall or host/stdlib/ABI closure. Actual final candidate/main workflows and current artifacts keep their own heads. The future-tense strategy below is the original planning specification, not an assertion that these checks remain unexecuted. [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) owns current aggregate status.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
 # R11 verification strategy
 
 Companion to [handoff](R11_AUTONOMOUS_HANDOFF.md), [release plan](R11_RELEASE_PLAN.md), [GOV023](https://github.com/atulsrivas1/equity-features/issues/406) and original EQ106–110 criteria. This file specifies future checks; it reports no runtime test pass. Literal fixture counts, source maps and supported dependency versions are frozen in each story before qualification.

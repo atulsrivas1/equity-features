@@ -1,3 +1,11 @@
+## R11 delivery orientation
+
+The five-story allocation, original scopes/31 provisional complexity points and GOV023 remain as planned. EQ106–109 have accepted child deliveries; [R11 supported surface and receipt](R11_ACCEPTANCE.md) maps them to the original aggregate criteria. [EQ110](https://github.com/atulsrivas1/equity-features/issues/210), [E15](https://github.com/atulsrivas1/equity-features/issues/195) and [milestone12](https://github.com/atulsrivas1/equity-features/milestone/12) record actual final lifecycle/closure. The selected release is experimental local Python/SQLite/stdio with synthetic loopback qualification; future external/human security assessment is deferred and no new hosted deployment is included. Earlier planning/status snapshots below retain history rather than current execution authority.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
 # R11 release plan — agent research evidence
 
 Owner-selected October15,2026; [GOV023#406](https://github.com/atulsrivas1/equity-features/issues/406), [E15#195](https://github.com/atulsrivas1/equity-features/issues/195), [milestone12](https://github.com/atulsrivas1/equity-features/milestone/12). [Handoff](R11_AUTONOMOUS_HANDOFF.md), [test strategy](R11_TEST_STRATEGY.md), [EQ106 plan](stories/EQ-106_PLAN.md). This is preparation; EQ106–110 remain Backlog until their actual readiness gates. R10's [fresh review](reviews/R10_POST_DELIVERY_REVIEW.md) has no blocking finding.

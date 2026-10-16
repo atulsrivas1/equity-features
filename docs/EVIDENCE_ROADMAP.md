@@ -1,3 +1,11 @@
+## R11 supported experimental local surface
+
+[R11 delivery evidence and limits](R11_ACCEPTANCE.md) connect EQ106–109 event contracts, local SQLite storage, existing MCP evidence access and explicit synthetic replay. [EQ110/E15](https://github.com/atulsrivas1/equity-features/issues/210) owns aggregate acceptance and exact milestone closure. Reproducible supplied-content consistency, declared diagnostic checks, chain consistency, external terminal coverage and payload retention remain distinct; none authenticates source history, actors or execution permission. Future trust/hosted/provider scope remains separate; R12 is unselected and the original IDs/31 provisional R11 points are preserved.
+
+## Historical scoped notes
+
+The earlier delivery snapshots below are retained history; their source contracts and failure evidence keep their stated scopes. Current aggregate delivery is linked above.
+
 ## EQ109 synthetic research source qualification — October16,2026
 
 EQ106–108 are accepted. The [external research example](AGENT_RESEARCH.md) has completed corrected-input author Windows and current source CI Windows/Linux qualification: four fresh forms,202 test invocations and16 official SDK/native scenario records per cohort, with separate scoped artifact audits. [Execution](stories/EQ-109_EXECUTION.json) preserves exact source/artifact bindings, all four failed runs and limitations. [Story209](https://github.com/atulsrivas1/equity-features/issues/209) and the live Project own current final-head/main delivery and acceptance; source qualification alone does not close the story. R11 aggregate delivery remains separately tracked by EQ110/E15/milestone12. No model framework, provider, trading, hosted recovery or source-authentication authority is added. Older candidate snapshots below retain their historical scopes.
