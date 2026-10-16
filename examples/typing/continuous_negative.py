@@ -1,7 +1,7 @@
-"""Exactly five deliberately ill-typed public calls; never a runnable example."""
+"""Deliberately ill-typed public calls; never a runnable example."""
 from equity_feature_continuous import (
     ContinuousConfig, ContinuousResult, MetricValue, PriceObservation,
-    config_from_json,
+    compute_basis, config_from_json, require_capability,
 )
 from equity_feature_contracts import FeatureResult
 
@@ -14,3 +14,5 @@ def invalid(config: ContinuousConfig, result: ContinuousResult) -> None:
     config_from_json('{}')
     consume_old(result)
     config.operation = 1
+    compute_basis(config)
+    require_capability('cross_venue.basis', True)

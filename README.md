@@ -1,4 +1,49 @@
-## EQ113 optional continuous contracts candidate
+## EQ114 pure supplied batch API
+
+[EQ113 contracts are accepted](https://github.com/atulsrivas1/equity-features/issues/215#issuecomment-6223048289)
+at main9a57d6524973ffc50747f1460d5534347b8a93b4 after54candidate/27main checks,
+actual bothOS artifacts and independent final delivery review. Current R12 acceptance is recorded on the [release epic](https://github.com/atulsrivas1/equity-features/issues/212). [EQ114/PR419](https://github.com/atulsrivas1/equity-features/pull/419)
+passed separate public precode readiness before implementation. The live story
+records current lifecycle, review, qualification and delivery evidence.
+
+Optional continuous0.1.0a2 implements compute_basis/compute_freeze/compute_reopen
+and six own immutable descriptive feature IDs, batch only. Exact rational stages,
+seven readiness roles, original consumed proofs, whole input identity, immutable
+reopening boundaries, complete count-weighted freeze population and stable topK
+follow unchanged EQ112 mathematics/schema1. Old contracts/features0.0.4a4,51core
+files,39IDs and ConfigSpec1 digest remain unchanged. The new metadata is not old
+Registry/CanonicalBatch/FeatureResult integration. [Public API](docs/CONTINUOUS_API.md),
+[plan](docs/stories/EQ114_PLAN.md), [validation](docs/stories/EQ114_VALIDATION.json).
+
+Author source checks passed all99 allocated independent cases:65full results,
+32structural/config errors before calculation and2arithmetic overflows, alongside
+the unchanged219codec identities. The initial31methods passed; a new empty-freeze
+old-reference regression exposed one blocked-role/mismatch defect. That32method
+run remains FAILED; the selected-population guard corrected it and32methods passed.
+Strict6file typing and all boundary controls passed their source scope. A frozen
+4096row input fits16MiB but its full selected-result IDs exceed1MiB; the actual
+source kernel refuses bounds without truncation before returning.
+
+Separate runtime/math review /root/r9_plan_review6e78f42da805 approved the frozen
+17file source:32methods, strict6file typing, boundary controls and100additional
+pure arithmetic/timing/proof/callback controls passed. Fresh qualification is
+selected on the dedicated current GitHub Actions Windows/Linux four-form jobs;
+no separate author reinstall/build is claimed or required as duplicate evidence.
+Build/typing source review /root/r10_reviewaebb12f341be approved the dedicated
+controller and source example/typing/old-registry checks. Qualification and delivery
+require54candidate/27main checks, actual current Windows/Linux ZIPs and complete
+source/metadata/RECORD/installed maps plus separate main acceptance. The live
+EQ114 issue records these actual outcomes; this source snapshot does not claim
+they occurred. Source checks are not installed or release evidence. EQ115 owns
+final installed synthetic guides and aggregate R12 acceptance. No Arrow/state/worker/MCP/adapter changes, performance/physical
+resource/deadline claim, provider/private/paid/admin/hosting/trading/registry/R13
+scope or R7automation change. All earlier source/build/tool failures remain scoped.
+
+## Prior scoped delivery history
+
+The earlier statuses below are preserved snapshots. Read the current story links above for execution authority.
+
+## Historical EQ113 preparation and author qualification
 
 [EQ113](https://github.com/atulsrivas1/equity-features/issues/215)/[PR418](https://github.com/atulsrivas1/equity-features/pull/418) adds optional `equity-feature-continuous==0.1.0a1`, depending only on contracts0.0.4a4 and stdlib. [API](docs/CONTINUOUS_API.md) documents immutable supplied snapshots, exact rational records and closed config/input/result codecs. It adds no calculation entry points or registry IDs; those remain EQ114. Existing core sources,39IDs,schemas,versions and legacy configuration digest stay unchanged.
 

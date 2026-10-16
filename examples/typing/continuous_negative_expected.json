@@ -6,6 +6,8 @@
     {"line": 14, "code": "arg-type", "contains": "config_from_json"},
     {"line": 15, "code": "arg-type", "contains": "consume_old"},
     {"line": 16, "code": "misc", "contains": "read-only"},
-    {"line": 16, "code": "assignment", "contains": "Incompatible types in assignment"}
+    {"line": 16, "code": "assignment", "contains": "Incompatible types in assignment"},
+    {"line": 17, "code": "arg-type", "contains": "compute_basis"},
+    {"line": 18, "code": "arg-type", "contains": "require_capability"}
   ]
 }

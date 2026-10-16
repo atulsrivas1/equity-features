@@ -260,7 +260,7 @@ def continuous_violations(source):
     """Dedicated continuous contracts policy; not a Python sandbox."""
     tree=ast.parse(source);found=[]
     allowed={'__future__','dataclasses','typing','fractions','json','hashlib'}
-    relative={'_model','_rational','_codec'}
+    relative={'_model','_rational','_codec','_engine','_registry'}
     public={'AvailabilitySpec','IntervalSpec','SourceBinding','PriceUnit',
             'AdjustmentSpec','Coverage','ContractError','ErrorCode'}
     parents={child:node for node in ast.walk(tree) for child in ast.iter_child_nodes(node)}

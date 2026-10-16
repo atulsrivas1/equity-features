@@ -1,5 +1,11 @@
 # Specified cross-venue research formulas
 
+EQ112 is the immutable mathematical specification. EQ113 contracts are accepted; EQ114 now implements the own pure batch API in continuous0.1.0a2. [Live kernel delivery](https://github.com/atulsrivas1/equity-features/issues/216) separates source checks, review, installed qualification and acceptance. Old core mathematics,39IDs and ConfigSpec1 remain unchanged; no state/worker/MCP or automatic old-registry integration.
+
+## Preserved specification and review history
+
+The following statements retain their original specification/preparation scopes, not current execution authority.
+
 EQ112 specification; new runtime kernels are not implemented here. See the normative mathematics, decisions, structural schemas and independent literal fixture packet under docs/stories. Existing core formulas and ConfigSpec1 identities remain unchanged. The proposed optional namespace has no implicit old-registry, Arrow/state, worker or MCP integration.
 
 Let scaled positive last-trade prices p_c,p_r with declared scales s_c,s_r be in the same currency. Supplied N/D reference units per continuous unit gives normalized X=(p_c/10^s_c)*D/N and Y=p_r/10^s_r. Basis B=X-Y, premium P=B/Y as a ratio. Require known effective matching conversion and default raw adjustment only. Unit/underlying/mapping declarations are supplied assertions, not economic entitlement evidence. Never perform an FX or adjustment lookup.

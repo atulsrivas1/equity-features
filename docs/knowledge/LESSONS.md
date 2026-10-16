@@ -1,3 +1,16 @@
+## EQ114: empty-population dependency failures need their own adversary
+
+All99 original complete operation literals passed the first source implementation,
+but an additional empty freeze with an old held reference exposed an invalid
+blocked population role carrying mismatch. Apply mismatch to an actual selected
+continuous population; keep empty population blocked when independent reference
+prerequisites fail. Preserve the failed32method run and the corrected32method pass;
+do not weaken role invariants or rewrite expected fixtures to match production.
+The1MiB result cap also needs an independently derived ASCII-escape oversize case,
+since row count/UTF8-ID limits alone do not establish complete encoding size.
+Evidence: [source-stage validation](../stories/EQ114_VALIDATION.json),
+[frozen case allocation](../stories/EQ114_CASE_MANIFEST.json).
+
 ## EQ113 admission revalidation and independent negative coverage
 
 The original single-error corpus passed while compound error order and reused nested scalar callbacks failed. After those corrections, independent source review719bb2 found whitespace admission, selected result schema/order/cardinality and another nested-role callback. Renewed review29dd found null freeze population still admitted on unavailable results. Validate exact nested primitives before aggregate equality/hashing, bind structural result counts even when quality suppresses metrics, and test direct construction, wire decoding and serializer revalidation separately. Passing literal examples and strict types do not establish all malformed-input behavior. Preserve failed source snapshots/logs and narrowly scoped approvals. [Validation](../stories/EQ113_VALIDATION.json) records source-only evidence; no kernel or fresh-install claim.

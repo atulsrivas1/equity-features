@@ -18,13 +18,17 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'dist/continuous'
 PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'),
           'features':('equity_features','0.0.4a4'),
-          'continuous':('equity_feature_continuous','0.1.0a1')}
+          'continuous':('equity_feature_continuous','0.1.0a2')}
 SCOPES=['packages/'+name for name in PACKAGES]+[
     'tests/continuous','tests/unit/test_continuous_capability.py',
     'docs/stories/EQ112_MATHEMATICS.md','docs/stories/EQ112_DECISIONS.md',
     'docs/stories/EQ112_FIXTURES.json','docs/stories/EQ112_SCHEMAS.json',
     'docs/stories/EQ113_PLAN.md','docs/stories/EQ113_BUILD_DESIGN.md',
-    'docs/stories/EQ113_ADMISSION_FIXTURES.json','docs/CONTINUOUS_API.md',
+    'docs/stories/EQ113_ADMISSION_FIXTURES.json',
+    'docs/stories/EQ114_PLAN.md','docs/stories/EQ114_CASE_MANIFEST.json',
+    'docs/stories/EQ114_OVERSIZE_INPUT.json','docs/stories/EQ114_READINESS.json',
+    'docs/stories/EQ114_PREPARED_REVIEW.json','docs/stories/EQ114_VALIDATION.json',
+    'docs/CONTINUOUS_API.md',
     'docs/api/CONTINUOUS_RESEARCH.md','docs/features/CROSS_VENUE_FORMULAS.md',
     'docs/stories/EQ113_VALIDATION.json','README.md','docs/CHANGELOG.md',
     'docs/CONTINUOUS_MARKET_DESIGN.md','docs/COMPATIBILITY.md','docs/BUILD_DELIVERY.md',
@@ -210,7 +214,7 @@ def main():
                 run(py,'-I','-B','-m','unittest','discover','-s',verification/'tests/unit','-p','test_continuous_capability.py',cwd=directory)
             run(py,'-I','-B','-m','pip','install','--no-compile','--no-index','--no-deps',selected['continuous'])
             after=installed([*names,'continuous'])
-            run(py,'-I','-B',verification/'tools/continuous_legacy.py',cwd=directory)
+            run(py,'-I','-B',verification/'tools/continuous_legacy.py','--continuous',cwd=directory)
             assert all(after[module]==receipt for module,receipt in before.items()), 'old installed distribution drift'
             run(py,'-I','-B','-m','pip','check')
             absent=('equity_feature_workers','equity_feature_io_contracts','equity_feature_io_sdk','equity_feature_evidence',

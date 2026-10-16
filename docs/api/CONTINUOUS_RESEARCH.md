@@ -1,5 +1,11 @@
 # Proposed continuous research API
 
+EQ112 is the immutable mathematical specification. EQ113 contracts are accepted; EQ114 now implements the own pure batch API in continuous0.1.0a2. [Live kernel delivery](https://github.com/atulsrivas1/equity-features/issues/216) separates source checks, review, installed qualification and acceptance. Old core mathematics,39IDs and ConfigSpec1 remain unchanged; no state/worker/MCP or automatic old-registry integration.
+
+## Preserved specification and review history
+
+The following statements retain their original specification/preparation scopes, not current execution authority.
+
 Specification only. EQ112 freezes mathematics and data; EQ113 will implement the optional data/config/codecs, EQ114 the calculations, and EQ115 the installed guides. These names are not present in the accepted core today. Initial separate package equity-feature-continuous0.1.0a1 depends only on unchanged equity-feature-contracts0.0.4a4. No automatic core registry, Arrow/state, worker/MCP or receipt integration.
 
 The new immutable ContinuousInput contains a ContinuousConfig, continuous/reference Legs, and bounded supplied feed/conversion facts. Reuse exact old IntervalSpec,AvailabilitySpec,PriceUnit,SourceBinding,AdjustmentSpec,Coverage. Supported prices are positive int64 scaled supplied last trades, default raw adjustment only and same currency, with declared underlying/quantity identities. The caller supplies all events, schedules, original knowledge times, scope completeness and ratios; those assertions do not authenticate a market or economic entitlement.

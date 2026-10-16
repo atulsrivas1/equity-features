@@ -1,4 +1,65 @@
-## EQ113 optional continuous contracts candidate
+## EQ114 pure supplied batch API
+
+[EQ113 contracts are accepted](https://github.com/atulsrivas1/equity-features/issues/215#issuecomment-6223048289)
+at main9a57d6524973ffc50747f1460d5534347b8a93b4 after54candidate/27main checks,
+actual bothOS artifacts and independent final delivery review. Current R12 acceptance is recorded on the [release epic](https://github.com/atulsrivas1/equity-features/issues/212). [EQ114/PR419](https://github.com/atulsrivas1/equity-features/pull/419)
+passed separate public precode readiness before implementation. The live story
+records current lifecycle, review, qualification and delivery evidence.
+
+Optional continuous0.1.0a2 implements compute_basis/compute_freeze/compute_reopen
+and six own immutable descriptive feature IDs, batch only. Exact rational stages,
+seven readiness roles, original consumed proofs, whole input identity, immutable
+reopening boundaries, complete count-weighted freeze population and stable topK
+follow unchanged EQ112 mathematics/schema1. Old contracts/features0.0.4a4,51core
+files,39IDs and ConfigSpec1 digest remain unchanged. The new metadata is not old
+Registry/CanonicalBatch/FeatureResult integration. [Public API](CONTINUOUS_API.md),
+[plan](stories/EQ114_PLAN.md), [validation](stories/EQ114_VALIDATION.json).
+
+Author source checks passed all99 allocated independent cases:65full results,
+32structural/config errors before calculation and2arithmetic overflows, alongside
+the unchanged219codec identities. The initial31methods passed; a new empty-freeze
+old-reference regression exposed one blocked-role/mismatch defect. That32method
+run remains FAILED; the selected-population guard corrected it and32methods passed.
+Strict6file typing and all boundary controls passed their source scope. A frozen
+4096row input fits16MiB but its full selected-result IDs exceed1MiB; the actual
+source kernel refuses bounds without truncation before returning.
+
+Separate runtime/math review /root/r9_plan_review6e78f42da805 approved the frozen
+17file source:32methods, strict6file typing, boundary controls and100additional
+pure arithmetic/timing/proof/callback controls passed. Fresh qualification is
+selected on the dedicated current GitHub Actions Windows/Linux four-form jobs;
+no separate author reinstall/build is claimed or required as duplicate evidence.
+Build/typing source review /root/r10_reviewaebb12f341be approved the dedicated
+controller and source example/typing/old-registry checks. Qualification and delivery
+require54candidate/27main checks, actual current Windows/Linux ZIPs and complete
+source/metadata/RECORD/installed maps plus separate main acceptance. The live
+EQ114 issue records these actual outcomes; this source snapshot does not claim
+they occurred. Source checks are not installed or release evidence. EQ115 owns
+final installed synthetic guides and aggregate R12 acceptance. No Arrow/state/worker/MCP/adapter changes, performance/physical
+resource/deadline claim, provider/private/paid/admin/hosting/trading/registry/R13
+scope or R7automation change. All earlier source/build/tool failures remain scoped.
+
+### Source-freeze resume checkpoint
+
+First read live story216 and the current default branch; this checkpoint precedes
+first qualification and is historical once delivery completes. Commit/push only
+the complete reviewed source, then assess actual dedicated fresh bothOS CI/current
+ZIPs, original criteria and main delivery before selecting EQ115. Existing EQ113
+output remains accepted evidence; no local author rebuild is needed to duplicate
+the selected current CI cohorts. Resolve real findings without relaxing gates.
+Publisher
+review corrected a selected-main destination-collision guard before execution;
+initial report hash timing and failed inverse reconstruction are preserved in the
+corrected tool report, not relabeled a runtime/publication failure. Data-preparer
+null-result/structured-error correction occurred before output; original99literals
+are unchanged. Windows rg wildcard-path searches failed read-only and were replaced
+with actual fixed paths. No human or hosted review is claimed.
+
+## Prior scoped delivery history
+
+The earlier statuses below are preserved snapshots. Read the current story links above for execution authority.
+
+## Historical EQ113 preparation and author qualification
 
 [EQ113](https://github.com/atulsrivas1/equity-features/issues/215)/[PR418](https://github.com/atulsrivas1/equity-features/pull/418) adds optional `equity-feature-continuous==0.1.0a1`, depending only on contracts0.0.4a4 and stdlib. [API](CONTINUOUS_API.md) documents immutable supplied snapshots, exact rational records and closed config/input/result codecs. It adds no calculation entry points or registry IDs; those remain EQ114. Existing core sources,39IDs,schemas,versions and legacy configuration digest stay unchanged.
 
@@ -4278,3 +4339,15 @@ Core development validation after active removal: CPython3.12.10 WindowsAMD64 pa
 Core source18d81b1 actual native push37557964807 and PR37557967299/docs37557964775/37557966122 pass all6checks. [Core source receipt](stories/EQ-122_CORE_SOURCE_RECEIPT.json) verifies downloaded12pure/consumer archives byte-identical to accepted main2cd51cd and12current benchmark/resource/consumer reports with unchanged harness/native-probe bindings,6batch/stream/restore/merge parity cases and43consumer qualification cases, including independent numerical goldens. Local repeat6archives/bothactual fresh forms also pass and equal WindowsCI bytes. Separate core review resolves scope/boundary/publicstandalone evidence; P3 historical R4 conformance link redirected to the accepted fixedcommit. Renewed documentation-head review/currentCI/coremain publication/readback remains before overall acceptance.
 
 EQ081 preparation harness: the initial outside plan generator unpacked two-field requirements as three and stopped before branch/file mutation. A first PowerShell inline repair also failed before mutation. The corrected generator produced matching32-requirement plans; neither failed invocation is implementation or validation evidence. Public feasibility, independent fixtures and planning review remain pending.
+
+## EQ114 preparation-tool correction record
+
+The initial working-freeze count assertion applied blanket CRLF normalization to
+the whole repository and falsely classified the preserved raw EQ088 measurement
+file. It wrote no freeze receipt. Changed-path selection now respects Git path
+attributes;30owned paths/104effective inputs are frozen, and exact published
+Gitblob/whole-tree verification remains required. No EQ088 bytes changed.
+An external proof-tool preparer wrote the intended capture file, then stopped at
+two literal-match guards before writing the artifact verifier. Exact capture bytes
+were retained; narrow source-expression matches were corrected before either
+proof tool executed. These are tooling failures, not kernel/CI qualification.
