@@ -1,0 +1,1233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:equity-features:continuous:1:draft",
+  "$defs": {
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "x-max-utf8-bytes": 128,
+      "x-trimmed": true
+    },
+    "ns": {
+      "type": "integer",
+      "minimum": -9223372036854775808,
+      "maximum": 9223372036854775807
+    },
+    "nonnegative_int64": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9223372036854775807
+    },
+    "interval": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/label"
+        },
+        "start_ns": {
+          "$ref": "#/$defs/ns"
+        },
+        "end_ns": {
+          "$ref": "#/$defs/ns"
+        }
+      },
+      "required": [
+        "name",
+        "start_ns",
+        "end_ns"
+      ],
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/label"
+        },
+        "snapshot_id": {
+          "$ref": "#/$defs/label"
+        },
+        "mapping_version": {
+          "$ref": "#/$defs/label"
+        },
+        "input_id": {
+          "$ref": "#/$defs/label"
+        }
+      },
+      "required": [
+        "source_id",
+        "snapshot_id",
+        "mapping_version",
+        "input_id"
+      ],
+      "additionalProperties": false
+    },
+    "price_unit": {
+      "type": "object",
+      "properties": {
+        "scale": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18
+        },
+        "currency": {
+          "$ref": "#/$defs/label"
+        }
+      },
+      "required": [
+        "scale",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "adjustment": {
+      "type": "object",
+      "properties": {
+        "basis": {
+          "enum": [
+            "raw",
+            "split",
+            "total_return"
+          ]
+        },
+        "policy_version": {
+          "$ref": "#/$defs/label"
+        },
+        "action_snapshot": {
+          "$ref": "#/$defs/label"
+        },
+        "anchor": {
+          "$ref": "#/$defs/label"
+        }
+      },
+      "required": [
+        "basis",
+        "policy_version",
+        "action_snapshot",
+        "anchor"
+      ],
+      "additionalProperties": false
+    },
+    "coverage": {
+      "type": "object",
+      "properties": {
+        "expected": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonnegative_int64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observed": {
+          "$ref": "#/$defs/nonnegative_int64"
+        },
+        "complete": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "expected",
+        "observed",
+        "complete"
+      ],
+      "additionalProperties": false
+    },
+    "availability": {
+      "type": "object",
+      "properties": {
+        "market_cutoff_ns": {
+          "$ref": "#/$defs/ns"
+        },
+        "knowledge_cutoff_ns": {
+          "$ref": "#/$defs/ns"
+        },
+        "evaluation_ns": {
+          "$ref": "#/$defs/ns"
+        },
+        "mode": {
+          "enum": [
+            "known_at",
+            "reconstruction"
+          ]
+        },
+        "reconstruction_reason": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/label"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "market_cutoff_ns",
+        "knowledge_cutoff_ns",
+        "evaluation_ns",
+        "mode",
+        "reconstruction_reason"
+      ],
+      "additionalProperties": false
+    },
+    "observation": {
+      "type": "object",
+      "properties": {
+        "observation_id": {
+          "$ref": "#/$defs/label"
+        },
+        "event_ns": {
+          "$ref": "#/$defs/ns"
+        },
+        "order_key": {
+          "$ref": "#/$defs/nonnegative_int64"
+        },
+        "price": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9223372036854775807
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "known_at_ns": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "observation_id",
+        "event_ns",
+        "order_key",
+        "price",
+        "known_at_ns"
+      ],
+      "additionalProperties": false
+    },
+    "leg": {
+      "type": "object",
+      "properties": {
+        "instrument_id": {
+          "$ref": "#/$defs/label"
+        },
+        "feed_id": {
+          "$ref": "#/$defs/label"
+        },
+        "product_id": {
+          "$ref": "#/$defs/label"
+        },
+        "underlying_id": {
+          "$ref": "#/$defs/label"
+        },
+        "quantity_unit": {
+          "$ref": "#/$defs/label"
+        },
+        "price_kind": {
+          "enum": [
+            "last_trade"
+          ]
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "price_unit": {
+          "$ref": "#/$defs/price_unit"
+        },
+        "adjustment": {
+          "$ref": "#/$defs/adjustment"
+        },
+        "scope": {
+          "$ref": "#/$defs/interval"
+        },
+        "coverage": {
+          "$ref": "#/$defs/coverage"
+        },
+        "coverage_known_at_ns": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/observation"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "instrument_id",
+        "feed_id",
+        "product_id",
+        "underlying_id",
+        "quantity_unit",
+        "price_kind",
+        "source",
+        "price_unit",
+        "adjustment",
+        "scope",
+        "coverage",
+        "coverage_known_at_ns",
+        "observations"
+      ],
+      "additionalProperties": false
+    },
+    "feed_fact": {
+      "type": "object",
+      "properties": {
+        "fact_id": {
+          "$ref": "#/$defs/label"
+        },
+        "revision": {
+          "$ref": "#/$defs/label"
+        },
+        "feed_id": {
+          "$ref": "#/$defs/label"
+        },
+        "product_id": {
+          "$ref": "#/$defs/label"
+        },
+        "interval": {
+          "$ref": "#/$defs/interval"
+        },
+        "state": {
+          "enum": [
+            "live",
+            "scheduled_freeze",
+            "outage",
+            "stale",
+            "unknown"
+          ]
+        },
+        "known_at_ns": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "fact_id",
+        "revision",
+        "feed_id",
+        "product_id",
+        "interval",
+        "state",
+        "known_at_ns"
+      ],
+      "additionalProperties": false
+    },
+    "conversion_fact": {
+      "type": "object",
+      "properties": {
+        "fact_id": {
+          "$ref": "#/$defs/label"
+        },
+        "revision": {
+          "$ref": "#/$defs/label"
+        },
+        "continuous_instrument_id": {
+          "$ref": "#/$defs/label"
+        },
+        "reference_instrument_id": {
+          "$ref": "#/$defs/label"
+        },
+        "underlying_id": {
+          "$ref": "#/$defs/label"
+        },
+        "continuous_quantity_unit": {
+          "$ref": "#/$defs/label"
+        },
+        "reference_quantity_unit": {
+          "$ref": "#/$defs/label"
+        },
+        "currency": {
+          "$ref": "#/$defs/label"
+        },
+        "interval": {
+          "$ref": "#/$defs/interval"
+        },
+        "reference_units_numerator": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "continuous_units_denominator": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "known_at_ns": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "fact_id",
+        "revision",
+        "continuous_instrument_id",
+        "reference_instrument_id",
+        "underlying_id",
+        "continuous_quantity_unit",
+        "reference_quantity_unit",
+        "currency",
+        "interval",
+        "reference_units_numerator",
+        "continuous_units_denominator",
+        "known_at_ns"
+      ],
+      "additionalProperties": false
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "identity": {
+          "$ref": "#/$defs/label"
+        },
+        "schema_version": {
+          "const": "1"
+        },
+        "algorithm_version": {
+          "const": "1"
+        },
+        "operation": {
+          "enum": [
+            "basis",
+            "freeze",
+            "reopen"
+          ]
+        },
+        "window": {
+          "$ref": "#/$defs/interval"
+        },
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "anchor_ns": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reopen_ns": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max_continuous_age_ns": {
+          "$ref": "#/$defs/nonnegative_int64"
+        },
+        "max_reference_age_ns": {
+          "$ref": "#/$defs/nonnegative_int64"
+        },
+        "max_mismatch_ns": {
+          "$ref": "#/$defs/nonnegative_int64"
+        },
+        "top_k": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 32
+        },
+        "weighting": {
+          "enum": [
+            "observation_count"
+          ]
+        },
+        "reference_mode": {
+          "enum": [
+            "supplied_last_trade"
+          ]
+        }
+      },
+      "required": [
+        "identity",
+        "schema_version",
+        "algorithm_version",
+        "operation",
+        "window",
+        "availability",
+        "anchor_ns",
+        "reopen_ns",
+        "max_continuous_age_ns",
+        "max_reference_age_ns",
+        "max_mismatch_ns",
+        "top_k",
+        "weighting",
+        "reference_mode"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "basis"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "anchor_ns": {
+                "type": "integer"
+              },
+              "reopen_ns": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "freeze"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "anchor_ns": {
+                "type": "null"
+              },
+              "reopen_ns": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "operation": {
+                "const": "reopen"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "anchor_ns": {
+                "type": "null"
+              },
+              "reopen_ns": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "$ref": "#/$defs/config"
+        },
+        "continuous": {
+          "$ref": "#/$defs/leg"
+        },
+        "reference": {
+          "$ref": "#/$defs/leg"
+        },
+        "feed_facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/feed_fact"
+          },
+          "maxItems": 256
+        },
+        "conversion_facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/conversion_fact"
+          },
+          "maxItems": 256
+        }
+      },
+      "required": [
+        "config",
+        "continuous",
+        "reference",
+        "feed_facts",
+        "conversion_facts"
+      ],
+      "additionalProperties": false
+    },
+    "rational": {
+      "type": "object",
+      "properties": {
+        "numerator": {
+          "type": "integer",
+          "minimum": -99999999999999999999999999999999999999,
+          "maximum": 99999999999999999999999999999999999999
+        },
+        "denominator": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 99999999999999999999999999999999999999
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator"
+      ],
+      "additionalProperties": false
+    },
+    "digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "minLength": 64,
+      "maxLength": 64
+    },
+    "metric": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "enum": [
+            "cross_venue.basis",
+            "cross_venue.premium",
+            "cross_venue.freeze_max_abs",
+            "cross_venue.freeze_mean_abs",
+            "cross_venue.reopen_gap",
+            "cross_venue.reopen_premium"
+          ]
+        },
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/rational"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "selected": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "enum": [
+            "continuous",
+            "reference"
+          ]
+        },
+        "observation_id": {
+          "$ref": "#/$defs/label"
+        }
+      },
+      "required": [
+        "role",
+        "observation_id"
+      ],
+      "additionalProperties": false
+    },
+    "witness": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "const": "continuous"
+        },
+        "observation_id": {
+          "$ref": "#/$defs/label"
+        },
+        "reference_id": {
+          "$ref": "#/$defs/label"
+        },
+        "conversion_fact_id": {
+          "$ref": "#/$defs/label"
+        },
+        "deviation": {
+          "$ref": "#/$defs/rational"
+        }
+      },
+      "required": [
+        "role",
+        "observation_id",
+        "reference_id",
+        "conversion_fact_id",
+        "deviation"
+      ],
+      "additionalProperties": false
+    },
+    "result": {
+      "type": "object",
+      "properties": {
+        "algorithm_version": {
+          "const": "1"
+        },
+        "operation": {
+          "enum": [
+            "basis",
+            "freeze",
+            "reopen"
+          ]
+        },
+        "config_digest": {
+          "$ref": "#/$defs/digest"
+        },
+        "input_digest": {
+          "$ref": "#/$defs/digest"
+        },
+        "status": {
+          "enum": [
+            "available",
+            "missing_input",
+            "incomplete_coverage",
+            "not_applicable"
+          ]
+        },
+        "roles": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "const": "continuous_coverage"
+                },
+                "status": {
+                  "enum": [
+                    "ready",
+                    "unavailable",
+                    "blocked",
+                    "not_applicable"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "incomplete_coverage",
+                      "unknown_availability",
+                      "future_knowledge",
+                      "absent_observation",
+                      "null_price",
+                      "stale_observation",
+                      "mismatch",
+                      "absent_fact",
+                      "unknown",
+                      "stale",
+                      "outage",
+                      "not_live",
+                      "not_scheduled_freeze",
+                      "observed_empty"
+                    ]
+                  },
+                  "maxItems": 14
+                },
+                "proofs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^/(continuous|reference)/(scope|coverage|coverage_known_at_ns|observations/[0-9]+)$|^/(feed_facts|conversion_facts)/[0-9]+$"
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "role",
+                "status",
+                "reasons",
+                "proofs"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "const": "reference_coverage"
+                },
+                "status": {
+                  "enum": [
+                    "ready",
+                    "unavailable",
+                    "blocked",
+                    "not_applicable"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "incomplete_coverage",
+                      "unknown_availability",
+                      "future_knowledge",
+                      "absent_observation",
+                      "null_price",
+                      "stale_observation",
+                      "mismatch",
+                      "absent_fact",
+                      "unknown",
+                      "stale",
+                      "outage",
+                      "not_live",
+                      "not_scheduled_freeze",
+                      "observed_empty"
+                    ]
+                  },
+                  "maxItems": 14
+                },
+                "proofs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^/(continuous|reference)/(scope|coverage|coverage_known_at_ns|observations/[0-9]+)$|^/(feed_facts|conversion_facts)/[0-9]+$"
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "role",
+                "status",
+                "reasons",
+                "proofs"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "const": "continuous"
+                },
+                "status": {
+                  "enum": [
+                    "ready",
+                    "unavailable",
+                    "blocked",
+                    "not_applicable"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "incomplete_coverage",
+                      "unknown_availability",
+                      "future_knowledge",
+                      "absent_observation",
+                      "null_price",
+                      "stale_observation",
+                      "mismatch",
+                      "absent_fact",
+                      "unknown",
+                      "stale",
+                      "outage",
+                      "not_live",
+                      "not_scheduled_freeze",
+                      "observed_empty"
+                    ]
+                  },
+                  "maxItems": 14
+                },
+                "proofs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^/(continuous|reference)/(scope|coverage|coverage_known_at_ns|observations/[0-9]+)$|^/(feed_facts|conversion_facts)/[0-9]+$"
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "role",
+                "status",
+                "reasons",
+                "proofs"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "const": "reference"
+                },
+                "status": {
+                  "enum": [
+                    "ready",
+                    "unavailable",
+                    "blocked",
+                    "not_applicable"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "incomplete_coverage",
+                      "unknown_availability",
+                      "future_knowledge",
+                      "absent_observation",
+                      "null_price",
+                      "stale_observation",
+                      "mismatch",
+                      "absent_fact",
+                      "unknown",
+                      "stale",
+                      "outage",
+                      "not_live",
+                      "not_scheduled_freeze",
+                      "observed_empty"
+                    ]
+                  },
+                  "maxItems": 14
+                },
+                "proofs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^/(continuous|reference)/(scope|coverage|coverage_known_at_ns|observations/[0-9]+)$|^/(feed_facts|conversion_facts)/[0-9]+$"
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "role",
+                "status",
+                "reasons",
+                "proofs"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "const": "continuous_feed"
+                },
+                "status": {
+                  "enum": [
+                    "ready",
+                    "unavailable",
+                    "blocked",
+                    "not_applicable"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "incomplete_coverage",
+                      "unknown_availability",
+                      "future_knowledge",
+                      "absent_observation",
+                      "null_price",
+                      "stale_observation",
+                      "mismatch",
+                      "absent_fact",
+                      "unknown",
+                      "stale",
+                      "outage",
+                      "not_live",
+                      "not_scheduled_freeze",
+                      "observed_empty"
+                    ]
+                  },
+                  "maxItems": 14
+                },
+                "proofs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^/(continuous|reference)/(scope|coverage|coverage_known_at_ns|observations/[0-9]+)$|^/(feed_facts|conversion_facts)/[0-9]+$"
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "role",
+                "status",
+                "reasons",
+                "proofs"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "const": "reference_feed"
+                },
+                "status": {
+                  "enum": [
+                    "ready",
+                    "unavailable",
+                    "blocked",
+                    "not_applicable"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "incomplete_coverage",
+                      "unknown_availability",
+                      "future_knowledge",
+                      "absent_observation",
+                      "null_price",
+                      "stale_observation",
+                      "mismatch",
+                      "absent_fact",
+                      "unknown",
+                      "stale",
+                      "outage",
+                      "not_live",
+                      "not_scheduled_freeze",
+                      "observed_empty"
+                    ]
+                  },
+                  "maxItems": 14
+                },
+                "proofs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^/(continuous|reference)/(scope|coverage|coverage_known_at_ns|observations/[0-9]+)$|^/(feed_facts|conversion_facts)/[0-9]+$"
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "role",
+                "status",
+                "reasons",
+                "proofs"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "const": "conversion"
+                },
+                "status": {
+                  "enum": [
+                    "ready",
+                    "unavailable",
+                    "blocked",
+                    "not_applicable"
+                  ]
+                },
+                "reasons": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "incomplete_coverage",
+                      "unknown_availability",
+                      "future_knowledge",
+                      "absent_observation",
+                      "null_price",
+                      "stale_observation",
+                      "mismatch",
+                      "absent_fact",
+                      "unknown",
+                      "stale",
+                      "outage",
+                      "not_live",
+                      "not_scheduled_freeze",
+                      "observed_empty"
+                    ]
+                  },
+                  "maxItems": 14
+                },
+                "proofs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^/(continuous|reference)/(scope|coverage|coverage_known_at_ns|observations/[0-9]+)$|^/(feed_facts|conversion_facts)/[0-9]+$"
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "role",
+                "status",
+                "reasons",
+                "proofs"
+              ],
+              "additionalProperties": false
+            }
+          ],
+          "minItems": 7,
+          "maxItems": 7
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "selected": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/selected"
+          },
+          "maxItems": 4097
+        },
+        "top_k": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/witness"
+          },
+          "maxItems": 32
+        },
+        "population_count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "available_at_ns": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ns"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "algorithm_version",
+        "operation",
+        "config_digest",
+        "input_digest",
+        "status",
+        "roles",
+        "metrics",
+        "selected",
+        "top_k",
+        "population_count",
+        "available_at_ns"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "continuous_config"
+        },
+        "schema_version": {
+          "const": "1"
+        },
+        "payload": {
+          "$ref": "#/$defs/config"
+        }
+      },
+      "required": [
+        "kind",
+        "schema_version",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "continuous_input"
+        },
+        "schema_version": {
+          "const": "1"
+        },
+        "payload": {
+          "$ref": "#/$defs/input"
+        }
+      },
+      "required": [
+        "kind",
+        "schema_version",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "continuous_result"
+        },
+        "schema_version": {
+          "const": "1"
+        },
+        "payload": {
+          "$ref": "#/$defs/result"
+        }
+      },
+      "required": [
+        "kind",
+        "schema_version",
+        "payload"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "x-stage": "proposed_normative_schema_before_public_readiness_not_runtime_implemented",
+  "x-semantics": "EQ112 closed-schema and review-resolutions documents define cross-field causal/ordering/canonical/arithmetic rules and typed error classification. JSON schema is structural documentation, not the runtime error dispatcher. Unsupported mode/adjustment profile rejection remains explicit; boolean JSON values are not integers.",
+  "x-encoded-byte-limits": {
+    "config": 65536,
+    "input": 16777216,
+    "result": 1048576
+  },
+  "x-raw-only-profile": "Initial new capability admits exactly raw/raw-v1/none/none; old core adjusted support unchanged.",
+  "x-canonical": "sorted JSON keys, compact separators, ensure_ascii=True, UTF8/ASCII bytes, no newline; duplicate keys/NaN/Infinity/trailing text refused; rational payload already reduced/zero0/1. No floating numbers in new schema."
+}

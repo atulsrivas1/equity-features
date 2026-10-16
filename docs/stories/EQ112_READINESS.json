@@ -1,0 +1,66 @@
+{
+  "story": 214,
+  "epic": 212,
+  "milestone": 13,
+  "points": 5,
+  "stage": "Backlog; preparation only until EQ111 accepted and final public packet reviewed",
+  "depends_on": [
+    {
+      "story": "EQ111",
+      "issue": 213
+    },
+    {
+      "story": "EQ006",
+      "issue": 7
+    },
+    {
+      "story": "EQ033",
+      "issue": 38
+    }
+  ],
+  "package_proposed": "equity-feature-continuous0.1.0a1",
+  "old_contracts_version": "0.0.4a4",
+  "old_features_version": "0.0.4a4",
+  "implementation_story": 215,
+  "kernel_story": 216,
+  "installed_qualification_story": 217,
+  "product_code_changes": 0,
+  "product_tests_executed": 0,
+  "operation_fixtures": 97,
+  "rational_constructor_boundaries": 6,
+  "large_rational_arithmetic_controls": 1,
+  "codec_controls": 3,
+  "structural_preparation_envelopes_checked": 189,
+  "readiness_approved": false,
+  "accepted": false,
+  "source_map": {
+    "EQ112_DECISIONS.md": "9432b46e0e3729992ae673efba3ddf880b9277ba35c6231c0ace59ac7db3c3ae",
+    "EQ112_FIXTURES.json": "d9cdf3c4ad10c94161937e2275466b153e6ce362643321ca8336b4da34984bee",
+    "EQ112_MATHEMATICS.md": "fadd26d03f20545032d3d2a2e108dbf699a03dd4714c997deb2ed8f7b49cabec",
+    "EQ112_PLAN.md": "e3189310959c4a52497e98290877fbfd315c716aa328d70adf36eceb93983d01",
+    "EQ112_SCHEMAS.json": "1b931b3a180d955fb0e21d7d2d0d114b8d793849ad004c292e16b3ad73cbec63"
+  },
+  "prior_review_reports": {
+    "eq112-preparation-critique.json": "e5b5dc221876e1c051134be08f2ef38fcdc1b5b9a1ef4942c7a0b337a791dca4",
+    "eq112-v2-preparation-critique.json": "4d9204b8268df8bc77f32c56a66a0a2ea4f6853bb349e91e89ca5e9e7fe7bd86",
+    "eq112-literal-preparation-critique.json": "5e6c9265d59a1de8274e7b4309258229670e11dc24285e26631f20d36765a29d",
+    "eq112-complete-fixtures-preparation-critique.json": "a09bff415dfab3f228530334b970c57b43a9d986b80496be3cf66452f3cb7fa3",
+    "eq112-targeted-role-corrections-reviewer-report.json": "468b0f16b3da243b6d8b0fc417b3ecfbdd698a2991ef3e6fe9125896adc4a93e",
+    "eq112-prepared-readiness-reviewer-report.json": "4488ef55413f62dd652780a83946ca592aa3234e5b1c4244396e17569a655eb6"
+  },
+  "history": [
+    "Numeric and causal questions were resolved through bounded independently reviewed literal cases, not product execution.",
+    "Initial fixed draft fixture generators stopped with a path-tuple KeyError before writing output; corrected materialization and old drafts retained. No accepted product run failed from these tools.",
+    "Optional jsonschema data-tool library absent; no install attempted. Finite explicit schema subset checker passed165positive/quality config/input/result envelopes, not a product codec or kernel qualification.",
+    "Nonraw adjustment admission proposal superseded by explicit raw-only unsupported_adjustment rule; old core support unchanged.",
+    "Two empty-role readiness contradictions corrected in the independent literal projection and confirmed in targeted review.",
+    "Readiness preparer initially used story digits as issue numbers for EQ006/EQ033; corrected against saved actual dependency identities before publication/readiness review.",
+    "Full prepared review4488 identified basis no-known candidate classification, operation fields, mojibake and digest final-LF admission. Explicit tables/95operation controls and length64 schema corrected before public readiness; old six-file packet and report preserved. Renewed validation/public review remain pending.",
+    "ExistingDEV Draft202012 tool validated the corrected schema and189positive/quality envelopes, with no product imports/install. Reused tool-result metadata filename now records189; prior165count remains in separate finite-subset receipt and independent review, not relabeled. Future tool receipts use content-addressed names."
+  ],
+  "limits": [
+    "Independent golden hashes use stdlib canonical JSON/SHA256, not future production serializers.",
+    "Logical bounds are not whole-process physical memory or deadline guarantees.",
+    "No new package/schema runtime, worker/MCP wiring, provider data/rights/hosting/registry/admin/spending/trading or R13 work."
+  ]
+}
