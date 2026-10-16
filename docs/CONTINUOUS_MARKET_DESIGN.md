@@ -1,3 +1,7 @@
+## Owner selection of R12 — October16,2026
+
+The owner requests a fresh R11 review, R12 handoff and work on original EQ111–115 in this chat. [GOV024#414](https://github.com/atulsrivas1/equity-features/issues/414) prepares the [release](R12_RELEASE_PLAN.md), [tests](R12_TEST_STRATEGY.md), [handoff](R12_AUTONOMOUS_HANDOFF.md) and [first plan](stories/EQ-111_PLAN.md). R11 is [accepted](https://github.com/atulsrivas1/equity-features/issues/195#issuecomment-6214256540); its newly requested independent post-delivery review is pending until attached. Original R12 five stories/31points/dependencies remain, plus3governance points. No runtime story is Ready from this preparation. Required separate R12 review route remains to be settled; existing local grant covers R11 only. No new session, automation, provider/private/paid/trading/hosted/admin/registry or R13 selection. Earlier dated status below is preserved history.
+
 # Continuous-market extensions — revised pre-code direction
 
 Owner-authorized future planning: E16 / R12 / EQ-111–115. Earlier suggested EQ-098–100 and E14 are superseded and must not be reassigned. All stories are Backlog. No calculations or adapter implementations are started by this plan; R2 continues unchanged.

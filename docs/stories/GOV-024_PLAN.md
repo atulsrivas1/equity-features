@@ -1,0 +1,9 @@
+# GOV024 — R11 review and R12 handoff
+
+Three provisional complexity points; planning-only numbered governance under414/E16/milestone13. The owner selected original R12 work after R11 review; no new chat/schedule/scope extension. Original five runtime stories keep31points. Actual governance Backlog→Ready→In progress/Atul precedes writing this packet; runtime stories remain Backlog.
+
+Deliver a fresh independent R11 post-delivery report with actual exact heads/checks/limits/findings/disposition; R12 release/test/handoff and concrete first-story plan; precise selection/review-policy/continuity updates. Current local separate-review grant stops at R11: prepare a concrete draft PR before requesting a review-route decision. No governance merge/Done or runtime Ready without completed permitted independent review and applicable actual final-head/main CI/publication/attribution/readback. A blocking R11 finding must be tracked/disposed before runtime readiness.
+
+Exact expected docs scope: R12 release/test/handoff, EQ111 and GOV024plans, fresh R11 review MD/JSON, current knowledge/handoff/decision/lesson/backlog/design/roadmap and review-policy clarification. No package/runtime/example/test/tool/workflow/version edits in this handoff. Validate all local links, original story/dependency preservation, precise source/type claims, private-text/path exclusion, complete non-doc input invariance, GitLF/UTF8 and Atul/no-coauthor attribution. Do not run irrelevant native release cohorts for docs-only planning.
+
+Same-story final journal/issue acceptance will bind actual source/reviewer/checks/main readback and linked handoff. Complete all lifecycle stages only as their evidence exists. GOV024is an additional explicit milestone member, not a sixth runtime feature; full R12 closure remains future until all5originalstories +governance andepicDone/zeroopen.

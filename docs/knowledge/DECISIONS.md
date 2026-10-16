@@ -1,3 +1,7 @@
+## Owner selects original R12 after R11 delivery — October16,2026
+
+R12 preparation/execution is selected via [GOV024#414](https://github.com/atulsrivas1/equity-features/issues/414), preserving original EQ111–115/31points and accepted releases. Reuse finite SessionSpec where probes demonstrate sufficiency; EQ111gap evidence and EQ112frozen mathematics precede any new contract/kernel. [Release](../R12_RELEASE_PLAN.md), [handoff](../R12_AUTONOMOUS_HANDOFF.md). A fresh R11 review and exact R12 separate-review route remain preparation gates. No new runtime, market/provider/operational or later-release scope is inferred. Earlier unselected-R12 notes remain history.
+
 ## EQ107 validate requests before classifying history — October15,2026
 
 Freeze exact public result constructors and proposal/base agreement before runtime Ready. A valid event can still be an invalid next append for a supplied checkpoint; do not classify it absent or found. Directly constructed status records establish structural consistency only. [Corrected contract](../stories/EQ-107_CONTRACT.md), [review disposition](../stories/EQ-107_VALIDATION.json). No product test or completed readiness is inferred.
