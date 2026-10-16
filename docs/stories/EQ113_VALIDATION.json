@@ -5,7 +5,7 @@
   "public_precode_head": "0c1be7fbd34250fa178f799805066e2316c8ac7f",
   "accepted_base": "dff060d7f426d7c09e4e90424dc862631df7350f",
   "ordinary_source_methods": 19,
-  "archive_policy_methods": 5,
+  "archive_policy_methods": 8,
   "production_codec_digest_records": {
     "config": 87,
     "input": 67,
@@ -14,7 +14,7 @@
   },
   "independent_math_data_digests": 263,
   "strict_source_files": 4,
-  "actual_build_install_executed": false,
+  "actual_build_install_executed": true,
   "kernels_executed": false,
   "history": [
     "Initial13source methods passed; additional two compound/callback methods exposed3failures. Exactfailedsource andlog retained. Corrected15methods passed.",
@@ -22,12 +22,33 @@
     "Independent initial14mapreview719bb2 changesrequested SRC01trimmedlabels/SRC02selectedcap-order-cardinality/SRC03nestedrolecallback; earlier15pass didnotcoverthese.",
     "Renewed review29dd resolvedSRC01SRC03 but retainedSRC02-R1 unavailablefreeze nullpopulation; corrected mandatorycount with direct/decode/revalidation negatives.",
     "New sharedcontinuous checker initially rejected scalarvariabletime and Rational postinit literalsetattr. Narrow structural adjustments admitonly scalar time names and owneddeclaredliteralfields in initializers; imports/clockattributes/dynamicsetattr staydenied.17negative6positive andalloldpolicyfixturespassed.",
-    "Two read-only guessedpath reads failed; actual files then inventoried; no product failure orwrites."
+    "Two read-only guessedpath reads failed; actual files then inventoried; no product failure orwrites.",
+    "Initial build-source review98d found raw ZIP orig_filename NUL truncation, missing normative/public guides and incomplete whole-tree identity map; corrected and reviewed23229 before first build.",
+    "Actual79a first authorbuild FAILED SDist directorypolicy beforefreshinstalls. DeletedfailedrawSDist mode unwitnessed; independentWindowsdirectory777 and pinnedgenerator source supported narrowWindowsancestor-only adjustment a66. Failedoutput/log25a6 preserved.",
+    "Actual9bd corrective authorbuild produced sixrepeat-equal archives then FAILED selectedcontracts SDist-allbyteguard beforefreshinstalls. Pinnedsetuptools source plus retainedinput supported exact SOURCES.txt addsetupcfg/sort/UTF8LF/noendingLF inference b5e; originaldeletedafterstate notdirectlyread. Correctionbfd permits onlythisgeneratedtransition, allotherselectedbytes/wholewheelparityrequired. Failedoutput/logb554 preserved.",
+    "Third exact5a authorbuild completedexit0 with four freshforms. No reviewerindependentreinstall, Linux/currentCI/default-main proof inferred. Finaldocs and3additionalguideSCOPES are futureeffectiveinputs for currentCI, not relabeledasexecuted5a.",
+    "Initial externalartifact proof reviewa8ec found loose installedmap andtypingdiagnostic checks; corrected482884 reconciles full emittedmaps/exact6diagnostics, explicitly distinguishes actualCIhelper rawRECORD/directURLparse from externalmapreadback.",
+    "Final cumulative working reviewcf592 found DOC01 revieweridentity visibility; added actualthree localagent identities/scopes/limits and nohuman/hostedclaim; renewedexactreview remainsbeforepublication.",
+    "Lifecycle source reviewfca caught LIFE01 Testtransition preceding toolselfbinding BEFOREanyexecution. Moved approvedreviewdisposition/findings/bothsourceSHAs before everyTestmutation; corrected4303/668 source reviewed9028 with7inertcontrols. No lifecyclemutationoractualruntimefailure inferred."
   ],
   "reviews": {
     "eq113-data-codec-reviewer-report.json": "719bb2e14a1cf1319009cd10de9f324a68e0b0695175e7c37a9e255d8465f46b",
     "eq113-data-codec-corrected-reviewer-report.json": "29dd0c6c11c42c9026a68749052bffcd099390297c093fc5ca0a1287a63b2c71",
-    "eq113-data-codec-final-reviewer-report.json": "a4c9bc376fcbad87a66c95bdf93ba72b39ad736a00c9fcc3ad5b75033f5b7eb3"
+    "eq113-data-codec-final-reviewer-report.json": "a4c9bc376fcbad87a66c95bdf93ba72b39ad736a00c9fcc3ad5b75033f5b7eb3",
+    "eq113-build-source-reviewer-report.json": "98d110cd4b7e122f990e2aee768001e04688c411234faa5c2c28c7e5ed310af1",
+    "eq113-build-corrected-source-reviewer-report.json": "23229a3d1d6233a6634b177bf31170c8b574441d17e9a10adf99f2113a47ad86",
+    "eq113-platform-mode-reviewer-report.json": "a66c2842e2785c87df6fb0211199c0fc43292d9ed710df7b7646d300f3e7a930",
+    "eq113-build-retry-source-reviewer-report.json": "42f04748a724598b6d6c0719106936e21c0df00320d88d168226616ed3ef1dc8",
+    "eq113-sdist-manifest-failure-reviewer-report.json": "b5e28db1d46485ba2ec648302a794cbf319cb73bf09060d70f2502c29e0828f6",
+    "eq113-sdist-manifest-source-reviewer-report.json": "bfd892e181532e5373f34f8bf67d7fa03017090c5a6d8d19ecd09c7b54654f8a",
+    "eq113-ci-gate-reviewer-report.json": "bd5ea2a3f8e50529048b6478a856d454a451709ea0e0636712c0cd2af49a853b",
+    "eq113-delivery-proof-tools-reviewer-report.json": "a8ec7c83f6ff1ee2d97f055b30d2fbcec9eb82be1801747544574cdbe37cc143",
+    "eq113-delivery-proof-corrected-tools-reviewer-report.json": "482884ce222dfd83ef13688c8308b4b5a80c7832265ffb64fa9a26bcefeb7c9c",
+    "eq113-author-execution-reviewer-report.json": "4448c84c6c48308fa3a08a5879a3de0542d8a64a850015a8b2647335923da46c",
+    "eq113-final-proof-tools-reviewer-report.json": "392db102e47852163edf5a5c89282881da9d396439664e665be0031388e88c07",
+    "eq113-lifecycle-tools-reviewer-report.json": "fca997b8ac59b786b3ffae9ecc13d0560fab08cb50199c720878bf30f4b31ea9",
+    "eq113-lifecycle-corrected-tools-reviewer-report.json": "90283e682a44106c196cdd5e79452e1dc8404153a008fa40daa49936ab960d15",
+    "eq113-working-reviewer-report.json": "cf592a1c5fe5ad072c2e3938f39784057f346f48f2414f1cfb01859d5a982915"
   },
   "logs": {
     "eq113-final-source-author.log": "ae9bb318f260c7f5738566919e6781f7d72cc932f720c66e62bce5875f9a0055",
@@ -35,5 +56,52 @@
     "eq113-source-contracts-author-adversarial-failed.log": "3c9c930badaee0fd5ced3b241b3729a871d2477d86cc433a875ab7fb53c665e9",
     "eq113-mypy-author-initial.log": "27f67573a96ec1c03b29968a6f5210961dcc30e0f3deae84c49031718dc9787e"
   },
-  "data_codec_source_disposition": "approved exact final14filefreeze b25aaf1e;19methods strict4files 26independentcontrols; no builder/install"
+  "data_codec_source_disposition": "approved exact final14filefreeze b25aaf1e;19methods strict4files 26independentcontrols; no builder/install",
+  "qualification_completed_windows": true,
+  "formal_bothOS_currentCI_main_pending": true,
+  "author_source_commit": "5a154567562e7806ed00876f5f1ef45df1238c5e",
+  "author_qualification_sha256": "da7ebb9cbb610731adee64ab0154989c06c6f7062553b0225cb408a90f967302",
+  "author_raw_log_sha256": "86608cd4ea5ecd943b41b11377c04537382e0acff89e2929b5c6b1762195814a",
+  "author_forms": [
+    "light-wheel",
+    "light-sdist",
+    "combined-wheel",
+    "combined-sdist"
+  ],
+  "author_methods_per_form": 27,
+  "author_core_methods_before_after_each_combined": 16,
+  "failed_qualification_records": {
+    "eq113-first-build-failure.json": "c69d862a606f9da4589f738d908d981f83ccfd391fe149f82a8ce1d004ae1950",
+    "eq113-corrective-build-failure.json": "0c7a3597082ad5818a19857f64c549ecff50fa38703025a684cc71e6c7891116"
+  },
+  "author_execution_review_scope": "Read-only sixarchives/145entries/1044whole-tree/92selectedpins/fourcapturedforms/actualrawlog; notindependentreinstall/Linux/currentCI/main.",
+  "review_identities": [
+    {
+      "reviewer": "/root/r9_plan_review",
+      "kind": "separate local automated Codex agent",
+      "scope": "14-file data/model/codec source;19 source methods/strict4files/26corrective controls; cumulative36-path working source/docs review",
+      "limits": "Source tests in existing developer environment; no reviewer builder/install/native/API/currentCI/main execution; final public/main review still required.",
+      "source_approval_sha256": "a4c9bc376fcbad87a66c95bdf93ba72b39ad736a00c9fcc3ad5b75033f5b7eb3",
+      "initial_working_report_sha256": "cf592a1c5fe5ad072c2e3938f39784057f346f48f2414f1cfb01859d5a982915",
+      "finding": "DOC01 missing reviewer identity metadata; corrected by these explicit identities/scopes/limits, renewed review pending"
+    },
+    {
+      "reviewer": "/root/r10_review",
+      "kind": "separate local automated Codex agent",
+      "scope": "Builder/archive/static entry source, exact generatedSDist manifest correction and read-only actual authorWindows qualification audit; lifecycle controller7inertguard checks",
+      "limits": "No reviewer build/install/native/API or independent reinstallation; captured installed RECORD/directURL maps reflect actual reviewed author helper, not independent private-file reparse. New3guides not executed5a inputs.",
+      "builder_source_approval_sha256": "bfd892e181532e5373f34f8bf67d7fa03017090c5a6d8d19ecd09c7b54654f8a",
+      "author_execution_audit_sha256": "4448c84c6c48308fa3a08a5879a3de0542d8a64a850015a8b2647335923da46c",
+      "lifecycle_approval_sha256": "90283e682a44106c196cdd5e79452e1dc8404153a008fa40daa49936ab960d15"
+    },
+    {
+      "reviewer": "/root/r9_independent_audit",
+      "kind": "separate local automated Codex agent",
+      "scope": "CI gate54candidate27main/42inertcontrols; externalproofreadback38inertcontrols plus6literalguide-source membershipcontrols",
+      "limits": "No liveAPI/download/product/build/install/statusmutation. Actual futureCI/artifacts are not established by inert fixtures. External emittedinstalled-map reconciliation is distinct from reviewedCIhelper actualrawRECORD/directURL parse and independentreinstall.",
+      "CI_gate_approval_sha256": "bd5ea2a3f8e50529048b6478a856d454a451709ea0e0636712c0cd2af49a853b",
+      "final_readback_tool_approval_sha256": "392db102e47852163edf5a5c89282881da9d396439664e665be0031388e88c07"
+    }
+  ],
+  "human_or_hosted_review_claimed": false
 }

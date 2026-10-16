@@ -2,7 +2,7 @@
 
 EQ113 introduces the opt-in `equity-feature-continuous==0.1.0a1` distribution.
 It depends only on `equity-feature-contracts==0.0.4a4` and Python's standard
-library. Build/install qualification is still pending in this working change.
+library. Author Windows/CPython3.12.10 four-form qualification passed at5a154567; current bothOS CI, actual artifact and default-branch delivery gates remain.
 The original contracts/features distributions, 39 feature IDs and schema remain
 unchanged. Calculation entry points and six new registry IDs belong to EQ114.
 

@@ -27,6 +27,7 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'docs/stories/EQ113_ADMISSION_FIXTURES.json','docs/CONTINUOUS_API.md',
     'docs/api/CONTINUOUS_RESEARCH.md','docs/features/CROSS_VENUE_FORMULAS.md',
     'docs/stories/EQ113_VALIDATION.json','README.md','docs/CHANGELOG.md',
+    'docs/CONTINUOUS_MARKET_DESIGN.md','docs/COMPATIBILITY.md','docs/BUILD_DELIVERY.md',
     'docs/PROJECT_KNOWLEDGE.md','docs/SESSION_HANDOFF.md','docs/knowledge/LESSONS.md',
     'examples/typing/continuous_positive.py','examples/typing/continuous_negative.py',
     'examples/typing/continuous_negative_expected.json',
