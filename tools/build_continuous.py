@@ -43,7 +43,7 @@ def output(*args,cwd=ROOT,env=None):
 
 def typing(py,verification,cwd):
     example=verification/'examples/typing'
-    command=[py,'-I','-B','-m','mypy','--strict','--no-incremental','--show-error-codes',
+    command=[py,'-I','-B','-m','mypy','--strict','--no-incremental','--show-error-codes','--no-warn-unused-configs',
              '--no-error-summary','--config-file',verification/'mypy.ini']
     positive=output(*command,example/'continuous_positive.py',cwd=cwd)
     expected=json.loads((example/'continuous_negative_expected.json').read_bytes())
@@ -140,10 +140,19 @@ def main():
                 for relative,body in source.items():
                     target=directory/relative;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(body)
                 run(sys.executable,'-I','-B','-m','build','--no-isolation','--outdir',dest,directory,env=env)
+                assert all((directory/relative).read_bytes()==body for relative,body in source.items()), 'build changed source input'
                 for suffix in ('.whl','.tar.gz'):
                     artifact=dest/(module+'-'+version+('-py3-none-any.whl' if suffix=='.whl' else suffix))
                     # Inspect generator output before normalization can erase modes.
-                    files,receipt=inspect(artifact,source,module)
+                    try:
+                        files,receipt=inspect(artifact,source,module)
+                    except BaseException:
+                        # Preserve rejected bytes as opaque failure evidence;
+                        # they are never extracted or relabeled qualified.
+                        shutil.copyfile(artifact,OUT/('FAILED_UNVERIFIED-'+artifact.name))
+                        report.update(status='failed',failed_archive=artifact.name)
+                        save()
+                        raise
                     if suffix=='.tar.gz':normalize(artifact);files,receipt=inspect(artifact,source,module)
                     if repeat==0:
                         report['artifacts'][artifact.name]=receipt
@@ -160,6 +169,7 @@ def main():
             assert {prefix+p.relative_to(selected).as_posix():p.read_bytes() for p in selected.rglob('*') if p.is_file()}==files
             dest=owned/('rebuilt-'+name);dest.mkdir()
             run(sys.executable,'-I','-B','-m','build','--wheel','--no-isolation','--outdir',dest,selected,env=env)
+            assert all((selected/relative.removeprefix(prefix)).read_bytes()==body for relative,body in files.items()), 'SDist rebuild changed selected input'
             wheel=dest/(module+'-'+version+'-py3-none-any.whl')
             actual,rebuilt_receipt=inspect(wheel,source_maps[name],module)
             assert actual==wheel_files[name], 'selected SDist rebuilt wheel differs'

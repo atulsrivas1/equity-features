@@ -39,7 +39,8 @@ def raw_files(path, expected_files):
         assert name not in seen and name.casefold() not in folded, 'duplicate/case collision'
         seen.add(name);folded.add(name.casefold())
         if directory:
-            assert path.suffix!='.whl' and name in ancestors and mode in (0o755,0o775), 'unexpected directory'
+            directory_modes=(0o755,0o775,0o777) if os.name=='nt' else (0o755,0o775)
+            assert path.suffix!='.whl' and name in ancestors and mode in directory_modes, ('unexpected directory',name,oct(mode))
             directories.add(name)
         else:
             assert name in expected_files and not mode & 0o7111, 'unexpected/executable file'

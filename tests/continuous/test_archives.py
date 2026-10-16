@@ -172,5 +172,19 @@ class ClosedArchives(unittest.TestCase):
                 self.assertEqual(item.filename,name)
             with self.assertRaises(AssertionError):POLICY.inspect(path,SOURCE,MODULE)
 
+    def test_selected_platform_directory_mode_without_widening_file_modes(self):
+        with tempfile.TemporaryDirectory(prefix='continuous-archive-directory-mode-') as directory:
+            path=self.write(Path(directory),'sdist',sdist_files())
+            with tarfile.open(path,'r:gz') as archive:
+                members=[(item,archive.extractfile(item).read() if item.isfile() else None) for item in archive]
+            with tarfile.open(path,'w:gz') as archive:
+                for item,body in members:
+                    if item.isdir():item.mode=0o777
+                    archive.addfile(item,io.BytesIO(body) if body is not None else None)
+            if os.name=='nt':POLICY.inspect(path,SOURCE,MODULE)
+            else:
+                with self.assertRaises(AssertionError):POLICY.inspect(path,SOURCE,MODULE)
+        self.reject('sdist',sdist_files(),mode=0o777)
+
 
 if __name__=='__main__':unittest.main()
