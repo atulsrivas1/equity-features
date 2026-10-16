@@ -1,0 +1,655 @@
+{
+  "status": "independent_precode_literal_vectors_not_SQLite_or_product_execution",
+  "checkpoint_wire_refusals": [
+    {
+      "id": "negative_sequence",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a2d317d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "overflow_sequence",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a343039377d",
+      "expected": "limit_exceeded"
+    },
+    {
+      "id": "bool_sequence",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a747275657d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "float_sequence",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a312e307d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "bad_chain",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "long_chain",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a22616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d",
+      "expected": "limit_exceeded"
+    },
+    {
+      "id": "uppercase_hash",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2241414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "short_hash",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a22303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "bad_genesis",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2266666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "domain",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226f74686572222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "version",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2232222c2273657175656e6365223a307d",
+      "expected": "unsupported_version"
+    },
+    {
+      "id": "canonicalization",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a2232222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d",
+      "expected": "unsupported_version"
+    },
+    {
+      "id": "duplicate_key",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a302c2273657175656e6365223a307d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "unknown_key",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c226578747261223a6e756c6c2c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "whitespace",
+      "wire_hex": "207b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "trailing_value",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a307d6e756c6c",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "not_object",
+      "wire_hex": "5b5d",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "invalid_utf8",
+      "wire_hex": "ff",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "wire_cap",
+      "wire_hex": "7878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878787878",
+      "expected": "limit_exceeded"
+    },
+    {
+      "id": "version_precedes_sequence",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2232222c2273657175656e6365223a747275657d",
+      "expected": "unsupported_version"
+    },
+    {
+      "id": "unknown_key_precedes_version",
+      "wire_hex": "7b2263616e6f6e6963616c697a6174696f6e223a226167656e742d636865636b706f696e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d636865636b706f696e74222c226578747261223a6e756c6c2c22686561645f68617368223a2230303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030222c22736368656d615f76657273696f6e223a2232222c2273657175656e6365223a307d",
+      "expected": "invalid_schema"
+    }
+  ],
+  "stored_mutations": [
+    {
+      "id": "changed_event_old_digest",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "UPDATE events SET canonical=?,byte_length=? WHERE sequence=4"
+      ],
+      "parameters": [
+        {
+          "blob_hex": "7b226163746f72223a7b226163746f725f6964223a2273796e7468657469633a6f74686572222c226b696e64223a22736f667477617265227d2c2263616e6f6e6963616c697a6174696f6e223a226167656e742d6576656e742d6a736f6e2d7631222c22636861696e5f6964223a2264656d6f3a636861696e222c22646f6d61696e223a226571756974792d666561747572652e6167656e742d6576656e74222c226576656e745f6964223a2264656d6f3a726573756c74222c226f63637572726564223a7b2261745f6e73223a6e756c6c2c22636c6f636b5f736f75726365223a6e756c6c2c22756e6365727461696e74795f6e73223a6e756c6c7d2c2270726576696f75735f68617368223a2262353135623562333839613337376365626261313963633566653239323635613334346530616165316436666131633238383638346631386661353633356462222c227265636f72646564223a7b2261745f6e73223a3130302c22636c6f636b5f736f75726365223a226465636c61726564222c22756e6365727461696e74795f6e73223a307d2c22736368656d615f76657273696f6e223a2231222c2273657175656e6365223a342c227375626a656374223a7b2263616c6c223a7b22636861696e5f6964223a2264656d6f3a636861696e222c22646967657374223a2262353135623562333839613337376365626261313963633566653239323635613334346530616165316436666131633238383638346631386661353633356462222c226576656e745f6964223a2264656d6f3a63616c6c222c226b696e64223a22746f6f6c5f63616c6c222c2273657175656e6365223a337d2c226b696e64223a22746f6f6c5f726573756c74222c226f7574636f6d65223a22737563636565646564222c227061796c6f6164223a7b22646967657374223a2230393931396135353938623365633436343364633561643032653166343262346562643336626465376466333931623330353739393361326436386435666463222c2266756c6c5f6279746573223a31362c226b696e64223a22746f6f6c5f726573756c74222c2272657461696e65645f6279746573223a31362c227374617465223a2272657461696e65645f636f6d706c657465227d7d7d"
+        },
+        833
+      ],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "changed_digest",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "UPDATE events SET digest='ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff' WHERE sequence=4"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "changed_mirror_kind",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "UPDATE events SET kind='error' WHERE sequence=4"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "changed_mirror_previous",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "UPDATE events SET previous_hash='ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff' WHERE sequence=4"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "missing_middle",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "DELETE FROM events WHERE sequence=4"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "reordered_sequence",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "UPDATE events SET sequence=100 WHERE sequence=4"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "changed_row_size",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "PRAGMA ignore_check_constraints=ON",
+        "UPDATE events SET byte_length=byte_length+1 WHERE sequence=4",
+        "PRAGMA ignore_check_constraints=OFF"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "changed_count",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "UPDATE metadata SET event_count=11 WHERE singleton=1"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "changed_byte_count",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "UPDATE metadata SET canonical_bytes=canonical_bytes+1 WHERE singleton=1"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "changed_head",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "UPDATE metadata SET head_hash='ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff' WHERE singleton=1"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "extra_table",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "CREATE TABLE unexpected (x INTEGER)"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "extra_index",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "CREATE INDEX unexpected ON events(kind)"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "extra_trigger",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "CREATE TRIGGER unexpected AFTER INSERT ON events BEGIN SELECT 1; END"
+      ],
+      "parameters": [],
+      "expected_open": "inconsistent_chain",
+      "expected_anchor": null
+    },
+    {
+      "id": "unsupported_version",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "PRAGMA user_version=2"
+      ],
+      "parameters": [],
+      "expected_open": "unsupported_version",
+      "expected_anchor": null
+    },
+    {
+      "id": "wrong_application",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "PRAGMA application_id=0"
+      ],
+      "parameters": [],
+      "expected_open": "unsupported_version",
+      "expected_anchor": null
+    },
+    {
+      "id": "unsupported_WAL",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "PRAGMA journal_mode=WAL"
+      ],
+      "parameters": [],
+      "expected_open": "unsupported_version",
+      "expected_anchor": null
+    },
+    {
+      "id": "valid_shortened_prefix",
+      "initial_prefix": 12,
+      "fixed_setup_sql": [
+        "DELETE FROM events WHERE sequence=12",
+        "UPDATE metadata SET event_count=11,head_hash=?,canonical_bytes=? WHERE singleton=1"
+      ],
+      "parameters": [
+        "dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa",
+        8807
+      ],
+      "expected_open": "valid",
+      "expected_anchor": "not_covered"
+    }
+  ],
+  "valid_replacement": {
+    "records": [
+      {
+        "sequence": 1,
+        "event_id": "demo:request",
+        "kind": "request",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+        "sha256": "80ae868b5910b7aae78c2213ff3e3997339ded6464a3139456ab2e2422d286ed",
+        "bytes": 534
+      },
+      {
+        "sequence": 2,
+        "event_id": "demo:model",
+        "kind": "model_declaration",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"80ae868b5910b7aae78c2213ff3e3997339ded6464a3139456ab2e2422d286ed\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":2,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+        "sha256": "2943c67bd52cab6f290c74ad024de60adba86cee5584f056c7e146af01fbc694",
+        "bytes": 562
+      },
+      {
+        "sequence": 3,
+        "event_id": "demo:call",
+        "kind": "tool_call",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:call\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"2943c67bd52cab6f290c74ad024de60adba86cee5584f056c7e146af01fbc694\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":3,\"subject\":{\"arguments\":{\"entries\":[{\"name\":\"command\",\"value\":{\"kind\":\"text\",\"value\":\"trades\"}},{\"name\":\"request_key\",\"value\":{\"kind\":\"text\",\"value\":\"r1\"}}],\"state\":\"retained_complete\",\"total_count\":2},\"kind\":\"tool_call\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"80ae868b5910b7aae78c2213ff3e3997339ded6464a3139456ab2e2422d286ed\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1},\"tool_name\":\"calculate\",\"tool_version\":\"mcp-2025-11-25\"}}",
+        "sha256": "944dbcc4eac8a0adb9676593f249ca98dc468d026ede46e57d0e4044d63b63a1",
+        "bytes": 890
+      },
+      {
+        "sequence": 4,
+        "event_id": "demo:result",
+        "kind": "tool_result",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:result\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"944dbcc4eac8a0adb9676593f249ca98dc468d026ede46e57d0e4044d63b63a1\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":4,\"subject\":{\"call\":{\"chain_id\":\"demo:chain\",\"digest\":\"944dbcc4eac8a0adb9676593f249ca98dc468d026ede46e57d0e4044d63b63a1\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3},\"kind\":\"tool_result\",\"outcome\":\"succeeded\",\"payload\":{\"digest\":\"09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc\",\"full_bytes\":16,\"kind\":\"tool_result\",\"retained_bytes\":16,\"state\":\"retained_complete\"}}}",
+        "sha256": "5e362ea0da67917b86cbf42b35a42a0346f99a05915726155ddbf1a86eb95705",
+        "bytes": 839
+      },
+      {
+        "sequence": 5,
+        "event_id": "demo:read",
+        "kind": "feature_read",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"5e362ea0da67917b86cbf42b35a42a0346f99a05915726155ddbf1a86eb95705\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"5e362ea0da67917b86cbf42b35a42a0346f99a05915726155ddbf1a86eb95705\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+        "sha256": "83fb66a87c6e7ac5404c49dd91094a4ef78b1d7d308a4cc47bbc1cb3da020e90",
+        "bytes": 1667
+      },
+      {
+        "sequence": 6,
+        "event_id": "demo:decision",
+        "kind": "decision",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"83fb66a87c6e7ac5404c49dd91094a4ef78b1d7d308a4cc47bbc1cb3da020e90\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"83fb66a87c6e7ac5404c49dd91094a4ef78b1d7d308a4cc47bbc1cb3da020e90\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"80ae868b5910b7aae78c2213ff3e3997339ded6464a3139456ab2e2422d286ed\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+        "sha256": "e1ebda0e70d2fd313d3719ed7437d00341ffb55de3bacfd960f0491588500c60",
+        "bytes": 874
+      },
+      {
+        "sequence": 7,
+        "event_id": "demo:review",
+        "kind": "human_review",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"e1ebda0e70d2fd313d3719ed7437d00341ffb55de3bacfd960f0491588500c60\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"e1ebda0e70d2fd313d3719ed7437d00341ffb55de3bacfd960f0491588500c60\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+        "sha256": "d708f082fcc1adf1b515bb48b082f51a5caaea8165558f2a86f7a4c7ddb79c30",
+        "bytes": 705
+      },
+      {
+        "sequence": 8,
+        "event_id": "demo:cancel",
+        "kind": "cancellation",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"d708f082fcc1adf1b515bb48b082f51a5caaea8165558f2a86f7a4c7ddb79c30\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"944dbcc4eac8a0adb9676593f249ca98dc468d026ede46e57d0e4044d63b63a1\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}",
+        "sha256": "ffd8e06a2e54c814fcd32b17fd00b11b383b5cca39e09c44624dc027d3b71110",
+        "bytes": 668
+      },
+      {
+        "sequence": 9,
+        "event_id": "demo:error",
+        "kind": "error",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:error\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"ffd8e06a2e54c814fcd32b17fd00b11b383b5cca39e09c44624dc027d3b71110\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":9,\"subject\":{\"code\":\"unavailable\",\"kind\":\"error\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"5e362ea0da67917b86cbf42b35a42a0346f99a05915726155ddbf1a86eb95705\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+        "sha256": "b4f1fc1c1027e156a2efca87bcfbe15890f137f81f1fcdb8ca8981d3afdecab9",
+        "bytes": 664
+      },
+      {
+        "sequence": 10,
+        "event_id": "demo:revoke",
+        "kind": "correction",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:revoke\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b4f1fc1c1027e156a2efca87bcfbe15890f137f81f1fcdb8ca8981d3afdecab9\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":10,\"subject\":{\"kind\":\"correction\",\"operation\":\"revoke\",\"reason_code\":\"review_withdrawn\",\"replacement\":null,\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"d708f082fcc1adf1b515bb48b082f51a5caaea8165558f2a86f7a4c7ddb79c30\",\"event_id\":\"demo:review\",\"kind\":\"human_review\",\"sequence\":7}}}",
+        "sha256": "c62d54133946bfd2b727d21cc315f945ffc1901cb0fadb6e241bdeb9a490536f",
+        "bytes": 724
+      },
+      {
+        "sequence": 11,
+        "event_id": "demo:replacement",
+        "kind": "decision",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:replacement\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"c62d54133946bfd2b727d21cc315f945ffc1901cb0fadb6e241bdeb9a490536f\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":11,\"subject\":{\"action\":\"reject\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"83fb66a87c6e7ac5404c49dd91094a4ef78b1d7d308a4cc47bbc1cb3da020e90\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt_strict\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"80ae868b5910b7aae78c2213ff3e3997339ded6464a3139456ab2e2422d286ed\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+        "sha256": "f71c1b7635b51be314296c63f34bfdef81c734122b9ae4412026c3e5b16992a2",
+        "bytes": 886
+      },
+      {
+        "sequence": 12,
+        "event_id": "demo:amend",
+        "kind": "correction",
+        "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic:replacement\",\"kind\":\"software\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:amend\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"f71c1b7635b51be314296c63f34bfdef81c734122b9ae4412026c3e5b16992a2\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":12,\"subject\":{\"kind\":\"correction\",\"operation\":\"amend\",\"reason_code\":\"decision_revision\",\"replacement\":{\"chain_id\":\"demo:chain\",\"digest\":\"f71c1b7635b51be314296c63f34bfdef81c734122b9ae4412026c3e5b16992a2\",\"event_id\":\"demo:replacement\",\"kind\":\"decision\",\"sequence\":11},\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"e1ebda0e70d2fd313d3719ed7437d00341ffb55de3bacfd960f0491588500c60\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6}}}",
+        "sha256": "142e9df166c1e725eea0c20e9b22cf743b5ae2704508a0a5d28d07357711dfcf",
+        "bytes": 880
+      }
+    ],
+    "count": 12,
+    "canonical_bytes": 9893,
+    "head_hash": "142e9df166c1e725eea0c20e9b22cf743b5ae2704508a0a5d28d07357711dfcf",
+    "internal_expected": "valid",
+    "original_expected_anchor": "mismatch"
+  },
+  "append_refusals": [
+    {
+      "id": "wrong_sequence",
+      "initial_prefix": 12,
+      "proposal_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:new_model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":14,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+      "sha256": "b6ac578079eb792877c76fad10a88df5b19d1acde238503d357af8d57aaf0d2a",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "wrong_previous",
+      "initial_prefix": 12,
+      "proposal_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:new_model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":13,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+      "sha256": "5df48c006930d2670834889f6ac339006543c2223c5e353537045a4647ded1c8",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "wrong_chain",
+      "initial_prefix": 12,
+      "proposal_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"other:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:new_model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":13,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+      "sha256": "ef9b7f11c490e54422a4de9f362ec9181cead57466ee829f99c61295504841d2",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "duplicate_ID",
+      "initial_prefix": 12,
+      "proposal_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":13,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+      "sha256": "ee3e110c0e5e8e4f882f24fbbefb864882ad8c3b8e13c9ae35aa174b47c7afef",
+      "expected": "duplicate"
+    },
+    {
+      "id": "missing_ID",
+      "initial_prefix": 12,
+      "proposal_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:new_result\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":13,\"subject\":{\"call\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:missing\",\"kind\":\"tool_call\",\"sequence\":3},\"kind\":\"tool_result\",\"outcome\":\"succeeded\",\"payload\":{\"digest\":\"09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc\",\"full_bytes\":16,\"kind\":\"tool_result\",\"retained_bytes\":16,\"state\":\"retained_complete\"}}}",
+      "sha256": "2479314d5b5bff02b2bf0da011382a85bbdc6b376d1ae55a40db560bd274c952",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "split_identity",
+      "initial_prefix": 12,
+      "proposal_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:new_result\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":13,\"subject\":{\"call\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":5},\"kind\":\"tool_result\",\"outcome\":\"succeeded\",\"payload\":{\"digest\":\"09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc\",\"full_bytes\":16,\"kind\":\"tool_result\",\"retained_bytes\":16,\"state\":\"retained_complete\"}}}",
+      "sha256": "0fa3f5682d20e32d66bbaf8b0808d223105b6978d396c613efc7e43833234296",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "wrong_hash",
+      "initial_prefix": 12,
+      "proposal_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:new_result\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":13,\"subject\":{\"call\":{\"chain_id\":\"demo:chain\",\"digest\":\"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3},\"kind\":\"tool_result\",\"outcome\":\"succeeded\",\"payload\":{\"digest\":\"09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc\",\"full_bytes\":16,\"kind\":\"tool_result\",\"retained_bytes\":16,\"state\":\"retained_complete\"}}}",
+      "sha256": "79817958ded08a66d94749630155c10df7712ca7b41dd97913e512a0f9958fa8",
+      "expected": "inconsistent_reference"
+    }
+  ],
+  "logical_count_series": {
+    "recipe": "count_event: copy retained minimal model template; chain_id cap:records, sequence n, event_id cap:e{n}, null time fields, previous hash threaded from genesis; canonical sorted ASCII JSON/stdlib SHA256",
+    "template": {
+      "actor": {
+        "actor_id": null,
+        "kind": "unknown"
+      },
+      "canonicalization": "agent-event-json-v1",
+      "chain_id": "cap:records",
+      "domain": "equity-feature.agent-event",
+      "event_id": "cap:e1",
+      "occurred": {
+        "at_ns": null,
+        "clock_source": null,
+        "uncertainty_ns": null
+      },
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "recorded": {
+        "at_ns": null,
+        "clock_source": null,
+        "uncertainty_ns": null
+      },
+      "schema_version": "1",
+      "sequence": 1,
+      "subject": {
+        "identity_state": "not_supplied",
+        "kind": "model_declaration",
+        "model": null,
+        "provider": null,
+        "version": null
+      }
+    },
+    "count": 4096,
+    "head_hash": "4a16d660d572f04163737bd7286ce7abdb7e8b71917e8410175bcad0408caf6b",
+    "canonical_bytes": 2217818,
+    "next_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"cap:records\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"cap:e4097\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"4a16d660d572f04163737bd7286ce7abdb7e8b71917e8410175bcad0408caf6b\",\"recorded\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"schema_version\":\"1\",\"sequence\":4097,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+    "next_sha256": "5046f52bf26bf80893095295e9acac379aa542d4bca49f1da66e3579935f4225",
+    "expected_append": "limit_exceeded",
+    "setup": "Insert actual independently generated valid rows and metadata in one private owned-fixture SQLite transaction; product open fully validates before append. No fake quota metadata."
+  },
+  "logical_byte_series": {
+    "recipe": "First request literal, then byte_event: fixed toolcall template, chain_id cap:bytes, sequence n,event_id cap:e{n}, null time fields, same request reference,16a0..a15 text arguments each U+00E9 repeated140; previous hash threaded; sorted ASCII JSON/stdlib SHA256",
+    "first_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"cap:bytes\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"cap:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+    "template": {
+      "actor": {
+        "actor_id": null,
+        "kind": "unknown"
+      },
+      "canonicalization": "agent-event-json-v1",
+      "chain_id": "cap:bytes",
+      "domain": "equity-feature.agent-event",
+      "event_id": "cap:e2",
+      "occurred": {
+        "at_ns": null,
+        "clock_source": null,
+        "uncertainty_ns": null
+      },
+      "previous_hash": "5e8e341994d8f632c12a19fe60f78d8601e76f2e36e4b5d5cf224266decd51e0",
+      "recorded": {
+        "at_ns": null,
+        "clock_source": null,
+        "uncertainty_ns": null
+      },
+      "schema_version": "1",
+      "sequence": 2,
+      "subject": {
+        "arguments": {
+          "state": "retained_complete",
+          "total_count": 16,
+          "entries": [
+            {
+              "name": "a0",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a1",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a2",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a3",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a4",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a5",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a6",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a7",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a8",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a9",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a10",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a11",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a12",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a13",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a14",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            },
+            {
+              "name": "a15",
+              "value": {
+                "kind": "text",
+                "value": "\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9\u00e9"
+              }
+            }
+          ]
+        },
+        "kind": "tool_call",
+        "request": {
+          "chain_id": "cap:bytes",
+          "sequence": 1,
+          "event_id": "cap:request",
+          "kind": "request",
+          "digest": "5e8e341994d8f632c12a19fe60f78d8601e76f2e36e4b5d5cf224266decd51e0"
+        },
+        "tool_name": "calculate",
+        "tool_version": "mcp-2025-11-25"
+      }
+    },
+    "count": 2241,
+    "head_hash": "0275570c75623211f6e013f70b9a1c6e51b4310c56da26b2c23718da33199796",
+    "canonical_bytes": 33551262,
+    "next_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"cap:bytes\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"cap:e2242\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0275570c75623211f6e013f70b9a1c6e51b4310c56da26b2c23718da33199796\",\"recorded\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"schema_version\":\"1\",\"sequence\":2242,\"subject\":{\"arguments\":{\"entries\":[{\"name\":\"a0\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a1\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a2\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a3\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a4\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a5\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a6\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a7\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a8\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a9\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a10\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a11\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a12\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a13\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a14\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}},{\"name\":\"a15\",\"value\":{\"kind\":\"text\",\"value\":\"\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\\u00e9\"}}],\"state\":\"retained_complete\",\"total_count\":16},\"kind\":\"tool_call\",\"request\":{\"chain_id\":\"cap:bytes\",\"digest\":\"5e8e341994d8f632c12a19fe60f78d8601e76f2e36e4b5d5cf224266decd51e0\",\"event_id\":\"cap:request\",\"kind\":\"request\",\"sequence\":1},\"tool_name\":\"calculate\",\"tool_version\":\"mcp-2025-11-25\"}}",
+    "next_sha256": "1e721b7885c5330acc5c6d08c6fb310b09953d279ad7fe32d1dcd24c6aa92147",
+    "next_bytes": 14979,
+    "expected_append": "limit_exceeded",
+    "setup": "Insert actual generated valid rows/metadata in one private owned-fixture transaction; product fully validates real total before append."
+  },
+  "limits": "SQL exists only as trusted private fixture setup over newly owned synthetic stores, never a caller-selected API. Full packet/error cases/qualification entry review still required before Ready; no source or SQLite execution."
+}

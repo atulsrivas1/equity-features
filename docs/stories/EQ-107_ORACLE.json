@@ -1,0 +1,344 @@
+{
+  "status": "independent_precode_draft_not_runtime_or_Ready",
+  "scope": "Hand-selected literal profile and accepted immutable twelve-kind chain, independently stdlib encoded/hashed; no product/SQLite/source runtime imports or operations. EQ107 remains Backlog.",
+  "records": [
+    {
+      "name": "minimal_request",
+      "sequence": 1,
+      "event_id": "demo:request",
+      "kind": "request",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+      "sha256": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+      "bytes": 514,
+      "cumulative_bytes": 514
+    },
+    {
+      "name": "linked_missing_model",
+      "sequence": 2,
+      "event_id": "demo:model",
+      "kind": "model_declaration",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":2,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+      "sha256": "d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d",
+      "bytes": 542,
+      "cumulative_bytes": 1056
+    },
+    {
+      "name": "public_tool_call",
+      "sequence": 3,
+      "event_id": "demo:call",
+      "kind": "tool_call",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:call\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":3,\"subject\":{\"arguments\":{\"entries\":[{\"name\":\"command\",\"value\":{\"kind\":\"text\",\"value\":\"trades\"}},{\"name\":\"request_key\",\"value\":{\"kind\":\"text\",\"value\":\"r1\"}}],\"state\":\"retained_complete\",\"total_count\":2},\"kind\":\"tool_call\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1},\"tool_name\":\"calculate\",\"tool_version\":\"mcp-2025-11-25\"}}",
+      "sha256": "b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db",
+      "bytes": 870,
+      "cumulative_bytes": 1926
+    },
+    {
+      "name": "declared_tool_result",
+      "sequence": 4,
+      "event_id": "demo:result",
+      "kind": "tool_result",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:result\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":4,\"subject\":{\"call\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3},\"kind\":\"tool_result\",\"outcome\":\"succeeded\",\"payload\":{\"digest\":\"09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc\",\"full_bytes\":16,\"kind\":\"tool_result\",\"retained_bytes\":16,\"state\":\"retained_complete\"}}}",
+      "sha256": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e",
+      "bytes": 819,
+      "cumulative_bytes": 2745
+    },
+    {
+      "name": "read_with_declared_fingerprints_missing_receipt",
+      "sequence": 5,
+      "event_id": "demo:read",
+      "kind": "feature_read",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+      "sha256": "b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec",
+      "bytes": 1647,
+      "cumulative_bytes": 4392
+    },
+    {
+      "name": "defer_missing_receipt",
+      "sequence": 6,
+      "event_id": "demo:decision",
+      "kind": "decision",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+      "sha256": "adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7",
+      "bytes": 854,
+      "cumulative_bytes": 5246
+    },
+    {
+      "name": "declared_unknown_human_review",
+      "sequence": 7,
+      "event_id": "demo:review",
+      "kind": "human_review",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+      "sha256": "e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8",
+      "bytes": 699,
+      "cumulative_bytes": 5945
+    },
+    {
+      "name": "cancellation_claim",
+      "sequence": 8,
+      "event_id": "demo:cancel",
+      "kind": "cancellation",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}",
+      "sha256": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983",
+      "bytes": 648,
+      "cumulative_bytes": 6593
+    },
+    {
+      "name": "unavailable_error_claim",
+      "sequence": 9,
+      "event_id": "demo:error",
+      "kind": "error",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:error\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":9,\"subject\":{\"code\":\"unavailable\",\"kind\":\"error\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+      "sha256": "276723e7f8778af3aad6d55d28da70be4dd7aab45ad086df846dfb97b8363a97",
+      "bytes": 644,
+      "cumulative_bytes": 7237
+    },
+    {
+      "name": "revoke_review_claim",
+      "sequence": 10,
+      "event_id": "demo:revoke",
+      "kind": "correction",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:revoke\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"276723e7f8778af3aad6d55d28da70be4dd7aab45ad086df846dfb97b8363a97\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":10,\"subject\":{\"kind\":\"correction\",\"operation\":\"revoke\",\"reason_code\":\"review_withdrawn\",\"replacement\":null,\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"event_id\":\"demo:review\",\"kind\":\"human_review\",\"sequence\":7}}}",
+      "sha256": "916641ceffb20e1e96effffd474c77819d93f4d3e2db5b85102a7f2381727800",
+      "bytes": 704,
+      "cumulative_bytes": 7941
+    },
+    {
+      "name": "replacement_decision",
+      "sequence": 11,
+      "event_id": "demo:replacement",
+      "kind": "decision",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:replacement\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"916641ceffb20e1e96effffd474c77819d93f4d3e2db5b85102a7f2381727800\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":11,\"subject\":{\"action\":\"reject\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt_strict\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+      "sha256": "dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa",
+      "bytes": 866,
+      "cumulative_bytes": 8807
+    },
+    {
+      "name": "amend_decision_claim",
+      "sequence": 12,
+      "event_id": "demo:amend",
+      "kind": "correction",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:amend\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":12,\"subject\":{\"kind\":\"correction\",\"operation\":\"amend\",\"reason_code\":\"decision_revision\",\"replacement\":{\"chain_id\":\"demo:chain\",\"digest\":\"dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa\",\"event_id\":\"demo:replacement\",\"kind\":\"decision\",\"sequence\":11},\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6}}}",
+      "sha256": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3",
+      "bytes": 860,
+      "cumulative_bytes": 9667
+    }
+  ],
+  "checkpoints": [
+    {
+      "name": "checkpoint_0",
+      "value": {
+        "canonicalization": "agent-checkpoint-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-checkpoint",
+        "head_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "schema_version": "1",
+        "sequence": 0
+      },
+      "canonical_bytes_ascii": "{\"canonicalization\":\"agent-checkpoint-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-checkpoint\",\"head_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"schema_version\":\"1\",\"sequence\":0}",
+      "byte_length": 227,
+      "sha256": "2862e6a16c7bd1a540f214ddf19b2629f0ff3fb5e6fcc3a07a03401bf00b3ee2"
+    },
+    {
+      "name": "checkpoint_1",
+      "value": {
+        "canonicalization": "agent-checkpoint-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-checkpoint",
+        "head_hash": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+        "schema_version": "1",
+        "sequence": 1
+      },
+      "canonical_bytes_ascii": "{\"canonicalization\":\"agent-checkpoint-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-checkpoint\",\"head_hash\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"schema_version\":\"1\",\"sequence\":1}",
+      "byte_length": 227,
+      "sha256": "5ce2076774823b7f934993aacb61ddd08c2f66ff81d47864f13efdc38ca47611"
+    },
+    {
+      "name": "checkpoint_2",
+      "value": {
+        "canonicalization": "agent-checkpoint-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-checkpoint",
+        "head_hash": "d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d",
+        "schema_version": "1",
+        "sequence": 2
+      },
+      "canonical_bytes_ascii": "{\"canonicalization\":\"agent-checkpoint-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-checkpoint\",\"head_hash\":\"d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d\",\"schema_version\":\"1\",\"sequence\":2}",
+      "byte_length": 227,
+      "sha256": "68fcd5ceca698642813c6d1e95001a331477e86d197fe20236b25c11677f37df"
+    },
+    {
+      "name": "checkpoint_12",
+      "value": {
+        "canonicalization": "agent-checkpoint-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-checkpoint",
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3",
+        "schema_version": "1",
+        "sequence": 12
+      },
+      "canonical_bytes_ascii": "{\"canonicalization\":\"agent-checkpoint-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-checkpoint\",\"head_hash\":\"1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3\",\"schema_version\":\"1\",\"sequence\":12}",
+      "byte_length": 228,
+      "sha256": "71aa7f41e06349ec984f793d09e1151032a4ed5e1fff7071425735cf2d9d9667"
+    }
+  ],
+  "logical_terminal": {
+    "chain_id": "demo:chain",
+    "sequence": 12,
+    "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3",
+    "canonical_event_bytes": 9667
+  },
+  "anchor_cases": [
+    {
+      "id": "unanchored_complete",
+      "supplied_through": 12,
+      "expected_sequence": null,
+      "expected_hash": null,
+      "anchor_status": "not_supplied"
+    },
+    {
+      "id": "unanchored_short_prefix",
+      "supplied_through": 11,
+      "expected_sequence": null,
+      "expected_hash": null,
+      "anchor_status": "not_supplied"
+    },
+    {
+      "id": "expected_terminal",
+      "supplied_through": 12,
+      "expected_sequence": 12,
+      "expected_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3",
+      "anchor_status": "matched_terminal"
+    },
+    {
+      "id": "expected_earlier_prefix",
+      "supplied_through": 12,
+      "expected_sequence": 2,
+      "expected_hash": "d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d",
+      "anchor_status": "matched_prefix"
+    },
+    {
+      "id": "missing_expected_suffix",
+      "supplied_through": 11,
+      "expected_sequence": 12,
+      "expected_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3",
+      "anchor_status": "not_covered"
+    },
+    {
+      "id": "covered_wrong_hash",
+      "supplied_through": 12,
+      "expected_sequence": 12,
+      "expected_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "anchor_status": "mismatch"
+    },
+    {
+      "id": "wrong_chain",
+      "supplied_through": 12,
+      "expected_sequence": 12,
+      "expected_chain_id": "other:chain",
+      "expected_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3",
+      "anchor_status": "mismatch"
+    },
+    {
+      "id": "empty_unanchored",
+      "supplied_through": 0,
+      "chain_id": "demo:chain",
+      "expected_sequence": null,
+      "expected_hash": null,
+      "anchor_status": "not_supplied"
+    },
+    {
+      "id": "empty_genesis_expected",
+      "supplied_through": 0,
+      "chain_id": "demo:chain",
+      "expected_sequence": 0,
+      "expected_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "anchor_status": "matched_terminal"
+    },
+    {
+      "id": "empty_expected_later",
+      "supplied_through": 0,
+      "chain_id": "demo:chain",
+      "expected_sequence": 1,
+      "expected_hash": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+      "anchor_status": "not_covered"
+    }
+  ],
+  "reconciliation_cases": [
+    {
+      "id": "before_unchanged",
+      "stored_through": 2,
+      "proposal_sequence": 3,
+      "expected_before": 2,
+      "result": "absent_at_unchanged_head"
+    },
+    {
+      "id": "exact_commit",
+      "stored_through": 3,
+      "proposal_sequence": 3,
+      "expected_before": 2,
+      "result": "found_exact"
+    },
+    {
+      "id": "exact_commit_later_appends",
+      "stored_through": 12,
+      "proposal_sequence": 3,
+      "expected_before": 2,
+      "result": "found_exact"
+    },
+    {
+      "id": "other_next_event",
+      "stored_through": 3,
+      "proposal_sequence": 3,
+      "expected_before": 2,
+      "result": "conflict",
+      "stored_canonical_sequence3_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:alternate\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":3,\"subject\":{\"arguments\":{\"entries\":[{\"name\":\"command\",\"value\":{\"kind\":\"text\",\"value\":\"trades\"}},{\"name\":\"request_key\",\"value\":{\"kind\":\"text\",\"value\":\"r1\"}}],\"state\":\"retained_complete\",\"total_count\":2},\"kind\":\"tool_call\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1},\"tool_name\":\"calculate\",\"tool_version\":\"mcp-2025-11-25\"}}",
+      "stored_sequence3_sha256": "f310d8e7dfea323c3202d0eca1b47f1596a857821143277c8bd146a8afdb5b1b",
+      "stored_terminal": {
+        "chain_id": "demo:chain",
+        "sequence": 3,
+        "head_hash": "f310d8e7dfea323c3202d0eca1b47f1596a857821143277c8bd146a8afdb5b1b"
+      },
+      "stored_canonical_bytes": 1931
+    },
+    {
+      "id": "missing_prior_suffix",
+      "stored_through": 1,
+      "proposal_sequence": 3,
+      "expected_before": 2,
+      "result": "base_not_covered"
+    },
+    {
+      "id": "same_event_id_changed_bytes",
+      "stored_through": 3,
+      "proposal_sequence": 3,
+      "expected_before": 2,
+      "result": "conflict",
+      "stored_canonical_sequence3_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:call\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":3,\"subject\":{\"arguments\":{\"entries\":[{\"name\":\"command\",\"value\":{\"kind\":\"text\",\"value\":\"trades\"}},{\"name\":\"request_key\",\"value\":{\"kind\":\"text\",\"value\":\"r1\"}}],\"state\":\"retained_complete\",\"total_count\":2},\"kind\":\"tool_call\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1},\"tool_name\":\"alternate_tool\",\"tool_version\":\"mcp-2025-11-25\"}}",
+      "stored_sequence3_sha256": "ad788518049f02b8ae5138d8db8f2bf6dd76c092e92b0ccbb0cf65561fa0b571",
+      "stored_terminal": {
+        "chain_id": "demo:chain",
+        "sequence": 3,
+        "head_hash": "ad788518049f02b8ae5138d8db8f2bf6dd76c092e92b0ccbb0cf65561fa0b571"
+      },
+      "stored_canonical_bytes": 1931
+    }
+  ],
+  "crash_cut_points": [
+    "before_BEGIN",
+    "after_INSERT_before_metadata",
+    "after_metadata_before_COMMIT",
+    "after_COMMIT_before_ack"
+  ],
+  "qualification_executed": false,
+  "correction_history": {
+    "initial_oracle_sha256": "9b6a675ca7995cc5a3acabbd0c7a4f35b0135c44fb7381a826c48839dde6fbe1",
+    "changes": "Literal independently stdlib encoded valid conflict records plus explicit empty-chain cases; no production encoding/SQLite execution."
+  },
+  "accepted_kind_fixture_source": {
+    "head": "2462ded4742ff5ff7c28578b6fc30126c8a47a53",
+    "path": "docs/stories/EQ-106_KIND_CASES.json",
+    "git_UTF8_sha256": "5595a29c9dc5f2c1a33f532476f646e29d6bb9eabd2dcc9ebf4db4d393ee492e",
+    "preparer_materialized_UTF8_sha256": "5595a29c9dc5f2c1a33f532476f646e29d6bb9eabd2dcc9ebf4db4d393ee492e",
+    "scope": "Original working-tree input receipt preserved separately from canonical Git UTF8 bytes; line-ending materialization is not a semantic fixture change."
+  }
+}

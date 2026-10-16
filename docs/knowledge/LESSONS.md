@@ -1,3 +1,7 @@
+## Bind evidence before lifecycle; settle absent identity and page terminal before code — October15,2026
+
+[EQ106 acceptance](https://github.com/atulsrivas1/equity-features/issues/206#issuecomment-6205931841) binds source/API-builder-finaldocs hashes, distinct current workflow/event/job executions and reviewed exact criteria/history before Done. EQ107 preparation must name an empty chain explicitly and compare caller-owned terminal, not trust a page self-description. Missing context and logical counters remain distinct from membership/physical guarantees. [Pre-code evidence](../stories/EQ-107_VALIDATION.json); fixture preparation is not runtime validation.
+
 ## EQ106 adversarial validation-order corrections
 
 Passing original literal/negative cases did not establish every multi-fault precedence. Independent probes caught eager later nested errors, all-member type scans skipping an earlier semantic error, wrong-type nested versions misclassified as unsupported, and subject shallow-key preflight ordering. Preserve each report; correct before installed qualification and add independent regressions. [Validation](../stories/EQ-106_VALIDATION.json).
