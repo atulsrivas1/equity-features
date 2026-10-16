@@ -1,0 +1,70 @@
+{
+  "story": 215,
+  "epic": 212,
+  "milestone": 13,
+  "points": 8,
+  "stage": "Backlog; conditional future preparation",
+  "depends_on": [
+    {
+      "story": "EQ111",
+      "issue": 213
+    },
+    {
+      "story": "EQ112",
+      "issue": 214
+    },
+    {
+      "story": "EQ048",
+      "issue": 54
+    }
+  ],
+  "package": "equity-feature-continuous",
+  "version": "0.1.0a1",
+  "dependencies": [
+    "equity-feature-contracts==0.0.4a4"
+  ],
+  "own_schema_version": "1",
+  "old_core_versions": "0.0.4a4",
+  "old_core_feature_ids": 39,
+  "operation_records": 99,
+  "structurally_admitted_inputs": 67,
+  "structural_error_inputs": 32,
+  "nonerror_result_codec_records": 65,
+  "kernel_only_overflow_records": 2,
+  "rational_boundaries": 6,
+  "codec_controls": 3,
+  "product_code_implemented": false,
+  "kernel_implemented": false,
+  "build_implemented": false,
+  "product_tests_executed": 0,
+  "readiness_approved": false,
+  "accepted": false,
+  "source_map": {
+    "EQ113_ADMISSION_FIXTURES.json": "3fdd3a09b3188aa5df48766da826a9bf4fb64f2536c98fe7272b24711fb3e7ae",
+    "EQ113_BUILD_DESIGN.md": "dab0c306b6c03a607e1a4d7b16fd1a95effec299dd5b34c751135317a0c3db65",
+    "EQ113_PLAN.md": "9307cb8a1649ccd05281697c6394b49779b469095778e50cf97592567c91c592"
+  },
+  "normative_EQ112_source_map": {
+    "EQ112_MATHEMATICS.md": "fadd26d03f20545032d3d2a2e108dbf699a03dd4714c997deb2ed8f7b49cabec",
+    "EQ112_DECISIONS.md": "5f3ff9a8909b34864bf2cfae7451de3032250957ce43770a6f537565d283fabf",
+    "EQ112_SCHEMAS.json": "1b931b3a180d955fb0e21d7d2d0d114b8d793849ad004c292e16b3ad73cbec63",
+    "EQ112_FIXTURES.json": "38a4786b62ecc8f14d83cb02f6b66038f1a4599462cf528eca0348fe21303f94"
+  },
+  "conditions": [
+    "Actual EQ111/EQ112/EQ048 accepted Closed/Done and exact current main before publication and Ready.",
+    "Separate reviewed exact prepared packet and actual public pre-code source map before Ready; then assignment8points/Atul/readback and In progress.",
+    "No source package/test/workflow implementation before actual In progress; no build/install qualification before complete source/controller/entrymap review.",
+    "Actual bothOS fourforms/currentrawartifacts/source/defaultbranch/criteria gates before Done."
+  ],
+  "prior_preparation_reports": {
+    "eq113-build-design-preparation-reviewer-report.json": "519e57098427f427ba97934efe992bfd357a3bf360ec77b288b234f49cefde66",
+    "eq113-exact-plan-preparation-reviewer-report.json": "a2ed01fef0c57de8bb607ef0e537938a2c157f3e5784673127d915fa461b4956",
+    "eq113-corrected-plan-preparation-reviewer-report.json": "239b0e6fa49a94c9e36d57594d9604aa4f0383af3f3958efc087df94b77596cf"
+  },
+  "limits": [
+    "Caller assertions and logical bounds are not provider truth/economic entitlement/physical containment or deadline proof.",
+    "Source/data/preparation checks are distinct from future installed codecs/kernels and whole-release delivery.",
+    "No change to original optional package/source/versions/registry/protocols or unselected later release/provider/hosted operations."
+  ],
+  "source_boundary_integration": "Explicit shared known_packages continuous membership plus dedicated new continuous-only policy invoked by aggregate checker and thin newCLI. Preserve all old package policy rules/controls; include bothsources in effective map. Initial unchanged-shared-checker proposal corrected before public freeze."
+}

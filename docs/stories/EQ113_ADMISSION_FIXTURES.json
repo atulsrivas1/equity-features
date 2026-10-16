@@ -1,0 +1,899 @@
+{
+  "kind": "eq113_structural_admission_preparation",
+  "source_fixture_sha256": "38a4786b62ecc8f14d83cb02f6b66038f1a4599462cf528eca0348fe21303f94",
+  "records": [
+    {
+      "case_id": "basis_positive",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "d2725083f22fc38c8caa3b14a432324c59143d6a4c5ae9cefb820205a1cc9a55",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_independent_scales",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "98dade83ac1241aab73f85efffd8af3e28777964b6612b53268d507eae0677a7",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_conversion_two_reference_units",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "475abfa011bdd479073c0ce25e9502b652ae1f026ec0c3d18f1e453cc417a7ac",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_rational",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "0aba3351cacaa630aef2a4d9091f99fb3c66b3c103add6026321633543c8857e",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_negative",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "c8cf310876d9c4f791ea5df9de76e0f4f252ba35f00156f808661effaf8b2df0",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_zero_is_available",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "208bf1bd0e10f0d65f22a79ff9e72c3e2174dcbcb7a2b759f980a239e46370aa",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_no_future_nearest_reference",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "5104f0c2e5ef9345019cadf0c8c90113f7fafb4609ff37870552e2593da0c274",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_latest_known_continuous",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "fb03edb21f7136ef82821c49ecfb79244d8091117ccd7afcd974992d4492000a",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_null_selected_no_fallback",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "0322e152720856bf791916574a82ac90c0d6edbb8a3dd699f2273938aca1cf61",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_age_equality",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "d21702823aab168d5d0fc866304d02ad8112d515b4fc58f964134a733d433425",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_age_one_over_no_fallback",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "e24dbc9af8fba370fba124d2ccd0e39f47abc653c1eb9c5918751983dc7edc6c",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_unknown_mapping",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "9a3efc548a38a16190af27ca8c3cb829ae1830b292c84d9038fdf009d3227d73",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_late_mapping",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "c68578eeacc484776b06128ec0b04aad6e6b3a43bd9111b6a0e604b19cc85802",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_effective_end_excluded",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "83b0bd06ce28a5edbc235bddb8b838693c4328b0e33806af4e3f3dfc6ee02d4a",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_effective_start_equality",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "87c42961a3d11f1ef4e981e77c45b2fbe527a796ce715f97edaec56408e9e7dc",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_anchor_feed_outage",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "053e3c1e9493ff9800a04c41b46c326df7219049959c70f8fc6e9323d469c680",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_feed_unknown_knowledge",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "f155f94ada086637c0c06b173789e2f7e524becb74e9c1690a174324ecf77f4f",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_coverage_not_complete",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "af5d7d253e822088a2ba7c94c2cd4e0e36b9bb2c18518bbe83501b988a860ef5",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_coverage_known_too_late",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "b64a652b40b5232b499e073635b4150b4995abb22bbf43e1e81fa81edab54905",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_coverage_before_scope_end_error",
+      "input_admitted": false,
+      "input_error_code": "invalid_schema",
+      "operation_error_code": "invalid_schema",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "99312001deed644cde60192535cdd3863702e4979467da94855b83ba38c8d4b0",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "malformed_boolean_price",
+      "input_admitted": false,
+      "input_error_code": "invalid_schema",
+      "operation_error_code": "invalid_schema",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "cd185c1aa0ef19cd8c49a18c8744f0be213a506b5372dd05f1c55769bbf44f45",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "malformed_zero_price",
+      "input_admitted": false,
+      "input_error_code": "bounds",
+      "operation_error_code": "bounds",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "fa95fc093551679561ac96e3499f6b18614b6f004a72cfa7f3a5d0bfcecc6d20",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "malformed_mapping_zero_denominator",
+      "input_admitted": false,
+      "input_error_code": "bounds",
+      "operation_error_code": "bounds",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "9dc115b86cc87c91cc9685a6e29940ce72a01ede031051b32969495f8476d1f1",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "malformed_cross_currency",
+      "input_admitted": false,
+      "input_error_code": "invalid_unit",
+      "operation_error_code": "invalid_unit",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "d1eecfb9fd68605587f4619f347bce5cc5516bd8948a402d70370ef998647828",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "malformed_mapping_units",
+      "input_admitted": false,
+      "input_error_code": "inconsistent_identity",
+      "operation_error_code": "inconsistent_identity",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "c4227d911dd04be5112408734b46d6f2c8f6101b16b602cd4e18585a8fef240b",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "malformed_known_before_event",
+      "input_admitted": false,
+      "input_error_code": "invalid_schema",
+      "operation_error_code": "invalid_schema",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "f5ad5da1cec756b6bade50be9fa57606030eecc1cc8a41984918512a49fea210",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "unsupported_reconstruction",
+      "input_admitted": false,
+      "input_error_code": "unsupported_capability",
+      "operation_error_code": "unsupported_capability",
+      "canonical_config_digest": "9950232118814ce6bdf733dccc3bedafb4ad162b8ee821726a156992e0562bd5",
+      "canonical_input_digest": "d663a09d0500b18bc5b593f03f1ea14921501018881337f225bec4b47c5ae4d6",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "unsupported_duration_weighting",
+      "input_admitted": false,
+      "input_error_code": "unsupported_capability",
+      "operation_error_code": "unsupported_capability",
+      "canonical_config_digest": "ffaaed717d587f5ee0eed2ed87fb5b55c954e021cf4826c6219967b41eae63e7",
+      "canonical_input_digest": "c621df4f20f68c9d6ecc88f4d25e74fe58662f3d898c9011670ba7263d820ce3",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_count_weighted_all_samples",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "9a6a1fd32d089e0db7ad4f0a535d7fab5bbacaff5dcc95e0f22b23505a272a03",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_top_one_does_not_change_mean",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "9b36afaca47c868e7ad5ef9a98ebed5f8f84ae64ceafa418384cf65895ef0052",
+      "canonical_input_digest": "7a539f364b120299539009e498abd7cd180713d4e0c047257271199abc56fa83",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_unknown_population_not_filtered",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "e593bef41a75a34e195070e01aeebd98baff276554374e447a4e07e912849e7e",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_last_reference_unknown_no_fallback",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "0a3a6b07931f11c8d18dd26f9a038d4343e2bdddf51a92c51ec035bcffac3687",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_last_reference_outage_no_fallback",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "a316195186080bc94ec2af986731a93f26008de217680da2a304748f22bf47aa",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_reference_freeze_gap",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "b6fce3ae4e3b6fd83c8ef93e1fa77926fe7a42a472a0558f660b2c8108b9d638",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_duplicate_observation_id",
+      "input_admitted": false,
+      "input_error_code": "duplicate",
+      "operation_error_code": "duplicate",
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "01ba2ecb2859a51a62aab9417d24c2558105f1abeb70d984a1fb1b06ef7fd193",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_reversed_order",
+      "input_admitted": false,
+      "input_error_code": "invalid_order",
+      "operation_error_code": "invalid_order",
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "5051510498ddf02122ab7504f978a6996b8964e5cd35702914dd5f200019a52e",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_complete_empty_no_conversion_consumed",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "075e8ea20fc9394e40e24b06d2a99eafb8b541eaaf6d557c21b362f0fb9766e5",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_empty_incomplete_dominates",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "892ab5fdea1dbaca62359b6e10bf0f8b00193d7407cb453a9fc839e3d5437934",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_empty_missing_held_reference_dominates",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "fc33980481510057fb4c202f90814009d13ff9bc9227e1d1e56d8fd1bb43170b",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_empty_unsupported_weighting_still_error",
+      "input_admitted": false,
+      "input_error_code": "unsupported_capability",
+      "operation_error_code": "unsupported_capability",
+      "canonical_config_digest": "ffaaed717d587f5ee0eed2ed87fb5b55c954e021cf4826c6219967b41eae63e7",
+      "canonical_input_digest": "70dd9727809675613b47d8c2a2726b8583ec6ef8052a8f2a93d554bce5026aa9",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_gap_and_premium",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "53854acf8ec7f9e630bb6cf2b741de6dde522539649a8c0f14c30d599ffe8df4",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_first_unknown_no_skip",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "14dc05cfd1ac3129f566135b72dc7734ea2e1e5527dbcb0c937756fa261ff399",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_first_late_no_skip",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "7bffad68d7550ef86d1061393bcf3c9d43ca01f425251a8374926833caf0ad4a",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_available_at_consumed_late_fact",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "3964dfc505276b5e2d771b18edc9bd69b2ae66d5768d2618541a70334a3575c6",
+      "canonical_input_digest": "21271d86214f882c415788df3bb84c7f78222fde851733ad26dea262999ab380",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_continuous_at_boundary_rejected_by_scope",
+      "input_admitted": false,
+      "input_error_code": "bounds",
+      "operation_error_code": "bounds",
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "370f52098f3e25e0621aa93f47e0659104f4a9de40ab5425e55d7c411531d0b4",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_no_actual_freeze_transition",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "a14eda664c5cec9e485811df665eae9aec8d4508b2cb7858e562a0bf0d8e5d1b",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_rational_difference_overflow",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": "overflow",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "1e15a860aa343e724d08ec878e1fc2dfac1ce32bcf83490f6d3aefe05e79f491",
+      "kernel_only_arithmetic": true
+    },
+    {
+      "case_id": "freeze_checked_abs_sum_overflow",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": "overflow",
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "b32448cac723b5ac858c737ad56776d5f63d5c73159cb0de0e6e837515c41752",
+      "kernel_only_arithmetic": true
+    },
+    {
+      "case_id": "adjusted_split_refused",
+      "input_admitted": false,
+      "input_error_code": "unsupported_adjustment",
+      "operation_error_code": "unsupported_adjustment",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "9e0375f13073e25f08481430830af84bb7b08086ec56c943d2fce737e6a51ee1",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "custom_raw_action_snapshot_refused",
+      "input_admitted": false,
+      "input_error_code": "unsupported_adjustment",
+      "operation_error_code": "unsupported_adjustment",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "edf7e7739edcae1c9c593c8cc0e30ca1b48a6c355dd61019ae183abc20fcc659",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_order_bool_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_schema",
+      "operation_error_code": "invalid_schema",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "8df8705d25d4a8e4b8897fed3e36ca8d3e00fa619ae0b3900617c5fbb91e9905",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_order_negative_refused",
+      "input_admitted": false,
+      "input_error_code": "bounds",
+      "operation_error_code": "bounds",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "0ca52d4bab0bf8b582550e5be1539080ba8b9ecfaa7aaf8cdfb826ec7ca96633",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_cross_leg_same_id_admitted",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "be88d087a4a27647006dc38b8ee71c4aec452b5abff5e5202d2bc1361c5864d2",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_feed_unknown_coverage_multifailure",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "6a4c464c5d35ff2d46ea607cf4544d4039056708d707c4b4bbf2cc133b6a64ed",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "malformed_precedes_unavailable",
+      "input_admitted": false,
+      "input_error_code": "invalid_schema",
+      "operation_error_code": "invalid_schema",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "feec801c9acfb832bc54f47bbaabff9fdf98429099b962f9f63266f472ef736c",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "missing_mapping_precedes_unconsumed_overflow",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "55c7587c0a008899df3de490ce40f22da161e529a1c63424d6cd1954ce1a2fd1",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_coverage_unknown_time",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "6dd9f7cc818bc5a4c7a1a1da9ec78a767c6192eef0439c88de77500447f5f24d",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_consumed_feed_known_after_prices_and_window",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "db77c3a74e5e751f9882503c6552e814b8e6044882974bf4ee529f0d3385e71f",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_consumed_conversion_known_after_prices_and_window",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "a2cd3e1dacc6cc059bbf69dc1ba827b7f94019d598f82c6a1681174b45fc4bae",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_consumed_coverage_known_after_prices_and_window",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "3edce21134f8650a7483690b764067e52d7e476c25c775a4982bdb2e63325c1e",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_selected_live_anchor_outage",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "b50409063944498ed8eb658332e69b00427ca0d15018f0c645fa5ed46f41093a",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_selected_outage_anchor_live",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "d588e511253c327e196e9d37c36d664e4d7d82ff206b5f21d1d8b7dfc786962f",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_failed_latest_mapping_no_older_observation_fallback",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "e833f3758dcd350d710d8e7feb97cc3c77702c06cb79408370da6443c9668134",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_same_event_order_lexical_tie",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "835604beed08fa2eaba154c8303eade6c24875f783280d47b42503c4ec2a403e",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_reversed_lexical_tie_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_order",
+      "operation_error_code": "invalid_order",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "a1c7c7c34231cc537fd245f289eb5aa334e3c74460ef5a6ee0136a8b9fc5b58d",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "overlapping_same_feed_domain_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_schema",
+      "operation_error_code": "invalid_schema",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "63eb39e67fa25b8d2272fb4f2d547ef3e47de97ea3fc63728b17a6e9fbcc22ea",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "overlapping_same_mapping_domain_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_schema",
+      "operation_error_code": "invalid_schema",
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "63f0fce65c19a66653ce6b84641ecdc0a3c06c95f34a5c602120b2795106c50f",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_reference_at_R_equality",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "e6505a31ac4d57fe0cd4f9ab0795db3217f067b95b3d1c21163b1073e60228c5",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_age_and_mismatch_equalities",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "8a4a91eb5d0245e68610be8a405301f50d3aaa9feb3ce946739ba1101a56a31e",
+      "canonical_input_digest": "b5b44307840ffe29ca7a097cc2a3c6a9dbb7bc3f56480231f5f5082d792dcb12",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_mismatch_one_over",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "2335795e67612a437da32c1ed650f0c88e51f1d0bc19dd842efb839ee31dd865",
+      "canonical_input_digest": "3fc2eeb9326a392c824e1cc1ae2cbe0e03f65e280964c18144304b73a980afba",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_reference_age_one_over",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "5757eab759d6a13916f7697269f56bb69b5271401e00e2e7c0d7c81c9d0d0bd3",
+      "canonical_input_digest": "f8f5f86c338f2b480fb58338b62b11b31ed416fbc81f420e39d2e96e9f2650d4",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_continuous_age_one_over",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4dad912491667ff815537d689b415f1396627cda7d14c48819defdbb1be9655d",
+      "canonical_input_digest": "68c1ba9096ed66233531fa05ab404282c5d25923f05ac350c556cf079cfa9257",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_held_feed_unknown",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "5373cf819855003df5c1aa9a5435f1586fdaf1804bf39d145818403548efab5f",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_held_feed_late",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "3e4dc1cdb94b79f0b1779558b0586cecff5aa788cdc7ac89abc04b3a05287698",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_live_boundary_wrong_before_R",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "017120366c8add6e528d04be0be75224ab03160a65b339abea8e2cd6aff301c3",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_live_starts_after_R",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "752b9889f26699b3f9224dd229f84bf72670d4b8ed5c6fe35c27446dd3c608f8",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "normalization_large_products_reduce_before_check",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "1ba98a895d0c48d07941e5728e632f39d5211734a15de92b46df605646d147ec",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_unrelated_future_unknown_facts_bound_unconsumed",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "272e6cf99f856173ea3ecc8e3973a1b22e751d9befe9c82400edccf89a2a19cc",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_only_continuous_unknown",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "d3fd1529ebb832211e5d5e274e3b8932f78c646000ce458faab4df0b5cba1b3c",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_only_continuous_future_knowledge",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "f86b217401d85b01f972788ad1587c8e4ead004fcd072e6f8faeb571c2d30ad5",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_continuous_unknown_and_future_only",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "76f33680ec1e9a62b09ce2ef5edb307b1b5f01c13cfb3e14fd880fc19a5af2e4",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_reference_unknown_only",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "f69be84fa882c78ad7f4c6654006de26f88c0a97b6d1851741ecf6d5fa9ef625",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_reference_future_only",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "e91ad6b2347cc93e7ee8abc79074f38d392fe1baf34bd21576a417ee5878eda1",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_market_future_only_is_absent",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "7cd4fb04f2daa9b4c616ce0158a53824be7ffba4275da7b6d8643c8feee887d4",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_reference_latest_known_excludes_late",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "e7773a29e56b1451fca2795343a40a283d405fbaf993bbc817f03344e1327f55",
+      "canonical_input_digest": "a1f50957e978010847dffcfc62447c624c8e3dbff4ecb11c7f64cf7db6b451c7",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_anchor_required",
+      "input_admitted": false,
+      "input_error_code": "invalid_config",
+      "operation_error_code": "invalid_config",
+      "canonical_config_digest": "5b0c7eb9d0acea179b7781636600d52c6b519db10c2411d7839797b759251be6",
+      "canonical_input_digest": "aecf7be2a18df53e5bd698612fce1f9cb57fe82a34099d19c6f23f66f553f4a4",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_unused_reopen_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_config",
+      "operation_error_code": "invalid_config",
+      "canonical_config_digest": "c4cbee2247056b503ddc09c247b6a5e4485531a154e8c0a1f3f839339768e468",
+      "canonical_input_digest": "ef5b7dbf5b402f511ee733941150e2f4d0823a56c0a89a90b05e6597cbe5a186",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "basis_anchor_at_window_end_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_config",
+      "operation_error_code": "invalid_config",
+      "canonical_config_digest": "fb801143c42418c567ba934eda0a9878ebf5d451909d3e59d986b471763a8794",
+      "canonical_input_digest": "261c19dc1e265224f724341acf51ceee6da28029c72ed6baa60e3093c6552527",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_unused_anchor_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_config",
+      "operation_error_code": "invalid_config",
+      "canonical_config_digest": "0cbf0beb751055381b94a6e744bd7484777c2d84e47bbbc2ce9150ccbbcf10ff",
+      "canonical_input_digest": "0fe65afeacef7d634ee2ffaafd66992a0a6207847769e18ee641fea7e6c5dfb7",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_unused_reopen_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_config",
+      "operation_error_code": "invalid_config",
+      "canonical_config_digest": "314bc82fa9b79ead328076b6ec8f52d9780b3cec544776e928965bdb5c3e5d41",
+      "canonical_input_digest": "be19440afa12bf014d91afd49c3502e7952292f1c558b5659f0b9d9553fb13e1",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_boundary_required",
+      "input_admitted": false,
+      "input_error_code": "invalid_config",
+      "operation_error_code": "invalid_config",
+      "canonical_config_digest": "662aa4b8c0a00b0daad50b57e8f229450e26f4997ed44df7d62a188b70d0a84b",
+      "canonical_input_digest": "e9252a8f2bf3ed13e9ab7f3de59ba382d46e4d6be925a3ac878072d2a4251604",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_unused_anchor_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_config",
+      "operation_error_code": "invalid_config",
+      "canonical_config_digest": "b4e9574641e0b374d10bd0d41da17b5cf28bf7fbd35085c12eff55e5d0df1a19",
+      "canonical_input_digest": "f58b56912cb616fe3e5c81466d0bedaea9b8481dc490e995ee330ad5b1525d8f",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_boundary_at_window_start_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_config",
+      "operation_error_code": "invalid_config",
+      "canonical_config_digest": "c47da334ad5ce506e169080f0e3012ec3d1f06af1a0c9fc7480458e6505c8be8",
+      "canonical_input_digest": "39af2296a3be0e6715c72da02e2775c3db1969c8e2e3a387d18ef14d30733073",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_boundary_at_window_end_refused",
+      "input_admitted": false,
+      "input_error_code": "invalid_config",
+      "operation_error_code": "invalid_config",
+      "canonical_config_digest": "25104e345ff5e98792341dc23296296d706919ee0cd41ffa95625b4896a948ba",
+      "canonical_input_digest": "8641e7551c42dd1c51769010db484ceac715d00decd75199ba2decb0f921255e",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_reference_preboundary_rows_not_selected",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "2d8183f095472ad1e22331c1970f3ccfe2a41ad5615e8bd962b832041d803537",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_pre_scope_not_analysis_start_refused",
+      "input_admitted": false,
+      "input_error_code": "bounds",
+      "operation_error_code": "bounds",
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "bfa06641ad8578a947bbec0a95bced7735e9d52337236d1a49ee005e15ce99e0",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_reference_scope_not_analysis_end_refused",
+      "input_admitted": false,
+      "input_error_code": "bounds",
+      "operation_error_code": "bounds",
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "e192fa2c199461b59128d71f5f5cdfbe78d22e3b357056887054e5aa6d0cf84a",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "freeze_event_time_conversion_change",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "4f49a18f1ead94d5940e4618eecf84129dcdde7332e36c1d5ef5c28c3d529ffa",
+      "canonical_input_digest": "8177565cd8bddc78a3b10824383e767b686943478f63af58874a44665e56e2f5",
+      "kernel_only_arithmetic": false
+    },
+    {
+      "case_id": "reopen_uses_preboundary_conversion_before_change",
+      "input_admitted": true,
+      "input_error_code": null,
+      "operation_error_code": null,
+      "canonical_config_digest": "0f5b704366f420989016435ca0bc7f254af3cfff81f5a0d27ead700d11f91eb2",
+      "canonical_input_digest": "2aa1fa77924aa963ec5ffb0c34b4376ea9d88d85a7f50ebc5165d81ce89affe0",
+      "kernel_only_arithmetic": false
+    }
+  ],
+  "scope": "Independent EQ112 declared errors split at the normative constructor/calculation boundary. No package implementation or product execution; overflow is evaluated by EQ114 kernels after structurally valid input admission.",
+  "history": "Prior97-record preparation and239b0e6f review remain their scope; append2positive event-time effective-ratio controls after EQ112 public review missed changing-ratios requirement; new67admitted32errors. Not113Ready or runtimequalification."
+}
