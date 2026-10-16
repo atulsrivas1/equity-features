@@ -1,3 +1,7 @@
+## Current handoff preparation
+
+Owner requests R13 handoff after accepted R12, not implementation/evaluation. [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421), [release plan](R13_RELEASE_PLAN.md), [tests](R13_TEST_STRATEGY.md), [handoff](R13_AUTONOMOUS_HANDOFF.md). Original scopes/24provisional points and conditional owner decisions below remain unchanged. No witness, outreach or evaluation threshold accepted by preparation; runtime stays Backlog. Earlier future-planning text retains scope.
+
 # Evidence service pilot — low-priority future planning
 
 Epic [E17](https://github.com/atulsrivas1/equity-features/issues/221); [R13](https://github.com/atulsrivas1/equity-features/milestone/14). EQ-116–120, all Backlog with priority:low. Planning authorized by owner; implementation, outreach, repository creation and deployment are not. No due dates or production commitment.

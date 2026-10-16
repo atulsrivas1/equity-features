@@ -1,0 +1,116 @@
+{
+  "reviewer": "/root/r9_plan_review",
+  "disposition": "approved_bounded_fresh_R12_postdelivery_review",
+  "findings": [],
+  "head": "747fc9adcd85e0c4a8dca161fd4f545b2230434f",
+  "tree": "2cc34ce598ebcd8ddd1d374ffd2258f086db9a49",
+  "source_pins_git_sha256": {
+    "packages/continuous/LICENSE": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+    "packages/continuous/pyproject.toml": "6498d11e10d5c9cf10e26af83a0f47d2a0791f835381c388c324424fb031cfd2",
+    "packages/continuous/README.md": "bf5f1b36671ccf2741a60df58137d4bf9407d582b0da4737fe94f79b31ba850a",
+    "packages/continuous/src/equity_feature_continuous/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "packages/continuous/src/equity_feature_continuous/_codec.py": "c053053ca29c82df8038a0f9133049860c8993136f1bda90a0c5b3a6c022cd6e",
+    "packages/continuous/src/equity_feature_continuous/_engine.py": "8aed8e345c779b96435e5d592769a713a7b36e3a680ea3f29da917adda240e48",
+    "packages/continuous/src/equity_feature_continuous/_model.py": "fe2b99e0f9d74300fde0e0de5192b98f0c701db74b54eeb7a3cba65008c6b4cc",
+    "packages/continuous/src/equity_feature_continuous/_rational.py": "ab0337aa5e666c206d5629a87423b0a64fe0cfeb09de7f684af9a1811bd5a852",
+    "packages/continuous/src/equity_feature_continuous/_registry.py": "b28ad4c597f0211357926bc173e8c076c6f26184a9666b16f9b419f0d894df3c",
+    "packages/continuous/src/equity_feature_continuous/__init__.py": "fbe8beb8827a00b1390b6a19a80d26fa6762c5f06d189456a3c99e80220d1519",
+    "tests/continuous/test_archives.py": "df0e7c34c291f8267da983978ec46c0e81012c2c6fa9c223a0c4fe98ed635dfc",
+    "tests/continuous/test_contracts.py": "b09191481a48e8a782d6c127a6ad4b094da77a44c9914f8da0793ca6dcb992b8",
+    "tests/continuous/test_kernels.py": "175a47e0de9a1fb56b8416c34420850427a7edb3dfe46a3ff3208b55efeab4ca",
+    "tests/continuous/test_rebuild_manifest.py": "08be29d64df13e77bb88866c7d95f75788f1dc2b5ada8e9ebd266017381f1935",
+    "tests/continuous/test_supplied_week.py": "4371a7be3384ceaadd812b5683d85552ffe33f1e26eeb3e65cf49c4f81afb2fa",
+    "examples/continuous_supplied_week.py": "51963e804d396815964849488ccf5f02f4641b8ac0c17aedaba18ecc0a55201d",
+    "docs/stories/EQ112_FIXTURES.json": "38a4786b62ecc8f14d83cb02f6b66038f1a4599462cf528eca0348fe21303f94",
+    "docs/stories/EQ112_MATHEMATICS.md": "fadd26d03f20545032d3d2a2e108dbf699a03dd4714c997deb2ed8f7b49cabec",
+    "docs/stories/EQ112_SCHEMAS.json": "1b931b3a180d955fb0e21d7d2d0d114b8d793849ad004c292e16b3ad73cbec63",
+    "docs/stories/EQ114_CASE_MANIFEST.json": "7e4563943691c2f71f79bea7a86dcf3d09cb2ba4994887682599fe2d44f6d91a",
+    "docs/stories/EQ115_SYNTHETIC_ORACLES.json": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+    "docs/R12_ACCEPTANCE.md": "7a0216acc215c3101c4d3a7fc0a7c8680ccf7353b8f8960c22f837835b9c1ee4"
+  },
+  "pure_source_suite": {
+    "methods": 35,
+    "failures": 0,
+    "errors": 0,
+    "log_sha256": "c430ef8af35c4591559d558cfadab85726d493bd02309860660c0cde3f8ef5a7"
+  },
+  "additional_independent_controls": [
+    "basis translation near int64 minimum preserves exact 20 and 1/5 and causal availability",
+    "basis translation near int64 maximum preserves exact 20 and 1/5 and causal availability",
+    "zero-deviation freeze retains population and three ordered zero witnesses with K32",
+    "outage begins exactly freeze end and remains unconsumed",
+    "outage begins one nanosecond inside freeze and blocks every metric",
+    "consumer refuses rehashed unavailable-to-zero metric substitution",
+    "unused supplied conversion fact changes whole-input identity without changing consumed proofs or arithmetic"
+  ],
+  "current_main_check_count": 27,
+  "current_artifacts": [
+    {
+      "id": 12074102431,
+      "name": "continuous-747fc9adcd85e0c4a8dca161fd4f545b2230434f-ubuntu-24.04",
+      "size_in_bytes": 378564,
+      "digest": "sha256:5aa8ce2f1f15c06e52deeaf81c159887f7ef684e6b54f6643162252c1ec90a3a",
+      "expires_at": "2026-11-15T20:46:40Z"
+    },
+    {
+      "id": 12074541823,
+      "name": "continuous-747fc9adcd85e0c4a8dca161fd4f545b2230434f-windows-latest",
+      "size_in_bytes": 382798,
+      "digest": "sha256:7650eb94849bd7eb6664456c1e392dd2b3ff9f5a6eb7f1fdb547a7155f818938",
+      "expires_at": "2026-11-15T20:47:51Z"
+    }
+  ],
+  "all_seven_closed_done": true,
+  "milestone_closed": true,
+  "zero_open": true,
+  "acceptance": "https://github.com/atulsrivas1/equity-features/issues/212#issuecomment-6224646223",
+  "acceptance_record_sha256": "9c6fcd76606824e50eb01e602aa5ba1c6a774d534658bf6cc8347d5e6997dda6",
+  "live_input_sha256": "9965f05888f8005f89a8fe0c509d37aaff09d5e64cdc94dd588aa729c75866ba",
+  "reused_evidence": {
+    "eq114-runtime-source-reviewer-report.json": "6e78f42da805a45cccc392a2ede797c210e15732531beb640fe746c859b1c185",
+    "eq115-consumer-source-reviewer-report.json": "4f811c12c4d5e4514f02aa1947075e1ed72738b9a5e1093f93a7d258b8ecd08e",
+    "eq115-main-reviewer-report.json": "8d17cc2598e9d209a04e9a1861fb46bfb94e128c9ba037281f8432edf7566879",
+    "eq115-main-artifacts.json": "63e54e85c11d85822cfdeac32c472203ef0774ab88a856264602769cb0e53b9a",
+    "r12-original-criteria-preparation-reviewer-report.json": "865ad36812ac530d204480926e6493b4723343bd9f4d844239491cf9cd006321",
+    "r12-final-aggregate-reviewer-report.json": "45838faf6a494870c6886d1e28e2f225269ee79127419bc8f6d7b32bab559e82",
+    "r12-final-closure-reviewer-report.json": "8f4c63986ecc23b856d7e3fc0901c58c23517f57700be39f65761a45f87ecd6b"
+  },
+  "scope": [
+    "Fresh35pure source methods, including99fixed normative cases/65fulloutputs/32structural/2overflow and12consumer fulloracles/36identities; seven additional named pure controls with independent literal arithmetic.",
+    "Freshmainref/tree/parent/attribution and sevenClosedDone issues, original10storycriteria, unchanged aggregate acceptancebody, exactmilestone membership,27current successfuljob identities and2current unexpiredserverartifact metadata.",
+    "Acceptedinnerarchive/installedfourform/typing/log/provenance proof reused by exact main/artifact identity; no relabeling this review as an independent reinstall."
+  ],
+  "limits": [
+    "Local automated bounded review, not human/hosted review or universal correctness/security certification.",
+    "No builds, installs, native/provider/network-product operations, artifact/log downloads, Git/API/source/primary mutation or R13 review/implementation. Read-only GitHub metadata API used.",
+    "Fresh tests ran from explicit source paths in the existing DEV Python, not newly installed distributions; no benchmark, speed, RSS, physical budget, calendar truth, dataset rights or registry-publication claim.",
+    "Historicalfailed source/build/controller/review scopes remain preserved in acceptedR12evidence. No new sourcefinding from the initial read-only PowerShell revision-quoting failure; corrected Git argument handling used.",
+    "No absolute private paths, credentials, raw command lines or private chat are included in this report. Raw live-input snapshot, source-test log and audit harness remain external; only their hashes/results are referenced."
+  ],
+  "working_source_binding": {
+    "all_reviewed_working_bytes_equal_delivered_Git_blobs_after_CRLF_to_LF": true,
+    "pin_count": 22,
+    "scope": "All pinned continuous package files, continuous source tests, consumer example and listed normative fixtures/docs. Exact local delivered Git tree equals accepted main/candidate tree; no package or test edits occurred."
+  },
+  "original_criteria_fresh_readback": {
+    "story_criteria": 10,
+    "epic_checked_child_rows": 5,
+    "governance_criteria": "Reused accepted GOV024 and final aggregate/closure review; not newly re-audited."
+  },
+  "reviewed_at_utc": "2026-10-16T22:48:03.219893+00:00",
+  "review_harness_history": [
+    {
+      "kind": "read_only_shell_invocation",
+      "result": "Initial PowerShell unquoted Git tree revision was parsed incorrectly; the read failed without mutation. Subsequent Git reads used subprocess argument lists."
+    },
+    {
+      "kind": "independent_adversary_fixture_construction",
+      "result": "First unused-conversion control put a new interval [120,130) inside existing [90,130); supported input validation correctly refused same-domain overlap. Corrected only the audit fixture to [130,140), then all seven controls and all35source methods passed. No product defect or relaxation."
+    },
+    {
+      "kind": "public_path_scanner_false_positive",
+      "result": "Initial finalizer drive-pattern check also matched the s:/ substring of legitimate https URLs. The bounded drive-boundary pattern accepted the already-written public-safe report; no credential/private-path exposure or product operation occurred."
+    }
+  ],
+  "public_safe": true
+}

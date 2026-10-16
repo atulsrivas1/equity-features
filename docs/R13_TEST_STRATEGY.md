@@ -1,0 +1,25 @@
+# R13 test and evaluation strategy
+
+Planning only. Read [release gates](R13_RELEASE_PLAN.md), [original pilot](EVIDENCE_SERVICE_PILOT.md) and [EQ116](stories/EQ-116_PLAN.md). No experiment, measurement or threshold approval has occurred under this packet.
+
+## Independent paired controls
+
+Proposed fixtures: clean retained workflow; future-known input contamination; supported narrative versus actual result mismatch; unsupported narrative; missing retained input/artifact; valid shortened prefix versus separately retained terminal; altered result/content; unknown actor/model declaration. Freeze literal full expected result/quality/receipt identities and expected diagnostic outcomes before code. Separate injected truth from each API's supported detection. Verify supported replay calls once and unavailable/incompatible/pre-entry cancellation zero-call semantics without expanding the replay registry.
+
+Both evidence and structured-log arms receive the same synthetic data/config/calculator/result/artifacts, equivalent fields, task questions and permitted tools. Freeze log schema, terminal ownership and task order. Declare anchor/content/replay differences rather than silently withholding baseline evidence. Verify complete export roundtrip and fresh installed replay outside the checkout, retaining original metadata/quality/payload/source pins. Proposed controls are not completed coverage.
+
+## EQ117 measurement and owner decision
+
+Prepare a threshold packet before evaluation: fixed tasks/order/repeat count/stopping rule and raw bounded observation schema; endpoints for correct diagnoses, clean-control false positives, exact replay success, counted debugging/tool steps, monotonic elapsed time and recording/export/replay bytes/time. Propose concrete numerical benefit/overhead thresholds for owner acceptance before collecting outcomes. No threshold is accepted by this handoff.
+
+Record every trial, including failure/unavailable tasks, warm/cold setup, interpreter/OS/version, timing method, sample size, median/spread and paired differences. Preserve parity before performance claims. Separate deterministic correctness qualification from usefulness evaluation. Automated agent observations are not human debugging measurements. External developer usefulness/demand remains unknown without separately authorized willing participants; no outreach is selected.
+
+## Conditional witness controls
+
+Only after117 positive trust-need decision and reviewed118 protocol: independent signature vectors, wrong chain/version/head/count, unknown/revoked/rotated keys, stale/replayed/conflicting checkpoints, prefix versus trusted terminal, partial publication, retries/idempotency, unavailable witness, tenant boundaries and privacy. Remote119 adds relevant security/operational qualification. Same-owner keys/processes do not prove independent operation. Unexecuted conditional cases are not PASS.
+
+## Publication
+
+Docs-only packet: UTF8/GitLF, local links/story IDs/dependencies, original scope/criteria retained, unchanged runtime/package inputs, actual separate planning review and applicable current candidate/main/publication checks. No irrelevant rebuild for this metadata change.
+
+Runtime: exact public source map, independent numerical/causal oracles, old-contract parity, relevant source/typing/boundary checks, new supported Windows/Linux clean wheel/SDist light/integration forms as applicable, selected SDist/rebuilt wheel/RECORD/origin/license maps and current artifacts. Reviewer archive audit is not independent reinstall. Preserve skips, failed runs, source-only/mocked/native/installed distinctions. EQ120 reconciles original criteria and conditional child disposition before any epic closure claim.
