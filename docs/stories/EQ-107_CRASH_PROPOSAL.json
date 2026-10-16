@@ -1,0 +1,7 @@
+{
+  "status": "fixed_private_qualification_input_not_executed",
+  "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:new_model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":13,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+  "sha256": "7586966b161bd45b50c20c664f84b4b56060f48db84fb2a0659ec8ecf7c445c6",
+  "bytes": 547,
+  "basis": "Independent stdlib encoding of literal next-model case with sequence13, exact previous12; no product imports/execution."
+}
