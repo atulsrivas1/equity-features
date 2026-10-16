@@ -1,3 +1,23 @@
+## Exit signals and aggregate accounting are separate observations — October15,2026
+
+EQ107 first physical crash test observed launcher and entry exit while immediate Windows job accounting still read1; the cohort failed. Require an independently observed zero within the fixed observation budget before reopening; timeout or failed accounting is failure, not cleanup. Keep failed outputs/roots and expose bounded raw suite failures in CI. Distinct corrected runs require renewed exact source review. [Failure evidence and limits](../stories/EQ-107_VALIDATION.json). This does not establish kernel settlement latency or power-loss recovery.
+
+## Preserve uncertain transaction and contradictory page evidence — October15,2026
+
+A transaction flag becoming false is not a successful rollback acknowledgment. Distinguish BEGIN refusal from an unexpectedly ended entered transaction; preserve unknown and deny replay. A page cannot prove unseen prior membership, but supplied later rows can directly contradict earlier citation identity and must refuse. Run immutable negative tables rather than only handwritten equivalents. Preserve failed process witnesses before elapsed-budget refusal. [Original review and correction evidence](../stories/EQ-107_VALIDATION.json).
+
+## Explicit connection ownership in SQLite test fixtures — October15,2026
+
+SQLite connection context managers commit/roll back but do not close the connection. EQ107 initial Windows fixture cleanup failed with live fixture connections. Register and explicitly close every fixture connection before verified owned-root cleanup; preserve failed-run evidence rather than calling cleanup successful. [Source-development record](../stories/EQ-107_VALIDATION.json). This correction is not proof of physical crash/power-loss cleanup.
+
+## EQ107 validate requests before classifying history — October15,2026
+
+Freeze exact public result constructors and proposal/base agreement before runtime Ready. A valid event can still be an invalid next append for a supplied checkpoint; do not classify it absent or found. Directly constructed status records establish structural consistency only. [Corrected contract](../stories/EQ-107_CONTRACT.md), [review disposition](../stories/EQ-107_VALIDATION.json). No product test or completed readiness is inferred.
+
+## Bind evidence before lifecycle; settle absent identity and page terminal before code — October15,2026
+
+[EQ106 acceptance](https://github.com/atulsrivas1/equity-features/issues/206#issuecomment-6205931841) binds source/API-builder-finaldocs hashes, distinct current workflow/event/job executions and reviewed exact criteria/history before Done. EQ107 preparation must name an empty chain explicitly and compare caller-owned terminal, not trust a page self-description. Missing context and logical counters remain distinct from membership/physical guarantees. [Pre-code evidence](../stories/EQ-107_VALIDATION.json); fixture preparation is not runtime validation.
+
 ## EQ106 adversarial validation-order corrections
 
 Passing original literal/negative cases did not establish every multi-fault precedence. Independent probes caught eager later nested errors, all-member type scans skipping an earlier semantic error, wrong-type nested versions misclassified as unsupported, and subject shallow-key preflight ordering. Preserve each report; correct before installed qualification and add independent regressions. [Validation](../stories/EQ-106_VALIDATION.json).

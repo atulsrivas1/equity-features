@@ -1,0 +1,808 @@
+{
+  "status": "independent_precode_page_vectors_not_runtime",
+  "positive": [
+    {
+      "id": "first_page",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 0,
+          "head_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":2,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:call\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":3,\"subject\":{\"arguments\":{\"entries\":[{\"name\":\"command\",\"value\":{\"kind\":\"text\",\"value\":\"trades\"}},{\"name\":\"request_key\",\"value\":{\"kind\":\"text\",\"value\":\"r1\"}}],\"state\":\"retained_complete\",\"total_count\":2},\"kind\":\"tool_call\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1},\"tool_name\":\"calculate\",\"tool_version\":\"mcp-2025-11-25\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:result\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":4,\"subject\":{\"call\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3},\"kind\":\"tool_result\",\"outcome\":\"succeeded\",\"payload\":{\"digest\":\"09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc\",\"full_bytes\":16,\"kind\":\"tool_result\",\"retained_bytes\":16,\"state\":\"retained_complete\"}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 0,
+        "head_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected": {
+        "reached_terminal": false,
+        "resolved": [
+          {
+            "chain_id": "demo:chain",
+            "digest": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+            "event_id": "demo:request",
+            "kind": "request",
+            "sequence": 1
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db",
+            "event_id": "demo:call",
+            "kind": "tool_call",
+            "sequence": 3
+          }
+        ],
+        "unresolved": [],
+        "prior_global_uniqueness": "not_verified",
+        "prior_membership": "not_verified"
+      }
+    },
+    {
+      "id": "middle_without_context",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected": {
+        "reached_terminal": false,
+        "resolved": [
+          {
+            "chain_id": "demo:chain",
+            "digest": "b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec",
+            "event_id": "demo:read",
+            "kind": "feature_read",
+            "sequence": 5
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7",
+            "event_id": "demo:decision",
+            "kind": "decision",
+            "sequence": 6
+          }
+        ],
+        "unresolved": [
+          {
+            "chain_id": "demo:chain",
+            "digest": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e",
+            "event_id": "demo:result",
+            "kind": "tool_result",
+            "sequence": 4
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+            "event_id": "demo:request",
+            "kind": "request",
+            "sequence": 1
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db",
+            "event_id": "demo:call",
+            "kind": "tool_call",
+            "sequence": 3
+          }
+        ],
+        "prior_global_uniqueness": "not_verified",
+        "prior_membership": "not_verified"
+      }
+    },
+    {
+      "id": "middle_with_context",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":2,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:call\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":3,\"subject\":{\"arguments\":{\"entries\":[{\"name\":\"command\",\"value\":{\"kind\":\"text\",\"value\":\"trades\"}},{\"name\":\"request_key\",\"value\":{\"kind\":\"text\",\"value\":\"r1\"}}],\"state\":\"retained_complete\",\"total_count\":2},\"kind\":\"tool_call\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1},\"tool_name\":\"calculate\",\"tool_version\":\"mcp-2025-11-25\"}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:result\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":4,\"subject\":{\"call\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3},\"kind\":\"tool_result\",\"outcome\":\"succeeded\",\"payload\":{\"digest\":\"09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc\",\"full_bytes\":16,\"kind\":\"tool_result\",\"retained_bytes\":16,\"state\":\"retained_complete\"}}}"
+      ],
+      "expected": {
+        "reached_terminal": false,
+        "resolved": [
+          {
+            "chain_id": "demo:chain",
+            "digest": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e",
+            "event_id": "demo:result",
+            "kind": "tool_result",
+            "sequence": 4
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+            "event_id": "demo:request",
+            "kind": "request",
+            "sequence": 1
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec",
+            "event_id": "demo:read",
+            "kind": "feature_read",
+            "sequence": 5
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7",
+            "event_id": "demo:decision",
+            "kind": "decision",
+            "sequence": 6
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db",
+            "event_id": "demo:call",
+            "kind": "tool_call",
+            "sequence": 3
+          }
+        ],
+        "unresolved": [],
+        "prior_global_uniqueness": "not_verified",
+        "prior_membership": "not_verified"
+      }
+    },
+    {
+      "id": "last_with_context",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:error\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":9,\"subject\":{\"code\":\"unavailable\",\"kind\":\"error\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:revoke\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"276723e7f8778af3aad6d55d28da70be4dd7aab45ad086df846dfb97b8363a97\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":10,\"subject\":{\"kind\":\"correction\",\"operation\":\"revoke\",\"reason_code\":\"review_withdrawn\",\"replacement\":null,\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"event_id\":\"demo:review\",\"kind\":\"human_review\",\"sequence\":7}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:replacement\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"916641ceffb20e1e96effffd474c77819d93f4d3e2db5b85102a7f2381727800\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":11,\"subject\":{\"action\":\"reject\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt_strict\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:amend\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":12,\"subject\":{\"kind\":\"correction\",\"operation\":\"amend\",\"reason_code\":\"decision_revision\",\"replacement\":{\"chain_id\":\"demo:chain\",\"digest\":\"dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa\",\"event_id\":\"demo:replacement\",\"kind\":\"decision\",\"sequence\":11},\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 8,
+        "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":2,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:call\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":3,\"subject\":{\"arguments\":{\"entries\":[{\"name\":\"command\",\"value\":{\"kind\":\"text\",\"value\":\"trades\"}},{\"name\":\"request_key\",\"value\":{\"kind\":\"text\",\"value\":\"r1\"}}],\"state\":\"retained_complete\",\"total_count\":2},\"kind\":\"tool_call\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1},\"tool_name\":\"calculate\",\"tool_version\":\"mcp-2025-11-25\"}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:result\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":4,\"subject\":{\"call\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3},\"kind\":\"tool_result\",\"outcome\":\"succeeded\",\"payload\":{\"digest\":\"09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc\",\"full_bytes\":16,\"kind\":\"tool_result\",\"retained_bytes\":16,\"state\":\"retained_complete\"}}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+        "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+      ],
+      "expected": {
+        "reached_terminal": true,
+        "resolved": [
+          {
+            "chain_id": "demo:chain",
+            "digest": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e",
+            "event_id": "demo:result",
+            "kind": "tool_result",
+            "sequence": 4
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8",
+            "event_id": "demo:review",
+            "kind": "human_review",
+            "sequence": 7
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+            "event_id": "demo:request",
+            "kind": "request",
+            "sequence": 1
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec",
+            "event_id": "demo:read",
+            "kind": "feature_read",
+            "sequence": 5
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7",
+            "event_id": "demo:decision",
+            "kind": "decision",
+            "sequence": 6
+          },
+          {
+            "chain_id": "demo:chain",
+            "digest": "dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa",
+            "event_id": "demo:replacement",
+            "kind": "decision",
+            "sequence": 11
+          }
+        ],
+        "unresolved": [],
+        "prior_global_uniqueness": "not_verified",
+        "prior_membership": "not_verified"
+      }
+    },
+    {
+      "id": "empty_terminal",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": []
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected": {
+        "reached_terminal": true,
+        "resolved": [],
+        "unresolved": [],
+        "prior_global_uniqueness": "not_verified",
+        "prior_membership": "not_verified"
+      }
+    }
+  ],
+  "negative": [
+    {
+      "id": "different_external_start",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 0,
+        "head_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected_error": "inconsistent_chain"
+    },
+    {
+      "id": "self_declared_short_terminal",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected_error": "inconsistent_chain"
+    },
+    {
+      "id": "reordered_page",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected_error": "inconsistent_chain"
+    },
+    {
+      "id": "missing_page_row",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected_error": "inconsistent_chain"
+    },
+    {
+      "id": "wrong_before_hash",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected_error": "inconsistent_chain"
+    },
+    {
+      "id": "false_after_terminal",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected_error": "inconsistent_chain"
+    },
+    {
+      "id": "empty_nonterminal",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": []
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected_error": "invalid_schema"
+    },
+    {
+      "id": "later_prior_context",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:error\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":9,\"subject\":{\"code\":\"unavailable\",\"kind\":\"error\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}"
+      ],
+      "expected_error": "inconsistent_reference"
+    },
+    {
+      "id": "duplicate_prior_context",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+          "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+        "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}"
+      ],
+      "expected_error": "duplicate"
+    },
+    {
+      "id": "page_count_65",
+      "page": {
+        "before": {
+          "chain_id": "demo:chain",
+          "sequence": 4,
+          "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+        },
+        "after": {
+          "chain_id": "demo:chain",
+          "sequence": 8,
+          "head_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983"
+        },
+        "through": {
+          "chain_id": "demo:chain",
+          "sequence": 12,
+          "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+        },
+        "events_ascii": [
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+          "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}"
+        ]
+      },
+      "start": {
+        "chain_id": "demo:chain",
+        "sequence": 4,
+        "head_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e"
+      },
+      "through": {
+        "chain_id": "demo:chain",
+        "sequence": 12,
+        "head_hash": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3"
+      },
+      "prior_ascii": [],
+      "expected_error": "limit_exceeded"
+    }
+  ],
+  "bounds_reasoning": "64events *16384eventbytes equals1048576 aggregate bytes. A well-formed <=64event page cannot exceed the aggregate cap; oversized individual events refuse first. Do not claim a separate reachable aggregate-overflow vector. Full-chain32MiB remains independently reachable below4096events."
+}

@@ -1,0 +1,335 @@
+{
+  "status": "proposed_precode_profile_not_implemented_or_Ready",
+  "distribution": "equity-feature-agent-ledger",
+  "version": "0.1.0a1",
+  "module": "equity_feature_agent_ledger",
+  "python": ">=3.12,<3.13",
+  "license": "Apache-2.0",
+  "dependencies": [
+    "equity-feature-agent-evidence==0.1.0a1"
+  ],
+  "application_id": 1161907249,
+  "user_version": 1,
+  "DDL": [
+    "CREATE TABLE metadata (\n singleton INTEGER PRIMARY KEY CHECK (singleton = 1),\n schema_version TEXT NOT NULL CHECK (schema_version = '1'),\n chain_id TEXT NOT NULL,\n event_count INTEGER NOT NULL CHECK (typeof(event_count) = 'integer' AND event_count BETWEEN 0 AND 4096),\n head_hash TEXT NOT NULL CHECK (length(head_hash) = 64 AND head_hash NOT GLOB '*[^0-9a-f]*'),\n canonical_bytes INTEGER NOT NULL CHECK (typeof(canonical_bytes) = 'integer' AND canonical_bytes BETWEEN 0 AND 33554432)\n)",
+    "CREATE TABLE events (\n sequence INTEGER PRIMARY KEY CHECK (sequence BETWEEN 1 AND 4096),\n event_id TEXT NOT NULL UNIQUE,\n kind TEXT NOT NULL CHECK (kind IN ('request','model_declaration','tool_call','tool_result','feature_read','decision','human_review','cancellation','error','correction')),\n previous_hash TEXT NOT NULL CHECK (length(previous_hash) = 64 AND previous_hash NOT GLOB '*[^0-9a-f]*'),\n digest TEXT NOT NULL CHECK (length(digest) = 64 AND digest NOT GLOB '*[^0-9a-f]*'),\n canonical BLOB NOT NULL CHECK (typeof(canonical) = 'blob' AND length(canonical) BETWEEN 1 AND 16384),\n byte_length INTEGER NOT NULL CHECK (typeof(byte_length) = 'integer' AND byte_length = length(canonical))\n)"
+  ],
+  "schema_inventory": {
+    "tables": [
+      "metadata",
+      "events"
+    ],
+    "views": [],
+    "triggers": [],
+    "explicit_indexes": [],
+    "automatic_indexes": {
+      "events": "unique event_id index; fixed collation BINARY, no partial/expression index"
+    },
+    "automatic_index_name": "sqlite_autoindex_events_1",
+    "index_xinfo": [
+      [
+        0,
+        1,
+        "event_id",
+        0,
+        "BINARY",
+        1
+      ],
+      [
+        1,
+        -1,
+        null,
+        0,
+        "BINARY",
+        0
+      ]
+    ],
+    "table_xinfo": {
+      "metadata": [
+        [
+          0,
+          "singleton",
+          "INTEGER",
+          0,
+          null,
+          1,
+          0
+        ],
+        [
+          1,
+          "schema_version",
+          "TEXT",
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          2,
+          "chain_id",
+          "TEXT",
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          3,
+          "event_count",
+          "INTEGER",
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          4,
+          "head_hash",
+          "TEXT",
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          5,
+          "canonical_bytes",
+          "INTEGER",
+          1,
+          null,
+          0,
+          0
+        ]
+      ],
+      "events": [
+        [
+          0,
+          "sequence",
+          "INTEGER",
+          0,
+          null,
+          1,
+          0
+        ],
+        [
+          1,
+          "event_id",
+          "TEXT",
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          2,
+          "kind",
+          "TEXT",
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          3,
+          "previous_hash",
+          "TEXT",
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          4,
+          "digest",
+          "TEXT",
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          5,
+          "canonical",
+          "BLOB",
+          1,
+          null,
+          0,
+          0
+        ],
+        [
+          6,
+          "byte_length",
+          "INTEGER",
+          1,
+          null,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "creation_pragmas": {
+    "journal_mode": "delete",
+    "synchronous": 2,
+    "foreign_keys": 1,
+    "trusted_schema": 0,
+    "busy_timeout": 0
+  },
+  "open_pragmas": "Query existing journal_mode and version IDs first; reject unsupported mode/version without assigning/converting. Configure/verify only supported connection-local settings. SQLite hot-journal recovery may physically write; no application logical repair.",
+  "limits": {
+    "events": 4096,
+    "canonical_event_bytes": 33554432,
+    "event_bytes": 16384,
+    "event_refs": 16,
+    "page_events": 64,
+    "page_canonical_event_bytes": 1048576,
+    "checkpoint_wire_bytes": 1024,
+    "path_characters": 4096
+  },
+  "public_signatures": [
+    "Checkpoint(chain_id: str, sequence: int, head_hash: str)",
+    "encode_checkpoint(checkpoint: Checkpoint) -> bytes",
+    "decode_checkpoint(content: bytes) -> Checkpoint",
+    "verify_events(events: list[EventRecord] | tuple[EventRecord, ...], *, chain_id: str, expected: Checkpoint | None = None) -> Verification",
+    "verify_page(page: Page, *, start: Checkpoint, through: Checkpoint, prior: list[EventRecord] | tuple[EventRecord, ...] = ()) -> PageVerification",
+    "Ledger.create(path: str, chain_id: str) -> Ledger",
+    "Ledger.open(path: str) -> Ledger",
+    "Ledger.head() -> Checkpoint",
+    "Ledger.append(event: EventRecord, *, expected: Checkpoint) -> Checkpoint",
+    "Ledger.verify(*, expected: Checkpoint | None = None) -> Verification",
+    "Ledger.export_page(*, after: int, through: Checkpoint, limit: int = 64) -> Page",
+    "Ledger.reconcile(event: EventRecord, *, expected_before: Checkpoint) -> Reconciliation",
+    "Ledger.close() -> None"
+  ],
+  "result_fields": {
+    "Verification": [
+      "head:Checkpoint",
+      "anchor_status:AnchorStatus",
+      "verified_events:int",
+      "canonical_event_bytes:int"
+    ],
+    "Page": [
+      "before:Checkpoint",
+      "after:Checkpoint",
+      "through:Checkpoint",
+      "events:tuple[EventRecord,...]"
+    ],
+    "PageVerification": [
+      "after:Checkpoint",
+      "reached_terminal:bool",
+      "resolved:tuple[EventReference,...]",
+      "unresolved:tuple[EventReference,...]",
+      "prior_global_uniqueness:Literal['not_verified']",
+      "prior_membership:Literal['not_verified']"
+    ],
+    "Reconciliation": [
+      "status:ReconciliationStatus",
+      "head:Checkpoint",
+      "observed:EventReference|None"
+    ]
+  },
+  "anchor_statuses": [
+    "not_supplied",
+    "matched_terminal",
+    "matched_prefix",
+    "mismatch",
+    "not_covered"
+  ],
+  "reconciliation_statuses": [
+    "found_exact",
+    "absent_at_unchanged_head",
+    "conflict",
+    "base_not_covered"
+  ],
+  "path_policy": "Exact nonempty absolute str <=4096characters, no NUL. Internally construct quoted mode=rw URI for opening; caller supplies no URI/options. Creation reserves new file exclusively, refuses existing destinations and leaves failed owned initialization for explicit caller cleanup. No adversarial race-free path/ACL guarantee.",
+  "corruption_policy": "Validate exact DDL/column/index inventories before application table reads. Full verification rejects canonical,row mirror,sequence,reference,global ID,metadata/index or bounds disagreement; never application-repair/migrate/delete. Anchor coverage separate from integrity.",
+  "page_policy": "Explicit fixed through terminal on every call. At most64events/1MiB canonical bytes, contiguous recording sequence. Verify through row hash in each consistent read snapshot, exclude later appends. Empty only after==through. Page checks cannot establish earlier global uniqueness or earlier references outside supplied context. Full verify_events from genesis checks global uniqueness/references once linearly. verify_page requires the caller explicit expected through as well as start; self-declared Page.through must equal it before reached_terminal may be true. A self-chosen page terminal cannot satisfy the caller terminal request.",
+  "close_policy": "Idempotent connection close; methods on poisoned/closed object refuse. A close/rollback failure is not completed physical cleanup. No automatic file/journal deletion or recursive cleanup.",
+  "qualification_executed": false,
+  "empty_verification": "verify_events requires explicit chain_id even for empty input; empty head=(chain_id,0,genesis), no anchor=>not_supplied, expected samechain genesis=>matched_terminal, expected later=>not_covered, wrongchain=>mismatch. Ledger.verify supplies its bound chain identity.",
+  "transaction_connection": "CPython3.12 sqlite3.connect(internally quoted owner path URI, uri=True, timeout=0.0, isolation_level=None, autocommit=sqlite3.LEGACY_TRANSACTION_CONTROL); fixed BEGIN IMMEDIATE/COMMIT/ROLLBACK SQL. Separate connections per writer/thread; no shared-connection concurrency promise.",
+  "public_error_class": "LedgerError(ValueError) with exact closed payload-free code; input AgentEvidenceError mapped: invalid_schema->invalid_schema, unsupported_version->unsupported_version, duplicate->duplicate, limit_exceeded->limit_exceeded, invalid_reference/inconsistent_reference->inconsistent_reference. Stored-event decode/hash/mirror disagreement maps to inconsistent_chain. Raw SQLite causes remain private; SQLITE_BUSY or SQLITE_LOCKED (base code including extended variants) map to busy before a possible commit.",
+  "append_acknowledgment": "Checkpoint returned only after COMMIT success. Any COMMIT exception poisons/closes and outcome_unknown even if in_transaction becomes false. Precommit failure returns known refusal only after successful rollback; failed/uncertain rollback poisons/closes and outcome_unknown. Never auto replay. Record exact proposal/prior checkpoint externally and use read-only reconcile after reopen.",
+  "head_policy": "head() returns a validated stored checkpoint/head-row pair, not a fresh whole-history verification or authenticated anchor. verify()/open perform full consistency scanning. Close is idempotent API state; a failed underlying close is not a physical cleanup success.",
+  "page_construction": "Page structural construction revalidates/copies checkpoint fields and exact list/tuple event input (stored as tuple), count/byte caps. Relations/linkage/coverage are verified by verify_page/export, not implied by an arbitrary caller-created Page.",
+  "reference_order": "Semantic kind order: tool_call request; tool_result call; feature_read result; decision request then feature_reads; human_review decision; cancellation target; error optional target; correction target then optional replacement. Return unique resolved/unresolved references in first-citation order, matching content only; earlier membership/global uniqueness not verified by a page.",
+  "status_types": {
+    "AnchorStatus": {
+      "type": "Enum, exact class; strings and other enums refused",
+      "members": {
+        "NOT_SUPPLIED": "not_supplied",
+        "MATCHED_TERMINAL": "matched_terminal",
+        "MATCHED_PREFIX": "matched_prefix",
+        "MISMATCH": "mismatch",
+        "NOT_COVERED": "not_covered"
+      }
+    },
+    "ReconciliationStatus": {
+      "type": "Enum, exact class; strings and other enums refused",
+      "members": {
+        "FOUND_EXACT": "found_exact",
+        "ABSENT_AT_UNCHANGED_HEAD": "absent_at_unchanged_head",
+        "CONFLICT": "conflict",
+        "BASE_NOT_COVERED": "base_not_covered"
+      }
+    }
+  },
+  "result_constructors": {
+    "common": {
+      "ownership": "Frozen records; exact own record/enum types only, never subclasses. Revalidate fields even for forged instances. Clone checkpoint fields and EventReference fields; detach events through public encode/decode. Exact list/tuple inputs stored as detached tuples. No caller-owned mutable container retained.",
+      "errors": "Wrong type/shape, bool-as-int, negative count -> invalid_schema; count over cap -> limit_exceeded; input event/reference errors mapped through public_error_class. Validation in signature field order, container caps before item validation, then cross-field rules in listed order. Results attest structural consistency only; operation computes historical facts."
+    },
+    "Verification": {
+      "signature": "Verification(head: Checkpoint, anchor_status: AnchorStatus, verified_events: int, canonical_event_bytes: int)",
+      "fields": [
+        "head: cloned exact Checkpoint",
+        "anchor_status: exact AnchorStatus",
+        "verified_events: exact non-bool int 0..4096",
+        "canonical_event_bytes: exact non-bool int 0..33554432"
+      ],
+      "invariants": [
+        "verified_events == head.sequence, else inconsistent_chain",
+        "Zero events require zero bytes; nonzero events require verified_events <= canonical_event_bytes <= min(verified_events*16384,33554432), else inconsistent_chain",
+        "MATCHED_PREFIX requires nonzero head.sequence, else invalid_schema"
+      ],
+      "limits": "No supplied expected anchor exists in constructor; status is a structurally admitted assertion, not proof of its truth."
+    },
+    "PageVerification": {
+      "signature": "PageVerification(after: Checkpoint, reached_terminal: bool, resolved: list[EventReference] | tuple[EventReference,...], unresolved: list[EventReference] | tuple[EventReference,...], prior_global_uniqueness: Literal['not_verified'] = 'not_verified', prior_membership: Literal['not_verified'] = 'not_verified')",
+      "fields": [
+        "after: cloned exact Checkpoint",
+        "reached_terminal: exact bool",
+        "resolved/unresolved: exact list or tuple, combined <=1024 references; check both container shapes and combined cap before validating items; process resolved before unresolved",
+        "prior_global_uniqueness/prior_membership: exact str equal not_verified"
+      ],
+      "invariants": [
+        "References use exact public EventReference class with revalidated/copied scalar fields",
+        "Each reference has after.chain_id and 1 <= sequence < after.sequence, else inconsistent_reference",
+        "Index by both event_id and sequence across both tuples: identical repeated full reference within one tuple -> duplicate; partial/split/wrong-hash identity or identical reference in both tuples -> inconsistent_reference",
+        "Preserve each tuple order; operation emits first semantic citation order, constructor cannot reconstruct event citation order"
+      ],
+      "limits": "At most64events*16references=1024; no earlier membership/global uniqueness or caller terminal proof from construction."
+    },
+    "Reconciliation": {
+      "signature": "Reconciliation(status: ReconciliationStatus, head: Checkpoint, observed: EventReference | None = None)",
+      "fields": [
+        "status: exact ReconciliationStatus",
+        "head: cloned exact Checkpoint",
+        "observed: None or exact revalidated/copied EventReference"
+      ],
+      "invariants": [
+        "FOUND_EXACT requires observed; ABSENT_AT_UNCHANGED_HEAD and BASE_NOT_COVERED forbid observed; CONFLICT permits either; otherwise invalid_schema",
+        "Observed chain must equal head.chain_id and 1 <= observed.sequence <= head.sequence; at terminal its digest must equal head.head_hash; otherwise inconsistent_reference"
+      ],
+      "limits": "Construction does not verify a database or proposal/base history."
+    }
+  },
+  "reconcile_input_order": [
+    "Refuse closed/poisoned Ledger first; copy/revalidate event through public encode/decode, then expected_before Checkpoint.",
+    "Before any store read: event.chain_id==expected_before.chain_id, event.sequence==expected_before.sequence+1, event.previous_hash==expected_before.head_hash; check in that order, any mismatch inconsistent_chain.",
+    "A self-consistent foreign-chain proposal/base reaches store classification as conflict. A valid generic event4097 paired with full checkpoint4096 may reconcile absent; this is not permission to append beyond the cap.",
+    "Fully verify one current store snapshot. Foreign store chain or covered base hash mismatch -> conflict/observed None; base.sequence>head.sequence -> base_not_covered/observed None.",
+    "Then look up proposal ID and next sequence. Same row with exact canonical bytes -> found_exact, observed row; otherwise existing ID row -> conflict/that observed row (priority), else existing next row -> conflict/that observed row.",
+    "Neither row and head==base -> absent_at_unchanged_head; impossible other contiguous state -> inconsistent_chain. Never mutate/replay."
+  ]
+}

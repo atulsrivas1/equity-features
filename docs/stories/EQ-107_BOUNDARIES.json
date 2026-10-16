@@ -1,0 +1,248 @@
+{
+  "status": "precode_candidate_case_descriptions_not_runtime_not_complete_mutation_vectors",
+  "checkpoint_validation_order": [
+    "exact input type",
+    "wire bytes cap",
+    "ASCII JSON syntax/duplicate keys",
+    "exact root key set and domain",
+    "version/canonicalization",
+    "chain identity",
+    "sequence type/range",
+    "hash syntax/genesis consistency",
+    "canonical byte equality"
+  ],
+  "store_error_priority": "fixed input/event canonical validation before transaction; BEGIN contention before store-dependent checks; within transaction profile/head/expected -> event chain/sequence/link -> ID uniqueness -> reference targets -> logical quota -> INSERT/metadata/COMMIT; unknown commit/rollback failure overrides a false known-outcome assertion",
+  "cases": [
+    {
+      "id": "checkpoint_sequence_bool",
+      "mutation": "Checkpoint.sequence=True",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "checkpoint_sequence_float",
+      "mutation": "Checkpoint.sequence=1.0",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "checkpoint_sequence_negative",
+      "mutation": "Checkpoint.sequence=-1",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "checkpoint_sequence_overflow",
+      "mutation": "Checkpoint.sequence=4097",
+      "expected": "limit_exceeded"
+    },
+    {
+      "id": "checkpoint_bad_chain",
+      "mutation": "Checkpoint.chain_id=demo",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "checkpoint_long_chain",
+      "mutation": "Checkpoint.chain_id length129",
+      "expected": "limit_exceeded"
+    },
+    {
+      "id": "checkpoint_hash_uppercase",
+      "mutation": "Checkpoint.head_hash uppercasehex",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "checkpoint_hash_short",
+      "mutation": "Checkpoint.head_hash length63",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "checkpoint_genesis_nonzero",
+      "mutation": "Checkpoint.sequence0/hash64f",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "decode_not_bytes",
+      "mutation": "decode_checkpoint(str)",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "decode_over_wire_limit",
+      "mutation": "decode_checkpoint(bytes length1025)",
+      "expected": "limit_exceeded"
+    },
+    {
+      "id": "decode_duplicate_key",
+      "mutation": "duplicate sequence key",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "decode_unknown_key",
+      "mutation": "extra field",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "decode_noncanonical_whitespace",
+      "mutation": "leading space before valid JSON",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "decode_trailing_value",
+      "mutation": "canonical JSON followed by null",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "decode_bad_domain",
+      "mutation": "unsupported domain",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "decode_version",
+      "mutation": "schema_version2",
+      "expected": "unsupported_version"
+    },
+    {
+      "id": "decode_canonicalization",
+      "mutation": "canonicalization2",
+      "expected": "unsupported_version"
+    },
+    {
+      "id": "decode_invalid_utf8",
+      "mutation": "byteff",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "ledger_existing_create",
+      "mutation": "create destination already exists",
+      "expected": "storage_error"
+    },
+    {
+      "id": "ledger_missing_open",
+      "mutation": "open destination absent",
+      "expected": "storage_error"
+    },
+    {
+      "id": "ledger_unsupported_schema",
+      "mutation": "user_version2",
+      "expected": "unsupported_version"
+    },
+    {
+      "id": "ledger_WAL_open",
+      "mutation": "existing WAL profile queried without conversion",
+      "expected": "unsupported_version"
+    },
+    {
+      "id": "ledger_extra_table",
+      "mutation": "unexpected application schema table",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "ledger_bad_DDL",
+      "mutation": "modified table constraint/index collation",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "append_stale",
+      "mutation": "expected predecessor differs from current head",
+      "expected": "stale_checkpoint"
+    },
+    {
+      "id": "append_wrong_next",
+      "mutation": "next event sequence not N+1",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "append_wrong_previous",
+      "mutation": "previous_hash not current terminal",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "append_duplicate_ID",
+      "mutation": "existing event_id",
+      "expected": "duplicate"
+    },
+    {
+      "id": "append_missing_reference",
+      "mutation": "Missing ID with an existing prior sequence target; both-absent cannot occur in a valid contiguous complete prefix. A missing stored sequence is earlier integrity failure.",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "append_split_reference",
+      "mutation": "target ID and sequence lookup differ",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "append_hash_reference",
+      "mutation": "target full reference digest differs",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "append_event_limit",
+      "mutation": "current4096 then append",
+      "expected": "limit_exceeded"
+    },
+    {
+      "id": "append_byte_limit",
+      "mutation": "currentcanonicalbytes+eventbytes>33554432",
+      "expected": "limit_exceeded"
+    },
+    {
+      "id": "append_BUSY",
+      "mutation": "competing connection holds BEGINIMMEDIATE",
+      "expected": "busy"
+    },
+    {
+      "id": "append_commit_exception",
+      "mutation": "COMMIT raises, connection poisoned/closed",
+      "expected": "outcome_unknown"
+    },
+    {
+      "id": "append_rollback_failure",
+      "mutation": "precommit error then ROLLBACK raises, poisoned/closed",
+      "expected": "outcome_unknown"
+    },
+    {
+      "id": "closed_method",
+      "mutation": "head/append/verify/export/reconcile after close",
+      "expected": "closed"
+    },
+    {
+      "id": "page_not_contiguous",
+      "mutation": "event gap/reorder/previous hash mismatch",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "page_wrong_start",
+      "mutation": "before != callerstart",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "page_wrong_through",
+      "mutation": "Page.through != callerthrough",
+      "expected": "inconsistent_chain"
+    },
+    {
+      "id": "page_missing_terminal",
+      "mutation": "after below through",
+      "expected": "valid_partial_reached_terminal_false"
+    },
+    {
+      "id": "page_missing_prior",
+      "mutation": "valid earlier reference target outside supplied context",
+      "expected": "valid_unresolved_reference_prior_uniqueness_not_verified"
+    },
+    {
+      "id": "page_empty_nonterminal",
+      "mutation": "empty events before<through",
+      "expected": "invalid_schema"
+    },
+    {
+      "id": "page_count_limit",
+      "mutation": "65events",
+      "expected": "limit_exceeded"
+    },
+    {
+      "id": "page_byte_limit",
+      "mutation": "A valid <=64event page cannot exceed64*16384=1048576 bytes. Oversized individual event refuses first; redundant aggregate guard is not a separate reachable overflow case.",
+      "expected": "limit_exceeded"
+    }
+  ],
+  "coverage_limits": "Literal checkpoint/store/append/page vectors accompany these case descriptions. Actual SQLite state, process crash and physical cleanup remain planned qualification; no source/runtime test pass."
+}

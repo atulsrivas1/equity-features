@@ -1,3 +1,11 @@
+## EQ107 validate requests before classifying history — October15,2026
+
+Freeze exact public result constructors and proposal/base agreement before runtime Ready. A valid event can still be an invalid next append for a supplied checkpoint; do not classify it absent or found. Directly constructed status records establish structural consistency only. [Corrected contract](../stories/EQ-107_CONTRACT.md), [review disposition](../stories/EQ-107_VALIDATION.json). No product test or completed readiness is inferred.
+
+## EQ107 proposed local rollback-journal ledger — October15,2026
+
+Use a separate stdlib SQLite store with exact canonical rows/indexes, explicit expected-head CAS, read-only unknown-commit reconciliation and caller-owned page terminal. Reject unsupported WAL without conversion; automatic journal recovery is not application repair. Require external expected heads for suffix/replacement coverage. [Proposed contract](../stories/EQ-107_CONTRACT.md); original scope/equations/packages unchanged. No implementation/Ready claim.
+
 ## EQ106 source and qualification separation
 
 Retain exact original2byte/hash and12all-kind/54refusal23variant/40operation planning inputs. New optional pure package, no calculator/evidence dependency inversion. Separate declaration-only and actual public producer suites avoid masking unavailable producer imports as skipped tests. Derive a new frozen qualification entry from the accepted builder, never edit accepted archive source, and compare the six accepted archive identities on both OS. No builder or CI execution before separate exact source review. [Qualification](../stories/EQ-106_QUALIFICATION_PLAN.md).
