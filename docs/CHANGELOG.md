@@ -1,3 +1,7 @@
+## EQ108 source candidate; qualification incomplete — October16,2026
+
+MCP0.1.0a1 extends the existing local stdio server with optional owner-prepared receipts, focused explanations, diagnostics, complete producer followups and canonical chunks. Mandatory client/service/pure math identities stay unchanged. [API/migration/authority/privacy](MCP_EVIDENCE_API.md), [review and validation](stories/EQ-108_VALIDATION.json), [unexecuted qualification sources](stories/EQ-108_QUALIFICATION_INPUTS.json). Actual208 In progress; source findings resolved, later preparation deltas/tooling require exact review before execution/publication. No installed/native/bothOS/current-artifact/release acceptance yet;209/210 remain separate Backlog and R11 unfinished. Earlier dated release statements below retain historical scope.
+
 ## EQ107 corrected source qualification — October15,2026
 
 The optional local agent ledger0.1.0a1 has completed corrected source qualification at `8d7ef728c05a0d56b124e2cef58efa91a3a54c32`: actual author Windows and current CI Windows/Linux each build ten repeat-equal archives, preserve eight accepted identities, and test four fresh store-light/producer wheel/sdist forms. Each OS executes320 installed method invocations plus8 outer inert archive controls, with17 distinct raw logs and full source/member/metadata/license/RECORD/installed maps. Four actual child-death SQL cut points per form retain canonical-prefix/full verification and uncertain-proposal reconciliation; original config/input/result/quality/source/receipt parity remains unchanged.

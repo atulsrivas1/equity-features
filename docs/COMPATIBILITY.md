@@ -1,3 +1,7 @@
+## EQ108 implementation candidate — unqualified/unreleased
+
+The existing MCP server0.1.0a1 proposes five optional owner-prepared evidence tools; base dependencies and accepted calculations remain unchanged. [API, authority, privacy, unknowns and migration](MCP_EVIDENCE_API.md) describes logical bounds, per-read native authorization, declared unverified inputs, retained plaintext and current qualification limits. Source review passed its recorded scope; fresh native/installed/bothOS/current artifacts/main release remain unfinished.
+
 ## EQ107 corrected source qualification — October15,2026
 
 The optional local agent ledger0.1.0a1 has completed corrected source qualification at `8d7ef728c05a0d56b124e2cef58efa91a3a54c32`: actual author Windows and current CI Windows/Linux each build ten repeat-equal archives, preserve eight accepted identities, and test four fresh store-light/producer wheel/sdist forms. Each OS executes320 installed method invocations plus8 outer inert archive controls, with17 distinct raw logs and full source/member/metadata/license/RECORD/installed maps. Four actual child-death SQL cut points per form retain canonical-prefix/full verification and uncertain-proposal reconciliation; original config/input/result/quality/source/receipt parity remains unchanged.
