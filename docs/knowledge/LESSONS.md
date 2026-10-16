@@ -1,3 +1,7 @@
+## Conversion, owner admission and complete composition parity — October16,2026
+
+A reused conversion API can validate a producer/digest without validating nested borrowed configuration records or the original envelope. Reconstruct bounded public records through their constructors before conversion, then check their joint context identities; retain intraday open-to-market-cutoff semantics. Mutation controls must first admit the exact frozen full seed, not another valid fixture using the same pointer. Full report assembly/hash self-consistency does not establish independent report binding: compare complete expected public reports prepared separately from the fixed producer/configuration. [Source findings, independent witnesses and corrected controls](../stories/EQ-108_VALIDATION.json). These source checks do not establish native or installed qualification.
+
 ## Exit signals and aggregate accounting are separate observations — October15,2026
 
 EQ107 first physical crash test observed launcher and entry exit while immediate Windows job accounting still read1; the cohort failed. Require an independently observed zero within the fixed observation budget before reopening; timeout or failed accounting is failure, not cleanup. Keep failed outputs/roots and expose bounded raw suite failures in CI. Distinct corrected runs require renewed exact source review. [Failure evidence and limits](../stories/EQ-107_VALIDATION.json). This does not establish kernel settlement latency or power-loss recovery.
