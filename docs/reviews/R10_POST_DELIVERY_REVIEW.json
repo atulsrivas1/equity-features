@@ -1,0 +1,68 @@
+{
+  "reviewer": "/root/r9_independent_audit",
+  "review_type": "Fresh separate local automated R10 post-delivery source/contract audit, not author self-review or human review",
+  "created_utc": "2026-10-15T23:57:28.877815+00:00",
+  "head": "87fbe4a9fb2a62aefa34c4f90164dc14407eb90a",
+  "disposition": "approved_R10_postdelivery_no_blocking_findings_R11_preparation_may_proceed",
+  "findings": [],
+  "source_coverage": [
+    "EQ101 diagnostic normative contract/independent truth table/verification tooling and affected pure callers.",
+    "EQ102 complete evaluator/model: half-open ordinary events and explicit auction/completed conventions; separate C/K/E; missing prerequisite categories; visible failures preserved alongside missing evidence; historical population/projection bounds; strict/advisory/allow/deny admission; no source/authentication or consumption inference.",
+    "EQ103 full supplied provenance binding and static preflight/freeze closure: retained anchors, state distinctions, exact original task/config/acquisition/result/output; explicit fixed store.read required for operational complete; complete expected inventory/readback equality; cooperative cancellation/fixed errors; source history remains unverified.",
+    "EQ104 complete conformance model/runner: scalar snapshot detachment; complete expected/observed fields/order/cardinality; ordinary-data recomputation; unknown matching retained; source/history fixture callers and supported native-pipeline contract reviewed without rerunning native I/O.",
+    "EQ105 outer measurement/oracle/parser and builder: fixed workload and pair order, raw-clock validation before arithmetic, exact rational stats, full snapshots and deterministic control checks, fixed source pin/RECORD/archive/installed-map verification and unchanged package payload closure."
+  ],
+  "executed_checks": {
+    "tests_run": 52,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "fresh_temporal_policy_boundary_assertions": 33,
+    "matched_unknown_remains_unknown": true,
+    "measurement_three_snapshot_tamper_refusals": true,
+    "initial_environment_probe": "eq103-development-env lacks installed conformance and contains initial pre-correction provenance with missing schema_version import failure; exact final provenance/conformance source used explicitly without installation",
+    "no_native_io_tests_run": true
+  },
+  "inspected_source_sha256": {
+    "packages/diagnostics/src/equity_feature_diagnostics/_evaluate.py": "fa365eca979e44a1ca599d0de6289f29283de136f4c1dc144a5514e1659f2971",
+    "packages/diagnostics/src/equity_feature_diagnostics/_model.py": "da7b46db8ed379a584d33318916898477cdc28c24e5538bec9529eacef6a9472",
+    "packages/diagnostics/src/equity_feature_diagnostics/__init__.py": "568e0aa15ad9a7d7f6c7f3e73f16da034511b59492215b97ed46510b097893ef",
+    "packages/provenance/src/equity_feature_provenance/_bind.py": "2ba9cb667d376bd2dacaa445591b7700913775fe70c56969fb8ba4f8742d0049",
+    "packages/provenance/src/equity_feature_provenance/_model.py": "e6bd3419a0a7fe0f421305130cb595b6e93bca01d310934bef71b1b11636e704",
+    "packages/provenance/src/equity_feature_provenance/_preflight.py": "120b008b07c01cbf92b4e914d1a071386c956d964670ffa24be0ae3685bdbc28",
+    "packages/provenance/src/equity_feature_provenance/__init__.py": "73f137e7578cba1dca02e7fdd8f46e6d403820eb6ce97c982994785647fc6952",
+    "packages/conformance/src/equity_feature_conformance/_model.py": "4cb68b631745798b28dedf861182bc46b24e2f9e3640787117cb65c3552e85a8",
+    "packages/conformance/src/equity_feature_conformance/_run.py": "59de5943f85ef0089d52edd23d0a4ddf764ada021c2c3eb3c879153fd5129bef",
+    "packages/conformance/src/equity_feature_conformance/__init__.py": "a880fcb0d943f0b78e6c41e635b89fdc02ca3026085ead43e4e1de1264509a35",
+    "tools/measure_r10.py": "71bf756c845d904508302abb097cb32a60faff02eb9497c647c8a53e2725e3c7",
+    "tools/build_r10.py": "2f09902086a5687dea98ad7984ca4e8d07c9c6b54d4f9e25d0f1bc4bcd2d461f",
+    "examples/r10_point_in_time.py": "072ede16148300e43077e9424ad91a9020521427724f48bb1ab3af05edeed45f",
+    "examples/conformance_pipeline.py": "8d162971588365759b28a8201a061266bc9346e42a58a984e6a552e63d2aa9b3",
+    "tools/verify_diagnostic_examples.py": "8017a6329f0524600cc27af9805223589d1b1f831b492cbeb69e6097580acb96"
+  },
+  "evidence_sha256": {
+    "r10_independent_postdelivery_checks.py": "02ed832229deeae96c8b26976d4adcf14d9058ba53c9120af55b3fa7a2ef8e89",
+    "r10_independent_postdelivery_checks_initial.py": "9c431e2931685e628085a22c1d384f22216c8352822cdca19d82f67ba975d65b",
+    "r10-independent-postdelivery-tests.log": "736d7d937cbeec652b68cb4dd8922bd26a6637c0e1532329eb61d49286276715",
+    "r10-independent-postdelivery-checks.json": "4ae19bc86a6a9ab363ea339385b9bf415ce8a98cc26167c3115ec57613f016ea",
+    "r10-independent-postdelivery-environment-failure.json": "0001bbaee3a8968037515930b3dbc8735e8b1b3a34edb2be72e505a75138496b"
+  },
+  "preserved_environment_attempts": {
+    "initial_environment_probe": "ModuleNotFoundError: No module named equity_feature_conformance in supplied eq103-development-env.",
+    "initial_source_probe": "Initial scratch script used source conformance but installed initial provenance; import failed TypeError: FeatureHeader.__init__() missing 1 required positional argument: schema_version at installed _bind.py line22 before tests.",
+    "scope": "These are limitations of a preserved development environment containing initial pre-correction provenance, not a finding against actual final source or qualified artifacts.",
+    "correction": "No install/source mutation: explicitly imported exact final provenance/conformance source with installed dependencies; diagnostics installed Python files byte-equal final source. Preserved initial scratch script; corrected scratch script completed52methods/targeted probes.",
+    "initial_exit": 1,
+    "corrected_exit": 0
+  },
+  "limits": [
+    "Fresh semantic review plus focused source-development rechecks on existing Windows CPython3.12.10 environment. No new wheel/sdist build, install, Linux execution, physical-native rehash, database acquisition/publication/readback run, host probe or lifecycle mutation.",
+    "Conformance and provenance rechecks explicitly use exact final source because supplied environment lacks conformance and retains initial pre-correction provenance. This is not an independent installed qualification pass.",
+    "Parent separately verifies live GitHub status, exact release membership/main/checks/artifact closure; existing qualification is not replaced by these focused checks.",
+    "Measurements are controlled parser/arithmetic tests, not fresh performance results or native/deadline/physical-resource claims.",
+    "R11 review authorization and its own Ready/implementation/delivery gates remain separate. No R11 review or implementation performed."
+  ],
+  "public_projection": true,
+  "original_review_report_sha256": "037b8ffc6a94d37899263f66766ae4287e9d4d9082bc89b0643d799fe857d0c0",
+  "projection_policy": "Machine-local absolute paths omitted; no execution result or review disposition changed."
+}

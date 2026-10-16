@@ -1,0 +1,58 @@
+{
+  "story": "GOV-023",
+  "issue": 406,
+  "stage": "Code review: concrete handoff and owner-authorized separate local R11 review",
+  "runtime_implemented": false,
+  "released": false,
+  "accepted_starting_main": "87fbe4a9fb2a62aefa34c4f90164dc14407eb90a",
+  "companion_pins": {
+    "io": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+    "workers": "6538f21b441c8527b465899b98cfd0476e7af08a"
+  },
+  "R10_review": {
+    "reviewer": "/root/r9_independent_audit",
+    "original_report_sha256": "037b8ffc6a94d37899263f66766ae4287e9d4d9082bc89b0643d799fe857d0c0",
+    "findings": [],
+    "existing_focused_methods": 52,
+    "boundary_controls": 33,
+    "measurement_tamper_refusals": 3,
+    "scope": "Exact final source with existing Windows dependencies; no fresh installed/Linux/native-I/O qualification. Initial development-environment failures preserved."
+  },
+  "local_preparation_checks": [
+    "All public Markdown decodes as UTF8.",
+    "Versioned backlog retains all134active stories, retiredEQ094 exclusion and originalfiveR11 assignments.",
+    "Exact eight-stage lifecycle preserved.",
+    "New relative documentation links and R10 public report projection verified.",
+    "Only the explicit documentation allowlist changes; no product package/test/tool/workflow/example change.",
+    "Git diff whitespace check; exact final candidate CI/publication/separate review remain pending."
+  ],
+  "tool_only_history": [
+    "Context capture saved UTF8 JSON before CP1252 console formatting failed; ASCII output fixed, saved context read without repeating API capture.",
+    "Initial guessed documentation helper paths were absent; actual workflow/source paths located using rg.",
+    "Packet preparation completed; auxiliary git diff/status used external preparation cwd and failed. Corrected checks use explicit canonical cwd; no repeated preparation or product operation."
+  ],
+  "remaining": [
+    "Renewed final documentation-head review, current checks/public-main verification and governance lifecycle.",
+    "EQ106 exact schema, independent canonical oracle, complete readiness decisions and review before runtime Ready.",
+    "Each R11 implementation story and final delivery retains its own original acceptance and actual lifecycle gates."
+  ],
+  "review_route": {
+    "owner_answer": "Authorize local review throughout R11",
+    "scope": "PR407 handoff, EQ106\u2013110 including necessary worker/MCP changes, and final delivery",
+    "completed_review": false
+  },
+  "delivery_tool_review": {
+    "initial_P2_report_sha256": "11f2f3a1e7bf98f9809175fd536c3e6d61e59477d45588514ab7d90a1dc65bca",
+    "corrected_review_sha256": "6935bbcd7d7b250507b8f83364511701eb0d62a3a25113254f833056ac8c958d",
+    "resolved_findings": [
+      "R11-TOOLS-01",
+      "R11-TOOLS-02"
+    ],
+    "corrections": [
+      "Preserve actual R11 authorization in the accepted body; retain preparation as historical.",
+      "Bind exact reviewed five-criterion issue snapshot before mutation; precompute accepted body; re-read immediately before editing and stop on intervening changes.",
+      "Normalize API and saved UTF8 bytes consistently: CRLF to LF then remaining CR to LF, including current CRCRLF input. Write accepted body with explicit LF."
+    ],
+    "scope": "Source/static and inert body-projection validation only; corrected before any helper execution or lifecycle mutation."
+  }
+}

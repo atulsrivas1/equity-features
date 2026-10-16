@@ -1,3 +1,7 @@
+## R11 execution selection — October15,2026
+
+The owner now selects the existing R11 work. [Concrete handoff](R11_AUTONOMOUS_HANDOFF.md), [release plan](R11_RELEASE_PLAN.md) and [EQ106 plan](stories/EQ-106_PLAN.md) refine preparation under [GOV023#406](https://github.com/atulsrivas1/equity-features/issues/406). The corrected contracts and limitations below remain design inputs; old planning-only status is historical. Runtime stories are still Backlog until separate readiness; the owner has authorized separate local R11 review, but no completed readiness review or implementation is claimed.
+
 # Agent evidence ledger — corrected design proposal
 
 Owner-authorized planning refinement under GOV-012. Maps to EQ-096/097 receipts/content fingerprints, EQ-101/102 diagnostics and EQ-106/107 agent events/ledger. Earlier suggested EQ-096/097 ledger identifiers are superseded; no identifiers are reassigned. Implementation remains Backlog. This plan does not establish implemented functionality or change current calculations.
