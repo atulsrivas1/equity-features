@@ -1,3 +1,11 @@
+## EQ107 corrected source qualification — October15,2026
+
+The optional local agent ledger0.1.0a1 has completed corrected source qualification at `8d7ef728c05a0d56b124e2cef58efa91a3a54c32`: actual author Windows and current CI Windows/Linux each build ten repeat-equal archives, preserve eight accepted identities, and test four fresh store-light/producer wheel/sdist forms. Each OS executes320 installed method invocations plus8 outer inert archive controls, with17 distinct raw logs and full source/member/metadata/license/RECORD/installed maps. Four actual child-death SQL cut points per form retain canonical-prefix/full verification and uncertain-proposal reconciliation; original config/input/result/quality/source/receipt parity remains unchanged.
+
+The original a0df650 author qualification FAILED on immediate Windows job accounting; its log/output/build/crash roots remain retained and are not relabeled. Windows first-push CI also failed in a crash cohort without a raw assertion; Linux passed. Corrected source requires actual zero within4s after both exit witnesses, errors/deadline fail, and uses distinct outputs. Source, tooling and artifact reviews are separate local automated reviews with recorded exact identities, checks and limits. [Validation](stories/EQ-107_VALIDATION.json) preserves all findings/failures and actual corrected reports.
+
+This qualifies local process-death/reopen behavior on the observed runtimes, not power loss, hosted recovery, hostile paths, physical quotas or hard kernel/filesystem deadlines. Logical event/byte limits are not physical storage bounds. External checkpoints are unauthenticated caller context; corrections/redaction do not erase retained original plaintext/backups. Captured-map/archive review is not independent reinstall. Actual207Test; final documentation/currentcandidate/bothOS artifacts/independent actualmain/publication/ReleasedDone remain before acceptance. EQ106 accepted;208–210Backlog/E15milestone12open/R11unfinished. No private/provider/paid/public-service/account/registry/recurring scope. Older snapshots remain historical.
+
 # Local agent ledger — experimental EQ107 implementation
 
 The optional `equity-feature-agent-ledger==0.1.0a1` stores unchanged EQ106 event
