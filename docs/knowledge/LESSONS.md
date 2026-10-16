@@ -1,3 +1,7 @@
+## EQ109: bound report identities and preserve catalog semantics
+
+Independent source review SRC01-05 found metaclass callbacks/raw malformed errors, unbound result text and retention based on caller claims. Corrections use exact identity-only admission/private bounded copies, full selected producer context, actual referenced bytes and fixed report-kind digests. Ordinary source checks also caught the accepted catalog's reference-only explanation requirement; outer input verification must remain a separate fact rather than changing content_verified declarations. [History](../stories/EQ-109_VALIDATION.json), [guide](../AGENT_RESEARCH.md). Source success is not installed/native/bothOS qualification.
+
 ## EQ109: separate fidelity from admission
 
 Pre-code independent DESIGN01/02 review found an unreachable advisory OBSERVE outcome and underspecified report/graph validation. The corrected selected example only DEFERs or REJECTs, compares full bound report bytes, records missing retained inputs independently and bounds/copies known typed graphs before fingerprints. Matching arithmetic/replay/chain cannot grant diagnostic admission. [Profile](../stories/EQ-109_PROFILE.json), [preserved review](../stories/EQ-109_VALIDATION.json). This is corrected design awaiting renewed review, not implementation evidence.

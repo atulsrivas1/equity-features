@@ -1,3 +1,7 @@
+## EQ109 external examples — unreleased
+
+[Agent research](AGENT_RESEARCH.md) adds examples, not package/public protocol/schema/algorithm changes. Fixed optional dependency versions remain as frozen in its profile. Accepted MCP explanations remain reference-only (`content_verified=False`); outer supplied-batch consistency is separate. Existing content/receipt/event/ledger identities, native authority and no automatic replay semantics remain. No migration is required for accepted package users; the new examples are not qualified/released yet.
+
 ## EQ108 implementation candidate — unqualified/unreleased
 
 The existing MCP server0.1.0a1 proposes five optional owner-prepared evidence tools; base dependencies and accepted calculations remain unchanged. [API, authority, privacy, unknowns and migration](MCP_EVIDENCE_API.md) describes logical bounds, per-read native authorization, declared unverified inputs, retained plaintext and current qualification limits. Source review passed its recorded scope; fresh native/installed/bothOS/current artifacts/main release remain unfinished.

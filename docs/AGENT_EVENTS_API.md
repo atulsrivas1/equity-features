@@ -1,3 +1,7 @@
+## EQ109 external consumer example — in development
+
+[Research consumer](AGENT_RESEARCH.md) uses these unchanged event APIs outside calculations/handlers. Each actual public tool response text is separately retained from assembled evidence; every call/chunk is a distinct call/result pair. Unknown model/times and DEFER/REJECT are declarations, not actor authentication or trading permission. Independent exact wire/digest/previous-link expectations precede append. No event API/schema/version change; native/installed qualification remains pending.
+
 # Agent event evidence API (experimental 0.1.0a1)
 
 EQ106 implements the optional pure `equity-feature-agent-evidence` package. Current

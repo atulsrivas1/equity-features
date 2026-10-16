@@ -1,3 +1,7 @@
+## EQ109 synthetic research consumer — source development
+
+[Experimental external consumer/replay example](docs/AGENT_RESEARCH.md) checks a fixed synthetic count narrative, full supplied evidence, explicit replay and independently anchored local ledger history. It only DEFERs or REJECTs under the selected unknown advisory policy. Source controls pass in their recorded scopes; fresh installed/native/bothOS/current-artifact/main release gates remain. EQ106–108 are accepted; EQ109 In progress and R11 unfinished. Older snapshots below retain their historical scope.
+
 ## EQ108 implementation candidate — unqualified/unreleased
 
 The existing MCP server0.1.0a1 proposes five optional owner-prepared evidence tools; base dependencies and accepted calculations remain unchanged. [API, authority, privacy, unknowns and migration](docs/MCP_EVIDENCE_API.md) describes logical bounds, per-read native authorization, declared unverified inputs, retained plaintext and current qualification limits. Source review passed its recorded scope; fresh native/installed/bothOS/current artifacts/main release remain unfinished.

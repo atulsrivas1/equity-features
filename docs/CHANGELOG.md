@@ -1,3 +1,7 @@
+## Unreleased — EQ109 source implementation
+
+Add fixed synthetic external research assessment/typed replay and MCP consumer examples, bounded input/report admission, actual-byte retention and independently anchored event/ledger composition. Core and source-dispatch controls pass their stated scopes; installed/native/bothOS/current-artifact/main delivery remains. Preserve initial design/source/compatibility/typecheck failures and independent corrections. No package version, math, protocol, authenticity or hosted-operation change. [Guide](AGENT_RESEARCH.md), [validation](stories/EQ-109_VALIDATION.json).
+
 ## EQ108 source candidate; qualification incomplete — October16,2026
 
 MCP0.1.0a1 extends the existing local stdio server with optional owner-prepared receipts, focused explanations, diagnostics, complete producer followups and canonical chunks. Mandatory client/service/pure math identities stay unchanged. [API/migration/authority/privacy](MCP_EVIDENCE_API.md), [review and validation](stories/EQ-108_VALIDATION.json), [unexecuted qualification sources](stories/EQ-108_QUALIFICATION_INPUTS.json). Actual208 In progress; source findings resolved, later preparation deltas/tooling require exact review before execution/publication. No installed/native/bothOS/current-artifact/release acceptance yet;209/210 remain separate Backlog and R11 unfinished. Earlier dated release statements below retain historical scope.
