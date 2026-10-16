@@ -1,6 +1,6 @@
-## EQ109 external examples — unreleased
+## EQ109 external examples and compatibility
 
-[Agent research](AGENT_RESEARCH.md) adds examples, not package/public protocol/schema/algorithm changes. Fixed optional dependency versions remain as frozen in its profile. Accepted MCP explanations remain reference-only (`content_verified=False`); outer supplied-batch consistency is separate. Existing content/receipt/event/ledger identities, native authority and no automatic replay semantics remain. No migration is required for accepted package users; the new examples are not qualified/released yet.
+[Agent research](AGENT_RESEARCH.md) adds examples, not package/public protocol/schema/algorithm changes. Fixed optional dependencies remain frozen in its profile. MCP explanations stay reference-only (`content_verified=False`); outer supplied-batch consistency is separate. Existing content/receipt/event/ledger identities, native authority and no automatic replay semantics remain. No migration is required for accepted package users. [Executed source qualification](stories/EQ-109_EXECUTION.json) records fresh author/current-CI cohorts and scoped audits; current delivery/acceptance is authoritative on [story209](https://github.com/atulsrivas1/equity-features/issues/209). A source-qualified example is not a source-authenticity, production-hosting or trading certification. Earlier dated candidate entries below retain historical scope.
 
 ## EQ108 implementation candidate — unqualified/unreleased
 

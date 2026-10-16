@@ -1618,3 +1618,7 @@ The fourth run passed typed/strict/native checks but the inherited checker rejec
 ## EQ109: finish immutable review records before freezing their hashes
 
 The author consumed an already approved report while the reviewer was still adding supplemental controls. That changed the filename hash after publication. Exact original bytes were recovered and matched against the frozen SHA, the supplemental review retained separately, and consistency restored before the fresh author run. Wait for the reviewer final completion notice, then freeze immutable report paths; never rewrite a published freeze to hide the race. Current corrected-input source qualification subsequently passed independently audited author/currentCI cohorts. Evidence: [execution](../stories/EQ-109_EXECUTION.json).
+
+## EQ109: final documentation review includes public entry points
+
+A six/five-file qualification-metadata review did not cover the unchanged public guide, compatibility and roadmap pages, which still described qualification as unexecuted. A separate pre-acceptance completeness pass caught those contradictions. Review the actual public navigation/API/example entry points as well as the new evidence packet, and use timeless specifications plus live delivery links instead of undated current-status claims. Preserve the original scoped approval and findings; correct before acceptance. Evidence: [guide correction](../stories/EQ-109_DOCS_CORRECTION.json).
