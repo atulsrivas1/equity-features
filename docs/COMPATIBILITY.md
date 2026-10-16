@@ -1,3 +1,7 @@
+## EQ106 source candidate compatibility and authority
+
+New optional agent-evidence0.1.0a1 source candidate depends inward only on exact contracts0.0.4a4/evidence0.1.0a2. No existing package version, formula, result/quality/receipt/content schema or import direction changes. Existing consumers need no migration. Exact event v1/agent-event-json-v1 refuses unknown fields/tags/versions; future migration must preserve original evidence and be explicitly versioned. Source candidate is not installed release qualification. [API/privacy/limits](AGENT_EVENTS_API.md).
+
 ## EQ105 source qualification boundary
 
 EQ105 changes no accepted package/version/math/schema/codec/receipt or replay profile. New private r10-measurement:1 JSON is outer qualification data, never a library decoder/input or source authentication. Fourpure/fullwheel-sdistforms/currentbothOS qualification pending. [Guide](R10_CONSUMER_GUIDE.md).

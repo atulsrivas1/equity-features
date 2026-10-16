@@ -1,3 +1,11 @@
+## EQ106 adversarial validation-order corrections
+
+Passing original literal/negative cases did not establish every multi-fault precedence. Independent probes caught eager later nested errors, all-member type scans skipping an earlier semantic error, wrong-type nested versions misclassified as unsupported, and subject shallow-key preflight ordering. Preserve each report; correct before installed qualification and add independent regressions. [Validation](../stories/EQ-106_VALIDATION.json).
+
+## EQ106 identities and ownership before implementation
+
+A reference ID-only lookup can hide a conflicting sequence; check both dimensions and distinguish missing from inconsistent. Frozen nested wrappers can still be mutated through caller-owned originals; reconstruct accepted public values on retention and revalidate on encoding. Constructor aggregate limits and typed input/storage agreement belong in the pre-code contract. Independent literal fixtures and reviewer controls precede production code; fixture verification is not runtime qualification. See [plan](../stories/EQ-106_PLAN.md).
+
 ## Fresh review environments and agent evidence authority — October15,2026
 
 [R10 post-delivery review](../reviews/R10_POST_DELIVERY_REVIEW.md) found a preserved development environment with an older provenance package and no conformance package. Record the initial import failure, select exact final source explicitly and label subsequent checks source-development; do not turn that result into a fresh installed/Linux qualification or a release artifact defect. Separate current release artifact audits retain their own scope.52focused methods and33boundary controls are not85unique release methods. Exact source hashes and retained raw logs make that distinction reviewable.
@@ -1532,3 +1540,7 @@ EQ080 cache continuity: [frozen checkpoint source correction](https://github.com
 
 
 EQ080 qualification lesson: [scoped cache source review](https://github.com/atulsrivas1/equity-features/issues/90#issuecomment-6098257317) and [current immutable artifacts](https://github.com/atulsrivas1/equity-features/issues/90#issuecomment-6098371182) establish a checkpoint, not new test evidence. Exhaust actual native callbacks instead of relabeling standalone loops. A returned native commit receipt witness may survive hard death while its in-memory artifact does not; distinguish historical fact from durable recovery. Expanded171development passes; wrong snapshot type and optional Parquet import drafts preserved. Mandatory inventory/startup/profile/current perOS/final release pending; no math or accepted I/O change.
+
+## Pre-execution archive/controller correction
+
+Separate builder review caught three P2 gaps before any new build/install/CI/push: long-description/source README drift, directory and Windows-normalized physical ZIP names omitted by file-only checks, and a branch-name push not bound to the reviewed SHA. The corrected builder compares pinned pyproject metadata/dependencies/extras and exact sdist README/LF-normalized metadata body; validates every physical member before filtering/normalizing, including directory/path/control/NUL/alias/special/link modes; retains complete member maps. The controller pushes the reviewed SHA refspec and checks its own reviewed source hash. Eight independent inert archive-control methods run before build (separate from the26pure/1producer/31accepted installed cohorts), giving18outer files:8archives,9suite logs and qualification.json. No builder execution/qualification is inferred from these tests; corrected exact separate approval is still required. Original reports and fixture-only cache failure remain in validation.

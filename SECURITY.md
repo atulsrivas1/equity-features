@@ -1,3 +1,7 @@
+## EQ106 source candidate compatibility and authority
+
+The EQ106 pure event source candidate accepts explicit public/synthetic scalar declarations, not automatic model/prompt/tool/credential capture. Missing/redacted/truncated evidence remains explicit. Actor/model/clock/approval/cancellation labels and hashes confer no authentication, permission, source-consumption/history completeness or operational authority. Mislabelled caller secrets are not universally detectable. Fixed errors exclude payloads/original exception context. Canonical byte/node/depth/collection caps are application limits, not process containment/physical quotas/deadlines. [API/retention/anchor limits](docs/AGENT_EVENTS_API.md).
+
 ## EQ105 source qualification boundary
 
 EQ105 measurement and consumer tooling operate outside pure packages on fixed synthetic supplied fixtures. No credentials/provider acquisition or source-history authentication; metadata omits hostname/paths/secrets. Complete assertions/report parsing do not certify execution. Descriptive durations are not physical quotas, native deadlines or performance promises; malformed reports/timers refuse fixed codes. [Limits](docs/R10_CONSUMER_GUIDE.md).

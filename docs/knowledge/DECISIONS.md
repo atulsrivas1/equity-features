@@ -1,3 +1,11 @@
+## EQ106 source and qualification separation
+
+Retain exact original2byte/hash and12all-kind/54refusal23variant/40operation planning inputs. New optional pure package, no calculator/evidence dependency inversion. Separate declaration-only and actual public producer suites avoid masking unavailable producer imports as skipped tests. Derive a new frozen qualification entry from the accepted builder, never edit accepted archive source, and compare the six accepted archive identities on both OS. No builder or CI execution before separate exact source review. [Qualification](../stories/EQ-106_QUALIFICATION_PLAN.md).
+
+## EQ106 closed pure event contract
+
+Freeze exact event domain/schema/canonicalization, explicit declaration/missing states, immutable detached kind-specific subjects and bounded supplied reference/content checks before implementation. External ledger/global uniqueness/anchors remain EQ107; no numerical/receipt/native-service schema change. List/tuple constructor unions must agree with public typing while stored fields remain owned tuples. See [contract](../stories/EQ-106_CONTRACT.md) and [qualification](../stories/EQ-106_QUALIFICATION_PLAN.md).
+
 ## Owner selection of R11 after fresh R10 review — October15,2026
 
 The owner requests R10 review, an R11 handoff and work on R11 in the current conversation. [Fresh review](../reviews/R10_POST_DELIVERY_REVIEW.md) found no blocking issue. [GOV023#406](https://github.com/atulsrivas1/equity-features/issues/406) prepares existing E15/EQ106–110 with original dependencies/31provisional runtime points plus3governance points. No new runtime scope, session or automation is created. [Handoff](../R11_AUTONOMOUS_HANDOFF.md) selects one-story pull and local stdio/private synthetic loopback qualification; actual new hosted deployment remains conditional on concrete permission/proof. The owner subsequently explicitly authorized separate local review throughout R11 for the concrete PR407 handoff, all stories/necessary worker-MCP changes and final delivery; CODE_REVIEW.md records this actual decision without claiming completed review. Preserve corrected agent-evidence design and accepted numerical/receipt/service ownership. R12+ remains unselected.

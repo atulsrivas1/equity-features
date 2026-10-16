@@ -1,0 +1,579 @@
+{
+  "status": "Test_source_qualified_final_documentation_currenthead_main_delivery_pending",
+  "source_base": "1774e99d3d89b8c505ff22555f1e6703843b8bf7",
+  "governance_acceptance": "https://github.com/atulsrivas1/equity-features/issues/406#issuecomment-6205259013",
+  "product_source_changed": true,
+  "new_tests_executed": 27,
+  "independent_fixture_cases": {
+    "original_oracles": 2,
+    "linked_kinds": 12,
+    "decoder_refusals": 54,
+    "variants": 23,
+    "operation_controls": 40
+  },
+  "preparation_reports": {
+    "eq106-preparation-initial-reviewer-report.json": "ba2534f38b79bcef1cea97acf4b9516f0272b6766334a1c8e478f73d00111854",
+    "eq106-preparation-typing-initial-reviewer-report.json": "8e5f4d99355e8eb0333bba51355e27bab5695c090f449b04eb809eceeda57b6d",
+    "eq106-preparation-reviewer-report.json": "4508d800e5e48c37d04477c0f519a1666d65dc82e591290e80006f703a021edf",
+    "eq106-refusal-preparation-reviewer-report.json": "00fa49aa9e896e983d8252e57a0af1c5aef9b23e67abb494c3af55d97043f4f1"
+  },
+  "limits": [
+    "This source snapshot is qualified; final documentation head/currentbothOS artifacts/actualmain independent review and lifecycle remain pending.",
+    "Pure declarations and bounded supplied-reference checks do not authenticate actors, source history, external anchors, actual consumption, rights or execution.",
+    "No native/service/MCP/ledger/model/hosted or physical resource qualification; captured installed maps are not an independent reinstall."
+  ],
+  "runtime_start_evidence": "https://github.com/atulsrivas1/equity-features/issues/206#issuecomment-6205305681",
+  "precode_review_sha256": "9dbf8ee6067512700173be527df19fa405dbd85e0291fbf4c7d448b423937fa9",
+  "development": {
+    "scope": "explicit canonical source-development with existing CPython; not fresh installed/Linux/native qualification",
+    "steps": [
+      {
+        "name": "source-tests-example",
+        "exit_code": 0,
+        "log": "eq106-development-source-tests-example.log",
+        "log_sha256": "2281879e65acb2bccd07b8087f78b9a5d45c8b4fcabdc1d3d9d01fd88e58c6b4"
+      },
+      {
+        "name": "typing",
+        "exit_code": 0,
+        "log": "eq106-development-typing.log",
+        "log_sha256": "a1544c9c00a02eb4a60a0c1e8291d21d4db5f64d9ba7b65c96912b7c04c99fa9"
+      },
+      {
+        "name": "boundary",
+        "exit_code": 0,
+        "log": "eq106-development-boundary.log",
+        "log_sha256": "9788b0d471f54e0b7b31fc9728674638da51e24cd598fd261952d0a11a1a61e1"
+      }
+    ],
+    "passed": true,
+    "unit_results": {
+      "methods": 27,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "strict_files": 5
+  },
+  "development_reviews": {
+    "eq106-development-source-reviewer-report.json": "c2a2a6fb5fcfd676d446a4932ec135448486b884b2594fc3caa7f43993d0899b",
+    "eq106-corrected-development-source-reviewer-report.json": "e674937bbc13bc128a57d7bd36546b1ea27c3aa0b6fe629a4b6a507aa96cf4a0"
+  },
+  "corrections": [
+    "First strict typing pass rejected reused InputFingerprint/string loop variable; corrected before source qualification.",
+    "Independent review original3P2: earlier parameter semantic order before later nested parse, member-by-member semantic order before later member type, nested fingerprint exacttype before unsupported version. Author-corrected and independently verified in corrected report.",
+    "Corrected development review found one further P2 shallow subject tag/keyset preflight before header semantics. Author-corrected with regression; current separate review still required.",
+    "Guessed root CHANGELOG.md read failed read-only; actual docs/CHANGELOG.md was located/read. No source/runtime failure inferred."
+  ],
+  "recipe": {
+    "builder": "tools/build_agent_evidence.py",
+    "workflow": ".github/workflows/agent-evidence.yml",
+    "archives": 8,
+    "repeat_builds": 2,
+    "accepted_archives_eachOS": 6,
+    "fresh_forms_eachOS": 4,
+    "declaration_methods": 26,
+    "producer_methods": 1,
+    "new_builder_executed": false,
+    "source_review_required_before_execution": true,
+    "archive_control_methods": 8,
+    "outer_artifact_entries": 18
+  },
+  "builder_initial_review_sha256": "62e545c0346a17c2ac3c80b44dd3238ade7f4fd1f7e194a440fb6f3f24e564da",
+  "builder_corrections": [
+    "Initial qualification/controller review found3P2 before any builder/CI execution or push: new archive README/METADATA drift, unsafe directory/Windows physical ZIP names, and branch-name push not bound to reviewed SHA.",
+    "Corrected all-member raw physical-name/kind/mode/alias audit, source README and metadata/dependencies/extras/author/URL closure, complete member maps, raw-sdist inspection before normalization and controller exact SHA refspec plus branch/own-review-source binding.",
+    "Eight inert archive-control methods now precede every qualification build; first development attempt failed2positive synthetic cases because live source contained __pycache__; fixture now materializes an owned clean source copy before inspection. Corrected8methods PASS; no build/install/archive extraction/native operation occurred.",
+    "First apply_patch context did not match actual import order and was rejected before writes. Corrected actual context; no partial source mutation.",
+    "Renewal confirmed original3fixed and exposed EQ106-QUAL-04: ignored nonzero/corrupt directory payloads and contradictory ZIP mode/name kinds. Corrected zero directory size+CRC/read verification and explicit ZIP mode compatibility; expanded same8inert methods PASS, no builder/install/extraction/CI/push. Separate current-source renewal still required.",
+    "Original rejected controller source restored from exact inverse edit and SHA0b237ac57297e4a2a49495f83c2935dfffded9c728aa6524474de1f3eb8af098 verified; both initial and b6reviewed controller files retained outside Git, unexecuted."
+  ],
+  "builder_b6c555a_renewal_review_sha256": "02a3ed64f72d6247e518a403476270d3edf90d8e034fe3761644a57e0c87fcf4",
+  "qualification_executed": true,
+  "source_qualification": {
+    "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb",
+    "author_system": "Windows",
+    "author_python": "3.12.10",
+    "author_qualification_sha256": "f470928b1a2d66937eec3ee17d649068d6bf56abf8e8cab31c63e439416f286c",
+    "author_log_sha256": "18e5ce1767e630388a8fedd1d48b54276193dbb47a49fe532344301af0c5c202",
+    "review_reports": {
+      "eq106-source-reviewer-report.json": "6c348845ec601e66fad634e03b282da4cdfd431d0c95b98d1920d1bd92e4052d",
+      "eq106-builder-reviewer-report.json": "e5f1fe8bbd2f84658eaf71e4b377b7e3ead1e340204472adb0b5b9c932939761",
+      "eq106-resume-controller-reviewer-report.json": "1eb2961060b3b889ee1ac4fc11346947fa9bca2ba0294941c11041ec661a6ff5",
+      "eq106-collector-initial-reviewer-report.json": "e707f59906226a00079412ce4f4cca0272e8c9629ebc22abecb959fcb582327c",
+      "eq106-collector-reviewer-report.json": "0c334734050f237568d2538b8b115945d8c02a0884802e1e0e99fa066e1f0f4c",
+      "eq106-source-artifact-reviewer-report.json": "69529fa0c3c8e755c04c099c234dae416177fbfaf7499421f5bbf859f6020943",
+      "eq106-author-artifact-reviewer-report.json": "edbb1a866fe2890b8fefa5f8af73cbc00b0f6de86e522298fc66a73f4326dddb",
+      "eq106-delivery-tools-initial-reviewer-report.json": "c514415c5eb382aa3acd4280c956b776a551bcbd3d04018c80390bdce8f126a2",
+      "eq106-delivery-tools-reviewer-report.json": "380a8e69a81984248d1354ab7d78b8b7e02009300463c736a41004c8d7f4774a"
+    },
+    "CI_run": 38833144431,
+    "CI_url": "https://github.com/atulsrivas1/equity-features/actions/runs/38833144431",
+    "CI_artifact_report_sha256": "c7ebe6ba68b2976cdebf6b7e64d3ad165308d1cb6a1e0aa4d42d98bdd5d6620c",
+    "current_checks_success": 46,
+    "source_pins_each": 89,
+    "archives_each": 8,
+    "accepted_archive_identities_each": 6,
+    "forms_each_OS": 4,
+    "declaration_methods_each_form": 26,
+    "producer_methods_each_combined_form": 1,
+    "accepted_evidence_methods_each_combined_form": 31,
+    "inert_archive_control_methods_before_build": 8,
+    "method_invocations_each_OS": 176,
+    "pure_example_and_strict_installed_consumer_each_form": true,
+    "full_original_producer_parity": true,
+    "source_closure_and_owned_cleanup": true,
+    "scope": "Actual author Windows and Windows/Linux CI fresh declaration-only/actual-producer wheel-sdist installs. Independent raw ZIP/source/archive/metadata/license/RECORD/captured-installed-map audit is not an independent reinstall; no native/service/MCP/ledger/model/hosted or physical-resource proof.",
+    "current_CI_bindings": [
+      {
+        "workflow": "agent-evidence.yml",
+        "event": "pull_request",
+        "name": "agent-evidence (ubuntu-24.04)",
+        "run": 38833147861,
+        "attempt": 1,
+        "job": 116756193544,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "agent-evidence.yml",
+        "event": "pull_request",
+        "name": "agent-evidence (windows-latest)",
+        "run": 38833147861,
+        "attempt": 1,
+        "job": 116756193108,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "agent-evidence.yml",
+        "event": "push",
+        "name": "agent-evidence (ubuntu-24.04)",
+        "run": 38833144431,
+        "attempt": 1,
+        "job": 116756181418,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "agent-evidence.yml",
+        "event": "push",
+        "name": "agent-evidence (windows-latest)",
+        "run": 38833144431,
+        "attempt": 1,
+        "job": 116756181898,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "conformance.yml",
+        "event": "pull_request",
+        "name": "conformance (ubuntu-24.04)",
+        "run": 38833147989,
+        "attempt": 1,
+        "job": 116756193653,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "conformance.yml",
+        "event": "pull_request",
+        "name": "conformance (windows-latest)",
+        "run": 38833147989,
+        "attempt": 1,
+        "job": 116756193415,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "conformance.yml",
+        "event": "push",
+        "name": "conformance (ubuntu-24.04)",
+        "run": 38833144228,
+        "attempt": 1,
+        "job": 116756180296,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "conformance.yml",
+        "event": "push",
+        "name": "conformance (windows-latest)",
+        "run": 38833144228,
+        "attempt": 1,
+        "job": 116756180538,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "diagnostics.yml",
+        "event": "pull_request",
+        "name": "diagnostics (ubuntu-24.04)",
+        "run": 38833148017,
+        "attempt": 1,
+        "job": 116756194099,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "diagnostics.yml",
+        "event": "pull_request",
+        "name": "diagnostics (windows-latest)",
+        "run": 38833148017,
+        "attempt": 1,
+        "job": 116756193795,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "diagnostics.yml",
+        "event": "push",
+        "name": "diagnostics (ubuntu-24.04)",
+        "run": 38833144207,
+        "attempt": 1,
+        "job": 116756180219,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "diagnostics.yml",
+        "event": "push",
+        "name": "diagnostics (windows-latest)",
+        "run": 38833144207,
+        "attempt": 1,
+        "job": 116756179935,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "docs.yml",
+        "event": "pull_request",
+        "name": "check",
+        "run": 38833148007,
+        "attempt": 1,
+        "job": 116756193752,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "docs.yml",
+        "event": "push",
+        "name": "check",
+        "run": 38833144141,
+        "attempt": 1,
+        "job": 116756179590,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "evidence.yml",
+        "event": "pull_request",
+        "name": "evidence (ubuntu-24.04)",
+        "run": 38833147987,
+        "attempt": 1,
+        "job": 116756193521,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "evidence.yml",
+        "event": "pull_request",
+        "name": "evidence (windows-latest)",
+        "run": 38833147987,
+        "attempt": 1,
+        "job": 116756193732,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "evidence.yml",
+        "event": "push",
+        "name": "evidence (ubuntu-24.04)",
+        "run": 38833144269,
+        "attempt": 1,
+        "job": 116756180194,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "evidence.yml",
+        "event": "push",
+        "name": "evidence (windows-latest)",
+        "run": 38833144269,
+        "attempt": 1,
+        "job": 116756180460,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "explanations.yml",
+        "event": "pull_request",
+        "name": "explanations (ubuntu-24.04)",
+        "run": 38833147925,
+        "attempt": 1,
+        "job": 116756193439,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "explanations.yml",
+        "event": "pull_request",
+        "name": "explanations (windows-latest)",
+        "run": 38833147925,
+        "attempt": 1,
+        "job": 116756193158,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "explanations.yml",
+        "event": "push",
+        "name": "explanations (ubuntu-24.04)",
+        "run": 38833144166,
+        "attempt": 1,
+        "job": 116756179943,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "explanations.yml",
+        "event": "push",
+        "name": "explanations (windows-latest)",
+        "run": 38833144166,
+        "attempt": 1,
+        "job": 116756179780,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "packages.yml",
+        "event": "pull_request",
+        "name": "compatibility (ubuntu-24.04)",
+        "run": 38833147966,
+        "attempt": 1,
+        "job": 116756193899,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "packages.yml",
+        "event": "pull_request",
+        "name": "compatibility (windows-latest)",
+        "run": 38833147966,
+        "attempt": 1,
+        "job": 116756193533,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "packages.yml",
+        "event": "push",
+        "name": "compatibility (ubuntu-24.04)",
+        "run": 38833144139,
+        "attempt": 1,
+        "job": 116756179759,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "packages.yml",
+        "event": "push",
+        "name": "compatibility (windows-latest)",
+        "run": 38833144139,
+        "attempt": 1,
+        "job": 116756180272,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "provenance.yml",
+        "event": "pull_request",
+        "name": "provenance (ubuntu-24.04)",
+        "run": 38833147892,
+        "attempt": 1,
+        "job": 116756193552,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "provenance.yml",
+        "event": "pull_request",
+        "name": "provenance (windows-latest)",
+        "run": 38833147892,
+        "attempt": 1,
+        "job": 116756193260,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "provenance.yml",
+        "event": "push",
+        "name": "provenance (ubuntu-24.04)",
+        "run": 38833144219,
+        "attempt": 1,
+        "job": 116756180616,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "provenance.yml",
+        "event": "push",
+        "name": "provenance (windows-latest)",
+        "run": 38833144219,
+        "attempt": 1,
+        "job": 116756180361,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "r10.yml",
+        "event": "pull_request",
+        "name": "r10 (ubuntu-24.04)",
+        "run": 38833147845,
+        "attempt": 1,
+        "job": 116756193276,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "r10.yml",
+        "event": "pull_request",
+        "name": "r10 (windows-latest)",
+        "run": 38833147845,
+        "attempt": 1,
+        "job": 116756192990,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "r10.yml",
+        "event": "push",
+        "name": "r10 (ubuntu-24.04)",
+        "run": 38833144098,
+        "attempt": 1,
+        "job": 116756179776,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "r10.yml",
+        "event": "push",
+        "name": "r10 (windows-latest)",
+        "run": 38833144098,
+        "attempt": 1,
+        "job": 116756179667,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "r9.yml",
+        "event": "pull_request",
+        "name": "r9 (ubuntu-24.04)",
+        "run": 38833148128,
+        "attempt": 1,
+        "job": 116756194285,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "r9.yml",
+        "event": "pull_request",
+        "name": "r9 (windows-latest)",
+        "run": 38833148128,
+        "attempt": 1,
+        "job": 116756194070,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "r9.yml",
+        "event": "push",
+        "name": "r9 (ubuntu-24.04)",
+        "run": 38833144155,
+        "attempt": 1,
+        "job": 116756179815,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "r9.yml",
+        "event": "push",
+        "name": "r9 (windows-latest)",
+        "run": 38833144155,
+        "attempt": 1,
+        "job": 116756180049,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "transport.yml",
+        "event": "pull_request",
+        "name": "wire (ubuntu-24.04)",
+        "run": 38833147990,
+        "attempt": 1,
+        "job": 116756193372,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "transport.yml",
+        "event": "pull_request",
+        "name": "wire (windows-latest)",
+        "run": 38833147990,
+        "attempt": 1,
+        "job": 116756193562,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "transport.yml",
+        "event": "push",
+        "name": "wire (ubuntu-24.04)",
+        "run": 38833144178,
+        "attempt": 1,
+        "job": 116756180079,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "transport.yml",
+        "event": "push",
+        "name": "wire (windows-latest)",
+        "run": 38833144178,
+        "attempt": 1,
+        "job": 116756180124,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "research.yml",
+        "event": "pull_request",
+        "name": "research (ubuntu-24.04)",
+        "run": 38833147996,
+        "attempt": 1,
+        "job": 116756193712,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "research.yml",
+        "event": "pull_request",
+        "name": "research (windows-latest)",
+        "run": 38833147996,
+        "attempt": 1,
+        "job": 116756193487,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "research.yml",
+        "event": "push",
+        "name": "research (ubuntu-24.04)",
+        "run": 38833144282,
+        "attempt": 1,
+        "job": 116756180233,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      },
+      {
+        "workflow": "research.yml",
+        "event": "push",
+        "name": "research (windows-latest)",
+        "run": 38833144282,
+        "attempt": 1,
+        "job": 116756180640,
+        "head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb"
+      }
+    ]
+  },
+  "publication_interruption": {
+    "kind": "publication_controller_readback_interruption",
+    "controller_sha256": "7d6717ab1c2d52eb99a0200cd31e39a260c8cfea68481ab83c62a2c3705ac04e",
+    "exit_code": 1,
+    "source_head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb",
+    "git_push": "succeeded 24e0421..83c6d19 exact SHA refspec",
+    "failure": "immediate gh pr view headRefOid equality assertion returned stale old head",
+    "last_journal_step": "exact_source_builder_reviews_clean_frozen_source_current_Atul_live206Inprogress",
+    "author_qualification_started": false,
+    "lifecycle_edits_executed": false,
+    "subsequent_fresh_readback": {
+      "PR_head": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb",
+      "remote_ref": "83c6d19a9491dff371d9ddb5706f59dd0a2255bb",
+      "PR_draft": true
+    },
+    "remedy": "separately reviewed absent-output guarded resume; no repush or unchanged controller rerun",
+    "product_runtime_failure": false,
+    "record_sha256": "650e9e665e764a1052bdda9855ed603d0f9c5435af4b21170d1fc4b2beb53650",
+    "approved_resume_review_sha256": "1eb2961060b3b889ee1ac4fc11346947fa9bca2ba0294941c11041ec661a6ff5"
+  },
+  "recording_tool_corrections": {
+    "initial_report_sha256": "c912c048678d82edd799f71f3854d1e7a98ee77b419f736be7c3acb707dae316",
+    "corrected_report_sha256": "d7151e79300dbe49223ee08a5e11452d3f8d671481ece5a4e064ee53f28ef496",
+    "changes": "Before recording, exact current workflow/job identity gate and complete executed-author/audit/report/source-map byte bindings added. Actual evidence already agreed; no rejected recorder execution."
+  },
+  "collector_corrections": {
+    "initial_report_sha256": "e707f59906226a00079412ce4f4cca0272e8c9629ebc22abecb959fcb582327c",
+    "corrected_report_sha256": "0c334734050f237568d2538b8b115945d8c02a0884802e1e0e99fa066e1f0f4c",
+    "changes": "Before collection, physical ZIP name/type and complete installed dist-info/metadata/license guards corrected; scalar and retained raw-suite count/hash reconciliation added. No rejected collector execution."
+  },
+  "delivery_tool_corrections": {
+    "initial_report_sha256": "c514415c5eb382aa3acd4280c956b776a551bcbd3d04018c80390bdce8f126a2",
+    "corrected_report_sha256": "380a8e69a81984248d1354ab7d78b8b7e02009300463c736a41004c8d7f4774a",
+    "changes": "Before execution, source/API-builder-finaldocs bridge, distinct current workflow/event/job identity matrix and reviewed exact six-criterion/full-body preflight/acceptance history preservation were added. No rejected publication/closure helper execution."
+  }
+}

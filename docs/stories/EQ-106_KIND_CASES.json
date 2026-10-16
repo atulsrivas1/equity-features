@@ -1,0 +1,615 @@
+{
+  "status": "independent_precode_literal_cases_not_runtime",
+  "cases": [
+    {
+      "name": "minimal_request",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:request",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 1,
+        "subject": {
+          "context": null,
+          "kind": "request",
+          "objective": "research",
+          "request_key": "r1"
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+      "byte_length": 514,
+      "sha256": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+      "lexical_nodes": 47,
+      "maximum_container_depth": 2
+    },
+    {
+      "name": "linked_missing_model",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:model",
+        "occurred": {
+          "at_ns": 50,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "previous_hash": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 2,
+        "subject": {
+          "identity_state": "not_supplied",
+          "kind": "model_declaration",
+          "model": null,
+          "provider": null,
+          "version": null
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":2,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+      "byte_length": 542,
+      "sha256": "d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d",
+      "lexical_nodes": 49,
+      "maximum_container_depth": 2
+    },
+    {
+      "name": "public_tool_call",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:call",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 3,
+        "subject": {
+          "kind": "tool_call",
+          "request": {
+            "chain_id": "demo:chain",
+            "digest": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+            "event_id": "demo:request",
+            "kind": "request",
+            "sequence": 1
+          },
+          "tool_name": "calculate",
+          "tool_version": "mcp-2025-11-25",
+          "arguments": {
+            "entries": [
+              {
+                "name": "command",
+                "value": {
+                  "kind": "text",
+                  "value": "trades"
+                }
+              },
+              {
+                "name": "request_key",
+                "value": {
+                  "kind": "text",
+                  "value": "r1"
+                }
+              }
+            ],
+            "state": "retained_complete",
+            "total_count": 2
+          }
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:call\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":3,\"subject\":{\"arguments\":{\"entries\":[{\"name\":\"command\",\"value\":{\"kind\":\"text\",\"value\":\"trades\"}},{\"name\":\"request_key\",\"value\":{\"kind\":\"text\",\"value\":\"r1\"}}],\"state\":\"retained_complete\",\"total_count\":2},\"kind\":\"tool_call\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1},\"tool_name\":\"calculate\",\"tool_version\":\"mcp-2025-11-25\"}}",
+      "byte_length": 870,
+      "sha256": "b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db",
+      "lexical_nodes": 83,
+      "maximum_container_depth": 6
+    },
+    {
+      "name": "declared_tool_result",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:result",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 4,
+        "subject": {
+          "kind": "tool_result",
+          "call": {
+            "chain_id": "demo:chain",
+            "digest": "b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db",
+            "event_id": "demo:call",
+            "kind": "tool_call",
+            "sequence": 3
+          },
+          "outcome": "succeeded",
+          "payload": {
+            "kind": "tool_result",
+            "digest": "09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc",
+            "retained_bytes": 16,
+            "full_bytes": 16,
+            "state": "retained_complete"
+          }
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:result\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":4,\"subject\":{\"call\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3},\"kind\":\"tool_result\",\"outcome\":\"succeeded\",\"payload\":{\"digest\":\"09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc\",\"full_bytes\":16,\"kind\":\"tool_result\",\"retained_bytes\":16,\"state\":\"retained_complete\"}}}",
+      "byte_length": 819,
+      "sha256": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e",
+      "lexical_nodes": 67,
+      "maximum_container_depth": 3
+    },
+    {
+      "name": "read_with_declared_fingerprints_missing_receipt",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:read",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 5,
+        "subject": {
+          "kind": "feature_read",
+          "result": {
+            "chain_id": "demo:chain",
+            "digest": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e",
+            "event_id": "demo:result",
+            "kind": "tool_result",
+            "sequence": 4
+          },
+          "receipt": {
+            "kind": "execution_receipt",
+            "digest": null,
+            "retained_bytes": 0,
+            "full_bytes": null,
+            "state": "not_supplied"
+          },
+          "configuration": {
+            "algorithm": "sha256",
+            "byte_length": 1,
+            "canonicalization": "typed-json-v1",
+            "digest": "2222222222222222222222222222222222222222222222222222222222222222",
+            "domain": "configuration",
+            "schema_version": "1"
+          },
+          "inputs": [
+            {
+              "content": {
+                "algorithm": "sha256",
+                "byte_length": 1,
+                "canonicalization": "typed-json-v1",
+                "digest": "1111111111111111111111111111111111111111111111111111111111111111",
+                "domain": "canonical_batch",
+                "schema_version": "1"
+              },
+              "input_id": "source:trades",
+              "role": "trades"
+            }
+          ],
+          "output": {
+            "algorithm": "sha256",
+            "byte_length": 1,
+            "canonicalization": "typed-json-v1",
+            "digest": "3333333333333333333333333333333333333333333333333333333333333333",
+            "domain": "feature_result",
+            "schema_version": "1"
+          },
+          "feature_ids": [
+            "session.trades.notional"
+          ],
+          "context": {
+            "availability": {
+              "evaluation_ns": 120,
+              "knowledge_cutoff_ns": 100,
+              "market_cutoff_ns": 100,
+              "mode": "known_at",
+              "reconstruction_reason": null
+            },
+            "namespace": "demo",
+            "session_id": "S"
+          }
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:read\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":5,\"subject\":{\"configuration\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"2222222222222222222222222222222222222222222222222222222222222222\",\"domain\":\"configuration\",\"schema_version\":\"1\"},\"context\":{\"availability\":{\"evaluation_ns\":120,\"knowledge_cutoff_ns\":100,\"market_cutoff_ns\":100,\"mode\":\"known_at\",\"reconstruction_reason\":null},\"namespace\":\"demo\",\"session_id\":\"S\"},\"feature_ids\":[\"session.trades.notional\"],\"inputs\":[{\"content\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"1111111111111111111111111111111111111111111111111111111111111111\",\"domain\":\"canonical_batch\",\"schema_version\":\"1\"},\"input_id\":\"source:trades\",\"role\":\"trades\"}],\"kind\":\"feature_read\",\"output\":{\"algorithm\":\"sha256\",\"byte_length\":1,\"canonicalization\":\"typed-json-v1\",\"digest\":\"3333333333333333333333333333333333333333333333333333333333333333\",\"domain\":\"feature_result\",\"schema_version\":\"1\"},\"receipt\":{\"digest\":null,\"full_bytes\":null,\"kind\":\"execution_receipt\",\"retained_bytes\":0,\"state\":\"not_supplied\"},\"result\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+      "byte_length": 1647,
+      "sha256": "b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec",
+      "lexical_nodes": 135,
+      "maximum_container_depth": 5
+    },
+    {
+      "name": "defer_missing_receipt",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:decision",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 6,
+        "subject": {
+          "kind": "decision",
+          "request": {
+            "chain_id": "demo:chain",
+            "digest": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+            "event_id": "demo:request",
+            "kind": "request",
+            "sequence": 1
+          },
+          "feature_reads": [
+            {
+              "chain_id": "demo:chain",
+              "digest": "b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec",
+              "event_id": "demo:read",
+              "kind": "feature_read",
+              "sequence": 5
+            }
+          ],
+          "action": "defer",
+          "reason_code": "missing_receipt"
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:decision\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":6,\"subject\":{\"action\":\"defer\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+      "byte_length": 854,
+      "sha256": "adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7",
+      "lexical_nodes": 70,
+      "maximum_container_depth": 4
+    },
+    {
+      "name": "declared_unknown_human_review",
+      "event": {
+        "actor": {
+          "actor_id": "synthetic-reviewer",
+          "kind": "human"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:review",
+        "occurred": {
+          "at_ns": 40,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "previous_hash": "adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 7,
+        "subject": {
+          "kind": "human_review",
+          "decision": {
+            "chain_id": "demo:chain",
+            "digest": "adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7",
+            "event_id": "demo:decision",
+            "kind": "decision",
+            "sequence": 6
+          },
+          "verdict": "unknown",
+          "review_key": "synthetic-review"
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":\"synthetic-reviewer\",\"kind\":\"human\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:review\",\"occurred\":{\"at_ns\":40,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":7,\"subject\":{\"decision\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6},\"kind\":\"human_review\",\"review_key\":\"synthetic-review\",\"verdict\":\"unknown\"}}",
+      "byte_length": 699,
+      "sha256": "e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8",
+      "lexical_nodes": 57,
+      "maximum_container_depth": 3
+    },
+    {
+      "name": "cancellation_claim",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:cancel",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 8,
+        "subject": {
+          "kind": "cancellation",
+          "target": {
+            "chain_id": "demo:chain",
+            "digest": "b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db",
+            "event_id": "demo:call",
+            "kind": "tool_call",
+            "sequence": 3
+          },
+          "reason": "requested"
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:cancel\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":8,\"subject\":{\"kind\":\"cancellation\",\"reason\":\"requested\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b515b5b389a377cebba19cc5fe29265a344e0aae1d6fa1c288684f18fa5635db\",\"event_id\":\"demo:call\",\"kind\":\"tool_call\",\"sequence\":3}}}",
+      "byte_length": 648,
+      "sha256": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983",
+      "lexical_nodes": 55,
+      "maximum_container_depth": 3
+    },
+    {
+      "name": "unavailable_error_claim",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:error",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 9,
+        "subject": {
+          "kind": "error",
+          "target": {
+            "chain_id": "demo:chain",
+            "digest": "b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e",
+            "event_id": "demo:result",
+            "kind": "tool_result",
+            "sequence": 4
+          },
+          "code": "unavailable"
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:error\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"130699359ba10a840e4829a003c4189033cdb5482a57d3bfb57e4af35f78d983\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":9,\"subject\":{\"code\":\"unavailable\",\"kind\":\"error\",\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"b1a315dc1231a134414171761df0b5ec9d89b50096c395a8c76946c06b017c6e\",\"event_id\":\"demo:result\",\"kind\":\"tool_result\",\"sequence\":4}}}",
+      "byte_length": 644,
+      "sha256": "276723e7f8778af3aad6d55d28da70be4dd7aab45ad086df846dfb97b8363a97",
+      "lexical_nodes": 55,
+      "maximum_container_depth": 3
+    },
+    {
+      "name": "revoke_review_claim",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:revoke",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "276723e7f8778af3aad6d55d28da70be4dd7aab45ad086df846dfb97b8363a97",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 10,
+        "subject": {
+          "kind": "correction",
+          "target": {
+            "chain_id": "demo:chain",
+            "digest": "e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8",
+            "event_id": "demo:review",
+            "kind": "human_review",
+            "sequence": 7
+          },
+          "operation": "revoke",
+          "replacement": null,
+          "reason_code": "review_withdrawn"
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:revoke\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"276723e7f8778af3aad6d55d28da70be4dd7aab45ad086df846dfb97b8363a97\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":10,\"subject\":{\"kind\":\"correction\",\"operation\":\"revoke\",\"reason_code\":\"review_withdrawn\",\"replacement\":null,\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"e971cc66424fe5f4a9d2fe04bf45beb125f201dae02331b2b8253f73af28cfe8\",\"event_id\":\"demo:review\",\"kind\":\"human_review\",\"sequence\":7}}}",
+      "byte_length": 704,
+      "sha256": "916641ceffb20e1e96effffd474c77819d93f4d3e2db5b85102a7f2381727800",
+      "lexical_nodes": 59,
+      "maximum_container_depth": 3
+    },
+    {
+      "name": "replacement_decision",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:replacement",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "916641ceffb20e1e96effffd474c77819d93f4d3e2db5b85102a7f2381727800",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 11,
+        "subject": {
+          "kind": "decision",
+          "request": {
+            "chain_id": "demo:chain",
+            "digest": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+            "event_id": "demo:request",
+            "kind": "request",
+            "sequence": 1
+          },
+          "feature_reads": [
+            {
+              "chain_id": "demo:chain",
+              "digest": "b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec",
+              "event_id": "demo:read",
+              "kind": "feature_read",
+              "sequence": 5
+            }
+          ],
+          "action": "reject",
+          "reason_code": "missing_receipt_strict"
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:replacement\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"916641ceffb20e1e96effffd474c77819d93f4d3e2db5b85102a7f2381727800\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":11,\"subject\":{\"action\":\"reject\",\"feature_reads\":[{\"chain_id\":\"demo:chain\",\"digest\":\"b0d46589b695937aed2cb4529b8ec091111604d52dfb549f0371bf2ecb5c74ec\",\"event_id\":\"demo:read\",\"kind\":\"feature_read\",\"sequence\":5}],\"kind\":\"decision\",\"reason_code\":\"missing_receipt_strict\",\"request\":{\"chain_id\":\"demo:chain\",\"digest\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"event_id\":\"demo:request\",\"kind\":\"request\",\"sequence\":1}}}",
+      "byte_length": 866,
+      "sha256": "dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa",
+      "lexical_nodes": 70,
+      "maximum_container_depth": 4
+    },
+    {
+      "name": "amend_decision_claim",
+      "event": {
+        "actor": {
+          "actor_id": null,
+          "kind": "unknown"
+        },
+        "canonicalization": "agent-event-json-v1",
+        "chain_id": "demo:chain",
+        "domain": "equity-feature.agent-event",
+        "event_id": "demo:amend",
+        "occurred": {
+          "at_ns": null,
+          "clock_source": null,
+          "uncertainty_ns": null
+        },
+        "previous_hash": "dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa",
+        "recorded": {
+          "at_ns": 100,
+          "clock_source": "declared",
+          "uncertainty_ns": 0
+        },
+        "schema_version": "1",
+        "sequence": 12,
+        "subject": {
+          "kind": "correction",
+          "target": {
+            "chain_id": "demo:chain",
+            "digest": "adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7",
+            "event_id": "demo:decision",
+            "kind": "decision",
+            "sequence": 6
+          },
+          "operation": "amend",
+          "replacement": {
+            "chain_id": "demo:chain",
+            "digest": "dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa",
+            "event_id": "demo:replacement",
+            "kind": "decision",
+            "sequence": 11
+          },
+          "reason_code": "decision_revision"
+        }
+      },
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:amend\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":12,\"subject\":{\"kind\":\"correction\",\"operation\":\"amend\",\"reason_code\":\"decision_revision\",\"replacement\":{\"chain_id\":\"demo:chain\",\"digest\":\"dccf60c053f456ea105b39a82a1d1e861ac15dd34d0b431e987319294bcc57fa\",\"event_id\":\"demo:replacement\",\"kind\":\"decision\",\"sequence\":11},\"target\":{\"chain_id\":\"demo:chain\",\"digest\":\"adb72b084bf4a3a199820dffbb575a5f5ddcb3f07d2a341fa51faea692ef34e7\",\"event_id\":\"demo:decision\",\"kind\":\"decision\",\"sequence\":6}}}",
+      "byte_length": 860,
+      "sha256": "1049a542de598c76af5d765ce42327ec1b4e18efda62889b7f39a6bf6d6696b3",
+      "lexical_nodes": 69,
+      "maximum_container_depth": 3
+    }
+  ],
+  "retained_payload": {
+    "ascii_bytes": "{\"job_ref\":\"j1\"}",
+    "sha256": "09919a5598b3ec4643dc5ad02e1f42b4ebd36bde7df391b3057993a2d68d5fdc",
+    "bytes": 16
+  },
+  "scope": "Literal subject/header maps canonicalized using only independent standard-library JSON/hash code before product helpers exist. Placeholder R9 fingerprints are declarations, not verified content or a real producer. Human review/cancellation/correction are synthetic claims, not authenticated authorization or completed operations. Original two hand-written goldens unchanged."
+}

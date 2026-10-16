@@ -1,0 +1,69 @@
+{
+  "accepted_head": "ea9a667c85d0d4eec207d1fe1fa4c5780d26b606",
+  "accepted_review": "https://github.com/atulsrivas1/equity-features/issues/205#issuecomment-6203271322",
+  "prior_collection_sha256": "a7aa8ff134f373738213ebc531dcdcb5c8895301ca5a57b64feb2aeff676559d",
+  "systems": {
+    "Linux": {
+      "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+        "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+        "bytes": 69728
+      },
+      "equity_feature_contracts-0.0.4a4.tar.gz": {
+        "sha256": "f32a66f31759b10c9ac251f4dffb2388a3e2ce50d2e5e15c69ac7038828f97a9",
+        "bytes": 53768
+      },
+      "equity_feature_evidence-0.1.0a2-py3-none-any.whl": {
+        "sha256": "0d7002a270c06d2dc7cdaff3091f67aa3db24417a57fedebf8b0fb47f3dd8ae2",
+        "bytes": 17911
+      },
+      "equity_feature_evidence-0.1.0a2.tar.gz": {
+        "sha256": "2d2cf67ce6d5e3e74abb8818e10d04b13d4c6ea63cc4647bd8d4f0adae43bd60",
+        "bytes": 14589
+      },
+      "equity_features-0.0.4a4-py3-none-any.whl": {
+        "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e",
+        "bytes": 65151
+      },
+      "equity_features-0.0.4a4.tar.gz": {
+        "sha256": "14e7b8b0ec1b245747d53081a73c9ef060c0f637d205ae97b5e14304b4d95c8f",
+        "bytes": 48412
+      }
+    },
+    "Windows": {
+      "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+        "sha256": "11b29b397f1225449fff8b074593a0b5e76a5f4eebf76434d195937fcd3e1151",
+        "bytes": 69743
+      },
+      "equity_feature_contracts-0.0.4a4.tar.gz": {
+        "sha256": "18e93f66044a760a97188ec7ba1f486cab6cbe960dfafe027c4db8bb3e53dcc7",
+        "bytes": 53911
+      },
+      "equity_feature_evidence-0.1.0a2-py3-none-any.whl": {
+        "sha256": "6791b4afad95f9595749f627c3757da66ef628e15301c665118b088ed741d8ce",
+        "bytes": 17927
+      },
+      "equity_feature_evidence-0.1.0a2.tar.gz": {
+        "sha256": "c69e51e6b99f38bedc0550371d6c9d8d7f2dd9c99b0d10d6d40a35eb32da35c7",
+        "bytes": 14654
+      },
+      "equity_features-0.0.4a4-py3-none-any.whl": {
+        "sha256": "ce4f020e6b3f994714656e28d4d33bd617a5fb28bd5084ad74066e714c32de2d",
+        "bytes": 65170
+      },
+      "equity_features-0.0.4a4.tar.gz": {
+        "sha256": "08b7c1002099c877e25584a5ea6f6bdabcee81286dbc06a3fba9db53d7297ad7",
+        "bytes": 48557
+      }
+    }
+  },
+  "CI_artifacts": {
+    "Linux": {
+      "id": 12010480630,
+      "raw_sha256": "266224c107428a0f4661a4136d769c58c78b962219108cd1c58c152b934c0cbc"
+    },
+    "Windows": {
+      "id": 12009971901,
+      "raw_sha256": "9931a63ed2d13affa43579803e7d69c60930e478910dde768a4be21cc0aa6cbd"
+    }
+  }
+}

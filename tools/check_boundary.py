@@ -187,6 +187,45 @@ def provenance_violations(source):
     return sorted(set(found))
 
 
+def agent_violations(source):
+    """Separate pure agent profile; only two accepted public record imports."""
+    found=[]
+    allowed={'__future__','dataclasses','enum','typing','json','hashlib','re'}
+    public={'equity_feature_contracts':{'AvailabilitySpec'},
+            'equity_feature_evidence':{'ContentFingerprint','InputFingerprint'}}
+    relative={'_model','_codec','_verify'}
+    for node in ast.walk(ast.parse(source)):
+        if isinstance(node,ast.Import):
+            if any(x.name not in allowed for x in node.names):found.append('unsupported agent import')
+        elif isinstance(node,ast.ImportFrom):
+            if node.level:
+                if node.level!=1 or (node.module or '') not in relative|{''}:found.append('unsupported agent relative import')
+                if not node.module and any(x.name not in relative for x in node.names):found.append('unsupported agent namespace')
+            elif node.module in public:
+                if any(x.name not in public[node.module] for x in node.names):found.append('unsupported accepted public agent import')
+            elif node.module not in allowed:found.append('unsupported agent import')
+            if any(x.name=='*' or x.name in DENIED for x in node.names):found.append('unsupported agent imported access')
+        elif isinstance(node,(ast.Name,ast.Attribute)):
+            name=node.id if isinstance(node,ast.Name) else node.attr
+            if name in DENIED or name in ('__dict__','__getattribute__','__subclasses__') or name.startswith(('read_','write_','__builtins__')):
+                found.append('unsupported agent access')
+    return sorted(set(found))
+
+
+AGENT_NEGATIVE_FIXTURES=('import equity_features','import equity_feature_evidence',
+    'from equity_feature_evidence import _codec','from equity_feature_evidence._codec import encode_receipt',
+    'from equity_feature_contracts import ConfigSpec','from .other import factory',
+    'from . import other','from equity_feature_agent_ledger import Store','import pathlib',
+    'import time','import os','import socket','import sqlite3','import requests',
+    'import equity_feature_workers','from ._model import *','x=getattr(value,name)',
+    'obj.__dict__','open("x")','json.dump(value,stream)')
+AGENT_POSITIVE_FIXTURES=('from equity_feature_contracts import AvailabilitySpec',
+    'from equity_feature_evidence import ContentFingerprint, InputFingerprint',
+    'from . import _model as m','from ._codec import encode_event',
+    'from dataclasses import dataclass\nfrom enum import Enum',
+    'import hashlib\nimport json\nx=json.dumps({"synthetic":True})')
+
+
 def check():
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
@@ -196,7 +235,8 @@ def check():
     diagnostic_packages=(ROOT/'packages/diagnostics',)
     provenance_packages=(ROOT/'packages/provenance',)
     conformance_packages=(ROOT/'packages/conformance',)
-    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)|set(conformance_packages)
+    agent_packages=(ROOT/'packages/agent-evidence',)
+    known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)|set(conformance_packages)|set(agent_packages)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']
@@ -282,7 +322,16 @@ def check():
         'from dataclasses import dataclass\nfrom equity_feature_evidence import ContentFingerprint')
     for source in conformance_negative:assert research_violations(source,conformance=True),source
     for source in conformance_positive:assert not research_violations(source,conformance=True),source
-    print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; outer profile 8 negative/3 positive; conformance 7 negative/4 positive controls.')
+    for root in agent_packages:
+        if not root.exists():continue
+        project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
+        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2']
+        assert not project.get('optional-dependencies',{})
+        for path in root.glob('src/**/*.py'):
+            errors=agent_violations(path.read_text(encoding='utf-8'));assert not errors,(path,errors)
+    for source in AGENT_NEGATIVE_FIXTURES:assert agent_violations(source),source
+    for source in AGENT_POSITIVE_FIXTURES:assert not agent_violations(source),source
+    print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; outer profile 8 negative/3 positive; conformance 7 negative/4 positive; agent {len(AGENT_NEGATIVE_FIXTURES)} negative/{len(AGENT_POSITIVE_FIXTURES)} positive controls.')
 
 
 if __name__=='__main__': check()
