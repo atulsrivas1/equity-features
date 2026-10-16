@@ -1,3 +1,7 @@
+## EQ107 literal foreign-chain correction — October15,2026
+
+Renewed review found three foreign-chain proposal vectors failed accepted event-reference validation before the intended reconciliation check. Both event and nested request now use the same foreign chain, preserving a valid event while disagreeing with the supplied prior checkpoint. This is a fixture correction before Ready; no database/runtime result is claimed. [Disposition](stories/EQ-107_VALIDATION.json). Older snapshots below remain history.
+
 ## EQ107 readiness corrections — October15,2026
 
 Separate PR409 pre-code review of b4399be requested two P2 corrections: exact result-record construction and proposal/prior-checkpoint validation before reconciliation classification. The [profile](stories/EQ-107_PROFILE.json) and [cases](stories/EQ-107_CASES.json) now freeze these decisions, including nine inconsistent proposals across unchanged/missing-base/later-suffix stores, defensive copies and forged-record errors. Historical platform helper reuse is source-only, and process-death reopen is not a forced-hot-journal test. [Validation](stories/EQ-107_VALIDATION.json) preserves the review/disposition. Exact corrected-head review remains pending; EQ107 remains Backlog/unassigned, no ledger code/SQLite/process execution. EQ106 remains accepted. Older snapshots below are historical.
