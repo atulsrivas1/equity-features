@@ -1,3 +1,7 @@
+## EQ107 readiness corrections — October15,2026
+
+Separate PR409 pre-code review of b4399be requested two P2 corrections: exact result-record construction and proposal/prior-checkpoint validation before reconciliation classification. The [profile](stories/EQ-107_PROFILE.json) and [cases](stories/EQ-107_CASES.json) now freeze these decisions, including nine inconsistent proposals across unchanged/missing-base/later-suffix stores, defensive copies and forged-record errors. Historical platform helper reuse is source-only, and process-death reopen is not a forced-hot-journal test. [Validation](stories/EQ-107_VALIDATION.json) preserves the review/disposition. Exact corrected-head review remains pending; EQ107 remains Backlog/unassigned, no ledger code/SQLite/process execution. EQ106 remains accepted. Older snapshots below are historical.
+
 ## EQ106 accepted; EQ107 pre-code preparation — October15,2026
 
 EQ106 is [accepted Closed/Done](https://github.com/atulsrivas1/equity-features/issues/206#issuecomment-6205931841) at actualmain2462ded4742ff5ff7c28578b6fc30126c8a47a53/PR408, all46candidate/23main checks, independent source/finaldocs/currentbothOS/publicmain/closure review findings[]. Its exact experimental package/fixtures/parity and all prior corrections remain scoped evidence, not independent reinstall/native or full R11 acceptance. Do not rerun accepted closure.

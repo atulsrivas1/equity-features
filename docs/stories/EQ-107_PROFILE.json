@@ -252,5 +252,84 @@
   "append_acknowledgment": "Checkpoint returned only after COMMIT success. Any COMMIT exception poisons/closes and outcome_unknown even if in_transaction becomes false. Precommit failure returns known refusal only after successful rollback; failed/uncertain rollback poisons/closes and outcome_unknown. Never auto replay. Record exact proposal/prior checkpoint externally and use read-only reconcile after reopen.",
   "head_policy": "head() returns a validated stored checkpoint/head-row pair, not a fresh whole-history verification or authenticated anchor. verify()/open perform full consistency scanning. Close is idempotent API state; a failed underlying close is not a physical cleanup success.",
   "page_construction": "Page structural construction revalidates/copies checkpoint fields and exact list/tuple event input (stored as tuple), count/byte caps. Relations/linkage/coverage are verified by verify_page/export, not implied by an arbitrary caller-created Page.",
-  "reference_order": "Semantic kind order: tool_call request; tool_result call; feature_read result; decision request then feature_reads; human_review decision; cancellation target; error optional target; correction target then optional replacement. Return unique resolved/unresolved references in first-citation order, matching content only; earlier membership/global uniqueness not verified by a page."
+  "reference_order": "Semantic kind order: tool_call request; tool_result call; feature_read result; decision request then feature_reads; human_review decision; cancellation target; error optional target; correction target then optional replacement. Return unique resolved/unresolved references in first-citation order, matching content only; earlier membership/global uniqueness not verified by a page.",
+  "status_types": {
+    "AnchorStatus": {
+      "type": "Enum, exact class; strings and other enums refused",
+      "members": {
+        "NOT_SUPPLIED": "not_supplied",
+        "MATCHED_TERMINAL": "matched_terminal",
+        "MATCHED_PREFIX": "matched_prefix",
+        "MISMATCH": "mismatch",
+        "NOT_COVERED": "not_covered"
+      }
+    },
+    "ReconciliationStatus": {
+      "type": "Enum, exact class; strings and other enums refused",
+      "members": {
+        "FOUND_EXACT": "found_exact",
+        "ABSENT_AT_UNCHANGED_HEAD": "absent_at_unchanged_head",
+        "CONFLICT": "conflict",
+        "BASE_NOT_COVERED": "base_not_covered"
+      }
+    }
+  },
+  "result_constructors": {
+    "common": {
+      "ownership": "Frozen records; exact own record/enum types only, never subclasses. Revalidate fields even for forged instances. Clone checkpoint fields and EventReference fields; detach events through public encode/decode. Exact list/tuple inputs stored as detached tuples. No caller-owned mutable container retained.",
+      "errors": "Wrong type/shape, bool-as-int, negative count -> invalid_schema; count over cap -> limit_exceeded; input event/reference errors mapped through public_error_class. Validation in signature field order, container caps before item validation, then cross-field rules in listed order. Results attest structural consistency only; operation computes historical facts."
+    },
+    "Verification": {
+      "signature": "Verification(head: Checkpoint, anchor_status: AnchorStatus, verified_events: int, canonical_event_bytes: int)",
+      "fields": [
+        "head: cloned exact Checkpoint",
+        "anchor_status: exact AnchorStatus",
+        "verified_events: exact non-bool int 0..4096",
+        "canonical_event_bytes: exact non-bool int 0..33554432"
+      ],
+      "invariants": [
+        "verified_events == head.sequence, else inconsistent_chain",
+        "Zero events require zero bytes; nonzero events require verified_events <= canonical_event_bytes <= min(verified_events*16384,33554432), else inconsistent_chain",
+        "MATCHED_PREFIX requires nonzero head.sequence, else invalid_schema"
+      ],
+      "limits": "No supplied expected anchor exists in constructor; status is a structurally admitted assertion, not proof of its truth."
+    },
+    "PageVerification": {
+      "signature": "PageVerification(after: Checkpoint, reached_terminal: bool, resolved: list[EventReference] | tuple[EventReference,...], unresolved: list[EventReference] | tuple[EventReference,...], prior_global_uniqueness: Literal['not_verified'] = 'not_verified', prior_membership: Literal['not_verified'] = 'not_verified')",
+      "fields": [
+        "after: cloned exact Checkpoint",
+        "reached_terminal: exact bool",
+        "resolved/unresolved: exact list or tuple, combined <=1024 references; check both container shapes and combined cap before validating items; process resolved before unresolved",
+        "prior_global_uniqueness/prior_membership: exact str equal not_verified"
+      ],
+      "invariants": [
+        "References use exact public EventReference class with revalidated/copied scalar fields",
+        "Each reference has after.chain_id and 1 <= sequence < after.sequence, else inconsistent_reference",
+        "Index by both event_id and sequence across both tuples: identical repeated full reference within one tuple -> duplicate; partial/split/wrong-hash identity or identical reference in both tuples -> inconsistent_reference",
+        "Preserve each tuple order; operation emits first semantic citation order, constructor cannot reconstruct event citation order"
+      ],
+      "limits": "At most64events*16references=1024; no earlier membership/global uniqueness or caller terminal proof from construction."
+    },
+    "Reconciliation": {
+      "signature": "Reconciliation(status: ReconciliationStatus, head: Checkpoint, observed: EventReference | None = None)",
+      "fields": [
+        "status: exact ReconciliationStatus",
+        "head: cloned exact Checkpoint",
+        "observed: None or exact revalidated/copied EventReference"
+      ],
+      "invariants": [
+        "FOUND_EXACT requires observed; ABSENT_AT_UNCHANGED_HEAD and BASE_NOT_COVERED forbid observed; CONFLICT permits either; otherwise invalid_schema",
+        "Observed chain must equal head.chain_id and 1 <= observed.sequence <= head.sequence; at terminal its digest must equal head.head_hash; otherwise inconsistent_reference"
+      ],
+      "limits": "Construction does not verify a database or proposal/base history."
+    }
+  },
+  "reconcile_input_order": [
+    "Refuse closed/poisoned Ledger first; copy/revalidate event through public encode/decode, then expected_before Checkpoint.",
+    "Before any store read: event.chain_id==expected_before.chain_id, event.sequence==expected_before.sequence+1, event.previous_hash==expected_before.head_hash; check in that order, any mismatch inconsistent_chain.",
+    "A self-consistent foreign-chain proposal/base reaches store classification as conflict. A valid generic event4097 paired with full checkpoint4096 may reconcile absent; this is not permission to append beyond the cap.",
+    "Fully verify one current store snapshot. Foreign store chain or covered base hash mismatch -> conflict/observed None; base.sequence>head.sequence -> base_not_covered/observed None.",
+    "Then look up proposal ID and next sequence. Same row with exact canonical bytes -> found_exact, observed row; otherwise existing ID row -> conflict/that observed row (priority), else existing next row -> conflict/that observed row.",
+    "Neither row and head==base -> absent_at_unchanged_head; impossible other contiguous state -> inconsistent_chain. Never mutate/replay."
+  ]
 }

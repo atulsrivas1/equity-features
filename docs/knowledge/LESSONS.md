@@ -1,3 +1,7 @@
+## EQ107 validate requests before classifying history — October15,2026
+
+Freeze exact public result constructors and proposal/base agreement before runtime Ready. A valid event can still be an invalid next append for a supplied checkpoint; do not classify it absent or found. Directly constructed status records establish structural consistency only. [Corrected contract](../stories/EQ-107_CONTRACT.md), [review disposition](../stories/EQ-107_VALIDATION.json). No product test or completed readiness is inferred.
+
 ## Bind evidence before lifecycle; settle absent identity and page terminal before code — October15,2026
 
 [EQ106 acceptance](https://github.com/atulsrivas1/equity-features/issues/206#issuecomment-6205931841) binds source/API-builder-finaldocs hashes, distinct current workflow/event/job executions and reviewed exact criteria/history before Done. EQ107 preparation must name an empty chain explicitly and compare caller-owned terminal, not trust a page self-description. Missing context and logical counters remain distinct from membership/physical guarantees. [Pre-code evidence](../stories/EQ-107_VALIDATION.json); fixture preparation is not runtime validation.

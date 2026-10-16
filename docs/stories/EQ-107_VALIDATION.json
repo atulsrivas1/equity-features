@@ -22,7 +22,9 @@
     "Caller-owned page terminal and separately unverified prior membership/global uniqueness made explicit.",
     "Page expected tuple order uses semantic request-first references, not canonical JSON key traversal.",
     "Missing-ID complete-prefix and unreachable valid page aggregate overflow reasoning made precise.",
-    "One corrective preparer platform-default cp1252 read failed after JSON writes before Markdown append; only remaining UTF8 append resumed. Original bytes/failure history retained; no product/SQLite failure."
+    "One corrective preparer platform-default cp1252 read failed after JSON writes before Markdown append; only remaining UTF8 append resumed. Original bytes/failure history retained; no product/SQLite failure.",
+    "Separate full-packet review found result-construction and proposal/base-precedence gaps; corrected before Ready or code.",
+    "Process recovery wording now allows recovery only if needed; historical Linux helper reuse is explicitly source-only/uninvoked."
   ],
   "tool_history": {
     "eq107-preparation-tool-history.json": {
@@ -50,7 +52,9 @@
     "append_refusals": 7,
     "positive_pages": 5,
     "negative_pages": 10,
-    "logical_limit_series": 2
+    "logical_limit_series": 2,
+    "invalid_reconciliation_proposals": 9,
+    "result_constructor_negatives": 27
   },
   "remaining": [
     "Full exact tracked pre-code review/readiness.",
@@ -62,5 +66,16 @@
     "Planning-only reviews do not approve current full packet or Ready.",
     "No database/native/process/build/install/release result is inferred from stdlib fixture generation.",
     "Clock/actor/rights/source-history/anchor authenticity, physical quotas/deadlines and power-loss/hosted recovery remain unqualified."
-  ]
+  ],
+  "precode_review": {
+    "reviewer": "/root/r9_plan_review",
+    "head": "b4399be73fe13c74d3b9cd2805156a23d4e2a3be",
+    "disposition": "changes_requested",
+    "report_sha256": "cd7e98b1896cec153bd5b276ca3783ec22cb4c853f71e5fa7ea74dddf9a5a022",
+    "findings": [
+      "EQ107-PRECODE-01 result construction",
+      "EQ107-PRECODE-02 proposal/base agreement"
+    ],
+    "correction": "Exact result/status constructors, bounds/copies/error order; nine invalid proposal/base vectors; fresh exact-head review still pending."
+  }
 }
