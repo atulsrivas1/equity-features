@@ -1,0 +1,30 @@
+{
+  "scope": "GOV024 R12 planning only; not runtime or release acceptance.",
+  "governance": 414,
+  "epic": 212,
+  "milestone": 13,
+  "stories": {
+    "EQ111": 213,
+    "EQ112": 214,
+    "EQ113": 215,
+    "EQ114": 216,
+    "EQ115": 217
+  },
+  "runtime_points": 31,
+  "governance_points": 3,
+  "base": "3a3c24bf3220aad088665eedc5757daa1b36c537",
+  "worker_accepted": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+  "fresh_R11_review_raw_sha256": "2ba7ea5b367c35dc948124fac84d1fd704bfef5b4654d9f7f0e2bdfb7a9e5c9d",
+  "fresh_R11_review_GitLF_sha256": "d335ed7eb06ab004aada00fb120e53381d9df5e3538ce2427ba99b639b4d2df5",
+  "review_publication_normalization": "Only CRLF to GitLF; external original review unchanged, JSON values/text content preserved.",
+  "R11_findings": [],
+  "R12_review_route": "OWNER_AUTHORIZED_LOCAL_THROUGHOUT_R12",
+  "runtime_changes": false,
+  "runtime_ready": false,
+  "acceptance": false,
+  "tooling_history": [
+    "Author link/input checker initially passed its local set to a shared helper requiring an ordered list; rejected before publication, corrected to sorted list. Initial checker source preserved; no product test or false PASS.",
+    "Initial report-copy guard denied Windows CRLF before any write. Corrected publication explicitly maps immutable external raw SHA to GitLF public SHA; original report unchanged."
+  ],
+  "review_decision_scope": "ConcretePR415 handoff, EQ111\u2013115 including necessary companion changes, final delivery; permission is not completed review."
+}

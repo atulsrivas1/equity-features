@@ -1,0 +1,296 @@
+{
+  "reviewer": "/root/r10_review",
+  "review_kind": "fresh independent R11 postdelivery source/API and closure review",
+  "reviewed_at_utc": "2026-10-16T15:38:48.317687+00:00",
+  "disposition": "approved_R11_postdelivery_review_no_new_actionable_findings",
+  "findings": [],
+  "repositories": {
+    "canonical": {
+      "head": "3a3c24bf3220aad088665eedc5757daa1b36c537",
+      "inspected_source_map": {
+        "packages/agent-evidence/src/equity_feature_agent_evidence/__init__.py": "1b9131876b03802e158e4455655a72fc1eea8fe9a15fe5325a041a3aaf15f2be",
+        "packages/agent-evidence/src/equity_feature_agent_evidence/_model.py": "7651d957dd2bb4a464bb1611a73e4042223a6f6ea1989d55c5ebc74d58b65670",
+        "packages/agent-evidence/src/equity_feature_agent_evidence/_codec.py": "3d0b6ce7b6256849e2119bedaf80793c17875f24e892f05c5fdf1cacc0f6a2fa",
+        "packages/agent-evidence/src/equity_feature_agent_evidence/_verify.py": "3b8b56ce333eacfe29c2e8f76ff6835874697df7200d8351ea2cbee266ffa2f9",
+        "packages/agent-ledger/src/equity_feature_agent_ledger/__init__.py": "4d08323ffbbcce9f551754e9844273430320865ef9aac3870602fcb50a546eb1",
+        "packages/agent-ledger/src/equity_feature_agent_ledger/_model.py": "6dc0d74438d8dce7eaa3b35cb403e4a60d7843c84a4aef52769155759bae5b05",
+        "packages/agent-ledger/src/equity_feature_agent_ledger/_verify.py": "e205c2370e600a7e280ec44396a79eccd3ef9e83f3f12ee2eab10bcb5fc2c609",
+        "packages/agent-ledger/src/equity_feature_agent_ledger/_store.py": "3dc0964ac4c127864891800789f84ca8787d80cc49049538ec4599f708afd462",
+        "packages/agent-ledger/src/equity_feature_agent_ledger/_schema.py": "4eb0a7f96167f28393cbe2bedc9c1c68271aa8687f20e7a1d9d4ff9e899072c9",
+        "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+        "tests/agent_evidence/test_events.py": "e36d4ffa4924070befba3699f9aa0a05a2c0d364dae6022a5b6c92f8bd973ced",
+        "tests/agent_ledger/test_pure.py": "171c1a3c505fe4c2b757a692fe6525ec3c658864fd0e59d237eecd56f176923e",
+        "tests/agent_research/test_consumer.py": "b9337ec0cf3bbb80df565869a0a8b58d8c4980316117817a0ba1d8dcb4a761eb",
+        "tests/agent_research/independent_oracle.py": "0da2e4504bf7cb3fbd0e524f0bd347222d7d7f83cf324571e499e52ed24fb0d6"
+      }
+    },
+    "worker": {
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "inspected_source_map": {
+        "packages/mcp/src/equity_feature_mcp/evidence.py": "102b3bf53dd72ba8794c2c4d75c6df27cce30002b01e78741d1968ea05951c05",
+        "packages/mcp/src/equity_feature_mcp/server.py": "392d2a4aa35182183c8e340a62bdbcf134847dccb5f9c011004e404bd8eb69b6",
+        "packages/mcp/src/equity_feature_mcp/_ledger.py": "cbde00e3f4c80d0c603c057584a0942342ec78e4ebfb3af52c6708f1495c3a69",
+        "packages/mcp/src/equity_feature_mcp/models.py": "1c712e14161c885c1932ddf3fc5c14e3566dfac971776a952816c370fe6c4212",
+        "packages/mcp/src/equity_feature_mcp/_wire.py": "83f8d5149d3e8d2342cb3c4d95784eadd06a45a046f02c57ef46a47d41f25c47",
+        "tests/mcp_evidence/test_evidence_owner.py": "5e7999cfdae72bfa3a89103c00d59685936cabd23cee058f28a43500b50cb19d",
+        "tests/mcp_evidence/test_evidence_admission.py": "6bd5ce9edab738f6ea5ea5bf320d5822a6845fe4e74ca6b1ae942d7e03af57bc",
+        "tests/pilot_entry.py": "e60892935b38a3d0e3fa1723c9ed8ce94dbd8420755e2f3585e73598766851b5",
+        "tests/test_pilot_entry.py": "909cdf2e4cfb2ba70bd45a69801c044b24f99911defe3730fc1fd7e9aa6be202"
+      }
+    }
+  },
+  "acceptance": "https://github.com/atulsrivas1/equity-features/issues/195#issuecomment-6214256540",
+  "live_states": {
+    "195": {
+      "state": "CLOSED",
+      "project_status": "Done",
+      "body_LF_sha256": "c0dc59eb67d3b71232cb74a215a56f6cf5ab3ed80d9b9820d49f0e90e2dcf5b0"
+    },
+    "206": {
+      "state": "CLOSED",
+      "project_status": "Done",
+      "body_LF_sha256": "fb9698df0271d2fb2ef032bc7c50c28708a2c3c4cb86a9ad0c120a85602b522e"
+    },
+    "207": {
+      "state": "CLOSED",
+      "project_status": "Done",
+      "body_LF_sha256": "9d494e501545f699fcb0e0fb3d0ee3b54fb3ae08c6f760854f624c818fea059e"
+    },
+    "208": {
+      "state": "CLOSED",
+      "project_status": "Done",
+      "body_LF_sha256": "f7cdd6d830d59f8dd3fceee4e3a6e53f4a99565101c64ead03272b0c1d39e95d"
+    },
+    "209": {
+      "state": "CLOSED",
+      "project_status": "Done",
+      "body_LF_sha256": "9409fe9778714572bd55253fcd5eb10014b3beb195b2a3fab6a94ea2733f6a73"
+    },
+    "210": {
+      "state": "CLOSED",
+      "project_status": "Done",
+      "body_LF_sha256": "d543f192cd969139d9ffd12e6832171d4b7b9ab7b20e6913d5084403f1f3af2a"
+    },
+    "406": {
+      "state": "CLOSED",
+      "project_status": "Done",
+      "body_LF_sha256": "8b305f5f3cfa34a56607e768c83ad2308f2581d23a53b9cd0871c625e1b979e8"
+    }
+  },
+  "milestone": {
+    "number": 12,
+    "state": "closed",
+    "open": 0,
+    "closed": 7,
+    "members": [
+      195,
+      206,
+      207,
+      208,
+      209,
+      210,
+      406
+    ]
+  },
+  "current_success_checks": {
+    "canonical": 25,
+    "worker": 14
+  },
+  "executed_checks": {
+    "methods": 118,
+    "event": 26,
+    "ledger_pure": 16,
+    "research_consumer_pure": 34,
+    "MCP_owner": 15,
+    "MCP_admission_pure": 7,
+    "qualification_observer_API_doubles": 15,
+    "new_independent_negative_controls": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 10.25,
+    "method_names": [
+      "EventTests.test_23_independent_structural_variants",
+      "EventTests.test_54_independent_decoder_refusals",
+      "EventTests.test_aggregate_reference_limit_and_duplicates",
+      "EventTests.test_all_context_validated_before_resolution",
+      "EventTests.test_conflict_after_missing_and_subset_order",
+      "EventTests.test_constructor_aggregate_escaped_byte_cap",
+      "EventTests.test_context_need_not_be_linked_prefix",
+      "EventTests.test_earlier_parameter_semantics_before_later_nested_error",
+      "EventTests.test_exact_types_before_callbacks",
+      "EventTests.test_fingerprint_exact_type_before_unsupported_version",
+      "EventTests.test_frozen_properties_and_no_mutable_returns",
+      "EventTests.test_id_sequence_split_and_digest_conflicts",
+      "EventTests.test_list_inputs_detach_and_tuple_outputs",
+      "EventTests.test_lookup_match_missing_and_empty",
+      "EventTests.test_member_semantics_before_later_member_type",
+      "EventTests.test_nested_headers_subject_and_availability_detach",
+      "EventTests.test_original_two_literal_oracles",
+      "EventTests.test_payload_complete_changed_length_and_empty",
+      "EventTests.test_payload_types_caps_and_result_invariants",
+      "EventTests.test_privacy_fixed_errors_and_constructor_domains",
+      "EventTests.test_reference_context_first_member_semantics_before_later_type",
+      "EventTests.test_reference_header_roles_and_corrections",
+      "EventTests.test_revalidate_hostile_tampering_all_event_paths",
+      "EventTests.test_shallow_subject_tag_and_keys_before_typed_headers",
+      "EventTests.test_truncated_missing_redacted_unknown",
+      "EventTests.test_twelve_all_kind_events_and_links",
+      "PureTests.test_asof_recording_order",
+      "PureTests.test_checkpoint_constructor",
+      "PureTests.test_checkpoint_goldens",
+      "PureTests.test_error_precedence",
+      "PureTests.test_expected_anchors",
+      "PureTests.test_explicit_empty_identity",
+      "PureTests.test_external_page_checkpoints",
+      "PureTests.test_ownership_result_and_forgery",
+      "PureTests.test_page_limits",
+      "PureTests.test_partial_prior_context",
+      "PureTests.test_positive_page_continuation",
+      "PureTests.test_reorder_gap_duplicate",
+      "PureTests.test_replacement_anchor",
+      "PureTests.test_twelve_kind_chain",
+      "PureTests.test_unanchored_prefixes",
+      "PureTests.test_wire_refusals",
+      "ConsumerTests.test_C01_unknown_diagnostic_always_defers",
+      "ConsumerTests.test_C02_wrong_narrative_rejected",
+      "ConsumerTests.test_C03_unsupported_prose_deferred",
+      "ConsumerTests.test_C04_missing_receipt",
+      "ConsumerTests.test_C05_missing_explanation",
+      "ConsumerTests.test_C06_missing_diagnostics",
+      "ConsumerTests.test_C07_missing_retained_input",
+      "ConsumerTests.test_C08_changed_input_same_metadata",
+      "ConsumerTests.test_C09_changed_result_same_metadata",
+      "ConsumerTests.test_C10_changed_configuration",
+      "ConsumerTests.test_C11_wrong_receipt_binding",
+      "ConsumerTests.test_C18_changed_report_bytes",
+      "ConsumerTests.test_C22_model_unknown_never_admitted",
+      "ConsumerTests.test_C23_oversized_report",
+      "ConsumerTests.test_C24_unknown_tool_refuses",
+      "ConsumerTests.test_C26_wrong_explanation_focus",
+      "ConsumerTests.test_C27_wrong_explanation_context",
+      "ConsumerTests.test_C28_wrong_explanation_summary",
+      "ConsumerTests.test_C29_wrong_diagnostic_context",
+      "ConsumerTests.test_C30_wrong_diagnostic_association",
+      "ConsumerTests.test_C31_derived_diagnostic_counts_and_admission",
+      "ConsumerTests.test_C32_present_empty_not_missing",
+      "ConsumerTests.test_C33_graph_bounds_before_fingerprints",
+      "ConsumerTests.test_C34_forged_nested_type_no_callback",
+      "ConsumerTests.test_C35_missing_input_wrong_present_report",
+      "ConsumerTests.test_SRC01_missing_known_field_closed_error",
+      "ConsumerTests.test_SRC01_unknown_metaclass_never_compared_or_hashed",
+      "ConsumerTests.test_SRC02_arbitrary_or_changed_summary_refuses",
+      "ConsumerTests.test_SRC02_changed_typed_producer_cannot_reuse_valid_summary",
+      "ConsumerTests.test_SRC04_malformed_history_inputs_closed_error",
+      "ConsumerTests.test_duplicate_unknown_input_role_refuses",
+      "ConsumerTests.test_exact_narrative_nonascii_and_bounds",
+      "ConsumerTests.test_independent_literal_fixture_and_cardinality",
+      "ConsumerTests.test_missing_receipt_does_not_hide_corrupt_other_report",
+      "Owner.test_all_frozen_mutation_vectors_with_valid_positive_controls",
+      "Owner.test_catalog_public_conversion_bytes_defensive_copies_and_exact_charge",
+      "Owner.test_configuration_preflight_limits_and_owned_copy",
+      "Owner.test_consistently_rebound_forged_nested_configuration_refuses",
+      "Owner.test_diagnostic_null_large_numbers_associations_and_six_counts",
+      "Owner.test_duplicate_and_catalog_count_limits",
+      "Owner.test_forged_derived_counts_and_complete_context_refuse",
+      "Owner.test_forged_view_envelope_refuses_despite_valid_producer",
+      "Owner.test_frozen_chunk_boundaries_in_isolated_prepared_byte_reader",
+      "Owner.test_frozen_manifest_arithmetic_and_byte_node_depth_primitives",
+      "Owner.test_joint_configuration_context_bindings_and_intraday_scope",
+      "Owner.test_no_diagnostic_association_inference_and_no_input_verification",
+      "Owner.test_original_receipt_and_no_batch_explanation_are_literal_goldens",
+      "Owner.test_quality_all_statuses_reasons_expected_null_and_overlapping_counts",
+      "Owner.test_receipt_config_output_and_owner_permission_refusals",
+      "Admission.test_all_byte_budget_vectors_use_inclusive_primitive",
+      "Admission.test_exact_config_sequence_types_not_iterable_callbacks",
+      "Admission.test_explanation_full_focus_disclosure_and_missing_receipt_refuse",
+      "Admission.test_node_boundary_counts_container_keys_and_values",
+      "Admission.test_profile_and_owner_complete_snapshot_must_match",
+      "Admission.test_public_report_counts_unknowns_and_no_association_inference",
+      "Admission.test_unsupported_backend_is_not_admitted_for_explanation",
+      "pilot.test_acquisition_failures_close_observer_and_deny",
+      "pilot.test_acquisition_primary_preserved_if_close_fails",
+      "pilot.test_cleanup_attempts_every_scope_and_preserves_primary",
+      "pilot.test_cleanup_description_cannot_replace_primary",
+      "pilot.test_cleanup_unknown_is_failure_without_primary",
+      "pilot.test_drain_expired_remaining_budget_never_resets_or_communicates",
+      "pilot.test_entry_failure_never_closes_stdin_and_preserves_primary",
+      "pilot.test_exact_handle_identity_and_remaining_budget",
+      "pilot.test_expired_budget_never_waits",
+      "pilot.test_forced_entry_observed_before_stdin_close_with_shared_budget",
+      "pilot.test_invalid_pid_never_opens",
+      "pilot.test_late_backward_invalid_or_failed_drain_cannot_pass",
+      "pilot.test_missing_original_job_never_opens",
+      "pilot.test_note_failure_cannot_replace_primary_or_first_cleanup",
+      "pilot.test_wait_timeout_failure_identity_exit_and_deadline_deny"
+    ],
+    "independent_control_names": [
+      "test_noncanonical_event_rejected_not_normalized",
+      "test_payload_unavailable_never_matches_retained_claim",
+      "test_reference_cannot_split_id_from_sequence",
+      "test_truncated_chain_requires_external_terminal",
+      "test_untrusted_iterable_is_not_entered"
+    ],
+    "scope": "Exact Git-object source tests, pure data/owned Python API doubles only; no SQLite operation/process/socket/native/build/install/qualification."
+  },
+  "semantic_coverage": [
+    "Event canonical byte/digest domains, all10kind subjects, original literal goldens,54decoder/23structural vectors, bounded ordered typed reconstruction, list detachment, tamper revalidation, parameter-error precedence, payload retained/unavailable and dual ID/sequence lookup.",
+    "Ledger pure checkpoint/chain/page/anchor verification, short prefix versus external terminal, missing prior reference scope, contradictory identities and exact-type boundaries. Static transaction BEGIN/precommit/read/COMMIT ambiguity/poison/reconcile/failed-close paths reviewed; no database operation newly run.",
+    "MCP owner public ConfigSpec/ResultView reconstruction and bounds, full config/context/scope binding including intraday market cutoff, whole receipt/explanation/diagnostic association, null/decimal-string counts, quality reason overlap, exact chunk/manifest accounting and owner authorization. Server source confirms each evidence read still performs native artifact authority check before serving catalog bytes; local TTL/tombstones do not refresh/re-admit.",
+    "Research typed graph preflight/owned copy, canonical full public summary binding, present-empty versus missing input, wrong report/quality/policy/context/focus refusal, unknown model/narrative advisory-only results, actual retained report identity requirements and externally anchored ledger semantics. Pure controls exclude SQLite-store/history persistence tests and actual calculator/native lanes.",
+    "Corrective pilot fixture static source plus15 API-double methods verify retained entry is observed while stdin remains open, shared deadline is never reset, drain gets only remaining budget, malformed/late/unknown/error results deny and cleanup diagnostics preserve primary errors.",
+    "Fresh actual public main refs/all7ClosedDone/milestoneclosed0open7closed/aggregate acceptance/all39current checks success. Original delivery review hashes, current artifact/foundation evidence and original failure dispositions reconciled without rerunning qualification."
+  ],
+  "failure_history": [
+    "All four EQ109 failed author attempts retain their own failed status/logs/roots: generated PYC source inventory, entry_points rendering, isolated typed launch, and relocated pywin32 payloads. Later passing qualification does not rewrite them.",
+    "Old EQ110 main foundation260tests/errors1 remains FAILED and old retained-entry cleanup UNKNOWN; timing/scheduling cause was not proven. Corrected same-deadline observe-before-drain logic is separately reviewed. Focused16 and fresh dependency-complete264source plus2installedpilot cohorts retain separate scopes. Broad local128/errors9 missingParquet remains FAILED.",
+    "This fresh reviewer first constructed three incorrect independent controls (wrong enum/constructor signature, wrong fixture subject and wrong public result field);118methods/errors3 was reviewer-harness failure. Original script/log/JSON retained, source-derived corrections then118/0failure/0error/0skip. No product failure inferred.",
+    "Snapshot preparer initially used slow per-file Git reads and was stopped; final exact blobs were materialized through one cat-file batch per repository. Several read-only mixed-repository path guesses failed before the snapshot; no source or lifecycle changes resulted."
+  ],
+  "evidence": {
+    "r11-final-acceptance.json": {
+      "sha256": "1f9f677e964ab044a81907f7e5f04ea187895ce7652a0a11f5df77d658333f9a"
+    },
+    "r11-final-closure-reviewer-report.json": {
+      "sha256": "8451a0226cbe6ddd03f80cbdd368dfbe3ee73e18a6a41ebccb43c5efa215aacb"
+    },
+    "r11-final-aggregate-reviewer-report.json": {
+      "sha256": "74d130e16c66e714d4c1cfcf4365ba65672947ff9fe1afdc3de57508dc82ab2a"
+    },
+    "eq110r-main-reviewer-report.json": {
+      "sha256": "b85e403e0030813b6290edf0ae03b829e0cd6d552bc56d1922efa5dd9e5f5891"
+    },
+    "eq110r-main-artifact-reviewer-report.json": {
+      "sha256": "ba830d6e13dc37540434b52a683db0e599515345c92399576906692c67a16e90"
+    },
+    "eq110r-main-foundation-reviewer-report.json": {
+      "sha256": "88546b9c8c2c8ae33335b248937744037355df09ca93b75121d7b9f976c01e75"
+    },
+    "eq110r-main-completed-CI.json": {
+      "sha256": "5feaa4d72787f8856991088339ca93046450d2c7ee982af02b81b59e28c93d68"
+    }
+  },
+  "review_artifacts": {
+    "source-snapshot.json": "f5e11ea3823715b577a749c881d4aa34c57de8b7e695eee1066fa8ea43cf60cc",
+    "pure-review.json": "8f52a7da251c8417ae9e12aeb327b98bd4921b8c874881b2ad5e6bd9934dfa9e",
+    "pure-review.log": "68e72b2487933d188de7f8c3ec8b2824aaf3e41ef8301a0a25a037036033fb93",
+    "live-readback.json": "4f2bd35af8724a4e9ddb9e5ec9bfa90d362a1b42d5a02f3010e0eadc624ab0fd",
+    "static-api-inventory.json": "39d18d85793a7ba6dd70b2bdc17efe57d77504e2eac9f82680ad15b621fb333a",
+    "run_r11_pure_review.py": "476fa76bb34223c6a47b90f9349e050e23d1121dd4640a363e14a7c1c7e6324d",
+    "prepare_r11_review.py": "530eed8492361b80e8fa2188c319aa2f7892636f519aa7d7cfa496438ab8d0d5",
+    "read_r11_live.py": "af030960c72bea75468c4d34b4da68a09bbe7661e33f4ab901fef20a6101271f",
+    "pure-review-initial-reviewer-harness-errors.json": "01d3717549cc63c08d932526c74accaf145fd2c45e295ab16a4bbe4adcbb76fc",
+    "pure-review-initial-reviewer-harness-errors.log": "543be5ce9ca5cf457af0f90822812df4d1ecdf5e03c2eed6cefe91af986ef5f0",
+    "run_r11_pure_review_initial.py": "19f210ddc0516daa387a75a3f9a2cbefe0e8c5e3df4a9b16e991ede370363e6e"
+  },
+  "limits": [
+    "Separate local automated postdelivery review, not human or hosted review, security/compliance certification, source authenticity or trading approval.",
+    "Exact Git-object source tests in the existing CPython3.12 development environment; not fresh installations or independent Linux/Windows qualification. No new calculator, SQLite operation, SDK subprocess, socket, Windows native API, certificate, build, installation, CI rerun, artifact download or lifecycle mutation.",
+    "Existing current-main bothOS archive/RECORD/source/owning-installed-map/native-ledger/foundation evidence is hash-bound from the independent delivery audits; their full payload audits were not repeated here. Captured installed maps are not an independent physical reinstall/rehash.",
+    "Logical byte/node/event/queue limits do not establish physical RSS, disk nodes/pages, kernel resources or allocation-independent hard cleanup. Process-crash tests do not establish power-loss/network-filesystem guarantees.",
+    "Declared actor/model/time and retained-content equality do not authenticate source truth, prove model consumption or complete history. Ledger prefixes need independently retained external anchors; missing payloads/references remain unknown.",
+    "Synthetic reference-only explanations remain input-content-unverified; separate outer retained input comparison/replay agreement does not grant action permission. DEFER/REJECT, local TTL/native authority, fixed profile/versions and no automatic mutation replay remain unchanged.",
+    "R12 planning, readiness, implementation and delivery were not reviewed. This report identifies no R11 blocker to planning a later release; its separate review policy still applies."
+  ],
+  "handoff_note": "Existing timestamped pre-acceptance continuity snapshots are history; live acceptance and R11 receipt govern delivered status. The next authorized handoff should clearly lead with accepted R11/current release authority while preserving that history; this is not a new R11 runtime defect or R12 approval."
+}
