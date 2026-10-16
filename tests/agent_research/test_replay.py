@@ -31,14 +31,24 @@ class ReplayTests(unittest.TestCase):
         self.assertEqual((actual.status,actual.calculation_count),('matched',1))
         self.assertEqual(research.assess(self.cfg,(('trades',self.batch),),self.expected,*self.raw,'session.trade.count=4').decision,'REJECT')
     def test_C03_unsupported_narrative_replay_still_explicit(self) -> None:
-        actual=research.replay(self.cfg,(('trades',self.batch),),self.expected,*self.raw,'free prose')
-        self.assertEqual((actual.status,actual.calculation_count),('matched',1))
-    def test_C04_to06_missing_reports_never_invoke_calculator(self) -> None:
+        with patch('equity_features.session.compute_trades',wraps=compute_trades) as calls:
+            actual=research.replay(self.cfg,(('trades',self.batch),),self.expected,*self.raw,'free prose')
+        assessed=research.assess(self.cfg,(('trades',self.batch),),self.expected,*self.raw,'free prose')
+        self.assertEqual((assessed.narrative_status,assessed.decision,actual.status,actual.calculation_count),('unsupported','DEFER','matched',1))
+        self.assertEqual(calls.call_count,1)
+    def test_C04_to06_and_C35_missing_or_wrong_reports_never_invoke_calculator(self) -> None:
         for index in range(3):
             raw=list(self.raw);raw[index]=None
             with self.subTest(index=index),patch('equity_features.session.compute_trades',wraps=compute_trades) as calls:
                 actual=research.replay(self.cfg,(('trades',self.batch),),self.expected,*raw,'session.trade.count=3')
                 self.assertEqual((actual.status,actual.calculation_count),('not_requested',0));self.assertEqual(calls.call_count,0)
+        import json
+        from independent_oracle import canonical
+        wrong=json.loads(self.raw[1]);wrong['entity']['instrument_id']='B'
+        with patch('equity_features.session.compute_trades',wraps=compute_trades) as calls:
+            with self.assertRaises(research.ResearchExampleError):
+                research.replay(self.cfg,(),self.expected,self.raw[0],canonical(wrong),self.raw[2],'session.trade.count=3')
+        self.assertEqual(calls.call_count,0)
     def test_C07_reference_only_bundle_unavailable_zero(self) -> None:
         with patch('equity_features.session.compute_trades',wraps=compute_trades) as calls:
             actual=research.replay(self.cfg,(),self.expected,*self.raw,'session.trade.count=3')

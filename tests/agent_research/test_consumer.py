@@ -82,7 +82,9 @@ class ConsumerTests(unittest.TestCase):
         self.assertEqual(self.assess(narrative='session.trade.count=4').decision,'REJECT')
     def test_C03_unsupported_prose_deferred(self) -> None:
         for text in ('buy now','session.trade.count=03','session.trade.count=+3','session.trade.count=true','session.trade.count=3.0',' session.trade.count=3'):
-            with self.subTest(text=text):self.assertEqual(self.assess(narrative=text).narrative_status,'unsupported')
+            with self.subTest(text=text):
+                observed=self.assess(narrative=text)
+                self.assertEqual((observed.narrative_status,observed.decision),('unsupported','DEFER'))
     def test_C04_missing_receipt(self) -> None:
         r=self.assess(reports=(None,*self.raw[1:]))
         self.assertEqual((r.receipt_status,r.explanation_status,r.narrative_status),('unavailable','verified','unavailable'))
@@ -150,6 +152,10 @@ class ConsumerTests(unittest.TestCase):
         object.__setattr__(cfg,'session',Trap())
         self.refusal(cfg=cfg)
     def test_C35_missing_input_wrong_present_report(self) -> None:
+        wrong=json.loads(self.raw[1]);wrong['entity']['instrument_id']='B'
+        for explanation in (b'{}',canonical(wrong)):
+            with self.subTest(explanation=explanation):
+                self.refusal(inputs=(),reports=(self.raw[0],explanation,self.raw[2]))
         self.refusal(inputs=(),reports=(*self.raw[:2],b'{}'))
     def test_missing_receipt_does_not_hide_corrupt_other_report(self) -> None:
         self.refusal(reports=(None,b'{}',self.raw[2]))
