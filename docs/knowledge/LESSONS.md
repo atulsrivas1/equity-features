@@ -1,3 +1,7 @@
+## EQ109: source capture must include loader side effects
+
+The first actual qualification failed before builds because importing its fixed archive auditor added a bytecode cache inside the selected source snapshot. All39 original files matched, but exact membership correctly refused the fortieth file. Source review had missed this ordering effect. Suppress bytecode only for that fixed helper load, restore the prior interpreter flag on success and error, and keep full membership validation. A blanket cache exclusion would hide unknown input writes. Six isolated dummy-loader controls are source evidence; a distinct fresh qualification must still run. Preserve the [failed attempt and separate diagnosis](../stories/EQ-109_FIRST_FAILURE.json).
+
 ## EQ109: bound report identities and preserve catalog semantics
 
 Independent source review SRC01-05 found metaclass callbacks/raw malformed errors, unbound result text and retention based on caller claims. Corrections use exact identity-only admission/private bounded copies, full selected producer context, actual referenced bytes and fixed report-kind digests. Ordinary source checks also caught the accepted catalog's reference-only explanation requirement; outer input verification must remain a separate fact rather than changing content_verified declarations. [History](../stories/EQ-109_VALIDATION.json), [guide](../AGENT_RESEARCH.md). Source success is not installed/native/bothOS qualification.
