@@ -75,6 +75,15 @@
     "declaration_methods": 26,
     "producer_methods": 1,
     "new_builder_executed": false,
-    "source_review_required_before_execution": true
-  }
+    "source_review_required_before_execution": true,
+    "archive_control_methods": 8,
+    "outer_artifact_entries": 18
+  },
+  "builder_initial_review_sha256": "62e545c0346a17c2ac3c80b44dd3238ade7f4fd1f7e194a440fb6f3f24e564da",
+  "builder_corrections": [
+    "Initial qualification/controller review found3P2 before any builder/CI execution or push: new archive README/METADATA drift, unsafe directory/Windows physical ZIP names, and branch-name push not bound to reviewed SHA.",
+    "Corrected all-member raw physical-name/kind/mode/alias audit, source README and metadata/dependencies/extras/author/URL closure, complete member maps, raw-sdist inspection before normalization and controller exact SHA refspec plus branch/own-review-source binding.",
+    "Eight inert archive-control methods now precede every qualification build; first development attempt failed2positive synthetic cases because live source contained __pycache__; fixture now materializes an owned clean source copy before inspection. Corrected8methods PASS; no build/install/archive extraction/native operation occurred.",
+    "First apply_patch context did not match actual import order and was rejected before writes. Corrected actual context; no partial source mutation."
+  ]
 }
