@@ -1,6 +1,6 @@
 ## Owner selects original R12 after R11 delivery — October16,2026
 
-R12 preparation/execution is selected via [GOV024#414](https://github.com/atulsrivas1/equity-features/issues/414), preserving original EQ111–115/31points and accepted releases. Reuse finite SessionSpec where probes demonstrate sufficiency; EQ111gap evidence and EQ112frozen mathematics precede any new contract/kernel. [Release](../R12_RELEASE_PLAN.md), [handoff](../R12_AUTONOMOUS_HANDOFF.md). A fresh R11 review and exact R12 separate-review route remain preparation gates. No new runtime, market/provider/operational or later-release scope is inferred. Earlier unselected-R12 notes remain history.
+R12 preparation/execution is selected via [GOV024#414](https://github.com/atulsrivas1/equity-features/issues/414), preserving original EQ111–115/31points and accepted releases. Reuse finite SessionSpec where probes demonstrate sufficiency; EQ111gap evidence and EQ112frozen mathematics precede any new contract/kernel. [Release](../R12_RELEASE_PLAN.md), [handoff](../R12_AUTONOMOUS_HANDOFF.md). Fresh R11 review found no new actionable issue. The owner explicitly authorized separate local review throughout R12, concretePR415/EQ111–115/necessary companion changes/final delivery. Completed exact review and all other gates remain preparation/acceptance requirements. No new runtime, market/provider/operational or later-release scope is inferred. Earlier unselected-R12 notes remain history.
 
 ## EQ107 validate requests before classifying history — October15,2026
 

@@ -18,12 +18,13 @@
   "fresh_R11_review_GitLF_sha256": "d335ed7eb06ab004aada00fb120e53381d9df5e3538ce2427ba99b639b4d2df5",
   "review_publication_normalization": "Only CRLF to GitLF; external original review unchanged, JSON values/text content preserved.",
   "R11_findings": [],
-  "R12_review_route": "PENDING",
+  "R12_review_route": "OWNER_AUTHORIZED_LOCAL_THROUGHOUT_R12",
   "runtime_changes": false,
   "runtime_ready": false,
   "acceptance": false,
   "tooling_history": [
     "Author link/input checker initially passed its local set to a shared helper requiring an ordered list; rejected before publication, corrected to sorted list. Initial checker source preserved; no product test or false PASS.",
     "Initial report-copy guard denied Windows CRLF before any write. Corrected publication explicitly maps immutable external raw SHA to GitLF public SHA; original report unchanged."
-  ]
+  ],
+  "review_decision_scope": "ConcretePR415 handoff, EQ111\u2013115 including necessary companion changes, final delivery; permission is not completed review."
 }
