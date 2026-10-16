@@ -32,7 +32,7 @@
     "Packet preparation completed; auxiliary git diff/status used external preparation cwd and failed. Corrected checks use explicit canonical cwd; no repeated preparation or product operation."
   ],
   "remaining": [
-    "Completed separate exact-head review, current checks/public-main verification and governance lifecycle.",
+    "Renewed final documentation-head review, current checks/public-main verification and governance lifecycle.",
     "EQ106 exact schema, independent canonical oracle, complete readiness decisions and review before runtime Ready.",
     "Each R11 implementation story and final delivery retains its own original acceptance and actual lifecycle gates."
   ],
@@ -40,5 +40,19 @@
     "owner_answer": "Authorize local review throughout R11",
     "scope": "PR407 handoff, EQ106\u2013110 including necessary worker/MCP changes, and final delivery",
     "completed_review": false
+  },
+  "delivery_tool_review": {
+    "initial_P2_report_sha256": "11f2f3a1e7bf98f9809175fd536c3e6d61e59477d45588514ab7d90a1dc65bca",
+    "corrected_review_sha256": "6935bbcd7d7b250507b8f83364511701eb0d62a3a25113254f833056ac8c958d",
+    "resolved_findings": [
+      "R11-TOOLS-01",
+      "R11-TOOLS-02"
+    ],
+    "corrections": [
+      "Preserve actual R11 authorization in the accepted body; retain preparation as historical.",
+      "Bind exact reviewed five-criterion issue snapshot before mutation; precompute accepted body; re-read immediately before editing and stop on intervening changes.",
+      "Normalize API and saved UTF8 bytes consistently: CRLF to LF then remaining CR to LF, including current CRCRLF input. Write accepted body with explicit LF."
+    ],
+    "scope": "Source/static and inert body-projection validation only; corrected before any helper execution or lifecycle mutation."
   }
 }
