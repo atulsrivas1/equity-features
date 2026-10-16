@@ -1,3 +1,7 @@
+## Actual failed-main qualification rework
+
+The [corrective plan](EQ-110_REWORK.md) supersedes the documentation-only restriction for the exact qualification observation-order defect. EQ110 is Test; the earlier publication is not accepted. Original criteria and all delivery gates remain. Earlier plan below is preserved history.
+
 # EQ110 — integrated R11 delivery and positioning
 
 Prepared for story210/E15#195/milestone12. Five provisional complexity points, not days. EQ106–109 are accepted Closed/Done. This published pre-code packet does not admit EQ110: separate exact readiness review and actual Ready/In progress transitions remain required.
