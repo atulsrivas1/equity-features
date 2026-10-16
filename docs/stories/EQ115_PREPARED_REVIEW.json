@@ -1,0 +1,28 @@
+{
+  "reviewer": "/root/r9_plan_review",
+  "disposition": "approved_conditional_prepared_EQ115_readiness_packet",
+  "findings": [],
+  "prepared_report_sha256": "962abe038236e17fbda21365ab4cafe24bf1d73ca90e9d3c9d9085b5b86a6cb1",
+  "prepared_source_map": {
+    "EQ115_PLAN.md": "f649561cc1f2299b82ee4022c6ba6c4d7dd4f1cf2db7d4f304030cc03956d5c3",
+    "EQ115_DELIVERY_DESIGN.md": "d32535bac794370df9bdeb5bdbef37708b2daec1aeed77856a32c734325e17a2",
+    "EQ115_SYNTHETIC_ORACLES.json": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+    "EQ115_READINESS.json": "fcc889ac9fcfbfe0b5772ac74e5b84e923603a4ca09a84e07c4e622f62f852b1"
+  },
+  "actual_dependencies_before_publication": [
+    213,
+    214,
+    215,
+    216,
+    51,
+    54
+  ],
+  "conditions": [
+    "Separate exact public Ready review before217Ready/In progress.",
+    "No runtime implementation before In progress; source/controller review before build qualification."
+  ],
+  "limits": [
+    "Local automated review, not human or hosted review.",
+    "Data-only preparation, not kernel or installed-platform execution."
+  ]
+}

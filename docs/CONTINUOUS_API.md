@@ -86,3 +86,17 @@ and [99 independent vectors](stories/EQ112_FIXTURES.json) define the exact profi
 No source fetching, calendars, credentials, scheduling, persistence or publication
 is added to the pure package. Experimental delivery is through verified GitHub
 source/artifacts; no stable package-registry release is claimed.
+
+
+## EQ115 supplied consumer qualification
+
+The [installed synthetic guide](CONTINUOUS_SUPPLIED_WEEK.md) exercises the accepted public APIs with
+twelve new complete independent supplied results. No equation, unit, schema,
+package source/version or registry entry changes here. Own six descriptive batch
+IDs remain separate from the old39-ID registry; update/merge/restore are unsupported.
+Actual ConfigSpec JSON decoding and FeatureResult constructor type boundaries
+are tested without inventing an old result decoder. File I/O stays in the external
+consumer, not calculations. Full input identities include unused supplied facts;
+original knowledge/quality is never refreshed by replay. Live217 records current
+source, installed and final delivery evidence. Logical caps do not prove physical
+resource containment or deadlines; no market/provider/trading claim follows.

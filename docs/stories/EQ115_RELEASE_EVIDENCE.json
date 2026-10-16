@@ -1,0 +1,83 @@
+{
+  "kind": "R12_PRE_FINAL_DELIVERY_EVIDENCE",
+  "schema_version": "1",
+  "scope": "Accepted predecessor snapshots only; final EQ115/E16/current candidate/main qualification remains live-issue authority.",
+  "accepted_predecessors": [
+    {
+      "issue": 414,
+      "receipt_sha256": "22cde96f4cf4519a6f2f7f23591b1b589c4fa2501d052de88762daa0badde9ad",
+      "main": "85702dbb6e53f87ab33d89ecfde547955591a146",
+      "candidate": "756b5c1b92be6ba6ea01a879f134d23572b04590",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/414#issuecomment-6219885303",
+      "review_sha256": "a2c73e55a5df4a9012deb2e446fcfac07656d8c9bcb6250b6956460ea925521c"
+    },
+    {
+      "issue": 213,
+      "receipt_sha256": "12624342e1e5a2e1d1ca3c55f0e42d72ce50f5846e051b041e679b925c9c4e7e",
+      "main": "6e0bd77c70fe20ab9f35368432a84b38a2e946ac",
+      "candidate": "b6255c640c96d542de9a3b1045df180c3d597c2c",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/213#issuecomment-6221005594",
+      "review_sha256": "161a50d6e8bda24c02faf6ccfd1fbdca12ee3edb6795357115fa4a5b6b5c155e"
+    },
+    {
+      "issue": 214,
+      "receipt_sha256": "7af21976dbee85b2225837291f31034bde2a1da4b70be0d86820a9da1ac3148f",
+      "main": "dff060d7f426d7c09e4e90424dc862631df7350f",
+      "candidate": "a527decea56faf4e82bda86d7e232ce25cdd446b",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/214#issuecomment-6221808546",
+      "review_sha256": "8b2aeb6fc2ba5e0c81ec1268aba7ea5667921b78f9564738f73625588e42ef0c"
+    },
+    {
+      "issue": 215,
+      "receipt_sha256": "70de09075c398e32ba709467124573fdd94fdd9002aa13230f45cd2a6859311d",
+      "main": "9a57d6524973ffc50747f1460d5534347b8a93b4",
+      "candidate": "1cb0ff0c2703c6ee8f06e31033a56acafa4b8fcf",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/215#issuecomment-6223048289",
+      "review_sha256": "3036f20150ad2c031f373d9e0932e030cf218d4a4e1ae7e06f75da2ca27917f7",
+      "artifact_proof_sha256": "ef4f1d1a095759b7854d78f99bcae236b6b69a5d15e1b3fa599efc2418cc87bb"
+    },
+    {
+      "issue": 216,
+      "receipt_sha256": "3f855bcbf4fd7d3ffb065054dfc86097b5bc6564d356e4480b8894950948bf62",
+      "main": "4ae1643b2c70892038cb1e76e9adfe5b4c97d5b4",
+      "candidate": "4354568789e5e9c13b97772428179eee2fae36b1",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/216#issuecomment-6223872765",
+      "review_sha256": "a86babcf6a3dd39f83011ee695b9def0eaff807bbc32cec2bb78d2e766594b30",
+      "artifact_proof_sha256": "b1ca0834398d39d5a5e7476ccc78d74ff2b821ea9c5124f4b3d9aee473cdec6f"
+    }
+  ],
+  "final_story": 217,
+  "epic": 212,
+  "milestone": 13,
+  "exact_members": [
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    414
+  ],
+  "final_story_accepted": false,
+  "full_release_accepted": false,
+  "unchanged_package_versions": {
+    "contracts": "0.0.4a4",
+    "features": "0.0.4a4",
+    "continuous": "0.1.0a2"
+  },
+  "preserved_failures": [
+    "EQ111 initial source purity-count assertions; three literal corrections.",
+    "EQ112 review missed two changing-ratio cases; two independently derived cases added, original97 preserved.",
+    "EQ113 two rejected author build/install attempts remain failed; later qualified head accepted.",
+    "EQ114 empty-freeze old-reference source regression failed before actual-population guard correction.",
+    "EQ114 publication identity guard stopped after push before metadata; uncaptured response cause unknown; independently reviewed suffix-only recovery, no repush/workflow rerun.",
+    "EQ115 wrong author dependency numbers caught by prepared review; distinct initial controller-review miss preserved; renewed title guards51EQ045/54EQ048.",
+    "EQ115 author found nonexistent legacy result-decoder assumption in plan; actual public decoder/type boundaries frozen before code.",
+    "EQ115 initial source tamper test changed unused result_digest key; corrected to expected_result_digest, unchanged literals/consumer/packages; initial35methodsFAILED1 preserved."
+  ],
+  "limits": [
+    "No new predecessor reruns/reinstalls implied.",
+    "Local automated review is not human or hosted review.",
+    "Captured maps are not independent reinstall/private installed-byte reparsing."
+  ]
+}

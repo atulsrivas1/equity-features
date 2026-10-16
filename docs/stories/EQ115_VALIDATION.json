@@ -1,0 +1,56 @@
+{
+  "kind": "EQ115_PREQUALIFICATION_SOURCE_SNAPSHOT",
+  "schema_version": "1",
+  "current_delivery_authority": "https://github.com/atulsrivas1/equity-features/issues/217",
+  "source_checks": {
+    "eq115-first-unit-author.json": {
+      "receipt_sha256": "e564ab4a0da65180dffe3acdc3b178f5a60450dc3df28004adcce789b3a73e9a",
+      "exit_code": 1,
+      "raw_log_sha256": "1fac4135b6adf39d59b230d946dc0401493973f1de53c4d461b3a76f92a37b58",
+      "scope": "source-only; existing development interpreter, not fresh install"
+    },
+    "eq115-corrected-unit-author.json": {
+      "receipt_sha256": "80d07a2772da30c70693952c1abfddb7c2da873216dbd34e3b4b6b5133ee61d1",
+      "exit_code": 0,
+      "raw_log_sha256": "29cb60c6bb2e0a34fb2e10040b220f7be6e6c8ea9c24fa239daeafbc9b5394bd",
+      "scope": "source-only; existing development interpreter, not fresh install"
+    },
+    "eq115-first-mypy-author.json": {
+      "receipt_sha256": "5d92cc368bb7a7cea0bd0d1c8808606f764bd4260c3a221df6728fa8a446e7a4",
+      "exit_code": 0,
+      "raw_log_sha256": "e2702f9afc4c0f80ff1e8624f77af7a7d2689ca184512114aae5967a76229ba8",
+      "scope": "source-only; existing development interpreter, not fresh install"
+    }
+  },
+  "source_methods": 35,
+  "new_full_result_cases": 12,
+  "new_declared_digests": 36,
+  "old_kernel_allocations": 99,
+  "old_codec_vectors": 219,
+  "installed_qualification_executed": false,
+  "candidate_ci_verified": false,
+  "main_delivery_verified": false,
+  "reviews": {
+    "prepared": "962abe038236e17fbda21365ab4cafe24bf1d73ca90e9d3c9d9085b5b86a6cb1",
+    "public_ready": "21dfabef1b2247f20cff786c1185b235eae6182ad2b239dbcb04e1e73e2a0f37",
+    "consumer_source": {
+      "reviewer": "/root/r9_plan_review",
+      "sha256": "4f811c12c4d5e4514f02aa1947075e1ed72738b9a5e1093f93a7d258b8ecd08e",
+      "source_methods": 35,
+      "strict_files": 7,
+      "targeted_controls": 15,
+      "scope": "Two exact new source/test files plus frozen independent data; existing source interpreter, not fresh install; initial reviewer origin path assertion corrected before discovery."
+    },
+    "build_docs_source": {
+      "reviewer": "/root/r10_review",
+      "sha256": "80c4fc308c70311f512825fd28320a5c5c191f8170858838a12be3ad5f58a24f",
+      "changed_files": 23,
+      "effective_inputs": 116,
+      "inert_receipt_controls": 12,
+      "scope": "Exact builder/docs/effective source with isolated mocked receipt controls; no actual build/install/consumer commands. Eleven explicit scopes plus one discovered test add twelve inputs."
+    }
+  },
+  "required_gate": "Exact source/controller review before current fresh bothOS4forms,54candidate/27main/current2ZIPs/separate actual delivery review/criteria before Done. This immutable source snapshot does not update itself or claim future execution.",
+  "consumer_review_complete": true,
+  "build_review_complete": true
+}

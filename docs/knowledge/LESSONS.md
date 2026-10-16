@@ -1,3 +1,21 @@
+## R12 consumer identity and API preparation corrections
+
+EQ115 prepared review caught wrong numeric dependencies before publication;
+controller review initially missed the semantic mismatch despite numeric mock
+passes. Bind actual issue title as well as Closed/Done state. Preserve original
+review and renewed findings rather than relabeling the first approval. An author
+source inspection also corrected a nonexistent legacy result-decoder assumption;
+verify actual public decoder/constructor APIs before freezing compatibility tests.
+The first source tamper test edited an unused result_digest key and failed its
+expected refusal. Correct the test to expected_result_digest, retain unchanged
+independent literals and preserve that failed run. These are preparation/test
+corrections, not demonstrated numerical kernel bugs. [Plan](../stories/EQ115_PLAN.md),
+[validation](../stories/EQ115_VALIDATION.json), [live evidence](https://github.com/atulsrivas1/equity-features/issues/217).
+
+The external example compares entire outputs before emitting a compact receipt;
+every installed form must execute the actual selected script/fixture. Digest
+summaries and earlier package acceptance cannot stand in for new example execution.
+
 ## EQ114: empty-population dependency failures need their own adversary
 
 All99 original complete operation literals passed the first source implementation,
