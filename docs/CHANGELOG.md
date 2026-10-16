@@ -1,6 +1,6 @@
-## Unreleased — EQ109 source implementation
+## EQ109 synthetic external research and explicit replay examples
 
-Add fixed synthetic external research assessment/typed replay and MCP consumer examples, bounded input/report admission, actual-byte retention and independently anchored event/ledger composition. Core and source-dispatch controls pass their stated scopes; installed/native/bothOS/current-artifact/main delivery remains. Preserve initial design/source/compatibility/typecheck failures and independent corrections. No package version, math, protocol, authenticity or hosted-operation change. [Guide](AGENT_RESEARCH.md), [validation](stories/EQ-109_VALIDATION.json).
+Add fixed synthetic external research assessment/typed replay and MCP consumer examples, bounded input/report admission, actual-byte retention and independently anchored event/ledger composition. [Execution](stories/EQ-109_EXECUTION.json) binds completed corrected-input author/current-CI Windows/Linux source qualification and independent scoped artifact audits; [story209](https://github.com/atulsrivas1/equity-features/issues/209) records current final-head/main delivery and acceptance. Source qualification is distinct from released delivery and R11 aggregate acceptance. All four failed author runs and design/source/compatibility/typecheck/coverage/tooling corrections remain preserved. No package version, math, protocol, source-authenticity or hosted-operation change. [Guide](AGENT_RESEARCH.md), [validation](stories/EQ-109_VALIDATION.json). Earlier dated candidate entries below retain historical scopes.
 
 ## EQ108 source candidate; qualification incomplete — October16,2026
 

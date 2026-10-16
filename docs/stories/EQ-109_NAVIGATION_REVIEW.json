@@ -1,0 +1,56 @@
+{
+  "all_four_failed_runs_and_prior_reviews_preserved": true,
+  "classification": "Four current EQ109 canonical headers contradicted executed qualification. Original pre-code plans/topology, normative decision gates and retrospective continuity/lessons remain historical or normative, not rewritten. Already corrected five-guide scope and all unchanged worker docs preserve exact earlier approvals.",
+  "corrected_current_entry_blocks": [
+    "README.md",
+    "docs/AGENT_EVENTS_API.md",
+    "docs/AGENT_LEDGER_API.md",
+    "docs/CHANGELOG.md"
+  ],
+  "correction": "Timeless source-qualified summaries link actual execution/live209 delivery and preserve complete historical tails. Underlying event/ledger accepted delivery links are explicit.",
+  "finalcandidate_current_main_artifact_acceptance_pending": true,
+  "finding": "GUIDE03",
+  "finite_changed_markdown_inventory": {
+    "canonical": [
+      "README.md",
+      "docs/AGENT_EVENTS_API.md",
+      "docs/AGENT_LEDGER_API.md",
+      "docs/AGENT_RESEARCH.md",
+      "docs/CHANGELOG.md",
+      "docs/COMPATIBILITY.md",
+      "docs/EVIDENCE_ROADMAP.md",
+      "docs/PROJECT_KNOWLEDGE.md",
+      "docs/SESSION_HANDOFF.md",
+      "docs/decisions/agent-research-example.md",
+      "docs/knowledge/LESSONS.md",
+      "docs/stories/EQ-109_PLAN.md",
+      "docs/stories/EQ-109_QUALIFICATION_PLAN.md",
+      "docs/stories/EQ-109_QUALIFICATION_TOPOLOGY.md"
+    ],
+    "worker": [
+      "docs/AGENT_RESEARCH.md",
+      "docs/COMPATIBILITY.md",
+      "docs/PROJECT_KNOWLEDGE.md",
+      "docs/SESSION_HANDOFF.md",
+      "docs/stories/EQ-109_PLAN.md",
+      "docs/stories/EQ-109_QUALIFICATION_PLAN.md",
+      "docs/stories/EQ-109_QUALIFICATION_TOPOLOGY.md"
+    ]
+  },
+  "initial_review_sha256": "a779411738ac5fe76f6d79ef4eb9341cf2d62e0e37784af4e331985dbcc2e137",
+  "preparation_git_blob_sha256": {
+    "README.md": "b1449e3c71007af92c4be9465b362517cb1a448bb9619634f9a39e5b8902aaf5",
+    "docs/AGENT_EVENTS_API.md": "38fdd410d58f28fa785039a6c3ab2f7788d1c0a8454422f4e037510a971c3c05",
+    "docs/AGENT_LEDGER_API.md": "3fc142b54559c4385dd629294dfbe9c26ce7c4e3deda155b19ec9c4fd18bb3e2",
+    "docs/CHANGELOG.md": "7ff55f0e76afee5b338e9112cd1a30c6373f5f2cfd8fa850f3f4866723858fe0"
+  },
+  "runtime_package_example_test_workflow_source_changes": false,
+  "schema": "eq109.finite.navigation.review.v1",
+  "source_heads": {
+    "canonical": "ed40943adcb4c504f53ba5bc665f53602c130bb8",
+    "worker": "9f42766aa4b40dbaea9b8a07a34920706eab0380"
+  },
+  "status": "PRE_ACCEPTANCE_CANONICAL_DOCUMENTATION_CORRECTION",
+  "tooling_preparation_history": "Initial canonical docs preparer assumed every header began EQ109; changelog actually began Unreleased-EQ109, so a guard refused after three headers. A bounded resume preflighted all four exact original/expected file states and remaining unchanged continuity before any further writes. No Git/network/native/runtime or release mutation occurred.",
+  "worker_changes": false
+}

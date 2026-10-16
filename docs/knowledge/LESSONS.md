@@ -1622,3 +1622,7 @@ The author consumed an already approved report while the reviewer was still addi
 ## EQ109: final documentation review includes public entry points
 
 A six/five-file qualification-metadata review did not cover the unchanged public guide, compatibility and roadmap pages, which still described qualification as unexecuted. A separate pre-acceptance completeness pass caught those contradictions. Review the actual public navigation/API/example entry points as well as the new evidence packet, and use timeless specifications plus live delivery links instead of undated current-status claims. Preserve the original scoped approval and findings; correct before acceptance. Evidence: [guide correction](../stories/EQ-109_DOCS_CORRECTION.json).
+
+## EQ109: freeze a finite navigation inventory, not only a changed-file packet
+
+The first guide fix covered five pages but missed current EQ109 headers in README, two API guides and changelog. A finite inventory of every changed Markdown entry point (14canonical/7worker) found exactly four remaining contradictions and distinguished them from immutable preparation/history/normative gates. Record that classification alongside exact review maps; correct current entry points together and stop expanding into unrelated historical documents. No runtime or worker change is required. Evidence: [finite navigation review](../stories/EQ-109_NAVIGATION_REVIEW.json).

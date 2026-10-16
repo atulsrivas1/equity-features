@@ -1,6 +1,6 @@
-## EQ109 synthetic research consumer — source development
+## Synthetic external research and explicit replay
 
-[Experimental external consumer/replay example](docs/AGENT_RESEARCH.md) checks a fixed synthetic count narrative, full supplied evidence, explicit replay and independently anchored local ledger history. It only DEFERs or REJECTs under the selected unknown advisory policy. Source controls pass in their recorded scopes; fresh installed/native/bothOS/current-artifact/main release gates remain. EQ106–108 are accepted; EQ109 In progress and R11 unfinished. Older snapshots below retain their historical scope.
+[EQ109's experimental external example](docs/AGENT_RESEARCH.md) checks a fixed synthetic count narrative, full supplied evidence, explicit supported replay and independently anchored local ledger history. It only DEFERs or REJECTs under the selected unknown advisory policy. [Executed qualification](docs/stories/EQ-109_EXECUTION.json) binds corrected-input author Windows and CI Windows/Linux four-form cohorts,202 test invocations and16 official SDK/native scenario records per cohort, with independent scoped artifact audits. Counts are not unique methods. Current final-head/main delivery and acceptance are recorded on [story209](https://github.com/atulsrivas1/equity-features/issues/209); source qualification alone is not release acceptance. R11 aggregate delivery is separately tracked by [EQ110](https://github.com/atulsrivas1/equity-features/issues/210). Older candidate-status snapshots below retain their historical scopes.
 
 ## EQ108 implementation candidate — unqualified/unreleased
 

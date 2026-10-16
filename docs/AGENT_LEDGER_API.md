@@ -1,6 +1,6 @@
-## EQ109 explicit caller composition — in development
+## EQ109 explicit caller composition
 
-[Research example](AGENT_RESEARCH.md) appends each event once with expected-head CAS, retains an independently computed terminal outside SQLite, closes/reopens and compares every contiguous page/full chain. Complete payload retention requires actual referenced bytes and bound report-kind identities. A shortened valid prefix can remain consistent while not covering the external anchor; neither condition authenticates an actor or clock. No ledger API/schema/version or storage guarantees change; new installed/native/bothOS qualification remains pending.
+[Research example](AGENT_RESEARCH.md) appends each event once with expected-head CAS, retains an independently computed terminal outside SQLite, closes/reopens and compares every contiguous page/full chain. Complete payload retention requires actual referenced bytes and bound report-kind identities. A shortened valid prefix can remain consistent while not covering the external anchor; neither condition authenticates an actor or clock. No ledger API/schema/version or storage guarantees change. [Executed EQ109 qualification](stories/EQ-109_EXECUTION.json) records completed corrected-input installed/native/bothOS source cohorts and scoped audits; current final delivery/acceptance is on [story209](https://github.com/atulsrivas1/equity-features/issues/209). The ledger's accepted delivery is on [story207](https://github.com/atulsrivas1/equity-features/issues/207). Earlier candidate-status paragraphs below retain historical scope and do not supersede those delivery records or the API contract.
 
 ## EQ107 corrected source qualification — October15,2026
 

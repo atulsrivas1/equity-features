@@ -1,6 +1,6 @@
-## EQ109 external consumer example — in development
+## EQ109 external consumer composition
 
-[Research consumer](AGENT_RESEARCH.md) uses these unchanged event APIs outside calculations/handlers. Each actual public tool response text is separately retained from assembled evidence; every call/chunk is a distinct call/result pair. Unknown model/times and DEFER/REJECT are declarations, not actor authentication or trading permission. Independent exact wire/digest/previous-link expectations precede append. No event API/schema/version change; native/installed qualification remains pending.
+[Research consumer](AGENT_RESEARCH.md) uses these unchanged event APIs outside calculations/handlers. Each actual public tool response text is retained separately from assembled evidence; every call/chunk is a distinct call/result pair. Unknown model/times and DEFER/REJECT are declarations, not actor authentication or trading permission. Independent exact wire/digest/previous-link expectations precede append. No event API/schema/version changes. [Executed qualification](stories/EQ-109_EXECUTION.json) records the completed corrected-input source cohorts and scoped audits; current final delivery/acceptance is on [story209](https://github.com/atulsrivas1/equity-features/issues/209). The underlying event package's accepted delivery is linked by story206 below; source implementation and qualification remain distinct evidence.
 
 # Agent event evidence API (experimental 0.1.0a1)
 
