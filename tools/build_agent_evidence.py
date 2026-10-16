@@ -43,6 +43,8 @@ def member_audit(items):
     result={};physical={}
     reserved={'con','prn','aux','nul'}|{f'{p}{i}' for p in ('com','lpt') for i in range(1,10)}
     for name,is_directory,size,mode in items:
+        assert type(size) is int and size>=0 and type(is_directory) is bool
+        assert not is_directory or size==0, 'directory payload'
         assert type(name) is str and name and name.isascii()
         assert not any(ord(c)<32 or ord(c)==127 for c in name)
         assert not name.startswith(('/','\\')) and '\\' not in name and ':' not in name
@@ -68,7 +70,12 @@ def contents(path, *, with_members=False):
             names = archive.namelist(); assert len(names) == len(set(names))
             infos=archive.infolist()
             assert all(x.orig_filename==x.filename for x in infos), 'normalized physical ZIP name'
-            assert all(((x.external_attr >> 16) & 0o170000) in (0,0o100000,0o040000) for x in infos), 'archive symlink/special entry'
+            for info in infos:
+                kind=(info.external_attr>>16)&0o170000
+                assert kind in ((0,0o040000) if info.is_dir() else (0,0o100000)), 'ZIP name/mode contradiction or special entry'
+                if info.is_dir():
+                    assert info.file_size==0 and info.CRC==0, 'directory payload/CRC'
+                    assert archive.read(info)==b'', 'directory compressed payload'
             members=member_audit((x.orig_filename,x.is_dir(),x.file_size,x.external_attr>>16) for x in infos)
             files = {name:archive.read(name) for name in names if not name.endswith('/')}
     else:

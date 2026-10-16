@@ -86,6 +86,15 @@ class ArchiveChecks(unittest.TestCase):
         p=self.root/'special.whl';info=zipfile.ZipInfo('link');info.create_system=3;info.external_attr=0o120777<<16
         with zipfile.ZipFile(p,'w') as z:z.writestr(info,b'target')
         with self.assertRaises(AssertionError):builder.contents(p)
+        for name,mode,data in (('payload/',0o040755,b'opaque'),('file',0o040755,b''),('directory/',0o100644,b'')):
+            info=zipfile.ZipInfo(name);info.create_system=3;info.external_attr=mode<<16
+            with zipfile.ZipFile(p,'w') as z:z.writestr(info,data)
+            with self.assertRaises(AssertionError):builder.contents(p)
+        p=self.zip(['empty/']);data=bytearray(p.read_bytes())
+        for signature,offset in ((b'PK\x03\x04',14),(b'PK\x01\x02',16)):
+            pos=data.index(signature)+offset;data[pos:pos+4]=b'\x01\x00\x00\x00'
+        p.write_bytes(data)
+        with self.assertRaises(AssertionError):builder.contents(p)
 
     def test_tar_unsafe_directories_and_links(self):
         for name in ('../outside/','C:/outside/','a/../b/','a\\outside/','a /'):
@@ -93,6 +102,9 @@ class ArchiveChecks(unittest.TestCase):
         p=self.root/'link.tar.gz'
         with tarfile.open(p,'w:gz') as t:
             info=tarfile.TarInfo('link');info.type=tarfile.SYMTYPE;info.linkname='target';t.addfile(info)
+        with self.assertRaises(AssertionError):builder.contents(p)
+        with tarfile.open(p,'w:gz') as t:
+            info=tarfile.TarInfo('payload/');info.type=tarfile.DIRTYPE;info.size=6;t.addfile(info,io.BytesIO(b'opaque'))
         with self.assertRaises(AssertionError):builder.contents(p)
 
     def test_windows_aliases_and_file_ancestors(self):

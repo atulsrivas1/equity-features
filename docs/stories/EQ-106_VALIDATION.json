@@ -84,6 +84,9 @@
     "Initial qualification/controller review found3P2 before any builder/CI execution or push: new archive README/METADATA drift, unsafe directory/Windows physical ZIP names, and branch-name push not bound to reviewed SHA.",
     "Corrected all-member raw physical-name/kind/mode/alias audit, source README and metadata/dependencies/extras/author/URL closure, complete member maps, raw-sdist inspection before normalization and controller exact SHA refspec plus branch/own-review-source binding.",
     "Eight inert archive-control methods now precede every qualification build; first development attempt failed2positive synthetic cases because live source contained __pycache__; fixture now materializes an owned clean source copy before inspection. Corrected8methods PASS; no build/install/archive extraction/native operation occurred.",
-    "First apply_patch context did not match actual import order and was rejected before writes. Corrected actual context; no partial source mutation."
-  ]
+    "First apply_patch context did not match actual import order and was rejected before writes. Corrected actual context; no partial source mutation.",
+    "Renewal confirmed original3fixed and exposed EQ106-QUAL-04: ignored nonzero/corrupt directory payloads and contradictory ZIP mode/name kinds. Corrected zero directory size+CRC/read verification and explicit ZIP mode compatibility; expanded same8inert methods PASS, no builder/install/extraction/CI/push. Separate current-source renewal still required.",
+    "Original rejected controller source restored from exact inverse edit and SHA0b237ac57297e4a2a49495f83c2935dfffded9c728aa6524474de1f3eb8af098 verified; both initial and b6reviewed controller files retained outside Git, unexecuted."
+  ],
+  "builder_b6c555a_renewal_review_sha256": "02a3ed64f72d6247e518a403476270d3edf90d8e034fe3761644a57e0c87fcf4"
 }
