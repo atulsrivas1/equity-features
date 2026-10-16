@@ -1,3 +1,7 @@
+## EQ110: observe forced exit before closing an independent input
+
+Actual main Windows foundation failed before the retained-entry query after communicate used a shared5s budget. Communicate also closes stdin, so a later exited observation can be cooperative rather than causal evidence of forced cleanup. Observe the retained identity/signal/exit first while stdin remains open, then drain with the same remaining deadline and reject late/error observations. Preserve the old failure as unknown cleanup, not proof of a leak or proof of success. [Corrective plan](../stories/EQ-110_REWORK.md). Scope corrections must explicitly renew test-input maps and fresh gates; unchanged archive parity cannot qualify fixtures excluded from the archive.
+
 ## R11 aggregate evidence reuse and unavailable replay
 
 [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) freezes exact documentation paths and compares the complete remaining tracked input set before reusing accepted runtime evidence. A docs-only label is insufficient: original runtime heads, current candidate/main heads, automatic new CI and current artifact identities remain distinct. Current stale entry headers belong in the bounded aggregate documentation pass; immutable old plans and failures remain history.
