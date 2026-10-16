@@ -25,7 +25,8 @@
     "One corrective preparer platform-default cp1252 read failed after JSON writes before Markdown append; only remaining UTF8 append resumed. Original bytes/failure history retained; no product/SQLite failure.",
     "Separate full-packet review found result-construction and proposal/base-precedence gaps; corrected before Ready or code.",
     "Process recovery wording now allows recovery only if needed; historical Linux helper reuse is explicitly source-only/uninvoked.",
-    "Renewed review identified three outer-only foreign-chain tool_call vectors whose nested request reference still used the original chain. Corrected both declarations so public event validation succeeds before proposal/base inconsistent_chain refusal; original exact-head review retained. No product execution or Ready claim."
+    "Renewed review identified three outer-only foreign-chain tool_call vectors whose nested request reference still used the original chain. Corrected both declarations so public event validation succeeds before proposal/base inconsistent_chain refusal; original exact-head review retained. No product execution or Ready claim.",
+    "Before the first build, package README now points to commit-specific current qualification/delivery evidence rather than an expiring not-yet-qualified sentence. Existing accepted package/archive bytes remain unchanged."
   ],
   "tool_history": {
     "eq107-preparation-tool-history.json": {
@@ -183,7 +184,13 @@
     },
     "final_close_read_regression_sha256": "7b5978f1c021980156b9e896e6dc56b98d22a51357aec5488845adc7ee94123e",
     "status": "corrected_pending_renewed_exact_source_review",
-    "limits": "Same-process SQLite proxies and ordinary source checks only, not process death or installed qualification."
+    "limits": "Same-process SQLite proxies and ordinary source checks only, not process death or installed qualification.",
+    "renewal": {
+      "head": "e5d4d518ee2643d3d7cda96059bdfba652101943",
+      "report_sha256": "ea090ec6d91ccee297c7a4667e5368dacf30abed9f55a73502cf9aafcef11119",
+      "result": "All original4P2/DOC corrections independently verified;20targetedmethods/strict6files/boundary passed. One residual relative-level/urllib namespace P2 corrected with22negative7positivecontrols; final exacthead review pending.",
+      "boundary_log_sha256": "ccc3c6f652140783711141f9669b5bc7a7632f0170c5fe4bc3b36a03f93730b1"
+    }
   },
   "qualification_preparation": {
     "head": "6e1fdcef5380f671781329eb50cc1495b4ad8a8b",
@@ -201,6 +208,11 @@
     ],
     "executed_process_crash_methods": 0,
     "build_install_executed": false,
-    "remaining": "Separate exact final builder/entry/owner/controller review before any native/build/install execution."
+    "remaining": "Separate exact final builder/entry/owner/controller review before any native/build/install execution.",
+    "renewal": {
+      "head": "e5d4d518ee2643d3d7cda96059bdfba652101943",
+      "report_sha256": "b58009c926d7042218c608780a43611add47e6d6900f2f0fe3747b0c5c518450",
+      "result": "Elapsed21s inert path retained witnesses;8inertarchive methods and50candidate25main/9refusal CIgate probes passed. One remaining controller PRbase guard P2 corrected before any operation; require baseRefName main/baseRefOid exactfrozenbase. Final exacthead/controller review pending."
+    }
   }
 }

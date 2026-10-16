@@ -237,11 +237,14 @@ def ledger_violations(source, *, storage=False):
             for name in node.names:
                 if name.name.split('.')[0] not in allowed:errors.append('import '+name.name)
                 if name.name.startswith('equity_feature_agent_evidence.'):errors.append('private event import')
+                if name.name.split('.')[0]=='urllib':errors.append('unreviewed network namespace')
         if isinstance(node,ast.ImportFrom):
             if node.level:
+                if node.level!=1:errors.append('outside owned relative namespace')
                 if node.module not in (None,'_model','_verify','_schema','_store'):errors.append('relative import')
                 if node.module is None and any(x.name not in ('_model','_verify','_schema','_store') for x in node.names):errors.append('unknown relative member')
             elif (node.module or '').split('.')[0] not in allowed:errors.append('import '+str(node.module))
+            if (node.module or '').split('.')[0]=='urllib' and not (storage and node.module=='urllib.parse' and all(x.name=='quote' for x in node.names)):errors.append('unreviewed network import')
             if node.module=='equity_feature_agent_evidence' and any(x.name not in event_public for x in node.names):errors.append('unreviewed event member')
             if (node.module or '').startswith('equity_feature_agent_evidence.') or any(x.name=='*' for x in node.names):errors.append('private or wildcard import')
         if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id in {'eval','exec','compile','__import__','globals','locals'}:errors.append('dynamic execution')
@@ -365,7 +368,7 @@ def check():
         assert project['dependencies']==['equity-feature-agent-evidence==0.1.0a1'] and not project.get('optional-dependencies',{})
         for path in root.glob('src/**/*.py'):
             errors=ledger_violations(path.read_text(encoding='utf-8'),storage=path.name=='_store.py');assert not errors,(path,errors)
-    for source in ['import socket','import subprocess','import equity_features','from equity_feature_agent_evidence._codec import decode_event','import equity_feature_agent_evidence._codec','from equity_feature_agent_evidence import _codec','from . import arbitrary_module','from equity_feature_agent_evidence import *','eval(x)','__import__(x)','getattr(obj,name)']:
+    for source in ['import socket','import subprocess','import equity_features','from equity_feature_agent_evidence._codec import decode_event','import equity_feature_agent_evidence._codec','from equity_feature_agent_evidence import _codec','from . import arbitrary_module','from .. import _store','from .._model import Checkpoint','import urllib.request','import urllib','from urllib.request import urlopen','from equity_feature_agent_evidence import *','eval(x)','__import__(x)','getattr(obj,name)']:
         assert ledger_violations(source,storage=True),source
     for source in ['import os','import sqlite3','from pathlib import Path']:
         assert ledger_violations(source),source
@@ -374,7 +377,8 @@ def check():
         assert ledger_violations(source),source
     for source in ['from equity_feature_agent_evidence import EventRecord','from ._model import Checkpoint','import json']:
         assert not ledger_violations(source),source
-    print('External ledger static policy: 17 negative/6 positive controls; pure files cannot access storage, private event codecs or unreviewed relative modules. This is not a Python sandbox.')
+    assert not ledger_violations('from urllib.parse import quote',storage=True)
+    print('External ledger static policy: 22 negative/7 positive controls; pure files cannot access storage, private event codecs or unreviewed relative modules. This is not a Python sandbox.')
     print(f'Pure boundary: {len(NEGATIVE_FIXTURES)} negative and {len(POSITIVE_FIXTURES)} positive policy fixtures verified; outer profile 8 negative/3 positive; conformance 7 negative/4 positive; agent {len(AGENT_NEGATIVE_FIXTURES)} negative/{len(AGENT_POSITIVE_FIXTURES)} positive controls.')
 
 

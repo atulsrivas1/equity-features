@@ -1,8 +1,10 @@
 # Experimental local agent event ledger
 
 `equity-feature-agent-ledger==0.1.0a1` is an optional owner-configured SQLite store,
-separate from calculations and the pure event declaration package. It is under
-development for EQ107 and is not yet released or qualified.
+separate from calculations and the pure event declaration package, introduced
+by EQ107. Consult the repository's EQ107 validation and current
+story/release evidence for the qualification and delivery status of a specific
+source commit and its finite-retention experimental artifacts.
 
 Create a new absolute owner path with `Ledger.create(path, chain_id)` or open an
 existing supported store with `Ledger.open(path)`. Save `head()` externally and
