@@ -22,7 +22,7 @@ from packaging.requirements import Requirement
 from packaging.specifiers import SpecifierSet
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'dist/agent-ledger'
+OUT = ROOT / 'dist/agent-ledger-corrected'
 EPOCH = 1700000000
 PACKAGES = {'contracts':('equity_feature_contracts','0.0.4a4'),
             'features':('equity_features','0.0.4a4'), 'evidence':('equity_feature_evidence','0.1.0a2'),
@@ -218,6 +218,10 @@ raise SystemExit(not result.wasSuccessful() or bool(result.skipped))
     result=subprocess.run([str(py),'-I','-c',script,str(path)],cwd=py.parent,text=True,encoding='utf-8',capture_output=True)
     log=OUT/(form+('-producer-' if combined else '-declarations-')+label+'.log')
     assert not log.exists();log.write_text(result.stdout+'\n'+result.stderr,encoding='utf-8')
+    if result.returncode:
+        # Preserve the complete local raw log; expose a bounded failure tail in CI.
+        print('FAILED installed cohort '+log.name+' SHA256 '+sha(log.read_bytes()),flush=True)
+        print(log.read_text(encoding='utf-8')[-32768:],flush=True)
     assert result.returncode==0, 'installed test failure; retained log '+log.name
     record=json.loads(result.stdout.splitlines()[-1])
     assert record['methods']=={'declarations':26,'ledger':34,'crash':4,'producer':1,'accepted-evidence':31,'archive-controls':8}[label]
@@ -226,7 +230,7 @@ raise SystemExit(not result.wasSuccessful() or bool(result.skipped))
 
 
 def main():
-    OUT.mkdir(parents=True,exist_ok=True);assert not list(OUT.iterdir()), 'fresh dist/agent-ledger required'
+    OUT.mkdir(parents=True,exist_ok=True);assert not list(OUT.iterdir()), 'fresh dist/agent-ledger-corrected required'
     head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,encoding='utf-8').strip()
     scopes=['packages/'+p for p in PACKAGES]+[
         'tests/agent_evidence','tests/agent_ledger','tests/agent_ledger_crash','tests/agent_ledger_producer','tests/agent_ledger_qualification','tests/evidence',

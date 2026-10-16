@@ -214,5 +214,88 @@
       "report_sha256": "b58009c926d7042218c608780a43611add47e6d6900f2f0fe3747b0c5c518450",
       "result": "Elapsed21s inert path retained witnesses;8inertarchive methods and50candidate25main/9refusal CIgate probes passed. One remaining controller PRbase guard P2 corrected before any operation; require baseRefName main/baseRefOid exactfrozenbase. Final exacthead/controller review pending."
     }
+  },
+  "first_installed_qualification": {
+    "head": "a0df650c9416fd4aeb190abb5c989de06fc282bd",
+    "status": "FAILED_REWORK",
+    "author_exit": 1,
+    "author_log_sha256": "17f2dcfb0c26444d3dd404026ec624ddd446d44c5204c0335f1d62a69e4cb9ff",
+    "observed": "Ten repeat archives/eight accepted identities passed; first fresh wheel store-light34ordinary methods passed. Crash cohort4methods had1failure after_metadata: launcher exit91 and retained entry exit observed, immediate job accounting active1 rather than0.",
+    "limits": "No completed four-form qualification or cleanup success inferred for failed run. Not a demonstrated SQLite implementation defect; precise Windows CI crash assertion unavailable in its log.",
+    "ci": {
+      "push_run": 38839316081,
+      "windows_job": 116775490732,
+      "windows": "FAILED at wheel-producer-crash.log",
+      "linux_job": 116775490834,
+      "linux": "SUCCESS",
+      "failed_log_sha256": "28e765db49942d51b94eed5126375c0630a096381dfe32e9468b161443e3503e"
+    },
+    "retained": [
+      "dist/agent-ledger",
+      "work/agent-ledger-_sp7qnjk",
+      "owned eq107-crash-qt66dgtd"
+    ],
+    "correction": "After separate launcher/entry exit witnesses, observe actual accounting zero within4s before reopening; query/invalid/timeout/late-zero fails and retains root. No success from timeout or kill. New corrected output dist/agent-ledger-corrected never overwrites failed output; expose bounded32KiB failed-suite tail in CI.",
+    "inert_author": {
+      "source_sha256": "2e02adcd9b1e26efbcad8be92dc1c3c2cbcf9e48f59b6aa31b405100ea1b4acb",
+      "passed": true,
+      "controls": [
+        {
+          "case": "immediate",
+          "calls": 1,
+          "sleeps": 0,
+          "expected": "observed_zero"
+        },
+        {
+          "case": "deferred",
+          "calls": 4,
+          "sleeps": 3,
+          "expected": "observed_zero"
+        },
+        {
+          "case": "query_error",
+          "calls": 1,
+          "sleeps": 0,
+          "expected": "OSError"
+        },
+        {
+          "case": "bool",
+          "calls": 1,
+          "sleeps": 0,
+          "expected": "ValueError"
+        },
+        {
+          "case": "negative",
+          "calls": 1,
+          "sleeps": 0,
+          "expected": "ValueError"
+        },
+        {
+          "case": "above_limit",
+          "calls": 1,
+          "sleeps": 0,
+          "expected": "ValueError"
+        },
+        {
+          "case": "unknown",
+          "calls": 1,
+          "sleeps": 0,
+          "expected": "ValueError"
+        },
+        {
+          "case": "never_zero",
+          "calls": 402,
+          "sleeps": 401,
+          "expected": "TimeoutError"
+        },
+        {
+          "case": "late_zero",
+          "expected": "TimeoutError"
+        }
+      ],
+      "scope": "AST-extracted observation only; no physical qualification or OS APIs"
+    },
+    "review": "Independent diagnosis and exact corrected source/builder/controller renewal pending; no corrected physical execution.",
+    "tool_history": "A read-only LESSONS path was initially resolved against outside tooling directory; corrected to canonical docs/knowledge/LESSONS.md. No mutation from that missing read."
   }
 }

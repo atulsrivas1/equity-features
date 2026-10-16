@@ -22,6 +22,19 @@ def bounded_json(path,cap):
     assert len(raw)<=cap
     return json.loads(raw)
 
+def wait_inactive(child, *, clock=time.monotonic, sleep=time.sleep):
+    """Observe zero accounting before reopen; expiry/query failure is failure."""
+    deadline=clock()+4
+    while True:
+        count=child.active()
+        if type(count) is not int or not 0<=count<=2:
+            raise ValueError('invalid child accounting')
+        # Even zero observed after the observation deadline does not qualify.
+        if clock()>=deadline:
+            raise TimeoutError('child accounting did not settle within observation bound')
+        if count==0:return
+        sleep(.01)
+
 class CrashTests(unittest.TestCase):
     def exercise(self,mode):
         started=time.monotonic()
@@ -64,7 +77,8 @@ class CrashTests(unittest.TestCase):
             self.assertIs(type(ready['pid']),int);child.verify_entry(ready['pid'])
             self.assertFalse(child.entry_exited())
             with (root/'GO').open('xb') as stream:stream.write(b'go')
-            self.assertEqual(child.wait(4),91);self.assertTrue(child.entry_exited());self.assertEqual(child.active(),0)
+            self.assertEqual(child.wait(4),91);self.assertTrue(child.entry_exited())
+            wait_inactive(child)
             phase=bounded_json(root/'phase.json',1024)
             expected={'mode':mode,'pid':ready['pid'],'rows':12 if mode=='before_BEGIN' else 13,
                       'metadata':13 if mode in ('after_metadata','after_COMMIT') else 12,

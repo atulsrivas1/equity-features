@@ -26,6 +26,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: agent-ledger-${{ github.sha }}-${{ matrix.os }}
-          path: dist/agent-ledger/
+          path: dist/agent-ledger-corrected/
           retention-days: 30
           if-no-files-found: error

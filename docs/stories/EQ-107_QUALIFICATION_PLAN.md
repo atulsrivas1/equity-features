@@ -1,3 +1,7 @@
+## First execution and corrective entry
+
+The original plan below is historical pre-code intent. First a0df650 author qualification FAILED at immediate Windows active-job accounting after confirmed exits; actual details/CI scopes are preserved in [validation](EQ-107_VALIDATION.json). Corrective observation requires actual zero before4s, after launcher and entry exit, before database reopen; errors/invalid counts/deadline/late zero fail. Nine AST-only controls are development evidence, not process proof. The original failed output remains dist/agent-ledger; a separately reviewed corrected entry uses fresh dist/agent-ledger-corrected, never overwrites failed evidence, and logs a bounded32KiB failure tail. Full four-form/bothOS/artifact/source/publication gates remain mandatory. Exact corrected review is pending; no corrected physical operation executed.
+
 # EQ107 qualification plan — pre-code, unexecuted
 
 [Contract](EQ-107_CONTRACT.md), [profile](EQ-107_PROFILE.json), [independent oracle](EQ-107_ORACLE.json), [literal vectors](EQ-107_CASES.json), [page cases](EQ-107_PAGES.json), [boundary descriptions](EQ-107_BOUNDARIES.json), [accepted archives](EQ-107_ACCEPTED_ARCHIVES.json). These are proposed controls and expected outcomes, not runtime test evidence. No ledger source, SQLite operation, process fault or qualification builder has run.

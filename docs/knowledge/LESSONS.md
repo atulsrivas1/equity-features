@@ -1,3 +1,7 @@
+## Exit signals and aggregate accounting are separate observations — October15,2026
+
+EQ107 first physical crash test observed launcher and entry exit while immediate Windows job accounting still read1; the cohort failed. Require an independently observed zero within the fixed observation budget before reopening; timeout or failed accounting is failure, not cleanup. Keep failed outputs/roots and expose bounded raw suite failures in CI. Distinct corrected runs require renewed exact source review. [Failure evidence and limits](../stories/EQ-107_VALIDATION.json). This does not establish kernel settlement latency or power-loss recovery.
+
 ## Preserve uncertain transaction and contradictory page evidence — October15,2026
 
 A transaction flag becoming false is not a successful rollback acknowledgment. Distinguish BEGIN refusal from an unexpectedly ended entered transaction; preserve unknown and deny replay. A page cannot prove unseen prior membership, but supplied later rows can directly contradict earlier citation identity and must refuse. Run immutable negative tables rather than only handwritten equivalents. Preserve failed process witnesses before elapsed-budget refusal. [Original review and correction evidence](../stories/EQ-107_VALIDATION.json).
