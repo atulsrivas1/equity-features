@@ -1,3 +1,7 @@
+## EQ112 complete quality and temporal goldens
+
+Independent literal review found empty-population and missing-held-reference roles falsely marked ready, then unknown/future-only basis classification and operation-field ambiguity. Preserve old drafts/critiques; use complete seven-role/proof/digest goldens and explicit null/unused field rules. Fix UTF8 at the entire sentence, not by replacing mojibake fragments. Mathematical/data-tool validation is separate from future runtime/installed qualification. See the [EQ112 decisions](../stories/EQ112_DECISIONS.md).
+
 ## EQ111 full discovery and nested purity audits
 
 A focused new probe pass does not establish integration with an existing aggregate audit. Candidate61f52fc added16 discoverable fixtures while the nested purity audits retained619/593 expectations; actual649-test CI failed two count assertions. Correct only the three named totals635/609/609 after verifying selection, retain denial/bridge/mutation/no-skip/no-error checks and rerun the affected audit plus current bothOS CI. Preserve the failed candidate; do not exclude the new tests to obtain green.

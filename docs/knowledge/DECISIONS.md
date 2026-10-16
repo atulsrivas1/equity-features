@@ -1,3 +1,7 @@
+## EQ112 explicit initial raw-only profile
+
+Adjusted-snapshot availability lacks the required original proof in reused AdjustmentSpec. The new optional profile refuses nonraw/custom adjustment rather than treating historical price timestamps as adjustment knowledge; existing core adjusted behavior remains unchanged. Own schema1/result and contracts-only dependency preserve oldConfigSpec1/39IDs. The six proposed batch IDs do not imply old Arrow/state/worker/MCP/receipt support. See the [EQ112 decisions](../stories/EQ112_DECISIONS.md).
+
 ## EQ111: reuse finite SessionSpec; keep feed/duration semantics explicit
 
 [Executed assessment](../stories/EQ-111_CAPABILITY.md) and [validation](../stories/EQ-111_VALIDATION.json) demonstrate finite continuous partitions through existing exact public types/kernel. Choose no new session type, schema1 subtype/coercion or core version/math change. Specific constructor refusals and nongating named intervals establish direct-policy gaps, not universal representational impossibility. EQ112/113 retain supplied feed/product/effective/known-at, duration and cross-venue decision ownership. Source-review/CI/publication/acceptance gates remain; probes alone are not Done. Earlier decisions keep their scopes.
