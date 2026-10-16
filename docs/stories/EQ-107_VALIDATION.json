@@ -235,7 +235,7 @@
       "work/agent-ledger-_sp7qnjk",
       "owned eq107-crash-qt66dgtd"
     ],
-    "correction": "After separate launcher/entry exit witnesses, observe actual accounting zero within4s before reopening; query/invalid/timeout/late-zero fails and retains root. No success from timeout or kill. New corrected output dist/agent-ledger-corrected never overwrites failed output; expose bounded32KiB failed-suite tail in CI.",
+    "correction": "After separate launcher/entry exit witnesses, observe actual accounting zero within4s before reopening; query/invalid/timeout/late-zero fails and retains root. No success from timeout or kill. New corrected output dist/agent-ledger-corrected never overwrites failed output; expose bounded32768-character failed-suite tail in CI.",
     "inert_author": {
       "source_sha256": "2e02adcd9b1e26efbcad8be92dc1c3c2cbcf9e48f59b6aa31b405100ea1b4acb",
       "passed": true,
