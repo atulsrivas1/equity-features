@@ -87,3 +87,17 @@ require replay. Registry digests change; no migration or history state mode is p
 See [final integration plan](../stories/EQ-037_PLAN.md).
 
 EQ039 supplies the current [public API/error index](../api/PUBLIC_API.md) and [extension guide](../api/EXTENSIONS.md) above this historical foundation timeline. Corepair0.0.4a4 now has39builtinbatch/23sessionupdate-restore/22conditionalmerge IDs and explicit trusted canonical custombatch registration; legacy paragraphs retain their dated original inventories. No stableAPI/channel promise.
+
+
+## EQ115 supplied consumer qualification
+
+The [installed synthetic guide](../CONTINUOUS_SUPPLIED_WEEK.md) exercises the accepted public APIs with
+twelve new complete independent supplied results. No equation, unit, schema,
+package source/version or registry entry changes here. Own six descriptive batch
+IDs remain separate from the old39-ID registry; update/merge/restore are unsupported.
+Actual ConfigSpec JSON decoding and FeatureResult constructor type boundaries
+are tested without inventing an old result decoder. File I/O stays in the external
+consumer, not calculations. Full input identities include unused supplied facts;
+original knowledge/quality is never refreshed by replay. Live217 records current
+source, installed and final delivery evidence. Logical caps do not prove physical
+resource containment or deadlines; no market/provider/trading claim follows.

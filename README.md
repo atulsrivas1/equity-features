@@ -1,3 +1,30 @@
+## EQ115 installed synthetic guide and R12 delivery
+
+[EQ114 accepted kernels](https://github.com/atulsrivas1/equity-features/issues/216#issuecomment-6223872765)
+at main4ae1643b2c70892038cb1e76e9adfe5b4c97d5b4 passed actual54candidate/27main,
+both current OS artifacts and independent final delivery review.
+[EQ115/PR420](https://github.com/atulsrivas1/equity-features/pull/420) adds the
+[external supplied-week guide](docs/CONTINUOUS_SUPPLIED_WEEK.md) and [R12 acceptance allocation](docs/R12_ACCEPTANCE.md).
+Its live issue and [E16](https://github.com/atulsrivas1/equity-features/issues/212)
+record actual current qualification/acceptance; the source-freeze snapshot does
+not claim future installed CI or release completion.
+
+Package sources/versions remain continuous0.1.0a2 and contracts/features0.0.4a4.
+Twelve new full literals retain36 independent identities, scheduled pause versus
+feed/census failures and first-reopen knowledge. Corrected35source methods and
+strict7file typing passed; initial tamper-test key failure remains preserved.
+Final dedicated qualification must run this example and compare its complete
+receipt in four fresh forms on each OS, retaining all original archive/source/
+RECORD/typing/old39/configparity gates. No independent reviewer reinstall claim.
+
+No new session/config/result/state/registry migration, worker/MCP/receipt/provider
+API or mathematical change; own batch metadata remains separate from old39IDs.
+No acquisition, calendar inference, FX, physical containment, hard deadline,
+performance, launch/liquidity/token-equivalence/price-discovery or data-rights
+claim. R7automation stays paused; R13 is unselected.
+
+### Historical EQ114 source-freeze checkpoint
+
 ## EQ114 pure supplied batch API
 
 [EQ113 contracts are accepted](https://github.com/atulsrivas1/equity-features/issues/215#issuecomment-6223048289)

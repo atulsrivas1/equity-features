@@ -28,6 +28,12 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'docs/stories/EQ114_PLAN.md','docs/stories/EQ114_CASE_MANIFEST.json',
     'docs/stories/EQ114_OVERSIZE_INPUT.json','docs/stories/EQ114_READINESS.json',
     'docs/stories/EQ114_PREPARED_REVIEW.json','docs/stories/EQ114_VALIDATION.json',
+    'docs/stories/EQ115_PLAN.md','docs/stories/EQ115_DELIVERY_DESIGN.md',
+    'docs/stories/EQ115_SYNTHETIC_ORACLES.json','docs/stories/EQ115_READINESS.json',
+    'docs/stories/EQ115_PREPARED_REVIEW.json','docs/stories/EQ115_VALIDATION.json',
+    'docs/stories/EQ115_RELEASE_EVIDENCE.json','docs/CONTINUOUS_SUPPLIED_WEEK.md',
+    'docs/R12_ACCEPTANCE.md','examples/continuous_supplied_week.py',
+    'docs/contracts/REGISTRY.md',
     'docs/CONTINUOUS_API.md',
     'docs/api/CONTINUOUS_RESEARCH.md','docs/features/CROSS_VENUE_FORMULAS.md',
     'docs/stories/EQ113_VALIDATION.json','README.md','docs/CHANGELOG.md',
@@ -85,6 +91,24 @@ def verify_sdist_rebuild_inputs(selected,files,prefix,module):
     return {name:{'sha256':sha(body),'bytes':len(body)} for name,body in sorted(expected.items())}
 
 
+def supplied_week(py,verification,cwd):
+    """Run the external example against selected independent literals, installed only."""
+    fixture=verification/'docs/stories/EQ115_SYNTHETIC_ORACLES.json'
+    raw=fixture.read_bytes();packet=json.loads(raw)
+    assert len(packet['cases'])==12
+    expected={'schema':'continuous-supplied-week:1','fixture_sha256':sha(raw),'case_count':12,
+        'cases':[{'case_id':case['case_id'],'result_digest':case['expected_result_digest']} for case in packet['cases']],
+        'batch_feature_ids':['cross_venue.basis','cross_venue.premium','cross_venue.freeze_max_abs',
+            'cross_venue.freeze_mean_abs','cross_venue.reopen_gap','cross_venue.reopen_premium']}
+    example=verification/'examples/continuous_supplied_week.py'
+    typed=output(py,'-I','-B','-m','mypy','--strict','--no-incremental','--no-error-summary',
+        '--no-warn-unused-configs','--config-file',verification/'mypy.ini',example,cwd=cwd)
+    actual=output(py,'-I','-B',example,fixture,cwd=cwd)
+    assert 0<len(actual)<=16384 and actual.endswith(b'\n')
+    assert actual==(json.dumps(expected,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False)+'\n').encode()
+    return {'receipt':expected,'stdout_sha256':sha(actual),'strict_typing_stdout_sha256':sha(typed)}
+
+
 def main():
     assert sys.version_info[:2]==(3,12)
     assert not OUT.exists() or not list(OUT.iterdir()), 'preserve earlier qualification'
@@ -135,7 +159,7 @@ def main():
     OUT.mkdir(parents=True,exist_ok=True)
     report={'schema':'continuous-qualification:1','source_commit':head,'whole_git_tree_sha256':sha(tree),
         'system':platform.system(),'python':platform.python_version(),'source':modes,'whole_tree':whole_before,
-        'artifacts':{},'forms':[],'status':'running','limits':'Pure package integrity; no kernel execution or host containment proof.'}
+        'artifacts':{},'forms':[],'status':'running','limits':'Pure supplied batch and package/example qualification; no operating-system-kernel or physical host containment proof.'}
     def save():(OUT/'qualification.json').write_bytes((json.dumps(report,sort_keys=True,indent=2)+'\n').encode())
     save();work=ROOT/'work';work.mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='continuous-',dir=work) as temporary:
@@ -225,10 +249,11 @@ def main():
             if 'features' in names:
                 run(py,'-I','-B','-m','unittest','discover','-s',verification/'tests/unit','-p','test_continuous_capability.py',cwd=directory)
             typed=typing(py,verification,directory)
+            week=supplied_week(py,verification,directory)
             assert installed([*names,'continuous'])==after
             verify_snapshot();closure()
             report['forms'].append({'form':form,'installed':after,'old_distributions_unchanged':True,
-                'typing':typed,'source_tests_passed':True,'optional_absence':list(absent)});save()
+                'typing':typed,'synthetic_week':week,'source_tests_passed':True,'optional_absence':list(absent)});save()
         verify_snapshot();closure()
     report.update(status='completed',source_head_and_materialization_closure=True)
     save()
