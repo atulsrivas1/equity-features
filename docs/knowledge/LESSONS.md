@@ -1,3 +1,7 @@
+## EQ106 identities and ownership before implementation
+
+A reference ID-only lookup can hide a conflicting sequence; check both dimensions and distinguish missing from inconsistent. Frozen nested wrappers can still be mutated through caller-owned originals; reconstruct accepted public values on retention and revalidate on encoding. Constructor aggregate limits and typed input/storage agreement belong in the pre-code contract. Independent literal fixtures and reviewer controls precede production code; fixture verification is not runtime qualification. See [plan](../stories/EQ-106_PLAN.md).
+
 ## Fresh review environments and agent evidence authority — October15,2026
 
 [R10 post-delivery review](../reviews/R10_POST_DELIVERY_REVIEW.md) found a preserved development environment with an older provenance package and no conformance package. Record the initial import failure, select exact final source explicitly and label subsequent checks source-development; do not turn that result into a fresh installed/Linux qualification or a release artifact defect. Separate current release artifact audits retain their own scope.52focused methods and33boundary controls are not85unique release methods. Exact source hashes and retained raw logs make that distinction reviewable.

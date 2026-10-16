@@ -1,0 +1,252 @@
+{
+  "status": "independent_operation_fixture_plan_not_executed",
+  "reviewer": "/root/r10_review",
+  "baseline": "Use preserved12literal maps as independent identities; construct distinct valid typed events only after production API exists. Operation variants are isolated cases, not a single persisted chain. Literal 16-byte retained payload and SHA live in eq106_kind_cases_draft.json.",
+  "controls": [
+    {
+      "id": "both_lookup_match",
+      "group": "lookup",
+      "setup": "Tool-call event3 referencing original request1; retained=[request1].",
+      "expected": "verified=[request1 reference],unresolved=[],fully_resolved=true"
+    },
+    {
+      "id": "neither_lookup_present",
+      "group": "lookup",
+      "setup": "Tool-call event3 references request1; retained=[model2].",
+      "expected": "verified=[],unresolved=[request1 reference],fully_resolved=false"
+    },
+    {
+      "id": "id_only_conflict",
+      "group": "lookup",
+      "setup": "Use a valid ref naming request1 ID but sequence2; retained=[request1].",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "sequence_only_conflict",
+      "group": "lookup",
+      "setup": "Use a valid ref naming absent demo:absent ID but sequence1; retained=[request1].",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "split_lookup_conflict",
+      "group": "lookup",
+      "setup": "Ref names request1 ID with sequence2; retained=[request1,model2].",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "kind_conflict",
+      "group": "lookup",
+      "setup": "Use error event with reference identity of request1 but declared kind model_declaration; retained=[request1].",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "digest_conflict",
+      "group": "lookup",
+      "setup": "Valid lowerhex changed request1 digest; retained=[request1].",
+      "expected": "inconsistent_reference"
+    },
+    {
+      "id": "duplicate_context_id",
+      "group": "lookup",
+      "setup": "Supply two individually valid prior records with same event ID and distinct sequences.",
+      "expected": "duplicate"
+    },
+    {
+      "id": "duplicate_context_sequence",
+      "group": "lookup",
+      "setup": "Supply two individually valid prior records with distinct IDs and same sequence.",
+      "expected": "duplicate"
+    },
+    {
+      "id": "invalid_context_after_missing",
+      "group": "lookup",
+      "setup": "Decision references absent request then read5; append wrong-chain context after otherwise valid records.",
+      "expected": "invalid_reference before lookup result"
+    },
+    {
+      "id": "later_conflict_after_missing",
+      "group": "lookup",
+      "setup": "Decision references absent request ID/sequence then read5 with changed digest; retained=[read5].",
+      "expected": "inconsistent_reference; missing first ref must not short-circuit"
+    },
+    {
+      "id": "ordered_subsets",
+      "group": "lookup",
+      "setup": "Decision request1 then ordered feature reads at distinct absent and retained sequences; supply context in different order.",
+      "expected": "Each verified/unresolved subset preserves flattened subject order, independent of context order"
+    },
+    {
+      "id": "no_refs_vacuity",
+      "group": "lookup",
+      "setup": "Minimal request1 with empty context.",
+      "expected": "both subsets empty,fully_resolved=true; no chain validity claim"
+    },
+    {
+      "id": "nonprefix_context",
+      "group": "lookup",
+      "setup": "Use prior read5 only with structurally valid arbitrary predecessor digest and current decision6.",
+      "expected": "Exact read5 ref verified; absent request unresolved; no prefix-chain claim"
+    },
+    {
+      "id": "context_cap_before_members",
+      "group": "lookup",
+      "setup": "Pass exact list of65 invalid sentinel objects.",
+      "expected": "limit_exceeded before member validation"
+    },
+    {
+      "id": "context_wrong_type",
+      "group": "lookup",
+      "setup": "Pass generator, generic Sequence, list subclass and tuple subclass separately.",
+      "expected": "invalid_schema without iteration/user callbacks"
+    },
+    {
+      "id": "context_event_tampered",
+      "group": "lookup",
+      "setup": "Tamper one retained own record scalar through object.__setattr__ before operation.",
+      "expected": "Revalidation refuses fixed appropriate schema/reference/bound code; never verifies stale digest"
+    },
+    {
+      "id": "reference_count_conjunction",
+      "group": "lookup",
+      "setup": "Build decision with request plus15 distinct reads, then request plus16 reads.",
+      "expected": "16 total permitted if aggregate caps allow;17 total limit_exceeded"
+    },
+    {
+      "id": "list_to_tuple_all_fields",
+      "group": "alias_and_types",
+      "setup": "Independently pass exact list and tuple to entries,inputs,feature_ids,feature_reads,verified,unresolved and retained_events.",
+      "expected": "Both admitted; public retained sequence fields exact tuple with correct strict constructor input annotations"
+    },
+    {
+      "id": "mutate_input_lists",
+      "group": "alias_and_types",
+      "setup": "After constructing each public owner, replace/append/clear original input list.",
+      "expected": "Saved canonical event bytes/digest/full snapshot unchanged"
+    },
+    {
+      "id": "mutate_original_arguments",
+      "group": "alias_and_types",
+      "setup": "After ArgumentSet then EventRecord retention, mutate original Argument and original ArgumentSet via object.__setattr__.",
+      "expected": "Retained event snapshot/canonical bytes unchanged"
+    },
+    {
+      "id": "mutate_original_references",
+      "group": "alias_and_types",
+      "setup": "After subject and event retention, mutate original EventReference digest/ID.",
+      "expected": "Retained subject/event and ReferenceCheck tuples detached and unchanged"
+    },
+    {
+      "id": "mutate_accepted_nested",
+      "group": "alias_and_types",
+      "setup": "Construct FeatureReadSubject/EventRecord with accepted InputFingerprint.content,configuration/output CF and context.availability; mutate every original nested record separately.",
+      "expected": "Retained complete canonical snapshot/digest unchanged; accepted nested wrappers and leaves independently detached"
+    },
+    {
+      "id": "mutate_headers_subject",
+      "group": "alias_and_types",
+      "setup": "After event construction mutate original actor,occurred,recorded and subject wrappers.",
+      "expected": "Retained event snapshot/digest unchanged"
+    },
+    {
+      "id": "revalidate_tampered_event_all_paths",
+      "group": "alias_and_types",
+      "setup": "Tamper retained EventRecord directly to wrong scalar/oversized aggregate and call encode_event,event_digest,event_reference,check_references separately.",
+      "expected": "Each path refuses same fixed validation policy; no stale cache or unchecked serialization"
+    },
+    {
+      "id": "subclass_no_callbacks",
+      "group": "alias_and_types",
+      "setup": "Own/accepted record subclasses and objects exposing properties/__iter__ spies passed at each record/sequence boundary.",
+      "expected": "invalid_schema before arbitrary property/iterator dispatch"
+    },
+    {
+      "id": "constructor_aggregate_cap",
+      "group": "alias_and_types",
+      "setup": "Individually valid fields/collections whose total escaped wire exceeds16384.",
+      "expected": "EventRecord constructor limit_exceeded before successful retention; encode not sole gate"
+    },
+    {
+      "id": "no_mutable_returns",
+      "group": "alias_and_types",
+      "setup": "Inspect all public sequence outputs and derived property assignment attempts.",
+      "expected": "Exact tuple fields; frozen records and read-only kind/retained_matched/fully_resolved"
+    },
+    {
+      "id": "complete_match",
+      "group": "payload_check",
+      "setup": "Complete ref of exact16 ASCII bytes {\"job_ref\":\"j1\"}; content same bytes.",
+      "expected": "matched_retained,retained_complete,16,retained_matched=true"
+    },
+    {
+      "id": "same_length_changed",
+      "group": "payload_check",
+      "setup": "Same complete ref; one changed byte with total length16.",
+      "expected": "inconsistent_content"
+    },
+    {
+      "id": "wrong_length",
+      "group": "payload_check",
+      "setup": "Same complete ref;15 or17 bytes.",
+      "expected": "inconsistent_content"
+    },
+    {
+      "id": "complete_empty",
+      "group": "payload_check",
+      "setup": "Complete ref length0 with literal SHA256 empty digest;content=b empty.",
+      "expected": "matched_retained,retained_complete,0,retained_matched=true"
+    },
+    {
+      "id": "truncated_match",
+      "group": "payload_check",
+      "setup": "Truncated ref retained4/full16 with exact retained prefix digest;content exact4 bytes.",
+      "expected": "matched_retained,truncated,4; omitted12 bytes remain unverified"
+    },
+    {
+      "id": "content_none",
+      "group": "payload_check",
+      "setup": "For complete,truncated,redacted,not_supplied,unknown valid refs separately supply None.",
+      "expected": "unavailable,same disclosure,0,retained_matched=false"
+    },
+    {
+      "id": "unavailable_supplied_bytes",
+      "group": "payload_check",
+      "setup": "For redacted/not_supplied/unknown supply nonempty <=65536 bytes.",
+      "expected": "unavailable,same disclosure,0; no content retained or digest compared"
+    },
+    {
+      "id": "content_exact_type",
+      "group": "payload_check",
+      "setup": "Pass bytearray,memoryview,str,bytes subclass and arbitrary object separately.",
+      "expected": "invalid_schema before content processing"
+    },
+    {
+      "id": "content_boundary",
+      "group": "payload_check",
+      "setup": "Complete ref matching65536 bytes then65537 bytes; repeat65537 with redacted state.",
+      "expected": "65536 matched if exact;65537 limit_exceeded even for unavailable disclosure because type/size preflight first"
+    },
+    {
+      "id": "reference_tampered",
+      "group": "payload_check",
+      "setup": "Tamper own PayloadReference state/digest/length after construction before verify_payload.",
+      "expected": "Revalidate reference; fixed invalid_schema/limit policy rather than using stale declaration"
+    },
+    {
+      "id": "result_invariants",
+      "group": "payload_check",
+      "setup": "Direct PayloadCheck unavailable with retained>0 and matched_retained with redacted/not_supplied/unknown.",
+      "expected": "invalid_schema; constructor does not confer authenticity"
+    },
+    {
+      "id": "privacy_fixed_errors",
+      "group": "payload_check",
+      "setup": "Use synthetic canary in malformed content/ref and inspect exception args,str,repr,__context__,__cause__.",
+      "expected": "Fixed payload-free error, no original context/canary leakage"
+    }
+  ],
+  "limitations": [
+    "Planned assertions only; no production imports, implementation or runtime tests.",
+    "A semantic at-limit positive must also satisfy all canonical byte/node/depth caps; no fictional all-max valid record.",
+    "Exact error assertions must follow normative parameter order; spy objects must not execute while preparing fixtures."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "independent_precode_literal_draft",
+  "domain": "equity-feature.agent-event",
+  "schema_version": "1",
+  "canonicalization": "agent-event-json-v1",
+  "fixtures": [
+    {
+      "name": "minimal_request",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:request\",\"occurred\":{\"at_ns\":null,\"clock_source\":null,\"uncertainty_ns\":null},\"previous_hash\":\"0000000000000000000000000000000000000000000000000000000000000000\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":1,\"subject\":{\"context\":null,\"kind\":\"request\",\"objective\":\"research\",\"request_key\":\"r1\"}}",
+      "byte_length": 514,
+      "sha256": "d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6",
+      "lexical_nodes": 47,
+      "maximum_container_depth": 2
+    },
+    {
+      "name": "linked_missing_model",
+      "canonical_bytes_ascii": "{\"actor\":{\"actor_id\":null,\"kind\":\"unknown\"},\"canonicalization\":\"agent-event-json-v1\",\"chain_id\":\"demo:chain\",\"domain\":\"equity-feature.agent-event\",\"event_id\":\"demo:model\",\"occurred\":{\"at_ns\":50,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"previous_hash\":\"d1de9f6343cdbd2697736ea2350ce60917824fb4f245e7e5b9dbfd5d9daef6c6\",\"recorded\":{\"at_ns\":100,\"clock_source\":\"declared\",\"uncertainty_ns\":0},\"schema_version\":\"1\",\"sequence\":2,\"subject\":{\"identity_state\":\"not_supplied\",\"kind\":\"model_declaration\",\"model\":null,\"provider\":null,\"version\":null}}",
+      "byte_length": 542,
+      "sha256": "d5eeb6410151f01b9bfb236c471c5eb708091cee62ae9e856002076110be479d",
+      "lexical_nodes": 49,
+      "maximum_container_depth": 2
+    }
+  ],
+  "scope": "Hand-authored envelope strings and independent standard-library hashing/token counting. No production event helper exists or was imported. References and identity remain declarations; no runtime/installed/chain-storage qualification."
+}

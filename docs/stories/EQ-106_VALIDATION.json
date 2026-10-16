@@ -1,0 +1,25 @@
+{
+  "status": "precode_packet_not_runtime_not_Ready",
+  "source_base": "1774e99d3d89b8c505ff22555f1e6703843b8bf7",
+  "governance_acceptance": "https://github.com/atulsrivas1/equity-features/issues/406#issuecomment-6205259013",
+  "product_source_changed": false,
+  "new_tests_executed": 0,
+  "independent_fixture_cases": {
+    "original_oracles": 2,
+    "linked_kinds": 12,
+    "decoder_refusals": 54,
+    "variants": 23,
+    "operation_controls": 40
+  },
+  "preparation_reports": {
+    "eq106-preparation-initial-reviewer-report.json": "ba2534f38b79bcef1cea97acf4b9516f0272b6766334a1c8e478f73d00111854",
+    "eq106-preparation-typing-initial-reviewer-report.json": "8e5f4d99355e8eb0333bba51355e27bab5695c090f449b04eb809eceeda57b6d",
+    "eq106-preparation-reviewer-report.json": "4508d800e5e48c37d04477c0f519a1666d65dc82e591290e80006f703a021edf",
+    "eq106-refusal-preparation-reviewer-report.json": "00fa49aa9e896e983d8252e57a0af1c5aef9b23e67abb494c3af55d97043f4f1"
+  },
+  "limits": [
+    "Preparation review is not exact tracked Ready review.",
+    "No product imports/builds/installs/native tests.",
+    "Original P2 reports and corrections preserved; no failed-to-passed rewrite."
+  ]
+}
