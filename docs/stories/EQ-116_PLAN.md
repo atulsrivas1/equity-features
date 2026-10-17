@@ -1,3 +1,7 @@
+## Current implementation preparation
+
+Owner selects R13 implementation after accepted GOV025. The [concrete supplement](EQ116_IMPLEMENTATION_PLAN.md), [qualification](EQ116_QUALIFICATION_PLAN.md), [expected data](EQ116_ORACLES.json) and [source pins](EQ116_INPUTS.json) supplement original scope below. No new code execution or Ready/review completion is claimed;117thresholds and witness selection remain separate.
+
 # EQ116 pre-code preparation plan
 
 [Story222](https://github.com/atulsrivas1/equity-features/issues/222), E17/R13,5provisional points. Planning only. EQ098#198,105#205,106#206,107#207,109#209 freshly Closed/Done; execution selection, GOV025 delivery, review route and exact readiness supplement still required. Original acceptance remains in the live story and [pilot](../EVIDENCE_SERVICE_PILOT.md).

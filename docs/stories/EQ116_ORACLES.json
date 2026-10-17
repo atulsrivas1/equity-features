@@ -1,0 +1,1428 @@
+{
+  "schema": "eq116.independent.oracles.v1",
+  "status": "precode_data_not_execution",
+  "source_eq109_sha256": "f21c1a0ba6659a8e92afd1d2d56aca0c82f17ae9ecb2c0acf4035b2778201a76",
+  "derivation": "Literal accepted three-row input and full native golden copied; future variant changes only last known_at210to211 and every value to null with missing_input/future_knowledge. No package import/calculator/production serializer used. Projections are normative full data, not declared runtime fingerprints.",
+  "configuration": {
+    "value": {
+      "algorithm": "sha256",
+      "canonicalization": "typed-json-v1",
+      "contracts_version": "0.0.4a4",
+      "domain": "configuration",
+      "project": "equity-features",
+      "schema_version": "1",
+      "value": {
+        "fields": {
+          "adjustment": {
+            "fields": {
+              "action_snapshot": "none",
+              "anchor": "none",
+              "basis": "raw",
+              "policy_version": "raw-v1"
+            },
+            "type": "inputs.AdjustmentSpec"
+          },
+          "algorithm_version": "v1",
+          "availability": {
+            "fields": {
+              "evaluation_ns": 210,
+              "knowledge_cutoff_ns": 210,
+              "market_cutoff_ns": 200,
+              "mode": "known_at",
+              "reconstruction_reason": null
+            },
+            "type": "specs.AvailabilitySpec"
+          },
+          "identity": "synthetic-bars",
+          "parameters": [
+            {
+              "fields": {
+                "name": "eligibility_policy",
+                "value": "example-v1"
+              },
+              "type": "specs.Parameter"
+            }
+          ],
+          "price_unit": {
+            "fields": {
+              "currency": "USD",
+              "scale": 0
+            },
+            "type": "inputs.PriceUnit"
+          },
+          "schema_version": "1",
+          "session": {
+            "fields": {
+              "close_ns": 200,
+              "early_close": false,
+              "include_closing_auction": false,
+              "include_opening_auction": false,
+              "intervals": [],
+              "namespace": "demo",
+              "open_ns": 100,
+              "scheduled_close_ns": null,
+              "session_id": "S",
+              "timezone_label": "caller-supplied"
+            },
+            "type": "specs.SessionSpec"
+          },
+          "window": {
+            "fields": {
+              "anchor": "prior_only",
+              "count": 1,
+              "governed_sessions": [
+                "P",
+                "S"
+              ],
+              "target_session_id": "S"
+            },
+            "type": "specs.WindowSpec"
+          }
+        },
+        "type": "specs.ConfigSpec"
+      }
+    },
+    "bytes": 1186,
+    "sha256": "84623ae5ac7b5d30f2683822b11db487d37c3166f00265c09aa61c30ff8c2a67",
+    "public_ConfigSpec_JSON": {
+      "adjustment": {
+        "action_snapshot": "none",
+        "anchor": "none",
+        "basis": "raw",
+        "policy_version": "raw-v1"
+      },
+      "algorithm_version": "v1",
+      "availability": {
+        "evaluation_ns": 210,
+        "knowledge_cutoff_ns": 210,
+        "market_cutoff_ns": 200,
+        "mode": "known_at",
+        "reconstruction_reason": null
+      },
+      "identity": "synthetic-bars",
+      "parameters": [
+        {
+          "name": "eligibility_policy",
+          "value": "example-v1"
+        }
+      ],
+      "price_unit": {
+        "currency": "USD",
+        "scale": 0
+      },
+      "schema_version": "1",
+      "session": {
+        "close_ns": 200,
+        "early_close": false,
+        "include_closing_auction": false,
+        "include_opening_auction": false,
+        "intervals": [],
+        "namespace": "demo",
+        "open_ns": 100,
+        "scheduled_close_ns": null,
+        "session_id": "S",
+        "timezone_label": "caller-supplied"
+      },
+      "window": {
+        "anchor": "prior_only",
+        "count": 1,
+        "governed_sessions": [
+          "P",
+          "S"
+        ],
+        "target_session_id": "S"
+      }
+    }
+  },
+  "clean_batch": {
+    "value": {
+      "algorithm": "sha256",
+      "canonicalization": "typed-json-v1",
+      "contracts_version": "0.0.4a4",
+      "domain": "canonical_batch",
+      "project": "equity-features",
+      "schema_version": "1",
+      "value": {
+        "fields": {
+          "columns": [
+            {
+              "fields": {
+                "name": "eligible",
+                "values": [
+                  true,
+                  true,
+                  true
+                ]
+              },
+              "type": "inputs.Column"
+            },
+            {
+              "fields": {
+                "name": "event_id",
+                "values": [
+                  "t1",
+                  "t2",
+                  "t3"
+                ]
+              },
+              "type": "inputs.Column"
+            },
+            {
+              "fields": {
+                "name": "event_ns",
+                "values": [
+                  110,
+                  130,
+                  160
+                ]
+              },
+              "type": "inputs.Column"
+            },
+            {
+              "fields": {
+                "name": "instrument_id",
+                "values": [
+                  "A",
+                  "A",
+                  "A"
+                ]
+              },
+              "type": "inputs.Column"
+            },
+            {
+              "fields": {
+                "name": "known_at_ns",
+                "values": [
+                  110,
+                  130,
+                  210
+                ]
+              },
+              "type": "inputs.Column"
+            },
+            {
+              "fields": {
+                "name": "order_key",
+                "values": [
+                  1,
+                  2,
+                  3
+                ]
+              },
+              "type": "inputs.Column"
+            },
+            {
+              "fields": {
+                "name": "price",
+                "values": [
+                  100,
+                  102,
+                  101
+                ]
+              },
+              "type": "inputs.Column"
+            },
+            {
+              "fields": {
+                "name": "session_id",
+                "values": [
+                  "S",
+                  "S",
+                  "S"
+                ]
+              },
+              "type": "inputs.Column"
+            },
+            {
+              "fields": {
+                "name": "size",
+                "values": [
+                  2,
+                  3,
+                  5
+                ]
+              },
+              "type": "inputs.Column"
+            }
+          ],
+          "kind": "trade",
+          "metadata": {
+            "fields": {
+              "adjustment": {
+                "fields": {
+                  "action_snapshot": "none",
+                  "anchor": "none",
+                  "basis": "raw",
+                  "policy_version": "raw-v1"
+                },
+                "type": "inputs.AdjustmentSpec"
+              },
+              "coverage": {
+                "fields": {
+                  "complete": true,
+                  "expected": 3,
+                  "observed": 3
+                },
+                "type": "inputs.Coverage"
+              },
+              "duplicate_policy": "reject",
+              "interval_coverage": [],
+              "namespace": "demo",
+              "ordering": "declared",
+              "price_unit": {
+                "fields": {
+                  "currency": "USD",
+                  "scale": 0
+                },
+                "type": "inputs.PriceUnit"
+              },
+              "quantity_unit": "shares",
+              "sampling": "none",
+              "scope": {
+                "fields": {
+                  "eligibility_policy": "example-v1",
+                  "end_ns": 200,
+                  "include_closing_auction": false,
+                  "include_opening_auction": false,
+                  "start_ns": 100
+                },
+                "type": "inputs.InputScope"
+              },
+              "source": {
+                "fields": {
+                  "input_id": "trades",
+                  "mapping_version": "map1",
+                  "snapshot_id": "snapshot1",
+                  "source_id": "synthetic"
+                },
+                "type": "inputs.SourceBinding"
+              }
+            },
+            "type": "inputs.BatchMetadata"
+          }
+        },
+        "type": "inputs.CanonicalBatch"
+      }
+    },
+    "bytes": 1751,
+    "sha256": "aa3697b5c4c1d5939570dda4396344b8fad7b9eef499eb7c65716d6858fa78bb"
+  },
+  "future_batch_typed_json": {
+    "algorithm": "sha256",
+    "canonicalization": "typed-json-v1",
+    "contracts_version": "0.0.4a4",
+    "domain": "canonical_batch",
+    "project": "equity-features",
+    "schema_version": "1",
+    "value": {
+      "fields": {
+        "columns": [
+          {
+            "fields": {
+              "name": "eligible",
+              "values": [
+                true,
+                true,
+                true
+              ]
+            },
+            "type": "inputs.Column"
+          },
+          {
+            "fields": {
+              "name": "event_id",
+              "values": [
+                "t1",
+                "t2",
+                "t3"
+              ]
+            },
+            "type": "inputs.Column"
+          },
+          {
+            "fields": {
+              "name": "event_ns",
+              "values": [
+                110,
+                130,
+                160
+              ]
+            },
+            "type": "inputs.Column"
+          },
+          {
+            "fields": {
+              "name": "instrument_id",
+              "values": [
+                "A",
+                "A",
+                "A"
+              ]
+            },
+            "type": "inputs.Column"
+          },
+          {
+            "fields": {
+              "name": "known_at_ns",
+              "values": [
+                110,
+                130,
+                211
+              ]
+            },
+            "type": "inputs.Column"
+          },
+          {
+            "fields": {
+              "name": "order_key",
+              "values": [
+                1,
+                2,
+                3
+              ]
+            },
+            "type": "inputs.Column"
+          },
+          {
+            "fields": {
+              "name": "price",
+              "values": [
+                100,
+                102,
+                101
+              ]
+            },
+            "type": "inputs.Column"
+          },
+          {
+            "fields": {
+              "name": "session_id",
+              "values": [
+                "S",
+                "S",
+                "S"
+              ]
+            },
+            "type": "inputs.Column"
+          },
+          {
+            "fields": {
+              "name": "size",
+              "values": [
+                2,
+                3,
+                5
+              ]
+            },
+            "type": "inputs.Column"
+          }
+        ],
+        "kind": "trade",
+        "metadata": {
+          "fields": {
+            "adjustment": {
+              "fields": {
+                "action_snapshot": "none",
+                "anchor": "none",
+                "basis": "raw",
+                "policy_version": "raw-v1"
+              },
+              "type": "inputs.AdjustmentSpec"
+            },
+            "coverage": {
+              "fields": {
+                "complete": true,
+                "expected": 3,
+                "observed": 3
+              },
+              "type": "inputs.Coverage"
+            },
+            "duplicate_policy": "reject",
+            "interval_coverage": [],
+            "namespace": "demo",
+            "ordering": "declared",
+            "price_unit": {
+              "fields": {
+                "currency": "USD",
+                "scale": 0
+              },
+              "type": "inputs.PriceUnit"
+            },
+            "quantity_unit": "shares",
+            "sampling": "none",
+            "scope": {
+              "fields": {
+                "eligibility_policy": "example-v1",
+                "end_ns": 200,
+                "include_closing_auction": false,
+                "include_opening_auction": false,
+                "start_ns": 100
+              },
+              "type": "inputs.InputScope"
+            },
+            "source": {
+              "fields": {
+                "input_id": "trades",
+                "mapping_version": "map1",
+                "snapshot_id": "snapshot1",
+                "source_id": "synthetic"
+              },
+              "type": "inputs.SourceBinding"
+            }
+          },
+          "type": "inputs.BatchMetadata"
+        }
+      },
+      "type": "inputs.CanonicalBatch"
+    }
+  },
+  "clean_native_result": {
+    "fields": {
+      "evidence": [],
+      "metadata": {
+        "fields": {
+          "availability": {
+            "fields": {
+              "evaluation_ns": {
+                "int": "210"
+              },
+              "knowledge_cutoff_ns": {
+                "int": "210"
+              },
+              "market_cutoff_ns": {
+                "int": "200"
+              },
+              "mode": "known_at",
+              "reconstruction_reason": null
+            },
+            "record": "specs.AvailabilitySpec"
+          },
+          "backend_id": "python-exact",
+          "backend_version": "0.0.4a4",
+          "config_digest": "ddc1b3b90e8d3333f31c268228e472aa440029f3f6ba7d72745d2f0096c3c931",
+          "evidence_limit": {
+            "int": "0"
+          },
+          "inputs": [
+            {
+              "fields": {
+                "kind": {
+                  "enum": "inputs.DataKind",
+                  "value": "trade"
+                },
+                "metadata": {
+                  "fields": {
+                    "adjustment": {
+                      "fields": {
+                        "action_snapshot": "none",
+                        "anchor": "none",
+                        "basis": "raw",
+                        "policy_version": "raw-v1"
+                      },
+                      "record": "inputs.AdjustmentSpec"
+                    },
+                    "coverage": {
+                      "fields": {
+                        "complete": true,
+                        "expected": {
+                          "int": "3"
+                        },
+                        "observed": {
+                          "int": "3"
+                        }
+                      },
+                      "record": "inputs.Coverage"
+                    },
+                    "duplicate_policy": "reject",
+                    "interval_coverage": [],
+                    "namespace": "demo",
+                    "ordering": "declared",
+                    "price_unit": {
+                      "fields": {
+                        "currency": "USD",
+                        "scale": {
+                          "int": "0"
+                        }
+                      },
+                      "record": "inputs.PriceUnit"
+                    },
+                    "quantity_unit": "shares",
+                    "sampling": "none",
+                    "scope": {
+                      "fields": {
+                        "eligibility_policy": "example-v1",
+                        "end_ns": {
+                          "int": "200"
+                        },
+                        "include_closing_auction": false,
+                        "include_opening_auction": false,
+                        "start_ns": {
+                          "int": "100"
+                        }
+                      },
+                      "record": "inputs.InputScope"
+                    },
+                    "source": {
+                      "fields": {
+                        "input_id": "trades",
+                        "mapping_version": "map1",
+                        "snapshot_id": "snapshot1",
+                        "source_id": "synthetic"
+                      },
+                      "record": "inputs.SourceBinding"
+                    }
+                  },
+                  "record": "inputs.BatchMetadata"
+                },
+                "role": "trades",
+                "schema_version": "1"
+              },
+              "record": "results.InputBinding"
+            }
+          ],
+          "math_policy_version": "v1",
+          "namespace": "demo",
+          "schema_version": "1",
+          "session_id": "S"
+        },
+        "record": "results.ResultMetadata"
+      },
+      "quality": [
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.count",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [],
+            "status": {
+              "enum": "results.Status",
+              "value": "available"
+            }
+          },
+          "record": "results.QualityRow"
+        },
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.volume",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [],
+            "status": {
+              "enum": "results.Status",
+              "value": "available"
+            }
+          },
+          "record": "results.QualityRow"
+        },
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.notional",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [],
+            "status": {
+              "enum": "results.Status",
+              "value": "available"
+            }
+          },
+          "record": "results.QualityRow"
+        },
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.vwap",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [],
+            "status": {
+              "enum": "results.Status",
+              "value": "available"
+            }
+          },
+          "record": "results.QualityRow"
+        },
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.mean_size",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [],
+            "status": {
+              "enum": "results.Status",
+              "value": "available"
+            }
+          },
+          "record": "results.QualityRow"
+        }
+      ],
+      "values": [
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "int64"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.count",
+            "schema_version": "1",
+            "unit": "trades",
+            "values": [
+              {
+                "int": "3"
+              }
+            ]
+          },
+          "record": "results.FeatureColumn"
+        },
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "int64"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.volume",
+            "schema_version": "1",
+            "unit": "shares",
+            "values": [
+              {
+                "int": "10"
+              }
+            ]
+          },
+          "record": "results.FeatureColumn"
+        },
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "decimal128"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.notional",
+            "schema_version": "1",
+            "unit": "currency coefficient / 10^price_scale",
+            "values": [
+              {
+                "int": "1011"
+              }
+            ]
+          },
+          "record": "results.FeatureColumn"
+        },
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "float64"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.vwap",
+            "schema_version": "1",
+            "unit": "currency/share",
+            "values": [
+              {
+                "float64": "0x1.9466666666666p+6"
+              }
+            ]
+          },
+          "record": "results.FeatureColumn"
+        },
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "float64"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.mean_size",
+            "schema_version": "1",
+            "unit": "shares/trade",
+            "values": [
+              {
+                "float64": "0x1.aaaaaaaaaaaabp+1"
+              }
+            ]
+          },
+          "record": "results.FeatureColumn"
+        }
+      ]
+    },
+    "record": "results.FeatureResult"
+  },
+  "future_native_result": {
+    "fields": {
+      "evidence": [],
+      "metadata": {
+        "fields": {
+          "availability": {
+            "fields": {
+              "evaluation_ns": {
+                "int": "210"
+              },
+              "knowledge_cutoff_ns": {
+                "int": "210"
+              },
+              "market_cutoff_ns": {
+                "int": "200"
+              },
+              "mode": "known_at",
+              "reconstruction_reason": null
+            },
+            "record": "specs.AvailabilitySpec"
+          },
+          "backend_id": "python-exact",
+          "backend_version": "0.0.4a4",
+          "config_digest": "ddc1b3b90e8d3333f31c268228e472aa440029f3f6ba7d72745d2f0096c3c931",
+          "evidence_limit": {
+            "int": "0"
+          },
+          "inputs": [
+            {
+              "fields": {
+                "kind": {
+                  "enum": "inputs.DataKind",
+                  "value": "trade"
+                },
+                "metadata": {
+                  "fields": {
+                    "adjustment": {
+                      "fields": {
+                        "action_snapshot": "none",
+                        "anchor": "none",
+                        "basis": "raw",
+                        "policy_version": "raw-v1"
+                      },
+                      "record": "inputs.AdjustmentSpec"
+                    },
+                    "coverage": {
+                      "fields": {
+                        "complete": true,
+                        "expected": {
+                          "int": "3"
+                        },
+                        "observed": {
+                          "int": "3"
+                        }
+                      },
+                      "record": "inputs.Coverage"
+                    },
+                    "duplicate_policy": "reject",
+                    "interval_coverage": [],
+                    "namespace": "demo",
+                    "ordering": "declared",
+                    "price_unit": {
+                      "fields": {
+                        "currency": "USD",
+                        "scale": {
+                          "int": "0"
+                        }
+                      },
+                      "record": "inputs.PriceUnit"
+                    },
+                    "quantity_unit": "shares",
+                    "sampling": "none",
+                    "scope": {
+                      "fields": {
+                        "eligibility_policy": "example-v1",
+                        "end_ns": {
+                          "int": "200"
+                        },
+                        "include_closing_auction": false,
+                        "include_opening_auction": false,
+                        "start_ns": {
+                          "int": "100"
+                        }
+                      },
+                      "record": "inputs.InputScope"
+                    },
+                    "source": {
+                      "fields": {
+                        "input_id": "trades",
+                        "mapping_version": "map1",
+                        "snapshot_id": "snapshot1",
+                        "source_id": "synthetic"
+                      },
+                      "record": "inputs.SourceBinding"
+                    }
+                  },
+                  "record": "inputs.BatchMetadata"
+                },
+                "role": "trades",
+                "schema_version": "1"
+              },
+              "record": "results.InputBinding"
+            }
+          ],
+          "math_policy_version": "v1",
+          "namespace": "demo",
+          "schema_version": "1",
+          "session_id": "S"
+        },
+        "record": "results.ResultMetadata"
+      },
+      "quality": [
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.count",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [
+              {
+                "enum": "results.Reason",
+                "value": "future_knowledge"
+              }
+            ],
+            "status": {
+              "enum": "results.Status",
+              "value": "missing_input"
+            }
+          },
+          "record": "results.QualityRow"
+        },
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.volume",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [
+              {
+                "enum": "results.Reason",
+                "value": "future_knowledge"
+              }
+            ],
+            "status": {
+              "enum": "results.Status",
+              "value": "missing_input"
+            }
+          },
+          "record": "results.QualityRow"
+        },
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.notional",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [
+              {
+                "enum": "results.Reason",
+                "value": "future_knowledge"
+              }
+            ],
+            "status": {
+              "enum": "results.Status",
+              "value": "missing_input"
+            }
+          },
+          "record": "results.QualityRow"
+        },
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.vwap",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [
+              {
+                "enum": "results.Reason",
+                "value": "future_knowledge"
+              }
+            ],
+            "status": {
+              "enum": "results.Status",
+              "value": "missing_input"
+            }
+          },
+          "record": "results.QualityRow"
+        },
+        {
+          "fields": {
+            "entity": {
+              "fields": {
+                "instrument_id": "A",
+                "session_id": "S"
+              },
+              "record": "results.EntityKey"
+            },
+            "expected": {
+              "int": "3"
+            },
+            "feature_id": "session.trade.mean_size",
+            "observed": {
+              "int": "3"
+            },
+            "reasons": [
+              {
+                "enum": "results.Reason",
+                "value": "future_knowledge"
+              }
+            ],
+            "status": {
+              "enum": "results.Status",
+              "value": "missing_input"
+            }
+          },
+          "record": "results.QualityRow"
+        }
+      ],
+      "values": [
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "int64"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.count",
+            "schema_version": "1",
+            "unit": "trades",
+            "values": [
+              null
+            ]
+          },
+          "record": "results.FeatureColumn"
+        },
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "int64"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.volume",
+            "schema_version": "1",
+            "unit": "shares",
+            "values": [
+              null
+            ]
+          },
+          "record": "results.FeatureColumn"
+        },
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "decimal128"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.notional",
+            "schema_version": "1",
+            "unit": "currency coefficient / 10^price_scale",
+            "values": [
+              null
+            ]
+          },
+          "record": "results.FeatureColumn"
+        },
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "float64"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.vwap",
+            "schema_version": "1",
+            "unit": "currency/share",
+            "values": [
+              null
+            ]
+          },
+          "record": "results.FeatureColumn"
+        },
+        {
+          "fields": {
+            "algorithm_version": "v1",
+            "dtype": {
+              "enum": "results.ValueType",
+              "value": "float64"
+            },
+            "entities": [
+              {
+                "fields": {
+                  "instrument_id": "A",
+                  "session_id": "S"
+                },
+                "record": "results.EntityKey"
+              }
+            ],
+            "feature_id": "session.trade.mean_size",
+            "schema_version": "1",
+            "unit": "shares/trade",
+            "values": [
+              null
+            ]
+          },
+          "record": "results.FeatureColumn"
+        }
+      ]
+    },
+    "record": "results.FeatureResult"
+  },
+  "mathematics": {
+    "count": 3,
+    "volume": 10,
+    "notional": 1011,
+    "vwap": 101.1,
+    "mean_size_float64_hex": "0x1.aaaaaaaaaaaabp+1",
+    "derivation": "count3;2+3+5=10;100*2+102*3+101*5=1011;1011/10=101.1;10/3",
+    "quality": "five available rows, expected=observed=3, no reasons"
+  },
+  "cuts": {
+    "C": 200,
+    "K": 210,
+    "E": 210
+  },
+  "cases": [
+    {
+      "id": "P01",
+      "fault": "none",
+      "narrative": "session.trade.count=3",
+      "model": "declared_synthetic",
+      "narrative_status": "matched",
+      "decision": "DEFER",
+      "diagnostic": [
+        "passed",
+        "passed",
+        "passed"
+      ],
+      "admission": "admitted",
+      "anchor": "matched_terminal",
+      "retention": "complete",
+      "compute_replay": "matched",
+      "compute_calls": 1,
+      "light_replay": "incompatible",
+      "light_calls": 0
+    },
+    {
+      "id": "P02",
+      "fault": "last_known_at_211",
+      "narrative": "session.trade.count=3",
+      "model": "declared_synthetic",
+      "narrative_status": "unavailable",
+      "decision": "DEFER",
+      "diagnostic": [
+        "passed",
+        "passed",
+        "failed"
+      ],
+      "diagnostic_reason": "late_knowledge",
+      "admission": "denied",
+      "anchor": "matched_terminal",
+      "retention": "complete",
+      "compute_replay": "matched",
+      "compute_calls": 1,
+      "light_replay": "incompatible",
+      "light_calls": 0
+    },
+    {
+      "id": "P03",
+      "fault": "narrative_count_4",
+      "narrative": "session.trade.count=4",
+      "model": "declared_synthetic",
+      "narrative_status": "mismatch",
+      "decision": "REJECT",
+      "diagnostic": [
+        "passed",
+        "passed",
+        "passed"
+      ],
+      "admission": "admitted",
+      "anchor": "matched_terminal",
+      "retention": "complete",
+      "compute_replay": "matched",
+      "compute_calls": 1,
+      "light_replay": "incompatible",
+      "light_calls": 0
+    },
+    {
+      "id": "P04",
+      "fault": "unsupported_narrative",
+      "narrative": "buy now",
+      "model": "declared_synthetic",
+      "narrative_status": "unsupported",
+      "decision": "DEFER",
+      "diagnostic": [
+        "passed",
+        "passed",
+        "passed"
+      ],
+      "admission": "admitted",
+      "anchor": "matched_terminal",
+      "retention": "complete",
+      "compute_replay": "matched",
+      "compute_calls": 1,
+      "light_replay": "incompatible",
+      "light_calls": 0
+    },
+    {
+      "id": "P05",
+      "fault": "omit_retained_input",
+      "narrative": "session.trade.count=3",
+      "model": "declared_synthetic",
+      "narrative_status": "matched",
+      "decision": "DEFER",
+      "diagnostic": [
+        "passed",
+        "passed",
+        "passed"
+      ],
+      "admission": "admitted",
+      "anchor": "matched_terminal",
+      "retention": "missing",
+      "compute_replay": "unavailable",
+      "compute_calls": 0,
+      "light_replay": "unavailable",
+      "light_calls": 0
+    },
+    {
+      "id": "P06",
+      "fault": "retain_valid_7_event_prefix",
+      "narrative": "session.trade.count=3",
+      "model": "declared_synthetic",
+      "narrative_status": "matched",
+      "decision": "DEFER",
+      "diagnostic": [
+        "passed",
+        "passed",
+        "passed"
+      ],
+      "admission": "admitted",
+      "anchor": "not_covered",
+      "retention": "complete",
+      "compute_replay": "matched",
+      "compute_calls": 1,
+      "light_replay": "incompatible",
+      "light_calls": 0
+    },
+    {
+      "id": "P07",
+      "fault": "result_json_one_byte_change_stale_manifest",
+      "narrative": "session.trade.count=3",
+      "model": "declared_synthetic",
+      "load": "integrity_mismatch",
+      "compute_replay": "refused_before_calculator",
+      "compute_calls": 0,
+      "light_replay": "refused_before_calculator",
+      "light_calls": 0
+    },
+    {
+      "id": "P08",
+      "fault": "model_not_supplied",
+      "narrative": "session.trade.count=3",
+      "model": "not_supplied",
+      "narrative_status": "matched",
+      "decision": "DEFER",
+      "diagnostic": [
+        "passed",
+        "passed",
+        "passed"
+      ],
+      "admission": "admitted",
+      "anchor": "matched_terminal",
+      "retention": "complete",
+      "compute_replay": "matched",
+      "compute_calls": 1,
+      "light_replay": "incompatible",
+      "light_calls": 0
+    }
+  ],
+  "all_arms": [
+    "ordinary_log",
+    "evidence_ledger"
+  ],
+  "original_trace_event_count": 8,
+  "prefix_trace_event_count": 7,
+  "case_07_scope": "Consumer load refusal; no successful assessment/decision fabricated after corruption. Original pre-corruption actual execution remains recorded.",
+  "baseline": "Equivalent content, original8record-terminal count and SHA of canonical plain log independently retained; expected ledger terminal8/head retained separately for evidence arm. No second ledger, signature or cross-party witness claimed.",
+  "diagnostic_policy": {
+    "policy_id": "eq116-known-rows",
+    "mode": "strict",
+    "unknown_action": "deny"
+  },
+  "decision_scope": "Existing research.assess advisory policy retains DEFER/REJECT; actual strict knowledge report is a separate observation and never changes original report or creates ADMIT.",
+  "model_labels": {
+    "provider": "synthetic",
+    "model": "fixture-model",
+    "version": "v1"
+  },
+  "no_measurement_thresholds_accepted": true
+}
