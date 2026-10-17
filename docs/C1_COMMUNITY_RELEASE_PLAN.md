@@ -1,8 +1,10 @@
-## R14 library-component proposal — pending, October17,2026
+## Owner-approved library-only R14 — October17,2026
 
-R13 selected delivery is [accepted](https://github.com/atulsrivas1/equity-features/issues/221#issuecomment-6239763091) under explicit owner DEFER; witnesses118/119 remain open. The owner now requests R14. [GOV026](https://github.com/atulsrivas1/equity-features/issues/426) prepares the [handoff](R14_AUTONOMOUS_HANDOFF.md). Research M2 remains partial/unreleased and M3 blocked/unreleased, so the frozen predecessor below is unsatisfied.
+[Explicit scope decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) accepts the proposal at PR427/e42a6273057ba594f1e5c83e712d26240c400d8c, JSON SHA2565364f4b392ece17edf5d65ef2f5187457368321ad59a3b0c1f19e0f3958a3cd2. Deliver library EQ131–135: developer-only EQ134 and library-only EQ135 acceptance. Research M2/M3/M5/SR026/SR027 retain all open scope, scientific requirements, budgets and ownership. The original research gate remains relevant to combined C1, not this accepted library component.
 
-[Proposed explicit decision](R14_SCOPE_PROPOSAL.md) would separate only library R14 EQ131–135: developer-only134 and library-only135receipt; research M5/SR026/027/research demonstration/combined C1 acceptance remain open. This is NOT an accepted amendment, research completion or runtime Ready. Original plan, seven-story map, research requirements and gate remain preserved until owner decision. No account/outreach/participant/scientific/new session/automation authority is added.
+[E21#428](https://github.com/atulsrivas1/equity-features/issues/428) tracks the R14 library component; milestone16 has exactly312/313/314/315/316/426/428. Existing combined [E20#311](https://github.com/atulsrivas1/equity-features/issues/311) remains OPEN outside milestone16. R14 closure must not close or claim combined C1/M5 completion. Original affected issue/plan scope is preserved as history. Runtime remains Backlog/unassigned: governance delivery and a completed permitted review still precede Ready. R14 local-review authorization remains pending; this scope decision does not grant review/account/outreach permission.
+
+The original seven-story map and frozen research predecessor below remain combined C1 scope. Research M5 is not delivered or moved into R14; E20#311 remains the combined authority. This accepted library-component separation is explicit, not research no-go acceptance or scientific scope deletion.
 
 ## Earlier checkpoints retained as history
 

@@ -6,14 +6,15 @@
   "r13_review_completed": true,
   "r14_review_completed": false,
   "r14_local_review_authorized": false,
-  "r14_scope_proposal_accepted": false,
+  "r14_scope_proposal_accepted": true,
   "runtime_ready": false,
   "runtime_implemented": false,
   "product_tests_run": false,
   "study_rerun": false,
   "author_document_checks": {
-    "status": "performed during publication preflight; exact raw check report retained outside repository and referenced by public review/acceptance",
-    "scope": "17 DOCfiles UTF8/LF/JSON/local links/privacy/history/non-doc invariance/existing structural documentation checks; not product qualification"
+    "prior_preapproval_report": "17DOC checks passed at e42a627; unchanged history retained",
+    "current_scope": "22DOC accepted-scope delta; new author/public checks required before updated publication",
+    "not_product_qualification": true
   },
   "candidate_checks": null,
   "permitted_final_review": null,
@@ -23,7 +24,22 @@
     "Read-only research stdout hit Windows codepage UnicodeEncodeError; corrected explicitUTF8, no product execution.",
     "Large preparation command rejected by Windows process creation length limit before any writes; bounded edits used.",
     "Guessed earlier GOV025 validation filename absent; actual inventory used, no absence/product claim.",
-    "Initial added-text privacy scanner mistook part of an HTTPS URL for a drive path and refused before publication/structural checks. Corrected non-word path boundary with positive/negative scanner controls; no product failure."
+    "Initial added-text privacy scanner mistook part of an HTTPS URL for a drive path and refused before publication/structural checks. Corrected non-word path boundary with positive/negative scanner controls; no product failure.",
+    "Scope publisher saved mutations then failed its final membership assertion. Fresh read-only reconciliation verified all intended bodies/states and exact seven-member milestone without repeating any mutation. Initial response was not retained; no inferred product failure or retroactive initial PASS.",
+    "A local exact-wording guard refused the handoff rewrite because materialized preapproval wording contained a space. Earlier owned files were drafted; no commit/publication followed. The bounded preparer now reads immutable preapproval Git source and corrected exact wording; changed files remain explicit."
   ],
-  "completion_destination": "Numbered governance acceptance/liveProject after actual current-head/main review and publication; future IDs stay null."
+  "completion_destination": "Numbered governance acceptance/liveProject after actual current-head/main review and publication; future IDs stay null.",
+  "accepted_scope_decision": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916",
+  "library_epic": 428,
+  "combined_c1_epic": 311,
+  "combined_c1_open": true,
+  "r14_members": [
+    312,
+    313,
+    314,
+    315,
+    316,
+    426,
+    428
+  ]
 }

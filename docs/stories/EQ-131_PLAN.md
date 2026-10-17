@@ -1,3 +1,21 @@
+## Accepted library-only R14 scope — October17,2026
+
+[Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916). Parent library component: [E21#428](https://github.com/atulsrivas1/equity-features/issues/428); combined C1 parent E20#311 remains open outside this milestone. Original research/scientific requirements and ownership remain unchanged.
+
+## Current acceptance
+
+- [ ] README first screen identifies audience, practical benefit, supported delivery channel and current limitations.
+- [ ] Profile and repository descriptions link to the main entry point and accurately describe accepted capabilities; actual profile changes are coordinated with its owner.
+- [ ] Navigation connects core, I/O, workers and research without transferring implementation ownership.
+
+## Current dependencies and delivery
+
+Accepted scoped libraryR5-R13, applicable current package/companion evidence and GOV026; account-setup coordination remains required. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local R14review decision is still pending; this story remains Backlog/unassigned, no implementation or outreach/account authority.
+
+
+## Preserved original plan — historical, not current criteria
+
+````markdown
 # EQ-131 - Clarify public positioning and repository navigation
 
 ## Problem and value
@@ -40,3 +58,5 @@ Publish linked story plan, guide/examples/templates as relevant, checks and fail
 - [Existing focused developer assessment EQ-117](https://github.com/atulsrivas1/equity-features/issues/223)
 
 These sources motivate the proposal; community growth has not been measured locally. Reuse existing examples and assessments rather than duplicating their implementation.
+
+````

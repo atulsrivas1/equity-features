@@ -1,8 +1,8 @@
-## Unreleased R14 handoff preparation
+## Unreleased R14 handoff and accepted scope
 
-- Fresh separate R13 source/live-state/check/artifact-metadata review found no new actionable findings; preserve its failed diagnostic comparison and owner DEFER.
-- Prepare R14 release/test/handoff and first-story plan under GOV026; identify the unmet research M2/M3 predecessor and an explicit library-only scope proposal, not an approved change.
-- No package/version/API/math/example/runtime/test/workflow/dependency change. R14 review and scope decisions pending; runtime131–135 remain Backlog.
+- [Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) separates library-only R14 EQ131–135, developer-only demonstration and library-only acceptance; research M5 and combined C1 remain open.
+- E21#428 tracks the seven-member R14 component; combined E20#311 stays open outside milestone16. Original scope/criteria remain preserved as history.
+- Fresh separate R13 review found no new actionable findings. No package/version/API/math/example/runtime/test/workflow/dependency change, research trial or failed-study rerun. Review authorization and completed review still gate runtime readiness.
 
 ## Earlier checkpoints retained as history
 

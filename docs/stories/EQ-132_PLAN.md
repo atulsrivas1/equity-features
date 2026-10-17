@@ -1,3 +1,21 @@
+## Accepted library-only R14 scope — October17,2026
+
+[Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916). Parent library component: [E21#428](https://github.com/atulsrivas1/equity-features/issues/428); combined C1 parent E20#311 remains open outside this milestone. Original research/scientific requirements and ownership remain unchanged.
+
+## Current acceptance
+
+- [ ] A clean environment runs the documented commands using delivered artifacts and synthetic inputs with no paid credentials/private paths.
+- [ ] Expected output and unavailable-input behavior match independent expected values; record OS/runtime/version/channel.
+- [ ] A reader can find prerequisites, experimental limits and the next example from the main README; observed completion time is reported honestly, not assumed.
+
+## Current dependencies and delivery
+
+EQ131 plus accepted library predecessor and exact accepted example/package delivery. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local R14review decision is still pending; this story remains Backlog/unassigned, no implementation or outreach/account authority.
+
+
+## Preserved original plan — historical, not current criteria
+
+````markdown
 # EQ-132 - Deliver a five-minute newcomer quickstart
 
 ## Problem and value
@@ -40,3 +58,5 @@ Publish linked story plan, guide/examples/templates as relevant, checks and fail
 - [Existing focused developer assessment EQ-117](https://github.com/atulsrivas1/equity-features/issues/223)
 
 These sources motivate the proposal; community growth has not been measured locally. Reuse existing examples and assessments rather than duplicating their implementation.
+
+````

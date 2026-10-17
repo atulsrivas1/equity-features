@@ -1,8 +1,8 @@
-## R14 requested handoff/execution: review decision pending
+## R14 scope accepted; review decision still pending
 
-Owner requests R13 review, an R14 handoff and R14 work. [GOV026#426](https://github.com/atulsrivas1/equity-features/issues/426) prepares the concrete packet. Existing local alternatives end at R13: fresh R13 post-delivery review is covered; R14 planning/implementation/final delivery are not. Before handoffmerge or runtime Ready, require a completed supported separate review or explicit owner alternative-review decision covering this R14 packet/EQ131–135/necessary companion documentation/final delivery. Preparation, self-checks and CI are not separate review. Record actual identity, exact final source/head, checks/findings/disposition/limits; relevant changes renew coverage. No hosted activation or human-review claim.
+[Owner scope approval](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) selects library-only R14, not reviewer authorization. GOV026#426/PR427 prepares the handoff; E21#428 tracks library delivery and combined C1#311 remains open. Existing local alternatives end at R13. Before handoff merge or runtime Ready, require a completed supported separate review or explicit owner alternative-review decision for the R14 handoff, EQ131–135, necessary companion documentation and final delivery. The previously asked review question remains pending; do not repeat the accepted scope question or invent a review grant.
 
-A later bounded grant does not accept the [scope amendment](R14_SCOPE_PROPOSAL.md), waive scientific/installed/docs/delivery gates or authorize account administration/outreach/paid/private/hosting/registry/trading/recurringwork. If a full R14 grant is made, do not ask again per story. None is recorded in this source snapshot.
+Preparation, self-checks and CI do not replace separate review. Record actual reviewer identity, exact final source/head, checks, findings/disposition and limitations; relevant changes renew coverage. A bounded grant, if made, needs no repeated per-story request and adds no hosted activation, human review, account administration, outreach, scientific work, paid/private/hosting/registry/trading/recurring authority. All numerical, installed, documentation and actual-delivery gates remain.
 
 ## Earlier checkpoints retained as history
 

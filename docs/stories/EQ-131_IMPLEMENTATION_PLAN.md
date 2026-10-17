@@ -1,6 +1,6 @@
 # EQ131 concrete implementation plan — pending readiness
 
-[Original scope](EQ-131_PLAN.md), [issue312](https://github.com/atulsrivas1/equity-features/issues/312), E20/milestone16;3 provisional points. Original three criteria remain unchecked. First runtime story after GOV026 delivery and the explicit [scope decision](../R14_SCOPE_PROPOSAL.md). This file is pre-code preparation, not delivered positioning.
+[Original scope](EQ-131_PLAN.md), [issue312](https://github.com/atulsrivas1/equity-features/issues/312), E21#428/milestone16; overarching combined C1/E20#311 remains open;3 provisional points. Original three criteria remain unchecked. First runtime story after GOV026 delivery and the accepted [scope decision](../R14_SCOPE_PROPOSAL.md). Scope is resolved; review authorization/completed review and governance delivery remain. This file is pre-code preparation, not delivered positioning.
 
 ## Inputs and design
 
@@ -18,6 +18,6 @@ Read-only metadata audit found core still says "In design" and workers still say
 
 ## Start and verification
 
-Before Ready: accepted scope/dependency decision or actual original predecessor acceptance; GOV026Done; permitted completed pre-code review; concrete input/evidence map and original criteria preserved. Then Ready→Atul/In progress before implementation. Validate text/links/privacy/history and complete non-doc equality plus existing docs checks. No numerical/install/native/benchmark run solely for positioning text. A linked draft, completed permitted final-head review, current CI and actual-main/tree/attribution/delivered readback precede Released/Done. Criterion2 cannot be waived by CI.
+Before Ready: the accepted library-only scope/dependency decision; GOV026Done; permitted completed pre-code review; concrete input/evidence map and original criteria preserved. Then Ready→Atul/In progress before implementation. Validate text/links/privacy/history and complete non-doc equality plus existing docs checks. No numerical/install/native/benchmark run solely for positioning text. A linked draft, completed permitted final-head review, current CI and actual-main/tree/attribution/delivered readback precede Released/Done. Criterion2 cannot be waived by CI.
 
 No R14 test, clean-install, participant or performance result yet. EQ132 owns later quickstart qualification. No outreach/account change/companion code ownership/private data/new session/automation/R7 change.

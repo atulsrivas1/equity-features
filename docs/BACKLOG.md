@@ -1,8 +1,10 @@
-## R14 preparation and unresolved research gate
+## Owner-approved library-only R14 — October17,2026
 
-Owner requests review of accepted R13 and R14 work. [GOV026#426](https://github.com/atulsrivas1/equity-features/issues/426) prepares [release](R14_RELEASE_PLAN.md)/[tests](R14_TEST_STRATEGY.md)/[handoff](R14_AUTONOMOUS_HANDOFF.md) after [fresh R13 review](reviews/R13_POST_DELIVERY_REVIEW.md). Original five R14stories retain17provisional points; governance adds3. All134active IDs/retired 094/release assignments unchanged;118119remain openunimplementedFuture Backlog.
+[Explicit scope decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) accepts the proposal at PR427/e42a6273057ba594f1e5c83e712d26240c400d8c, JSON SHA2565364f4b392ece17edf5d65ef2f5187457368321ad59a3b0c1f19e0f3958a3cd2. Deliver library EQ131–135: developer-only EQ134 and library-only EQ135 acceptance. Research M2/M3/M5/SR026/SR027 retain all open scope, scientific requirements, budgets and ownership. The original research gate remains relevant to combined C1, not this accepted library component.
 
-Existing C1research M2/M3predecessor is NOTsatisfied. [Exact proposal](R14_SCOPE_PROPOSAL.md) would separate library onboarding/developer-only134/library-only135 from research M5 and combined C1, which remain open. It is not accepted; original criteria/gates remain authoritative and all five runtime stories stayBacklog/unassigned. No hidden research requirement removal or scientific/private/paid/hosted work. Permitted review/current delivery gates precede governance Done/runtime Ready.
+[E21#428](https://github.com/atulsrivas1/equity-features/issues/428) tracks the R14 library component; milestone16 has exactly312/313/314/315/316/426/428. Existing combined [E20#311](https://github.com/atulsrivas1/equity-features/issues/311) remains OPEN outside milestone16. R14 closure must not close or claim combined C1/M5 completion. Original affected issue/plan scope is preserved as history. Runtime remains Backlog/unassigned: governance delivery and a completed permitted review still precede Ready. R14 local-review authorization remains pending; this scope decision does not grant review/account/outreach permission.
+
+[GOV026](stories/GOV-026_PLAN.md) is Code review; [handoff](R14_AUTONOMOUS_HANDOFF.md). Original five runtime stories retain17provisional points, governance3; all134 active IDs/retired094/release assignments remain unchanged. Witness118/119 stay open/unimplemented Future Backlog. No research or runtime completion follows from scope acceptance.
 
 ## Earlier checkpoints retained as history
 

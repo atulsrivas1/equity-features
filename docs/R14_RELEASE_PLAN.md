@@ -1,18 +1,18 @@
 # R14 library onboarding plan — October 17, 2026
 
-[GOV026#426](https://github.com/atulsrivas1/equity-features/issues/426), [E20#311](https://github.com/atulsrivas1/equity-features/issues/311), milestone16. The owner requests R13 review, a handoff and R14 work in this conversation. Preparation is selected; execution still requires the explicit predecessor/scope and review decisions below. No new chat, schedule or date promise.
+[GOV026#426](https://github.com/atulsrivas1/equity-features/issues/426), [E21#428](https://github.com/atulsrivas1/equity-features/issues/428), milestone16. Combined C1/E20#311 remains open outside this milestone. The owner requests R13 review, a handoff and R14 work in this conversation. The owner has accepted library-only scope; governance delivery, review authority and completed review still precede runtime readiness. No new chat, schedule or date promise.
 
-## Entry evidence and unresolved dependency
+## Entry evidence and accepted scope boundary
 
 [Fresh independent R13 review](reviews/R13_POST_DELIVERY_REVIEW.md) found no new actionable findings at accepted main12500f6196e72a0d344be575e495473044f234a9. [Acceptance](https://github.com/atulsrivas1/equity-features/issues/221#issuecomment-6239763091) and [final verification](https://github.com/atulsrivas1/equity-features/issues/221#issuecomment-6239795489) retain owner DEFER: selected116/117/120 and GOV025 Done; witnesses118/119 remain open future Backlog. The sole failed320study remains diagnostic-only/nonadoptable; no rerun or usefulness/performance promotion.
 
 Library R5–R13 selected milestones and children are closed. Scoped receipt index: [R5](https://github.com/atulsrivas1/equity-features/issues/64#issuecomment-6055034939), [R5.1 repair](https://github.com/atulsrivas1/equity-features/issues/337#issuecomment-6061646707), [revised R6](https://github.com/atulsrivas1/equity-features/issues/75#issuecomment-6073874932), [private R7 staging](https://github.com/atulsrivas1/equity-features/issues/94#issuecomment-6160903589), [R8](https://github.com/atulsrivas1/equity-features/issues/104#issuecomment-6183187901), [R9](https://github.com/atulsrivas1/equity-features/issues/193#issuecomment-6197886354), [R10](https://github.com/atulsrivas1/equity-features/issues/194#issuecomment-6203507136), [R11](https://github.com/atulsrivas1/equity-features/issues/195#issuecomment-6214256540), [R12](https://github.com/atulsrivas1/equity-features/issues/212#issuecomment-6224646223). These are historical scoped acceptances, not fresh qualification or blanket production/rights certification. New runnable examples need their own exact current inputs/channel qualification.
 
-The original [C1 gate](C1_COMMUNITY_RELEASE_PLAN.md) also requires accepted/reconciled research M2/M3. At researchmain55e2d3810001010f0280ffdb8f0d2c80cb43ac6f, [M2](https://github.com/atulsrivas1/strategy-research/blob/55e2d3810001010f0280ffdb8f0d2c80cb43ac6f/docs/releases/M2_PLAN.md) remains partial/unreleased with8open issues; [M3](https://github.com/atulsrivas1/strategy-research/blob/55e2d3810001010f0280ffdb8f0d2c80cb43ac6f/docs/releases/M3_PLAN.md) remains conditional/blocked/unreleased with5open. M5's three issues remain Backlog. Rejected modeled comparisons do not establish full research closure. M6/M7 explicitly do not replace this frozen gate.
+The original combined [C1 gate](C1_COMMUNITY_RELEASE_PLAN.md) also requires accepted/reconciled research M2/M3. At researchmain55e2d3810001010f0280ffdb8f0d2c80cb43ac6f, [M2](https://github.com/atulsrivas1/strategy-research/blob/55e2d3810001010f0280ffdb8f0d2c80cb43ac6f/docs/releases/M2_PLAN.md) remains partial/unreleased with8open issues; [M3](https://github.com/atulsrivas1/strategy-research/blob/55e2d3810001010f0280ffdb8f0d2c80cb43ac6f/docs/releases/M3_PLAN.md) remains conditional/blocked/unreleased with5open. M5's three issues remain Backlog. Rejected modeled comparisons do not establish full research closure. M6/M7 explicitly do not replace this frozen gate.
 
-**Runtime admission is false.** The [library-only scope proposal](R14_SCOPE_PROPOSAL.md) and R14 review route await decisions. GOV026 is In progress/Atul/3 provisional points; all five runtime stories remain Backlog/unassigned. No R14 implementation has started.
+[Owner approval](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) removes research M2/M3/M5 from this library component's predecessor. They and combined C1 remain open under E20#311, outside R14. The [accepted scope record](R14_SCOPE_PROPOSAL.md) preserves the original proposal. **Runtime admission is still false:** R14 review authority/completed review and governance delivery remain pending. GOV026 is In progress/Atul/3 provisional points; all five runtime stories remain Backlog/unassigned. No R14 implementation has started.
 
-## Proposed pull order, subject to the scope decision
+## Accepted library pull order
 
 | Story | Points | Deliverable |
 | --- | --- | --- |
@@ -22,7 +22,7 @@ The original [C1 gate](C1_COMMUNITY_RELEASE_PLAN.md) also requires accepted/reco
 | [EQ134#315](https://github.com/atulsrivas1/equity-features/issues/315) | 3 | Developer-only demonstration and accurate launch drafts; at most2 proposed channels, nothing sent. Research demonstration deferred to M5. |
 | [EQ135#316](https://github.com/atulsrivas1/equity-features/issues/316) | 3 | Manual metric definitions/baseline/evidence, explicit outreach-pilot defer absent permission, scoped library receipt. M5 and combined C1 acceptance remain open. |
 
-Original runtime17provisional points plus3governance; points are complexity, not days. Original criteria remain authoritative until the owner explicitly accepts the proposed amendment. Do not check a criterion through preparation alone.
+Original runtime17provisional points plus3governance; points are complexity, not days. EQ131–133 criteria are unchanged; EQ134's first and EQ135's fourth criterion and their dependencies are amended exactly by the accepted decision. All original text remains historical. Exact milestone16 membership is312/313/314/315/316/426/428; combined C1#311 stays open without a milestone. Do not check a criterion through preparation alone.
 
 ## Delivery boundaries
 

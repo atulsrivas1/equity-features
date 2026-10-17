@@ -1,3 +1,21 @@
+## Accepted library-only R14 scope — October17,2026
+
+[Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916). Parent library component: [E21#428](https://github.com/atulsrivas1/equity-features/issues/428); combined C1 parent E20#311 remains open outside this milestone. Original research/scientific requirements and ownership remain unchanged.
+
+## Current acceptance
+
+- [ ] Developer demonstration replays the accepted EQ132 quickstart and EQ133 contribution path and ends with one concrete participation request; the research demonstration remains deferred under M5.
+- [ ] Drafts contain accurate version/limits and links; no trading efficacy, stable API or performance claim without accepted evidence.
+- [ ] Channel shortlist records relevance/rules and a finite proposed posting plan; drafts stay unsent until external posting/invitations are explicitly authorized.
+
+## Current dependencies and delivery
+
+EQ132/EQ133 plus the library predecessor; research demonstration and SR026/SR027 remain deferred under M5. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local R14review decision is still pending; this story remains Backlog/unassigned, no implementation or outreach/account authority.
+
+
+## Preserved original plan — historical, not current criteria
+
+````markdown
 # EQ-134 - Prepare useful demonstrations and targeted launch material
 
 ## Problem and value
@@ -40,3 +58,5 @@ Publish linked story plan, guide/examples/templates as relevant, checks and fail
 - [Existing focused developer assessment EQ-117](https://github.com/atulsrivas1/equity-features/issues/223)
 
 These sources motivate the proposal; community growth has not been measured locally. Reuse existing examples and assessments rather than duplicating their implementation.
+
+````
