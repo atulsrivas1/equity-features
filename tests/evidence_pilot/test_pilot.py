@@ -192,6 +192,10 @@ class PilotTests(unittest.TestCase):
     def test_missing_completion_and_renamed_file_refused(self) -> None:
         directory = self.copy_case();(directory / 'completion.json').unlink()
         with self.assertRaises(pilot.PilotError):pilot.read_case(directory, 'P01', 'ordinary_log', 'wheel-compute')
+        renamed = self.parent / (self.id().split('.')[-1] + '-renamed')
+        shutil.copytree(self.export / 'P01', renamed)
+        (renamed / 'reports.json').rename(renamed / 'renamed-reports.json')
+        with self.assertRaises(pilot.PilotError):pilot.read_case(renamed, 'P01', 'ordinary_log', 'wheel-compute')
 
     def test_plain_log_changed_despite_recomputed_completion_refused(self) -> None:
         directory = self.copy_case();plain = json.loads((directory / 'plain-log.json').read_bytes())
@@ -204,6 +208,15 @@ class PilotTests(unittest.TestCase):
         events[3]['subject']['call']['digest'] = '0' * 64
         rewrite(directory, 'events.json', canonical(events))
         with self.assertRaises((pilot.PilotError, ValueError)):pilot.read_case(directory, 'P01', 'evidence_ledger', 'wheel-compute')
+        for index, field, value in [(0, 'schema_version', '999'), (3, 'kind', 'unsupported'),
+                                     (2, 'tool_name', 'unsupported_tool'), (2, 'tool_version', '999')]:
+            with self.subTest(field=field):
+                changed = json.loads((self.export / 'P01/events.json').read_bytes())
+                target = changed[index] if field == 'schema_version' else changed[index]['subject']
+                target[field] = value
+                rewrite(directory, 'events.json', canonical(changed))
+                with self.assertRaises((pilot.PilotError, ValueError)):
+                    pilot.read_case(directory, 'P01', 'evidence_ledger', 'wheel-compute')
 
     def test_duplicate_nonfinite_extra_data_and_unknown_forms_refused(self) -> None:
         for raw in (b'{"a":1,"a":1}', b'{"a":NaN}', b'{}{}', b'{"a":1.0}\n'):
@@ -226,6 +239,12 @@ class PilotTests(unittest.TestCase):
             directory = self.export / case_id
             self.assertEqual({x.name for x in directory.iterdir()}, set(pilot.FILES))
             self.assertLessEqual(sum((directory / name).stat().st_size for name in pilot.FILES if name != 'ledger.sqlite'), 1048576)
+        boundary = self.parent / (self.id().split('.')[-1] + '-read-boundary')
+        boundary.write_bytes(b' ' * 65536)
+        self.assertEqual(pilot._read(boundary, 65536), b' ' * 65536)
+        boundary.write_bytes(b' ' * 65537)
+        with self.assertRaises(pilot.PilotError) as boundary_error:pilot._read(boundary, 65536)
+        self.assertEqual(boundary_error.exception.code, 'limit_exceeded')
         directory = self.copy_case();rewrite(directory, 'reports.json', b' ' * 65537)
         with self.assertRaises(pilot.PilotError) as caught:pilot.read_case(directory, 'P01', 'ordinary_log', 'wheel-compute')
         self.assertEqual(caught.exception.code, 'limit_exceeded')

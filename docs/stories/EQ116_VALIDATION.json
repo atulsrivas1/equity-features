@@ -1,6 +1,6 @@
 {
   "schema": "eq116.validation.v1",
-  "state": "implementation_in_progress_not_released",
+  "state": "reviewed_implementation_in_Test_current_qualification_pending",
   "source_trials": [
     {
       "classification": "Windows source unit checks with explicit PYTHONPATH; not installed qualification",
@@ -26,6 +26,19 @@
       "tests_sha256": "baec7015bc55be77b61dc9e167f311b83662a5ccee30a10819a744e5e255c22e",
       "log_sha256": "2dfaab16f45314745a5af99dae00cc98943c6248abd94a908f55c2cdec09b728",
       "scope": "19 methods include full immutable expectations, 16 paired compute reader observations, actual original/replay calls, SQLite close/reopen and tamper/boundary controls. These are not 64 installed observations."
+    },
+    {
+      "classification": "Expanded explicit boundary controls; Windows source paths, not installed qualification",
+      "status": "PASSED",
+      "methods": 19,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "returncode": 0,
+      "pilot_sha256": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+      "tests_sha256": "513734cc794cb3f09e700ab771275235a38513a2cc5d2d3afc5858484c728d5b",
+      "log_sha256": "55d1097f3671037e3fcbc5bc58cdeeb1ed39093ce92fd7cc3124aa610dfc7b9c",
+      "scope": "Seven added subcases within existing19methods: renamed file; lower-level exact65536 and65537 read cap; invalid event schema/kind/fixedtool name/version. Earlier trials retain original scopes."
     }
   ],
   "typing": {
@@ -43,7 +56,11 @@
     "column_order_correction": "dcc98e8f847da1d19d6c9be0c79911fc2e1cd332ef45c1e93105f1528dd26416",
     "identity_scope": "Separate local automated Codex reviewers; no independent human review, independent reinstall or hosted activation claimed",
     "builder_initial_rework": "41927f35592cb5037df14bf6d511c0bb3ea317bf64d3b8c681dfc2fe9aaebefe",
-    "builder_provenance_residual_rework": "ecda248e1730df6733eba8739973e4437a0026af2bf59592a526c2f67e0dd1b6"
+    "builder_provenance_residual_rework": "ecda248e1730df6733eba8739973e4437a0026af2bf59592a526c2f67e0dd1b6",
+    "boundary_controls": "7aecbacc40e2bf5be7dd64fe70b9a24b42e085b491ee122d60923cdf33fc3d1e",
+    "implementation_public_readback": "5356a96a663b9732985649429be7a9f24217b35c6d6b57adb84d50055f7b50da",
+    "artifact_tool_initial_rework": "a4688c0b166ed191c7e3b54769a20f251e0788f3903ca1ca926172f6db7ec510",
+    "artifact_tool_final": "973c44b0f797a7b5577ee6e8ad826470463ce705ae35ed1f96cb09fbc2b2dc14"
   },
   "planned_installed_allocation": {
     "systems": [
@@ -84,5 +101,10 @@
   "usefulness_evaluation_executed": false,
   "witness_operations_selected": false,
   "story_done": false,
-  "release_done": false
+  "release_done": false,
+  "review_corrections_after_source_publication": [
+    "Final acceptance allocation found promised rename/exact-cap/event-enum-version-tool controls were not explicit in19source methods; seven subcases added without changing methodcount or product source.",
+    "Read-only artifact audit source initial fourP2s: artifactPath shadowing; metadata/SDist policy gaps; installedgenerated kind/path gaps; rawlog-cohort bindings. Corrected before artifact execution; initial report retained.",
+    "Test transition helper initial own completedreview/selfSHA guard gap corrected before actual Code review to Test mutation."
+  ]
 }
