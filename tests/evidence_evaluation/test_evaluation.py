@@ -11,6 +11,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+sys.dont_write_bytecode = True
+
 HERE = Path(__file__).resolve().parent
 # Builder copies this test beside the fixed helper files outside the checkout.
 def load(name):
@@ -137,12 +139,42 @@ class Qualification(unittest.TestCase):
         self.assertEqual(alternating.summary(),before)
 
     def test_worker_handshake_and_actual_eof_exit(self):
-        command=[sys.executable,'-I',str(HERE/'evidence_evaluation_worker.py'),'serve','ordinary_log']
+        # This exact closure also runs on qualify-only CI, without a formal study.
+        driver=load('run_evidence_evaluation')
+        control=self.root/'harness-closure-control';control.mkdir()
+        expected={'a.py':driver.sha(b'a'), 'b.py':driver.sha(b'b')}
+        for name,raw in (('a.py',b'a'),('b.py',b'b')):(control/name).write_bytes(raw)
+        driver.verify_harness_snapshot(driver.harness_snapshot(control,expected),expected)
+        cache=control/'__pycache__';cache.mkdir()
+        snapshot=driver.harness_snapshot(control,expected)
+        self.assertEqual(snapshot['__pycache__']['kind'],'directory')
+        with self.assertRaisesRegex(AssertionError,'harness_member_set'):
+            driver.verify_harness_snapshot(snapshot,expected)
+        cache.rmdir()
+        (control/'a.py').write_bytes(b'changed')
+        with self.assertRaisesRegex(AssertionError,'harness_source_changed'):
+            driver.verify_harness_snapshot(driver.harness_snapshot(control,expected),expected)
+        (control/'a.py').unlink();(control/'a.py').mkdir()
+        with self.assertRaisesRegex(AssertionError,'harness_node_type'):
+            driver.verify_harness_snapshot(driver.harness_snapshot(control,expected),expected)
+        (control/'a.py').rmdir()
+        with self.assertRaisesRegex(AssertionError,'harness_member_set'):
+            driver.verify_harness_snapshot(driver.harness_snapshot(control,expected),expected)
+        self.assertTrue(sys.dont_write_bytecode)
+        # Exercise a real isolated sibling import before any product import.
+        imports=self.root/'isolated-import-control';imports.mkdir()
+        (imports/'sibling.py').write_bytes(b'VALUE=7\n')
+        import_map={'sibling.py':driver.sha((imports/'sibling.py').read_bytes())}
+        code='import sys;sys.path.insert(0,sys.argv[1]);import sibling;assert sibling.VALUE==7 and sys.dont_write_bytecode'
+        checked=subprocess.run([sys.executable,'-I','-B','-c',code,str(imports)],capture_output=True,timeout=30)
+        self.assertEqual((checked.returncode,checked.stdout,checked.stderr),(0,b'',b''))
+        driver.verify_harness_snapshot(driver.harness_snapshot(imports,import_map),import_map)
+        command=[sys.executable,'-I','-B',str(HERE/'evidence_evaluation_worker.py'),'serve','ordinary_log']
         source_paths=getattr(sys,'_eq117_source_paths',None)
         if source_paths is not None:
             # Explicit source-only qualification, never an installed-origin claim.
             code='import sys,json,runpy;sys.dont_write_bytecode=True;sys.path[:0]=json.loads(sys.argv[1]);sys.argv=sys.argv[2:];runpy.run_path(sys.argv[0],run_name="__main__")'
-            command=[sys.executable,'-I','-c',code,json.dumps(source_paths),*command[2:]]
+            command=[sys.executable,'-I','-B','-c',code,json.dumps(source_paths),*command[3:]]
         process = subprocess.Popen(command,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
         try:
             stdout, stderr = process.communicate(b'',timeout=30)

@@ -51,6 +51,28 @@ def retain_calculator_observation(row: dict[str,Any], trace: dict[str,Any]) -> N
     row['calculator_calls']=count
 
 
+def harness_snapshot(directory: Path, expected: dict[str, str]) -> dict[str, dict[str, Any]]:
+    """Capture types before validation; never read unexpected files or directories."""
+    assert stat.S_ISDIR(directory.lstat().st_mode)
+    snapshot: dict[str, dict[str, Any]] = {}
+    for path in sorted(directory.iterdir()):
+        node = path.lstat()
+        kind = 'file' if stat.S_ISREG(node.st_mode) else 'directory' if stat.S_ISDIR(node.st_mode) else 'symlink' if stat.S_ISLNK(node.st_mode) else 'other'
+        row: dict[str, Any] = dict(kind=kind, bytes=node.st_size)
+        if kind == 'file' and path.name in expected:
+            raw = path.read_bytes()
+            row.update(bytes=len(raw), sha256=sha(raw))
+        snapshot[path.name] = row
+    return snapshot
+
+
+def verify_harness_snapshot(snapshot: dict[str, dict[str, Any]], expected: dict[str, str]) -> None:
+    assert set(snapshot) == set(expected), 'harness_member_set'
+    for name, digest in expected.items():
+        assert snapshot[name]['kind'] == 'file', 'harness_node_type'
+        assert snapshot[name]['sha256'] == digest, 'harness_source_changed'
+
+
 class Actor:
     def __init__(self, arm: str, logs: Path, name: str, prefix: str) -> None:
         self.logs, self.name = logs, name
@@ -62,7 +84,7 @@ class Actor:
         env = dict(os.environ)
         for key in ('PYTHONPATH', 'PYTHONHOME', 'MYPYPATH'):env.pop(key, None)
         self.started = time.perf_counter_ns()
-        self.process = subprocess.Popen([sys.executable, '-I', str(HERE/'evidence_evaluation_worker.py'), 'serve', arm],
+        self.process = subprocess.Popen([sys.executable, '-I', '-B', str(HERE/'evidence_evaluation_worker.py'), 'serve', arm],
             cwd=logs.parent, env=env, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
             creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
         def stdout() -> None:

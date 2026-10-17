@@ -11,9 +11,12 @@ import os
 from pathlib import Path
 import platform
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
+
+sys.dont_write_bytecode = True
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT/'dist/evidence-evaluation'
@@ -150,8 +153,22 @@ def main():
         harness=owned/'harness';harness.mkdir()
         for p in HARNESS+('tests/evidence_evaluation/test_evaluation.py',):
             (harness/Path(p).name).write_bytes(selected[p])
-        harness_map={p.name:sha(p.read_bytes()) for p in harness.iterdir()}
-        run(py,'-I',harness/'test_evaluation.py')
+        harness_map={Path(p).name:sha(selected[p]) for p in HARNESS+('tests/evidence_evaluation/test_evaluation.py',)}
+        assert len(harness_map)==len(HARNESS)+1
+        # Verify the owned verifier source and exact flat input set before import.
+        assert {p.name for p in harness.iterdir()}==set(harness_map)
+        for name,digest in harness_map.items():
+            path=harness/name
+            assert stat.S_ISREG(path.lstat().st_mode) and sha(path.read_bytes())==digest
+        driver_tools=module('_eq117_harness_closure',harness/'run_evidence_evaluation.py')
+        def check_harness(stage):
+            snapshot=driver_tools.harness_snapshot(harness,harness_map)
+            report.setdefault('harness_closure',{})[stage]=snapshot
+            save()  # Preserve actual node/type/hash evidence even on refusal.
+            driver_tools.verify_harness_snapshot(snapshot,harness_map)
+        check_harness('before_qualification')
+        run(py,'-I','-B',harness/'test_evaluation.py')
+        check_harness('after_qualification')
         report['qualification_methods']=9
         after=audit.installed(py,list(PACKAGES),paths,helper,run);assert before==after
         environment=json.loads(run(py,'-I','-c',
@@ -170,9 +187,9 @@ def main():
             context_path=owned/'context.json';context_raw=encoded(context);assert len(context_raw)<=65536
             context_path.write_bytes(context_raw)
             # The study root must be absent; the driver creates it exactly once.
-            run(py,'-I',harness/'run_evidence_evaluation.py',OUT/'study',context_path)
+            run(py,'-I','-B',harness/'run_evidence_evaluation.py',OUT/'study',context_path)
             assert audit.installed(py,list(PACKAGES),paths,helper,run)==after
-            assert {p.name:sha(p.read_bytes()) for p in harness.iterdir()}==harness_map
+            check_harness('after_study')
             closure();report['status']='study_recorded';save()
     except BaseException:
         report['status']='failed';save();raise

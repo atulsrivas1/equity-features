@@ -1,6 +1,6 @@
 {
   "schema": "eq117.validation.v1",
-  "status": "corrected_accounting_source_passed_current_installed_pending",
+  "status": "postflight_source_correction_passed_current_installed_pending",
   "owner_accepted_proposal_sha256": "7405067b0360126a462bb7a66b5a89416cf93399843b0933b358760804e45073",
   "source_qualification": [
     {
@@ -290,5 +290,96 @@
     },
     "scope": "Both push qualification jobs succeeded and ZIP size/digest/source qualification identities were retained. Pre-correction only; not current corrected-source qualification or a full independent artifact audit."
   },
-  "runner_environment_capture": "Selected public run/attempt/job/runner/image identities, logical CPU count and monotonic nonadjustable perf_counter metadata are recorded. Trial requests are sequential; provider host co-load remains uncontrolled/unobserved."
+  "runner_environment_capture": "Selected public run/attempt/job/runner/image identities, logical CPU count and monotonic nonadjustable perf_counter metadata are recorded. Trial requests are sequential; provider host co-load remains uncontrolled/unobserved.",
+  "fixed_study_failure": {
+    "source_head": "b1e9a11bdcf2cb3196197a45d4d9aeaaca3cb45f",
+    "study_id": "eq117-fixed-v1-b1e9a11bdcf2",
+    "run_id": 39054264038,
+    "workflow_conclusion": "failure",
+    "diagnostic_only": true,
+    "study_adoptable": false,
+    "outer_harness_closure_verified": false,
+    "final_git_io_closure_reached": false,
+    "study_reexecuted": false,
+    "analysis_sha256": "9e8486c62352b63cdfd4a0a240951f3c9e743e4107d2e13f7c73c9cdc2e2dc1f",
+    "failure_log_sha256": "9977a567664c2299139c5b0edff4e758d4dd8be808d0c7bbb717b5742a46daaa",
+    "reviews": [
+      {
+        "reviewer": "/root/r10_review",
+        "scope": "Independent retained failed-run source and full diagnostic DATA review; no reinstall",
+        "report_sha256": "cf0e6d7d1a6007851166d432aa7214ed56a0384726034621896f5a82f02efcae"
+      },
+      {
+        "reviewer": "/root/r9_independent_audit",
+        "scope": "Independent actual run/artifacts/raw320packets and full fixed-score diagnostic audit; no reinstall",
+        "report_sha256": "7bd25b2543a7d6f21bdddc7d6c244fa898527308e4db35bdd9b1db46fe437f3f"
+      },
+      {
+        "reviewer": "/root/r9_independent_audit",
+        "scope": "Rendered full32 timing failure rows and four strata/counts/formulas",
+        "report_sha256": "7324efee8f277e3b652580fcd1ebdb433f5dd5d0f933bc4bd9e6deb4c59dd611"
+      }
+    ],
+    "failure": {
+      "stage": "Final full10-file harness closure after driver and installed033",
+      "cause": "Generated __pycache__ directory read as file; Linux IsADirectoryError and Windows PermissionError",
+      "review_miss": "Prestudy qualification did not exercise/check final copied harness closure; author and separate source reviews missed bytecode generation.",
+      "disposition": "Preserve actual FAILED run and old positive-collector refusal. Fix source and qualify separately without repeating this study. No unchanged-input complete-closure transfer is claimed."
+    },
+    "full_diagnostic_report": "EQ117_DIAGNOSTIC_RESULTS.json"
+  },
+  "owner_product_decision": {
+    "schema": "eq117.product_decision.v1",
+    "decision": "DEFER",
+    "owner_answer": "Accept DEFER and revise R13 scope (Recommended)",
+    "date": "2026-10-17",
+    "study_run": 39054264038,
+    "study_adoptable": false,
+    "study_reexecution_selected": false,
+    "selected_r13_stories": [
+      "EQ116",
+      "EQ117",
+      "EQ120"
+    ],
+    "future_backlog_stories": [
+      "EQ118",
+      "EQ119"
+    ],
+    "future_stories_implemented": false,
+    "witness_selected": false,
+    "scope": "Finish EQ117/EQ120 with the negative findings and supported local-pilot documentation. Move unselected EQ118/EQ119 witness stories to future release Backlog; no future release/date/party/operations are selected.",
+    "limits": "Owner product/scope decision is not qualified-study adoption, implementation/release acceptance, human usefulness evidence or witness-operation permission."
+  },
+  "postflight_correction": {
+    "source_id": "f0ed639a13e3",
+    "returncode": 0,
+    "methods": 9,
+    "source_unchanged": true,
+    "harness_exact_inventory_unchanged": true,
+    "result_sha256": "483d192bf5067875d7d7c1cb9ac6c96c1c3da2fdb9bd866024e3c3ced47edd34",
+    "stderr_sha256": "2f359de6d3593ab588c636eb3288ddc477dc718eb2966f08c43aaba7dbfc1637",
+    "source_map": {
+      "examples/evidence_evaluation_observer.py": "a6d4128102b02bc226497eaf7fa85c63ba0378884691b121e513fbe04ed53ee0",
+      "examples/evidence_evaluation_producer.py": "d414baedc32206e3d4072a1782876433495d20bbb685900d1138af36d0620141",
+      "examples/evidence_evaluation_instrumentation.py": "4cd335a2cf9969d7fad3ad24ccda433dd72204fc15b918d9831ee272725d73f9",
+      "examples/evidence_evaluation_worker.py": "5e095391022a4d10cae657b06673866649a93794fc01510143199df9985ea838",
+      "examples/evidence_evaluation_scoring.py": "76f5d9a480ca5a8c302aaaef5cc949effe432cabac9893414c09186c615ad0cd",
+      "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+      "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+      "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+      "tests/evidence_evaluation/test_evaluation.py": "0f154e54fc547b12c00a09cd9c0d9eb19dd64c69d7b1bbe05e2bb9319b3d4fd8",
+      "tools/run_evidence_evaluation.py": "11213354724dda4bf930b857cb42f2ba7bf744d6be4750adfbffe81c8a4f2ce4"
+    },
+    "review_sha256": "11e309b8a2077f6927b269e5335b98a46003d0e2bb671b689adf46be859668e5",
+    "installed_qualification": false,
+    "study_reexecuted": false,
+    "limits": "New source-only qualification; never adopts or replaces the failed diagnostic study."
+  },
+  "postflight_tooling_history": [
+    "Original positive collector refused failed qualification status after retaining actual artifacts; reviewed failure-aware DATA collector recomputed metrics without product execution.",
+    "Rework controller first review capture raced a corrected file; original wrong-SHA finding binding is preserved and superseded by exact final review.",
+    "Diagnostic renderer failed before output on cp1252 decoding and wrong summary-field assumptions; corrected UTF8/actual median keys before draft and independent table review.",
+    "Postflight qualification controller now binds exact prepared command/manifest and preparer raw hashes before its one execution.",
+    "Owner accepted DEFER and explicit scope resolution; live witness issues remain open Backlog without milestone14."
+  ]
 }

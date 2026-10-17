@@ -1,3 +1,11 @@
+## Owner-approved R13 scope revision — October17,2026
+
+The owner accepts [EQ117 DEFER](stories/EQ117_PRODUCT_DECISION.json) after reviewing the negative diagnostic findings. R13 now selects **EQ116, EQ117 and EQ120** (11 provisional runtime points plus accepted GOV025's3 governance points). EQ116 is accepted Done; EQ117 is In progress for the failed postflight harness correction/report and EQ120 awaits EQ117 delivery. No release date is promised.
+
+[EQ118#224](https://github.com/atulsrivas1/equity-features/issues/224) and [EQ119#225](https://github.com/atulsrivas1/equity-features/issues/225) remain OPEN/Project Backlog, unimplemented and removed from milestone14; no future release is assigned. E17's active checklist selects116/117/120, with the witness stories retained as explicit future dependencies. This is owner-authorized scope resolution, not witness completion or cancellation. E17/milestone14 remain open until the selected stories and all delivery gates pass. Original allocation below is retained as history.
+
+The sole fixed study FAILED final harness closure and remains diagnostic-only; [all findings](stories/EQ117_DIAGNOSTIC_RESULTS.md) are retained without a replacement run. No demonstrated human usefulness, independent trust need, witness party/transport/operations, hosting, new repository or R14 selection follows from this decision. R7 automation stays paused.
+
 ## Current owner selection
 
 Owner requests R13 implementation after accepted GOV025/PR422. Begin [EQ116 preparation](stories/EQ116_IMPLEMENTATION_PLAN.md), [oracles](stories/EQ116_ORACLES.json), [source map](stories/EQ116_INPUTS.json) and [qualification](stories/EQ116_QUALIFICATION_PLAN.md). Original scope/24points/dependencies remain. Implementation-review route/Ready are pending; no evaluation thresholds or witness operation accepted. Earlier handoff-only notice is historical.
