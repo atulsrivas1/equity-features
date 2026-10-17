@@ -1,6 +1,6 @@
 ## October16,2026 — prepare R13 after R12 review
 
-Owner requests R12 review and R13 handoff under [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421). Preparation only preserves original116–120/24points and conditional witnesses; adds3governance points. No execution, threshold acceptance, outreach or remote witness inferred. [R13 gates](../R13_RELEASE_PLAN.md). Existing R12 review grant is not extended by inference. Prior accepted receipts and scope decisions remain.
+Owner requests R12 review and R13 handoff under [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421). Preparation only preserves original116–120/24points and conditional witnesses; adds3governance points. No execution, threshold acceptance, outreach or remote witness inferred. [R13 gates](../R13_RELEASE_PLAN.md). Owner separately authorizes local review of concrete PR422/GOV025 planning and publication only; no R13 implementation grant or execution selection follows. Prior accepted receipts and scope decisions remain.
 
 ## EQ112 changing-ratios coverage correction
 
