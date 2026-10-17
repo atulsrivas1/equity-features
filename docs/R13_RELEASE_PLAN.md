@@ -1,3 +1,7 @@
+## Current owner selection
+
+Owner requests R13 implementation after accepted GOV025/PR422. Begin [EQ116 preparation](stories/EQ116_IMPLEMENTATION_PLAN.md), [oracles](stories/EQ116_ORACLES.json), [source map](stories/EQ116_INPUTS.json) and [qualification](stories/EQ116_QUALIFICATION_PLAN.md). Original scope/24points/dependencies remain. Implementation-review route/Ready are pending; no evaluation thresholds or witness operation accepted. Earlier handoff-only notice is historical.
+
 # R13 release plan — evidence pilot and conditional witnesses
 
 Prepared October16,2026 under [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421), [E17#221](https://github.com/atulsrivas1/equity-features/issues/221), [milestone14](https://github.com/atulsrivas1/equity-features/milestone/14). Owner requests R12 review and R13 handoff preparation only. Runtime stories remain Backlog/unassigned. No implementation, evaluation or new session is selected. GitHub Project is current authority; no date promised.

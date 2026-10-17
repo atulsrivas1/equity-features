@@ -1,3 +1,7 @@
+## Current execution selection
+
+Owner requests R13 implementation. GOV025 is [accepted Closed/Done](https://github.com/atulsrivas1/equity-features/issues/421#issuecomment-6227579933) at main2f81626e3143ae6b10ce2b819780029314554995 after54candidate/27main and independent final readback. Reuse that handoff; do not repeat its acceptance. Resume [EQ116 exact plan](stories/EQ116_IMPLEMENTATION_PLAN.md) and [qualification](stories/EQ116_QUALIFICATION_PLAN.md), settle implementation review route and Ready, then one story at a time. No new product execution/measurement has occurred. Threshold and conditional witness gates remain. Earlier handoff-only text retains historical scope.
+
 # R13 preparation handoff
 
 Prepared October16,2026 under [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421). Owner requests R12 review and R13 handoff only, not implementation or a new session. [R12 accepted](https://github.com/atulsrivas1/equity-features/issues/212#issuecomment-6224646223) at canonical `747fc9adcd85e0c4a8dca161fd4f545b2230434f`. Read [fresh review](reviews/R12_POST_DELIVERY_REVIEW.md), [release plan](R13_RELEASE_PLAN.md), [tests](R13_TEST_STRATEGY.md), [first-story plan](stories/EQ-116_PLAN.md), [pilot](EVIDENCE_SERVICE_PILOT.md), work agreements/knowledge/delivery and live Project first.

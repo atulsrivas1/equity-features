@@ -1,3 +1,11 @@
+## EQ116 — external local comparison using unchanged packages
+
+The [reviewed implementation contract](../stories/EQ116_IMPLEMENTATION_PLAN.md) composes eight existing distributions in a trusted local example; it adds no package/API/schema/version/algorithm, receipt/registry, worker/MCP/service or calculation I/O. Ordinary structured logs receive the same shared facts/artifacts and their own terminal information as existing public event/ledger evidence. New strict diagnostic observations remain separate from the unchanged advisory assessment. [Closed export protocol](../stories/EQ116_PROTOCOL.md) and [validation](../stories/EQ116_VALIDATION.json) define source/installed/measurement distinctions. This selects correctness/comparability work, not EQ117 thresholds, benefit claims, model authentication or independent witness operations.
+
+## R13 execution selection after delivered handoff
+
+Owner requests R13 implementation after [GOV025 accepted](https://github.com/atulsrivas1/equity-features/issues/421#issuecomment-6227579933). Prepare original EQ116 first, retaining24points/conditional witness and owner threshold gates. Existing local grant remains planning-only until explicitly extended or supported hosted implementation review completes. Architecture: external existing-API pilot and strong equal-facts structured-log baseline; no competing ledger. Preserve the clean-only legacy history helper. [Concrete plan](../stories/EQ116_IMPLEMENTATION_PLAN.md).
+
 ## October16,2026 — prepare R13 after R12 review
 
 Owner requests R12 review and R13 handoff under [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421). Preparation only preserves original116–120/24points and conditional witnesses; adds3governance points. No execution, threshold acceptance, outreach or remote witness inferred. [R13 gates](../R13_RELEASE_PLAN.md). Owner separately authorizes local review of concrete PR422/GOV025 planning and publication only; no R13 implementation grant or execution selection follows. Prior accepted receipts and scope decisions remain.

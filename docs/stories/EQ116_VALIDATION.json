@@ -1,0 +1,115 @@
+{
+  "schema": "eq116.validation.v1",
+  "state": "implementation_source_snapshot_not_live_lifecycle",
+  "source_trials": [
+    {
+      "classification": "Windows source unit checks with explicit PYTHONPATH; not installed qualification",
+      "status": "FAILED",
+      "methods": 18,
+      "passed": 16,
+      "errors": 2,
+      "returncode": 1,
+      "pilot_sha256": "742d34e5a889041ca878ce3738e22764a6108f2a2057902cd3b8383a47597abf",
+      "tests_sha256": "30d09ce004d0f2ade04f3ad2074b9108bfa10bfbf6d551b9c3fa314a42e90f9e",
+      "log_sha256": "549d441c899719ed5162cd33f3a1157901f3438af2110f7cf1d8a0e8518214e5",
+      "diagnosis": "CanonicalBatch content sorts columns; original tuple order is not logical content identity. Incorrect direct equality refused valid decoded input."
+    },
+    {
+      "classification": "Distinct corrected Windows source unit trial; not installed qualification",
+      "status": "PASSED",
+      "methods": 19,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "returncode": 0,
+      "pilot_sha256": "d0397b30df5c78293045b9af628edee0745f34a8ea65b675c58e884e4ff22eed",
+      "tests_sha256": "baec7015bc55be77b61dc9e167f311b83662a5ccee30a10819a744e5e255c22e",
+      "log_sha256": "2dfaab16f45314745a5af99dae00cc98943c6248abd94a908f55c2cdec09b728",
+      "scope": "19 methods include full immutable expectations, 16 paired compute reader observations, actual original/replay calls, SQLite close/reopen and tamper/boundary controls. These are not 64 installed observations."
+    },
+    {
+      "classification": "Expanded explicit boundary controls; Windows source paths, not installed qualification",
+      "status": "PASSED",
+      "methods": 19,
+      "failures": 0,
+      "errors": 0,
+      "skips": 0,
+      "returncode": 0,
+      "pilot_sha256": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+      "tests_sha256": "513734cc794cb3f09e700ab771275235a38513a2cc5d2d3afc5858484c728d5b",
+      "log_sha256": "55d1097f3671037e3fcbc5bc58cdeeb1ed39093ce92fd7cc3124aa610dfc7b9c",
+      "scope": "Seven added subcases within existing19methods: renamed file; lower-level exact65536 and65537 read cap; invalid event schema/kind/fixedtool name/version. Earlier trials retain original scopes."
+    }
+  ],
+  "typing": {
+    "initial_status": "FAILED_three_errors",
+    "correction": "Two explicit Any-to-dictionary casts and non-null narrowing inside an existing retained-input branch; no numerical or encoding change.",
+    "corrected_status": "PASSED_two_source_files",
+    "evidence_scope": "Author tool stdout, no separately retained raw strict log or independent reproduction",
+    "delta_review_sha256": "9a0693b08403676b4f1d1b42e295356a7edee8737f6d9872152414a60252a7a9"
+  },
+  "reviews": {
+    "initial_precode_rework": "3801bbaff2d08cb37c03bef9fb4bbfd46eee3a560e3a4fe404555ba01d280faf",
+    "corrected_precode_semantics": "c36a2830b295ccd0fc32d2c735b43c53bfba1926ceb46e677f6cadef0ccc6122",
+    "public_ready_readback": "5b92458d3343d9378136e954822539eebfce8c260d4463fa2a08aeb3875c6305",
+    "initial_source_rework": "11ea02fe0e33c7ddd74c7314571ed4fcd0ef47793fa13c990e18ec0890b42528",
+    "column_order_correction": "dcc98e8f847da1d19d6c9be0c79911fc2e1cd332ef45c1e93105f1528dd26416",
+    "identity_scope": "Separate local automated Codex reviewers; no independent human review, independent reinstall or hosted activation claimed",
+    "builder_initial_rework": "41927f35592cb5037df14bf6d511c0bb3ea317bf64d3b8c681dfc2fe9aaebefe",
+    "builder_provenance_residual_rework": "ecda248e1730df6733eba8739973e4437a0026af2bf59592a526c2f67e0dd1b6",
+    "boundary_controls": "7aecbacc40e2bf5be7dd64fe70b9a24b42e085b491ee122d60923cdf33fc3d1e",
+    "implementation_public_readback": "5356a96a663b9732985649429be7a9f24217b35c6d6b57adb84d50055f7b50da",
+    "artifact_tool_initial_rework": "a4688c0b166ed191c7e3b54769a20f251e0788f3903ca1ca926172f6db7ec510",
+    "artifact_tool_final": "973c44b0f797a7b5577ee6e8ad826470463ce705ae35ed1f96cb09fbc2b2dc14"
+  },
+  "planned_installed_allocation": {
+    "systems": [
+      "Windows",
+      "Linux"
+    ],
+    "forms_per_system": [
+      "wheel-light",
+      "wheel-compute",
+      "sdist-light",
+      "sdist-compute"
+    ],
+    "cases": 8,
+    "arms": 2,
+    "observations_per_system": 64,
+    "executed_qualified_systems": [],
+    "builder_review": {
+      "status": "approved_exact_source_not_executed",
+      "report_sha256": "f8d374bb2d2d015c295ec771ea63ed6bc193a3654c20b1c922553ed88c71003e",
+      "tracked_inert_methods": 5,
+      "synthetic_installed_map_controls": 6,
+      "independent_reinstall": false
+    },
+    "actual_current_artifacts": "pending",
+    "current_candidate_checks_required": 58,
+    "current_main_checks_required": 29,
+    "new_ci_gate_review": {
+      "status": "approved_source_and_inert_controls_only",
+      "report_sha256": "3ad579d9da490ff7edb29051bb8a45b5b3513e992b402c8721181f4b8849e842",
+      "gate_sha256": "275dec7ca604a9e0d8efe7783c48b6556caed3ed69789b9952aa3bb326b662fd",
+      "positive_matrices": 6,
+      "refusal_controls": 48,
+      "actual_CI_capture": false
+    }
+  },
+  "package_algorithm_schema_versions_changed": false,
+  "usefulness_thresholds_accepted": false,
+  "usefulness_evaluation_executed": false,
+  "witness_operations_selected": false,
+  "story_done": false,
+  "release_done": false,
+  "review_corrections_after_source_publication": [
+    "Final acceptance allocation found promised rename/exact-cap/event-enum-version-tool controls were not explicit in19source methods; seven subcases added without changing methodcount or product source.",
+    "Read-only artifact audit source initial fourP2s: artifactPath shadowing; metadata/SDist policy gaps; installedgenerated kind/path gaps; rawlog-cohort bindings. Corrected before artifact execution; initial report retained.",
+    "Test transition helper initial own completedreview/selfSHA guard gap corrected before actual Code review to Test mutation."
+  ],
+  "snapshot_scope": {
+    "through_source_commit": "dd90a6f4a683c7a2c49ae4eab15886fb27f3f751",
+    "lifecycle_and_release_authority": "https://github.com/atulsrivas1/equity-features/issues/222",
+    "qualification_fields": "Planning/source-freeze allocation and source-tool execution scopes. Pending/executed flags below describe this snapshot; subsequent actual current-head candidate/main qualification, artifacts and acceptance are linked from the live story. Do not reinterpret prior source tests or source review as later platform evidence."
+  }
+}
