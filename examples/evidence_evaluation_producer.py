@@ -6,6 +6,7 @@ The observer never imports this module or receives the private producer seed.
 from __future__ import annotations
 import importlib.util
 import json
+import sys
 from pathlib import Path
 import time
 from typing import Any
@@ -43,16 +44,39 @@ def pilot_module() -> Any:
     return _PILOT
 
 
-def prepare(seed: Path, case_id: str) -> dict[str, Any]:
+def prepare(seed: Path, case_id: str, *, audit: dict[str, Any] | None = None) -> dict[str, Any]:
     """One actual shared computation per pair, explicitly outside arm timers."""
     assert not seed.exists()
+    if audit is None:
+        audit = {}
+    assert audit == {}
+    audit.update(calculator_entries=0,calculator_returns=0,calculator_errors=0,completed=False)
     pilot = pilot_module()
     oracle = pilot.oracles()
     case = next(x for x in oracle['cases'] if x['id'] == case_id)
     research = _RESEARCH
     start = time.perf_counter_ns()
     cfg, batch, golden = research.fixture(case_id == 'P02')
-    result = compute_trades(batch, cfg, entity=contracts.EntityKey('A', 'S'))
+    # Shared production is outside both arm clocks. Observe the actual accepted
+    # Python calculator entry, including a failure before any seed directory.
+    previous = sys.getprofile()
+    assert previous is None
+    entity = contracts.EntityKey('A', 'S')
+    target = compute_trades.__code__
+    def profile(frame: Any, event: str, value: Any) -> None:
+        if event == 'call' and frame.f_code is target:
+            audit['calculator_entries'] += 1
+    sys.setprofile(profile)
+    try:
+        result = compute_trades(batch, cfg, entity=entity)
+    except BaseException:
+        audit['calculator_errors'] += 1
+        raise
+    else:
+        audit['calculator_returns'] += 1
+    finally:
+        sys.setprofile(previous)
+    assert audit['calculator_entries'] == audit['calculator_returns'] == 1
     assert result == golden
     receipt = pilot._receipt(cfg, batch, result)
     explanation = encode_explanation(explain_result(result, receipt, cfg,
@@ -84,7 +108,8 @@ def prepare(seed: Path, case_id: str) -> dict[str, Any]:
     with (seed / 'facts.json').open('xb') as output:
         output.write(pilot.encoded(facts, lf=True))
     end = time.perf_counter_ns()
-    return dict(start_ns=start, end_ns=end, duration_ns=end-start, actual_calculator_calls=1,
+    audit['completed'] = True
+    return dict(start_ns=start, end_ns=end, duration_ns=end-start, actual_calculator_calls=audit['calculator_entries'],
                 seed_map={p.name: dict(bytes=p.stat().st_size, sha256=pilot.digest(p.read_bytes())) for p in seed.iterdir()})
 
 

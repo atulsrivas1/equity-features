@@ -44,6 +44,13 @@ def load(name: str) -> Any:
     return value
 
 
+def retain_calculator_observation(row: dict[str,Any], trace: dict[str,Any]) -> None:
+    """Known captured entries survive even when diagnosis/replay output failed."""
+    count=trace['counts']['calculator_call']
+    assert type(count)is int and count>=0
+    row['calculator_calls']=count
+
+
 class Actor:
     def __init__(self, arm: str, logs: Path, name: str, prefix: str) -> None:
         self.logs, self.name = logs, name
@@ -172,7 +179,8 @@ def main() -> int:
     root.mkdir();logs=root/'logs';logs.mkdir();seeds=root/'producer-seeds';seeds.mkdir();arms=root/'arms';arms.mkdir()
     with (root/'context.json').open('xb') as output:output.write(context_raw)
     rows=[];warm={};pair=None;seed=None;common=None;input_hash=None;stopped=False;actors=ACTIVE_ACTORS
-    PARTIAL_STATE.update(root=root,rows=rows)
+    preparations=[]
+    PARTIAL_STATE.update(root=root,rows=rows,preparations=preparations)
     script_hash=sha(encoded(context['source_map']));environment_id=sha(encoded(context['environment']))
     for slot in scorer.schedule():
         row=dict.fromkeys(scorer.RAW_FIELDS,None)
@@ -181,9 +189,10 @@ def main() -> int:
             installed_map_sha256=context['installed_map_sha256'],os=platform.system(),python=platform.python_version(),
             status='not_run',error_code='not_run_after_failure')
         rows.append(row)
-    # Durable full denominator before any actor starts; replaced after each slot.
+    # Retained full denominator before any actor starts; replaced after each slot.
     def checkpoint():
         (root/'observations.partial.jsonl').write_bytes(b''.join(encoded(row) for row in rows))
+        (root/'preparations.partial.json').write_bytes(encoded(preparations))
     checkpoint()
     for number,row in enumerate(rows,1):
         slot={k:row[k] for k in ('case_id','arm','repetition','process_state','arm_position')}
@@ -195,7 +204,10 @@ def main() -> int:
             closure()
             if pair!=current:
                 pair=current;seed=seeds/('%02d-%s'%current)
-                common=producer.prepare(seed,slot['case_id'])
+                preparation={}
+                preparations.append(dict(repetition=slot['repetition'],case_id=slot['case_id'],audit=preparation))
+                checkpoint()
+                common=producer.prepare(seed,slot['case_id'],audit=preparation)
                 input_hash=sha(encoded(common['seed_map']))
                 with (seed/'preparation.json').open('xb') as output:output.write(encoded(common))
             assert seed is not None and common is not None and input_hash is not None
@@ -220,6 +232,7 @@ def main() -> int:
             row.update(status=value['status'],error_code=value['error_code'],diagnosis=value['diagnosis'],
                        operation_trace=value['operation_trace'],stdout_sha256=sha(raw),
                        transient_peak_bytes=value['transient_peak_bytes'])
+            retain_calculator_observation(row,value['operation_trace'])
             sequence=value['operation_events']
             assert sequence is not None and sha(json.dumps(sequence,separators=(',',':')).encode('ascii'))==value['operation_trace']['sequence_sha256']
             counts=[0]*len(scorer.OPERATIONS);api_counts=dict.fromkeys(scorer.API_CATEGORIES,0)
@@ -237,10 +250,11 @@ def main() -> int:
             if value['diagnosis'] is not None:
                 diagnosis=value['diagnosis']
                 for target,source in (('anchor_status','anchor'),('retention','retention'),('model_identity','model_identity'),
-                    ('narrative_status','narrative_status'),('replay_status','replay_status'),('calculator_calls','calculator_calls'),
+                    ('narrative_status','narrative_status'),('replay_status','replay_status'),
                     ('declared_strict_admission','declared_strict_admission'),('recomputed_strict_admission','recomputed_strict_admission'),
                     ('recomputed_strict_reason','recomputed_strict_reason')):row[target]=diagnosis[source]
                 assert row['calculator_calls']==row['operation_trace']['counts']['calculator_call']
+                assert row['calculator_calls']==diagnosis['calculator_calls']
             files=value['closed_files']
             actual={p.name:dict(bytes=p.stat().st_size,sha256=sha(p.read_bytes())) for p in destination.iterdir()
                     if stat.S_ISREG(p.lstat().st_mode)}
@@ -281,7 +295,11 @@ def main() -> int:
     summary.update(study_id=context['study_id'],source_head=context['source_head'],proposal_sha256=scorer.PROPOSAL_SHA256,
         source_map_sha256=script_hash,context_sha256=sha(context_raw),raw_observations_sha256=sha(raw),
         raw_observation_and_log_bytes=captured,stopped_after_error=stopped,
-        shared_preparations=sum(p.is_dir() for p in seeds.iterdir()),shared_initial_calculator_calls=sum(p.is_dir() for p in seeds.iterdir()),
+        shared_preparations=sum(x['audit'].get('completed') is True for x in preparations),
+        shared_initial_calculator_calls=sum(x['audit'].get('calculator_entries',0) for x in preparations),
+        shared_calculator_returns=sum(x['audit'].get('calculator_returns',0) for x in preparations),
+        shared_calculator_errors=sum(x['audit'].get('calculator_errors',0) for x in preparations),
+        shared_preparation_states=preparations,
         actor_closure=[dict(name=a.name,actual_return_code=a.process.poll(),readers_joined=all(not t.is_alive() for t in a.readers),stderr_overflow=a.overflow) for a in actors],
         launch_import_scope='parent-clock actual process start to HELLO; warm session duration is a shared reference in its40rows, not40launches')
     with (root/'summary.json').open('xb') as output:output.write(encoded(summary))
@@ -298,6 +316,7 @@ if __name__=='__main__':
             if PARTIAL_STATE:
                 (PARTIAL_STATE['root']/'observations.partial.jsonl').write_bytes(
                     b''.join(encoded(row) for row in PARTIAL_STATE['rows']))
+                (PARTIAL_STATE['root']/'preparations.partial.json').write_bytes(encoded(PARTIAL_STATE['preparations']))
     except BaseException:
         # Preserve partial denominator and logs even if scoring or final closure fails.
         if len(sys.argv)==3:

@@ -155,7 +155,8 @@ def main():
         report['qualification_methods']=9
         after=audit.installed(py,list(PACKAGES),paths,helper,run);assert before==after
         environment=json.loads(run(py,'-I','-c',
-            'import sys,platform,json;print(json.dumps(dict(prefix=sys.prefix,executable=sys.executable,python=platform.python_version(),platform=platform.platform(),machine=platform.machine(),processor=platform.processor())))'))
+            'import sys,platform,json,os,time;c=time.get_clock_info("perf_counter");print(json.dumps(dict(prefix=sys.prefix,executable=sys.executable,python=platform.python_version(),platform=platform.platform(),machine=platform.machine(),processor=platform.processor(),logical_cpu_count=os.cpu_count(),clock=dict(implementation=c.implementation,monotonic=c.monotonic,adjustable=c.adjustable,resolution_seconds=c.resolution),runner={k:os.environ.get(k) for k in ("GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_JOB","RUNNER_NAME","RUNNER_OS","ImageOS","ImageVersion")},concurrency_scope="Sequential trial requests; two retained warm actors; provider host co-load is unobserved and uncontrolled.")))'))
+        assert environment['clock']['monotonic'] is True and environment['clock']['adjustable'] is False
         assert Path(environment['prefix']).resolve()==py.parent.parent.resolve()
         report.update(installed=after,environment=environment,harness_source_map=harness_map,
                       selected_wheels={p.name:sha(p.read_bytes()) for p in paths},status='qualified')

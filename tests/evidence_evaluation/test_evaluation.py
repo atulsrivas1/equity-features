@@ -67,6 +67,15 @@ class Qualification(unittest.TestCase):
         original = session.compute_trades
         self.assertEqual(observer.observe(root, 'ordinary_log')['calculator_calls'], 1)
         self.assertIs(session.compute_trades, original)
+        audit={}
+        def failed_calculator(*args,**kwargs):
+            raise RuntimeError('synthetic qualification entry failure')
+        with patch.object(producer,'compute_trades',failed_calculator):
+            with self.assertRaises(RuntimeError):
+                producer.prepare(self.root/'failed-shared-preparation','P01',audit=audit)
+        self.assertEqual(audit,dict(calculator_entries=1,calculator_returns=0,calculator_errors=1,completed=False))
+        self.assertFalse((self.root/'failed-shared-preparation').exists())
+        self.assertIsNone(sys.getprofile())
 
     def test_foreign_baseline_context_rejected(self):
         root = self.recorded('P01', 'ordinary_log')
@@ -166,6 +175,20 @@ class Qualification(unittest.TestCase):
                     self.assertEqual(result['operation_trace']['cli_invocations'],0)
                     self.assertTrue(scorer.exact(result['diagnosis'],scorer.expected(case,oracle)))
                     self.assertEqual(json.loads(output.getvalue()),result)
+        actual_observe=worker.observer.observe
+        def fail_after_entry(directory,arm):
+            actual_observe(directory,arm)
+            raise RuntimeError('synthetic post-entry observation failure')
+        ticks=iter((10,20,30,45,50,75));output=io.BytesIO()
+        with patch.object(worker.observer,'observe',fail_after_entry),patch.object(sys,'stdout',SimpleNamespace(buffer=output)):
+            failed=worker.trial(seed,self.root/'failed-after-calculator','ordinary_log','qualification-failure',
+                                clock=lambda:next(ticks),actual_cli_invocations=0)
+        self.assertEqual(failed['status'],'failed')
+        self.assertIsNone(failed['diagnosis'])
+        self.assertEqual(failed['operation_trace']['counts']['calculator_call'],1)
+        driver=load('run_evidence_evaluation');row={}
+        driver.retain_calculator_observation(row,failed['operation_trace'])
+        self.assertEqual(row['calculator_calls'],1)
 
 
 if __name__=='__main__':

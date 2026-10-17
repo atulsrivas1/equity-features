@@ -252,7 +252,8 @@ def score(rows: list[dict[str, Any]], oracle: dict[str, Any], systems: tuple[str
         failed=sum(x['status']=='failed' for x in rows), not_run=sum(x['status']=='not_run' for x in rows),
         exact_correct=matched, wrong_or_unavailable=len(rows)-matched, eligible_replay_matches=replay_matches,
         observed_calculator_calls=sum(row['calculator_calls'] for row in rows if row['calculator_calls'] is not None),
-        calculator_call_observations_unavailable=sum(row['calculator_calls'] is None for row in rows),
+        calculator_call_observations_unavailable=sum(row['status']!='valid' or row['calculator_calls'] is None for row in rows),
+        calculator_call_observation_scope='Observed captured entries are retained for failed rows too; failed/missing observations have unknown full coverage and may contain additional unobserved entries.',
         replay_status_counts={status:sum((row['replay_status'] or 'unavailable_observation')==status for row in rows)
             for status in sorted({row['replay_status'] or 'unavailable_observation' for row in rows})},
         required_eligible_replays=120*len(systems), missing_corrupt_zero_calls=zero_safe,
