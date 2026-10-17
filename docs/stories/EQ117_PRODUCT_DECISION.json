@@ -1,0 +1,22 @@
+{
+  "schema": "eq117.product_decision.v1",
+  "decision": "DEFER",
+  "owner_answer": "Accept DEFER and revise R13 scope (Recommended)",
+  "date": "2026-10-17",
+  "study_run": 39054264038,
+  "study_adoptable": false,
+  "study_reexecution_selected": false,
+  "selected_r13_stories": [
+    "EQ116",
+    "EQ117",
+    "EQ120"
+  ],
+  "future_backlog_stories": [
+    "EQ118",
+    "EQ119"
+  ],
+  "future_stories_implemented": false,
+  "witness_selected": false,
+  "scope": "Finish EQ117/EQ120 with the negative findings and supported local-pilot documentation. Move unselected EQ118/EQ119 witness stories to future release Backlog; no future release/date/party/operations are selected.",
+  "limits": "Owner product/scope decision is not qualified-study adoption, implementation/release acceptance, human usefulness evidence or witness-operation permission."
+}

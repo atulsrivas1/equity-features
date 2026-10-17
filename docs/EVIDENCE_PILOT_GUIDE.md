@@ -1,3 +1,7 @@
+## Evaluation outcome: DEFER expansion
+
+The owner accepted [DEFER and revised R13 scope](stories/EQ117_PRODUCT_DECISION.json). [The sole evaluation run](stories/EQ117_DIAGNOSTIC_RESULTS.md) completed320 exact diagnostic observations but failed final harness closure; it is diagnostic-only and not a fully qualified study. Recorded export timings exceeded the accepted budget in all32 strata/case comparisons; the optional operation target was not met. Human usefulness, demand and independent trust need remain unknown. EQ116's accepted local replay/diagnostic example retains its original guarantees; this decision adds no production, authenticity or independent-witness guarantee. EQ118/EQ119 remain unimplemented future Backlog.
+
 # Fixed local evidence pilot
 
 EQ116 composes the existing calculation, receipt, diagnostic, explanation, event, ledger and reproduction APIs into an external synthetic consumer. [Live story](https://github.com/atulsrivas1/equity-features/issues/222), [plan](stories/EQ116_IMPLEMENTATION_PLAN.md), [closed protocol](stories/EQ116_PROTOCOL.md), [full expected data](stories/EQ116_ORACLES.json). The live story records the current lifecycle and release evidence. Source-check snapshots below do not by themselves establish installed qualification or release.

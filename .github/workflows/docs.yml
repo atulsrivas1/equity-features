@@ -23,11 +23,13 @@ jobs:
           for name in ('AGENTS.md', 'README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'docs/DELIVERY_POLICY.md', 'docs/PUBLIC_DEVELOPMENT.md', 'docs/SESSION_HANDOFF.md', 'docs/PACKAGE_DESIGN.md', 'docs/BACKLOG.md', 'docs/DASHBOARD.md', 'docs/features/V1_SCOPE.md'):
               assert Path(name).is_file(), name
           text = Path('docs/BACKLOG.md').read_text()
-          stories = re.findall(r'^\| (EQ-\d{3}) \| (R\d+(?:\.\d+)?) \|', text, re.M)
+          stories = re.findall(r'^\| (EQ-\d{3}) \| (R\d+(?:\.\d+)?|Future Backlog \(unselected\)) \|', text, re.M)
           assert len(stories) == 134
           assert {x for x, _ in stories} == {f'EQ-{i:03}' for i in range(1, 136)} - {'EQ-094'}
           assert {sid for sid, release in stories if release == 'R4.1'} == {f'EQ-{i:03}' for i in range(121, 131)}
           assert {sid for sid, release in stories if release == 'R14'} == {f'EQ-{i:03}' for i in range(131, 136)}
+          assert {sid for sid, release in stories if release == 'Future Backlog (unselected)'} == {'EQ-118', 'EQ-119'}
+          assert {sid for sid, release in stories if release == 'R13'} == {'EQ-116', 'EQ-117', 'EQ-120'}
           assert Path('docs/IO_WORKER_ARCHITECTURE.md').is_file()
           assert Path('docs/R4_1_DELIVERY_PLAN.md').is_file()
           assert Path('docs/R4_1_AUTONOMOUS_HANDOFF.md').is_file()

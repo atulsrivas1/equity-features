@@ -1,3 +1,7 @@
+## R13 evaluation decision: DEFER expansion
+
+The owner accepted [DEFER and revised R13 scope](stories/EQ117_PRODUCT_DECISION.json): finish EQ116/EQ117/EQ120, with unimplemented EQ118/EQ119 open in future Backlog outside milestone14. The [sole evaluation](stories/EQ117_DIAGNOSTIC_RESULTS.md) completed320 exact observations but FAILED final harness closure and remains diagnostic-only/nonadoptable. All32 export timing comparisons exceeded the accepted budget; no case met the optional operation target. Human usefulness, demand and independent trust need remain unknown. Postflight source qualification passed; fresh installed qualification and delivery gates remain pending; no replacement study or witness operation is selected. Older planning/source snapshots below retain their historical scope.
+
 # R13 test and evaluation strategy
 
 Planning only. Read [release gates](R13_RELEASE_PLAN.md), [original pilot](EVIDENCE_SERVICE_PILOT.md) and [EQ116](stories/EQ-116_PLAN.md). No experiment, measurement or threshold approval has occurred under this packet.

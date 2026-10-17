@@ -1,0 +1,223 @@
+{
+  "schema": "eq117.evaluation.proposal.v1",
+  "status": "PROPOSED_NOT_OWNER_ACCEPTED",
+  "owner_threshold_acceptance": null,
+  "issue": 223,
+  "epic": 221,
+  "milestone": 14,
+  "points": 3,
+  "accepted_eq116_main": "4ed271db3c4dc01a067b6583f91736d88aecc6de",
+  "scope": "Controlled automated internal assessment only; human usefulness and independent trust need UNKNOWN; product/witness decision DEFER unless separately justified and authorized.",
+  "arms": [
+    "ordinary_log",
+    "evidence_ledger"
+  ],
+  "cases": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08"
+  ],
+  "platforms": [
+    "Windows",
+    "Linux"
+  ],
+  "form": "fresh wheel-compute with all eight accepted distributions; no package changes",
+  "repetitions_per_case_arm_os": 10,
+  "process_cold_repetitions": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "process_warm_repetitions": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "case_order_odd_repetitions": [
+    "P01",
+    "P05",
+    "P03",
+    "P07",
+    "P02",
+    "P06",
+    "P04",
+    "P08"
+  ],
+  "case_order_even_repetitions": [
+    "P08",
+    "P04",
+    "P06",
+    "P02",
+    "P07",
+    "P03",
+    "P05",
+    "P01"
+  ],
+  "arm_order": "ordinary_log first when (one-based repetition + stable case index P01=1 through P08=8) is even; evidence_ledger first otherwise. Stable index never changes with the presented case order.",
+  "planned_case_arm_observations": 320,
+  "planned_replay_entries": 240,
+  "planned_unavailable_or_corrupt_zero_call_observations": 80,
+  "stopping_rule": "Exactly ten repetitions per case/arm/OS. Retain every failure. No adaptive stopping, retries, dropping outliers or extra warmups. On safety/fixture/pin mismatch stop the run, mark all remaining slots NOT_RUN and invalidate the aggregate. Resume only with reviewed new run identity; do not overwrite or choose a successful rerun.",
+  "thresholds": {
+    "correctness": {
+      "required_exact_observations": 320,
+      "allowed_wrong_diagnoses": 0,
+      "allowed_clean_false_positives": 0,
+      "required_eligible_replay_matches": 240,
+      "allowed_missing_or_corrupt_calculator_calls": 0
+    },
+    "logical_storage": {
+      "per_case_evidence_total_max": "2 * ordinary_log_total_bytes + 32768",
+      "units": "closed regular-file st_size bytes, plus separately reported transient peak and file counts; no containment claim"
+    },
+    "elapsed_overhead": {
+      "per_os_case_process_state_stage_median_max": "2 * ordinary_log_median_ns + 5000000",
+      "stages": [
+        "record",
+        "export",
+        "read_verify_replay"
+      ],
+      "absolute_slack_ns": 5000000,
+      "ratio_coefficient": 2,
+      "zero_or_missing_baseline": "show absolute paired differences; missing timing invalidates threshold, never zero-fill"
+    },
+    "automated_operation_improvement": {
+      "minimum_reduction_fraction": 0.2,
+      "minimum_cases_per_os_process_state": 6,
+      "case_count": 8,
+      "same_correctness_required": true,
+      "metric": "count of traced semantic operations; CLI/process wrappers cannot collapse internal work",
+      "interpretation": "optional automation-convenience signal only; neither this nor elapsed time establishes human benefit",
+      "aggregation": "For each OS/case/process-state, use (median baseline total operations - median evidence total operations) / median baseline total operations over all five scheduled valid repeats. At least6/8cases in EACH OS/process-state must reach0.20; all five slots must be valid or the case cannot pass. Zero baseline has undefined reduction and cannot pass; paired reductions reported descriptively only."
+    },
+    "product_go": "NOT admissible from this automated assessment alone. Without authorized human evidence and explicit owner decision, publish DEFER even if all technical thresholds pass.",
+    "witness_go": "NOT admissible from same-owner terminals; independent-party trust need, selection and operational authority remain separate."
+  },
+  "raw_bounds": {
+    "trial_jsonl_record_bytes": 16384,
+    "trial_records": 320,
+    "context_bytes": 65536,
+    "per_trial_stdout_bytes": 65536,
+    "per_trial_stderr_bytes": 65536,
+    "aggregate_observation_and_log_bytes": 67108864,
+    "on_limit": "mark invalid/overflow; preserve prefix and failure, no complete-log claim or continuation mutation"
+  },
+  "raw_fields": [
+    "run_id",
+    "proposal_sha256",
+    "runner_source_map_sha256",
+    "input_map_sha256",
+    "environment_id",
+    "os",
+    "python",
+    "installed_map_sha256",
+    "case_id",
+    "arm",
+    "repetition",
+    "process_state",
+    "arm_position",
+    "status",
+    "error_code",
+    "diagnosis",
+    "anchor_status",
+    "retention",
+    "model_identity",
+    "narrative_status",
+    "replay_status",
+    "calculator_calls",
+    "operation_trace",
+    "record_ns",
+    "export_ns",
+    "read_verify_replay_ns",
+    "launch_import_ns",
+    "common_fixture_compute_ns",
+    "closed_file_bytes",
+    "file_count",
+    "transient_peak_bytes",
+    "stdout_sha256",
+    "stderr_sha256",
+    "declared_strict_admission",
+    "recomputed_strict_admission",
+    "recomputed_strict_reason",
+    "return_code",
+    "record_start_ns",
+    "record_end_ns",
+    "export_start_ns",
+    "export_end_ns",
+    "read_verify_replay_start_ns",
+    "read_verify_replay_end_ns",
+    "launch_import_start_ns",
+    "launch_import_end_ns",
+    "common_fixture_compute_start_ns",
+    "common_fixture_compute_end_ns"
+  ],
+  "raw_types": "Closed schema; exact int nonbool >=0 for counters/ns/bytes and monotonic endpoints; return_code is exact signed int nonbool, null only if no observed process exit with explicit status. Strings/arrays bounded. Unsupported/unavailable endpoints are null with explicit status; unknown fields rejected. Each duration=end-start in same process/clock domain, never subtract parent from child clocks. Exact enum/string/trace bounds frozen and reviewed before execution.",
+  "human_metrics": {
+    "human_debugging_steps": null,
+    "human_elapsed_ns": null,
+    "external_participants": 0,
+    "usefulness": "UNKNOWN",
+    "demand": "UNKNOWN"
+  },
+  "no_evaluation_executed": true,
+  "no_implementation_written": true,
+  "no_package_api_math_version_change": true,
+  "solver_visibility": {
+    "common_files": {
+      "bundle.zip": "identical accepted bundle, including retained input/config/result/receipt or deliberately missing/corrupt content",
+      "task.json": "closed keys schema, trial_id, narrative only; narrative is original supplied claim, never expected verdict",
+      "declared-reports.json": "closed keys strict,advisory,explanation; original retained payload bytes, labeled producer declarations; cannot count as independently recomputed finding",
+      "terminal.json": "only this arm original independently retained expected terminal; ordinary count/length/digest or ledger chain/version/count/head, same trust authority for both"
+    },
+    "arm_files": {
+      "ordinary_log": [
+        "plain-log.json"
+      ],
+      "evidence_ledger": [
+        "events.json",
+        "ledger.sqlite"
+      ]
+    },
+    "forbidden": [
+      "observations.json",
+      "completion.json",
+      "EQ116_ORACLES.json",
+      "scorer expectations",
+      "opposite-arm stores or terminal",
+      "fixture constructors or golden results",
+      "fault-name/case-to-answer maps"
+    ],
+    "case_identifiers": "may be echoed as opaque correlation IDs; MUST NOT select diagnosis, fixture reconstruction, expected output, branch or API behavior",
+    "finding_sources": "Report declared versus independently recomputed separately. Recompute narrative/result comparisons from retained bundle and task claim; recompute strict knowledge diagnostics from retained rows/config through accepted API. A matching declared report or logged decision alone is not a correct diagnosis.",
+    "missing_input": "P05 declared strict report remains admitted but recomputed_strict_admission is UNKNOWN with reason retained_input_missing; do not substitute oracle rows. P07 declared/recomputed post-load fields are null because load refuses."
+  },
+  "expected_recomputed_strict_admission": {
+    "P01": "admitted",
+    "P02": "denied",
+    "P03": "admitted",
+    "P04": "admitted",
+    "P05": "UNKNOWN",
+    "P06": "admitted",
+    "P07": null,
+    "P08": "admitted"
+  },
+  "expected_declared_strict_admission": {
+    "P01": "admitted",
+    "P02": "denied",
+    "P03": "admitted",
+    "P04": "admitted",
+    "P05": "admitted",
+    "P06": "admitted",
+    "P07": null,
+    "P08": "admitted"
+  }
+}

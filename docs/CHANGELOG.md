@@ -1,3 +1,21 @@
+## EQ117 documentation validator reconciliation
+
+- Preserve both failed documentation jobs; recognize the owner-approved future Backlog assignments while requiring all134 active stories and exact selected/deferred R13 sets. No calculation, harness, threshold or study change.
+
+## EQ117 evaluation rework and owner DEFER — October17,2026
+
+- Preserve the sole failed-postflight320-observation run and independently reviewed diagnostic results, including all timing failures; no replacement measurement.
+- Owner selects DEFER expansion and revised R13 EQ116/EQ117/EQ120; unimplemented EQ118/EQ119 remain future Backlog outside milestone14.
+- Correct harness bytecode suppression and exact inventory checks in qualification; source controls passed; current installed verification remains pending. Calculation packages, APIs, versions and worker/MCP source are unchanged.
+
+## EQ117 unreleased accounting correction
+
+Preserve observed calculator calls across shared-preparation and post-replay failures; separate known partial observations from complete coverage. Source qualification passes nine methods including both failure controls. Record selected public runner/clock identities and concurrency limits. Fresh corrected-source installed qualification and the fixed study remain pending; accepted thresholds and package APIs/versions are unchanged.
+
+## EQ117 evaluation harness — unreleased implementation draft
+
+The owner accepted the reviewed320-observation protocol before actual Ready/In progress admission. Draft external tooling separates controlled arm writers, a generic retained-evidence observer, independent typed DATA scoring and explicit nested operation tracing. Fresh installed Windows/Linux qualification and the fixed study are pending; no usefulness, performance or witness result is claimed. Package algorithms, versions, public APIs and worker/MCP behavior are unchanged. See the [implementation plan](stories/EQ117_IMPLEMENTATION_PLAN.md) and [observation contract](stories/EQ117_OBSERVATION_CONTRACT.md).
+
 ## EQ116 paired evidence pilot — historical implementation source snapshot
 
 [Live EQ116 status and release evidence](https://github.com/atulsrivas1/equity-features/issues/222) is authoritative; the source-freeze results below retain their original scope. [R13 aggregate](https://github.com/atulsrivas1/equity-features/issues/221) remains a separate release gate.

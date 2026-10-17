@@ -1,3 +1,15 @@
+## EQ117 — preserve failed execution observations before completion artifacts
+
+A seed directory is a completion artifact, not a calculator-entry witness: a call can enter and raise first. Likewise, a final diagnosis can fail after replay entered. The corrected external evaluator observes actual selected-code entries, tracks successful returns/errors separately, journals incomplete preparations and retains known trace entries without requiring a diagnosis. Failed or missing observations still have unknown complete coverage and remain in the denominator. The two failure controls passed in corrected source qualification; source success is not current installed/study/release acceptance. [Evidence and scope](../stories/EQ117_VALIDATION.json).
+
+## EQ117 — preserve typed scoring and actual process denominators
+
+The owner accepted the unchanged [proposal](../stories/EQ117_OWNER_DECISION.json) before actual Ready/In progress admission. Static/DATA review of the first implementation drafts found that Python equality treats integer3 and floating3.0 as equal, unconstrained operation vectors can hide negative/unknown counters, and floating20% comparisons can cross the exact boundary at large counts. Corrected scoring uses canonical typed JSON identity, closed nonnegative category/API vectors and exact integer cross multiplication. Review also found a stdin-close exception could bypass runner cleanup and warm process launches were counted once per request. The corrected runner guards cleanup, retains a full planned-row checkpoint and counts only actual actor launches. These are review findings and corrections, not measured study outcomes. Corrected source qualification passed; fresh installed qualification and the fixed study remain pending. Preserve initial reports alongside renewed coverage.
+
+## EQ117 — separate qualification answers from usefulness observations
+
+Accepted EQ116's reader deliberately imports expected fixture/oracle data and branches on controlled case IDs. That is useful correctness qualification, but timing it as a debugging solver would leak answers into the comparison. [EQ117 proposal](../stories/EQ117_PLAN.md) requires generic evidence-derived observation adapters, an independent post-trial scorer and identical baseline facts/terminal information. Scripted steps/time remain automated tooling measurements; absent human feedback and cross-party trust need remain UNKNOWN. Thresholds must be owner-accepted before evaluation. No new study result is asserted.
+
 ## EQ116 — compare accepted content identity after decoding
 
 The [first source trial](../stories/EQ116_VALIDATION.json) failed two checks because the reader compared CanonicalBatch construction order. The accepted encoder sorts columns, and decoding preserves that canonical order. Full canonical bytes plus the original fingerprint and complete independent literal input are the supported identity; direct tuple-order equality can reject valid equivalent content. Corrected19-method source checks passed and a new regression binds both complete clean/future input byte envelopes. Preserve the initial failure; this is source evidence, not fresh installed/release acceptance. [Guide and limits](../EVIDENCE_PILOT_GUIDE.md).
@@ -1699,3 +1711,11 @@ A six/five-file qualification-metadata review did not cover the unchanged public
 ## EQ109: freeze a finite navigation inventory, not only a changed-file packet
 
 The first guide fix covered five pages but missed current EQ109 headers in README, two API guides and changelog. A finite inventory of every changed Markdown entry point (14canonical/7worker) found exactly four remaining contradictions and distinguished them from immutable preparation/history/normative gates. Record that classification alongside exact review maps; correct current entry points together and stop expanding into unrelated historical documents. No runtime or worker change is required. Evidence: [finite navigation review](../stories/EQ-109_NAVIGATION_REVIEW.json).
+
+## EQ117: qualification must exercise the exact final harness closure
+
+The qualification interpreter generated sibling bytecode caches before the study driver disabled bytecode. All320 scheduled rows and installed-map parity completed, but the outer final flat-file hash check raised on `__pycache__`; final Git/IO closure never ran. Prior green qualification and source review therefore did not establish complete poststudy closure. Preserve the failed run and independent reviewer miss. Disable bytecode before every owned harness import, enforce an exact before/after harness inventory in qualification too, and keep unknown files/directories as failures. Do not adopt the failed study by waiving closure or repeat measurements to obtain a favorable outcome. [Actual diagnostic failure and findings](../stories/EQ117_DIAGNOSTIC_RESULTS.md).
+
+## EQ117: explicit deferral changes the assignment schema, not active story coverage
+
+Owner-approved Future Backlog rows must remain in the complete134-story inventory. The old release-only CI regex counted132 after deferring EQ118/EQ119. Extend the finite assignment domain, preserve all unique IDs and original release mappings, and assert the exact deferred/selected sets. Author and documentation review missed the parser dependency; preserve both actual failed jobs and the local old-fail/new-pass documentation checks. [Validation](../stories/EQ117_VALIDATION.json).
