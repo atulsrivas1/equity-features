@@ -1,0 +1,140 @@
+{
+  "schema": "r13.acceptance.v1",
+  "phase": "EQ120_source_freeze_before_current_delivery",
+  "release_complete": false,
+  "epic": 221,
+  "milestone": 14,
+  "selected_milestone_members": [
+    221,
+    222,
+    223,
+    226,
+    421
+  ],
+  "selected_runtime_stories": [
+    116,
+    117,
+    120
+  ],
+  "owner_decision": "DEFER",
+  "deferred_open_unimplemented_backlog": [
+    {
+      "story": 118,
+      "issue": 224,
+      "milestone": null
+    },
+    {
+      "story": 119,
+      "issue": 225,
+      "milestone": null
+    }
+  ],
+  "scope_owner_accepted": true,
+  "governance": {
+    "issue": 421,
+    "status": "Done",
+    "acceptance": "https://github.com/atulsrivas1/equity-features/issues/421#issuecomment-6227579933"
+  },
+  "criteria": [
+    {
+      "story": 116,
+      "issue": 222,
+      "status": "Done",
+      "main": "4ed271db3c4dc01a067b6583f91736d88aecc6de",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/222#issuecomment-6228807691",
+      "guarantee": "Bounded synthetic local correctness/replay and diagnostics, equivalent supplied facts"
+    },
+    {
+      "story": 117,
+      "issue": 223,
+      "status": "Done",
+      "main": "c2d25baa2d56548d23e333e5c0abd7904e33e58a",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556",
+      "criterion_1": "Frozen comparison, measured overhead and supported limitations; negative outcome preserved",
+      "criterion_2": "Actual62candidate31main/currentbothOS correction artifacts and independent main/closure review accepted; original study remains nonadoptable."
+    },
+    {
+      "story": 120,
+      "issue": 226,
+      "status": "In progress",
+      "main": null,
+      "acceptance": null,
+      "criterion_1": "Publish findings, guarantees, limits, installation, measured overhead and DEFER",
+      "criterion_2": "Actual current tests/docs/review/publication/release/postrelease",
+      "ready_evidence": "https://github.com/atulsrivas1/equity-features/issues/226#issuecomment-6238950428"
+    }
+  ],
+  "diagnostic_comparison": {
+    "run": 39054264038,
+    "study_id": "eq117-fixed-v1-b1e9a11bdcf2",
+    "workflow_conclusion": "failure",
+    "adoptable": false,
+    "diagnostic_only": true,
+    "observations": 320,
+    "exact_diagnoses": 320,
+    "eligible_replay_matches": 240,
+    "missing_or_corrupt_zero_call_observations": 80,
+    "clean_false_positives": 0,
+    "logical_storage_criterion_met": true,
+    "elapsed_criterion_met": false,
+    "export_medians_failed": 32,
+    "export_medians_total": 32,
+    "optional_operation_reduction_met": false,
+    "optional_cases_met": 0,
+    "optional_cases_total": 8,
+    "human_participants": 0,
+    "human_usefulness": null,
+    "demand": null,
+    "independent_trust_need": null,
+    "final_git_io_closure_reached": false,
+    "study_reexecution_selected": false,
+    "accepted_thresholds": {
+      "storage": "<=2*baseline+32768bytes",
+      "stage_median": "<=2*baseline+5milliseconds",
+      "optional_operation_ratio": "<=0.8",
+      "optional_cases_required": 6,
+      "optional_case_count": 8
+    }
+  },
+  "qualification": {
+    "accepted_eq116_main": "4ed271db3c4dc01a067b6583f91736d88aecc6de",
+    "pilot_effective_source_count": 102,
+    "io_source_pin": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+    "platforms": [
+      "Windows",
+      "Linux"
+    ],
+    "forms_each": [
+      "wheel-compute",
+      "wheel-light",
+      "sdist-compute",
+      "sdist-light"
+    ],
+    "reader_observations_each": 64,
+    "strict_commands_each": 1,
+    "strict_files_each": 2,
+    "candidate_checks_required": 62,
+    "main_checks_required": 31,
+    "eq120_candidate": null,
+    "eq120_main": null,
+    "eq120_artifact_review": null,
+    "independent_reinstall": false,
+    "eq117_accepted_main": "c2d25baa2d56548d23e333e5c0abd7904e33e58a",
+    "eq117_main_review_sha256": "0deb3aca81b0a915317b41dca652678f1b0f8d902d144b782db9d0a64c832699"
+  },
+  "limitations": [
+    "No truthful-source/actor/model/external-time authenticity",
+    "No independent witness/operator retention",
+    "No physical disk/RSS/kernel-time/cleanup or power-loss guarantee",
+    "No qualified performance benefit from the failed study",
+    "No human usefulness/demand/production/regulatory/commercial claim"
+  ],
+  "final_delivery": {
+    "eq120_acceptance_url": null,
+    "epic_closed": false,
+    "milestone_closed": false,
+    "completion_destination": "Actual numbered EQ120 acceptance comment and live issue/Project/epic/milestone readback after current main qualification; future fields remain null in candidate docs."
+  },
+  "precode_head": "c1eef0c5b2e5b759f1ddbc236f887370bf6f8d6e",
+  "ready_evidence": "https://github.com/atulsrivas1/equity-features/issues/226#issuecomment-6238950428"
+}

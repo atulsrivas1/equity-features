@@ -1,3 +1,9 @@
+## EQ120 documentation implementation source freeze
+
+[Ready admission](https://github.com/atulsrivas1/equity-features/issues/226#issuecomment-6238950428) followed exact public pre-code review; EQ120 is In progress/Atul with3 provisional complexity points. This source implements only the17 accepted documentation paths. Final exact review/current62candidate31main/fresh bothOS artifacts and actual Released/Done remain pending. The pre-code packet at `c1eef0c5b2e5b759f1ddbc236f887370bf6f8d6e` is preserved below and in Git history. Owner DEFER selects EQ116/EQ117/EQ120. EQ118/EQ119 remain OPEN, unimplemented future Backlog outside milestone14. No witness, standalone service, new repository, R14 or R7 automation is selected.
+
+## Earlier checkpoints retained as history
+
 # EQ120 implementation plan: bounded R13 acceptance
 
 EQ117 negative-pilot delivery is accepted at main `c2d25baa2d56548d23e333e5c0abd7904e33e58a`: [acceptance](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556). EQ120 remains Backlog/unassigned until exact public pre-code review and Ready admission. The owner explicitly accepts DEFER and revises R13 to EQ116/EQ117/EQ120; EQ118/EQ119 remain open, unimplemented future Backlog outside milestone14. No witness operation, new repository, outreach, hosting or R14 implementation is selected.

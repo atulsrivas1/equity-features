@@ -1,3 +1,11 @@
+## Owner DEFER: supported local pilot, no service selection
+
+[R13 acceptance and limits](R13_ACCEPTANCE.md) records the accepted synthetic local composition and negative diagnostic findings. [EQ117](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556) preserves the sole failed/nonadoptable study and source/qualification corrections; zero human participants leave usefulness, demand and independent trust need unknown. Owner DEFER selects EQ116/EQ117/EQ120. EQ118/EQ119 remain OPEN, unimplemented future Backlog outside milestone14. No witness, standalone service, new repository, R14 or R7 automation is selected.
+
+Use [the local guide](EVIDENCE_PILOT_GUIDE.md) with supplied synthetic or explicitly licensed inputs. Logical verification/replay does not establish complete truthful logging, source/actor/model/external-time authenticity, independent retention, physical resources/deadlines, production readiness or regulatory compliance. Existing experimental Git source/artifacts are the channel. [EQ120](https://github.com/atulsrivas1/equity-features/issues/226) records actual final release evidence; this source snapshot is not its own completed release claim.
+
+## Earlier checkpoints retained as history
+
 ## R13 evaluation decision: DEFER expansion
 
 The owner accepted [DEFER and revised R13 scope](stories/EQ117_PRODUCT_DECISION.json): finish EQ116/EQ117/EQ120, with unimplemented EQ118/EQ119 open in future Backlog outside milestone14. The [sole evaluation](stories/EQ117_DIAGNOSTIC_RESULTS.md) completed320 exact observations but FAILED final harness closure and remains diagnostic-only/nonadoptable. All32 export timing comparisons exceeded the accepted budget; no case met the optional operation target. Human usefulness, demand and independent trust need remain unknown. Postflight source qualification passed; fresh installed qualification and delivery gates remain pending; no replacement study or witness operation is selected. Older planning/source snapshots below retain their historical scope.

@@ -1,7 +1,7 @@
 {
   "schema": "eq120.precode.inputs.v1",
   "planning_only": false,
-  "admission": false,
+  "admission": true,
   "base": "c2d25baa2d56548d23e333e5c0abd7904e33e58a",
   "eq117_acceptance": "https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556",
   "prepared_source_head": "c2d25baa2d56548d23e333e5c0abd7904e33e58a",
@@ -212,6 +212,11 @@
     "Publish reviewed draft PR and independently read back current source",
     "Actual Ready then In progress before implementation"
   ],
-  "phase": "precode_not_ready",
-  "eq117_close_sha256": "53383d2c0bfe476079d9abdbce26abf1f96b57f1d336ab92c0425799708a885b"
+  "phase": "documentation_implementation_source_freeze",
+  "eq117_close_sha256": "53383d2c0bfe476079d9abdbce26abf1f96b57f1d336ab92c0425799708a885b",
+  "precode_source_head": "c1eef0c5b2e5b759f1ddbc236f887370bf6f8d6e",
+  "ready_evidence": "https://github.com/atulsrivas1/equity-features/issues/226#issuecomment-6238950428",
+  "ready_review_sha256": "307be07e3e05657fb8aafb4f945ed6db11a69f691790ce7772652c090079d967",
+  "implementation_scope": "17 documentation paths only",
+  "final_delivery_pending": true
 }

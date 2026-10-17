@@ -1,3 +1,11 @@
+## Selected release acceptance allocation
+
+The owner-approved scope is EQ116/EQ117/EQ120 plus GOV025:11provisional runtime points+3governance, not a date. [EQ116](https://github.com/atulsrivas1/equity-features/issues/222#issuecomment-6228807691), [EQ117 negative delivery](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556) and [governance](https://github.com/atulsrivas1/equity-features/issues/421#issuecomment-6227579933) are accepted. [EQ120](https://github.com/atulsrivas1/equity-features/issues/226) is In progress for final documentation/acceptance. [R13 matrix](R13_ACCEPTANCE.md) maps both original story criteria and the scope decision to actual receipts and remaining gates. Owner DEFER selects EQ116/EQ117/EQ120. EQ118/EQ119 remain OPEN, unimplemented future Backlog outside milestone14. No witness, standalone service, new repository, R14 or R7 automation is selected.
+
+Exact milestone14 membership is221/222/223/226/421. Final release qualification remains62candidate31main with exact separate current source/artifact/main reviews; experimental Git/default-branch source and finite-retention artifacts are the declared channel. No qualified performance benefit, human usefulness or independent witness need was established. E17/milestone remain open until selected children and governance actually Done; deferred224/225 are never counted Done or assigned a new release/date. Original conditional seven-member allocation and older statuses below are superseded history.
+
+## Earlier checkpoints retained as history
+
 ## Owner-approved R13 scope revision — October17,2026
 
 The owner accepts [EQ117 DEFER](stories/EQ117_PRODUCT_DECISION.json) after reviewing the negative diagnostic findings. R13 now selects **EQ116, EQ117 and EQ120** (11 provisional runtime points plus accepted GOV025's3 governance points). EQ116 is accepted Done; EQ117 is In progress for the failed postflight harness correction/report and EQ120 awaits EQ117 delivery. No release date is promised.
