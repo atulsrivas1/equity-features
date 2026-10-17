@@ -1,3 +1,7 @@
+## EQ117 — separate qualification answers from usefulness observations
+
+Accepted EQ116's reader deliberately imports expected fixture/oracle data and branches on controlled case IDs. That is useful correctness qualification, but timing it as a debugging solver would leak answers into the comparison. [EQ117 proposal](../stories/EQ117_PLAN.md) requires generic evidence-derived observation adapters, an independent post-trial scorer and identical baseline facts/terminal information. Scripted steps/time remain automated tooling measurements; absent human feedback and cross-party trust need remain UNKNOWN. Thresholds must be owner-accepted before evaluation. No new study result is asserted.
+
 ## EQ116 — compare accepted content identity after decoding
 
 The [first source trial](../stories/EQ116_VALIDATION.json) failed two checks because the reader compared CanonicalBatch construction order. The accepted encoder sorts columns, and decoding preserves that canonical order. Full canonical bytes plus the original fingerprint and complete independent literal input are the supported identity; direct tuple-order equality can reject valid equivalent content. Corrected19-method source checks passed and a new regression binds both complete clean/future input byte envelopes. Preserve the initial failure; this is source evidence, not fresh installed/release acceptance. [Guide and limits](../EVIDENCE_PILOT_GUIDE.md).
