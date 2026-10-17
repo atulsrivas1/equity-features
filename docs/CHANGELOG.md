@@ -1,3 +1,9 @@
+## EQ120 R13 acceptance documentation source
+
+Add the selected R13 acceptance matrix and navigation/installation/verification limits after accepted EQ116/EQ117 negative delivery. Record owner DEFER, original failed/nonadoptable320-row comparison, corrected qualification and actual future delivery gates. EQ118/EQ119 remain unimplemented future Backlog outside milestone14. No package/API/version/math/workflow/worker/MCP/dependency/install-command change or new positive benchmark. Final source/current CI/artifact/main/acceptance verification remains required; see [R13 allocation](R13_ACCEPTANCE.md) and [live EQ120](https://github.com/atulsrivas1/equity-features/issues/226).
+
+## Earlier checkpoints retained as history
+
 ## EQ117 documentation validator reconciliation
 
 - Preserve both failed documentation jobs; recognize the owner-approved future Backlog assignments while requiring all134 active stories and exact selected/deferred R13 sets. No calculation, harness, threshold or study change.

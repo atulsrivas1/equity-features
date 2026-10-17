@@ -1,0 +1,105 @@
+{
+  "schema": "eq120.validation.v1",
+  "phase": "documentation_source_freeze_before_final_CI",
+  "precode_source_head": "c1eef0c5b2e5b759f1ddbc236f887370bf6f8d6e",
+  "ready_evidence": "https://github.com/atulsrivas1/equity-features/issues/226#issuecomment-6238950428",
+  "original_acceptance_criteria": 2,
+  "owner_decision": "DEFER",
+  "source_changes": "17DOC only; no package/API/version/math/workflow/worker/MCP change",
+  "complete_pilot_input_count": 102,
+  "accepted_eq116_main": "4ed271db3c4dc01a067b6583f91736d88aecc6de",
+  "io_source_pin": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+  "accepted_eq117_main": "c2d25baa2d56548d23e333e5c0abd7904e33e58a",
+  "eq117_acceptance": "https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556",
+  "actual_predecessor_main_checks": 31,
+  "actual_predecessor_candidate_checks": 62,
+  "predecessor_main_artifact_proof_sha256": "60e9d53d1ff2a5b2bdfeb5bb2b70177996563befabaf6f3946056a08674ed1ed",
+  "predecessor_main_review_sha256": "0deb3aca81b0a915317b41dca652678f1b0f8d902d144b782db9d0a64c832699",
+  "predecessor_closure_review_sha256": "50645e185fff367fc0ded4c64610dfbdc4ea8fb4d55e61a04ba4844a34e0d3b2",
+  "review_records": [
+    {
+      "record": "eq117-final-main-reviewer-report.json",
+      "sha256": "0deb3aca81b0a915317b41dca652678f1b0f8d902d144b782db9d0a64c832699",
+      "reviewer": "/root/r9_independent_audit; separate local automated R13 reviewer",
+      "scope": "approved_actual_main_bothOS_delivery_proof_negative_DEFER",
+      "findings": []
+    },
+    {
+      "record": "eq117-final-closure-reviewer-report.json",
+      "sha256": "50645e185fff367fc0ded4c64610dfbdc4ea8fb4d55e61a04ba4844a34e0d3b2",
+      "reviewer": "/root/r10_review",
+      "scope": "approved_actual_EQ117_closed_done_negative_DEFER",
+      "findings": []
+    },
+    {
+      "record": "eq120-precode-prepared-reviewer-report.json",
+      "sha256": "2d80525208038191f423332e9e61cabfa10df83ec5710e5ab317844f3e21c209",
+      "reviewer": "/root/r9_plan_review",
+      "scope": "approved_prepared_EQ120_three_document_precode_packet_only",
+      "findings": []
+    },
+    {
+      "record": "eq120-precode-public-readiness-reviewer-report.json",
+      "sha256": "307be07e3e05657fb8aafb4f945ed6db11a69f691790ce7772652c090079d967",
+      "reviewer": "/root/r9_plan_review",
+      "scope": "approved_public_precode_ready_admission_only",
+      "findings": []
+    },
+    {
+      "record": "eq120-prepared-inputs-auditor-reviewer-report.json",
+      "sha256": "bef7c29687ccf6bc8083533b119d41b196949e58d4176e266572a26482d29604",
+      "reviewer": "/root/r9_plan_review",
+      "scope": "approved_conditional_EQ120_precode_inputs_and_future_auditor_source_preparation_only",
+      "findings": []
+    },
+    {
+      "record": "eq120-evaluation-artifact-tool-review.json",
+      "sha256": "b8a3545c6047951b1688c332c4b02e234b8cfa2a57bbb5854707c93aea99a678",
+      "reviewer": "/root/r9_plan_review",
+      "scope": "approved_conditional_EQ120_evaluation_artifact_auditor_source_only",
+      "findings": []
+    },
+    {
+      "record": "eq120-ci-capture-tool-review.json",
+      "sha256": "cf75a297e00426d42790e99b1d66ba62a82f64a2eafdee8f73b711dd110a53c3",
+      "reviewer": "/root/r10_review",
+      "scope": "approved_conditional_readonly_ci_capture_tool",
+      "findings": []
+    },
+    {
+      "record": "eq117-merge-recovery-tool-review.json",
+      "sha256": "0fdaa94d89b4082ec14e240db0a17e5d9f50c935525e9840bbb28ae186cbd39a",
+      "reviewer": "/root/r10_review",
+      "scope": "approved_for_single_guarded_merge_recovery",
+      "findings": []
+    },
+    {
+      "record": "eq117-close-cli-tool-review.json",
+      "sha256": "24ad0d4b6e443a2bf54030bb8a058e6208d5330023bbf57bb05ab4446c0a917a",
+      "reviewer": "/root/r10_review",
+      "scope": "approved_for_guarded_close_cli_correction",
+      "findings": []
+    }
+  ],
+  "study": {
+    "run": 39054264038,
+    "conclusion": "failure",
+    "adoptable": false,
+    "diagnostic_only": true,
+    "rerun": false,
+    "original_raw_rows": "EQ117_DIAGNOSTIC_ROWS.jsonl.gz",
+    "original_diagnostic_data_review_sha256": "7bd25b2543a7d6f21bdddc7d6c244fa898527308e4db35bdd9b1db46fe437f3f"
+  },
+  "source_author_checks": null,
+  "final_source_review": null,
+  "candidate_head": null,
+  "candidate_checks": null,
+  "candidate_artifacts": null,
+  "main_head": null,
+  "main_checks": null,
+  "main_artifacts": null,
+  "acceptance_url": null,
+  "completion_destination": "Actual EQ120 acceptance comment on issue226 after observed current qualification, with live Project/selected epic/milestone readbacks. These nulls are pre-qualification source-freeze fields, not a later completed delivery record.",
+  "independent_reinstall": false,
+  "current_EQ120_installed_qualification_complete": false
+}

@@ -1,3 +1,11 @@
+## R13 local evidence pilot: DEFER expansion
+
+[Acceptance and limits](docs/R13_ACCEPTANCE.md) records the supported synthetic local pilot, accepted negative EQ117 findings and owner DEFER. Correct local replay does not establish useful debugging, source authenticity, independent trust or production readiness. The sole study failed postflight; all32 recorded export medians exceeded the accepted limit. It remains diagnostic-only.
+
+[Run the local pilot](docs/EVIDENCE_PILOT_GUIDE.md) using the unchanged installation/API examples. EQ116/EQ117/governance are accepted; [EQ120](https://github.com/atulsrivas1/equity-features/issues/226) owns current final delivery and [E17](https://github.com/atulsrivas1/equity-features/issues/221) owns actual aggregate closure. Owner DEFER selects EQ116/EQ117/EQ120. EQ118/EQ119 remain OPEN, unimplemented future Backlog outside milestone14. No witness, standalone service, new repository, R14 or R7 automation is selected.
+
+## Earlier checkpoints retained as history
+
 ## R13 evaluation decision: DEFER expansion
 
 The owner accepted [DEFER and revised R13 scope](docs/stories/EQ117_PRODUCT_DECISION.json): finish EQ116/EQ117/EQ120, with unimplemented EQ118/EQ119 open in future Backlog outside milestone14. The [sole evaluation](docs/stories/EQ117_DIAGNOSTIC_RESULTS.md) completed320 exact observations but FAILED final harness closure and remains diagnostic-only/nonadoptable. All32 export timing comparisons exceeded the accepted budget; no case met the optional operation target. Human usefulness, demand and independent trust need remain unknown. Postflight source qualification passed; fresh installed qualification and delivery gates remain pending; no replacement study or witness operation is selected. Older planning/source snapshots below retain their historical scope.

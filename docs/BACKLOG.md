@@ -1,3 +1,9 @@
+## R13 selected acceptance scope
+
+Owner DEFER selects EQ116/EQ117/EQ120; GOV025/EQ116/[EQ117](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556) are accepted, [EQ120](https://github.com/atulsrivas1/equity-features/issues/226) is the final active documentation story. [Acceptance allocation](R13_ACCEPTANCE.md). EQ118/EQ119 remain open, unimplemented Future Backlog (unselected), outside milestone14 with no new release/date. Keep all134 unique active IDs, retired094 and every unaffected release assignment; the rows below retain their versioned scope. No automatic R14 or R7 automation. E17/milestone14 close only after selected actual delivery/readback.
+
+## Earlier checkpoints retained as history
+
 ## Owner-approved R13 scope revision — October17,2026
 
 The owner accepts [EQ117 DEFER](stories/EQ117_PRODUCT_DECISION.json) after reviewing the negative diagnostic findings. R13 now selects **EQ116, EQ117 and EQ120** (11 provisional runtime points plus accepted GOV025's3 governance points). EQ116 is accepted Done; EQ117 is In progress for the failed postflight harness correction/report and EQ120 awaits EQ117 delivery. No release date is promised.

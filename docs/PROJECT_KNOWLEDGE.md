@@ -1,3 +1,11 @@
+## Current R13 knowledge: final acceptance documentation
+
+GOV025/EQ116 and [EQ117 negative delivery](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556) are accepted Done; actual117main `c2d25baa2d56548d23e333e5c0abd7904e33e58a` passed62candidate31main/currentbothOS repaired qualification with independent final/closure reviews. The original fixed study remains FAILED/nonadoptable/diagnostic-only:320exact diagnoses,240eligible replay matches,80safe zero-call observations,0clean false positives; storage met, all32export medians failed, optional target0of8,0humans. [Full findings](stories/EQ117_DIAGNOSTIC_RESULTS.md). Owner DEFER selects EQ116/EQ117/EQ120. EQ118/EQ119 remain OPEN, unimplemented future Backlog outside milestone14. No witness, standalone service, new repository, R14 or R7 automation is selected.
+
+[EQ120](https://github.com/atulsrivas1/equity-features/issues/226) is In progress/Atul after [Ready admission](https://github.com/atulsrivas1/equity-features/issues/226#issuecomment-6238950428). Its [17DOC plan](stories/EQ120_IMPLEMENTATION_PLAN.md) and [matrix](R13_ACCEPTANCE.md) add no package/API/version/math/workflow/worker/MCP behavior. Current final exact review/62candidate31main/current2OS4form+eval9 artifacts/publication/ReleasedDone/aggregate closure remain. Source-freeze future fields are null and final actual proof belongs to the numbered acceptance comment/liveProject, avoiding receipt commits that invalidate their own head. [Lessons](knowledge/LESSONS.md) retain study/docs/controller failures and reviewer misses; older checkpoints below are historical authority only.
+
+## Earlier checkpoints retained as history
+
 ## EQ117 documentation coverage rework after owner scope revision
 
 The two dbbaf86 documentation jobs failed because their release-only parser omitted EQ118/EQ119's explicit Future Backlog assignments, reducing its parsed count from134 to132. [Validation](stories/EQ117_VALIDATION.json) preserves both raw failures and the author/reviewer miss. The corrected validator keeps all134 unique active stories, retired094 and existing R4.1/R14 mappings, and additionally requires exactly the two deferred witness IDs and the three selected R13 IDs. Actual local documentation-only checks reproduce the old failure and pass the corrected full check.

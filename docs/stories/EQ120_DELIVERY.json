@@ -1,0 +1,76 @@
+{
+  "schema": "eq120.delivery.allocation.v1",
+  "phase": "source_freeze_before_current_delivery",
+  "issue": 226,
+  "pr": 425,
+  "branch": "codex/eq120-pilot-acceptance",
+  "base": "c2d25baa2d56548d23e333e5c0abd7904e33e58a",
+  "precode_head": "c1eef0c5b2e5b759f1ddbc236f887370bf6f8d6e",
+  "ready_evidence": "https://github.com/atulsrivas1/equity-features/issues/226#issuecomment-6238950428",
+  "selected_documents": [
+    "docs/stories/EQ120_IMPLEMENTATION_PLAN.md",
+    "docs/stories/EQ120_INPUTS.json",
+    "docs/stories/EQ120_VALIDATION.json",
+    "docs/stories/EQ120_DELIVERY.json",
+    "docs/R13_ACCEPTANCE.md",
+    "docs/R13_ACCEPTANCE.json",
+    "README.md",
+    "docs/EVIDENCE_PILOT_GUIDE.md",
+    "docs/EVIDENCE_SERVICE_PILOT.md",
+    "docs/R13_AUTONOMOUS_HANDOFF.md",
+    "docs/R13_RELEASE_PLAN.md",
+    "docs/R13_TEST_STRATEGY.md",
+    "docs/BACKLOG.md",
+    "docs/PROJECT_KNOWLEDGE.md",
+    "docs/SESSION_HANDOFF.md",
+    "docs/CHANGELOG.md",
+    "docs/knowledge/LESSONS.md"
+  ],
+  "selected_scope": {
+    "runtime": [
+      116,
+      117,
+      120
+    ],
+    "governance": 421,
+    "epic": 221,
+    "milestone": 14,
+    "milestone_members": [
+      221,
+      222,
+      223,
+      226,
+      421
+    ],
+    "deferred_open_unimplemented": [
+      224,
+      225
+    ],
+    "owner_decision": "DEFER"
+  },
+  "accepted_predecessors": [
+    {
+      "issue": 421,
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/421#issuecomment-6227579933"
+    },
+    {
+      "issue": 222,
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/222#issuecomment-6228807691"
+    },
+    {
+      "issue": 223,
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556"
+    }
+  ],
+  "candidate_head": null,
+  "merge_head": null,
+  "main_tree": null,
+  "candidate_checks": null,
+  "main_checks": null,
+  "artifact_review": null,
+  "final_acceptance": null,
+  "declared_channel": "Reviewed experimental GitHub source and current finite-retention qualification artifacts; no stable registry or hosted service.",
+  "completion_destination": "Actual public issue226 acceptance comment/Project readback; E17 and milestone14 close only after selected children and governance Done. Later changed source requires renewed applicable head qualification.",
+  "r13_complete_at_source_freeze": false,
+  "no_replacement_study": true
+}

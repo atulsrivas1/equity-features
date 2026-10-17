@@ -1,3 +1,11 @@
+## Current execution: EQ120 acceptance documentation
+
+[EQ117 is accepted Done](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556) at main `c2d25baa2d56548d23e333e5c0abd7904e33e58a`: actual62candidate31main/currentbothOS nine-method repair/harness closure and independent final review. Its original320-row study stays FAILED/nonadoptable/diagnostic-only; never rerun it or overwrite failed/rework history. EQ116 and GOV025 are Done. [EQ120 Ready entry](https://github.com/atulsrivas1/equity-features/issues/226#issuecomment-6238950428) follows public pre-code review at `c1eef0c5b2e5b759f1ddbc236f887370bf6f8d6e`; EQ120 is In progress/Atul,3points, finite17DOC paths. Owner DEFER selects EQ116/EQ117/EQ120. EQ118/EQ119 remain OPEN, unimplemented future Backlog outside milestone14. No witness, standalone service, new repository, R14 or R7 automation is selected.
+
+Resume exact final17DOC semantic/links/JSON/privacy/full102input-equality review; publish current source and use actual62candidate checks/currentWindowsLinux4form pilot archives plus separate9method evaluation harness artifacts. Then actual31main/currentnewartifacts/independent public-main review and Released/Done/acceptance readback. Close E17/milestone14 only after selected116/117/120 plus governance actually Done, exactfive members, and224/225 remain open future Backlog with no milestone. No automatic next-release pull. Preserve unrelated primary/mirror/companion work. Current issue/Project is status authority; source-freeze pending fields are not completed main evidence.
+
+## Earlier checkpoints retained as history
+
 ## EQ117 documentation coverage rework after owner scope revision
 
 The two dbbaf86 documentation jobs failed because their release-only parser omitted EQ118/EQ119's explicit Future Backlog assignments, reducing its parsed count from134 to132. [Validation](stories/EQ117_VALIDATION.json) preserves both raw failures and the author/reviewer miss. The corrected validator keeps all134 unique active stories, retired094 and existing R4.1/R14 mappings, and additionally requires exactly the two deferred witness IDs and the three selected R13 IDs. Actual local documentation-only checks reproduce the old failure and pass the corrected full check.
