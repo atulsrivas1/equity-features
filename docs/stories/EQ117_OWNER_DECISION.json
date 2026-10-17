@@ -1,0 +1,15 @@
+{
+  "schema": "eq117.owner.threshold.acceptance.v1",
+  "accepted": true,
+  "decision": "Accept PR424’s protocol and thresholds; proceed",
+  "decision_date": "2026-10-17",
+  "authority": "Explicit human-owner response in R13 development session",
+  "pr": 424,
+  "head": "cf6c1543328218fe9dbd5bf57bebf350e6de0ba1",
+  "proposal_sha256": "7405067b0360126a462bb7a66b5a89416cf93399843b0933b358760804e45073",
+  "scope": "Protocol and thresholds only. Separate Ready admission, reviewed observation/scorer/instrumentation source and supported installed qualification precede measurement. No human usefulness claim or witness selection.",
+  "witness_selected": false,
+  "human_usefulness_established": false,
+  "public_acceptance_comment": "https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6236647506",
+  "original_proposal_sha256": "7405067b0360126a462bb7a66b5a89416cf93399843b0933b358760804e45073"
+}

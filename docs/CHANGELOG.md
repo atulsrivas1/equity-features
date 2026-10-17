@@ -1,3 +1,7 @@
+## EQ117 evaluation harness — unreleased implementation draft
+
+The owner accepted the reviewed320-observation protocol before actual Ready/In progress admission. Draft external tooling separates controlled arm writers, a generic retained-evidence observer, independent typed DATA scoring and explicit nested operation tracing. Fresh installed Windows/Linux qualification and the fixed study are pending; no usefulness, performance or witness result is claimed. Package algorithms, versions, public APIs and worker/MCP behavior are unchanged. See the [implementation plan](stories/EQ117_IMPLEMENTATION_PLAN.md) and [observation contract](stories/EQ117_OBSERVATION_CONTRACT.md).
+
 ## EQ116 paired evidence pilot — historical implementation source snapshot
 
 [Live EQ116 status and release evidence](https://github.com/atulsrivas1/equity-features/issues/222) is authoritative; the source-freeze results below retain their original scope. [R13 aggregate](https://github.com/atulsrivas1/equity-features/issues/221) remains a separate release gate.

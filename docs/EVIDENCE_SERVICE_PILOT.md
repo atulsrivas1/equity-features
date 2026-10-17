@@ -1,3 +1,15 @@
+## EQ117 source qualification passed; installed evaluation pending
+
+EQ117 remains In progress in [PR424](https://github.com/atulsrivas1/equity-features/pull/424). The owner-accepted proposal is unchanged. Actual corrected source qualification passed all9methods, including16full generic case/arm diagnoses and16instrumented worker controls with injected stage clocks. [Validation and preserved failures](stories/EQ117_VALIDATION.json) retain the initial diagnostic-kind defect, the16,384-occurrence capture failure and diagnostic run. Capture implementation now counts up to1million actual occurrences losslessly in bounded runs; accepted raw/output/aggregate and evaluation thresholds are unchanged. Package source maps matched before/after; no package/API/version/calculation change.
+
+Next qualify the exact reviewed harness in fresh installed Windows/Linux wheel-compute environments, then freeze and separately admit one fixed320-slot study. Source controls are not installed proof or scheduled study observations. Human usefulness/demand/trust remainUNKNOWN; no witness selected; EQ118/119conditional, EQ120pending/E17open/R7paused. No study has run.
+
+## EQ117 accepted protocol; implementation In progress
+
+The owner accepts [PR424](https://github.com/atulsrivas1/equity-features/pull/424)'s frozen proposal SHA256 `7405067b0360126a462bb7a66b5a89416cf93399843b0933b358760804e45073` on October17,2026. [Decision](stories/EQ117_OWNER_DECISION.json) and [actual Ready/In progress admission](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6236647506) retain exact scope. The 320-observation protocol/criteria are accepted, not measured results. EQ117 is assigned Atul; both original acceptance criteria remain unchecked. Prior proposal-null fields are immutable pre-acceptance history, not current authority.
+
+Next: implement/freeze/review generic evidence-derived observations and independent literal scoring; qualify actual instrumentation and fresh installed Windows/Linux environments; then perform one fixed study with every failure retained. An oracle-aware reader cannot establish debugging benefit. No new study or measurement has run. Existing58proposal checks are qualification only. Preserve four planning P2s, publisher guard findings/CRLF failure and separately reviewed single-link recovery; Ready-controller exactmap/item-ID findings were corrected before execution. Accepted EQ116 is Done; conditional118/119stayBacklog/E17open/R7paused. No additional review permission or threshold question is required for this unchanged accepted protocol.
+
 ## EQ116 accepted; EQ117 threshold proposal pending owner decision
 
 [EQ116 acceptance](https://github.com/atulsrivas1/equity-features/issues/222#issuecomment-6228807691) records Closed/Done at main `4ed271db3c4dc01a067b6583f91736d88aecc6de`: actual 58 candidate/29 main checks, current Windows/Linux four-form artifacts and separate final source/artifact/main/closure review. R13 remains open; no repetition of accepted EQ116 qualification is needed. Earlier source-stage checkpoints below retain historical scope.

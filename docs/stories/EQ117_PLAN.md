@@ -1,5 +1,7 @@
 # EQ117 controlled evaluation proposal
 
+Current status: the owner [accepted this exact proposal](EQ117_OWNER_DECISION.json); [actual admission](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6236647506) moved EQ117 to In progress. [Implementation plan](EQ117_IMPLEMENTATION_PLAN.md) and [observation contract](EQ117_OBSERVATION_CONTRACT.md) govern the draft harness and qualification. No study outcome exists. The original proposal text below preserves its pre-acceptance scope and does not override the later decision.
+
 [EQ117#223](https://github.com/atulsrivas1/equity-features/issues/223), E17/R13, 3 provisional complexity points. This is a reviewable proposal, not accepted thresholds, Ready, implementation, measurement or a usefulness result. [Machine-readable proposal](EQ117_EVALUATION_PROPOSAL.json) is normative for numbers/order/bounds; [protocol](EQ117_MEASUREMENT_PROTOCOL.md) defines interpretation. Owner acceptance must identify the final proposal hash and linked PR before evaluation. Existing R13 local-review authorization remains valid.
 
 ## Accepted input and question
