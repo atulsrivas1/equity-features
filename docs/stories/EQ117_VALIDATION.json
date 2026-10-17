@@ -1,0 +1,294 @@
+{
+  "schema": "eq117.validation.v1",
+  "status": "corrected_accounting_source_passed_current_installed_pending",
+  "owner_accepted_proposal_sha256": "7405067b0360126a462bb7a66b5a89416cf93399843b0933b358760804e45073",
+  "source_qualification": [
+    {
+      "source_id": "65d3baac1bcb036e689bb2fb45253b592836e622937d530de0fd64fd33785bb0",
+      "status": "FAILED",
+      "return_code": 1,
+      "methods": 9,
+      "errors": 16,
+      "failures": 1,
+      "source_unchanged": true,
+      "cause": "New observer required diagnostic kind knowledge; accepted public KnowledgeCheck.kind is knowledge_time. Valid reports were rejected before observation/replay.",
+      "correction": "One literal changed to the actual public diagnostic kind; unchanged independent full-diagnosis controls retained.",
+      "reviewer": "/root/r9_independent_audit, separate local automated reviewer",
+      "correction_review_sha256": "5f4957891df2a66daf13ea3ff974f014b4b9a0eab188c262f4289e567f919def",
+      "limits": "Source-only qualification failure, not an accepted-package defect or scheduled study observation. Initial static-review miss and raw failure are preserved. Corrected PASS remains pending."
+    }
+  ],
+  "review_slices": [
+    {
+      "reviewer": "/root/r9_plan_review",
+      "scope": "DATA scorer; 48 synthetic controls",
+      "report_sha256": "30009616c3c73df2214e24c18f9faa539e5996717e4df27612df07a3e83327bb",
+      "findings": []
+    },
+    {
+      "reviewer": "/root/r9_plan_review",
+      "scope": "Warm CLI and descriptive cost renewal; 11 synthetic controls",
+      "report_sha256": "09cdeffe089f406a89f6f0c5da9172d6402aee9da807a8409832f151f57ca5f5",
+      "findings": []
+    },
+    {
+      "reviewer": "/root/r10_review",
+      "scope": "Instrumentation/worker/runner static and inert controls; four initial findings corrected",
+      "report_sha256": "35b0529913647a9a42979b95bece3ad1e89c1d3ecbb4eb5d869e15cd98883169",
+      "findings": []
+    },
+    {
+      "reviewer": "/root/r9_independent_audit",
+      "scope": "Observer/producer/test/builder/workflow qualification source, before actual failed source run",
+      "report_sha256": "e1b6c22e0e69e9fe0e34aebd1a6d6902f1f9721f868cd3e6ee07e2a6fb374035",
+      "superseded_for_observer": true
+    },
+    {
+      "reviewer": "/root/r9_plan_review",
+      "scope": "DATA scorer count-bound renewal",
+      "report_sha256": "54034a84c3b4017be7187ff5e155de7764c9200b9fec9f486fd0bf36f52afe4e",
+      "findings": []
+    },
+    {
+      "reviewer": "/root/r10_review",
+      "scope": "Lossless trace capture boundary correction",
+      "report_sha256": "fbb1329a2b85c264417efe1d988a3d4d4fb5e27cf9c250e9d053d2b84cdc80f9",
+      "findings": []
+    },
+    {
+      "reviewer": "/root/r9_independent_audit",
+      "scope": "Expanded32 case-arm qualification controls; source admission only",
+      "report_sha256": "2ce75652e29dc31c47ed9d6a1aaa1e97ae7c593b5b87c65ae6bd72e2d2707122",
+      "findings": []
+    },
+    {
+      "reviewer": "/root/r10_review",
+      "scope": "STUDY01/02 accounting corrections, thirteen inert controls",
+      "report_sha256": "2fa7dda10e9bcc8bac1f1d549bab386e7519a87ce6f4d7c87adffa2cba28caed",
+      "findings": []
+    },
+    {
+      "reviewer": "/root/r9_plan_review",
+      "scope": "Known lower-bound vs unknown full coverage, eight DATA controls",
+      "report_sha256": "89dc8d994f67a2bdf9e627fbadc41ef3b8221ac716cb0f795c77844b7eed27b2",
+      "findings": []
+    },
+    {
+      "reviewer": "/root/r9_independent_audit",
+      "scope": "Nine-method source qualification with two real failure controls",
+      "report_sha256": "c1d3b1dc8bab033cd4d2204f76baa79c80abd33a76fdbd3ae12373a789bbe62f",
+      "findings": []
+    },
+    {
+      "reviewer": "/root/r9_independent_audit",
+      "scope": "Selected public runner and monotonic clock metadata",
+      "report_sha256": "8d6123e386d35549791425af34f69c8509a2570410aea427b9a6b2e128f1ad2f",
+      "findings": []
+    }
+  ],
+  "preserved_initial_findings": [
+    "Scorer JSON numeric type equality, unconstrained operation counts, floating threshold boundary and cohort binding",
+    "Observer semantic graph, actual calculator entry accounting and complete retained payload state",
+    "Runner pipe-close cleanup, full planned-row retention, source-map completeness/import order and warm CLI launch denominator",
+    "Source-only qualification child did not initially inherit explicit selected source paths; corrected before execution"
+  ],
+  "tool_history": [
+    "One multi-file documentation patch refused an unmatched EQ117 heading before applying changes; actual heading read and corrected patch applied.",
+    "Four actual source qualification attempts are retained:65d3,9cfe and diagnostic03b9 failed; corrected9b666 passed. Superseded preparation-only snapshots were not executed.",
+    "Five actual source qualifications retained:three failures and two source passes; the last pass includes failed-entry accounting controls. No scheduled study has run."
+  ],
+  "current_installed_qualification": "PENDING",
+  "scheduled_study_executed": false,
+  "human_usefulness": "UNKNOWN",
+  "witness_selected": false,
+  "release_accepted": false,
+  "all_source_attempts": [
+    {
+      "source_id": "65d3baac1bcb036e689bb2fb45253b592836e622937d530de0fd64fd33785bb0",
+      "status": "FAILED initial observer public diagnostic kind mismatch",
+      "return_code": 1,
+      "source_unchanged": true,
+      "methods": 9,
+      "result_sha256": "94d63db16673b2ccb7f4b1f7fcda32bdb805b15c66c87b322d57005aa545c70d",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "6519ac5ad1072c99f44ed69dff46590dcba86acff463cd747060c8d1c94d6276",
+      "source_map": {
+        "examples/evidence_evaluation_observer.py": "4d6d30ac296c53bc63ff012e06f81c753d4580ddc65435abc866dbf22274aa93",
+        "examples/evidence_evaluation_producer.py": "2d1c5dec3f2dec72b8b3bcc8b33435c673cf6e17d753d03e8c6ff914d6e795b5",
+        "examples/evidence_evaluation_instrumentation.py": "ceca9eac4cb33afd2bbb908923d55563dd73f8d48564ac67ad6d6e47426deb6e",
+        "examples/evidence_evaluation_worker.py": "5e095391022a4d10cae657b06673866649a93794fc01510143199df9985ea838",
+        "examples/evidence_evaluation_scoring.py": "ee1109db8d0cc5ca809e7cc5d5541f80ecc82db957f2bdf946e8daee9fec9ca7",
+        "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+        "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+        "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+        "tests/evidence_evaluation/test_evaluation.py": "9717a0b4940ce84c650a1ee9439d68f7fa13a217b277b30a8428a2dc9480f653",
+        "tools/run_evidence_evaluation.py": "c496feb499488cea6370abd0aad06129dadcde12fa9a1d810ac6e52848fce98c"
+      },
+      "installed_qualification": false,
+      "scheduled_study": false
+    },
+    {
+      "source_id": "9cfe949e462e49135c625f82635a52fe86001f099f3b865a74b68b90f6150182",
+      "status": "FAILED remaining instrumented-worker capture",
+      "return_code": 1,
+      "source_unchanged": true,
+      "methods": 9,
+      "result_sha256": "d6f176a8cff955b88d065dfdcbdfa0172d43a34fadda9f7f7f045ebc885eb57e",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "fa99fc4e1bd5c72faec40ca899a3665606e293ec47fb0d795617239372de494b",
+      "source_map": {
+        "examples/evidence_evaluation_observer.py": "a6d4128102b02bc226497eaf7fa85c63ba0378884691b121e513fbe04ed53ee0",
+        "examples/evidence_evaluation_producer.py": "2d1c5dec3f2dec72b8b3bcc8b33435c673cf6e17d753d03e8c6ff914d6e795b5",
+        "examples/evidence_evaluation_instrumentation.py": "ceca9eac4cb33afd2bbb908923d55563dd73f8d48564ac67ad6d6e47426deb6e",
+        "examples/evidence_evaluation_worker.py": "5e095391022a4d10cae657b06673866649a93794fc01510143199df9985ea838",
+        "examples/evidence_evaluation_scoring.py": "0384831331ca734c4c07fb20d44969108e737c5a45a066a2b36030e9f7236132",
+        "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+        "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+        "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+        "tests/evidence_evaluation/test_evaluation.py": "9717a0b4940ce84c650a1ee9439d68f7fa13a217b277b30a8428a2dc9480f653",
+        "tools/run_evidence_evaluation.py": "c496feb499488cea6370abd0aad06129dadcde12fa9a1d810ac6e52848fce98c"
+      },
+      "installed_qualification": false,
+      "scheduled_study": false
+    },
+    {
+      "source_id": "03b939cfe41f9f561cb8298e44a3807fb130f38873aefc5aa1daf1bdfa7c69c6",
+      "status": "FAILED diagnostic run establishes16384 operation-occurrence capture limit",
+      "return_code": 1,
+      "source_unchanged": true,
+      "methods": 9,
+      "result_sha256": "d4f24c74411731c30262a02cad44948c7328aaba12302de073ce027ae1b9607b",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "fa8506e42fe148f0f0399d85e7b20e1b85ee1aac67de702bfacdf99e64a4dd8b",
+      "source_map": {
+        "examples/evidence_evaluation_observer.py": "a6d4128102b02bc226497eaf7fa85c63ba0378884691b121e513fbe04ed53ee0",
+        "examples/evidence_evaluation_producer.py": "2d1c5dec3f2dec72b8b3bcc8b33435c673cf6e17d753d03e8c6ff914d6e795b5",
+        "examples/evidence_evaluation_instrumentation.py": "ceca9eac4cb33afd2bbb908923d55563dd73f8d48564ac67ad6d6e47426deb6e",
+        "examples/evidence_evaluation_worker.py": "5e095391022a4d10cae657b06673866649a93794fc01510143199df9985ea838",
+        "examples/evidence_evaluation_scoring.py": "0384831331ca734c4c07fb20d44969108e737c5a45a066a2b36030e9f7236132",
+        "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+        "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+        "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+        "tests/evidence_evaluation/test_evaluation.py": "d0b6e13f378422544f6e8fbd883dee149de984c55255ab4804ef41a8ee02e768",
+        "tools/run_evidence_evaluation.py": "c496feb499488cea6370abd0aad06129dadcde12fa9a1d810ac6e52848fce98c"
+      },
+      "installed_qualification": false,
+      "scheduled_study": false
+    },
+    {
+      "source_id": "9b666ff3a0049e89a75cdd64ef33bfe0e2ba6664669f707ef2bc84fad3108924",
+      "status": "PASSED corrected qualification, no scheduled study",
+      "return_code": 0,
+      "source_unchanged": true,
+      "methods": 9,
+      "result_sha256": "a62c4590998e539ca0d56286530ec39b0bd2ebc749d04239528c76c774b4b017",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "aeec06e8add71f3ee58620f68a6bd1a753e1a422649add76cebac0df0b9ad72c",
+      "source_map": {
+        "examples/evidence_evaluation_observer.py": "a6d4128102b02bc226497eaf7fa85c63ba0378884691b121e513fbe04ed53ee0",
+        "examples/evidence_evaluation_producer.py": "2d1c5dec3f2dec72b8b3bcc8b33435c673cf6e17d753d03e8c6ff914d6e795b5",
+        "examples/evidence_evaluation_instrumentation.py": "4cd335a2cf9969d7fad3ad24ccda433dd72204fc15b918d9831ee272725d73f9",
+        "examples/evidence_evaluation_worker.py": "5e095391022a4d10cae657b06673866649a93794fc01510143199df9985ea838",
+        "examples/evidence_evaluation_scoring.py": "4500c406bc9b16be2f104a23fab62707b2381a90764c17139f703deefcce2f9a",
+        "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+        "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+        "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+        "tests/evidence_evaluation/test_evaluation.py": "c235d4f83ccd80232de4c044d1fdc69a3b16a61123ae705820d21f5aaee5fe22",
+        "tools/run_evidence_evaluation.py": "c496feb499488cea6370abd0aad06129dadcde12fa9a1d810ac6e52848fce98c"
+      },
+      "installed_qualification": false,
+      "scheduled_study": false
+    },
+    {
+      "source_id": "b8536fba6d1ed1f299fee57f8d227297141ab02b4cd8b73fc9199b2585cf8804",
+      "status": "PASSED accounting correction",
+      "return_code": 0,
+      "source_unchanged": true,
+      "methods": 9,
+      "result_sha256": "ccc45ae2edc47dab658dc524cc1ae0321a8502bff2e83a9d76c3fe5ce31964cf",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3013e7d60274001968195988dc5b16d18ea30c162786778f0f9cc1dbf236bd17",
+      "source_map": {
+        "examples/evidence_evaluation_observer.py": "a6d4128102b02bc226497eaf7fa85c63ba0378884691b121e513fbe04ed53ee0",
+        "examples/evidence_evaluation_producer.py": "d414baedc32206e3d4072a1782876433495d20bbb685900d1138af36d0620141",
+        "examples/evidence_evaluation_instrumentation.py": "4cd335a2cf9969d7fad3ad24ccda433dd72204fc15b918d9831ee272725d73f9",
+        "examples/evidence_evaluation_worker.py": "5e095391022a4d10cae657b06673866649a93794fc01510143199df9985ea838",
+        "examples/evidence_evaluation_scoring.py": "76f5d9a480ca5a8c302aaaef5cc949effe432cabac9893414c09186c615ad0cd",
+        "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+        "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+        "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+        "tests/evidence_evaluation/test_evaluation.py": "aec57c8d5260d3cf89d3255f8e3a12d8c8533821f5ae9aa2418034e725a537bc",
+        "tools/run_evidence_evaluation.py": "07a6a27be69840db85e3add51ea03186f67626aaffcebe8e5f1f5c57605c5ccf"
+      },
+      "installed_qualification": false,
+      "scheduled_study": false
+    }
+  ],
+  "current_source_qualification": {
+    "methods": 9,
+    "source_map": {
+      "examples/evidence_evaluation_observer.py": "a6d4128102b02bc226497eaf7fa85c63ba0378884691b121e513fbe04ed53ee0",
+      "examples/evidence_evaluation_producer.py": "d414baedc32206e3d4072a1782876433495d20bbb685900d1138af36d0620141",
+      "examples/evidence_evaluation_instrumentation.py": "4cd335a2cf9969d7fad3ad24ccda433dd72204fc15b918d9831ee272725d73f9",
+      "examples/evidence_evaluation_worker.py": "5e095391022a4d10cae657b06673866649a93794fc01510143199df9985ea838",
+      "examples/evidence_evaluation_scoring.py": "76f5d9a480ca5a8c302aaaef5cc949effe432cabac9893414c09186c615ad0cd",
+      "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+      "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+      "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+      "tests/evidence_evaluation/test_evaluation.py": "aec57c8d5260d3cf89d3255f8e3a12d8c8533821f5ae9aa2418034e725a537bc",
+      "tools/run_evidence_evaluation.py": "07a6a27be69840db85e3add51ea03186f67626aaffcebe8e5f1f5c57605c5ccf"
+    },
+    "source_id": "b8536fba6d1ed1f299fee57f8d227297141ab02b4cd8b73fc9199b2585cf8804",
+    "result_sha256": "ccc45ae2edc47dab658dc524cc1ae0321a8502bff2e83a9d76c3fe5ce31964cf",
+    "generic_case_arm_controls": 16,
+    "injected_clock_worker_controls": 16,
+    "expected_failure_controls": 2
+  },
+  "capture_correction": "One million actual occurrences compressed into at most4096runs. Accepted row16KiB/output64KiB/aggregate64MiB and all numeric evaluation thresholds unchanged; original failures retained.",
+  "resolved_study_admission_findings": {
+    "prior_finding": "Full study-admission review found directory-count inference could underreport a shared calculator that entered and failed before seed.mkdir. Draft explicit entry/return/error/preparation journaling and a failed-entry control replace that inference. Prior b88d source PASS and its CI remain scoped prior evidence; corrected qualification/publication/current installed admission are pending. No scheduled study has run.",
+    "review_sha256": "2fa7dda10e9bcc8bac1f1d549bab386e7519a87ce6f4d7c87adffa2cba28caed",
+    "corrections": [
+      "Observed shared calculator code entries/returns/errors are separate from completed preparations and journaled before directories.",
+      "Captured failed replay entries survive missing diagnoses; aggregate observed lower bounds remain separate from unknown complete coverage."
+    ],
+    "actual_source_qualification": {
+      "methods": 9,
+      "seconds": 97.478,
+      "generic_positive_case_arm_controls": 16,
+      "injected_clock_positive_worker_controls": 16,
+      "additional_expected_failure_controls": 2,
+      "return_code": 0,
+      "source_map": {
+        "examples/evidence_evaluation_observer.py": "a6d4128102b02bc226497eaf7fa85c63ba0378884691b121e513fbe04ed53ee0",
+        "examples/evidence_evaluation_producer.py": "d414baedc32206e3d4072a1782876433495d20bbb685900d1138af36d0620141",
+        "examples/evidence_evaluation_instrumentation.py": "4cd335a2cf9969d7fad3ad24ccda433dd72204fc15b918d9831ee272725d73f9",
+        "examples/evidence_evaluation_worker.py": "5e095391022a4d10cae657b06673866649a93794fc01510143199df9985ea838",
+        "examples/evidence_evaluation_scoring.py": "76f5d9a480ca5a8c302aaaef5cc949effe432cabac9893414c09186c615ad0cd",
+        "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+        "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+        "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+        "tests/evidence_evaluation/test_evaluation.py": "aec57c8d5260d3cf89d3255f8e3a12d8c8533821f5ae9aa2418034e725a537bc",
+        "tools/run_evidence_evaluation.py": "07a6a27be69840db85e3add51ea03186f67626aaffcebe8e5f1f5c57605c5ccf"
+      },
+      "result_sha256": "ccc45ae2edc47dab658dc524cc1ae0321a8502bff2e83a9d76c3fe5ce31964cf",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3013e7d60274001968195988dc5b16d18ea30c162786778f0f9cc1dbf236bd17",
+      "limits": "Source controls only; no fresh installed proof or scheduled study."
+    }
+  },
+  "precursor_installed_evidence": {
+    "head": "b88d3f3d372a52b2d68cb064e1b5d6c84a738614",
+    "run": 39051818696,
+    "Linux": {
+      "artifact": 12108017627,
+      "python": "3.12.15"
+    },
+    "Windows": {
+      "artifact": 12107694281,
+      "python": "3.12.10"
+    },
+    "scope": "Both push qualification jobs succeeded and ZIP size/digest/source qualification identities were retained. Pre-correction only; not current corrected-source qualification or a full independent artifact audit."
+  },
+  "runner_environment_capture": "Selected public run/attempt/job/runner/image identities, logical CPU count and monotonic nonadjustable perf_counter metadata are recorded. Trial requests are sequential; provider host co-load remains uncontrolled/unobserved."
+}

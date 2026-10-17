@@ -1,0 +1,18 @@
+{
+  "schema": "eq117.planning.inputs.v1",
+  "accepted_main": "4ed271db3c4dc01a067b6583f91736d88aecc6de",
+  "source_map": {
+    "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+    "examples/agent_research.py": "bd9507f0b1cadea822d0dfc18ac9825829157645e4370db5b5f41ddbb79e024c",
+    "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+    "docs/stories/EQ116_PROTOCOL.md": "2b0bd74c9762994d0e23468eb1caa7ec79796bb09b6a91be47073cc4945d4544",
+    "tools/build_evidence_pilot.py": "dc29c2c806af748947608afb8c0dda76f6471a9618a2bb2ad45a23fe5daa0b1c",
+    "docs/CODE_REVIEW.md": "2c6dcab25bb3978a2cef96284955b3d98faa76fd3b43a2dedcd5be4827a7d64d"
+  },
+  "eq116_acceptance": "https://github.com/atulsrivas1/equity-features/issues/222#issuecomment-6228807691",
+  "closure_review_sha256": "01105614de33fcc6aaba9fc3f30a05ea0c895479bd49b42e8afe0ddf0273bf43",
+  "new_tests": 0,
+  "new_evaluations": 0,
+  "owner_threshold_acceptance": null,
+  "preparation_only": true
+}
