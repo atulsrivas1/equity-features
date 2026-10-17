@@ -1,3 +1,23 @@
+# EQ131 positioning implementation candidate
+
+[Admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872); [accepted GOV026](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738); E21#428/milestone16. Atul owns the single active runtime story with 3 provisional points. This is a documentation candidate, not accepted delivery.
+
+## Bounded change and criteria
+
+1. README first screen and `docs/START_HERE.md` identify audience, supplied-data calculation benefit, CPython 3.12 x64 Windows/Linux, reviewed GitHub/finite-retention artifact channel and experimental limits. Existing README history remains exact.
+2. The separately reviewed public setup packet remains pending actual application and independent profile/three-repository metadata readback. Keep criterion 2 unchecked; no account administration here.
+3. The repository map connects core, I/O, workers and independent research with their existing owners, scope and evidence. Current research negatives/partial releases and combined C1 stay explicit.
+
+Related scope/release/knowledge/handoff/changelog documents distinguish current execution from preserved pre-start snapshots. The original three criteria and all research requirements remain unchanged. No package/API/math/example/test/version/dependency/build/workflow input changes.
+
+## Validation and delivery
+
+Run the exact existing documentation structural checker, full changed-file UTF8/LF/JSON/link/privacy/history/criteria checks, and complete non-document input equality. No new numerical/native/install test solely for positioning text. Make the linked PR ready before completed separate final-head review/Test. Applicable current CI, actual main/tree/attribution/publication and original criteria—including actual setup readback—precede acceptance. An unfinished external setup action blocks release acceptance rather than independent source preparation.
+
+The [validation ledger](EQ-131_VALIDATION.json) records observed author checks and preserves failures; future review, main and acceptance fields remain pending until observed.
+
+## Original reviewed pre-code plan — preserved history
+
 # EQ131 concrete implementation plan — pending readiness
 
 [Original scope](EQ-131_PLAN.md), [issue312](https://github.com/atulsrivas1/equity-features/issues/312), E21#428/milestone16; overarching combined C1/E20#311 remains open;3 provisional points. Original three criteria remain unchecked. First runtime story after GOV026 delivery and the accepted [scope decision](../R14_SCOPE_PROPOSAL.md). Scope and local review authority are resolved; completed exact review and governance delivery remain. This file is pre-code preparation, not delivered positioning.

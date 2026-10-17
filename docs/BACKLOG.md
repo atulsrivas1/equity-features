@@ -1,3 +1,13 @@
+## R14 library execution after accepted handoff
+
+[GOV026 accepted handoff](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738) is delivered at main `4effd881008aba295462dcb733a9025c47544b6b`, after 62 candidate and 31 main checks plus separate source, publication and closure reviews. [EQ131 admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872) establishes the first bounded positioning/navigation implementation. The live [Project](https://github.com/users/atulsrivas1/projects/2) owns current lifecycle and assignment; this source snapshot does not grant completion to an unfinished story.
+
+The original three EQ131 criteria are unchanged. The [reviewed setup-owner packet](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240334024) still requires actual application and public readback before criterion 2 and final acceptance. Repository documentation can proceed independently; no account administration is performed here. Other R14 stories remain dependency-gated, with one active runtime story. Research M2/M3/M5 and combined C1 remain open; R7 automation remains paused.
+
+All 134 active story IDs, retired EQ094, release assignments and the owner-approved R14 scope are unchanged. [Current positioning plan](stories/EQ-131_IMPLEMENTATION_PLAN.md).
+
+## Earlier checkpoints retained as history
+
 ## Owner-approved library-only R14 — October17,2026
 
 [Explicit scope decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) accepts the proposal at PR427/e42a6273057ba594f1e5c83e712d26240c400d8c, JSON SHA2565364f4b392ece17edf5d65ef2f5187457368321ad59a3b0c1f19e0f3958a3cd2. Deliver library EQ131–135: developer-only EQ134 and library-only EQ135 acceptance. Research M2/M3/M5/SR026/SR027 retain all open scope, scientific requirements, budgets and ownership. The original research gate remains relevant to combined C1, not this accepted library component.

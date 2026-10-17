@@ -1,3 +1,13 @@
+## Current resume: EQ131 positioning and setup dependency
+
+[GOV026 accepted handoff](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738) is delivered at main `4effd881008aba295462dcb733a9025c47544b6b`, after 62 candidate and 31 main checks plus separate source, publication and closure reviews. [EQ131 admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872) establishes the first bounded positioning/navigation implementation. The live [Project](https://github.com/users/atulsrivas1/projects/2) owns current lifecycle and assignment; this source snapshot does not grant completion to an unfinished story.
+
+The original three EQ131 criteria are unchanged. The [reviewed setup-owner packet](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240334024) still requires actual application and public readback before criterion 2 and final acceptance. Repository documentation can proceed independently; no account administration is performed here. Other R14 stories remain dependency-gated, with one active runtime story. Research M2/M3/M5 and combined C1 remain open; R7 automation remains paused.
+
+Finish the bounded README/navigation change, documentation checks, permitted exact final-head review and publication gates. Keep criterion 2 unchecked until the setup owner has applied the reviewed changes and independent public readback confirms them. If that external action is pending, record the blocker; do not close EQ131 or start its dependent EQ132 through CI alone. No repeated scope or local-review permission question is required.
+
+## Original accepted handoff — historical resume steps
+
 # R14 execution handoff
 
 Owner requested R13 review, handoff and R14 work on October17,2026 in this conversation. No new chat or automation. [GOV026#426](https://github.com/atulsrivas1/equity-features/issues/426) is the sole active preparation; E21#428/milestone16 and EQ131–135 remain Backlog. [Release](R14_RELEASE_PLAN.md), [tests](R14_TEST_STRATEGY.md), [scope proposal](R14_SCOPE_PROPOSAL.md), [first implementation plan](stories/EQ-131_IMPLEMENTATION_PLAN.md).

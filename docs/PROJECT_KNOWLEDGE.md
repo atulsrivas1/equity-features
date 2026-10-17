@@ -1,3 +1,13 @@
+## EQ131 positioning candidate and actual R14 ownership
+
+[GOV026 accepted handoff](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738) is delivered at main `4effd881008aba295462dcb733a9025c47544b6b`, after 62 candidate and 31 main checks plus separate source, publication and closure reviews. [EQ131 admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872) establishes the first bounded positioning/navigation implementation. The live [Project](https://github.com/users/atulsrivas1/projects/2) owns current lifecycle and assignment; this source snapshot does not grant completion to an unfinished story.
+
+The original three EQ131 criteria are unchanged. The [reviewed setup-owner packet](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240334024) still requires actual application and public readback before criterion 2 and final acceptance. Repository documentation can proceed independently; no account administration is performed here. Other R14 stories remain dependency-gated, with one active runtime story. Research M2/M3/M5 and combined C1 remain open; R7 automation remains paused.
+
+[Start page](START_HERE.md), [implementation plan](stories/EQ-131_IMPLEMENTATION_PLAN.md) and [validation ledger](stories/EQ-131_VALIDATION.json) bind this documentation candidate. All calculation and installed-example inputs remain unchanged. Final source review, applicable documentation CI, actual main publication and acceptance remain separate gates; no fresh numerical/native/install claim is made for positioning text.
+
+## Earlier checkpoints retained as history
+
 ## R14 scope accepted; local review authorized — October17,2026
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) accepts library-only R14 EQ131–135 with developer-only EQ134 and library-only EQ135 acceptance. [E21#428](https://github.com/atulsrivas1/equity-features/issues/428)/milestone16 tracks exactly312–316/426/428; combined C1/E20#311 stays open outside that milestone. Research M2/M3/M5/SR026/027 remain open with requirements, budgets and ownership unchanged. Original issue/plan scope is preserved as history.

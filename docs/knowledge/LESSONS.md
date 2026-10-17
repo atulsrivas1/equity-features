@@ -1,3 +1,15 @@
+## EQ131: verify readiness and exact Project schema before mutation
+
+[GOV026's delivery review](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240841591) preserves two observed workflow corrections. REST's milestone aggregate initially reported eight open items while full REST and GraphQL membership/state enumerations agreed on seven issues and zero PRs. The cause was not established; the delivery guard retained the aggregate diagnostically and required matching complete identities and individual states. Later closure readback agreed on six open and one closed. Do not infer a universal API fault or weaken membership checks.
+
+The PR remained draft through initial Test; candidate approval was held until actual PR readiness. Preserve the late transition instead of claiming an earlier one. Make the PR ready before completed formal review/Test in subsequent stories. Correct source and passing CI do not repair missing lifecycle evidence on their own.
+
+Separate pre-execution review of [EQ131 admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872) also found payload-target validation after possible writes, an epic transition that skipped Ready, missing last-moment body guards, and a field-name mismatch: the number field is named `Story points`, not `Points`. All were corrected and independently checked before live admission. Precompute deterministic payloads and exclusive output paths before the first mutation, verify exact field ID/name/type, retain raw mutation responses before parsing, refetch owned bodies before PATCH, and apply Ready to aggregate tracking too. No failed product run or account operation occurred in these tooling corrections.
+
+Positioning documents must distinguish accepted engineering scope, negative scientific findings and actual delivered channels. An owner-reviewed setup proposal or CI pass cannot replace actual profile/metadata application and readback. Keep pending criteria explicit while completing independent documentation work.
+
+## Earlier checkpoints retained as history
+
 ## R14 scope separation requires explicit authority and separate acceptance
 
 [Owner approval](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) now resolves the cross-project gate: library R14 can proceed separately while research M2/M3/M5 and combined C1 remain open. E21#428 tracks the library component; original combined E20#311 remains open outside milestone16. This keeps library completion from implying research acceptance or silently dropping original scientific scope. Preserve original requirements as history and check current criteria separately from historical checkboxes.

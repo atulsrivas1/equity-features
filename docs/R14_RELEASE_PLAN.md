@@ -1,3 +1,13 @@
+## Execution after the accepted R14 handoff
+
+[GOV026 accepted handoff](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738) is delivered at main `4effd881008aba295462dcb733a9025c47544b6b`, after 62 candidate and 31 main checks plus separate source, publication and closure reviews. [EQ131 admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872) establishes the first bounded positioning/navigation implementation. The live [Project](https://github.com/users/atulsrivas1/projects/2) owns current lifecycle and assignment; this source snapshot does not grant completion to an unfinished story.
+
+The original three EQ131 criteria are unchanged. The [reviewed setup-owner packet](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240334024) still requires actual application and public readback before criterion 2 and final acceptance. Repository documentation can proceed independently; no account administration is performed here. Other R14 stories remain dependency-gated, with one active runtime story. Research M2/M3/M5 and combined C1 remain open; R7 automation remains paused.
+
+The accepted design, original criteria, validation strategy and pull order in the frozen handoff below remain binding. Its preparation-time no-runtime/pending-delivery fields record that earlier stage, including the frozen scope proposal JSON; they are not current lifecycle authority. EQ132 may start only after actual EQ131 acceptance.
+
+## Accepted handoff plan — preserved source snapshot
+
 # R14 library onboarding plan — October 17, 2026
 
 [GOV026#426](https://github.com/atulsrivas1/equity-features/issues/426), [E21#428](https://github.com/atulsrivas1/equity-features/issues/428), milestone16. Combined C1/E20#311 remains open outside this milestone. The owner requests R13 review, a handoff and R14 work in this conversation. The owner has accepted library-only scope; governance delivery, review authority and completed review still precede runtime readiness. No new chat, schedule or date promise.
