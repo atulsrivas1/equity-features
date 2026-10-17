@@ -1,3 +1,7 @@
+## R13 handoff preparation — October16,2026
+
+Owner requests fresh R12 review and R13 handoff only. [R12 accepted](https://github.com/atulsrivas1/equity-features/issues/212#issuecomment-6224646223) at main747fc9adcd85e0c4a8dca161fd4f545b2230434f, all7Closed/Done/milestone13closed. [Fresh review](reviews/R12_POST_DELIVERY_REVIEW.md) states actual coverage/limits. [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421) prepares [R13 release](R13_RELEASE_PLAN.md), [tests](R13_TEST_STRATEGY.md), [handoff](R13_AUTONOMOUS_HANDOFF.md) and [EQ116](stories/EQ-116_PLAN.md). Original five stories/24points remain Backlog/unassigned;3governance points added. No runtime execution, thresholds, evaluation, outreach or witness implementation selected. Separate planning review is required before merge; owner accepts concrete thresholds before117measurement. Deferred witness children cannot be relabeled Done or silently removed to close the epic. No new session/automation/private/provider/paid/admin/hosting/trading/registry scope; R7automation stays paused. Earlier dated snapshots below retain history.
+
 ## EQ115 installed synthetic guide and R12 delivery
 
 [EQ114 accepted kernels](https://github.com/atulsrivas1/equity-features/issues/216#issuecomment-6223872765)
