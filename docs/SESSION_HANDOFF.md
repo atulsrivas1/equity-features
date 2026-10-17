@@ -1,3 +1,9 @@
+## EQ117 documentation coverage rework after owner scope revision
+
+The two dbbaf86 documentation jobs failed because their release-only parser omitted EQ118/EQ119's explicit Future Backlog assignments, reducing its parsed count from134 to132. [Validation](stories/EQ117_VALIDATION.json) preserves both raw failures and the author/reviewer miss. The corrected validator keeps all134 unique active stories, retired094 and existing R4.1/R14 mappings, and additionally requires exactly the two deferred witness IDs and the three selected R13 IDs. Actual local documentation-only checks reproduce the old failure and pass the corrected full check.
+
+The numerical/evaluation harness is unchanged from independently verified f0ed9-method PASS; no additional local source-qualification run or scheduled study was executed. Publish/review this narrow documentation-validator correction and require new exact current62CI/current Windows/Linux artifacts before delivery. Owner DEFER and the original failed-study/nonadoptable classification remain unchanged; selected R13 is116/117/120, future118/119remain open Backlog without milestone14. Older source checkpoints below retain historical scope.
+
 ## EQ117 sole fixed study failed postflight; diagnostic findings reviewed
 
 The [sole fixed run39054264038](https://github.com/atulsrivas1/equity-features/actions/runs/39054264038) at b1e9a11 completed all320 observations and all33 recorded commands perOS returned0. Both jobs then FAILED the final harness check: generated `__pycache__` was read as a file. Final Git/IO closure was not reached. The raw outputs and original positive-collector refusal are preserved; this run is diagnostic-only and not admissible as a fully qualified study.

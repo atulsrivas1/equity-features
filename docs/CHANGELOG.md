@@ -1,3 +1,7 @@
+## EQ117 documentation validator reconciliation
+
+- Preserve both failed documentation jobs; recognize the owner-approved future Backlog assignments while requiring all134 active stories and exact selected/deferred R13 sets. No calculation, harness, threshold or study change.
+
 ## EQ117 evaluation rework and owner DEFER — October17,2026
 
 - Preserve the sole failed-postflight320-observation run and independently reviewed diagnostic results, including all timing failures; no replacement measurement.

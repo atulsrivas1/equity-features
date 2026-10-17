@@ -1715,3 +1715,7 @@ The first guide fix covered five pages but missed current EQ109 headers in READM
 ## EQ117: qualification must exercise the exact final harness closure
 
 The qualification interpreter generated sibling bytecode caches before the study driver disabled bytecode. All320 scheduled rows and installed-map parity completed, but the outer final flat-file hash check raised on `__pycache__`; final Git/IO closure never ran. Prior green qualification and source review therefore did not establish complete poststudy closure. Preserve the failed run and independent reviewer miss. Disable bytecode before every owned harness import, enforce an exact before/after harness inventory in qualification too, and keep unknown files/directories as failures. Do not adopt the failed study by waiving closure or repeat measurements to obtain a favorable outcome. [Actual diagnostic failure and findings](../stories/EQ117_DIAGNOSTIC_RESULTS.md).
+
+## EQ117: explicit deferral changes the assignment schema, not active story coverage
+
+Owner-approved Future Backlog rows must remain in the complete134-story inventory. The old release-only CI regex counted132 after deferring EQ118/EQ119. Extend the finite assignment domain, preserve all unique IDs and original release mappings, and assert the exact deferred/selected sets. Author and documentation review missed the parser dependency; preserve both actual failed jobs and the local old-fail/new-pass documentation checks. [Validation](../stories/EQ117_VALIDATION.json).

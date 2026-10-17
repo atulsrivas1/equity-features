@@ -1,6 +1,6 @@
 {
   "schema": "eq117.validation.v1",
-  "status": "postflight_source_correction_passed_current_installed_pending",
+  "status": "documentation_coverage_rework_after_postflight_source_pass",
   "owner_accepted_proposal_sha256": "7405067b0360126a462bb7a66b5a89416cf93399843b0933b358760804e45073",
   "source_qualification": [
     {
@@ -381,5 +381,37 @@
     "Diagnostic renderer failed before output on cp1252 decoding and wrong summary-field assumptions; corrected UTF8/actual median keys before draft and independent table review.",
     "Postflight qualification controller now binds exact prepared command/manifest and preparer raw hashes before its one execution.",
     "Owner accepted DEFER and explicit scope resolution; live witness issues remain open Backlog without milestone14."
-  ]
+  ],
+  "documentation_coverage_rework": {
+    "source_head": "dbbaf86d5c8b8e00c400e2d13d167999588b238c",
+    "failed_runs": [
+      39056554319,
+      39056557906
+    ],
+    "failed_log_sha256": [
+      "8a0c275c8f4a88dc57716f40e1a49b13c2c21040e374c0239326c4e0e34e3017",
+      "2e5570813968571d4975bc6c47f45d194ea543bcb85bd16ac55efb530e65f21a"
+    ],
+    "cause": "Release-only backlog regex omitted two explicitly owner-deferred Future Backlog rows and counted132 instead of134.",
+    "review_miss": "Author and separate documentation reviews did not reconcile the existing CI assignment parser with the revised backlog schema.",
+    "correction": "Recognize the one explicit Future Backlog (unselected) state; preserve134 unique active IDs/retired094/oldR4.1R14 mappings and require exact future118119 plus R13 116117120 sets.",
+    "local_documentation_checks": {
+      "original": {
+        "returncode": 1,
+        "workflow_sha256": "753096301cf23fe22ee260702d4f6db587d2b76729075cf2d0bba8d3c0b7fbb4",
+        "stdout_sha256": "4f494852c22be5498b16b83a1b58604cb1421511ecad97c57fee5af27b8aadc7",
+        "stderr_sha256": "0a4f2bc062858804594f8eaed3f926f3623ad4cdb4cfefc4dd3a43cabd994a5a"
+      },
+      "corrected": {
+        "returncode": 0,
+        "workflow_sha256": "40cd23f4dcafc829ada1b753136c91b88665d7e848b9848683096cc0e621bcb0",
+        "stdout_sha256": "9a5793f3dbb080f284da4b6a278e94b945544ca35a2629a2861ce7dec4c93def",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "source_harness_changed": false,
+    "study_reexecuted": false,
+    "current_head_ci_pending": true,
+    "local_source_qualification_reexecuted": false
+  }
 }
