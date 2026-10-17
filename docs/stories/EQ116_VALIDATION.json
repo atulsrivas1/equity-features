@@ -1,6 +1,6 @@
 {
   "schema": "eq116.validation.v1",
-  "state": "reviewed_implementation_in_Test_current_qualification_pending",
+  "state": "implementation_source_snapshot_not_live_lifecycle",
   "source_trials": [
     {
       "classification": "Windows source unit checks with explicit PYTHONPATH; not installed qualification",
@@ -106,5 +106,10 @@
     "Final acceptance allocation found promised rename/exact-cap/event-enum-version-tool controls were not explicit in19source methods; seven subcases added without changing methodcount or product source.",
     "Read-only artifact audit source initial fourP2s: artifactPath shadowing; metadata/SDist policy gaps; installedgenerated kind/path gaps; rawlog-cohort bindings. Corrected before artifact execution; initial report retained.",
     "Test transition helper initial own completedreview/selfSHA guard gap corrected before actual Code review to Test mutation."
-  ]
+  ],
+  "snapshot_scope": {
+    "through_source_commit": "dd90a6f4a683c7a2c49ae4eab15886fb27f3f751",
+    "lifecycle_and_release_authority": "https://github.com/atulsrivas1/equity-features/issues/222",
+    "qualification_fields": "Planning/source-freeze allocation and source-tool execution scopes. Pending/executed flags below describe this snapshot; subsequent actual current-head candidate/main qualification, artifacts and acceptance are linked from the live story. Do not reinterpret prior source tests or source review as later platform evidence."
+  }
 }

@@ -1,6 +1,6 @@
-## EQ116 implementation and qualification allocation
+## EQ116 historical source and qualification allocation
 
-Owner selected bounded R13 execution and local automated review throughout R13. [EQ116 guide](EVIDENCE_PILOT_GUIDE.md) and [full validation](stories/EQ116_VALIDATION.json) record the local paired consumer, immutable expected cases and actual source-check/failure scopes. Nineteen source methods and strict two-file typing passed after preserved corrections; builder/fresh installed Windows/Linux/current artifacts and release acceptance remain pending. This does not accept EQ117 usefulness thresholds, establish a benefit or select conditional witness operations.
+Owner selected bounded R13 execution and local automated review throughout R13. [EQ116 guide](EVIDENCE_PILOT_GUIDE.md) and [full validation](stories/EQ116_VALIDATION.json) record the local paired consumer, immutable expected cases and actual source-check/failure scopes. Nineteen source methods and strict two-file typing passed after preserved corrections; builder/fresh installed Windows/Linux/current artifacts and release acceptance were pending at the source snapshot. Current lifecycle and qualified release evidence are recorded in [EQ116](https://github.com/atulsrivas1/equity-features/issues/222); [E17](https://github.com/atulsrivas1/equity-features/issues/221) owns whole-R13 acceptance. This does not accept EQ117 usefulness thresholds, establish a benefit or select conditional witness operations.
 
 ## Historical handoff preparation before implementation selection
 
