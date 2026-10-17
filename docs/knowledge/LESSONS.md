@@ -1,3 +1,7 @@
+## EQ116 — compare accepted content identity after decoding
+
+The [first source trial](../stories/EQ116_VALIDATION.json) failed two checks because the reader compared CanonicalBatch construction order. The accepted encoder sorts columns, and decoding preserves that canonical order. Full canonical bytes plus the original fingerprint and complete independent literal input are the supported identity; direct tuple-order equality can reject valid equivalent content. Corrected19-method source checks passed and a new regression binds both complete clean/future input byte envelopes. Preserve the initial failure; this is source evidence, not fresh installed/release acceptance. [Guide and limits](../EVIDENCE_PILOT_GUIDE.md).
+
 ## R12 consumer identity and API preparation corrections
 
 EQ115 prepared review caught wrong numeric dependencies before publication;

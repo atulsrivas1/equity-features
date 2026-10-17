@@ -1,4 +1,8 @@
-## Current handoff preparation
+## EQ116 implementation and qualification allocation
+
+Owner selected bounded R13 execution and local automated review throughout R13. [EQ116 guide](EVIDENCE_PILOT_GUIDE.md) and [full validation](stories/EQ116_VALIDATION.json) record the local paired consumer, immutable expected cases and actual source-check/failure scopes. Nineteen source methods and strict two-file typing passed after preserved corrections; builder/fresh installed Windows/Linux/current artifacts and release acceptance remain pending. This does not accept EQ117 usefulness thresholds, establish a benefit or select conditional witness operations.
+
+## Historical handoff preparation before implementation selection
 
 Owner requests R13 handoff after accepted R12, not implementation/evaluation. [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421), [release plan](R13_RELEASE_PLAN.md), [tests](R13_TEST_STRATEGY.md), [handoff](R13_AUTONOMOUS_HANDOFF.md). Original scopes/24provisional points and conditional owner decisions below remain unchanged. No witness, outreach or evaluation threshold accepted by preparation; runtime stays Backlog. Earlier future-planning text retains scope.
 

@@ -1,3 +1,7 @@
+## EQ116 paired evidence pilot — implementation source stage
+
+R13 implementation is selected; EQ116 is In progress with an external local synthetic consumer composing the unchanged eight distributions. [Guide](EVIDENCE_PILOT_GUIDE.md) and [validation](stories/EQ116_VALIDATION.json) distinguish the19-method source pass, preserved initial failures and strict two-file typing from pending fresh installed Windows/Linux artifacts and release acceptance. No library package/API/schema/version, calculation algorithm, receipt/registry or worker/MCP change is introduced. No usefulness threshold, measured benefit or conditional witness operation is accepted. R7automation remains paused. Earlier R12 source-freeze snapshots below are historical.
+
 ## EQ115 installed synthetic guide and R12 delivery
 
 [EQ114 accepted kernels](https://github.com/atulsrivas1/equity-features/issues/216#issuecomment-6223872765)
