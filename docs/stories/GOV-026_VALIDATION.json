@@ -1,0 +1,61 @@
+{
+  "story": "GOV-026",
+  "issue": 426,
+  "phase": "handoff source freeze",
+  "r13_original_review_sha256": "981d6ddc96e1f563ba5ddd5fedd43b89f0d693143ba587ecdf13bb6c7736f6f9",
+  "r13_review_completed": true,
+  "r14_review_completed": false,
+  "r14_local_review_authorized": true,
+  "r14_scope_proposal_accepted": true,
+  "runtime_ready": false,
+  "runtime_implemented": false,
+  "product_tests_run": false,
+  "study_rerun": false,
+  "author_document_checks": {
+    "prior_preapproval_report": "17DOC checks passed at e42a627; unchanged history retained",
+    "current_scope": "22DOC accepted-scope delta; new author/public checks required before updated publication",
+    "not_product_qualification": true
+  },
+  "candidate_checks": null,
+  "permitted_final_review": null,
+  "main_delivery": null,
+  "acceptance": null,
+  "tool_history": [
+    "Read-only research stdout hit Windows codepage UnicodeEncodeError; corrected explicitUTF8, no product execution.",
+    "Large preparation command rejected by Windows process creation length limit before any writes; bounded edits used.",
+    "Guessed earlier GOV025 validation filename absent; actual inventory used, no absence/product claim.",
+    "Initial added-text privacy scanner mistook part of an HTTPS URL for a drive path and refused before publication/structural checks. Corrected non-word path boundary with positive/negative scanner controls; no product failure.",
+    "Scope publisher saved mutations then failed its final membership assertion. Fresh read-only reconciliation verified all intended bodies/states and exact seven-member milestone without repeating any mutation. Initial response was not retained; no inferred product failure or retroactive initial PASS.",
+    "A local exact-wording guard refused the handoff rewrite because materialized preapproval wording contained a space. Earlier owned files were drafted; no commit/publication followed. The bounded preparer now reads immutable preapproval Git source and corrected exact wording; changed files remain explicit.",
+    "Review-grant preparation briefly used default text decoding on four owned files; complete history equality refused the unpublished draft. Exact prior UTF8 Git blobs were re-materialized and bounded wording reapplied explicitlyUTF8 before publication. No product failure or historical rewrite was accepted."
+  ],
+  "completion_destination": "Numbered governance acceptance/liveProject after actual current-head/main review and publication; future IDs stay null.",
+  "accepted_scope_decision": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916",
+  "library_epic": 428,
+  "combined_c1_epic": 311,
+  "combined_c1_open": true,
+  "r14_members": [
+    312,
+    313,
+    314,
+    315,
+    316,
+    426,
+    428
+  ],
+  "review_authority_url": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202",
+  "source_review_history": [
+    {
+      "head": "4150418a7381f9b64011b6e62192d5d8bee20af6",
+      "disposition": "REWORK",
+      "report_sha256": "ec0bd46f4b1e2ffc29345cf1d746f3ab3927b7ad1bc6437fdb6947d65ec81469",
+      "findings": [
+        "DOC01(P2) current pending-grant wording in BACKLOG/C1/LESSONS",
+        "DOC02(P2) current release-plan governance stage stale"
+      ],
+      "actual_rework": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240276816",
+      "correction_scope": "Current grant/status prose only; historical tails/criteria/non-doc inputs unchanged",
+      "renewed_review": null
+    }
+  ]
+}

@@ -1,3 +1,22 @@
+## Accepted library-only R14 scope — October17,2026
+
+[Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916). Parent library component: [E21#428](https://github.com/atulsrivas1/equity-features/issues/428); combined C1 parent E20#311 remains open outside this milestone. Original research/scientific requirements and ownership remain unchanged.
+
+## Current acceptance
+
+- [ ] Deliver a manual measurement sheet with definitions, initial baseline and evidence references; zero/unknown is reported honestly and no private participant details are published.
+- [ ] Learning targets are five example users, three useful feedback reports and one returning contributor; missed targets do not invalidate artifact delivery and do not establish product failure.
+- [ ] Record pilot outcome or explicit defer, actionable lessons and a bounded continue/change/stop decision; no scheduler or unbounded growth commitment.
+- [ ] R14 library-component receipt reconciles all five library stories plus GOV026, exact published documentation/artifacts, completed final-head reviews, checks and readback. R14 closes only after its selected library scope qualifies; research M5/SR026/SR027 and combined C1 acceptance remain open and are not claimed complete.
+
+## Current dependencies and delivery
+
+EQ131-134 plus library predecessor/review/delivery gates; M5 and combined C1 are not part of this library receipt. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. This story stays Backlog/unassigned, with no implementation or outreach/account authority.
+
+
+## Preserved original plan — historical, not current criteria
+
+````markdown
 # EQ-135 - Measure onboarding feedback and verify C1 delivery
 
 ## Problem and value
@@ -41,3 +60,5 @@ Publish linked story plan, guide/examples/templates as relevant, checks and fail
 - [Existing focused developer assessment EQ-117](https://github.com/atulsrivas1/equity-features/issues/223)
 
 These sources motivate the proposal; community growth has not been measured locally. Reuse existing examples and assessments rather than duplicating their implementation.
+
+````

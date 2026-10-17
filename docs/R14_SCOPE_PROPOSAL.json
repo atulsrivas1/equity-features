@@ -1,0 +1,95 @@
+{
+  "release": "R14",
+  "governance_issue": 426,
+  "owner_selected_preparation_and_eventual_execution": true,
+  "proposal_accepted": true,
+  "runtime_admitted": false,
+  "existing_gate": "Accepted/reconciled library R5-R13 plus applicable research M2/M3; M4 excluded; M6/M7 do not replace it",
+  "recommended_choice": "Decouple library-onlyR14 from research M2/M3/M5; keep M5 and combined C1 open",
+  "selected_library_stories": [
+    131,
+    132,
+    133,
+    134,
+    135
+  ],
+  "research_stories_not_selected": [
+    26,
+    27
+  ],
+  "original_scope_preserved_until_decision": false,
+  "research_main": "55e2d3810001010f0280ffdb8f0d2c80cb43ac6f",
+  "research_m2": {
+    "milestone": 3,
+    "state": "open",
+    "open": 8,
+    "closed": 0,
+    "accepted": false
+  },
+  "research_m3": {
+    "milestone": 4,
+    "state": "open",
+    "open": 5,
+    "closed": 0,
+    "accepted": false
+  },
+  "changes_proposed": [
+    {
+      "applies_to": [
+        "C1 library-component gate",
+        "E20",
+        "EQ131",
+        "EQ132",
+        "EQ133",
+        "EQ134",
+        "EQ135"
+      ],
+      "change": "For the library R14 component only, replace research M2/M3 predecessor with accepted scoped library R5-R13 plus exact current applicable package/companion evidence; original research and combined C1 gate unchanged."
+    },
+    {
+      "applies_to": [
+        "EQ134 first acceptance criterion",
+        "EQ134 dependencies"
+      ],
+      "replacement_criterion": "Developer demonstration replays the accepted EQ132 quickstart and EQ133 contribution path and ends with one concrete participation request; the research demonstration remains deferred under M5.",
+      "dependency_change": "Remove SR026/SR027 for this developer-only story; keep EQ132/EQ133 and the library predecessor."
+    },
+    {
+      "applies_to": [
+        "EQ135 fourth acceptance criterion",
+        "EQ135 dependencies"
+      ],
+      "replacement_criterion": "R14 library-component receipt reconciles all five library stories plus GOV026, exact published documentation/artifacts, completed final-head reviews, checks and readback. R14 closes only after its selected library scope qualifies; research M5/SR026/SR027 and combined C1 acceptance remain open and are not claimed complete.",
+      "dependency_change": "Remove SR026/SR027 and research M2/M3 for library-component acceptance; keep EQ131-134 and all applicable library/review/delivery gates."
+    }
+  ],
+  "review_grant": "Owner authorized separate local review throughout R14; completed exact review still required",
+  "account_setup_coordination_required": true,
+  "outreach_authorized": false,
+  "r7_automation": "PAUSED",
+  "future_witness_118_119": "OPENunimplementedBacklog, no release assigned",
+  "accepted_decision": {
+    "date": "2026-10-17",
+    "authority": "human owner explicit approval",
+    "decision_url": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916",
+    "original_proposal_head": "e42a6273057ba594f1e5c83e712d26240c400d8c",
+    "original_proposal_sha256": "5364f4b392ece17edf5d65ef2f5187457368321ad59a3b0c1f19e0f3958a3cd2"
+  },
+  "selected_choice": "Decouple library-onlyR14 from research M2/M3/M5; keep M5 and combined C1 open",
+  "library_epic": 428,
+  "combined_c1_epic": 311,
+  "combined_c1_open": true,
+  "combined_c1_milestone": null,
+  "r14_members": [
+    312,
+    313,
+    314,
+    315,
+    316,
+    426,
+    428
+  ],
+  "original_scope_preserved_as_history": true,
+  "r14_local_review_authorized": true,
+  "review_decision_url": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202"
+}

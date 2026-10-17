@@ -1,3 +1,11 @@
+## Unreleased R14 handoff and accepted scope
+
+- [Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) separates library-only R14 EQ131–135, developer-only demonstration and library-only acceptance; research M5 and combined C1 remain open.
+- E21#428 tracks the seven-member R14 component; combined E20#311 stays open outside milestone16. Original scope/criteria remain preserved as history.
+- Fresh separate R13 review found no new actionable findings. No package/version/API/math/example/runtime/test/workflow/dependency change, research trial or failed-study rerun. Local R14 review is authorized; completed exact review and governance delivery still gate runtime readiness.
+
+## Earlier checkpoints retained as history
+
 ## EQ120 R13 acceptance documentation source
 
 Add the selected R13 acceptance matrix and navigation/installation/verification limits after accepted EQ116/EQ117 negative delivery. Record owner DEFER, original failed/nonadoptable320-row comparison, corrected qualification and actual future delivery gates. EQ118/EQ119 remain unimplemented future Backlog outside milestone14. No package/API/version/math/workflow/worker/MCP/dependency/install-command change or new positive benchmark. Final source/current CI/artifact/main/acceptance verification remains required; see [R13 allocation](R13_ACCEPTANCE.md) and [live EQ120](https://github.com/atulsrivas1/equity-features/issues/226).

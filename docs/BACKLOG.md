@@ -1,3 +1,13 @@
+## Owner-approved library-only R14 — October17,2026
+
+[Explicit scope decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) accepts the proposal at PR427/e42a6273057ba594f1e5c83e712d26240c400d8c, JSON SHA2565364f4b392ece17edf5d65ef2f5187457368321ad59a3b0c1f19e0f3958a3cd2. Deliver library EQ131–135: developer-only EQ134 and library-only EQ135 acceptance. Research M2/M3/M5/SR026/SR027 retain all open scope, scientific requirements, budgets and ownership. The original research gate remains relevant to combined C1, not this accepted library component.
+
+[E21#428](https://github.com/atulsrivas1/equity-features/issues/428) tracks the R14 library component; milestone16 has exactly312/313/314/315/316/426/428. Existing combined [E20#311](https://github.com/atulsrivas1/equity-features/issues/311) remains OPEN outside milestone16. R14 closure must not close or claim combined C1/M5 completion. Original affected issue/plan scope is preserved as history. Runtime remains Backlog/unassigned: governance delivery and a completed permitted review still precede Ready. [Separate owner authorization](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202) now covers local review throughout R14. Completed exact review/governance delivery still precede Ready; no account administration or outreach is authorized.
+
+[GOV026](stories/GOV-026_PLAN.md) is Code review; [handoff](R14_AUTONOMOUS_HANDOFF.md). Original five runtime stories retain17provisional points, governance3; all134 active IDs/retired094/release assignments remain unchanged. Witness118/119 stay open/unimplemented Future Backlog. No research or runtime completion follows from scope acceptance.
+
+## Earlier checkpoints retained as history
+
 ## R13 selected acceptance scope
 
 Owner DEFER selects EQ116/EQ117/EQ120; GOV025/EQ116/[EQ117](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556) are accepted, [EQ120](https://github.com/atulsrivas1/equity-features/issues/226) is the final active documentation story. [Acceptance allocation](R13_ACCEPTANCE.md). EQ118/EQ119 remain open, unimplemented Future Backlog (unselected), outside milestone14 with no new release/date. Keep all134 unique active IDs, retired094 and every unaffected release assignment; the rows below retain their versioned scope. No automatic R14 or R7 automation. E17/milestone14 close only after selected actual delivery/readback.
