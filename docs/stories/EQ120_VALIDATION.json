@@ -1,0 +1,22 @@
+{
+  "schema": "eq120.validation.v1",
+  "phase": "precode_only",
+  "implementation_complete": false,
+  "actual_eq117_acceptance": "https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556",
+  "owner_decision": "DEFER",
+  "study_reexecuted": false,
+  "review_scope": "Conditional external preparation; exact current packet/readiness review remains required",
+  "preparation_reports": {
+    "eq120-prepared-inputs-auditor-reviewer-report.json": "bef7c29687ccf6bc8083533b119d41b196949e58d4176e266572a26482d29604",
+    "eq120-external-acceptance-draft-corrected-reviewer-report.json": "b658eac29fda75d5993fa3e4d5306e7a22db6e841e1ddb790a59ea420fac4a56",
+    "eq120-content-obligations-reviewer-memo.md": "7509c04efe325f68aaca7ed3b2a0fa96d4ecd75978d61cc989ff6daa85bf6b83"
+  },
+  "candidate_head": null,
+  "candidate_checks": null,
+  "candidate_artifacts": null,
+  "main_head": null,
+  "main_checks": null,
+  "main_artifacts": null,
+  "acceptance_url": null,
+  "installed_qualification_complete": false
+}
