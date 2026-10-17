@@ -1,6 +1,6 @@
 # EQ131 concrete implementation plan — pending readiness
 
-[Original scope](EQ-131_PLAN.md), [issue312](https://github.com/atulsrivas1/equity-features/issues/312), E21#428/milestone16; overarching combined C1/E20#311 remains open;3 provisional points. Original three criteria remain unchecked. First runtime story after GOV026 delivery and the accepted [scope decision](../R14_SCOPE_PROPOSAL.md). Scope is resolved; review authorization/completed review and governance delivery remain. This file is pre-code preparation, not delivered positioning.
+[Original scope](EQ-131_PLAN.md), [issue312](https://github.com/atulsrivas1/equity-features/issues/312), E21#428/milestone16; overarching combined C1/E20#311 remains open;3 provisional points. Original three criteria remain unchecked. First runtime story after GOV026 delivery and the accepted [scope decision](../R14_SCOPE_PROPOSAL.md). Scope and local review authority are resolved; completed exact review and governance delivery remain. This file is pre-code preparation, not delivered positioning.
 
 ## Inputs and design
 

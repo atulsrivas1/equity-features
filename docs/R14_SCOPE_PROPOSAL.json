@@ -63,7 +63,7 @@
       "dependency_change": "Remove SR026/SR027 and research M2/M3 for library-component acceptance; keep EQ131-134 and all applicable library/review/delivery gates."
     }
   ],
-  "review_grant": "R13 only; R14 decision pending",
+  "review_grant": "Owner authorized separate local review throughout R14; completed exact review still required",
   "account_setup_coordination_required": true,
   "outreach_authorized": false,
   "r7_automation": "PAUSED",
@@ -89,5 +89,7 @@
     426,
     428
   ],
-  "original_scope_preserved_as_history": true
+  "original_scope_preserved_as_history": true,
+  "r14_local_review_authorized": true,
+  "review_decision_url": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202"
 }

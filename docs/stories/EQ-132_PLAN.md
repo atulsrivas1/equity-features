@@ -10,7 +10,7 @@
 
 ## Current dependencies and delivery
 
-EQ131 plus accepted library predecessor and exact accepted example/package delivery. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local R14review decision is still pending; this story remains Backlog/unassigned, no implementation or outreach/account authority.
+EQ131 plus accepted library predecessor and exact accepted example/package delivery. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. This story stays Backlog/unassigned, with no implementation or outreach/account authority.
 
 
 ## Preserved original plan — historical, not current criteria

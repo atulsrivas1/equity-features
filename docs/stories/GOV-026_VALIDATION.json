@@ -5,7 +5,7 @@
   "r13_original_review_sha256": "981d6ddc96e1f563ba5ddd5fedd43b89f0d693143ba587ecdf13bb6c7736f6f9",
   "r13_review_completed": true,
   "r14_review_completed": false,
-  "r14_local_review_authorized": false,
+  "r14_local_review_authorized": true,
   "r14_scope_proposal_accepted": true,
   "runtime_ready": false,
   "runtime_implemented": false,
@@ -26,7 +26,8 @@
     "Guessed earlier GOV025 validation filename absent; actual inventory used, no absence/product claim.",
     "Initial added-text privacy scanner mistook part of an HTTPS URL for a drive path and refused before publication/structural checks. Corrected non-word path boundary with positive/negative scanner controls; no product failure.",
     "Scope publisher saved mutations then failed its final membership assertion. Fresh read-only reconciliation verified all intended bodies/states and exact seven-member milestone without repeating any mutation. Initial response was not retained; no inferred product failure or retroactive initial PASS.",
-    "A local exact-wording guard refused the handoff rewrite because materialized preapproval wording contained a space. Earlier owned files were drafted; no commit/publication followed. The bounded preparer now reads immutable preapproval Git source and corrected exact wording; changed files remain explicit."
+    "A local exact-wording guard refused the handoff rewrite because materialized preapproval wording contained a space. Earlier owned files were drafted; no commit/publication followed. The bounded preparer now reads immutable preapproval Git source and corrected exact wording; changed files remain explicit.",
+    "Review-grant preparation briefly used default text decoding on four owned files; complete history equality refused the unpublished draft. Exact prior UTF8 Git blobs were re-materialized and bounded wording reapplied explicitlyUTF8 before publication. No product failure or historical rewrite was accepted."
   ],
   "completion_destination": "Numbered governance acceptance/liveProject after actual current-head/main review and publication; future IDs stay null.",
   "accepted_scope_decision": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916",
@@ -41,5 +42,6 @@
     316,
     426,
     428
-  ]
+  ],
+  "review_authority_url": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202"
 }

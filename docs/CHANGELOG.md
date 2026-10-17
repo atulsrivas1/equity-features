@@ -2,7 +2,7 @@
 
 - [Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) separates library-only R14 EQ131–135, developer-only demonstration and library-only acceptance; research M5 and combined C1 remain open.
 - E21#428 tracks the seven-member R14 component; combined E20#311 stays open outside milestone16. Original scope/criteria remain preserved as history.
-- Fresh separate R13 review found no new actionable findings. No package/version/API/math/example/runtime/test/workflow/dependency change, research trial or failed-study rerun. Review authorization and completed review still gate runtime readiness.
+- Fresh separate R13 review found no new actionable findings. No package/version/API/math/example/runtime/test/workflow/dependency change, research trial or failed-study rerun. Local R14 review is authorized; completed exact review and governance delivery still gate runtime readiness.
 
 ## Earlier checkpoints retained as history
 

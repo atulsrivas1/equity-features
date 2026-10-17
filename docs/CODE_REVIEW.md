@@ -1,3 +1,11 @@
+## R14 local review authorized — October17,2026
+
+The owner explicitly approved the pending bounded [R14 review decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202) for PR427, GOV026, EQ131–135, necessary companion documentation and final delivery. Separate local Codex reviewers may inspect pre-code plans, actual final source/heads, affected contracts/callers, documentation, relevant source/installed/artifact/current-main proof and lifecycle acceptance. Record actual reviewer identity, exact coverage, executed checks, findings/disposition and limitations; relevant changes renew review. This is automated local review, not human review or hosted activation. Author self-review and CI remain insufficient. No repeated per-story permission question within this bounded grant.
+
+The separately accepted library-only scope remains binding: research and combined C1 stay open. This grant adds no account/profile administration, outreach/invitations, research trials/ownership, private/paid/provider acquisition, hosting/stable registry/trading/new session/recurring work or R7 change. All applicable numerical, installed, documentation and actual-delivery gates remain mandatory. Authorization is not completed review, runtime Ready or delivery.
+
+## Prior pending-review checkpoint retained as history
+
 ## R14 scope accepted; review decision still pending
 
 [Owner scope approval](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) selects library-only R14, not reviewer authorization. GOV026#426/PR427 prepares the handoff; E21#428 tracks library delivery and combined C1#311 remains open. Existing local alternatives end at R13. Before handoff merge or runtime Ready, require a completed supported separate review or explicit owner alternative-review decision for the R14 handoff, EQ131–135, necessary companion documentation and final delivery. The previously asked review question remains pending; do not repeat the accepted scope question or invent a review grant.
