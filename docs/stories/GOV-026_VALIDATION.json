@@ -1,0 +1,29 @@
+{
+  "story": "GOV-026",
+  "issue": 426,
+  "phase": "handoff source freeze",
+  "r13_original_review_sha256": "981d6ddc96e1f563ba5ddd5fedd43b89f0d693143ba587ecdf13bb6c7736f6f9",
+  "r13_review_completed": true,
+  "r14_review_completed": false,
+  "r14_local_review_authorized": false,
+  "r14_scope_proposal_accepted": false,
+  "runtime_ready": false,
+  "runtime_implemented": false,
+  "product_tests_run": false,
+  "study_rerun": false,
+  "author_document_checks": {
+    "status": "performed during publication preflight; exact raw check report retained outside repository and referenced by public review/acceptance",
+    "scope": "17 DOCfiles UTF8/LF/JSON/local links/privacy/history/non-doc invariance/existing structural documentation checks; not product qualification"
+  },
+  "candidate_checks": null,
+  "permitted_final_review": null,
+  "main_delivery": null,
+  "acceptance": null,
+  "tool_history": [
+    "Read-only research stdout hit Windows codepage UnicodeEncodeError; corrected explicitUTF8, no product execution.",
+    "Large preparation command rejected by Windows process creation length limit before any writes; bounded edits used.",
+    "Guessed earlier GOV025 validation filename absent; actual inventory used, no absence/product claim.",
+    "Initial added-text privacy scanner mistook part of an HTTPS URL for a drive path and refused before publication/structural checks. Corrected non-word path boundary with positive/negative scanner controls; no product failure."
+  ],
+  "completion_destination": "Numbered governance acceptance/liveProject after actual current-head/main review and publication; future IDs stay null."
+}

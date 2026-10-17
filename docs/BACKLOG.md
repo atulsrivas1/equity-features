@@ -1,3 +1,11 @@
+## R14 preparation and unresolved research gate
+
+Owner requests review of accepted R13 and R14 work. [GOV026#426](https://github.com/atulsrivas1/equity-features/issues/426) prepares [release](R14_RELEASE_PLAN.md)/[tests](R14_TEST_STRATEGY.md)/[handoff](R14_AUTONOMOUS_HANDOFF.md) after [fresh R13 review](reviews/R13_POST_DELIVERY_REVIEW.md). Original five R14stories retain17provisional points; governance adds3. All134active IDs/retired 094/release assignments unchanged;118119remain openunimplementedFuture Backlog.
+
+Existing C1research M2/M3predecessor is NOTsatisfied. [Exact proposal](R14_SCOPE_PROPOSAL.md) would separate library onboarding/developer-only134/library-only135 from research M5 and combined C1, which remain open. It is not accepted; original criteria/gates remain authoritative and all five runtime stories stayBacklog/unassigned. No hidden research requirement removal or scientific/private/paid/hosted work. Permitted review/current delivery gates precede governance Done/runtime Ready.
+
+## Earlier checkpoints retained as history
+
 ## R13 selected acceptance scope
 
 Owner DEFER selects EQ116/EQ117/EQ120; GOV025/EQ116/[EQ117](https://github.com/atulsrivas1/equity-features/issues/223#issuecomment-6238856556) are accepted, [EQ120](https://github.com/atulsrivas1/equity-features/issues/226) is the final active documentation story. [Acceptance allocation](R13_ACCEPTANCE.md). EQ118/EQ119 remain open, unimplemented Future Backlog (unselected), outside milestone14 with no new release/date. Keep all134 unique active IDs, retired094 and every unaffected release assignment; the rows below retain their versioned scope. No automatic R14 or R7 automation. E17/milestone14 close only after selected actual delivery/readback.

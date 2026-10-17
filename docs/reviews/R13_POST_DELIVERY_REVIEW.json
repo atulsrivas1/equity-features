@@ -1,0 +1,200 @@
+{
+  "reviewer": "/root/r10_review; separate local automated reviewer",
+  "approved": true,
+  "disposition": "approved_post_delivery_R13_no_new_actionable_findings",
+  "findings": [],
+  "head": "12500f6196e72a0d344be575e495473044f234a9",
+  "candidate": "bf1085df3c817f832834bc103a715b5cfb8d6f47",
+  "tree": "83aa1df0d3165e620655d40ad4bef6c8b7e57220",
+  "review_scope": "Delivered selected R13 only; not R14 planning/readiness/implementation review",
+  "source_map": {
+    "examples/evidence_pilot.py": "e9e2260b8fc8ed2f32d54a3509397e874778742b2b1cd6a211d337bbbbc86bb6",
+    "examples/evidence_pilot_typed.py": "92af0c92d224bd25d62002e2ad1640ff14a40a10e56af8b62446c3629723a691",
+    "examples/evidence_evaluation_observer.py": "a6d4128102b02bc226497eaf7fa85c63ba0378884691b121e513fbe04ed53ee0",
+    "examples/evidence_evaluation_producer.py": "d414baedc32206e3d4072a1782876433495d20bbb685900d1138af36d0620141",
+    "examples/evidence_evaluation_instrumentation.py": "4cd335a2cf9969d7fad3ad24ccda433dd72204fc15b918d9831ee272725d73f9",
+    "examples/evidence_evaluation_worker.py": "5e095391022a4d10cae657b06673866649a93794fc01510143199df9985ea838",
+    "examples/evidence_evaluation_scoring.py": "76f5d9a480ca5a8c302aaaef5cc949effe432cabac9893414c09186c615ad0cd",
+    "tools/run_evidence_evaluation.py": "11213354724dda4bf930b857cb42f2ba7bf744d6be4750adfbffe81c8a4f2ce4",
+    "tools/build_evidence_evaluation.py": "21f0ab7972e6e990562e0287e910b78b3a5afb270d01ed3f397b1c610b689c19",
+    "tools/build_evidence_pilot.py": "dc29c2c806af748947608afb8c0dda76f6471a9618a2bb2ad45a23fe5daa0b1c",
+    "tests/evidence_pilot/test_pilot.py": "513734cc794cb3f09e700ab771275235a38513a2cc5d2d3afc5858484c728d5b",
+    "tests/evidence_evaluation/test_evaluation.py": "0f154e54fc547b12c00a09cd9c0d9eb19dd64c69d7b1bbe05e2bb9319b3d4fd8",
+    "docs/stories/EQ116_PROTOCOL.md": "2b0bd74c9762994d0e23468eb1caa7ec79796bb09b6a91be47073cc4945d4544",
+    "docs/stories/EQ116_ORACLES.json": "eb2824cc32a2573b51f825199b26c2dde2ae6f73eeda77ed068e8794c9e81fde",
+    "docs/stories/EQ117_MEASUREMENT_PROTOCOL.md": "19b290c3b12ad3a88f671fa3fb9772f53a144eb57f2d6539a801c655760aa88c",
+    "docs/stories/EQ117_PRODUCT_DECISION.json": "cbb04823a2b296c13ae077959dea646d7ddacbf6a4bb2993c876c1e05a5d3198",
+    "docs/stories/EQ117_DIAGNOSTIC_RESULTS.json": "e457cf80e54199f37f68c749f904413698ec15140de74b5cd0ea0ff94185049e",
+    "docs/stories/EQ117_DIAGNOSTIC_RESULTS.md": "21f3d460badcd0f4beba57da532623d90a6a5dfd59272685ca7ebe7b3746d0fc",
+    "docs/R13_ACCEPTANCE.md": "dcd25baedb6b6167ce310c8cea27d462ab7298b47ea1315335dd1cb50a46b3fc",
+    "docs/R13_ACCEPTANCE.json": "9e9cf93da2cbb54bb467b14eb9da0968ec7d41bff6f51e7957fca7857560cf1a",
+    "docs/EVIDENCE_PILOT_GUIDE.md": "936a086c2fd748dc02f4d176a7c15a03cb19e83d50b6d9e94bcf037ba2dd4864"
+  },
+  "closure_report_sha256": "1b26087ff857ff944b0da971c5869ad689de17ccbdf783f6397459aa2e0f3773",
+  "live_evidence_sha256": "afa396d41c36d8c58cc6cbb4c437c0e474b36f70bcff92daba21763c45b9be25",
+  "main_checks_sha256": "6493295f284bca99e2319f4739acc9a9ebcca62d3e0057142b96a547f67dc660",
+  "artifact_proof_sha256": {
+    "pilot": "87c5369f9abd0daf1dd4a91804a85f4b4a5eb05ea0c48ba9b00ce135f30502ca",
+    "evaluation": "3f22fb95e56ce7ad90cda28195a724ef138c8665c13cc591a0dbfdf64b158060"
+  },
+  "prior_evidence_sha256": {
+    "eq117-fixed-study-failure-diagnostic-reviewer-report.json": "cf0e6d7d1a6007851166d432aa7214ed56a0384726034621896f5a82f02efcae",
+    "eq117-fixed-study-retained.json": "24039624603b855581b7ec284fd9ec6602e1135110351915e238fc5cab654fc3",
+    "eq117-bytecode-fix-proposal-reviewer-report.json": "e2f52ea560d3bf003c88bcc38492de10bae49d84f003e62a6e7db0ea5e8fc141",
+    "eq120-final-source-reviewer-report.json": "843cbe17e007b1c64676a948c68ca1a32375d8e4f0035715c17ce51fa2ead321",
+    "eq120-final-merged-source-reviewer-report.json": "7e248a2783c56260b86240b2727f50c61e4d00ed8c75744ee00dd801c9bd1863",
+    "eq120-final-main-reviewer-report.json": "050d8a38a2fafe79dbe690c4ffb9e7048cd6a7e4b35d52e39e25528764bffe66",
+    "eq120-close-initial-tool-review.json": "5893b582c4871651de769e5ab89409a8da95826f28c46a5ec37fe22a52506ed9",
+    "eq120-close-tool-review.json": "ea146af6786ec8a519f9095ff08977dfe8fa19edf08a8c5f5fffb53bf8306e06"
+  },
+  "live_states": {
+    "221": {
+      "state": "closed",
+      "project_status": "Done",
+      "milestone": 14,
+      "assignees": []
+    },
+    "222": {
+      "state": "closed",
+      "project_status": "Done",
+      "milestone": 14,
+      "assignees": [
+        "atulsrivas1"
+      ]
+    },
+    "223": {
+      "state": "closed",
+      "project_status": "Done",
+      "milestone": 14,
+      "assignees": [
+        "atulsrivas1"
+      ]
+    },
+    "224": {
+      "state": "open",
+      "project_status": "Backlog",
+      "milestone": null,
+      "assignees": []
+    },
+    "225": {
+      "state": "open",
+      "project_status": "Backlog",
+      "milestone": null,
+      "assignees": []
+    },
+    "226": {
+      "state": "closed",
+      "project_status": "Done",
+      "milestone": 14,
+      "assignees": [
+        "atulsrivas1"
+      ]
+    },
+    "421": {
+      "state": "closed",
+      "project_status": "Done",
+      "milestone": 14,
+      "assignees": [
+        "atulsrivas1"
+      ]
+    }
+  },
+  "milestone": {
+    "number": 14,
+    "state": "closed",
+    "members": [
+      221,
+      222,
+      223,
+      226,
+      421
+    ],
+    "open": 0,
+    "closed": 5
+  },
+  "current_artifacts": [
+    {
+      "cohort": "pilot",
+      "platform": "ubuntu-24.04",
+      "id": 12111657068,
+      "name": "evidence-pilot-12500f6196e72a0d344be575e495473044f234a9-ubuntu-24.04",
+      "digest": "sha256:32290b6610492ac820a3b5f24502bbae0d89fc5ebf551a7d12ae750c69f02b70",
+      "size_in_bytes": 866455,
+      "expires_at": "2026-11-16T19:23:57Z"
+    },
+    {
+      "cohort": "pilot",
+      "platform": "windows-latest",
+      "id": 12111409597,
+      "name": "evidence-pilot-12500f6196e72a0d344be575e495473044f234a9-windows-latest",
+      "digest": "sha256:465fe3428eeccc04ea3dcd9a8129baaa6ba74374d14a64b78539231b4394dc8a",
+      "size_in_bytes": 867883,
+      "expires_at": "2026-11-16T19:25:04Z"
+    },
+    {
+      "cohort": "evaluation",
+      "platform": "ubuntu-24.04",
+      "id": 12111941950,
+      "name": "evidence-evaluation-12500f6196e72a0d344be575e495473044f234a9-push-ubuntu-24.04",
+      "digest": "sha256:cc6030363761b63d7ea727b2436ac288e1915e8415fafc7642f2ad371018c02b",
+      "size_in_bytes": 551642,
+      "expires_at": "2026-11-16T19:23:49Z"
+    },
+    {
+      "cohort": "evaluation",
+      "platform": "windows-latest",
+      "id": 12112365579,
+      "name": "evidence-evaluation-12500f6196e72a0d344be575e495473044f234a9-push-windows-latest",
+      "digest": "sha256:29baaf9e5b5b7b40d77afe20b0f69d34d76349a591261b3af6d73381df883b1a",
+      "size_in_bytes": 552903,
+      "expires_at": "2026-11-16T19:25:39Z"
+    }
+  ],
+  "executed_checks": [
+    "Fresh actual mainref/PR425merged/tree unchanged against accepted final closure",
+    "Fresh seven issue REST and selectedPROJECT states; exact closed selectedfive and futuretwo unassigned no milestone",
+    "Fresh milestoneclosed0open5closed exactmembers; actual acceptance comments223/226/221 author+body identical",
+    "Current31same checkIDs completedSUCCESS; currentfour provider IDs/digests/sizes/head/expiry identical",
+    "Accepted Git-object source snapshots/hash map inspected; no working R14 documentation read as R13authority",
+    "Source-only inspection of strict no-extra harness closure/-B before qualification/after qualification and worker launch",
+    "Source-only scoring exactbudget semantics and UNKNOWN human/DEFER/witnessfalse declarations; public pilot payload/receipt/event/ledger/replay association and accepted limitations revisited",
+    "Historical failed study/postflight missing originalclosure/no replacement study and all32timing failures retained; source-qualification repair distinct",
+    "Immutable source/main/artifact/closure proofs reused with exact identities, no status-driven test or study repeat"
+  ],
+  "retained_outcome": {
+    "sole_study_run": 39054264038,
+    "workflow_success": false,
+    "study_adoptable": false,
+    "diagnostic_rows": 320,
+    "eligible_replay_matches": 240,
+    "missing_corrupt_zero_calls": 80,
+    "export_median_failures": 32,
+    "export_median_total": 32,
+    "optional_operation_target_cases": 0,
+    "human_participants": 0,
+    "human_usefulness": "UNKNOWN",
+    "owner_decision": "DEFER",
+    "study_rerun_selected": false
+  },
+  "risks_and_limits": [
+    "Original final full harness/Git/IO closure was not reached; repaired future ordinary qualification cannot retroactively qualify320diagnostic observations.",
+    "Constructed synthetic cases/same-owner terminals and trusted replay do not establish input truth, independent retention/operator/trust, completeness, human usefulness, demand or production readiness.",
+    "Logical timing/storage/API counts do not prove physical I/O/RSS/kernel/cleanup/power-loss guarantees.",
+    "Experimental Git/retained artifacts remain scoped delivery; no stable registry/service/witness selected.",
+    "Git docs correctly label preacceptance snapshots as historical and defer current state to live issue/Project; future consumers should follow acceptance links.",
+    "Prior reviewer misses of bytecode qualification coverage and CLI default stdout remain preserved, not erased by corrected tools."
+  ],
+  "proceed_assessment": {
+    "unresolved_R13_blocker_found": false,
+    "R14_review_authorized": false,
+    "R14_ready_or_implementation_approved": false,
+    "recommendation": "Selected R13 closure has no newly identified blocker to preparing a separately scoped R14 handoff. Require concrete R14 scope/dependencies/owner choices and separate explicit local review grant/readiness gates before treating R14 reviewed or ready."
+  },
+  "not_executed": [
+    "No study or numerical/product/source tests",
+    "No build/install/native/socket service or new artifact download",
+    "No Git source edits, public metadata/lifecycle mutations, R14 packet review or implementation",
+    "No R7 automation or witness operation"
+  ],
+  "original_reviewer_report_sha256": "981d6ddc96e1f563ba5ddd5fedd43b89f0d693143ba587ecdf13bb6c7736f6f9"
+}

@@ -1,3 +1,11 @@
+## Unreleased R14 handoff preparation
+
+- Fresh separate R13 source/live-state/check/artifact-metadata review found no new actionable findings; preserve its failed diagnostic comparison and owner DEFER.
+- Prepare R14 release/test/handoff and first-story plan under GOV026; identify the unmet research M2/M3 predecessor and an explicit library-only scope proposal, not an approved change.
+- No package/version/API/math/example/runtime/test/workflow/dependency change. R14 review and scope decisions pending; runtime131–135 remain Backlog.
+
+## Earlier checkpoints retained as history
+
 ## EQ120 R13 acceptance documentation source
 
 Add the selected R13 acceptance matrix and navigation/installation/verification limits after accepted EQ116/EQ117 negative delivery. Record owner DEFER, original failed/nonadoptable320-row comparison, corrected qualification and actual future delivery gates. EQ118/EQ119 remain unimplemented future Backlog outside milestone14. No package/API/version/math/workflow/worker/MCP/dependency/install-command change or new positive benchmark. Final source/current CI/artifact/main/acceptance verification remains required; see [R13 allocation](R13_ACCEPTANCE.md) and [live EQ120](https://github.com/atulsrivas1/equity-features/issues/226).

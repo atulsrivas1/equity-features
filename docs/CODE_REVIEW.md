@@ -1,3 +1,11 @@
+## R14 requested handoff/execution: review decision pending
+
+Owner requests R13 review, an R14 handoff and R14 work. [GOV026#426](https://github.com/atulsrivas1/equity-features/issues/426) prepares the concrete packet. Existing local alternatives end at R13: fresh R13 post-delivery review is covered; R14 planning/implementation/final delivery are not. Before handoffmerge or runtime Ready, require a completed supported separate review or explicit owner alternative-review decision covering this R14 packet/EQ131–135/necessary companion documentation/final delivery. Preparation, self-checks and CI are not separate review. Record actual identity, exact final source/head, checks/findings/disposition/limits; relevant changes renew coverage. No hosted activation or human-review claim.
+
+A later bounded grant does not accept the [scope amendment](R14_SCOPE_PROPOSAL.md), waive scientific/installed/docs/delivery gates or authorize account administration/outreach/paid/private/hosting/registry/trading/recurringwork. If a full R14 grant is made, do not ask again per story. None is recorded in this source snapshot.
+
+## Earlier checkpoints retained as history
+
 ## R13 implementation review authorized — October16,2026
 
 The owner explicitly answers "Authorize local review throughout R13" for EQ116–120, necessary companion changes and final delivery, following the concrete EQ116 plan in PR423. Separate local Codex reviewers may inspect each pre-code plan, mathematics/contracts, implementation/callers, qualification source/build/workflow, final heads, actual artifacts and publication/main acceptance. Record actual reviewer identity, exact source/head identities, executed checks, findings/disposition and limitations; relevant changes renew coverage. Author self-review and CI alone remain insufficient. This is automated local review, not hosted activation or human review. All numerical, documentation, installed Windows/Linux, source/archive/RECORD/artifact and lifecycle gates remain mandatory.

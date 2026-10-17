@@ -1,3 +1,11 @@
+## R14 library-component proposal — pending, October17,2026
+
+R13 selected delivery is [accepted](https://github.com/atulsrivas1/equity-features/issues/221#issuecomment-6239763091) under explicit owner DEFER; witnesses118/119 remain open. The owner now requests R14. [GOV026](https://github.com/atulsrivas1/equity-features/issues/426) prepares the [handoff](R14_AUTONOMOUS_HANDOFF.md). Research M2 remains partial/unreleased and M3 blocked/unreleased, so the frozen predecessor below is unsatisfied.
+
+[Proposed explicit decision](R14_SCOPE_PROPOSAL.md) would separate only library R14 EQ131–135: developer-only134 and library-only135receipt; research M5/SR026/027/research demonstration/combined C1 acceptance remain open. This is NOT an accepted amendment, research completion or runtime Ready. Original plan, seven-story map, research requirements and gate remain preserved until owner decision. No account/outreach/participant/scientific/new session/automation authority is added.
+
+## Earlier checkpoints retained as history
+
 # C1 - Community onboarding and participation
 
 Owner requested stories and a release after existing releases on October 7, 2026.
