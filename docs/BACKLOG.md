@@ -1,3 +1,11 @@
+## R15 handoff proposal under GOV027
+
+[Proposed R15 plan](R15_RELEASE_PLAN.md) and [handoff](R15_AUTONOMOUS_HANDOFF.md) prepare existing documentation starters432/434/433 in that order: API navigation, result reading context and continuous-quote walkthrough. Owner scope selection and supported separate review remain pending; no milestone/epic, implementation or Ready claim. R14 library delivery is accepted at main071e06d: [aggregate acceptance](https://github.com/atulsrivas1/equity-features/issues/428#issuecomment-6247703232), E21Done/milestone16Closed0open7closed. The source-frozen R14 pending fields remain historical, not unfinished acceptance. No R14 replay or recursive receipt update.
+
+Research/combined C1, R13 witness DEFER, provider/security deferrals and paused automation remain unchanged. No outreach/pilot, scientific result, package/API/math/version/dependency/workflow change or new operational authority. Read the concrete plan before selecting work.
+
+## Earlier checkpoints retained as history
+
 ## R14 library execution after accepted handoff
 
 [GOV026 accepted handoff](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738) is delivered at main `4effd881008aba295462dcb733a9025c47544b6b`, after 62 candidate and 31 main checks plus separate source, publication and closure reviews. [EQ131 admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872) establishes the first bounded positioning/navigation implementation. The live [Project](https://github.com/users/atulsrivas1/projects/2) owns current lifecycle and assignment; this source snapshot does not grant completion to an unfinished story.

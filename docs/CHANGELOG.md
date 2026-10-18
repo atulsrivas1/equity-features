@@ -1,3 +1,7 @@
+## Unreleased: R15 handoff proposal
+
+GOV027 proposes a bounded documentation usability release from existing starters432/434/433. Scope/review decisions and actual planning publication remain pending; no implementation or package behavior/version change. R14 selected library scope is accepted separately; research/combined C1 and deferred work remain open. See [plan](R15_RELEASE_PLAN.md).
+
 ## EQ135 manual learning and library receipt implemented; delivery pending
 
 [Manual metrics](COMMUNITY_METRICS.md) and the [library receipt](R14_LIBRARY_RECEIPT.md) materialize the reviewed definitions, empty scoped baseline and explicit external-pilot DEFER. Zero recorded events remain distinct from UNKNOWN worldwide activity; empty rates/response intervals are N/A and the 5/3/1 learning goals are not release gates. Maintainer demo/CI are not human participation. No pilot, outreach, participant collection, new local product replay or automatic growth work started.

@@ -1,3 +1,11 @@
+## R15 handoff proposal under GOV027
+
+[Proposed R15 plan](R15_RELEASE_PLAN.md) and [handoff](R15_AUTONOMOUS_HANDOFF.md) prepare existing documentation starters432/434/433 in that order: API navigation, result reading context and continuous-quote walkthrough. Owner scope selection and supported separate review remain pending; no milestone/epic, implementation or Ready claim. R14 library delivery is accepted at main071e06d: [aggregate acceptance](https://github.com/atulsrivas1/equity-features/issues/428#issuecomment-6247703232), E21Done/milestone16Closed0open7closed. The source-frozen R14 pending fields remain historical, not unfinished acceptance. No R14 replay or recursive receipt update.
+
+Research/combined C1, R13 witness DEFER, provider/security deferrals and paused automation remain unchanged. No outreach/pilot, scientific result, package/API/math/version/dependency/workflow change or new operational authority. Read the concrete plan before selecting work.
+
+## Earlier checkpoints retained as history
+
 ## EQ135 manual learning and library receipt implemented; delivery pending
 
 [Manual metrics](COMMUNITY_METRICS.md) and the [library receipt](R14_LIBRARY_RECEIPT.md) materialize the reviewed definitions, empty scoped baseline and explicit external-pilot DEFER. Zero recorded events remain distinct from UNKNOWN worldwide activity; empty rates/response intervals are N/A and the 5/3/1 learning goals are not release gates. Maintainer demo/CI are not human participation. No pilot, outreach, participant collection, new local product replay or automatic growth work started.

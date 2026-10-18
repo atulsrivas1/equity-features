@@ -1,3 +1,9 @@
+## R15 proposed handoff: review decision pending
+
+GOV027#437 prepares the concrete [R15 documentation plan](R15_RELEASE_PLAN.md): existing issues432/434/433 plus governance and final delivery. The existing local-review grant ends at R14. Before planning merge or R15 story Ready, require a supported completed separate review or an explicit owner alternative-review decision covering this packet, the three stories, necessary companion documentation and final delivery. No R15 local authorization or hosted activation is inferred from the execution request. Prepare and publish the concrete packet first; record actual reviewer identity, exact final-head coverage, checks/findings/disposition/limitations and renew relevant coverage after changes. Author self-review and CI remain insufficient. All applicable acceptance/documentation/publication gates remain mandatory. This adds no outreach, research takeover, provider/private/paid/account/hosting/registry/trading/recurring authority.
+
+## Earlier checkpoints retained as history
+
 ## R14 local review authorized — October17,2026
 
 The owner explicitly approved the pending bounded [R14 review decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202) for PR427, GOV026, EQ131–135, necessary companion documentation and final delivery. Separate local Codex reviewers may inspect pre-code plans, actual final source/heads, affected contracts/callers, documentation, relevant source/installed/artifact/current-main proof and lifecycle acceptance. Record actual reviewer identity, exact coverage, executed checks, findings/disposition and limitations; relevant changes renew review. This is automated local review, not human review or hosted activation. Author self-review and CI remain insufficient. No repeated per-story permission question within this bounded grant.

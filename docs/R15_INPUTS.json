@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "PROPOSED_NOT_SELECTED",
+  "base": "071e06dcc44665573cc09526016970e04be4f8ea",
+  "governance_issue": 437,
+  "governance_id": "GOV-027",
+  "selected_milestone": null,
+  "aggregate_epic": null,
+  "scope_accepted": false,
+  "local_review_authorized": false,
+  "review_completed": false,
+  "implementation_started": false,
+  "proposed_pull_order": [
+    432,
+    434,
+    433
+  ],
+  "provisional_points": {
+    "437": 2,
+    "432": 1,
+    "434": 1,
+    "433": 2
+  },
+  "user_facing_files": {
+    "432": [
+      "docs/api/PUBLIC_API.md"
+    ],
+    "434": [
+      "docs/contracts/RESULTS.md"
+    ],
+    "433": [
+      "docs/api/CONTINUOUS_QUOTES.md"
+    ]
+  },
+  "preserved_gitlf_sha256": {
+    "docs/api/PUBLIC_API.md": "8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c",
+    "docs/contracts/RESULTS.md": "0987cc3de8cab56511a9faead4def157d33c33614c8e3d287a9b02a494c015ec"
+  },
+  "accepted_r14_receipt": "https://github.com/atulsrivas1/equity-features/issues/428#issuecomment-6247703232",
+  "package_api_math_version_dependency_workflow_change": false,
+  "new_product_tests_executed": 0,
+  "runtime_ready": false
+}
