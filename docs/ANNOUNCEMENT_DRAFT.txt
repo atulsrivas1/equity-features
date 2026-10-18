@@ -1,0 +1,33 @@
+UNSENT DRAFT - not authorized for submission
+Proposed subject: Equity Features experimental Python library walkthrough
+
+Equity Features computes typed features from supplied synthetic or licensed
+inputs. Calculations do not fetch data, handle credentials or schedule jobs.
+The developer walkthrough shows batch/stream parity, explicit missing inputs,
+and an external custom calculator and BAR adapter using public contracts.
+
+Project and current documentation:
+https://github.com/atulsrivas1/equity-features
+
+Contracts/features are experimental0.0.4a4; the example consumer is0.4.0.
+Code is Apache-2.0; this does not grant market-data rights. The selected
+wheel path needs CPython3.12 x64 Windows/Linux and existing GitHub CLI read
+access to unexpired Actions artifacts. Repository visibility does not provide
+anonymous artifact access. This is not a stable PyPI installation channel.
+The separate contributor source path installs full development tooling.
+
+The new maintainer demonstration is Windows-only. Existing accepted two-OS
+qualification is separate. There is no claim of trading efficacy, production
+safety, novice completion time or human adoption. Research work and combined
+C1 acceptance remain open; the R13 study was diagnostic-only and negative.
+
+Please report one reproducible onboarding problem using synthetic inputs,
+exact versions/command and expected versus observed behavior through the
+repository bug template. Do not include credentials or private datasets.
+
+Public author contact: [APPROVED PUBLIC EMAIL REQUIRED BEFORE SUBMISSION]
+This placeholder is intentionally unresolved; no contact is invented.
+
+<P><A HREF="https://github.com/atulsrivas1/equity-features">Equity Features 0.0.4a4</A> -
+typed supplied-input features and an experimental developer walkthrough.
+(18-Oct-26)

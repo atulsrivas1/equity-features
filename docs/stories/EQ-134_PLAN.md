@@ -1,3 +1,9 @@
+## EQ134 developer demo observed; final delivery pending
+
+[Developer demo](../DEVELOPER_DEMO.md), [unsent announcement](../ANNOUNCEMENT_DRAFT.txt), [channel plan](../CHANNEL_PLAN.md) and [actual validation](EQ-134_VALIDATION.json) implement the reviewed library-only scope. The single author Windows demo and private starter rehearsal passed separate DATA review; no outreach or human study occurred. Current final-head/main/artifact/lifecycle gates remain before acceptance.
+
+## Earlier plan retained
+
 ## Accepted library-only R14 scope — October17,2026
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916). Parent library component: [E21#428](https://github.com/atulsrivas1/equity-features/issues/428); combined C1 parent E20#311 remains open outside this milestone. Original research/scientific requirements and ownership remain unchanged.

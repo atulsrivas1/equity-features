@@ -191,7 +191,7 @@
     "issue_body_sha256": "21ced36f05391d4c4c8446d9f40bfb8d4746b28d3911755ff38f9fad23cf19b4",
     "literal_command": "python -c \"from pathlib import Path; import hashlib; b=Path('docs/api/PUBLIC_API.md').read_bytes().replace(b'\\r\\n',b'\\n'); marker=b'<!-- STARTER-API-NAV-END -->\\n\\n'; assert b.count(marker)==1; block,old=b.split(marker,1); assert hashlib.sha256(old).hexdigest()=='8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c'; pairs={'current-experimental-public-api': '# Current experimental public API', 'imports-and-ownership': '## Imports and ownership', 'invalid-calls-versus-unavailable-calculations': '## Invalid calls versus unavailable calculations', 'installed-typing-qualification': '## Installed typing qualification'}; assert all(('](#'+anchor+')').encode() in block and heading.encode() in old for anchor,heading in pairs.items()); print('Four navigation destinations and unchanged historical body verified.')\""
   },
-  "state": "PLANNING_ONLY_NOT_READY_NOT_EXECUTED",
+  "state": "ACTUAL_AUTHOR_WINDOWS_DEMO_OBSERVED_FINAL_DELIVERY_PENDING",
   "base": "84051d9c13f631de398c7f58985f6d07d8e0d255",
   "provisional_points": 3,
   "source_heads": {
@@ -239,7 +239,13 @@
     "scope": "Future EQ134 preparation only, outside repository; all channel rules must be rechecked before any independently authorized sending. No external messages sent."
   },
   "story_original_body_sha256": "966d92cf21c84c3b8af6ea6a81221876cd938eeede23a8dd9d63b3d6a55e3211",
-  "demo_observed": null,
+  "demo_observed": {
+    "precode_head": "bb6919f8ea2c79dee8b6533e74805fabaf19285d",
+    "raw_report_sha256": "91dc1b3d69cd3a11e79117ad4e622db17a8eb3e92e48a9e8d80cd27bb28134d3",
+    "DATA_review_sha256": "6ccd81e8e4d06f2741767796d1db00014a39b422352f1c795ebb6cd1eba153ea",
+    "Windows_only": true,
+    "public_validation_projection_sha256": "4802c148ba7c6ec1c83fdb21b798222c6830e051614b7a2d664fde53e21c6cb2"
+  },
   "criteria_accepted": false,
   "external_posting_authorized": false
 }

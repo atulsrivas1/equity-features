@@ -1,3 +1,9 @@
+## EQ134 developer demonstration prepared and replayed
+
+The developer-only walkthrough now joins accepted wheel/source paths and one actual Windows replay; accurate channel material stays unsent. No numerical/API/package/version/dependency change, research completion, human uptake or outreach. Final current-main/lifecycle acceptance remains pending.
+
+## Earlier checkpoints retained as history
+
 ## EQ133 accepted; EQ134 developer demonstration planned
 
 [EQ133](https://github.com/atulsrivas1/equity-features/issues/314#issuecomment-6246634802) delivers contribution guide/templates and three future starter opportunities at `84051d9c13f631de398c7f58985f6d07d8e0d255`. EQ134 freezes one Windows-only developer demonstration and accurate unsent launch material; no new runtime execution, outreach, package/API/math/version change or research completion is claimed by planning.

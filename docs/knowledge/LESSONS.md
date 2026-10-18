@@ -1,3 +1,9 @@
+## EQ134 actual demo evidence and privacy lesson
+
+A single fresh Windows developer demonstration passed after exact public/source-entry/body/tool reviews and guarded admission. Its14 outer commands and unchanged quickstart14 nested steps/full43 result object are distinct from inherited current two-OS qualification, accepted EQ133 full source tests and human participation. Preserve that distinction in every draft. Raw nested reports retain local origins; public validation must be an allowlisted projection with raw report/log hashes, not a blanket claim that a path-substitution sanitizer guarantees privacy. The initial missing body guard was corrected before runtime and all source/review identities remain retained. An unsent channel draft/contact placeholder is a prepared artifact, not external publication or a current owner blocker.
+
+## Earlier checkpoints retained as history
+
 ## EQ133 closure and EQ134 bounded demonstration lesson
 
 [EQ133 accepted](https://github.com/atulsrivas1/equity-features/issues/314#issuecomment-6246634802) joins exact source, actual Windows-only
