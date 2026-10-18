@@ -1,3 +1,11 @@
+## R15 story433: preserve the actual reading contract
+
+Continuous quote example walkthrough: preserve original source/history and evaluate the changed links/table/context directly. A bounded source or mathematical verifier is not a generic prose validator, production rerun or human usability result. [Actual evidence](../stories/STARTER-433_VALIDATION.json). Required docs.yml/check plus independent exact source/published-main review is the scoped gate for unchanged package/build/workflow inputs; incidental workflow states are recorded separately.
+
+Review evidence must pin inspected bytes before files change. One provisional authoring-tool REWORK report was bound to corrected bytes rather than the initially inspected source; it was preserved as invalid evidence and superseded by the exact old/new identities before execution. A separate cancellation-tool review required raw POST response capture before network readback; this correction also preceded execution. Original review findings and corrections remain preserved; neither is a product failure or permission to repeat successful operations.
+
+Initial GOV027 preparation was added to the Project and moved directly to In progress without a separately recorded Ready transition. This metadata omission is preserved, not backfilled or presented as perfect lifecycle history. The later owner scope/review decision437#6252649998, exact planning review, required documentation checks, published-main acceptance437#6252739085 and fresh Closed/Done verification establish the substantive delivered governance gates. Runtime documentation stories use actual recorded Ready and In progress transitions before implementation. Future planning setup must record Ready before starting; do not reopen completed work merely to simulate a past transition.
+
 ## R15 story434: preserve the actual reading contract
 
 Current result-contract reading context: preserve original source/history and evaluate the changed links/table/context directly. A bounded source or mathematical verifier is not a generic prose validator, production rerun or human usability result. [Actual evidence](../stories/STARTER-434_VALIDATION.json). Required docs.yml/check plus independent exact source/published-main review is the scoped gate for unchanged package/build/workflow inputs; incidental workflow states are recorded separately.

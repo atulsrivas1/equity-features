@@ -68,3 +68,41 @@ Reducer retention is six counters, checked numerator/compensated pair, integrati
 cursor and one current quote/anchor. Batch canonical ownership/validation and
 Arrow copies remain input proportional. R1 qualifies batch/update/restore through [SessionAccumulator](INCREMENTAL.md);
 continuous merge and measured throughput remain unsupported. [Example](../../examples/continuous_quotes.py).
+
+
+## Walk through the supplied continuous-quote example
+
+The [existing example](../../examples/continuous_quotes.py) uses the synthetic
+prices in [session_quotes.py](../../examples/session_quotes.py), replacing the
+four event/known-at timestamps with `100`, `103`, `107`, `109` and using cutoff `112`.
+Times are synthetic UTC nanoseconds; price scale 0 means the supplied integer
+prices below are USD. The existing [quote formulas](../features/QUOTE_FORMULAS.md)
+define full-update replacement, original-anchor expiry and valid-only means.
+
+| Half-open interval (UTCns) | Bid / ask (USD) | State | Duration (ns) | Original expiry (UTCns) | Earlier boundary |
+| --- | --- | --- | --- | --- | --- |
+| [100,103) | 100 / 102 | normal | 3 | 106 | next update 103 |
+| [103,107) | 102 / 102 | locked | 4 | 109 | next update 107 |
+| [107,109) | 105 / 104 | crossed | 2 | 113 | next update 109 |
+| [109,112) | null / 102 | invalid | 3 | 115 | cutoff 112 |
+
+Max age is 6 ns, so each original expiry is event time + 6, without resetting an
+anchor at a partition boundary. Every row ends at an earlier next update or the
+cutoff, leaving expired time 0 ns. The first update is at the open 100, leaving
+unknown time 0 ns despite unknown initial state. Durations conserve the 12 ns window:
+`3 normal + 4 locked + 2 crossed + 3 invalid + 0 expired + 0 unknown = 12 ns`.
+
+Valid time is normal + locked = 7 ns. The locked quote contributes zero spread but
+remains in the valid denominator. Thus the valid-only mean spread is
+`(2 USD * 3 ns + 0 USD * 4 ns) / 7 ns = 6/7 USD`. For the normal quote,
+`20000 * (102 - 100) / (102 + 100) = 20000/101` basis points; the locked quote contributes
+zero, giving mean bps `(3 * 20000/101 + 4 * 0) / 7 = 60000/707`.
+Crossed and invalid durations are counted in the 12 ns coverage partition but
+excluded from both valid-only means. The null bid at 109 is an invalid full update:
+it replaces the previous quote, rather than carrying an older bid forward.
+
+The independent stdlib check is `python tools/verify_quote_examples.py` from the
+repository root. It checks independent mathematical fixtures, not this prose or
+production execution. Review the table against the linked example and formulas;
+follow [contributor setup](../../CONTRIBUTING.md) before separately executing the
+production example. No new numerical behavior or measured performance is claimed.
