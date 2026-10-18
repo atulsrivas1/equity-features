@@ -1,3 +1,11 @@
+## R16 local review authorized — October18,2026
+
+The owner explicitly answered "Approve scope and local review throughout R16" against [PR447](https://github.com/atulsrivas1/equity-features/pull/447), recorded in [GOV028's decision](https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253883970). Separate local Codex reviewers may cover GOV028, CI001–003, necessary companion qualification changes and final delivery. Record actual reviewer identity, exact source/head, executed checks, findings/disposition and limitations; renew relevant coverage after source changes. No repeated per-story authorization question within this bounded grant. Author self-review and CI alone remain insufficient. Permission is not completed review; all numerical, installed/platform/archive/artifact, documentation and publication gates remain mandatory.
+
+This is automated local review, not human review or hosted activation. It adds no later release, research/combinedC1 ownership, pilot/outreach, provider/witness/security selection, account/protection administration, paid/private acquisition, hosting/registry/trading/recurring authority. Earlier pending decision text is superseded and retained.
+
+## Earlier checkpoints retained as history
+
 ## R16 proposed handoff: scope and review decision pending
 
 GOV028#443 prepares [the concrete R16 CI proposal](R16_RELEASE_PLAN.md) covering CI001#444, CI002#445, CI003#446 and final delivery. The current local-review grant ends at R15. Before planning merge or R16 implementation Ready, require supported completed separate review or an explicit owner alternative-review decision covering this handoff, all three proposed stories, necessary companion qualification changes and final delivery. Prepare and publish the concrete packet first. Author self-review and CI alone remain insufficient; permission is not completed review. Record actual reviewer identity, exact source/head, checks, findings/disposition and limitations and renew coverage after relevant changes. R15 postdelivery review uses its existing grant only. No R16 reviewer is authorized by this proposal or by the general request to work.

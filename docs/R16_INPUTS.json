@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "PROPOSED_NOT_SELECTED",
+  "status": "OWNER_SELECTED_PLANNING_FINAL_REVIEW_PENDING",
   "base": "d58b6aa13b98ae12c0c84e71dcd97282ca2e40e8",
   "allocation": {
     "base": "d58b6aa13b98ae12c0c84e71dcd97282ca2e40e8",
@@ -69,5 +69,31 @@
     311,
     374
   ],
-  "future_fields_are_not_acceptance": true
+  "future_fields_are_not_acceptance": true,
+  "selected_allocation": {
+    "owner_decision": "https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253883970",
+    "epic": 448,
+    "epic_url": "https://github.com/atulsrivas1/equity-features/issues/448",
+    "epic_item": "PVTI_lAHOBiDqvM4BlsvkzhBqOnQ",
+    "milestone": 19,
+    "exact_members": [
+      443,
+      444,
+      445,
+      446,
+      448
+    ],
+    "scope_accepted": true,
+    "local_review_authorized": true,
+    "separate_review_completed": false
+  },
+  "local_review_authorized": true,
+  "initial_plan_review": {
+    "head": "fdf1fff78c2f1ea121c941064abcb95d56274b22",
+    "reviewer": "/root/r16_review",
+    "approved": true,
+    "findings": [],
+    "report_sha256": "1a53ab7c35e377202897860815745ed10935c361247d417005df56e0b01beceb"
+  },
+  "effective_allowlist_not_yet_implemented": true
 }

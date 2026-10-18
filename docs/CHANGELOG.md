@@ -1,3 +1,9 @@
+## R16 scope and local review selected — October18,2026
+
+Owner accepts CI001–003 and local review throughout R16 under PR447; E23#448/milestone19 contain exactly443/444/445/446/448. Recorded initial separate plan review and consumer-audit/manual-dispatch obligations. Final changed-head planning review, publication and story Ready gates remain pending. No workflow/tool/package implementation changed.
+
+## Earlier checkpoints retained as history
+
 ## Proposed R16 planning and fresh R15 audit — October18,2026
 
 Added the independently approved R15 postdelivery review and a proposed CI-efficiency release handoff under GOV028#443, with conservative classifier, required aggregate, evidence migration and actual qualification contracts. Scope/review selection is pending; CI001/002/003 are unimplemented. This packet changes documentation only; no package/API/math/version/dependency/workflow changes or R16 test results.

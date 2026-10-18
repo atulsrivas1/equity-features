@@ -1,3 +1,17 @@
+## Concrete initial-review implementation obligations
+
+Initial review found no blocking plan findings, but current `tools/build_continuous.py` packages CHANGELOG, PROJECT_KNOWLEDGE, SESSION_HANDOFF and LESSONS. Remove these four from the effective DOCS allowlist; their packaged bytes remain qualification inputs. The initial candidate list below is historical, not an effective allowlist. CI001 must audit all actual consumers before admitting the three remaining reader pages. CI002 must also preserve `evidence-evaluation.yml` manual `workflow_dispatch` with `study_id` and its qualification-versus-study conditions. No live study or adaptive rerun is selected by this CI release. Concrete event/base/head bindings and full final consumer audit precede Ready.
+
+## Earlier checkpoints retained as history
+
+## Owner-selected R16 CI engineering — October18,2026
+
+[Owner decision](https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253883970) accepts PR447's CI001#444/CI002#445/CI003#446 scope and authorizes separate local Codex review throughout R16, including planning, necessary companion qualification changes and final delivery. E23#448/milestone19 select exactly443/444/445/446/448. GOV028#443 is active planning; implementation stories remain Backlog/unassigned until dependency acceptance, concrete reviewed pre-code plans and actual Ready. Provisional complexity2/5/8/5 points, not days; no deadline. [Plan](R16_RELEASE_PLAN.md), [handoff](R16_AUTONOMOUS_HANDOFF.md), [inputs](R16_INPUTS.json).
+
+Initial separate review of preallocation head fdf1fff78c2f1ea121c941064abcb95d56274b22 passed with no findings. Allocation/authorization changes require renewed final-head coverage; no completed final planning review, implementation or release acceptance is inferred. All existing qualification gates and deferred scope remain. R15 is accepted and independently reviewed; old PENDING fields remain history.
+
+## Earlier checkpoints retained as history
+
 # R16 proposal: CI efficiency and qualification evidence
 
 Status: PROPOSED, NOT SELECTED. [GOV028 #443](https://github.com/atulsrivas1/equity-features/issues/443) prepares this packet. Owner selection and a separate-review route remain pending. No R16 epic/milestone or implementation admission exists. [R15 review](R15_POSTDELIVERY_REVIEW.md), [inputs](R16_INPUTS.json), [handoff](R16_AUTONOMOUS_HANDOFF.md), [test strategy](R16_TEST_STRATEGY.md).
