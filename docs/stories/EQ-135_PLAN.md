@@ -1,3 +1,9 @@
+## Reviewed documentation materialized; acceptance pending
+
+Manual sheet, explicit DEFER and library receipt are implemented after actual Ready/Atul/In progress. Final source/current CI/artifacts/main acceptance and separate aggregate closure remain required. [Validation](EQ-135_VALIDATION.json).
+
+## Earlier plan retained
+
 ## Accepted library-only R14 scope — October17,2026
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916). Parent library component: [E21#428](https://github.com/atulsrivas1/equity-features/issues/428); combined C1 parent E20#311 remains open outside this milestone. Original research/scientific requirements and ownership remain unchanged.

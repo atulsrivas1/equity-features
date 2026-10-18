@@ -1,3 +1,11 @@
+## R14 learning: freeze metrics before activity; require fresh closure evidence
+
+NO_COHORT is not worldwide zero, and maintainer CI/demo is not human participation. Empty denominators stay N/A; learning goals are not release thresholds. Retain explicit DEFER without inventing pilot permission or indefinite growth work. Accepted evidence: [EQ134](https://github.com/atulsrivas1/equity-features/issues/315#issuecomment-6247172309); [manual metrics](../COMMUNITY_METRICS.md); [source receipt](../R14_LIBRARY_RECEIPT.md).
+
+The original stage-helper KeyError/mock-review miss and closure-reader cached-approval/ownership source findings remain preserved in the precode plan. Real dependency maps, fresh live reads, explicit unassigned guards and exclusive output files were checked before their corrected use. Root preparation filename collision was refused before Git mutation; a uniquely named fresh snapshot preserved both records. These are tool-source corrections, not product failures or grounds to repeat the successful demo.
+
+## Earlier lessons retained
+
 ## EQ134 accepted evidence; EQ135 manual-learning preparation
 
 [EQ134 accepted](https://github.com/atulsrivas1/equity-features/issues/315#issuecomment-6247172309) demonstrates why installed engineering qualification and one maintainer Windows developer replay cannot be counted as human example users, feedback or returning contributors. Keep engineering receipts separate from NO_COHORT/PILOT_NOT_STARTED aggregates, UNKNOWN global usage and N/A empty timing/return denominators; targets5/3/1 remain learning goals.

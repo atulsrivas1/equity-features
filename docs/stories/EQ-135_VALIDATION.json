@@ -1,0 +1,117 @@
+{
+  "schema": "eq135.documentation-validation.v1",
+  "status": "DOCUMENTATION_IMPLEMENTED_CURRENT_DELIVERY_PENDING",
+  "precode_head": "a3e8e1b570759fe16c038d326bf503b6b6a7c25f",
+  "precode_review_sha256": "32c3dff2be1b7a1d85a929c311a0f2163b9353cf33be22e2b6d02a5900d162e8",
+  "admission_sha256": "612ed1edba898edb2692b066fce5e718b285a08b62099dbcb0d3abc0474210e7",
+  "metrics_baseline": {
+    "observation_status": "NO_COHORT / PILOT_NOT_STARTED",
+    "declared_demo_source_main": "143f25b60109a8c7361d23da6d660735187defa6",
+    "declared_demo_document": "docs/DEVELOPER_DEMO.md",
+    "cutoff_utc": "2026-10-18T07:36:02.399088Z",
+    "cohort": null,
+    "window_start_utc": null,
+    "window_end_utc": null,
+    "pilot_started": false,
+    "participant_records_collected": false,
+    "event_records": [],
+    "worldwide_activity": "UNKNOWN",
+    "maintainer_demo_or_CI_is_participant_evidence": false
+  },
+  "metric_rows": [
+    {
+      "metric": "unique_human_example_attempts",
+      "definition": "Distinct external people voluntarily reporting an attempt of the declared demo/version; deduplicate repeat commands per person. Exclude maintainer automation and CI. If permitted evidence cannot establish uniqueness, record UNKNOWN; do not collect identity to meet a target.",
+      "recorded_eligible_events": 0,
+      "observed_pilot_count": 0,
+      "global_count": "UNKNOWN",
+      "target": 5,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No selected or started operational pilot; empty scoped manual event ledger."
+    },
+    {
+      "metric": "useful_feedback_reports",
+      "definition": "Distinct actionable, rights-safe reports with version/command, synthetic reproduction and expected/observed behavior; deduplicate underlying problems. A confirmed product defect is not required. Stars, likes and acknowledgments do not count.",
+      "recorded_eligible_events": 0,
+      "observed_pilot_count": 0,
+      "global_count": "UNKNOWN",
+      "target": 3,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No selected or started pilot and no collected cohort reports."
+    },
+    {
+      "metric": "first_contributors",
+      "definition": "Distinct external contributors whose first scoped code/documentation issue change is accepted through ordinary review and verified default-branch delivery. Drafts, starter creation, maintainer automation and review revisions do not count.",
+      "recorded_eligible_events": 0,
+      "observed_pilot_count": 0,
+      "global_count": "UNKNOWN",
+      "target": null,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No observed pilot cohort; public starter opportunities remain unimplemented."
+    },
+    {
+      "metric": "returning_contributors",
+      "definition": "An eligible first contributor later delivers a separate accepted change for a distinct issue. Split commits or rework within the same contribution do not qualify. If linkage cannot be established from permitted public/consented evidence, record UNKNOWN.",
+      "recorded_eligible_events": 0,
+      "observed_pilot_count": 0,
+      "global_count": "UNKNOWN",
+      "return_rate": "N/A",
+      "eligible_first_contributors": 0,
+      "target": 1,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No eligible first contributors in the unstarted scoped pilot; no denominator."
+    },
+    {
+      "metric": "response_interval",
+      "definition": "UTC first substantive maintainer triage minus report timestamp; classify response human, automated or unknown. Exclude automatic acknowledgments; publish only aggregate sample scope.",
+      "eligible_reports": 0,
+      "answered_reports": 0,
+      "unanswered_reports": 0,
+      "response_class": "N/A",
+      "sample_count": 0,
+      "median_seconds": "N/A",
+      "global_interval": "UNKNOWN",
+      "target": null,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No eligible scoped reports; no response is never zero seconds and no response SLA is selected."
+    },
+    {
+      "metric": "announcement_or_invitation_actions",
+      "definition": "Actual separately authorized external submissions/invitations; prepared drafts and repository delivery are distinct.",
+      "observed_actions_by_this_execution": 0,
+      "global_count": "UNKNOWN",
+      "target": null,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "EQ134 announcement remains UNSENT; this work authorizes no external posting/invitation."
+    }
+  ],
+  "learning_targets": {
+    "unique_human_example_attempts": 5,
+    "useful_feedback_reports": 3,
+    "returning_contributors": 1,
+    "attainment": "NOT_ASSESSED",
+    "artifact_acceptance_thresholds": false
+  },
+  "pilot_decision": {
+    "pilot": "DEFER",
+    "reason": "No operational pilot, external submission or invitations selected/authorized. Public-contact placeholder is a later submission prerequisite, not missing input for current documentation delivery.",
+    "continue": "Finish only the already selected manual metrics/lessons/library receipt and ordinary exact-head review/delivery scope.",
+    "change": "Separate future human-learning evidence from automated engineering qualification; keep zero recorded scoped events distinct from UNKNOWN global usage.",
+    "stop": "No external posts, invitations, participant collection, reminders, automatic restart, trial rerun or growth commitment.",
+    "future_pilot": "Only a separate concrete owner decision may select an optional manually operated30-day pilot, with current channel/contact/artifact/rules, permitted evidence and one explicit continue/change/stop review. No timeline or reminder is created."
+  },
+  "criteria_accepted": false,
+  "own_acceptance_pending": true,
+  "aggregate_acceptance_pending": true,
+  "new_local_product_executions": 0,
+  "new_numerical_tests": 0,
+  "pilot_or_outreach_started": false,
+  "research_or_combined_C1_complete": false,
+  "predecessor_closure_reviews": {
+    "GOV026": "aa4067f046a581f4931e5c93b743a39ecb0de99fa464d5eee39e46e0d7dabd92",
+    "EQ131": "de619bbc45f65e94a1c307e05f89e64e2cf357229a974310caf5cc346860c68a",
+    "EQ132": "6cadd3030c41a737d76c1eda5923ae35aa885fe019c07554103c95efc7fe837d",
+    "EQ133": "71b38b4d8c58d591a08f843eb6e2d1a79af9e79d78c0fbbb4169921200d01e6a",
+    "EQ134": "d8e6f3338eae994d76b278f7b9d848b2fa44500f0db7a65447c9ffd9db821662"
+  }
+}

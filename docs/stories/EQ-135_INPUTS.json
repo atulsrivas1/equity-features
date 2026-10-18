@@ -6,9 +6,9 @@
   "milestone": 16,
   "scope_authorization": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916",
   "local_review_authorization": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202",
-  "preparation_only": true,
-  "runtime_ready": false,
-  "implementation_started": false,
+  "preparation_only": false,
+  "runtime_ready": true,
+  "implementation_started": true,
   "provisional_points": 3,
   "current_acceptance_count": 4,
   "original_current_acceptance": "\n\n- [ ] Deliver a manual measurement sheet with definitions, initial baseline and evidence references; zero/unknown is reported honestly and no private participant details are published.\n- [ ] Learning targets are five example users, three useful feedback reports and one returning contributor; missed targets do not invalidate artifact delivery and do not establish product failure.\n- [ ] Record pilot outcome or explicit defer, actionable lessons and a bounded continue/change/stop decision; no scheduler or unbounded growth commitment.\n- [ ] R14 library-component receipt reconciles all five library stories plus GOV026, exact published documentation/artifacts, completed final-head reviews, checks and readback. R14 closes only after its selected library scope qualifies; research M5/SR026/SR027 and combined C1 acceptance remain open and are not claimed complete.\n\n",
@@ -1511,5 +1511,9 @@
     "current_head_event_attempt_job_metadata_digest_expiry_bindings_required": true,
     "no_local_reinstall_or_demo_rerun_solely_for_docs": true
   },
-  "future_fields_must_stay_pending_in_source": true
+  "future_fields_must_stay_pending_in_source": true,
+  "documentation_delivery_state": "IMPLEMENTED_REVIEW_AND_CURRENT_DELIVERY_PENDING",
+  "actual_admission_sha256": "612ed1edba898edb2692b066fce5e718b285a08b62099dbcb0d3abc0474210e7",
+  "reviewed_precode_head": "a3e8e1b570759fe16c038d326bf503b6b6a7c25f",
+  "precode_review_sha256": "32c3dff2be1b7a1d85a929c311a0f2163b9353cf33be22e2b6d02a5900d162e8"
 }

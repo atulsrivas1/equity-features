@@ -1,3 +1,9 @@
+## Reviewed documentation materialized; acceptance pending
+
+Manual sheet, explicit DEFER and library receipt are implemented after actual Ready/Atul/In progress. Final source/current CI/artifacts/main acceptance and separate aggregate closure remain required. [Validation](EQ-135_VALIDATION.json).
+
+## Earlier plan retained
+
 # EQ135 concrete precode: manual learning and bounded library receipt
 
 This is PRECODE, not Ready admission or implementation. EQ135#316 is Backlog/unassigned after independently accepted EQ131-134 and GOV026. Base is `143f25b60109a8c7361d23da6d660735187defa6`. The live Project is lifecycle authority; the source-frozen receipt leaves EQ135 acceptance and E21/milestone closure PENDING.
