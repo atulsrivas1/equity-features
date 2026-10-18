@@ -1,3 +1,37 @@
+## EQ133 contributor setup observed; final delivery pending
+
+[PR431](https://github.com/atulsrivas1/equity-features/pull/431) implements the contribution guide and report templates. Three actual future starter issues [432](https://github.com/atulsrivas1/equity-features/issues/432), [433](https://github.com/atulsrivas1/equity-features/issues/433) and [434](https://github.com/atulsrivas1/equity-features/issues/434) remain unassigned Backlog without milestone16.
+
+The exact separately reviewed author Windows source replay at `34e862739bc837f3c190723da349c754d37169e5` passed18commands: fresh checkout/venv, observed CPython3.12x64, pinned development requirements/local editable packages, pip/import checks, six independent reference verifiers, private API-navigation starter rehearsal, compatibility, 649unit tests, boundary and strict typing. The guide is source development; existing minimal delivered-wheel qualification remains separate. Raw log hashes/timings and limits are recorded in [EQ133 validation](../stories/EQ-133_VALIDATION.json). No Linux source-guide execution, independent reinstall, novice timing, human uptake or public starter completion is inferred.
+
+Initial encoding and pre-execution tool review findings remain preserved. Complete final-head source review, current66candidate/33main checks and applicable fresh artifacts/default-branch acceptance through the normal lifecycle before EQ133Done or EQ134admission. No package/math/API/version/dependency change, research/combined C1 closure, outreach/account administration or R7 change.
+
+## Earlier checkpoints retained as history
+
+## EQ133 contribution path implemented; validation pending
+
+[PR431](https://github.com/atulsrivas1/equity-features/pull/431) follows independently reviewed corrected precode and actual EQ133 Ready admission with three points/Atul. The contribution guide and bug/proposal templates now distinguish source development from minimal delivered wheels, show actual source check commands, scope support and preserve actual contributor provenance. Three concrete public documentation starter issues are linked from CONTRIBUTING; all are unassigned Backlog without R14 milestone, not new selected release work.
+
+Initial seven-arrow encoding REWORK, corrected precode review and pre-execution tool findings remain preserved. Source setup has not yet run at this checkpoint. Complete exact source-replay review and actual owned fresh Windows checkout/venv checks; record Linux source/CI evidence distinctly. Then final source review, applicable current checks/artifacts/default-branch acceptance and normal lifecycle closure remain required. No new mathematics/API/package/version/dependency, research completion, human uptake, account administration or outreach is claimed. EQ134/135 remain Backlog; R7 paused.
+
+## Earlier checkpoints retained as history
+
+## EQ133 precode correction: explicit UTF8 draft reads
+
+Separate local reviewer `/root/r9_plan_review` found seven corrupted lifecycle separators in the frozen proposed guide at [initial PR431 head6e9ad32](https://github.com/atulsrivas1/equity-features/commit/6e9ad32fa712911fc762551a19411d99fda83fe5). Initial precode review SHA256 `ba89bd5db15118d13f8616272d6ad8007b19a72f01b4720b7652c094e1b44330` is REWORK, not Ready or product failure. A draft preparer had read correct UTF8 with the Windows default text encoding; writing that result as UTF8 preserved mojibake. Restore the original UTF8 guide with the same ASCII prerequisite block, use explicit encoding for every draft/source read, and renew exact public precode review. Preserve the initial public commit/report and all other planned fields. No contribution guide, starter issue or product execution was implemented by that planning head.
+
+## Earlier checkpoints retained as history
+
+## EQ132 delivery lesson; EQ133 preparation
+
+[Accepted EQ132](https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246206150) qualified the actual minimal three-wheel path; fresh CI installations and independent full results/ownership/artifact DATA audit remain distinct from source checks, human usefulness and a reviewer reinstall. Public source, exact66/33 workflow/event/attempt/job identities and complete ten/six artifact bindings are conjunctive gates. Verify provider identity/expiry and retained ZIP bytes near release; PR artifacts use a verified virtual merge source/tree while provider run head remains the branch head. Preserve GitLF and declared WindowsCRLF text identities; normalize no arbitrary payload.
+
+An initial unexecuted release controller had three independent P2 findings: missing fresh artifact inventory/expiry checks, stale story/body/owner after lengthy validation, and a stale PR/base check before merge. Corrected bounded artifact and narrow live-state guards passed39 inert cases; initial source/review remain retained. A dedicated close-only review corrected projected milestone counts before actual closure and kept the completed merge source/review immutable. The final public review comment was posted once; a manual Windows-default response decoding mismatch was corrected by exact UTF8 readback without a duplicate comment or product/lifecycle failure. Prefer explicit UTF8/bytes for GitHub JSON.
+
+[EQ133 precode](../stories/EQ-133_IMPLEMENTATION_PLAN.md) retains an actually missing API navigation aid and a bounded existing-quote presentation table; the proposed relative-return topic duplicated current docs and was rejected. The replacement RESULTS version-context banner preserves original structural rules/history. Existing docs CI is not a general Markdown link validator. Freeze literal source/link checks and distinguish equation-verifier evidence from prose/example execution. An initial reviewer display-escaping concern was disproved by direct decoded data and ten temporary-Markdown cases; preserve the diagnostic without inventing a draft defect. No new contributor/product execution or uptake is claimed by this planning packet.
+
+## Earlier checkpoints retained as history
+
 ## EQ132 implementation lesson: close the inventory you claim
 
 The first qualification-source review returned three P2 findings before product execution: RECORD-only enumeration missed unrecorded files/duplicate distributions, pointer64 admitted other architectures, and installer-origin metadata accepted contradictory fields. The exact initial source/review and ten passing narrow controls remain preserved. Corrections enumerate the full site tree including bootstrap ownership, reject duplicate names/owners and unreadable/linked entries, require AMD64/x86_64 explicitly, and close all origin/digest/URL fields. The first expanded fake-prefix test exposed an unresolved Windows temporary short-path alias; the helper now canonicalizes that prefix. Its failed log is retained; twelve corrected inert delivery methods pass. Renewed exact source review approved the corrections, and a first scoped Windows author installation/replay passed45.094s. Hosted bothOS/currentCI/main proof remains separate; no failed or narrow test is relabeled as that later proof. This is qualification rework, with calculation packages/mathematics unchanged and no runtime failure inferred.

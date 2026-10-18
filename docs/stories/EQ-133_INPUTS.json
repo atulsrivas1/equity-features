@@ -1,0 +1,171 @@
+{
+  "schema": "eq133.precode.inputs.v1",
+  "state": "PLANNING_ONLY_NOT_READY_OR_IMPLEMENTED",
+  "base": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+  "predecessor_acceptance": "https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246206150",
+  "predecessor_main_review_sha256": "a5dc5829bfa8503d505263739f17fdab0dd92fefb20d60d0ca011bc37cfc93c7",
+  "predecessor_closure_review_sha256": "6cadd3030c41a737d76c1eda5923ae35aa885fe019c07554103c95efc7fe837d",
+  "provisional_points": 3,
+  "base_source_map": {
+    "CONTRIBUTING.md": {
+      "git_raw_sha256": "5733ea0f8f6a950360cc62d45156ceafab39cf99bfe72f5aef1d545d68246a96",
+      "bytes": 837
+    },
+    "LICENSE": {
+      "git_raw_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+      "bytes": 11358
+    },
+    "SECURITY.md": {
+      "git_raw_sha256": "9b4f2feb612d8fceb48c4e1c0a319ba783550e25f52edfcd3dbd00f5ec28302d",
+      "bytes": 8205
+    },
+    "AGENTS.md": {
+      "git_raw_sha256": "52201bc6e0a231187db3d0fe7e7e17690c46e12f07f8233846a784156896fedc",
+      "bytes": 14868
+    },
+    "requirements-dev.txt": {
+      "git_raw_sha256": "9a4e06ff2a58bc2332f0aa1c667cdd7c786fa6dfef5df61c95d66b49a6907c21",
+      "bytes": 308
+    },
+    "docs/CODE_REVIEW.md": {
+      "git_raw_sha256": "8646fc7a3b2aa3ce2051cccc1097a151905f931b4d2d4a983ba6539084982505",
+      "bytes": 30570
+    },
+    "docs/DELIVERY_POLICY.md": {
+      "git_raw_sha256": "44227e624e2ffaae03c26167eca467aee32776404136077ca9ac2ea86c320ed4",
+      "bytes": 7939
+    },
+    "docs/api/PUBLIC_API.md": {
+      "git_raw_sha256": "8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c",
+      "bytes": 60732
+    },
+    "docs/contracts/RESULTS.md": {
+      "git_raw_sha256": "0987cc3de8cab56511a9faead4def157d33c33614c8e3d287a9b02a494c015ec",
+      "bytes": 10814
+    },
+    "docs/api/CONTINUOUS_QUOTES.md": {
+      "git_raw_sha256": "2d54620c3ac44dae8bedf726d50def96a7e62ec82d19158691906d9d5b3fc965",
+      "bytes": 4655
+    },
+    "docs/features/QUOTE_FORMULAS.md": {
+      "git_raw_sha256": "89f0e6330bd587ffddfac4689481539f12ec25b3688bced7c79e445d5cdda348",
+      "bytes": 10863
+    },
+    "examples/continuous_quotes.py": {
+      "git_raw_sha256": "9669a04fa8675aa864f88f028c9ecec12bb0d3444f8e6c1a66fd56ec6aa3310b",
+      "bytes": 1222
+    },
+    "examples/session_quotes.py": {
+      "git_raw_sha256": "5b5e9ca1a62e4081a76fcead1e2ca1a2ee6adde8bc68d04a0164fc9ccd07f057",
+      "bytes": 1583
+    },
+    "tools/verify_quote_examples.py": {
+      "git_raw_sha256": "cffbac71443ebc4b1ca77ba6a14eeb1aba0fd077994b12c69a790ea5b05a7a0e",
+      "bytes": 13986
+    },
+    ".github/ISSUE_TEMPLATE/bug.md": {
+      "git_raw_sha256": "fd2bfae2e24e5473575c6d95a87a0b89186ba34fb1bbdfff0ecd214afb217008",
+      "bytes": 243
+    },
+    ".github/ISSUE_TEMPLATE/proposal.md": {
+      "git_raw_sha256": "f8313c3d916070cea8c76fcaec21e11ee79114aa6204b2c4600e95c02900c704",
+      "bytes": 224
+    },
+    ".github/pull_request_template.md": {
+      "git_raw_sha256": "57b8ce4417b2628c5d163d7c4ccf1817b1c0013e8ac30e9c8b8ff0e73348750a",
+      "bytes": 764
+    },
+    ".github/workflows/docs.yml": {
+      "git_raw_sha256": "40cd23f4dcafc829ada1b753136c91b88665d7e848b9848683096cc0e621bcb0",
+      "bytes": 4115
+    },
+    ".github/workflows/packages.yml": {
+      "git_raw_sha256": "fb8f72e3e5d83e5f1cd84e231ca678e6e52ec373a76a3abd65320a78ff9a3d7a",
+      "bytes": 1262
+    },
+    ".github/workflows/quickstart.yml": {
+      "git_raw_sha256": "4d939a4965367035cc24ee48408597a173d4f37f9d7cd5fc8a14883eab7b3059",
+      "bytes": 1110
+    },
+    "tools/verify_quickstart.py": {
+      "git_raw_sha256": "1b9e1ff9adf0277bb669311f9a35b897a78b18540f916160c39b0a96e9c447b7",
+      "bytes": 14524
+    },
+    "tools/quickstart_probe.py": {
+      "git_raw_sha256": "c839e14aa64010afaee6b9892dc33121b47fd39135358a846e4f561ce5c48977",
+      "bytes": 18545
+    },
+    "tools/test_quickstart_verifier.py": {
+      "git_raw_sha256": "a5350c7782a27571e3bd1f05b1d56bd88e146787a388d507042bdd1f59cc2eed",
+      "bytes": 11283
+    }
+  },
+  "planned_guide": "# Contributing to Equity Features\n\nPreparatory draft only: this guide is not yet published or accepted. EQ133 stays Backlog until EQ132 Done and normal reviewed readiness.\n\nStart with a numbered issue and agree its scope before implementation. Use supplied synthetic or explicitly licensed inputs. Calculations remain source-independent: fetching, credentials, files/databases, scheduling and publication belong in their owning adapters/workers, not calculation packages. Define formulas, units, timing, initialization, coverage and edge cases before numerical code; use independent expected fixtures. Performance changes require measurements and result parity.\n\n## Choose the right path\n\n- Want to use the library? Follow the minimal delivered-wheel quickstart, then the existing example catalog. Its isolated three-wheel environment is different from contributor setup.\n- Want to change code? Link a scoped issue, inspect the relevant normative contract and tests, then propose a small patch with independent expectations.\n- Want to help without code? Take a scoped documentation/navigation task, report a reproducible synthetic defect, or review a proposed contract. Record what you actually checked.\n- Optional I/O, workers and research retain their own implementation owners. Account/profile administration belongs with the setup owner. A link does not transfer research/data rights or ownership.\n\n## Source contributor setup\n\nUse a fresh checkout and an absent .venv directory. Prerequisites are Git, CPython3.12 x64 and network access to the pinned public development requirements. Confirm Python version/implementation/architecture before creating the environment. These instructions install the full development toolset, including optional NumPy/PyArrow tooling; those are not new core runtime dependencies or the minimal end-user path. No paid market-data credential is needed.\n\nFor a new public source checkout:\n\n```text\ngit clone https://github.com/atulsrivas1/equity-features.git\ncd equity-features\npython -c \"import platform,struct,sys; assert platform.system() in ('Windows','Linux') and sys.implementation.name=='cpython' and sys.version_info[:2]==(3,12) and struct.calcsize('P')==8 and platform.machine().lower() in ('amd64','x86_64'); print(platform.system(),platform.machine(),sys.version.split()[0])\"\n```\n\nThat prerequisite check reads the selected interpreter; it does not provision Python or establish delivered-package qualification.\n\nFrom the repository root on Windows PowerShell:\n\n```powershell\npython -m venv .venv\n.\\.venv\\Scripts\\python.exe -m pip install -r requirements-dev.txt\n.\\.venv\\Scripts\\python.exe -m pip install --no-build-isolation -e packages/contracts -e packages/features -e examples/external_consumer\n.\\.venv\\Scripts\\python.exe -m pip check\n.\\.venv\\Scripts\\python.exe tools/verify_imports.py\n```\n\nOn Linux:\n\n```sh\npython -m venv .venv\n.venv/bin/python -m pip install -r requirements-dev.txt\n.venv/bin/python -m pip install --no-build-isolation -e packages/contracts -e packages/features -e examples/external_consumer\n.venv/bin/python -m pip check\n.venv/bin/python tools/verify_imports.py\n```\n\nThe selected `python` must already be CPython3.12 x64 with venv support; environment provisioning is not performed by these instructions. Install the two local core distributions together so pip does not substitute an unrelated unpublished internal distribution. Use the environment's explicit Python for every subsequent command; do not rely on shell activation. Keep assertions enabled. Stop on an existing environment or failed command and inspect the failure rather than deleting unrelated work or retrying unchanged commands automatically. Editable source checks do not qualify a delivered artifact.\n\n## Match checks to the work\n\nRun all existing independent reference verifiers and import smoke before a PR. Session, quote, history, context, timing and diagnostic verifier scripts are stdlib equation/reference checks; they are not the production calculation implementation or a general prose/link validator. Documentation-only work also needs explicit source/anchor preservation and manual destination checks for changed links. The current Documentation workflow verifies UTF8/planning/reference constraints but does not validate every Markdown link.\n\nFor core Python changes, follow the current Foundation workflow: unit discovery at tests/unit, check_boundary.py, strict mypy over contracts/features/typed callers, and relevant synthetic examples. Use the explicit .venv Python on your OS. Keep numerical fixtures independent of the implementation. Optional packages have their own workflow/check topology; discuss scope with their owner instead of adding them to core.\n\nMaintainers must still verify exact current CI and applicable fresh installed wheel/sdist/absence/RECORD/source/current-artifact and default-branch evidence. A green source test, successful editable import or merged PR alone is not release acceptance. Existing build/delivery documentation identifies those gates; do not relabel a local check as their completion.\n\n## Review, support and response target\n\nKeep PRs small and linked to numbered issues. Describe the concrete behavior, mathematical/API impact or explicit no-impact decision, actual validation/failures and limitations. Update relevant API/examples/decisions/changelog/knowledge/handoff and issue evidence in the same story. Follow the exact Backlog \u2192 Ready \u2192 In progress \u2192 Code review \u2192 Test \u2192 Ready to release \u2192 Released \u2192 Done lifecycle. A completed separate permitted final-head review and findings disposition are required; self-review, a review request or CI alone is insufficient.\n\nUse the public bug/proposal templates for nonsensitive supplied-data reports. Include exact versions/channel, expected versus observed behavior and a minimal synthetic reproduction. Keep credentials, private data and unsupported rights out of issues/logs. For security reports, follow SECURITY.md: use private vulnerability reporting when enabled, otherwise request a private channel without disclosing sensitive details publicly. This guide does not assert that private reporting is enabled.\n\nMaintainers aim to triage contributions during the existing weekly active-work review, capacity permitting. This is a best-effort target, not a guaranteed acknowledgement, review/merge deadline or measured response statistic. No automatic reminder or invitation is created. Library, I/O, workers, research and setup/account requests retain the routing above.\n\n## Rights and actual contributor credit\n\nContributions are licensed under Apache-2.0. By submitting a contribution, confirm that you have the right to contribute it under that license. Keep all supplied examples synthetic or explicitly licensed; public code licensing does not grant market-data rights.\n\nExternal contributors keep their actual identity and provenance; do not impersonate the owner. Propose scoped changes through issues/patches or a linked PR. Maintainer integration follows the existing owner author/local-committer and no-Coauthors policy. Preserve actual contribution and review provenance in the issue/PR record; use acknowledgments with consent, not invented credit or claims of human review. Changing the integration identity policy requires its own explicit decision.\n\nThe three selected starter opportunities will be linked only after their actual public creation and independent readiness checks. Their future Backlog work remains outside the selected R14 milestone; preparing an issue is not implementing it or promising contributor uptake.\n",
+  "planned_starter_issues": [
+    {
+      "title": "[Starter] Add navigation to the current public API sections",
+      "body": "This is a proposed future contributor opportunity curated under EQ133#314, outside the selected R14 milestone. It is unassigned and not yet published. Normal Backlog \u2192 Ready \u2192 In progress \u2192 Code review \u2192 Test \u2192 Ready to release \u2192 Released \u2192 Done still applies. Agree the small scope with the maintainer before implementation. No private data, credentials, paid provider, account permission or research prerequisite is needed.\n\nUse a checkout of the exact base below and CPython3.12 x64 with assertions enabled. If the preserved source has changed, stop and ask the maintainer to rebase the issue rather than weakening the check. The stdlib source-preservation check normalizes CRLF to LF for these known Markdown files only. It does not normalize package/binary evidence.\n\n## Base and files\n\n`48d4689f10af8c07545e95bd4e70f240ca81d096`; [docs/api/PUBLIC_API.md](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/api/PUBLIC_API.md).\n\n## Work\n\nInsert a small current-reading navigation block above existing historical checkpoints. Link to the existing Current experimental public API, Imports and ownership, Invalid calls versus unavailable calculations, and Installed typing qualification sections. End the new block with `<!-- STARTER-API-NAV-END -->` followed by a blank line; preserve the entire original page after it. Do not rewrite history, API semantics, release receipts or other files.\n\n## Acceptance\n\n- [ ] Four direct same-page links reach the actual current sections and have clear labels.\n- [ ] Entire original GitLF body SHA256 `8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c` is preserved after the fixed marker.\n- [ ] Run the bounded check below, inspect all four links in the actual PR, and record actual output/review without calling existing docs CI a general link validator.\n\n## Runnable check\n\n```text\npython -c \"from pathlib import Path; import hashlib; b=Path('docs/api/PUBLIC_API.md').read_bytes().replace(b'\\r\\n',b'\\n'); marker=b'<!-- STARTER-API-NAV-END -->\\n\\n'; assert b.count(marker)==1; block,old=b.split(marker,1); assert hashlib.sha256(old).hexdigest()=='8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c'; pairs={'current-experimental-public-api': '# Current experimental public API', 'imports-and-ownership': '## Imports and ownership', 'invalid-calls-versus-unavailable-calculations': '## Invalid calls versus unavailable calculations', 'installed-typing-qualification': '## Installed typing qualification'}; assert all(('](#'+anchor+')').encode() in block and heading.encode() in old for anchor,heading in pairs.items()); print('Four navigation destinations and unchanged historical body verified.')\"\n```\n\nThis checks the changed navigation targets and untouched source body; it does not execute installed calculations. The normal documentation workflow and separate review/release gates still apply.\n",
+      "labels": [
+        "good first issue",
+        "help wanted"
+      ],
+      "assignees": [],
+      "milestone": null,
+      "project_status": "Backlog"
+    },
+    {
+      "title": "[Starter] Walk through the continuous-quote example intervals",
+      "body": "This is a proposed future contributor opportunity curated under EQ133#314, outside the selected R14 milestone. It is unassigned and not yet published. Normal Backlog \u2192 Ready \u2192 In progress \u2192 Code review \u2192 Test \u2192 Ready to release \u2192 Released \u2192 Done still applies. Agree the small scope with the maintainer before implementation. No private data, credentials, paid provider, account permission or research prerequisite is needed.\n\nUse a checkout of the exact base below and CPython3.12 x64 with assertions enabled. If the preserved source has changed, stop and ask the maintainer to rebase the issue rather than weakening the check. The stdlib source-preservation check normalizes CRLF to LF for these known Markdown files only. It does not normalize package/binary evidence.\n\n## Base and files\n\n`48d4689f10af8c07545e95bd4e70f240ca81d096`; [docs/api/CONTINUOUS_QUOTES.md](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/api/CONTINUOUS_QUOTES.md), with unchanged [example](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/examples/continuous_quotes.py), [source quotes](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/examples/session_quotes.py) and [existing formula](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/features/QUOTE_FORMULAS.md) as references. Edit only CONTINUOUS_QUOTES.md unless the maintainer approves a scope revision.\n\n## Work\n\nAdd a concise read-along table for the existing example at synthetic UTCns100\u2013112. The mathematics already exists; this task improves its presentation and cross-links. Rows are [100,103) normal3ns; [103,107) locked4ns; [107,109) crossed2ns; [109,112) invalid3ns. Unknown and expired are both0; total12, valid7; valid-only mean spread6/7 and mean bps60000/707. Explain why a next update or the cutoff precedes each original expiry, why a null bid is an invalid full update rather than carry-forward, and why crossed/invalid time is excluded from the valid-only mean. Preserve all original formulas/example code.\n\n## Acceptance\n\n- [ ] Actual100\u2013112 table and zero categories match the existing fixture, with units and valid denominator explicit.\n- [ ] Link the unchanged existing example and formula derivation; no new math, data, calculator behavior, performance or production claim.\n- [ ] Execute the independent math verifier below and record its actual output; separately review each prose/table cell against the literal expected values. The math verifier does not read the prose or execute the production example.\n\n## Runnable check\n\n```text\npython tools/verify_quote_examples.py\n```\n\nThis is an existing stdlib independent-design verifier. If also running the actual production example, first follow the contributor setup for matching installed contracts/features and record that command and output separately. Normal documentation checks and source review remain required.\n",
+      "labels": [
+        "good first issue",
+        "help wanted"
+      ],
+      "assignees": [],
+      "milestone": null,
+      "project_status": "Backlog"
+    },
+    {
+      "title": "[Starter] Clarify current reading context for result contracts",
+      "body": "This is a proposed future contributor opportunity curated under EQ133#314, outside the selected R14 milestone. It is unassigned and not yet published. Normal Backlog \u2192 Ready \u2192 In progress \u2192 Code review \u2192 Test \u2192 Ready to release \u2192 Released \u2192 Done still applies. Agree the small scope with the maintainer before implementation. No private data, credentials, paid provider, account permission or research prerequisite is needed.\n\nUse a checkout of the exact base below and CPython3.12 x64 with assertions enabled. If the preserved source has changed, stop and ask the maintainer to rebase the issue rather than weakening the check. The stdlib source-preservation check normalizes CRLF to LF for these known Markdown files only. It does not normalize package/binary evidence.\n\n## Base and files\n\n`48d4689f10af8c07545e95bd4e70f240ca81d096`; edit only [docs/contracts/RESULTS.md](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/contracts/RESULTS.md). Existing currentAPI and quickstart are link destinations, not edit targets.\n\n## Work\n\nAdd a concise current reading/version banner above the dated EQ0130.0.1a3 checkpoint that says no numerical calculator exists yet. Explain that this is the original implementation checkpoint, while the current experimental contracts/features pair is0.0.4a4 and supported calculators/channel are documented in the linked currentAPI and minimalQUICKSTART. Preserve valid structural rules and all original migration/history paragraphs. Do not declare structural contracts obsolete, rewrite receipts or imply stable registry/production support. End the block with `<!-- STARTER-RESULT-CONTEXT-END -->` and a blank line.\n\n## Acceptance\n\n- [ ] Current experimental version context clearly distinguishes the original checkpoint from currently supported calculation/channel guidance.\n- [ ] CurrentAPI (`../api/PUBLIC_API.md`) and quickstart (`../QUICKSTART.md`) links resolve from RESULTS.md; all original GitLF body SHA256 `0987cc3de8cab56511a9faead4def157d33c33614c8e3d287a9b02a494c015ec` remains unchanged after the fixed marker.\n- [ ] Run the bounded check and inspect both actual PR links and factual wording; record actual results and separate review, without claiming generic docsCI link checking.\n\n## Runnable check\n\n```text\npython -c \"from pathlib import Path; import hashlib; b=Path('docs/contracts/RESULTS.md').read_bytes().replace(b'\\r\\n',b'\\n'); marker=b'<!-- STARTER-RESULT-CONTEXT-END -->\\n\\n'; assert b.count(marker)==1; block,old=b.split(marker,1); assert hashlib.sha256(old).hexdigest()=='0987cc3de8cab56511a9faead4def157d33c33614c8e3d287a9b02a494c015ec'; links={'../api/PUBLIC_API.md':Path('docs/api/PUBLIC_API.md'),'../QUICKSTART.md':Path('docs/QUICKSTART.md')}; assert all((']('+target+')').encode() in block and path.is_file() for target,path in links.items()); assert b'0.0.4a4' in block and b'experimental' in block.lower(); print('Current context links and unchanged result-contract history verified.')\"\n```\n\nThis checks the changed reading context/file destinations and source preservation. It does not execute a calculator or prove installability. Normal current checks, review and actual publication apply.\n",
+      "labels": [
+        "good first issue",
+        "help wanted"
+      ],
+      "assignees": [],
+      "milestone": null,
+      "project_status": "Backlog"
+    }
+  ],
+  "starter_literal_checks": {
+    "scope": "Prepared literal source checks, syntax compiled only; target edits do not yet exist and no check outcome/Ready/issue publication claimed.",
+    "base": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+    "UTF8_source_representation": "Known Markdown only: normalize CRLF\u2192LF for original GitLF preservation check; no arbitrary binary normalization.",
+    "API_original_sha256": "8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c",
+    "RESULTS_original_sha256": "0987cc3de8cab56511a9faead4def157d33c33614c8e3d287a9b02a494c015ec",
+    "quote_original_sha256": "2d54620c3ac44dae8bedf726d50def96a7e62ec82d19158691906d9d5b3fc965",
+    "commands": {
+      "API": "python -c \"from pathlib import Path; import hashlib; b=Path('docs/api/PUBLIC_API.md').read_bytes().replace(b'\\r\\n',b'\\n'); marker=b'<!-- STARTER-API-NAV-END -->\\n\\n'; assert b.count(marker)==1; block,old=b.split(marker,1); assert hashlib.sha256(old).hexdigest()=='8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c'; pairs={'current-experimental-public-api': '# Current experimental public API', 'imports-and-ownership': '## Imports and ownership', 'invalid-calls-versus-unavailable-calculations': '## Invalid calls versus unavailable calculations', 'installed-typing-qualification': '## Installed typing qualification'}; assert all(('](#'+anchor+')').encode() in block and heading.encode() in old for anchor,heading in pairs.items()); print('Four navigation destinations and unchanged historical body verified.')\"",
+      "RESULTS": "python -c \"from pathlib import Path; import hashlib; b=Path('docs/contracts/RESULTS.md').read_bytes().replace(b'\\r\\n',b'\\n'); marker=b'<!-- STARTER-RESULT-CONTEXT-END -->\\n\\n'; assert b.count(marker)==1; block,old=b.split(marker,1); assert hashlib.sha256(old).hexdigest()=='0987cc3de8cab56511a9faead4def157d33c33614c8e3d287a9b02a494c015ec'; links={'../api/PUBLIC_API.md':Path('docs/api/PUBLIC_API.md'),'../QUICKSTART.md':Path('docs/QUICKSTART.md')}; assert all((']('+target+')').encode() in block and path.is_file() for target,path in links.items()); assert b'0.0.4a4' in block and b'experimental' in block.lower(); print('Current context links and unchanged result-contract history verified.')\"",
+      "quote_math": "python tools/verify_quote_examples.py"
+    },
+    "quote_exact_table_proposal": [
+      "[100,103): normal=3",
+      "[103,107): locked=4",
+      "[107,109): crossed=2",
+      "[109,112): invalid=3",
+      "expired=0; unknown=0; valid=7; total=12; mean=6/7; bps=60000/707"
+    ],
+    "manual_review": [
+      "API actual four same-page destinations and readability",
+      "RESULTS concise version context; original structural rules not declared obsolete; actual relative link navigation",
+      "Quote table is presentation/crosslink of already proven fixture, not new mathematics; compare timestamps and zero categories to existing example/source; preserve original source/math"
+    ]
+  },
+  "accepted_quickstart_input_manifest_git_raw_sha256": "0d40a93e8882c25e3f2e26a99a62c393700924f83e9620397e8c5fea9361f51a",
+  "all_package_sources_versions_dependencies_unchanged": true,
+  "new_package_or_calculation_behavior": false,
+  "planned_source_replay": "Fresh owned Windows source checkout/venv with literal documented dev requirements/local editable install/checks; review exact replay entry before execution. Linux source commands match existing successful Foundation workflow; claim exact command execution only where observed. Existing bothOS/current installed package and quickstart gates stay mandatory.",
+  "new_runtime_execution": null,
+  "new_starter_issue_numbers": null,
+  "criteria_accepted": false
+}
