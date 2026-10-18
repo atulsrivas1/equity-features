@@ -1,3 +1,9 @@
+## Proposed R16 planning and fresh R15 audit — October18,2026
+
+Added the independently approved R15 postdelivery review and a proposed CI-efficiency release handoff under GOV028#443, with conservative classifier, required aggregate, evidence migration and actual qualification contracts. Scope/review selection is pending; CI001/002/003 are unimplemented. This packet changes documentation only; no package/API/math/version/dependency/workflow changes or R16 test results.
+
+## Earlier checkpoints retained as history
+
 ## Unreleased R15 story433: Continuous quote example walkthrough
 
 Explain synthetic100-112 interval categories3normal+4locked+2crossed+3invalid=12ns, valid7ns, unknown/expired0, mean spread6/7, mean bps60000/707; next-update/cutoff versus original expiry, full invalid replacement, valid-only denominator. Preserve formula/example source. Bounded validation passed; final review/publication acceptance pending. No package version or behavior change. [Validation](stories/STARTER-433_VALIDATION.json).

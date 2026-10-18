@@ -1,3 +1,9 @@
+## EF-L094: replace repeated incidental cancellation with an explicit proposal
+
+[R15 actual acceptance](https://github.com/atulsrivas1/equity-features/issues/439#issuecomment-6252979590) and [fresh audit](../R15_POSTDELIVERY_REVIEW.md) establish documentation delivery, not successful qualification of cancelled incidental package runs. Preserve those cancellations as NOT_ASSESSED_CANCELLED. A new classifier/orchestration can change required-check semantics and artifact provenance, so propose and independently qualify that engineering scope rather than silently modifying workflows during a documentation story. [R16 proposal](../R16_RELEASE_PLAN.md) remains unselected. Use a closed exact allowlist, complete source binding and explicit negative aggregate tests; expected omissions cannot stand in for successful package qualification. Record Ready before In progress prospectively; never fabricate a missing historical event.
+
+## Earlier checkpoints retained as history
+
 ## R15 story433: preserve the actual reading contract
 
 Continuous quote example walkthrough: preserve original source/history and evaluate the changed links/table/context directly. A bounded source or mathematical verifier is not a generic prose validator, production rerun or human usability result. [Actual evidence](../stories/STARTER-433_VALIDATION.json). Required docs.yml/check plus independent exact source/published-main review is the scoped gate for unchanged package/build/workflow inputs; incidental workflow states are recorded separately.

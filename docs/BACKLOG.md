@@ -1,3 +1,11 @@
+## R15 independently reviewed; R16 CI proposal pending
+
+Fresh separate local automated R15 review passed at main `d58b6aa13b98ae12c0c84e71dcd97282ca2e40e8`, no findings: [review](R15_POSTDELIVERY_REVIEW.md), [actual acceptance](https://github.com/atulsrivas1/equity-features/issues/439#issuecomment-6252979590). Exact selected437/432/434/433/439 are Closed/Done; milestone18 Closed. Historical source PENDING fields and documented corrections/cancellations remain their original scopes.
+
+[GOV028#443](https://github.com/atulsrivas1/equity-features/issues/443) prepares the proposed [R16 CI-efficiency plan](R16_RELEASE_PLAN.md), [handoff](R16_AUTONOMOUS_HANDOFF.md) and [inputs](R16_INPUTS.json). Proposed CI001#444/CI002#445/CI003#446 remain Backlog/unassigned, no R16 epic/milestone; scope selection and R16 separate-review decision pending. Existing R15 grant ends at R15. No implementation or R16 Ready claim. Deferred features/research/providers/witnesses/security, all134EQ IDs/retired094 and paused R7 automation remain unchanged.
+
+## Earlier checkpoints retained as history
+
 ## R15 selected; separate review authorized
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/437#issuecomment-6252649998) accepts PR438's documentation-only scope and authorizes separate local Codex review throughout R15. E22#439/milestone18 select exactly437/432/434/433/439; governance first, then432,434,433 one at a time. All remain open at this source freeze; handoff final review and normal delivery gates precede story Ready. [Plan](R15_RELEASE_PLAN.md), [handoff](R15_AUTONOMOUS_HANDOFF.md), [inputs](R15_INPUTS.json). Existing story acceptance/IDs, all134EQ rows/retired094, original page bodies/formulas and package/API/math/version/dependencies/workflows remain preserved. Provisional complexity: governance2,432one,434one,433two points; not days. No due date.

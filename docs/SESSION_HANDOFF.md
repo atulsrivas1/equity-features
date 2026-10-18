@@ -1,3 +1,11 @@
+## R15 independently reviewed; R16 CI proposal pending
+
+Fresh separate local automated R15 review passed at main `d58b6aa13b98ae12c0c84e71dcd97282ca2e40e8`, no findings: [review](R15_POSTDELIVERY_REVIEW.md), [actual acceptance](https://github.com/atulsrivas1/equity-features/issues/439#issuecomment-6252979590). Exact selected437/432/434/433/439 are Closed/Done; milestone18 Closed. Historical source PENDING fields and documented corrections/cancellations remain their original scopes.
+
+[GOV028#443](https://github.com/atulsrivas1/equity-features/issues/443) prepares the proposed [R16 CI-efficiency plan](R16_RELEASE_PLAN.md), [handoff](R16_AUTONOMOUS_HANDOFF.md) and [inputs](R16_INPUTS.json). Proposed CI001#444/CI002#445/CI003#446 remain Backlog/unassigned, no R16 epic/milestone; scope selection and R16 separate-review decision pending. Existing R15 grant ends at R15. No implementation or R16 Ready claim. Deferred features/research/providers/witnesses/security, all134EQ IDs/retired094 and paused R7 automation remain unchanged.
+
+## Earlier checkpoints retained as history
+
 ## R15 story433 implemented; final delivery pending
 
 [Continuous quote example walkthrough](https://github.com/atulsrivas1/equity-features/issues/433) implements only`docs/api/CONTINUOUS_QUOTES.md` plus companion documentation. [Plan](stories/STARTER-433_PLAN.md), [actual bounded validation](stories/STARTER-433_VALIDATION.json). Dependency#434 is accepted at`7edf1f3c6d360d193ca8512a485cd73e9e734965`; published precode design and separate review preceded Ready/In progress. Bounded check passed; final source/relevant CI/main publication and fresh independent acceptance remain pending. No package/API/math/version/dependency/workflow change, human/usefulness or performance claim. Other deferred scope remains unchanged.
