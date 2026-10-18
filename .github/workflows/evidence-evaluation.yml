@@ -1,7 +1,6 @@
 name: Evidence evaluation qualification
 on:
-  push:
-  pull_request:
+  workflow_call:
   workflow_dispatch:
     inputs:
       study_id:
@@ -45,9 +44,16 @@ jobs:
           import os, subprocess, sys
           subprocess.run([sys.executable, 'tools/build_evidence_evaluation.py', 'study', os.environ['EQ117_STUDY_ID']], check=True)
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && github.event_name == 'workflow_dispatch'
         with:
           name: evidence-evaluation-${{ github.sha }}-${{ github.event_name }}-${{ matrix.os }}
+          path: dist/evidence-evaluation/
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always() && github.event_name != 'workflow_dispatch'
+        with:
+          name: evidence-evaluation-${{ github.sha }}-${{ github.event_name }}-${{ matrix.os }}-attempt-${{ github.run_attempt }}
           path: dist/evidence-evaluation/
           retention-days: 30
           if-no-files-found: error

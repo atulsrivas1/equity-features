@@ -1,7 +1,6 @@
 name: Minimal newcomer quickstart
 on:
-  push:
-  pull_request:
+  workflow_call:
 permissions:
   contents: read
   actions: read
@@ -30,7 +29,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: quickstart-${{ github.sha }}-${{ matrix.os }}
+          name: quickstart-${{ github.sha }}-${{ matrix.os }}-attempt-${{ github.run_attempt }}
           path: |
             work/eq132-quickstart-*/report.json
             work/eq132-quickstart-*/logs/*.txt

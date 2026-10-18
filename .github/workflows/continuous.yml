@@ -1,7 +1,6 @@
 name: Continuous package checks
 on:
-  push:
-  pull_request:
+  workflow_call:
 permissions:
   contents: read
 jobs:
@@ -26,7 +25,7 @@ jobs:
       - run: python -B tools/build_continuous.py
       - uses: actions/upload-artifact@v4
         with:
-          name: continuous-${{ github.sha }}-${{ matrix.os }}
+          name: continuous-${{ github.sha }}-${{ matrix.os }}-attempt-${{ github.run_attempt }}
           path: dist/continuous/
           retention-days: 30
           if-no-files-found: error

@@ -1,0 +1,193 @@
+{
+  "schema": "equity-features.ci002-design.v1",
+  "status": "PUBLISHED_PRE_CODE_REVIEW_PENDING",
+  "root_workflow": ".github/workflows/qualification.yml",
+  "root_events": [
+    "push",
+    "pull_request"
+  ],
+  "literal_leaf_calls": {
+    "agent-evidence": "./.github/workflows/agent-evidence.yml",
+    "agent-ledger": "./.github/workflows/agent-ledger.yml",
+    "conformance": "./.github/workflows/conformance.yml",
+    "continuous": "./.github/workflows/continuous.yml",
+    "diagnostics": "./.github/workflows/diagnostics.yml",
+    "evidence": "./.github/workflows/evidence.yml",
+    "evidence-evaluation": "./.github/workflows/evidence-evaluation.yml",
+    "evidence-pilot": "./.github/workflows/evidence-pilot.yml",
+    "explanations": "./.github/workflows/explanations.yml",
+    "packages": "./.github/workflows/packages.yml",
+    "provenance": "./.github/workflows/provenance.yml",
+    "quickstart": "./.github/workflows/quickstart.yml",
+    "r9": "./.github/workflows/r9.yml",
+    "r10": "./.github/workflows/r10.yml",
+    "research": "./.github/workflows/research.yml",
+    "transport": "./.github/workflows/transport.yml"
+  },
+  "docs_call": "./.github/workflows/docs.yml",
+  "terminal_required_job": "check",
+  "terminal_condition": "always()",
+  "needs_exact_keys": [
+    "scope",
+    "docs",
+    "agent-evidence",
+    "agent-ledger",
+    "conformance",
+    "continuous",
+    "diagnostics",
+    "evidence",
+    "evidence-evaluation",
+    "evidence-pilot",
+    "explanations",
+    "packages",
+    "provenance",
+    "quickstart",
+    "r9",
+    "r10",
+    "research",
+    "transport"
+  ],
+  "gate_results": {
+    "scope": "success with closed valid record identical to actual local committed-source classification",
+    "docs": "success",
+    "FULL": "all16literal package roots success",
+    "DOCS": "all16literal package roots skipped",
+    "any_missing_extra_unknown_cancel_failure_unexpected_skip": "failure; never qualification"
+  },
+  "scope_output": "one compact JSON string in fixed GITHUB_OUTPUT key record; every relied-upon value type checked, no shell/code interpolation",
+  "new_tools": [
+    "tools/ci_gate.py",
+    "tools/test_ci_gate.py",
+    "tools/ci_provenance.py",
+    "tools/test_ci_provenance.py"
+  ],
+  "old_tool": "tools/ci_scope.py",
+  "old_validation": "tools/test_ci_scope.py",
+  "sidecar_schema": "equity-features.ci-policy.v1",
+  "sidecar_stage": "GATE_EVALUATED_NOT_FINAL_RUN_ACCEPTANCE",
+  "sidecar_closed_fields": {
+    "schema": "literal sidecar_schema",
+    "stage": "literal sidecar_stage",
+    "repository": "literal atulsrivas1/equity-features",
+    "event": "push or pull_request",
+    "run_id": "positive integer, not bool",
+    "run_attempt": "positive integer, not bool",
+    "ref": "actual fixed runner ref joined to source event",
+    "checkout_head": "40lowerhex committed Git SHA1",
+    "checkout_tree": "40lowerhex Git tree SHA1",
+    "workflow_ref": "actual runner workflow reference, literal root workflow path and expected caller ref",
+    "workflow_sha": "actual runner workflow definition commit SHA1; verify every executed workflow-definition blob matches its checkout counterpart rather than guessing it always equals checkout SHA",
+    "classification": "closed exact ci-scope.v1 output, revalidated against local actual event and checkout",
+    "logical_results": "closed mapping of exact18needs roots to original result values, not relabeled success for skipped",
+    "source_map_sha256": "SHA256 of UTF8 ensure_ascii=true sort_keys=true separators=(comma,colon) JSON encoding of exact source_map object, with no LF",
+    "declared_external_boundaries": "existing GitHub Actions/runtime refs, interpreter and package/native dependency qualification remain baseline boundaries; no fullhost/physical or sourcebinaryplatform-attestation claim",
+    "gate_qualified": "boolean procedure outcome; false does not establish source or package qualification",
+    "source_map": "all tracked canonical Git blob paths with type/mode/GitOID/byte length/SHA256, complete tree inventory; unknown nonregular/nonUTF8 entries invalidate this version"
+  },
+  "source_producer": "rootcheck tools/ci_provenance.py imports only reviewed ci_gate/ci_scope and stdlib; Git reads declared immutable checkout, complete ls-tree and batch blob stream; fixed output dist/ci/policy/qualification.json, untracked generated output excluded from source tree",
+  "working_source_binding": "new executed root tool bytes must match declared Git blobs; no mutable source lookup replaces immutable identities",
+  "external_final_join": "after workflow completion an independent collector binds registered literal root path/ID, API run head/event/attempt, actual PR merge parents/tree or push source, final check and exact callee OS job/step IDs/outcomes, sidecar blob map and current leaf artifacts/digests/expiry to existing package verification/source/archive/installed proof",
+  "not_self_attestation": "sidecar records gate evaluation before final run completes; it cannot attest its own final completion, artifact receipt, physical cleanup or complete GitHub platform implementation",
+  "legacy_preserved": [
+    "quickstart pinned accepted foundation run/workflow/job/main contract",
+    "all package builder commands/scopes/archive/source/installed/RECORD gates",
+    "manual evaluation workflow_dispatch study_id and qualify/study predicates; no new study execution",
+    "all old leaf matrix/permissions/fail-fast/build and validation operations; normal upload names explicitly versioned for exact attempts",
+    "historical accepted artifact names/IDs and pinned quickstart readers; manual evaluation upload unchanged"
+  ],
+  "artifact_families": {
+    "metadata_root": [
+      "ci-scope",
+      "ci-policy"
+    ],
+    "legacy_with_upload": [
+      "agent-evidence",
+      "agent-ledger",
+      "conformance",
+      "continuous",
+      "diagnostics",
+      "evidence",
+      "evidence-evaluation",
+      "evidence-pilot",
+      "explanations",
+      "packages",
+      "provenance",
+      "quickstart",
+      "r9",
+      "r10",
+      "research"
+    ],
+    "no_package_upload": [
+      "transport"
+    ]
+  },
+  "actual_API_presentation": "observed and separately validated during current test runs, not guessed wildcards or synthetic PASS",
+  "cost_limits": "FULL adds scope and aggregate jobs; routine continuity changes stay FULL. Only admitted reader-only edits benefit. No claim that ordinary multi-document release stories become cheap; no invented speedup threshold.",
+  "source_map_entry_closed_fields": {
+    "git_oid": "40lowerhex SHA1 of actual Git blob",
+    "kind": "literal blob",
+    "mode": "literal100644 or100755 only",
+    "bytes": "nonnegative integer excluding bool",
+    "sha256": "64lowerhex SHA256 of exact Git blob bytes"
+  },
+  "source_map_path_rules": "every tracked canonical Git blob exactly once from complete ls-tree -r -z --full-tree; strict UTF8 relative POSIX path, no empty/absolute/dotdot component. Gitlinks, symlinks, unknown modes or missing/bad batch objects reject this version. This is new project-owned routing-source closure, not a full OS/Actions/native-platform attestation.",
+  "artifact_contract": {
+    "scope": {
+      "name": "ci-scope-CHECKOUT_SHA-EVENT-RUN_ID-attempt-ATTEMPT",
+      "files": [
+        "classification.json"
+      ],
+      "path": "dist/ci/scope/",
+      "schema": "equity-features.ci-scope.v1"
+    },
+    "policy": {
+      "name": "ci-policy-CHECKOUT_SHA-EVENT-RUN_ID-attempt-ATTEMPT",
+      "files": [
+        "qualification.json"
+      ],
+      "path": "dist/ci/policy/",
+      "schema": "equity-features.ci-policy.v1 or rejected error schema"
+    },
+    "uploader": "actions/upload-artifact@v4, fixed declared ref matching existing pipeline action boundary",
+    "retention_days": 30,
+    "overwrite": false,
+    "if_no_files_found": "error",
+    "upload_condition": "always(); failed/error artifacts never qualify",
+    "failure_schema": {
+      "schema": "equity-features.ci-policy-error.v1",
+      "gate_qualified": false,
+      "reason": "fixed reviewed error code",
+      "run_id": "positive integer or null if invalid",
+      "run_attempt": "positive integer or null if invalid"
+    },
+    "failure_behavior": "nonzero root producer/gate exit; failure JSON only into fresh fixed output if available. Missing artifact/upload failure cannot pass. Never reuse another attempt or another run artifact."
+  },
+  "attempt_binding": {
+    "accepted": "positive complete whole workflow attempts with every required actual job from exact attempts/N/jobs API, never reused success from a prior attempt",
+    "new_normal_leaf_name": "preserve legacy prefix/CHECKOUT_SHA/[EVENT]/OS and append -attempt-ATTEMPT, an explicit versioned current-CI contract change; old accepted artifact IDs/bindings untouched",
+    "manual_evaluation": "preserve original workflow_dispatch name/upload behavior and study input/event predicates; separate normal-event upload step uses attempt suffix, no study executed",
+    "artifact_join": "query exact run ID only; exact versioned name includes attempt and checkout; require expected source,event,OS and immutable artifact IDs/digests/expiry. No repository-global name matching. Require complete job inventory at actual same attempt; re-run-failed-only partial attempts cannot qualify full package forms. Older attempts remain preserved failed/diagnostic records, never relabeled."
+  },
+  "dependency_acceptance": {
+    "main": "684074e43b80171e81ff4a309c0c2c4d6a75497e",
+    "pr": 449,
+    "acceptance": "https://github.com/atulsrivas1/equity-features/issues/444#issuecomment-6254380946",
+    "state": "closed",
+    "project": "Done",
+    "criteria_checked": 3,
+    "main_review_sha256": "131722a63402642e285234440eb465a3ccc4d09397ad6533d89748c49eece540",
+    "not_R16_complete": true
+  },
+  "needs_value_schema": {
+    "closed_keys": [
+      "result",
+      "outputs"
+    ],
+    "result": "success/failure/cancelled/skipped string; only accepted combinations in gate_results",
+    "scope_outputs": {
+      "record": "compact JSON string, closed strict ci-scope.v1, identical to actual recomputed classification"
+    },
+    "other_outputs": "empty object; extra outputs reject this version",
+    "JSON": "reject duplicate keys and nonstandard constants; exact types exclude bool-as-int"
+  }
+}

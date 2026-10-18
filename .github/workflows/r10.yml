@@ -1,7 +1,6 @@
 name: R10 release qualification
 on:
-  push:
-  pull_request:
+  workflow_call:
 permissions:
   contents: read
 jobs:
@@ -31,7 +30,7 @@ jobs:
       - run: python tools/build_r10.py --io work/accepted-io --workers work/accepted-workers
       - uses: actions/upload-artifact@v4
         with:
-          name: r10-${{ github.sha }}-${{ matrix.os }}
+          name: r10-${{ github.sha }}-${{ matrix.os }}-attempt-${{ github.run_attempt }}
           path: dist/r10/
           retention-days: 30
           if-no-files-found: error

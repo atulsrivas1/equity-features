@@ -1,0 +1,24 @@
+{
+  "schema": "equity-features.ci-workflow-equivalence.v1",
+  "baseline_commit": "684074e43b80171e81ff4a309c0c2c4d6a75497e",
+  "preserved_permissions_jobs_sha256": {
+    ".github/workflows/agent-evidence.yml": "b29993e7f084911fca2affd2b8bb27716f12b73d5cdd6f82712449c51c9f299a",
+    ".github/workflows/agent-ledger.yml": "f838f3f94e4113d907935345a37e32048130f4b88144b009f8bd6bcc1cb84a41",
+    ".github/workflows/conformance.yml": "fc7014a8ea196c6a8c51d74d8303d923a853195864cfffa4b083525556376811",
+    ".github/workflows/continuous.yml": "149057620404ff2320b477e0c63324b6877f55d8694b159d1a00faacbbbe4314",
+    ".github/workflows/diagnostics.yml": "4e38bedb7bee4c918e4e38445ebe3e8765e0e1620942dce498ff4989980829fc",
+    ".github/workflows/docs.yml": "8f4070f57522fe5a821d1fa0f621341a16c974196e5b24ee53baddf7172a8a24",
+    ".github/workflows/evidence-evaluation.yml": "6a7e35c02bd9b16abaf277079360708d6d53f7efb96a7219a4596ea8129ec2ac",
+    ".github/workflows/evidence-pilot.yml": "8461201814cab1e9242b0082168288e466dda4167425bf53d29226712331fdba",
+    ".github/workflows/evidence.yml": "b02145118c7b299931a1bd161a13395e037866980aa03d02dbc031cbdecbb9de",
+    ".github/workflows/explanations.yml": "7aaa3b295acef3973e67d0e47095c8f684f57f47d876415459efa6555263153b",
+    ".github/workflows/packages.yml": "c161bc09ed86c8a7d2baae58d06290f84e31aee4d0b2927e214dee13f934205d",
+    ".github/workflows/provenance.yml": "d87937308a4eecf25b75615bc0e57a3e9210d736e318c1151f145055f52f767b",
+    ".github/workflows/quickstart.yml": "591885828111f8bb7eb96f9b55f641d88c37a17571d092b44557ffa6978755bc",
+    ".github/workflows/r10.yml": "3e11c3aaddaa3d395234d4345992bef4b2e758a77188512f860cd28b5d17d374",
+    ".github/workflows/r9.yml": "32077c7386ce7978bf2010d6e9acc8a09b8fe76db7c96915e98ad48644215764",
+    ".github/workflows/research.yml": "a96708d20209832f8c4313cf887de75af515b3e9bb9526d94a1c538aaf9c0fbc",
+    ".github/workflows/transport.yml": "2c8ea593833cabeb4729205bfc9a91d5095bc4c5723aa107bed4d10ca59cd6ec"
+  },
+  "normalization": "Compare old permissions/jobs bytes after undoing only attempt suffix, evaluation mutually exclusive upload duplication, and the two added documentation fixture steps. Triggers separately require workflow_call, with exact original evaluation workflow_dispatch contract."
+}

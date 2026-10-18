@@ -1,3 +1,7 @@
+## CI002 internal qualification orchestration
+
+One always-triggered scope/docs/reusable-package/terminal-check pipeline preserves all existing qualification steps. Reader-only omissions remain NOT QUALIFIED package work. New routing-source sidecars and attempt-suffixed normal artifacts explicitly version current provenance; historical readers/manual evaluation behavior are unchanged. Author synthetic fixtures passed24methods; independent exact source and actual hosted/main qualification remain pending. No package API/math/version/dependency change or measured speedup claim. See [guide](CI_ORCHESTRATION.md) and CI002#445/PR450.
+
 ## CI001 internal classifier implemented — final delivery pending
 
 Added complete source-bound Git/event classification and independent synthetic fixtures. Explicit UTF8/LF output and submodule omission override corrected pre-publication findings. Thirteen corrected Windows fixture methods passed; earlier failures retained. Existing documentation CI adds the fixture command, with unchanged routing/old steps/matrices/permissions. Full current hosted and actual-main acceptance remain pending; no package/API/math/version/dependency or performance claim.

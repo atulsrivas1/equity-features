@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "PRE_CODE_REVIEW_PENDING",
+  "dependency_acceptance": {
+    "main": "684074e43b80171e81ff4a309c0c2c4d6a75497e",
+    "pr": 449,
+    "acceptance": "https://github.com/atulsrivas1/equity-features/issues/444#issuecomment-6254380946",
+    "state": "closed",
+    "project": "Done",
+    "criteria_checked": 3,
+    "main_review_sha256": "131722a63402642e285234440eb465a3ccc4d09397ad6533d89748c49eece540",
+    "not_R16_complete": true
+  },
+  "draft_review_reports": [
+    {
+      "file": "r16-ci002-draft-review.json",
+      "sha256": "c17c5643794e1a259f0cf30b59bc19a3b3385e093a78d99184649f9ede42af1b"
+    },
+    {
+      "file": "r16-ci002-contract-draft-review.json",
+      "sha256": "7e6e46d66dcc9177c45c13198b7bbbc3047536c616e0838b913547246e166ef9"
+    },
+    {
+      "file": "r16-ci002-concrete-draft-review.json",
+      "sha256": "d0b0a213be9167191cc7571be7b83dbba0cab785f7673f5008e43c7399406a01"
+    },
+    {
+      "file": "r16-ci002-coherent-draft-review.json",
+      "sha256": "178539b21b5b0d7234d98a1eefd2bf5f3f2f5a38cea6d05ec8610b1ca86fad71"
+    }
+  ],
+  "resolutions": [
+    "complete nested source-map types and exact digest bytes",
+    "attempt-safe artifacts and whole-attempt job joins",
+    "stale producer output path aligned to dist/ci/policy/qualification.json"
+  ],
+  "implementation_written": false,
+  "implementation_tests": 0,
+  "CI001_main_receipt_sha256": "5832c6d8b22af44675175734134435051bc467ca189134d78f343989b3adf314",
+  "CI001_main_review_sha256": "131722a63402642e285234440eb465a3ccc4d09397ad6533d89748c49eece540",
+  "limitations": "Draft design review is not published-head Ready or implementation qualification. Historical source pending fields are superseded by actual numbered acceptance."
+}

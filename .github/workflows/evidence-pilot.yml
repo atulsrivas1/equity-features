@@ -1,7 +1,6 @@
 name: Evidence pilot checks
 on:
-  push:
-  pull_request:
+  workflow_call:
 permissions:
   contents: read
 jobs:
@@ -31,7 +30,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: evidence-pilot-${{ github.sha }}-${{ matrix.os }}
+          name: evidence-pilot-${{ github.sha }}-${{ matrix.os }}-attempt-${{ github.run_attempt }}
           path: dist/evidence-pilot/
           retention-days: 30
           if-no-files-found: error
