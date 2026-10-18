@@ -1,3 +1,7 @@
+## Unreleased R15 story432: Current public API navigation
+
+Prepend a concise navigation block for Current experimental public API, Imports and ownership, Invalid calls versus unavailable calculations, Installed typing qualification; preserve all original text after the fixed marker. Bounded validation passed; final review/publication acceptance pending. No package version or behavior change. [Validation](stories/STARTER-432_VALIDATION.json).
+
 ## Unreleased: owner-selected R15 documentation usability
 
 Owner selects existing432/434/433 and GOV027, E22#439/milestone18, with separate local review authorized throughout. The handoff is being reviewed; implementation and actual delivery remain pending. No package behavior/version change or deferred-scope expansion. [Decision](https://github.com/atulsrivas1/equity-features/issues/437#issuecomment-6252649998).

@@ -1,3 +1,17 @@
+# Read the current public API
+
+Start with these sections for the current experimental library:
+
+- [Current experimental public API](#current-experimental-public-api)
+- [Imports and ownership](#imports-and-ownership)
+- [Invalid calls versus unavailable calculations](#invalid-calls-versus-unavailable-calculations)
+- [Installed typing qualification](#installed-typing-qualification)
+
+The dated development checkpoints below retain their original context; use the
+linked current sections for supported imports, behavior and qualification limits.
+
+<!-- STARTER-API-NAV-END -->
+
 ## EQ097 qualified optional supplied-content candidate — October15,2026
 
 [Typed content API](EVIDENCE_CONTENT.md) at7ea1c721 passed separate source/security/docs and Windows/Linux archive/installed/cost review. [Complete validation](../stories/EQ-097_VALIDATION.json) binds actual maps and raw measurements. Full content verification detects changed values under identical metadata; it does not authenticate sources or prove those inputs caused execution. No numerical/core/schema upgrade. Currenthead/defaultbranch acceptance remains on issue197.
