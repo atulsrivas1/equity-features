@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "PRE_CODE_REVIEW_PENDING",
+  "dependency_acceptance": {
+    "main": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+    "pr": 450,
+    "acceptance": "https://github.com/atulsrivas1/equity-features/issues/445#issuecomment-6254799471",
+    "state": "closed",
+    "project": "Done",
+    "criteria_checked": 3,
+    "main_review_sha256": "a40e875abf854178bf28dc96032e3d4d27240014d43aacc196e8bae6d487d31d",
+    "not_R16_complete": true
+  },
+  "draft_reviews": [
+    {
+      "file": "r16-ci003-protocol-draft-review.json",
+      "sha256": "1d3576f5e7957fdaf00c68b0fb81cc67fe030dd1e40e25d682ddfcd178057918"
+    },
+    {
+      "file": "r16-ci003-concrete-draft-review.json",
+      "sha256": "bdb9449c705cf68839277a15c85fbbfe2c32dfb96f9e1e53514761cca23ebb12"
+    },
+    {
+      "file": "r16-ci003-draft-docs-probe-correction-review.json",
+      "sha256": "2e2e8d16ccd1fa64e9a03ad68d90b43c255f37e9c9c63b608613bafa4a973334"
+    },
+    {
+      "file": "r16-ci003-expanded-draft-review.json",
+      "sha256": "bcb4cd2061606838848a9fd9741a8067e6b7de9cd9dde76b4d2987dadddecf27"
+    },
+    {
+      "file": "r16-ci003-expanded-corrected-draft-review.json",
+      "sha256": "d1482b50d1aaf87761ce20ea4f58797dedc15f89cb83004765ff46ec9dc4e650"
+    }
+  ],
+  "implementation_written": false,
+  "new_tests": 0,
+  "probes_triggered": 0,
+  "read_only_candidate_artifact_layout": {
+    "receipt_sha256": "a5d0bd03c1e7cd012b7d411726f1aa4d7cc0d0d4bbcc19eb8f7d0bc623b8021f",
+    "artifact_ids": [
+      12149580369,
+      12149380465
+    ],
+    "purpose": "two current accepted-source candidate ZIP layouts/report field names read without extraction or payload execution; NOT final independent archive/source/RECORD audit"
+  },
+  "prior_unexecuted_docs_negative": {
+    "prior_contract_sha256": "1e2b43ca46f10c229ead13acbe38c68d336f76f656f80740dcda01698db4b407",
+    "corrected_contract_sha256": "a3c5be8a6b1552e5e682481c373f83c349bc870da254d36b5a3c41c99192019b",
+    "original_134_rows_unchanged_in_actual_source": true,
+    "product_source_changed": false,
+    "probe_execution": false,
+    "source": "draft review before any trigger; existing immutable workflow-equivalence fixture must not be weakened for a negative probe"
+  },
+  "tooling_history": [
+    "CI002 outer collector tightened actual job/run/head/status, exact ZIP size, typed classification equality, explicit external boundary and no-replacement Git reads before acceptance.",
+    "PR450 task attachment rejected at task identity count limit; no historical artifacts removed. Public PR link retained.",
+    "Prior 47 CI001 and 10 CI002 superseded planning cancellation requests remain unassessed, never PASS.",
+    "Unexecuted CI003 admission helper template initially referred to its own future acceptance receipt; source inspection corrected it to the CI002 dependency and added live accepted-main equality before any execution/mutation."
+  ],
+  "limitations": "Draft design review is not published-head Ready or observed DOCS/negative/package byte qualification."
+}

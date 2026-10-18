@@ -1,3 +1,11 @@
+## CI002 accepted; CI003 concrete qualification protocol
+
+[CI002 acceptance](https://github.com/atulsrivas1/equity-features/issues/445#issuecomment-6254799471) records actual main `0ef4f2c7a50e164e11dcfc25751e62b691b95883` after separately reviewed source, author/reviewer24methods and full current candidate/main root qualification. Root scope/policy ZIP bytes and complete immutable Git maps were independently joined to actual final run/job/artifact outcomes. This does not replace CI003's downloaded package ZIP/source/RECORD audit or actual DOCS/negative probes.
+
+CI003#446 remains Backlog/unassigned until exact published pre-code review establishes Ready. [Plan](stories/CI-003_PLAN.md), [contract](stories/CI-003_CONTRACT.json), [planning evidence](stories/CI-003_PLANNING_EVIDENCE.json). Three never-merged probes and bounded independent archive/source readers are proposed, not executed. Exact probe sources require separate review before triggers. E23#448/milestone19 remain open; R16 is unfinished. Existing owner review grant applies. Deferred scope, accepted releases and paused automation remain unchanged.
+
+## Earlier checkpoints retained as history
+
 ## CI002 implemented; independent source and actual hosted qualification pending
 
 [CI002#445](https://github.com/atulsrivas1/equity-features/issues/445), PR450, implements the reviewed root/reusable workflow topology, complete logical aggregate gate and immutable routing-source sidecar. [Guide](CI_ORCHESTRATION.md), [plan](stories/CI-002_PLAN.md), [contract](stories/CI-002_CONTRACT.json), [actual local validation](stories/CI-002_VALIDATION.json). Author Windows suites passed24methods. Existing leaf operations are checked against immutable CI001-main permissions/jobs hashes; manual study semantics and historical accepted artifact readers remain unchanged. No package/API/math/version/dependency changes.
