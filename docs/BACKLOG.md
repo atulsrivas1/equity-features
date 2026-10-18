@@ -1,3 +1,9 @@
+## CI001 implemented; final qualification pending
+
+[CI001#444](https://github.com/atulsrivas1/equity-features/issues/444), draft PR449, implements only internal Git/event change classification and synthetic fixtures, plus its explicit documentation-job test step. [Contract](stories/CI-001_CONTRACT.json), [actual validation](stories/CI-001_VALIDATION.json), [tool documentation](CI_SCOPE.md). Corrected author Windows suite passed13methods. Initial CLI byte failure, independently reproduced submodule-ignore false DOCS and fixture setup error remain recorded; provisional review corrections require renewed final-head coverage. No routing change or package/API/math/version/dependency behavior. All existing workflows continue; actual current-head hosted qualification, separate source/main review and publication acceptance remain pending. GOV028 accepted; CI002/003 stay Backlog. R15 and deferred scope/paused automation unchanged.
+
+## Earlier checkpoints retained as history
+
 ## Owner-selected R16 CI engineering — October18,2026
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253883970) accepts PR447's CI001#444/CI002#445/CI003#446 scope and authorizes separate local Codex review throughout R16, including planning, necessary companion qualification changes and final delivery. E23#448/milestone19 select exactly443/444/445/446/448. GOV028#443 is active planning; implementation stories remain Backlog/unassigned until dependency acceptance, concrete reviewed pre-code plans and actual Ready. Provisional complexity2/5/8/5 points, not days; no deadline. [Plan](R16_RELEASE_PLAN.md), [handoff](R16_AUTONOMOUS_HANDOFF.md), [inputs](R16_INPUTS.json).

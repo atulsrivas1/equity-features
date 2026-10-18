@@ -1,3 +1,11 @@
+## Implementation review corrections and concrete test integration
+
+Provisional separate review found Windows text stdout translating LF into CRLF, violating the frozen byte contract; the unchanged CLI oracle failed before correction. Emit explicit UTF8 bytes with one LF via stdout.buffer. Review also found Git submodule ignore configuration could hide a gitlink change. A corrected independent synthetic160000-index fixture reproduced DOCS for a reader+gitlink change under diff.ignoreSubmodules=all before the fix. Exact raw-diff command now adds --ignore-submodules=none; the adjacent contract records this conservative amendment. Original draft command below is history and superseded by this correction. Preserve all failures; no selected package-runtime defect or exploit is inferred.
+
+Add exactly one synthetic classifier-test step to existing .github/workflows/docs.yml. This is validation integration, not conditional routing: triggers, existing checks, permissions, OS matrices and package workflows remain unchanged. Author Windows tests plus actual Ubuntu documentation job provide platform coverage. The original two-tool file list below is extended only for this mandatory validation step and companion docs. Updated contract and final source must receive renewed independent coverage before merge. No new numerical/package/API/version/dependency behavior.
+
+## Earlier pre-code contract retained
+
 ## Exact contract and consumer evidence
 
 The adjacent CI-001_CONTRACT.json freezes a closed result schema, types/nulls, reason codes, raw-diff grammar, exact digest preimages and CLI result encoding. CI-001_CONSUMER_AUDIT.json binds the current immutable main and all audited tool/workflow/build metadata source identities plus literal selector inventory. Static string inventory alone is not completeness proof: independent source review must inspect broad selectors and imported builder helpers. Both files are required pre-code inputs, not executed implementation results.

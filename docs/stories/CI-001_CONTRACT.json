@@ -32,7 +32,7 @@
   ],
   "allowlist_preimage": "equity-features.ci-allowlist.v1\ndocs/api/CONTINUOUS_QUOTES.md\ndocs/api/PUBLIC_API.md\ndocs/contracts/RESULTS.md\n",
   "allowlist_sha256": "fe8860b35869529b4cabdf940905d7bc3979974e031dd041a228d8eb0b3cf2ee",
-  "diff_preimage": "exact complete bytes from git --no-pager diff --raw -z --no-abbrev --no-ext-diff --no-textconv --no-renames BASE CHECKOUT_HEAD --",
+  "diff_preimage": "exact complete bytes from git --no-pager diff --raw -z --no-abbrev --no-ext-diff --no-textconv --no-renames --ignore-submodules=none BASE CHECKOUT_HEAD --",
   "output_encoding": "UTF8 JSON object, sorted keys, indent2, one trailing LF; no extra stdout",
   "invalid_result": "fixed schema/validfalse/FULL/SOURCE_INVALID/repository/allowlist_sha256; all other binding and count fields null",
   "initial_push_result": "validtrue/FULL/INITIAL_PUSH; base/diff_sha256/changes_count null; event push and actual after/source_head/checkout_head/tree bound",
@@ -43,5 +43,6 @@
     "No hostile workflow-author security boundary",
     "No source archive equivalence assumed for paths absent from allowlist"
   ],
-  "consumer_audit_sha256": "fe220eedd0698bf5f470724fdfc68e309335986b24019a586fd92fb62a99fff6"
+  "consumer_audit_sha256": "fe220eedd0698bf5f470724fdfc68e309335986b24019a586fd92fb62a99fff6",
+  "review_correction": "Explicit submodule override defeats diff.ignoreSubmodules=all and preserves gitlink changes. Source contract amendment from provisional review; renewed final review required."
 }

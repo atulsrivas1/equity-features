@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "IMPLEMENTED_LOCAL_WINDOWS_FIXTURES_PASSED_FINAL_REVIEW_AND_CURRENT_CI_PENDING",
+  "precode_review": {
+    "head": "62b8edbe49d71d1d193d99fb8f0e565a5a35419f",
+    "report_sha256": "fc33680e8d85adc1b611b9c8b041dba95602310e3ca91a19c3243efe2d088ff1",
+    "approved": true,
+    "draft_blockers_resolved": [
+      "immutable consumer audit",
+      "closed typed output/digest/reason/null contract"
+    ]
+  },
+  "initial_author_run": {
+    "exit_code": 1,
+    "tests": 12,
+    "failures": 1,
+    "duration_seconds": 89.61,
+    "console_receipt_sha256": "bb17777227c81ce9a9be211dfded99dec7012e4b865aa7a0e29865bd3d6782ac",
+    "console_receipt_is_unicode_transcript_not_raw_stdout": true,
+    "cause": "Windows stdout text newline translation violated exact UTF8/LF oracle; preserved failed source and test"
+  },
+  "provisional_separate_review": {
+    "report_sha256": "5f69f41ca208bf34b596087b4c78ce833d34e53416be7c5d34854bf749ffb5e1",
+    "approved": false,
+    "findings": [
+      {
+        "priority": 2,
+        "issue": "Windows output byte mismatch",
+        "disposition": "binary UTF8 stdout; unchanged assertion now passes"
+      },
+      {
+        "priority": 2,
+        "issue": "submodule ignore settings hide gitlink changes",
+        "disposition": "explicit --ignore-submodules=none; amended exact command contract; independent actual red fixture before fix"
+      }
+    ]
+  },
+  "submodule_red_fixture": {
+    "exit_code": 1,
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "ad1e4a23a0dc64a24be5d958a07b2b02e47afd387a6d261c92cd40c815b64ace",
+    "classifier_sha256": "112f1edc2bd0f15b01bba9ee448e08add4c0539419a03f0753dc4b9692d8db0a",
+    "test_sha256": "8d3d03691eb0ac4ea1c3317b67355b15db6b9f89b1b846a49fb31796484b5ca1",
+    "prior_fixture_setup_failed_before_assertion": "git add --all removed a virtual gitlink from index; corrected targeted staging before this run"
+  },
+  "fixture_setup_correction": "First virtual-gitlink fixture used git add --all, which removed the absent-worktree gitlink and failed setup before the intended assertion. Targeted staging corrected setup; subsequent actual red result reproduced DOCS instead of required FULL. No pass inferred from setup error.",
+  "corrected_author_run": {
+    "exit_code": 0,
+    "elapsed_seconds": 95.73399999999674,
+    "system": "Windows",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "source_unchanged_through_execution": {
+      "tools/ci_scope.py": "7a2ed544930c96867b2cb8b9d1feee9302457004850e02c821c2e2e9bac206af",
+      "tools/test_ci_scope.py": "8d3d03691eb0ac4ea1c3317b67355b15db6b9f89b1b846a49fb31796484b5ca1",
+      "docs/stories/CI-001_CONTRACT.json": "a11e66dda02134b58fc02a9a1493731ca62029514e7f85dc21bb23fe8c55037a",
+      ".github/workflows/docs.yml": "43cd73e36d18b4e038d82b2c4d87d44509926d443a7766c2c99dcf65c49628a0"
+    },
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "daf7b866005cdf473dc65f54f8a8b79dfbbc5d159de5f88dda280c1f457d70af",
+    "command": [
+      "python",
+      "tools/test_ci_scope.py"
+    ],
+    "corrective_run_not_relabeling_initial_failures": true
+  },
+  "corrected_test_methods": 13,
+  "new_workflow_step": "existing documentation job invokes synthetic classifier fixtures; no routing/trigger/matrix/permission or old qualification step removed",
+  "limits": [
+    "Local Windows CPython3.12.10 Git fixtures, not native product/package or performance qualification",
+    "Current Ubuntu documentation job and all existing FULL package workflow gates remain pending",
+    "Separate exact final-source and actual-main acceptance remain required",
+    "No selected runtime security boundary or exploit claim"
+  ]
+}
