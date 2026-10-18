@@ -1,0 +1,448 @@
+{
+  "schema": "equity-features.ci-consumer-audit.v1",
+  "source_head": "36b5dfdcf788d7ae5ee2cf7979f87e04af8c7d7a",
+  "source_paths": {
+    ".github/workflows/agent-evidence.yml": {
+      "bytes": 1078,
+      "sha256": "3635fefb73e1c50297f2cdab4bb35cdd91410d185733538b9756fcd2bd698d9f"
+    },
+    ".github/workflows/agent-ledger.yml": {
+      "bytes": 1101,
+      "sha256": "1968d9138cda98c49c6cba3f522e8115e78a5ebc61aa5eb73612ca45176847bc"
+    },
+    ".github/workflows/conformance.yml": {
+      "bytes": 1174,
+      "sha256": "2c8ff0e03db5c155b69ed4fb3d1379d3aef040717a6dc93b3fdd18ceb3f432ba"
+    },
+    ".github/workflows/continuous.yml": {
+      "bytes": 1066,
+      "sha256": "372ee4f017d850e6c0b26a2d6b08fcdf8797b7917a55fcd7b5a2cb7c85dbf4b2"
+    },
+    ".github/workflows/diagnostics.yml": {
+      "bytes": 1024,
+      "sha256": "49fe6fabef8569b34e74a4d9f1f631f0a89895f6c8fab1b83e989f6b4b802b6c"
+    },
+    ".github/workflows/docs.yml": {
+      "bytes": 4115,
+      "sha256": "40cd23f4dcafc829ada1b753136c91b88665d7e848b9848683096cc0e621bcb0"
+    },
+    ".github/workflows/evidence-evaluation.yml": {
+      "bytes": 1787,
+      "sha256": "b63aaf12f8f73c86d1e31185740c5e3ace5662578295f9445233a1a56713c98f"
+    },
+    ".github/workflows/evidence-pilot.yml": {
+      "bytes": 1065,
+      "sha256": "9f322cb207952a352077628c5dc38cc285ee51f4ac5a2658dc6575ceb3bf60ef"
+    },
+    ".github/workflows/evidence.yml": {
+      "bytes": 980,
+      "sha256": "f8d933e3b2078e4f0b25e831b293d318b51743ccd464374877a25722e04d95b9"
+    },
+    ".github/workflows/explanations.yml": {
+      "bytes": 1032,
+      "sha256": "a572f9a51c01f0a005dcfe2e72ef590537a28ad0a1c141c3a3f7b3c3a4e663e1"
+    },
+    ".github/workflows/packages.yml": {
+      "bytes": 1262,
+      "sha256": "fb8f72e3e5d83e5f1cd84e231ca678e6e52ec373a76a3abd65320a78ff9a3d7a"
+    },
+    ".github/workflows/provenance.yml": {
+      "bytes": 1169,
+      "sha256": "3fcd456df13ba94840826d7da27d79ab0874d0061c2880e32965ded0826ea782"
+    },
+    ".github/workflows/quickstart.yml": {
+      "bytes": 1110,
+      "sha256": "4d939a4965367035cc24ee48408597a173d4f37f9d7cd5fc8a14883eab7b3059"
+    },
+    ".github/workflows/r10.yml": {
+      "bytes": 1141,
+      "sha256": "9d4921e36eaf87bd3c8191b225c636bff037e5f8fea7c33082f7decd3bda9236"
+    },
+    ".github/workflows/r9.yml": {
+      "bytes": 877,
+      "sha256": "712df071bea1327752f52fdab51d72e2c906f491429db4e085cfcb3490c2c36e"
+    },
+    ".github/workflows/research.yml": {
+      "bytes": 1086,
+      "sha256": "210713fea889c17504dce053548442e15ffde5340a3a92a03be423858ef8e31e"
+    },
+    ".github/workflows/transport.yml": {
+      "bytes": 467,
+      "sha256": "18edb1d006a53ee7395e3ffd4830c3a4ac764cb7375b218f7b68888cc88f0825"
+    },
+    "packages/agent-evidence/pyproject.toml": {
+      "bytes": 697,
+      "sha256": "79a459575c454c8b28da001fada1e72bc6e86694a078b78871a299d48ef17f23"
+    },
+    "packages/agent-ledger/pyproject.toml": {
+      "bytes": 655,
+      "sha256": "b8eb6b39415fb6c59cabbfe1082e60ed0e6a93f5e67c5898cacc161f90efa8a4"
+    },
+    "packages/conformance/pyproject.toml": {
+      "bytes": 731,
+      "sha256": "510bbe42b7866a7b2b17abfb7f3b889ee1ad16d118f1578d0628d76c737c7b6e"
+    },
+    "packages/continuous/pyproject.toml": {
+      "bytes": 647,
+      "sha256": "6498d11e10d5c9cf10e26af83a0f47d2a0791f835381c388c324424fb031cfd2"
+    },
+    "packages/contracts/pyproject.toml": {
+      "bytes": 692,
+      "sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1"
+    },
+    "packages/diagnostics/pyproject.toml": {
+      "bytes": 684,
+      "sha256": "9133ebd6d168794a98af9da635cae80053024ed999c61c2247a4754d1337e311"
+    },
+    "packages/evidence/pyproject.toml": {
+      "bytes": 625,
+      "sha256": "4e176e6d84c42d50d43016b1d8156e6d08ff962140170dbd22791ab661c9ae41"
+    },
+    "packages/explanations/pyproject.toml": {
+      "bytes": 672,
+      "sha256": "a87bb5ff985e0f5e04b65048afd202456892b679b424967e45418bedb02c3747"
+    },
+    "packages/features/pyproject.toml": {
+      "bytes": 736,
+      "sha256": "ca095c7a8a7466de390ff943c4a33f6b41852a7b844d5d2d3291abb544be56d9"
+    },
+    "packages/labels/pyproject.toml": {
+      "bytes": 639,
+      "sha256": "74c0401bdd913c46fa1b9e45932d64740b8c49664cbd142d142f6c52a57746b9"
+    },
+    "packages/provenance/pyproject.toml": {
+      "bytes": 905,
+      "sha256": "32a6087c9483afb35abfdd7666d39c53aa2b1e1d1c3cbb64a65422ac2011ab46"
+    },
+    "packages/strategies/pyproject.toml": {
+      "bytes": 652,
+      "sha256": "bb81cb8af2ca7fa4b1f89b2e15037af5637cdd65864e6a2365354835f2cdcafb"
+    },
+    "tools/build_agent_evidence.py": {
+      "bytes": 20543,
+      "sha256": "d7790615df7aa9906443f3b4e84d18ca4512809ecde5c10749f7f8cefddcfcd1"
+    },
+    "tools/build_agent_ledger.py": {
+      "bytes": 21995,
+      "sha256": "0b4fdd8d11d8f3415f00a0c9e41ad1a9fcb9cde2e188551fc62c72a51fd84d00"
+    },
+    "tools/build_conformance.py": {
+      "bytes": 12726,
+      "sha256": "f9f093e364d2f279a53c347705496e13840a47adbabad8ff11f5051c295a7f4f"
+    },
+    "tools/build_continuous.py": {
+      "bytes": 17363,
+      "sha256": "b1c865515eda47e10bc6bd796908805d09e6560b24267a04c7a63aca712fad64"
+    },
+    "tools/build_diagnostics.py": {
+      "bytes": 7990,
+      "sha256": "3f593c6b29f51f5ca593dc086f2e2b956de29f58fe74d384e58af305964cd7ed"
+    },
+    "tools/build_evidence.py": {
+      "bytes": 13322,
+      "sha256": "f50ad9f18c3b46b99c54bcc50aa794c872b7942d363134aad46b812acb2bf3b5"
+    },
+    "tools/build_evidence_evaluation.py": {
+      "bytes": 12932,
+      "sha256": "21f0ab7972e6e990562e0287e910b78b3a5afb270d01ed3f397b1c610b689c19"
+    },
+    "tools/build_evidence_pilot.py": {
+      "bytes": 13650,
+      "sha256": "dc29c2c806af748947608afb8c0dda76f6471a9618a2bb2ad45a23fe5daa0b1c"
+    },
+    "tools/build_explanations.py": {
+      "bytes": 13514,
+      "sha256": "969d52d4e5b9b748c1945fa559aed390286d2eb5632c45a6402d7e868c600c04"
+    },
+    "tools/build_foundation.py": {
+      "bytes": 12149,
+      "sha256": "103ae3f3417d58c66ea94a7bbdecce1cab930406c213c290ddc6f1eedb733e3b"
+    },
+    "tools/build_provenance.py": {
+      "bytes": 11529,
+      "sha256": "c7b894d02867bbd02f166afac5a1bc6e0ac4db7a12df60f56466442cbf62246f"
+    },
+    "tools/build_r10.py": {
+      "bytes": 14459,
+      "sha256": "2f09902086a5687dea98ad7984ca4e8d07c9c6b54d4f9e25d0f1bc4bcd2d461f"
+    },
+    "tools/build_r9.py": {
+      "bytes": 9195,
+      "sha256": "f39333504bd8f6988dcda0897b532630463c7767fcbc2e7b34454623591b3663"
+    },
+    "tools/build_research.py": {
+      "bytes": 21946,
+      "sha256": "cacf68816ba9d9cd29c529a49e5282ae2754fdca01bc44126810700bb8c0f49b"
+    },
+    "tools/check_boundary.py": {
+      "bytes": 34697,
+      "sha256": "4c0367ad1a66c28b2ef6bbdc29e17ed38d10f70e9837719f64757f4bebf76a1c"
+    },
+    "tools/check_continuous_boundary.py": {
+      "bytes": 173,
+      "sha256": "c9030966bf2328c5d9ffe9272e2408506e54be7ddd2db33505a7a1da5a327afa"
+    },
+    "tools/continuous_archives.py": {
+      "bytes": 7883,
+      "sha256": "5037f2d5fa5a952502b3e6d2e2ad0da5617fde470b3d32fd6d1037e0cac4c87b"
+    },
+    "tools/continuous_installed.py": {
+      "bytes": 3601,
+      "sha256": "0c2034466c1dfadf041cdd70c3c628a05d5239b646e518044c295eb2bfb60272"
+    },
+    "tools/continuous_legacy.py": {
+      "bytes": 2379,
+      "sha256": "d39776bb9a429182f31930567c67f87d46a8483ec203dd2a24ec4dbf39982bfa"
+    },
+    "tools/evidence_pilot_archives.py": {
+      "bytes": 11677,
+      "sha256": "0ecaec91fce9c708714d8035c3e027ea2f65e64a800541c20213c97ef4ac64a5"
+    },
+    "tools/measure_r10.py": {
+      "bytes": 11198,
+      "sha256": "71bf756c845d904508302abb097cb32a60faff02eb9497c647c8a53e2725e3c7"
+    },
+    "tools/measure_r9.py": {
+      "bytes": 6323,
+      "sha256": "aa753ebca0e09809fe619b2372b9c93673d19aa89f34295e976709c36d9b08b8"
+    },
+    "tools/qualification/eq107_crash_entry.py": {
+      "bytes": 3081,
+      "sha256": "7f936eb9c19b10ad53be483c3ea419b70a4fc3929a5a95db233a7b7653e85245"
+    },
+    "tools/qualification/eq107_linux_owner.py": {
+      "bytes": 5543,
+      "sha256": "5d9edea7c024dabbf7289737c4a532b289027676b7ac25f9babcfca1960cb4ef"
+    },
+    "tools/qualification/eq107_windows_owner.py": {
+      "bytes": 12633,
+      "sha256": "5005ae053f43f658af3bb6896fad2017dce44632752aaa769756bc4a9546421d"
+    },
+    "tools/quickstart_probe.py": {
+      "bytes": 18545,
+      "sha256": "c839e14aa64010afaee6b9892dc33121b47fd39135358a846e4f561ce5c48977"
+    },
+    "tools/remote_transport_reference.py": {
+      "bytes": 13090,
+      "sha256": "915da527bc03150403f2f890737622ccbc9d8a7e1323e28fd0b93848684a624b"
+    },
+    "tools/run_evidence_evaluation.py": {
+      "bytes": 19320,
+      "sha256": "11213354724dda4bf930b857cb42f2ba7bf744d6be4750adfbffe81c8a4f2ce4"
+    },
+    "tools/test_quickstart_verifier.py": {
+      "bytes": 11283,
+      "sha256": "a5350c7782a27571e3bd1f05b1d56bd88e146787a388d507042bdd1f59cc2eed"
+    },
+    "tools/verify_compatibility.py": {
+      "bytes": 1068,
+      "sha256": "5fcaa2f89a30a7b7deab86231cb0a069b6314ee9646e99fda5f32c98d23d6547"
+    },
+    "tools/verify_context_examples.py": {
+      "bytes": 5136,
+      "sha256": "ff7765dab8fbf49302026ba4c2ac5e986b2f9213e13bcfbc8dba037c94bf58ea"
+    },
+    "tools/verify_diagnostic_examples.py": {
+      "bytes": 9377,
+      "sha256": "8017a6329f0524600cc27af9805223589d1b1f831b492cbeb69e6097580acb96"
+    },
+    "tools/verify_history_examples.py": {
+      "bytes": 14725,
+      "sha256": "f59efef77daa5acb02bf833bae0f84a479e98c53fcda35722407b4a78f71f535"
+    },
+    "tools/verify_imports.py": {
+      "bytes": 1859,
+      "sha256": "45c46ddeb719d9cbf2b76583e3aa4ae12382efcf301925d1d9f5fe30b71046a2"
+    },
+    "tools/verify_public_typing.py": {
+      "bytes": 2534,
+      "sha256": "021747241f8e486dcbfaed3e63bf6b94b11363afb12b546fcb099e5c6cc32a49"
+    },
+    "tools/verify_quickstart.py": {
+      "bytes": 14524,
+      "sha256": "1b9e1ff9adf0277bb669311f9a35b897a78b18540f916160c39b0a96e9c447b7"
+    },
+    "tools/verify_quote_examples.py": {
+      "bytes": 13986,
+      "sha256": "cffbac71443ebc4b1ca77ba6a14eeb1aba0fd077994b12c69a790ea5b05a7a0e"
+    },
+    "tools/verify_registry.py": {
+      "bytes": 1726,
+      "sha256": "fc0e8a68817195b9abb3ba135bdde9fd5c3dbdf0d12a68e5cdf807578740e4d0"
+    },
+    "tools/verify_release_policy.py": {
+      "bytes": 880,
+      "sha256": "9f360d0d5a5a803a40ae2963378d0c3ae6741ee82aefd35d34a0faeb958bcfa6"
+    },
+    "tools/verify_remote_transport.py": {
+      "bytes": 12871,
+      "sha256": "1e7c7b339ff9a6e35a81fdacd5588792be5032072f58ca7adad44698471025ce"
+    },
+    "tools/verify_session_examples.py": {
+      "bytes": 13791,
+      "sha256": "fff69e81a70658826acac5dbddfa3d80eed586d1ce0de28b9d10f8a2563f9722"
+    },
+    "tools/verify_timing_examples.py": {
+      "bytes": 3875,
+      "sha256": "ce8c391a7f488bfe092ba83707b3821f9afeaab37034ef95327687054243199b"
+    }
+  },
+  "builder_documentation_literals": {
+    "tools/build_agent_evidence.py": [
+      "docs/stories/EQ-096_RECEIPT_ORACLE.json",
+      "docs/stories/EQ-097_BATCH_ORACLE.json",
+      "docs/stories/EQ-097_CONFIG_ORACLE.json",
+      "docs/stories/EQ-097_RESULT_ORACLE.json",
+      "docs/stories/EQ-106_ACCEPTED_ARCHIVES.json",
+      "docs/stories/EQ-106_EVENT_ORACLE.json",
+      "docs/stories/EQ-106_KIND_CASES.json",
+      "docs/stories/EQ-106_OPERATION_CONTROLS.json",
+      "docs/stories/EQ-106_REFUSAL_CASES.json"
+    ],
+    "tools/build_agent_ledger.py": [
+      "docs/stories/EQ-096_RECEIPT_ORACLE.json",
+      "docs/stories/EQ-097_BATCH_ORACLE.json",
+      "docs/stories/EQ-097_CONFIG_ORACLE.json",
+      "docs/stories/EQ-097_RESULT_ORACLE.json",
+      "docs/stories/EQ-106_EVENT_ORACLE.json",
+      "docs/stories/EQ-106_KIND_CASES.json",
+      "docs/stories/EQ-106_OPERATION_CONTROLS.json",
+      "docs/stories/EQ-106_REFUSAL_CASES.json",
+      "docs/stories/EQ-107_ACCEPTED_ARCHIVES.json",
+      "docs/stories/EQ-107_BOUNDARIES.json",
+      "docs/stories/EQ-107_CASES.json",
+      "docs/stories/EQ-107_CRASH_PROPOSAL.json",
+      "docs/stories/EQ-107_ORACLE.json",
+      "docs/stories/EQ-107_PAGES.json",
+      "docs/stories/EQ-107_PROFILE.json"
+    ],
+    "tools/build_conformance.py": [
+      "canonical/docs/stories/EQ-104_CONFORMANCE_ORACLE.json",
+      "docs/api/POINT_IN_TIME_CONFORMANCE.md",
+      "docs/api/PROVENANCE.md",
+      "docs/stories/EQ-096_RECEIPT_ORACLE.json",
+      "docs/stories/EQ-097_*",
+      "docs/stories/EQ-101_TRUTH_TABLE.json",
+      "docs/stories/EQ-103_*",
+      "docs/stories/EQ-104_*"
+    ],
+    "tools/build_continuous.py": [
+      "docs/BUILD_DELIVERY.md",
+      "docs/CHANGELOG.md",
+      "docs/COMPATIBILITY.md",
+      "docs/CONTINUOUS_API.md",
+      "docs/CONTINUOUS_MARKET_DESIGN.md",
+      "docs/CONTINUOUS_SUPPLIED_WEEK.md",
+      "docs/PROJECT_KNOWLEDGE.md",
+      "docs/R12_ACCEPTANCE.md",
+      "docs/SESSION_HANDOFF.md",
+      "docs/api/CONTINUOUS_RESEARCH.md",
+      "docs/contracts/REGISTRY.md",
+      "docs/features/CROSS_VENUE_FORMULAS.md",
+      "docs/knowledge/LESSONS.md",
+      "docs/stories/EQ112_DECISIONS.md",
+      "docs/stories/EQ112_FIXTURES.json",
+      "docs/stories/EQ112_MATHEMATICS.md",
+      "docs/stories/EQ112_SCHEMAS.json",
+      "docs/stories/EQ113_ADMISSION_FIXTURES.json",
+      "docs/stories/EQ113_BUILD_DESIGN.md",
+      "docs/stories/EQ113_PLAN.md",
+      "docs/stories/EQ113_VALIDATION.json",
+      "docs/stories/EQ114_CASE_MANIFEST.json",
+      "docs/stories/EQ114_OVERSIZE_INPUT.json",
+      "docs/stories/EQ114_PLAN.md",
+      "docs/stories/EQ114_PREPARED_REVIEW.json",
+      "docs/stories/EQ114_READINESS.json",
+      "docs/stories/EQ114_VALIDATION.json",
+      "docs/stories/EQ115_DELIVERY_DESIGN.md",
+      "docs/stories/EQ115_PLAN.md",
+      "docs/stories/EQ115_PREPARED_REVIEW.json",
+      "docs/stories/EQ115_READINESS.json",
+      "docs/stories/EQ115_RELEASE_EVIDENCE.json",
+      "docs/stories/EQ115_SYNTHETIC_ORACLES.json",
+      "docs/stories/EQ115_VALIDATION.json"
+    ],
+    "tools/build_diagnostics.py": [
+      "docs/api/POINT_IN_TIME_DIAGNOSTICS.md",
+      "docs/stories/EQ-096_RECEIPT_ORACLE.json",
+      "docs/stories/EQ-097_*",
+      "docs/stories/EQ-101_TRUTH_TABLE.json",
+      "docs/stories/EQ-102_PLAN.md",
+      "docs/stories/EQ-102_TEST_MATRIX.json"
+    ],
+    "tools/build_evidence.py": [
+      "docs/stories/EQ-096_RECEIPT_ORACLE.json",
+      "docs/stories/EQ-097_BATCH_ORACLE.json",
+      "docs/stories/EQ-097_CONFIG_ORACLE.json",
+      "docs/stories/EQ-097_RESULT_ORACLE.json"
+    ],
+    "tools/build_evidence_evaluation.py": [
+      "docs/stories/EQ116_INPUTS.json",
+      "docs/stories/EQ116_ORACLES.json",
+      "docs/stories/EQ117_EVALUATION_PROPOSAL.json",
+      "docs/stories/EQ117_MEASUREMENT_PROTOCOL.md",
+      "docs/stories/EQ117_OWNER_DECISION.json"
+    ],
+    "tools/build_evidence_pilot.py": [
+      "docs/stories/EQ116_INPUTS.json",
+      "docs/stories/EQ116_ORACLES.json",
+      "docs/stories/EQ116_PROTOCOL.md"
+    ],
+    "tools/build_explanations.py": [
+      "docs/stories/EQ-099_COUNT_ORACLE.json",
+      "docs/stories/EQ-099_EXPLANATION_ORACLE.json",
+      "docs/stories/EQ-099_HAND_SEEDS.json",
+      "docs/stories/EQ-099_REFERENCE_ORACLE.json",
+      "docs/stories/EQ-099_REFERENCE_RESULT_SEED.json"
+    ],
+    "tools/build_foundation.py": [],
+    "tools/build_provenance.py": [
+      "docs/api/PROVENANCE.md",
+      "docs/stories/EQ-096_RECEIPT_ORACLE.json",
+      "docs/stories/EQ-097_*",
+      "docs/stories/EQ-101_TRUTH_TABLE.json",
+      "docs/stories/EQ-103_*"
+    ],
+    "tools/build_r10.py": [
+      "canonical/docs/stories/EQ-104_CONFORMANCE_ORACLE.json",
+      "docs/R10_CONSUMER_GUIDE.md",
+      "docs/api/POINT_IN_TIME_CONFORMANCE.md",
+      "docs/api/PROVENANCE.md",
+      "docs/stories/EQ-096_RECEIPT_ORACLE.json",
+      "docs/stories/EQ-097_*",
+      "docs/stories/EQ-101_TRUTH_TABLE.json",
+      "docs/stories/EQ-103_*",
+      "docs/stories/EQ-104_*",
+      "docs/stories/EQ-105_*"
+    ],
+    "tools/build_r9.py": [
+      "docs/stories/"
+    ],
+    "tools/build_research.py": [
+      "docs/stories/EQ-089_FIXTURES.json"
+    ]
+  },
+  "readers": {
+    "docs/api/CONTINUOUS_QUOTES.md": {
+      "mode": "100644",
+      "sha256": "22ed8f5f70e9fe7418b6a7bc22c72e642c5316f6c49873464c018b4f2b14d72c"
+    },
+    "docs/api/PUBLIC_API.md": {
+      "mode": "100644",
+      "sha256": "a71659045242112e761319a6f38e6292fb948989fe54e85e1b8f86eedb3fb25b"
+    },
+    "docs/contracts/RESULTS.md": {
+      "mode": "100644",
+      "sha256": "c8f760aab8f845a2913ec2eb131998f612533f5d6b4257875d6b02bfacbf6a29"
+    }
+  },
+  "exact_reader_references_in_audited_consumers": {},
+  "source_review_obligations": [
+    "Literal inventory is supporting evidence, not a proof that arbitrary dynamic code cannot consume a path. Separate source review must inspect source-scope selection and imported helpers.",
+    "Current builders select package trees and explicit fixture/spec/tool/workflow paths, including build_continuous fixed SCOPES and build_conformance fnmatch scopes. Those selectors omit the three reader pages.",
+    "Documentation workflow intentionally reads all Markdown as UTF8 and dedicated formula/reference verifiers. Documentation check remains mandatory for both DOCS/FULL. It is not a package archive consumer bypassed by DOCS.",
+    "build_continuous includes CHANGELOG, PROJECT_KNOWLEDGE, SESSION_HANDOFF, knowledge/LESSONS: all four remain outside allowlist, FULL.",
+    "All future consumer/tool/workflow/allowlist edits select FULL, with renewed review; classification is not a hostile-author security boundary."
+  ],
+  "approved_allowlist_requires_separate_review": true
+}

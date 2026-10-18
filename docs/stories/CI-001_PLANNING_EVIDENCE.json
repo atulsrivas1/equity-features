@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "PRE_CODE_REVIEW_PENDING",
+  "handoff_acceptance": {
+    "main": "36b5dfdcf788d7ae5ee2cf7979f87e04af8c7d7a",
+    "pr": 447,
+    "acceptance": "https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253941061",
+    "state": "closed",
+    "project": "Done",
+    "criteria_checked": 3,
+    "main_review_sha256": "8b41d2d0eff56208f70a6a91e041b3e3c83ca1088f51a7ab4d380e3fdea2d504",
+    "not_R16_complete": true
+  },
+  "draft_review": {
+    "reviewer": "/root/r16_review",
+    "report_sha256": "51504748e56a2ac524c882714eeb1c0cd0b272a212aeedb4b40fe05ac7df7cec",
+    "blockers": [
+      "publish immutable consumer audit",
+      "freeze exact output schema/reason codes/digest and null representations"
+    ],
+    "concretization": "CI-001_CONTRACT.json and CI-001_CONSUMER_AUDIT.json published for separate verification; no readiness approval inferred"
+  },
+  "implementation_tests": 0,
+  "implementation_written": false
+}
