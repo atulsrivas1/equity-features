@@ -1,3 +1,9 @@
+## CI003 actual reader-only case passed; raw job-log capture correction
+
+Author and separate reviewer42controls and the existing CI002 baseline data audit passed (332projectarchives). Actual DOCS run39166796789 passed with3executed/16skipped calls and2rootZIPs; PR452 closed unmerged. Source-negative run39166824089 has the intended failed status, but its audit failed at GitHub CLI terminal-escape filtering of the scope log. Diagnostic raw capture succeeded without displaying the log. Exact-job-log-only reader correction and43rd synthetic control are implemented, pending separate source review/execution. Failed audit/partial ZIPs remain; no unchanged workflow rerun, negative-case acceptance or R16 completion. [Evidence and limitations](../stories/CI-003_VALIDATION.json).
+
+## Earlier checkpoints retained as history
+
 ## CI003 consumer grammar lesson
 
 Read actual producer metadata and platform representations before defining an independent reader: generated console entrypoints are declared source, EQ117does not record the EQ116rebuiltwheel field, and3quickstart text-source hashes follow Windows checkout CRLF. Bound only the supported representations and keep unavailable evidence explicit. Cached2147 diagnostic retained all errors, never qualification; corrected42method sources still await review/execution.

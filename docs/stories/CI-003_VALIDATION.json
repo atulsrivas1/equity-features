@@ -1,6 +1,6 @@
 {
   "schema": "equity-features.ci003-validation.v1",
-  "status": "IMPLEMENTED_NOT_QUALIFIED",
+  "status": "LOG_CAPTURE_CORRECTION_REVIEW_PENDING",
   "source_head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
   "source_review_sha256": "2be9f8285cbbc7771a3c975c16b479b45ddbe506fa5b6d04609a614ff3fd461e",
   "synthetic_controls": {
@@ -141,5 +141,28 @@
     "report_sha256": "95529275566d32606daa9f604276b6a960fa0b7e17f5c409f3f93e6bae176279",
     "independent_findings_review_sha256": "6d262bc8430353a6007b2299ec58d36e9690aaad49a4fc29d634056e08792940",
     "limits": "Per-case parser completion is diagnostic only, not accepted qualification. No payload execution, extraction or new workflow run."
+  },
+  "current_checkpoint": {
+    "reader_head": "181771318ebd63ef77f6698e10cf388ac32c606f",
+    "controls_actual_author": 42,
+    "controls_actual_separate_reviewer": 42,
+    "baseline_existing_CI002_run": 39162664488,
+    "baseline_data_audit": "OBSERVED_CASE_VERIFIED",
+    "baseline_project_archives": 332,
+    "docs_case_run": 39166796789,
+    "docs_case": "OBSERVED_CASE_VERIFIED",
+    "docs_PR452": "CLOSED_UNMERGED",
+    "source_negative_run": 39166824089,
+    "source_negative_audit": "FAILED_GH_LOG_ESCAPE_FILTER_NOT_COMPLETED",
+    "failed_log_endpoint_job": 117791395650,
+    "diagnosis": "gh api refuses terminal escape sequences; explicit raw capture flag succeeds without rendering. Minimal exact-job-log-only correction pending source review and execution.",
+    "diagnostic_raw_bytes": 18615,
+    "diagnostic_raw_sha256": "b1a9f47bab3dca91e9ebbe26b7f42033d069b6f6704f95e9ba6591280a1e668c",
+    "source_negative_runtime_failure_demonstrated": false,
+    "new_control_methods_source": 43,
+    "new_controls_executed": false,
+    "docs_negative_run": 39166838219,
+    "docs_negative_status": "Pending observation; no rerun/cancel",
+    "final_current_candidate_main_qualification": false
   }
 }

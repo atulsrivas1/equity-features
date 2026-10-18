@@ -1,3 +1,9 @@
+## CI003 actual reader-only case passed; raw job-log capture correction
+
+Author and separate reviewer42controls and the existing CI002 baseline data audit passed (332projectarchives). Actual DOCS run39166796789 passed with3executed/16skipped calls and2rootZIPs; PR452 closed unmerged. Source-negative run39166824089 has the intended failed status, but its audit failed at GitHub CLI terminal-escape filtering of the scope log. Diagnostic raw capture succeeded without displaying the log. Exact-job-log-only reader correction and43rd synthetic control are implemented, pending separate source review/execution. Failed audit/partial ZIPs remain; no unchanged workflow rerun, negative-case acceptance or R16 completion. [Evidence and limitations](stories/CI-003_VALIDATION.json).
+
+## Earlier checkpoints retained as history
+
 ## CI00339controls passed; cached artifact-reader diagnostic corrected
 
 Both author and separate reviewer39controls passed at2147. The next existing-data audit passed root job checks but stopped on omitted legitimate worker console metadata. A separately reviewed bounded cached-data diagnostic inspected30families/332projectarchives, retaining9family/12archive parser errors without qualification; independent review narrowed these to console metadata, EQ117receipt field shape and3Windowsquickstart text-source hashes. Corrected42method sources preserve exact archive identities, strict source/record maps and explicit rebuild-evidence limits. [Validation/failures](stories/CI-003_VALIDATION.json). Renewed exact-source review and execution precede actual probes and final current candidate/main evidence; CI003 In progress, R16 unfinished.

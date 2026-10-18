@@ -370,6 +370,31 @@ class ReaderControls(unittest.TestCase):
         case, jobs = self.logical_jobs(); jobs[1]['conclusion'] = 'failure'
         self.rejected(lambda: q.root_jobs(jobs, case))
 
+    def test_raw_job_log_capture_flag_and_bound(self):
+        raw = b"fixed \x1b[31merror\x1b[0m\n"
+        api = object.__new__(q.API)
+        class Child:
+            def __init__(self):
+                self.stdout = io.BytesIO(raw)
+                self.killed = False
+            def wait(self, timeout): return 0
+            def poll(self): return 0
+            def kill(self): self.killed = True
+        for endpoint, flag in (("actions/jobs/1/logs", True),
+                               ("actions/runs/1/jobs", False),
+                               ("actions/jobs/01/logs", False),
+                               ("actions/artifacts/1/zip", False)):
+            child = Child()
+            with patch.object(q.subprocess, 'Popen', return_value=child) as call:
+                self.assertEqual(api.fetch(endpoint, len(raw)), raw)
+                self.assertEqual('--allow-escape-sequences' in call.call_args.args[0], flag)
+                self.assertIs(call.call_args.kwargs['stdout'], q.subprocess.PIPE)
+                self.assertTrue(child.stdout.closed)
+        child = Child()
+        with patch.object(q.subprocess, 'Popen', return_value=child):
+            self.rejected(lambda: api.fetch('actions/jobs/1/logs', len(raw)-1))
+            self.assertTrue(child.stdout.closed)
+
     def test_depth_bound(self):
         self.rejected(lambda: q.zip_contents(zipped([('a', b'x', 0o644)]), q.Budget(), 5))
 

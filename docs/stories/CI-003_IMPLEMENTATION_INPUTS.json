@@ -1,6 +1,6 @@
 {
   "schema": "equity-features.ci003-implementation-inputs.v1",
-  "status": "CORRECTED_SOURCE_REVIEW_PENDING_AFTER_DIAGNOSTIC_READER_FAILURE",
+  "status": "LOG_CAPTURE_CORRECTION_REVIEW_PENDING",
   "precode": {
     "head": "16e8945ad700d91f4a2c1c53a2300cd7f4cb63e8",
     "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
@@ -18,29 +18,29 @@
   },
   "assets": {
     "docs/stories/CI-003_QUALIFIER.txt": {
-      "bytes": 69657,
-      "sha256": "377c6b8de35c1db8d13d23d044268d61417135992f56263210c62fe2470107bf"
+      "bytes": 69875,
+      "sha256": "1a4f42ca92b4ebbd1875bd75ac3a2c5dc79a8d1ec9567924016bb5b9546342e5"
     },
     "docs/stories/CI-003_QUALIFIER_TESTS.txt": {
-      "bytes": 23767,
-      "sha256": "5912d4663d05ebef1214fdc080f79f037d4b42b85081c7e91e73dae43347040e"
+      "bytes": 25057,
+      "sha256": "0da4c9801941d09e470e00595d060f4a2865542ec11505838347229e821a2e58"
     },
     "docs/stories/CI-003_SOURCE_RULES.json": {
       "bytes": 675944,
       "sha256": "ae4a4e6057bd201c6d6f1b10ef39d501b18322f5866973637902b746f575a0c2"
     },
     "docs/CI_QUALIFICATION.md": {
-      "bytes": 6215,
-      "sha256": "c37f797bc669181e8ab39575ff2945df195096c6cce587bfdffeabaf53d5521c"
+      "bytes": 6475,
+      "sha256": "c9500320cd9807da83e5249b15735bf471dddbae122c8b10ffd13293b5699493"
     },
     "docs/stories/CI-003_VALIDATION.json": {
-      "bytes": 6966,
-      "sha256": "c9ccf4a1f65b96c16bfe6230b70d0d7d7a87d06ecb8905d90d0d262ddfc27888"
+      "bytes": 8181,
+      "sha256": "77d0afa63ed01ba7a22a37a9df5cf5ca0d1f5171e36a0139a42f438de20302ae"
     }
   },
-  "new_tests_executed": 39,
-  "qualifier_executions": 2,
-  "probe_workflow_triggers": 0,
+  "new_tests_executed": 42,
+  "qualifier_executions": 5,
+  "probe_workflow_triggers": 3,
   "frozen_probe_sources": {
     "docs": {
       "branch": "codex/ci003-reader-probe",
@@ -201,5 +201,14 @@
   "new_synthetic_method_sources": 42,
   "source_review_9abf_sha256": "2be9f8285cbbc7771a3c975c16b479b45ddbe506fa5b6d04609a614ff3fd461e",
   "cached_diagnostic_executions": 1,
-  "corrected_archive_grammar_review_sha256": "6d262bc8430353a6007b2299ec58d36e9690aaad49a4fc29d634056e08792940"
+  "corrected_archive_grammar_review_sha256": "6d262bc8430353a6007b2299ec58d36e9690aaad49a4fc29d634056e08792940",
+  "log_capture_diagnostic": {
+    "failed_audit_receipt_sha256": "e1f5ce4e8fbc4432d1266cb07a1e1e76e4de6d6c498c9eab2aa6dc804eedac9a",
+    "diagnostic_receipt_sha256": "78edb7c20fb90917ece38c18390e5780c81646af5714dafe4df3fc0970af2bc8",
+    "raw_flag_receipt_sha256": "01364ffbe1192bc1fbb15954558af899171c41fc03a0832bf0b5150675b84767",
+    "raw_payload_not_published": true,
+    "source_rules_unchanged": true,
+    "new_methods_source": 43,
+    "new_execution": false
+  }
 }

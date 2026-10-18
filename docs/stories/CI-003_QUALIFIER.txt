@@ -923,7 +923,11 @@ class API:
 
     def fetch(self, suffix, limit):
         require(suffix.startswith(("actions/", "git/", "pulls/")) and ".." not in suffix)
-        process = subprocess.Popen(["gh", "api", "repos/" + REPO + "/" + suffix], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        command = ["gh", "api", "repos/" + REPO + "/" + suffix]
+        # Capture raw job-log bytes; never render them to a terminal.
+        if re.fullmatch(r"actions/jobs/[1-9][0-9]*/logs", suffix):
+            command.append("--allow-escape-sequences")
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         try:
             chunks = []; size = 0
             while True:
