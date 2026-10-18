@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "initial_plan_review": {
+    "head": "fdf1fff78c2f1ea121c941064abcb95d56274b22",
+    "reviewer": "/root/r16_review",
+    "approved": true,
+    "findings": [],
+    "report_sha256": "1a53ab7c35e377202897860815745ed10935c361247d417005df56e0b01beceb"
+  },
+  "selected_allocation": {
+    "owner_decision": "https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253883970",
+    "epic": 448,
+    "epic_url": "https://github.com/atulsrivas1/equity-features/issues/448",
+    "epic_item": "PVTI_lAHOBiDqvM4BlsvkzhBqOnQ",
+    "milestone": 19,
+    "exact_members": [
+      443,
+      444,
+      445,
+      446,
+      448
+    ],
+    "scope_accepted": true,
+    "local_review_authorized": true,
+    "separate_review_completed": false
+  },
+  "r15_review_report_sha256": "3fbb05df0b9b0e8eeb1eebdd9175f54406f640989f94af967682f0f1613f21da",
+  "publication_readback_sha256": "ce8741d7916e1afc83bbd2075837ba950687c6e6b8654f5c409d667ca918967f",
+  "tooling_corrections": [
+    "Initial protected-issue readback compared raw CRLF with a reviewed LF-normalized digest and stopped before public mutation. Corrected readback records both raw and LF digests; exact normalized protected content unchanged.",
+    "Initial E23 search used gh -f without explicit GET and received HTTP404 before allocation writes. Explicit GET correction completed the unique allocation.",
+    "Read-only guessed temporary-script and shell wildcard paths failed; actual file inventory and rg -g corrected discovery. No absence proof or product failure inferred."
+  ],
+  "implementation_tests_run": 0,
+  "final_planning_review": "PENDING_RENEWED_EXACT_HEAD",
+  "not_R16_delivery": true
+}

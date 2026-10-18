@@ -1,3 +1,15 @@
+## EF-L095: compare evidence using its declared byte normalization
+
+R16 preparation initially compared a raw CRLF GitHub issue body to an accepted LF-normalized digest and stopped readback before any public mutation. Comparing the declared LF representation confirmed the protected issue content unchanged; corrected evidence also retains its raw digest. A rejected readback is not a product failure and must not be silently relabeled a pass. An explicit GET likewise corrected a search-only HTTP404 before allocation writes. [Planning evidence](../R16_PLANNING_EVIDENCE.json) preserves these corrections. Consumer audit also found four candidate documentation paths in continuous source archives; keep them FULL rather than assuming reader prose cannot affect qualification.
+
+## Earlier checkpoints retained as history
+
+## EF-L094: replace repeated incidental cancellation with an explicit proposal
+
+[R15 actual acceptance](https://github.com/atulsrivas1/equity-features/issues/439#issuecomment-6252979590) and [fresh audit](../R15_POSTDELIVERY_REVIEW.md) establish documentation delivery, not successful qualification of cancelled incidental package runs. Preserve those cancellations as NOT_ASSESSED_CANCELLED. A new classifier/orchestration can change required-check semantics and artifact provenance, so propose and independently qualify that engineering scope rather than silently modifying workflows during a documentation story. [R16 proposal](../R16_RELEASE_PLAN.md) remains unselected. Use a closed exact allowlist, complete source binding and explicit negative aggregate tests; expected omissions cannot stand in for successful package qualification. Record Ready before In progress prospectively; never fabricate a missing historical event.
+
+## Earlier checkpoints retained as history
+
 ## R15 story433: preserve the actual reading contract
 
 Continuous quote example walkthrough: preserve original source/history and evaluate the changed links/table/context directly. A bounded source or mathematical verifier is not a generic prose validator, production rerun or human usability result. [Actual evidence](../stories/STARTER-433_VALIDATION.json). Required docs.yml/check plus independent exact source/published-main review is the scoped gate for unchanged package/build/workflow inputs; incidental workflow states are recorded separately.

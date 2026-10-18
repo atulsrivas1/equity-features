@@ -1,0 +1,11 @@
+# R16 proposed validation contract
+
+No R16 implementation tests have run. This is a pre-implementation strategy, subject to owner selection and independent review.
+
+CI001 fixtures must independently specify expected decisions and source bindings: one admitted path, several admitted paths, known full-scope changes, mixed paths, new Markdown, JSON/frozen text, changed classifier/allowlist, missing base/head, wrong repository/event, malformed SHA, truncated/empty diff, rename/delete/mode/symlink, non-UTF8 names and more than 300 paths with an unsafe final entry. Prove complete input consumption and deterministic versioned output. Do not merely mirror the implementation's allowlist as the oracle. Invalid provenance must never qualify.
+
+CI002 tests aggregate truth tables independently: DOCS with expected omissions only; FULL with all required jobs; every failure/cancellation/missing/unknown/unexpected skip; classification failure; docs failure; caller/name/event/head/attempt and artifact mismatches. Reconcile old and proposed workflow steps/matrices/permissions/artifacts exactly. Test reusable caller context and evidence migration, including old accepted quickstart foundation provenance remaining historical. The integration change itself requires FULL qualification.
+
+CI003 uses actual owned candidate runs and a current published main head. Capture exact registered workflows and all jobs, both OS and supported installed/archive forms for FULL, plus expected-not-run records for DOCS. Include real bounded negative probes and preserve their non-success as non-success. Negative probes cannot be merged or used as a successful release run. Do not rerun old R15 qualification for status. Compare observed job work/timing with honestly scoped baseline; queue variability is a limitation, not invented performance evidence.
+
+Each story requires separate pre-code/final-source review, explicit findings disposition, relevant current CI, actual default-branch publication and fresh independent acceptance. A current branch-protection check alone does not establish complete package qualification. Hosted review availability and local authorization are distinct; retain reviewer identity, exact source, executed checks and limits. Every final failed/missing result blocks the affected gate until addressed or explicitly excluded by the reviewed contract.

@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/r15_review",
+  "created_at": "2026-10-18T18:56:08.839708+00:00",
+  "review_type": "fresh separate local automated postdelivery R15 audit requested before R16 planning",
+  "approved": true,
+  "findings": [],
+  "head": "d58b6aa13b98ae12c0c84e71dcd97282ca2e40e8",
+  "accepted_base": "071e06dcc44665573cc09526016970e04be4f8ea",
+  "current_live_main": "d58b6aa13b98ae12c0c84e71dcd97282ca2e40e8",
+  "fresh_live_bindings": {
+    "acceptance": "https://github.com/atulsrivas1/equity-features/issues/439#issuecomment-6252979590",
+    "acceptance_author": "atulsrivas1",
+    "exact_members": [
+      432,
+      433,
+      434,
+      437,
+      439
+    ],
+    "no_pull_requests_in_milestone": true,
+    "actual_states": {
+      "432": {
+        "issue": "closed",
+        "project": "Done"
+      },
+      "433": {
+        "issue": "closed",
+        "project": "Done"
+      },
+      "434": {
+        "issue": "closed",
+        "project": "Done"
+      },
+      "437": {
+        "issue": "closed",
+        "project": "Done"
+      },
+      "439": {
+        "issue": "closed",
+        "project": "Done"
+      }
+    },
+    "milestone": {
+      "number": 18,
+      "state": "closed",
+      "enumerated_open": 0,
+      "enumerated_closed": 5,
+      "REST_reported_open": 1,
+      "REST_reported_closed": 0,
+      "counter_limit": "Summary mismatch retained verbatim; exact paginated membership and individual states establish actual selected closure."
+    },
+    "actual_required_docs_run": 39149667724,
+    "actual_required_docs_job": 117740534740,
+    "actual_required_docs_result": "success"
+  },
+  "checks": {
+    "all19changes_are_docs": true,
+    "all_outside19_gitobjects_unchanged": true,
+    "package_api_math_version_dependency_build_workflow_inputs_unchanged": true,
+    "four_actual_APIanchors_and_untouched_whole_history": true,
+    "RESULTS_current_experimental_context_links_versions_and_untouched_history": true,
+    "quote_four_literal_rows_duration_expiry_replacement_denominators_and_exactFractions": true,
+    "formulas_and_examples_untouched": true,
+    "actual_bounded_two_commands_plus26reference_tests_receipts_reconciled": true,
+    "original_child_criteria": 12,
+    "parent_aggregate_criteria": 2,
+    "source_review_and_closure_reports_reconciled": true,
+    "new_execution_tests_or_workflow_reruns": 0,
+    "public_mutations": 0
+  },
+  "limitations": [
+    "Local automated independent audit, not human usability or hosted review.",
+    "Source-frozen PENDING fields are historical and superseded by actual numbered delivery acceptance/readbacks; no recursive source-only completion commit required.",
+    "Known GOV027 missing initialReady metadata event and tooling/reviewer evidence corrections remain documented honestly; no backfilled transitions or perfect-history claim.",
+    "432434 candidate incidental workflow cancellations remain NOT_ASSESSED_CANCELLED, not package qualification;433 optionalcleanup exited without cancellation; only relevant required docs checks establish scopedCI gate.",
+    "No product/calculator/referenceverifier replay, build/install/archive artifact requalification, workflow rerun or public mutation by reviewer.",
+    "Research/combinedC1/provider/witness/security/humanpilot and pausedautomation scope remains unchanged. R16 requires its own concrete selection and applicable review authorization."
+  ],
+  "preserved_deferred_work": {
+    "311": {
+      "state": "open",
+      "body_sha256": "ad3bba86947c7f5dee0a2995edad8aac0cd572b1b922f7149f165de38bc140cc",
+      "body_state_milestone_assignees_unchanged": true
+    },
+    "374": {
+      "state": "open",
+      "body_sha256": "11c0fac64bba756d97bb5eef88d36787f412d65e13637a3740d2d0cb1c2ec7b0",
+      "body_state_milestone_assignees_unchanged": true
+    },
+    "224": {
+      "state": "open",
+      "body_sha256": "e2f4603071353f62c3fff4d4462a6f3f10cccc294288fc807d5e75f73fa72436",
+      "body_state_milestone_assignees_unchanged": true
+    },
+    "225": {
+      "state": "open",
+      "body_sha256": "254e44398e8c23d2f663a4f671d0ae3c28c459629f0b155f0f37f83b8486190e",
+      "body_state_milestone_assignees_unchanged": true
+    }
+  },
+  "raw_report_sha256": "3fbb05df0b9b0e8eeb1eebdd9175f54406f640989f94af967682f0f1613f21da",
+  "source_evidence_sha256": {
+    "432-source-review.json": "5de105ef735b6baad5f2407606963fe62b6961d0c1d3f636de03a4bff6294b64",
+    "434-source-review.json": "d9cdb5d34f1f4ce1d3c883ac2896eaa3a5776dba7590b9790410b8a94805cc8d",
+    "433-source-review.json": "cbed31664080eb9e2cf89cc2ce53a59cfbe6e2505277d4cddd99e46884c2e518",
+    "432-bounded-check.json": "a9d62bf31ba2a334a1c592d20578dd59adc959f7dcc3ab3c4631b7270786e53c",
+    "434-bounded-check.json": "190bb02523229cad24795831fa361652591ee42aa0be53724b87d7a74bc512e3",
+    "433-bounded-check.json": "a092bba88a5c8d1a8954181ab9bf023ca1118cdb05497893195cb1a5216adc60",
+    "433-main-ci.json": "104fcb4f5128977d3051f73b2606c55d7842a1f8b3cbfaa9f0bd640e53f065a6",
+    "r15-aggregate-review.json": "a82cfdee84f6ce723a9b8b70d10f3f363fbcb39c236dc564ae7d2969ac5e5116",
+    "r15-aggregate-closed.json": "e758105a448c85883320972af39d9d1d09995bdd168a7f056036758eeb37ace2",
+    "r15-final-closure-review.json": "5def710898c26ef15b83c734ec4fb9c7819bc349cc2459245e9090bef5ea8901"
+  }
+}

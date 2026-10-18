@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "status": "OWNER_SELECTED_PLANNING_FINAL_REVIEW_PENDING",
+  "base": "d58b6aa13b98ae12c0c84e71dcd97282ca2e40e8",
+  "allocation": {
+    "base": "d58b6aa13b98ae12c0c84e71dcd97282ca2e40e8",
+    "governance": 443,
+    "governance_item": "PVTI_lAHOBiDqvM4BlsvkzhBqMEw",
+    "proposed": [
+      {
+        "id": "CI-001",
+        "number": 444,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/444",
+        "points": 5,
+        "project_item": "PVTI_lAHOBiDqvM4BlsvkzhBqMIU"
+      },
+      {
+        "id": "CI-002",
+        "number": 445,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/445",
+        "points": 8,
+        "project_item": "PVTI_lAHOBiDqvM4BlsvkzhBqMJw"
+      },
+      {
+        "id": "CI-003",
+        "number": 446,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/446",
+        "points": 5,
+        "project_item": "PVTI_lAHOBiDqvM4BlsvkzhBqMLA"
+      }
+    ],
+    "milestone": null,
+    "epic": null,
+    "scope_accepted": false,
+    "local_review_authorized": false
+  },
+  "workflow_git_utf8_sha256": {
+    ".github/workflows/agent-evidence.yml": "3635fefb73e1c50297f2cdab4bb35cdd91410d185733538b9756fcd2bd698d9f",
+    ".github/workflows/agent-ledger.yml": "1968d9138cda98c49c6cba3f522e8115e78a5ebc61aa5eb73612ca45176847bc",
+    ".github/workflows/conformance.yml": "2c8ff0e03db5c155b69ed4fb3d1379d3aef040717a6dc93b3fdd18ceb3f432ba",
+    ".github/workflows/continuous.yml": "372ee4f017d850e6c0b26a2d6b08fcdf8797b7917a55fcd7b5a2cb7c85dbf4b2",
+    ".github/workflows/diagnostics.yml": "49fe6fabef8569b34e74a4d9f1f631f0a89895f6c8fab1b83e989f6b4b802b6c",
+    ".github/workflows/docs.yml": "40cd23f4dcafc829ada1b753136c91b88665d7e848b9848683096cc0e621bcb0",
+    ".github/workflows/evidence-evaluation.yml": "b63aaf12f8f73c86d1e31185740c5e3ace5662578295f9445233a1a56713c98f",
+    ".github/workflows/evidence-pilot.yml": "9f322cb207952a352077628c5dc38cc285ee51f4ac5a2658dc6575ceb3bf60ef",
+    ".github/workflows/evidence.yml": "f8d933e3b2078e4f0b25e831b293d318b51743ccd464374877a25722e04d95b9",
+    ".github/workflows/explanations.yml": "a572f9a51c01f0a005dcfe2e72ef590537a28ad0a1c141c3a3f7b3c3a4e663e1",
+    ".github/workflows/packages.yml": "fb8f72e3e5d83e5f1cd84e231ca678e6e52ec373a76a3abd65320a78ff9a3d7a",
+    ".github/workflows/provenance.yml": "3fcd456df13ba94840826d7da27d79ab0874d0061c2880e32965ded0826ea782",
+    ".github/workflows/quickstart.yml": "4d939a4965367035cc24ee48408597a173d4f37f9d7cd5fc8a14883eab7b3059",
+    ".github/workflows/r10.yml": "9d4921e36eaf87bd3c8191b225c636bff037e5f8fea7c33082f7decd3bda9236",
+    ".github/workflows/r9.yml": "712df071bea1327752f52fdab51d72e2c906f491429db4e085cfcb3490c2c36e",
+    ".github/workflows/research.yml": "210713fea889c17504dce053548442e15ffde5340a3a92a03be423858ef8e31e",
+    ".github/workflows/transport.yml": "18edb1d006a53ee7395e3ffd4830c3a4ac764cb7375b218f7b68888cc88f0825"
+  },
+  "r15_review_report_sha256": "3fbb05df0b9b0e8eeb1eebdd9175f54406f640989f94af967682f0f1613f21da",
+  "r15_review_approved": true,
+  "r16_separate_review_completed": false,
+  "r16_implementation_started": false,
+  "implementation_tests_run": 0,
+  "scope": "CI efficiency and qualification evidence; owner selection pending",
+  "protected_open_issues": [
+    78,
+    79,
+    81,
+    83,
+    224,
+    225,
+    311,
+    374
+  ],
+  "future_fields_are_not_acceptance": true,
+  "selected_allocation": {
+    "owner_decision": "https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253883970",
+    "epic": 448,
+    "epic_url": "https://github.com/atulsrivas1/equity-features/issues/448",
+    "epic_item": "PVTI_lAHOBiDqvM4BlsvkzhBqOnQ",
+    "milestone": 19,
+    "exact_members": [
+      443,
+      444,
+      445,
+      446,
+      448
+    ],
+    "scope_accepted": true,
+    "local_review_authorized": true,
+    "separate_review_completed": false
+  },
+  "local_review_authorized": true,
+  "initial_plan_review": {
+    "head": "fdf1fff78c2f1ea121c941064abcb95d56274b22",
+    "reviewer": "/root/r16_review",
+    "approved": true,
+    "findings": [],
+    "report_sha256": "1a53ab7c35e377202897860815745ed10935c361247d417005df56e0b01beceb"
+  },
+  "effective_allowlist_not_yet_implemented": true
+}
