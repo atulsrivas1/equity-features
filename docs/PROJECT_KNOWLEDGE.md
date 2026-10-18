@@ -1,3 +1,11 @@
+## CI001 accepted; CI002 concrete pre-code packet
+
+[CI001 acceptance](https://github.com/atulsrivas1/equity-features/issues/444#issuecomment-6254380946) records independently reviewed actual main `684074e43b80171e81ff4a309c0c2c4d6a75497e` with all17workflows/33jobs successful and30unexpired artifact metadata records. Candidate34workflows/66jobs passed. Routing remained unchanged; original failure/correction evidence is preserved. CI002#445 remains Backlog/unassigned until separate review of this exact published packet establishes Ready. [Plan](stories/CI-002_PLAN.md), [closed contract](stories/CI-002_CONTRACT.json), [planning evidence](stories/CI-002_PLANNING_EVIDENCE.json).
+
+CI002 proposes one always-running scope/docs/package-root/terminal check workflow, preserving all existing qualification operations and manual evaluation semantics. New source-policy sidecars and attempt-suffixed normal upload names explicitly version future provenance; historical accepted readers/IDs remain unchanged. No actual routing implementation or new gate tests yet. CI003 retains actual DOCS/negative/final-artifact release proof. E23#448/milestone19 and the owner scope/local-review grant remain active; no repeated permission request. R15 and all deferred scope/paused automation unchanged.
+
+## Earlier checkpoints retained as history
+
 ## CI001 implemented; final qualification pending
 
 [CI001#444](https://github.com/atulsrivas1/equity-features/issues/444), draft PR449, implements only internal Git/event change classification and synthetic fixtures, plus its explicit documentation-job test step. [Contract](stories/CI-001_CONTRACT.json), [actual validation](stories/CI-001_VALIDATION.json), [tool documentation](CI_SCOPE.md). Corrected author Windows suite passed13methods. Initial CLI byte failure, independently reproduced submodule-ignore false DOCS and fixture setup error remain recorded; provisional review corrections require renewed final-head coverage. No routing change or package/API/math/version/dependency behavior. All existing workflows continue; actual current-head hosted qualification, separate source/main review and publication acceptance remain pending. GOV028 accepted; CI002/003 stay Backlog. R15 and deferred scope/paused automation unchanged.

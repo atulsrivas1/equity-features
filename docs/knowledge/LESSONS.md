@@ -1,3 +1,9 @@
+## EF-L097: CI provenance must distinguish source, execution and attempts
+
+CI001 candidate/API PR head differs from actual merge checkout used by artifacts; immutable parents/tree and exact artifact names join them. New root policy is separately versioned rather than pretending historical builder archives contain new routing source. Independent CI002 draft review required exact nested blob metadata and whole-attempt artifact/job identity; current contract adds attempt-suffixed normal uploads, preserving historical readers/manual studies. A failed-jobs-only rerun is not complete both-OS qualification. Evidence: CI001#444 acceptance and CI002#445 linked contract/review reports. No physical/platform attestation or measured speedup is inferred. Revisit if effective consumers, source routing or upload semantics change.
+
+The PowerShell JSON display command rejected case-distinct docs/DOCS keys; Python parsing confirmed the unchanged valid contract. This was tooling display failure, not a product/JSON defect. Preserve old47planning cancellation requests as unassessed; do not turn cancelled work into PASS.
+
 ## EF-L096: explicit diff completeness beats ambient Git settings
 
 [CI001 validation](../stories/CI-001_VALIDATION.json) records an actual synthetic reader+gitlink change returning DOCS when Git submodule-ignore configuration hid the gitlink. Force --ignore-submodules=none, preserve complete NUL framing/full IDs, and test the hostile configuration rather than assuming defaults. Windows text newline translation likewise failed the exact output-byte oracle; explicit UTF8 binary stdout preserves one LF without relaxing the test. Initial failures and fixture setup correction remain failed evidence. Corrected Windows13method pass is distinct from future Linux/current CI and whole-release acceptance.
