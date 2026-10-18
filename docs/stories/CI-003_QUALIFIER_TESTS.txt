@@ -63,9 +63,16 @@ class ReaderControls(unittest.TestCase):
                     descriptor = (b'PK\x07\x08' if signed else b'') + struct.pack('<IQQ' if wide else '<III', crc, 7, 7)
                     central = struct.pack('<4s6H3I5H2I', b'PK\x01\x02', 20, 45 if wide else 20, 8, 0, 0, 0,
                                           crc, 7, 7, 1, 0, 0, 0, 0, (stat.S_IFREG | 0o644) << 16, 0) + b'a'
-                    end = struct.pack('<4s4H2IH', b'PK\x05\x06', 0, 0, 1, 1, len(central), len(local) + len(descriptor), 0)
-                    raw = local + descriptor + central + end
+                    def frame(desc):
+                        end = struct.pack('<4s4H2IH', b'PK\x05\x06', 0, 0, 1, 1, len(central), len(local) + len(desc), 0)
+                        return local + desc + central + end
+                    raw = frame(descriptor)
                     self.assertEqual(q.zip_contents(raw, q.Budget())[0], {'a': body})
+                    offset = 4 if signed else 0
+                    bad_crc = descriptor[:offset] + struct.pack('<I', crc ^ 1) + descriptor[offset + 4:]
+                    wrong_width = (b'PK\x07\x08' if signed else b'') + struct.pack('<III' if wide else '<IQQ', crc, 7, 7)
+                    for malformed in (bad_crc, descriptor[:-1], wrong_width):
+                        self.rejected(lambda: q.zip_contents(frame(malformed), q.Budget()))
 
     def test_unsafe_path_forms(self):
         for path in ("/a", "../a", "a/./b", "a//b", "C:/a", "a\\b", "a/nul.txt", "a. /b", "a\x00b", "a/COM1", "a/../b", "a/", "nonascii-é"):
@@ -109,6 +116,14 @@ class ReaderControls(unittest.TestCase):
         for offset in (2, 347, 157):
             data = bytearray(gzip.decompress(tarred([('a', b'x', tarfile.REGTYPE, {})])))
             data[offset] = ord('x'); data[148:156] = b'        '
+            data[148:156] = ('%06o\0 ' % sum(data[:512])).encode()
+            self.rejected(lambda: q.tar_contents(gzip.compress(bytes(data)), q.Budget()))
+
+    def test_tar_unsupported_magic_and_version(self):
+        for start, replacement in ((257, b'other!'), (263, b'01')):
+            data = bytearray(gzip.decompress(tarred([('a', b'x', tarfile.REGTYPE, {})])))
+            data[start:start + len(replacement)] = replacement
+            data[148:156] = b'        '
             data[148:156] = ('%06o\0 ' % sum(data[:512])).encode()
             self.rejected(lambda: q.tar_contents(gzip.compress(bytes(data)), q.Budget()))
 

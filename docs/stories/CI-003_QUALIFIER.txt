@@ -233,6 +233,7 @@ def tar_contents(raw, budget, depth=0):
             head, nul, tail = field.partition(b"\0")
             require(not nul or not any(tail), "TAR name bytes after NUL")
             head.decode("utf-8", "strict")
+        require(block[257:263] == b"ustar\0" and block[263:265] == b"00", "TAR magic/version")
         require(not any(block[157:257]), "TAR unused link name")
         item = tarfile.TarInfo.frombuf(block, "utf-8", "strict")
         require(0 <= item.size <= MAX_MEMBER)

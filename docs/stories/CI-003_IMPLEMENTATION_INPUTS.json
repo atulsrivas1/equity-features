@@ -18,20 +18,20 @@
   },
   "assets": {
     "docs/stories/CI-003_QUALIFIER.txt": {
-      "bytes": 66786,
-      "sha256": "31ac48fd024b9b1faf1f2b76f7b397f5db68fd995d8190881593294b3528857c"
+      "bytes": 66881,
+      "sha256": "ff89c375a99757054bd14ff37e528924aacbce59f7ececb647446ded05b4452d"
     },
     "docs/stories/CI-003_QUALIFIER_TESTS.txt": {
-      "bytes": 15290,
-      "sha256": "689e31f03bfb5ca25874eff06febd557ac01241ffdd794b2bd7dfd369d35b9c8"
+      "bytes": 16286,
+      "sha256": "497ca21359e4956526646c0bbf8fc115056fa5daa3df87bf45e8598f8f1fbffc"
     },
     "docs/stories/CI-003_SOURCE_RULES.json": {
       "bytes": 675944,
       "sha256": "ae4a4e6057bd201c6d6f1b10ef39d501b18322f5866973637902b746f575a0c2"
     },
     "docs/CI_QUALIFICATION.md": {
-      "bytes": 4630,
-      "sha256": "bf2a9bd90490b6b5c8d273183291fed29bc75a438197767a7b08b5407d14afdf"
+      "bytes": 5017,
+      "sha256": "80d1f21b68b150f0d751c51c7e5bc94d3a228e54e355d76feff46efaa04461f0"
     }
   },
   "new_tests_executed": 0,
@@ -148,6 +148,35 @@
         }
       ],
       "new_tests_executed": 0
+    },
+    {
+      "head": "192e1bded6f41c26bc9d67af7a9b428f70d1e3c1",
+      "report_sha256": "b86f8b9d61bd7af51ffe85ac4075f953e8a45287ccbdf4aa17d00f2c097c01e6",
+      "approved": false,
+      "findings": [
+        {
+          "id": "CI003-SRC-6",
+          "priority": 1,
+          "scope": "docs/PROJECT_KNOWLEDGE.md, docs/SESSION_HANDOFF.md, docs/knowledge/LESSONS.md",
+          "problem": "Historical UTF8 content was transcoded through Windows legacy encoding. Around923 historical lines changed (em-dash becomes \u00e2\u20ac\u201d, arrows become \u00e2\u2020\u2019), rather than exact preserved suffix plus new prefix. This damages durable memory and unrelated history.",
+          "required": "Restore exact immutable74cdf historical bytes for all3files, prepend only intended new UTF8prefix with explicitencoding; preserve192e as failed source history. Restore guide original bytes plus intentional paragraph, avoiding locale decoding."
+        },
+        {
+          "id": "CI003-SRC-1-remaining",
+          "priority": 2,
+          "function": "tar_contents",
+          "problem": "Raw NUL tails, linkname and unsafe PAX placeholder fixed; explicit supported magic/version grammar remains absent. TarInfo.frombuf may interpret unsupported raw header versions/magic as ordinary records.",
+          "required": "Freeze exact accepted USTAR/PAX underlying header magic/version (ordinary and x control), reject unsupported magic/version, add negativefixture. Do not infer raw grammar solely from normalized TarInfo."
+        },
+        {
+          "id": "CI003-SRC-5-remaining",
+          "priority": 2,
+          "function": "zip_contents/descriptor controls",
+          "problem": "Four independent hand-framed32/64bit signed/unsigned positives now exist, but descriptor-specific wrong width, truncated descriptor and wrong CRC/length negatives are missing. Ordinary no-descriptor CRC/trailing tests do not exercise these branches.",
+          "required": "Add negative mutations of the hand-framed descriptor cases covering wrong CRC/size, truncation and width; keep positive encoder independent of zipfilewriter."
+        }
+      ],
+      "new_tests_executed": 0
     }
   ],
   "corrected_source_pending_review": [
@@ -156,5 +185,11 @@
     "strict nested installed maps and deterministic continuous proofs",
     "fixed quickstart commands and27sanitized-log identities with raw-private limitations",
     "independent signed/unsigned32/64ZIP descriptors and adversarial controls"
-  ]
+  ],
+  "second_correction_disposition": {
+    "historical_UTF8": "Exact74cdf suffix bytes restored from immutable Git for PK/SESSION/LESSONS; guide restored before appending only new text. Explicit UTF8 used. Published192e corruption rejected, never accepted.",
+    "TAR": "Require exact USTAR magic/version before TarInfo; malformed variants source fixture added.",
+    "ZIP_descriptors": "All4signed/unsigned32/64positive encodings now include bad CRC/truncation/wrongwidth negatives.",
+    "publication_history": "Initial192e push succeeded; immediate stale PR head read refused before PR/receipt mutation; fresh matching read completed without duplicate push/comment/commit."
+  }
 }
