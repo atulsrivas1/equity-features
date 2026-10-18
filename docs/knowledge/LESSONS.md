@@ -1,3 +1,9 @@
+## EQ132 preparation lesson: qualify the actual minimal delivered path
+
+EQ131 has an [accepted closure](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946); EQ132 is only [precode preparation](../stories/EQ-132_IMPLEMENTATION_PLAN.md). Source tracing found a fourth adapter output line, and the old Foundation environment includes NumPy/PyArrow. Therefore complete output and a new minimal three-wheel environment must be checked, not inferred from a combined installation. Freeze exact retained per-OS bytes and source representations: WindowsCRLF and LinuxLF packages can represent the same reviewed source while having different raw digests. Preserve both raw maps and the narrow declared source comparison; do not overwrite a failed raw-equality assertion or claim runtime failure from it. No fresh execution or usability result has occurred yet.
+
+## Earlier checkpoints retained as history
+
 ## EQ131: verify readiness and exact Project schema before mutation
 
 [GOV026's delivery review](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240841591) preserves two observed workflow corrections. REST's milestone aggregate initially reported eight open items while full REST and GraphQL membership/state enumerations agreed on seven issues and zero PRs. The cause was not established; the delivery guard retained the aggregate diagnostically and required matching complete identities and individual states. Later closure readback agreed on six open and one closed. Do not infer a universal API fault or weaken membership checks.

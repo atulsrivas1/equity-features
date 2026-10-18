@@ -1,3 +1,9 @@
+## EQ132 planned quickstart; no new runtime release yet
+
+[EQ131 positioning/navigation is accepted](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946). EQ132 prepares a concrete three-wheel Windows/Linux quickstart plan, independent four-line/result/null expectations and exact retained artifact inputs. No package/math/API/version change, fresh install or qualification is claimed by this planning commit.
+
+## Earlier checkpoints retained as history
+
 ## Unreleased — EQ131 public positioning
 
 The candidate README first screen identifies the supplied-data developer/researcher audience, practical calculation boundary, supported experimental platform/channel and current limitations. A new [start page](START_HERE.md) maps core, optional I/O/workers and independent research without transferring ownership. Existing README history is retained.

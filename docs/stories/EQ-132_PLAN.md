@@ -10,7 +10,7 @@
 
 ## Current dependencies and delivery
 
-EQ131 plus accepted library predecessor and exact accepted example/package delivery. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. This story stays Backlog/unassigned, with no implementation or outreach/account authority.
+EQ131 plus accepted library predecessor and exact accepted example/package delivery. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. The concrete [precode packet](EQ-132_IMPLEMENTATION_PLAN.md) and [immutable selected inputs](EQ-132_INPUTS.json) are prepared after accepted EQ131. This story remains Backlog/unassigned until completed exact precode review and normal Ready admission. No product execution or outreach/account authority is added.
 
 
 ## Preserved original plan — historical, not current criteria
