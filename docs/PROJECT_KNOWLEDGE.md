@@ -1,3 +1,53 @@
+## EQ134 actual developer demonstration; final delivery pending
+
+[PR435](https://github.com/atulsrivas1/equity-features/pull/435) materializes the reviewed
+[developer demonstration](DEVELOPER_DEMO.md), [unsent announcement](ANNOUNCEMENT_DRAFT.txt),
+[channel plan](CHANNEL_PLAN.md) and [actual validation](stories/EQ-134_VALIDATION.json).
+The exact separately reviewed source entry at precode `bb6919f8ea2c79dee8b6533e74805fabaf19285d` passed
+one author Windows run:14 outer commands, two fresh owned checkouts/environments,
+unchanged accepted quickstart/full43-object checks, narrower contributor setup/
+imports and private starter432 preservation rehearsal. Separate DATA review
+approved actual logs/results/identities. Raw nested reports/origins/logs stay
+private; public validation is an allowlisted projection with raw evidence hashes.
+
+No new EQ134 Linux demonstration, reviewer reinstall,649-unit/six-reference or
+failed-study rerun, public starter implementation, human participation, novice
+timing, production/trading claim or outreach is inferred. One conditional
+moderated-channel draft remains unsent with a public-contact placeholder;
+account/subscription/posting authority is absent and not needed for this scope.
+
+Initial pre-execution changed-body guard finding and corrected review remain
+preserved. Actual source/package/API/math/version/dependency inputs are unchanged.
+Current final-head source/66candidate/33main/applicable artifacts/default-branch
+review and normal lifecycle acceptance remain required. EQ135 stays Backlog;
+E21/milestone16 and research/combined C1 remain open. R13 negative DEFER and
+pausedR7 are unchanged. No new owner input is currently needed.
+
+## Earlier checkpoints retained as history
+
+## EQ133 accepted; EQ134 developer demonstration precode
+
+[EQ133 accepted delivery](https://github.com/atulsrivas1/equity-features/issues/314#issuecomment-6246634802) is Closed/Done at main `84051d9c13f631de398c7f58985f6d07d8e0d255`
+after exact66candidate/33main, ten/six artifact and separate source/contributor
+replay/starter/delivery/closure review. Three future starter issues432-434 remain
+Backlog/unassigned outside milestone16. EQ131/EQ132/GOV026 remain accepted.
+
+[EQ134 concrete plan](stories/EQ-134_IMPLEMENTATION_PLAN.md) and
+[frozen inputs](stories/EQ-134_INPUTS.json) prepare one Windows-only developer
+demonstration with distinct minimal-wheel and contributor-source environments,
+plus unsent launch material for one conditional moderated channel. Exact
+source entry is frozen as text and must receive completed separate review before
+Ready admission/execution. This packet is planning only: EQ134 is still
+Backlog/unassigned; no new setup/demo/outreach has run. EQ135 stays Backlog.
+
+Current source/package/API/math/version/dependencies are unchanged. Accepted
+two-OS qualification is separate from the proposed new Windows demo. No novice
+performance/adoption/trading/research claim. An approved-public-email placeholder
+is a future posting prerequisite, not current owner input. E21/milestone16 and
+research/combined C1 remain open; R13 negative DEFER and pausedR7 are preserved.
+
+## Earlier checkpoints retained as history
+
 ## EQ133 contributor setup observed; final delivery pending
 
 [PR431](https://github.com/atulsrivas1/equity-features/pull/431) implements the contribution guide and report templates. Three actual future starter issues [432](https://github.com/atulsrivas1/equity-features/issues/432), [433](https://github.com/atulsrivas1/equity-features/issues/433) and [434](https://github.com/atulsrivas1/equity-features/issues/434) remain unassigned Backlog without milestone16.

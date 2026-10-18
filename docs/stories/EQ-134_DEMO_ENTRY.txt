@@ -1,0 +1,305 @@
+"""One owned Windows developer demo. Freeze/review this source before execution.
+
+Stdlib controller only. It never deletes or retries a failed owned run. Raw logs
+stay private; timeouts are cooperative subprocess limits, not hard containment.
+"""
+from pathlib import Path, PurePosixPath
+from datetime import datetime, timezone
+import base64
+import hashlib
+import json
+import os
+import platform
+import re
+import struct
+import subprocess
+import sys
+import time
+
+B = Path(__file__).resolve().parent
+ROOT = B / 'eq134-owned-developer-demo'
+REPO = 'atulsrivas1/equity-features'
+MAIN = '84051d9c13f631de398c7f58985f6d07d8e0d255'
+WHEEL = '48d4689f10af8c07545e95bd4e70f240ca81d096'
+PROJECT = 'PVT_kwHOBiDqvM4Blsvk'
+INPUT_PATH = 'docs/stories/EQ-132_INPUTS.json'
+INPUT_SHA = '0d40a93e8882c25e3f2e26a99a62c393700924f83e9620397e8c5fea9361f51a'
+API_SHA = '8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c'
+PREFIX = 'eq134-demo-'
+LIMIT = 16 * 1024 * 1024
+
+
+def require(value, message):
+    if not value:
+        raise ValueError(message)
+
+
+def digest(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def read(path):
+    return json.loads(Path(path).read_bytes())
+
+
+def write_new(path, value):
+    with Path(path).open('xb') as stream:
+        stream.write((json.dumps(value, indent=2) + '\n').encode('utf-8'))
+
+
+def bodysha(text):
+    return digest(text.replace('\r\n', '\n').encode('utf-8'))
+
+
+def safe_parent(path):
+    for item in (path, *path.parents):
+        require(not item.is_symlink() and not (hasattr(item, 'is_junction') and item.is_junction()),
+                'symlink or junction parent refused')
+
+
+def api(endpoint, graphql=False):
+    args = ['gh', 'api'] + (['graphql', '-f', 'query=' + endpoint] if graphql else [endpoint])
+    raw = subprocess.check_output(args, stdin=subprocess.DEVNULL, timeout=60)
+    return json.loads(raw.decode('utf-8'))
+
+
+def live(cfg):
+    require(api('user')['login'] == 'atulsrivas1', 'wrong established GitHub identity')
+    require(api('repos/' + REPO + '/git/ref/heads/main')['object']['sha'] == MAIN, 'main drift')
+    p = cfg['precode']
+    pr = api(f'repos/{REPO}/pulls/{p["pr"]}')
+    require(type(p['pr']) is int and p['pr'] > 0 and p['base'] == MAIN, 'invalid precode binding')
+    require(pr['state'] == 'open' and pr['draft'] is True and not pr['merged']
+            and pr['head']['sha'] == p['head'] and pr['head']['ref'] == p['branch']
+            and pr['base']['sha'] == MAIN and pr['base']['ref'] == 'main'
+            and pr['head']['repo']['full_name'] == pr['base']['repo']['full_name'] == REPO
+            and pr['user']['login'] == 'atulsrivas1', 'precode identity/state drift')
+    issue = api(f'repos/{REPO}/issues/315')
+    require(issue['state'] == 'open' and issue['milestone']['number'] == 16
+            and [x['login'] for x in issue['assignees']] == ['atulsrivas1'], 'story ownership drift')
+    require(bodysha(issue['body']) == cfg['active_story_body_sha256'], 'active story body drift')
+    query = 'query{repository(owner:"atulsrivas1",name:"equity-features"){issue(number:315){projectItems(first:20){totalCount nodes{project{id} status:fieldValueByName(name:"Status"){... on ProjectV2ItemFieldSingleSelectValue{name}} points:fieldValueByName(name:"Story points"){... on ProjectV2ItemFieldNumberValue{number}}}}}}}'
+    items = api(query, True)['data']['repository']['issue']['projectItems']
+    require(items['totalCount'] == len(items['nodes']), 'incomplete Project enumeration')
+    rows = [x for x in items['nodes'] if x['project']['id'] == PROJECT]
+    require(len(rows) == 1 and rows[0]['status']['name'] == 'In progress'
+            and type(rows[0]['points']['number']) in (int, float) and rows[0]['points']['number'] == 3,
+            'story lifecycle or points drift')
+    for pin in cfg['acceptance_pins']:
+        require(type(pin['comment']) is int and pin['comment'] > 0, 'invalid acceptance pin')
+        comment = api(f'repos/{REPO}/issues/comments/{pin["comment"]}')
+        require(comment['user']['login'] == 'atulsrivas1'
+                and comment['issue_url'] == f'https://api.github.com/repos/{REPO}/issues/{pin["issue"]}'
+                and bodysha(comment['body']) == pin['body_sha256'], 'acceptance pin drift')
+    starter = api(f'repos/{REPO}/issues/432')
+    require(starter['state'] == 'open' and not starter['assignees'] and starter['milestone'] is None
+            and bodysha(starter['body']) == cfg['starter432']['issue_body_sha256'], 'starter pin drift')
+
+
+def artifact_live(cfg):
+    expected = cfg['original_windows_artifact']['artifact']
+    require(expected['id'] == 12122147674 and expected['expired'] is False, 'wrong original artifact')
+    actual = api(f'repos/{REPO}/actions/artifacts/{expected["id"]}')
+    for key in ('id', 'name', 'size_in_bytes', 'digest', 'expires_at', 'workflow_run'):
+        require(actual[key] == expected[key], 'original artifact metadata drift: ' + key)
+    require(actual['expired'] is False and datetime.fromisoformat(actual['expires_at'].replace('Z', '+00:00'))
+            > datetime.now(timezone.utc), 'original artifact expired')
+    bound = cfg['original_windows_artifact']['delivery_job_binding']
+    run = api(f'repos/{REPO}/actions/runs/{bound["run"]}')
+    require(run['status'] == 'completed' and run['conclusion'] == 'success' and run['event'] == 'push'
+            and run['head_branch'] == 'main' and run['run_attempt'] == 1
+            and run['workflow_id'] == bound['registered_workflow_id']
+            and run['head_sha'] == expected['workflow_run']['head_sha'], 'original run drift')
+    jobs = api(f'repos/{REPO}/actions/runs/{bound["run"]}/attempts/1/jobs?per_page=100')
+    matches = [j for j in jobs['jobs'] if j['id'] == bound['job']]
+    require(jobs['total_count'] == len(jobs['jobs']) == 2 and len(matches) == 1
+            and matches[0]['name'] == bound['name'] and matches[0]['head_sha'] == run['head_sha']
+            and run['repository']['full_name'] == REPO and matches[0]['status'] == 'completed' and matches[0]['conclusion'] == 'success', 'original job drift')
+
+
+class Demo:
+    def __init__(self):
+        require(platform.system() == 'Windows' and sys.implementation.name == 'cpython'
+                and sys.version_info[:2] == (3, 12) and struct.calcsize('P') == 8
+                and platform.machine().lower() in ('amd64', 'x86_64') and not sys.flags.optimize,
+                'assertions-enabled CPython3.12 x64 Windows required')
+        safe_parent(B)
+        self.cfg = read(B / 'eq134-demo-inputs.json')
+        require(self.cfg['schema'] == 'eq134.demo-inputs.v1'
+                and self.cfg['entry_sha256'] == digest(Path(__file__).read_bytes())
+                and self.cfg['accepted_quickstart_inputs_sha256'] == INPUT_SHA, 'entry/input binding refused')
+        bound = self.cfg['readiness_review'];path = B / bound['file']
+        require(path.parent == B and path.name == bound['file'] and digest(path.read_bytes()) == bound['sha256'], 'readiness review identity')
+        review = read(path)
+        require(not review['findings'] and (review.get('approved') is True or review.get('disposition', '').startswith('approved'))
+                and review['runtime_demo_admissible'] is True
+                and review['entry_sha256'] == self.cfg['entry_sha256']
+                and review['precode_head'] == self.cfg['precode']['head']
+                and review['active_story_body_sha256'] == self.cfg['active_story_body_sha256'], 'readiness not admissible')
+        require(review['published_inputs_sha256'] == self.cfg['published_inputs_sha256'], 'readiness inputs join')
+        public = api(f'repos/{REPO}/contents/docs/stories/EQ-134_INPUTS.json?ref={self.cfg["precode"]["head"]}')
+        require(public['type'] == 'file' and public['encoding'] == 'base64', 'published input is not a file')
+        raw_inputs = base64.b64decode(public['content'])
+        require(digest(raw_inputs) == self.cfg['published_inputs_sha256'], 'published frozen input identity')
+        frozen = json.loads(raw_inputs)
+        for key in ('schema', 'entry_sha256', 'source_maps', 'accepted_quickstart_inputs_sha256',
+                    'original_windows_artifact', 'acceptance_pins', 'starter432'):
+            require(frozen[key] == self.cfg[key], 'execution manifest differs from frozen input: ' + key)
+        entry = api(f'repos/{REPO}/contents/docs/stories/EQ-134_DEMO_ENTRY.txt?ref={self.cfg["precode"]["head"]}')
+        require(entry['type'] == 'file' and entry['encoding'] == 'base64'
+                and base64.b64decode(entry['content']) == Path(__file__).read_bytes(), 'entry differs from published frozen source')
+        self.rows = []
+        require(not os.path.lexists(ROOT) and all(not os.path.lexists(B / (PREFIX + n + '.json'))
+                for n in ('attempt', 'progress', 'failure', 'report')), 'owned output already exists; retain it')
+        live(self.cfg)
+        artifact_live(self.cfg)
+
+    def public(self, text):
+        for original, replacement in ((str(ROOT), '$OWNED_ROOT'), (str(B), '$B14'),
+                                      (str(Path(sys.executable)), '$PYTHON')):
+            for variant in (original, original.replace('\\', '/'), original.replace('\\', '\\\\')):
+                text = re.sub(re.escape(variant), lambda _: replacement, text, flags=re.IGNORECASE)
+        return text
+
+    def run(self, name, args, cwd, timeout=600, guard=True):
+        if guard:
+            live(self.cfg)
+        safe_parent(cwd)
+        out = ROOT / 'raw-private' / (name + '.out')
+        err = ROOT / 'raw-private' / (name + '.err')
+        row = {'step': name, 'command': [self.public(str(x)) for x in args], 'cwd': self.public(str(cwd)),
+               'timeout_seconds': timeout}
+        self.rows.append(row)
+        start = time.monotonic()
+        try:
+            with out.open('xb') as stdout, err.open('xb') as stderr:
+                result = subprocess.run([str(x) for x in args], cwd=cwd, stdin=subprocess.DEVNULL,
+                                        stdout=stdout, stderr=stderr, timeout=timeout)
+            row['returncode'] = result.returncode
+            require(result.returncode == 0, 'command failed: ' + name)
+        except BaseException as error:
+            row['failure_type'] = type(error).__name__
+            raise
+        finally:
+            row['elapsed_seconds'] = time.monotonic() - start
+            for kind, path in (('stdout', out), ('stderr', err)):
+                if path.exists():
+                    raw = path.read_bytes()
+                    row[kind + '_raw_bytes'] = len(raw)
+                    row[kind + '_raw_sha256'] = digest(raw)
+                    require(len(raw) <= LIMIT, 'command output cap exceeded')
+                    clean = self.public(raw.decode('utf-8'))
+                    target = ROOT / 'logs' / (name + '-' + kind + '.txt')
+                    with target.open('xb') as stream:
+                        stream.write(clean.encode('utf-8'))
+                    row[kind + '_sanitized_sha256'] = digest(clean.encode('utf-8'))
+            (B / (PREFIX + 'progress.json')).write_text(json.dumps(self.rows, indent=2) + '\n', encoding='utf-8')
+        return out.read_bytes()
+
+    def checkout(self, name, head):
+        target = ROOT / name
+        self.run(name + '-clone', ['git', 'clone', '--no-checkout', '--single-branch', '--branch', 'main',
+                  'https://github.com/' + REPO + '.git', target], ROOT, 300)
+        self.run(name + '-checkout', ['git', '-C', target, 'checkout', '--detach', head], ROOT, 60)
+        require(self.run(name + '-head', ['git', 'rev-parse', 'HEAD'], target, 30).decode().strip() == head, 'checkout head drift')
+        identities = {}
+        pins = self.cfg['source_maps'][name]
+        require(pins and isinstance(pins, dict), 'empty source map')
+        required = {'tools/verify_quickstart.py', 'tools/quickstart_probe.py', INPUT_PATH} if name == 'wheel' else {'requirements-dev.txt', 'tools/verify_imports.py', 'CONTRIBUTING.md', 'docs/stories/EQ-133_VALIDATION.json', 'docs/api/PUBLIC_API.md'}
+        require(required <= set(pins), 'mandatory execution input omitted')
+        for path, expected in pins.items():
+            rel = PurePosixPath(path)
+            require(not rel.is_absolute() and '..' not in rel.parts and '\\' not in path and ':' not in path,
+                    'invalid pinned relative path')
+            raw = subprocess.check_output(['git', 'show', head + ':' + path], cwd=target, timeout=30)
+            require(digest(raw) == expected, 'Git source pin drift: ' + path)
+            actual = (target / path).read_bytes()
+            raw.decode('utf-8'); actual.decode('utf-8')
+            observed_oid = subprocess.check_output(['git', 'hash-object', '--path=' + path, '--', path], cwd=target, timeout=30).decode('ascii').strip()
+            expected_oid = hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest()
+            require(observed_oid == expected_oid, 'working source differs under declared Git text representation: ' + path)
+            identities[path] = {'GitLF_sha256': expected, 'working_raw_sha256': digest(actual), 'Git_blob_sha1': expected_oid, 'working_Git_filtered_blob_sha1': observed_oid}
+        require(subprocess.check_output(['git', 'status', '--porcelain'], cwd=target, timeout=30) == b'', 'dirty checkout')
+        return target, identities
+
+    def execute(self):
+        write_new(B / (PREFIX + 'attempt.json'), {'entry_sha256': self.cfg['entry_sha256'], 'precode_head': self.cfg['precode']['head'],
+                   'system': 'Windows', 'scope': 'Single author developer demonstration; no human or outreach claim.'})
+        ROOT.mkdir()
+        (ROOT / 'raw-private').mkdir()
+        (ROOT / 'logs').mkdir()
+        wheel, wheel_map = self.checkout('wheel', WHEEL)
+        source, source_map = self.checkout('source', MAIN)
+        accepted = read(wheel / INPUT_PATH)
+        require(digest(subprocess.check_output(['git', 'show', WHEEL + ':' + INPUT_PATH], cwd=wheel, timeout=30)) == INPUT_SHA,
+                'accepted manifest changed')
+        windows = [x for x in accepted['artifacts'] if x['manifest']['system'] == 'Windows']
+        require(len(windows) == 1 and windows[0]['artifact'] == self.cfg['original_windows_artifact']['artifact']
+                and windows[0]['delivery_job_binding'] == self.cfg['original_windows_artifact']['delivery_job_binding'], 'original manifest binding')
+        live(self.cfg)
+        artifact_live(self.cfg)
+        self.run('accepted-wheel-quickstart', [sys.executable, '-I', '-B', 'tools/verify_quickstart.py'], wheel, 900)
+        report = read(wheel / 'work/eq132-quickstart-Windows/report.json')
+        expected_stdout = '\n'.join(accepted['independent_expected']['stdout_lines']) + '\n'
+        require(report['status'] == 'PASSED' and report['qualification_cases'] == 43
+                and len(report['qualification']['cases']) == 43 and report['walkthrough_stdout'] == expected_stdout
+                and report['artifact'] == windows[0]['artifact'] and report['installed_payload_unchanged'] is True
+                and report['runtime']['core'] == report['before_core']['core']
+                and report['source_map'] == accepted['effective_source_map']
+                and report['wheel_maps'] == windows[0]['selected_wheels'], 'accepted complete wheel replay refused')
+        raw_stdout = (ROOT / 'raw-private/accepted-wheel-quickstart.out').read_bytes().replace(b'\r\n', b'\n')
+        complete_stdout = expected_stdout + 'Quickstart PASSED; three delivered wheels, four output lines and 43 qualification cases verified.\nSee work/eq132-quickstart-Windows/report.json for actual scoped timings and provenance.\n'
+        require(raw_stdout == complete_stdout.encode('utf-8'), 'complete accepted wheel stdout differs')
+        self.wheel_report = report
+        py = source / '.venv/Scripts/python.exe'
+        self.run('source-create-venv', [sys.executable, '-I', '-B', '-m', 'venv', source / '.venv'], source, 120)
+        code = "import json,platform,struct,sys; assert sys.implementation.name=='cpython' and sys.version_info[:2]==(3,12) and struct.calcsize('P')==8 and platform.system()=='Windows'; print(json.dumps(dict(python=platform.python_version(),implementation=sys.implementation.name,bits=struct.calcsize('P')*8,system=platform.system(),machine=platform.machine())))"
+        self.source_interpreter = json.loads(self.run('source-interpreter', [py, '-I', '-B', '-c', code], source, 30))
+        self.run('source-development-requirements', [py, '-m', 'pip', 'install', '-r', 'requirements-dev.txt'], source, 600)
+        self.run('source-editable-local-packages', [py, '-m', 'pip', 'install', '--no-build-isolation',
+                  '-e', 'packages/contracts', '-e', 'packages/features', '-e', 'examples/external_consumer'], source, 600)
+        self.run('source-pip-check', [py, '-m', 'pip', 'check'], source, 60)
+        self.run('source-import-smoke', [py, 'tools/verify_imports.py'], source, 60)
+        validation = read(source / 'docs/stories/EQ-133_VALIDATION.json')
+        body = validation['starter_issues']['issues'][0]['body']
+        commands = re.findall(r'```text\n(python -c "[^\n]+")\n```', body)
+        require(len(commands) == 1 and commands[0] == self.cfg['starter432']['literal_command'], 'starter command drift')
+        scratch = ROOT / 'private-starter432'; dest = scratch / 'docs/api/PUBLIC_API.md'
+        dest.parent.mkdir(parents=True)
+        original = (source / 'docs/api/PUBLIC_API.md').read_bytes()
+        require(digest(original.replace(b'\r\n', b'\n')) == API_SHA, 'starter source drift')
+        block = b'## Current API navigation\n\n- [Current experimental public API](#current-experimental-public-api)\n- [Imports and ownership](#imports-and-ownership)\n- [Invalid calls versus unavailable calculations](#invalid-calls-versus-unavailable-calculations)\n- [Installed typing qualification](#installed-typing-qualification)\n\n<!-- STARTER-API-NAV-END -->\n\n'
+        dest.write_bytes(block + original)
+        self.run('private-starter432', [py, '-I', '-B', '-c', commands[0][len('python -c "'):-1]], scratch, 60)
+        self.private_starter = {'public_issue': 432, 'command_exact': True, 'original_GitLF_sha256': API_SHA,
+                                'private_modified_copy_sha256': digest(dest.read_bytes()), 'public_starter_implemented': False}
+        for repo in (wheel, source):
+            require(subprocess.check_output(['git', 'status', '--porcelain'], cwd=repo, timeout=30) == b'', 'tracked checkout changed')
+        live(self.cfg)
+        artifact_live(self.cfg)
+        return {'status': 'PASSED', 'entry_sha256': self.cfg['entry_sha256'], 'inputs_sha256': digest((B / 'eq134-demo-inputs.json').read_bytes()),
+                'precode_head': self.cfg['precode']['head'], 'wheel_source_head': WHEEL, 'contributor_source_head': MAIN,
+                'wheel_source_map': wheel_map, 'contributor_source_map': source_map, 'wheel_report': self.wheel_report,
+                'source_interpreter': self.source_interpreter, 'private_starter_rehearsal': self.private_starter,
+                'steps': self.rows, 'tracked_sources_unchanged': True,
+                'limits': ['Author Windows-only developer demonstration, not human participation or outreach.',
+                           'Raw logs stay private; sanitized hashes do not attest their raw bytes publicly.',
+                           'Cooperative command timeouts are not hard process-tree containment.',
+                           'No649-unit/six-reference rerun, new Linux source demo or favorable study rerun.']}
+
+
+def main():
+    demo = Demo()
+    try:
+        result = demo.execute()
+    except BaseException as error:
+        failure = {'status': 'FAILED', 'failure_type': type(error).__name__, 'completed': demo.rows,
+                   'cleanup_claimed': False, 'automatic_retry': False}
+        write_new(B / (PREFIX + 'failure.json'), failure)
+        raise
+    write_new(B / (PREFIX + 'report.json'), result)
+    print('EQ134 owned Windows developer demo PASSED. No human/outreach claim.')
+
+
+if __name__ == '__main__':
+    main()

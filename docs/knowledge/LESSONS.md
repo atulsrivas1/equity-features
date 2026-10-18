@@ -1,3 +1,41 @@
+## EQ134 actual demo evidence and privacy lesson
+
+A single fresh Windows developer demonstration passed after exact public/source-entry/body/tool reviews and guarded admission. Its14 outer commands and unchanged quickstart14 nested steps/full43 result object are distinct from inherited current two-OS qualification, accepted EQ133 full source tests and human participation. Preserve that distinction in every draft. Raw nested reports retain local origins; public validation must be an allowlisted projection with raw report/log hashes, not a blanket claim that a path-substitution sanitizer guarantees privacy. The initial missing body guard was corrected before runtime and all source/review identities remain retained. An unsent channel draft/contact placeholder is a prepared artifact, not external publication or a current owner blocker.
+
+## Earlier checkpoints retained as history
+
+## EQ133 closure and EQ134 bounded demonstration lesson
+
+[EQ133 accepted](https://github.com/atulsrivas1/equity-features/issues/314#issuecomment-6246634802) joins exact source, actual Windows-only
+contributor setup/private starter rehearsal, unchanged-package current two-OS
+qualification and independently verified final closure. A source setup/import
+or CI count alone does not establish human usefulness or a public contribution.
+Keep the three future starters outside selected R14 scope until separately pulled.
+
+Superseded own EQ133 CI cancellation selected35old runs:34actual cancellation
+requests and1already-completed preserved, never35cancelled. Current final/main
+runs were preserved. Small pre-publication helper guard advice added exact
+Ready-to-release/body/publication joins and postclosure receipt/head joins;
+no product failure or duplicate review comment resulted. One guessed read-only
+tool filename during EQ134 preparation was absent; actual rg inventory resolved
+verify_quickstart.py before any command selection/execution. Preserve tool-only
+corrections without converting them into runtime failures.
+
+EQ134 freezes one Windows demonstration of unchanged accepted wheel/source
+paths; no649-unit/six-reference or failed R13 study rerun merely for new labels.
+Initial pre-execution review found that the proposed demo accepted a changed
+story body despite correct stage/owner/points. The initial source/review are
+retained; an exact active-body hash joined to completed execution review and
+repeated live checks corrects it before any demo run. Raw nested wheel reports
+contain local origins and stay private; public validation uses an explicit
+sanitized projection, not a claim that sanitized command logs remove every path.
+Official channel rules control eligibility: prepare an unsent Python-announce
+draft with a public-contact placeholder and exclude agent-authored HN posting.
+No permission to post or claim users follows from a draft. Failed/expired
+artifact input stops rather than silently substituting a newer build.
+
+## Earlier checkpoints retained as history
+
 ## EQ133 contributor setup observed; final delivery pending
 
 [PR431](https://github.com/atulsrivas1/equity-features/pull/431) implements the contribution guide and report templates. Three actual future starter issues [432](https://github.com/atulsrivas1/equity-features/issues/432), [433](https://github.com/atulsrivas1/equity-features/issues/433) and [434](https://github.com/atulsrivas1/equity-features/issues/434) remain unassigned Backlog without milestone16.
