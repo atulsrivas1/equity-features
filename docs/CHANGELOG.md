@@ -1,3 +1,7 @@
+## Unreleased R15 story434: Current result-contract reading context
+
+Prepend current experimental0.0.4a4 context for the historical EQ0130.0.1a3 checkpoint. Preserve structural rules and old body after marker; link current public API/QUICKSTART; no stable registry claim. Bounded validation passed; final review/publication acceptance pending. No package version or behavior change. [Validation](stories/STARTER-434_VALIDATION.json).
+
 ## Unreleased R15 story432: Current public API navigation
 
 Prepend a concise navigation block for Current experimental public API, Imports and ownership, Invalid calls versus unavailable calculations, Installed typing qualification; preserve all original text after the fixed marker. Bounded validation passed; final review/publication acceptance pending. No package version or behavior change. [Validation](stories/STARTER-432_VALIDATION.json).

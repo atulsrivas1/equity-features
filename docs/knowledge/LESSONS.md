@@ -1,3 +1,7 @@
+## R15 story434: preserve the actual reading contract
+
+Current result-contract reading context: preserve original source/history and evaluate the changed links/table/context directly. A bounded source or mathematical verifier is not a generic prose validator, production rerun or human usability result. [Actual evidence](../stories/STARTER-434_VALIDATION.json). Required docs.yml/check plus independent exact source/published-main review is the scoped gate for unchanged package/build/workflow inputs; incidental workflow states are recorded separately.
+
 ## R15 story432: preserve the actual reading contract
 
 Current public API navigation: preserve original source/history and evaluate the changed links/table/context directly. A bounded source or mathematical verifier is not a generic prose validator, production rerun or human usability result. [Actual evidence](../stories/STARTER-432_VALIDATION.json). Required docs.yml/check plus independent exact source/published-main review is the scoped gate for unchanged package/build/workflow inputs; incidental workflow states are recorded separately.
