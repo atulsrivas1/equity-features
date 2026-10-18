@@ -1,3 +1,7 @@
+## Unreleased R15 story433: Continuous quote example walkthrough
+
+Explain synthetic100-112 interval categories3normal+4locked+2crossed+3invalid=12ns, valid7ns, unknown/expired0, mean spread6/7, mean bps60000/707; next-update/cutoff versus original expiry, full invalid replacement, valid-only denominator. Preserve formula/example source. Bounded validation passed; final review/publication acceptance pending. No package version or behavior change. [Validation](stories/STARTER-433_VALIDATION.json).
+
 ## Unreleased R15 story434: Current result-contract reading context
 
 Prepend current experimental0.0.4a4 context for the historical EQ0130.0.1a3 checkpoint. Preserve structural rules and old body after marker; link current public API/QUICKSTART; no stable registry claim. Bounded validation passed; final review/publication acceptance pending. No package version or behavior change. [Validation](stories/STARTER-434_VALIDATION.json).
