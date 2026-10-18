@@ -1,3 +1,15 @@
+## EQ132 quickstart implementation candidate
+
+Adds a minimal retained-wheel quickstart guide, exact artifact verifier, independent installed result probe, boundary controls and Windows/Linux workflow; links it from README/example/install guides and reconciles current consumer wording to0.4.0. Calculation packages/APIs/mathematics/versions are unchanged. Corrected qualification source passed separate review; one scoped Windows author run passed in45.094s. Full hosted fresh Windows/Linux/current-head/main qualification and delivery remain separate in [EQ132](https://github.com/atulsrivas1/equity-features/issues/313). This is an author source-freeze observation, not a novice five-minute guarantee.
+
+## Earlier checkpoints retained as history
+
+## EQ132 planned quickstart; no new runtime release yet
+
+[EQ131 positioning/navigation is accepted](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946). EQ132 prepares a concrete three-wheel Windows/Linux quickstart plan, independent four-line/result/null expectations and exact retained artifact inputs. No package/math/API/version change, fresh install or qualification is claimed by this planning commit.
+
+## Earlier checkpoints retained as history
+
 ## Unreleased — EQ131 public positioning
 
 The candidate README first screen identifies the supplied-data developer/researcher audience, practical calculation boundary, supported experimental platform/channel and current limitations. A new [start page](START_HERE.md) maps core, optional I/O/workers and independent research without transferring ownership. Existing README history is retained.

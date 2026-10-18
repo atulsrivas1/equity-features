@@ -4,11 +4,11 @@ Use this project when you already have equity observations and want explicit, ty
 
 ## Take the smallest useful path
 
-1. Read the [supplied-input example](EXAMPLES.md) and its independent expected values. It includes a separately installed synthetic walkthrough; it does not require a market-data account.
+1. Use the [minimal quickstart](QUICKSTART.md) for the exact delivered three-wheel path, prerequisites, independent expected output and explicit missing inputs. Then read the [supplied-input example catalog](EXAMPLES.md). No market-data account is needed.
 2. Follow the matching [build and delivery instructions](BUILD_DELIVERY.md) and [extension installation guide](api/EXTENSIONS.md). Use the reviewed source revision and matching distribution versions. Current artifacts have finite retention; an expired artifact is unavailable evidence, not permission to substitute unrelated bytes.
 3. Use the [public API](api/PUBLIC_API.md) for inputs, configuration, calculations and results. Add an optional companion only when your use case needs its responsibility.
 
-CPython 3.12 x64 on Windows and Linux is the supported experimental platform. This page adds navigation, not a newly measured installation or five-minute usability result. R14's separate [quickstart story](https://github.com/atulsrivas1/equity-features/issues/313) owns fresh newcomer-command qualification and truthful maintainer timing.
+CPython 3.12 x64 on Windows and Linux is the supported experimental platform. The [quickstart story](https://github.com/atulsrivas1/equity-features/issues/313) records actual current qualification and measured maintainer timing; source instructions alone do not establish five-minute novice usability.
 
 ## Choose a repository
 

@@ -1,3 +1,9 @@
+## EQ132 minimal installed path
+
+The [newcomer quickstart](QUICKSTART.md) selects the existing core0.0.4a4/consumer0.4.0 three-wheel channel with explicit access/expiry, fresh Windows/Linux isolation and independent output/null checks. The [live EQ132 story](https://github.com/atulsrivas1/equity-features/issues/313) owns actual review, qualification and acceptance; no fresh result is inferred from this source snapshot. Existing forms and dated history below remain unchanged.
+
+## Earlier checkpoints retained as history
+
 ## EQ115 installed synthetic guide and R12 delivery
 
 [EQ114 accepted kernels](https://github.com/atulsrivas1/equity-features/issues/216#issuecomment-6223872765)

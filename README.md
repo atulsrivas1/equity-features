@@ -2,7 +2,7 @@
 
 Experimental Python calculations for developers and researchers working with supplied equity data. Compute typed features and inspect their availability and quality evidence while keeping data acquisition, scheduling and publication outside calculations.
 
-[Start here](docs/START_HERE.md) · [Runnable synthetic example](docs/EXAMPLES.md) · [Public API](docs/api/PUBLIC_API.md) · [Roadmap and delivery status](docs/BACKLOG.md)
+[Start here](docs/START_HERE.md) · [Minimal quickstart](docs/QUICKSTART.md) · [More synthetic examples](docs/EXAMPLES.md) · [Public API](docs/api/PUBLIC_API.md) · [Roadmap and delivery status](docs/BACKLOG.md)
 
 The supported experimental platform is CPython 3.12 x64 on Windows and Linux. Use matching versions from the reviewed GitHub source and finite-retention CI artifact channel described in the [build and delivery guide](docs/BUILD_DELIVERY.md); a stable package-registry release is not offered. Core calculations consume supplied facts and do not fetch market data or schedule jobs. Optional I/O and worker components have separate dependencies and responsibilities.
 

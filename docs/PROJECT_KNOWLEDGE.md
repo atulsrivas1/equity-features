@@ -1,3 +1,21 @@
+## EQ132 active implementation; fresh quickstart proof pending
+
+[EQ131 accepted](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946) and its independent actual closure are preserved. [EQ132](https://github.com/atulsrivas1/equity-features/issues/313)/[PR430](https://github.com/atulsrivas1/equity-features/pull/430) is Atul/In progress with five provisional points after completed exact precode and transition-tool reviews. [Implementation plan](stories/EQ-132_IMPLEMENTATION_PLAN.md), [inputs](stories/EQ-132_INPUTS.json), [guide](QUICKSTART.md).
+
+The three-wheel verifier, independent installed result probe, finite adversarial boundary tests and two-OS workflow are prepared outside calculation packages. The initial source review found three qualification gaps; all were corrected before product execution, and renewed exact review approved the fixed source. One actual Windows/AMD64 author run passed, CPython3.12.10/pip25.0.1,45.094s scoped automated replay; [validation](stories/EQ-132_VALIDATION.json) preserves full report/source bindings and limits. Hosted fresh Windows/Linux, actual66candidate/33main/current-artifact/default-branch checks and final acceptance remain. No package/API/math/version/dependency change, Linux/currentCI acceptance or novice usability claim follows from that local run. Original criteria stay unchecked. Other three runtime stories remain Backlog/unassigned; E21/milestone16/research/combinedC1 remain open, R13 negatives/witnessDEFER and pausedR7 unchanged.
+
+## Earlier checkpoints retained as history
+
+## EQ131 accepted; EQ132 quickstart precode preparation
+
+[EQ131 accepted delivery](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946) is Closed/Done at main `a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d`, after62candidate/31main checks and separate source/setup/delivery/actual closure review. The setup dependency is resolved. E21/milestone16 remain open; four stories remain.
+
+[EQ132 concrete plan](stories/EQ-132_IMPLEMENTATION_PLAN.md) and [inputs](stories/EQ-132_INPUTS.json) select the existing four-line synthetic demo and three delivered wheels, exact per-OS retained bundle/source maps and fresh minimal Windows/Linux installation with truthful scoped timing. Current source has no new harness, install, product test or quickstart qualification yet. Backlog/unassigned until completed exact precode review and normal Ready→Atul/In progress; five provisional points, one active runtime story. Then implement/review/qualify/deliver in that order. Other three runtime stories remain Backlog/unassigned. Live Project owns actual lifecycle.
+
+No package/API/math/version/dependency changes are planned. WindowsCRLF/LinuxLF source packaging is explicit, with both raw maps preserved; an initial rawGit-vs-Windows inventory assertion stopped before prepared inputs and was corrected as a representation check, not relabeled runtime evidence. Earlier missing fourth-output-line and mixed source-pin preparation corrections remain evidence-linked in the next implementation validation record. Research M2/M3/M5 and combined C1 stay open, R13 negative study/witnessDEFER stay preserved, R7 remains paused. No new owner input is needed for this bounded work.
+
+## Earlier checkpoints retained as history
+
 ## EQ131 positioning candidate and actual R14 ownership
 
 [GOV026 accepted handoff](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738) is delivered at main `4effd881008aba295462dcb733a9025c47544b6b`, after 62 candidate and 31 main checks plus separate source, publication and closure reviews. [EQ131 admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872) establishes the first bounded positioning/navigation implementation. The live [Project](https://github.com/users/atulsrivas1/projects/2) owns current lifecycle and assignment; this source snapshot does not grant completion to an unfinished story.

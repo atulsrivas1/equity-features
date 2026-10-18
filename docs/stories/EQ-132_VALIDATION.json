@@ -1,0 +1,90 @@
+{
+  "schema": "eq132.validation.v1",
+  "stage": "source freeze with approved qualification and scoped Windows author proof",
+  "base": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d",
+  "precode_head": "9b59a7f356388e34994cde36c3697661233d2d00",
+  "admission": "https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6245800461",
+  "precode_review_sha256": "ab85c5fb3c6960b52d0db1d0272c3bcf8072301e4e91e6d16f5d72eba22ee974",
+  "predecessor_acceptance": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946",
+  "package_api_math_version_change": false,
+  "form": "three wheels only per OS",
+  "author_inert_controls": {
+    "command": "python tools/test_quickstart_verifier.py",
+    "exit_code": 0,
+    "test_methods": 12,
+    "log_sha256": "e87b16b0aa236672a7fd96f1a13a3031a890873700d625a09dcd81ca54598171",
+    "scope": "stdlib/fabricated-data delivery controls only; no product imports, network or installs"
+  },
+  "source_review": {
+    "review_sha256": "aa94a099c4023d482a2ff5b826fc62de92fbbae481bbc377f661f4f69d3b7a3d",
+    "initial_rework_sha256": "9e858c7b5c1feb902a68736a1a54beeb605564896442dbab2077f6182cd9f2d8",
+    "corrected_inert_methods": 12,
+    "additional_independent_controls": 19,
+    "new_execution_authorized_for_fixed_source": true
+  },
+  "windows_runtime": {
+    "scope": "single author local Windows feasibility, not hosted current-head/main or Linux proof",
+    "status": "PASSED",
+    "exit_code": 0,
+    "python": "3.12.10",
+    "machine": "AMD64",
+    "pip": "25.0.1",
+    "report_sha256": "c4824d6cdc553da80a89e62955464863e319d61a60723425dc0724d22b40232a",
+    "raw_log_sha256": "c84dc60e0ebf9b5f854d2eac475c7baaef7092864889aaed427bab94c6b79a19",
+    "executed_inputs_sha256": "74e532525fbc8d6ad9930f8c4c3c3306f70afd337d243cebec927641cd573e50",
+    "qualification_cases": 43,
+    "whole_four_lines": true,
+    "full_site_files": 925,
+    "full_core_and_installed_payload_unchanged": true,
+    "evidence_review_sha256": "74a56665c20eb7114c2bb8bfbcd719efae4e7b11b93f2c3fda5766bb53551364"
+  },
+  "linux_runtime": null,
+  "candidate_checks": null,
+  "main_checks": null,
+  "observed_timing": {
+    "windows_author_seconds": 45.094,
+    "stages": "metadata/acquisition, archive verification, venv, core/consumer install, installed inventories, pip check, walkthrough, independent results and public qualification",
+    "excluded": "existing Python/Git/gh/authentication/setup/checkout",
+    "human_or_novice_evidence": false
+  },
+  "criteria_accepted": false,
+  "preserved_preparation_corrections": [
+    "Missing fourth adapter stdout line corrected before precode approval",
+    "Physical CRLF versus Git-raw mixed source pins corrected and preserved",
+    "Raw Git versus Windows-wheel assertion refused before prepared inputs; exact per-OS maps/source LF equivalence retained",
+    "Read-only guessed module/workflow paths corrected using actual inventory; no product execution",
+    "Independent admission-review harness final order-only assertion corrected; actual author tool unchanged",
+    "Initial changed-source LF author check refused retained physical CRLF in changed Markdown; only declared changed docs with LF-only Git bases normalized before review; no product execution."
+  ],
+  "author_documentation": {
+    "existing_structure_exit": 0,
+    "active_story_assignments": 134,
+    "feature_mappings": 39,
+    "utf8_lf": true,
+    "current_local_links": 80,
+    "package_effective_inputs_unchanged": true,
+    "original_three_criteria_and_history_unchanged": true
+  },
+  "prior_author_inert_controls": [
+    {
+      "command": "python tools/test_quickstart_verifier.py",
+      "exit_code": 0,
+      "test_methods": 10,
+      "observed_seconds": 0.092,
+      "scope": "stdlib/fabricated-data delivery boundary controls; no product imports, network or installation"
+    }
+  ],
+  "source_rework": {
+    "initial_review_sha256": "9e858c7b5c1feb902a68736a1a54beeb605564896442dbab2077f6182cd9f2d8",
+    "disposition": "All three findings corrected and renewed exact source review approved before the actual Windows author run; original REWORK retained.",
+    "corrected": [
+      "Complete on-disk site tree closure against all RECORD owners including bootstrap; duplicate/overlapping ownership denied",
+      "Explicit AMD64/x86_64 machine plus CPython312/64bit checks in parent and child",
+      "Closed direct_url/archive_info shape, all digest fields and URL components verified"
+    ],
+    "initial_frozen_source_retained": true,
+    "expanded_control_initial_failure": "First expanded fake-prefix test used unresolved Windows temporary short-path alias; closure now canonicalizes prefix consistently. Original failed12method log retained; corrected12PASS is a new actual result, no product execution.",
+    "product_executions_before_corrected_source_approval": 0
+  },
+  "receipt_scope": "Pre-publication source freeze and scoped author observation; live EQ132 and numbered actual receipts own current lifecycle/acceptance."
+}

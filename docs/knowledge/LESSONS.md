@@ -1,3 +1,15 @@
+## EQ132 implementation lesson: close the inventory you claim
+
+The first qualification-source review returned three P2 findings before product execution: RECORD-only enumeration missed unrecorded files/duplicate distributions, pointer64 admitted other architectures, and installer-origin metadata accepted contradictory fields. The exact initial source/review and ten passing narrow controls remain preserved. Corrections enumerate the full site tree including bootstrap ownership, reject duplicate names/owners and unreadable/linked entries, require AMD64/x86_64 explicitly, and close all origin/digest/URL fields. The first expanded fake-prefix test exposed an unresolved Windows temporary short-path alias; the helper now canonicalizes that prefix. Its failed log is retained; twelve corrected inert delivery methods pass. Renewed exact source review approved the corrections, and a first scoped Windows author installation/replay passed45.094s. Hosted bothOS/currentCI/main proof remains separate; no failed or narrow test is relabeled as that later proof. This is qualification rework, with calculation packages/mathematics unchanged and no runtime failure inferred.
+
+## Earlier checkpoints retained as history
+
+## EQ132 preparation lesson: qualify the actual minimal delivered path
+
+EQ131 has an [accepted closure](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946); EQ132 is only [precode preparation](../stories/EQ-132_IMPLEMENTATION_PLAN.md). Source tracing found a fourth adapter output line, and the old Foundation environment includes NumPy/PyArrow. Therefore complete output and a new minimal three-wheel environment must be checked, not inferred from a combined installation. Freeze exact retained per-OS bytes and source representations: WindowsCRLF and LinuxLF packages can represent the same reviewed source while having different raw digests. Preserve both raw maps and the narrow declared source comparison; do not overwrite a failed raw-equality assertion or claim runtime failure from it. No fresh execution or usability result has occurred yet.
+
+## Earlier checkpoints retained as history
+
 ## EQ131: verify readiness and exact Project schema before mutation
 
 [GOV026's delivery review](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240841591) preserves two observed workflow corrections. REST's milestone aggregate initially reported eight open items while full REST and GraphQL membership/state enumerations agreed on seven issues and zero PRs. The cause was not established; the delivery guard retained the aggregate diagnostically and required matching complete identities and individual states. Later closure readback agreed on six open and one closed. Do not infer a universal API fault or weaken membership checks.
