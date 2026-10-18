@@ -1,3 +1,13 @@
+## EQ133 contributor setup observed; final delivery pending
+
+[PR431](https://github.com/atulsrivas1/equity-features/pull/431) implements the contribution guide and report templates. Three actual future starter issues [432](https://github.com/atulsrivas1/equity-features/issues/432), [433](https://github.com/atulsrivas1/equity-features/issues/433) and [434](https://github.com/atulsrivas1/equity-features/issues/434) remain unassigned Backlog without milestone16.
+
+The exact separately reviewed author Windows source replay at `34e862739bc837f3c190723da349c754d37169e5` passed18commands: fresh checkout/venv, observed CPython3.12x64, pinned development requirements/local editable packages, pip/import checks, six independent reference verifiers, private API-navigation starter rehearsal, compatibility, 649unit tests, boundary and strict typing. The guide is source development; existing minimal delivered-wheel qualification remains separate. Raw log hashes/timings and limits are recorded in [EQ133 validation](../stories/EQ-133_VALIDATION.json). No Linux source-guide execution, independent reinstall, novice timing, human uptake or public starter completion is inferred.
+
+Initial encoding and pre-execution tool review findings remain preserved. Complete final-head source review, current66candidate/33main checks and applicable fresh artifacts/default-branch acceptance through the normal lifecycle before EQ133Done or EQ134admission. No package/math/API/version/dependency change, research/combined C1 closure, outreach/account administration or R7 change.
+
+## Earlier checkpoints retained as history
+
 ## EQ133 contribution path implemented; validation pending
 
 [PR431](https://github.com/atulsrivas1/equity-features/pull/431) follows independently reviewed corrected precode and actual EQ133 Ready admission with three points/Atul. The contribution guide and bug/proposal templates now distinguish source development from minimal delivered wheels, show actual source check commands, scope support and preserve actual contributor provenance. Three concrete public documentation starter issues are linked from CONTRIBUTING; all are unassigned Backlog without R14 milestone, not new selected release work.
