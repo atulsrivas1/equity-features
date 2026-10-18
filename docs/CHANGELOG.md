@@ -1,3 +1,9 @@
+## EQ132 accepted; EQ133 contributor path planned
+
+[EQ132](https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246206150) delivers the qualified minimal installed quickstart at `48d4689f10af8c07545e95bd4e70f240ca81d096`. EQ133 prepares a concrete source-contribution/support/credit guide and three unpublished future starter opportunities, following actual predecessor acceptance. Planning adds no runtime/API/math/package/version change, new contributor uptake or research completion.
+
+## Earlier checkpoints retained as history
+
 ## EQ132 quickstart implementation candidate
 
 Adds a minimal retained-wheel quickstart guide, exact artifact verifier, independent installed result probe, boundary controls and Windows/Linux workflow; links it from README/example/install guides and reconciles current consumer wording to0.4.0. Calculation packages/APIs/mathematics/versions are unchanged. Corrected qualification source passed separate review; one scoped Windows author run passed in45.094s. Full hosted fresh Windows/Linux/current-head/main qualification and delivery remain separate in [EQ132](https://github.com/atulsrivas1/equity-features/issues/313). This is an author source-freeze observation, not a novice five-minute guarantee.

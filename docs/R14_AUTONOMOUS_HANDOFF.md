@@ -1,3 +1,13 @@
+## EQ132 accepted; EQ133 first-contribution precode preparation
+
+[EQ132 accepted delivery](https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246206150) is Closed/Done at main `48d4689f10af8c07545e95bd4e70f240ca81d096` after actual66candidate/33main checks, ten candidate/six main artifacts and separate source/delivery/closure review. [Final public review](https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246196584) records reviewer identity, scope, exact source/CI/artifact bindings and limitations. EQ131/GOV026 remain Done. E21/milestone16 remain open with three selected runtime stories unfinished; live Project is current authority.
+
+[EQ133 concrete plan](stories/EQ-133_IMPLEMENTATION_PLAN.md) and [proposed inputs](stories/EQ-133_INPUTS.json) define source contributor setup versus minimal end-user replay, relevant checks/support/rights/credit and three distinct future unassigned starter tasks. This commit is planning only: EQ133 remains Backlog/unassigned until completed exact precode review and normal Ready→Atul/In progress with three provisional points. The proposed guide, templates and starter issues are not implemented/published by this packet. EQ134/135 remain Backlog; one runtime story at a time.
+
+No calculation/API/package/version/dependency change is planned. Existing full current CI and applicable installed/artifact/default-branch review remain required. R13 failed320-observation evaluation/negative verdict/witnessDEFER stay preserved; research M2/M3/M5 and combined C1 remain open. R7 stays paused. No account administration, outreach, private/provider acquisition, spending, hosting, trading, stable registry, new session or recurring work. No new owner input is currently needed.
+
+## Earlier checkpoints retained as history
+
 ## EQ132 active implementation; fresh quickstart proof pending
 
 [EQ131 accepted](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946) and its independent actual closure are preserved. [EQ132](https://github.com/atulsrivas1/equity-features/issues/313)/[PR430](https://github.com/atulsrivas1/equity-features/pull/430) is Atul/In progress with five provisional points after completed exact precode and transition-tool reviews. [Implementation plan](stories/EQ-132_IMPLEMENTATION_PLAN.md), [inputs](stories/EQ-132_INPUTS.json), [guide](QUICKSTART.md).
