@@ -259,3 +259,5 @@ Status.AVAILABLE requires the admitted nonnull value and appropriate complete co
 Both core distributions and the external consumer contain py.typed. [Typed caller](../../examples/typed_caller.py) spans public batch/history/composition/custom/SDK/discovery/results/errors. [Installed verifier](../../tools/verify_public_typing.py) rejects editable/source imports, checks installed markers/exports, type-checks caller and actual installed consumer with pinnedmypy, and independently requires wrong ConfigSpec/PriceUnit/ConformanceCase calls to produce three argument-type diagnostics. Static checks do not replace the619unit tests or independent mathematical fixtures.
 
 Each fresh wheel/sdist pair in [build delivery](../BUILD_DELIVERY.md) runs these checks after installing the separately built consumer. Development mypy may also check the source, but only actual clean installation qualifies a delivered artifact. Reproduction and command topology are in [extensions](EXTENSIONS.md); EQ040/EQ095 retain their broader example/consumer gates.
+
+<!-- CI003 owned reader-only qualification probe; never merged. -->
