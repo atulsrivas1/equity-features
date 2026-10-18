@@ -62,3 +62,5 @@ physical resource cleanup. Existing package checks and all deferred scope remain
 unchanged. Initial source publication is not executed qualification: exact source
 review, synthetic controls, actual cases, final current candidate/main artifacts
 and independent acceptance remain mandatory.
+
+The corrected reader inspects TAR name/prefix bytes before normalization, refuses hidden link fields and unsafe PAX placeholders, and bounds each Git blob before reading its body. Installed maps require nested file identities; continuous typing/week/absence proofs bind the accepted deterministic per-form records. Quickstart binds all 27 retained sanitized logs and fixed commands independently of raw-private byte counts. Redacted raw logs are unavailable; no original path/output recovery is claimed. Four physical ZIP descriptor encodings have independent synthetic fixture sources. These source corrections are unexecuted pending renewed exact-source review.

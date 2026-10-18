@@ -9386,7 +9386,289 @@
         "independent-results",
         "public-qualification",
         "core-after"
-      ]
+      ],
+      "step_commands": [
+        {
+          "command": [
+            "gh",
+            "api",
+            "repos/atulsrivas1/equity-features/actions/artifacts/12121724243"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 180
+        },
+        {
+          "command": [
+            "gh",
+            "api",
+            "repos/atulsrivas1/equity-features/actions/runs/39089365385"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 180
+        },
+        {
+          "command": [
+            "gh",
+            "api",
+            "repos/atulsrivas1/equity-features/actions/runs/39089365385/attempts/1/jobs?per_page=100"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 180
+        },
+        {
+          "command": [
+            "gh",
+            "api",
+            "repos/atulsrivas1/equity-features/actions/artifacts/12121724243/zip"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 180
+        },
+        {
+          "command": [
+            "$PYTHON",
+            "-I",
+            "-B",
+            "-m",
+            "venv",
+            "$WORK/env"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK/env/bin/python",
+            "-I",
+            "-B",
+            "-m",
+            "pip",
+            "--isolated",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "--no-compile",
+            "$WORK/wheelhouse/equity_feature_contracts-0.0.4a4-py3-none-any.whl",
+            "$WORK/wheelhouse/equity_features-0.0.4a4-py3-none-any.whl"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 120
+        },
+        {
+          "command": [
+            "$WORK/env/bin/python",
+            "-I",
+            "-B",
+            "$CHECKOUT/tools/quickstart_probe.py",
+            "core",
+            "$CHECKOUT/docs/stories/EQ-132_INPUTS.json"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK/env/bin/python",
+            "-I",
+            "-B",
+            "-m",
+            "pip",
+            "--isolated",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "--no-compile",
+            "$WORK/wheelhouse/equity_feature_demo-0.4.0-py3-none-any.whl"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 120
+        },
+        {
+          "command": [
+            "$WORK/env/bin/python",
+            "-I",
+            "-B",
+            "$CHECKOUT/tools/quickstart_probe.py",
+            "full",
+            "$CHECKOUT/docs/stories/EQ-132_INPUTS.json"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK/env/bin/python",
+            "-I",
+            "-B",
+            "-m",
+            "pip",
+            "check"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 120
+        },
+        {
+          "command": [
+            "$WORK/env/bin/python",
+            "-I",
+            "-B",
+            "-m",
+            "equity_feature_demo.walkthrough"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK/env/bin/python",
+            "-I",
+            "-B",
+            "$CHECKOUT/tools/quickstart_probe.py",
+            "results",
+            "$CHECKOUT/docs/stories/EQ-132_INPUTS.json"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK/env/bin/python",
+            "-I",
+            "-B",
+            "-m",
+            "equity_feature_demo.qualification"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK/env/bin/python",
+            "-I",
+            "-B",
+            "$CHECKOUT/tools/quickstart_probe.py",
+            "full",
+            "$CHECKOUT/docs/stories/EQ-132_INPUTS.json"
+          ],
+          "cwd": "$WORK/run",
+          "timeout_seconds": 60
+        }
+      ],
+      "public_logs": {
+        "eq132-quickstart-Linux/logs/01-artifact-metadata-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/01-artifact-metadata-stdout.txt": {
+          "bytes": 746,
+          "sha256": "29f28e7f10a0b8709ad3c09401640a046e24ea692000dadacdaf2f5ef280951c"
+        },
+        "eq132-quickstart-Linux/logs/02-accepted-run-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/02-accepted-run-stdout.txt": {
+          "bytes": 13315,
+          "sha256": "dc511a8c9d0204d0e2488ca2c9781e0784d16312a55c8722bfb191c44433dd81"
+        },
+        "eq132-quickstart-Linux/logs/03-accepted-job-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/03-accepted-job-stdout.txt": {
+          "bytes": 7894,
+          "sha256": "b7891d105b4b4c903ac43014243c95af5fd20a121d28724dea2699da7ff5e38d"
+        },
+        "eq132-quickstart-Linux/logs/04-download-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/05-create-venv-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/05-create-venv-stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/06-install-core-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/06-install-core-stdout.txt": {
+          "bytes": 300,
+          "sha256": "a6fe16ff67ac17b08714a97c3177755a4624dd319013b5746730939a438c0960"
+        },
+        "eq132-quickstart-Linux/logs/07-core-before-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/07-core-before-stdout.txt": {
+          "bytes": 286853,
+          "sha256": "1e5fcf98f7bd2958587fa1abdc758b4311f9d2ecaddca7ecaa659986a135e27a"
+        },
+        "eq132-quickstart-Linux/logs/08-install-consumer-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/08-install-consumer-stdout.txt": {
+          "bytes": 171,
+          "sha256": "43f5a4cfade4e0ae7554e67666b5dc6c4c16f73db137bd89f21328e01a7d2c1b"
+        },
+        "eq132-quickstart-Linux/logs/09-installed-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/09-installed-stdout.txt": {
+          "bytes": 290488,
+          "sha256": "1b9116997fa191b1fd0c3a787bba9cda03ea232bd1a31b938d8daa756bec60a8"
+        },
+        "eq132-quickstart-Linux/logs/10-pip-check-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/10-pip-check-stdout.txt": {
+          "bytes": 30,
+          "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+        },
+        "eq132-quickstart-Linux/logs/11-walkthrough-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/11-walkthrough-stdout.txt": {
+          "bytes": 364,
+          "sha256": "ed6554826fdd747a7e44d480b29ee4670d916d96afab7a607814463a30af5f7c"
+        },
+        "eq132-quickstart-Linux/logs/12-independent-results-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/12-independent-results-stdout.txt": {
+          "bytes": 51447,
+          "sha256": "08ed92eec301a080b4c1bb57174ef025cda16dcdf9f2366606f2f2f171444c94"
+        },
+        "eq132-quickstart-Linux/logs/13-public-qualification-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/13-public-qualification-stdout.txt": {
+          "bytes": 5308,
+          "sha256": "41ac68f7222af50361911c19f1a524ff261543a341e65c1da2ff26f50596a2af"
+        },
+        "eq132-quickstart-Linux/logs/14-core-after-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Linux/logs/14-core-after-stdout.txt": {
+          "bytes": 290488,
+          "sha256": "1b9116997fa191b1fd0c3a787bba9cda03ea232bd1a31b938d8daa756bec60a8"
+        }
+      },
+      "redacted_public_logs": [
+        "eq132-quickstart-Linux/logs/06-install-core-stdout.txt",
+        "eq132-quickstart-Linux/logs/08-install-consumer-stdout.txt"
+      ],
+      "public_log_authority": "Exact accepted CI002-main sanitized public bytes; raw-private stdout/stderr are not uploaded and cannot be reconstructed. Binary download stdout omitted."
     },
     "Windows": {
       "independent_results": {
@@ -14090,7 +14372,289 @@
         "independent-results",
         "public-qualification",
         "core-after"
-      ]
+      ],
+      "step_commands": [
+        {
+          "command": [
+            "gh",
+            "api",
+            "repos/atulsrivas1/equity-features/actions/artifacts/12122147674"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 180
+        },
+        {
+          "command": [
+            "gh",
+            "api",
+            "repos/atulsrivas1/equity-features/actions/runs/39089365385"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 180
+        },
+        {
+          "command": [
+            "gh",
+            "api",
+            "repos/atulsrivas1/equity-features/actions/runs/39089365385/attempts/1/jobs?per_page=100"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 180
+        },
+        {
+          "command": [
+            "gh",
+            "api",
+            "repos/atulsrivas1/equity-features/actions/artifacts/12122147674/zip"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 180
+        },
+        {
+          "command": [
+            "$PYTHON",
+            "-I",
+            "-B",
+            "-m",
+            "venv",
+            "$WORK\\env"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK\\env\\Scripts\\python.exe",
+            "-I",
+            "-B",
+            "-m",
+            "pip",
+            "--isolated",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "--no-compile",
+            "$WORK\\wheelhouse\\equity_feature_contracts-0.0.4a4-py3-none-any.whl",
+            "$WORK\\wheelhouse\\equity_features-0.0.4a4-py3-none-any.whl"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 120
+        },
+        {
+          "command": [
+            "$WORK\\env\\Scripts\\python.exe",
+            "-I",
+            "-B",
+            "$CHECKOUT\\tools\\quickstart_probe.py",
+            "core",
+            "$CHECKOUT\\docs\\stories\\EQ-132_INPUTS.json"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK\\env\\Scripts\\python.exe",
+            "-I",
+            "-B",
+            "-m",
+            "pip",
+            "--isolated",
+            "install",
+            "--no-index",
+            "--no-deps",
+            "--no-compile",
+            "$WORK\\wheelhouse\\equity_feature_demo-0.4.0-py3-none-any.whl"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 120
+        },
+        {
+          "command": [
+            "$WORK\\env\\Scripts\\python.exe",
+            "-I",
+            "-B",
+            "$CHECKOUT\\tools\\quickstart_probe.py",
+            "full",
+            "$CHECKOUT\\docs\\stories\\EQ-132_INPUTS.json"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK\\env\\Scripts\\python.exe",
+            "-I",
+            "-B",
+            "-m",
+            "pip",
+            "check"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 120
+        },
+        {
+          "command": [
+            "$WORK\\env\\Scripts\\python.exe",
+            "-I",
+            "-B",
+            "-m",
+            "equity_feature_demo.walkthrough"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK\\env\\Scripts\\python.exe",
+            "-I",
+            "-B",
+            "$CHECKOUT\\tools\\quickstart_probe.py",
+            "results",
+            "$CHECKOUT\\docs\\stories\\EQ-132_INPUTS.json"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK\\env\\Scripts\\python.exe",
+            "-I",
+            "-B",
+            "-m",
+            "equity_feature_demo.qualification"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 60
+        },
+        {
+          "command": [
+            "$WORK\\env\\Scripts\\python.exe",
+            "-I",
+            "-B",
+            "$CHECKOUT\\tools\\quickstart_probe.py",
+            "full",
+            "$CHECKOUT\\docs\\stories\\EQ-132_INPUTS.json"
+          ],
+          "cwd": "$WORK\\run",
+          "timeout_seconds": 60
+        }
+      ],
+      "public_logs": {
+        "eq132-quickstart-Windows/logs/01-artifact-metadata-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/01-artifact-metadata-stdout.txt": {
+          "bytes": 748,
+          "sha256": "833bbe8e2222dd11b388d78dcc4b107fa825de30130838206512203e46ec8880"
+        },
+        "eq132-quickstart-Windows/logs/02-accepted-run-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/02-accepted-run-stdout.txt": {
+          "bytes": 13315,
+          "sha256": "dc511a8c9d0204d0e2488ca2c9781e0784d16312a55c8722bfb191c44433dd81"
+        },
+        "eq132-quickstart-Windows/logs/03-accepted-job-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/03-accepted-job-stdout.txt": {
+          "bytes": 7894,
+          "sha256": "b7891d105b4b4c903ac43014243c95af5fd20a121d28724dea2699da7ff5e38d"
+        },
+        "eq132-quickstart-Windows/logs/04-download-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/05-create-venv-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/05-create-venv-stdout.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/06-install-core-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/06-install-core-stdout.txt": {
+          "bytes": 304,
+          "sha256": "7817e4ac6628662052be511cfb8e41a96d34f0fc4abfc53747451206a8c554dd"
+        },
+        "eq132-quickstart-Windows/logs/07-core-before-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/07-core-before-stdout.txt": {
+          "bytes": 277468,
+          "sha256": "afeecd57c6ddb7536a2f780fa25a00b743fc3237b6e6945c74510314f9d57921"
+        },
+        "eq132-quickstart-Windows/logs/08-install-consumer-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/08-install-consumer-stdout.txt": {
+          "bytes": 174,
+          "sha256": "7a87cf5956fc997ce640fc25af67fac61d2926f69122ee57fc028feeb4c94119"
+        },
+        "eq132-quickstart-Windows/logs/09-installed-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/09-installed-stdout.txt": {
+          "bytes": 281092,
+          "sha256": "d5c84efadd3edcd544475003f6b87570aeb7285e2a03c6f8d19897ed33915698"
+        },
+        "eq132-quickstart-Windows/logs/10-pip-check-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/10-pip-check-stdout.txt": {
+          "bytes": 31,
+          "sha256": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf"
+        },
+        "eq132-quickstart-Windows/logs/11-walkthrough-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/11-walkthrough-stdout.txt": {
+          "bytes": 368,
+          "sha256": "f9b513a347f69ea37b3e0d1f1064f62a64e03f34fd2850bc4e50b48ef93f3991"
+        },
+        "eq132-quickstart-Windows/logs/12-independent-results-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/12-independent-results-stdout.txt": {
+          "bytes": 51448,
+          "sha256": "bb58d8c35a521cccf61e730c8a8406f5f3c8d28f13e0aa5bbb1be36bd5a8ae84"
+        },
+        "eq132-quickstart-Windows/logs/13-public-qualification-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/13-public-qualification-stdout.txt": {
+          "bytes": 5309,
+          "sha256": "7a6144a0e79206818ecd3c071724c7f8e0789eb9230683ad851f69bc944451ab"
+        },
+        "eq132-quickstart-Windows/logs/14-core-after-stderr.txt": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "eq132-quickstart-Windows/logs/14-core-after-stdout.txt": {
+          "bytes": 281092,
+          "sha256": "d5c84efadd3edcd544475003f6b87570aeb7285e2a03c6f8d19897ed33915698"
+        }
+      },
+      "redacted_public_logs": [
+        "eq132-quickstart-Windows/logs/06-install-core-stdout.txt",
+        "eq132-quickstart-Windows/logs/08-install-consumer-stdout.txt"
+      ],
+      "public_log_authority": "Exact accepted CI002-main sanitized public bytes; raw-private stdout/stderr are not uploaded and cannot be reconstructed. Binary download stdout omitted."
     }
   },
   "accepted_project_archives": {
@@ -15504,6 +16068,1032 @@
           "bytes": 14654,
           "sha256": "c69e51e6b99f38bedc0550371d6c9d8d7f2dd9c99b0d10d6d40a35eb32da35c7"
         }
+      }
+    }
+  },
+  "continuous_installed_proofs": {
+    "Linux": {
+      "light-wheel": {
+        "typing": {
+          "mypy": "1.15.0",
+          "negative_diagnostics": [
+            {
+              "code": "arg-type",
+              "contains": "PriceObservation",
+              "line": 12
+            },
+            {
+              "code": "arg-type",
+              "contains": "MetricValue",
+              "line": 13
+            },
+            {
+              "code": "arg-type",
+              "contains": "config_from_json",
+              "line": 14
+            },
+            {
+              "code": "arg-type",
+              "contains": "consume_old",
+              "line": 15
+            },
+            {
+              "code": "misc",
+              "contains": "read-only",
+              "line": 16
+            },
+            {
+              "code": "assignment",
+              "contains": "Incompatible types in assignment",
+              "line": 16
+            },
+            {
+              "code": "arg-type",
+              "contains": "compute_basis",
+              "line": 17
+            },
+            {
+              "code": "arg-type",
+              "contains": "require_capability",
+              "line": 18
+            }
+          ],
+          "negative_sha256": "9e7ccad9a15d3158ce05f8af155439fae2ff5f2f58114f3f0949cf5bb6331eac",
+          "positive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "synthetic_week": {
+          "receipt": {
+            "batch_feature_ids": [
+              "cross_venue.basis",
+              "cross_venue.premium",
+              "cross_venue.freeze_max_abs",
+              "cross_venue.freeze_mean_abs",
+              "cross_venue.reopen_gap",
+              "cross_venue.reopen_premium"
+            ],
+            "case_count": 12,
+            "cases": [
+              {
+                "case_id": "supplied_friday_basis",
+                "result_digest": "a4a67cbb58ba89d304a4fcc0a88651094ffb2e7d4d3c987abb3ebc69051cc939"
+              },
+              {
+                "case_id": "basis_during_supplied_pause_not_live",
+                "result_digest": "f38bef7106de945ca080a28d8ea66318bc753072df8f7e13824818e3aeccdad8"
+              },
+              {
+                "case_id": "supplied_weekend_freeze",
+                "result_digest": "f50e2f1a104adc749f9bb88c4449f12080677cc30ec8b3d268d7c4f17fc465ff"
+              },
+              {
+                "case_id": "weekend_continuous_outage",
+                "result_digest": "29ff52e9bca48366c6c86c8fb3e3d46bf864acf6aeede015c7ffec29b46dad1c"
+              },
+              {
+                "case_id": "weekend_continuous_stale",
+                "result_digest": "a4ac2eb113997333bef87269ab31396e3859bcfecdd61625425894e07590a0ab"
+              },
+              {
+                "case_id": "weekend_continuous_unknown",
+                "result_digest": "d6718452836ec745d3c5cb44703a2017c7dae85443d80c9e4149042e0cb30d48"
+              },
+              {
+                "case_id": "weekend_one_ns_reference_fact_gap",
+                "result_digest": "ab8035a82819e556e019f271fcf596db26beafd02ceda3eeebb14b74a82388c8"
+              },
+              {
+                "case_id": "weekend_incomplete_census",
+                "result_digest": "6fe500afa08a3aa33321f3dadb17310a5bd8b3f32f39da287f136f58ab091c1e"
+              },
+              {
+                "case_id": "weekend_unknown_census_knowledge",
+                "result_digest": "84989842771cee8fe3f294b710ac60ae50cbe328cde99d5bf3e9e3090f00ab43"
+              },
+              {
+                "case_id": "weekend_late_census_knowledge",
+                "result_digest": "0872616bdb138e7108ccdf5f605cad19b43c98ba62c6bfbfd5b68dcb9bd1a158"
+              },
+              {
+                "case_id": "reopen_before_first_knowledge_no_later_substitution",
+                "result_digest": "23fe984d39904b39d27d1d86f9b6f586ad876c2521b9ef1ca26f69e886e75011"
+              },
+              {
+                "case_id": "reopen_after_original_first_knowledge",
+                "result_digest": "50a7cf5eaa33c4a9423a1c87912b5d73f04d7f7b7cb2110d9c3a1ce6de71e552"
+              }
+            ],
+            "fixture_sha256": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+            "schema": "continuous-supplied-week:1"
+          },
+          "stdout_sha256": "87872b64a42cf8affa3a6204ee429bf82428f1c5773f595bb259a43aaee6c035",
+          "strict_typing_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "optional_absence": [
+          "equity_feature_workers",
+          "equity_feature_io_contracts",
+          "equity_feature_io_sdk",
+          "equity_feature_evidence",
+          "equity_feature_agent_evidence",
+          "equity_feature_agent_ledger",
+          "equity_feature_mcp",
+          "numpy",
+          "pyarrow",
+          "equity_features"
+        ]
+      },
+      "light-sdist": {
+        "typing": {
+          "mypy": "1.15.0",
+          "negative_diagnostics": [
+            {
+              "code": "arg-type",
+              "contains": "PriceObservation",
+              "line": 12
+            },
+            {
+              "code": "arg-type",
+              "contains": "MetricValue",
+              "line": 13
+            },
+            {
+              "code": "arg-type",
+              "contains": "config_from_json",
+              "line": 14
+            },
+            {
+              "code": "arg-type",
+              "contains": "consume_old",
+              "line": 15
+            },
+            {
+              "code": "misc",
+              "contains": "read-only",
+              "line": 16
+            },
+            {
+              "code": "assignment",
+              "contains": "Incompatible types in assignment",
+              "line": 16
+            },
+            {
+              "code": "arg-type",
+              "contains": "compute_basis",
+              "line": 17
+            },
+            {
+              "code": "arg-type",
+              "contains": "require_capability",
+              "line": 18
+            }
+          ],
+          "negative_sha256": "9e7ccad9a15d3158ce05f8af155439fae2ff5f2f58114f3f0949cf5bb6331eac",
+          "positive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "synthetic_week": {
+          "receipt": {
+            "batch_feature_ids": [
+              "cross_venue.basis",
+              "cross_venue.premium",
+              "cross_venue.freeze_max_abs",
+              "cross_venue.freeze_mean_abs",
+              "cross_venue.reopen_gap",
+              "cross_venue.reopen_premium"
+            ],
+            "case_count": 12,
+            "cases": [
+              {
+                "case_id": "supplied_friday_basis",
+                "result_digest": "a4a67cbb58ba89d304a4fcc0a88651094ffb2e7d4d3c987abb3ebc69051cc939"
+              },
+              {
+                "case_id": "basis_during_supplied_pause_not_live",
+                "result_digest": "f38bef7106de945ca080a28d8ea66318bc753072df8f7e13824818e3aeccdad8"
+              },
+              {
+                "case_id": "supplied_weekend_freeze",
+                "result_digest": "f50e2f1a104adc749f9bb88c4449f12080677cc30ec8b3d268d7c4f17fc465ff"
+              },
+              {
+                "case_id": "weekend_continuous_outage",
+                "result_digest": "29ff52e9bca48366c6c86c8fb3e3d46bf864acf6aeede015c7ffec29b46dad1c"
+              },
+              {
+                "case_id": "weekend_continuous_stale",
+                "result_digest": "a4ac2eb113997333bef87269ab31396e3859bcfecdd61625425894e07590a0ab"
+              },
+              {
+                "case_id": "weekend_continuous_unknown",
+                "result_digest": "d6718452836ec745d3c5cb44703a2017c7dae85443d80c9e4149042e0cb30d48"
+              },
+              {
+                "case_id": "weekend_one_ns_reference_fact_gap",
+                "result_digest": "ab8035a82819e556e019f271fcf596db26beafd02ceda3eeebb14b74a82388c8"
+              },
+              {
+                "case_id": "weekend_incomplete_census",
+                "result_digest": "6fe500afa08a3aa33321f3dadb17310a5bd8b3f32f39da287f136f58ab091c1e"
+              },
+              {
+                "case_id": "weekend_unknown_census_knowledge",
+                "result_digest": "84989842771cee8fe3f294b710ac60ae50cbe328cde99d5bf3e9e3090f00ab43"
+              },
+              {
+                "case_id": "weekend_late_census_knowledge",
+                "result_digest": "0872616bdb138e7108ccdf5f605cad19b43c98ba62c6bfbfd5b68dcb9bd1a158"
+              },
+              {
+                "case_id": "reopen_before_first_knowledge_no_later_substitution",
+                "result_digest": "23fe984d39904b39d27d1d86f9b6f586ad876c2521b9ef1ca26f69e886e75011"
+              },
+              {
+                "case_id": "reopen_after_original_first_knowledge",
+                "result_digest": "50a7cf5eaa33c4a9423a1c87912b5d73f04d7f7b7cb2110d9c3a1ce6de71e552"
+              }
+            ],
+            "fixture_sha256": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+            "schema": "continuous-supplied-week:1"
+          },
+          "stdout_sha256": "87872b64a42cf8affa3a6204ee429bf82428f1c5773f595bb259a43aaee6c035",
+          "strict_typing_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "optional_absence": [
+          "equity_feature_workers",
+          "equity_feature_io_contracts",
+          "equity_feature_io_sdk",
+          "equity_feature_evidence",
+          "equity_feature_agent_evidence",
+          "equity_feature_agent_ledger",
+          "equity_feature_mcp",
+          "numpy",
+          "pyarrow",
+          "equity_features"
+        ]
+      },
+      "combined-wheel": {
+        "typing": {
+          "mypy": "1.15.0",
+          "negative_diagnostics": [
+            {
+              "code": "arg-type",
+              "contains": "PriceObservation",
+              "line": 12
+            },
+            {
+              "code": "arg-type",
+              "contains": "MetricValue",
+              "line": 13
+            },
+            {
+              "code": "arg-type",
+              "contains": "config_from_json",
+              "line": 14
+            },
+            {
+              "code": "arg-type",
+              "contains": "consume_old",
+              "line": 15
+            },
+            {
+              "code": "misc",
+              "contains": "read-only",
+              "line": 16
+            },
+            {
+              "code": "assignment",
+              "contains": "Incompatible types in assignment",
+              "line": 16
+            },
+            {
+              "code": "arg-type",
+              "contains": "compute_basis",
+              "line": 17
+            },
+            {
+              "code": "arg-type",
+              "contains": "require_capability",
+              "line": 18
+            }
+          ],
+          "negative_sha256": "9e7ccad9a15d3158ce05f8af155439fae2ff5f2f58114f3f0949cf5bb6331eac",
+          "positive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "synthetic_week": {
+          "receipt": {
+            "batch_feature_ids": [
+              "cross_venue.basis",
+              "cross_venue.premium",
+              "cross_venue.freeze_max_abs",
+              "cross_venue.freeze_mean_abs",
+              "cross_venue.reopen_gap",
+              "cross_venue.reopen_premium"
+            ],
+            "case_count": 12,
+            "cases": [
+              {
+                "case_id": "supplied_friday_basis",
+                "result_digest": "a4a67cbb58ba89d304a4fcc0a88651094ffb2e7d4d3c987abb3ebc69051cc939"
+              },
+              {
+                "case_id": "basis_during_supplied_pause_not_live",
+                "result_digest": "f38bef7106de945ca080a28d8ea66318bc753072df8f7e13824818e3aeccdad8"
+              },
+              {
+                "case_id": "supplied_weekend_freeze",
+                "result_digest": "f50e2f1a104adc749f9bb88c4449f12080677cc30ec8b3d268d7c4f17fc465ff"
+              },
+              {
+                "case_id": "weekend_continuous_outage",
+                "result_digest": "29ff52e9bca48366c6c86c8fb3e3d46bf864acf6aeede015c7ffec29b46dad1c"
+              },
+              {
+                "case_id": "weekend_continuous_stale",
+                "result_digest": "a4ac2eb113997333bef87269ab31396e3859bcfecdd61625425894e07590a0ab"
+              },
+              {
+                "case_id": "weekend_continuous_unknown",
+                "result_digest": "d6718452836ec745d3c5cb44703a2017c7dae85443d80c9e4149042e0cb30d48"
+              },
+              {
+                "case_id": "weekend_one_ns_reference_fact_gap",
+                "result_digest": "ab8035a82819e556e019f271fcf596db26beafd02ceda3eeebb14b74a82388c8"
+              },
+              {
+                "case_id": "weekend_incomplete_census",
+                "result_digest": "6fe500afa08a3aa33321f3dadb17310a5bd8b3f32f39da287f136f58ab091c1e"
+              },
+              {
+                "case_id": "weekend_unknown_census_knowledge",
+                "result_digest": "84989842771cee8fe3f294b710ac60ae50cbe328cde99d5bf3e9e3090f00ab43"
+              },
+              {
+                "case_id": "weekend_late_census_knowledge",
+                "result_digest": "0872616bdb138e7108ccdf5f605cad19b43c98ba62c6bfbfd5b68dcb9bd1a158"
+              },
+              {
+                "case_id": "reopen_before_first_knowledge_no_later_substitution",
+                "result_digest": "23fe984d39904b39d27d1d86f9b6f586ad876c2521b9ef1ca26f69e886e75011"
+              },
+              {
+                "case_id": "reopen_after_original_first_knowledge",
+                "result_digest": "50a7cf5eaa33c4a9423a1c87912b5d73f04d7f7b7cb2110d9c3a1ce6de71e552"
+              }
+            ],
+            "fixture_sha256": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+            "schema": "continuous-supplied-week:1"
+          },
+          "stdout_sha256": "87872b64a42cf8affa3a6204ee429bf82428f1c5773f595bb259a43aaee6c035",
+          "strict_typing_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "optional_absence": [
+          "equity_feature_workers",
+          "equity_feature_io_contracts",
+          "equity_feature_io_sdk",
+          "equity_feature_evidence",
+          "equity_feature_agent_evidence",
+          "equity_feature_agent_ledger",
+          "equity_feature_mcp",
+          "numpy",
+          "pyarrow"
+        ]
+      },
+      "combined-sdist": {
+        "typing": {
+          "mypy": "1.15.0",
+          "negative_diagnostics": [
+            {
+              "code": "arg-type",
+              "contains": "PriceObservation",
+              "line": 12
+            },
+            {
+              "code": "arg-type",
+              "contains": "MetricValue",
+              "line": 13
+            },
+            {
+              "code": "arg-type",
+              "contains": "config_from_json",
+              "line": 14
+            },
+            {
+              "code": "arg-type",
+              "contains": "consume_old",
+              "line": 15
+            },
+            {
+              "code": "misc",
+              "contains": "read-only",
+              "line": 16
+            },
+            {
+              "code": "assignment",
+              "contains": "Incompatible types in assignment",
+              "line": 16
+            },
+            {
+              "code": "arg-type",
+              "contains": "compute_basis",
+              "line": 17
+            },
+            {
+              "code": "arg-type",
+              "contains": "require_capability",
+              "line": 18
+            }
+          ],
+          "negative_sha256": "9e7ccad9a15d3158ce05f8af155439fae2ff5f2f58114f3f0949cf5bb6331eac",
+          "positive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "synthetic_week": {
+          "receipt": {
+            "batch_feature_ids": [
+              "cross_venue.basis",
+              "cross_venue.premium",
+              "cross_venue.freeze_max_abs",
+              "cross_venue.freeze_mean_abs",
+              "cross_venue.reopen_gap",
+              "cross_venue.reopen_premium"
+            ],
+            "case_count": 12,
+            "cases": [
+              {
+                "case_id": "supplied_friday_basis",
+                "result_digest": "a4a67cbb58ba89d304a4fcc0a88651094ffb2e7d4d3c987abb3ebc69051cc939"
+              },
+              {
+                "case_id": "basis_during_supplied_pause_not_live",
+                "result_digest": "f38bef7106de945ca080a28d8ea66318bc753072df8f7e13824818e3aeccdad8"
+              },
+              {
+                "case_id": "supplied_weekend_freeze",
+                "result_digest": "f50e2f1a104adc749f9bb88c4449f12080677cc30ec8b3d268d7c4f17fc465ff"
+              },
+              {
+                "case_id": "weekend_continuous_outage",
+                "result_digest": "29ff52e9bca48366c6c86c8fb3e3d46bf864acf6aeede015c7ffec29b46dad1c"
+              },
+              {
+                "case_id": "weekend_continuous_stale",
+                "result_digest": "a4ac2eb113997333bef87269ab31396e3859bcfecdd61625425894e07590a0ab"
+              },
+              {
+                "case_id": "weekend_continuous_unknown",
+                "result_digest": "d6718452836ec745d3c5cb44703a2017c7dae85443d80c9e4149042e0cb30d48"
+              },
+              {
+                "case_id": "weekend_one_ns_reference_fact_gap",
+                "result_digest": "ab8035a82819e556e019f271fcf596db26beafd02ceda3eeebb14b74a82388c8"
+              },
+              {
+                "case_id": "weekend_incomplete_census",
+                "result_digest": "6fe500afa08a3aa33321f3dadb17310a5bd8b3f32f39da287f136f58ab091c1e"
+              },
+              {
+                "case_id": "weekend_unknown_census_knowledge",
+                "result_digest": "84989842771cee8fe3f294b710ac60ae50cbe328cde99d5bf3e9e3090f00ab43"
+              },
+              {
+                "case_id": "weekend_late_census_knowledge",
+                "result_digest": "0872616bdb138e7108ccdf5f605cad19b43c98ba62c6bfbfd5b68dcb9bd1a158"
+              },
+              {
+                "case_id": "reopen_before_first_knowledge_no_later_substitution",
+                "result_digest": "23fe984d39904b39d27d1d86f9b6f586ad876c2521b9ef1ca26f69e886e75011"
+              },
+              {
+                "case_id": "reopen_after_original_first_knowledge",
+                "result_digest": "50a7cf5eaa33c4a9423a1c87912b5d73f04d7f7b7cb2110d9c3a1ce6de71e552"
+              }
+            ],
+            "fixture_sha256": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+            "schema": "continuous-supplied-week:1"
+          },
+          "stdout_sha256": "87872b64a42cf8affa3a6204ee429bf82428f1c5773f595bb259a43aaee6c035",
+          "strict_typing_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "optional_absence": [
+          "equity_feature_workers",
+          "equity_feature_io_contracts",
+          "equity_feature_io_sdk",
+          "equity_feature_evidence",
+          "equity_feature_agent_evidence",
+          "equity_feature_agent_ledger",
+          "equity_feature_mcp",
+          "numpy",
+          "pyarrow"
+        ]
+      }
+    },
+    "Windows": {
+      "light-wheel": {
+        "typing": {
+          "mypy": "1.15.0",
+          "negative_diagnostics": [
+            {
+              "code": "arg-type",
+              "contains": "PriceObservation",
+              "line": 12
+            },
+            {
+              "code": "arg-type",
+              "contains": "MetricValue",
+              "line": 13
+            },
+            {
+              "code": "arg-type",
+              "contains": "config_from_json",
+              "line": 14
+            },
+            {
+              "code": "arg-type",
+              "contains": "consume_old",
+              "line": 15
+            },
+            {
+              "code": "misc",
+              "contains": "read-only",
+              "line": 16
+            },
+            {
+              "code": "assignment",
+              "contains": "Incompatible types in assignment",
+              "line": 16
+            },
+            {
+              "code": "arg-type",
+              "contains": "compute_basis",
+              "line": 17
+            },
+            {
+              "code": "arg-type",
+              "contains": "require_capability",
+              "line": 18
+            }
+          ],
+          "negative_sha256": "5b0f54de44ada25e1970e96c0747672335cf9ca535d62f0222b0c8130bbcbd8c",
+          "positive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "synthetic_week": {
+          "receipt": {
+            "batch_feature_ids": [
+              "cross_venue.basis",
+              "cross_venue.premium",
+              "cross_venue.freeze_max_abs",
+              "cross_venue.freeze_mean_abs",
+              "cross_venue.reopen_gap",
+              "cross_venue.reopen_premium"
+            ],
+            "case_count": 12,
+            "cases": [
+              {
+                "case_id": "supplied_friday_basis",
+                "result_digest": "a4a67cbb58ba89d304a4fcc0a88651094ffb2e7d4d3c987abb3ebc69051cc939"
+              },
+              {
+                "case_id": "basis_during_supplied_pause_not_live",
+                "result_digest": "f38bef7106de945ca080a28d8ea66318bc753072df8f7e13824818e3aeccdad8"
+              },
+              {
+                "case_id": "supplied_weekend_freeze",
+                "result_digest": "f50e2f1a104adc749f9bb88c4449f12080677cc30ec8b3d268d7c4f17fc465ff"
+              },
+              {
+                "case_id": "weekend_continuous_outage",
+                "result_digest": "29ff52e9bca48366c6c86c8fb3e3d46bf864acf6aeede015c7ffec29b46dad1c"
+              },
+              {
+                "case_id": "weekend_continuous_stale",
+                "result_digest": "a4ac2eb113997333bef87269ab31396e3859bcfecdd61625425894e07590a0ab"
+              },
+              {
+                "case_id": "weekend_continuous_unknown",
+                "result_digest": "d6718452836ec745d3c5cb44703a2017c7dae85443d80c9e4149042e0cb30d48"
+              },
+              {
+                "case_id": "weekend_one_ns_reference_fact_gap",
+                "result_digest": "ab8035a82819e556e019f271fcf596db26beafd02ceda3eeebb14b74a82388c8"
+              },
+              {
+                "case_id": "weekend_incomplete_census",
+                "result_digest": "6fe500afa08a3aa33321f3dadb17310a5bd8b3f32f39da287f136f58ab091c1e"
+              },
+              {
+                "case_id": "weekend_unknown_census_knowledge",
+                "result_digest": "84989842771cee8fe3f294b710ac60ae50cbe328cde99d5bf3e9e3090f00ab43"
+              },
+              {
+                "case_id": "weekend_late_census_knowledge",
+                "result_digest": "0872616bdb138e7108ccdf5f605cad19b43c98ba62c6bfbfd5b68dcb9bd1a158"
+              },
+              {
+                "case_id": "reopen_before_first_knowledge_no_later_substitution",
+                "result_digest": "23fe984d39904b39d27d1d86f9b6f586ad876c2521b9ef1ca26f69e886e75011"
+              },
+              {
+                "case_id": "reopen_after_original_first_knowledge",
+                "result_digest": "50a7cf5eaa33c4a9423a1c87912b5d73f04d7f7b7cb2110d9c3a1ce6de71e552"
+              }
+            ],
+            "fixture_sha256": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+            "schema": "continuous-supplied-week:1"
+          },
+          "stdout_sha256": "87872b64a42cf8affa3a6204ee429bf82428f1c5773f595bb259a43aaee6c035",
+          "strict_typing_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "optional_absence": [
+          "equity_feature_workers",
+          "equity_feature_io_contracts",
+          "equity_feature_io_sdk",
+          "equity_feature_evidence",
+          "equity_feature_agent_evidence",
+          "equity_feature_agent_ledger",
+          "equity_feature_mcp",
+          "numpy",
+          "pyarrow",
+          "equity_features"
+        ]
+      },
+      "light-sdist": {
+        "typing": {
+          "mypy": "1.15.0",
+          "negative_diagnostics": [
+            {
+              "code": "arg-type",
+              "contains": "PriceObservation",
+              "line": 12
+            },
+            {
+              "code": "arg-type",
+              "contains": "MetricValue",
+              "line": 13
+            },
+            {
+              "code": "arg-type",
+              "contains": "config_from_json",
+              "line": 14
+            },
+            {
+              "code": "arg-type",
+              "contains": "consume_old",
+              "line": 15
+            },
+            {
+              "code": "misc",
+              "contains": "read-only",
+              "line": 16
+            },
+            {
+              "code": "assignment",
+              "contains": "Incompatible types in assignment",
+              "line": 16
+            },
+            {
+              "code": "arg-type",
+              "contains": "compute_basis",
+              "line": 17
+            },
+            {
+              "code": "arg-type",
+              "contains": "require_capability",
+              "line": 18
+            }
+          ],
+          "negative_sha256": "5b0f54de44ada25e1970e96c0747672335cf9ca535d62f0222b0c8130bbcbd8c",
+          "positive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "synthetic_week": {
+          "receipt": {
+            "batch_feature_ids": [
+              "cross_venue.basis",
+              "cross_venue.premium",
+              "cross_venue.freeze_max_abs",
+              "cross_venue.freeze_mean_abs",
+              "cross_venue.reopen_gap",
+              "cross_venue.reopen_premium"
+            ],
+            "case_count": 12,
+            "cases": [
+              {
+                "case_id": "supplied_friday_basis",
+                "result_digest": "a4a67cbb58ba89d304a4fcc0a88651094ffb2e7d4d3c987abb3ebc69051cc939"
+              },
+              {
+                "case_id": "basis_during_supplied_pause_not_live",
+                "result_digest": "f38bef7106de945ca080a28d8ea66318bc753072df8f7e13824818e3aeccdad8"
+              },
+              {
+                "case_id": "supplied_weekend_freeze",
+                "result_digest": "f50e2f1a104adc749f9bb88c4449f12080677cc30ec8b3d268d7c4f17fc465ff"
+              },
+              {
+                "case_id": "weekend_continuous_outage",
+                "result_digest": "29ff52e9bca48366c6c86c8fb3e3d46bf864acf6aeede015c7ffec29b46dad1c"
+              },
+              {
+                "case_id": "weekend_continuous_stale",
+                "result_digest": "a4ac2eb113997333bef87269ab31396e3859bcfecdd61625425894e07590a0ab"
+              },
+              {
+                "case_id": "weekend_continuous_unknown",
+                "result_digest": "d6718452836ec745d3c5cb44703a2017c7dae85443d80c9e4149042e0cb30d48"
+              },
+              {
+                "case_id": "weekend_one_ns_reference_fact_gap",
+                "result_digest": "ab8035a82819e556e019f271fcf596db26beafd02ceda3eeebb14b74a82388c8"
+              },
+              {
+                "case_id": "weekend_incomplete_census",
+                "result_digest": "6fe500afa08a3aa33321f3dadb17310a5bd8b3f32f39da287f136f58ab091c1e"
+              },
+              {
+                "case_id": "weekend_unknown_census_knowledge",
+                "result_digest": "84989842771cee8fe3f294b710ac60ae50cbe328cde99d5bf3e9e3090f00ab43"
+              },
+              {
+                "case_id": "weekend_late_census_knowledge",
+                "result_digest": "0872616bdb138e7108ccdf5f605cad19b43c98ba62c6bfbfd5b68dcb9bd1a158"
+              },
+              {
+                "case_id": "reopen_before_first_knowledge_no_later_substitution",
+                "result_digest": "23fe984d39904b39d27d1d86f9b6f586ad876c2521b9ef1ca26f69e886e75011"
+              },
+              {
+                "case_id": "reopen_after_original_first_knowledge",
+                "result_digest": "50a7cf5eaa33c4a9423a1c87912b5d73f04d7f7b7cb2110d9c3a1ce6de71e552"
+              }
+            ],
+            "fixture_sha256": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+            "schema": "continuous-supplied-week:1"
+          },
+          "stdout_sha256": "87872b64a42cf8affa3a6204ee429bf82428f1c5773f595bb259a43aaee6c035",
+          "strict_typing_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "optional_absence": [
+          "equity_feature_workers",
+          "equity_feature_io_contracts",
+          "equity_feature_io_sdk",
+          "equity_feature_evidence",
+          "equity_feature_agent_evidence",
+          "equity_feature_agent_ledger",
+          "equity_feature_mcp",
+          "numpy",
+          "pyarrow",
+          "equity_features"
+        ]
+      },
+      "combined-wheel": {
+        "typing": {
+          "mypy": "1.15.0",
+          "negative_diagnostics": [
+            {
+              "code": "arg-type",
+              "contains": "PriceObservation",
+              "line": 12
+            },
+            {
+              "code": "arg-type",
+              "contains": "MetricValue",
+              "line": 13
+            },
+            {
+              "code": "arg-type",
+              "contains": "config_from_json",
+              "line": 14
+            },
+            {
+              "code": "arg-type",
+              "contains": "consume_old",
+              "line": 15
+            },
+            {
+              "code": "misc",
+              "contains": "read-only",
+              "line": 16
+            },
+            {
+              "code": "assignment",
+              "contains": "Incompatible types in assignment",
+              "line": 16
+            },
+            {
+              "code": "arg-type",
+              "contains": "compute_basis",
+              "line": 17
+            },
+            {
+              "code": "arg-type",
+              "contains": "require_capability",
+              "line": 18
+            }
+          ],
+          "negative_sha256": "5b0f54de44ada25e1970e96c0747672335cf9ca535d62f0222b0c8130bbcbd8c",
+          "positive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "synthetic_week": {
+          "receipt": {
+            "batch_feature_ids": [
+              "cross_venue.basis",
+              "cross_venue.premium",
+              "cross_venue.freeze_max_abs",
+              "cross_venue.freeze_mean_abs",
+              "cross_venue.reopen_gap",
+              "cross_venue.reopen_premium"
+            ],
+            "case_count": 12,
+            "cases": [
+              {
+                "case_id": "supplied_friday_basis",
+                "result_digest": "a4a67cbb58ba89d304a4fcc0a88651094ffb2e7d4d3c987abb3ebc69051cc939"
+              },
+              {
+                "case_id": "basis_during_supplied_pause_not_live",
+                "result_digest": "f38bef7106de945ca080a28d8ea66318bc753072df8f7e13824818e3aeccdad8"
+              },
+              {
+                "case_id": "supplied_weekend_freeze",
+                "result_digest": "f50e2f1a104adc749f9bb88c4449f12080677cc30ec8b3d268d7c4f17fc465ff"
+              },
+              {
+                "case_id": "weekend_continuous_outage",
+                "result_digest": "29ff52e9bca48366c6c86c8fb3e3d46bf864acf6aeede015c7ffec29b46dad1c"
+              },
+              {
+                "case_id": "weekend_continuous_stale",
+                "result_digest": "a4ac2eb113997333bef87269ab31396e3859bcfecdd61625425894e07590a0ab"
+              },
+              {
+                "case_id": "weekend_continuous_unknown",
+                "result_digest": "d6718452836ec745d3c5cb44703a2017c7dae85443d80c9e4149042e0cb30d48"
+              },
+              {
+                "case_id": "weekend_one_ns_reference_fact_gap",
+                "result_digest": "ab8035a82819e556e019f271fcf596db26beafd02ceda3eeebb14b74a82388c8"
+              },
+              {
+                "case_id": "weekend_incomplete_census",
+                "result_digest": "6fe500afa08a3aa33321f3dadb17310a5bd8b3f32f39da287f136f58ab091c1e"
+              },
+              {
+                "case_id": "weekend_unknown_census_knowledge",
+                "result_digest": "84989842771cee8fe3f294b710ac60ae50cbe328cde99d5bf3e9e3090f00ab43"
+              },
+              {
+                "case_id": "weekend_late_census_knowledge",
+                "result_digest": "0872616bdb138e7108ccdf5f605cad19b43c98ba62c6bfbfd5b68dcb9bd1a158"
+              },
+              {
+                "case_id": "reopen_before_first_knowledge_no_later_substitution",
+                "result_digest": "23fe984d39904b39d27d1d86f9b6f586ad876c2521b9ef1ca26f69e886e75011"
+              },
+              {
+                "case_id": "reopen_after_original_first_knowledge",
+                "result_digest": "50a7cf5eaa33c4a9423a1c87912b5d73f04d7f7b7cb2110d9c3a1ce6de71e552"
+              }
+            ],
+            "fixture_sha256": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+            "schema": "continuous-supplied-week:1"
+          },
+          "stdout_sha256": "87872b64a42cf8affa3a6204ee429bf82428f1c5773f595bb259a43aaee6c035",
+          "strict_typing_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "optional_absence": [
+          "equity_feature_workers",
+          "equity_feature_io_contracts",
+          "equity_feature_io_sdk",
+          "equity_feature_evidence",
+          "equity_feature_agent_evidence",
+          "equity_feature_agent_ledger",
+          "equity_feature_mcp",
+          "numpy",
+          "pyarrow"
+        ]
+      },
+      "combined-sdist": {
+        "typing": {
+          "mypy": "1.15.0",
+          "negative_diagnostics": [
+            {
+              "code": "arg-type",
+              "contains": "PriceObservation",
+              "line": 12
+            },
+            {
+              "code": "arg-type",
+              "contains": "MetricValue",
+              "line": 13
+            },
+            {
+              "code": "arg-type",
+              "contains": "config_from_json",
+              "line": 14
+            },
+            {
+              "code": "arg-type",
+              "contains": "consume_old",
+              "line": 15
+            },
+            {
+              "code": "misc",
+              "contains": "read-only",
+              "line": 16
+            },
+            {
+              "code": "assignment",
+              "contains": "Incompatible types in assignment",
+              "line": 16
+            },
+            {
+              "code": "arg-type",
+              "contains": "compute_basis",
+              "line": 17
+            },
+            {
+              "code": "arg-type",
+              "contains": "require_capability",
+              "line": 18
+            }
+          ],
+          "negative_sha256": "5b0f54de44ada25e1970e96c0747672335cf9ca535d62f0222b0c8130bbcbd8c",
+          "positive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "synthetic_week": {
+          "receipt": {
+            "batch_feature_ids": [
+              "cross_venue.basis",
+              "cross_venue.premium",
+              "cross_venue.freeze_max_abs",
+              "cross_venue.freeze_mean_abs",
+              "cross_venue.reopen_gap",
+              "cross_venue.reopen_premium"
+            ],
+            "case_count": 12,
+            "cases": [
+              {
+                "case_id": "supplied_friday_basis",
+                "result_digest": "a4a67cbb58ba89d304a4fcc0a88651094ffb2e7d4d3c987abb3ebc69051cc939"
+              },
+              {
+                "case_id": "basis_during_supplied_pause_not_live",
+                "result_digest": "f38bef7106de945ca080a28d8ea66318bc753072df8f7e13824818e3aeccdad8"
+              },
+              {
+                "case_id": "supplied_weekend_freeze",
+                "result_digest": "f50e2f1a104adc749f9bb88c4449f12080677cc30ec8b3d268d7c4f17fc465ff"
+              },
+              {
+                "case_id": "weekend_continuous_outage",
+                "result_digest": "29ff52e9bca48366c6c86c8fb3e3d46bf864acf6aeede015c7ffec29b46dad1c"
+              },
+              {
+                "case_id": "weekend_continuous_stale",
+                "result_digest": "a4ac2eb113997333bef87269ab31396e3859bcfecdd61625425894e07590a0ab"
+              },
+              {
+                "case_id": "weekend_continuous_unknown",
+                "result_digest": "d6718452836ec745d3c5cb44703a2017c7dae85443d80c9e4149042e0cb30d48"
+              },
+              {
+                "case_id": "weekend_one_ns_reference_fact_gap",
+                "result_digest": "ab8035a82819e556e019f271fcf596db26beafd02ceda3eeebb14b74a82388c8"
+              },
+              {
+                "case_id": "weekend_incomplete_census",
+                "result_digest": "6fe500afa08a3aa33321f3dadb17310a5bd8b3f32f39da287f136f58ab091c1e"
+              },
+              {
+                "case_id": "weekend_unknown_census_knowledge",
+                "result_digest": "84989842771cee8fe3f294b710ac60ae50cbe328cde99d5bf3e9e3090f00ab43"
+              },
+              {
+                "case_id": "weekend_late_census_knowledge",
+                "result_digest": "0872616bdb138e7108ccdf5f605cad19b43c98ba62c6bfbfd5b68dcb9bd1a158"
+              },
+              {
+                "case_id": "reopen_before_first_knowledge_no_later_substitution",
+                "result_digest": "23fe984d39904b39d27d1d86f9b6f586ad876c2521b9ef1ca26f69e886e75011"
+              },
+              {
+                "case_id": "reopen_after_original_first_knowledge",
+                "result_digest": "50a7cf5eaa33c4a9423a1c87912b5d73f04d7f7b7cb2110d9c3a1ce6de71e552"
+              }
+            ],
+            "fixture_sha256": "c3fbce5474d7e1bdf16020a36226d5fb0b6c2d2e290e127749337feaf4d7dc53",
+            "schema": "continuous-supplied-week:1"
+          },
+          "stdout_sha256": "87872b64a42cf8affa3a6204ee429bf82428f1c5773f595bb259a43aaee6c035",
+          "strict_typing_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "optional_absence": [
+          "equity_feature_workers",
+          "equity_feature_io_contracts",
+          "equity_feature_io_sdk",
+          "equity_feature_evidence",
+          "equity_feature_agent_evidence",
+          "equity_feature_agent_ledger",
+          "equity_feature_mcp",
+          "numpy",
+          "pyarrow"
+        ]
       }
     }
   }

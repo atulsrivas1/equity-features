@@ -7,10 +7,12 @@ import importlib.util
 import io
 from pathlib import Path
 import stat
+import struct
 import tarfile
 import unittest
 from unittest.mock import patch
 import zipfile
+import zlib
 
 spec = importlib.util.spec_from_file_location("_ci003_reader", Path(__file__).with_name("qualifier.py"))
 q = importlib.util.module_from_spec(spec)
@@ -49,6 +51,22 @@ class ReaderControls(unittest.TestCase):
         files, members = q.zip_contents(zipped([("a/x", b"literal", stat.S_IFREG | 0o644)]), q.Budget())
         self.assertEqual(files, {"a/x": b"literal"}); self.assertEqual(members["a/x"]["bytes"], 7)
 
+    def test_zip_four_descriptor_encodings(self):
+        # Construct physical records independently of zipfile's writer.
+        for wide in (False, True):
+            for signed in (False, True):
+                with self.subTest(wide=wide, signed=signed):
+                    body = b'literal'; crc = zlib.crc32(body) & 0xffffffff
+                    extra = struct.pack('<HHQQ', 1, 16, 7, 7) if wide else b''
+                    local = struct.pack('<4s5H3I2H', b'PK\x03\x04', 45 if wide else 20, 8, 0, 0, 0, 0,
+                                        0xffffffff if wide else 0, 0xffffffff if wide else 0, 1, len(extra)) + b'a' + extra + body
+                    descriptor = (b'PK\x07\x08' if signed else b'') + struct.pack('<IQQ' if wide else '<III', crc, 7, 7)
+                    central = struct.pack('<4s6H3I5H2I', b'PK\x01\x02', 20, 45 if wide else 20, 8, 0, 0, 0,
+                                          crc, 7, 7, 1, 0, 0, 0, 0, (stat.S_IFREG | 0o644) << 16, 0) + b'a'
+                    end = struct.pack('<4s4H2IH', b'PK\x05\x06', 0, 0, 1, 1, len(central), len(local) + len(descriptor), 0)
+                    raw = local + descriptor + central + end
+                    self.assertEqual(q.zip_contents(raw, q.Budget())[0], {'a': body})
+
     def test_unsafe_path_forms(self):
         for path in ("/a", "../a", "a/./b", "a//b", "C:/a", "a\\b", "a/nul.txt", "a. /b", "a\x00b", "a/COM1", "a/../b", "a/", "nonascii-é"):
             with self.subTest(path=path):
@@ -86,6 +104,37 @@ class ReaderControls(unittest.TestCase):
     def test_tar_regular_bytes(self):
         files, members, controls = q.tar_contents(tarred([('a/x', b'literal', tarfile.REGTYPE, {})]), q.Budget())
         self.assertEqual(files, {'a/x': b'literal'}); self.assertFalse(controls); self.assertEqual(members['a/x']['mode'], 0o644)
+
+    def test_tar_raw_name_padding_and_linkname(self):
+        for offset in (2, 347, 157):
+            data = bytearray(gzip.decompress(tarred([('a', b'x', tarfile.REGTYPE, {})])))
+            data[offset] = ord('x'); data[148:156] = b'        '
+            data[148:156] = ('%06o\0 ' % sum(data[:512])).encode()
+            self.rejected(lambda: q.tar_contents(gzip.compress(bytes(data)), q.Budget()))
+
+    def test_tar_pax_does_not_hide_unsafe_placeholder(self):
+        data = bytearray(gzip.decompress(tarred([('a/' + 'b' * 104, b'x', tarfile.REGTYPE, {})], True)))
+        size = int(data[124:136].strip(b'\0 '), 8); offset = 512 + ((size + 511) // 512) * 512
+        data[offset:offset + 100] = b'../hidden' + b'\0' * 91
+        data[offset + 148:offset + 156] = b'        '
+        data[offset + 148:offset + 156] = ('%06o\0 ' % sum(data[offset:offset + 512])).encode()
+        self.rejected(lambda: q.tar_contents(gzip.compress(bytes(data)), q.Budget()))
+
+    def test_git_blob_pre_read_bounds(self):
+        class Stream:
+            def readline(self, bound):
+                return b'1' * 40 + b' blob 100\n'
+            def read(self, count):
+                raise AssertionError('oversized body must not be read')
+        self.rejected(lambda: q.git_blob_record(Stream(), '1' * 40, 99))
+        with patch.object(q, 'MAX_MEMBER', 99):
+            self.rejected(lambda: q.git_blob_record(Stream(), '1' * 40, 1000))
+
+    def test_git_blob_frame_and_digest(self):
+        body = b'literal'; oid = hashlib.sha1(b'blob 7\0' + body).hexdigest()
+        framed = oid.encode() + b' blob 7\n' + body + b'\n'
+        self.assertEqual(q.git_blob_record(io.BytesIO(framed), oid, 7), body)
+        self.rejected(lambda: q.git_blob_record(io.BytesIO(framed[:-1]), oid, 7))
 
     def test_tar_longpath_local_pax(self):
         name = 'a/' + 'b' * 104
@@ -128,6 +177,31 @@ class ReaderControls(unittest.TestCase):
         q.verify_method(record, 8, files)
         for key, value in [('methods', True), ('skipped', 1), ('log_sha256', '0' * 64)]:
             bad = dict(record); bad[key] = value; self.rejected(lambda: q.verify_method(bad, 8, files))
+
+    def test_installed_maps_strict_nested_types(self):
+        q.installed_map({'a.py': '1' * 64})
+        q.installed_map({'module': {'version': '1', 'files': {'a.py': {'bytes': 1, 'sha256': '1' * 64}}}})
+        for value in (False, {}, {'a.py': False}, {'module': {'version': '1', 'files': {'a.py': {'bytes': True, 'sha256': '1' * 64}}}}):
+            self.rejected(lambda: q.installed_map(value))
+
+    def test_installed_continuous_false_proof(self):
+        forms = ['light-wheel', 'light-sdist', 'combined-wheel', 'combined-sdist']
+        report = {'system': 'Linux', 'forms': [{'form': f, 'typing': False} for f in forms]}
+        contract = {'builder_proof_requirements': {'continuous': {'forms_field': 'forms', 'forms': forms, 'record_fields': ['typing']}}}
+        rules = {'continuous_installed_proofs': {'Linux': {f: {'typing': {'mypy': '1.15.0'}} for f in forms}}}
+        self.rejected(lambda: q.verify_installed(report, 'continuous', contract, {}, rules))
+
+    def test_quickstart_log_bytes_and_command_binding(self):
+        path = 'eq132-quickstart-Linux/logs/01-fixed-stdout.txt'; err = path.replace('stdout', 'stderr')
+        files = {path: b'literal\n', err: b''}
+        recipe = dict(command=['python', '-I', 'fixed.py'], cwd='$WORK/run', timeout_seconds=60)
+        row = dict(recipe, label='fixed', returncode=0, stdout_bytes=8, stderr_bytes=0)
+        expected = {'step_labels': ['fixed'], 'step_commands': [recipe], 'public_logs': {p: dict(bytes=len(v), sha256=q.digest(v)) for p, v in files.items()}, 'redacted_public_logs': []}
+        q.quickstart_steps({'steps': [row]}, files, 'Linux', expected)
+        self.rejected(lambda: q.quickstart_steps({'steps': [dict(row, command=['python', 'other.py'])]}, files, 'Linux', expected))
+        self.rejected(lambda: q.quickstart_steps({'steps': [dict(row, stdout_bytes=True)]}, files, 'Linux', expected))
+        self.rejected(lambda: q.quickstart_steps({'steps': [dict(row, stdout_bytes=9)]}, files, 'Linux', expected))
+        self.rejected(lambda: q.quickstart_steps({'steps': [row]}, dict(files, **{path: b'truncated'}), 'Linux', expected))
 
     def test_source_map_omission(self):
         class Fake:

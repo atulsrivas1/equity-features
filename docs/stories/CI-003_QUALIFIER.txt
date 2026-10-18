@@ -228,6 +228,12 @@ def tar_contents(raw, budget, depth=0):
         if block == b"\0" * 512:
             require(annotation is None and len(data) - pos >= 1024 and not any(data[pos:]), "TAR termination")
             break
+        # TarInfo normalizes name fields; inspect their physical bytes first.
+        for field in (block[:100], block[345:500]):
+            head, nul, tail = field.partition(b"\0")
+            require(not nul or not any(tail), "TAR name bytes after NUL")
+            head.decode("utf-8", "strict")
+        require(not any(block[157:257]), "TAR unused link name")
         item = tarfile.TarInfo.frombuf(block, "utf-8", "strict")
         require(0 <= item.size <= MAX_MEMBER)
         budget.add("nodes", 1, 2000000)
@@ -253,6 +259,7 @@ def tar_contents(raw, budget, depth=0):
             controls.append({"offset": start - 512, "bytes": item.size, "sha256": digest(body), "path": annotation})
             continue
         require(item.type in (tarfile.REGTYPE, tarfile.AREGTYPE, tarfile.DIRTYPE), "TAR special type")
+        safe_path(item.name, item.type == tarfile.DIRTYPE)
         name = annotation if annotation is not None else item.name
         annotation = None
         directory = item.type == tarfile.DIRTYPE
@@ -287,6 +294,19 @@ def verify_record(files):
             require(identity == "sha256=" + encoded and size == str(len(files[name])), "RECORD bytes")
 
 
+def git_blob_record(stream, oid, remaining):
+    header = stream.readline(256)
+    require(header.endswith(b"\n") and len(header) < 256, "Git header bound")
+    fields = header[:-1].split(b" ")
+    require(len(fields) == 3 and fields[:2] == [oid.encode(), b"blob"] and re.fullmatch(rb"0|[1-9][0-9]*", fields[2]))
+    size = int(fields[2])
+    require(size <= MAX_MEMBER and size <= remaining, "Git blob pre-read bound")
+    body = stream.read(size)
+    require(len(body) == size and stream.read(1) == b"\n", "Git blob framing")
+    require(hashlib.sha1(b"blob " + str(size).encode() + b"\0" + body).hexdigest() == oid)
+    return body
+
+
 class GitSource:
     """Immutable object reads; no checkout, imports or worktree materialization."""
     def __init__(self, root, head):
@@ -317,19 +337,22 @@ class GitSource:
         if not self.cache:
             names = sorted(self.files)
             ids = sorted({item["oid"] for item in self.files.values()})
-            raw = subprocess.check_output(["git", "--no-replace-objects", "cat-file", "--batch"], cwd=self.root, env=self.env, input=("\n".join(ids) + "\n").encode())
-            require(len(raw) <= MAX_ARCHIVE)
-            offset = 0; blobs = {}
-            for oid in ids:
-                end = raw.find(b"\n", offset); require(end >= offset)
-                fields = raw[offset:end].split(b" ")
-                require(len(fields) == 3 and fields[:2] == [oid.encode(), b"blob"] and re.fullmatch(rb"0|[1-9][0-9]*", fields[2]))
-                size = int(fields[2]); require(size <= MAX_MEMBER)
-                start = end + 1; body = raw[start:start + size]
-                require(len(body) == size and raw[start + size:start + size + 1] == b"\n")
-                require(hashlib.sha1(b"blob " + str(size).encode() + b"\0" + body).hexdigest() == oid)
-                blobs[oid] = body; offset = start + size + 1
-            require(offset == len(raw))
+            blobs = {}; total = 0
+            child = subprocess.Popen(["git", "--no-replace-objects", "cat-file", "--batch"], cwd=self.root, env=self.env,
+                                     stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+            try:
+                for oid in ids:
+                    child.stdin.write((oid + "\n").encode()); child.stdin.flush()
+                    body = git_blob_record(child.stdout, oid, MAX_ARCHIVE - total)
+                    blobs[oid] = body; total += len(body)
+                child.stdin.close()
+                require(child.stdout.read(1) == b"" and child.wait(timeout=30) == 0)
+            finally:
+                if child.poll() is None:
+                    child.kill(); child.wait()
+                if not child.stdin.closed:
+                    child.stdin.close()
+                child.stdout.close()
             self.cache = {name: blobs[self.files[name]["oid"]] for name in names}
         return self.cache[path]
 
@@ -518,7 +541,27 @@ def verify_sources(report, sources, system, family, rules):
     return checked
 
 
-def verify_installed(report, family, contract, files):
+def installed_map(value):
+    require(type(value) is dict and bool(value), "installed map type/empty")
+    for name, proof in value.items():
+        safe_path(name)
+        if type(proof) is str:
+            require(re.fullmatch(r"[0-9a-f]{64}", proof) is not None, "installed digest")
+            continue
+        require(type(proof) is dict and set(proof) in ({"files", "version"}, {"files", "version", "origin", "selected_wheel_sha256"}), "installed distribution schema")
+        require(type(proof["version"]) is str and bool(proof["version"]))
+        if "origin" in proof:
+            require(type(proof["origin"]) is str and bool(proof["origin"]))
+            require(type(proof["selected_wheel_sha256"]) is str and re.fullmatch(r"[0-9a-f]{64}", proof["selected_wheel_sha256"]) is not None)
+        require(type(proof["files"]) is dict and bool(proof["files"]))
+        for path, identity in proof["files"].items():
+            safe_path(path)
+            require(type(identity) is dict and set(identity) == {"bytes", "sha256"})
+            require(type(identity["bytes"]) is int and 0 <= identity["bytes"] <= MAX_MEMBER)
+            require(type(identity["sha256"]) is str and re.fullmatch(r"[0-9a-f]{64}", identity["sha256"]) is not None)
+
+
+def verify_installed(report, family, contract, files, source_rules):
     rules = contract["builder_proof_requirements"][family]
     true_fields(report, rules.get("top_true", []))
     if "forms_field" in rules:
@@ -534,7 +577,11 @@ def verify_installed(report, family, contract, files):
         for row in records:
             true_fields(row, rules.get("record_true", []))
             for field in rules.get("record_fields", []):
-                require(field in row and row[field] is not None, "installed proof missing")
+                if field in ("installed", "installed_map"):
+                    installed_map(row[field])
+                else:
+                    require(family == "continuous" and field in ("typing", "synthetic_week", "optional_absence"))
+                    same(row[field], source_rules["continuous_installed_proofs"][report["system"]][row["form"]][field])
             if "optional_independence" in row:
                 require(row["optional_independence"] is (not row["combined_actual_core_producer"]))
             if family in ("agent-evidence", "agent-ledger"):
@@ -641,6 +688,29 @@ def verify_selected_sdists(report, results, archive_files, registry, system):
         same(transition["changed"], changed)
 
 
+def quickstart_steps(report, files, system, expected):
+    same([row["label"] for row in report["steps"]], expected["step_labels"])
+    prefix = "eq132-quickstart-" + system + "/logs/"
+    for index, row in enumerate(report["steps"], 1):
+        require(type(row["returncode"]) is int and row["returncode"] == 0 and row.get("timed_out", False) is False)
+        recipe = expected["step_commands"][index - 1]
+        same({key: row[key] for key in ("command", "cwd", "timeout_seconds")}, recipe)
+        for stream in ("stdout", "stderr"):
+            size = row[stream + "_bytes"]
+            require(type(size) is int and 0 <= size <= 2 * 1024 * 1024)
+            if row["label"] == "download" and stream == "stdout":
+                continue
+            path = prefix + f"{index:02}-" + row["label"] + "-" + stream + ".txt"
+            require(path in files, "quickstart public log missing")
+            raw = files[path]
+            same({"bytes": len(raw), "sha256": digest(raw)}, expected["public_logs"][path])
+            # The producer records raw lengths but publishes redacted paths.
+            # Public bytes are bound separately; raw-private logs are not uploaded.
+            require(size >= len(raw), "quickstart raw/public log size")
+            if path not in expected["redacted_public_logs"]:
+                require(size == len(raw), "quickstart unredacted log size")
+
+
 def verify_quickstart(report, files, system, source, rules):
     same(report["system"], system)
     inputs_raw = source.get("docs/stories/EQ-132_INPUTS.json"); inputs = strict_json(inputs_raw)
@@ -657,15 +727,12 @@ def verify_quickstart(report, files, system, source, rules):
     expected = rules["quickstart_expected"][system]
     for field in ("independent_results", "qualification", "walkthrough_stdout", "wheel_maps"):
         same(report[field], expected[field])
-    same([row["label"] for row in report["steps"]], expected["step_labels"])
-    prefix = "eq132-quickstart-" + system + "/logs/"
-    for index, row in enumerate(report["steps"], 1):
-        require(type(row["returncode"]) is int and row["returncode"] == 0 and not row.get("timed_out", False))
-        for stream in ("stdout", "stderr"):
-            require(type(row[stream + "_bytes"]) is int and 0 <= row[stream + "_bytes"] <= 2 * 1024 * 1024)
-            if row["label"] == "download" and stream == "stdout":
-                continue
-            require(prefix + f"{index:02}-" + row["label"] + "-" + stream + ".txt" in files)
+    quickstart_steps(report, files, system, expected)
+    walkthrough = ("\n".join(inputs["independent_expected"]["stdout_lines"]) + "\n").encode()
+    require(report["walkthrough_stdout"].encode() == walkthrough)
+    if system == "Windows":
+        walkthrough = walkthrough.replace(b"\n", b"\r\n")
+    require(files["eq132-quickstart-" + system + "/logs/11-walkthrough-stdout.txt"] == walkthrough)
     true_fields(report["runtime"], ("prefix_isolated", "forbidden_dependencies_absent"))
     require(report["runtime"]["bits"] == 64 and type(report["runtime"]["bits"]) is int)
     same(report["runtime"]["core"], report["before_core"]["core"])
@@ -703,7 +770,7 @@ def package_artifact(raw, family, system, sources, contract, budget, source_rule
         same(report["status"], expected_status); same(report["source_commit"], sources["canonical"].head)
         verify_sources(report, sources, system, family, source_rules)
         declared = report["archives" if family == "evidence-evaluation" else "artifacts"]
-        verify_installed(report, family, contract, files)
+        verify_installed(report, family, contract, files, source_rules)
     nested = {name for name in files if name.endswith((".whl", ".tar.gz"))}
     actual_names = {name for name in nested if name.split("-", 1)[0] in registry}
     require(all(name.endswith(".whl") or name in actual_names for name in nested), "unknown nested SDist")
