@@ -1,6 +1,6 @@
 # Runnable supplied-input examples
 
-EQ040 adds the independently installed consumer0.3.0 walkthrough for matching corepair0.0.4a4. All data are synthetic supplied facts; calendars, coverage, source revisions and C/K/E are explicit. Core does not acquire data, consult a clock or schedule work. [Public API](api/PUBLIC_API.md), [extension/install commands](api/EXTENSIONS.md), [build delivery](BUILD_DELIVERY.md).
+EQ040 introduced the walkthrough; the current selected consumer0.4.0 matches corepair0.0.4a4. Use the [minimal quickstart](QUICKSTART.md) for the exact three-wheel retained channel, prerequisites, four-line output, explicit missing results and scoped timing. All data are synthetic supplied facts; calendars, coverage, source revisions and C/K/E are explicit. Core does not acquire data, consult a clock or schedule work. [Public API](api/PUBLIC_API.md), [extension/install commands](api/EXTENSIONS.md), [build delivery](BUILD_DELIVERY.md).
 
 ## Standalone installed workflow
 

@@ -1,3 +1,9 @@
+## EQ132 minimal installed path
+
+The [newcomer quickstart](../QUICKSTART.md) selects the existing core0.0.4a4/consumer0.4.0 three-wheel channel with explicit access/expiry, fresh Windows/Linux isolation and independent output/null checks. The [live EQ132 story](https://github.com/atulsrivas1/equity-features/issues/313) owns actual review, qualification and acceptance; no fresh result is inferred from this source snapshot. Existing forms and dated history below remain unchanged.
+
+## Earlier checkpoints retained as history
+
 # Extending supplied-input calculations
 
 Use supported parameters for an existing accepted equation; use explicit custom metadata and a trusted local calculator for changed meaning. Core pair0.0.4a4/custom schema1 supports canonical batch inputs, one declared output and no custom update/restore/merge. [Public API](PUBLIC_API.md), [custom contract](CUSTOM_FEATURES.md), [adapter mapping/SDK](../contracts/ADAPTER_KIT.md).

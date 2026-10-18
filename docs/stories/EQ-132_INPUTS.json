@@ -2,7 +2,7 @@
   "schema": "eq132.quickstart.inputs.v1",
   "accepted_main": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d",
   "accepted_EQ131": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946",
-  "qualification_state": "PLANNED_NOT_EXECUTED",
+  "qualification_state": "FROZEN_INPUTS_NOT_AN_EXECUTION_RECEIPT",
   "form": "three pure Python wheels only; no new SDist claim",
   "platforms": [
     "CPython 3.12 x64 Windows",
@@ -1069,6 +1069,19 @@
             }
           }
         }
+      },
+      "delivery_job_binding": {
+        "repository": "atulsrivas1/equity-features",
+        "workflow": "packages.yml",
+        "event": "push",
+        "name": "compatibility (windows-latest)",
+        "run": 39089365385,
+        "attempt": 1,
+        "job": 117562594553,
+        "head": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d",
+        "actual_run_workflow_name": "Foundation package checks",
+        "check_workflow_display": null,
+        "registered_workflow_id": 375026861
       }
     },
     {
@@ -1879,6 +1892,19 @@
             }
           }
         }
+      },
+      "delivery_job_binding": {
+        "repository": "atulsrivas1/equity-features",
+        "workflow": "packages.yml",
+        "event": "push",
+        "name": "compatibility (ubuntu-24.04)",
+        "run": 39089365385,
+        "attempt": 1,
+        "job": 117562594688,
+        "head": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d",
+        "actual_run_workflow_name": "Foundation package checks",
+        "check_workflow_display": null,
+        "registered_workflow_id": 375026861
       }
     }
   ],
@@ -1931,5 +1957,6 @@
   "new_qualification_report": null,
   "timing": null,
   "review": null,
-  "main_delivery": null
+  "main_delivery": null,
+  "execution_evidence_authority": "Live EQ132 and actual qualification/delivery receipts; null output fields are not an assertion of current lifecycle."
 }
