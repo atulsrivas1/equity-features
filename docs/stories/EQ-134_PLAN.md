@@ -10,7 +10,7 @@
 
 ## Current dependencies and delivery
 
-EQ132/EQ133 plus the library predecessor; research demonstration and SR026/SR027 remain deferred under M5. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. This story stays Backlog/unassigned, with no implementation or outreach/account authority.
+EQ132/EQ133 plus the library predecessor; research demonstration and SR026/SR027 remain deferred under M5. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. The [concrete precode plan](EQ-134_IMPLEMENTATION_PLAN.md), [frozen proposed documents/inputs](EQ-134_INPUTS.json) and [exact source entry](EQ-134_DEMO_ENTRY.txt) follow independently accepted EQ133. Still Backlog/unassigned until completed exact review and normal Ready/Atul/In progress; three provisional points. No demo execution or outreach/account authority is added by this planning packet.
 
 
 ## Preserved original plan — historical, not current criteria

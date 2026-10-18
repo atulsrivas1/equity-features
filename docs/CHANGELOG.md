@@ -1,3 +1,9 @@
+## EQ133 accepted; EQ134 developer demonstration planned
+
+[EQ133](https://github.com/atulsrivas1/equity-features/issues/314#issuecomment-6246634802) delivers contribution guide/templates and three future starter opportunities at `84051d9c13f631de398c7f58985f6d07d8e0d255`. EQ134 freezes one Windows-only developer demonstration and accurate unsent launch material; no new runtime execution, outreach, package/API/math/version change or research completion is claimed by planning.
+
+## Earlier checkpoints retained as history
+
 ## EQ133 contributor setup observed; final delivery pending
 
 [PR431](https://github.com/atulsrivas1/equity-features/pull/431) implements the contribution guide and report templates. Three actual future starter issues [432](https://github.com/atulsrivas1/equity-features/issues/432), [433](https://github.com/atulsrivas1/equity-features/issues/433) and [434](https://github.com/atulsrivas1/equity-features/issues/434) remain unassigned Backlog without milestone16.
