@@ -1,3 +1,9 @@
+## EF-L096: explicit diff completeness beats ambient Git settings
+
+[CI001 validation](../stories/CI-001_VALIDATION.json) records an actual synthetic reader+gitlink change returning DOCS when Git submodule-ignore configuration hid the gitlink. Force --ignore-submodules=none, preserve complete NUL framing/full IDs, and test the hostile configuration rather than assuming defaults. Windows text newline translation likewise failed the exact output-byte oracle; explicit UTF8 binary stdout preserves one LF without relaxing the test. Initial failures and fixture setup correction remain failed evidence. Corrected Windows13method pass is distinct from future Linux/current CI and whole-release acceptance.
+
+## Earlier checkpoints retained as history
+
 ## EF-L095: compare evidence using its declared byte normalization
 
 R16 preparation initially compared a raw CRLF GitHub issue body to an accepted LF-normalized digest and stopped readback before any public mutation. Comparing the declared LF representation confirmed the protected issue content unchanged; corrected evidence also retains its raw digest. A rejected readback is not a product failure and must not be silently relabeled a pass. An explicit GET likewise corrected a search-only HTTP404 before allocation writes. [Planning evidence](../R16_PLANNING_EVIDENCE.json) preserves these corrections. Consumer audit also found four candidate documentation paths in continuous source archives; keep them FULL rather than assuming reader prose cannot affect qualification.

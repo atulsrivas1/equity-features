@@ -50,6 +50,9 @@ jobs:
       - name: Verify exact session mathematics and boundary fixtures
         run: python tools/verify_session_examples.py
 
+      - name: Verify conservative CI scope against synthetic Git and event fixtures
+        run: python tools/test_ci_scope.py
+
       - name: Verify quote sampling, state and temporal reference fixtures
         run: python tools/verify_quote_examples.py
 

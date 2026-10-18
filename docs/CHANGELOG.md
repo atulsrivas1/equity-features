@@ -1,3 +1,9 @@
+## CI001 internal classifier implemented — final delivery pending
+
+Added complete source-bound Git/event classification and independent synthetic fixtures. Explicit UTF8/LF output and submodule omission override corrected pre-publication findings. Thirteen corrected Windows fixture methods passed; earlier failures retained. Existing documentation CI adds the fixture command, with unchanged routing/old steps/matrices/permissions. Full current hosted and actual-main acceptance remain pending; no package/API/math/version/dependency or performance claim.
+
+## Earlier checkpoints retained as history
+
 ## R16 scope and local review selected — October18,2026
 
 Owner accepts CI001–003 and local review throughout R16 under PR447; E23#448/milestone19 contain exactly443/444/445/446/448. Recorded initial separate plan review and consumer-audit/manual-dispatch obligations. Final changed-head planning review, publication and story Ready gates remain pending. No workflow/tool/package implementation changed.

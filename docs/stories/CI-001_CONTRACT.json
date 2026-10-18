@@ -1,0 +1,48 @@
+{
+  "schema": "equity-features.ci-scope-contract.v1",
+  "result_schema": "equity-features.ci-scope.v1",
+  "closed_result_keys": {
+    "schema": "literal result_schema",
+    "valid": "boolean",
+    "decision": "DOCS or FULL",
+    "reason": "enum from reason_codes",
+    "repository": "literal atulsrivas1/equity-features",
+    "event": "push or pull_request or null when invalid",
+    "base": "40lowerhex Git SHA1, or null for initial push/invalid",
+    "source_head": "40lowerhex Git SHA1 or null when invalid",
+    "checkout_head": "40lowerhex Git SHA1 or null when invalid",
+    "checkout_tree": "40lowerhex Git SHA1 or null when invalid",
+    "diff_sha256": "64lowerhex or null for initial push/invalid",
+    "allowlist_sha256": "literal computed from allowlist_preimage",
+    "changes_count": "nonnegative integer excluding bool, or null for initial push/invalid"
+  },
+  "reason_codes": {
+    "READERS_ONLY": "valid DOCS, nonempty modified regular UTF8 reader blobs only",
+    "NON_READER_CHANGE": "valid FULL; at least one inadmissible diff entry/blob",
+    "EMPTY_DIFF": "valid FULL; zero entries",
+    "INITIAL_PUSH": "valid FULL; event.before allzero; no comparative source absence claim",
+    "SOURCE_INVALID": "invalid FULL and CLI exit1; every event/source/diff binding field null"
+  },
+  "valid_success_cli_exit": 0,
+  "invalid_cli_exit": 1,
+  "allowlist": [
+    "docs/api/CONTINUOUS_QUOTES.md",
+    "docs/api/PUBLIC_API.md",
+    "docs/contracts/RESULTS.md"
+  ],
+  "allowlist_preimage": "equity-features.ci-allowlist.v1\ndocs/api/CONTINUOUS_QUOTES.md\ndocs/api/PUBLIC_API.md\ndocs/contracts/RESULTS.md\n",
+  "allowlist_sha256": "fe8860b35869529b4cabdf940905d7bc3979974e031dd041a228d8eb0b3cf2ee",
+  "diff_preimage": "exact complete bytes from git --no-pager diff --raw -z --no-abbrev --no-ext-diff --no-textconv --no-renames --ignore-submodules=none BASE CHECKOUT_HEAD --",
+  "output_encoding": "UTF8 JSON object, sorted keys, indent2, one trailing LF; no extra stdout",
+  "invalid_result": "fixed schema/validfalse/FULL/SOURCE_INVALID/repository/allowlist_sha256; all other binding and count fields null",
+  "initial_push_result": "validtrue/FULL/INITIAL_PUSH; base/diff_sha256/changes_count null; event push and actual after/source_head/checkout_head/tree bound",
+  "regular_reader_blob": "old/new mode100644, statusM, old/new nonzero40hex, exact ASCII allowed path; old/new bytes strict UTF8 and contain no NUL",
+  "raw_diff_grammar": "zero or more metadataNULpathNUL pairs; metadata regex colon6octal SPACE6octal SPACE40lowerhex SPACE40lowerhex SPACE oneofADMT; nonempty path without NUL; parse full stream before decision",
+  "no_claims": [
+    "No workflow routing changes in CI001",
+    "No hostile workflow-author security boundary",
+    "No source archive equivalence assumed for paths absent from allowlist"
+  ],
+  "consumer_audit_sha256": "fe220eedd0698bf5f470724fdfc68e309335986b24019a586fd92fb62a99fff6",
+  "review_correction": "Explicit submodule override defeats diff.ignoreSubmodules=all and preserves gitlink changes. Source contract amendment from provisional review; renewed final review required."
+}

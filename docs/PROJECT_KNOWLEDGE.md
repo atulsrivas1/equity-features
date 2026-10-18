@@ -1,3 +1,17 @@
+## CI001 implemented; final qualification pending
+
+[CI001#444](https://github.com/atulsrivas1/equity-features/issues/444), draft PR449, implements only internal Git/event change classification and synthetic fixtures, plus its explicit documentation-job test step. [Contract](stories/CI-001_CONTRACT.json), [actual validation](stories/CI-001_VALIDATION.json), [tool documentation](CI_SCOPE.md). Corrected author Windows suite passed13methods. Initial CLI byte failure, independently reproduced submodule-ignore false DOCS and fixture setup error remain recorded; provisional review corrections require renewed final-head coverage. No routing change or package/API/math/version/dependency behavior. All existing workflows continue; actual current-head hosted qualification, separate source/main review and publication acceptance remain pending. GOV028 accepted; CI002/003 stay Backlog. R15 and deferred scope/paused automation unchanged.
+
+## Earlier checkpoints retained as history
+
+## CI001 concrete pre-code contract published for review
+
+[GOV028 handoff acceptance](https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253941061) completes the planning dependency at main `36b5dfdcf788d7ae5ee2cf7979f87e04af8c7d7a`. CI001#444 remains Backlog/unassigned until completed separate pre-code review establishes Ready. [Exact plan](stories/CI-001_PLAN.md), [closed contract](stories/CI-001_CONTRACT.json), [immutable consumer audit](stories/CI-001_CONSUMER_AUDIT.json). No classifier implementation or routing change yet. R16 E23#448/milestone19 and owner local-review grant remain active; no further permission request is needed.
+
+Draft review required consumer-audit source bindings and exact schema/reason/digest/null representations before Ready. This packet concretizes those obligations; their resolution still requires separate published-head review. R15 accepted; deferred scope and paused automation unchanged.
+
+## Earlier checkpoints retained as history
+
 ## Owner-selected R16 CI engineering — October18,2026
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253883970) accepts PR447's CI001#444/CI002#445/CI003#446 scope and authorizes separate local Codex review throughout R16, including planning, necessary companion qualification changes and final delivery. E23#448/milestone19 select exactly443/444/445/446/448. GOV028#443 is active planning; implementation stories remain Backlog/unassigned until dependency acceptance, concrete reviewed pre-code plans and actual Ready. Provisional complexity2/5/8/5 points, not days; no deadline. [Plan](R16_RELEASE_PLAN.md), [handoff](R16_AUTONOMOUS_HANDOFF.md), [inputs](R16_INPUTS.json).

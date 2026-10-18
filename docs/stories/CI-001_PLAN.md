@@ -1,0 +1,39 @@
+## Implementation review corrections and concrete test integration
+
+Provisional separate review found Windows text stdout translating LF into CRLF, violating the frozen byte contract; the unchanged CLI oracle failed before correction. Emit explicit UTF8 bytes with one LF via stdout.buffer. Review also found Git submodule ignore configuration could hide a gitlink change. A corrected independent synthetic160000-index fixture reproduced DOCS for a reader+gitlink change under diff.ignoreSubmodules=all before the fix. Exact raw-diff command now adds --ignore-submodules=none; the adjacent contract records this conservative amendment. Original draft command below is history and superseded by this correction. Preserve all failures; no selected package-runtime defect or exploit is inferred.
+
+Add exactly one synthetic classifier-test step to existing .github/workflows/docs.yml. This is validation integration, not conditional routing: triggers, existing checks, permissions, OS matrices and package workflows remain unchanged. Author Windows tests plus actual Ubuntu documentation job provide platform coverage. The original two-tool file list below is extended only for this mandatory validation step and companion docs. Updated contract and final source must receive renewed independent coverage before merge. No new numerical/package/API/version/dependency behavior.
+
+## Earlier pre-code contract retained
+
+## Exact contract and consumer evidence
+
+The adjacent CI-001_CONTRACT.json freezes a closed result schema, types/nulls, reason codes, raw-diff grammar, exact digest preimages and CLI result encoding. CI-001_CONSUMER_AUDIT.json binds the current immutable main and all audited tool/workflow/build metadata source identities plus literal selector inventory. Static string inventory alone is not completeness proof: independent source review must inspect broad selectors and imported builder helpers. Both files are required pre-code inputs, not executed implementation results.
+
+Initial-push base is null (not zeroSHA), diff/count null, actual source/head/tree bound; validFULL INITIAL_PUSH. Invalid source emits validfalse/FULL/SOURCE_INVALID and all binding/count fields null, CLIexit1. Ordinary validFULL and DOCS emit actual complete rawdiffSHA and exact count. Diff entries are all parsed before a decision; malformed record framing invalidates qualification. Complete nonreader changes return FULL, not source-invalid. reader bytes must be strictUTF8 without NUL. Unknown extra input JSON keys are tolerated only as GitHub event envelopes; every relied-upon identity has a strict type/value check. Output keys are closed.
+
+Draft review r16-ci001-draft-review.json required this exact consumer audit/schema concretization before Ready. These are resolved in the published pre-code contract; separate exact published-head review must verify the resolution, not infer it from this statement. No implementation has run.
+
+# CI001: conservative change classification
+
+Issue #444, R16 milestone19/E23#448, provisional5points. Planned code is tools/ci_scope.py and tools/test_ci_scope.py; no workflow routing changes in this story. No numerical/package/API/version/dependency change.
+
+## Before Ready
+
+GOV028 must have actual accepted main publication and current live Done, then this exact pre-code contract requires completed separate review. Consumer audit admits only docs/api/PUBLIC_API.md, docs/contracts/RESULTS.md and docs/api/CONTINUOUS_QUOTES.md as candidate reader pages: current tools/build_* source scope selectors do not include these paths, and existing reference verifiers read dedicated formula/specification/fixture files instead. Documentation checks still run. Audit all build selectors and broad globs, not just three string searches, and record immutable source identities before admitting them. Four continuity documents in build_continuous.py remain FULL. Any later consumer/allowlist/classifier/workflow/tool change itself selects FULL and renews review. Classification is a workflow routing contract, not a security boundary against an authorized workflow author replacing its implementation.
+
+## Source and event contract
+
+Version1 outputs repository/event/base/source_head/checkout_head/tree/diff_sha256/allowlist_sha256, valid boolean, decision DOCS or FULL and fixed reason codes. Valid source identity precedes a successful decision. CLI reads the actual GitHub event JSON plus GITHUB_REPOSITORY/EVENT_NAME/SHA/REF; it resolves exact Git objects from the checked-out repository, with HEAD equal to expected SHA. No caller-selected arbitrary path/URL/code input, network, product imports, build or credential access. Scope tooling alone reads Git metadata and source blobs.
+
+Push: repository full_name matches fixed canonical repository; event.after matches GITHUB_SHA; event.ref equals refs/heads/* GITHUB_REF; deleted is false. event.before is a full SHA. A zero before indicates branch creation and returns valid FULL without making an absence claim; missing nonzero base object invalidates qualification. Pull request: event repository/base repository match canonical, positive nonboolean PR number matches refs/pull/N/merge; GITHUB_SHA and checked-out HEAD identify the actual two-parent merge with parents exactly event.base.sha and event.head.sha. The comparison base is event.base.sha, source_head is event.head.sha and checkout_head is merge SHA. Missing objects/stale parent identity cannot qualify. No reliance on current mutable branch lookup after checkout. Keep manual evaluation dispatch semantics separately FULL; classifier supports only the reviewed push and pull_request paths until CI002 concretely preserves dispatch.
+
+Use complete git diff --raw -z --no-abbrev --no-renames base checkout_head, not GitHub changed-path API or first300path filtering. Parse the entire NUL stream and all entries before deciding. DOCS requires a nonempty diff consisting solely of existing regular100644 modified blobs at the exact three allowed paths, with strict UTF8 blobs before/after. New/deleted/renamed/mode/symlink/type/nonUTF8/unknown path or any other change yields FULL. Renames are conservatively D+A with --no-renames. Empty diff FULL. Malformed raw metadata or malformed/incomplete source context emits valid=false FULL, fixed failure reason and nonzero exit. Distinguish a valid FULL decision from failed qualification. No local repository file mutation other than explicit CLI output destination; stdout JSON can serve CI collection.
+
+## Independent fixtures
+
+Use temporary owned Git repositories with fixed synthetic contents and git author identities, no network/product imports. Independent expected decisions cover each three literal allowed names, a union of them, fixture/tool/package/workflow/unknown/new Markdown/JSON changes, mixed paths, deleted/added/renamed/mode/symlink changes, nonUTF8 blob/path, empty and >300-entry diff with unsafe final path. Source tests cover initial push, correct and wrong after/ref/repository/base/HEAD, missing object, PR number/bool/ref/parent/base/head mismatches and malformed JSON/raw diff. Verify emitted schema/identity/digests and nonzero invalid-source CLI result, not merely equality with the implementation allowlist. POSIX-only filesystem operations may be simulated using exact Git index modes on Windows; record actual skipped cases if any. No workflow routing change until CI002 reviewed design.
+
+## Delivery
+
+Publish exact source, local meaningful classifier fixtures, independent final review, relevant actual current-head CI and main publication/readback through normal lifecycle. Existing package workflows continue unchanged for CI001 and therefore require actual relevant FULL qualification; intentionally skipped future package jobs cannot be called successful. Preserve both OS/form/artifact obligations and any failed results. No invented performance claim or release completion.
