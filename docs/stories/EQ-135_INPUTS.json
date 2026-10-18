@@ -1,0 +1,1519 @@
+{
+  "schema": "eq135.manual-learning-precode.v1",
+  "base": "143f25b60109a8c7361d23da6d660735187defa6",
+  "story": 316,
+  "epic": 428,
+  "milestone": 16,
+  "scope_authorization": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916",
+  "local_review_authorization": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202",
+  "preparation_only": false,
+  "runtime_ready": true,
+  "implementation_started": true,
+  "provisional_points": 3,
+  "current_acceptance_count": 4,
+  "original_current_acceptance": "\n\n- [ ] Deliver a manual measurement sheet with definitions, initial baseline and evidence references; zero/unknown is reported honestly and no private participant details are published.\n- [ ] Learning targets are five example users, three useful feedback reports and one returning contributor; missed targets do not invalidate artifact delivery and do not establish product failure.\n- [ ] Record pilot outcome or explicit defer, actionable lessons and a bounded continue/change/stop decision; no scheduler or unbounded growth commitment.\n- [ ] R14 library-component receipt reconciles all five library stories plus GOV026, exact published documentation/artifacts, completed final-head reviews, checks and readback. R14 closes only after its selected library scope qualifies; research M5/SR026/SR027 and combined C1 acceptance remain open and are not claimed complete.\n\n",
+  "original_story_body_sha256": "ab79ac6c86872df914ec842a6051ee0681e64e449a99f88e8fd09c8bc8f5e43d",
+  "current_epic_body_sha256": "81b73bf99e3ed5105c0d2b07aeda47dbf93834da7f62f87691ccbfce8759c600",
+  "public_source_pins": {
+    "AGENTS.md": "52201bc6e0a231187db3d0fe7e7e17690c46e12f07f8233846a784156896fedc",
+    "docs/PUBLIC_DEVELOPMENT.md": "d24df19ebcaabdbe06ab903dfab84e9b27b2710032e5ae48069d0a09a7c0dd65",
+    "docs/DELIVERY_POLICY.md": "44227e624e2ffaae03c26167eca467aee32776404136077ca9ac2ea86c320ed4",
+    "docs/CODE_REVIEW.md": "8646fc7a3b2aa3ce2051cccc1097a151905f931b4d2d4a983ba6539084982505",
+    "docs/knowledge/BACKLOG_WORKFLOW.md": "49c52e855a6c6e7fb506edb6869f836187d181d924f18377d54d7c751b077dd7",
+    "docs/R14_TEST_STRATEGY.md": "5fae823b55cc05e2a7ca2efa13e3d0a840560207cafcf6400c52a21fa064f94c",
+    "docs/R14_RELEASE_PLAN.md": "a06057aa769e664905e44d8eb76a9b6420d518012d2e715e75c34a63f4f74307",
+    "docs/R14_AUTONOMOUS_HANDOFF.md": "0119ec9c03296658371d9a7df0ae6859c37f82c3588b742b70a56c027f35cf72",
+    "docs/stories/EQ-135_PLAN.md": "d893e18feb03cddb3e1386f57531f922f3edb4ba450f8df261964eb9de92b3b3",
+    "docs/stories/EQ-132_INPUTS.json": "0d40a93e8882c25e3f2e26a99a62c393700924f83e9620397e8c5fea9361f51a",
+    "docs/stories/EQ-133_VALIDATION.json": "6f7a3c085daaab353a335e522966aaf0d126e81dd64eaaf6b5ece97de122200e",
+    "docs/stories/EQ-134_VALIDATION.json": "4802c148ba7c6ec1c83fdb21b798222c6830e051614b7a2d664fde53e21c6cb2",
+    "docs/DEVELOPER_DEMO.md": "ca35c8ad9d1d1ed58b3a3c361c63f541197edbd754290009d340c953dd0e80ae",
+    "docs/CHANNEL_PLAN.md": "c2bb4b9df61f538b3f966fbdced6e7ae8b8cb1118572b2e9c4328015f8036a22",
+    "docs/ANNOUNCEMENT_DRAFT.txt": "c7205f3ded131d10480156df82ea8967060acea87fb173c678afd31514b1c251"
+  },
+  "accepted_predecessors": [
+    {
+      "story": 426,
+      "label": "GOV026",
+      "accepted_main": "4effd881008aba295462dcb733a9025c47544b6b",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738",
+      "close_sha256": "8b9250b7ec81c9bf5cd0273816481a7761742a0ac14f95dd18777201c0e34ea9",
+      "independent_closure_review_sha256": "aa4067f046a581f4931e5c93b743a39ecb0de99fa464d5eee39e46e0d7dabd92",
+      "original_current_criteria_checked": 3,
+      "publication_sha256": "3e180ec4db0c49718b2912c2da0bd4870bef3f3af584697f8b6cfc9d1f7f3262",
+      "final_source_review_sha256": "76cb0f792c1c932b90e8eee5f850b3c8cc2d3646960fd365e0ba8e03fc374564",
+      "candidate_review_sha256": "2723ae25f79ad5bae38fa36a007806a61bbf5e0fe843a245918fc47619539063",
+      "final_main_review_sha256": "869dbb50dea62ec95212dd9a0e81fdac03b8451ab4be351d8bf845596793b330",
+      "candidate_checks": {
+        "count": 62,
+        "proof_sha256": "4e07526d9812e996584215d3ffb7a80862d3069737165ddaa3604103a779a2f0",
+        "reviewed_candidate_head": "72fa8c266f43354b00dab62d49cbde6337e6aa0a"
+      },
+      "main_checks": {
+        "count": 31,
+        "proof_sha256": "01c0fdc025eb7ef76fe40db2c5811249422bd40d4a402a6a0ba8b09ddfa3b297",
+        "reviewed_main": "4effd881008aba295462dcb733a9025c47544b6b"
+      },
+      "public_documentation": {
+        "published_path_count": 22,
+        "canonical_source_map_sha256": "5f7dc4f77077e6c7e3f183dbe686cfe67e1b3cca1aa7a119b2fd0f79e29f90ee",
+        "destinations": [
+          {
+            "path": "docs/BACKLOG.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/BACKLOG.md"
+          },
+          {
+            "path": "docs/C1_COMMUNITY_RELEASE_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/C1_COMMUNITY_RELEASE_PLAN.md"
+          },
+          {
+            "path": "docs/CHANGELOG.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/CHANGELOG.md"
+          },
+          {
+            "path": "docs/CODE_REVIEW.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/CODE_REVIEW.md"
+          },
+          {
+            "path": "docs/PROJECT_KNOWLEDGE.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/PROJECT_KNOWLEDGE.md"
+          },
+          {
+            "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_AUTONOMOUS_HANDOFF.md"
+          },
+          {
+            "path": "docs/R14_RELEASE_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_RELEASE_PLAN.md"
+          },
+          {
+            "path": "docs/R14_SCOPE_PROPOSAL.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_SCOPE_PROPOSAL.json"
+          },
+          {
+            "path": "docs/R14_SCOPE_PROPOSAL.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_SCOPE_PROPOSAL.md"
+          },
+          {
+            "path": "docs/R14_TEST_STRATEGY.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_TEST_STRATEGY.md"
+          },
+          {
+            "path": "docs/SESSION_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/SESSION_HANDOFF.md"
+          },
+          {
+            "path": "docs/knowledge/LESSONS.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/knowledge/LESSONS.md"
+          },
+          {
+            "path": "docs/reviews/R13_POST_DELIVERY_REVIEW.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/reviews/R13_POST_DELIVERY_REVIEW.json"
+          },
+          {
+            "path": "docs/reviews/R13_POST_DELIVERY_REVIEW.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/reviews/R13_POST_DELIVERY_REVIEW.md"
+          },
+          {
+            "path": "docs/stories/EQ-131_IMPLEMENTATION_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-131_IMPLEMENTATION_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-131_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-131_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-132_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-132_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-133_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-133_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-134_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-134_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-135_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-135_PLAN.md"
+          },
+          {
+            "path": "docs/stories/GOV-026_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/GOV-026_PLAN.md"
+          },
+          {
+            "path": "docs/stories/GOV-026_VALIDATION.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/GOV-026_VALIDATION.json"
+          }
+        ]
+      },
+      "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+      "main_artifacts": {
+        "evidence_sha256": null,
+        "count": 0,
+        "artifact_ids": [],
+        "applicability": "Accepted governance/positioning docs-only scope required exact62candidate/31main source/CI/readback, no new product-artifact acquisition or artifact qualification claimed."
+      },
+      "final_closure_live_readback_sha256": "af8087dedada1b91623400c22af62243f882882b461325ef81ce5627bd2bf86b"
+    },
+    {
+      "story": 312,
+      "label": "EQ131",
+      "accepted_main": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946",
+      "close_sha256": "ab5fa3096b6d6e0ba7548fec4ab53e4133516ba3f1c04075eea8c06e2a2381e4",
+      "independent_closure_review_sha256": "de619bbc45f65e94a1c307e05f89e64e2cf357229a974310caf5cc346860c68a",
+      "original_current_criteria_checked": 3,
+      "publication_sha256": "60011097d6029c7cf1292d603929385fabb53dc8c9b965cf4a32e3a93d6bfa4e",
+      "final_source_review_sha256": "70f7c446e95b27acb6af938d76f52403a8af22e81843de7fc7fd6a3836b054e8",
+      "candidate_review_sha256": "938a00df32c15c23e50b2743078587cd74a6225b5195866af28d897c6daadcbf",
+      "final_main_review_sha256": "ee53a7100e02239bb6f5e6d88fad2e081ac0a90750f64b5c9994c8fcf4da3de5",
+      "candidate_checks": {
+        "count": 62,
+        "proof_sha256": "c62f71ecf8e83c8e7eb79ea6bca0f658fd03d615b17e4c31933fca9b5bc973d4",
+        "reviewed_candidate_head": "7b4b5a4bf943fdd94622029ec5ea3d2036979479"
+      },
+      "main_checks": {
+        "count": 31,
+        "proof_sha256": "c1043adf9a29038fb5b079e9b5b05dfe7c6a7ab8e4f35f7716da846cd716ab15",
+        "reviewed_main": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d"
+      },
+      "public_documentation": {
+        "published_path_count": 13,
+        "canonical_source_map_sha256": "bbbe738c8d0d33fc526b8d9f15fba2360aad23e2db5e67886edccefcfda104a3",
+        "destinations": [
+          {
+            "path": "README.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/README.md"
+          },
+          {
+            "path": "docs/BACKLOG.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/BACKLOG.md"
+          },
+          {
+            "path": "docs/C1_COMMUNITY_RELEASE_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/C1_COMMUNITY_RELEASE_PLAN.md"
+          },
+          {
+            "path": "docs/CHANGELOG.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/CHANGELOG.md"
+          },
+          {
+            "path": "docs/PROJECT_KNOWLEDGE.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/PROJECT_KNOWLEDGE.md"
+          },
+          {
+            "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/R14_AUTONOMOUS_HANDOFF.md"
+          },
+          {
+            "path": "docs/R14_RELEASE_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/R14_RELEASE_PLAN.md"
+          },
+          {
+            "path": "docs/SESSION_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/SESSION_HANDOFF.md"
+          },
+          {
+            "path": "docs/START_HERE.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/START_HERE.md"
+          },
+          {
+            "path": "docs/knowledge/LESSONS.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/knowledge/LESSONS.md"
+          },
+          {
+            "path": "docs/stories/EQ-131_IMPLEMENTATION_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/stories/EQ-131_IMPLEMENTATION_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-131_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/stories/EQ-131_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-131_VALIDATION.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/stories/EQ-131_VALIDATION.json"
+          }
+        ]
+      },
+      "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+      "main_artifacts": {
+        "evidence_sha256": null,
+        "count": 0,
+        "artifact_ids": [],
+        "applicability": "Accepted governance/positioning docs-only scope required exact62candidate/31main source/CI/readback, no new product-artifact acquisition or artifact qualification claimed."
+      },
+      "final_closure_live_readback_sha256": "06e5a3a450fb8134ddd0e804b1f54136a8d0eafa0bf039392f8c55c68c11d87c"
+    },
+    {
+      "story": 313,
+      "label": "EQ132",
+      "accepted_main": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246206150",
+      "close_sha256": "354f94047eac17288cc04d7d9b9c1181e20c41cc93fee4447f26140d16be6d6a",
+      "independent_closure_review_sha256": "6cadd3030c41a737d76c1eda5923ae35aa885fe019c07554103c95efc7fe837d",
+      "original_current_criteria_checked": 3,
+      "publication_sha256": "6b4917758555349e9c9e1cb412a446abfba0be1081a681946f1bd2d415c46a52",
+      "final_source_review_sha256": "5efd03345d74b193c0dc36894e3227a633b1fc30705809826ca42737387f88c1",
+      "candidate_review_sha256": "e8606d99f1971fa1692203e390a45d98be8f5a361568a094cb897bee5e0dcb80",
+      "final_main_review_sha256": "a5dc5829bfa8503d505263739f17fdab0dd92fefb20d60d0ca011bc37cfc93c7",
+      "candidate_checks": {
+        "count": 66,
+        "proof_sha256": "eb96be56541d56773d882227b7386f34db5209be80b7d532c963c05a4d60cafc",
+        "reviewed_candidate_head": "6607e07cbad960831b4016b72b6bdea055ac9b5e"
+      },
+      "main_checks": {
+        "count": 33,
+        "proof_sha256": "1bc8d2688b4c4ef480516e3d88ce42bf4e7852ce7989c726044371ebb9a73482",
+        "reviewed_main": "48d4689f10af8c07545e95bd4e70f240ca81d096"
+      },
+      "public_documentation": {
+        "published_path_count": 20,
+        "canonical_source_map_sha256": "d75b87efd92352d324f154221e5cd9be06ca7f33ce897b9d23bad077bb4def35",
+        "destinations": [
+          {
+            "path": ".github/workflows/quickstart.yml",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/.github/workflows/quickstart.yml"
+          },
+          {
+            "path": "README.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/README.md"
+          },
+          {
+            "path": "docs/BUILD_DELIVERY.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/BUILD_DELIVERY.md"
+          },
+          {
+            "path": "docs/CHANGELOG.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/CHANGELOG.md"
+          },
+          {
+            "path": "docs/EXAMPLES.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/EXAMPLES.md"
+          },
+          {
+            "path": "docs/PROJECT_KNOWLEDGE.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/PROJECT_KNOWLEDGE.md"
+          },
+          {
+            "path": "docs/QUICKSTART.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/QUICKSTART.md"
+          },
+          {
+            "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/R14_AUTONOMOUS_HANDOFF.md"
+          },
+          {
+            "path": "docs/R14_RELEASE_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/R14_RELEASE_PLAN.md"
+          },
+          {
+            "path": "docs/SESSION_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/SESSION_HANDOFF.md"
+          },
+          {
+            "path": "docs/START_HERE.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/START_HERE.md"
+          },
+          {
+            "path": "docs/api/EXTENSIONS.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/api/EXTENSIONS.md"
+          },
+          {
+            "path": "docs/knowledge/LESSONS.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/knowledge/LESSONS.md"
+          },
+          {
+            "path": "docs/stories/EQ-132_IMPLEMENTATION_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/stories/EQ-132_IMPLEMENTATION_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-132_INPUTS.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/stories/EQ-132_INPUTS.json"
+          },
+          {
+            "path": "docs/stories/EQ-132_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/stories/EQ-132_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-132_VALIDATION.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/stories/EQ-132_VALIDATION.json"
+          },
+          {
+            "path": "tools/quickstart_probe.py",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/tools/quickstart_probe.py"
+          },
+          {
+            "path": "tools/test_quickstart_verifier.py",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/tools/test_quickstart_verifier.py"
+          },
+          {
+            "path": "tools/verify_quickstart.py",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/tools/verify_quickstart.py"
+          }
+        ]
+      },
+      "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+      "main_artifacts": {
+        "evidence_sha256": "0625cb0de475c1385a86399c5554e858be062618bd1bcadd9d8ed6bc0b259b32",
+        "count": 6,
+        "artifact_ids": [
+          12126765028,
+          12126392423,
+          12126168428,
+          12126322894,
+          12121724243,
+          12122147674
+        ],
+        "references": "artifact_evidence_registry keyed by id; sanitized metadata only."
+      },
+      "final_closure_live_readback_sha256": "edfa02710c68fac87aec0f99937f7292263b4794da91c56c1e998377fa3f5939"
+    },
+    {
+      "story": 314,
+      "label": "EQ133",
+      "accepted_main": "84051d9c13f631de398c7f58985f6d07d8e0d255",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/314#issuecomment-6246634802",
+      "close_sha256": "e76b596e5c4544ec5a211628bfbc2bf2da0484be76508cd2ed60f02f3a6ed576",
+      "independent_closure_review_sha256": "71b38b4d8c58d591a08f843eb6e2d1a79af9e79d78c0fbbb4169921200d01e6a",
+      "original_current_criteria_checked": 3,
+      "publication_sha256": "9c87afd1c97cf0e6491f72af91dfaca1cf143c85f678b277f120bc06a3386145",
+      "final_source_review_sha256": "23e28c5a472ee62473ead75e47c2cdb1aa0e0f4ae4a58e0b02511d48a568c6bc",
+      "candidate_review_sha256": "12e5b7a4466c28c60e88413bfef96a04740d209c3f1bcfeb0a0d51ae15e31829",
+      "final_main_review_sha256": "6fba32b004359a9335cd100945aad7be0942937c7e3ddd3f20f7c7bab53318f5",
+      "candidate_checks": {
+        "count": 66,
+        "proof_sha256": "1e70b9873e57bd033801a588a6aa80cabca8bbfe3e42542377043b64b73e184a",
+        "reviewed_candidate_head": "5ee852d5900eccd98f066dd273fc20d08bdfdf65"
+      },
+      "main_checks": {
+        "count": 33,
+        "proof_sha256": "00fd91b1d8e5bc71a0ea200ead2725aef75fa78e3b0af019fe5fca03fd1c747d",
+        "reviewed_main": "84051d9c13f631de398c7f58985f6d07d8e0d255"
+      },
+      "public_documentation": {
+        "published_path_count": 13,
+        "canonical_source_map_sha256": "aa28532d8dcf8b5369e62b02a49656315f786f7b7fe1e75f4bd27c737a67b932",
+        "destinations": [
+          {
+            "path": ".github/ISSUE_TEMPLATE/bug.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/.github/ISSUE_TEMPLATE/bug.md"
+          },
+          {
+            "path": ".github/ISSUE_TEMPLATE/proposal.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/.github/ISSUE_TEMPLATE/proposal.md"
+          },
+          {
+            "path": "CONTRIBUTING.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/CONTRIBUTING.md"
+          },
+          {
+            "path": "docs/CHANGELOG.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/CHANGELOG.md"
+          },
+          {
+            "path": "docs/PROJECT_KNOWLEDGE.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/PROJECT_KNOWLEDGE.md"
+          },
+          {
+            "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/R14_AUTONOMOUS_HANDOFF.md"
+          },
+          {
+            "path": "docs/R14_RELEASE_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/R14_RELEASE_PLAN.md"
+          },
+          {
+            "path": "docs/SESSION_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/SESSION_HANDOFF.md"
+          },
+          {
+            "path": "docs/knowledge/LESSONS.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/knowledge/LESSONS.md"
+          },
+          {
+            "path": "docs/stories/EQ-133_IMPLEMENTATION_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/stories/EQ-133_IMPLEMENTATION_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-133_INPUTS.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/stories/EQ-133_INPUTS.json"
+          },
+          {
+            "path": "docs/stories/EQ-133_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/stories/EQ-133_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-133_VALIDATION.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/stories/EQ-133_VALIDATION.json"
+          }
+        ]
+      },
+      "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+      "main_artifacts": {
+        "evidence_sha256": "a5d40763e1cedae73c8acb08b33d90308727ff2c8a39830fa0f38b8fabf9baef",
+        "count": 6,
+        "artifact_ids": [
+          12127119628,
+          12127607778,
+          12127672728,
+          12127508731,
+          12121724243,
+          12122147674
+        ],
+        "references": "artifact_evidence_registry keyed by id; sanitized metadata only."
+      },
+      "final_closure_live_readback_sha256": "4463b9fb8d0845a166c274e6cbb2c1f4a64a1630b2f438584b25be112dcf7e0d"
+    },
+    {
+      "story": 315,
+      "label": "EQ134",
+      "accepted_main": "143f25b60109a8c7361d23da6d660735187defa6",
+      "acceptance": "https://github.com/atulsrivas1/equity-features/issues/315#issuecomment-6247172309",
+      "close_sha256": "4055bc088e7f6a58e7a0a6c4f2b0f0dfab5cecfef1f4cffadbadc7053a1f97cc",
+      "independent_closure_review_sha256": "d8e6f3338eae994d76b278f7b9d848b2fa44500f0db7a65447c9ffd9db821662",
+      "original_current_criteria_checked": 3,
+      "publication_sha256": "fd975b6ead616ed7d1e0bad6a56ee8c396da88500e746038994d0e62631cf13b",
+      "final_source_review_sha256": "dafcf85ea9cd9f50cbcc3ed7d8e8d3e329f31ff15bd7c60e9acc5b631fa540a1",
+      "candidate_review_sha256": "b16727ce010009ab5cb157211eb7a1266353e41e09a94ceb24064ce77a5bd584",
+      "final_main_review_sha256": "cee3bc3e894d7f23a8b5125628201314b0faea363efceea4322153e3439583ae",
+      "candidate_checks": {
+        "count": 66,
+        "proof_sha256": "eefcc1a48ed006e021f5c195d7e7517bb515f70da69d00b55116191d37336f6e",
+        "reviewed_candidate_head": "0f3987a56223b52c75739d7b008824b934072f3d"
+      },
+      "main_checks": {
+        "count": 33,
+        "proof_sha256": "c14b8938af9b0596b8fa4809347b57da7c49fbe5811e845d36f8f2bdd485a929",
+        "reviewed_main": "143f25b60109a8c7361d23da6d660735187defa6"
+      },
+      "public_documentation": {
+        "published_path_count": 14,
+        "canonical_source_map_sha256": "23eea0cb69168536e754e5411240e572af3d19f3100030d6526855c011568a74",
+        "destinations": [
+          {
+            "path": "docs/ANNOUNCEMENT_DRAFT.txt",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/ANNOUNCEMENT_DRAFT.txt"
+          },
+          {
+            "path": "docs/CHANGELOG.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/CHANGELOG.md"
+          },
+          {
+            "path": "docs/CHANNEL_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/CHANNEL_PLAN.md"
+          },
+          {
+            "path": "docs/DEVELOPER_DEMO.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/DEVELOPER_DEMO.md"
+          },
+          {
+            "path": "docs/PROJECT_KNOWLEDGE.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/PROJECT_KNOWLEDGE.md"
+          },
+          {
+            "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/R14_AUTONOMOUS_HANDOFF.md"
+          },
+          {
+            "path": "docs/R14_RELEASE_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/R14_RELEASE_PLAN.md"
+          },
+          {
+            "path": "docs/SESSION_HANDOFF.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/SESSION_HANDOFF.md"
+          },
+          {
+            "path": "docs/knowledge/LESSONS.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/knowledge/LESSONS.md"
+          },
+          {
+            "path": "docs/stories/EQ-134_DEMO_ENTRY.txt",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_DEMO_ENTRY.txt"
+          },
+          {
+            "path": "docs/stories/EQ-134_IMPLEMENTATION_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_IMPLEMENTATION_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-134_INPUTS.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_INPUTS.json"
+          },
+          {
+            "path": "docs/stories/EQ-134_PLAN.md",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_PLAN.md"
+          },
+          {
+            "path": "docs/stories/EQ-134_VALIDATION.json",
+            "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_VALIDATION.json"
+          }
+        ]
+      },
+      "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+      "main_artifacts": {
+        "evidence_sha256": "e2d84926469bafe1f98a8571864b1c6cb1867bf435a3b2328fcb6a779849287e",
+        "count": 6,
+        "artifact_ids": [
+          12128223637,
+          12128942152,
+          12128559359,
+          12129146078,
+          12121724243,
+          12122147674
+        ],
+        "references": "artifact_evidence_registry keyed by id; sanitized metadata only."
+      },
+      "final_closure_live_readback_sha256": "2b261481d996cd57d6c32e41bc2a18974f5c8cd2e27318951cfa6e09ff3ae9e2"
+    }
+  ],
+  "baseline": {
+    "observation_status": "NO_COHORT / PILOT_NOT_STARTED",
+    "declared_demo_source_main": "143f25b60109a8c7361d23da6d660735187defa6",
+    "declared_demo_document": "docs/DEVELOPER_DEMO.md",
+    "cutoff_utc": "2026-10-18T07:36:02.399088Z",
+    "cohort": null,
+    "window_start_utc": null,
+    "window_end_utc": null,
+    "pilot_started": false,
+    "participant_records_collected": false,
+    "event_records": [],
+    "worldwide_activity": "UNKNOWN",
+    "maintainer_demo_or_CI_is_participant_evidence": false
+  },
+  "manual_metrics_rows": [
+    {
+      "metric": "unique_human_example_attempts",
+      "definition": "Distinct external people voluntarily reporting an attempt of the declared demo/version; deduplicate repeat commands per person. Exclude maintainer automation and CI. If permitted evidence cannot establish uniqueness, record UNKNOWN; do not collect identity to meet a target.",
+      "recorded_eligible_events": 0,
+      "observed_pilot_count": 0,
+      "global_count": "UNKNOWN",
+      "target": 5,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No selected or started operational pilot; empty scoped manual event ledger."
+    },
+    {
+      "metric": "useful_feedback_reports",
+      "definition": "Distinct actionable, rights-safe reports with version/command, synthetic reproduction and expected/observed behavior; deduplicate underlying problems. A confirmed product defect is not required. Stars, likes and acknowledgments do not count.",
+      "recorded_eligible_events": 0,
+      "observed_pilot_count": 0,
+      "global_count": "UNKNOWN",
+      "target": 3,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No selected or started pilot and no collected cohort reports."
+    },
+    {
+      "metric": "first_contributors",
+      "definition": "Distinct external contributors whose first scoped code/documentation issue change is accepted through ordinary review and verified default-branch delivery. Drafts, starter creation, maintainer automation and review revisions do not count.",
+      "recorded_eligible_events": 0,
+      "observed_pilot_count": 0,
+      "global_count": "UNKNOWN",
+      "target": null,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No observed pilot cohort; public starter opportunities remain unimplemented."
+    },
+    {
+      "metric": "returning_contributors",
+      "definition": "An eligible first contributor later delivers a separate accepted change for a distinct issue. Split commits or rework within the same contribution do not qualify. If linkage cannot be established from permitted public/consented evidence, record UNKNOWN.",
+      "recorded_eligible_events": 0,
+      "observed_pilot_count": 0,
+      "global_count": "UNKNOWN",
+      "return_rate": "N/A",
+      "eligible_first_contributors": 0,
+      "target": 1,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No eligible first contributors in the unstarted scoped pilot; no denominator."
+    },
+    {
+      "metric": "response_interval",
+      "definition": "UTC first substantive maintainer triage minus report timestamp; classify response human, automated or unknown. Exclude automatic acknowledgments; publish only aggregate sample scope.",
+      "eligible_reports": 0,
+      "answered_reports": 0,
+      "unanswered_reports": 0,
+      "response_class": "N/A",
+      "sample_count": 0,
+      "median_seconds": "N/A",
+      "global_interval": "UNKNOWN",
+      "target": null,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "No eligible scoped reports; no response is never zero seconds and no response SLA is selected."
+    },
+    {
+      "metric": "announcement_or_invitation_actions",
+      "definition": "Actual separately authorized external submissions/invitations; prepared drafts and repository delivery are distinct.",
+      "observed_actions_by_this_execution": 0,
+      "global_count": "UNKNOWN",
+      "target": null,
+      "target_attainment": "NOT_ASSESSED",
+      "evidence": "EQ134 announcement remains UNSENT; this work authorizes no external posting/invitation."
+    }
+  ],
+  "pilot_decision_proposal": {
+    "pilot": "DEFER",
+    "reason": "No operational pilot, external submission or invitations selected/authorized. Public-contact placeholder is a later submission prerequisite, not missing input for current documentation delivery.",
+    "continue": "Finish only the already selected manual metrics/lessons/library receipt and ordinary exact-head review/delivery scope.",
+    "change": "Separate future human-learning evidence from automated engineering qualification; keep zero recorded scoped events distinct from UNKNOWN global usage.",
+    "stop": "No external posts, invitations, participant collection, reminders, automatic restart, trial rerun or growth commitment.",
+    "future_pilot": "Only a separate concrete owner decision may select an optional manually operated30-day pilot, with current channel/contact/artifact/rules, permitted evidence and one explicit continue/change/stop review. No timeline or reminder is created."
+  },
+  "library_receipt_proposal": {
+    "schema": "eq135.r14-library-receipt-proposal.v1",
+    "scope": "Accepted library-only R14 component; research/combined C1 excluded and open.",
+    "source_freeze_base": "143f25b60109a8c7361d23da6d660735187defa6",
+    "accepted_predecessors": [
+      {
+        "story": 426,
+        "label": "GOV026",
+        "accepted_main": "4effd881008aba295462dcb733a9025c47544b6b",
+        "acceptance": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738",
+        "close_sha256": "8b9250b7ec81c9bf5cd0273816481a7761742a0ac14f95dd18777201c0e34ea9",
+        "independent_closure_review_sha256": "aa4067f046a581f4931e5c93b743a39ecb0de99fa464d5eee39e46e0d7dabd92",
+        "original_current_criteria_checked": 3,
+        "publication_sha256": "3e180ec4db0c49718b2912c2da0bd4870bef3f3af584697f8b6cfc9d1f7f3262",
+        "final_source_review_sha256": "76cb0f792c1c932b90e8eee5f850b3c8cc2d3646960fd365e0ba8e03fc374564",
+        "candidate_review_sha256": "2723ae25f79ad5bae38fa36a007806a61bbf5e0fe843a245918fc47619539063",
+        "final_main_review_sha256": "869dbb50dea62ec95212dd9a0e81fdac03b8451ab4be351d8bf845596793b330",
+        "candidate_checks": {
+          "count": 62,
+          "proof_sha256": "4e07526d9812e996584215d3ffb7a80862d3069737165ddaa3604103a779a2f0",
+          "reviewed_candidate_head": "72fa8c266f43354b00dab62d49cbde6337e6aa0a"
+        },
+        "main_checks": {
+          "count": 31,
+          "proof_sha256": "01c0fdc025eb7ef76fe40db2c5811249422bd40d4a402a6a0ba8b09ddfa3b297",
+          "reviewed_main": "4effd881008aba295462dcb733a9025c47544b6b"
+        },
+        "public_documentation": {
+          "published_path_count": 22,
+          "canonical_source_map_sha256": "5f7dc4f77077e6c7e3f183dbe686cfe67e1b3cca1aa7a119b2fd0f79e29f90ee",
+          "destinations": [
+            {
+              "path": "docs/BACKLOG.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/BACKLOG.md"
+            },
+            {
+              "path": "docs/C1_COMMUNITY_RELEASE_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/C1_COMMUNITY_RELEASE_PLAN.md"
+            },
+            {
+              "path": "docs/CHANGELOG.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/CHANGELOG.md"
+            },
+            {
+              "path": "docs/CODE_REVIEW.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/CODE_REVIEW.md"
+            },
+            {
+              "path": "docs/PROJECT_KNOWLEDGE.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/PROJECT_KNOWLEDGE.md"
+            },
+            {
+              "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_AUTONOMOUS_HANDOFF.md"
+            },
+            {
+              "path": "docs/R14_RELEASE_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_RELEASE_PLAN.md"
+            },
+            {
+              "path": "docs/R14_SCOPE_PROPOSAL.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_SCOPE_PROPOSAL.json"
+            },
+            {
+              "path": "docs/R14_SCOPE_PROPOSAL.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_SCOPE_PROPOSAL.md"
+            },
+            {
+              "path": "docs/R14_TEST_STRATEGY.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/R14_TEST_STRATEGY.md"
+            },
+            {
+              "path": "docs/SESSION_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/SESSION_HANDOFF.md"
+            },
+            {
+              "path": "docs/knowledge/LESSONS.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/knowledge/LESSONS.md"
+            },
+            {
+              "path": "docs/reviews/R13_POST_DELIVERY_REVIEW.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/reviews/R13_POST_DELIVERY_REVIEW.json"
+            },
+            {
+              "path": "docs/reviews/R13_POST_DELIVERY_REVIEW.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/reviews/R13_POST_DELIVERY_REVIEW.md"
+            },
+            {
+              "path": "docs/stories/EQ-131_IMPLEMENTATION_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-131_IMPLEMENTATION_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-131_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-131_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-132_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-132_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-133_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-133_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-134_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-134_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-135_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/EQ-135_PLAN.md"
+            },
+            {
+              "path": "docs/stories/GOV-026_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/GOV-026_PLAN.md"
+            },
+            {
+              "path": "docs/stories/GOV-026_VALIDATION.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/4effd881008aba295462dcb733a9025c47544b6b/docs/stories/GOV-026_VALIDATION.json"
+            }
+          ]
+        },
+        "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+        "main_artifacts": {
+          "evidence_sha256": null,
+          "count": 0,
+          "artifact_ids": [],
+          "applicability": "Accepted governance/positioning docs-only scope required exact62candidate/31main source/CI/readback, no new product-artifact acquisition or artifact qualification claimed."
+        },
+        "final_closure_live_readback_sha256": "af8087dedada1b91623400c22af62243f882882b461325ef81ce5627bd2bf86b"
+      },
+      {
+        "story": 312,
+        "label": "EQ131",
+        "accepted_main": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d",
+        "acceptance": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6245520946",
+        "close_sha256": "ab5fa3096b6d6e0ba7548fec4ab53e4133516ba3f1c04075eea8c06e2a2381e4",
+        "independent_closure_review_sha256": "de619bbc45f65e94a1c307e05f89e64e2cf357229a974310caf5cc346860c68a",
+        "original_current_criteria_checked": 3,
+        "publication_sha256": "60011097d6029c7cf1292d603929385fabb53dc8c9b965cf4a32e3a93d6bfa4e",
+        "final_source_review_sha256": "70f7c446e95b27acb6af938d76f52403a8af22e81843de7fc7fd6a3836b054e8",
+        "candidate_review_sha256": "938a00df32c15c23e50b2743078587cd74a6225b5195866af28d897c6daadcbf",
+        "final_main_review_sha256": "ee53a7100e02239bb6f5e6d88fad2e081ac0a90750f64b5c9994c8fcf4da3de5",
+        "candidate_checks": {
+          "count": 62,
+          "proof_sha256": "c62f71ecf8e83c8e7eb79ea6bca0f658fd03d615b17e4c31933fca9b5bc973d4",
+          "reviewed_candidate_head": "7b4b5a4bf943fdd94622029ec5ea3d2036979479"
+        },
+        "main_checks": {
+          "count": 31,
+          "proof_sha256": "c1043adf9a29038fb5b079e9b5b05dfe7c6a7ab8e4f35f7716da846cd716ab15",
+          "reviewed_main": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d"
+        },
+        "public_documentation": {
+          "published_path_count": 13,
+          "canonical_source_map_sha256": "bbbe738c8d0d33fc526b8d9f15fba2360aad23e2db5e67886edccefcfda104a3",
+          "destinations": [
+            {
+              "path": "README.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/README.md"
+            },
+            {
+              "path": "docs/BACKLOG.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/BACKLOG.md"
+            },
+            {
+              "path": "docs/C1_COMMUNITY_RELEASE_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/C1_COMMUNITY_RELEASE_PLAN.md"
+            },
+            {
+              "path": "docs/CHANGELOG.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/CHANGELOG.md"
+            },
+            {
+              "path": "docs/PROJECT_KNOWLEDGE.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/PROJECT_KNOWLEDGE.md"
+            },
+            {
+              "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/R14_AUTONOMOUS_HANDOFF.md"
+            },
+            {
+              "path": "docs/R14_RELEASE_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/R14_RELEASE_PLAN.md"
+            },
+            {
+              "path": "docs/SESSION_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/SESSION_HANDOFF.md"
+            },
+            {
+              "path": "docs/START_HERE.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/START_HERE.md"
+            },
+            {
+              "path": "docs/knowledge/LESSONS.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/knowledge/LESSONS.md"
+            },
+            {
+              "path": "docs/stories/EQ-131_IMPLEMENTATION_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/stories/EQ-131_IMPLEMENTATION_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-131_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/stories/EQ-131_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-131_VALIDATION.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d/docs/stories/EQ-131_VALIDATION.json"
+            }
+          ]
+        },
+        "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+        "main_artifacts": {
+          "evidence_sha256": null,
+          "count": 0,
+          "artifact_ids": [],
+          "applicability": "Accepted governance/positioning docs-only scope required exact62candidate/31main source/CI/readback, no new product-artifact acquisition or artifact qualification claimed."
+        },
+        "final_closure_live_readback_sha256": "06e5a3a450fb8134ddd0e804b1f54136a8d0eafa0bf039392f8c55c68c11d87c"
+      },
+      {
+        "story": 313,
+        "label": "EQ132",
+        "accepted_main": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+        "acceptance": "https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246206150",
+        "close_sha256": "354f94047eac17288cc04d7d9b9c1181e20c41cc93fee4447f26140d16be6d6a",
+        "independent_closure_review_sha256": "6cadd3030c41a737d76c1eda5923ae35aa885fe019c07554103c95efc7fe837d",
+        "original_current_criteria_checked": 3,
+        "publication_sha256": "6b4917758555349e9c9e1cb412a446abfba0be1081a681946f1bd2d415c46a52",
+        "final_source_review_sha256": "5efd03345d74b193c0dc36894e3227a633b1fc30705809826ca42737387f88c1",
+        "candidate_review_sha256": "e8606d99f1971fa1692203e390a45d98be8f5a361568a094cb897bee5e0dcb80",
+        "final_main_review_sha256": "a5dc5829bfa8503d505263739f17fdab0dd92fefb20d60d0ca011bc37cfc93c7",
+        "candidate_checks": {
+          "count": 66,
+          "proof_sha256": "eb96be56541d56773d882227b7386f34db5209be80b7d532c963c05a4d60cafc",
+          "reviewed_candidate_head": "6607e07cbad960831b4016b72b6bdea055ac9b5e"
+        },
+        "main_checks": {
+          "count": 33,
+          "proof_sha256": "1bc8d2688b4c4ef480516e3d88ce42bf4e7852ce7989c726044371ebb9a73482",
+          "reviewed_main": "48d4689f10af8c07545e95bd4e70f240ca81d096"
+        },
+        "public_documentation": {
+          "published_path_count": 20,
+          "canonical_source_map_sha256": "d75b87efd92352d324f154221e5cd9be06ca7f33ce897b9d23bad077bb4def35",
+          "destinations": [
+            {
+              "path": ".github/workflows/quickstart.yml",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/.github/workflows/quickstart.yml"
+            },
+            {
+              "path": "README.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/README.md"
+            },
+            {
+              "path": "docs/BUILD_DELIVERY.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/BUILD_DELIVERY.md"
+            },
+            {
+              "path": "docs/CHANGELOG.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/CHANGELOG.md"
+            },
+            {
+              "path": "docs/EXAMPLES.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/EXAMPLES.md"
+            },
+            {
+              "path": "docs/PROJECT_KNOWLEDGE.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/PROJECT_KNOWLEDGE.md"
+            },
+            {
+              "path": "docs/QUICKSTART.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/QUICKSTART.md"
+            },
+            {
+              "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/R14_AUTONOMOUS_HANDOFF.md"
+            },
+            {
+              "path": "docs/R14_RELEASE_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/R14_RELEASE_PLAN.md"
+            },
+            {
+              "path": "docs/SESSION_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/SESSION_HANDOFF.md"
+            },
+            {
+              "path": "docs/START_HERE.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/START_HERE.md"
+            },
+            {
+              "path": "docs/api/EXTENSIONS.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/api/EXTENSIONS.md"
+            },
+            {
+              "path": "docs/knowledge/LESSONS.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/knowledge/LESSONS.md"
+            },
+            {
+              "path": "docs/stories/EQ-132_IMPLEMENTATION_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/stories/EQ-132_IMPLEMENTATION_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-132_INPUTS.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/stories/EQ-132_INPUTS.json"
+            },
+            {
+              "path": "docs/stories/EQ-132_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/stories/EQ-132_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-132_VALIDATION.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/stories/EQ-132_VALIDATION.json"
+            },
+            {
+              "path": "tools/quickstart_probe.py",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/tools/quickstart_probe.py"
+            },
+            {
+              "path": "tools/test_quickstart_verifier.py",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/tools/test_quickstart_verifier.py"
+            },
+            {
+              "path": "tools/verify_quickstart.py",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/tools/verify_quickstart.py"
+            }
+          ]
+        },
+        "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+        "main_artifacts": {
+          "evidence_sha256": "0625cb0de475c1385a86399c5554e858be062618bd1bcadd9d8ed6bc0b259b32",
+          "count": 6,
+          "artifact_ids": [
+            12126765028,
+            12126392423,
+            12126168428,
+            12126322894,
+            12121724243,
+            12122147674
+          ],
+          "references": "artifact_evidence_registry keyed by id; sanitized metadata only."
+        },
+        "final_closure_live_readback_sha256": "edfa02710c68fac87aec0f99937f7292263b4794da91c56c1e998377fa3f5939"
+      },
+      {
+        "story": 314,
+        "label": "EQ133",
+        "accepted_main": "84051d9c13f631de398c7f58985f6d07d8e0d255",
+        "acceptance": "https://github.com/atulsrivas1/equity-features/issues/314#issuecomment-6246634802",
+        "close_sha256": "e76b596e5c4544ec5a211628bfbc2bf2da0484be76508cd2ed60f02f3a6ed576",
+        "independent_closure_review_sha256": "71b38b4d8c58d591a08f843eb6e2d1a79af9e79d78c0fbbb4169921200d01e6a",
+        "original_current_criteria_checked": 3,
+        "publication_sha256": "9c87afd1c97cf0e6491f72af91dfaca1cf143c85f678b277f120bc06a3386145",
+        "final_source_review_sha256": "23e28c5a472ee62473ead75e47c2cdb1aa0e0f4ae4a58e0b02511d48a568c6bc",
+        "candidate_review_sha256": "12e5b7a4466c28c60e88413bfef96a04740d209c3f1bcfeb0a0d51ae15e31829",
+        "final_main_review_sha256": "6fba32b004359a9335cd100945aad7be0942937c7e3ddd3f20f7c7bab53318f5",
+        "candidate_checks": {
+          "count": 66,
+          "proof_sha256": "1e70b9873e57bd033801a588a6aa80cabca8bbfe3e42542377043b64b73e184a",
+          "reviewed_candidate_head": "5ee852d5900eccd98f066dd273fc20d08bdfdf65"
+        },
+        "main_checks": {
+          "count": 33,
+          "proof_sha256": "00fd91b1d8e5bc71a0ea200ead2725aef75fa78e3b0af019fe5fca03fd1c747d",
+          "reviewed_main": "84051d9c13f631de398c7f58985f6d07d8e0d255"
+        },
+        "public_documentation": {
+          "published_path_count": 13,
+          "canonical_source_map_sha256": "aa28532d8dcf8b5369e62b02a49656315f786f7b7fe1e75f4bd27c737a67b932",
+          "destinations": [
+            {
+              "path": ".github/ISSUE_TEMPLATE/bug.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/.github/ISSUE_TEMPLATE/bug.md"
+            },
+            {
+              "path": ".github/ISSUE_TEMPLATE/proposal.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/.github/ISSUE_TEMPLATE/proposal.md"
+            },
+            {
+              "path": "CONTRIBUTING.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/CONTRIBUTING.md"
+            },
+            {
+              "path": "docs/CHANGELOG.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/CHANGELOG.md"
+            },
+            {
+              "path": "docs/PROJECT_KNOWLEDGE.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/PROJECT_KNOWLEDGE.md"
+            },
+            {
+              "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/R14_AUTONOMOUS_HANDOFF.md"
+            },
+            {
+              "path": "docs/R14_RELEASE_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/R14_RELEASE_PLAN.md"
+            },
+            {
+              "path": "docs/SESSION_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/SESSION_HANDOFF.md"
+            },
+            {
+              "path": "docs/knowledge/LESSONS.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/knowledge/LESSONS.md"
+            },
+            {
+              "path": "docs/stories/EQ-133_IMPLEMENTATION_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/stories/EQ-133_IMPLEMENTATION_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-133_INPUTS.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/stories/EQ-133_INPUTS.json"
+            },
+            {
+              "path": "docs/stories/EQ-133_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/stories/EQ-133_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-133_VALIDATION.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/84051d9c13f631de398c7f58985f6d07d8e0d255/docs/stories/EQ-133_VALIDATION.json"
+            }
+          ]
+        },
+        "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+        "main_artifacts": {
+          "evidence_sha256": "a5d40763e1cedae73c8acb08b33d90308727ff2c8a39830fa0f38b8fabf9baef",
+          "count": 6,
+          "artifact_ids": [
+            12127119628,
+            12127607778,
+            12127672728,
+            12127508731,
+            12121724243,
+            12122147674
+          ],
+          "references": "artifact_evidence_registry keyed by id; sanitized metadata only."
+        },
+        "final_closure_live_readback_sha256": "4463b9fb8d0845a166c274e6cbb2c1f4a64a1630b2f438584b25be112dcf7e0d"
+      },
+      {
+        "story": 315,
+        "label": "EQ134",
+        "accepted_main": "143f25b60109a8c7361d23da6d660735187defa6",
+        "acceptance": "https://github.com/atulsrivas1/equity-features/issues/315#issuecomment-6247172309",
+        "close_sha256": "4055bc088e7f6a58e7a0a6c4f2b0f0dfab5cecfef1f4cffadbadc7053a1f97cc",
+        "independent_closure_review_sha256": "d8e6f3338eae994d76b278f7b9d848b2fa44500f0db7a65447c9ffd9db821662",
+        "original_current_criteria_checked": 3,
+        "publication_sha256": "fd975b6ead616ed7d1e0bad6a56ee8c396da88500e746038994d0e62631cf13b",
+        "final_source_review_sha256": "dafcf85ea9cd9f50cbcc3ed7d8e8d3e329f31ff15bd7c60e9acc5b631fa540a1",
+        "candidate_review_sha256": "b16727ce010009ab5cb157211eb7a1266353e41e09a94ceb24064ce77a5bd584",
+        "final_main_review_sha256": "cee3bc3e894d7f23a8b5125628201314b0faea363efceea4322153e3439583ae",
+        "candidate_checks": {
+          "count": 66,
+          "proof_sha256": "eefcc1a48ed006e021f5c195d7e7517bb515f70da69d00b55116191d37336f6e",
+          "reviewed_candidate_head": "0f3987a56223b52c75739d7b008824b934072f3d"
+        },
+        "main_checks": {
+          "count": 33,
+          "proof_sha256": "c14b8938af9b0596b8fa4809347b57da7c49fbe5811e845d36f8f2bdd485a929",
+          "reviewed_main": "143f25b60109a8c7361d23da6d660735187defa6"
+        },
+        "public_documentation": {
+          "published_path_count": 14,
+          "canonical_source_map_sha256": "23eea0cb69168536e754e5411240e572af3d19f3100030d6526855c011568a74",
+          "destinations": [
+            {
+              "path": "docs/ANNOUNCEMENT_DRAFT.txt",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/ANNOUNCEMENT_DRAFT.txt"
+            },
+            {
+              "path": "docs/CHANGELOG.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/CHANGELOG.md"
+            },
+            {
+              "path": "docs/CHANNEL_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/CHANNEL_PLAN.md"
+            },
+            {
+              "path": "docs/DEVELOPER_DEMO.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/DEVELOPER_DEMO.md"
+            },
+            {
+              "path": "docs/PROJECT_KNOWLEDGE.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/PROJECT_KNOWLEDGE.md"
+            },
+            {
+              "path": "docs/R14_AUTONOMOUS_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/R14_AUTONOMOUS_HANDOFF.md"
+            },
+            {
+              "path": "docs/R14_RELEASE_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/R14_RELEASE_PLAN.md"
+            },
+            {
+              "path": "docs/SESSION_HANDOFF.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/SESSION_HANDOFF.md"
+            },
+            {
+              "path": "docs/knowledge/LESSONS.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/knowledge/LESSONS.md"
+            },
+            {
+              "path": "docs/stories/EQ-134_DEMO_ENTRY.txt",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_DEMO_ENTRY.txt"
+            },
+            {
+              "path": "docs/stories/EQ-134_IMPLEMENTATION_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_IMPLEMENTATION_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-134_INPUTS.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_INPUTS.json"
+            },
+            {
+              "path": "docs/stories/EQ-134_PLAN.md",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_PLAN.md"
+            },
+            {
+              "path": "docs/stories/EQ-134_VALIDATION.json",
+              "pinned_main_url": "https://github.com/atulsrivas1/equity-features/blob/143f25b60109a8c7361d23da6d660735187defa6/docs/stories/EQ-134_VALIDATION.json"
+            }
+          ]
+        },
+        "artifact_proof_scope": "Historical accepted main proof and retention metadata; final EQ135 current-head availability/provider/digest/expiry checks remain separate.",
+        "main_artifacts": {
+          "evidence_sha256": "e2d84926469bafe1f98a8571864b1c6cb1867bf435a3b2328fcb6a779849287e",
+          "count": 6,
+          "artifact_ids": [
+            12128223637,
+            12128942152,
+            12128559359,
+            12129146078,
+            12121724243,
+            12122147674
+          ],
+          "references": "artifact_evidence_registry keyed by id; sanitized metadata only."
+        },
+        "final_closure_live_readback_sha256": "2b261481d996cd57d6c32e41bc2a18974f5c8cd2e27318951cfa6e09ff3ae9e2"
+      }
+    ],
+    "EQ135": {
+      "story": 316,
+      "acceptance_status_at_source_freeze": "PENDING",
+      "acceptance": null,
+      "final_main": null,
+      "final_source_review": null,
+      "candidate66_proof": null,
+      "main33_proof": null,
+      "candidate10_artifact_evidence": null,
+      "main6_artifact_evidence": null,
+      "actual_closure_readback": null
+    },
+    "aggregate": {
+      "epic": 428,
+      "epic_acceptance_at_source_freeze": "PENDING",
+      "epic_acceptance": null,
+      "epic_closed": false,
+      "milestone": 16,
+      "milestone_closure_at_source_freeze": "PENDING",
+      "milestone_closed": false,
+      "exact_members": [
+        312,
+        313,
+        314,
+        315,
+        316,
+        426,
+        428
+      ],
+      "source_freeze_open_members": [
+        316,
+        428
+      ],
+      "source_freeze_closed_members": [
+        312,
+        313,
+        314,
+        315,
+        426
+      ]
+    },
+    "completion_authority": "Later actual numbered acceptance comments, live Project and independent fresh closure readback join these immutable source/proof identities. Pending source-freeze values are historical; no self-referential receipt/commit cycle is required.",
+    "research_or_combined_C1_complete": false,
+    "pilot_decision": {
+      "pilot": "DEFER",
+      "reason": "No operational pilot, external submission or invitations selected/authorized. Public-contact placeholder is a later submission prerequisite, not missing input for current documentation delivery.",
+      "continue": "Finish only the already selected manual metrics/lessons/library receipt and ordinary exact-head review/delivery scope.",
+      "change": "Separate future human-learning evidence from automated engineering qualification; keep zero recorded scoped events distinct from UNKNOWN global usage.",
+      "stop": "No external posts, invitations, participant collection, reminders, automatic restart, trial rerun or growth commitment.",
+      "future_pilot": "Only a separate concrete owner decision may select an optional manually operated30-day pilot, with current channel/contact/artifact/rules, permitted evidence and one explicit continue/change/stop review. No timeline or reminder is created."
+    },
+    "learning_targets_are_artifact_acceptance_thresholds": false,
+    "artifact_evidence_registry": {
+      "12126765028": {
+        "id": 12126765028,
+        "role": "quickstart",
+        "event": "push",
+        "system": "Linux",
+        "workflow": "quickstart.yml",
+        "run": 39100467396,
+        "attempt": 1,
+        "job": 117595516825,
+        "sha256": "45e77e5f3ac43a571df361036153073900b0eefcc84c2074a2e6803c0af56488",
+        "bytes": 470504,
+        "expires_at_utc": "2026-11-17T05:27:24Z",
+        "workflow_source_head": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467396",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467396/job/117595516825",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467396/artifacts/12126765028"
+      },
+      "12126392423": {
+        "id": 12126392423,
+        "role": "quickstart",
+        "event": "push",
+        "system": "Windows",
+        "workflow": "quickstart.yml",
+        "run": 39100467396,
+        "attempt": 1,
+        "job": 117595516672,
+        "sha256": "ba47e698a2aa776cb0f7a826a1ef7daab94c1066b24e8dd836d1880d5b1cc0a9",
+        "bytes": 472475,
+        "expires_at_utc": "2026-11-17T05:26:55Z",
+        "workflow_source_head": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467396",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467396/job/117595516672",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467396/artifacts/12126392423"
+      },
+      "12126168428": {
+        "id": 12126168428,
+        "role": "current_foundation",
+        "event": "push",
+        "system": "Linux",
+        "workflow": "packages.yml",
+        "run": 39100467358,
+        "attempt": 1,
+        "job": 117595516333,
+        "sha256": "d61f643e9c283e8a39ded3b1062eea5b17eb4515b50d9b916c9e3e9eb5334686",
+        "bytes": 273837,
+        "expires_at_utc": "2026-11-17T05:27:07Z",
+        "workflow_source_head": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467358",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467358/job/117595516333",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467358/artifacts/12126168428"
+      },
+      "12126322894": {
+        "id": 12126322894,
+        "role": "current_foundation",
+        "event": "push",
+        "system": "Windows",
+        "workflow": "packages.yml",
+        "run": 39100467358,
+        "attempt": 1,
+        "job": 117595516458,
+        "sha256": "a7fae1c2a0e9774ec8dbd6e5f19256e0141e5b27654e5160b7c4489c800a6ee4",
+        "bytes": 275097,
+        "expires_at_utc": "2026-11-17T05:27:57Z",
+        "workflow_source_head": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467358",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467358/job/117595516458",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39100467358/artifacts/12126322894"
+      },
+      "12121724243": {
+        "id": 12121724243,
+        "role": "original_foundation",
+        "event": "push",
+        "system": "Linux",
+        "workflow": "packages.yml",
+        "run": 39089365385,
+        "attempt": 1,
+        "job": 117562594688,
+        "sha256": "5a2731da8b83508ec7c09ac1ef22372c262ba0e388831f0d61cee1b8da15e23f",
+        "bytes": 273796,
+        "expires_at_utc": "2026-11-17T02:17:43Z",
+        "workflow_source_head": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39089365385",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39089365385/job/117562594688",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39089365385/artifacts/12121724243"
+      },
+      "12122147674": {
+        "id": 12122147674,
+        "role": "original_foundation",
+        "event": "push",
+        "system": "Windows",
+        "workflow": "packages.yml",
+        "run": 39089365385,
+        "attempt": 1,
+        "job": 117562594553,
+        "sha256": "f926ed59879d25ddf07f3efc2fe5aae49dea0aac3c3fc2ff44d20ad5f843d5c5",
+        "bytes": 275108,
+        "expires_at_utc": "2026-11-17T02:17:33Z",
+        "workflow_source_head": "a0a5c3a5fbeeeca93dbc4d76dbb450361acbc84d",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39089365385",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39089365385/job/117562594553",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39089365385/artifacts/12122147674"
+      },
+      "12127119628": {
+        "id": 12127119628,
+        "role": "quickstart",
+        "event": "push",
+        "system": "Linux",
+        "workflow": "quickstart.yml",
+        "run": 39103785263,
+        "attempt": 1,
+        "job": 117605251131,
+        "sha256": "0115df4f058a6d6ec86bd1de83bc98e4c128ca26abdbb35d7877a948d383bab1",
+        "bytes": 470288,
+        "expires_at_utc": "2026-11-17T06:24:10Z",
+        "workflow_source_head": "84051d9c13f631de398c7f58985f6d07d8e0d255",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785263",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785263/job/117605251131",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785263/artifacts/12127119628"
+      },
+      "12127607778": {
+        "id": 12127607778,
+        "role": "quickstart",
+        "event": "push",
+        "system": "Windows",
+        "workflow": "quickstart.yml",
+        "run": 39103785263,
+        "attempt": 1,
+        "job": 117605251012,
+        "sha256": "6111b43c60e88822252963ccda559bcc64ef82400689a4cc755672f959c3d54a",
+        "bytes": 471902,
+        "expires_at_utc": "2026-11-17T06:23:28Z",
+        "workflow_source_head": "84051d9c13f631de398c7f58985f6d07d8e0d255",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785263",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785263/job/117605251012",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785263/artifacts/12127607778"
+      },
+      "12127672728": {
+        "id": 12127672728,
+        "role": "current_foundation",
+        "event": "push",
+        "system": "Linux",
+        "workflow": "packages.yml",
+        "run": 39103785236,
+        "attempt": 1,
+        "job": 117605250741,
+        "sha256": "1e4fa13922279094701704c4b245a7c4ecbc44b91c504d1ccf9f648fa2188a7d",
+        "bytes": 273819,
+        "expires_at_utc": "2026-11-17T06:24:19Z",
+        "workflow_source_head": "84051d9c13f631de398c7f58985f6d07d8e0d255",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785236",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785236/job/117605250741",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785236/artifacts/12127672728"
+      },
+      "12127508731": {
+        "id": 12127508731,
+        "role": "current_foundation",
+        "event": "push",
+        "system": "Windows",
+        "workflow": "packages.yml",
+        "run": 39103785236,
+        "attempt": 1,
+        "job": 117605250894,
+        "sha256": "3b0319121f11262272766f9acc589e9fd1d374b4e7d16012fb4b5fc6a9db4ab1",
+        "bytes": 275094,
+        "expires_at_utc": "2026-11-17T06:25:53Z",
+        "workflow_source_head": "84051d9c13f631de398c7f58985f6d07d8e0d255",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785236",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785236/job/117605250894",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39103785236/artifacts/12127508731"
+      },
+      "12128223637": {
+        "id": 12128223637,
+        "role": "quickstart",
+        "event": "push",
+        "system": "Linux",
+        "workflow": "quickstart.yml",
+        "run": 39107071854,
+        "attempt": 1,
+        "job": 117615147226,
+        "sha256": "bf23e43870269630f3c6f65bbcd93de4a5e1b2553148f47c43799ee82e3f5707",
+        "bytes": 470471,
+        "expires_at_utc": "2026-11-17T07:17:08Z",
+        "workflow_source_head": "143f25b60109a8c7361d23da6d660735187defa6",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071854",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071854/job/117615147226",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071854/artifacts/12128223637"
+      },
+      "12128942152": {
+        "id": 12128942152,
+        "role": "quickstart",
+        "event": "push",
+        "system": "Windows",
+        "workflow": "quickstart.yml",
+        "run": 39107071854,
+        "attempt": 1,
+        "job": 117615147478,
+        "sha256": "7d969d27cf82970b5b8e8fa109193ebb62088c298258a2124d9cfff246eb6161",
+        "bytes": 472493,
+        "expires_at_utc": "2026-11-17T07:17:25Z",
+        "workflow_source_head": "143f25b60109a8c7361d23da6d660735187defa6",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071854",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071854/job/117615147478",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071854/artifacts/12128942152"
+      },
+      "12128559359": {
+        "id": 12128559359,
+        "role": "current_foundation",
+        "event": "push",
+        "system": "Linux",
+        "workflow": "packages.yml",
+        "run": 39107071991,
+        "attempt": 1,
+        "job": 117615148085,
+        "sha256": "7d053bb005599a54b74f2e2b88de69fbd9e44f316e92914f967081a3425dc855",
+        "bytes": 273827,
+        "expires_at_utc": "2026-11-17T07:20:44Z",
+        "workflow_source_head": "143f25b60109a8c7361d23da6d660735187defa6",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071991",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071991/job/117615148085",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071991/artifacts/12128559359"
+      },
+      "12129146078": {
+        "id": 12129146078,
+        "role": "current_foundation",
+        "event": "push",
+        "system": "Windows",
+        "workflow": "packages.yml",
+        "run": 39107071991,
+        "attempt": 1,
+        "job": 117615147908,
+        "sha256": "8c50558b0029520ccca253af50f247ae6ba71441887ab859995838499dab26eb",
+        "bytes": 275105,
+        "expires_at_utc": "2026-11-17T07:19:57Z",
+        "workflow_source_head": "143f25b60109a8c7361d23da6d660735187defa6",
+        "public_run_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071991",
+        "public_job_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071991/job/117615147908",
+        "public_artifact_url": "https://github.com/atulsrivas1/equity-features/actions/runs/39107071991/artifacts/12129146078"
+      }
+    },
+    "artifact_registry_scope": "Sanitized historical accepted evidence: IDs/workflow/run/job/platform/digest/size/expiry and pinned public URLs only. No raw paths, cache filenames, origins, direct URLs or installed payload maps. No fresh requalification/current availability claim."
+  },
+  "non_documentation_change": false,
+  "new_product_execution_planned": false,
+  "research_witness_or_outreach_selected": false,
+  "learning_targets": {
+    "unique_human_example_attempts": 5,
+    "useful_feedback_reports": 3,
+    "returning_contributors": 1,
+    "attainment": "NOT_ASSESSED",
+    "artifact_acceptance_thresholds": false
+  },
+  "later_required_delivery": {
+    "candidate_checks": 66,
+    "main_checks": 33,
+    "candidate_artifacts": 10,
+    "main_artifacts": 6,
+    "reused_inputs_manifest": "docs/stories/EQ-132_INPUTS.json",
+    "reused_inputs_manifest_sha256": "0d40a93e8882c25e3f2e26a99a62c393700924f83e9620397e8c5fea9361f51a",
+    "complete_effective_source_input_equality": true,
+    "current_head_event_attempt_job_metadata_digest_expiry_bindings_required": true,
+    "no_local_reinstall_or_demo_rerun_solely_for_docs": true
+  },
+  "future_fields_must_stay_pending_in_source": true,
+  "documentation_delivery_state": "IMPLEMENTED_REVIEW_AND_CURRENT_DELIVERY_PENDING",
+  "actual_admission_sha256": "612ed1edba898edb2692b066fce5e718b285a08b62099dbcb0d3abc0474210e7",
+  "reviewed_precode_head": "a3e8e1b570759fe16c038d326bf503b6b6a7c25f",
+  "precode_review_sha256": "32c3dff2be1b7a1d85a929c311a0f2163b9353cf33be22e2b6d02a5900d162e8"
+}

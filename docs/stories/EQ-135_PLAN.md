@@ -1,3 +1,9 @@
+## Reviewed documentation materialized; acceptance pending
+
+Manual sheet, explicit DEFER and library receipt are implemented after actual Ready/Atul/In progress. Final source/current CI/artifacts/main acceptance and separate aggregate closure remain required. [Validation](EQ-135_VALIDATION.json).
+
+## Earlier plan retained
+
 ## Accepted library-only R14 scope — October17,2026
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916). Parent library component: [E21#428](https://github.com/atulsrivas1/equity-features/issues/428); combined C1 parent E20#311 remains open outside this milestone. Original research/scientific requirements and ownership remain unchanged.
@@ -11,7 +17,7 @@
 
 ## Current dependencies and delivery
 
-EQ131-134 plus library predecessor/review/delivery gates; M5 and combined C1 are not part of this library receipt. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. This story stays Backlog/unassigned, with no implementation or outreach/account authority.
+EQ131-134 plus library predecessor/review/delivery gates; M5 and combined C1 are not part of this library receipt. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. The concrete [precode implementation plan](EQ-135_IMPLEMENTATION_PLAN.md) and [frozen manual metrics/receipt proposal](EQ-135_INPUTS.json) follow independently accepted EQ134. Still Backlog/unassigned until completed public precode review and normal Ready/Atul/In progress; three provisional points. This packet starts no implementation, pilot, participant collection, outreach, scheduler or account action.
 
 
 ## Preserved original plan — historical, not current criteria

@@ -1,3 +1,21 @@
+## EQ135 manual learning and library receipt implemented; delivery pending
+
+[Manual metrics](COMMUNITY_METRICS.md) and the [library receipt](R14_LIBRARY_RECEIPT.md) materialize the reviewed definitions, empty scoped baseline and explicit external-pilot DEFER. Zero recorded events remain distinct from UNKNOWN worldwide activity; empty rates/response intervals are N/A and the 5/3/1 learning goals are not release gates. Maintainer demo/CI are not human participation. No pilot, outreach, participant collection, new local product replay or automatic growth work started.
+
+GOV026/EQ131-134 are independently accepted Closed/Done; EQ134 main143f25 acceptance315#6247172309 and fresh closure reviewd8e6 are retained in the exact JSON receipt. EQ135's own current final source/CI/artifacts/main acceptance and E21/milestone closure remain PENDING until actual numbered comments and independent fresh readback. Complete all normal lifecycle gates, then separate aggregate review and closure of only the seven selected members. No circular receipt commit is required. Research/combined C1 stay open, R13 negative DEFER/witness deferral and paused R7 persist; three starter issues remain future Backlog/unassigned outside the milestone.
+
+## Earlier checkpoints retained as history
+
+## EQ134 accepted; EQ135 manual metrics and library-receipt precode
+
+[EQ134 accepted](https://github.com/atulsrivas1/equity-features/issues/315#issuecomment-6247172309) is Closed/Done at main `143f25b60109a8c7361d23da6d660735187defa6` after exact66candidate/33main, ten/six artifact and separate actual Windows-demo/source/delivery/closure review. Its one Windows-only demo/unsent channel material is distinct from current both-OS installed qualification; no human uptake/outreach is claimed. GOV026/EQ131-133 remain accepted.
+
+[EQ135 precode plan](stories/EQ-135_IMPLEMENTATION_PLAN.md) and [frozen inputs](stories/EQ-135_INPUTS.json) prepare a manual aggregate measurement sheet, explicit DEFER external pilot, learning lessons/decision and library-only receipt. EQ135 remains Backlog/unassigned until completed exact public review and normal readiness; no implementation or pilot starts here. Learning targets5/3/1 are not artifact thresholds. NO_COHORT/PILOT_NOT_STARTED means zero recorded scoped events; global activity UNKNOWN, empty response/return denominators N/A, targets NOT ASSESSED.
+
+The receipt source must keep its own EQ135 acceptance and E21/milestone closure PENDING; later actual numbered acceptance/readback join immutable source/proof identities without recursive commits. Only selected library scope may close after all normal gates. Research/combined C1, original negative R13 DEFER/witnesses and paused R7 remain unchanged; three starters432-434 stay unimplemented Backlog/unassigned outside milestone16. No new owner input, outreach, account/scheduler or package/API/math/version change is selected.
+
+## Earlier checkpoints retained as history
+
 ## EQ134 actual developer demonstration; final delivery pending
 
 [PR435](https://github.com/atulsrivas1/equity-features/pull/435) materializes the reviewed
