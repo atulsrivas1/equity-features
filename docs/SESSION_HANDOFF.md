@@ -1,3 +1,9 @@
+## CI003 controls passed; baseline reader step binding corrected
+
+Author and separate reviewer38synthetic controls passed at9abf. The first bounded data audit of existing accepted CI002 run39162664488 failed before artifact downloads: the reader inferred a command label without the actual continuous builder -B flag. Independent diagnosis confirmed all package jobs passed and the reader assumption was wrong. Exact sealed command labels and39th full-job-vector control are implemented, pending renewed source review and execution. [Retained validation and failed audit](stories/CI-003_VALIDATION.json). No probes triggered, no final artifact audit or R16 acceptance. CI003 remains In progress.
+
+## Earlier checkpoints retained as history
+
 ## CI003 reader review corrections; execution pending
 
 Exact published initial source review rejected five reader gaps while independently confirming selected source rules and both-OS baseline identities. Corrected source now checks raw TAR names, pre-read Git bounds, nested installed proofs, exact public quickstart logs/commands and four ZIP descriptor fixture encodings. Sanitized public log lengths are distinct from unavailable raw-private byte counts; no recovery claim. Renewed exact-source review precedes all control/reader/probe execution. CI001/CI002 accepted; CI003 remains In progress, R16 unfinished.

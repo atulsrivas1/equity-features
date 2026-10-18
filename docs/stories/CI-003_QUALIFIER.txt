@@ -853,6 +853,21 @@ def package_artifact(raw, family, system, sources, contract, budget, source_rule
 
 PACKAGE_ROOTS = ("agent-evidence", "agent-ledger", "conformance", "continuous", "diagnostics", "evidence",
                  "evidence-evaluation", "evidence-pilot", "explanations", "packages", "provenance", "quickstart", "r9", "r10", "research", "transport")
+BUILD_STEPS = {
+    "agent-evidence": "Run python tools/build_agent_evidence.py",
+    "agent-ledger": "Run python tools/build_agent_ledger.py",
+    "conformance": "Run python tools/build_conformance.py --io work/accepted-io --workers work/accepted-workers",
+    "continuous": "Run python -B tools/build_continuous.py",
+    "diagnostics": "Run python tools/build_diagnostics.py",
+    "evidence": "Run python tools/build_evidence.py",
+    "evidence-pilot": "Run python tools/build_evidence_pilot.py",
+    "explanations": "Run python tools/build_explanations.py",
+    "packages": "Run python tools/build_foundation.py",
+    "provenance": "Run python tools/build_provenance.py --io work/accepted-io --workers work/accepted-workers",
+    "r9": "Run python tools/build_r9.py",
+    "r10": "Run python tools/build_r10.py --io work/accepted-io --workers work/accepted-workers",
+    "research": "Run python tools/build_research.py",
+}
 READERS = ("docs/api/CONTINUOUS_QUOTES.md", "docs/api/PUBLIC_API.md", "docs/contracts/RESULTS.md")
 ALLOWLIST = digest(("equity-features.ci-allowlist.v1\n" + "\n".join(READERS) + "\n").encode())
 
@@ -970,10 +985,7 @@ def root_jobs(jobs, case):
             elif name.startswith("transport /"):
                 critical = ["Run python tools/verify_remote_transport.py"]
             elif not name.startswith("transport /"):
-                builder = name.split(" / ", 1)[0].replace("-", "_")
-                if builder == "packages":
-                    builder = "foundation"
-                require(any("python tools/build_" + builder + ".py" in step["name"] and step["conclusion"] == "success" for step in job["steps"]), "builder step skipped")
+                critical = [BUILD_STEPS[name.split(" / ", 1)[0]]]
             for label in critical:
                 found = [step for step in job["steps"] if step["name"] == label]
                 require(len(found) == 1 and found[0]["conclusion"] == "success", "critical step skipped")

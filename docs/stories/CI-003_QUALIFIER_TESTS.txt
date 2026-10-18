@@ -269,6 +269,39 @@ class ReaderControls(unittest.TestCase):
         jobs[0]['run_attempt'] = 1; jobs[0]['steps'][0]['conclusion'] = 'skipped'
         self.rejected(lambda: q.root_jobs(jobs, case))
 
+    def test_actual_full_job_commands_preserve_interpreter_flags(self):
+        # Independent literal step names from accepted0ef workflow definitions
+        # and run39162664488, including flags and companion arguments.
+        case, jobs = self.logical_jobs(); case['kind'] = 'full'; jobs = jobs[:3]
+        commands = {
+            'agent-evidence': ['Run python tools/build_agent_evidence.py'],
+            'agent-ledger': ['Run python tools/build_agent_ledger.py'],
+            'conformance': ['Run python tools/build_conformance.py --io work/accepted-io --workers work/accepted-workers'],
+            'continuous': ['Run python -B tools/build_continuous.py'],
+            'diagnostics': ['Run python tools/build_diagnostics.py'],
+            'evidence': ['Run python tools/build_evidence.py'],
+            'evidence-evaluation': ['Qualification only (no scheduled measurements)'],
+            'evidence-pilot': ['Run python tools/build_evidence_pilot.py'],
+            'explanations': ['Run python tools/build_explanations.py'],
+            'packages': ['Run python tools/build_foundation.py'],
+            'provenance': ['Run python tools/build_provenance.py --io work/accepted-io --workers work/accepted-workers'],
+            'quickstart': ['Verify fail-closed artifact and replay boundaries', 'Replay the documented minimal quickstart', 'Retain quickstart evidence, including failures'],
+            'r9': ['Run python tools/build_r9.py'],
+            'r10': ['Run python tools/build_r10.py --io work/accepted-io --workers work/accepted-workers'],
+            'research': ['Run python tools/build_research.py'],
+            'transport': ['Run python tools/verify_remote_transport.py'],
+        }
+        for root, labels in commands.items():
+            for os in ('ubuntu-24.04', 'windows-latest'):
+                leaf = {'packages': 'compatibility', 'transport': 'wire'}.get(root, root)
+                jobs.append(dict(name=f'{root} / {leaf} ({os})', run_id=1, run_attempt=1, head_sha='1' * 40,
+                                 status='completed', conclusion='success', steps=[dict(name=s, status='completed', conclusion='success') for s in labels]))
+        q.root_jobs(jobs, case)
+        continuous = next(j for j in jobs if j['name'] == 'continuous / continuous (ubuntu-24.04)')
+        continuous['steps'][0]['conclusion'] = 'skipped'; self.rejected(lambda: q.root_jobs(jobs, case))
+        continuous['steps'][0]['conclusion'] = 'success'; continuous['steps'][0]['name'] = 'Run python tools/build_continuous.py'
+        self.rejected(lambda: q.root_jobs(jobs, case))
+
     def test_docs_negative_cannot_hide_other_failures(self):
         case, jobs = self.logical_jobs(); jobs[1]['conclusion'] = 'failure'
         self.rejected(lambda: q.root_jobs(jobs, case))

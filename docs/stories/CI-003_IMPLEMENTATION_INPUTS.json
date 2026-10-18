@@ -1,6 +1,6 @@
 {
   "schema": "equity-features.ci003-implementation-inputs.v1",
-  "status": "SOURCE_REVIEW_PENDING_NOT_EXECUTED",
+  "status": "CORRECTED_SOURCE_REVIEW_PENDING_AFTER_DIAGNOSTIC_READER_FAILURE",
   "precode": {
     "head": "16e8945ad700d91f4a2c1c53a2300cd7f4cb63e8",
     "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
@@ -18,24 +18,28 @@
   },
   "assets": {
     "docs/stories/CI-003_QUALIFIER.txt": {
-      "bytes": 66881,
-      "sha256": "ff89c375a99757054bd14ff37e528924aacbce59f7ececb647446ded05b4452d"
+      "bytes": 67548,
+      "sha256": "dec81ee521a620a6b587c1bd26277ce3f5a7537db48f2b85cd8da682246b3f6f"
     },
     "docs/stories/CI-003_QUALIFIER_TESTS.txt": {
-      "bytes": 16286,
-      "sha256": "497ca21359e4956526646c0bbf8fc115056fa5daa3df87bf45e8598f8f1fbffc"
+      "bytes": 18875,
+      "sha256": "251aba8853e03fb8c32b0ade372cfe530959b491363e52f1adc3095a56d40748"
     },
     "docs/stories/CI-003_SOURCE_RULES.json": {
       "bytes": 675944,
       "sha256": "ae4a4e6057bd201c6d6f1b10ef39d501b18322f5866973637902b746f575a0c2"
     },
     "docs/CI_QUALIFICATION.md": {
-      "bytes": 5017,
-      "sha256": "80d1f21b68b150f0d751c51c7e5bc94d3a228e54e355d76feff46efaa04461f0"
+      "bytes": 5517,
+      "sha256": "ce7f288497fa0e5d78971cbbfbaa5e3577b39136b36ad550cea6eb0f2fd87050"
+    },
+    "docs/stories/CI-003_VALIDATION.json": {
+      "bytes": 4296,
+      "sha256": "2d09e6c251e8b6635e7a82c49a4c1b14c2ca747fd37932370494768d28b6d369"
     }
   },
-  "new_tests_executed": 0,
-  "qualifier_executions": 0,
+  "new_tests_executed": 38,
+  "qualifier_executions": 1,
   "probe_workflow_triggers": 0,
   "frozen_probe_sources": {
     "docs": {
@@ -191,5 +195,9 @@
     "TAR": "Require exact USTAR magic/version before TarInfo; malformed variants source fixture added.",
     "ZIP_descriptors": "All4signed/unsigned32/64positive encodings now include bad CRC/truncation/wrongwidth negatives.",
     "publication_history": "Initial192e push succeeded; immediate stale PR head read refused before PR/receipt mutation; fresh matching read completed without duplicate push/comment/commit."
-  }
+  },
+  "executed_validation": "docs/stories/CI-003_VALIDATION.json",
+  "qualifier_execution_completed_successfully": false,
+  "new_synthetic_method_sources": 39,
+  "source_review_9abf_sha256": "2be9f8285cbbc7771a3c975c16b479b45ddbe506fa5b6d04609a614ff3fd461e"
 }

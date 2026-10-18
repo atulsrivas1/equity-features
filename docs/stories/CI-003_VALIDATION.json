@@ -1,0 +1,97 @@
+{
+  "schema": "equity-features.ci003-validation.v1",
+  "status": "IMPLEMENTED_NOT_QUALIFIED",
+  "source_head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
+  "source_review_sha256": "2be9f8285cbbc7771a3c975c16b479b45ddbe506fa5b6d04609a614ff3fd461e",
+  "synthetic_controls": {
+    "author": {
+      "actual_methods": 38,
+      "returncode": 0,
+      "raw_log_sha256": "83d70fc0a86815285c3ce208e58efa6293ec6fd88c117709293ac49dbc566279"
+    },
+    "reviewer": {
+      "actual_methods": 38,
+      "returncode": 0,
+      "report_sha256": "4cf00249cc9d47d048639bd7c825a2a7b56074da8b6622e928da19213fbb6d72"
+    },
+    "limits": "Separate processes and fresh copies on same verified existing Windows Python; not independent reinstall/Linux verifier. No downloaded payload execution."
+  },
+  "baseline_data_audit": {
+    "run_id": 39162664488,
+    "reader_head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
+    "returncode": 1,
+    "result": "FAILED_READER_STEP_NAME_ASSUMPTION",
+    "raw_log_sha256": "a5504ea6a5e40218979dd4a7ab5c635e9b94ea343b0cced6e44d06e90fc8bb49",
+    "phase": "root_jobs before artifact downloads",
+    "expected_incorrectly": "python tools/build_continuous.py substring",
+    "actual_successful_step": "Run python -B tools/build_continuous.py",
+    "independent_diagnostic_review_sha256": "8da030aee0271a0fb5f919303b7e6cad7daaf353e6c4318aeff3b1da1503846d",
+    "runtime_or_package_failure_demonstrated": false,
+    "actual_audit_completed": false
+  },
+  "next_corrected_source": {
+    "exact_step_bindings": "Explicit immutable-workflow full command labels, including interpreter flags and companion args;39th full35jobvector regression source pending review/execution",
+    "new_control_execution": false,
+    "new_data_audit_execution": false,
+    "probe_triggers": 0
+  },
+  "retained_tool_history": [
+    "Author synthetic-control runner first assumed nonexistent execution_approved report key and refused before copying/executing; corrected to actual explicit execution_approval object before first38method run.",
+    "Reviewer diagnostic first assumed OS API ordering and stopped before writes; set comparison corrected.",
+    "Published192e UTF8 preparer defect and original source/review history retained; exact old suffixes restored in9abf."
+  ],
+  "superseded_source_run_cancellation_requests": {
+    "reason": "Rejected/replaced CI003 reader source heads are excluded from final candidate qualification. Preserve all history; cancel requests only, no acceptance/deletion or cleanup claim. New corrected current final candidate must still complete required FULL both events.",
+    "requests": [
+      {
+        "id": 39164937698,
+        "head": "74cdf3c819cc72d3791d36f45fb90fcad4d3af47",
+        "status_at_request": "in_progress",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39164933318,
+        "head": "74cdf3c819cc72d3791d36f45fb90fcad4d3af47",
+        "status_at_request": "in_progress",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39165357033,
+        "head": "192e1bded6f41c26bc9d67af7a9b428f70d1e3c1",
+        "status_at_request": "queued",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39165352587,
+        "head": "192e1bded6f41c26bc9d67af7a9b428f70d1e3c1",
+        "status_at_request": "queued",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39165516398,
+        "head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
+        "status_at_request": "queued",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39165512565,
+        "head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
+        "status_at_request": "queued",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      }
+    ]
+  },
+  "r16_complete": false
+}

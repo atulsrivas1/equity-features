@@ -1,3 +1,7 @@
+## CI003 exact workflow-step lesson
+
+Do not infer executed step labels by dropping interpreter flags or companion arguments. Bind the sealed workflow command and actual job step literally; isolated synthetic parser controls did not cover this integration. The first9abf baseline audit remains FAILED before downloads, independent diagnosis confirms a reader error, and a full35job-vector regression still awaits execution.
+
 ## CI003 source-review correction
 
 Bind physical archive fields before parser normalization and bound Git bodies before allocation. Validate nested proof schemas rather than non-null values. Producer raw-private byte counts cannot attest retained redacted log lengths: bind public bytes separately and preserve the limitation. Exact74cdf source review found five gaps; corrections still require renewed review and execution. No successful qualification inferred.
