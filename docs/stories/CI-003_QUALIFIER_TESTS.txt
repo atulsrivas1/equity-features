@@ -1,0 +1,472 @@
+"""Independent synthetic malformed-data controls; copy to test_qualifier.py."""
+import base64
+import csv
+import copy
+import gzip
+import hashlib
+import importlib.util
+import io
+from pathlib import Path
+import stat
+import struct
+import tarfile
+import tomllib
+import unittest
+from unittest.mock import patch
+import zipfile
+import zlib
+
+spec = importlib.util.spec_from_file_location("_ci003_reader", Path(__file__).with_name("qualifier.py"))
+q = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(q)
+
+
+def zipped(entries):
+    output = io.BytesIO()
+    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for name, raw, mode in entries:
+            info = zipfile.ZipInfo(name)
+            info.external_attr = mode << 16
+            info.compress_type = zipfile.ZIP_DEFLATED
+            archive.writestr(info, raw)
+    return output.getvalue()
+
+
+def tarred(entries, pax=False):
+    output = io.BytesIO()
+    with tarfile.open(fileobj=output, mode="w", format=tarfile.PAX_FORMAT if pax else tarfile.USTAR_FORMAT) as archive:
+        for name, body, kind, headers in entries:
+            info = tarfile.TarInfo(name)
+            info.mode = 0o644; info.mtime = 1700000000; info.type = kind
+            info.pax_headers = headers
+            info.size = len(body) if kind == tarfile.REGTYPE else 0
+            archive.addfile(info, io.BytesIO(body) if kind == tarfile.REGTYPE else None)
+    return gzip.compress(output.getvalue(), mtime=1700000000)
+
+
+def recorded_wheel(files):
+    files = dict(files); record = 'demo-1.dist-info/RECORD'
+    lines = []
+    for name, body in sorted(files.items()):
+        value = base64.urlsafe_b64encode(hashlib.sha256(body).digest()).rstrip(b'=').decode()
+        lines.append(name + ',sha256=' + value + ',' + str(len(body)))
+    files[record] = ('\n'.join(lines) + '\n' + record + ',,\n').encode()
+    return zipped([(name, raw, stat.S_IFREG | 0o644) for name, raw in files.items()])
+
+
+class ReaderControls(unittest.TestCase):
+    def rejected(self, call):
+        with self.assertRaises((ValueError, KeyError, zipfile.BadZipFile, tarfile.HeaderError)):
+            call()
+
+    def test_zip_regular_bytes(self):
+        files, members = q.zip_contents(zipped([("a/x", b"literal", stat.S_IFREG | 0o644)]), q.Budget())
+        self.assertEqual(files, {"a/x": b"literal"}); self.assertEqual(members["a/x"]["bytes"], 7)
+
+    def test_zip_four_descriptor_encodings(self):
+        # Construct physical records independently of zipfile's writer.
+        for wide in (False, True):
+            for signed in (False, True):
+                with self.subTest(wide=wide, signed=signed):
+                    body = b'literal'; crc = zlib.crc32(body) & 0xffffffff
+                    extra = struct.pack('<HHQQ', 1, 16, 7, 7) if wide else b''
+                    local = struct.pack('<4s5H3I2H', b'PK\x03\x04', 45 if wide else 20, 8, 0, 0, 0, 0,
+                                        0xffffffff if wide else 0, 0xffffffff if wide else 0, 1, len(extra)) + b'a' + extra + body
+                    descriptor = (b'PK\x07\x08' if signed else b'') + struct.pack('<IQQ' if wide else '<III', crc, 7, 7)
+                    central = struct.pack('<4s6H3I5H2I', b'PK\x01\x02', 20, 45 if wide else 20, 8, 0, 0, 0,
+                                          crc, 7, 7, 1, 0, 0, 0, 0, (stat.S_IFREG | 0o644) << 16, 0) + b'a'
+                    def frame(desc):
+                        end = struct.pack('<4s4H2IH', b'PK\x05\x06', 0, 0, 1, 1, len(central), len(local) + len(desc), 0)
+                        return local + desc + central + end
+                    raw = frame(descriptor)
+                    self.assertEqual(q.zip_contents(raw, q.Budget())[0], {'a': body})
+                    offset = 4 if signed else 0
+                    bad_crc = descriptor[:offset] + struct.pack('<I', crc ^ 1) + descriptor[offset + 4:]
+                    wrong_width = (b'PK\x07\x08' if signed else b'') + struct.pack('<III' if wide else '<IQQ', crc, 7, 7)
+                    for malformed in (bad_crc, descriptor[:-1], wrong_width):
+                        self.rejected(lambda: q.zip_contents(frame(malformed), q.Budget()))
+
+    def test_unsafe_path_forms(self):
+        for path in ("/a", "../a", "a/./b", "a//b", "C:/a", "a\\b", "a/nul.txt", "a. /b", "a\x00b", "a/COM1", "a/../b", "a/", "nonascii-é"):
+            with self.subTest(path=path):
+                self.rejected(lambda: q.safe_path(path))
+
+    def test_case_ancestor_alias(self):
+        for entries in ([('Foo/', True, 0, 0o755), ('foo/x', False, 1, 0o644)], [('Foo/x', False, 1, 0o644), ('foo/y', False, 1, 0o644)]):
+            self.rejected(lambda: q.inventory(entries))
+
+    def test_file_ancestor(self):
+        self.rejected(lambda: q.inventory([('a', False, 1, 0o644), ('a/b', False, 1, 0o644)]))
+
+    def test_zip_duplicate_physical(self):
+        self.rejected(lambda: q.zip_contents(zipped([('a', b'1', 0o644), ('A', b'2', 0o644)]), q.Budget()))
+
+    def test_zip_special_and_directory_payload(self):
+        for name, body, mode in [('link', b'target', stat.S_IFLNK | 0o777), ('d/', b'x', stat.S_IFDIR | 0o755)]:
+            self.rejected(lambda: q.zip_contents(zipped([(name, body, mode)]), q.Budget()))
+
+    def test_zip_local_name_mismatch(self):
+        raw = bytearray(zipped([('abc', b'data', 0o644)])); raw[30] = ord('z')
+        self.rejected(lambda: q.zip_contents(bytes(raw), q.Budget()))
+
+    def test_zip_trailing_bytes(self):
+        self.rejected(lambda: q.zip_contents(zipped([('a', b'data', 0o644)]) + b'unindexed', q.Budget()))
+
+    def test_zip_crc_mismatch(self):
+        raw = bytearray(zipped([('abc', b'data', 0o644)])); raw[14] ^= 1
+        self.rejected(lambda: q.zip_contents(bytes(raw), q.Budget()))
+
+    def test_zip_global_budget_before_inflate(self):
+        budget = q.Budget(); budget.expanded = q.MAX_TOTAL - 1
+        self.rejected(lambda: q.zip_contents(zipped([('a', b'123', 0o644)]), budget))
+
+    def test_tar_regular_bytes(self):
+        files, members, controls = q.tar_contents(tarred([('a/x', b'literal', tarfile.REGTYPE, {})]), q.Budget())
+        self.assertEqual(files, {'a/x': b'literal'}); self.assertFalse(controls); self.assertEqual(members['a/x']['mode'], 0o644)
+
+    def test_tar_raw_name_padding_and_linkname(self):
+        for offset in (2, 347, 157):
+            data = bytearray(gzip.decompress(tarred([('a', b'x', tarfile.REGTYPE, {})])))
+            data[offset] = ord('x'); data[148:156] = b'        '
+            data[148:156] = ('%06o\0 ' % sum(data[:512])).encode()
+            self.rejected(lambda: q.tar_contents(gzip.compress(bytes(data)), q.Budget()))
+
+    def test_tar_unsupported_magic_and_version(self):
+        for start, replacement in ((257, b'other!'), (263, b'01')):
+            data = bytearray(gzip.decompress(tarred([('a', b'x', tarfile.REGTYPE, {})])))
+            data[start:start + len(replacement)] = replacement
+            data[148:156] = b'        '
+            data[148:156] = ('%06o\0 ' % sum(data[:512])).encode()
+            self.rejected(lambda: q.tar_contents(gzip.compress(bytes(data)), q.Budget()))
+
+    def test_tar_pax_does_not_hide_unsafe_placeholder(self):
+        data = bytearray(gzip.decompress(tarred([('a/' + 'b' * 104, b'x', tarfile.REGTYPE, {})], True)))
+        size = int(data[124:136].strip(b'\0 '), 8); offset = 512 + ((size + 511) // 512) * 512
+        data[offset:offset + 100] = b'../hidden' + b'\0' * 91
+        data[offset + 148:offset + 156] = b'        '
+        data[offset + 148:offset + 156] = ('%06o\0 ' % sum(data[offset:offset + 512])).encode()
+        self.rejected(lambda: q.tar_contents(gzip.compress(bytes(data)), q.Budget()))
+
+    def test_git_blob_pre_read_bounds(self):
+        class Stream:
+            def readline(self, bound):
+                return b'1' * 40 + b' blob 100\n'
+            def read(self, count):
+                raise AssertionError('oversized body must not be read')
+        self.rejected(lambda: q.git_blob_record(Stream(), '1' * 40, 99))
+        with patch.object(q, 'MAX_MEMBER', 99):
+            self.rejected(lambda: q.git_blob_record(Stream(), '1' * 40, 1000))
+
+    def test_git_blob_frame_and_digest(self):
+        body = b'literal'; oid = hashlib.sha1(b'blob 7\0' + body).hexdigest()
+        framed = oid.encode() + b' blob 7\n' + body + b'\n'
+        self.assertEqual(q.git_blob_record(io.BytesIO(framed), oid, 7), body)
+        self.rejected(lambda: q.git_blob_record(io.BytesIO(framed[:-1]), oid, 7))
+
+    def test_tar_longpath_local_pax(self):
+        name = 'a/' + 'b' * 104
+        files, _, controls = q.tar_contents(tarred([(name, b'bytes', tarfile.REGTYPE, {})], True), q.Budget())
+        self.assertEqual(files, {name: b'bytes'}); self.assertEqual(len(controls), 1)
+
+    def test_tar_unknown_pax(self):
+        self.rejected(lambda: q.tar_contents(tarred([('a', b'data', tarfile.REGTYPE, {'comment': 'unselected'})], True), q.Budget()))
+
+    def test_tar_links_and_case_alias(self):
+        self.rejected(lambda: q.tar_contents(tarred([('link', b'', tarfile.LNKTYPE, {})]), q.Budget()))
+        self.rejected(lambda: q.tar_contents(tarred([('A/x', b'1', tarfile.REGTYPE, {}), ('a/y', b'2', tarfile.REGTYPE, {})]), q.Budget()))
+
+    def test_gzip_concatenation(self):
+        raw = tarred([('a', b'x', tarfile.REGTYPE, {})])
+        self.rejected(lambda: q.tar_contents(raw + gzip.compress(b'extra'), q.Budget()))
+
+    def test_tar_global_budget_before_inflate(self):
+        budget = q.Budget(); budget.expanded = q.MAX_TOTAL - 10
+        self.rejected(lambda: q.tar_contents(tarred([('a', b'data', tarfile.REGTYPE, {})]), budget))
+
+    def test_strict_json_and_typed_equality(self):
+        for raw in (b'{"a":1,"a":2}', b'NaN', b'Infinity', b'1e999', b'"\xff"'):
+            self.rejected(lambda: q.strict_json(raw))
+        self.rejected(lambda: q.same(True, 1))
+
+    def test_record_complete_bytes(self):
+        body = b'literal'; encoded = base64.urlsafe_b64encode(hashlib.sha256(body).digest()).rstrip(b'=').decode()
+        files = {'module/a.py': body, 'module-1.dist-info/RECORD': ('module/a.py,sha256=' + encoded + ',7\nmodule-1.dist-info/RECORD,,\n').encode()}
+        q.verify_record(files)
+        files['module/a.py'] = b'changed'; self.rejected(lambda: q.verify_record(files))
+
+    def test_record_missing_extra_duplicate(self):
+        for record in (b'a,,\n', b'm-1.dist-info/RECORD,,\nm-1.dist-info/RECORD,,\n', b'm-1.dist-info/RECORD,,\nmissing,sha256=x,0\n'):
+            self.rejected(lambda: q.verify_record({'m-1.dist-info/RECORD': record}))
+
+    def test_console_entrypoint_wheel_and_sdist_source_binding(self):
+        base = 'packages/demo/'
+        pyproject = b'[project]\nname="demo"\nversion="1"\nreadme="README.md"\nlicense="Apache-2.0"\nrequires-python=">=3.12,<3.13"\n[project.scripts]\ndemo="demo:main"\n'
+        project = tomllib.loads(pyproject.decode())['project']
+        source_files = {base + 'src/demo/__init__.py': b'def main(): pass\n', base + 'src/demo/py.typed': b'',
+                        base + 'LICENSE': b'license\n', base + 'README.md': b'demo\n',
+                        base + 'pyproject.toml': pyproject}
+        source = type('Source', (), {'files': source_files, 'get': lambda self, path: source_files[path]})()
+        registry = {'demo': (source, base, project)}
+        metadata = b'Metadata-Version: 2.4\nName: demo\nVersion: 1\nRequires-Python: >=3.12,<3.13\nLicense-Expression: Apache-2.0\nLicense-File: LICENSE\n\ndemo\n'
+        entry = b'[console_scripts]\ndemo = demo:main\n'
+        info = 'demo-1.dist-info/'
+        wheel_files = {'demo/__init__.py': source_files[base + 'src/demo/__init__.py'], 'demo/py.typed': b'',
+                       info + 'METADATA': metadata, info + 'licenses/LICENSE': b'license\n',
+                       info + 'WHEEL': b'Wheel-Version: 1.0\nGenerator: setuptools (80.9.0)\nRoot-Is-Purelib: true\nTag: py3-none-any\n\n',
+                       info + 'top_level.txt': b'demo\n', info + 'entry_points.txt': entry}
+        local = {path.removeprefix(base): body for path, body in source_files.items()}
+        egg = 'src/demo.egg-info/'
+        local.update({'PKG-INFO': metadata, 'setup.cfg': b'[egg_info]\ntag_build = \ntag_date = 0\n\n',
+                      egg + 'PKG-INFO': metadata, egg + 'dependency_links.txt': b'\n',
+                      egg + 'top_level.txt': b'demo\n', egg + 'entry_points.txt': entry, egg + 'SOURCES.txt': b''})
+        local[egg + 'SOURCES.txt'] = ('\n'.join(sorted(local)) + '\n').encode()
+        def sdist(files):
+            return tarred([('demo-1/' + name, body, tarfile.REGTYPE, {}) for name, body in sorted(files.items())])
+        for name, files, encode, entry_name in [('demo-1-py3-none-any.whl', wheel_files, recorded_wheel, info + 'entry_points.txt'),
+                                               ('demo-1.tar.gz', local, sdist, egg + 'entry_points.txt')]:
+            q.project_archive(name, encode(files), registry, q.Budget(), 'Linux')
+            bad = dict(files); bad[entry_name] = b'[console_scripts]\ndemo = demo:other\n'
+            self.rejected(lambda: q.project_archive(name, encode(bad), registry, q.Budget(), 'Linux'))
+            bad = dict(files); del bad[entry_name]
+            self.rejected(lambda: q.project_archive(name, encode(bad), registry, q.Budget(), 'Linux'))
+
+    def test_selected_sdist_schema_specific_identity(self):
+        tar = {'sha256': '1' * 64}; wheel = {'sha256': '2' * 64}
+        evaluation = {'archive_sha256': '1' * 64, 'materialized': {}, 'generated_transition': {}}
+        pilot = dict(evaluation, wheel_sha256='2' * 64)
+        q.selected_sdist_identity(evaluation, tar, wheel, 'eq117.qualification.v1')
+        q.selected_sdist_identity(pilot, tar, wheel, 'eq116.qualification.v1')
+        self.rejected(lambda: q.selected_sdist_identity(evaluation, tar, wheel, 'eq116.qualification.v1'))
+        self.rejected(lambda: q.selected_sdist_identity(pilot, tar, wheel, 'eq117.qualification.v1'))
+        self.rejected(lambda: q.selected_sdist_identity(dict(pilot, wheel_sha256='3' * 64), tar, wheel, 'eq116.qualification.v1'))
+        self.rejected(lambda: q.selected_sdist_identity(dict(evaluation, archive_sha256='3' * 64), tar, wheel, 'eq117.qualification.v1'))
+
+    def test_quickstart_scoped_windows_source_materialization(self):
+        raw = b'first\nsecond\n'; windows = raw.replace(b'\n', b'\r\n')
+        q.quickstart_text_digest(q.digest(raw), raw, 'Linux')
+        q.quickstart_text_digest(q.digest(raw), raw, 'Windows')
+        q.quickstart_text_digest(q.digest(windows), raw, 'Windows')
+        self.rejected(lambda: q.quickstart_text_digest(q.digest(windows), raw, 'Linux'))
+        self.rejected(lambda: q.quickstart_text_digest(q.digest(b'first\r\nsecond\n'), raw, 'Windows'))
+        self.rejected(lambda: q.quickstart_text_digest(q.digest(windows + b' '), raw, 'Windows'))
+        self.rejected(lambda: q.quickstart_text_digest(q.digest(raw), raw, 'unknown'))
+
+    def test_methods_exact_not_bool(self):
+        raw = b'\nRan 8 tests in 0.1s\n\nOK\n'; files = {'controls.log': raw}
+        record = dict(methods=8, failures=0, errors=0, skipped=0, log='controls.log', log_sha256=q.digest(raw))
+        q.verify_method(record, 8, files)
+        for key, value in [('methods', True), ('skipped', 1), ('log_sha256', '0' * 64)]:
+            bad = dict(record); bad[key] = value; self.rejected(lambda: q.verify_method(bad, 8, files))
+
+    def test_installed_maps_strict_nested_types(self):
+        q.installed_map({'a.py': '1' * 64})
+        q.installed_map({'module': {'version': '1', 'files': {'a.py': {'bytes': 1, 'sha256': '1' * 64}}}})
+        for value in (False, {}, {'a.py': False}, {'module': {'version': '1', 'files': {'a.py': {'bytes': True, 'sha256': '1' * 64}}}}):
+            self.rejected(lambda: q.installed_map(value))
+
+    def test_continuous_typing_path_dependent_hash_full_forms(self):
+        forms = ['light-wheel', 'light-sdist', 'combined-wheel', 'combined-sdist']
+        expected = {'mypy': '1.15.0', 'negative_diagnostics': [{'line': 12, 'code': 'arg-type', 'contains': 'PriceObservation'}],
+                    'positive_sha256': q.digest(b''), 'negative_sha256': '1' * 64}
+        rules = {'continuous_installed_proofs': {'Linux': {f: {'typing': expected} for f in forms}}}
+        contract = {'builder_proof_requirements': {'continuous': {'forms_field': 'forms', 'forms': forms, 'record_fields': ['typing']}}}
+        report = {'system': 'Linux', 'forms': [{'form': f, 'typing': dict(expected, negative_sha256=str(i+2)*64)} for i,f in enumerate(forms)]}
+        q.verify_installed(report, 'continuous', contract, {}, rules)
+        for field,value in [('negative_sha256', True), ('negative_sha256', 'X'*64), ('negative_sha256', '1'*63),
+                            ('mypy', 'other'), ('positive_sha256', '3'*64), ('negative_diagnostics', []), ('unknown', True)]:
+            changed = copy.deepcopy(report);changed['forms'][0]['typing'][field] = value
+            self.rejected(lambda: q.verify_installed(changed, 'continuous', contract, {}, rules))
+
+    def test_installed_continuous_false_proof(self):
+        forms = ['light-wheel', 'light-sdist', 'combined-wheel', 'combined-sdist']
+        report = {'system': 'Linux', 'forms': [{'form': f, 'typing': False} for f in forms]}
+        contract = {'builder_proof_requirements': {'continuous': {'forms_field': 'forms', 'forms': forms, 'record_fields': ['typing']}}}
+        rules = {'continuous_installed_proofs': {'Linux': {f: {'typing': {'mypy': '1.15.0'}} for f in forms}}}
+        self.rejected(lambda: q.verify_installed(report, 'continuous', contract, {}, rules))
+
+    def test_quickstart_log_bytes_and_command_binding(self):
+        path = 'eq132-quickstart-Linux/logs/01-fixed-stdout.txt'; err = path.replace('stdout', 'stderr')
+        files = {path: b'literal\n', err: b''}
+        recipe = dict(command=['python', '-I', 'fixed.py'], cwd='$WORK/run', timeout_seconds=60)
+        row = dict(recipe, label='fixed', returncode=0, stdout_bytes=8, stderr_bytes=0)
+        expected = {'step_labels': ['fixed'], 'step_commands': [recipe], 'public_logs': {p: dict(bytes=len(v), sha256=q.digest(v)) for p, v in files.items()}, 'redacted_public_logs': []}
+        q.quickstart_steps({'steps': [row]}, files, 'Linux', expected)
+        self.rejected(lambda: q.quickstart_steps({'steps': [dict(row, command=['python', 'other.py'])]}, files, 'Linux', expected))
+        self.rejected(lambda: q.quickstart_steps({'steps': [dict(row, stdout_bytes=True)]}, files, 'Linux', expected))
+        self.rejected(lambda: q.quickstart_steps({'steps': [dict(row, stdout_bytes=9)]}, files, 'Linux', expected))
+        self.rejected(lambda: q.quickstart_steps({'steps': [row]}, dict(files, **{path: b'truncated'}), 'Linux', expected))
+
+    def test_source_map_omission(self):
+        class Fake:
+            head = '1' * 40
+            files = {'a.py': {'mode': '100644', 'oid': '2' * 40}, 'b.py': {'mode': '100644', 'oid': '3' * 40}}
+            def get(self, name):
+                return b'a' if name == 'a.py' else b'b'
+        report = {'source': {'a.py': {'sha256': q.digest(b'a'), 'bytes': 1}}}
+        rules = {'selected_source_paths': {'x': {'source': ['a.py', 'b.py']}}, 'unchanged_builders': {}}
+        self.rejected(lambda: q.verify_sources(report, {'canonical': Fake()}, 'Linux', 'x', rules))
+
+    def test_archive_declared_wrong_size_and_boolean(self):
+        measured = dict(bytes=2, sha256='1' * 64, entries={'a': {'bytes': 2, 'sha256': '2' * 64}})
+        for value in (3, True):
+            bad = dict(measured); bad['bytes'] = value
+            self.rejected(lambda: q.verify_declared_archive(bad, measured))
+
+    def test_download_budget_prevents_call(self):
+        api = object.__new__(q.API); api.budget = q.Budget(); api.budget.downloaded = q.MAX_TOTAL - 1
+        api.fetch = lambda *args: (_ for _ in ()).throw(AssertionError('must not fetch'))
+        meta = dict(id=1, expired=False, size_in_bytes=2, expires_at='2099-01-01T00:00:00Z')
+        self.rejected(lambda: api.download(meta))
+
+    def test_budget_exact_types(self):
+        budget = q.Budget()
+        for value in (True, -1, 1.5):
+            self.rejected(lambda: budget.add('expanded', value, 10))
+
+    def test_missing_job_vector(self):
+        self.rejected(lambda: q.root_jobs([], {'kind': 'full', 'run_id': 1, 'attempt': 1, 'api_head': '1' * 40}))
+
+    def test_unknown_nested_archive_not_filtered(self):
+        raw = zipped([('unknown.tar.gz', b'unselected', 0o644)])
+        rules = {'outer_names': {'foundation': {'Linux': []}}, 'physical_names': {'foundation': {'Linux': []}}}
+        self.rejected(lambda: q.package_artifact(raw, 'foundation', 'Linux', {}, {}, q.Budget(), rules))
+
+    def logical_jobs(self):
+        case = dict(kind='docs', run_id=1, attempt=1, api_head='1' * 40)
+        jobs = []
+        critical = {'scope': ['Classify complete committed source', 'Retain exact scope, including rejection'],
+                    'docs / check': ['Verify planning documents and story coverage', 'Verify aggregate CI gate and preserved workflows', 'Verify immutable CI policy provenance', 'Verify conservative CI scope against synthetic Git and event fixtures'],
+                    'check': ['Validate every logical result and committed source', 'Retain policy, including rejection']}
+        for name in ('scope', 'docs / check', 'check', *q.PACKAGE_ROOTS):
+            jobs.append(dict(name=name, run_id=1, run_attempt=1, head_sha='1' * 40, status='completed', conclusion='skipped' if name in q.PACKAGE_ROOTS else 'success', steps=[dict(name=s, status='completed', conclusion='success') for s in critical.get(name, [])]))
+        return case, jobs
+
+    def test_job_attempt_and_critical_skip(self):
+        case, jobs = self.logical_jobs(); q.root_jobs(jobs, case)
+        jobs[0]['run_attempt'] = True; self.rejected(lambda: q.root_jobs(jobs, case))
+        jobs[0]['run_attempt'] = 1; jobs[0]['steps'][0]['conclusion'] = 'skipped'
+        self.rejected(lambda: q.root_jobs(jobs, case))
+
+    def test_actual_full_job_commands_preserve_interpreter_flags(self):
+        # Independent literal step names from accepted0ef workflow definitions
+        # and run39162664488, including flags and companion arguments.
+        case, jobs = self.logical_jobs(); case['kind'] = 'full'; jobs = jobs[:3]
+        commands = {
+            'agent-evidence': ['Run python tools/build_agent_evidence.py'],
+            'agent-ledger': ['Run python tools/build_agent_ledger.py'],
+            'conformance': ['Run python tools/build_conformance.py --io work/accepted-io --workers work/accepted-workers'],
+            'continuous': ['Run python -B tools/build_continuous.py'],
+            'diagnostics': ['Run python tools/build_diagnostics.py'],
+            'evidence': ['Run python tools/build_evidence.py'],
+            'evidence-evaluation': ['Qualification only (no scheduled measurements)'],
+            'evidence-pilot': ['Run python tools/build_evidence_pilot.py'],
+            'explanations': ['Run python tools/build_explanations.py'],
+            'packages': ['Run python tools/build_foundation.py'],
+            'provenance': ['Run python tools/build_provenance.py --io work/accepted-io --workers work/accepted-workers'],
+            'quickstart': ['Verify fail-closed artifact and replay boundaries', 'Replay the documented minimal quickstart', 'Retain quickstart evidence, including failures'],
+            'r9': ['Run python tools/build_r9.py'],
+            'r10': ['Run python tools/build_r10.py --io work/accepted-io --workers work/accepted-workers'],
+            'research': ['Run python tools/build_research.py'],
+            'transport': ['Run python tools/verify_remote_transport.py'],
+        }
+        for root, labels in commands.items():
+            for os in ('ubuntu-24.04', 'windows-latest'):
+                leaf = {'packages': 'compatibility', 'transport': 'wire'}.get(root, root)
+                jobs.append(dict(name=f'{root} / {leaf} ({os})', run_id=1, run_attempt=1, head_sha='1' * 40,
+                                 status='completed', conclusion='success', steps=[dict(name=s, status='completed', conclusion='success') for s in labels]))
+        q.root_jobs(jobs, case)
+        continuous = next(j for j in jobs if j['name'] == 'continuous / continuous (ubuntu-24.04)')
+        continuous['steps'][0]['conclusion'] = 'skipped'; self.rejected(lambda: q.root_jobs(jobs, case))
+        continuous['steps'][0]['conclusion'] = 'success'; continuous['steps'][0]['name'] = 'Run python tools/build_continuous.py'
+        self.rejected(lambda: q.root_jobs(jobs, case))
+
+    def test_docs_negative_cannot_hide_other_failures(self):
+        case, jobs = self.logical_jobs(); jobs[1]['conclusion'] = 'failure'
+        self.rejected(lambda: q.root_jobs(jobs, case))
+
+    def snapshot_fixture(self):
+        site = 'Lib/site-packages'
+        names = ['pip/__pycache__/fixed.cpython-312.pyc', 'pip/source.py', 'pip-25.0.1.dist-info/RECORD']
+        files = {n: {'bytes': 4, 'sha256': '1' * 64} for n in names}
+        files['project/__init__.py'] = {'bytes': 3, 'sha256': '2' * 64}
+        bootstrap = {site + '/' + n: copy.deepcopy(files[n]) for n in names}
+        bootstrap['Scripts/pip.exe'] = {'bytes': 8, 'sha256': '3' * 64}
+        template = {'installed_versions': {'pip': '25.0.1'}, 'core': {'project': {'files': {'__init__.py': files['project/__init__.py']}}},
+                    'site_closure': {'site_root': site, 'site_files': files, 'bootstrap_files': bootstrap}}
+        observed = copy.deepcopy(template)
+        for name in (names[0], names[2]):
+            observed['site_closure']['bootstrap_files'][site + '/' + name]['sha256'] = '4' * 64
+            observed['site_closure']['site_files'][name]['sha256'] = '4' * 64
+        observed['site_closure']['bootstrap_files']['Scripts/pip.exe']['sha256'] = '5' * 64
+        return template, observed
+
+    def test_snapshot_generated_hashes_only(self):
+        template, observed = self.snapshot_fixture()
+        q.quickstart_snapshot(observed, template, 'Windows')
+        self.rejected(lambda: q.quickstart_snapshot(observed, template, 'Linux'))
+        for name, value in [('sha256', True), ('sha256', 'BAD'), ('bytes', True), ('bytes', 5)]:
+            changed = copy.deepcopy(observed)
+            changed['site_closure']['bootstrap_files']['Lib/site-packages/pip/__pycache__/fixed.cpython-312.pyc'][name] = value
+            self.rejected(lambda: q.quickstart_snapshot(changed, template, 'Windows'))
+
+    def test_snapshot_project_source_and_inventory_drift(self):
+        template, observed = self.snapshot_fixture()
+        for target in ('project', 'stable_pip', 'new_bootstrap', 'new_site'):
+            changed = copy.deepcopy(observed)
+            if target == 'project': changed['core']['project']['files']['__init__.py']['sha256'] = '6' * 64
+            if target == 'stable_pip':
+                changed['site_closure']['bootstrap_files']['Lib/site-packages/pip/source.py']['sha256'] = '6' * 64
+                changed['site_closure']['site_files']['pip/source.py']['sha256'] = '6' * 64
+            if target == 'new_bootstrap': changed['site_closure']['bootstrap_files']['Scripts/foreign.exe'] = {'bytes': 8, 'sha256': '6' * 64}
+            if target == 'new_site': changed['site_closure']['site_files']['foreign.py'] = {'bytes': 8, 'sha256': '6' * 64}
+            self.rejected(lambda: q.quickstart_snapshot(changed, template, 'Windows'))
+
+    def test_snapshot_map_projection_and_complete_log_binding(self):
+        template, observed = self.snapshot_fixture()
+        report = {'before_core': observed, 'runtime': observed}
+        expected = {'inventory_templates': {'before_core': template, 'runtime': template}}
+        raw = q.canonical(observed) + b'\r\n'
+        for label in ('core-before', 'installed', 'core-after'):
+            q.quickstart_snapshot_log(label, raw, report, 'Windows', expected)
+            self.rejected(lambda: q.quickstart_snapshot_log(label, raw + b' ', report, 'Windows', expected))
+            self.rejected(lambda: q.quickstart_snapshot_log(label, q.canonical(template) + b'\r\n', report, 'Windows', expected))
+        changed = copy.deepcopy(observed); changed['site_closure']['site_files']['pip/__pycache__/fixed.cpython-312.pyc']['sha256'] = '7' * 64
+        self.rejected(lambda: q.quickstart_snapshot(changed, template, 'Windows'))
+
+    def test_snapshot_before_after_bootstrap_change_denied(self):
+        template, before = self.snapshot_fixture(); after = copy.deepcopy(before)
+        after['site_closure']['bootstrap_files']['Scripts/pip.exe']['sha256'] = '8' * 64
+        q.quickstart_snapshot(after, template, 'Windows')
+        self.rejected(lambda: q.same(before['site_closure']['bootstrap_files'], after['site_closure']['bootstrap_files']))
+
+    def test_raw_job_log_capture_flag_and_bound(self):
+        raw = b"fixed \x1b[31merror\x1b[0m\n"
+        api = object.__new__(q.API)
+        class Child:
+            def __init__(self):
+                self.stdout = io.BytesIO(raw)
+                self.killed = False
+            def wait(self, timeout): return 0
+            def poll(self): return 0
+            def kill(self): self.killed = True
+        for endpoint, flag in (("actions/jobs/1/logs", True),
+                               ("actions/runs/1/jobs", False),
+                               ("actions/jobs/01/logs", False),
+                               ("actions/artifacts/1/zip", False)):
+            child = Child()
+            with patch.object(q.subprocess, 'Popen', return_value=child) as call:
+                self.assertEqual(api.fetch(endpoint, len(raw)), raw)
+                self.assertEqual('--allow-escape-sequences' in call.call_args.args[0], flag)
+                self.assertIs(call.call_args.kwargs['stdout'], q.subprocess.PIPE)
+                self.assertTrue(child.stdout.closed)
+        child = Child()
+        with patch.object(q.subprocess, 'Popen', return_value=child):
+            self.rejected(lambda: api.fetch('actions/jobs/1/logs', len(raw)-1))
+            self.assertTrue(child.stdout.closed)
+
+    def test_depth_bound(self):
+        self.rejected(lambda: q.zip_contents(zipped([('a', b'x', 0o644)]), q.Budget(), 5))
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

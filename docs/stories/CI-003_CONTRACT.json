@@ -1,0 +1,626 @@
+{
+  "schema": "equity-features.ci003-protocol.v1",
+  "status": "PUBLISHED_PRE_CODE_REVIEW_PENDING",
+  "probe_base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+  "story": 446,
+  "epic": 448,
+  "milestone": 19,
+  "probe_cases": {
+    "docs": {
+      "branch": "codex/ci003-reader-probe",
+      "selected_event": "pull_request",
+      "path": "docs/api/PUBLIC_API.md",
+      "operation": "append exactUTF8bytes",
+      "append": "\n<!-- CI003 owned reader-only qualification probe; never merged. -->\n",
+      "expected_scope": {
+        "valid": true,
+        "decision": "DOCS",
+        "reason": "READERS_ONLY"
+      },
+      "expected_run": "success",
+      "expected_executed": [
+        "scope",
+        "docs / check",
+        "check"
+      ],
+      "expected_package_executions": 0,
+      "expected_package_logical_results": "all16skipped, NOT_QUALIFIED",
+      "auxiliary_initial_push": "valid FULL newbranch; mayrequestcancelonlyunselectedpushafterselectedPRexists, retainNOT_ASSESSED rawreceipt; nevercancelselectedPR/fullreleasecases"
+    },
+    "source-negative": {
+      "branch": "codex/ci003-source-negative",
+      "selected_event": "push",
+      "path": ".github/workflows/qualification.yml",
+      "operation": "replace exactly one literal preimage",
+      "preimage": "          python tools/ci_scope.py > dist/ci/scope/classification.json\n",
+      "replacement": "          python - <<'PY' > dist/ci/scope/classification.json\n          import os, subprocess, sys\n          fixed = dict(os.environ)\n          fixed['GITHUB_SHA'] = '0' * 40\n          raise SystemExit(subprocess.run([sys.executable, 'tools/ci_scope.py'], env=fixed).returncode)\n          PY\n",
+      "expected_scope": {
+        "valid": false,
+        "decision": "FULL",
+        "reason": "SOURCE_INVALID"
+      },
+      "expected_run": "failure",
+      "expected_jobs": {
+        "scope": "failure",
+        "docs / check": "success",
+        "check": "failure"
+      },
+      "expected_package_executions": 0,
+      "docs_failure_disposition": "diagnostic-only, cannotselectasisolatedsource-rejectionproof"
+    },
+    "docs-negative": {
+      "branch": "codex/ci003-docs-negative",
+      "selected_event": "push",
+      "path": "docs/BACKLOG.md",
+      "operation": "append exact fixed marker and one duplicate existing row; nevermerged",
+      "append": "\n<!-- CI003 intentional duplicate-row negative fixture; never merge. -->\n| EQ-001 | R0 | Freeze v1 feature list and exclusions | Versioned list covers initial bar/trade/quote/history/baseline/relative/breadth features; strategies/labels remain separate; additions require scope change |\n",
+      "expected_scope": {
+        "valid": true,
+        "decision": "FULL",
+        "reason": "INITIAL_PUSH"
+      },
+      "expected_run": "failure",
+      "expected_jobs": {
+        "scope": "success",
+        "docs / check": "failure",
+        "check": "failure"
+      },
+      "required_failed_step": "Verify planning documents and story coverage",
+      "cause": "unchanged len(stories)==134 guard rejects exactly135rows; original134rows unchanged, appendedduplicate is not a new scoped story",
+      "expected_package_executions": 32,
+      "expected_package_results": "all32actualOSjobssuccess; failedaggregateNEVERqualified",
+      "source_consumer_check": "Currentrgfindsnopackage/helper/testPythonconsumerofdocs/BACKLOG.md; unchangeddocs.ymlplanningstepisactualparser. Whole-tree/sourcehashcaptureschangedbyteswithoutchangingpackagepayload."
+    }
+  },
+  "probe_source_freeze": "Beforeeverytrigger: actual immutablebase+resultingcommit/tree+completeonepathdiff+sourcebytesSHA256+separateexactsourceapproval. Newbranchinitialpushbeforezeroexplicit. No unchangedautomaticreruns; unexpectedfaultpreservedanddiagnosed. No probe merged.",
+  "qualification_assets": {
+    "implementation": "docs/stories/CI-003_QUALIFIER.txt",
+    "synthetic_tests": "docs/stories/CI-003_QUALIFIER_TESTS.txt",
+    "execution": "copyexactreviewedtrackedbytesintoNEWownedoutside-repoqualificationdir; trustedPythonstdlib/Git/ghonly, no productimports/downloadedpayloadexecution",
+    "main_source_and_artifacts": "allactualcurrentFULLcandidateandmainbothOS/formsjobs/artifacts; nothistoricalR14R15regeneration"
+  },
+  "full_expected": {
+    "root_path": ".github/workflows/qualification.yml",
+    "executed_jobs": 35,
+    "artifact_metadata_count": 32,
+    "root_artifacts": [
+      "ci-scope",
+      "ci-policy"
+    ],
+    "package_artifact_families": 15,
+    "package_archives_per_OS_by_family": {
+      "foundation": 6,
+      "agent-evidence": 8,
+      "agent-ledger": 10,
+      "conformance": 22,
+      "continuous": 6,
+      "diagnostics": 8,
+      "evidence": 6,
+      "evidence-evaluation": 16,
+      "evidence-pilot": 16,
+      "explanations": 8,
+      "provenance": 20,
+      "r9": 10,
+      "r10": 22,
+      "research": 8
+    },
+    "transport": "actualbothOSwirejobsnoartifact",
+    "source": "completeimmutablecanonicalblobmapplusdeclaredcompanionpins; APIsourcehead/PRmergecheckoutdistinct",
+    "attempts": "positivecompletewholeattemptonly; queryattempts/N/jobsandexactrunartifacts, noearlier-successreuse"
+  },
+  "package_schemas": {
+    "agent-evidence": [
+      "agent-event-qualification:1",
+      "completed"
+    ],
+    "agent-ledger": [
+      "agent-ledger-qualification:1",
+      "completed"
+    ],
+    "conformance": [
+      "conformance-qualification:1",
+      "completed"
+    ],
+    "continuous": [
+      "continuous-qualification:1",
+      "completed"
+    ],
+    "diagnostics": [
+      "diagnostics-qualification:1",
+      "completed"
+    ],
+    "evidence": [
+      "evidence-qualification:1",
+      "completed"
+    ],
+    "evidence-evaluation": [
+      "eq117.qualification.v1",
+      "qualified"
+    ],
+    "evidence-pilot": [
+      "eq116.qualification.v1",
+      "passed"
+    ],
+    "explanations": [
+      "explanations-qualification:1",
+      "completed"
+    ],
+    "provenance": [
+      "provenance-qualification:1",
+      "completed"
+    ],
+    "r9": [
+      "r9-qualification:1",
+      "completed"
+    ],
+    "r10": [
+      "r10-qualification:1",
+      "completed"
+    ],
+    "research": [
+      "research-qualification:2",
+      "completed"
+    ]
+  },
+  "foundation_schema": {
+    "file": "manifest.json",
+    "schema_version": "1",
+    "commit": "actualcheckoutSHA",
+    "source_dirty": false,
+    "archives": {
+      "artifacts": 4,
+      "consumer_artifacts": 2
+    },
+    "additional": "consumer-install1reports/loggedactualconsumerforms, unchangedscope"
+  },
+  "quickstart_schema": {
+    "file": "oneactualownedreport.jsonwithitslogs",
+    "schema": "eq132.quickstart-replay.v1",
+    "status": "PASSED",
+    "accepted_fixture": "unchangedEQ132exactfoundationworkflow/run/job/maincontract; notsubstitutedcurrentfoundationartifact",
+    "source": "verifier/probebytesmatchactualcurrentGit; reportinputdigestmatchesunchangedtrackedinputs"
+  },
+  "archive_bounds": {
+    "maximum_outer_zip_bytes": 67108864,
+    "maximum_single_member_bytes": 67108864,
+    "maximum_uncompressed_archive_bytes": 268435456,
+    "maximum_physical_members_per_archive": 100000,
+    "maximum_archive_depth": 4,
+    "maximum_total_selected_download_bytes": 2147483648,
+    "maximum_total_uncompressed_bytes": 2147483648,
+    "maximum_total_physical_members": 2000000,
+    "maximum_JSON_member_bytes": 33554432,
+    "overflow": "DENY, nevertruncatefilterorsilentlyskip; thesearequalificationreaderbounds, notlibrary/platformphysicalresourcepromises",
+    "maximum_local_PAX_bytes": 8192
+  },
+  "member_rules": [
+    "Auditcompletephysicalouter/nestedinventorybeforefiltering. NonemptyrelativePOSIXASCIIpaths; noabsolute,backslash,colon,NUL/control,dot/dotdot/emptycomponent,trailingdot/spaceorWindowsreservedname.",
+    "Uniqueexactandcasefoldnames, nofile/directoryancestoraliases. NoZIPnormalizedorig_filenamechange, symlink/hardlink/device/FIFO/unknownphysicaltypes; directorieszero-size. CRC/declaredlengthmustmatchactualbytes.",
+    "InspectZIPandboundedGZIP/TARinmemorywithoutfilesystemextraction. TARextendedpathmetadataifneededmustbeexplicitlyparsed/boundtolaterlogicalmembers, neverarbitrarywriterauthority; unknownunsupportedmetadataDENY.",
+    "EverywheelRECORDexactlycoversallfiles; ownRECORDhash/sizeempty, allotherrowscheckedSHA256base64urlandbytes. Matchdeclaredarchive/membermapsandprojectmodulepayloadtoimmutableGit; preserveeachbuildermetadata/README/license/generatedSDistcontract."
+  ],
+  "report_source_join": [
+    "source_commit/manifestcommit==actualcheckoutSHA; system==actualartifactOS; declaredschemas/statusescomplete, alloriginalforms/sourceclosure/typing/testflagsrequiredperbuildercontract",
+    "canonical/file/io/file/workers/file sourcepathsboundtoexactdeclaredGitpin andrawbytes; CRLFmaterializationdistinctionpreserved; no mutablebranchorforeignrunlookup",
+    "projectwheel/sdistinventoryequalsdeclaredperfamilycount/digests/members; noFAILED_UNVERIFIEDpayloadadmitted",
+    "rootpolicyisstageGATE_EVALUATED_NOT_FINAL_RUN_ACCEPTANCEonly; externalregisteredrun/job/attempt/ZIP/sourceauditprovidesfinaljoin, noPASS-field-onlyproof"
+  ],
+  "metrics": "actualexecuted/omittedjobcountsandgrossjob/stepdurations; noCPUoruniversalspeedupclaim; cancelsunassessed; failednegativeactualfailurepreserved; nohumanusefulnessorphysicalcleanupattestation",
+  "final_gate": "separateexactfinalsource/currentcandidatechecks/mainwholeartifactacceptance; all443444445446ClosedDonebeforeepic448/milestone19truthfulclosure; deferredscope/pausedautomationunchanged",
+  "superseded_draft_docs_probe": {
+    "original": {
+      "branch": "codex/ci003-docs-negative",
+      "selected_event": "push",
+      "path": ".github/workflows/docs.yml",
+      "operation": "append exact final step",
+      "append": "      - name: CI003 intentional documentation rejection\n        run: python -c \"raise SystemExit('CI003 intentional documentation gate rejection')\"\n",
+      "expected_scope": {
+        "valid": true,
+        "decision": "FULL",
+        "reason": "INITIAL_PUSH"
+      },
+      "expected_run": "failure",
+      "expected_jobs": {
+        "scope": "success",
+        "docs / check": "failure",
+        "check": "failure"
+      },
+      "required_failed_step": "CI003 intentional documentation rejection",
+      "required_log_marker": "CI003 intentional documentation gate rejection",
+      "expected_package_executions": 32,
+      "expected_package_results": "all32actualOSjobssuccess; failedaggregateNEVERqualified"
+    },
+    "reason": "Adding a documentation workflow step also trips the preserved-workflow hash fixture before its intended marker. No probe executed; replace with a controlled duplicate existing backlog row that the unchanged real docs guard rejects, without changing workflow checks."
+  },
+  "builder_proof_requirements": {
+    "diagnostics": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_head_and_materialization_closure"
+      ],
+      "forms_field": "installed",
+      "forms": {
+        "wheel": [
+          false,
+          true
+        ],
+        "sdist": [
+          false,
+          true
+        ]
+      },
+      "record_true": [
+        "unchanged_original_packages",
+        "tests_passed",
+        "typing_passed"
+      ],
+      "record_fields": [
+        "installed_map"
+      ],
+      "boolean_fields": "combined_actual_core_producer equals selected bool; optional_independence is its negation"
+    },
+    "evidence": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_head_and_materialization_closure"
+      ],
+      "forms_field": "installed",
+      "forms": {
+        "wheel": [
+          false,
+          true
+        ],
+        "sdist": [
+          false,
+          true
+        ]
+      },
+      "record_true": [
+        "unchanged_original_packages",
+        "tests_passed",
+        "typing_passed"
+      ],
+      "record_fields": [
+        "installed_map"
+      ],
+      "boolean_fields": "combined_actual_core_producer equals selected bool; optional_independence is its negation"
+    },
+    "explanations": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_head_and_materialization_closure"
+      ],
+      "forms_field": "installed",
+      "forms": {
+        "wheel": [
+          false,
+          true
+        ],
+        "sdist": [
+          false,
+          true
+        ]
+      },
+      "record_true": [
+        "unchanged_original_packages",
+        "tests_passed",
+        "typing_passed"
+      ],
+      "record_fields": [
+        "installed_map"
+      ],
+      "boolean_fields": "combined_actual_core_producer equals selected bool; optional_independence is its negation"
+    },
+    "agent-evidence": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_head_and_materialization_closure",
+        "owned_temporary_cleanup_completed"
+      ],
+      "forms_field": "installed",
+      "forms": {
+        "wheel": [
+          false,
+          true
+        ],
+        "sdist": [
+          false,
+          true
+        ]
+      },
+      "record_true": [
+        "unchanged_original_packages",
+        "tests_passed",
+        "typing_passed",
+        "installed_record_rows_verified"
+      ],
+      "record_fields": [
+        "installed_map"
+      ],
+      "boolean_fields": "combined_actual_core_producer equals selected bool; optional_independence is its negation",
+      "additional": "archive_controls successful and accepted_six_archive_parity exact tracked baseline",
+      "exact_methods": {
+        "archive_controls": {
+          "methods": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "per_installed_form": {
+          "declarations": 26,
+          "producer": 1,
+          "accepted_evidence": 31
+        },
+        "isolated": "omit producer/accepted_evidence; combined requires them",
+        "every_record": "closed methods/failures/errors/skipped/log/log_sha256 fields; literal method counts and failures/errors/skipped exactly0; no bool-as-int; log relative name and SHA256 bind actual outer ZIP log bytes"
+      }
+    },
+    "agent-ledger": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_head_and_materialization_closure",
+        "owned_temporary_cleanup_completed"
+      ],
+      "forms_field": "installed",
+      "forms": {
+        "wheel": [
+          false,
+          true
+        ],
+        "sdist": [
+          false,
+          true
+        ]
+      },
+      "record_true": [
+        "unchanged_original_packages",
+        "tests_passed",
+        "typing_passed",
+        "installed_record_rows_verified"
+      ],
+      "record_fields": [
+        "installed_map"
+      ],
+      "boolean_fields": "combined_actual_core_producer equals selected bool; optional_independence is its negation",
+      "additional": "archive_controls successful, accepted_eight_archive_parity exact tracked baseline, per-form fixed literal method counts and runtime exact SQLite pragmas",
+      "exact_methods": {
+        "archive_controls": {
+          "methods": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "per_installed_form": {
+          "ledger": 34,
+          "crash": 4,
+          "declarations": 26,
+          "producer": 1,
+          "accepted_evidence": 31
+        },
+        "isolated": "omit producer/accepted_evidence; combined requires them",
+        "every_record": "closed methods/failures/errors/skipped/log/log_sha256 fields; literal method counts and failures/errors/skipped exactly0; no bool-as-int; log relative name and SHA256 bind actual outer ZIP log bytes"
+      }
+    },
+    "r9": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_head_and_materialization_closure"
+      ],
+      "forms_field": "installed",
+      "forms": {
+        "wheel": [
+          false,
+          true
+        ],
+        "sdist": [
+          false,
+          true
+        ]
+      },
+      "record_true": [
+        "unchanged_original_packages",
+        "tests_passed",
+        "typing_passed"
+      ],
+      "record_fields": [
+        "installed_map"
+      ],
+      "boolean_fields": "combined_actual_core_producer equals selected bool; optional_independence is its negation",
+      "additional": "costs status completed, exactly30samples; each cohort actual source-derived methods retained"
+    },
+    "conformance": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_closure"
+      ],
+      "forms_field": "installed",
+      "forms": {
+        "wheel": [
+          false,
+          true
+        ],
+        "sdist": [
+          false,
+          true
+        ]
+      },
+      "boolean_field": "live_native equals selected bool",
+      "record_true": [
+        "pure_before_outer_unchanged",
+        "project_payload_archive_parity",
+        "all_distribution_records_verified",
+        "tests_passed",
+        "typing_passed"
+      ],
+      "record_fields": [
+        "installed_map"
+      ],
+      "source": "canonical/io/workers namespaced immutable pin map; exact selecteddependency wheels own identities"
+    },
+    "provenance": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_closure"
+      ],
+      "forms_field": "installed",
+      "forms": {
+        "wheel": [
+          false,
+          true
+        ],
+        "sdist": [
+          false,
+          true
+        ]
+      },
+      "boolean_field": "live_native equals selected bool",
+      "record_true": [
+        "pure_before_outer_unchanged",
+        "project_payload_archive_parity",
+        "all_distribution_records_verified",
+        "tests_passed",
+        "typing_passed"
+      ],
+      "record_fields": [
+        "installed_map"
+      ],
+      "source": "canonical/io/workers namespaced immutable pin map; exact selecteddependency wheels own identities"
+    },
+    "r10": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_closure"
+      ],
+      "forms_field": "installed",
+      "forms": {
+        "wheel": [
+          false,
+          true
+        ],
+        "sdist": [
+          false,
+          true
+        ]
+      },
+      "boolean_field": "live_native equals selected bool",
+      "record_true": [
+        "pure_before_outer_unchanged",
+        "project_payload_archive_parity",
+        "all_distribution_records_verified",
+        "tests_passed",
+        "typing_passed"
+      ],
+      "record_fields": [
+        "installed_map"
+      ],
+      "source": "canonical/io/workers namespaced immutable pin map; exact selecteddependency wheels own identities",
+      "additional": "each form measurement actual immutable oracle and recorded source helper validation preserved"
+    },
+    "continuous": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_head_and_materialization_closure"
+      ],
+      "forms_field": "forms",
+      "forms": [
+        "light-wheel",
+        "light-sdist",
+        "combined-wheel",
+        "combined-sdist"
+      ],
+      "record_true": [
+        "old_distributions_unchanged",
+        "source_tests_passed"
+      ],
+      "record_fields": [
+        "installed",
+        "typing",
+        "synthetic_week",
+        "optional_absence"
+      ],
+      "exact_form_names": "literal unchanged build_continuous.py source",
+      "selected_sdist_rebuilds": {
+        "packages": [
+          "contracts",
+          "features",
+          "continuous"
+        ],
+        "fields": [
+          "materialized_entries",
+          "after_build_selected_entries",
+          "generated_manifest_transition",
+          "rebuilt"
+        ],
+        "required": "all3 selected original SDist inventories equal actual archive entries; after build unchanged source except exact declared existing setup.cfg SOURCE manifest transition, fixed setuptools80.9.0 dirname/basename sorting UTF8LF without finalLF; rebuilt wheel inspection equals repeat-original proof"
+      }
+    },
+    "research": {
+      "top_true": [
+        "repeat_archive_parity",
+        "source_head_and_materialization_closure"
+      ],
+      "installed": "exact strategies/labels times wheel/sdist, each isolated_origins and independent_fixtures_passed true; installed_typing and contracts_before_after/source maps verified",
+      "combined": "exactwheel/sdist, actual_core_producer_passed/signal_invariance_and_as_of_joins_passed/chronological_watchlist_labels_revisions_passed true; core_only_isolation and consumer_core_before_after preserved"
+    },
+    "evidence-pilot": {
+      "top_true": [
+        "repeat_16_archive_parity"
+      ],
+      "inert_archive_control_methods": 5,
+      "cohorts": [
+        "wheel-compute",
+        "wheel-light",
+        "sdist-compute",
+        "sdist-light"
+      ],
+      "observations_per_cohort": 16,
+      "observations": "exact immutable EQ116_ORACLES reader expectations; raw_export hashes match actual outer artifact files, compute/light pairs identical; environment features flag matches compute; installed records and selected archives bind exact bytes",
+      "materialization": "selected SDist closure/rebuilt wheel parity and permitted generated_transition from unchanged evidence_pilot_archives.sdist_transition source"
+    },
+    "evidence-evaluation": {
+      "top_true": [
+        "repeat_archive_parity"
+      ],
+      "study_requested": false,
+      "qualification_methods": 9,
+      "fields": [
+        "installed",
+        "environment",
+        "harness_source_map",
+        "selected_wheels",
+        "harness_closure"
+      ],
+      "harness_closure": "before_qualification and after_qualification exact fixed source-bound complete snapshots; no symlinks/type or digest drift",
+      "materialization": "selected SDist/source closure, rebuilt wheel parity, immutable fixed harness maps; no study executed or diagnostic R13 run relabeled"
+    }
+  },
+  "metadata_contract": "For every module immutable pyproject name/version/summary/Python/license/authors/URLs/classifiers/dependencies/extras/README body must match generated package metadata using each unchanged pinned builder contract. Exact wheel file inventory is project source plus declared dist-info; SDist allows only declared source and fixed backend-generated metadata. Every source/module/license/readme path and byte count/hash matches immutable Git, preserving explicitly documented Windows newline materialization. Unsupported generated files/transition deny, not silently skipped. Freeze exact source selectors and required proof field names in reviewed qualifier source before execution.",
+  "TAR_local_PAX": "Only local x metadata with exact internal header name ././@PaxHeader, bounded valid length-prefixed UTF8 records and single path key may annotate the immediately following ordinary file/directory. Metadata control records are inventoried by physical ordinal/offset and charged to physical-member/decompression totals; their fixed pseudo-name is not a filesystem entry and may repeat. All resulting logical paths still obey the complete safe path/case/ancestor rules. Reject global PAX, GNU longname/link, sparse/unknown keys, unbound or repeated annotations, links/special entries, concatenated GZIP members/nonzero trailing TAR bytes. No filesystem extraction or omitted metadata.",
+  "dependency_acceptance": {
+    "main": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+    "pr": 450,
+    "acceptance": "https://github.com/atulsrivas1/equity-features/issues/445#issuecomment-6254799471",
+    "state": "closed",
+    "project": "Done",
+    "criteria_checked": 3,
+    "main_review_sha256": "a40e875abf854178bf28dc96032e3d4d27240014d43aacc196e8bae6d487d31d",
+    "not_R16_complete": true
+  },
+  "source_preimages": {
+    "docs/api/PUBLIC_API.md": {
+      "git_blob": "ef03f3bb6c4b3af908eb46ad441f4e20fb843463",
+      "git_blob_sha256": "a71659045242112e761319a6f38e6292fb948989fe54e85e1b8f86eedb3fb25b",
+      "working_bytes_sha256": "a71659045242112e761319a6f38e6292fb948989fe54e85e1b8f86eedb3fb25b"
+    },
+    ".github/workflows/qualification.yml": {
+      "git_blob": "ff1bcd1385447cdb3a259d8c12f1df363ec15395",
+      "git_blob_sha256": "866e2810d44fa62e4c96c455b2c690d19e1afe6c678a0aa54424a2ca7657c409",
+      "working_bytes_sha256": "866e2810d44fa62e4c96c455b2c690d19e1afe6c678a0aa54424a2ca7657c409"
+    },
+    "docs/BACKLOG.md": {
+      "git_blob": "7bf8c064631d356ff85021166ff384c08fb9bb94",
+      "git_blob_sha256": "047eccd678356a01a009c3e2a86f1d873572dcbf122351a1977bf332e7b29dee",
+      "working_bytes_sha256": "047eccd678356a01a009c3e2a86f1d873572dcbf122351a1977bf332e7b29dee"
+    }
+  }
+}

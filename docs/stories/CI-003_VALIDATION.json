@@ -1,0 +1,245 @@
+{
+  "schema": "equity-features.ci003-validation.v1",
+  "status": "ACTUAL_CONTROLLED_CASES_VERIFIED_FINAL_RELEASE_PENDING",
+  "source_head": "754a49ba0d173d3ecdaa000cfedf23c381ac3b51",
+  "source_review_sha256": "bcaf8a3eaee593c013415f506cd7319b72791e0b5a59ca501f097de848eacfd5",
+  "synthetic_controls": {
+    "source_head": "754a49ba0d173d3ecdaa000cfedf23c381ac3b51",
+    "author_actual_methods": 48,
+    "reviewer_actual_methods": 48,
+    "author_returncode": 0,
+    "reviewer_returncode": 0
+  },
+  "baseline_data_audit": {
+    "reader_head": "181771318ebd63ef77f6698e10cf388ac32c606f",
+    "run_id": 39162664488,
+    "result": "OBSERVED_CASE_VERIFIED",
+    "actual_audit_completed": true,
+    "audit_sha256": "ab9de73bd21b8c6dc30a7d2e38951df1cbdad0b2d46fa96912fe5a2f72290fdc"
+  },
+  "retained_tool_history": [
+    "Author synthetic-control runner first assumed nonexistent execution_approved report key and refused before copying/executing; corrected to actual explicit execution_approval object before first38method run.",
+    "Reviewer diagnostic first assumed OS API ordering and stopped before writes; set comparison corrected.",
+    "Published192e UTF8 preparer defect and original source/review history retained; exact old suffixes restored in9abf.",
+    "The2147 author control runner rejected the reviewer-report qualifier_live versus live_qualifier field-name difference before copying/execution; corrected exact field map, then39methods passed.",
+    "Docs-negative observer saw aggregate completion while one job field remained pending; separate reviewer rejected audit admission until all35actualjobstatuses completed. No bypass or premature reader execution.",
+    "Read-only diagnostic first assumed short ZIP member keys; refused before receipt writes, corrected to exact full names. Raw one-line public inventory diff was excessively large; subsequent diagnosis used bounded field-path summaries.",
+    "Snapshot preparer first assumed diagnostic report approved key; guard refused before writes. Corrected to actual explicit diagnostic field assertions.",
+    "Current30 helper review required cumulative remaining-byte assertion BEFORE cached reads and explicit fresh download root; corrected before execution. Reviewer approval guard spelling mismatch refused before writes, then corrected equivalent inline assertion.",
+    "Reviewer47 -I -m unittest launcher failed module lookup before source imports; corrected direct-script launcher passed47 unchanged methods. Author47 runner report-field guard refused before copying; corrected actual synthetic approval plus unchanged coded copy/interpreter/new-root enforcement then47passed.",
+    "Typing correction preparer assumed diagnostic approved field; actual approved_diagnosis field verified before any document writes."
+  ],
+  "superseded_source_run_cancellation_requests": {
+    "reason": "Rejected/replaced CI003 reader source heads are excluded from final candidate qualification. Preserve all history; cancel requests only, no acceptance/deletion or cleanup claim. New corrected current final candidate must still complete required FULL both events.",
+    "requests": [
+      {
+        "id": 39164937698,
+        "head": "74cdf3c819cc72d3791d36f45fb90fcad4d3af47",
+        "status_at_request": "in_progress",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39164933318,
+        "head": "74cdf3c819cc72d3791d36f45fb90fcad4d3af47",
+        "status_at_request": "in_progress",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39165357033,
+        "head": "192e1bded6f41c26bc9d67af7a9b428f70d1e3c1",
+        "status_at_request": "queued",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39165352587,
+        "head": "192e1bded6f41c26bc9d67af7a9b428f70d1e3c1",
+        "status_at_request": "queued",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39165516398,
+        "head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
+        "status_at_request": "queued",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      },
+      {
+        "id": 39165512565,
+        "head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
+        "status_at_request": "queued",
+        "request_result": {},
+        "qualification": "NOT_ASSESSED_SUPERSEDED_SOURCE",
+        "physical_cleanup_claim": false
+      }
+    ]
+  },
+  "r16_complete": false,
+  "corrected39_controls": {
+    "head": "2147d8a5662758093f80f8e43a7f33380dc84c4e",
+    "author_result_sha256": "c64c0e0825f0ad7e7ec19e6b41b2d8af680c6ace1ffb734d9f5bb93d9af27def",
+    "reviewer_report_sha256": "4dfe3c2704b783eb6798460889bcbde0952278743dc6466e9dc7ca5311754bcb",
+    "each_methods": 39,
+    "each_returncode": 0,
+    "failures_errors_skips": 0,
+    "source_review_sha256": "daea33c8efd9deb6587e2143b34e3a65aa83f53066f1562ea9d29c54bea9d635"
+  },
+  "second_baseline_audit": {
+    "reader_head": "2147d8a5662758093f80f8e43a7f33380dc84c4e",
+    "run_id": 39162664488,
+    "returncode": 1,
+    "result": "FAILED_READER_WHEEL_NAMESPACE_ASSUMPTION",
+    "raw_log_sha256": "65d26b2d89ad3a14d1d5bfdcc2f63b353f4413a8ee298064bfed362af1d87998",
+    "phase": "first package artifact parsing after root job check passed",
+    "downloaded_outer_artifact": 12150110064,
+    "actual_audit_completed": false,
+    "package_runtime_failure_demonstrated": false
+  },
+  "cached_data_diagnostic": {
+    "reader_head": "2147d8a5662758093f80f8e43a7f33380dc84c4e",
+    "qualified": false,
+    "families": 30,
+    "family_parser_errors": 9,
+    "project_archives": 332,
+    "archive_parser_errors": 12,
+    "all_archive_errors": "Only existing worker console entrypoint metadata omitted by reader namespace; wheel+SDist,3families,bothOS.",
+    "other_family_errors": [
+      "Evaluation original receipt has3keys and no wheel_sha256; pilot has4keys.",
+      "Quickstart3text-source hashes on Windows use exact Git LF-to-CRLF checkout representation."
+    ],
+    "budget": {
+      "downloaded": 14121492,
+      "expanded": 148893901,
+      "nodes": 15638
+    },
+    "report_sha256": "95529275566d32606daa9f604276b6a960fa0b7e17f5c409f3f93e6bae176279",
+    "independent_findings_review_sha256": "6d262bc8430353a6007b2299ec58d36e9690aaad49a4fc29d634056e08792940",
+    "limits": "Per-case parser completion is diagnostic only, not accepted qualification. No payload execution, extraction or new workflow run."
+  },
+  "quickstart_snapshot_reader_failure": {
+    "reader_head": "0f9e6b8b11d8d45de1ce3c50c4d2db488422f4f2",
+    "case_run": 39166838219,
+    "returncode": 1,
+    "audit_completed": false,
+    "raw_failure_log_sha256": "3425e4053b423b4177cf4ce4faed21f1fffb6bb7a1870a519b6d36f93b62e7de",
+    "diagnostic_review_sha256": "b5307a2f021b8303b82774b080a0d796482a68aa488f5e252478dbb89f589000",
+    "cause": "Baseline public snapshot log hashes included per-environment generated pip cache/launcher/RECORD hash identities. Three JSON snapshot stdout logs vary without project payload drift.",
+    "Windows_each_log_changed_sha_leaves": 827,
+    "Linux_each_log_changed_sha_leaves": 822,
+    "actual_case_job_vector": "35completed:32package+scope success;docsplanning+aggregatefailure",
+    "scope": "Reader/model defect and prior review miss; no demonstrated package/runtime failure. No workflow rerun.",
+    "proposed_source": "Complete accepted-baseline inventory templates; SHA-only variation for existing listed pip cpython312 bytecode, Windows3launchers+pipRECORD; exact names/bytes/types/stablepip/project fields; full current canonical log/report binding and bootstrap map projections/before-after equality.",
+    "new_method_sources": 47,
+    "new_control_execution": false,
+    "new_data_audit_execution": false,
+    "unuploaded_bootstrap_binary_independently_verified": false
+  },
+  "current30_data_diagnostic": {
+    "reader_head": "f0cbb57e0fe09e11fce8b80e2114fd6de2170f44",
+    "actual_families": 30,
+    "actual_project_archives": 332,
+    "family_errors": [
+      "continuous/Linux",
+      "continuous/Windows"
+    ],
+    "other_family_parsers_completed": 28,
+    "qualified": false,
+    "diagnostic_sha256": "be8b94f40e13bd8018eabf63cbd2669358a85e6d2afc207f9dc2e4f1101362bf",
+    "independent_result_review_sha256": "26441f1c297418ef8b60ce1e57ca6cee59038e533be17ba9cd485d017349fe7e",
+    "raw_failure_log_sha256": "146f7a391f7454028f58b59d677c6630ba53be11a5db1738c28c20b5e8c21a2b",
+    "source_cause": "Only typing.negative_sha256 varies across all4forms/bothOS. Sealed builder hashes raw mypy output containing random TemporaryDirectory absolute paths. Version, expected parsed diagnoses, positive hash, synthetic_week and optional_absence exactly match baseline.",
+    "next_source": "Typed64lowerhex only for continuous typing.negative_sha256; all other proof fields stay exact. Raw diagnostic stdout is unuploaded producer-reported evidence, not independently reconstructed.",
+    "new_method_sources": 48,
+    "new_execution": false
+  },
+  "completed_controlled_observations": "../R16_CI_OBSERVATIONS.json",
+  "current_controls": {
+    "source_head": "754a49ba0d173d3ecdaa000cfedf23c381ac3b51",
+    "author_actual_methods": 48,
+    "reviewer_actual_methods": 48,
+    "author_returncode": 0,
+    "reviewer_returncode": 0
+  },
+  "historical_checkpoints": [
+    {
+      "reader_head": "181771318ebd63ef77f6698e10cf388ac32c606f",
+      "controls_actual_author": 42,
+      "controls_actual_separate_reviewer": 42,
+      "baseline_existing_CI002_run": 39162664488,
+      "baseline_data_audit": "OBSERVED_CASE_VERIFIED",
+      "baseline_project_archives": 332,
+      "docs_case_run": 39166796789,
+      "docs_case": "OBSERVED_CASE_VERIFIED",
+      "docs_PR452": "CLOSED_UNMERGED",
+      "source_negative_run": 39166824089,
+      "source_negative_audit": "FAILED_GH_LOG_ESCAPE_FILTER_NOT_COMPLETED",
+      "failed_log_endpoint_job": 117791395650,
+      "diagnosis": "gh api refuses terminal escape sequences; explicit raw capture flag succeeds without rendering. Minimal exact-job-log-only correction pending source review and execution.",
+      "diagnostic_raw_bytes": 18615,
+      "diagnostic_raw_sha256": "b1a9f47bab3dca91e9ebbe26b7f42033d069b6f6704f95e9ba6591280a1e668c",
+      "source_negative_runtime_failure_demonstrated": false,
+      "new_control_methods_source": 43,
+      "new_controls_executed": false,
+      "docs_negative_run": 39166838219,
+      "docs_negative_status": "Pending observation; no rerun/cancel",
+      "final_current_candidate_main_qualification": false
+    }
+  ],
+  "current_checkpoint": {
+    "reader_head": "754a49ba0d173d3ecdaa000cfedf23c381ac3b51",
+    "all3controlled_cases_independently_verified": true,
+    "final_candidate_main_pending": true
+  },
+  "historical_synthetic_controls": [
+    {
+      "author": {
+        "actual_methods": 38,
+        "returncode": 0,
+        "raw_log_sha256": "83d70fc0a86815285c3ce208e58efa6293ec6fd88c117709293ac49dbc566279"
+      },
+      "reviewer": {
+        "actual_methods": 38,
+        "returncode": 0,
+        "report_sha256": "4cf00249cc9d47d048639bd7c825a2a7b56074da8b6622e928da19213fbb6d72"
+      },
+      "limits": "Separate processes and fresh copies on same verified existing Windows Python; not independent reinstall/Linux verifier. No downloaded payload execution."
+    }
+  ],
+  "historical_source_head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
+  "historical_source_review_sha256": "2be9f8285cbbc7771a3c975c16b479b45ddbe506fa5b6d04609a614ff3fd461e",
+  "historical_baseline_data_audits": [
+    {
+      "run_id": 39162664488,
+      "reader_head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
+      "returncode": 1,
+      "result": "FAILED_READER_STEP_NAME_ASSUMPTION",
+      "raw_log_sha256": "a5504ea6a5e40218979dd4a7ab5c635e9b94ea343b0cced6e44d06e90fc8bb49",
+      "phase": "root_jobs before artifact downloads",
+      "expected_incorrectly": "python tools/build_continuous.py substring",
+      "actual_successful_step": "Run python -B tools/build_continuous.py",
+      "independent_diagnostic_review_sha256": "8da030aee0271a0fb5f919303b7e6cad7daaf353e6c4318aeff3b1da1503846d",
+      "runtime_or_package_failure_demonstrated": false,
+      "actual_audit_completed": false
+    }
+  ],
+  "historical_corrected_source": {
+    "new_synthetic_method_sources": 42,
+    "new_control_execution": false,
+    "new_data_audit_execution": false,
+    "probe_triggers": 0,
+    "changes": [
+      "Exact project.scripts console metadata for wheel and SDist, rejecting missing/tampered metadata.",
+      "Closed schema-specific3keyEQ117/4keyEQ116selected-SDist identities, preserving full original map/archive/source checks.",
+      "Only3namedquickstart text sources admit exact Windows CRLF or GitLF hashes; mixed/other drift denied."
+    ],
+    "evaluation_limit": "Sealed successful producer explicitly asserts rebuilt-wheel full archive-audit parity against original uploaded wheel proof. No separate rebuilt-wheel digest is recorded/uploaded, and reader does not independently rebuild it."
+  }
+}

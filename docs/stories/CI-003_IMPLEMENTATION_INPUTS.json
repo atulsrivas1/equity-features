@@ -1,0 +1,219 @@
+{
+  "schema": "equity-features.ci003-implementation-inputs.v1",
+  "status": "ACTUAL_CASES_VERIFIED_FINAL_REVIEW_PENDING",
+  "precode": {
+    "head": "16e8945ad700d91f4a2c1c53a2300cd7f4cb63e8",
+    "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+    "pr": 451,
+    "url": "https://github.com/atulsrivas1/equity-features/pull/451",
+    "draft": true
+  },
+  "admission": {
+    "head": "16e8945ad700d91f4a2c1c53a2300cd7f4cb63e8",
+    "pr": 451,
+    "precode_review_sha256": "49154f568d699970d29cca1e04e7dad9659372ed465c0690842ccc82369174ab",
+    "dependency_acceptance": "https://github.com/atulsrivas1/equity-features/issues/445#issuecomment-6254799471",
+    "actual_project": "In progress",
+    "assignee": "atulsrivas1"
+  },
+  "assets": {
+    "docs/stories/CI-003_QUALIFIER.txt": {
+      "bytes": 72960,
+      "sha256": "7be5c7bff93009bc0c2c101931ac239fc8e79863c79362f238ffd788a59f17d9"
+    },
+    "docs/stories/CI-003_QUALIFIER_TESTS.txt": {
+      "bytes": 30318,
+      "sha256": "61fdf0c19c15ce3dca5f25e675b922b1913f73581abc6dcb2a44029feab161d1"
+    },
+    "docs/stories/CI-003_SOURCE_RULES.json": {
+      "bytes": 2328473,
+      "sha256": "8578f4f2e05354f2acaf7c8dd8b3c4fc8e965a311d81b703d4b7c52bdba996f6"
+    },
+    "docs/CI_QUALIFICATION.md": {
+      "bytes": 7618,
+      "sha256": "9acef1c9fe95bede2a6a7a96f99a2e50f770b41ddc92ccb094737de89baf5fb3"
+    },
+    "docs/stories/CI-003_VALIDATION.json": {
+      "bytes": 13396,
+      "sha256": "8347b8c926ab63fc44e9d0216e4c03a66b84c38105b0afacd67f8c8e92620f69"
+    }
+  },
+  "new_tests_executed": 48,
+  "qualifier_executions": 9,
+  "probe_workflow_triggers": 3,
+  "frozen_probe_sources": {
+    "docs": {
+      "branch": "codex/ci003-reader-probe",
+      "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+      "head": "775b24017cc2d21709a146860b95cc9c0052c14f",
+      "tree": "731e8e729b97a801f270b6d4effd192ff1510194",
+      "path": "docs/api/PUBLIC_API.md",
+      "blob_oid": "fc68ce3cfca2938c413dc0b23791a3ff80877f52",
+      "source_bytes": 61376,
+      "source_sha256": "d0b6d9cd6c97f586b2e5527c54f98f44f78909c8a3ce6245f3411d15c4bcc2ac",
+      "diff_sha256": "2c3c925631bce79e4c662a22b363092ce41dc1765d202316f3529ef624bece55",
+      "selected_event": "pull_request",
+      "pushed": false,
+      "source_review_pending": true
+    },
+    "source-negative": {
+      "branch": "codex/ci003-source-negative",
+      "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+      "head": "de2efaef8cc69ef11a9e9227840e377a017f5011",
+      "tree": "8334985722c6b8414ea315ba297a488fddde9847",
+      "path": ".github/workflows/qualification.yml",
+      "blob_oid": "9defed4d40dde80801ecbbd9ba067394f0117386",
+      "source_bytes": 6415,
+      "source_sha256": "a66b6ce64d6f157c3764d9d43393fd8784f0402cf456bade9c8196d7051f754d",
+      "diff_sha256": "b3ed44b8e6c7d744bf7efdec27f09ea98ddbc4d0e843a8ed06e4b91b7fdebcfd",
+      "selected_event": "push",
+      "pushed": false,
+      "source_review_pending": true
+    },
+    "docs-negative": {
+      "branch": "codex/ci003-docs-negative",
+      "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+      "head": "fdd179d8cf50586d02d167ad5d5a45131b966724",
+      "tree": "9172b6d85452157611a25c8ed9b6b8094bafccdd",
+      "path": "docs/BACKLOG.md",
+      "blob_oid": "8736cd535af3d0acb97a0d39ba9f10dea386c653",
+      "source_bytes": 168851,
+      "source_sha256": "06f69d469552cace1706c26bcd2215bbde8dafe848381a12a1a479e90c7a058f",
+      "diff_sha256": "0b73bfe2db8be70c782eb5fd4c19439ab6adec032d8405eb096657056078e542",
+      "selected_event": "push",
+      "pushed": false,
+      "source_review_pending": true
+    }
+  },
+  "probe_review_sha256": "46908792ef558f5e156988b35a3de705ce6b437467ae404bb8d1ad36c21ba951",
+  "provisional_reader_review_sha256": "6476d01b5ecec101f75479cf70df1f2dbed04ed1e0528ca93225196ab9cd72eb",
+  "corrections_pending_independent_verification": [
+    "ancestor spelling including implicit directories",
+    "remaining cumulative download/decompression bounds before read/inflate",
+    "complete closed per-OS outer and project archive inventory",
+    "exact selected-source sets and 66 unchanged input seals",
+    "run-attempt/critical step/closed policy assertions",
+    "case-insensitive removal of inherited GIT environment options"
+  ],
+  "baseline_data": "Accepted CI002 actual-main artifact bytes used only for unchanged source/layout/project-archive identities; no R14/R15 workflow or accepted proof regeneration. No payload or qualifier execution.",
+  "task_attachment": {
+    "pull_request": "https://github.com/atulsrivas1/equity-features/pull/451",
+    "tool": "mcp__codex_app__attach_artifact",
+    "error": "thread attachment identity count exceeds 100",
+    "no_artifacts_removed": true,
+    "public_source_and_scope_unchanged": true
+  },
+  "limitations": "AST syntax parsed only, not tests or qualification. Exact published source/fixture/rule review precedes any execution; original negative/source histories remain.",
+  "retained_source_reviews": [
+    {
+      "head": "74cdf3c819cc72d3791d36f45fb90fcad4d3af47",
+      "report_sha256": "0e868b033d12c3a06a49b519df14e4e82075621d348093cd9559c1e2b43ac9c0",
+      "approved": false,
+      "findings": [
+        {
+          "id": "CI003-SRC-1",
+          "priority": 2,
+          "function": "tar_contents",
+          "identified_by": "author before this final review, independently confirmed",
+          "problem": "TarInfo.frombuf normalizes/ignores raw name/prefix bytes after NUL and unused linkname; current reader validates only normalized logical name or PAX replacement. Malformed hidden raw names/unsafe PAX placeholder are not explicitly rejected.",
+          "required": "Validate exact raw header name/prefix terminators, unused linkname, allowed magic/version and PAX placeholder before TarInfo normalization, with source-only fixture then execution after renewed review."
+        },
+        {
+          "id": "CI003-SRC-2",
+          "priority": 2,
+          "function": "GitSource.get",
+          "identified_by": "author before this final review, independently confirmed",
+          "problem": "check_output materializes complete cat-file batch before MAX_ARCHIVE and each MAX_MEMBER check. This checks reader limits after the allocation.",
+          "required": "Read bounded/validated batch headers, reserve cumulative size before each body, bound body and framing/trailing stream; fixture malformed size/oversize/trailing data. Preserve replacement-ref sanitation."
+        },
+        {
+          "id": "CI003-SRC-3",
+          "priority": 2,
+          "function": "verify_installed",
+          "identified_by": "reviewer",
+          "problem": "record_fields requires only presence/non-None. False, empty or wrong-schema values can be admitted for nested installed/typing/synthetic_week/optional_absence proofs instead of the published per-builder structure. Existing top_true flags do not validate these independent fields.",
+          "required": "Freeze exact required nested field schemas/types and source/expected identities for continuous and other family installed maps/typing/original invariance proofs; reject false/non-dict/empty or missing required detail with meaningful fixtures."
+        },
+        {
+          "id": "CI003-SRC-4",
+          "priority": 2,
+          "function": "verify_quickstart",
+          "identified_by": "reviewer",
+          "problem": "Checks log file presence and bounds on reported stdout_bytes/stderr_bytes, but does not compare actual retained log lengths to those fields, fixed commands to immutable operation source, or walkthrough log bytes to the claimed complete synthetic output. Truncated/altered logs can remain unbound.",
+          "required": "Bind each retained stdout/stderr length and fixed operation/command semantics, and bind replay/walkthrough output to actual retained bytes; make explicit permitted download-stdout omission. Add changed/truncated log and command fixtures."
+        },
+        {
+          "id": "CI003-SRC-5",
+          "priority": 2,
+          "function": "zip_contents / synthetic controls",
+          "identified_by": "reviewer; author already plans correction",
+          "problem": "Signed/unsigned32/64-bit data descriptors and ZIP64 local/central framing are implemented but no synthetic fixture exercises these branches. Current fixtures cover ordinary seekable ZIP writes only.",
+          "required": "Add independent hand-framed signed and unsigned standard/ZIP64 descriptor positives plus wrong width/length/offset/trailing/framing negatives; verify behavior rather than inferring from standard zipfile writes."
+        }
+      ],
+      "new_tests_executed": 0
+    },
+    {
+      "head": "192e1bded6f41c26bc9d67af7a9b428f70d1e3c1",
+      "report_sha256": "b86f8b9d61bd7af51ffe85ac4075f953e8a45287ccbdf4aa17d00f2c097c01e6",
+      "approved": false,
+      "findings": [
+        {
+          "id": "CI003-SRC-6",
+          "priority": 1,
+          "scope": "docs/PROJECT_KNOWLEDGE.md, docs/SESSION_HANDOFF.md, docs/knowledge/LESSONS.md",
+          "problem": "Historical UTF8 content was transcoded through Windows legacy encoding. Around923 historical lines changed (em-dash becomes \u00e2\u20ac\u201d, arrows become \u00e2\u2020\u2019), rather than exact preserved suffix plus new prefix. This damages durable memory and unrelated history.",
+          "required": "Restore exact immutable74cdf historical bytes for all3files, prepend only intended new UTF8prefix with explicitencoding; preserve192e as failed source history. Restore guide original bytes plus intentional paragraph, avoiding locale decoding."
+        },
+        {
+          "id": "CI003-SRC-1-remaining",
+          "priority": 2,
+          "function": "tar_contents",
+          "problem": "Raw NUL tails, linkname and unsafe PAX placeholder fixed; explicit supported magic/version grammar remains absent. TarInfo.frombuf may interpret unsupported raw header versions/magic as ordinary records.",
+          "required": "Freeze exact accepted USTAR/PAX underlying header magic/version (ordinary and x control), reject unsupported magic/version, add negativefixture. Do not infer raw grammar solely from normalized TarInfo."
+        },
+        {
+          "id": "CI003-SRC-5-remaining",
+          "priority": 2,
+          "function": "zip_contents/descriptor controls",
+          "problem": "Four independent hand-framed32/64bit signed/unsigned positives now exist, but descriptor-specific wrong width, truncated descriptor and wrong CRC/length negatives are missing. Ordinary no-descriptor CRC/trailing tests do not exercise these branches.",
+          "required": "Add negative mutations of the hand-framed descriptor cases covering wrong CRC/size, truncation and width; keep positive encoder independent of zipfilewriter."
+        }
+      ],
+      "new_tests_executed": 0
+    }
+  ],
+  "corrected_source_pending_review": [
+    "physical TAR raw names/linkname/PAX placeholder",
+    "Git per-blob header/size bound before body read",
+    "strict nested installed maps and deterministic continuous proofs",
+    "fixed quickstart commands and27sanitized-log identities with raw-private limitations",
+    "independent signed/unsigned32/64ZIP descriptors and adversarial controls"
+  ],
+  "second_correction_disposition": {
+    "historical_UTF8": "Exact74cdf suffix bytes restored from immutable Git for PK/SESSION/LESSONS; guide restored before appending only new text. Explicit UTF8 used. Published192e corruption rejected, never accepted.",
+    "TAR": "Require exact USTAR magic/version before TarInfo; malformed variants source fixture added.",
+    "ZIP_descriptors": "All4signed/unsigned32/64positive encodings now include bad CRC/truncation/wrongwidth negatives.",
+    "publication_history": "Initial192e push succeeded; immediate stale PR head read refused before PR/receipt mutation; fresh matching read completed without duplicate push/comment/commit."
+  },
+  "executed_validation": "docs/stories/CI-003_VALIDATION.json",
+  "qualifier_execution_completed_successfully": false,
+  "new_synthetic_method_sources": 42,
+  "source_review_9abf_sha256": "2be9f8285cbbc7771a3c975c16b479b45ddbe506fa5b6d04609a614ff3fd461e",
+  "cached_diagnostic_executions": 1,
+  "corrected_archive_grammar_review_sha256": "6d262bc8430353a6007b2299ec58d36e9690aaad49a4fc29d634056e08792940",
+  "log_capture_diagnostic": {
+    "failed_audit_receipt_sha256": "e1f5ce4e8fbc4432d1266cb07a1e1e76e4de6d6c498c9eab2aa6dc804eedac9a",
+    "diagnostic_receipt_sha256": "78edb7c20fb90917ece38c18390e5780c81646af5714dafe4df3fc0970af2bc8",
+    "raw_flag_receipt_sha256": "01364ffbe1192bc1fbb15954558af899171c41fc03a0832bf0b5150675b84767",
+    "raw_payload_not_published": true,
+    "source_rules_unchanged": true,
+    "new_methods_source": 43,
+    "new_execution": false
+  },
+  "new_method_sources": 48,
+  "snapshot_diagnostic_review_sha256": "b5307a2f021b8303b82774b080a0d796482a68aa488f5e252478dbb89f589000",
+  "prior_source_rules_sha256": "ae4a4e6057bd201c6d6f1b10ef39d501b18322f5866973637902b746f575a0c2",
+  "current30_review_sha256": "26441f1c297418ef8b60ce1e57ca6cee59038e533be17ba9cd485d017349fe7e",
+  "observations": "../R16_CI_OBSERVATIONS.json"
+}

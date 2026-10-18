@@ -1,3 +1,47 @@
+## CI003 actual controlled cases complete; final delivery pending
+
+All3fixed never-merged cases are independently verified: DOCS3executed/16skipped/2artifacts; invalidsource expectedfailure; documentation guard expectedfailure with all32package jobs successful. Existing accepted FULL baseline32artifacts/332projectarchives audited. Corrected reader48author+48reviewer controls passed; prior failed reader attempts retained. [Run/artifact/review identities and limits](../R16_CI_OBSERVATIONS.md). At this source freeze CI003 is In progress; current GitHub lifecycle/acceptance governs after publication. Publish final reviewed candidate, complete actual FULL push/PR audits, then guarded main publication and independent main/aggregate acceptance. R16 is unfinished; no new scope or operating grant.
+
+## Earlier checkpoints retained as history
+
+## CI003 current-data diagnostic; typing hash correction
+
+Snapshot correction passed47author+47reviewer controls and both quickstart data parsers. A full bounded current-case diagnostic inspected30family artifacts/332projectarchives: only continuous bothOS receipts fail, solely path-dependent typing.negative_sha256 across4forms; other28family parsers completed. Corrected48method source permits only typed64hex for that raw-output digest, retaining exact source-pinned expected diagnoses/mypyversion/positivehash/other proofs. Unuploaded raw diagnostic bytes remain producer-reported, not independently reconstructed. [Retained failed audit and reviewed diagnosis](../stories/CI-003_VALIDATION.json). New source/control/data execution pending review; no completed docs-negative audit or workflow rerun. CI003 In progress/R16 unfinished.
+
+## Earlier checkpoints retained as history
+
+## CI003 snapshot log correction; documentation-negative audit still incomplete
+
+The source-negative case is independently verified as expected rejection, never aggregatePASS. Docs-negative actual35jobs completed with32package successes, but its reader audit failed at baseline snapshot-log hashes. Independent data diagnosis confirmed only generated pip bytecode/Windowslauncher/RECORD SHA fields vary across fresh environments; project payloads/names/sizes remain unchanged. Corrected47method source pins complete baseline snapshot structures and stable data, binds3current canonical snapshot logs to full current reports and enforces bootstrap projections/before-after equality. No unuploaded bootstrap binary verification is inferred. [Retained failures, diagnosis and pending gates](../stories/CI-003_VALIDATION.json). New source/control/data execution is pending review; actual DOCS+baseline evidence remains scoped, CI003 In progress/R16 unfinished. No unchanged workflow rerun or source-only completion.
+
+## Earlier checkpoints retained as history
+
+## CI003 actual reader-only case passed; raw job-log capture correction
+
+Author and separate reviewer42controls and the existing CI002 baseline data audit passed (332projectarchives). Actual DOCS run39166796789 passed with3executed/16skipped calls and2rootZIPs; PR452 closed unmerged. Source-negative run39166824089 has the intended failed status, but its audit failed at GitHub CLI terminal-escape filtering of the scope log. Diagnostic raw capture succeeded without displaying the log. Exact-job-log-only reader correction and43rd synthetic control are implemented, pending separate source review/execution. Failed audit/partial ZIPs remain; no unchanged workflow rerun, negative-case acceptance or R16 completion. [Evidence and limitations](../stories/CI-003_VALIDATION.json).
+
+## Earlier checkpoints retained as history
+
+## CI003 consumer grammar lesson
+
+Read actual producer metadata and platform representations before defining an independent reader: generated console entrypoints are declared source, EQ117does not record the EQ116rebuiltwheel field, and3quickstart text-source hashes follow Windows checkout CRLF. Bound only the supported representations and keep unavailable evidence explicit. Cached2147 diagnostic retained all errors, never qualification; corrected42method sources still await review/execution.
+
+## CI003 exact workflow-step lesson
+
+Do not infer executed step labels by dropping interpreter flags or companion arguments. Bind the sealed workflow command and actual job step literally; isolated synthetic parser controls did not cover this integration. The first9abf baseline audit remains FAILED before downloads, independent diagnosis confirms a reader error, and a full35job-vector regression still awaits execution.
+
+## CI003 source-review correction
+
+Bind physical archive fields before parser normalization and bound Git bodies before allocation. Validate nested proof schemas rather than non-null values. Producer raw-private byte counts cannot attest retained redacted log lengths: bind public bytes separately and preserve the limitation. Exact74cdf source review found five gaps; corrections still require renewed review and execution. No successful qualification inferred.
+
+## EF-L099: an artifact audit needs complete inputs, not selected good entries
+
+CI003's preliminary unexecuted reader review found implicit ancestor-case aliases, aggregate bounds checked after allocation, unknown archive filtering, subset-only source binding, missing attempt/critical-step assertions and case-sensitive Git-environment sanitation. Proposed corrections add explicit complete namespace and per-OS layout inventories, remaining-budget checks, immutable selected-source sets plus unchanged consumer seals, and actual whole-attempt/step/policy checks. Their exact source still requires separate approval and executed independent controls; no PASS inferred from a written correction. Accepted CI002 data is an input for source/layout parity, not a substitute for current downloaded package/source/RECORD proof. Evidence: CI003#446 implementation inputs and retained provisional review. No downloaded payload or probe executed at this checkpoint.
+
+## EF-L098: negative qualification must isolate the actual gate
+
+CI003's unexecuted draft appended a failing documentation workflow step; the preserved-workflow equivalence fixture would reject that altered workflow first. The author detected that conflict before execution, and separate draft review verified a replacement using one intentional duplicate BACKLOG row on a never-merged branch, allowing the unchanged docs guard to reject it while every package check remains unchanged. The source-negative case likewise requires docs success; another fault is diagnostic-only. Root sidecars require independent actual completion/source/artifact joins, and package byte/RECORD audit remains separate. Evidence: CI003#446 plan/contract and preserved draft-correction report. No probe has run at this planning checkpoint; no performance or package qualification claim.
+
 ## EF-L097: CI provenance must distinguish source, execution and attempts
 
 CI001 candidate/API PR head differs from actual merge checkout used by artifacts; immutable parents/tree and exact artifact names join them. New root policy is separately versioned rather than pretending historical builder archives contain new routing source. Independent CI002 draft review required exact nested blob metadata and whole-attempt artifact/job identity; current contract adds attempt-suffixed normal uploads, preserving historical readers/manual studies. A failed-jobs-only rerun is not complete both-OS qualification. Evidence: CI001#444 acceptance and CI002#445 linked contract/review reports. No physical/platform attestation or measured speedup is inferred. Revisit if effective consumers, source routing or upload semantics change.

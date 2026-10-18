@@ -1,3 +1,61 @@
+## CI003 actual controlled cases complete; final delivery pending
+
+All3fixed never-merged cases are independently verified: DOCS3executed/16skipped/2artifacts; invalidsource expectedfailure; documentation guard expectedfailure with all32package jobs successful. Existing accepted FULL baseline32artifacts/332projectarchives audited. Corrected reader48author+48reviewer controls passed; prior failed reader attempts retained. [Run/artifact/review identities and limits](R16_CI_OBSERVATIONS.md). At this source freeze CI003 is In progress; current GitHub lifecycle/acceptance governs after publication. Publish final reviewed candidate, complete actual FULL push/PR audits, then guarded main publication and independent main/aggregate acceptance. R16 is unfinished; no new scope or operating grant.
+
+## Earlier checkpoints retained as history
+
+## CI003 current-data diagnostic; typing hash correction
+
+Snapshot correction passed47author+47reviewer controls and both quickstart data parsers. A full bounded current-case diagnostic inspected30family artifacts/332projectarchives: only continuous bothOS receipts fail, solely path-dependent typing.negative_sha256 across4forms; other28family parsers completed. Corrected48method source permits only typed64hex for that raw-output digest, retaining exact source-pinned expected diagnoses/mypyversion/positivehash/other proofs. Unuploaded raw diagnostic bytes remain producer-reported, not independently reconstructed. [Retained failed audit and reviewed diagnosis](stories/CI-003_VALIDATION.json). New source/control/data execution pending review; no completed docs-negative audit or workflow rerun. CI003 In progress/R16 unfinished.
+
+## Earlier checkpoints retained as history
+
+## CI003 snapshot log correction; documentation-negative audit still incomplete
+
+The source-negative case is independently verified as expected rejection, never aggregatePASS. Docs-negative actual35jobs completed with32package successes, but its reader audit failed at baseline snapshot-log hashes. Independent data diagnosis confirmed only generated pip bytecode/Windowslauncher/RECORD SHA fields vary across fresh environments; project payloads/names/sizes remain unchanged. Corrected47method source pins complete baseline snapshot structures and stable data, binds3current canonical snapshot logs to full current reports and enforces bootstrap projections/before-after equality. No unuploaded bootstrap binary verification is inferred. [Retained failures, diagnosis and pending gates](stories/CI-003_VALIDATION.json). New source/control/data execution is pending review; actual DOCS+baseline evidence remains scoped, CI003 In progress/R16 unfinished. No unchanged workflow rerun or source-only completion.
+
+## Earlier checkpoints retained as history
+
+## CI003 actual reader-only case passed; raw job-log capture correction
+
+Author and separate reviewer42controls and the existing CI002 baseline data audit passed (332projectarchives). Actual DOCS run39166796789 passed with3executed/16skipped calls and2rootZIPs; PR452 closed unmerged. Source-negative run39166824089 has the intended failed status, but its audit failed at GitHub CLI terminal-escape filtering of the scope log. Diagnostic raw capture succeeded without displaying the log. Exact-job-log-only reader correction and43rd synthetic control are implemented, pending separate source review/execution. Failed audit/partial ZIPs remain; no unchanged workflow rerun, negative-case acceptance or R16 completion. [Evidence and limitations](stories/CI-003_VALIDATION.json).
+
+## Earlier checkpoints retained as history
+
+## CI00339controls passed; cached artifact-reader diagnostic corrected
+
+Both author and separate reviewer39controls passed at2147. The next existing-data audit passed root job checks but stopped on omitted legitimate worker console metadata. A separately reviewed bounded cached-data diagnostic inspected30families/332projectarchives, retaining9family/12archive parser errors without qualification; independent review narrowed these to console metadata, EQ117receipt field shape and3Windowsquickstart text-source hashes. Corrected42method sources preserve exact archive identities, strict source/record maps and explicit rebuild-evidence limits. [Validation/failures](stories/CI-003_VALIDATION.json). Renewed exact-source review and execution precede actual probes and final current candidate/main evidence; CI003 In progress, R16 unfinished.
+
+## Earlier checkpoints retained as history
+
+## CI003 controls passed; baseline reader step binding corrected
+
+Author and separate reviewer38synthetic controls passed at9abf. The first bounded data audit of existing accepted CI002 run39162664488 failed before artifact downloads: the reader inferred a command label without the actual continuous builder -B flag. Independent diagnosis confirmed all package jobs passed and the reader assumption was wrong. Exact sealed command labels and39th full-job-vector control are implemented, pending renewed source review and execution. [Retained validation and failed audit](stories/CI-003_VALIDATION.json). No probes triggered, no final artifact audit or R16 acceptance. CI003 remains In progress.
+
+## Earlier checkpoints retained as history
+
+## CI003 reader review corrections; execution pending
+
+Exact published initial source review rejected five reader gaps while independently confirming selected source rules and both-OS baseline identities. Corrected source now checks raw TAR names, pre-read Git bounds, nested installed proofs, exact public quickstart logs/commands and four ZIP descriptor fixture encodings. Sanitized public log lengths are distinct from unavailable raw-private byte counts; no recovery claim. Renewed exact-source review precedes all control/reader/probe execution. CI001/CI002 accepted; CI003 remains In progress, R16 unfinished.
+
+## Earlier checkpoints retained as history
+
+## CI003 qualification reader source published; execution pending
+
+[CI002 acceptance](https://github.com/atulsrivas1/equity-features/issues/445#issuecomment-6254799471) completes the dependency. CI003#446 PR451 reached actual Ready/Atul assignment/In progress after separate exact pre-code review. [Reader guide](CI_QUALIFICATION.md), [source freeze and retained review history](stories/CI-003_IMPLEMENTATION_INPUTS.json). Initial standalone reader, synthetic controls and sealed source/layout rules are implemented; AST syntax parsed, no reader/control/probe execution yet. Exact source review is mandatory before execution.
+
+Three local never-merged probe commits match reviewed literal recipes and have separate source approval; none has been pushed/triggered. Preliminary reader review found six gaps, now corrected in proposed source but awaiting verification. Accepted CI002 artifact data supplied fixed both-OS layouts/selected source sets; these require independent consumer-selection review and do not establish CI003 final package audit. Existing package/math/API/dependency/workflow operations and deferred scope remain. Actual controlled cases/current candidate/main artifact audit and independent acceptance precede R16 closure.
+
+## Earlier checkpoints retained as history
+
+## CI002 accepted; CI003 concrete qualification protocol
+
+[CI002 acceptance](https://github.com/atulsrivas1/equity-features/issues/445#issuecomment-6254799471) records actual main `0ef4f2c7a50e164e11dcfc25751e62b691b95883` after separately reviewed source, author/reviewer24methods and full current candidate/main root qualification. Root scope/policy ZIP bytes and complete immutable Git maps were independently joined to actual final run/job/artifact outcomes. This does not replace CI003's downloaded package ZIP/source/RECORD audit or actual DOCS/negative probes.
+
+CI003#446 remains Backlog/unassigned until exact published pre-code review establishes Ready. [Plan](stories/CI-003_PLAN.md), [contract](stories/CI-003_CONTRACT.json), [planning evidence](stories/CI-003_PLANNING_EVIDENCE.json). Three never-merged probes and bounded independent archive/source readers are proposed, not executed. Exact probe sources require separate review before triggers. E23#448/milestone19 remain open; R16 is unfinished. Existing owner review grant applies. Deferred scope, accepted releases and paused automation remain unchanged.
+
+## Earlier checkpoints retained as history
+
 ## CI002 implemented; independent source and actual hosted qualification pending
 
 [CI002#445](https://github.com/atulsrivas1/equity-features/issues/445), PR450, implements the reviewed root/reusable workflow topology, complete logical aggregate gate and immutable routing-source sidecar. [Guide](CI_ORCHESTRATION.md), [plan](stories/CI-002_PLAN.md), [contract](stories/CI-002_CONTRACT.json), [actual local validation](stories/CI-002_VALIDATION.json). Author Windows suites passed24methods. Existing leaf operations are checked against immutable CI001-main permissions/jobs hashes; manual study semantics and historical accepted artifact readers remain unchanged. No package/API/math/version/dependency changes.
