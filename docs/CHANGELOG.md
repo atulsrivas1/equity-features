@@ -1,3 +1,13 @@
+## EQ134 accepted; EQ135 manual metrics and library-receipt precode
+
+[EQ134 accepted](https://github.com/atulsrivas1/equity-features/issues/315#issuecomment-6247172309) is Closed/Done at main `143f25b60109a8c7361d23da6d660735187defa6` after exact66candidate/33main, ten/six artifact and separate actual Windows-demo/source/delivery/closure review. Its one Windows-only demo/unsent channel material is distinct from current both-OS installed qualification; no human uptake/outreach is claimed. GOV026/EQ131-133 remain accepted.
+
+[EQ135 precode plan](stories/EQ-135_IMPLEMENTATION_PLAN.md) and [frozen inputs](stories/EQ-135_INPUTS.json) prepare a manual aggregate measurement sheet, explicit DEFER external pilot, learning lessons/decision and library-only receipt. EQ135 remains Backlog/unassigned until completed exact public review and normal readiness; no implementation or pilot starts here. Learning targets5/3/1 are not artifact thresholds. NO_COHORT/PILOT_NOT_STARTED means zero recorded scoped events; global activity UNKNOWN, empty response/return denominators N/A, targets NOT ASSESSED.
+
+The receipt source must keep its own EQ135 acceptance and E21/milestone closure PENDING; later actual numbered acceptance/readback join immutable source/proof identities without recursive commits. Only selected library scope may close after all normal gates. Research/combined C1, original negative R13 DEFER/witnesses and paused R7 remain unchanged; three starters432-434 stay unimplemented Backlog/unassigned outside milestone16. No new owner input, outreach, account/scheduler or package/API/math/version change is selected.
+
+## Earlier checkpoints retained as history
+
 ## EQ134 developer demonstration prepared and replayed
 
 The developer-only walkthrough now joins accepted wheel/source paths and one actual Windows replay; accurate channel material stays unsent. No numerical/API/package/version/dependency change, research completion, human uptake or outreach. Final current-main/lifecycle acceptance remains pending.

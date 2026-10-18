@@ -1,3 +1,13 @@
+## EQ134 accepted evidence; EQ135 manual-learning preparation
+
+[EQ134 accepted](https://github.com/atulsrivas1/equity-features/issues/315#issuecomment-6247172309) demonstrates why installed engineering qualification and one maintainer Windows developer replay cannot be counted as human example users, feedback or returning contributors. Keep engineering receipts separate from NO_COHORT/PILOT_NOT_STARTED aggregates, UNKNOWN global usage and N/A empty timing/return denominators; targets5/3/1 remain learning goals.
+
+Preserve the actual review-stage KeyError from a reused helper map missing Code review, and the initial mock review's failure to inspect that real dependency. Corrected helper was independently reviewed before actual Code review -> Test recovery; no demo rerun was needed. Preserve closure-reader source-only two-P2 rework: old cached/overwrite handling and absent explicit311-unassigned guard; corrected fresh exclusive snapshots/ownership controls were independently reviewed before actual closure. Neither is a numerical/runtime product failure. A root guessed eq134 publisher path was absent and rg resolved it; a read-only EQ135 snapshot filename collision refused before Git actions, then root selected a distinct fresh snapshot. These are retained tool-only corrections, not duplicate lifecycle work.
+
+Prepare the final library receipt with self/epic/milestone acceptance PENDING at source freeze; actual comments/readback later close qualified scope without rewriting a receipt merely to include its own hash. Explicitly DEFER the unselected external pilot; unsent drafts and public starter opportunities do not imply posting, participants, contributors or adoption. Research/combined C1 and negative-study/witness/R7 boundaries stay unchanged.
+
+## Earlier checkpoints retained as history
+
 ## EQ134 actual demo evidence and privacy lesson
 
 A single fresh Windows developer demonstration passed after exact public/source-entry/body/tool reviews and guarded admission. Its14 outer commands and unchanged quickstart14 nested steps/full43 result object are distinct from inherited current two-OS qualification, accepted EQ133 full source tests and human participation. Preserve that distinction in every draft. Raw nested reports retain local origins; public validation must be an allowlisted projection with raw report/log hashes, not a blanket claim that a path-substitution sanitizer guarantees privacy. The initial missing body guard was corrected before runtime and all source/review identities remain retained. An unsent channel draft/contact placeholder is a prepared artifact, not external publication or a current owner blocker.
