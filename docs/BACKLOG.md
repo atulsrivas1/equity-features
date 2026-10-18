@@ -1,3 +1,7 @@
+## CI002 implementation checkpoint
+
+CI001#444 accepted Done at main684074e43b80171e81ff4a309c0c2c4d6a75497e. CI002#445's reviewed concrete pre-code packet passed Ready before implementation. PR450 implements only selected internal routing/provenance, preserving existing package checks and manual evaluation. Local synthetic24methods passed; separate exact final source, actual candidate/main FULL qualification and acceptance remain. CI003#446 is dependent Backlog. R16 scope/allocation and all134original EQ rows/retired094/deferred work remain unchanged.
+
 ## CI001 implemented; final qualification pending
 
 [CI001#444](https://github.com/atulsrivas1/equity-features/issues/444), draft PR449, implements only internal Git/event change classification and synthetic fixtures, plus its explicit documentation-job test step. [Contract](stories/CI-001_CONTRACT.json), [actual validation](stories/CI-001_VALIDATION.json), [tool documentation](CI_SCOPE.md). Corrected author Windows suite passed13methods. Initial CLI byte failure, independently reproduced submodule-ignore false DOCS and fixture setup error remain recorded; provisional review corrections require renewed final-head coverage. No routing change or package/API/math/version/dependency behavior. All existing workflows continue; actual current-head hosted qualification, separate source/main review and publication acceptance remain pending. GOV028 accepted; CI002/003 stay Backlog. R15 and deferred scope/paused automation unchanged.

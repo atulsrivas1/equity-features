@@ -1,7 +1,6 @@
 name: Research package checks
 on:
-  push:
-  pull_request:
+  workflow_call:
 permissions:
   contents: read
 jobs:
@@ -26,7 +25,7 @@ jobs:
       - name: Retain exact research qualification and archives
         uses: actions/upload-artifact@v4
         with:
-          name: research-${{ github.sha }}-${{ matrix.os }}
+          name: research-${{ github.sha }}-${{ matrix.os }}-attempt-${{ github.run_attempt }}
           path: dist/research/
           retention-days: 30
           if-no-files-found: error

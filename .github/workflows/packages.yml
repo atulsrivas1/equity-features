@@ -1,7 +1,6 @@
 name: Foundation package checks
 on:
-  push:
-  pull_request:
+  workflow_call:
 permissions:
   contents: read
 jobs:
@@ -28,7 +27,7 @@ jobs:
       - name: Retain verified experimental foundation artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: foundation-${{ github.sha }}-${{ matrix.os }}
+          name: foundation-${{ github.sha }}-${{ matrix.os }}-attempt-${{ github.run_attempt }}
           path: dist/
           retention-days: 30
           if-no-files-found: error

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "IMPLEMENTED_LOCAL_TESTED_HOSTED_AND_FINAL_REVIEW_PENDING",
+  "precode_head": "f41c6df26c3069ea944178a0c30fb1505820d90f",
+  "precode_review_sha256": "03c54901ca831754bb96becfd7b98dda320e1be031af6781c9f0a87e491c3a89",
+  "actual_author_fixtures": [
+    {
+      "tool": "test_ci_gate.py",
+      "source_sha256": "f67392c335442284b6f9099e16746a3704db40d01ae9def78134b1fb842afe3d",
+      "returncode": 0,
+      "elapsed_seconds": 0.5309999999590218,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "036668b0e5b31049de17afa4794356dbc6e9b70cab42b77137bdb6d64e6b4469",
+      "runtime": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "scope": "Windows same author development interpreter; synthetic CI/Git fixtures only, no package/native/product execution"
+    },
+    {
+      "tool": "test_ci_provenance.py",
+      "source_sha256": "a34283ed6209ea91ff83bec4a921ffe3f7dc456cfbffea4061c34897f049e721",
+      "returncode": 0,
+      "elapsed_seconds": 26.625,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "8980bfc4b73022efba1f1d91675e1f944850261d6238182d4b05bbe91cf69381",
+      "runtime": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "scope": "Windows same author development interpreter; synthetic CI/Git fixtures only, no package/native/product execution"
+    }
+  ],
+  "method_counts": {
+    "test_ci_gate.py": 12,
+    "test_ci_provenance.py": 12
+  },
+  "new_source_sha256": {
+    "tools/ci_gate.py": "e1bb870a3294867c4a581d65dfd9dce52b55d7ef4a8c69a33a5f77d6e0c01999",
+    "tools/ci_provenance.py": "acb686857d6e7fe33e85f56895588a86b5b5039ab2bf3f57f2859b7d88ce7dea",
+    "tools/test_ci_gate.py": "f67392c335442284b6f9099e16746a3704db40d01ae9def78134b1fb842afe3d",
+    "tools/test_ci_provenance.py": "a34283ed6209ea91ff83bec4a921ffe3f7dc456cfbffea4061c34897f049e721",
+    ".github/workflows/qualification.yml": "866e2810d44fa62e4c96c455b2c690d19e1afe6c678a0aa54424a2ca7657c409",
+    ".github/workflows/docs.yml": "c59264b4221da4d63cdf7a6b04eb6e6c13d8cb5ccdeadff7cb86f4fcc4a186b5",
+    ".github/workflows/agent-evidence.yml": "bbd8e7db1f13d8935d6a172248f6499d42bf493086b4c1dc224ed4be29d6522b",
+    ".github/workflows/agent-ledger.yml": "810f66560aca6329cc2ab1dad1771b978a95fd235e416357364f6ee61c5453c8",
+    ".github/workflows/conformance.yml": "2fb21d274450a8c7d3088e2fd173106ae34b410c724e9d1d206fa6c2d542688c",
+    ".github/workflows/continuous.yml": "85816a00a0a1a5ffb27608c69ed5ee2d35dead9b6f006c09875626977f3b8057",
+    ".github/workflows/diagnostics.yml": "f266493043fba4b1e6e2024fda0b4e37207bb94e2c64022c5964a93efb0cce35",
+    ".github/workflows/evidence.yml": "45898b536e0b10ad45edaa8885240990f6d1bd29128b361b3496ec49fa43321a",
+    ".github/workflows/evidence-evaluation.yml": "94d37795c27989e1df3605fb4800c4262cea3a9785f35daffeef68c1c709fd88",
+    ".github/workflows/evidence-pilot.yml": "a8be52e1b4ba60e902ad607f1fc736c9c4c2028be78883355d5f5e9eaee5897e",
+    ".github/workflows/explanations.yml": "e6c40c5f88f231cf84474418f584386e9e589530842624c2b33e187c002ee6b6",
+    ".github/workflows/packages.yml": "c8899b286c1c8c6fc7f95868f8f4d314ed96f442fe1f9d071d5ae95b1447980a",
+    ".github/workflows/provenance.yml": "72059dad35903a0d24b4925c167cb8ddae191a05315ace1202e8c3d25632d903",
+    ".github/workflows/quickstart.yml": "afed87a97b01203e5290c30ce254475e5edb9d76230279918b661d304da07aed",
+    ".github/workflows/r9.yml": "feb4611bd7959b6daa3aeab1ebb7ef057608d2b0c5a77f65b96003aa584ea6b4",
+    ".github/workflows/r10.yml": "5a5ecc4e3705f580b5eb49bc65451546db844ca71f028f5115f9a0df8b01e2e1",
+    ".github/workflows/research.yml": "3f299866639fc50c8a54403a299999a66f9f7f3e95f9f8e4f156e5fdf06603f2",
+    ".github/workflows/transport.yml": "6743a10cb1bdebf47aabeae727839a71462eeb57d569ea45e024b514c9a1e400"
+  },
+  "immutable_workflow_equivalence_sha256": "0500bccf7407622963a8fdabce51982aaebd7f00290eb40a7283387b8a255817",
+  "reviewer_fixture_execution_pending": true,
+  "actual_root_workflow_execution_pending": true,
+  "main_publication_pending": true,
+  "limits": "Author synthetic fixtures on Windows, not independent installation or actual hosted gate/installed package qualification. All current-head/main gates remain. No numerical/package/API/version/dependency change.",
+  "tooling_history": [
+    "Read-only PowerShell ConvertFrom-Json viewer rejected valid case-distinct docs/DOCS keys; source unchanged, Python parser used.",
+    "Read-only guessed admit_ci001.py/build_packages.py paths absent; inventoried actual helpers/build_foundation.py; no product failure.",
+    "PR450 artifact attachment tool was called but rejected task attachment count over100; public PR URL retained, no artifact removed or product gate changed."
+  ],
+  "preserved_history": "CI001 original byte/submodule fixture failures and47cancelled obsolete planning-run requests remain in their own receipts; cancelled work not qualified."
+}
