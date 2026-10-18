@@ -10,7 +10,7 @@
 
 ## Current dependencies and delivery
 
-Accepted scoped libraryR5-R13, applicable current package/companion evidence and GOV026; account-setup coordination remains required. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. This story stays Backlog/unassigned, with no implementation or outreach/account authority.
+Accepted scoped libraryR5-R13, applicable current package/companion evidence and GOV026; account-setup coordination remains required. Research M2/M3/M5 do not block this library component under the explicit amendment; they remain unreleased/open and are not claimed complete. Preserve normal eight-stage review/checks/publication/actual acceptance. Local automated R14 review is [authorized](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202); completed permitted pre-code review and actual readiness remain required. The live Project records actual lifecycle and assignment. Independent positioning/navigation implementation follows the accepted plan; actual setup-owner coordination/readback remains a final acceptance dependency. No outreach or account-administration authority is added.
 
 
 ## Preserved original plan — historical, not current criteria

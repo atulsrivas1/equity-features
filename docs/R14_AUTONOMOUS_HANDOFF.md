@@ -1,3 +1,13 @@
+## Current resume: verified setup and EQ131 documentation delivery
+
+[GOV026 accepted handoff](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738) is delivered at main `4effd881008aba295462dcb733a9025c47544b6b`, after 62 candidate and 31 main checks plus separate source, publication and closure reviews. [EQ131 admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872) establishes the first bounded positioning/navigation implementation. The live [Project](https://github.com/users/atulsrivas1/projects/2) owns current lifecycle and assignment; this source snapshot does not grant completion to an unfinished story.
+
+The original three EQ131 criteria are unchanged. The [setup owner applied the reviewed packet](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244094736), and [independent development verification](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244481653) confirmed the exact profile paragraph, both descriptions, all three homepages and preservation of all other profile bytes. This satisfies the setup requirement for criterion 2; whole-story acceptance still requires the remaining normal delivery gates. Repository documentation can proceed independently; no account administration is performed here. Other R14 stories remain dependency-gated, with one active runtime story. Research M2/M3/M5 and combined C1 remain open; R7 automation remains paused.
+
+Complete renewed exact-head documentation checks/review and current candidate/main publication gates for the bounded README/navigation change. Setup verification is now recorded; all original acceptance checkboxes remain unchecked until actual release acceptance. Do not close EQ131 or start its dependent EQ132 through source review or CI alone. No repeated scope or local-review permission question is required.
+
+## Original accepted handoff — historical resume steps
+
 # R14 execution handoff
 
 Owner requested R13 review, handoff and R14 work on October17,2026 in this conversation. No new chat or automation. [GOV026#426](https://github.com/atulsrivas1/equity-features/issues/426) is the sole active preparation; E21#428/milestone16 and EQ131–135 remain Backlog. [Release](R14_RELEASE_PLAN.md), [tests](R14_TEST_STRATEGY.md), [scope proposal](R14_SCOPE_PROPOSAL.md), [first implementation plan](stories/EQ-131_IMPLEMENTATION_PLAN.md).

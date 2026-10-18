@@ -1,3 +1,15 @@
+# Equity Features
+
+Experimental Python calculations for developers and researchers working with supplied equity data. Compute typed features and inspect their availability and quality evidence while keeping data acquisition, scheduling and publication outside calculations.
+
+[Start here](docs/START_HERE.md) · [Runnable synthetic example](docs/EXAMPLES.md) · [Public API](docs/api/PUBLIC_API.md) · [Roadmap and delivery status](docs/BACKLOG.md)
+
+The supported experimental platform is CPython 3.12 x64 on Windows and Linux. Use matching versions from the reviewed GitHub source and finite-retention CI artifact channel described in the [build and delivery guide](docs/BUILD_DELIVERY.md); a stable package-registry release is not offered. Core calculations consume supplied facts and do not fetch market data or schedule jobs. Optional I/O and worker components have separate dependencies and responsibilities.
+
+The [repository map](docs/START_HERE.md#choose-a-repository) distinguishes the calculation library, optional companions and independent strategy research. Accepted engineering releases do not establish a profitable strategy or production service. The [R13 receipt](docs/R13_ACCEPTANCE.md) preserves the negative, diagnostic-only evaluation and the decision to defer witness expansion.
+
+## Retained delivery history
+
 ## R13 local evidence pilot: DEFER expansion
 
 [Acceptance and limits](docs/R13_ACCEPTANCE.md) records the supported synthetic local pilot, accepted negative EQ117 findings and owner DEFER. Correct local replay does not establish useful debugging, source authenticity, independent trust or production readiness. The sole study failed postflight; all32 recorded export medians exceeded the accepted limit. It remains diagnostic-only.

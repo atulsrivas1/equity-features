@@ -1,3 +1,11 @@
+## Unreleased — EQ131 public positioning
+
+The candidate README first screen identifies the supplied-data developer/researcher audience, practical calculation boundary, supported experimental platform/channel and current limitations. A new [start page](START_HERE.md) maps core, optional I/O/workers and independent research without transferring ownership. Existing README history is retained.
+
+Documentation only: no package, API, mathematics, example, dependency, version, build or workflow change. [Actual setup-owner application](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244094736) and [independent public verification](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244481653) now satisfy the metadata/profile requirement. This documentation candidate still needs its remaining delivery gates and is not a completed R14 release.
+
+## Earlier checkpoints retained as history
+
 ## Unreleased R14 handoff and accepted scope
 
 - [Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) separates library-only R14 EQ131–135, developer-only demonstration and library-only acceptance; research M5 and combined C1 remain open.

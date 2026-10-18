@@ -1,0 +1,77 @@
+{
+  "schema": "eq131.positioning.validation.v1",
+  "issue": 312,
+  "base": "4effd881008aba295462dcb733a9025c47544b6b",
+  "status": "implemented_documentation_candidate_not_accepted",
+  "points": 3,
+  "original_criteria": 3,
+  "criteria_accepted": false,
+  "setup_owner_application": "APPLIED_AND_INDEPENDENTLY_VERIFIED",
+  "setup_public_readback": {
+    "owner_receipt": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244094736",
+    "development_verification": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244481653",
+    "reviewer": "/root/r10_review",
+    "report_sha256": "fa660ca3d7f6855164acea47f67d5f90fd123b63a1833b31ad58dae98c8522a8",
+    "six_requested_changes_match": true,
+    "outside_profile_paragraph_preserved": true,
+    "io_description_unchanged": true,
+    "research_metadata_unchanged": true,
+    "development_account_mutations": 0
+  },
+  "setup_packet": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240334024",
+  "governance_acceptance": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738",
+  "admission": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872",
+  "precode_review_sha256": "4ea3ce023470528173f0dec4269f8640e58118160b674b0a4b14a7aaad8b62d9",
+  "admission_tool_review_sha256": "0ca621e9542f2662951675339f10017d7da8bf00f66864f06c36c1411af50ce6",
+  "governance_closure_review_sha256": "aa4067f046a581f4931e5c93b743a39ecb0de99fa464d5eee39e46e0d7dabd92",
+  "companion_public_readme_inputs": {
+    "equity-feature-io": {
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "blob": "0cc70e5f25e5f24622fdc3d82752aaac6650415e",
+      "sha256": "207fc7cc2e5f4b36780dbf720652b574180ef72e626b27fd9c3496a374594942"
+    },
+    "equity-feature-workers": {
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "blob": "bab302133b304f600cf145ed2c694721af3a3b43",
+      "sha256": "4040d9eb1feab63a17951686e77fbe25f2c11d2366bfce591872ab3143a5c2a2"
+    },
+    "strategy-research": {
+      "head": "55e2d3810001010f0280ffdb8f0d2c80cb43ac6f",
+      "blob": "c056ef9b9a46222647afb281ac977e678b1e1b20",
+      "sha256": "36a9e0805649a9148111559969f452c235c59a994e90233aed94b690e9fff431"
+    }
+  },
+  "author_checks": {
+    "documentation_structure_exit": 0,
+    "active_story_ids": 134,
+    "feature_mappings": 39,
+    "utf8_lf": true,
+    "local_links": 26,
+    "original_three_criteria_unchanged": true,
+    "historical_tails_preserved": true,
+    "diff_check_exit": 0,
+    "product_tests_run": false
+  },
+  "new_product_tests": 0,
+  "new_native_installs": 0,
+  "non_documentation_inputs_unchanged": true,
+  "final_source_review": null,
+  "candidate_CI": null,
+  "main": null,
+  "acceptance": null,
+  "preserved_failures": [
+    "GOV026 original source review DOC01/DOC02",
+    "GOV026 preflight REST aggregate mismatch; no initial mutation; cause unknown",
+    "Late PR-ready transition before completed candidate approval",
+    "EQ131 admission four pre-execution findings corrected before live mutation",
+    "Original R13 failed study remains diagnostic-only/nonadoptable; no rerun"
+  ],
+  "scope": "Documentation and navigation only; no account administration, outreach, research transfer, private/paid/provider/hosting/registry/trading/recurring changes.",
+  "prior_source_review": {
+    "head": "7b7af7eda88410b87c4d5215a99a131243422392",
+    "report_sha256": "e0013b11bd7d5ae83d83d52eebcbb7c4fe579ca8fc307e7152826d85cdf96dfd",
+    "approved": true,
+    "source_only": true,
+    "candidate_CI_successes_before_setup_reconciliation": 62
+  }
+}

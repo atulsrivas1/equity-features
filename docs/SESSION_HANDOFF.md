@@ -1,3 +1,15 @@
+## Resume EQ131: setup verified; finish exact-head documentation delivery
+
+[GOV026 accepted handoff](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738) is delivered at main `4effd881008aba295462dcb733a9025c47544b6b`, after 62 candidate and 31 main checks plus separate source, publication and closure reviews. [EQ131 admission](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872) establishes the first bounded positioning/navigation implementation. The live [Project](https://github.com/users/atulsrivas1/projects/2) owns current lifecycle and assignment; this source snapshot does not grant completion to an unfinished story.
+
+The original three EQ131 criteria are unchanged. The [setup owner applied the reviewed packet](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244094736), and [independent development verification](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244481653) confirmed the exact profile paragraph, both descriptions, all three homepages and preservation of all other profile bytes. This satisfies the setup requirement for criterion 2; whole-story acceptance still requires the remaining normal delivery gates. Repository documentation can proceed independently; no account administration is performed here. Other R14 stories remain dependency-gated, with one active runtime story. Research M2/M3/M5 and combined C1 remain open; R7 automation remains paused.
+
+The source candidate changes README/navigation and related story/release continuity only. Run the existing documentation structural check and verify UTF8/LF, links, all 134 story assignments, unchanged current criteria/history and the complete unchanged non-document input map. Publish a linked draft, make it ready before final review, and obtain separate exact source/delivery coverage. Actual setup coordination and metadata/profile readback satisfy the setup requirement; current-head review/checks, actual main publication and complete acceptance still precede Released/Done. Then pull EQ132 with its own frozen command/channel/platform qualification.
+
+Preserve the failed R13 study and all GOV026/admission tool refusals as scoped failures. Do not repeat the study, old publication mutations, or account operations. Unrelated primary changes remain untouched.
+
+## Earlier checkpoints retained as history
+
 ## R14 scope accepted; local review authorized — October17,2026
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240017916) accepts library-only R14 EQ131–135 with developer-only EQ134 and library-only EQ135 acceptance. [E21#428](https://github.com/atulsrivas1/equity-features/issues/428)/milestone16 tracks exactly312–316/426/428; combined C1/E20#311 stays open outside that milestone. Research M2/M3/M5/SR026/027 remain open with requirements, budgets and ownership unchanged. Original issue/plan scope is preserved as history.
