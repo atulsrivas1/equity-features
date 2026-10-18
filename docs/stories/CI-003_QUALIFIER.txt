@@ -582,6 +582,15 @@ def installed_map(value):
             require(type(identity["sha256"]) is str and re.fullmatch(r"[0-9a-f]{64}", identity["sha256"]) is not None)
 
 
+def continuous_typing_proof(observed, expected):
+    # Sealed producer hashes path-dependent raw mypy output; those bytes are not uploaded.
+    require(type(observed) is dict and type(observed.get("negative_sha256")) is str)
+    require(re.fullmatch(r"[0-9a-f]{64}", observed["negative_sha256"]) is not None)
+    compared = dict(observed)
+    compared["negative_sha256"] = expected["negative_sha256"]
+    same(compared, expected)
+
+
 def verify_installed(report, family, contract, files, source_rules):
     rules = contract["builder_proof_requirements"][family]
     true_fields(report, rules.get("top_true", []))
@@ -602,7 +611,11 @@ def verify_installed(report, family, contract, files, source_rules):
                     installed_map(row[field])
                 else:
                     require(family == "continuous" and field in ("typing", "synthetic_week", "optional_absence"))
-                    same(row[field], source_rules["continuous_installed_proofs"][report["system"]][row["form"]][field])
+                    expected = source_rules["continuous_installed_proofs"][report["system"]][row["form"]][field]
+                    if field == "typing":
+                        continuous_typing_proof(row[field], expected)
+                    else:
+                        same(row[field], expected)
             if "optional_independence" in row:
                 require(row["optional_independence"] is (not row["combined_actual_core_producer"]))
             if family in ("agent-evidence", "agent-ledger"):

@@ -264,6 +264,19 @@ class ReaderControls(unittest.TestCase):
         for value in (False, {}, {'a.py': False}, {'module': {'version': '1', 'files': {'a.py': {'bytes': True, 'sha256': '1' * 64}}}}):
             self.rejected(lambda: q.installed_map(value))
 
+    def test_continuous_typing_path_dependent_hash_full_forms(self):
+        forms = ['light-wheel', 'light-sdist', 'combined-wheel', 'combined-sdist']
+        expected = {'mypy': '1.15.0', 'negative_diagnostics': [{'line': 12, 'code': 'arg-type', 'contains': 'PriceObservation'}],
+                    'positive_sha256': q.digest(b''), 'negative_sha256': '1' * 64}
+        rules = {'continuous_installed_proofs': {'Linux': {f: {'typing': expected} for f in forms}}}
+        contract = {'builder_proof_requirements': {'continuous': {'forms_field': 'forms', 'forms': forms, 'record_fields': ['typing']}}}
+        report = {'system': 'Linux', 'forms': [{'form': f, 'typing': dict(expected, negative_sha256=str(i+2)*64)} for i,f in enumerate(forms)]}
+        q.verify_installed(report, 'continuous', contract, {}, rules)
+        for field,value in [('negative_sha256', True), ('negative_sha256', 'X'*64), ('negative_sha256', '1'*63),
+                            ('mypy', 'other'), ('positive_sha256', '3'*64), ('negative_diagnostics', []), ('unknown', True)]:
+            changed = copy.deepcopy(report);changed['forms'][0]['typing'][field] = value
+            self.rejected(lambda: q.verify_installed(changed, 'continuous', contract, {}, rules))
+
     def test_installed_continuous_false_proof(self):
         forms = ['light-wheel', 'light-sdist', 'combined-wheel', 'combined-sdist']
         report = {'system': 'Linux', 'forms': [{'form': f, 'typing': False} for f in forms]}

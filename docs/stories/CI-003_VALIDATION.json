@@ -1,6 +1,6 @@
 {
   "schema": "equity-features.ci003-validation.v1",
-  "status": "SNAPSHOT_LOG_CORRECTION_SOURCE_REVIEW_PENDING",
+  "status": "CONTINUOUS_TYPING_HASH_CORRECTION_SOURCE_REVIEW_PENDING",
   "source_head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
   "source_review_sha256": "2be9f8285cbbc7771a3c975c16b479b45ddbe506fa5b6d04609a614ff3fd461e",
   "synthetic_controls": {
@@ -48,7 +48,10 @@
     "The2147 author control runner rejected the reviewer-report qualifier_live versus live_qualifier field-name difference before copying/execution; corrected exact field map, then39methods passed.",
     "Docs-negative observer saw aggregate completion while one job field remained pending; separate reviewer rejected audit admission until all35actualjobstatuses completed. No bypass or premature reader execution.",
     "Read-only diagnostic first assumed short ZIP member keys; refused before receipt writes, corrected to exact full names. Raw one-line public inventory diff was excessively large; subsequent diagnosis used bounded field-path summaries.",
-    "Snapshot preparer first assumed diagnostic report approved key; guard refused before writes. Corrected to actual explicit diagnostic field assertions."
+    "Snapshot preparer first assumed diagnostic report approved key; guard refused before writes. Corrected to actual explicit diagnostic field assertions.",
+    "Current30 helper review required cumulative remaining-byte assertion BEFORE cached reads and explicit fresh download root; corrected before execution. Reviewer approval guard spelling mismatch refused before writes, then corrected equivalent inline assertion.",
+    "Reviewer47 -I -m unittest launcher failed module lookup before source imports; corrected direct-script launcher passed47 unchanged methods. Author47 runner report-field guard refused before copying; corrected actual synthetic approval plus unchanged coded copy/interpreter/new-root enforcement then47passed.",
+    "Typing correction preparer assumed diagnostic approved field; actual approved_diagnosis field verified before any document writes."
   ],
   "superseded_source_run_cancellation_requests": {
     "reason": "Rejected/replaced CI003 reader source heads are excluded from final candidate qualification. Preserve all history; cancel requests only, no acceptance/deletion or cleanup claim. New corrected current final candidate must still complete required FULL both events.",
@@ -185,5 +188,23 @@
     "new_control_execution": false,
     "new_data_audit_execution": false,
     "unuploaded_bootstrap_binary_independently_verified": false
+  },
+  "current30_data_diagnostic": {
+    "reader_head": "f0cbb57e0fe09e11fce8b80e2114fd6de2170f44",
+    "actual_families": 30,
+    "actual_project_archives": 332,
+    "family_errors": [
+      "continuous/Linux",
+      "continuous/Windows"
+    ],
+    "other_family_parsers_completed": 28,
+    "qualified": false,
+    "diagnostic_sha256": "be8b94f40e13bd8018eabf63cbd2669358a85e6d2afc207f9dc2e4f1101362bf",
+    "independent_result_review_sha256": "26441f1c297418ef8b60ce1e57ca6cee59038e533be17ba9cd485d017349fe7e",
+    "raw_failure_log_sha256": "146f7a391f7454028f58b59d677c6630ba53be11a5db1738c28c20b5e8c21a2b",
+    "source_cause": "Only typing.negative_sha256 varies across all4forms/bothOS. Sealed builder hashes raw mypy output containing random TemporaryDirectory absolute paths. Version, expected parsed diagnoses, positive hash, synthetic_week and optional_absence exactly match baseline.",
+    "next_source": "Typed64lowerhex only for continuous typing.negative_sha256; all other proof fields stay exact. Raw diagnostic stdout is unuploaded producer-reported evidence, not independently reconstructed.",
+    "new_method_sources": 48,
+    "new_execution": false
   }
 }

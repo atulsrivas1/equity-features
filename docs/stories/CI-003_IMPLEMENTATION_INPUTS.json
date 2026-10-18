@@ -1,6 +1,6 @@
 {
   "schema": "equity-features.ci003-implementation-inputs.v1",
-  "status": "SNAPSHOT_LOG_CORRECTION_SOURCE_REVIEW_PENDING",
+  "status": "CONTINUOUS_TYPING_HASH_CORRECTION_SOURCE_REVIEW_PENDING",
   "precode": {
     "head": "16e8945ad700d91f4a2c1c53a2300cd7f4cb63e8",
     "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
@@ -18,28 +18,28 @@
   },
   "assets": {
     "docs/stories/CI-003_QUALIFIER.txt": {
-      "bytes": 72346,
-      "sha256": "0382c090cf29d3ae7db11e0f78aae5376eb7a853be6892bb76d238d1dea3939a"
+      "bytes": 72960,
+      "sha256": "7be5c7bff93009bc0c2c101931ac239fc8e79863c79362f238ffd788a59f17d9"
     },
     "docs/stories/CI-003_QUALIFIER_TESTS.txt": {
-      "bytes": 29074,
-      "sha256": "091e900927deb6c80d55554fc48c9034032dd6fe9932da464d432906ea472d13"
+      "bytes": 30318,
+      "sha256": "61fdf0c19c15ce3dca5f25e675b922b1913f73581abc6dcb2a44029feab161d1"
     },
     "docs/stories/CI-003_SOURCE_RULES.json": {
       "bytes": 2328473,
       "sha256": "8578f4f2e05354f2acaf7c8dd8b3c4fc8e965a311d81b703d4b7c52bdba996f6"
     },
     "docs/CI_QUALIFICATION.md": {
-      "bytes": 7134,
-      "sha256": "0667e0b7486f4da80cab7b63499c4d592a9862c1fd40db91032e67dcba37c186"
+      "bytes": 7618,
+      "sha256": "9acef1c9fe95bede2a6a7a96f99a2e50f770b41ddc92ccb094737de89baf5fb3"
     },
     "docs/stories/CI-003_VALIDATION.json": {
-      "bytes": 10184,
-      "sha256": "bcf391cf8a2bdefef2aa78eeb8e61b039dbf23ad35ec700117a10ca39870e301"
+      "bytes": 12082,
+      "sha256": "8d710df22d20ccf26f23e2a34c50097a9b6f6db2bd3c8ae483d652687b70eaa7"
     }
   },
-  "new_tests_executed": 43,
-  "qualifier_executions": 7,
+  "new_tests_executed": 47,
+  "qualifier_executions": 8,
   "probe_workflow_triggers": 3,
   "frozen_probe_sources": {
     "docs": {
@@ -211,7 +211,8 @@
     "new_methods_source": 43,
     "new_execution": false
   },
-  "new_method_sources": 47,
+  "new_method_sources": 48,
   "snapshot_diagnostic_review_sha256": "b5307a2f021b8303b82774b080a0d796482a68aa488f5e252478dbb89f589000",
-  "prior_source_rules_sha256": "ae4a4e6057bd201c6d6f1b10ef39d501b18322f5866973637902b746f575a0c2"
+  "prior_source_rules_sha256": "ae4a4e6057bd201c6d6f1b10ef39d501b18322f5866973637902b746f575a0c2",
+  "current30_review_sha256": "26441f1c297418ef8b60ce1e57ca6cee59038e533be17ba9cd485d017349fe7e"
 }
