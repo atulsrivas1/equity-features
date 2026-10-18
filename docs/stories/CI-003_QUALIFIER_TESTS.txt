@@ -1,6 +1,7 @@
 """Independent synthetic malformed-data controls; copy to test_qualifier.py."""
 import base64
 import csv
+import copy
 import gzip
 import hashlib
 import importlib.util
@@ -369,6 +370,61 @@ class ReaderControls(unittest.TestCase):
     def test_docs_negative_cannot_hide_other_failures(self):
         case, jobs = self.logical_jobs(); jobs[1]['conclusion'] = 'failure'
         self.rejected(lambda: q.root_jobs(jobs, case))
+
+    def snapshot_fixture(self):
+        site = 'Lib/site-packages'
+        names = ['pip/__pycache__/fixed.cpython-312.pyc', 'pip/source.py', 'pip-25.0.1.dist-info/RECORD']
+        files = {n: {'bytes': 4, 'sha256': '1' * 64} for n in names}
+        files['project/__init__.py'] = {'bytes': 3, 'sha256': '2' * 64}
+        bootstrap = {site + '/' + n: copy.deepcopy(files[n]) for n in names}
+        bootstrap['Scripts/pip.exe'] = {'bytes': 8, 'sha256': '3' * 64}
+        template = {'installed_versions': {'pip': '25.0.1'}, 'core': {'project': {'files': {'__init__.py': files['project/__init__.py']}}},
+                    'site_closure': {'site_root': site, 'site_files': files, 'bootstrap_files': bootstrap}}
+        observed = copy.deepcopy(template)
+        for name in (names[0], names[2]):
+            observed['site_closure']['bootstrap_files'][site + '/' + name]['sha256'] = '4' * 64
+            observed['site_closure']['site_files'][name]['sha256'] = '4' * 64
+        observed['site_closure']['bootstrap_files']['Scripts/pip.exe']['sha256'] = '5' * 64
+        return template, observed
+
+    def test_snapshot_generated_hashes_only(self):
+        template, observed = self.snapshot_fixture()
+        q.quickstart_snapshot(observed, template, 'Windows')
+        self.rejected(lambda: q.quickstart_snapshot(observed, template, 'Linux'))
+        for name, value in [('sha256', True), ('sha256', 'BAD'), ('bytes', True), ('bytes', 5)]:
+            changed = copy.deepcopy(observed)
+            changed['site_closure']['bootstrap_files']['Lib/site-packages/pip/__pycache__/fixed.cpython-312.pyc'][name] = value
+            self.rejected(lambda: q.quickstart_snapshot(changed, template, 'Windows'))
+
+    def test_snapshot_project_source_and_inventory_drift(self):
+        template, observed = self.snapshot_fixture()
+        for target in ('project', 'stable_pip', 'new_bootstrap', 'new_site'):
+            changed = copy.deepcopy(observed)
+            if target == 'project': changed['core']['project']['files']['__init__.py']['sha256'] = '6' * 64
+            if target == 'stable_pip':
+                changed['site_closure']['bootstrap_files']['Lib/site-packages/pip/source.py']['sha256'] = '6' * 64
+                changed['site_closure']['site_files']['pip/source.py']['sha256'] = '6' * 64
+            if target == 'new_bootstrap': changed['site_closure']['bootstrap_files']['Scripts/foreign.exe'] = {'bytes': 8, 'sha256': '6' * 64}
+            if target == 'new_site': changed['site_closure']['site_files']['foreign.py'] = {'bytes': 8, 'sha256': '6' * 64}
+            self.rejected(lambda: q.quickstart_snapshot(changed, template, 'Windows'))
+
+    def test_snapshot_map_projection_and_complete_log_binding(self):
+        template, observed = self.snapshot_fixture()
+        report = {'before_core': observed, 'runtime': observed}
+        expected = {'inventory_templates': {'before_core': template, 'runtime': template}}
+        raw = q.canonical(observed) + b'\r\n'
+        for label in ('core-before', 'installed', 'core-after'):
+            q.quickstart_snapshot_log(label, raw, report, 'Windows', expected)
+            self.rejected(lambda: q.quickstart_snapshot_log(label, raw + b' ', report, 'Windows', expected))
+            self.rejected(lambda: q.quickstart_snapshot_log(label, q.canonical(template) + b'\r\n', report, 'Windows', expected))
+        changed = copy.deepcopy(observed); changed['site_closure']['site_files']['pip/__pycache__/fixed.cpython-312.pyc']['sha256'] = '7' * 64
+        self.rejected(lambda: q.quickstart_snapshot(changed, template, 'Windows'))
+
+    def test_snapshot_before_after_bootstrap_change_denied(self):
+        template, before = self.snapshot_fixture(); after = copy.deepcopy(before)
+        after['site_closure']['bootstrap_files']['Scripts/pip.exe']['sha256'] = '8' * 64
+        q.quickstart_snapshot(after, template, 'Windows')
+        self.rejected(lambda: q.same(before['site_closure']['bootstrap_files'], after['site_closure']['bootstrap_files']))
 
     def test_raw_job_log_capture_flag_and_bound(self):
         raw = b"fixed \x1b[31merror\x1b[0m\n"

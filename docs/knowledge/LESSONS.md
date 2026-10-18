@@ -1,3 +1,9 @@
+## CI003 snapshot log correction; documentation-negative audit still incomplete
+
+The source-negative case is independently verified as expected rejection, never aggregatePASS. Docs-negative actual35jobs completed with32package successes, but its reader audit failed at baseline snapshot-log hashes. Independent data diagnosis confirmed only generated pip bytecode/Windowslauncher/RECORD SHA fields vary across fresh environments; project payloads/names/sizes remain unchanged. Corrected47method source pins complete baseline snapshot structures and stable data, binds3current canonical snapshot logs to full current reports and enforces bootstrap projections/before-after equality. No unuploaded bootstrap binary verification is inferred. [Retained failures, diagnosis and pending gates](../stories/CI-003_VALIDATION.json). New source/control/data execution is pending review; actual DOCS+baseline evidence remains scoped, CI003 In progress/R16 unfinished. No unchanged workflow rerun or source-only completion.
+
+## Earlier checkpoints retained as history
+
 ## CI003 actual reader-only case passed; raw job-log capture correction
 
 Author and separate reviewer42controls and the existing CI002 baseline data audit passed (332projectarchives). Actual DOCS run39166796789 passed with3executed/16skipped calls and2rootZIPs; PR452 closed unmerged. Source-negative run39166824089 has the intended failed status, but its audit failed at GitHub CLI terminal-escape filtering of the scope log. Diagnostic raw capture succeeded without displaying the log. Exact-job-log-only reader correction and43rd synthetic control are implemented, pending separate source review/execution. Failed audit/partial ZIPs remain; no unchanged workflow rerun, negative-case acceptance or R16 completion. [Evidence and limitations](../stories/CI-003_VALIDATION.json).

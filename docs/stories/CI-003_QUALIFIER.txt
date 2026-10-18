@@ -722,6 +722,42 @@ def verify_selected_sdists(report, results, archive_files, registry, system):
         same(transition["changed"], changed)
 
 
+def quickstart_snapshot(observed, template, system):
+    """Pin complete reported inventories; generated bootstrap hashes are not binary attestation."""
+    require(system in ("Linux", "Windows"))
+    expected = strict_json(canonical(template))
+    site = template["site_closure"]["site_root"]
+    pip_root = site + "/pip/"
+    pip_record = site + "/pip-" + template["installed_versions"]["pip"] + ".dist-info/RECORD"
+    bootstrap = observed["site_closure"]["bootstrap_files"]
+    same(sorted(bootstrap), sorted(template["site_closure"]["bootstrap_files"]))
+    for path, sealed in template["site_closure"]["bootstrap_files"].items():
+        generated = (path.startswith(pip_root) and re.fullmatch(r"(?:[^/]+/)*__pycache__/[^/]+\.cpython-312\.pyc", path[len(pip_root):]) is not None)
+        if system == "Windows":
+            generated = generated or path == pip_record or path in ("Scripts/pip.exe", "Scripts/pip3.exe", "Scripts/pip3.12.exe")
+        proof = bootstrap[path]
+        if generated:
+            same(sorted(proof), ["bytes", "sha256"])
+            require(type(proof["bytes"]) is int and proof["bytes"] == sealed["bytes"])
+            require(type(proof["sha256"]) is str and re.fullmatch(r"[0-9a-f]{64}", proof["sha256"]) is not None)
+            expected["site_closure"]["bootstrap_files"][path]["sha256"] = proof["sha256"]
+            if path.startswith(site + "/"):
+                relative = path[len(site) + 1:]
+                expected["site_closure"]["site_files"][relative]["sha256"] = proof["sha256"]
+        if path.startswith(site + "/"):
+            same(observed["site_closure"]["site_files"][path[len(site) + 1:]], proof)
+    same(observed, expected)
+
+
+def quickstart_snapshot_log(label, raw, report, system, expected):
+    field = {"core-before": "before_core", "installed": "runtime", "core-after": "runtime"}[label]
+    snapshot = report[field]
+    quickstart_snapshot(snapshot, expected["inventory_templates"][field], system)
+    same(strict_json(raw), snapshot)
+    ending = b"\r\n" if system == "Windows" else b"\n"
+    require(raw == canonical(snapshot) + ending, "canonical complete snapshot stdout")
+
+
 def quickstart_steps(report, files, system, expected):
     same([row["label"] for row in report["steps"]], expected["step_labels"])
     prefix = "eq132-quickstart-" + system + "/logs/"
@@ -737,7 +773,10 @@ def quickstart_steps(report, files, system, expected):
             path = prefix + f"{index:02}-" + row["label"] + "-" + stream + ".txt"
             require(path in files, "quickstart public log missing")
             raw = files[path]
-            same({"bytes": len(raw), "sha256": digest(raw)}, expected["public_logs"][path])
+            if stream == "stdout" and row["label"] in ("core-before", "installed", "core-after"):
+                quickstart_snapshot_log(row["label"], raw, report, system, expected)
+            else:
+                same({"bytes": len(raw), "sha256": digest(raw)}, expected["public_logs"][path])
             # The producer records raw lengths but publishes redacted paths.
             # Public bytes are bound separately; raw-private logs are not uploaded.
             require(size >= len(raw), "quickstart raw/public log size")
@@ -771,6 +810,7 @@ def verify_quickstart(report, files, system, source, rules):
     for field in ("independent_results", "qualification", "walkthrough_stdout", "wheel_maps"):
         same(report[field], expected[field])
     quickstart_steps(report, files, system, expected)
+    same(report["before_core"]["site_closure"]["bootstrap_files"], report["runtime"]["site_closure"]["bootstrap_files"])
     walkthrough = ("\n".join(inputs["independent_expected"]["stdout_lines"]) + "\n").encode()
     require(report["walkthrough_stdout"].encode() == walkthrough)
     if system == "Windows":

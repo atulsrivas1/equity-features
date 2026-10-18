@@ -1,6 +1,6 @@
 {
   "schema": "equity-features.ci003-validation.v1",
-  "status": "LOG_CAPTURE_CORRECTION_REVIEW_PENDING",
+  "status": "SNAPSHOT_LOG_CORRECTION_SOURCE_REVIEW_PENDING",
   "source_head": "9abf2f6150cc5978a06b453e7904c55a8098b167",
   "source_review_sha256": "2be9f8285cbbc7771a3c975c16b479b45ddbe506fa5b6d04609a614ff3fd461e",
   "synthetic_controls": {
@@ -45,7 +45,10 @@
     "Author synthetic-control runner first assumed nonexistent execution_approved report key and refused before copying/executing; corrected to actual explicit execution_approval object before first38method run.",
     "Reviewer diagnostic first assumed OS API ordering and stopped before writes; set comparison corrected.",
     "Published192e UTF8 preparer defect and original source/review history retained; exact old suffixes restored in9abf.",
-    "The2147 author control runner rejected the reviewer-report qualifier_live versus live_qualifier field-name difference before copying/execution; corrected exact field map, then39methods passed."
+    "The2147 author control runner rejected the reviewer-report qualifier_live versus live_qualifier field-name difference before copying/execution; corrected exact field map, then39methods passed.",
+    "Docs-negative observer saw aggregate completion while one job field remained pending; separate reviewer rejected audit admission until all35actualjobstatuses completed. No bypass or premature reader execution.",
+    "Read-only diagnostic first assumed short ZIP member keys; refused before receipt writes, corrected to exact full names. Raw one-line public inventory diff was excessively large; subsequent diagnosis used bounded field-path summaries.",
+    "Snapshot preparer first assumed diagnostic report approved key; guard refused before writes. Corrected to actual explicit diagnostic field assertions."
   ],
   "superseded_source_run_cancellation_requests": {
     "reason": "Rejected/replaced CI003 reader source heads are excluded from final candidate qualification. Preserve all history; cancel requests only, no acceptance/deletion or cleanup claim. New corrected current final candidate must still complete required FULL both events.",
@@ -164,5 +167,23 @@
     "docs_negative_run": 39166838219,
     "docs_negative_status": "Pending observation; no rerun/cancel",
     "final_current_candidate_main_qualification": false
+  },
+  "quickstart_snapshot_reader_failure": {
+    "reader_head": "0f9e6b8b11d8d45de1ce3c50c4d2db488422f4f2",
+    "case_run": 39166838219,
+    "returncode": 1,
+    "audit_completed": false,
+    "raw_failure_log_sha256": "3425e4053b423b4177cf4ce4faed21f1fffb6bb7a1870a519b6d36f93b62e7de",
+    "diagnostic_review_sha256": "b5307a2f021b8303b82774b080a0d796482a68aa488f5e252478dbb89f589000",
+    "cause": "Baseline public snapshot log hashes included per-environment generated pip cache/launcher/RECORD hash identities. Three JSON snapshot stdout logs vary without project payload drift.",
+    "Windows_each_log_changed_sha_leaves": 827,
+    "Linux_each_log_changed_sha_leaves": 822,
+    "actual_case_job_vector": "35completed:32package+scope success;docsplanning+aggregatefailure",
+    "scope": "Reader/model defect and prior review miss; no demonstrated package/runtime failure. No workflow rerun.",
+    "proposed_source": "Complete accepted-baseline inventory templates; SHA-only variation for existing listed pip cpython312 bytecode, Windows3launchers+pipRECORD; exact names/bytes/types/stablepip/project fields; full current canonical log/report binding and bootstrap map projections/before-after equality.",
+    "new_method_sources": 47,
+    "new_control_execution": false,
+    "new_data_audit_execution": false,
+    "unuploaded_bootstrap_binary_independently_verified": false
   }
 }
