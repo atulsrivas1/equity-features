@@ -1,3 +1,9 @@
+## CI003 actual controlled cases complete; final delivery pending
+
+All3fixed never-merged cases are independently verified: DOCS3executed/16skipped/2artifacts; invalidsource expectedfailure; documentation guard expectedfailure with all32package jobs successful. Existing accepted FULL baseline32artifacts/332projectarchives audited. Corrected reader48author+48reviewer controls passed; prior failed reader attempts retained. [Run/artifact/review identities and limits](R16_CI_OBSERVATIONS.md). At this source freeze CI003 is In progress; current GitHub lifecycle/acceptance governs after publication. Publish final reviewed candidate, complete actual FULL push/PR audits, then guarded main publication and independent main/aggregate acceptance. R16 is unfinished; no new scope or operating grant.
+
+## Earlier checkpoints retained as history
+
 ## Owner-selected R16 CI engineering — October18,2026
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/443#issuecomment-6253883970) accepts PR447's CI001#444/CI002#445/CI003#446 scope and authorizes separate local Codex review throughout R16, including planning, necessary companion qualification changes and final delivery. E23#448/milestone19 select exactly443/444/445/446/448. GOV028#443 is active planning; implementation stories remain Backlog/unassigned until dependency acceptance, concrete reviewed pre-code plans and actual Ready. Provisional complexity2/5/8/5 points, not days; no deadline. [Plan](R16_RELEASE_PLAN.md), [handoff](R16_AUTONOMOUS_HANDOFF.md), [inputs](R16_INPUTS.json).

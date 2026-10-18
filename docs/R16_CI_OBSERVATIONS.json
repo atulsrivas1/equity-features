@@ -1,0 +1,671 @@
+{
+  "schema": "equity-features.r16-ci-observations.v1",
+  "status": "ACTUAL_CONTROLLED_CASES_VERIFIED_FINAL_RELEASE_PENDING",
+  "checkpoint_type": "PRE_PUBLICATION_SOURCE_FREEZE_NOT_CURRENT_LIFECYCLE",
+  "acceptance_authority": "https://github.com/atulsrivas1/equity-features/issues/446",
+  "reader_head": "754a49ba0d173d3ecdaa000cfedf23c381ac3b51",
+  "cases": {
+    "baseline": {
+      "case": {
+        "api_head": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+        "attempt": 1,
+        "base": "684074e43b80171e81ff4a309c0c2c4d6a75497e",
+        "checkout_head": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+        "event": "push",
+        "kind": "full",
+        "ref": "refs/heads/main",
+        "run_id": 39162664488
+      },
+      "observation": "OBSERVED_CASE_VERIFIED",
+      "actual_aggregate_conclusion": "success",
+      "jobs": 35,
+      "executed_jobs": 35,
+      "skipped_reusable_call_records_NOT_QUALIFIED": 0,
+      "artifacts": [
+        {
+          "bytes": 823267,
+          "expires_at": "2026-11-17T20:22:14Z",
+          "id": 12150110064,
+          "name": "provenance-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "b081c550b00fc1fb5308a2fb751bf4c88b6a76cace8e7736daec1f85c9c9bed4"
+        },
+        {
+          "bytes": 554028,
+          "expires_at": "2026-11-17T20:21:42Z",
+          "id": 12150040271,
+          "name": "evidence-evaluation-0ef4f2c7a50e164e11dcfc25751e62b691b95883-push-ubuntu-24.04-attempt-1",
+          "sha256": "d658103590db856348f4478f3c4eafb58d92e60c5b94320b4957660c732b855e"
+        },
+        {
+          "bytes": 298940,
+          "expires_at": "2026-11-17T20:20:23Z",
+          "id": 12150035105,
+          "name": "explanations-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "afe36d3a5bb60abee437cc837dc4e313081e38770cef5f7519f061849c9d795d"
+        },
+        {
+          "bytes": 870304,
+          "expires_at": "2026-11-17T20:22:01Z",
+          "id": 12150010022,
+          "name": "evidence-pilot-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "b7b49126f3977975831cd2119a2bc5127484b5d813a53711e5d0eb606b3c4fae"
+        },
+        {
+          "bytes": 735038,
+          "expires_at": "2026-11-17T20:20:05Z",
+          "id": 12149965401,
+          "name": "conformance-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "323942f36d5dccd2e77a95f1ac5ae22e55f319f9d643929de6b0a55d19a7642c"
+        },
+        {
+          "bytes": 295248,
+          "expires_at": "2026-11-17T20:21:09Z",
+          "id": 12149875802,
+          "name": "explanations-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "a91cccc676bcab213b66358b6d358a1e7f845a494f2b2971a58cd2e05a4babb4"
+        },
+        {
+          "bytes": 277355,
+          "expires_at": "2026-11-17T20:19:59Z",
+          "id": 12149865812,
+          "name": "evidence-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "5ab511b086f1a577b66555719d917e34c0e3b537fe0567e1f0e9aa32741ee516"
+        },
+        {
+          "bytes": 299339,
+          "expires_at": "2026-11-17T20:19:04Z",
+          "id": 12149820354,
+          "name": "diagnostics-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "e1158caf6eefc15af91e927487843192fb3c79447f9b5f3cdd45744d9a8a06da"
+        },
+        {
+          "bytes": 817844,
+          "expires_at": "2026-11-17T20:20:10Z",
+          "id": 12149740581,
+          "name": "provenance-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "ae662e138f55577155de644c8c91260f564745a0bcc384982297a91f21e7850a"
+        },
+        {
+          "bytes": 346927,
+          "expires_at": "2026-11-17T20:23:10Z",
+          "id": 12149720912,
+          "name": "r9-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "d6cacd36a26b461df7a577a48c23a9fdf239f2218ef9501104ed29ef3a6a6748"
+        },
+        {
+          "bytes": 755991,
+          "expires_at": "2026-11-17T20:20:54Z",
+          "id": 12149701443,
+          "name": "r10-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "d9ba4794ae0944c409e30c6427535dcb83277ad95ff5302a7379a5caa044300e"
+        },
+        {
+          "bytes": 275106,
+          "expires_at": "2026-11-17T20:21:28Z",
+          "id": 12149696510,
+          "name": "foundation-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "3b03036842b925a8d9da3c08409b1869c4799b89c8cbc5b26ba1d246c13c8381"
+        },
+        {
+          "bytes": 293623,
+          "expires_at": "2026-11-17T20:20:03Z",
+          "id": 12149685636,
+          "name": "research-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "db21e494b7cc8aaabae0677e699abdaf20186787e8b552a0b5904385a39cf326"
+        },
+        {
+          "bytes": 349956,
+          "expires_at": "2026-11-17T20:22:42Z",
+          "id": 12149656873,
+          "name": "r9-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "48a8e0216260642aebabbebcb6bfb69e0c6199d7653b41869875076c74f2b170"
+        },
+        {
+          "bytes": 316081,
+          "expires_at": "2026-11-17T20:19:25Z",
+          "id": 12149640697,
+          "name": "agent-evidence-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "6d760b5fe242f2e74067d0606a006998d25ad11db9a1a7069f2b1dd7e52bf320"
+        },
+        {
+          "bytes": 296615,
+          "expires_at": "2026-11-17T20:22:00Z",
+          "id": 12149636024,
+          "name": "research-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "b5fcb401b3f6cb9554b6ac1bacc3a124e835b58333567ce28269dcdb0f43d396"
+        },
+        {
+          "bytes": 319559,
+          "expires_at": "2026-11-17T20:19:36Z",
+          "id": 12149606448,
+          "name": "agent-evidence-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "41d4984e83f6e3d6243aae5c2bbb471493edb069899a120535949ba1a29fa1c5"
+        },
+        {
+          "bytes": 391789,
+          "expires_at": "2026-11-17T20:20:41Z",
+          "id": 12149556789,
+          "name": "continuous-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "9ccc7fb981c8a2e811eb1a1bc8322ac039716542930e407ca6e1a4a8f5f90a7f"
+        },
+        {
+          "bytes": 351378,
+          "expires_at": "2026-11-17T20:23:15Z",
+          "id": 12149477433,
+          "name": "agent-ledger-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "2974e40cdc7adbba34deb7b273790138e42e7844a1ad9d17625fc533f3dc5887"
+        },
+        {
+          "bytes": 868636,
+          "expires_at": "2026-11-17T20:19:51Z",
+          "id": 12149447692,
+          "name": "evidence-pilot-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "8242158464c2d9ce6716425353655db5e24c5c8de7f62d7fc3897852b3c6733e"
+        },
+        {
+          "bytes": 89071,
+          "expires_at": "2026-11-17T20:28:34Z",
+          "id": 12149268091,
+          "name": "ci-policy-0ef4f2c7a50e164e11dcfc25751e62b691b95883-push-39162664488-attempt-1",
+          "sha256": "b843b31584c03e21bc9737f6ef6f12df0d59908b7f923fcfae739c7407d44686"
+        },
+        {
+          "bytes": 753005,
+          "expires_at": "2026-11-17T20:20:03Z",
+          "id": 12149242373,
+          "name": "r10-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "40ab203421e478e36613ba15127f129ae55e8bc6ab03ceefba8e42c8a3d77681"
+        },
+        {
+          "bytes": 523,
+          "expires_at": "2026-11-17T20:18:06Z",
+          "id": 12149227247,
+          "name": "ci-scope-0ef4f2c7a50e164e11dcfc25751e62b691b95883-push-39162664488-attempt-1",
+          "sha256": "d809542535c3cb37cff48b93ae6a71f7dd5f34ed854165f26c76d8039421d00f"
+        },
+        {
+          "bytes": 387500,
+          "expires_at": "2026-11-17T20:19:38Z",
+          "id": 12149104183,
+          "name": "continuous-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "bd3986acf2732d7b0528d9a5a21526586286454034d0fc47d1c8c25e3729bbde"
+        },
+        {
+          "bytes": 738620,
+          "expires_at": "2026-11-17T20:21:38Z",
+          "id": 12149077898,
+          "name": "conformance-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "8cc78ae0171f1893e3258ac81fc2240f3ac1fc6a46d921e55690b113d293fa7e"
+        },
+        {
+          "bytes": 302516,
+          "expires_at": "2026-11-17T20:20:16Z",
+          "id": 12149049406,
+          "name": "diagnostics-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "737fd71ee1ca63535e01e56cc1802c0a8e9de0e151ca74223995ca5d97e4fd49"
+        },
+        {
+          "bytes": 470649,
+          "expires_at": "2026-11-17T20:18:24Z",
+          "id": 12149042806,
+          "name": "quickstart-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "16e6ec4a539ef18a03d3840dfd8ea73e92718584a46543de059fcfb49adb10bf"
+        },
+        {
+          "bytes": 273832,
+          "expires_at": "2026-11-17T20:22:08Z",
+          "id": 12149024781,
+          "name": "foundation-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "0c50fd84b506d331cbc612ea925342f770cbc619aa41ddcbd90a483ea858a2d2"
+        },
+        {
+          "bytes": 555212,
+          "expires_at": "2026-11-17T20:22:02Z",
+          "id": 12149009724,
+          "name": "evidence-evaluation-0ef4f2c7a50e164e11dcfc25751e62b691b95883-push-windows-latest-attempt-1",
+          "sha256": "ff8e8b9cf787563088b533a681774ef65d630ddf4745f9ecafe4e765749de037"
+        },
+        {
+          "bytes": 355739,
+          "expires_at": "2026-11-17T20:28:20Z",
+          "id": 12148928949,
+          "name": "agent-ledger-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "53576a3d1b0b2387b10c05337f6f2bc0f3866de5758853af1c5f7b3190c7a83e"
+        },
+        {
+          "bytes": 274794,
+          "expires_at": "2026-11-17T20:19:49Z",
+          "id": 12148898205,
+          "name": "evidence-0ef4f2c7a50e164e11dcfc25751e62b691b95883-ubuntu-24.04-attempt-1",
+          "sha256": "ac2d44871066c83192a15784018eefc119646d5d1dafc634edd58da16787b1bf"
+        },
+        {
+          "bytes": 472601,
+          "expires_at": "2026-11-17T20:20:43Z",
+          "id": 12148843519,
+          "name": "quickstart-0ef4f2c7a50e164e11dcfc25751e62b691b95883-windows-latest-attempt-1",
+          "sha256": "379c6e78240eca0fa0520198c60f0ee6ddf3ff1b02d99886547802204e3e7b21"
+        }
+      ],
+      "project_archives": 332,
+      "scope": {
+        "allowlist_sha256": "fe8860b35869529b4cabdf940905d7bc3979974e031dd041a228d8eb0b3cf2ee",
+        "base": "684074e43b80171e81ff4a309c0c2c4d6a75497e",
+        "changes_count": 33,
+        "checkout_head": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+        "checkout_tree": "27c7cc0ff7423e0c75ea3cb257705359038d8895",
+        "decision": "FULL",
+        "diff_sha256": "04d9ff4eeae4edee2926decac785ffcb450446bd94ac363457a8148c405485a9",
+        "event": "push",
+        "reason": "NON_READER_CHANGE",
+        "repository": "atulsrivas1/equity-features",
+        "schema": "equity-features.ci-scope.v1",
+        "source_head": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+        "valid": true
+      },
+      "gross_job_seconds": 4532.0,
+      "audit_sha256": "ab9de73bd21b8c6dc30a7d2e38951df1cbdad0b2d46fa96912fe5a2f72290fdc",
+      "independent_case_review_sha256": "9e71d59cb3eb345aba3c8e28a81788b01a58fdaffa54172b0f2d19084436501f",
+      "reader_head": "181771318ebd63ef77f6698e10cf388ac32c606f"
+    },
+    "docs": {
+      "case": {
+        "api_head": "775b24017cc2d21709a146860b95cc9c0052c14f",
+        "attempt": 1,
+        "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+        "checkout_head": "9abb1977ec13ba964e0610ca78a32ecf4aac36bb",
+        "event": "pull_request",
+        "kind": "docs",
+        "ref": "refs/pull/452/merge",
+        "run_id": 39166796789
+      },
+      "observation": "OBSERVED_CASE_VERIFIED",
+      "actual_aggregate_conclusion": "success",
+      "jobs": 19,
+      "executed_jobs": 3,
+      "skipped_reusable_call_records_NOT_QUALIFIED": 16,
+      "artifacts": [
+        {
+          "bytes": 546,
+          "expires_at": "2026-11-17T21:14:18Z",
+          "id": 12150798201,
+          "name": "ci-scope-9abb1977ec13ba964e0610ca78a32ecf4aac36bb-pull_request-39166796789-attempt-1",
+          "sha256": "82ad0d86fa4e79d9bd369bf531e9fda7a0d2241aa70c41befd7b5c77c829b3e7"
+        },
+        {
+          "bytes": 89120,
+          "expires_at": "2026-11-17T21:15:10Z",
+          "id": 12150572816,
+          "name": "ci-policy-9abb1977ec13ba964e0610ca78a32ecf4aac36bb-pull_request-39166796789-attempt-1",
+          "sha256": "f075b348212bee7e26c10efc1e95ab9466ae9ebeff1ac27c9e89c4c52477b865"
+        }
+      ],
+      "project_archives": 0,
+      "scope": {
+        "allowlist_sha256": "fe8860b35869529b4cabdf940905d7bc3979974e031dd041a228d8eb0b3cf2ee",
+        "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+        "changes_count": 1,
+        "checkout_head": "9abb1977ec13ba964e0610ca78a32ecf4aac36bb",
+        "checkout_tree": "731e8e729b97a801f270b6d4effd192ff1510194",
+        "decision": "DOCS",
+        "diff_sha256": "b44ae262b9d71cb5fc9f9f5e6aed52932a3a1b1a3a2ad257bae0d06721691dfd",
+        "event": "pull_request",
+        "reason": "READERS_ONLY",
+        "repository": "atulsrivas1/equity-features",
+        "schema": "equity-features.ci-scope.v1",
+        "source_head": "775b24017cc2d21709a146860b95cc9c0052c14f",
+        "valid": true
+      },
+      "gross_job_seconds": 33.0,
+      "audit_sha256": "a6d678871a23673a929b68c9c743119a8dfa0ba4e5e6a5d931261319e6f92884",
+      "independent_case_review_sha256": "c4f93df193facc04a5151857ac3c463ec2f65f8bbbb0cf52ee8d338b1cdb520d",
+      "reader_head": "181771318ebd63ef77f6698e10cf388ac32c606f"
+    },
+    "source-negative": {
+      "case": {
+        "api_head": "de2efaef8cc69ef11a9e9227840e377a017f5011",
+        "attempt": 1,
+        "base": null,
+        "checkout_head": "de2efaef8cc69ef11a9e9227840e377a017f5011",
+        "event": "push",
+        "kind": "source-negative",
+        "ref": "refs/heads/codex/ci003-source-negative",
+        "run_id": 39166824089
+      },
+      "observation": "EXPECTED_NEGATIVE_CONFIRMED_NOT_QUALIFIED",
+      "actual_aggregate_conclusion": "failure",
+      "jobs": 19,
+      "executed_jobs": 3,
+      "skipped_reusable_call_records_NOT_QUALIFIED": 16,
+      "artifacts": [
+        {
+          "bytes": 398,
+          "expires_at": "2026-11-17T21:13:01Z",
+          "id": 12150872703,
+          "name": "ci-scope-de2efaef8cc69ef11a9e9227840e377a017f5011-push-39166824089-attempt-1",
+          "sha256": "e3fe2a90172765a9f083bfcfb1eed31f42d9eab5e4104036b02a4b6bf038666a"
+        },
+        {
+          "bytes": 291,
+          "expires_at": "2026-11-17T21:16:48Z",
+          "id": 12150479996,
+          "name": "ci-policy-de2efaef8cc69ef11a9e9227840e377a017f5011-push-39166824089-attempt-1",
+          "sha256": "4678c8cedccc58d488f0e17ee826600fecebe43cbacc9fad9c13217ff4a338c1"
+        }
+      ],
+      "project_archives": 0,
+      "scope": {
+        "allowlist_sha256": "fe8860b35869529b4cabdf940905d7bc3979974e031dd041a228d8eb0b3cf2ee",
+        "base": null,
+        "changes_count": null,
+        "checkout_head": null,
+        "checkout_tree": null,
+        "decision": "FULL",
+        "diff_sha256": null,
+        "event": null,
+        "reason": "SOURCE_INVALID",
+        "repository": "atulsrivas1/equity-features",
+        "schema": "equity-features.ci-scope.v1",
+        "source_head": null,
+        "valid": false
+      },
+      "gross_job_seconds": 29.0,
+      "audit_sha256": "e10f26670ffce74a2ff9907f96734f66f27313ae4158385b031b4ae74cf8e05d",
+      "independent_case_review_sha256": "152ae953cb128028ead82c61f42e40850041222be2a4f3c829d12e3fe7ee79b0",
+      "reader_head": "0f9e6b8b11d8d45de1ce3c50c4d2db488422f4f2",
+      "raw_failed_job_log": {
+        "bytes": 18615,
+        "sha256": "b1a9f47bab3dca91e9ebbe26b7f42033d069b6f6704f95e9ba6591280a1e668c",
+        "raw_private_log_not_published": true
+      }
+    },
+    "docs-negative": {
+      "case": {
+        "api_head": "fdd179d8cf50586d02d167ad5d5a45131b966724",
+        "attempt": 1,
+        "base": null,
+        "checkout_head": "fdd179d8cf50586d02d167ad5d5a45131b966724",
+        "event": "push",
+        "kind": "docs-negative",
+        "ref": "refs/heads/codex/ci003-docs-negative",
+        "run_id": 39166838219
+      },
+      "observation": "EXPECTED_NEGATIVE_CONFIRMED_NOT_QUALIFIED",
+      "actual_aggregate_conclusion": "failure",
+      "jobs": 35,
+      "executed_jobs": 35,
+      "skipped_reusable_call_records_NOT_QUALIFIED": 0,
+      "artifacts": [
+        {
+          "bytes": 355779,
+          "expires_at": "2026-11-17T21:26:34Z",
+          "id": 12151735061,
+          "name": "agent-ledger-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "ac706f420607249a2d1c10e2106214bdda60960a431fe8891840296d0cf00e2b"
+        },
+        {
+          "bytes": 299338,
+          "expires_at": "2026-11-17T21:16:28Z",
+          "id": 12151605062,
+          "name": "diagnostics-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "a1718c5d547ef2baf7092200df6a55a392e0ae6e205aac484efaf464c9d02ab6"
+        },
+        {
+          "bytes": 735040,
+          "expires_at": "2026-11-17T21:17:39Z",
+          "id": 12151570142,
+          "name": "conformance-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "8bb365e4561168d2884da15feb90d1db2358c44354ddadd082bfcd01b85a6e7c"
+        },
+        {
+          "bytes": 738615,
+          "expires_at": "2026-11-17T21:17:47Z",
+          "id": 12151555296,
+          "name": "conformance-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "43a86e240e50a3de3b7ad425d59c20302ee151383425fe6188626cdc25d6cb4f"
+        },
+        {
+          "bytes": 302517,
+          "expires_at": "2026-11-17T21:16:34Z",
+          "id": 12151495962,
+          "name": "diagnostics-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "11bcfe79d6e8cf81cacb0a97c2a61b52e651f770fff468b9b20c0e2869194457"
+        },
+        {
+          "bytes": 554022,
+          "expires_at": "2026-11-17T21:15:35Z",
+          "id": 12151460992,
+          "name": "evidence-evaluation-fdd179d8cf50586d02d167ad5d5a45131b966724-push-ubuntu-24.04-attempt-1",
+          "sha256": "be301a7b09738343c24d91ee960d749fef75e58f920686f872465a8fb2a400c4"
+        },
+        {
+          "bytes": 472743,
+          "expires_at": "2026-11-17T21:14:57Z",
+          "id": 12151406293,
+          "name": "quickstart-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "cc8c1660c1d82b7adfe828ac8d7b5c773fda6b16613079e78d3fb6518eb1cc37"
+        },
+        {
+          "bytes": 349972,
+          "expires_at": "2026-11-17T21:17:53Z",
+          "id": 12151346852,
+          "name": "r9-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "b6885b9a006e9a4ad5cdacce04a6baf19d6dd4fc08470ba2759c0b127b36aacf"
+        },
+        {
+          "bytes": 817858,
+          "expires_at": "2026-11-17T21:18:42Z",
+          "id": 12151316917,
+          "name": "provenance-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "29ab8051cabad68dba7f96b2893eb223d4a731b0fe726c05e617399c80f65337"
+        },
+        {
+          "bytes": 752995,
+          "expires_at": "2026-11-17T21:19:33Z",
+          "id": 12151207314,
+          "name": "r10-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "1997c29086d17e3bb3d360ba95e1e4e143557ba63be2a1ee5e05efa64d496c84"
+        },
+        {
+          "bytes": 296615,
+          "expires_at": "2026-11-17T21:19:34Z",
+          "id": 12151181548,
+          "name": "research-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "76cc8479f31bdb961a6233bb7b5ac9720ab5a5907473578e91f96797fcdb2bb3"
+        },
+        {
+          "bytes": 290,
+          "expires_at": "2026-11-17T21:27:24Z",
+          "id": 12151177161,
+          "name": "ci-policy-fdd179d8cf50586d02d167ad5d5a45131b966724-push-39166838219-attempt-1",
+          "sha256": "e3dab72df622241eda4bf4b4e0e164b3cf9efdbf05fa88baae78da236a3f486e"
+        },
+        {
+          "bytes": 319594,
+          "expires_at": "2026-11-17T21:17:16Z",
+          "id": 12151171353,
+          "name": "agent-evidence-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "6ff62125faf03654833bb5d43215d17a809328055bf4ac27c7d011fc0286fa35"
+        },
+        {
+          "bytes": 316084,
+          "expires_at": "2026-11-17T21:15:42Z",
+          "id": 12151012540,
+          "name": "agent-evidence-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "ba095fef7ba7da39c1ef13dbb93e7ac9d90894ba3a47c5ed023c21ade46d4dfd"
+        },
+        {
+          "bytes": 387514,
+          "expires_at": "2026-11-17T21:15:59Z",
+          "id": 12150956653,
+          "name": "continuous-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "8e011cea42bbd5ca849ac1ed87f3220d1636ddd7d8d13865686a1b99b5218c66"
+        },
+        {
+          "bytes": 870163,
+          "expires_at": "2026-11-17T21:17:39Z",
+          "id": 12150893282,
+          "name": "evidence-pilot-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "e083386a5e87ff4ac3c154c6959c08319c67da3dae3eef01e0e174d7ba043da5"
+        },
+        {
+          "bytes": 273825,
+          "expires_at": "2026-11-17T21:18:00Z",
+          "id": 12150777380,
+          "name": "foundation-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "a638b151384058d2ffd3e35daeb83c80dfb3e7aa8eaf55de926da1a07177539e"
+        },
+        {
+          "bytes": 391778,
+          "expires_at": "2026-11-17T21:16:36Z",
+          "id": 12150703807,
+          "name": "continuous-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "b3be1942f6d8cdcafaa4eefc167fb8227eaa20a6c38cf7bc187d54c9be734505"
+        },
+        {
+          "bytes": 756028,
+          "expires_at": "2026-11-17T21:20:55Z",
+          "id": 12150677824,
+          "name": "r10-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "d3978b574b9cf2a78d8dcd8b14028883f6309f60a0527c5b6c4dedfae1e3192f"
+        },
+        {
+          "bytes": 351513,
+          "expires_at": "2026-11-17T21:21:47Z",
+          "id": 12150669673,
+          "name": "agent-ledger-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "09798396e79d4d3c325e2a46fe34fa0cbfed4dbb278c2d7e3bac46395a4f6572"
+        },
+        {
+          "bytes": 275108,
+          "expires_at": "2026-11-17T21:21:03Z",
+          "id": 12150664607,
+          "name": "foundation-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "90896f2932fc409fb083fdf50ac679f9728bf2c00c69036ee15df4d95570eab8"
+        },
+        {
+          "bytes": 868741,
+          "expires_at": "2026-11-17T21:17:30Z",
+          "id": 12150632776,
+          "name": "evidence-pilot-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "b9dc93a185c29388ab09f29187b89db32853308d732c1480f9b1b8e3037a79c3"
+        },
+        {
+          "bytes": 295248,
+          "expires_at": "2026-11-17T21:14:31Z",
+          "id": 12150608952,
+          "name": "explanations-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "bc608138e90b5edb3296646a052f75409bad0e8691ac7e27160ae0114fd5fbfd"
+        },
+        {
+          "bytes": 293623,
+          "expires_at": "2026-11-17T21:16:38Z",
+          "id": 12150604078,
+          "name": "research-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "615a47666020f86468a1e7b8deaa4f09ce63b44637f0b05e5e21c6ee28860923"
+        },
+        {
+          "bytes": 274782,
+          "expires_at": "2026-11-17T21:15:17Z",
+          "id": 12150549248,
+          "name": "evidence-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "bf9540f093bee48e4a264d539661de50b6ad900b597a4819b23b56ebb8699178"
+        },
+        {
+          "bytes": 823271,
+          "expires_at": "2026-11-17T21:19:45Z",
+          "id": 12150544869,
+          "name": "provenance-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "d6b3f4bc1862e52bc23e533d31df42bad4ef4ae8c459149fe39efb73e0c3402c"
+        },
+        {
+          "bytes": 555213,
+          "expires_at": "2026-11-17T21:19:46Z",
+          "id": 12150498598,
+          "name": "evidence-evaluation-fdd179d8cf50586d02d167ad5d5a45131b966724-push-windows-latest-attempt-1",
+          "sha256": "b1365e9183d531b18af4e310604457ab87a273e4dde463f934d8ac4da01bdf94"
+        },
+        {
+          "bytes": 470188,
+          "expires_at": "2026-11-17T21:16:56Z",
+          "id": 12150418618,
+          "name": "quickstart-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "d5943598ec342cca424e58a473aa338d3c312cdf5dba38728613550d247bad50"
+        },
+        {
+          "bytes": 456,
+          "expires_at": "2026-11-17T21:13:12Z",
+          "id": 12150398347,
+          "name": "ci-scope-fdd179d8cf50586d02d167ad5d5a45131b966724-push-39166838219-attempt-1",
+          "sha256": "f7030a83cd1e4f01ac02fcdc7efbabcd559a27a3757f1baa9c190829d367eba9"
+        },
+        {
+          "bytes": 298940,
+          "expires_at": "2026-11-17T21:19:22Z",
+          "id": 12150319213,
+          "name": "explanations-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "d74338859658fcfd6d9edbd0d92db2d15fe73c2988622723ba7fa02fa67235fd"
+        },
+        {
+          "bytes": 346918,
+          "expires_at": "2026-11-17T21:16:35Z",
+          "id": 12150318938,
+          "name": "r9-fdd179d8cf50586d02d167ad5d5a45131b966724-ubuntu-24.04-attempt-1",
+          "sha256": "7cfc731b02c90905c9262e587c2b7de6f276328fd0301b4d8781b044dfd3fe0a"
+        },
+        {
+          "bytes": 277354,
+          "expires_at": "2026-11-17T21:19:19Z",
+          "id": 12150179666,
+          "name": "evidence-fdd179d8cf50586d02d167ad5d5a45131b966724-windows-latest-attempt-1",
+          "sha256": "8c296ab6b589a7755c2f129699cb4c1190f1ee3ed9ee71f8e89f83150b083005"
+        }
+      ],
+      "project_archives": 332,
+      "scope": {
+        "allowlist_sha256": "fe8860b35869529b4cabdf940905d7bc3979974e031dd041a228d8eb0b3cf2ee",
+        "base": null,
+        "changes_count": null,
+        "checkout_head": "fdd179d8cf50586d02d167ad5d5a45131b966724",
+        "checkout_tree": "9172b6d85452157611a25c8ed9b6b8094bafccdd",
+        "decision": "FULL",
+        "diff_sha256": null,
+        "event": "push",
+        "reason": "INITIAL_PUSH",
+        "repository": "atulsrivas1/equity-features",
+        "schema": "equity-features.ci-scope.v1",
+        "source_head": "fdd179d8cf50586d02d167ad5d5a45131b966724",
+        "valid": true
+      },
+      "gross_job_seconds": 4863.0,
+      "audit_sha256": "03268afd580a6e4ed2df72013e96d556a005565e3845065904cf2345e366e758",
+      "independent_case_review_sha256": "768374c8187106dcf47ebec62ed292c1353f8ed3788a92725202add64f27bbca",
+      "reader_head": "754a49ba0d173d3ecdaa000cfedf23c381ac3b51",
+      "raw_failed_job_log": {
+        "bytes": 15895,
+        "sha256": "2fb23cd538489c7bbc4aa5b65a2d8ed8853a10f9f041993564d30128d8140776",
+        "raw_private_log_not_published": true
+      }
+    }
+  },
+  "controls": {
+    "author": 48,
+    "reviewer": 48,
+    "source_review_sha256": "bcaf8a3eaee593c013415f506cd7319b72791e0b5a59ca501f097de848eacfd5",
+    "author_receipt_sha256": "85e3e674f2a5fdfd49080aa50f9edf101f9e9d6e2be4754e3f2243023cfc6e09",
+    "reviewer_report_sha256": "d9b1ca00ac65f8ddd8a7b7930adc5e14b0dcf9b221ec50f5090951ee4a10936f"
+  },
+  "DOCS_probe_PR452": "CLOSED_UNMERGED_BRANCH_AND_MERGE_OBJECT_RETAINED",
+  "metrics_limits": "Observed gross elapsed job totals across different FULL/DOCS runs, not CPU, queue/concurrent wall-time or guaranteed speedup. 32package executions omitted for DOCS;16skipped reusable call records NOTQUALIFIED. FULL preserves all package qualification.",
+  "qualification_limits": "Same existing Windows environment for standalone author/reviewer; actual package producers on both Windows/Linux. No downloaded payload execution or independent reinstall/native dependency bytes/source-binary/hardware/physical cleanup attestation. Unuploaded generated pip inventory bytes and raw typing diagnostics remain producer-reported evidence, without independent byte reconstruction.",
+  "final_candidate_main_audit_pending": true,
+  "failed_reader_audits_retained": [
+    "9abf commandlabel",
+    "2147 consolemetadata",
+    "1817 gh log-escape transport",
+    "0f9e quickstart generated snapshot hashes",
+    "f0cb continuous path-dependent typing digest"
+  ],
+  "product_runtime_failure_demonstrated": false,
+  "selected_probe_workflow_reruns": 0
+}

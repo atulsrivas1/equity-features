@@ -1,3 +1,9 @@
+## CI003 actual controlled cases complete; final delivery pending
+
+All3fixed never-merged cases are independently verified: DOCS3executed/16skipped/2artifacts; invalidsource expectedfailure; documentation guard expectedfailure with all32package jobs successful. Existing accepted FULL baseline32artifacts/332projectarchives audited. Corrected reader48author+48reviewer controls passed; prior failed reader attempts retained. [Run/artifact/review identities and limits](../R16_CI_OBSERVATIONS.md). At this source freeze CI003 is In progress; current GitHub lifecycle/acceptance governs after publication. Publish final reviewed candidate, complete actual FULL push/PR audits, then guarded main publication and independent main/aggregate acceptance. R16 is unfinished; no new scope or operating grant.
+
+## Earlier checkpoints retained as history
+
 ## CI003 current-data diagnostic; typing hash correction
 
 Snapshot correction passed47author+47reviewer controls and both quickstart data parsers. A full bounded current-case diagnostic inspected30family artifacts/332projectarchives: only continuous bothOS receipts fail, solely path-dependent typing.negative_sha256 across4forms; other28family parsers completed. Corrected48method source permits only typed64hex for that raw-output digest, retaining exact source-pinned expected diagnoses/mypyversion/positivehash/other proofs. Unuploaded raw diagnostic bytes remain producer-reported, not independently reconstructed. [Retained failed audit and reviewed diagnosis](../stories/CI-003_VALIDATION.json). New source/control/data execution pending review; no completed docs-negative audit or workflow rerun. CI003 In progress/R16 unfinished.

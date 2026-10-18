@@ -1,6 +1,6 @@
 {
   "schema": "equity-features.ci003-implementation-inputs.v1",
-  "status": "CONTINUOUS_TYPING_HASH_CORRECTION_SOURCE_REVIEW_PENDING",
+  "status": "ACTUAL_CASES_VERIFIED_FINAL_REVIEW_PENDING",
   "precode": {
     "head": "16e8945ad700d91f4a2c1c53a2300cd7f4cb63e8",
     "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
@@ -34,12 +34,12 @@
       "sha256": "9acef1c9fe95bede2a6a7a96f99a2e50f770b41ddc92ccb094737de89baf5fb3"
     },
     "docs/stories/CI-003_VALIDATION.json": {
-      "bytes": 12082,
-      "sha256": "8d710df22d20ccf26f23e2a34c50097a9b6f6db2bd3c8ae483d652687b70eaa7"
+      "bytes": 13396,
+      "sha256": "8347b8c926ab63fc44e9d0216e4c03a66b84c38105b0afacd67f8c8e92620f69"
     }
   },
-  "new_tests_executed": 47,
-  "qualifier_executions": 8,
+  "new_tests_executed": 48,
+  "qualifier_executions": 9,
   "probe_workflow_triggers": 3,
   "frozen_probe_sources": {
     "docs": {
@@ -214,5 +214,6 @@
   "new_method_sources": 48,
   "snapshot_diagnostic_review_sha256": "b5307a2f021b8303b82774b080a0d796482a68aa488f5e252478dbb89f589000",
   "prior_source_rules_sha256": "ae4a4e6057bd201c6d6f1b10ef39d501b18322f5866973637902b746f575a0c2",
-  "current30_review_sha256": "26441f1c297418ef8b60ce1e57ca6cee59038e533be17ba9cd485d017349fe7e"
+  "current30_review_sha256": "26441f1c297418ef8b60ce1e57ca6cee59038e533be17ba9cd485d017349fe7e",
+  "observations": "../R16_CI_OBSERVATIONS.json"
 }
