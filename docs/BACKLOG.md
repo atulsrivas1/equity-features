@@ -752,3 +752,6 @@ Tracking: https://github.com/atulsrivas1/equity-features/issues/277. R4.1, plann
 | EQ-133 | R14 | [Create a clear first-contribution path](https://github.com/atulsrivas1/equity-features/issues/314) | Provide actionable bounded starter tasks, acceptance, setup/check instructions and triage/credit guidance. Dependencies: EQ132; existing review and rights rules. |
 | EQ-134 | R14 | [Prepare useful demonstrations and targeted launch material](https://github.com/atulsrivas1/equity-features/issues/315) | Replay sanitized demonstrations and prepare audience-specific material; sending/posting requires explicit authorization. Dependencies: both library and research participation paths under C1. |
 | EQ-135 | R14 | [Measure onboarding feedback and verify C1 delivery](https://github.com/atulsrivas1/equity-features/issues/316) | Record manual metric definitions, observed pilot evidence or explicit defer, limitations, exact reviewed delivery receipts and coordinated R14/M5 acceptance. Dependencies: all preceding C1 artifacts; no fabricated adoption. |
+
+<!-- CI003 intentional duplicate-row negative fixture; never merge. -->
+| EQ-001 | R0 | Freeze v1 feature list and exclusions | Versioned list covers initial bar/trade/quote/history/baseline/relative/breadth features; strategies/labels remain separate; additions require scope change |
