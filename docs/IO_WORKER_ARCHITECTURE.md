@@ -1,3 +1,7 @@
+## Prospective live intraday direction — October 18, 2026
+
+[Owner direction](decisions/LIVE_INTRADAY_ARCHITECTURE_DIRECTION.md) preserves a path to bounded persistent orchestration, reusable supplied initialization, stable ordered per-stream state, dependency-correct independent parallelism, explicit backpressure/recovery and trader freshness/revision semantics. Do not impose per-event process/connection/durable-write startup or a full EOD barrier without a justified contract. Preserve validation/receipt/authorization guarantees and raw events required for calculation. This changes no current worker default, grants no physical isolation guarantee and selects no new framework or provider. [Future release](FUTURE_LIVE_INTRADAY_RELEASE.md) is Backlog, not immediate implementation.
+
 ## Current R5 review authorization — October 7, 2026
 
 The owner authorized separate local Codex reviewers for PR303 and all R5 stories. See [review policy](CODE_REVIEW.md). This supersedes earlier pending-authorization statements below without waiving completed final-head review or other acceptance gates. PR303 planning remains under qualification; no R5 worker implementation starts here.

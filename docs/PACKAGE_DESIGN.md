@@ -1,3 +1,7 @@
+## Prospective live intraday direction — October 18, 2026
+
+Retain source-independent pure kernels and the direct local calculation path. [Owner direction](decisions/LIVE_INTRADAY_ARCHITECTURE_DIRECTION.md) calls for explicit batch/update/replay capabilities, bounded state where incremental mode is supported, causal/history/reference availability and honest performance/parity evidence. Batch-only remains valid and existing APIs remain supported. Optional I/O/workers/services/MCP remain outside calculations. [Future live delivery](FUTURE_LIVE_INTRADAY_RELEASE.md) is reserved and deferred; no runtime design is selected by this planning packet.
+
 ## R8 delivered contracts and consumer qualification
 
 Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.

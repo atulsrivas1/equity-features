@@ -1,0 +1,66 @@
+{
+  "base": "17399c93ac5aeef1175156290833b4111924e3fb",
+  "governance": {
+    "number": 455,
+    "url": "https://github.com/atulsrivas1/equity-features/issues/455",
+    "item": "PVTI_lAHOBiDqvM4BlsvkzhBseRs",
+    "stage": "In progress"
+  },
+  "milestone": {
+    "number": 20,
+    "title": "Future \u2014 Live intraday feature delivery",
+    "url": "https://github.com/atulsrivas1/equity-features/milestone/20",
+    "due_on": null
+  },
+  "epic": {
+    "number": 456,
+    "url": "https://github.com/atulsrivas1/equity-features/issues/456",
+    "item": "PVTI_lAHOBiDqvM4BlsvkzhBseaM"
+  },
+  "children": [
+    {
+      "id": "LIVE-001",
+      "number": 457,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/457",
+      "project_item": "PVTI_lAHOBiDqvM4BlsvkzhBsedo",
+      "scope": "Freeze selected feed/account/rights, schemas, event/receipt identity, sequence, seed/watermark/coverage, reconnect/gap/duplicate/late/corrected-event policy and bounded approved integration. Reuse EQ069/070 only if that provider is explicitly selected; no implicit selection of both. Current supplied-input contracts do not attest actual live completeness."
+    },
+    {
+      "id": "LIVE-002",
+      "number": 458,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/458",
+      "project_item": "PVTI_lAHOBiDqvM4BlsvkzhBseg8",
+      "scope": "After admitted input contracts, freeze feature capability matrix, warm-up/history/reference initialization, stable per-instrument state ownership, dependency/universe barriers, bounded queues/admission/backpressure/recovery and native-thread budget policy. Preserve pure kernels and existing batch APIs; batch-only features remain explicit, with recompute/replay semantics where selected. No new scheduler framework is required by this reservation."
+    },
+    {
+      "id": "LIVE-003",
+      "number": 459,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/459",
+      "project_item": "PVTI_lAHOBiDqvM4BlsvkzhBsekU",
+      "scope": "After selected input/orchestration contracts, select delivery transport/consumer and cadence; retain as-of/cutoff/knowledge/source identity, quality, incomplete/stale/gap status and revision/provisional/final behavior. Coalescing may affect outbound snapshots only under an explicit contract; it cannot silently discard required source events. Required correctness/receipt controls cannot be removed to claim speed."
+    },
+    {
+      "id": "LIVE-004",
+      "number": 460,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/460",
+      "project_item": "PVTI_lAHOBiDqvM4BlsvkzhBsems",
+      "scope": "Before performance adoption, freeze representative universe/feature mix/rates/bursts/target hardware and accepted latency/freshness/error/backlog budgets. Measure received-event-to-consumer availability p50/p95/p99 and event age only with declared clock comparability. Exercise gaps/reconnects/late corrections/overload/EOD contention, full result/quality/evidence parity, both supported platforms and actual approved integration. Synthetic replay/historical benchmark is a separate evidence level."
+    }
+  ],
+  "future_all_open_unassigned_backlog": true,
+  "execution_selected": false,
+  "numbered_next_release_selected": false,
+  "latency_slo": null,
+  "publication_cadence": null,
+  "feed": null,
+  "universe": null,
+  "scope": "deferred future runtime release; prospective architecture publication only",
+  "governance_current_status_authority": "GitHub Project; reservation stage is historical",
+  "runtime_points": null,
+  "transport": null,
+  "feature_slice": null,
+  "event_rate_burst": null,
+  "latency_error_memory_queue_budgets": null,
+  "provider_operation_granted": false,
+  "one_second_cadence_approved": false
+}
