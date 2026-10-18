@@ -1,3 +1,11 @@
+## EQ133 contribution path implemented; validation pending
+
+[PR431](https://github.com/atulsrivas1/equity-features/pull/431) follows independently reviewed corrected precode and actual EQ133 Ready admission with three points/Atul. The contribution guide and bug/proposal templates now distinguish source development from minimal delivered wheels, show actual source check commands, scope support and preserve actual contributor provenance. Three concrete public documentation starter issues are linked from CONTRIBUTING; all are unassigned Backlog without R14 milestone, not new selected release work.
+
+Initial seven-arrow encoding REWORK, corrected precode review and pre-execution tool findings remain preserved. Source setup has not yet run at this checkpoint. Complete exact source-replay review and actual owned fresh Windows checkout/venv checks; record Linux source/CI evidence distinctly. Then final source review, applicable current checks/artifacts/default-branch acceptance and normal lifecycle closure remain required. No new mathematics/API/package/version/dependency, research completion, human uptake, account administration or outreach is claimed. EQ134/135 remain Backlog; R7 paused.
+
+## Earlier checkpoints retained as history
+
 ## EQ133 precode correction: explicit UTF8 draft reads
 
 Separate local reviewer `/root/r9_plan_review` found seven corrupted lifecycle separators in the frozen proposed guide at [initial PR431 head6e9ad32](https://github.com/atulsrivas1/equity-features/commit/6e9ad32fa712911fc762551a19411d99fda83fe5). Initial precode review SHA256 `ba89bd5db15118d13f8616272d6ad8007b19a72f01b4720b7652c094e1b44330` is REWORK, not Ready or product failure. A draft preparer had read correct UTF8 with the Windows default text encoding; writing that result as UTF8 preserved mojibake. Restore the original UTF8 guide with the same ASCII prerequisite block, use explicit encoding for every draft/source read, and renew exact public precode review. Preserve the initial public commit/report and all other planned fields. No contribution guide, starter issue or product execution was implemented by that planning head.

@@ -1,0 +1,82 @@
+{
+  "schema": "eq133.implementation.validation.v1",
+  "state": "IMPLEMENTED_NOT_YET_VALIDATED_OR_ACCEPTED",
+  "base": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+  "precode_head": "5c8d4e638fe89329dc3665c79ec0c8aacba1afd3",
+  "precode_review_sha256": "42ebb9da706f85df2ed80baf4602dbf939a772c4094fc31956ad271c04f9cbbf",
+  "admission": {
+    "base": "48d4689f10af8c07545e95bd4e70f240ca81d096",
+    "precode_head": "5c8d4e638fe89329dc3665c79ec0c8aacba1afd3",
+    "branch": "codex/eq133-contributions",
+    "pr": 431,
+    "story": 314,
+    "status": "In progress",
+    "assignee": "atulsrivas1",
+    "points": 3,
+    "readiness_comment": "https://github.com/atulsrivas1/equity-features/issues/314#issuecomment-6246314566",
+    "tool_sha256": "4e5e40c9c614064d30e74b185e954da32dd55182e64ff8382f17f6adc3c26d79",
+    "precode_review_sha256": "42ebb9da706f85df2ed80baf4602dbf939a772c4094fc31956ad271c04f9cbbf",
+    "criteria_completed": false,
+    "new_product_execution": false,
+    "new_starter_issues": false,
+    "final_body_owner_points_status_readback_complete": true
+  },
+  "starter_issues": {
+    "issues": [
+      {
+        "number": 432,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/432",
+        "title": "[Starter] Add navigation to the current public API sections",
+        "body": "This future contributor opportunity is curated under [EQ133#314](https://github.com/atulsrivas1/equity-features/issues/314), outside the selected R14 milestone. It is unassigned and remains Backlog until normal maintainer readiness. Normal Backlog \u2192 Ready \u2192 In progress \u2192 Code review \u2192 Test \u2192 Ready to release \u2192 Released \u2192 Done still applies. Agree the small scope with the maintainer before implementation. No private data, credentials, paid provider, account permission or research prerequisite is needed.\n\nUse a checkout of the exact base below and CPython3.12 x64 with assertions enabled. If the preserved source has changed, stop and ask the maintainer to rebase the issue rather than weakening the check. The stdlib source-preservation check normalizes CRLF to LF for these known Markdown files only. It does not normalize package/binary evidence.\n\n## Base and files\n\n`48d4689f10af8c07545e95bd4e70f240ca81d096`; [docs/api/PUBLIC_API.md](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/api/PUBLIC_API.md).\n\n## Work\n\nInsert a small current-reading navigation block above existing historical checkpoints. Link to the existing Current experimental public API, Imports and ownership, Invalid calls versus unavailable calculations, and Installed typing qualification sections. End the new block with `<!-- STARTER-API-NAV-END -->` followed by a blank line; preserve the entire original page after it. Do not rewrite history, API semantics, release receipts or other files.\n\n## Acceptance\n\n- [ ] Four direct same-page links reach the actual current sections and have clear labels.\n- [ ] Entire original GitLF body SHA256 `8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c` is preserved after the fixed marker.\n- [ ] Run the bounded check below, inspect all four links in the actual PR, and record actual output/review without calling existing docs CI a general link validator.\n\n## Runnable check\n\n```text\npython -c \"from pathlib import Path; import hashlib; b=Path('docs/api/PUBLIC_API.md').read_bytes().replace(b'\\r\\n',b'\\n'); marker=b'<!-- STARTER-API-NAV-END -->\\n\\n'; assert b.count(marker)==1; block,old=b.split(marker,1); assert hashlib.sha256(old).hexdigest()=='8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c'; pairs={'current-experimental-public-api': '# Current experimental public API', 'imports-and-ownership': '## Imports and ownership', 'invalid-calls-versus-unavailable-calculations': '## Invalid calls versus unavailable calculations', 'installed-typing-qualification': '## Installed typing qualification'}; assert all(('](#'+anchor+')').encode() in block and heading.encode() in old for anchor,heading in pairs.items()); print('Four navigation destinations and unchanged historical body verified.')\"\n```\n\nThis checks the changed navigation targets and untouched source body; it does not execute installed calculations. The normal documentation workflow and separate review/release gates still apply.\n",
+        "labels": [
+          "good first issue",
+          "help wanted"
+        ],
+        "status": "Backlog",
+        "assignees": [],
+        "milestone": null
+      },
+      {
+        "number": 433,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/433",
+        "title": "[Starter] Walk through the continuous-quote example intervals",
+        "body": "This future contributor opportunity is curated under [EQ133#314](https://github.com/atulsrivas1/equity-features/issues/314), outside the selected R14 milestone. It is unassigned and remains Backlog until normal maintainer readiness. Normal Backlog \u2192 Ready \u2192 In progress \u2192 Code review \u2192 Test \u2192 Ready to release \u2192 Released \u2192 Done still applies. Agree the small scope with the maintainer before implementation. No private data, credentials, paid provider, account permission or research prerequisite is needed.\n\nUse a checkout of the exact base below and CPython3.12 x64 with assertions enabled. If the preserved source has changed, stop and ask the maintainer to rebase the issue rather than weakening the check. The stdlib source-preservation check normalizes CRLF to LF for these known Markdown files only. It does not normalize package/binary evidence.\n\n## Base and files\n\n`48d4689f10af8c07545e95bd4e70f240ca81d096`; [docs/api/CONTINUOUS_QUOTES.md](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/api/CONTINUOUS_QUOTES.md), with unchanged [example](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/examples/continuous_quotes.py), [source quotes](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/examples/session_quotes.py) and [existing formula](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/features/QUOTE_FORMULAS.md) as references. Edit only CONTINUOUS_QUOTES.md unless the maintainer approves a scope revision.\n\n## Work\n\nAdd a concise read-along table for the existing example at synthetic UTCns100\u2013112. The mathematics already exists; this task improves its presentation and cross-links. Rows are [100,103) normal3ns; [103,107) locked4ns; [107,109) crossed2ns; [109,112) invalid3ns. Unknown and expired are both0; total12, valid7; valid-only mean spread6/7 and mean bps60000/707. Explain why a next update or the cutoff precedes each original expiry, why a null bid is an invalid full update rather than carry-forward, and why crossed/invalid time is excluded from the valid-only mean. Preserve all original formulas/example code.\n\n## Acceptance\n\n- [ ] Actual100\u2013112 table and zero categories match the existing fixture, with units and valid denominator explicit.\n- [ ] Link the unchanged existing example and formula derivation; no new math, data, calculator behavior, performance or production claim.\n- [ ] Execute the independent math verifier below and record its actual output; separately review each prose/table cell against the literal expected values. The math verifier does not read the prose or execute the production example.\n\n## Runnable check\n\n```text\npython tools/verify_quote_examples.py\n```\n\nThis is an existing stdlib independent-design verifier. If also running the actual production example, first follow the contributor setup for matching installed contracts/features and record that command and output separately. Normal documentation checks and source review remain required.\n",
+        "labels": [
+          "good first issue",
+          "help wanted"
+        ],
+        "status": "Backlog",
+        "assignees": [],
+        "milestone": null
+      },
+      {
+        "number": 434,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/434",
+        "title": "[Starter] Clarify current reading context for result contracts",
+        "body": "This future contributor opportunity is curated under [EQ133#314](https://github.com/atulsrivas1/equity-features/issues/314), outside the selected R14 milestone. It is unassigned and remains Backlog until normal maintainer readiness. Normal Backlog \u2192 Ready \u2192 In progress \u2192 Code review \u2192 Test \u2192 Ready to release \u2192 Released \u2192 Done still applies. Agree the small scope with the maintainer before implementation. No private data, credentials, paid provider, account permission or research prerequisite is needed.\n\nUse a checkout of the exact base below and CPython3.12 x64 with assertions enabled. If the preserved source has changed, stop and ask the maintainer to rebase the issue rather than weakening the check. The stdlib source-preservation check normalizes CRLF to LF for these known Markdown files only. It does not normalize package/binary evidence.\n\n## Base and files\n\n`48d4689f10af8c07545e95bd4e70f240ca81d096`; edit only [docs/contracts/RESULTS.md](https://github.com/atulsrivas1/equity-features/blob/48d4689f10af8c07545e95bd4e70f240ca81d096/docs/contracts/RESULTS.md). Existing currentAPI and quickstart are link destinations, not edit targets.\n\n## Work\n\nAdd a concise current reading/version banner above the dated EQ0130.0.1a3 checkpoint that says no numerical calculator exists yet. Explain that this is the original implementation checkpoint, while the current experimental contracts/features pair is0.0.4a4 and supported calculators/channel are documented in the linked currentAPI and minimalQUICKSTART. Preserve valid structural rules and all original migration/history paragraphs. Do not declare structural contracts obsolete, rewrite receipts or imply stable registry/production support. End the block with `<!-- STARTER-RESULT-CONTEXT-END -->` and a blank line.\n\n## Acceptance\n\n- [ ] Current experimental version context clearly distinguishes the original checkpoint from currently supported calculation/channel guidance.\n- [ ] CurrentAPI (`../api/PUBLIC_API.md`) and quickstart (`../QUICKSTART.md`) links resolve from RESULTS.md; all original GitLF body SHA256 `0987cc3de8cab56511a9faead4def157d33c33614c8e3d287a9b02a494c015ec` remains unchanged after the fixed marker.\n- [ ] Run the bounded check and inspect both actual PR links and factual wording; record actual results and separate review, without claiming generic docsCI link checking.\n\n## Runnable check\n\n```text\npython -c \"from pathlib import Path; import hashlib; b=Path('docs/contracts/RESULTS.md').read_bytes().replace(b'\\r\\n',b'\\n'); marker=b'<!-- STARTER-RESULT-CONTEXT-END -->\\n\\n'; assert b.count(marker)==1; block,old=b.split(marker,1); assert hashlib.sha256(old).hexdigest()=='0987cc3de8cab56511a9faead4def157d33c33614c8e3d287a9b02a494c015ec'; links={'../api/PUBLIC_API.md':Path('docs/api/PUBLIC_API.md'),'../QUICKSTART.md':Path('docs/QUICKSTART.md')}; assert all((']('+target+')').encode() in block and path.is_file() for target,path in links.items()); assert b'0.0.4a4' in block and b'experimental' in block.lower(); print('Current context links and unchanged result-contract history verified.')\"\n```\n\nThis checks the changed reading context/file destinations and source preservation. It does not execute a calculator or prove installability. Normal current checks, review and actual publication apply.\n",
+        "labels": [
+          "good first issue",
+          "help wanted"
+        ],
+        "status": "Backlog",
+        "assignees": [],
+        "milestone": null
+      }
+    ],
+    "count": 3,
+    "implemented": false,
+    "R14_milestone_added": false
+  },
+  "new_source_setup": null,
+  "current_CI": null,
+  "final_source_review": null,
+  "criteria_accepted": false,
+  "unchanged": [
+    "calculation mathematics and package sources",
+    "versions/dependencies",
+    "original three acceptance criteria",
+    "research and combined C1 open scope",
+    "R13 diagnostic-only DEFER",
+    "R7 paused"
+  ]
+}

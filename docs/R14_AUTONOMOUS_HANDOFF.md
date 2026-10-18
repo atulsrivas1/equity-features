@@ -1,3 +1,11 @@
+## EQ133 contribution path implemented; validation pending
+
+[PR431](https://github.com/atulsrivas1/equity-features/pull/431) follows independently reviewed corrected precode and actual EQ133 Ready admission with three points/Atul. The contribution guide and bug/proposal templates now distinguish source development from minimal delivered wheels, show actual source check commands, scope support and preserve actual contributor provenance. Three concrete public documentation starter issues are linked from CONTRIBUTING; all are unassigned Backlog without R14 milestone, not new selected release work.
+
+Initial seven-arrow encoding REWORK, corrected precode review and pre-execution tool findings remain preserved. Source setup has not yet run at this checkpoint. Complete exact source-replay review and actual owned fresh Windows checkout/venv checks; record Linux source/CI evidence distinctly. Then final source review, applicable current checks/artifacts/default-branch acceptance and normal lifecycle closure remain required. No new mathematics/API/package/version/dependency, research completion, human uptake, account administration or outreach is claimed. EQ134/135 remain Backlog; R7 paused.
+
+## Earlier checkpoints retained as history
+
 ## EQ132 accepted; EQ133 first-contribution precode preparation
 
 [EQ132 accepted delivery](https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246206150) is Closed/Done at main `48d4689f10af8c07545e95bd4e70f240ca81d096` after actual66candidate/33main checks, ten candidate/six main artifacts and separate source/delivery/closure review. [Final public review](https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246196584) records reviewer identity, scope, exact source/CI/artifact bindings and limitations. EQ131/GOV026 remain Done. E21/milestone16 remain open with three selected runtime stories unfinished; live Project is current authority.
