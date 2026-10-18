@@ -1,3 +1,7 @@
+## CI003 consumer grammar lesson
+
+Read actual producer metadata and platform representations before defining an independent reader: generated console entrypoints are declared source, EQ117does not record the EQ116rebuiltwheel field, and3quickstart text-source hashes follow Windows checkout CRLF. Bound only the supported representations and keep unavailable evidence explicit. Cached2147 diagnostic retained all errors, never qualification; corrected42method sources still await review/execution.
+
 ## CI003 exact workflow-step lesson
 
 Do not infer executed step labels by dropping interpreter flags or companion arguments. Bind the sealed workflow command and actual job step literally; isolated synthetic parser controls did not cover this integration. The first9abf baseline audit remains FAILED before downloads, independent diagnosis confirms a reader error, and a full35job-vector regression still awaits execution.

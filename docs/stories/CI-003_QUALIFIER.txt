@@ -408,6 +408,18 @@ def verify_metadata(raw, project, readme):
     require((payload or b"").replace(b"\r\n", b"\n") == (readme or b"").replace(b"\r\n", b"\n"), "README metadata")
 
 
+def console_entry_points(project):
+    require(not project.get("gui-scripts") and not project.get("entry-points"), "unsupported entry point grammar")
+    scripts = project.get("scripts", {})
+    require(type(scripts) is dict)
+    if not scripts:
+        return None
+    for name, target in scripts.items():
+        require(type(name) is str and re.fullmatch(r"[A-Za-z0-9_-]+", name))
+        require(type(target) is str and re.fullmatch(r"[A-Za-z_][A-Za-z0-9_.]*:[A-Za-z_][A-Za-z0-9_.]*", target))
+    return ("[console_scripts]\n" + "".join(name + " = " + scripts[name] + "\n" for name in sorted(scripts))).encode()
+
+
 def project_archive(name, raw, registry, budget, system, foundation=False):
     wheel = name.endswith(".whl")
     if wheel:
@@ -439,8 +451,13 @@ def project_archive(name, raw, registry, budget, system, foundation=False):
     license_path = info + "licenses/LICENSE" if wheel else prefix + "LICENSE"
     license_bytes = source.get(base + "LICENSE")
     require(files[license_path].replace(b"\r\n", b"\n") == license_bytes.replace(b"\r\n", b"\n"), "license source")
+    entry_points = console_entry_points(project)
     if wheel:
-        require(set(files) == set(expected) | {info + leaf for leaf in ("METADATA", "WHEEL", "top_level.txt", "licenses/LICENSE", "RECORD")}, "wheel namespace")
+        generated = {info + leaf for leaf in ("METADATA", "WHEEL", "top_level.txt", "licenses/LICENSE", "RECORD")}
+        if entry_points is not None:
+            generated.add(info + "entry_points.txt")
+            require(files.get(info + "entry_points.txt") == entry_points, "console entry point source")
+        require(set(files) == set(expected) | generated, "wheel namespace")
         require(files[info + "top_level.txt"] == (module + "\n").encode())
         require(files[info + "WHEEL"].replace(b"\r\n", b"\n") == b"Wheel-Version: 1.0\nGenerator: setuptools (80.9.0)\nRoot-Is-Purelib: true\nTag: py3-none-any\n\n")
     else:
@@ -450,6 +467,9 @@ def project_archive(name, raw, registry, budget, system, foundation=False):
         generated = {"PKG-INFO", "SOURCES.txt", "dependency_links.txt", "top_level.txt"}
         if project.get("dependencies") or project.get("optional-dependencies"):
             generated.add("requires.txt")
+        if entry_points is not None:
+            generated.add("entry_points.txt")
+            require(local.get(egg + "entry_points.txt") == entry_points, "SDist console entry point source")
         source_files = {p.removeprefix(base): source.get(p) for p in source.files if p.startswith(base) and not p.removeprefix(base).startswith(".")}
         permitted = set(source_files) | {"PKG-INFO", "setup.cfg"} | {egg + leaf for leaf in generated}
         require(set(local) <= permitted and set(source_files) <= set(local), "SDist namespace/source coverage")
@@ -638,6 +658,19 @@ def verify_declared_archive(proof, measured):
         require(proof["metadata_source_readme_verified"] is True)
 
 
+def selected_sdist_identity(row, tar, wheel, schema):
+    require(schema in ("eq116.qualification.v1", "eq117.qualification.v1"))
+    fields = {"archive_sha256", "materialized", "generated_transition"}
+    if schema == "eq116.qualification.v1":
+        fields.add("wheel_sha256")
+    same(sorted(row), sorted(fields))
+    same(row["archive_sha256"], tar["sha256"])
+    if schema == "eq116.qualification.v1":
+        same(row["wheel_sha256"], wheel["sha256"])
+    # EQ117's sealed producer asserts full rebuilt-wheel audit parity but its
+    # original receipt does not carry a separate rebuilt-wheel hash field.
+
+
 def verify_selected_sdists(report, results, archive_files, registry, system):
     selected = report["selected_sdist_closure"]
     require(len(selected) == 8)
@@ -646,7 +679,7 @@ def verify_selected_sdists(report, results, archive_files, registry, system):
         require(len(modules) == 1); module = modules[0]
         tar = next(path for path in results if path.startswith(module + "-") and path.endswith(".tar.gz"))
         wheel = next(path for path in results if path.startswith(module + "-") and path.endswith(".whl"))
-        same(row["archive_sha256"], results[tar]["sha256"]); same(row["wheel_sha256"], results[wheel]["sha256"])
+        selected_sdist_identity(row, results[tar], results[wheel], report["schema"])
         same(row["materialized"], results[tar]["entries"])
         prefix = tar.removesuffix(".tar.gz") + "/"
         before = {}
@@ -712,12 +745,21 @@ def quickstart_steps(report, files, system, expected):
                 require(size == len(raw), "quickstart unredacted log size")
 
 
+def quickstart_text_digest(observed, raw, system):
+    require(system in ("Linux", "Windows") and type(observed) is str)
+    permitted = {digest(raw)}
+    if system == "Windows":
+        require(b"\r" not in raw, "quickstart Git text must be LF")
+        permitted.add(digest(raw.replace(b"\n", b"\r\n")))
+    require(observed in permitted, "quickstart source materialization hash")
+
+
 def verify_quickstart(report, files, system, source, rules):
     same(report["system"], system)
     inputs_raw = source.get("docs/stories/EQ-132_INPUTS.json"); inputs = strict_json(inputs_raw)
-    same(report["inputs_sha256"], digest(inputs_raw)); same(report["accepted_package_main"], inputs["accepted_main"])
-    same(report["verifier_sha256"], digest(source.get("tools/verify_quickstart.py")))
-    same(report["probe_sha256"], digest(source.get("tools/quickstart_probe.py")))
+    quickstart_text_digest(report["inputs_sha256"], inputs_raw, system); same(report["accepted_package_main"], inputs["accepted_main"])
+    quickstart_text_digest(report["verifier_sha256"], source.get("tools/verify_quickstart.py"), system)
+    quickstart_text_digest(report["probe_sha256"], source.get("tools/quickstart_probe.py"), system)
     same(report["source_map"], inputs["effective_source_map"])
     selected = [row for row in inputs["artifacts"] if row["manifest"]["system"] == system]
     require(len(selected) == 1); selected = selected[0]

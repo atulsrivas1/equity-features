@@ -9,6 +9,7 @@ from pathlib import Path
 import stat
 import struct
 import tarfile
+import tomllib
 import unittest
 from unittest.mock import patch
 import zipfile
@@ -40,6 +41,16 @@ def tarred(entries, pax=False):
             info.size = len(body) if kind == tarfile.REGTYPE else 0
             archive.addfile(info, io.BytesIO(body) if kind == tarfile.REGTYPE else None)
     return gzip.compress(output.getvalue(), mtime=1700000000)
+
+
+def recorded_wheel(files):
+    files = dict(files); record = 'demo-1.dist-info/RECORD'
+    lines = []
+    for name, body in sorted(files.items()):
+        value = base64.urlsafe_b64encode(hashlib.sha256(body).digest()).rstrip(b'=').decode()
+        lines.append(name + ',sha256=' + value + ',' + str(len(body)))
+    files[record] = ('\n'.join(lines) + '\n' + record + ',,\n').encode()
+    return zipped([(name, raw, stat.S_IFREG | 0o644) for name, raw in files.items()])
 
 
 class ReaderControls(unittest.TestCase):
@@ -185,6 +196,59 @@ class ReaderControls(unittest.TestCase):
     def test_record_missing_extra_duplicate(self):
         for record in (b'a,,\n', b'm-1.dist-info/RECORD,,\nm-1.dist-info/RECORD,,\n', b'm-1.dist-info/RECORD,,\nmissing,sha256=x,0\n'):
             self.rejected(lambda: q.verify_record({'m-1.dist-info/RECORD': record}))
+
+    def test_console_entrypoint_wheel_and_sdist_source_binding(self):
+        base = 'packages/demo/'
+        pyproject = b'[project]\nname="demo"\nversion="1"\nreadme="README.md"\nlicense="Apache-2.0"\nrequires-python=">=3.12,<3.13"\n[project.scripts]\ndemo="demo:main"\n'
+        project = tomllib.loads(pyproject.decode())['project']
+        source_files = {base + 'src/demo/__init__.py': b'def main(): pass\n', base + 'src/demo/py.typed': b'',
+                        base + 'LICENSE': b'license\n', base + 'README.md': b'demo\n',
+                        base + 'pyproject.toml': pyproject}
+        source = type('Source', (), {'files': source_files, 'get': lambda self, path: source_files[path]})()
+        registry = {'demo': (source, base, project)}
+        metadata = b'Metadata-Version: 2.4\nName: demo\nVersion: 1\nRequires-Python: >=3.12,<3.13\nLicense-Expression: Apache-2.0\nLicense-File: LICENSE\n\ndemo\n'
+        entry = b'[console_scripts]\ndemo = demo:main\n'
+        info = 'demo-1.dist-info/'
+        wheel_files = {'demo/__init__.py': source_files[base + 'src/demo/__init__.py'], 'demo/py.typed': b'',
+                       info + 'METADATA': metadata, info + 'licenses/LICENSE': b'license\n',
+                       info + 'WHEEL': b'Wheel-Version: 1.0\nGenerator: setuptools (80.9.0)\nRoot-Is-Purelib: true\nTag: py3-none-any\n\n',
+                       info + 'top_level.txt': b'demo\n', info + 'entry_points.txt': entry}
+        local = {path.removeprefix(base): body for path, body in source_files.items()}
+        egg = 'src/demo.egg-info/'
+        local.update({'PKG-INFO': metadata, 'setup.cfg': b'[egg_info]\ntag_build = \ntag_date = 0\n\n',
+                      egg + 'PKG-INFO': metadata, egg + 'dependency_links.txt': b'\n',
+                      egg + 'top_level.txt': b'demo\n', egg + 'entry_points.txt': entry, egg + 'SOURCES.txt': b''})
+        local[egg + 'SOURCES.txt'] = ('\n'.join(sorted(local)) + '\n').encode()
+        def sdist(files):
+            return tarred([('demo-1/' + name, body, tarfile.REGTYPE, {}) for name, body in sorted(files.items())])
+        for name, files, encode, entry_name in [('demo-1-py3-none-any.whl', wheel_files, recorded_wheel, info + 'entry_points.txt'),
+                                               ('demo-1.tar.gz', local, sdist, egg + 'entry_points.txt')]:
+            q.project_archive(name, encode(files), registry, q.Budget(), 'Linux')
+            bad = dict(files); bad[entry_name] = b'[console_scripts]\ndemo = demo:other\n'
+            self.rejected(lambda: q.project_archive(name, encode(bad), registry, q.Budget(), 'Linux'))
+            bad = dict(files); del bad[entry_name]
+            self.rejected(lambda: q.project_archive(name, encode(bad), registry, q.Budget(), 'Linux'))
+
+    def test_selected_sdist_schema_specific_identity(self):
+        tar = {'sha256': '1' * 64}; wheel = {'sha256': '2' * 64}
+        evaluation = {'archive_sha256': '1' * 64, 'materialized': {}, 'generated_transition': {}}
+        pilot = dict(evaluation, wheel_sha256='2' * 64)
+        q.selected_sdist_identity(evaluation, tar, wheel, 'eq117.qualification.v1')
+        q.selected_sdist_identity(pilot, tar, wheel, 'eq116.qualification.v1')
+        self.rejected(lambda: q.selected_sdist_identity(evaluation, tar, wheel, 'eq116.qualification.v1'))
+        self.rejected(lambda: q.selected_sdist_identity(pilot, tar, wheel, 'eq117.qualification.v1'))
+        self.rejected(lambda: q.selected_sdist_identity(dict(pilot, wheel_sha256='3' * 64), tar, wheel, 'eq116.qualification.v1'))
+        self.rejected(lambda: q.selected_sdist_identity(dict(evaluation, archive_sha256='3' * 64), tar, wheel, 'eq117.qualification.v1'))
+
+    def test_quickstart_scoped_windows_source_materialization(self):
+        raw = b'first\nsecond\n'; windows = raw.replace(b'\n', b'\r\n')
+        q.quickstart_text_digest(q.digest(raw), raw, 'Linux')
+        q.quickstart_text_digest(q.digest(raw), raw, 'Windows')
+        q.quickstart_text_digest(q.digest(windows), raw, 'Windows')
+        self.rejected(lambda: q.quickstart_text_digest(q.digest(windows), raw, 'Linux'))
+        self.rejected(lambda: q.quickstart_text_digest(q.digest(b'first\r\nsecond\n'), raw, 'Windows'))
+        self.rejected(lambda: q.quickstart_text_digest(q.digest(windows + b' '), raw, 'Windows'))
+        self.rejected(lambda: q.quickstart_text_digest(q.digest(raw), raw, 'unknown'))
 
     def test_methods_exact_not_bool(self):
         raw = b'\nRan 8 tests in 0.1s\n\nOK\n'; files = {'controls.log': raw}

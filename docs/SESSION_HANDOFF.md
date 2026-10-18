@@ -1,3 +1,9 @@
+## CI00339controls passed; cached artifact-reader diagnostic corrected
+
+Both author and separate reviewer39controls passed at2147. The next existing-data audit passed root job checks but stopped on omitted legitimate worker console metadata. A separately reviewed bounded cached-data diagnostic inspected30families/332projectarchives, retaining9family/12archive parser errors without qualification; independent review narrowed these to console metadata, EQ117receipt field shape and3Windowsquickstart text-source hashes. Corrected42method sources preserve exact archive identities, strict source/record maps and explicit rebuild-evidence limits. [Validation/failures](stories/CI-003_VALIDATION.json). Renewed exact-source review and execution precede actual probes and final current candidate/main evidence; CI003 In progress, R16 unfinished.
+
+## Earlier checkpoints retained as history
+
 ## CI003 controls passed; baseline reader step binding corrected
 
 Author and separate reviewer38synthetic controls passed at9abf. The first bounded data audit of existing accepted CI002 run39162664488 failed before artifact downloads: the reader inferred a command label without the actual continuous builder -B flag. Independent diagnosis confirmed all package jobs passed and the reader assumption was wrong. Exact sealed command labels and39th full-job-vector control are implemented, pending renewed source review and execution. [Retained validation and failed audit](stories/CI-003_VALIDATION.json). No probes triggered, no final artifact audit or R16 acceptance. CI003 remains In progress.

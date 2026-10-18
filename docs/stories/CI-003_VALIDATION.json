@@ -30,15 +30,22 @@
     "actual_audit_completed": false
   },
   "next_corrected_source": {
-    "exact_step_bindings": "Explicit immutable-workflow full command labels, including interpreter flags and companion args;39th full35jobvector regression source pending review/execution",
+    "new_synthetic_method_sources": 42,
     "new_control_execution": false,
     "new_data_audit_execution": false,
-    "probe_triggers": 0
+    "probe_triggers": 0,
+    "changes": [
+      "Exact project.scripts console metadata for wheel and SDist, rejecting missing/tampered metadata.",
+      "Closed schema-specific3keyEQ117/4keyEQ116selected-SDist identities, preserving full original map/archive/source checks.",
+      "Only3namedquickstart text sources admit exact Windows CRLF or GitLF hashes; mixed/other drift denied."
+    ],
+    "evaluation_limit": "Sealed successful producer explicitly asserts rebuilt-wheel full archive-audit parity against original uploaded wheel proof. No separate rebuilt-wheel digest is recorded/uploaded, and reader does not independently rebuild it."
   },
   "retained_tool_history": [
     "Author synthetic-control runner first assumed nonexistent execution_approved report key and refused before copying/executing; corrected to actual explicit execution_approval object before first38method run.",
     "Reviewer diagnostic first assumed OS API ordering and stopped before writes; set comparison corrected.",
-    "Published192e UTF8 preparer defect and original source/review history retained; exact old suffixes restored in9abf."
+    "Published192e UTF8 preparer defect and original source/review history retained; exact old suffixes restored in9abf.",
+    "The2147 author control runner rejected the reviewer-report qualifier_live versus live_qualifier field-name difference before copying/execution; corrected exact field map, then39methods passed."
   ],
   "superseded_source_run_cancellation_requests": {
     "reason": "Rejected/replaced CI003 reader source heads are excluded from final candidate qualification. Preserve all history; cancel requests only, no acceptance/deletion or cleanup claim. New corrected current final candidate must still complete required FULL both events.",
@@ -93,5 +100,46 @@
       }
     ]
   },
-  "r16_complete": false
+  "r16_complete": false,
+  "corrected39_controls": {
+    "head": "2147d8a5662758093f80f8e43a7f33380dc84c4e",
+    "author_result_sha256": "c64c0e0825f0ad7e7ec19e6b41b2d8af680c6ace1ffb734d9f5bb93d9af27def",
+    "reviewer_report_sha256": "4dfe3c2704b783eb6798460889bcbde0952278743dc6466e9dc7ca5311754bcb",
+    "each_methods": 39,
+    "each_returncode": 0,
+    "failures_errors_skips": 0,
+    "source_review_sha256": "daea33c8efd9deb6587e2143b34e3a65aa83f53066f1562ea9d29c54bea9d635"
+  },
+  "second_baseline_audit": {
+    "reader_head": "2147d8a5662758093f80f8e43a7f33380dc84c4e",
+    "run_id": 39162664488,
+    "returncode": 1,
+    "result": "FAILED_READER_WHEEL_NAMESPACE_ASSUMPTION",
+    "raw_log_sha256": "65d26b2d89ad3a14d1d5bfdcc2f63b353f4413a8ee298064bfed362af1d87998",
+    "phase": "first package artifact parsing after root job check passed",
+    "downloaded_outer_artifact": 12150110064,
+    "actual_audit_completed": false,
+    "package_runtime_failure_demonstrated": false
+  },
+  "cached_data_diagnostic": {
+    "reader_head": "2147d8a5662758093f80f8e43a7f33380dc84c4e",
+    "qualified": false,
+    "families": 30,
+    "family_parser_errors": 9,
+    "project_archives": 332,
+    "archive_parser_errors": 12,
+    "all_archive_errors": "Only existing worker console entrypoint metadata omitted by reader namespace; wheel+SDist,3families,bothOS.",
+    "other_family_errors": [
+      "Evaluation original receipt has3keys and no wheel_sha256; pilot has4keys.",
+      "Quickstart3text-source hashes on Windows use exact Git LF-to-CRLF checkout representation."
+    ],
+    "budget": {
+      "downloaded": 14121492,
+      "expanded": 148893901,
+      "nodes": 15638
+    },
+    "report_sha256": "95529275566d32606daa9f604276b6a960fa0b7e17f5c409f3f93e6bae176279",
+    "independent_findings_review_sha256": "6d262bc8430353a6007b2299ec58d36e9690aaad49a4fc29d634056e08792940",
+    "limits": "Per-case parser completion is diagnostic only, not accepted qualification. No payload execution, extraction or new workflow run."
+  }
 }
