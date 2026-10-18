@@ -1,0 +1,103 @@
+{
+  "schema": "equity-features.ci003-implementation-inputs.v1",
+  "status": "SOURCE_REVIEW_PENDING_NOT_EXECUTED",
+  "precode": {
+    "head": "16e8945ad700d91f4a2c1c53a2300cd7f4cb63e8",
+    "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+    "pr": 451,
+    "url": "https://github.com/atulsrivas1/equity-features/pull/451",
+    "draft": true
+  },
+  "admission": {
+    "head": "16e8945ad700d91f4a2c1c53a2300cd7f4cb63e8",
+    "pr": 451,
+    "precode_review_sha256": "49154f568d699970d29cca1e04e7dad9659372ed465c0690842ccc82369174ab",
+    "dependency_acceptance": "https://github.com/atulsrivas1/equity-features/issues/445#issuecomment-6254799471",
+    "actual_project": "In progress",
+    "assignee": "atulsrivas1"
+  },
+  "assets": {
+    "docs/stories/CI-003_QUALIFIER.txt": {
+      "bytes": 63085,
+      "sha256": "79be13a8ff212a184d3cb6ae43cabfde8aa4751e051ab4ed245551e12a659d46"
+    },
+    "docs/stories/CI-003_QUALIFIER_TESTS.txt": {
+      "bytes": 10114,
+      "sha256": "677414c63864f6d043ec0def98595ac32112b509676e4a2e1a89f4c0abad68ec"
+    },
+    "docs/stories/CI-003_SOURCE_RULES.json": {
+      "bytes": 617151,
+      "sha256": "dacc99c90016e0571e3280d8f012cb0c1dafc5ad41a6cf690ab54aa851cee13e"
+    },
+    "docs/CI_QUALIFICATION.md": {
+      "bytes": 3965,
+      "sha256": "151616a25d5951473b0ae9c296b9827b3a85717a2aacc6dfc81d34208cedbba9"
+    }
+  },
+  "new_tests_executed": 0,
+  "qualifier_executions": 0,
+  "probe_workflow_triggers": 0,
+  "frozen_probe_sources": {
+    "docs": {
+      "branch": "codex/ci003-reader-probe",
+      "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+      "head": "775b24017cc2d21709a146860b95cc9c0052c14f",
+      "tree": "731e8e729b97a801f270b6d4effd192ff1510194",
+      "path": "docs/api/PUBLIC_API.md",
+      "blob_oid": "fc68ce3cfca2938c413dc0b23791a3ff80877f52",
+      "source_bytes": 61376,
+      "source_sha256": "d0b6d9cd6c97f586b2e5527c54f98f44f78909c8a3ce6245f3411d15c4bcc2ac",
+      "diff_sha256": "2c3c925631bce79e4c662a22b363092ce41dc1765d202316f3529ef624bece55",
+      "selected_event": "pull_request",
+      "pushed": false,
+      "source_review_pending": true
+    },
+    "source-negative": {
+      "branch": "codex/ci003-source-negative",
+      "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+      "head": "de2efaef8cc69ef11a9e9227840e377a017f5011",
+      "tree": "8334985722c6b8414ea315ba297a488fddde9847",
+      "path": ".github/workflows/qualification.yml",
+      "blob_oid": "9defed4d40dde80801ecbbd9ba067394f0117386",
+      "source_bytes": 6415,
+      "source_sha256": "a66b6ce64d6f157c3764d9d43393fd8784f0402cf456bade9c8196d7051f754d",
+      "diff_sha256": "b3ed44b8e6c7d744bf7efdec27f09ea98ddbc4d0e843a8ed06e4b91b7fdebcfd",
+      "selected_event": "push",
+      "pushed": false,
+      "source_review_pending": true
+    },
+    "docs-negative": {
+      "branch": "codex/ci003-docs-negative",
+      "base": "0ef4f2c7a50e164e11dcfc25751e62b691b95883",
+      "head": "fdd179d8cf50586d02d167ad5d5a45131b966724",
+      "tree": "9172b6d85452157611a25c8ed9b6b8094bafccdd",
+      "path": "docs/BACKLOG.md",
+      "blob_oid": "8736cd535af3d0acb97a0d39ba9f10dea386c653",
+      "source_bytes": 168851,
+      "source_sha256": "06f69d469552cace1706c26bcd2215bbde8dafe848381a12a1a479e90c7a058f",
+      "diff_sha256": "0b73bfe2db8be70c782eb5fd4c19439ab6adec032d8405eb096657056078e542",
+      "selected_event": "push",
+      "pushed": false,
+      "source_review_pending": true
+    }
+  },
+  "probe_review_sha256": "46908792ef558f5e156988b35a3de705ce6b437467ae404bb8d1ad36c21ba951",
+  "provisional_reader_review_sha256": "6476d01b5ecec101f75479cf70df1f2dbed04ed1e0528ca93225196ab9cd72eb",
+  "corrections_pending_independent_verification": [
+    "ancestor spelling including implicit directories",
+    "remaining cumulative download/decompression bounds before read/inflate",
+    "complete closed per-OS outer and project archive inventory",
+    "exact selected-source sets and 66 unchanged input seals",
+    "run-attempt/critical step/closed policy assertions",
+    "case-insensitive removal of inherited GIT environment options"
+  ],
+  "baseline_data": "Accepted CI002 actual-main artifact bytes used only for unchanged source/layout/project-archive identities; no R14/R15 workflow or accepted proof regeneration. No payload or qualifier execution.",
+  "task_attachment": {
+    "pull_request": "https://github.com/atulsrivas1/equity-features/pull/451",
+    "tool": "mcp__codex_app__attach_artifact",
+    "error": "thread attachment identity count exceeds 100",
+    "no_artifacts_removed": true,
+    "public_source_and_scope_unchanged": true
+  },
+  "limitations": "AST syntax parsed only, not tests or qualification. Exact published source/fixture/rule review precedes any execution; original negative/source histories remain."
+}

@@ -1,0 +1,1044 @@
+"""CI003 qualification data reader. Copy reviewed bytes to qualifier.py.
+
+Downloaded payloads are data, never imported, installed or extracted. This
+reader does not attest the host, physical resources or third-party binaries.
+"""
+from __future__ import annotations
+
+import base64
+import csv
+from email.parser import BytesParser
+import hashlib
+import io
+import json
+import math
+from pathlib import Path
+import re
+import stat
+import struct
+import subprocess
+import tarfile
+import tomllib
+import zipfile
+import zlib
+
+MAX_MEMBER = 64 * 1024 * 1024
+MAX_ARCHIVE = 256 * 1024 * 1024
+MAX_JSON = 32 * 1024 * 1024
+MAX_TOTAL = 2 * 1024 * 1024 * 1024
+MAX_NODES = 100000
+REPO = "atulsrivas1/equity-features"
+
+
+def require(value, reason="qualification rejected"):
+    if not value:
+        raise ValueError(reason)
+
+
+def digest(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def canonical(value):
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=True, allow_nan=False).encode()
+
+
+def strict_json(raw):
+    require(type(raw) is bytes and len(raw) <= MAX_JSON, "JSON bound")
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            require(key not in result, "duplicate JSON key")
+            result[key] = value
+        return result
+    def bad(_):
+        raise ValueError("nonstandard JSON number")
+    result = json.loads(raw.decode("utf-8"), object_pairs_hook=pairs, parse_constant=bad)
+    def finite(value):
+        if type(value) is float:
+            require(math.isfinite(value), "nonfinite JSON number")
+        elif isinstance(value, dict):
+            for item in value.values():
+                finite(item)
+        elif isinstance(value, list):
+            for item in value:
+                finite(item)
+    finite(result)
+    return result
+
+
+def same(left, right):
+    require(canonical(left) == canonical(right), "typed value mismatch")
+
+
+def safe_path(name, directory=False):
+    require(type(name) is str and name and name.isascii(), "non-ASCII/empty path")
+    require(not any(ord(c) < 32 or ord(c) == 127 for c in name), "path control")
+    require(not name.startswith(("/", "\\")) and "\\" not in name and ":" not in name, "absolute path")
+    if directory and name.endswith("/"):
+        name = name[:-1]
+    reserved = {"con", "prn", "aux", "nul"} | {f"{p}{i}" for p in ("com", "lpt") for i in range(1, 10)}
+    require(all(p not in ("", ".", "..") and not p.endswith((".", " ")) and p.split(".")[0].lower() not in reserved for p in name.split("/")), "unsafe component")
+    return name
+
+
+class Budget:
+    def __init__(self):
+        self.downloaded = 0
+        self.expanded = 0
+        self.nodes = 0
+
+    def add(self, field, count, limit):
+        require(type(count) is int and count >= 0)
+        value = getattr(self, field) + count
+        require(value <= limit, field + " bound")
+        setattr(self, field, value)
+
+
+def inventory(entries):
+    """Every logical physical entry, including empty directories, participates."""
+    result = {}
+    folded = {}
+    spelling = {}
+    for name, directory, size, mode in entries:
+        require(type(directory) is bool and type(size) is int and 0 <= size <= MAX_MEMBER)
+        require(not directory or size == 0, "directory payload")
+        key = safe_path(name, directory)
+        require(key.casefold() not in folded, "duplicate/case path")
+        folded[key.casefold()] = directory
+        parts = key.split("/")
+        for end in range(1, len(parts) + 1):
+            prefix = "/".join(parts[:end])
+            require(spelling.get(prefix.casefold(), prefix) == prefix, "ancestor component case alias")
+            spelling[prefix.casefold()] = prefix
+        result[name] = {"kind": "directory" if directory else "file", "bytes": size, "mode": mode}
+    for name in folded:
+        parts = name.split("/")
+        for end in range(1, len(parts)):
+            parent = "/".join(parts[:end])
+            require(parent not in folded or folded[parent], "file ancestor")
+    return result
+
+
+def zip_contents(raw, budget, depth=0):
+    require(type(raw) is bytes and len(raw) <= MAX_MEMBER and depth <= 4, "ZIP bound")
+    files = {}
+    with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+        infos = archive.infolist()
+        require(len(infos) <= MAX_NODES)
+        total = sum(info.file_size for info in infos)
+        require(total <= MAX_ARCHIVE)
+        budget.add("expanded", total, MAX_TOTAL)
+        budget.add("nodes", len(infos), 2000000)
+        entries = []
+        for info in infos:
+            require(info.orig_filename == info.filename, "normalized ZIP name")
+            require(not info.flag_bits & 1 and info.compress_type in (0, 8), "ZIP encryption/method")
+            directory = info.is_dir()
+            kind = stat.S_IFMT(info.external_attr >> 16)
+            require(kind in ((0, stat.S_IFDIR) if directory else (0, stat.S_IFREG)), "ZIP special type")
+            entries.append((info.filename, directory, info.file_size, info.external_attr >> 16))
+        members = inventory(entries)
+        cursor = 0
+        for info in sorted(infos, key=lambda item: item.header_offset):
+            require(info.header_offset == cursor, "ZIP gap/overlap/prefix")
+            require(raw[cursor:cursor + 4] == b"PK\x03\x04")
+            header = struct.unpack_from("<4s5H3I2H", raw, cursor)
+            flags, method, crc, compressed, size, nl, el = header[2], header[3], header[6], header[7], header[8], header[9], header[10]
+            require(flags == info.flag_bits and method == info.compress_type)
+            start = cursor + 30
+            filename = raw[start:start + nl].decode("utf-8" if flags & 2048 else "cp437")
+            require(filename == info.orig_filename)
+            extra = raw[start + nl:start + nl + el]
+            offset = 0
+            zip64 = None
+            while offset < len(extra):
+                require(offset + 4 <= len(extra))
+                tag, length = struct.unpack_from("<HH", extra, offset)
+                offset += 4
+                require(offset + length <= len(extra))
+                if tag == 1:
+                    require(zip64 is None)
+                    zip64 = extra[offset:offset + length]
+                offset += length
+            if size == 0xffffffff or compressed == 0xffffffff:
+                require(zip64 is not None)
+                off = 0
+                if size == 0xffffffff:
+                    require(off + 8 <= len(zip64)); size = struct.unpack_from("<Q", zip64, off)[0]; off += 8
+                if compressed == 0xffffffff:
+                    require(off + 8 <= len(zip64)); compressed = struct.unpack_from("<Q", zip64, off)[0]
+            if not flags & 8:
+                require((crc, compressed, size) == (info.CRC, info.compress_size, info.file_size))
+            else:
+                require(crc in (0, info.CRC) and size in (0, info.file_size) and compressed in (0, info.compress_size))
+            start += nl + el
+            end = start + info.compress_size
+            require(end <= archive.start_dir)
+            compressed_raw = raw[start:end]
+            if method == 8:
+                inflater = zlib.decompressobj(-15)
+                body = inflater.decompress(compressed_raw, info.file_size + 1)
+                require(inflater.eof and not inflater.unused_data and not inflater.unconsumed_tail, "ZIP compression framing")
+            else:
+                body = compressed_raw
+            require(len(body) == info.file_size and zlib.crc32(body) & 0xffffffff == info.CRC, "ZIP length/CRC")
+            if flags & 8:
+                signature = raw[end:end + 4] == b"PK\x07\x08"
+                pos = end + (4 if signature else 0)
+                # A ZIP64 local size field selects the 64-bit descriptor.
+                wide = header[7] == 0xffffffff or header[8] == 0xffffffff
+                fmt = "<IQQ" if wide else "<III"
+                require(struct.unpack_from(fmt, raw, pos) == (info.CRC, info.compress_size, info.file_size))
+                end = pos + struct.calcsize(fmt)
+            cursor = end
+            if info.is_dir():
+                require(body == b"" and info.CRC == 0)
+            else:
+                files[info.filename] = body
+        require(cursor == archive.start_dir, "ZIP unindexed local bytes")
+        # Walk every central record, refusing hidden/trailing records or an SFX.
+        pos = archive.start_dir
+        for _ in infos:
+            require(raw[pos:pos + 4] == b"PK\x01\x02")
+            nl, el, cl = struct.unpack_from("<HHH", raw, pos + 28)
+            pos += 46 + nl + el + cl
+        if raw[pos:pos + 4] == b"PK\x06\x06":
+            length = struct.unpack_from("<Q", raw, pos + 4)[0]
+            require(length == 44 and raw[pos + 12 + length:pos + 16 + length] == b"PK\x06\x07")
+            pos += 12 + length + 20
+        require(raw[pos:pos + 4] == b"PK\x05\x06")
+        comment_length = struct.unpack_from("<H", raw, pos + 20)[0]
+        require(pos + 22 + comment_length == len(raw), "ZIP trailing data")
+    return files, members
+
+
+def tar_contents(raw, budget, depth=0):
+    require(type(raw) is bytes and len(raw) <= MAX_MEMBER and depth <= 4)
+    inflater = zlib.decompressobj(31)
+    remaining = min(MAX_ARCHIVE, MAX_TOTAL - budget.expanded)
+    require(remaining >= 0)
+    data = inflater.decompress(raw, remaining + 1)
+    require(len(data) <= remaining and inflater.eof and not inflater.unused_data and not inflater.unconsumed_tail, "GZIP bound/framing")
+    budget.add("expanded", len(data), MAX_TOTAL)
+    require(len(data) % 512 == 0)
+    files = {}; entries = []; controls = []; pos = 0; annotation = None
+    while pos < len(data):
+        block = data[pos:pos + 512]
+        if block == b"\0" * 512:
+            require(annotation is None and len(data) - pos >= 1024 and not any(data[pos:]), "TAR termination")
+            break
+        item = tarfile.TarInfo.frombuf(block, "utf-8", "strict")
+        require(0 <= item.size <= MAX_MEMBER)
+        budget.add("nodes", 1, 2000000)
+        require(len(entries) + len(controls) < MAX_NODES)
+        start = pos + 512; end = start + item.size
+        require(end <= len(data))
+        body = data[start:end]
+        pos = start + ((item.size + 511) // 512) * 512
+        require(not any(data[end:pos]), "TAR nonzero padding")
+        if item.type == tarfile.XHDTYPE:
+            require(item.name == "././@PaxHeader" and annotation is None and item.size <= 8192, "PAX metadata")
+            offset = 0; values = {}
+            while offset < len(body):
+                space = body.find(b" ", offset)
+                require(space > offset and body[offset:space].isdigit())
+                length = int(body[offset:space]); require(length > space - offset + 1 and offset + length <= len(body))
+                record = body[space + 1:offset + length]; require(record.endswith(b"\n"))
+                key, sep, value = record[:-1].partition(b"=")
+                require(sep and key == b"path" and key not in values)
+                values[key] = value.decode("utf-8"); offset += length
+            require(set(values) == {b"path"})
+            annotation = values[b"path"]
+            controls.append({"offset": start - 512, "bytes": item.size, "sha256": digest(body), "path": annotation})
+            continue
+        require(item.type in (tarfile.REGTYPE, tarfile.AREGTYPE, tarfile.DIRTYPE), "TAR special type")
+        name = annotation if annotation is not None else item.name
+        annotation = None
+        directory = item.type == tarfile.DIRTYPE
+        safe_path(name, directory)
+        require(not directory or item.size == 0)
+        entries.append((name, directory, item.size, item.mode))
+        if not directory:
+            require(name not in files, "duplicate TAR file")
+            files[name] = body
+    else:
+        raise ValueError("missing TAR terminator")
+    members = inventory(entries)
+    return files, members, controls
+
+
+def entries_map(files):
+    return {name: {"bytes": len(raw), "sha256": digest(raw)} for name, raw in sorted(files.items())}
+
+
+def verify_record(files):
+    records = [name for name in files if name.endswith(".dist-info/RECORD")]
+    require(len(records) == 1)
+    record = records[0]
+    rows = list(csv.reader(io.StringIO(files[record].decode("utf-8")), strict=True))
+    require(all(len(row) == 3 for row in rows))
+    require(len(rows) == len(files) and {row[0] for row in rows} == set(files), "RECORD coverage")
+    for name, identity, size in rows:
+        if name == record:
+            require(identity == size == "")
+        else:
+            encoded = base64.urlsafe_b64encode(hashlib.sha256(files[name]).digest()).rstrip(b"=").decode()
+            require(identity == "sha256=" + encoded and size == str(len(files[name])), "RECORD bytes")
+
+
+class GitSource:
+    """Immutable object reads; no checkout, imports or worktree materialization."""
+    def __init__(self, root, head):
+        require(type(head) is str and re.fullmatch(r"[0-9a-f]{40}", head) is not None)
+        self.root = Path(root); self.head = head
+        import os
+        self.env = {k: v for k, v in os.environ.items() if not k.upper().startswith("GIT_")}
+        self.env.update(GIT_NO_REPLACE_OBJECTS="1", GIT_OPTIONAL_LOCKS="0")
+        records = self.git("ls-tree", "-r", "-z", "--full-tree", head).split(b"\0")
+        require(records.pop() == b"")
+        self.files = {}
+        for record in records:
+            metadata, sep, path = record.partition(b"\t")
+            require(sep)
+            mode, kind, oid = metadata.decode().split(" ")
+            name = path.decode("utf-8")
+            require(mode in ("100644", "100755") and kind == "blob")
+            safe_path(name)
+            self.files[name] = {"mode": mode, "oid": oid}
+        require(len(self.files) == len(records))
+        self.cache = {}
+
+    def git(self, *args):
+        return subprocess.check_output(["git", "--no-replace-objects", *args], cwd=self.root, env=self.env)
+
+    def get(self, path):
+        require(path in self.files, "unknown Git source")
+        if not self.cache:
+            names = sorted(self.files)
+            ids = sorted({item["oid"] for item in self.files.values()})
+            raw = subprocess.check_output(["git", "--no-replace-objects", "cat-file", "--batch"], cwd=self.root, env=self.env, input=("\n".join(ids) + "\n").encode())
+            require(len(raw) <= MAX_ARCHIVE)
+            offset = 0; blobs = {}
+            for oid in ids:
+                end = raw.find(b"\n", offset); require(end >= offset)
+                fields = raw[offset:end].split(b" ")
+                require(len(fields) == 3 and fields[:2] == [oid.encode(), b"blob"] and re.fullmatch(rb"0|[1-9][0-9]*", fields[2]))
+                size = int(fields[2]); require(size <= MAX_MEMBER)
+                start = end + 1; body = raw[start:start + size]
+                require(len(body) == size and raw[start + size:start + size + 1] == b"\n")
+                require(hashlib.sha1(b"blob " + str(size).encode() + b"\0" + body).hexdigest() == oid)
+                blobs[oid] = body; offset = start + size + 1
+            require(offset == len(raw))
+            self.cache = {name: blobs[self.files[name]["oid"]] for name in names}
+        return self.cache[path]
+
+    def map(self):
+        return {path: dict(item, bytes=len(self.get(path)), sha256=digest(self.get(path))) for path, item in sorted(self.files.items())}
+
+    def packages(self):
+        result = {}
+        for path in self.files:
+            if path.endswith("/pyproject.toml") and (path.startswith("packages/") or path == "examples/external_consumer/pyproject.toml"):
+                project = tomllib.loads(self.get(path).decode("utf-8")).get("project")
+                if project is None:
+                    continue
+                base = path.removesuffix("pyproject.toml")
+                modules = {name[len(base + "src/"):].split("/")[0] for name in self.files if name.startswith(base + "src/") and not name[len(base + "src/"):].startswith(".")}
+                if len(modules) == 1:
+                    module = modules.pop()
+                    require(module not in result)
+                    result[module] = (self, base, project)
+        return result
+
+
+def requirement(value):
+    """Closed pure-project requirements used by the pinned package generators."""
+    require(type(value) is str and value.isascii())
+    return re.sub(r"\s+", "", value).replace("'", '"')
+
+
+def verify_metadata(raw, project, readme):
+    normalized = raw.replace(b"\r\n", b"\n")
+    message = BytesParser().parsebytes(normalized)
+    require(not message.defects)
+    single = {"Name": project["name"], "Version": project["version"], "Summary": project.get("description"), "License-Expression": project.get("license")}
+    for key, expected in single.items():
+        actual = message.get_all(key, [])
+        same(actual, [] if expected is None else [expected])
+    def spec(value):
+        return sorted(requirement(value).split(","))
+    same(spec(message["Requires-Python"]), spec(project["requires-python"]))
+    if project.get("authors"):
+        same(message.get_all("Author", []), [", ".join(author["name"] for author in project["authors"])])
+    same(sorted(message.get_all("Project-URL", [])), sorted(k + ", " + v for k, v in project.get("urls", {}).items()))
+    same(message.get_all("Classifier", []), project.get("classifiers", []))
+    extras = project.get("optional-dependencies", {})
+    same(sorted(message.get_all("Provides-Extra", [])), sorted(extras))
+    dependencies = list(project.get("dependencies", []))
+    for extra, values in extras.items():
+        dependencies.extend(value + '; extra == "' + extra + '"' for value in values)
+    same(sorted(requirement(v) for v in message.get_all("Requires-Dist", [])), sorted(requirement(v) for v in dependencies))
+    same(message.get_all("License-File", []), ["LICENSE"])
+    payload = message.get_payload(decode=True)
+    require((payload or b"").replace(b"\r\n", b"\n") == (readme or b"").replace(b"\r\n", b"\n"), "README metadata")
+
+
+def project_archive(name, raw, registry, budget, system, foundation=False):
+    wheel = name.endswith(".whl")
+    if wheel:
+        files, members = zip_contents(raw, budget, 1); controls = []
+        verify_record(files)
+    else:
+        require(name.endswith(".tar.gz"))
+        files, members, controls = tar_contents(raw, budget, 1)
+    module = name.split("-", 1)[0]
+    require(module in registry, "unknown project module")
+    source, base, project = registry[module]
+    version = project["version"]
+    same(name, module + "-" + version + ("-py3-none-any.whl" if wheel else ".tar.gz"))
+    prefix = "" if wheel else module + "-" + version + "/"
+    package_prefix = prefix + ("" if wheel else "src/") + module + "/"
+    expected = {p.removeprefix(base + "src/"): source.get(p) for p in source.files if p.startswith(base + "src/" + module + "/")}
+    actual = {module + "/" + p.removeprefix(package_prefix): body for p, body in files.items() if p.startswith(package_prefix)}
+    require(set(actual) == set(expected) and module + "/py.typed" in actual, "project source coverage")
+    for path in expected:
+        # Only the historical foundation builder consumes the Windows checkout.
+        permitted = [expected[path]]
+        if foundation and system == "Windows":
+            permitted.append(expected[path].replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
+        require(actual[path] in permitted, "project Git bytes")
+    info = module + "-" + version + ".dist-info/"
+    metadata_path = info + "METADATA" if wheel else prefix + "PKG-INFO"
+    readme = source.get(base + project["readme"]) if type(project.get("readme")) is str else None
+    verify_metadata(files[metadata_path], project, readme)
+    license_path = info + "licenses/LICENSE" if wheel else prefix + "LICENSE"
+    license_bytes = source.get(base + "LICENSE")
+    require(files[license_path].replace(b"\r\n", b"\n") == license_bytes.replace(b"\r\n", b"\n"), "license source")
+    if wheel:
+        require(set(files) == set(expected) | {info + leaf for leaf in ("METADATA", "WHEEL", "top_level.txt", "licenses/LICENSE", "RECORD")}, "wheel namespace")
+        require(files[info + "top_level.txt"] == (module + "\n").encode())
+        require(files[info + "WHEEL"].replace(b"\r\n", b"\n") == b"Wheel-Version: 1.0\nGenerator: setuptools (80.9.0)\nRoot-Is-Purelib: true\nTag: py3-none-any\n\n")
+    else:
+        local = {p.removeprefix(prefix): body for p, body in files.items()}
+        require(all(p.startswith(prefix) for p in files))
+        egg = "src/" + module + ".egg-info/"
+        generated = {"PKG-INFO", "SOURCES.txt", "dependency_links.txt", "top_level.txt"}
+        if project.get("dependencies") or project.get("optional-dependencies"):
+            generated.add("requires.txt")
+        source_files = {p.removeprefix(base): source.get(p) for p in source.files if p.startswith(base) and not p.removeprefix(base).startswith(".")}
+        permitted = set(source_files) | {"PKG-INFO", "setup.cfg"} | {egg + leaf for leaf in generated}
+        require(set(local) <= permitted and set(source_files) <= set(local), "SDist namespace/source coverage")
+        for path, expected_raw in source_files.items():
+            permitted_bytes = [expected_raw]
+            if foundation and system == "Windows":
+                permitted_bytes.append(expected_raw.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
+            require(local[path] in permitted_bytes, "SDist Git bytes")
+        require(local[egg + "PKG-INFO"] == local["PKG-INFO"])
+        require(local[egg + "top_level.txt"] == (module + "\n").encode())
+        require(local[egg + "dependency_links.txt"] == b"\n")
+        require(local["setup.cfg"].replace(b"\r\n", b"\n") == b"[egg_info]\ntag_build = \ntag_date = 0\n\n")
+        listed = local[egg + "SOURCES.txt"].decode("utf-8").splitlines()
+        require(len(listed) == len(set(listed)) and all(p in local for p in listed), "SDist SOURCES")
+        require(set(source_files) <= set(listed), "SDist source manifest coverage")
+    return {"sha256": digest(raw), "bytes": len(raw), "entries": entries_map(files), "members": members, "source_map": {p: digest(body) for p, body in sorted(actual.items())}, "version": version, "record_verified": wheel, "physical_PAX_controls": controls}, files
+
+
+COUNTS = {"foundation": 6, "agent-evidence": 8, "agent-ledger": 10, "conformance": 22,
+          "continuous": 6, "diagnostics": 8, "evidence": 6, "evidence-evaluation": 16,
+          "evidence-pilot": 16, "explanations": 8, "provenance": 20, "r9": 10, "r10": 22, "research": 8}
+SCHEMAS = {"agent-evidence": "agent-event-qualification:1", "agent-ledger": "agent-ledger-qualification:1",
+           **{name: name + "-qualification:1" for name in ("conformance", "continuous", "diagnostics", "evidence", "explanations", "provenance", "r9", "r10")},
+           "research": "research-qualification:2", "evidence-evaluation": "eq117.qualification.v1", "evidence-pilot": "eq116.qualification.v1"}
+
+
+def true_fields(record, names):
+    require(type(record) is dict)
+    for name in names:
+        require(record.get(name) is True, "required true field: " + name)
+
+
+def verify_method(record, count, files):
+    same(sorted(record), sorted(("methods", "failures", "errors", "skipped", "log", "log_sha256")))
+    for name, expected in (("methods", count), ("failures", 0), ("errors", 0), ("skipped", 0)):
+        require(type(record[name]) is int and record[name] == expected, "method outcome")
+    name = safe_path(record["log"])
+    require(name in files and digest(files[name]) == record["log_sha256"], "method log bytes")
+    text = files[name].decode("utf-8")
+    require(re.search(r"Ran " + str(count) + r" tests? in ", text) and re.search(r"\nOK\s*$", text), "method log result")
+
+
+def verify_sources(report, sources, system, family, rules):
+    maps = [(key, report[key]) for key in ("source", "effective_source", "io_source") if key in report]
+    require(maps)
+    same({key: sorted(value) for key, value in maps}, rules["selected_source_paths"][family])
+    canonical_source = sources["canonical"]
+    for path, expected in rules["unchanged_builders"].items():
+        same(digest(canonical_source.get(path)), expected)
+    checked = 0
+    for label, mapping in maps:
+        require(type(mapping) is dict and mapping)
+        for path, item in mapping.items():
+            name = path; repo = "canonical"
+            if label == "io_source":
+                repo = "io"
+            elif path.split("/", 1)[0] in sources:
+                repo, name = path.split("/", 1)
+            require(repo in sources and name in sources[repo].files, "source path binding")
+            source = sources[repo]; raw = source.get(name)
+            if "git_sha256" in item:
+                if "built_from" in item:
+                    fields = ["git_sha256", "materialized_sha256", "built_from"]
+                    if family == "research":
+                        fields.append("materialization")
+                        same(item["materialization"], "exact" if item["materialized_sha256"] == item["git_sha256"] else "CRLF-only")
+                    same(sorted(item), sorted(fields))
+                    same(item["built_from"], "committed-Git-bytes")
+                else:
+                    same(sorted(item), sorted(("mode", "blob", "bytes", "git_sha256", "materialized_sha256")))
+                    same(item["mode"], source.files[name]["mode"]); same(item["blob"], source.files[name]["oid"]); same(item["bytes"], len(raw))
+                same(item["git_sha256"], digest(raw))
+                permitted = {digest(raw)}
+                if system == "Windows" and name != "docs/stories/EQ-088_MEASURED.json":
+                    permitted.add(digest(raw.replace(b"\r\n", b"\n").replace(b"\n", b"\r\n")))
+                require(item["materialized_sha256"] in permitted, "materialization source")
+            else:
+                expected = {"sha256": digest(raw), "bytes": len(raw)}
+                if "commit" in item:
+                    expected["commit"] = source.head
+                same(item, expected)
+            checked += 1
+    if "whole_git_tree" in report:
+        for label, repo in (("whole_git_tree", "canonical"), ("whole_io_git_tree", "io")):
+            same(report[label], {p: {"mode": item["mode"], "git_blob": item["oid"]} for p, item in sources[repo].files.items()})
+    if "whole_tree" in report:
+        source = sources["canonical"]
+        same(report["whole_tree"], {p: {"mode": item["mode"], "blob": item["oid"], "bytes": len(source.get(p)), "sha256": digest(source.get(p))} for p, item in source.files.items()})
+        same(report["whole_git_tree_sha256"], digest(source.git("ls-tree", "-r", "--full-tree", source.head)))
+    return checked
+
+
+def verify_installed(report, family, contract, files):
+    rules = contract["builder_proof_requirements"][family]
+    true_fields(report, rules.get("top_true", []))
+    if "forms_field" in rules:
+        records = report[rules["forms_field"]]
+        require(type(records) is list and len(records) == 4)
+        if type(rules["forms"]) is list:
+            same(sorted(row["form"] for row in records), sorted(rules["forms"]))
+        else:
+            boolean = "live_native" if "boolean_field" in rules else "combined_actual_core_producer"
+            actual = [(row["form"], row[boolean]) for row in records]
+            require(all(type(value) is bool for _, value in actual))
+            same(sorted(actual), sorted((form, value) for form, values in rules["forms"].items() for value in values))
+        for row in records:
+            true_fields(row, rules.get("record_true", []))
+            for field in rules.get("record_fields", []):
+                require(field in row and row[field] is not None, "installed proof missing")
+            if "optional_independence" in row:
+                require(row["optional_independence"] is (not row["combined_actual_core_producer"]))
+            if family in ("agent-evidence", "agent-ledger"):
+                counts = dict(rules["exact_methods"]["per_installed_form"])
+                if not row["combined_actual_core_producer"]:
+                    counts.pop("producer"); counts.pop("accepted_evidence")
+                same(sorted(row["methods"]), sorted(counts))
+                for label, count in counts.items():
+                    verify_method(row["methods"][label], count, files)
+    if family in ("agent-evidence", "agent-ledger"):
+        verify_method(report["archive_controls"], 8, files)
+    if family == "research":
+        installed = report["installed"]
+        same(sorted((r["component"], r["form"]) for r in installed), sorted((a, b) for a in ("strategies", "labels") for b in ("wheel", "sdist")))
+        for row in installed:
+            true_fields(row, ("isolated_origins", "independent_fixtures_passed"))
+            require(row["installed_typing"] and row["component_source"] and row["contracts_before_after"])
+        same(sorted(r["form"] for r in report["combined"]), ["sdist", "wheel"])
+        for row in report["combined"]:
+            true_fields(row, ("actual_core_producer_passed", "signal_invariance_and_as_of_joins_passed", "chronological_watchlist_labels_revisions_passed"))
+            require(row["consumer_core_before_after"] and row["core_only_isolation"])
+    if family == "r9":
+        require(report["costs"]["status"] == "completed" and len(report["costs"]["samples"]) == 30)
+    if family == "evidence-evaluation":
+        require(report["study_requested"] is False and type(report["qualification_methods"]) is int and report["qualification_methods"] == 9)
+        require(set(report["harness_closure"]) == {"before_qualification", "after_qualification"})
+        same(report["harness_closure"]["before_qualification"], report["harness_closure"]["after_qualification"])
+        for key in rules["fields"]:
+            require(report.get(key), "evaluation proof missing")
+    if family == "evidence-pilot":
+        require(type(report["inert_archive_control_methods"]) is int and report["inert_archive_control_methods"] == 5)
+        same(sorted(report["cohorts"]), sorted(rules["cohorts"]))
+        for form, row in report["cohorts"].items():
+            require(len(row["observations"]) == 16 and row["environment"]["features"] is form.endswith("compute"))
+            require(row["installed"] and row["selected_archives"])
+            if form.endswith("light"):
+                same(row["raw_export"], report["cohorts"][form.replace("light", "compute")]["raw_export"])
+            for case, entries in row["raw_export"].items():
+                for name, proof in entries.items():
+                    path = "exports/" + form.split("-")[0] + "/" + case + "/" + name
+                    require(path in files)
+                    same(proof, {"bytes": len(files[path]), "sha256": digest(files[path])})
+
+
+def verify_declared_archive(proof, measured):
+    require(type(proof) is dict)
+    for key in ("sha256", "bytes", "entries"):
+        same(proof[key], measured[key])
+    for key in ("version", "source_map", "record_verified", "members"):
+        if key in proof:
+            same(proof[key], measured[key])
+    if "metadata_source_readme_verified" in proof:
+        require(proof["metadata_source_readme_verified"] is True)
+
+
+def verify_selected_sdists(report, results, archive_files, registry, system):
+    selected = report["selected_sdist_closure"]
+    require(len(selected) == 8)
+    for name, row in selected.items():
+        modules = [module for module, (_, base, _) in registry.items() if base.rstrip("/").split("/")[-1] == name]
+        require(len(modules) == 1); module = modules[0]
+        tar = next(path for path in results if path.startswith(module + "-") and path.endswith(".tar.gz"))
+        wheel = next(path for path in results if path.startswith(module + "-") and path.endswith(".whl"))
+        same(row["archive_sha256"], results[tar]["sha256"]); same(row["wheel_sha256"], results[wheel]["sha256"])
+        same(row["materialized"], results[tar]["entries"])
+        prefix = tar.removesuffix(".tar.gz") + "/"
+        before = {}
+        for path, raw in archive_files[tar].items():
+            relative = path.removeprefix(prefix)
+            before[relative] = {"kind": "file", "bytes": len(raw), "sha256": digest(raw)}
+            parts = relative.split("/")
+            for end in range(1, len(parts)):
+                before["/".join(parts[:end])] = {"kind": "directory"}
+        transition = row["generated_transition"]
+        same(sorted(transition), ["after", "before", "changed", "sources"])
+        same(transition["before"], before)
+        after = transition["after"]; egg = "src/" + module + ".egg-info/"; manifest = egg + "SOURCES.txt"
+        for path, proof in before.items():
+            if path == manifest:
+                require(after.get(path, {}).get("kind") == "file")
+            else:
+                same(after.get(path), proof)
+        platform_tag = "win-amd64" if system == "Windows" else "linux-x86_64"
+        for path, proof in after.items():
+            safe_path(path)
+            if path in before:
+                continue
+            if path in ("build", "build/lib", "build/lib/" + module, "build/bdist." + platform_tag):
+                same(proof, {"kind": "directory"})
+            elif path.startswith("build/lib/" + module + "/"):
+                original = "src/" + path.removeprefix("build/lib/")
+                same(proof, before.get(original))
+            else:
+                require(path == manifest and proof["kind"] == "file", "unselected generated build path")
+        names = transition["sources"]
+        require(type(names) is list and len(names) == len(set(names)))
+        for path in names:
+            safe_path(path); require(after.get(path, {}).get("kind") == "file")
+        required = {p for p, proof in before.items() if proof["kind"] == "file" and (p.startswith("src/" + module + "/") or p in ("LICENSE", "README.md", "pyproject.toml", "setup.cfg"))}
+        require(required <= set(names))
+        manifest_raw = "\n".join(names).encode()
+        same(after[manifest], {"kind": "file", "bytes": len(manifest_raw), "sha256": digest(manifest_raw)})
+        changed = {p: {"before": before.get(p), "after": after.get(p)} for p in set(before) | set(after) if before.get(p) != after.get(p)}
+        same(transition["changed"], changed)
+
+
+def verify_quickstart(report, files, system, source, rules):
+    same(report["system"], system)
+    inputs_raw = source.get("docs/stories/EQ-132_INPUTS.json"); inputs = strict_json(inputs_raw)
+    same(report["inputs_sha256"], digest(inputs_raw)); same(report["accepted_package_main"], inputs["accepted_main"])
+    same(report["verifier_sha256"], digest(source.get("tools/verify_quickstart.py")))
+    same(report["probe_sha256"], digest(source.get("tools/quickstart_probe.py")))
+    same(report["source_map"], inputs["effective_source_map"])
+    selected = [row for row in inputs["artifacts"] if row["manifest"]["system"] == system]
+    require(len(selected) == 1); selected = selected[0]
+    for field in ("id", "name", "digest", "size_in_bytes", "workflow_run"):
+        same(report["artifact"][field], selected["artifact"][field])
+    same(report["wheel_maps"], selected["selected_wheels"])
+    require(report["qualification_cases"] == 43 and type(report["qualification_cases"]) is int and report["installed_payload_unchanged"] is True)
+    expected = rules["quickstart_expected"][system]
+    for field in ("independent_results", "qualification", "walkthrough_stdout", "wheel_maps"):
+        same(report[field], expected[field])
+    same([row["label"] for row in report["steps"]], expected["step_labels"])
+    prefix = "eq132-quickstart-" + system + "/logs/"
+    for index, row in enumerate(report["steps"], 1):
+        require(type(row["returncode"]) is int and row["returncode"] == 0 and not row.get("timed_out", False))
+        for stream in ("stdout", "stderr"):
+            require(type(row[stream + "_bytes"]) is int and 0 <= row[stream + "_bytes"] <= 2 * 1024 * 1024)
+            if row["label"] == "download" and stream == "stdout":
+                continue
+            require(prefix + f"{index:02}-" + row["label"] + "-" + stream + ".txt" in files)
+    true_fields(report["runtime"], ("prefix_isolated", "forbidden_dependencies_absent"))
+    require(report["runtime"]["bits"] == 64 and type(report["runtime"]["bits"]) is int)
+    same(report["runtime"]["core"], report["before_core"]["core"])
+    same(report["runtime"]["core_sha256"], report["before_core"]["core_sha256"])
+
+
+def package_artifact(raw, family, system, sources, contract, budget, source_rules):
+    files, physical = zip_contents(raw, budget)
+    same(sorted(files), source_rules["outer_names"][family][system])
+    same(sorted(physical), source_rules["physical_names"][family][system])
+    registry = {}
+    for source in sources.values():
+        for module, item in source.packages().items():
+            require(module not in registry, "ambiguous module source")
+            registry[module] = item
+    if family == "quickstart":
+        names = [p for p in files if p.endswith("report.json")]
+        require(len(names) == 1)
+        report = strict_json(files[names[0]])
+        require(report["schema"] == "eq132.quickstart-replay.v1" and report["status"] == "PASSED")
+        verify_quickstart(report, files, system, sources["canonical"], source_rules)
+        return {"family": family, "system": system, "outer": entries_map(files), "report": report, "physical": physical}
+    report_name = "manifest.json" if family == "foundation" else "qualification.json"
+    require(report_name in files)
+    report = strict_json(files[report_name])
+    require(report["system"] == system)
+    if family == "foundation":
+        same(report["schema_version"], "1"); require(report["source_dirty"] is False)
+        same(report["commit"], sources["canonical"].head)
+        require(len(report["artifacts"]) == 4 and len(report["consumer_artifacts"]) == 2)
+        declared = dict(report["artifacts"], **report["consumer_artifacts"])
+    else:
+        require(report["schema"] == SCHEMAS[family])
+        expected_status = {"evidence-evaluation": "qualified", "evidence-pilot": "passed"}.get(family, "completed")
+        same(report["status"], expected_status); same(report["source_commit"], sources["canonical"].head)
+        verify_sources(report, sources, system, family, source_rules)
+        declared = report["archives" if family == "evidence-evaluation" else "artifacts"]
+        verify_installed(report, family, contract, files)
+    nested = {name for name in files if name.endswith((".whl", ".tar.gz"))}
+    actual_names = {name for name in nested if name.split("-", 1)[0] in registry}
+    require(all(name.endswith(".whl") or name in actual_names for name in nested), "unknown nested SDist")
+    require(type(declared) is dict and len(declared) == COUNTS[family] and set(declared) == actual_names, "complete project archive set")
+    results = {}
+    archive_files = {}
+    for name, proof in declared.items():
+        measured, contents = project_archive(name, files[name], registry, budget, system, family == "foundation")
+        same({"bytes": measured["bytes"], "sha256": measured["sha256"]}, source_rules["accepted_project_archives"][family][system][name])
+        if family == "foundation":
+            same(proof, measured["sha256"])
+        else:
+            verify_declared_archive(proof, measured)
+        results[name] = measured; archive_files[name] = contents
+    # Any dependency wheel is also a complete structural/RECORD inspection,
+    # bound to the producer's declared wheel digest. It is not Git-source proof.
+    native = {}
+    other_wheels = {p for p in files if p.endswith(".whl")} - actual_names
+    dependencies = report.get("dependency_wheels", {})
+    require(other_wheels <= set(dependencies), "dependency wheel inventory")
+    for name, proof in dependencies.items():
+        safe_path(name); same(sorted(proof), ["bytes", "sha256"])
+        require(type(proof["bytes"]) is int and proof["bytes"] > 0 and re.fullmatch(r"[0-9a-f]{64}", proof["sha256"]))
+    for name in other_wheels:
+        same(dependencies[name], {"sha256": digest(files[name]), "bytes": len(files[name])})
+        payload, _ = zip_contents(files[name], budget, 1)
+        verify_record(payload); native[name] = entries_map(payload)
+    baseline = set(source_rules["outer_names"][family][system])
+    # Path layouts are unchanged source-selected builder outputs. Quickstart
+    # has a distinct fresh owned prefix and is checked separately above.
+    same(sorted(files), sorted(baseline))
+    if family == "continuous":
+        selected = report["selected_sdist_rebuilds"]
+        same(sorted(selected), ["continuous", "contracts", "features"])
+        for name, row in selected.items():
+            module = {"continuous": "equity_feature_continuous", "contracts": "equity_feature_contracts", "features": "equity_features"}[name]
+            tar = next(p for p in results if p.startswith(module + "-") and p.endswith(".tar.gz"))
+            wheel = next(p for p in results if p.startswith(module + "-") and p.endswith(".whl"))
+            same(row["materialized_entries"], results[tar]["entries"])
+            verify_declared_archive(row["rebuilt"], results[wheel])
+            require(row["generated_manifest_transition"] == "setuptools80.9.0 adds existing setup.cfg; dirname/basename sorted UTF8 LF without final LF")
+            selected_files = dict(archive_files[tar])
+            prefix = tar.removesuffix(".tar.gz") + "/"
+            manifest = prefix + "src/" + module + ".egg-info/SOURCES.txt"
+            names = set(selected_files[manifest].decode().splitlines()) | {"setup.cfg"}
+            from pathlib import PurePosixPath
+            selected_files[manifest] = "\n".join(sorted(names, key=lambda p: (str(PurePosixPath(p).parent), PurePosixPath(p).name))).encode()
+            same(row["after_build_selected_entries"], entries_map(selected_files))
+    if family in ("evidence-pilot", "evidence-evaluation"):
+        verify_selected_sdists(report, results, archive_files, registry, system)
+        for index, row in enumerate(report["logs"], 1):
+            require(row["id"] == f"{index:03}" and type(row["returncode"]) is int and row["returncode"] == 0)
+            for stream in ("stdout", "stderr"):
+                key = stream if family == "evidence-pilot" else stream + "_sha256"
+                same(row[key], digest(files[row["id"] + "." + stream]))
+        if family == "evidence-pilot":
+            oracle = strict_json(sources["canonical"].get("docs/stories/EQ116_ORACLES.json"))
+            for form, row in report["cohorts"].items():
+                same(row["observations"], [item for item in oracle["reader_expectations"] if item["form"] == form])
+        else:
+            source_paths = [p for p in sources["canonical"].files if p.startswith(("examples/", "tools/", "tests/evidence_evaluation/", "docs/stories/"))]
+            for name, expected in report["harness_source_map"].items():
+                matches = [p for p in source_paths if p.rsplit("/", 1)[-1] == name]
+                require(len(matches) == 1); same(expected, digest(sources["canonical"].get(matches[0])))
+                for snapshot in report["harness_closure"].values():
+                    same(snapshot[name], {"kind": "file", "bytes": len(sources["canonical"].get(matches[0])), "sha256": expected})
+            for snapshot in report["harness_closure"].values():
+                same(sorted(snapshot), sorted(report["harness_source_map"]))
+    if family == "foundation":
+        for form in ("whl", "gz"):
+            row = strict_json(files["consumer-" + system + "-" + form + ".json"])
+            require(row["schema"] == "consumer-install1" and row["system"] == system and row["source_commit"] == sources["canonical"].head)
+            true_fields(row, ("public_only_installed_execution",))
+            same(row["before_install_sha256"], row["after_install_sha256"]); same(row["before_install_sha256"], row["after_execution_sha256"])
+            same(row["qualification"], source_rules["quickstart_expected"][system]["qualification"])
+    return {"family": family, "system": system, "outer": entries_map(files), "physical": physical,
+            "archives": results, "dependency_archives": native, "unuploaded_dependency_wheels_not_independently_byte_audited": sorted(set(dependencies) - other_wheels), "report": report}
+
+
+PACKAGE_ROOTS = ("agent-evidence", "agent-ledger", "conformance", "continuous", "diagnostics", "evidence",
+                 "evidence-evaluation", "evidence-pilot", "explanations", "packages", "provenance", "quickstart", "r9", "r10", "research", "transport")
+READERS = ("docs/api/CONTINUOUS_QUOTES.md", "docs/api/PUBLIC_API.md", "docs/contracts/RESULTS.md")
+ALLOWLIST = digest(("equity-features.ci-allowlist.v1\n" + "\n".join(READERS) + "\n").encode())
+
+
+class API:
+    def __init__(self, output, budget):
+        self.output = Path(output)
+        require(not self.output.exists(), "fresh output required")
+        self.output.mkdir()
+        self.budget = budget
+
+    def fetch(self, suffix, limit):
+        require(suffix.startswith(("actions/", "git/", "pulls/")) and ".." not in suffix)
+        process = subprocess.Popen(["gh", "api", "repos/" + REPO + "/" + suffix], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        try:
+            chunks = []; size = 0
+            while True:
+                chunk = process.stdout.read(min(65536, limit - size + 1))
+                if not chunk:
+                    break
+                size += len(chunk)
+                require(size <= limit, "API/download byte bound")
+                chunks.append(chunk)
+            require(process.wait(timeout=120) == 0, "GitHub read failed")
+            return b"".join(chunks)
+        finally:
+            if process.poll() is None:
+                process.kill()
+                process.wait(timeout=10)
+            process.stdout.close()
+
+    def json(self, suffix):
+        raw = self.fetch(suffix, MAX_JSON)
+        return strict_json(raw)
+
+    def download(self, artifact):
+        require(type(artifact["id"]) is int and artifact["id"] > 0)
+        require(artifact["expired"] is False and type(artifact["size_in_bytes"]) is int and 0 < artifact["size_in_bytes"] <= MAX_MEMBER)
+        from datetime import datetime, timezone
+        require(datetime.fromisoformat(artifact["expires_at"].replace("Z", "+00:00")) > datetime.now(timezone.utc))
+        remaining = min(MAX_MEMBER, MAX_TOTAL - self.budget.downloaded)
+        require(artifact["size_in_bytes"] <= remaining, "remaining download bound")
+        raw = self.fetch("actions/artifacts/" + str(artifact["id"]) + "/zip", remaining)
+        self.budget.add("downloaded", len(raw), MAX_TOTAL)
+        require(len(raw) == artifact["size_in_bytes"] and "sha256:" + digest(raw) == artifact["digest"], "artifact API bytes")
+        path = self.output / ("artifact-" + str(artifact["id"]) + ".zip")
+        with path.open("xb") as stream:
+            stream.write(raw)
+        return raw
+
+
+def classification(source, case):
+    result = {"schema": "equity-features.ci-scope.v1", "valid": True, "decision": "FULL", "reason": "INITIAL_PUSH",
+              "repository": REPO, "event": case["event"], "base": case["base"], "source_head": case["api_head"],
+              "checkout_head": case["checkout_head"], "checkout_tree": source.git("rev-parse", source.head + "^{tree}").decode().strip(),
+              "diff_sha256": None, "changes_count": None, "allowlist_sha256": ALLOWLIST}
+    if case["kind"] == "source-negative":
+        result.update(valid=False, reason="SOURCE_INVALID", event=None, base=None, source_head=None, checkout_head=None, checkout_tree=None)
+        return result
+    if case["event"] == "pull_request":
+        parents = source.git("rev-list", "--parents", "-n", "1", source.head).decode().split()
+        same(parents, [source.head, case["base"], case["api_head"]])
+    if case["base"] is not None:
+        raw = source.git("diff", "--raw", "-z", "--no-abbrev", "--no-ext-diff", "--no-textconv", "--no-renames", "--ignore-submodules=none", case["base"], source.head, "--")
+        parts = raw.split(b"\0"); require(parts.pop() == b"")
+        require(len(parts) % 2 == 0)
+        changes = []
+        for index in range(0, len(parts), 2):
+            fields = parts[index].decode().split(); path = parts[index + 1].decode("utf-8")
+            require(len(fields) == 5 and fields[0].startswith(":"))
+            changes.append((fields, path))
+        result.update(diff_sha256=digest(raw), changes_count=len(changes), reason="EMPTY_DIFF" if not changes else "NON_READER_CHANGE")
+        if changes and all(path in READERS and fields[0] == ":100644" and fields[1] == "100644" and fields[4] == "M" for fields, path in changes):
+            result.update(decision="DOCS", reason="READERS_ONLY")
+    return result
+
+
+def root_jobs(jobs, case):
+    expected = {"scope", "docs / check", "check"}
+    if case["kind"] in ("full", "docs-negative"):
+        for root in PACKAGE_ROOTS:
+            leaf = {"packages": "compatibility", "transport": "wire"}.get(root, root)
+            expected.update(root + " / " + leaf + " (" + os + ")" for os in ("ubuntu-24.04", "windows-latest"))
+    else:
+        # GitHub represents skipped reusable calls as one logical job each.
+        expected.update(PACKAGE_ROOTS)
+    same(sorted(job["name"] for job in jobs), sorted(expected))
+    for job in jobs:
+        same(job["run_id"], case["run_id"]); same(job["run_attempt"], case["attempt"])
+        require(job["head_sha"] == case["api_head"] and job["status"] == "completed")
+        name = job["name"]
+        outcome = "success"
+        if name in PACKAGE_ROOTS:
+            outcome = "skipped"
+        elif name == "scope" and case["kind"] == "source-negative":
+            outcome = "failure"
+        elif name == "docs / check" and case["kind"] == "docs-negative":
+            outcome = "failure"
+        elif name == "check" and case["kind"] in ("source-negative", "docs-negative"):
+            outcome = "failure"
+        same(job["conclusion"], outcome)
+        if outcome == "success":
+            require(all(step["status"] == "completed" and step["conclusion"] in ("success", "skipped") for step in job["steps"]))
+            critical = []
+            if name == "scope":
+                critical = ["Classify complete committed source", "Retain exact scope, including rejection"]
+            elif name == "check":
+                critical = ["Validate every logical result and committed source", "Retain policy, including rejection"]
+            elif name == "docs / check":
+                critical = ["Verify planning documents and story coverage", "Verify aggregate CI gate and preserved workflows", "Verify immutable CI policy provenance", "Verify conservative CI scope against synthetic Git and event fixtures"]
+            elif name.startswith("quickstart /"):
+                critical = ["Verify fail-closed artifact and replay boundaries", "Replay the documented minimal quickstart", "Retain quickstart evidence, including failures"]
+            elif name.startswith("evidence-evaluation /"):
+                critical = ["Qualification only (no scheduled measurements)"]
+            elif name.startswith("transport /"):
+                critical = ["Run python tools/verify_remote_transport.py"]
+            elif not name.startswith("transport /"):
+                builder = name.split(" / ", 1)[0].replace("-", "_")
+                if builder == "packages":
+                    builder = "foundation"
+                require(any("python tools/build_" + builder + ".py" in step["name"] and step["conclusion"] == "success" for step in job["steps"]), "builder step skipped")
+            for label in critical:
+                found = [step for step in job["steps"] if step["name"] == label]
+                require(len(found) == 1 and found[0]["conclusion"] == "success", "critical step skipped")
+
+
+def audit_case(case, roots, contract, output, source_rules):
+    require(set(case) == {"kind", "run_id", "attempt", "event", "api_head", "checkout_head", "base", "ref"}, "closed case input")
+    require(case["kind"] in ("full", "docs", "source-negative", "docs-negative"))
+    require(type(case["run_id"]) is int and case["run_id"] > 0 and type(case["attempt"]) is int and case["attempt"] > 0)
+    require(case["event"] in ("push", "pull_request"))
+    for name in ("api_head", "checkout_head"):
+        require(type(case[name]) is str and re.fullmatch(r"[0-9a-f]{40}", case[name]))
+    require(case["base"] is None or re.fullmatch(r"[0-9a-f]{40}", case["base"]))
+    require(source_rules["schema"] == "equity-features.ci003-source-rules.v1")
+    same(sorted(source_rules["selected_source_paths"]), sorted(SCHEMAS))
+    same(sorted(source_rules["outer_names"]), sorted(list(COUNTS) + ["quickstart"]))
+    require(len(source_rules["unchanged_builders"]) == 66)
+    budget = Budget(); api = API(output, budget)
+    source = GitSource(roots["canonical"], case["checkout_head"])
+    sources = {"canonical": source,
+               "io": GitSource(roots["io"], "18d86761aa3eebb7414e51e8fa2aba089717b5eb"),
+               "workers": GitSource(roots["workers"], "6538f21b441c8527b465899b98cfd0476e7af08a")}
+    run = api.json("actions/runs/" + str(case["run_id"]))
+    registered = api.json("actions/workflows/388729564")
+    same(registered["id"], 388729564); same(registered["path"], ".github/workflows/qualification.yml"); same(registered["state"], "active")
+    for name, value in (("id", case["run_id"]), ("run_attempt", case["attempt"]), ("head_sha", case["api_head"]), ("event", case["event"]), ("path", ".github/workflows/qualification.yml"), ("workflow_id", 388729564), ("status", "completed")):
+        same(run[name], value)
+    require(run["repository"]["full_name"] == REPO)
+    if case["event"] == "push":
+        same(case["checkout_head"], case["api_head"])
+        same(case["ref"], "refs/heads/" + run["head_branch"])
+        if case["base"] is not None:
+            require(source.git("rev-list", "--parents", "-n", "1", source.head).decode().split()[1] == case["base"])
+    else:
+        number = re.fullmatch(r"refs/pull/([1-9][0-9]*)/merge", case["ref"])
+        require(number is not None and any(row["number"] == int(number[1]) for row in run["pull_requests"]))
+    if case["kind"] != "full":
+        recipe = contract["probe_cases"][case["kind"]]
+        require(case["event"] == recipe["selected_event"])
+        probe = GitSource(roots["canonical"], case["api_head"])
+        base_source = GitSource(roots["canonical"], contract["probe_base"])
+        same(probe.git("rev-list", "--parents", "-n", "1", probe.head).decode().split(), [probe.head, base_source.head])
+        path = recipe["path"]; original = base_source.get(path)
+        if "append" in recipe:
+            expected_bytes = original + recipe["append"].encode()
+        else:
+            require(original.count(recipe["preimage"].encode()) == 1)
+            expected_bytes = original.replace(recipe["preimage"].encode(), recipe["replacement"].encode())
+        same(probe.git("diff", "--name-only", base_source.head, probe.head).decode().splitlines(), [path])
+        require(probe.get(path) == expected_bytes)
+        if case["event"] == "push":
+            require(case["base"] is None and run["head_branch"] == recipe["branch"])
+    same(run["conclusion"], "failure" if case["kind"] in ("source-negative", "docs-negative") else "success")
+    job_data = api.json(f"actions/runs/{case['run_id']}/attempts/{case['attempt']}/jobs?per_page=100")
+    require(job_data["total_count"] == len(job_data["jobs"]) and type(job_data["total_count"]) is int)
+    jobs = job_data["jobs"]; root_jobs(jobs, case)
+    artifact_data = api.json(f"actions/runs/{case['run_id']}/artifacts?per_page=100")
+    require(artifact_data["total_count"] == len(artifact_data["artifacts"]))
+    artifacts = artifact_data["artifacts"]
+    expected = {}
+    for family in (list(COUNTS) + ["quickstart"] if case["kind"] in ("full", "docs-negative") else []):
+        for os, system in (("ubuntu-24.04", "Linux"), ("windows-latest", "Windows")):
+            suffix = (case["event"] + "-") if family == "evidence-evaluation" else ""
+            name = family + "-" + case["checkout_head"] + "-" + suffix + os + "-attempt-" + str(case["attempt"])
+            expected[name] = (family, system)
+    for family in ("ci-scope", "ci-policy"):
+        name = family + "-" + case["checkout_head"] + "-" + case["event"] + "-" + str(case["run_id"]) + "-attempt-" + str(case["attempt"])
+        expected[name] = (family, None)
+    same(sorted(item["name"] for item in artifacts), sorted(expected))
+    reports = {}; root_records = {}; artifact_receipts = []
+    for artifact in artifacts:
+        require(artifact["workflow_run"]["id"] == case["run_id"] and artifact["workflow_run"]["head_sha"] == case["api_head"])
+        raw = api.download(artifact)
+        family, system = expected[artifact["name"]]
+        if family.startswith("ci-"):
+            files, _ = zip_contents(raw, budget)
+            member = "classification.json" if family == "ci-scope" else "qualification.json"
+            same(sorted(files), [member]); root_records[family] = strict_json(files[member])
+        else:
+            reports[family + "/" + system] = package_artifact(raw, family, system, sources, contract, budget, source_rules)
+        artifact_receipts.append({"id": artifact["id"], "name": artifact["name"], "bytes": len(raw), "sha256": digest(raw), "expires_at": artifact["expires_at"]})
+    scope = classification(source, case); same(root_records["ci-scope"], scope)
+    require(scope["decision"] == ("DOCS" if case["kind"] == "docs" else "FULL"))
+    policy = root_records["ci-policy"]
+    if case["kind"] in ("source-negative", "docs-negative"):
+        same(policy, {"schema": "equity-features.ci-policy-error.v1", "gate_qualified": False, "reason": "QUALIFICATION_REJECTED", "run_id": case["run_id"], "run_attempt": case["attempt"]})
+        bad = next(job for job in jobs if job["name"] == ("scope" if case["kind"] == "source-negative" else "docs / check"))
+        failed = [step["name"] for step in bad["steps"] if step["conclusion"] == "failure"]
+        same(failed, ["Classify complete committed source" if case["kind"] == "source-negative" else "Verify planning documents and story coverage"])
+        log = api.fetch("actions/jobs/" + str(bad["id"]) + "/logs", MAX_JSON)
+        with (api.output / "negative-job.log").open("xb") as stream:
+            stream.write(log)
+    else:
+        same(sorted(policy), sorted(("schema", "stage", "repository", "event", "run_id", "run_attempt", "ref", "checkout_head", "checkout_tree", "workflow_ref", "workflow_sha", "classification", "logical_results", "source_map_sha256", "declared_external_boundaries", "gate_qualified", "source_map")))
+        require(policy["schema"] == "equity-features.ci-policy.v1" and policy["stage"] == "GATE_EVALUATED_NOT_FINAL_RUN_ACCEPTANCE" and policy["gate_qualified"] is True)
+        for key, value in (("repository", REPO), ("run_id", case["run_id"]), ("run_attempt", case["attempt"]), ("event", case["event"]), ("ref", case["ref"]), ("checkout_head", source.head), ("checkout_tree", scope["checkout_tree"]), ("classification", scope)):
+            same(policy[key], value)
+        expected_map = {p: {"mode": item["mode"], "kind": "blob", "git_oid": item["oid"], "bytes": len(source.get(p)), "sha256": digest(source.get(p))} for p, item in sorted(source.files.items())}
+        same(policy["source_map"], expected_map); same(policy["source_map_sha256"], digest(canonical(expected_map)))
+        results = {name: "success" for name in ("scope", "docs")}
+        results.update({name: "skipped" if case["kind"] == "docs" else "success" for name in PACKAGE_ROOTS})
+        same(policy["logical_results"], results)
+        same(policy["declared_external_boundaries"], "Existing GitHub Actions/runtime refs, interpreter and package/native dependency qualification remain baseline boundaries; no full host/physical or source-binary platform attestation.")
+        require(policy["workflow_ref"] == REPO + "/.github/workflows/qualification.yml@" + case["ref"])
+        workflow_source = GitSource(roots["canonical"], policy["workflow_sha"])
+        for path in source.files:
+            if path.startswith(".github/workflows/") and path.endswith((".yml", ".yaml")):
+                require(source.get(path) == workflow_source.get(path))
+    from datetime import datetime
+    durations = {job["name"]: (datetime.fromisoformat(job["completed_at"].replace("Z", "+00:00")) - datetime.fromisoformat(job["started_at"].replace("Z", "+00:00"))).total_seconds() for job in jobs if job["conclusion"] != "skipped"}
+    result = {"schema": "equity-features.ci003-audit.v1", "case": case, "observation": "EXPECTED_NEGATIVE_CONFIRMED_NOT_QUALIFIED" if case["kind"].endswith("negative") else "OBSERVED_CASE_VERIFIED",
+              "run": run, "jobs": jobs, "artifacts": artifact_receipts, "scope": scope, "policy": policy, "packages": reports,
+              "gross_job_seconds": durations, "reader_budget_observed": vars(budget),
+              "limits": "Local automated data audit. No downloaded payload execution, independent host reinstall, hardware/source-binary/physical cleanup or universal speedup attestation. Complete current outer-run and final independent delivery reviews remain required."}
+    with (api.output / "audit.json").open("xb") as stream:
+        stream.write(json.dumps(result, sort_keys=True, indent=2, allow_nan=False).encode() + b"\n")
+    return result
+
+
+def main():
+    import sys
+    require(len(sys.argv) == 3, "usage: qualifier.py reviewed-input.json NEW-output-dir")
+    packet = strict_json(Path(sys.argv[1]).read_bytes())
+    same(sorted(packet), sorted(("schema", "case", "roots", "contract_path", "contract_sha256", "source_rules_path", "source_rules_sha256", "reader_head")))
+    require(packet["schema"] == "equity-features.ci003-input.v1")
+    reader = GitSource(packet["roots"]["canonical"], packet["reader_head"])
+    require(Path(__file__).read_bytes() == reader.get("docs/stories/CI-003_QUALIFIER.txt"), "copied reader source drift")
+    raw = Path(packet["contract_path"]).read_bytes(); same(digest(raw), packet["contract_sha256"])
+    rules_raw = Path(packet["source_rules_path"]).read_bytes(); same(digest(rules_raw), packet["source_rules_sha256"])
+    require(raw == reader.get("docs/stories/CI-003_CONTRACT.json") and rules_raw == reader.get("docs/stories/CI-003_SOURCE_RULES.json"), "input protocol source drift")
+    result = audit_case(packet["case"], packet["roots"], strict_json(raw), sys.argv[2], strict_json(rules_raw))
+    print(json.dumps({"run_id": result["case"]["run_id"], "observation": result["observation"], "artifacts": len(result["artifacts"])}))
+
+
+if __name__ == "__main__":
+    main()

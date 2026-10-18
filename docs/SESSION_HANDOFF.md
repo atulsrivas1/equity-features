@@ -1,3 +1,11 @@
+## CI003 qualification reader source published; execution pending
+
+[CI002 acceptance](https://github.com/atulsrivas1/equity-features/issues/445#issuecomment-6254799471) completes the dependency. CI003#446 PR451 reached actual Ready/Atul assignment/In progress after separate exact pre-code review. [Reader guide](CI_QUALIFICATION.md), [source freeze and retained review history](stories/CI-003_IMPLEMENTATION_INPUTS.json). Initial standalone reader, synthetic controls and sealed source/layout rules are implemented; AST syntax parsed, no reader/control/probe execution yet. Exact source review is mandatory before execution.
+
+Three local never-merged probe commits match reviewed literal recipes and have separate source approval; none has been pushed/triggered. Preliminary reader review found six gaps, now corrected in proposed source but awaiting verification. Accepted CI002 artifact data supplied fixed both-OS layouts/selected source sets; these require independent consumer-selection review and do not establish CI003 final package audit. Existing package/math/API/dependency/workflow operations and deferred scope remain. Actual controlled cases/current candidate/main artifact audit and independent acceptance precede R16 closure.
+
+## Earlier checkpoints retained as history
+
 ## CI002 accepted; CI003 concrete qualification protocol
 
 [CI002 acceptance](https://github.com/atulsrivas1/equity-features/issues/445#issuecomment-6254799471) records actual main `0ef4f2c7a50e164e11dcfc25751e62b691b95883` after separately reviewed source, author/reviewer24methods and full current candidate/main root qualification. Root scope/policy ZIP bytes and complete immutable Git maps were independently joined to actual final run/job/artifact outcomes. This does not replace CI003's downloaded package ZIP/source/RECORD audit or actual DOCS/negative probes.
