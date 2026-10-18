@@ -1,0 +1,175 @@
+{
+  "source_freeze": {
+    "core": {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "source_worktree_unchanged": true
+    },
+    "io": {
+      "repository": "atulsrivas1/equity-feature-io",
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "source_worktree_unchanged": true
+    },
+    "workers": {
+      "repository": "atulsrivas1/equity-feature-workers",
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "source_worktree_unchanged": true
+    }
+  },
+  "runs": {
+    "core-review-tests-corrected": {
+      "report": {
+        "core_head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+        "source_imports": {
+          "equity_feature_contracts": "packages\\contracts\\src\\equity_feature_contracts\\__init__.py",
+          "equity_features": "packages\\features\\src\\equity_features\\__init__.py",
+          "equity_feature_continuous": "packages\\continuous\\src\\equity_feature_continuous\\__init__.py"
+        },
+        "selected": [
+          "tests\\unit\\test_adapter_kit.py",
+          "tests\\unit\\test_adapters.py",
+          "tests\\unit\\test_bars.py",
+          "tests\\unit\\test_breadth.py",
+          "tests\\unit\\test_bucket_volume.py",
+          "tests\\unit\\test_composition.py",
+          "tests\\unit\\test_continuous.py",
+          "tests\\unit\\test_continuous_capability.py",
+          "tests\\unit\\test_custom.py",
+          "tests\\unit\\test_daily_volume.py",
+          "tests\\unit\\test_equivalence.py",
+          "tests\\unit\\test_history.py",
+          "tests\\unit\\test_history_averages.py",
+          "tests\\unit\\test_history_recursive.py",
+          "tests\\unit\\test_history_volatility.py",
+          "tests\\unit\\test_incremental.py",
+          "tests\\unit\\test_inputs.py",
+          "tests\\unit\\test_interval_omissions.py",
+          "tests\\unit\\test_policies.py",
+          "tests\\unit\\test_purity_audit.py",
+          "tests\\unit\\test_quotes.py",
+          "tests\\unit\\test_r1_audit.py",
+          "tests\\unit\\test_r2_integration.py",
+          "tests\\unit\\test_registry.py",
+          "tests\\unit\\test_relative.py",
+          "tests\\unit\\test_results.py",
+          "tests\\unit\\test_specs.py",
+          "tests\\unit\\test_state.py",
+          "tests\\unit\\test_state_float_overflow.py",
+          "tests\\unit\\test_structure.py",
+          "tests\\unit\\test_top_k.py",
+          "tests\\unit\\test_trades.py",
+          "tests\\unit\\test_validation.py"
+        ],
+        "excluded": [
+          "test_benchmark_evidence",
+          "test_distribution_isolation",
+          "test_external_consumer_qualification",
+          "test_resource_behavior"
+        ],
+        "tests_run": 638,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "elapsed_seconds": 24.803790499980096,
+        "success": true,
+        "scope": "Existing source unit/math/admission/state/equivalence/purity tests. No new build/install, installed-artifact qualification, production dataset or performance measurement."
+      },
+      "raw_private_log_sha256": "d5a85f8f0cbd072becd8bb695a025f6ea2708c0f686b6dfc836a5ee1d72dbdbc",
+      "raw_private_report_sha256": "b064ec4326d590bfeb1c757d28d2ea535f552da7e256693985d58ef23e9cd1ba"
+    },
+    "continuous-review-tests": {
+      "report": {
+        "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+        "selected": [
+          "tests/continuous/test_contracts.py",
+          "tests/continuous/test_kernels.py"
+        ],
+        "tests_run": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "elapsed_seconds": 0.7614896000013687,
+        "success": true,
+        "scope": "Existing source constructor/codec/kernel tests against independent preimplementation fixtures, including99 allocated kernel cases; no archivebuild/install or freshLinux claim."
+      },
+      "raw_private_log_sha256": "ae0c6c167401e6192e388a6c6899db886d81681393dec389ba3fe93d5130448d",
+      "raw_private_report_sha256": "121c2b15e7bd9b5e87237d93493df305edcd00cad60be01eb911787d84f24dec"
+    },
+    "worker-review-tests": {
+      "report": {
+        "source_freeze": {
+          "core": {
+            "repository": "atulsrivas1/equity-features",
+            "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+            "source_worktree_unchanged": true
+          },
+          "io": {
+            "repository": "atulsrivas1/equity-feature-io",
+            "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+            "source_worktree_unchanged": true
+          },
+          "workers": {
+            "repository": "atulsrivas1/equity-feature-workers",
+            "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+            "source_worktree_unchanged": true
+          }
+        },
+        "source_imports": {
+          "equity_feature_workers": "workers\\packages\\workers\\src\\equity_feature_workers\\__init__.py",
+          "equity_features": "core\\packages\\features\\src\\equity_features\\__init__.py",
+          "equity_feature_contracts": "core\\packages\\contracts\\src\\equity_feature_contracts\\__init__.py",
+          "equity_feature_io_sdk": "io\\packages\\io-sdk\\src\\equity_feature_io_sdk\\__init__.py",
+          "equity_feature_parquet": "io\\packages\\parquet\\src\\equity_feature_parquet\\__init__.py",
+          "equity_feature_duckdb_sink": "io\\packages\\duckdb-sink\\src\\equity_feature_duckdb_sink\\__init__.py"
+        },
+        "selected": [
+          "test_supervisor",
+          "test_barriers"
+        ],
+        "tests_run": 58,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "elapsed_seconds": 97.48120649997145,
+        "success": true,
+        "scope": "Existing source supervisor and dependency/barrier tests, including real thread/spawn-process parity and owned synthetic both-sink publication. Shared existing Windows environment; no new build/install, benchmark, Linux execution or production capacity claim."
+      },
+      "raw_private_log_sha256": "05ceb09caf3e9196fe76b6872d8e6d5b4bf5a362cccdea5ab9df339149079749",
+      "raw_private_report_sha256": "568d43ba0a1c24a4b7891be132b1adf0d3009d7bef16a39097c51b5cc9da9dee"
+    }
+  },
+  "historical_failed_harness": {
+    "tests_run": 585,
+    "failures": 0,
+    "errors": 5,
+    "disposition": "Initial reviewer harness omitted canonical root/example and external demo src import paths. ModuleNotFoundError for examples/equity_feature_demo caused three module-load and two purity-suite errors. Corrected only external harness paths; product source unchanged. Original failed source/log/report retained, not counted as passing.",
+    "initial_log_sha256": "724c59e40e7d0b2e06b97bb6b6ec87ed88610ae0ec0f6c1d89e5b5ca90d600ea",
+    "initial_report_sha256": "6afe846249704cf2e5f646020a2853893bd48cfc028aa4e33dd76baa4d9c8208",
+    "additional_tool_history": "One attempted PowerShell inline harness-copy correction failed at shell parsing before Python execution; corrected using an explicit file edit. Several guessed read-only paths did not exist and were resolved with actual file inventories; no product absence/failure inferred.",
+    "report_assembly_tool_history": "Initial assembler wrote report files and SESSION prefix, then its postwrite assertion compared universal-newline readback with a CRLF-retaining decoded original and refused. The original suffix bytes were preserved. Corrected byte guard and a separate exact immutable-Git-text suffix comparison verified all four continuity files before publication; no historical text or product source change."
+  },
+  "test_harnesses": {
+    "run_core_review_tests_initial.py": {
+      "sha256": "edaae5daf60e4221dbc2fb9532e1a9fc44b65c62ce2ed67e805153691496c217",
+      "location": "outside repositories, retained reviewer evidence; no package/build change"
+    },
+    "run_core_review_tests.py": {
+      "sha256": "a1905e4929cf765b6c56b74059f81b26227badaac4a65e7d98f1531d0ef5e626",
+      "location": "outside repositories, retained reviewer evidence; no package/build change"
+    },
+    "run_continuous_review_tests.py": {
+      "sha256": "75f3c3b288dd69bdb02023552279cfde68ac3f443ab6d56e304b48a12cf3cc89",
+      "location": "outside repositories, retained reviewer evidence; no package/build change"
+    },
+    "run_worker_review_tests.py": {
+      "sha256": "733bf9110b076726ce115f7570ec57c1122224260f5e9cebd9c39852d9f4d864",
+      "location": "outside repositories, retained reviewer evidence; no package/build change"
+    }
+  },
+  "limitations": [
+    "Fresh tests used existing Windows CPython3.12 environment and exact source imports, not fresh installations or new Linux runs.",
+    "Method counts include suites with multiple fixture/subcases; they are not counts of independent formulas.",
+    "No new throughput benchmark, production/provider/private workload, full-platform resource proof or all-formula formal proof."
+  ],
+  "successful_test_methods": 720
+}

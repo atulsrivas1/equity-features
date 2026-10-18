@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/r15_review",
+  "created_at": "2026-10-18T22:43:11.084134+00:00",
+  "review_type": "independent continuous optional package arithmetic/readiness source supplement",
+  "repository": "atulsrivas1/equity-features",
+  "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+  "approved": true,
+  "disposition": "NO_ACTIONABLE_DEFECT_IDENTIFIED_IN_INSPECTED_CONTINUOUS_KERNEL_AND_TIMING_PATHS",
+  "findings": [],
+  "main_math_report_sha256": "556e421afbdcee6967817fa179a14267ed051a4af346a0b6ea9ca357bce581bc",
+  "coverage": [
+    {
+      "file": "packages/continuous/src/equity_feature_continuous/_engine.py",
+      "line": 51,
+      "topic": "basis latest-known backward alignment",
+      "assessment": "Latest known continuous<=anchor and latest known reference<=chosen continuous are selected; selected null/stale/missing feed/mapping blocks without older price fallback. Age and mismatch comparisons use >, admitting equality as specified."
+    },
+    {
+      "file": "packages/continuous/src/equity_feature_continuous/_engine.py",
+      "line": 143,
+      "topic": "operation-specific selection and causal readiness",
+      "assessment": "Freeze uses all delivered continuous population and last market reference before knowledge test; reopen uses last market pre-boundary continuous and first market reference>=boundary before knowledge test. Unknown/late/null selections block rather than filter."
+    },
+    {
+      "file": "packages/continuous/src/equity_feature_continuous/_model.py",
+      "line": 290,
+      "topic": "config and input temporal boundary",
+      "assessment": "Exact typed known_at-only config, completed window.end<=min(C,K)<=E, interior anchor/reopen constraints, explicit age/mismatch bounds and observation-count weighting. Observation known_at cannot precede event; coverage knowledge cannot precede delivered scope end. Exact scopes and currentpair/unit/currency/default raw basis enforced."
+    },
+    {
+      "file": "packages/continuous/src/equity_feature_continuous/_engine.py",
+      "line": 85,
+      "topic": "feed and conversion fact coverage",
+      "assessment": "Finite half-open feed interval coverage detects holes and wrongstates; same-domain overlap rejected by model. Conversion applies to chosen continuous event effective interval, matching instrument/underlying/unit/currency; selected fact knowledge contributes readiness."
+    },
+    {
+      "file": "packages/continuous/src/equity_feature_continuous/_engine.py",
+      "line": 135,
+      "topic": "exact rational arithmetic",
+      "assessment": "X=(scaled continuousprice)*D/N; Y=scaledreferenceprice; basis/reopen gap=X-Y and premium=gap/Y. Reduced rational stages absnum/den<1e38 checked, including each chronological absolute-sum prefix and final mean. No Float64 key, approximate denominator or clipping fallback."
+    },
+    {
+      "file": "packages/continuous/src/equity_feature_continuous/_engine.py",
+      "line": 240,
+      "topic": "freeze aggregation, stable witnesses, result readiness",
+      "assessment": "Max/mean absolute deviations use all population; topK affects witnesses only with exact(-abs,event,order,UTF8id). Incomplete coverage dominates; only otherwise-admitted empty freeze is not_applicable. available_at max includes window.end and all consumed known-at values; unavailable time/metrics null. Complete output envelope size checked before return."
+    },
+    {
+      "file": "packages/continuous/src/equity_feature_continuous/_registry.py",
+      "line": 7,
+      "topic": "public kernel/capability boundary",
+      "assessment": "Three public entrypoints provide six own descriptive batch IDs; update/merge/restore false and separate from old39 registry."
+    }
+  ],
+  "independent_hand_checks": [
+    {
+      "case": "Conversion orientation and basis",
+      "inputs": "continuous price120 scale0, reference units numerator2/continuous denominator1, referenceprice50 scale0",
+      "expected": "X=60; Y=50; basis10; premium1/5",
+      "executed_product": false
+    },
+    {
+      "case": "Freeze observation weighting and tie",
+      "inputs": "continuous101,98,102; heldreference100; 1:1 conversion",
+      "expected": "signed deviations1,-2,2; maxabs2; meanabs5/3; equalabs c2 precedesc3 by event/order, not duration weighted",
+      "executed_product": false
+    },
+    {
+      "case": "Changing ratios",
+      "inputs": "same freeze observations,1:1 forfirst and2:1 forremaining two",
+      "expected": "deviations1,-51,-49; maxabs51; meanabs101/3; mappings selected per event",
+      "executed_product": false
+    },
+    {
+      "case": "Reopen fixed boundary",
+      "inputs": "pre-boundary continuous120; firstreopeningreference125; 1:1",
+      "expected": "gap-5; premium-1/25; later reference cannot replace firstunready selection",
+      "executed_product": false
+    }
+  ],
+  "test_source_assessment": {
+    "allocated_independent_literal_cases": 99,
+    "manifest_literal_bindings_present": true,
+    "kernel_source_asserts": {
+      "full_result": 65,
+      "structural_error": 32,
+      "arithmetic_overflow": 2
+    },
+    "method_vs_case_limit": "These are source-declared literal-case allocations, not runtime test counts/passes. Root executes existing test_contracts/test_kernels and records actual results separately.",
+    "observed_checks": "Tests compare whole result payloads/digests against preimplementation literal data, verify no input mutation, dispatch/revalidation, unsupported modes and oversized-result refusal; contracts tests separately check constructors/codecs."
+  },
+  "reviewed_file_identities": {
+    "packages/continuous/src/equity_feature_continuous/__init__.py": {
+      "bytes": 1203,
+      "sha256": "b83f960fd120a5d1d9a1b1898c865166f3d1363bee199a088ec5500be113a43b"
+    },
+    "packages/continuous/src/equity_feature_continuous/_engine.py": {
+      "bytes": 13160,
+      "sha256": "74376294a4a2dfc02d83c78ffcb636932ad630349e74e841a6d3b988658f4150"
+    },
+    "packages/continuous/src/equity_feature_continuous/_model.py": {
+      "bytes": 37140,
+      "sha256": "9b700e6f71133296744d87d7d8dba031a1b7099327714357d9507752d75cd345"
+    },
+    "packages/continuous/src/equity_feature_continuous/_rational.py": {
+      "bytes": 1895,
+      "sha256": "fd82231e0cc288a386621b41c8563e7faa93b75976bd87381ea102d157b682d8"
+    },
+    "packages/continuous/src/equity_feature_continuous/_registry.py": {
+      "bytes": 2410,
+      "sha256": "d54aa286319311e77b61635ffa09a6f385d5d0978310d30a85416e968fd5aabf"
+    },
+    "docs/features/CROSS_VENUE_FORMULAS.md": {
+      "bytes": 7167,
+      "sha256": "33bc8f077a78275cf8251e618f8572e621ba2c39a3a6ab31b92e89d104afa402"
+    },
+    "tests/continuous/test_contracts.py": {
+      "bytes": 16185,
+      "sha256": "2b4e906ef41a2f4dc220b017879d6cf02516da6e31ec7e9cd31341da692d9e7d"
+    },
+    "tests/continuous/test_kernels.py": {
+      "bytes": 8078,
+      "sha256": "dc16c98b668e434ef9a5009c7f4e85833fe597d005ea4628ed380ada16778814"
+    },
+    "docs/stories/EQ112_FIXTURES.json": {
+      "bytes": 736016,
+      "sha256": "ed8a69f7fc0a2bc1e13275714c78f6f70c9e22f265de0aebb0f9a6a12cc33d1d"
+    },
+    "docs/stories/EQ114_CASE_MANIFEST.json": {
+      "bytes": 27541,
+      "sha256": "e65c24f1a4806dcb24dbe5c28ddf80fb2b30045289f65a5da66217e1bc03bb28"
+    }
+  },
+  "execution": {
+    "product_imports": 0,
+    "product_tests": 0,
+    "benchmarks": 0,
+    "build_install_archive_work": 0,
+    "native_operations": 0,
+    "public_mutations": 0,
+    "source_changes": 0
+  },
+  "limitations": [
+    "Bounded static source/spec trace and hand-derived arithmetic; no exhaustive symbolic proof, randomized search, runtime reproduction or independent reinstall by reviewer.",
+    "Codec/security/serialization branches and every literal fixture were not exhaustively re-derived; representative source/validation boundaries inspected.",
+    "Logical row/fact/rational/envelope caps do not establish physical resource/deadline containment.",
+    "Supplied market truth, data rights, feeds/conversion economic equivalence, scientific usefulness/profitability and operational readiness remain unproven by mathematics.",
+    "This supplements rather than rewrites frozen math-review.json; root actual runtime evidence is separate."
+  ]
+}

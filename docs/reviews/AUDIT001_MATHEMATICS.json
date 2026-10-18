@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/r15_review",
+  "created_at": "2026-10-18T22:41:59.049661+00:00",
+  "review_type": "independent frozen-source mathematics and numerical-contract audit",
+  "repository": "atulsrivas1/equity-features",
+  "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+  "source_freeze_sha256": "8fa947dbe88a60809b0d7be5a80156cd7b1dc90ff74b8d853b0b15fa82b7f844",
+  "approved": true,
+  "disposition": "NO_ACTIONABLE_MATHEMATICAL_DEFECT_IDENTIFIED_IN_INSPECTED_PATHS",
+  "findings": [],
+  "confidence": "Moderate for bounded source-audit conclusion; high for explicitly traced hand examples. This is not a universal or formal correctness proof.",
+  "coverage": [
+    {
+      "area": "Bar/trade reductions and interval structure",
+      "source": [
+        {
+          "file": "packages/features/src/equity_features/session/_reductions.py",
+          "line": 61
+        },
+        {
+          "file": "packages/features/src/equity_features/session/_reductions.py",
+          "line": 134
+        },
+        {
+          "file": "packages/features/src/equity_features/session/bars.py",
+          "line": 130
+        }
+      ],
+      "assessment": "Inspected exact integer/decimal checked dependency sums, volume-positive OHLC endpoints/extrema, independent notional readiness, Fraction-before-float ratio formation, full-window volume-share denominator and whole-bar boundary admission. No actionable mismatch identified."
+    },
+    {
+      "area": "Sampled/continuous quotes",
+      "source": [
+        {
+          "file": "packages/features/src/equity_features/session/_reductions.py",
+          "line": 20
+        },
+        {
+          "file": "packages/features/src/equity_features/session/_reductions.py",
+          "line": 179
+        },
+        {
+          "file": "packages/features/src/equity_features/session/continuous.py",
+          "line": 42
+        }
+      ],
+      "assessment": "Inspected per-observation bps weighting, crossed/invalid exclusion from valid mean, locked valid0, original expiry seed/update anchor, known/inactive/unknown start, half-open boundaries, duration conservation and unknown/feed-gap nulling. No actionable mismatch identified."
+    },
+    {
+      "area": "History finite and recursive features",
+      "source": [
+        {
+          "file": "packages/features/src/equity_features/history.py",
+          "line": 113
+        },
+        {
+          "file": "packages/features/src/equity_features/_recursive.py",
+          "line": 8
+        },
+        {
+          "file": "packages/features/src/equity_features/_recursive.py",
+          "line": 41
+        },
+        {
+          "file": "packages/features/src/equity_features/_volatility.py",
+          "line": 6
+        }
+      ],
+      "assessment": "Inspected exact governed-slot dependency selection, completed and known-at cutoffs, explicit anchor/gap persistence, SMA seed/EMA alpha, stable RSI scale-exponent handling after long flats, ATR previous-close dependency, exact centered sample variance N-1 and explicit annualization factor. No actionable mismatch identified."
+    },
+    {
+      "area": "Baselines, relative returns and breadth",
+      "source": [
+        {
+          "file": "packages/features/src/equity_features/volume.py",
+          "line": 53
+        },
+        {
+          "file": "packages/features/src/equity_features/buckets.py",
+          "line": 77
+        },
+        {
+          "file": "packages/features/src/equity_features/relative.py",
+          "line": 156
+        },
+        {
+          "file": "packages/features/src/equity_features/breadth.py",
+          "line": 23
+        }
+      ],
+      "assessment": "Inspected prior-only denominators and selected bucket completeness, exact numerator/denominator supplied volume ratios, compatible return horizon/grid/C-K-E identity checks, explicit sector membership, partial-universe eligible denominator, exact SMA witness comparison. No actionable mismatch identified."
+    },
+    {
+      "area": "Streaming, restore, partition merge",
+      "source": [
+        {
+          "file": "packages/features/src/equity_features/incremental.py",
+          "line": 101
+        },
+        {
+          "file": "packages/features/src/equity_features/incremental.py",
+          "line": 197
+        },
+        {
+          "file": "packages/features/src/equity_features/state.py",
+          "line": 128
+        },
+        {
+          "file": "packages/features/src/equity_features/merging.py",
+          "line": 32
+        }
+      ],
+      "assessment": "Inspected bounded candidate-clone mutation, forward-only snapshots, fixed expected population and irreversible known gaps, per-window gap propagation, sealed finalization, typed state/schema/config/source binding and supported disjoint-adjacent merge conditions. Historical and relative/breadth incremental modes are not inferred from session parity."
+    }
+  ],
+  "hand_checked_examples": [
+    {
+      "case": "Eligible trade golden",
+      "inputs": "prices100,102,101; sizes2,3,5",
+      "expected": "count3; volume10; notional100*2+102*3+101*5=1011; VWAP1011/10; mean size10/3",
+      "reviewed_against": "_TradeTotals and tests/unit/test_trades.py:52 onward",
+      "execution": "hand derivation/source inspection; production not executed by reviewer"
+    },
+    {
+      "case": "Continuous quote integral",
+      "inputs": "100/102 at100;102/102 at103;105/104 at107;null/102 at109; cutoff112; maxage6",
+      "expected": "durations normal3/locked4/crossed2/invalid3/expired0/unknown0; total12/valid7; spread6/7; bps60000/707",
+      "reviewed_against": "_TimeReducer, literal fixtures/specs and tests/unit/test_continuous.py:41",
+      "execution": "hand derivation/source inspection only"
+    },
+    {
+      "case": "EMA/RSI/ATR initialization",
+      "inputs": "closes100,110,105,120,115,130; period3; EMA/RSI anchorS0; ATRanchorS1 with documented highs/lows",
+      "expected": "EMA975/8; RSI4700/57; ATR122/9; target close not required for currentATR",
+      "reviewed_against": "history.py, _recursive.py, independent Decimal tests",
+      "execution": "hand recurrence/source inspection only"
+    },
+    {
+      "case": "Centered sample volatility",
+      "inputs": "closes100,110,99; period2; factor1",
+      "expected": "returns1/10,-1/10; mean0; samplevariance1/50; volatilitysqrt(2)/10, distinct from population/RMS0.1",
+      "reviewed_against": "_volatility.py:6 and test_history_volatility.py:52",
+      "execution": "hand derivation only"
+    },
+    {
+      "case": "Partial breadth and exact SMA comparison",
+      "inputs": "U4 with return+1/10,-1/20,0,missing; completed close vs exact rationalSMA",
+      "expected": "A1/D1/Z1; eligible3/expected4; incomplete_coverage; absent member not unchanged; aboveSMA uses coefficient*count-sum sign, preserving half-tick beyond Float64 projection",
+      "reviewed_against": "breadth.py plus test_breadth.py:52,64,72",
+      "execution": "hand derivation/source inspection only"
+    }
+  ],
+  "test_independence_assessment": {
+    "independent_expected_values_present": [
+      "Literal trade/bar expectations and Fraction ratios; quote valid-only means and wide mixed-magnitude bps Fraction oracle.",
+      "History averages and recursive RSI/ATR independent high-precision Decimal recurrences; long-flat RSI ratio-preservation case.",
+      "Volatility independent centered Decimal reference and exact hand variance; near-equal int64 prices.",
+      "Declared-universe manual eligible-denominator counts and exact SMA witness comparison beyond Float64 half-tick."
+    ],
+    "lifecycle_coverage_present": [
+      "Every-family chunk splits and restore snapshots; legal merge order/ownership/overflow and retained duplicates.",
+      "No retrospective cutoff or late event, configured final population, explicit gap propagation, interval omission re-certification regressions."
+    ],
+    "executed_by_this_reviewer": false,
+    "root_execution": "Root separately owns actual relevant tests and their recorded results; no pass/count inferred here from source test presence."
+  },
+  "observations_not_findings": [
+    {
+      "classification": "accepted_contract_precision_limit_not_a_defect",
+      "file": "packages/features/src/equity_features/relative.py",
+      "line": 156,
+      "contract_file": "docs/api/RELATIVE_RETURNS.md",
+      "contract_lines": [
+        47,
+        48,
+        49
+      ],
+      "confidence": "high",
+      "trigger": "Positive int64 raw close pairs symbol(1,2**60+1), benchmark(1,2**60) produce exact raw arithmetic spread1, while separately projected Float64 simple returns both round to2**60.",
+      "actual_contract_expectation": "Relative API subtracts supplied Float64 scalars; those equal projections correctly produce0 under the documented contract. It does not own unexposed exact close operands.",
+      "consequence": "Do not market this API as recovering exact raw-price differences or use this example to claim an implementation bug. Exact dependency witnesses would be an explicit future contract extension, not a silent correction."
+    },
+    {
+      "classification": "test_independence_limit",
+      "file": "tests/unit/test_equivalence.py",
+      "line": 28,
+      "confidence": "high",
+      "trigger": "Batch and accumulator share _BarTotals/_TradeTotals/_QuoteTotals/_TimeReducer.",
+      "consequence": "Batch-update-restore-merge equality is strong lifecycle regression evidence but cannot independently validate the shared mathematical reducer. Separate literal/Fraction/Decimal/golden assertions remain necessary; representative such tests were inspected."
+    }
+  ],
+  "reviewed_file_identities": {
+    "packages/features/src/equity_features/session/_reductions.py": {
+      "bytes": 15762,
+      "sha256": "6c8afdff0132168e7b6db41759be9c7a4243c4de69da9357227bd0f18a4c3156"
+    },
+    "packages/features/src/equity_features/session/bars.py": {
+      "bytes": 14487,
+      "sha256": "01e23ebafc4fd976fc2bd1c96f984b0bf3872bb11dfb4f3558906c293c92563d"
+    },
+    "packages/features/src/equity_features/session/trades.py": {
+      "bytes": 3887,
+      "sha256": "987d4951fb4158131721deffbf2a89e5d3d6c2b9f4a5af07d81c34a101f7e328"
+    },
+    "packages/features/src/equity_features/session/top_k.py": {
+      "bytes": 2805,
+      "sha256": "7c92a624aea73bd66c894708c86614d84fb5567f83cbc7cf9ef05523b597c823"
+    },
+    "packages/features/src/equity_features/session/quotes.py": {
+      "bytes": 4680,
+      "sha256": "3719698a688cfcc12ef8bfaa947b021801247ef59dbbb8ce59e8487488973f7b"
+    },
+    "packages/features/src/equity_features/session/continuous.py": {
+      "bytes": 10252,
+      "sha256": "54f9da7693a9f01d6a97b9b918a0b3203a383058b0cc57375f2cdf2d3a1d5bd9"
+    },
+    "packages/features/src/equity_features/history.py": {
+      "bytes": 17157,
+      "sha256": "c3dbbe5ef329aefb23155439e0b185f5d79c91499611977fdc573adf5f35b828"
+    },
+    "packages/features/src/equity_features/_recursive.py": {
+      "bytes": 2462,
+      "sha256": "234b15889d848d3a234a581c0f8e9479bfbb6fd74477e8a4aa24c541eb47fcc7"
+    },
+    "packages/features/src/equity_features/_volatility.py": {
+      "bytes": 597,
+      "sha256": "6dc2fd94d6f26421b8e7873f3bb4dcbdf540ab1630baf6de7a255379bc9f1041"
+    },
+    "packages/features/src/equity_features/relative.py": {
+      "bytes": 10536,
+      "sha256": "36bb36b30a459a6076dc1817df8bd1af56ab80f35d45d95417044592ac7e5e58"
+    },
+    "packages/features/src/equity_features/breadth.py": {
+      "bytes": 13733,
+      "sha256": "c8b8ccd09e77ef4033cb145406cacb381f11085f888fb862d6673817059103f6"
+    },
+    "packages/features/src/equity_features/volume.py": {
+      "bytes": 12651,
+      "sha256": "e1cfaacc5cff929ee68b49133e70432a10f2e55e28d95282c6540542aa9ce65b"
+    },
+    "packages/features/src/equity_features/buckets.py": {
+      "bytes": 13253,
+      "sha256": "cfc8a6c52b4a6161035d6016a90ab635242148b7d81f8347c5f65535aab0fbfa"
+    },
+    "packages/features/src/equity_features/incremental.py": {
+      "bytes": 27661,
+      "sha256": "f3d06866e2d25285fd18bcfac75dc7477b2f5e02317d3c2474e261d12f2f4d1a"
+    },
+    "packages/features/src/equity_features/state.py": {
+      "bytes": 15873,
+      "sha256": "03635224946bc83ef7fc6c21d0dbfc5ae2514c0a604ad390eaa161e7f9740215"
+    },
+    "packages/features/src/equity_features/merging.py": {
+      "bytes": 5868,
+      "sha256": "4592c7dce640b08c5237c9832c477e97244d71820796ddb88910f25bb579add6"
+    },
+    "packages/contracts/src/equity_feature_contracts/validation.py": {
+      "bytes": 13077,
+      "sha256": "701bd7265796642260e01cad3f94e97e9a8540e654015327b29bd39376f91710"
+    },
+    "packages/contracts/src/equity_feature_contracts/inputs.py": {
+      "bytes": 12662,
+      "sha256": "5c55770c93dbeae7a555dcde6408828572aef18c4b9ce660555e12d2ccc61b38"
+    },
+    "packages/contracts/src/equity_feature_contracts/specs.py": {
+      "bytes": 11513,
+      "sha256": "480f250ae76bcf77287c331b8ac6186186092be8dd23fd47594e49b5d08a48d2"
+    },
+    "packages/contracts/src/equity_feature_contracts/history.py": {
+      "bytes": 7507,
+      "sha256": "4fa7b1bc4280eb0a7f8a7aad5767adf2313a04bc36edd5ebffbf3a4c2cc73bba"
+    },
+    "packages/contracts/src/equity_feature_contracts/relative.py": {
+      "bytes": 8132,
+      "sha256": "b73f4a196ac0ec7203d94a74ab4f0199ffbbd6c5e04e80c8437ec4a23286c83a"
+    },
+    "packages/contracts/src/equity_feature_contracts/breadth.py": {
+      "bytes": 12260,
+      "sha256": "3e19c42f6d68d786155d0753a5b510c667cfd151391a57ea1f0fef4b5379a43c"
+    },
+    "packages/contracts/src/equity_feature_contracts/streaming.py": {
+      "bytes": 4402,
+      "sha256": "dd65c91b2903e28b2cd3d76fb2389c577e2f74bf9408e7281ffa8c38161e9aa6"
+    },
+    "docs/features/SESSION_FORMULAS.md": {
+      "bytes": 10837,
+      "sha256": "377a812b21245b0b78140a6d40fc96fe549123ba259ab45e0f52030c37e8a0b9"
+    },
+    "docs/features/QUOTE_FORMULAS.md": {
+      "bytes": 10922,
+      "sha256": "cc486a902325475431b66a42d408e4cef56d7f88ba68edf107870b2bf85a9331"
+    },
+    "docs/features/HISTORICAL_FORMULAS.md": {
+      "bytes": 10726,
+      "sha256": "03aa07751ef3060ef969a4d4fede58d83c1ff6a13e9f10168064b1f6561072a9"
+    },
+    "docs/features/CONTEXT_FORMULAS.md": {
+      "bytes": 7095,
+      "sha256": "fa6713d6afdaa6d7a42cdf44193a06ff6c7d14f188bc1aab0384571bbbfd0ca4"
+    },
+    "docs/api/INCREMENTAL.md": {
+      "bytes": 13300,
+      "sha256": "2aeef3fba4e287499ed0ef0a4ea3a92e0b814c1b1a213f46814b6c9f28af9b7e"
+    },
+    "docs/api/RELATIVE_RETURNS.md": {
+      "bytes": 5640,
+      "sha256": "59939c0724935cb8bf01ba57aa3201f2cbb40fa3faad5833676b684138fa18e3"
+    },
+    "tests/unit/test_bars.py": {
+      "bytes": 13447,
+      "sha256": "842d71aa78f8af2bdb4dc855bdfe2637a9c1c1624d5269ab4e254d335c22d977"
+    },
+    "tests/unit/test_trades.py": {
+      "bytes": 8547,
+      "sha256": "59aedcea79c71cea188fce1ddbb854f909563075b6341fdbb5455195275c0d44"
+    },
+    "tests/unit/test_quotes.py": {
+      "bytes": 9898,
+      "sha256": "e4a36e54ae1d0f33cc630e1137a1053baac8ffd0e5f7f0ededf768e23e6ea910"
+    },
+    "tests/unit/test_continuous.py": {
+      "bytes": 13265,
+      "sha256": "3da30f0c17b146e53513a364e0e7fc27d78402ef9b6698e19a70e196e29dc9b2"
+    },
+    "tests/unit/test_history.py": {
+      "bytes": 16601,
+      "sha256": "e5c7ce7139a1f99eba350595207d5741b146579fd0b819de4c21982619da5eab"
+    },
+    "tests/unit/test_history_averages.py": {
+      "bytes": 12966,
+      "sha256": "5dadb410feaecf064e4cd8690e35d11de512a0d84abac88aec33d6201e3d8462"
+    },
+    "tests/unit/test_history_recursive.py": {
+      "bytes": 15468,
+      "sha256": "d46bf8b8c24276d8cd829d1d4f5ce9323a1be0ec477b04adbe21c98e7ec81640"
+    },
+    "tests/unit/test_history_volatility.py": {
+      "bytes": 10375,
+      "sha256": "cff125a0bbf70c5bd735a79849a485628eebea7ce83d5eb4d2e009aabe321a3c"
+    },
+    "tests/unit/test_relative.py": {
+      "bytes": 19293,
+      "sha256": "7018c8d97c128821209fc1cdd311d768ef9bfcaec5b283aa3915fe41d5e83e20"
+    },
+    "tests/unit/test_breadth.py": {
+      "bytes": 21738,
+      "sha256": "3b0403ec7dbeebc26b06b031e5fa64273c5961781e3b9231c12e65567c616919"
+    },
+    "tests/unit/test_incremental.py": {
+      "bytes": 18614,
+      "sha256": "8077159a7566d7fe4aafe7d2a4d2699e5f1ee2f04f1acbd7ec156d202173709f"
+    },
+    "tests/unit/test_state.py": {
+      "bytes": 11029,
+      "sha256": "fcc6e35ad21947061c5cfc9822eeab3ace8d9321491d7651039843f8ef19da49"
+    },
+    "tests/unit/test_equivalence.py": {
+      "bytes": 11337,
+      "sha256": "9a1e604373532aeec10b59ea70b07a1370ec4a5cc3b247bb30b717476305147b"
+    },
+    "tests/unit/test_interval_omissions.py": {
+      "bytes": 5860,
+      "sha256": "f86f1f6be88b869f06220dbb05329841fb9efc3aa3fcc4af7b4b494457b74f51"
+    }
+  },
+  "execution": {
+    "product_imports_or_tests": 0,
+    "source_compilation_or_installation": 0,
+    "benchmarks": 0,
+    "native_operations": 0,
+    "network_probes": 0,
+    "GitHub_mutations": 0,
+    "source_mutations": 0,
+    "artifact_writes": "Only this report and companion Markdown outside repositories."
+  },
+  "limitations": [
+    "Source review and mathematical trace only; no runtime search, fuzzing, property test, installed reproduction, platform/ABI, provider-data, performance, security-containment or production qualification by this reviewer.",
+    "Not an exhaustive inspection of every caller, error combination, state-payload mutation or every market-action policy branch. Policies/buckets/volume were inspected for relevant arithmetic/admission context; complete policy/provenance audit remains separate.",
+    "Caller-supplied normalized identities, completeness, session calendars, known-at assertions, benchmark mappings and corporate-action policy evidence remain explicit trust inputs; mathematics cannot establish source truth or economic usefulness.",
+    "Streaming opaque global event uniqueness and partition ordinals remain caller-certified, as documented; bounded retained checks are not complete historical deduplication.",
+    "No new issue, release, implementation, scope relaxation or R16/R17 acceptance is implied."
+  ],
+  "next_validation": "Use root exact-head trusted test results for numerical/admission/lifecycle modules; retain fail/disposition evidence separately. Add targeted independent regression only if an actual discrepancy is observed."
+}
