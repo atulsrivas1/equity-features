@@ -1,3 +1,9 @@
+## R15 story432 implemented; final delivery pending
+
+[Current public API navigation](https://github.com/atulsrivas1/equity-features/issues/432) implements only`docs/api/PUBLIC_API.md` plus companion documentation. [Plan](stories/STARTER-432_PLAN.md), [actual bounded validation](stories/STARTER-432_VALIDATION.json). Dependency#437 is accepted at`abec5061d6d55520870335cb5c6d734d1358868d`; published precode design and separate review preceded Ready/In progress. Bounded check passed; final source/relevant CI/main publication and fresh independent acceptance remain pending. No package/API/math/version/dependency/workflow change, human/usefulness or performance claim. Other deferred scope remains unchanged.
+
+## Earlier checkpoints retained as history
+
 ## Current owner-approved R15 allocation
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/437#issuecomment-6252649998) explicitly accepts PR438's three documentation stories and authorizes separate local review throughout R15. E22#439/milestone18 select exactly governance437, stories432/434/433 and aggregate439. The four children remain subject to actual separate review, checks, publication and acceptance. Existing local permission is automated review, not human review or hosted activation. No repeated per-story review permission is needed within this grant. No completed review or implementation is inferred.

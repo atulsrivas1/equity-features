@@ -1,3 +1,9 @@
+## R15 story432: preserve the actual reading contract
+
+Current public API navigation: preserve original source/history and evaluate the changed links/table/context directly. A bounded source or mathematical verifier is not a generic prose validator, production rerun or human usability result. [Actual evidence](../stories/STARTER-432_VALIDATION.json). Required docs.yml/check plus independent exact source/published-main review is the scoped gate for unchanged package/build/workflow inputs; incidental workflow states are recorded separately.
+
+Preparation tooling history: a superseded-run cancellation met409 after completion and was corrected using fresh state; private delivery helper initially omitted fresh-main ancestry and then used unsupported merge mode405. Separate review corrected the ancestry guard and supported controlled squash before publication; preserve original REWORK/failed tool evidence, no runtime failure or repeated successful actions inferred.
+
 ## R14 learning: freeze metrics before activity; require fresh closure evidence
 
 NO_COHORT is not worldwide zero, and maintainer CI/demo is not human participation. Empty denominators stay N/A; learning goals are not release thresholds. Retain explicit DEFER without inventing pilot permission or indefinite growth work. Accepted evidence: [EQ134](https://github.com/atulsrivas1/equity-features/issues/315#issuecomment-6247172309); [manual metrics](../COMMUNITY_METRICS.md); [source receipt](../R14_LIBRARY_RECEIPT.md).

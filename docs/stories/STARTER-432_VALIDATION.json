@@ -1,0 +1,17 @@
+{
+  "issue": 432,
+  "base": "abec5061d6d55520870335cb5c6d734d1358868d",
+  "precode_plan": "https://github.com/atulsrivas1/equity-features/issues/432#issuecomment-6252754776",
+  "precode_review_sha256": "649efe60527131963e4dfd4e5956e7cc270bf6578fb7298f2a10f97a7489a8d8",
+  "design_sha256": "185eef2f72907f1cd7f2bcbc271c3f40c103a79dc8d6a96fb48ed2f31b72e083",
+  "bounded_check_sha256": "a9d62bf31ba2a334a1c592d20578dd59adc959f7dcc3ab3c4631b7270786e53c",
+  "bounded_check_returncode": 0,
+  "bounded_check_stdout": "Four navigation destinations and unchanged historical body verified.\r\n",
+  "bounded_check_stderr": "",
+  "original_target_gitlf_sha256": "8d8a7848d39181a7e5c429a46a2ed432968da1a3be3ea7dca12af2de78ba9d7c",
+  "changed_target_gitlf_sha256": "a71659045242112e761319a6f38e6292fb948989fe54e85e1b8f86eedb3fb25b",
+  "package_api_math_version_dependency_workflow_change": false,
+  "independent_final_review": "PENDING",
+  "current_CI_main_publication_acceptance": "PENDING",
+  "limitations": "Documentation only; no product execution, installability, human usability or performance qualification inferred."
+}

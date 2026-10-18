@@ -1,3 +1,9 @@
+## R15 story432 implemented; final delivery pending
+
+[Current public API navigation](https://github.com/atulsrivas1/equity-features/issues/432) implements only`docs/api/PUBLIC_API.md` plus companion documentation. [Plan](stories/STARTER-432_PLAN.md), [actual bounded validation](stories/STARTER-432_VALIDATION.json). Dependency#437 is accepted at`abec5061d6d55520870335cb5c6d734d1358868d`; published precode design and separate review preceded Ready/In progress. Bounded check passed; final source/relevant CI/main publication and fresh independent acceptance remain pending. No package/API/math/version/dependency/workflow change, human/usefulness or performance claim. Other deferred scope remains unchanged.
+
+## Earlier checkpoints retained as history
+
 ## R15 selected; separate review authorized
 
 [Owner decision](https://github.com/atulsrivas1/equity-features/issues/437#issuecomment-6252649998) accepts PR438's documentation-only scope and authorizes separate local Codex review throughout R15. E22#439/milestone18 select exactly437/432/434/433/439; governance first, then432,434,433 one at a time. All remain open at this source freeze; handoff final review and normal delivery gates precede story Ready. [Plan](R15_RELEASE_PLAN.md), [handoff](R15_AUTONOMOUS_HANDOFF.md), [inputs](R15_INPUTS.json). Existing story acceptance/IDs, all134EQ rows/retired094, original page bodies/formulas and package/API/math/version/dependencies/workflows remain preserved. Provisional complexity: governance2,432one,434one,433two points; not days. No due date.
