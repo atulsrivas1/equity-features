@@ -1,3 +1,9 @@
+## EQ133 precode correction: explicit UTF8 draft reads
+
+Separate local reviewer `/root/r9_plan_review` found seven corrupted lifecycle separators in the frozen proposed guide at [initial PR431 head6e9ad32](https://github.com/atulsrivas1/equity-features/commit/6e9ad32fa712911fc762551a19411d99fda83fe5). Initial precode review SHA256 `ba89bd5db15118d13f8616272d6ad8007b19a72f01b4720b7652c094e1b44330` is REWORK, not Ready or product failure. A draft preparer had read correct UTF8 with the Windows default text encoding; writing that result as UTF8 preserved mojibake. Restore the original UTF8 guide with the same ASCII prerequisite block, use explicit encoding for every draft/source read, and renew exact public precode review. Preserve the initial public commit/report and all other planned fields. No contribution guide, starter issue or product execution was implemented by that planning head.
+
+## Earlier checkpoints retained as history
+
 ## EQ132 delivery lesson; EQ133 preparation
 
 [Accepted EQ132](https://github.com/atulsrivas1/equity-features/issues/313#issuecomment-6246206150) qualified the actual minimal three-wheel path; fresh CI installations and independent full results/ownership/artifact DATA audit remain distinct from source checks, human usefulness and a reviewer reinstall. Public source, exact66/33 workflow/event/attempt/job identities and complete ten/six artifact bindings are conjunctive gates. Verify provider identity/expiry and retained ZIP bytes near release; PR artifacts use a verified virtual merge source/tree while provider run head remains the branch head. Preserve GitLF and declared WindowsCRLF text identities; normalize no arbitrary payload.
