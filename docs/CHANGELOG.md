@@ -1,3 +1,7 @@
+## Unreleased: owner-selected R15 documentation usability
+
+Owner selects existing432/434/433 and GOV027, E22#439/milestone18, with separate local review authorized throughout. The handoff is being reviewed; implementation and actual delivery remain pending. No package behavior/version change or deferred-scope expansion. [Decision](https://github.com/atulsrivas1/equity-features/issues/437#issuecomment-6252649998).
+
 ## Unreleased: R15 handoff proposal
 
 GOV027 proposes a bounded documentation usability release from existing starters432/434/433. Scope/review decisions and actual planning publication remain pending; no implementation or package behavior/version change. R14 selected library scope is accepted separately; research/combined C1 and deferred work remain open. See [plan](R15_RELEASE_PLAN.md).

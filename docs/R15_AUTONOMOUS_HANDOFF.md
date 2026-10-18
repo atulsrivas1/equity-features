@@ -1,3 +1,11 @@
+## Current owner-approved R15 allocation
+
+[Owner decision](https://github.com/atulsrivas1/equity-features/issues/437#issuecomment-6252649998) explicitly accepts PR438's three documentation stories and authorizes separate local review throughout R15. E22#439/milestone18 select exactly governance437, stories432/434/433 and aggregate439. The four children remain subject to actual separate review, checks, publication and acceptance. Existing local permission is automated review, not human review or hosted activation. No repeated per-story review permission is needed within this grant. No completed review or implementation is inferred.
+
+The proposed-scope/pending-review language below is retained as the initial preparation checkpoint and superseded by this decision. Governance delivery still precedes story432 readiness; original criteria/source identities/exclusions remain binding. Exact final head review is renewed after allocation changes. All five milestone members are open at this freeze; closure remains future evidence.
+
+## Original preparation checkpoint retained
+
 # R15 execution handoff
 
 Status: proposed documentation-only release; implementation has not started. Read [release plan](R15_RELEASE_PLAN.md), [frozen inputs](R15_INPUTS.json), [GOV027 plan](stories/GOV-027_PLAN.md), work agreements, current knowledge/handoff, delivery/review policy and live Project before acting.

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "status": "PROPOSED_NOT_SELECTED",
+  "status": "SELECTED_PLANNING_NOT_ACCEPTED",
   "base": "071e06dcc44665573cc09526016970e04be4f8ea",
   "governance_issue": 437,
   "governance_id": "GOV-027",
-  "selected_milestone": null,
-  "aggregate_epic": null,
-  "scope_accepted": false,
-  "local_review_authorized": false,
+  "selected_milestone": 18,
+  "aggregate_epic": 439,
+  "scope_accepted": true,
+  "local_review_authorized": true,
   "review_completed": false,
   "implementation_started": false,
   "proposed_pull_order": [
@@ -39,5 +39,13 @@
   "accepted_r14_receipt": "https://github.com/atulsrivas1/equity-features/issues/428#issuecomment-6247703232",
   "package_api_math_version_dependency_workflow_change": false,
   "new_product_tests_executed": 0,
-  "runtime_ready": false
+  "runtime_ready": false,
+  "owner_decision": "https://github.com/atulsrivas1/equity-features/issues/437#issuecomment-6252649998",
+  "exact_milestone_members": [
+    432,
+    433,
+    434,
+    437,
+    439
+  ]
 }
