@@ -22,7 +22,12 @@ jobs:
         id: classify
         run: |
           mkdir -p dist/ci/scope
-          python tools/ci_scope.py > dist/ci/scope/classification.json
+          python - <<'PY' > dist/ci/scope/classification.json
+          import os, subprocess, sys
+          fixed = dict(os.environ)
+          fixed['GITHUB_SHA'] = '0' * 40
+          raise SystemExit(subprocess.run([sys.executable, 'tools/ci_scope.py'], env=fixed).returncode)
+          PY
           python - <<'PY'
           import json, os
           from pathlib import Path
