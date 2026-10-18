@@ -1,0 +1,128 @@
+{
+  "schema": "equity-features.overall-worker-review.v1",
+  "reviewer": "/root/overall_worker_review",
+  "review_type": "separate local automated read-only source and retained-evidence review",
+  "heads": {
+    "core": {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "source_worktree_unchanged": true
+    },
+    "io": {
+      "repository": "atulsrivas1/equity-feature-io",
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "source_worktree_unchanged": true
+    },
+    "workers": {
+      "repository": "atulsrivas1/equity-feature-workers",
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "source_worktree_unchanged": true
+    }
+  },
+  "verdict": "KEEP_ARCHITECTURE; PARALLEL_CAPABILITY_PRESENT; END_TO_END_SPEEDUP_NOT_ESTABLISHED",
+  "findings": [],
+  "observations": [
+    {
+      "id": "W01",
+      "severity": "direction",
+      "confidence": "high",
+      "file": "workers/packages/workers/src/equity_feature_workers/supervisor.py",
+      "lines": [
+        159,
+        188,
+        200,
+        504,
+        541,
+        558
+      ],
+      "trigger": "Independent supplied immutable tasks use thread/process mode",
+      "consequence": "Independent instrument components execute concurrently, same/intersecting instruments and session history remain ordered. All publication follows complete compute and is coordinator-owned. Parallelism is coarse compute-only, not automatic parallel acquisition/publication.",
+      "recommendation": "Keep purity and coordinator sink ownership. Measure complete representative pipelines before selecting worker counts; do not present pool support as demonstrated speedup."
+    },
+    {
+      "id": "W02",
+      "severity": "direction",
+      "confidence": "high",
+      "file": "core/docs/stories/EQ-088_MEASURED.json",
+      "trigger": "64 instruments x 256 synthetic trades, three repeats for each mode and sink",
+      "consequence": "Sequential median Parquet 69.3332328s versus threads2 72.5743428s and threads4 77.2374497s. DuckDB 205.4601907s versus 217.1562376s and 214.9572834s. Current evidence does not support a wider default.",
+      "recommendation": "Retain sequential1. Attribute conversion, codec, source setup, publication, readback and catalog costs before further scheduling work."
+    },
+    {
+      "id": "W03",
+      "severity": "direction",
+      "confidence": "high",
+      "file": "workers/packages/workers/src/equity_feature_workers/supervisor.py",
+      "lines": [
+        86,
+        128,
+        146,
+        463,
+        488,
+        541
+      ],
+      "trigger": "Caller requests bounded resources or cancellation",
+      "consequence": "Budgets reserve logical serialized populations, not total Python/native RSS. Thread counts are caller declarations, not enforced native thread controls. Cancellation stops unsubmitted shards and publication, but running coarse shards are joined and can run to completion.",
+      "recommendation": "Retain explicit limits and trusted-local scope. Benchmark native thread settings jointly with process count; do not claim hard memory caps or hard cancellation deadlines."
+    },
+    {
+      "id": "W04",
+      "severity": "direction",
+      "confidence": "high",
+      "file": "workers/packages/workers/src/equity_feature_workers/manifests.py",
+      "lines": [
+        214,
+        218,
+        233
+      ],
+      "trigger": "Same compatible config/input/initialization reused across tasks",
+      "consequence": "Reuse identity includes config, inputs, instruments, calendar, warmup and initialization. Cache is explicit caller-owned and does not itself acquire inputs. No universal feature planner or shared-memory process cache follows.",
+      "recommendation": "Prefer one acquisition per immutable instrument/session scope and fused multi-feature calculations. Keep revision/cutoff/initialization in reuse keys."
+    },
+    {
+      "id": "W05",
+      "severity": "direction",
+      "confidence": "high",
+      "file": "workers/packages/workers/src/equity_feature_workers/claims.py",
+      "lines": [
+        225,
+        243,
+        375,
+        394,
+        412
+      ],
+      "trigger": "Local restart or uncertain publication",
+      "consequence": "Task OS locks are retained for claim lifetime, live expiry never steals ownership, retained intents require actual sink receipt/content readback before success and uncertain states are not blindly replayed.",
+      "recommendation": "Keep conservative actual-readback recovery. Any throughput work must preserve exact identity, full evidence, idempotency, locking and uncertain-commit handling."
+    }
+  ],
+  "evidence_checks": {
+    "new_runtime_tests": 0,
+    "new_benchmarks": 0,
+    "new_product_imports": 0,
+    "new_native_or_network_operations": 0,
+    "EQ088_raw_records": 72,
+    "EQ088_references": 8,
+    "EQ088_raw_statistics_recomputed_groups": 24,
+    "EQ088_all_group_min_median_max_match": true,
+    "EQ066_raw_records": 162,
+    "EQ066_full_parity_failures": 0,
+    "EQ066_independent_five_trade_golden_failures": 0,
+    "EQ085_pipeline_groups": 6,
+    "EQ085_raw_three_sample_medians_match": true
+  },
+  "coverage_limits": [
+    "No new test, benchmark, native process, package build/install, API or workload run. Existing JSON reports are retained execution evidence, not independently rerun measurements.",
+    "Performance measurements are historical frozen source cohorts; current source review does not convert them into new-head performance qualification.",
+    "No exhaustive mathematical proof or every calculator review; numerical correctness beyond orchestration is reviewed separately by the parent/core reviewer.",
+    "No real licensed provider workload, annual workload, production capacity, hard host resource enforcement, independent human review or Linux full timing claim.",
+    "No concrete new worker correctness defect established in inspected paths; direction recommendations are not bug findings or implementation approval."
+  ],
+  "recommended_sequence": [
+    "Freeze one representative target workload and full parity oracle, including task count, records per instrument, histories, schema, source and sink.",
+    "Measure serial acquisition/setup, canonical materialization, pure compute, codec/hash, sink commit/readback and generation/catalog under caller-visible boundaries.",
+    "Optimize measured serialization/conversion and repeated setup first with unchanged public bytes and negative/security controls.",
+    "Compare fused per-instrument batches plus sequential/thread/process configurations on both supported platforms; cap nested native threads and record process startup/IPC.",
+    "Adopt parallel defaults only for a demonstrated workload class with full numerical/quality/evidence/input identity parity and explicit fallback; retain conservative default otherwise."
+  ]
+}

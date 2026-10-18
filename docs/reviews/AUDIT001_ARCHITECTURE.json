@@ -1,0 +1,321 @@
+{
+  "reviewer": "/root/r16_review separate local automated reviewer",
+  "audit_scope": "Cross-repository architecture, purity/ownership, composition and parallel generation direction; read-only source and retained evidence only.",
+  "source_freeze": {
+    "core": {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "source_worktree_unchanged": true
+    },
+    "io": {
+      "repository": "atulsrivas1/equity-feature-io",
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "source_worktree_unchanged": true
+    },
+    "workers": {
+      "repository": "atulsrivas1/equity-feature-workers",
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "source_worktree_unchanged": true
+    }
+  },
+  "findings": [],
+  "finding_conclusion": "No concrete correctness, purity or shared-mutable-state defect established in the inspected paths. This is not a proof that every formula, adapter, callback or interleaving is correct.",
+  "direction": "The central architecture is appropriate for independent calculations. Focus next engineering on a measured local end-to-end throughput use case, not another broad infrastructure/platform layer.",
+  "confidence": {
+    "pure_boundary_and_dependency_direction": "high for inspected public paths",
+    "general_shared_state_safety": "moderate, caller-owned callbacks/accumulators and trusted factories require ownership discipline",
+    "parallel_speed_or_capacity": "not established by this audit"
+  },
+  "recommendations": [
+    {
+      "id": "A1",
+      "priority": "next-work recommendation, not defect",
+      "summary": "Preserve the pure calculation / adapter / worker split; publish one direct caller recipe before expanding infrastructure.",
+      "detail": "Use caller-supplied immutable CanonicalBatch/config/context, compute independent family results, then compose_features; acquire and publish outside the calculation. Keep strategy/label/evidence/agent packages optional consumers. Do not make a scheduler, service, audit ledger or platform-enforcement layer prerequisite to local calculations.",
+      "references": [
+        {
+          "repository": "atulsrivas1/equity-features",
+          "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+          "file": "packages/features/src/equity_features/composition.py",
+          "line": 7
+        },
+        {
+          "repository": "atulsrivas1/equity-feature-workers",
+          "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+          "file": "packages/workers/src/equity_feature_workers/commands.py",
+          "line": 250
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "priority": "highest performance investigation",
+      "summary": "Profile representative end-to-end jobs before choosing parallelism or a native kernel.",
+      "detail": "Measure acquisition, canonical conversion, validation, pure compute, process transport, result encoding, publication and readback separately and together. Use independent numerical/status/quality/evidence/identity parity. Current reducers loop in Python and Arrow/NumPy bridges materialize Python values; source inspection establishes possible costs, not dominant cost or a speedup. Existing R8 evidence retained sequential1; it is workload-specific and does not forbid a new justified workload.",
+      "references": [
+        {
+          "repository": "atulsrivas1/equity-features",
+          "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+          "file": "packages/features/src/equity_features/session/trades.py",
+          "line": 52
+        },
+        {
+          "repository": "atulsrivas1/equity-features",
+          "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+          "file": "packages/contracts/src/equity_feature_contracts/columnar.py",
+          "line": 66
+        },
+        {
+          "repository": "atulsrivas1/equity-feature-workers",
+          "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+          "file": "packages/workers/src/equity_feature_workers/commands.py",
+          "line": 263
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "priority": "parallel design recommendation",
+      "summary": "Reuse existing coarse task/process execution; parallelize independent populations, retain order and dependency barriers.",
+      "detail": "Supervisor already supports sequential/thread/spawn-process modes with bounded in-flight work and resource declarations. Same-instrument connected tasks stay in one shard; this is conservative scheduling, not a correctness defect. Whole-shard completion and coordinator-only publication add latency/buffering. Measure shard skew, startup/pickle/transport and serialized sink cost before changing either partitioning or streaming completion. Never split history/carry/universe dependencies arbitrarily; only use declared legal merges.",
+      "references": [
+        {
+          "repository": "atulsrivas1/equity-feature-workers",
+          "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+          "file": "packages/workers/src/equity_feature_workers/supervisor.py",
+          "line": 152
+        },
+        {
+          "repository": "atulsrivas1/equity-feature-workers",
+          "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+          "file": "packages/workers/src/equity_feature_workers/supervisor.py",
+          "line": 505
+        },
+        {
+          "repository": "atulsrivas1/equity-feature-workers",
+          "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+          "file": "packages/workers/src/equity_feature_workers/supervisor.py",
+          "line": 550
+        },
+        {
+          "repository": "atulsrivas1/equity-features",
+          "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+          "file": "packages/features/src/equity_features/merging.py",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "priority": "ownership documentation recommendation",
+      "summary": "State sharing is safe only under the current ownership contracts.",
+      "detail": "Canonical batches/results and composition specs are concrete immutable tuples/records; each batch calculation builds local reduction state. SessionAccumulator is mutable caller-owned state and should have one owner per stream. InputReuseCache/Supervisor enforce creating-thread ownership; SerialPublisher owns the sink drain. Caller-supplied callbacks/factories are trusted local code: top-level callback checks do not prove purity, prevent global mutation or make thread execution race-free. Register/freeze factories before concurrent work and give each task/owner its own mutable components.",
+      "references": [
+        {
+          "repository": "atulsrivas1/equity-features",
+          "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+          "file": "packages/contracts/src/equity_feature_contracts/inputs.py",
+          "line": 181
+        },
+        {
+          "repository": "atulsrivas1/equity-features",
+          "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+          "file": "packages/features/src/equity_features/incremental.py",
+          "line": 47
+        },
+        {
+          "repository": "atulsrivas1/equity-feature-workers",
+          "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+          "file": "packages/workers/src/equity_feature_workers/supervisor.py",
+          "line": 75
+        },
+        {
+          "repository": "atulsrivas1/equity-feature-workers",
+          "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+          "file": "packages/workers/src/equity_feature_workers/publication.py",
+          "line": 53
+        },
+        {
+          "repository": "atulsrivas1/equity-feature-io",
+          "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+          "file": "packages/io-sdk/src/equity_feature_io_sdk/factories.py",
+          "line": 54
+        }
+      ]
+    }
+  ],
+  "positive_source_observations": [
+    "Core feature distribution depends inward only on contracts; numerical optional columnar dependencies isolated in extra. No concrete I/O, wall clock, scheduler or publication import found in inspected numerical entry paths.",
+    "CanonicalBatch snapshots concrete columns and validates scalar schema; family calculations build per-call reducer state. Composition preserves complete results and validates config/timing/source identity instead of executing undeclared dependencies.",
+    "I/O registry factories receive explicit configurations/credential-provider boundary; DuckDB reader uses local connection/context and configured resource settings. Publication envelope and receipt validation preserve complete typed results and idempotency identity.",
+    "Workers acquire/validate supplied batches before pure compute; typed manifests and dependency/universe admission separate readiness from mathematical functions. Supervisor runs pure tasks without sharing source/sink handles and publishes in coordinator.",
+    "Incremental legal merge rejects continuous-carry merge and requires matching binding/adjacent nonempty spans; snapshots and explicit order checks prevent treating arbitrary partitions as interchangeable."
+  ],
+  "coverage": [
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/contracts/src/equity_feature_contracts/inputs.py",
+      "line": 1,
+      "sha256": "5c55770c93dbeae7a555dcde6408828572aef18c4b9ce660555e12d2ccc61b38"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/contracts/src/equity_feature_contracts/adapters.py",
+      "line": 1,
+      "sha256": "270943d26c781cfadf24a443821f315cbdd483cc8482dc453d1aa93ce554f982"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/contracts/src/equity_feature_contracts/composition.py",
+      "line": 1,
+      "sha256": "238329418c430bc0120d7ae9198f8fa4a0223185113a6b19d56af9397d85a47e"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/contracts/src/equity_feature_contracts/columnar.py",
+      "line": 1,
+      "sha256": "f044f33bcefd0ec301617aa67935d374ae25692fc800cb1c00a877acd7f34b65"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/contracts/src/equity_feature_contracts/registry.py",
+      "line": 1,
+      "sha256": "445321090958840524a9484a96532dfb4d793fd522758b84e08a7a571cd88a97"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/features/src/equity_features/session/trades.py",
+      "line": 1,
+      "sha256": "987d4951fb4158131721deffbf2a89e5d3d6c2b9f4a5af07d81c34a101f7e328"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/features/src/equity_features/session/_reductions.py",
+      "line": 1,
+      "sha256": "6c8afdff0132168e7b6db41759be9c7a4243c4de69da9357227bd0f18a4c3156"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/features/src/equity_features/incremental.py",
+      "line": 1,
+      "sha256": "f3d06866e2d25285fd18bcfac75dc7477b2f5e02317d3c2474e261d12f2f4d1a"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/features/src/equity_features/merging.py",
+      "line": 1,
+      "sha256": "4592c7dce640b08c5237c9832c477e97244d71820796ddb88910f25bb579add6"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/features/src/equity_features/composition.py",
+      "line": 1,
+      "sha256": "33310185340f2a394771d2f7dd598bb6bb32f32d1ccec0cc2bfd593fbee603d0"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/features/src/equity_features/custom.py",
+      "line": 1,
+      "sha256": "90de88ed9b3aa5e49909814907a6421ec3c297c2e12ee424475aeb7646900bb0"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/continuous/src/equity_feature_continuous/_engine.py",
+      "line": 1,
+      "sha256": "74376294a4a2dfc02d83c78ffcb636932ad630349e74e841a6d3b988658f4150"
+    },
+    {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "file": "packages/labels/src/equity_feature_labels/_engine.py",
+      "line": 1,
+      "sha256": "8882a433cdf9bc93b2b7c96aaa0bdf12f7390bc742ae56b6f3004d85d92c864c"
+    },
+    {
+      "repository": "atulsrivas1/equity-feature-io",
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "file": "packages/io-sdk/src/equity_feature_io_sdk/factories.py",
+      "line": 1,
+      "sha256": "8045218cf70e6188a5b51278e5c79ddba2a7a3b8150e4997ba6c5f11706b7218"
+    },
+    {
+      "repository": "atulsrivas1/equity-feature-io",
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "file": "packages/io-sdk/src/equity_feature_io_sdk/publication.py",
+      "line": 1,
+      "sha256": "bcac45f3fea1b1e9a28e352df4641840cb2cc078d5ab7efc63d6e539ce60ac88"
+    },
+    {
+      "repository": "atulsrivas1/equity-feature-io",
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "file": "packages/duckdb/src/equity_feature_duckdb/reader.py",
+      "line": 1,
+      "sha256": "e2f5f584bdab01e46da95fb9c71148a1a4e6a2fd35eb50325adf3a26d8cc079e"
+    },
+    {
+      "repository": "atulsrivas1/equity-feature-io",
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "file": "packages/parquet/src/equity_feature_parquet/sink.py",
+      "line": 1,
+      "sha256": "6150fb1078536a07e22ac1abd1143932d30789afc7811a37cf5ee092a583e874"
+    },
+    {
+      "repository": "atulsrivas1/equity-feature-workers",
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "file": "packages/workers/src/equity_feature_workers/commands.py",
+      "line": 1,
+      "sha256": "73e2db3acb10d419c90a7024ff5a353997522926ed91317092c247dd9eacc4ec"
+    },
+    {
+      "repository": "atulsrivas1/equity-feature-workers",
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "file": "packages/workers/src/equity_feature_workers/required_inputs.py",
+      "line": 1,
+      "sha256": "a7423f1ca2c619210a8fb5b462b436bec3825ec9532ddec1654cd96b2bac9116"
+    },
+    {
+      "repository": "atulsrivas1/equity-feature-workers",
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "file": "packages/workers/src/equity_feature_workers/supervisor.py",
+      "line": 1,
+      "sha256": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe"
+    },
+    {
+      "repository": "atulsrivas1/equity-feature-workers",
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "file": "packages/workers/src/equity_feature_workers/publication.py",
+      "line": 1,
+      "sha256": "a90bdafb224805fb3346e75948547635aeeef7a4e6c9de13c7895a8aa0b9f7de"
+    }
+  ],
+  "existing_evidence_read": [
+    "core/docs/decisions/R8_NATIVE_DECISION.md",
+    "core/docs/stories/EQ-088_ANALYSIS.md",
+    "core/docs/PACKAGE_DESIGN.md",
+    "core/docs/IO_WORKER_ARCHITECTURE.md",
+    "core/docs/RESOURCE_BEHAVIOR.md"
+  ],
+  "checks": [
+    "Source/static import searches and manual affected-caller inspection; no product imports, numerical tests, benchmarks, builds, installations, provider/native/network workloads or probes.",
+    "Inspected exact source-freeze clean worktree files; findings would require exact head/path/line/trigger/consequence. No hypothetical-risk findings or performance claims were fabricated."
+  ],
+  "limitations": [
+    "Not an exhaustive review of every package, feature equation, service/MCP/ledger/security or filesystem race; no new SEC/platform enforcement scope.",
+    "No new execution or measured speed/capacity result; existing R8 synthetic measurements are historical evidence with their original machine/workload limits.",
+    "Static top-level callback admission is not sandboxing or proof of arbitrary trusted caller purity/thread-safety; current library contracts leave this ownership with caller.",
+    "Package correctness evidence from accepted releases is not rerun or regenerated by this audit.",
+    "Read-only shell/source-inspection helper processes only; no calculation, data-adapter, worker pool or product workload launched."
+  ]
+}

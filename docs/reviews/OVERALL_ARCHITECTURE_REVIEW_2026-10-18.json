@@ -1,0 +1,72 @@
+{
+  "schema": "equity-features.overall-audit.v1",
+  "issue": 453,
+  "date": "2026-10-18",
+  "source_freeze": {
+    "core": {
+      "repository": "atulsrivas1/equity-features",
+      "head": "0d4eb0c1af33507bc0e9f8961180f175edcd7b8b",
+      "source_worktree_unchanged": true
+    },
+    "io": {
+      "repository": "atulsrivas1/equity-feature-io",
+      "head": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+      "source_worktree_unchanged": true
+    },
+    "workers": {
+      "repository": "atulsrivas1/equity-feature-workers",
+      "head": "a69ae9cfeb62730fc78705b4752b94c6f9438275",
+      "source_worktree_unchanged": true
+    }
+  },
+  "verdict": {
+    "architecture": "KEEP_EXISTING_SEPARATION",
+    "calculations": "NO_NEW_ACTIONABLE_DEFECT_ESTABLISHED_IN_INSPECTED_PATHS",
+    "parallel_execution": "IMPLEMENTED_AND_FRESH_PARITY_TESTS_PASSED",
+    "speed": "END_TO_END_SPEEDUP_NOT_ESTABLISHED_FOR_RETAINED_BENCHMARKS",
+    "next_priority": "REPRESENTATIVE_THROUGHPUT_AND_STAGE_COSTS_BEFORE_WIDER_DEFAULTS_OR_NEW_INFRASTRUCTURE"
+  },
+  "confirmed_findings": [],
+  "independent_reviewers": [
+    "/root/r16_review",
+    "/root/r15_review",
+    "/root/overall_worker_review"
+  ],
+  "public_reports": {
+    "AUDIT001_ARCHITECTURE.json": {
+      "sha256": "0b4da340ccd3b9c755dd91f8e181f950bb981010d0712525993feb27f5303ab6",
+      "original_private_report_sha256": "ca8db7d3e08c5b5da834d0c090cc77facd51bb052c53342faa29a7c8388fe02c",
+      "sanitization": "Removed local worktree path fields; replaced local source paths with repository labels. Exact repository/head and source file identities retained."
+    },
+    "AUDIT001_MATHEMATICS.json": {
+      "sha256": "556e421afbdcee6967817fa179a14267ed051a4af346a0b6ea9ca357bce581bc",
+      "original_private_report_sha256": "556e421afbdcee6967817fa179a14267ed051a4af346a0b6ea9ca357bce581bc",
+      "sanitization": "Removed local worktree path fields; replaced local source paths with repository labels. Exact repository/head and source file identities retained."
+    },
+    "AUDIT001_CONTINUOUS_MATHEMATICS.json": {
+      "sha256": "b46aff3b3f5877bf663d9ac0cfe481c25370b0a7fce314e4cc2a7edecced9540",
+      "original_private_report_sha256": "b46aff3b3f5877bf663d9ac0cfe481c25370b0a7fce314e4cc2a7edecced9540",
+      "sanitization": "Removed local worktree path fields; replaced local source paths with repository labels. Exact repository/head and source file identities retained."
+    },
+    "AUDIT001_WORKER_PERFORMANCE.json": {
+      "sha256": "a0224477229c6922c9dd95eb979f70ae6e1787918ea7f5797fec1ed70a559082",
+      "original_private_report_sha256": "3437140f111177e2c96df0094de49e52d6b0b11c6ca235d291ede39871f4f62b",
+      "sanitization": "Removed local worktree path fields; replaced local source paths with repository labels. Exact repository/head and source file identities retained."
+    }
+  },
+  "validation": {
+    "file": "AUDIT001_VALIDATION.json",
+    "sha256": "5f986398e6caad2f20cd2843a5fda8413d77eb77650c779627f1cf8f68c09a83",
+    "successful_test_methods": 720
+  },
+  "source_and_runtime_changes": false,
+  "historical_measurements_recomputed_not_rerun": {
+    "EQ088_samples": 72,
+    "EQ088_references_excluded": 8,
+    "EQ088_min_median_max_groups": 24,
+    "EQ066_samples": 162,
+    "EQ085_groups": 6
+  },
+  "publication_state": "PRE_PUBLICATION_SOURCE_FREEZE; current issue453 and PR acceptance govern after publication",
+  "future_release_selected": false
+}
