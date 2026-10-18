@@ -68,5 +68,12 @@
     "EQ085_groups": 6
   },
   "publication_state": "PRE_PUBLICATION_SOURCE_FREEZE; current issue453 and PR acceptance govern after publication",
-  "future_release_selected": false
+  "future_release_selected": false,
+  "per_file_source_hash_byte_format": "Raw reviewed Windows working-copy bytes, retaining platform newline bytes such as CRLF; not canonical Git-LF blob hashes. Immutable repository commit IDs identify Git snapshots independently.",
+  "review_corrections": [
+    {
+      "review": "overall-report-byte-format-supplement",
+      "disposition": "Clarified checkout-hash versus Git-blob byte formats without changing original reviewer reports, source identities, findings, executed checks or performance conclusions."
+    }
+  ]
 }

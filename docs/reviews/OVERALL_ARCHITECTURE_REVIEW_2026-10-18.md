@@ -16,6 +16,8 @@ Independent calculations are supported now. Parallel thread/spawn-process execut
 | equity-feature-io | `18d86761aa3eebb7414e51e8fa2aba089717b5eb` |
 | equity-feature-workers | `a69ae9cfeb62730fc78705b4752b94c6f9438275` |
 
+Per-file SHA256 values in the mirrored source reviews identify the raw inspected Windows working-copy bytes, retaining platform line endings such as CRLF. They are not hashes of canonical Git-LF blob bodies. The immutable Git commit IDs above identify the repository snapshots; raw checkout and normalized Git byte hashes can differ without a semantic source change.
+
 Dedicated clean worktrees retained the original working copies. Three separate local automated reviewers inspected mathematics, architecture and workers/performance. They are not human reviewers and did not independently reinstall or rerun the benchmarks. Root executed the fresh source tests separately. [Structured source/evidence index](OVERALL_ARCHITECTURE_REVIEW_2026-10-18.json).
 
 ## Independence and architecture
