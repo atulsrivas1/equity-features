@@ -8,6 +8,10 @@ Separate pre-execution review of [EQ131 admission](https://github.com/atulsrivas
 
 Positioning documents must distinguish accepted engineering scope, negative scientific findings and actual delivered channels. An owner-reviewed setup proposal or CI pass cannot replace actual profile/metadata application and readback. Keep pending criteria explicit while completing independent documentation work.
 
+
+
+[Actual setup verification](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244481653) later confirmed the exact six requested changes and unchanged outside-paragraph bytes after the separate owner applied them. Preserve the earlier pending report rather than rewriting it as success. Reconcile current pending-status documentation and renew affected source/CI coverage; the old green head cannot qualify newly changed documentation.
+
 ## Earlier checkpoints retained as history
 
 ## R14 scope separation requires explicit authority and separate acceptance

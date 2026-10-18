@@ -5,14 +5,14 @@
 ## Bounded change and criteria
 
 1. README first screen and `docs/START_HERE.md` identify audience, supplied-data calculation benefit, CPython 3.12 x64 Windows/Linux, reviewed GitHub/finite-retention artifact channel and experimental limits. Existing README history remains exact.
-2. The separately reviewed public setup packet remains pending actual application and independent profile/three-repository metadata readback. Keep criterion 2 unchecked; no account administration here.
+2. The [setup owner applied the exact reviewed packet](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244094736); [independent public readback](https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244481653) verified all six requested changes and preservation of unrelated profile content. This satisfies the setup requirement. All acceptance boxes remain unchecked until normal final delivery; no account administration occurred in this development work.
 3. The repository map connects core, I/O, workers and independent research with their existing owners, scope and evidence. Current research negatives/partial releases and combined C1 stay explicit.
 
 Related scope/release/knowledge/handoff/changelog documents distinguish current execution from preserved pre-start snapshots. The original three criteria and all research requirements remain unchanged. No package/API/math/example/test/version/dependency/build/workflow input changes.
 
 ## Validation and delivery
 
-Run the exact existing documentation structural checker, full changed-file UTF8/LF/JSON/link/privacy/history/criteria checks, and complete non-document input equality. No new numerical/native/install test solely for positioning text. Make the linked PR ready before completed separate final-head review/Test. Applicable current CI, actual main/tree/attribution/publication and original criteria—including actual setup readback—precede acceptance. An unfinished external setup action blocks release acceptance rather than independent source preparation.
+Run the exact existing documentation structural checker, full changed-file UTF8/LF/JSON/link/privacy/history/criteria checks, and complete non-document input equality. No new numerical/native/install test solely for positioning text. Make the linked PR ready before completed separate final-head review/Test. Applicable current CI, actual main/tree/attribution/publication and original criteria—including actual setup readback—precede acceptance. The earlier external setup blocker is resolved; remaining exact-head review, checks and delivered-main acceptance still apply.
 
 The [validation ledger](EQ-131_VALIDATION.json) records observed author checks and preserves failures; future review, main and acceptance fields remain pending until observed.
 

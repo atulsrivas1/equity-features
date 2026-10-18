@@ -6,8 +6,18 @@
   "points": 3,
   "original_criteria": 3,
   "criteria_accepted": false,
-  "setup_owner_application": "PENDING",
-  "setup_public_readback": null,
+  "setup_owner_application": "APPLIED_AND_INDEPENDENTLY_VERIFIED",
+  "setup_public_readback": {
+    "owner_receipt": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244094736",
+    "development_verification": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6244481653",
+    "reviewer": "/root/r10_review",
+    "report_sha256": "fa660ca3d7f6855164acea47f67d5f90fd123b63a1833b31ad58dae98c8522a8",
+    "six_requested_changes_match": true,
+    "outside_profile_paragraph_preserved": true,
+    "io_description_unchanged": true,
+    "research_metadata_unchanged": true,
+    "development_account_mutations": 0
+  },
   "setup_packet": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240334024",
   "governance_acceptance": "https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240852738",
   "admission": "https://github.com/atulsrivas1/equity-features/issues/312#issuecomment-6240904872",
@@ -56,5 +66,12 @@
     "EQ131 admission four pre-execution findings corrected before live mutation",
     "Original R13 failed study remains diagnostic-only/nonadoptable; no rerun"
   ],
-  "scope": "Documentation and navigation only; no account administration, outreach, research transfer, private/paid/provider/hosting/registry/trading/recurring changes."
+  "scope": "Documentation and navigation only; no account administration, outreach, research transfer, private/paid/provider/hosting/registry/trading/recurring changes.",
+  "prior_source_review": {
+    "head": "7b7af7eda88410b87c4d5215a99a131243422392",
+    "report_sha256": "e0013b11bd7d5ae83d83d52eebcbb7c4fe579ca8fc307e7152826d85cdf96dfd",
+    "approved": true,
+    "source_only": true,
+    "candidate_CI_successes_before_setup_reconciliation": 62
+  }
 }
