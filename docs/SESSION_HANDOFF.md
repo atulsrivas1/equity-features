@@ -1,3 +1,19 @@
+## R15 selected; separate review authorized
+
+[Owner decision](https://github.com/atulsrivas1/equity-features/issues/437#issuecomment-6252649998) accepts PR438's documentation-only scope and authorizes separate local Codex review throughout R15. E22#439/milestone18 select exactly437/432/434/433/439; governance first, then432,434,433 one at a time. All remain open at this source freeze; handoff final review and normal delivery gates precede story Ready. [Plan](R15_RELEASE_PLAN.md), [handoff](R15_AUTONOMOUS_HANDOFF.md), [inputs](R15_INPUTS.json). Existing story acceptance/IDs, all134EQ rows/retired094, original page bodies/formulas and package/API/math/version/dependencies/workflows remain preserved. Provisional complexity: governance2,432one,434one,433two points; not days. No due date.
+
+R14 acceptance remains authoritative; no pilot/outreach/research/combined C1/provider/witness/security selection. R7's old paused automation remains unchanged. The previous proposed-scope/pending-review checkpoint below is historical. Actual separate review, final-head CI, default-branch publication and fresh acceptance/readback remain required.
+
+## Earlier checkpoints retained as history
+
+## R15 handoff proposal under GOV027
+
+[Proposed R15 plan](R15_RELEASE_PLAN.md) and [handoff](R15_AUTONOMOUS_HANDOFF.md) prepare existing documentation starters432/434/433 in that order: API navigation, result reading context and continuous-quote walkthrough. Owner scope selection and supported separate review remain pending; no milestone/epic, implementation or Ready claim. R14 library delivery is accepted at main071e06d: [aggregate acceptance](https://github.com/atulsrivas1/equity-features/issues/428#issuecomment-6247703232), E21Done/milestone16Closed0open7closed. The source-frozen R14 pending fields remain historical, not unfinished acceptance. No R14 replay or recursive receipt update.
+
+Research/combined C1, R13 witness DEFER, provider/security deferrals and paused automation remain unchanged. No outreach/pilot, scientific result, package/API/math/version/dependency/workflow change or new operational authority. Read the concrete plan before selecting work.
+
+## Earlier checkpoints retained as history
+
 ## EQ135 manual learning and library receipt implemented; delivery pending
 
 [Manual metrics](COMMUNITY_METRICS.md) and the [library receipt](R14_LIBRARY_RECEIPT.md) materialize the reviewed definitions, empty scoped baseline and explicit external-pilot DEFER. Zero recorded events remain distinct from UNKNOWN worldwide activity; empty rates/response intervals are N/A and the 5/3/1 learning goals are not release gates. Maintainer demo/CI are not human participation. No pilot, outreach, participant collection, new local product replay or automatic growth work started.

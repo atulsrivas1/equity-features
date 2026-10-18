@@ -1,3 +1,17 @@
+## R15 local review authorized — October18,2026
+
+The owner explicitly answered "Approve scope and local review throughout R15" for [PR438](https://github.com/atulsrivas1/equity-features/pull/438), recorded in [GOV027's owner decision](https://github.com/atulsrivas1/equity-features/issues/437#issuecomment-6252649998). Separate local Codex reviewers may cover the handoff, existing documentation stories432/434/433, necessary companion documentation and final R15 delivery. Record actual reviewer identity, exact head/source, executed checks, findings/disposition and limitations; renew affected coverage after relevant changes. No repeated per-story authorization question within this bounded grant. Author self-review and CI alone remain insufficient. This is automated local review, not human review or hosted activation; permission is not completed review. All applicable numerical/documentation/CI/publication/actual-readback gates remain.
+
+This adds no later release, outreach/pilot, research/combined C1 ownership, witness/provider/security selection, paid/private/account/hosting/registry/trading/recurring authority or R7 automation change. The earlier pending R15 decision below is superseded, preserved as history.
+
+## Earlier checkpoints retained as history
+
+## R15 proposed handoff: review decision pending
+
+GOV027#437 prepares the concrete [R15 documentation plan](R15_RELEASE_PLAN.md): existing issues432/434/433 plus governance and final delivery. The existing local-review grant ends at R14. Before planning merge or R15 story Ready, require a supported completed separate review or an explicit owner alternative-review decision covering this packet, the three stories, necessary companion documentation and final delivery. No R15 local authorization or hosted activation is inferred from the execution request. Prepare and publish the concrete packet first; record actual reviewer identity, exact final-head coverage, checks/findings/disposition/limitations and renew relevant coverage after changes. Author self-review and CI remain insufficient. All applicable acceptance/documentation/publication gates remain mandatory. This adds no outreach, research takeover, provider/private/paid/account/hosting/registry/trading/recurring authority.
+
+## Earlier checkpoints retained as history
+
 ## R14 local review authorized — October17,2026
 
 The owner explicitly approved the pending bounded [R14 review decision](https://github.com/atulsrivas1/equity-features/issues/426#issuecomment-6240161202) for PR427, GOV026, EQ131–135, necessary companion documentation and final delivery. Separate local Codex reviewers may inspect pre-code plans, actual final source/heads, affected contracts/callers, documentation, relevant source/installed/artifact/current-main proof and lifecycle acceptance. Record actual reviewer identity, exact coverage, executed checks, findings/disposition and limitations; relevant changes renew review. This is automated local review, not human review or hosted activation. Author self-review and CI remain insufficient. No repeated per-story permission question within this bounded grant.
