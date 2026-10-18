@@ -1,3 +1,18 @@
+# Current result-contract reading context
+
+The EQ-013 experimental0.0.1a3 text below is the original implementation
+checkpoint, when no numerical calculator had been implemented. The current
+experimental contracts/features pair is0.0.4a4. Read the
+[current public API](../api/PUBLIC_API.md) for supported calculators and contracts,
+and the [minimal quickstart](../QUICKSTART.md) for the supported installation
+channel and example. This is an experimental library, without a stable-registry
+or production-support claim.
+
+The structural rules and historical migration notes below remain part of the
+contract documentation; the earlier checkpoint is retained rather than rewritten.
+
+<!-- STARTER-RESULT-CONTEXT-END -->
+
 # Typed results, quality, evidence and failures
 
 EQ-013, experimental0.0.1a3. These contracts admit caller-supplied result data;
