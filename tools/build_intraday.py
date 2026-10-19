@@ -140,7 +140,7 @@ def main():
         run(sys.executable,'-B',ROOT/'tools/test_intraday_benchmark.py')
         report['benchmark_guard_methods_passed']=4;save()
         run(sys.executable,'-B',ROOT/'tools/test_intraday_indicator_benchmark.py')
-        report['indicator_benchmark_guard_methods_passed']=5;save()
+        report['indicator_benchmark_guard_methods_passed']=6;save()
         with tempfile.TemporaryDirectory(prefix='intraday-',dir=work) as temporary:
             owned=Path(temporary).resolve();assert owned.is_relative_to(work.resolve())
             verification=owned/'verification'

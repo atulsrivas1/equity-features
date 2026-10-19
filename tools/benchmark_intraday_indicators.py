@@ -260,7 +260,13 @@ def main():
         value['subprocess_total_seconds']=time.perf_counter()-started
         value['parent_peak_bytes']=peak_memory()
         value['aggregate_peak_bound_bytes']=value['parent_peak_bytes']+max(s['peak_process_bytes'] for s in value['samples'])
-        assert value['source_identity']==identity and source_identity()==identity,'parent/child source binding differs'
+        try:
+            assert value['source_identity']==identity and source_identity()==identity,'parent/child source binding differs'
+        except BaseException as error:
+            report['failure']={**value,'case':case,'mode':mode,'status':'failed',
+                'failed_phase':'parent-child source closure','failure_type':type(error).__name__}
+            save()
+            raise
         value['summary']=summary(value)
         return value
     with args.output.open('x',encoding='utf-8') as initial:

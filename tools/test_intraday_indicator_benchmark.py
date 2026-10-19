@@ -43,6 +43,33 @@ class BenchmarkGuardTests(unittest.TestCase):
         self.assertEqual(len(result['samples']),7)
         self.assertEqual(result['failure_type'],'AssertionError')
 
+    def test_parent_source_closure_failure_retains_completed_child_samples(self):
+        from types import SimpleNamespace
+        identity={'source':'original'}
+        sample={'wall_seconds':1,'core_seconds':1,'peak_process_bytes':10,'projection_sha256':'p'}
+        completed={'status':'completed','source_identity':identity,'samples':[sample]*7,'warmups':2}
+        def git(*args,**kwargs):
+            return b'synthetic-head\n' if args[0][-1]=='HEAD' else b''
+        with tempfile.TemporaryDirectory() as temporary:
+            target=Path(temporary)/'result.json'
+            with patch.object(sys,'argv',[str(benchmark.__file__),'--output',str(target)]), \
+                 patch.object(benchmark.subprocess,'check_output',side_effect=git), \
+                 patch.object(benchmark,'source_identity',side_effect=[identity,{'source':'changed'}]), \
+                 patch.object(benchmark,'capacity',return_value={'memory_budget_bytes':1000}), \
+                 patch.object(benchmark,'verify_quality_parity',return_value={'passed':True}), \
+                 patch.object(benchmark,'peak_memory',return_value=10), \
+                 patch.object(benchmark.subprocess,'run',return_value=SimpleNamespace(
+                     returncode=0,stdout=json.dumps(completed).encode(),stderr=b'')):
+                with self.assertRaises(AssertionError):benchmark.main()
+            result=json.loads(target.read_bytes())
+            self.assertEqual(result['status'],'failed')
+            self.assertEqual(result['failure']['case'],'small/ema')
+            self.assertEqual(result['failure']['mode'],'separate')
+            self.assertEqual(result['failure']['failed_phase'],'parent-child source closure')
+            self.assertEqual(result['failure']['samples'],completed['samples'])
+            self.assertEqual(result['failure']['source_identity'],identity)
+            self.assertFalse(target.with_suffix('.baseline.json').exists())
+
 
 class ResultParityTests(unittest.TestCase):
     def test_all_declared_output_sets_and_unavailable_profiles(self):
