@@ -1,3 +1,27 @@
+## GOV030 descendant-source reconciliation — October 19, 2026
+
+[GOV030#462](https://github.com/atulsrivas1/equity-features/issues/462#issuecomment-6261226683) / [PR463](https://github.com/atulsrivas1/equity-features/pull/463): owner authorized the repository-wide matrix extension after discovering additional product pipelines in a descendant committed checkout of the same repository. Preserve old source-bound evidence; reconcile added and changed shared/product code, actual named/field outputs, direct prerequisites versus upstream lineage, library coverage/gaps and bounded processing plan. Renew separate final review and applicable documentation delivery gates. This selects no runtime story/release/default or performance commitment; Project remains current status authority.
+
+## Earlier checkpoints retained as history
+
+## GOV030 scope clarification: outputs beyond worker indexing — October 18, 2026
+
+[GOV030#462](https://github.com/atulsrivas1/equity-features/issues/462), [PR463](https://github.com/atulsrivas1/equity-features/pull/463): the owner requires named/calculated output and dependency reconciliation across workers/domains before equity projection. Source indexing alone does not meet this scope. Retain primitive math, consumer policy/variants, copied inputs, state/transport schemas and unresolved runtime/alias boundaries separately. The local source-derived catalogue supplements the existing core/I/O/worker comparison; it selects no implementation, default change or release. Source-index review is historical; expanded artefacts/final head require renewed separate review and applicable checks/publication. Current Project owns status.
+
+## Earlier checkpoints retained as history
+
+## GOV030 owner-directed scope extension — October 18, 2026
+
+[GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) now includes a repository-wide worker/domain inventory and an equity-relevance projection, including equity calculations inside mixed workers. This extends the same planning story; it does not select option runtime implementation, new built-ins or a release. [Design](FEATURE_DEPENDENCY_PROCESSING_PLAN.md) distinguishes exhaustive source accounting from qualified feature math and retains explicit unresolved binding/semantic queues. Prior review is historical; renewed expanded-artifact/final-head review and applicable delivery gates remain required. Live Project status owns current execution.
+
+## Prior GOV030 planning snapshot retained as history
+
+## GOV030 dependency/performance planning boundary — October 18, 2026
+
+[GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) prepares the owner's requested feature dependency/coverage matrix and [measured parallel-processing plan](FEATURE_DEPENDENCY_PROCESSING_PLAN.md). This governance story is outside the deferred runtime milestone; detailed source-derived comparison remains local pending redistribution rights. Provisional planning complexity5 is not days. No new built-in IDs, runtime stories, release/date/SLA, budget/default change or implementation readiness is implied.
+
+First freeze selected per-output raw/derived/state/coverage dependencies and a representative workload; then measure direct/worker stage costs and optimize one demonstrated bottleneck with full parity. Existing accepted R5/R8 stories keep their evidence and state. Reuse deferred E24#456/LIVE002#458/LIVE004#460 scope if later selected; preserve LIVE001–004 Backlog and provider/research/C1/witness/security deferrals. See live issue/Project for actual lifecycle; review/current checks/publication remain required. Versioned historical scope below is unchanged.
+
 ## Deferred live delivery reservation and prospective architecture direction — October 18, 2026
 
 [GOV029#455](https://github.com/atulsrivas1/equity-features/issues/455) prepares the owner's [prospective live intraday architecture direction](decisions/LIVE_INTRADAY_ARCHITECTURE_DIRECTION.md). [Future milestone20/E24#456](https://github.com/atulsrivas1/equity-features/milestone/20) and LIVE001–004#457–460 are reserved Open/Backlog/unassigned, no due date. Prioritize fresh trader data; EOD may tolerate delay. No immediate runtime work, approved cadence/SLA/feed/universe/transport or R17 selection. Keep pure kernels, explicit batch/update/replay capabilities, causal/dependency-correct state and parallelism, a bounded persistent orchestration path and honest latency/parity evidence. Batch-only remains valid; no immediate rewrite. R16 and AUDIT001 remain accepted; deferred research/C1/witness/provider/security and paused automation are unchanged. This is prepared planning, not qualified live delivery or completed governance publication. Current GitHub Project owns live status.
