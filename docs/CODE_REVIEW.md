@@ -1,3 +1,11 @@
+## R18 authorized local review — October 19, 2026
+
+The owner explicitly authorizes separate local Codex review throughout R18. [Recorded decision](https://github.com/atulsrivas1/equity-features/issues/564#issuecomment-6275820553) covers PR565/GOV034 handoff, EQ142–146, necessary companion changes and final R18 delivery. Separate automated local reviewers may inspect actual final heads, affected contracts/callers and evidence. Record actual identity, exact heads/frozen identities, executed checks, findings/disposition and limitations; renew relevant coverage after changes. No repeated per-story authorization is required within this bounded grant. Permission is not completed review; author checks and CI alone remain insufficient. This is local automated review, not hosted activation or human review.
+
+All mathematical/independent correctness/readiness/precision, measured performance and resource adoption, current candidate/main CI, both-platform installed/artifact, publication/readback and exact lifecycle gates remain mandatory. Runtime stories still need their own accepted prerequisites and reviewed Ready packets. This grants no R19+, live/provider/private acquisition, hosting/registry, account administration, automation, destructive work or new chat. Preserve unrelated work and frozen sources/measurement environments.
+
+## Earlier review-route preparation retained as history
+
 ## R18 handoff preparation and pending separate-review route — October 19, 2026
 
 The owner selected R18 handoff and execution after verified R17. [R17 actual final exit](https://github.com/atulsrivas1/equity-features/issues/465#issuecomment-6275623502) is now accepted: E25 and all six EQ136–141 are CLOSED/ProjectDone, milestone21 closed/zero open/seven closed. [GOV034 #564](https://github.com/atulsrivas1/equity-features/issues/564) prepares the concrete R18 handoff, current input inventory, original EQ142 proposal and evidence/measurement gates. Existing E26/EQ142–146 remain Backlog/unassigned until their own admission; no R18 runtime is implemented by the packet.

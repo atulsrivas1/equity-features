@@ -241,7 +241,7 @@
     480,
     564
   ],
-  "review_route": "Supported completed separate review or explicit bounded owner alternative decision still required; no R18 local grant inferred from R17. GOV005 hosted activation remains unverified. CI diagnostics/review-submission tools are not independent review execution.",
+  "review_route": "Owner explicitly authorizes separate local Codex review for PR565/GOV034, EQ142\u2013146, necessary companion changes and final R18 delivery. Permission is not completed review; actual final-head review and all original gates remain. No R19+ grant or hosted activation.",
   "R17_worker_study": {
     "measured_source": "be4d6667e9b46981cf430c86888b52c7812b0424",
     "cohorts_A": 6,
@@ -261,5 +261,6 @@
     "version_change": false,
     "persistent_live_claim": false,
     "new_registry_channel": false
-  }
+  },
+  "review_authorization_url": "https://github.com/atulsrivas1/equity-features/issues/564#issuecomment-6275820553"
 }

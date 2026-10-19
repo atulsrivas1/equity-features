@@ -1,3 +1,11 @@
+## R18 review authorized; final handoff review next
+
+[Owner authorization](https://github.com/atulsrivas1/equity-features/issues/564#issuecomment-6275820553) now covers separate automated local review of PR565/GOV034, EQ142–146, necessary component changes and final R18 delivery. This supersedes the earlier pending review-route decision; it is not completed review or hosted activation. The concrete handoff has author24UTF8/6JSON/1336local-link/privacy and exact proof/index checks; renew its source/index identities and current CI after recording this decision. GOV034 proceeds to actual final-head Code review, then Test/currentCI/guarded publication/actualmain/finalacceptance/Released/Done. All five runtime stories remain Backlog/unassigned until their own real Ready gates. No R18 runtime or timing has started.
+
+R17 remains verified delivered; original scope, exact source/measurement/channel limits and all48 worker nonwins/sequential default remain. Next: independent handoff semantic/source/evidence review, then finalize the exact EQ142 schemas/counterexamples/workload/overhead/harness/adoption packet before runtime Ready. Preserve all frozen/dirty/unrelated checkouts. Live Project owns current status.
+
+## Earlier checkpoints retained as history
+
 ## Verified R17 exit; concrete R18 handoff preparation
 
 [R17 final closing verification](https://github.com/atulsrivas1/equity-features/issues/465#issuecomment-6275623502) passed38 assertions with no findings (private receipt SHA256 `2d1df84598904dfc079af7e075dc30160de869650a5d39060051d5b8adefdc9b`). E25 and EQ136–141 are actually CLOSED/ProjectDone; milestone21 closed/0open7closed. Aggregate semantic65 and postrelease39 reviews and actual Test/Readyrelease/Released/closing readbacks are retained in the [public review records](reviews/R17_AGGREGATE_CLOSING_PUBLIC_READBACK.md). Canonical published main576abecb1711047c65006cb76b5c121fa63491f2 passed all35 current checks. Worker231349aaf2bf1b9ec21f45807382ca9c6522520c and I/O18d86761aa3eebb7414e51e8fa2aba089717b5eb/current six-package both-platform finite channel remain accepted with original source/installed evidence limits. Eight own intraday batch IDs/core39 and all48 whole-worker nonwins/sequential default remain explicit; no fastest/live/persistent claim.
