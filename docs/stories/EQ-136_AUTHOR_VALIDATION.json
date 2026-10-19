@@ -1,0 +1,101 @@
+{
+  "schema": "equity-features.eq136-author-validation.v1",
+  "story": 470,
+  "kind": "specification references and policy checks; not production or final separate review",
+  "python": "3.12.10",
+  "source_base": "74d42becf927b254675474c963f0d20bfe99913c",
+  "source_files": {
+    "docs/api/INTRADAY.md": "9b1d15f743cb219ead197c379201018f802ea3519f60be81b2c028269e23f5af",
+    "docs/features/INTRADAY_FOUNDATIONS.md": "2d9d13c99d7a6f2301f2b38f91fa995d4d5cb6dbb4407177e0c140bbdaedd943",
+    "docs/decisions/R17_INTRADAY_PACKAGE.md": "864982dffb1bdbc5edc69461ff3a74071da4f9e2bdb8e054f7d721ad57c86753",
+    "tests/fixtures/intraday_math/README.md": "ceb97e22e7b08562e5fbedc9e7392299329333582276ae803f5e5e140e243828",
+    "tools/verify_intraday_examples.py": "847ca6eaaf02f5240ab6cdfb6b96649e34894817f4f063987da7a5424fa0b607",
+    "tests/fixtures/intraday_math/golden.json": "1c96b1764524bf50c77008e41896a78092e06660a83429b9d0e4030e8e16f5a5",
+    "tests/fixtures/intraday_math/readiness.json": "00f545c479924702f529355ad311ac3bb3b9bc37778cdd947e9de0191b9acbbb",
+    ".github/workflows/docs.yml": "8d44d980a689cd41b27501ac87738f2acb30a32672617405cbe57c7a6bc5d223",
+    "tools/test_ci_gate.py": "f8e9a8a4ddbed76ba037f6b31101faf8d2a4804cbbc23b49d599fb613c0ce184",
+    "docs/R17_TEST_STRATEGY.md": "ff1773aa4a5553baa19606301ac0a3eafa326e03a41b06f466ea0893bbf345dc",
+    "docs/stories/EQ-136_PLAN.md": "ab8407fbcdb4a15dfe2c82ca44696ac58cc428763adec731b1ff5ee340dbe09c"
+  },
+  "checks": [
+    {
+      "command": "python tools/verify_intraday_examples.py",
+      "exit_code": 0,
+      "test_methods": 24,
+      "output_sha256": "1f96bf42e22ad7d359544285885615da0a353915382ffbb05ed8c668f57c789d"
+    },
+    {
+      "command": "python tools/verify_history_examples.py",
+      "exit_code": 0,
+      "test_methods": 31,
+      "output_sha256": "a038098659b06709cca28f8506d799f97e97b58c01c6f65112848ae715dda9be"
+    },
+    {
+      "command": "python tools/test_ci_gate.py",
+      "exit_code": 0,
+      "test_methods": 12,
+      "output_sha256": "7f61f7e2d3969cf09a34607d49280b0160a092ea7faecb98cf8c0cf485dcc7c8"
+    },
+    {
+      "command": "python tools/test_ci_provenance.py",
+      "exit_code": 0,
+      "test_methods": 12,
+      "output_sha256": "e3ef7c6e8eea4cd70ed41ae4ff1ee0f096dc5826c8c07cfddaf985291f8800fc"
+    }
+  ],
+  "local_links_checked": 11,
+  "json_fixtures": 2,
+  "git_diff_check": "PASS",
+  "retained_failure": {
+    "test": "test_scaled_units_and_dimensionless_ratios",
+    "initial": "one failure among23 methods:1ULP difference between convert-before-scale and scale-before-convert",
+    "correction": "exact Decimal120 scale comparison; final Float64 relative/ULP tolerance unchanged",
+    "superseded": true
+  },
+  "early_review_findings": [
+    {
+      "id": "API01",
+      "finding": "evidence_limit was not reconstructible by fixed worker callback",
+      "disposition": "bound in ConfigSpec, no compute-only override; renewed review pending"
+    },
+    {
+      "id": "API02",
+      "finding": "ASCII alone admitted controls rejected by workers",
+      "disposition": "printable nonblank bounded labels; renewed review pending"
+    }
+  ],
+  "limits": [
+    "No production kernels imported or executed by the arithmetic oracle.",
+    "Readiness JSON is hand-specified expected behavior, not executed production admission.",
+    "No runtime benchmark, installed package or worker parity is claimed.",
+    "Candidate CI, separate final-source review and publication/main acceptance remain."
+  ],
+  "review_corrections": [
+    {
+      "id": "API01",
+      "disposition": "evidence_limit bound in final configuration"
+    },
+    {
+      "id": "API02",
+      "disposition": "all relevant configuration/source labels printable/nonblank and bounded"
+    },
+    {
+      "id": "API03",
+      "disposition": "single-anchor ATR warmup close-only; expected N+1/observed1;24th independent reference case"
+    },
+    {
+      "id": "PREPARATION",
+      "disposition": "explicit closed compatible in-process preparation protocol; same original immutable batch objects and exact configuration; unsupported subset and None semantics frozen"
+    },
+    {
+      "id": "REASONS",
+      "disposition": "absent delivery terminates with absent_input only; empty-slot null consequence not duplicated"
+    }
+  ],
+  "total_executed_test_methods": 79,
+  "previous_author_receipt": {
+    "commit": "74d42becf927b254675474c963f0d20bfe99913c",
+    "sha256": "efd68d2c90817cf9d1e99981c6b1b08d338f7b1c92145b6249aedf5676fed994",
+    "test_methods": 78
+  }
+}

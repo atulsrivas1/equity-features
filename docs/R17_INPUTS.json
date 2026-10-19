@@ -2,7 +2,7 @@
   "schema": "equity-features.r17-handoff.v1",
   "owner_execution_selected": true,
   "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW",
-  "implementation_admission": "BLOCKED_ON_ACTUAL_PREREQUISITE_PUBLICATION_AND_REVIEW",
+  "implementation_admission": "EQ136 specification Ready inputs admitted; dependent implementations require accepted EQ136 and their own reviewed pre-code inputs. Live Project is status authority.",
   "governance_issue": 464,
   "planning_pr": 498,
   "epic": 465,
@@ -100,14 +100,22 @@
     "R17_AUTONOMOUS_HANDOFF.md",
     "R17_TEST_STRATEGY.md",
     "stories/EQ-136_PLAN.md",
-    "stories/EQ-136_FIXTURES.json"
+    "stories/EQ-136_FIXTURES.json",
+    "api/INTRADAY.md",
+    "features/INTRADAY_FOUNDATIONS.md",
+    "decisions/R17_INTRADAY_PACKAGE.md"
   ],
-  "stop_after": "Verified R17 acceptance; no R18 implementation or live/provider/deployment/recurring scope.",
+  "stop_after": "Verified R17 acceptance, then prepare the owner-selected R18 handoff and qualify R18 Ready/review inputs before execution. No R19\u201321 or live/provider/deployment/recurring scope.",
   "planning_rebase_base": "61d16a11b9b47095a23ef010ddff1260a4993eca",
   "initial_planning_review": {
     "head": "7da0c12dbf5956ffc1e232b2ad9902780c61bbb9",
     "reviewer": "/root/r17_review",
     "disposition": "PASS within planning/handoff scope; final rebased source renewal required",
     "receipt_sha256": "da5200247649d1300cde29a30863ffa7277405e6577a76f4b49d5e0ea7785875"
-  }
+  },
+  "stop_after_historical": "Verified R17 acceptance; no R18 implementation or live/provider/deployment/recurring scope.",
+  "owner_next_release_direction": "https://github.com/atulsrivas1/equity-features/issues/466#issuecomment-6262688896",
+  "implementation_admission_at_preparation": "BLOCKED_ON_ACTUAL_PREREQUISITE_PUBLICATION_AND_REVIEW",
+  "accepted_planning_main": "d4c1ac5f34bbf7d52b3d53ea3b88330d3d3a8e58",
+  "planning_main_acceptance_receipt_sha256": "a9f057aad593f40cd50c8ba49f84aa68e1457e90e892da1bc711f60a995391af"
 }

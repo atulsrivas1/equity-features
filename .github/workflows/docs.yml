@@ -75,6 +75,9 @@ jobs:
       - name: Verify historical initialization, windows and gap references
         run: python tools/verify_history_examples.py
 
+      - name: Verify original intraday mathematics references
+        run: python tools/verify_intraday_examples.py
+
       - name: Verify context denominators, alignment and universe references
         run: python tools/verify_context_examples.py
 

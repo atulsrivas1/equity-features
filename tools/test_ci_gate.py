@@ -15,6 +15,14 @@ PACKAGES = ('agent-evidence', 'agent-ledger', 'conformance', 'continuous', 'diag
             'provenance', 'quickstart', 'r9', 'r10', 'research', 'transport')
 ROOTS = ('scope', 'docs', *PACKAGES)
 
+# EQ136 adds one exact mathematical-reference operation. Remove only this
+# literal step for the historical CI002 equivalence comparison; retain the
+# immutable baseline hash and every original operation/routing check.
+INTRADAY_DOC_TEST = '''      - name: Verify original intraday mathematics references
+        run: python tools/verify_intraday_examples.py
+
+'''
+
 
 def record(docs: bool = False) -> dict:
     return dict(schema='equity-features.ci-scope.v1', valid=True, decision='DOCS' if docs else 'FULL',
@@ -128,6 +136,8 @@ class WorkflowTests(unittest.TestCase):
             text = (self.root/path).read_text(encoding='utf-8')
             text = text[text.index('permissions:\n'):]
             if path.endswith('/docs.yml'):
+                self.assertEqual(text.count(INTRADAY_DOC_TEST), 1)
+                text = text.replace(INTRADAY_DOC_TEST, '')
                 self.assertEqual(text.count(EXTRA_DOC_TESTS), 1)
                 text = text.replace(EXTRA_DOC_TESTS, '')
                 # Deliberate owner-requested planning allocation extension, not CI routing.
