@@ -1,3 +1,7 @@
+## EQ140 supplied-worker comparison and qualification
+
+Supplied callbacks implement all eight intraday outputs and original four core dispatcher gaps with explicit input/history/absence/receipt contracts. Completed be4 worker study passed separate evidence audit:486Jobs/6A/48B,108warmups/378retained, all48nonwins under frozen wall/resource/tail gates; sequential stays default/fallback. [Evidence and current delivery gates](stories/EQ-140_IMPLEMENTATION.md) retain exact source/history/limitations and current ff32CI/bothOS four-form58-method hosted reports. Final successor/source/artifact/main acceptance remains pending; R17/EQ141 are unfinished and R18 follows verified R17.
+
 ## EQ139 actual band measurement component
 
 The a3 five-band implementation passed separate original numerical/source review and source-bound9d51 measured evidence review781 assertions/504 retained samples. All six combined-band synthetic profiles measured66.997–72.137% lower medians under frozen parity/resource gates; two narrow large single-band profiles also pass,28retain direct fallback. Raw bytes, original margins and38-entry applicability are retained with eight band guards, alongside5legacy/7indicator controls. Historical502 Windows4forms passed; final successor/bothOS/currentCI/main/release acceptance is still pending. This is not a releaseda3 or completedR17 claim.
