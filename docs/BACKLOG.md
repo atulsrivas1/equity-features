@@ -1,3 +1,9 @@
+## GOV030 scope clarification: outputs beyond worker indexing — October 18, 2026
+
+[GOV030#462](https://github.com/atulsrivas1/equity-features/issues/462), [PR463](https://github.com/atulsrivas1/equity-features/pull/463): the owner requires named/calculated output and dependency reconciliation across workers/domains before equity projection. Source indexing alone does not meet this scope. Retain primitive math, consumer policy/variants, copied inputs, state/transport schemas and unresolved runtime/alias boundaries separately. The local source-derived catalogue supplements the existing core/I/O/worker comparison; it selects no implementation, default change or release. Source-index review is historical; expanded artefacts/final head require renewed separate review and applicable checks/publication. Current Project owns status.
+
+## Earlier checkpoints retained as history
+
 ## GOV030 owner-directed scope extension — October 18, 2026
 
 [GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) now includes a repository-wide worker/domain inventory and an equity-relevance projection, including equity calculations inside mixed workers. This extends the same planning story; it does not select option runtime implementation, new built-ins or a release. [Design](FEATURE_DEPENDENCY_PROCESSING_PLAN.md) distinguishes exhaustive source accounting from qualified feature math and retains explicit unresolved binding/semantic queues. Prior review is historical; renewed expanded-artifact/final-head review and applicable delivery gates remain required. Live Project status owns current execution.

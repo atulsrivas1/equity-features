@@ -1,3 +1,11 @@
+## GOV030 actual output catalogue expansion — October 18, 2026
+
+The owner corrected the requested deliverable from repository indexing to calculated outputs across all worker/domain families. Source-index completion was overstated; that review is historical evidence only. The local packet now separates named definitions and variants, typed written/returned output/state contracts, supplied inputs, embedded contracts, scalar results, caller-bound pointer effects and worker producer candidates. Domain/equity filtering and the existing core/I/O/worker comparison remain available. Exact source expressions and unresolved boundaries stay local under the existing source-rights restriction. Static unions are not qualified minimal dependencies; copied facts, policy/configuration and metadata are not counted as unique mathematical features.
+
+GOV030#462 returned Test→In progress for this owner-requested expansion; the live Project remains authority. PR463 remains draft. Separate owner-authorized automated catalogue/final-document review and current checks/publication remain gates. Earlier review/CI receipts do not qualify this delta. No numerical/performance/runtime/release acceptance or new feature/release selection is claimed. Resume with the local output reconciliation/review receipts, resolve concrete findings, qualify exact final artefacts/head, then follow Code review→Test and actual documentation delivery/readback. Preserve source rights and unrelated work.
+
+## Earlier checkpoints retained as history
+
 ## GOV030 expanded planning review result — October 18, 2026
 
 Separate owner-authorized local automated reviewer `/root/dependency_plan_review` passed the expanded private source-index/filter/planning artifacts and public scope packet at `16ef7ada13536a84fd3e66fa2c5517b2e5a53091`. Four findings were corrected: platform-specific declaration evidence was combined, equity filters missed concrete mixed-worker calculations, source export applied EOL conversion, and census labels overstated declaration scope. No actionable findings remain in the reviewed planning scope. This is not human/hosted review, complete formula qualification, numerical parity, runtime binding proof, rendered-browser verification or a performance result. Detailed receipts and source-derived material remain local.

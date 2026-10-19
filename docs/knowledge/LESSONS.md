@@ -1,3 +1,9 @@
+## GOV030 — source coverage is not calculated-output completeness — October 18, 2026
+
+Evidence: [owner scope correction and expansion](https://github.com/atulsrivas1/equity-features/issues/462#issuecomment-6257615382), [planning PR463](https://github.com/atulsrivas1/equity-features/pull/463) and [output reconciliation guidance](../FEATURE_DEPENDENCY_PROCESSING_PLAN.md). Listing every command/function/field does not establish an exhaustive feature or dependency catalogue. Reconcile finite registries and actual producers in both directions; keep variants/configuration, supplied facts, metadata and math separate. Honor finite branch/control transfer when expanding identities; retain promoted fields, decoder provenance, compound-assignment prior state and caller-bound pointer contracts. Validator-only string references do not prove production. Preserve unresolved boundaries and exact source/head review scope. Source-read unions require specialization before executable DAG use; empty inputs cannot be treated as constants. Earlier source-index review remains valid only for its disclosed scope.
+
+## Earlier checkpoints retained as history
+
 ## Bind planning evidence to source declarations and bytes — GOV030 review, October 18, 2026
 
 The expanded [GOV030 review](https://github.com/atulsrivas1/equity-features/issues/462) resolved four inventory errors before accepting the disclosed planning scope. A logical function name is insufficient when platform/build variants share it: expression witnesses require unique declaration identity and source bounds. A source export may transform line endings; committed-byte claims require actual blob identity or an explicit transformation record. Source-read equity relevance must propagate across all views, while heuristic candidates remain labeled. Declaration counts must state whether anonymous/local declarations are included.

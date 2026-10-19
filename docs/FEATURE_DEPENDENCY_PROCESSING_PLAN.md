@@ -26,6 +26,14 @@ Use the equity projection to refine the existing public capability comparison. S
 
 ## Current feature/input/capability matrix
 
+### Output catalogue reconciliation
+
+The owner requested calculated outputs across every worker and domain, including scanner memberships, watchlists, strategy variants and context. A source index alone does not satisfy that request. The local planning packet now separates finite named definitions, typed output/state contracts, scalar/series results, supplied input declarations, embedded definitions and worker-to-producer candidates. Derived profile/weight variants and policy tags remain distinct from primitive calculations. Previous source-index review does not qualify this expanded catalogue.
+
+For each proposed scheduling node, retain its identity/version/population, supplied inputs, derived field reads, producer expression or helper contract, units, time/coverage/initialization conditions and output availability. Preserve caller argument bindings for pointer/state helpers and input-payload provenance after decoding. A copied fact, schema field or validator reference does not establish a local calculation. Static call/read unions and lexical guards are navigation evidence; they require specialization before becoming executable prerequisites. Empty inferred input sets cannot establish constants or input-free work. Unresolved aliases, dynamic dispatch and external contracts remain explicit qualification work.
+
+Use the existing semantic family and core/I/O/worker crosswalk to decide reuse. Newly enumerated consumer identities are not additional built-in implementations, and matching names do not prove equivalent mathematics. Qualify reusable kernels first, then consumer-specific policy and concrete adapter/worker bindings. Final catalogue review, applicable documentation checks and publication are separate delivery gates; no numerical parity or performance result is claimed by this reconciliation.
+
 This matrix groups the 39 built-in IDs by actual public input/API and capability. Parameter variants are not extra IDs. Every calculation also needs compatible identity, units, timing, coverage and configuration admission. Compatible facts can be reused only within those exact identities.
 
 | Family / IDs | Actual prerequisites | Batch / update / restore / merge | Parallel boundary |
