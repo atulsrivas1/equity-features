@@ -1,6 +1,6 @@
 # EQ140 supplied-input worker qualification
 
-Planning draft for [EQ140 #474](https://github.com/atulsrivas1/equity-features/issues/474), [E25](https://github.com/atulsrivas1/equity-features/issues/465), R17. This packet is incomplete preparation, not Ready or implemented behavior. Live Project remains status authority. EQ138 is accepted; EQ139 is published on main but still awaits its final main-channel acceptance. Finish that dependency and the unresolved gates below before pulling this story.
+Planning draft for [EQ140 #474](https://github.com/atulsrivas1/equity-features/issues/474), [E25](https://github.com/atulsrivas1/equity-features/issues/465), R17. This packet is incomplete preparation, not Ready or implemented behavior. Live Project remains status authority. EQ138 and EQ139 are accepted Closed/ProjectDone. EQ139 final actual-main review passed75 assertions after main35/source99/artifact102; [acceptance](https://github.com/atulsrivas1/equity-features/issues/473#issuecomment-6269412646). Complete the unresolved gates below before pulling this story.
 
 ## Scope and pinned contracts
 
@@ -76,9 +76,15 @@ Qualification must count actual source, task construction/admission, preparation
 
 Before observing alternatives, freeze workloads, warmups/repeats, sequential baselines, IQR-based noise margins, low-latency/resource/adoption bounds, complete parent/child CPU accounting and sampled aggregate-memory limitations. Retain nonwins/failures and the supported sequential/direct fallback. Existing RSS/pickle-only benchmark tools do not prove complete core-seconds or this new E2E workload. No performance result or selected faster default is claimed by this draft.
 
+## Concrete supplement and current review gate
+
+[Binding contract and frozen comparison proposal](EQ-140_BINDING_CONTRACT.md) now specifies exact public callbacks/discovery/history helpers, missing-marker/bijection rules, initialization digests, exhaustive diagnostics, additive bounded receipt admission, original boundary expectations and process-tree CPU/resource protocol. These are prospective choices requiring complete separate review; earlier unresolved wording above records their preparation history. No worker code or Ready claim follows.
+
+Run `python tools/verify_supplied_worker_examples.py --output <caller-owned-report.json>` with accepted canonical/SDK installed. Original seven profiles produce83 assertions/eight pure result records; separate review independently reproduced them and added39 metadata/quality/evidence assertions (SHA256688db0190c767799f491edbb621dc588de8474edeb4681e1f8656256aca0ed06). The helper is original reference/fixture validation, not a production worker or sole optimized oracle. Initial helper-only backend field/name assumptions were corrected; producer/math/tolerances were unchanged.
+
 ## Remaining Ready and delivery gates
 
-1. Accepted EQ139 main-channel delivery, fresh repository/caller pins and complete separate review of this packet.
+1. EQ139 main-channel dependency is accepted. Recheck repository/caller pins and complete separate review of this packet.
 2. Exact public names/factories, missing-marker rules, selected closure/warmup/init digests, exhaustive errors and receipt-bound admission decisions.
 3. Runnable original fixture construction with independent quality/evidence/identity expectations; frozen resource/performance protocol and complete CPU accounting method.
 4. Linked worker draft plan/branch and canonical documentation, without taking unrelated PR ownership. Only then Ready and actual assigned In progress.
