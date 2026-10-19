@@ -1,3 +1,9 @@
+## GOV030 descendant-source reconciliation — October 19, 2026
+
+[GOV030#462](https://github.com/atulsrivas1/equity-features/issues/462#issuecomment-6261226683) / [PR463](https://github.com/atulsrivas1/equity-features/pull/463): owner authorized the repository-wide matrix extension after discovering additional product pipelines in a descendant committed checkout of the same repository. Preserve old source-bound evidence; reconcile added and changed shared/product code, actual named/field outputs, direct prerequisites versus upstream lineage, library coverage/gaps and bounded processing plan. Renew separate final review and applicable documentation delivery gates. This selects no runtime story/release/default or performance commitment; Project remains current status authority.
+
+## Earlier checkpoints retained as history
+
 ## GOV030 scope clarification: outputs beyond worker indexing — October 18, 2026
 
 [GOV030#462](https://github.com/atulsrivas1/equity-features/issues/462), [PR463](https://github.com/atulsrivas1/equity-features/pull/463): the owner requires named/calculated output and dependency reconciliation across workers/domains before equity projection. Source indexing alone does not meet this scope. Retain primitive math, consumer policy/variants, copied inputs, state/transport schemas and unresolved runtime/alias boundaries separately. The local source-derived catalogue supplements the existing core/I/O/worker comparison; it selects no implementation, default change or release. Source-index review is historical; expanded artefacts/final head require renewed separate review and applicable checks/publication. Current Project owns status.

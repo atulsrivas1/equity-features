@@ -1,3 +1,11 @@
+## GOV030 same-repository source expansion — October 19, 2026
+
+Owner authorized extending the local planning matrix after a descendant checkout exposed dedicated product pipelines absent from the previously reviewed committed tree. The earlier all-worker statement applies only to its exact source pin. Reconcile every added/changed shared and product source, preserve the old reviewed report, and renew catalogue/report/final-head review. Detailed source-derived matrices, definitions and scripts stay local under the existing rights boundary.
+
+The expanded packet separates product entrypoints, finite dictionary/preset/selector variants, direct phase inputs, upstream leaf lineage and output-field/caller evidence. Compare return conventions, units, timing and readiness before reuse; actual value producers are distinct from schema/validator references. Record alias/runtime uncertainty explicitly. Current source/semantic/interface checks and separate owner-authorized review are underway; no numerical parity, benchmark, runtime or operational acceptance is claimed. GOV030 returned Test→In progress; the live Project owns current status. PR463 remains the planning delivery vehicle. Resume with local source-delta and review receipts, resolve findings, then qualify the exact final artefacts/public head and applicable CI/publication/readback.
+
+## Earlier checkpoints retained as history
+
 ## GOV030 actual output catalogue expansion — October 18, 2026
 
 The owner corrected the requested deliverable from repository indexing to calculated outputs across all worker/domain families. Source-index completion was overstated; that review is historical evidence only. The local packet now separates named definitions and variants, typed written/returned output/state contracts, supplied inputs, embedded contracts, scalar results, caller-bound pointer effects and worker producer candidates. Domain/equity filtering and the existing core/I/O/worker comparison remain available. Exact source expressions and unresolved boundaries stay local under the existing source-rights restriction. Static unions are not qualified minimal dependencies; copied facts, policy/configuration and metadata are not counted as unique mathematical features.
