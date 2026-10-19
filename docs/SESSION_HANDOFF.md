@@ -1,3 +1,11 @@
+## EQ139 first four-form Windows qualification; document encoding correction
+
+Frozen502053eb7620adb0ab000a96ff551aefcfb9f445 Windows builder completed qualification-6ra8vh5_, all four light/combined wheel/sdist forms with78 intraday methods each, existing guards5/7 and new band guards7. Original core39/config and exact typing/archive/source closure checks passed. Receipt remains bound to502, not a successor or Linux delivery.
+
+Separate original753 source review55 assertions/170 methods/295 independent numerical scenarios passed with README DOC01, resolved at502. Separate502 protocol22 assertions/seven guards/72 full-result comparisons passed with DOC02: the new benchmark document had a cp1252 em dash and actual docs CI failed. Only that document failed the workflow Markdown UTF8 scan. After builder closure, it was explicitly decoded and saved as UTF8 here; no producer, fixture, harness execution or threshold changed. Current CI/review renewal and actual timing remain pending. [Public development evidence](https://github.com/atulsrivas1/equity-features/issues/473#issuecomment-6267615579) preserves failures and scope limits.
+
+Next renew exact documentation/source coverage, verify UTF8, freeze clean source for36-profile band timing, then final same-story evidence/CI/both-platform artifacts/main acceptance. EQ139 stays In progress; finish R17 before R18. Earlier snapshots are historical.
+
 ## EQ139 benchmark safeguards implemented; actual measurements pending
 
 The standalone band harness now declares 36 fixed profiles, 72 full-result readiness comparisons and all-A-before-any-B frozen baseline admission. Seven author guard methods pass, including partial/failed evidence retention, source closure and exclusive baseline ordering. The installed-package builder now includes this distinct harness/guard scope and records its own seven-method result alongside the original five/seven preparation/indicator controls. [Protocol](stories/EQ-139_BENCHMARK.md) states costs, margins and limits. These are synthetic safeguards; no a3 timing or installed qualification has yet run. The producer/tests and existing benchmark execution files remain unchanged from753b511 for the running separate component review.
