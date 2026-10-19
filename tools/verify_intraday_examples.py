@@ -79,7 +79,8 @@ def bands(closes, period, k=F(2), anchor=0, scale=0):
 
 def operand_slots(feature, anchor, target, period):
     if feature == 'atr':
-        return set(range(anchor, target)), set(range(anchor+1, target+1))
+        # An epoch with no TR yet still observes its close anchor for warm-up.
+        return {anchor} | set(range(anchor, target)), set(range(anchor+1, target+1))
     if feature == 'bands':
         return set(range(max(anchor, target-period+1), target+1)), set()
     if feature in ('ema', 'rsi'):
@@ -175,6 +176,13 @@ class IntradayReferences(unittest.TestCase):
                 c, hl = operand_slots(case['feature'], case['anchor'], case['target'], case['period'])
                 self.assertEqual(sorted(c), case['closes'])
                 self.assertEqual(sorted(hl), case['high_low'])
+
+    def test_single_anchor_atr_warmup_observes_close_only(self):
+        c, hl = operand_slots('atr', 0, 0, 1)
+        self.assertEqual(c, {0})
+        self.assertEqual(hl, set())
+        self.assertEqual(len(c|hl), 1)  # observed1 against required N+1=2
+        self.assertIsNone(atr([10], [None], [None], 1))
 
     def test_old_gap_recovers_only_finite_window(self):
         for family in ('ema','rsi','atr','bands'):

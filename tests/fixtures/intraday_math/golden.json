@@ -14,7 +14,8 @@
     {"feature":"ema", "anchor":0, "target":4, "period":3, "closes":[0,1,2,3,4], "high_low":[]},
     {"feature":"rsi", "anchor":0, "target":4, "period":3, "closes":[0,1,2,3,4], "high_low":[]},
     {"feature":"atr", "anchor":0, "target":4, "period":3, "closes":[0,1,2,3], "high_low":[1,2,3,4]},
-    {"feature":"bands", "anchor":0, "target":4, "period":3, "closes":[2,3,4], "high_low":[]}
+    {"feature":"bands", "anchor":0, "target":4, "period":3, "closes":[2,3,4], "high_low":[]},
+    {"feature":"atr", "anchor":0, "target":0, "period":1, "closes":[0], "high_low":[]}
   ],
   "cutoff_cases": [
     {"name":"end_equals_C", "end":30, "C":30, "known":31, "K":31, "market_ok":true, "knowledge_reason":null},

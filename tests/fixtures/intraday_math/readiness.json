@@ -9,12 +9,19 @@
     {"name":"old_unknown_knowledge","change":{"known_at_ns":[null,20,30,40,50]},"expect":{"ema":{"status":"incomplete_coverage","reasons":["unknown_availability"],"expected":5,"observed":4},"rsi":{"status":"incomplete_coverage","reasons":["unknown_availability"],"expected":5,"observed":4},"atr":{"status":"incomplete_coverage","reasons":["unknown_availability"],"expected":5,"observed":4},"bands":{"status":"available","expected":3,"observed":3}}},
     {"name":"completed_equal_cutoff","change":{},"expect":{"ema":{"status":"available","expected":5,"observed":5},"rsi":{"status":"available","expected":5,"observed":5},"atr":{"status":"available","expected":5,"observed":5},"bands":{"status":"available","expected":3,"observed":3}},"evidence_boundary":"completed_interval"},
     {"name":"future_known_target","change":{"known_at_ns":[10,20,30,40,61]},"expect":{"ema":{"status":"incomplete_coverage","reasons":["future_knowledge"],"expected":5,"observed":4},"rsi":{"status":"incomplete_coverage","reasons":["future_knowledge"],"expected":5,"observed":4},"atr":{"status":"incomplete_coverage","reasons":["future_knowledge"],"expected":5,"observed":4},"bands":{"status":"incomplete_coverage","reasons":["future_knowledge"],"expected":3,"observed":2}}},
-    {"name":"absent_delivery","change":{"batches":null},"expect":{"ema":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":0},"rsi":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":0},"atr":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":0},"bands":{"status":"missing_input","reasons":["absent_input"],"expected":3,"observed":0}}}
+    {"name":"absent_delivery","change":{"batches":null},"expect":{"ema":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":0},"rsi":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":0},"atr":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":0},"bands":{"status":"missing_input","reasons":["absent_input"],"expected":3,"observed":0}}},
+    {"name":"single_close_anchor_atr_warmup","change":{"truncate_grid_and_rows_after_index":0,"period":1,"absent_columns":["high","low"]},"expect":{"atr":{"status":"insufficient_history","reasons":["insufficient_history"],"expected":2,"observed":1}}}
   ],
   "global_admission_cases": [
     {"name":"forming_supplied_row","change":{"C":49},"error":"bounds"},
     {"name":"positive_volume_supplied_null_high","change":{"positive_volume_indices":[4],"null_high_indices":[4]},"error":"invalid_schema","note":"Malformed supplied OHLC remains a global error, even for a close-only request."},
     {"name":"control_in_session_identity","change":{"session_id":"S\n1"},"error":"invalid_config"},
     {"name":"duplicate_row_across_chunks","change":{"duplicate_row_index":2},"error":"duplicate"}
+  ],
+  "identity_expectations": [
+    {"case":"compatible_split_adjusted_revision","facts":"All supplied chunks and configuration share the exact split adjustment policy/action snapshot/anchor and unit; all required rows are known by K.","expected":"Conditional original arithmetic qualifies; source/config/action identities remain visible. No adjustment fetching or conversion occurs."},
+    {"case":"changed_action_snapshot_only","facts":"Configuration has a different action snapshot from the supplied batches.","expected":"inconsistent_identity admission error, even if numerical coefficients are equal."},
+    {"case":"corrected_earlier_close","facts":"New source snapshot/input IDs and context revision with corrected earlier close, known after the original K.","expected":"New configuration/input binding identity; no reuse of old preparation; old causal result immutable and correction excluded at original K. Recalculation at a qualifying K may produce changed recursive values."},
+    {"case":"early_close","facts":"Caller supplies actual early session close, scheduled close and consistent early_close=True.","expected":"Grid run ending at actual close may qualify at C=actual close; a run extending beyond actual close is bounds admission error. No calendar inference."}
   ]
 }
