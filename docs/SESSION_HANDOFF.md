@@ -1,3 +1,11 @@
+## EQ139 benchmark safeguards implemented; actual measurements pending
+
+The standalone band harness now declares 36 fixed profiles, 72 full-result readiness comparisons and all-A-before-any-B frozen baseline admission. Seven author guard methods pass, including partial/failed evidence retention, source closure and exclusive baseline ordering. The installed-package builder now includes this distinct harness/guard scope and records its own seven-method result alongside the original five/seven preparation/indicator controls. [Protocol](stories/EQ-139_BENCHMARK.md) states costs, margins and limits. These are synthetic safeguards; no a3 timing or installed qualification has yet run. The producer/tests and existing benchmark execution files remain unchanged from753b511 for the running separate component review.
+
+Separate reviewer identified an incorrect README association of a3 with EQ138; it now distinguishes accepted EQ138/a2 from current EQ139/a3. No numerical change was required.
+
+Next priorities: finish separate source/component review and review this protocol; freeze a clean source for four-form installed qualification; then execute all36 A/B profiles without overlapping heavy local work. These gates establish correctness, installability and actual measured applicability before delivery. EQ139 remains In progress; EQ138 is Done, R17/R18 remain incomplete. Earlier dated checkpoints below are historical.
+
 ## EQ138 accepted Done; EQ139 first source checks
 
 EQ138 actual main ee516615aec269e75f9f053ef14b39e440cae743/run39250677084 completed35SUCCESS. Separate actual main-source91/artifact89/final26 assertions passed; final acceptance SHA256992a9bfcd1c6994d1c75812eefef811c3a65cbf16bd44b157c30b413f69e03c9. [Released then verified Done](https://github.com/atulsrivas1/equity-features/issues/472#issuecomment-6267257858), actualClosed/ProjectDone read back and E25 reconciled. Frozen original source/candidate proofs and finite main artifact expiry remain preserved. The earlier bounded group has finished upstream delivery; EQ139 is now the sole implementation.

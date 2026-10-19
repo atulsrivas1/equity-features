@@ -1,0 +1,11 @@
+# EQ139 band comparison protocol — measurements pending
+
+Compare six fixed synthetic workloads with six output selections (each of five bands and all five), for 36 profiles. A uses ordinary selected calls plus a real full-result join and one globally sorted evidence cap. B uses explicit supplied price-moment preparation followed by the public compute API, including reuse validation. Neither path fetches or publishes data. All construction, admission, preparation, moments/radius evaluation, identity and full result serialization costs stay inside each measured sample.
+
+Freeze all 36 A baselines and their margins in an exclusive sidecar before any B sample. Each mode has two warmups and seven retained repetitions: 504 retained samples across 72 mode/profile measurements. Preserve failures, partial repetitions, unchanged original sidecar bytes, full source/import identities and nonwinning cases. A fresh source freeze is required before the actual run; these protocol guards are synthetic tests, not performance measurements.
+
+Adoption for a profile requires complete projection parity, median improvement at least max(5%, three A IQR divided by A median), aggregate parent-plus-child peak bound within both 1 GiB/25% initially free memory and 1.25 A, median core seconds at most 1.25 A, and small-profile p95 at most 1.10 A. Keep direct calls supported regardless of the outcome. No tuning or dropping profiles after observing B.
+
+The harness checks 72 complete-result projections across twelve independent readiness/input profiles and six selections, including missing, empty, gap, known-at, correction, warmup and zero-variance cases. Numerical correctness is qualified separately by original exact/independent decimal fixtures. Seven guard methods verify evidence retention, source closure, baseline ordering and real join metadata/evidence behavior.
+
+No timing has been executed for a3. Historical a1/a2 results retain their original identities and are not a3 measurements. This direct synchronous synthetic comparison establishes no worker parallelism, live latency, physical containment, production SLA or fastest-library claim. EQ140 owns supplied worker integration and later releases own additional execution improvements.

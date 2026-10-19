@@ -39,5 +39,6 @@ The channel is qualifying GitHub Actions main artifacts/source with finite
 retention, described in the repository build/delivery guide; registry/stable
 publication is not selected. [EQ137 acceptance](https://github.com/atulsrivas1/equity-features/issues/471)
 records accepted preparation0.1.0a1 delivery. [EQ138](https://github.com/atulsrivas1/equity-features/issues/472)
-records actual0.1.0a3 review, qualification and delivery status. Historical
+records accepted0.1.0a2 delivery. [EQ139](https://github.com/atulsrivas1/equity-features/issues/473)
+records current0.1.0a3 review, qualification and delivery status. Historical
 preparation timings do not establish output performance for this version.
