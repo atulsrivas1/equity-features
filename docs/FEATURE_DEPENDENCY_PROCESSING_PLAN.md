@@ -16,6 +16,14 @@ The owner requested inspection of a local comparison implementation and the thre
 
 See the [accepted overall architecture audit](reviews/OVERALL_ARCHITECTURE_REVIEW_2026-10-18.md), [existing parallel execution plan](R5_PARALLEL_EXECUTION_PLAN.md), [feature scope](features/V1_SCOPE.md), [live architecture direction](decisions/LIVE_INTRADAY_ARCHITECTURE_DIRECTION.md) and [deferred live release](FUTURE_LIVE_INTRADAY_RELEASE.md). Static source inspection is not a new numerical/parity/installed/operational acceptance run. Historical measurements remain historical.
 
+## Repository-wide inventory and equity projection
+
+The owner extended the comparison to every worker and asset domain before filtering equity relevance. Keep a master inventory of command entrypoints, source packages, calculation contracts, output fields and catalog identities. Include mixed workers. Distinguish equity outputs, mixed outputs, equity inputs used by another asset's calculations, and infrastructure/provenance fields. A worker name does not establish its calculation domain.
+
+The inventory must disclose its unit and evidence: source census, source-read mathematical family, independently qualified scalar definition, or unresolved candidate. Account for excluded/untracked sources and non-calculation workers explicitly. Retain the all-domain and unreviewed views so a heuristic filter cannot silently discard relevant paths. Record actual callable bindings, dynamic/external boundaries and configuration separately from conservative import reachability. Import graphs and field-assignment witnesses support navigation; they do not establish minimal mathematical dependencies or numerical parity.
+
+Use the equity projection to refine the existing public capability comparison. Share a compatible underlying fact or reducer where contracts match, while keeping option-specific consumers and maturity-dependent outcome work separate. New candidates remain unassessed until their formulas, timing, coverage, exact inputs and implementation bindings are established. The expanded inventory selects no option library/runtime scope and makes no new completeness or performance claim about delivered kernels. Detailed comparison evidence remains local under the source boundary above.
+
 ## Current feature/input/capability matrix
 
 This matrix groups the 39 built-in IDs by actual public input/API and capability. Parameter variants are not extra IDs. Every calculation also needs compatible identity, units, timing, coverage and configuration admission. Compatible facts can be reused only within those exact identities.

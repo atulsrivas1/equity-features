@@ -1,3 +1,13 @@
+## GOV030 repository-wide inventory extension — October 18, 2026
+
+The owner extended [GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) to account for every worker and calculation domain in the designated local comparison, then select equity calculations wherever they occur, including mixed workers. The prior equity-only matrix and review are retained as historical evidence. The local master now separates command entrypoints, package import reachability, function contracts, schema fields, expression witnesses, source-read calculation families and unreviewed candidates. A complete syntax census does not establish a complete qualified mathematical catalog or a minimal execution DAG. Equity-output calculations, mixed calculations and equity-input dependencies need distinct labels. Non-Go configuration/scripts and dynamic/external bindings remain explicit review queues.
+
+The live Project returned Test to In progress for this owner-directed expansion. Separate authorized local planning review is being renewed for the expanded private artifacts and final public head. [Public packet](FEATURE_DEPENDENCY_PROCESSING_PLAN.md) records the generalized inventory/filtering contract; all source-derived details/helpers remain local pending redistribution rights. No runtime, built-in scope, release selection, default or performance claim changes. Existing deferrals and release ownership remain intact.
+
+Resume: reconcile expanded inventory validation and independent review; resolve findings, obtain exact final-head documentation checks/CI, then follow publication/readback gates before Released/Done. The prior final-head review does not cover this extension. Do not turn import reachability or name-based candidate classification into mathematical dependency proof.
+
+## Prior GOV030 planning snapshot retained as history
+
 ## GOV030 dependency matrix and resource planning — October 18, 2026
 
 [GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) owns the requested feature/dependency/coverage planning. [Concrete public packet](FEATURE_DEPENDENCY_PROCESSING_PLAN.md) uses current public core/I-O/worker source pins, the 39-ID capability/input matrix, actual coarse sharding/resource/sink constraints and a prioritized measurement/adoption plan. A detailed source-derived comparison and extraction evidence were prepared locally and are excluded from this public change pending redistribution rights. No source-specific code/data or host inventory is published. Grouped dependency associations are not a verified executable minimal graph; exact selected-output specialization/parity remains later work.

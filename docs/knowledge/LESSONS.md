@@ -1,3 +1,11 @@
+## Worker domain does not determine calculation domain — GOV030 extension, October 18, 2026
+
+Owner direction expanded [GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) from selected equity paths to a complete worker/domain inventory with an equity projection. Record calculation outputs separately from asset inputs and worker labels: a mixed consumer may calculate equity statistics, while an option calculation may merely require an underlying-price input. Preserve all-domain and unreviewed views so name-based filtering cannot silently hide a relevant path. A field declaration, package import, source-read family and qualified scalar feature are different units; never sum their counts as a unique feature count.
+
+Evidence: [public inventory/filter contract](../FEATURE_DEPENDENCY_PROCESSING_PLAN.md), linked issue and local-only pinned comparison artifacts. Complete syntax accounting is a useful coverage bound, not proof of complete mathematical semantics, actual worker dispatch or a minimal parallel graph. Dynamic/external bindings, launch configuration and unresolved candidates need explicit qualification before runtime selection. Previous reviewed source/dependency corrections remain valid within their original scope; renew review after expansion.
+
+## Prior GOV030 planning snapshot retained as history
+
 ## Dependency planning: distinguish reusable primitives, parameters and execution gates — October 18, 2026
 
 The [public 39-ID input/capability matrix](../FEATURE_DEPENDENCY_PROCESSING_PLAN.md) and [accepted architecture audit](../reviews/OVERALL_ARCHITECTURE_REVIEW_2026-10-18.md) support a narrower scheduling question: which selected outputs share admitted facts, and which actually consume another output or mutable state? A configurable window is not a missing built-in, a daily API is not automatically an intraday API, and registered extension capacity is not a delivered feature. Similar result names do not prove mathematical parity. Core source remains the contract authority.

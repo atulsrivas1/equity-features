@@ -1,3 +1,9 @@
+## GOV030 owner-directed scope extension — October 18, 2026
+
+[GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) now includes a repository-wide worker/domain inventory and an equity-relevance projection, including equity calculations inside mixed workers. This extends the same planning story; it does not select option runtime implementation, new built-ins or a release. [Design](FEATURE_DEPENDENCY_PROCESSING_PLAN.md) distinguishes exhaustive source accounting from qualified feature math and retains explicit unresolved binding/semantic queues. Prior review is historical; renewed expanded-artifact/final-head review and applicable delivery gates remain required. Live Project status owns current execution.
+
+## Prior GOV030 planning snapshot retained as history
+
 ## GOV030 dependency/performance planning boundary — October 18, 2026
 
 [GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) prepares the owner's requested feature dependency/coverage matrix and [measured parallel-processing plan](FEATURE_DEPENDENCY_PROCESSING_PLAN.md). This governance story is outside the deferred runtime milestone; detailed source-derived comparison remains local pending redistribution rights. Provisional planning complexity5 is not days. No new built-in IDs, runtime stories, release/date/SLA, budget/default change or implementation readiness is implied.
