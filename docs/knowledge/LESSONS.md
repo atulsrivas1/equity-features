@@ -1,3 +1,7 @@
+## EQ142 retain actual metadata before evidence gates
+
+[EQ142 outcome controls](../stories/EQ-142_BASELINE_PREPARATION.md) distinguish actual SupervisorOutcome fields from diagnostic-only identities and scalar metadata from full codec bodies. Inspect the real type/helper API before designing a ledger. Persist actual row/admission/task/timing metadata before proof/parity checks and retain injected error identity. State explicitly that selected input rows include cancelled/undispatched work and identity-distinct rows do not prove cache reuse. Accepted outputs do not enumerate every backend commit. Mark failure records explicitly unaccepted as well as success records, and preserve failed development attempts with honest source/log limitations.
+
 ## EQ142 qualification must respect the real test host
 
 [EQ142 hosted qualification](../stories/EQ-142_BASELINE_PREPARATION.md) rejected hardcoded development CPU budgets that exceeded the runner. Bound test budgets by actual CPU-count/affinity evidence, preserve backend/host reserves and retain precise unsupported-capacity skips in the ledger. Unknown count/probe failure must reject rather than invent capacity; a valid one-slot affinity must remain distinguishable. Simulated four/six-slot controls prove branch behavior, not physical-host or performance qualification. Preserve failing hosted runs and renew actual current-source installed/CI evidence.
