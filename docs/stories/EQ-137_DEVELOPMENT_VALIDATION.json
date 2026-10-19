@@ -3,7 +3,7 @@
   "accepted": false,
   "stage": "initial source development, before installed qualification and final review",
   "checks": {
-    "source_unittest_methods": 47,
+    "source_unittest_methods": 48,
     "strict_mypy_files": 8,
     "ci_gate_methods": 13,
     "intraday_boundary_negative": 20,
@@ -24,13 +24,10 @@
     "PREP04: per-chunk phase ordering let an earlier malformed price mask a later unit/source mismatch, or earlier grid issue mask later malformed payload. Split admission into complete envelope pass, all payload semantic validation in input order, then grid/coverage. Two new regression methods cover these cases;47producer methods pass."
   ],
   "pending": [
-    "full independent source review",
-    "four installed forms on both OS",
-    "archive/build qualification",
-    "frozen protocol preparation benchmarks",
-    "final source CI",
+    "full final-head source/documentation review",
+    "current final-head CI/bothOS artifact applicability",
     "publication/readback",
-    "acceptance"
+    "final story acceptance"
   ],
   "review": {
     "identity": "separate local automated Codex reviewer /root/r17_review",
@@ -44,5 +41,31 @@
     "forms": 4,
     "source_head_and_materialization_closure": true,
     "limitations": "Subsequent PREP04 correction changes producer source; requires fresh successor qualification. No Linux/main delivery acceptance inferred."
+  },
+  "measured_component": {
+    "source_commit": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+    "report": "EQ-137_PREPARATION_BENCHMARK.json",
+    "baseline": "EQ-137_PREPARATION_BASELINE.json",
+    "cases": 6,
+    "adopted_cases": 6,
+    "reduction_percent_range": [
+      59.55,
+      64.76
+    ],
+    "review_assertions": 128,
+    "review_receipt_sha256": "94f30e513a0d090b5e59febc47b93fa3d47c83172ccbc562ea8878b08f8741c0",
+    "limits": "Historical exact source; preparation only, no worker/ranking/SLA/full R17 claim."
+  },
+  "candidate_artifact_component": {
+    "source_commit": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+    "push_run": 39233722244,
+    "linux_artifact": 12177369573,
+    "windows_artifact": 12177224182,
+    "forms_per_os": 4,
+    "review_assertions": 83,
+    "review_receipt_sha256": "5fe39cc996e70573c80d3c7a7b11aa41439c0e5a9a5b43eebd5c6b5b2c311d26",
+    "expires": "2026-11-18",
+    "local_repeat_four_forms_completed": true,
+    "limits": "Current final-head artifact/main acceptance remains separate."
   }
 }

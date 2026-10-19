@@ -136,6 +136,16 @@ class AdmissionTests(unittest.TestCase):
                     self.assertEqual(make(batches,c,cfg).operand('price_moments').values,
                                      (mean,variance,F(window[-1])-mean))
 
+    def test_maximum_window_int64_scale18_has_exact_nonzero_variance(self):
+        maximum=2**63-1
+        batches,c,base=supplied(closes=(maximum-1,maximum)*2048,scale=18,absent=('high','low'))
+        cfg=build_intraday_config(c,period=4096,band_k=F(2),availability=base.availability,
+            adjustment=base.adjustment,price_unit=base.price_unit,evidence_limit=10)
+        view=make(batches,c,cfg).operand('price_moments')
+        self.assertEqual(view.values,(F(2*maximum-1,2*10**18),F(1,4*10**36),F(1,2*10**18)))
+        self.assertEqual((view.status.value,view.expected,view.observed),('available',4096,4096))
+        self.assertEqual(len(view.evidence),10)
+
     def test_corrected_snapshot_rebuilds_without_mutating_old_facts(self):
         batches,c,cfg=supplied()
         before=make(batches,c,cfg)

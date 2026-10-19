@@ -1,3 +1,7 @@
+## EQ137 delivery checkpoint — October 19, 2026
+
+EQ136 is accepted Done. EQ137 is In progress in [PR500](https://github.com/atulsrivas1/equity-features/pull/500). [Measured preparation evidence](stories/EQ-137_BENCHMARK.md) and independently reviewed candidate Windows/Linux artifacts qualify exact source `c7a46d6`; final-head review/CI/artifacts, publication and main acceptance remain. The [session handoff](SESSION_HANDOFF.md) records exact proofs, remaining gates and resume steps. Scope/dependencies are unchanged; the live Project owns status. Finish R17 before the selected R18 handoff and execution. Earlier snapshots below retain their original dates and limits.
+
 ## EQ136 accepted; EQ137 preparation implementation — October 19, 2026
 
 [EQ136 #470](https://github.com/atulsrivas1/equity-features/issues/470) is Closed/Project Done. [PR499](https://github.com/atulsrivas1/equity-features/pull/499) published specification source on main `8044f2a0f59d29b85981aaa446777ac2f92fc29b`; candidate checks passed 70/70, actual-main run39227653910 passed35/35, and separate final local reviewer /root/r17_review passed18 acceptance assertions (receipt SHA256 b9b0982552750b8c7430bc898a6ab0e7bc6b2e6106646db741d58fbb2a81a201). All1,232 Git leaves and21 changed public blobs matched the reviewed candidate. This accepts specifications and reference fixtures, not production kernels or R17 completion.

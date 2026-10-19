@@ -2,7 +2,7 @@
   "schema": "equity-features.r17-handoff.v1",
   "owner_execution_selected": true,
   "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW",
-  "implementation_admission": "EQ136 specification Ready inputs admitted; dependent implementations require accepted EQ136 and their own reviewed pre-code inputs. Live Project is status authority.",
+  "implementation_admission": "EQ136 accepted specification; EQ137 preparation component qualified at c7a46d6, final delivery pending. EQ138 and later require their own accepted inputs and reviewed public pre-code plans. Live Project is status authority.",
   "governance_issue": 464,
   "planning_pr": 498,
   "epic": 465,
@@ -103,7 +103,10 @@
     "stories/EQ-136_FIXTURES.json",
     "api/INTRADAY.md",
     "features/INTRADAY_FOUNDATIONS.md",
-    "decisions/R17_INTRADAY_PACKAGE.md"
+    "decisions/R17_INTRADAY_PACKAGE.md",
+    "stories/EQ-137_PLAN.md",
+    "stories/EQ-137_FACT_READINESS.md",
+    "stories/EQ-137_BENCHMARK.md"
   ],
   "stop_after": "Verified R17 acceptance, then prepare the owner-selected R18 handoff and qualify R18 Ready/review inputs before execution. No R19\u201321 or live/provider/deployment/recurring scope.",
   "planning_rebase_base": "61d16a11b9b47095a23ef010ddff1260a4993eca",
@@ -117,5 +120,19 @@
   "owner_next_release_direction": "https://github.com/atulsrivas1/equity-features/issues/466#issuecomment-6262688896",
   "implementation_admission_at_preparation": "BLOCKED_ON_ACTUAL_PREREQUISITE_PUBLICATION_AND_REVIEW",
   "accepted_planning_main": "d4c1ac5f34bbf7d52b3d53ea3b88330d3d3a8e58",
-  "planning_main_acceptance_receipt_sha256": "a9f057aad593f40cd50c8ba49f84aa68e1457e90e892da1bc711f60a995391af"
+  "planning_main_acceptance_receipt_sha256": "a9f057aad593f40cd50c8ba49f84aa68e1457e90e892da1bc711f60a995391af",
+  "accepted_eq136": {
+    "issue": 470,
+    "pr": 499,
+    "main": "8044f2a0f59d29b85981aaa446777ac2f92fc29b",
+    "status": "Closed/Project Done",
+    "final_acceptance_receipt_sha256": "b9b0982552750b8c7430bc898a6ab0e7bc6b2e6106646db741d58fbb2a81a201"
+  },
+  "eq137_measured_component": {
+    "issue": 471,
+    "pr": 500,
+    "source": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+    "public_evidence": "https://github.com/atulsrivas1/equity-features/issues/471#issuecomment-6264779008",
+    "status": "Exact preparation measurement and candidate bothOS artifacts accepted; final story delivery pending"
+  }
 }

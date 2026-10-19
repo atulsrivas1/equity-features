@@ -1,3 +1,9 @@
+## Validate cross-chunk phases globally; freeze sources through measurements
+
+[EQ137 PREP04 and measured component evidence](https://github.com/atulsrivas1/equity-features/issues/471#issuecomment-6264779008) show why per-chunk ordering is insufficient for a declared global rejection order: an early malformed price masked a later unit mismatch; an early grid defect masked a later malformed payload. Validate all supplied envelopes, then all payload semantics in input order, then cross-chunk grid/coverage. Producer regressions preserve these combined defects and independent field readiness.
+
+The initial source-bound build correctly rejected a concurrent API-document edit. Keep exact source/HEAD frozen through qualification, retain failed/partial results and use a fresh invocation after changes. Separately bind actual imported origins/versions/bytes in benchmark parent/children, create frozen baseline evidence exclusively before candidate timings, and preserve samples on failures/source-invalid closure without adopting them. [Original report](../stories/EQ-137_BENCHMARK.md) records actual measurements and their limited scope; documentation-only successors must show unchanged executed components and retain historical source identity, rather than renaming old evidence current.
+
 ## Shared preparation facts and output warm-up — EQ137, October 19, 2026
 
 Raw anchored closes/TR facts can qualify before a consuming indicator has seed history. Apply each output's own N or N+1 history requirement; never turn the shared fact-view status into a global output barrier. [Reviewed pre-code supplement](../stories/EQ-137_FACT_READINESS.md) and initial producer tests in tests/intraday/test_preparation.py exercise the single-close anchor and close-only/target-close distinctions. Source development checks are not accepted output-kernel evidence. Installed isolation, independent review and actual performance measurement remain separate gates.

@@ -1,8 +1,8 @@
 # Intraday snapshot API and transport contract
 
-EQ137 implementation progress: context/configuration and the six preparation families now have producer source and synthetic tests. [Runnable example](../../examples/intraday_preparation.py) and [pre-code fact-readiness contract](../stories/EQ-137_FACT_READINESS.md) describe this preparation-only stage. Output dispatch remains explicitly unsupported; installed qualification and final story acceptance are pending. The frozen target API below also covers future EQ138/EQ139 outputs.
+EQ137 implementation progress: context/configuration and the six preparation families now have producer source and synthetic tests. [Runnable example](../../examples/intraday_preparation.py) and [pre-code fact-readiness contract](../stories/EQ-137_FACT_READINESS.md) describe this preparation-only stage. Output dispatch remains explicitly unsupported. [Measured preparation evidence](../stories/EQ-137_BENCHMARK.md) and the [live story](https://github.com/atulsrivas1/equity-features/issues/471) distinguish exact candidate qualification from final delivery. The frozen target API below also covers future EQ138/EQ139 outputs.
 
-EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470). Concrete specification for separate review, not an importable API or accepted implementation. [Mathematics](../features/INTRADAY_FOUNDATIONS.md), [package choice](../decisions/R17_INTRADAY_PACKAGE.md). All names below describe the selected first optional version; dependent implementation must match the accepted revision.
+EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470). Accepted specification; current preparation implementation and later output acceptance remain distinct. [Mathematics](../features/INTRADAY_FOUNDATIONS.md), [package choice](../decisions/R17_INTRADAY_PACKAGE.md). All names below describe the selected first optional version; dependent implementation must match the accepted revision.
 
 ## Owned context and public operations
 
