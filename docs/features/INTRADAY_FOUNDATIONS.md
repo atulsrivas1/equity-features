@@ -1,3 +1,7 @@
+## EQ139 cancellation-safe source evaluation
+
+[EQ139 accepted plan](../stories/EQ-139_PLAN.md) retains the equations/units/schema/math policy below. The a3 implementation forms exact squared radius and exact lower/negative-position numerators before Decimal120 division, preserving exact zero/sign near cancellation. Independent centered/pairwise Fraction and direct high-precision oracles plus [original fixtures](../../tests/fixtures/intraday_bands/README.md) verify source behavior; production moments and shared-call parity are not the sole numerical reference. Rolling window readiness remains independent of old anchored gaps and unrelated H/L. Final installed/performance/release acceptance remains EQ139.
+
 ## EQ138 independent output and measured-sharing evidence
 
 Independent exact impulse-response/interval-envelope cases validate102 scenarios/186 available scalar values/78warm-up checks, distinct from A/B parity. [Measured sourcef1](../stories/EQ-138_BENCHMARK.md) qualifies shared requests for all3indicators in six frozen cases; individual cases keep direct fallback. Actual math/units/warm-up/coverage/Float64 tolerance do not change. Current final source/installed/main acceptance remains the implementation issue's gate.

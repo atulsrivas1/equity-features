@@ -1,0 +1,334 @@
+{
+  "scope": "Original independent mathematical goldens; not installed, performance or release qualification.",
+  "generator_sha256_lf": "664e3767137df9d9d38a25bca921c2907227a2e0a8bd02740090d76b31d9b547",
+  "oracle": "Independent exact pairwise variance; exact rational-square paths, otherwise Decimal240 direct expressions.",
+  "cases": [
+    {
+      "id": "exact_lower_zero",
+      "prices": [
+        1,
+        7
+      ],
+      "scale": 0,
+      "period": 2,
+      "k": "4/3",
+      "mean": "4/1",
+      "variance": "9/1",
+      "radius_squared": "16/1",
+      "exact_outputs": [
+        "4/1",
+        "8/1",
+        "0/1",
+        "2/1",
+        "7/8"
+      ],
+      "outputs_middle_upper_lower_width_position": [
+        4.0,
+        8.0,
+        0.0,
+        2.0,
+        0.875
+      ]
+    },
+    {
+      "id": "exact_position_zero",
+      "prices": [
+        7,
+        1
+      ],
+      "scale": 0,
+      "period": 2,
+      "k": "1/1",
+      "mean": "4/1",
+      "variance": "9/1",
+      "radius_squared": "9/1",
+      "exact_outputs": [
+        "4/1",
+        "7/1",
+        "1/1",
+        "3/2",
+        "0/1"
+      ],
+      "outputs_middle_upper_lower_width_position": [
+        4.0,
+        7.0,
+        1.0,
+        1.5,
+        0.0
+      ]
+    },
+    {
+      "id": "flat",
+      "prices": [
+        7,
+        7,
+        7
+      ],
+      "scale": 0,
+      "period": 3,
+      "k": "2/1",
+      "mean": "7/1",
+      "variance": "0/1",
+      "radius_squared": "0/1",
+      "exact_outputs": [
+        "7/1",
+        "7/1",
+        "7/1",
+        "0/1",
+        null
+      ],
+      "outputs_middle_upper_lower_width_position": [
+        7.0,
+        7.0,
+        7.0,
+        0.0,
+        null
+      ]
+    },
+    {
+      "id": "negative_lower",
+      "prices": [
+        1,
+        9
+      ],
+      "scale": 0,
+      "period": 2,
+      "k": "2/1",
+      "mean": "5/1",
+      "variance": "16/1",
+      "radius_squared": "64/1",
+      "exact_outputs": [
+        "5/1",
+        "13/1",
+        "-3/1",
+        "16/5",
+        "3/4"
+      ],
+      "outputs_middle_upper_lower_width_position": [
+        5.0,
+        13.0,
+        -3.0,
+        3.2,
+        0.75
+      ]
+    },
+    {
+      "id": "negative_position",
+      "prices": [
+        9,
+        9,
+        1
+      ],
+      "scale": 0,
+      "period": 3,
+      "k": "1/1",
+      "mean": "19/3",
+      "variance": "128/9",
+      "radius_squared": "128/9",
+      "exact_outputs": null,
+      "outputs_middle_upper_lower_width_position": [
+        6.333333333333333,
+        10.104569499661586,
+        2.56209716700508,
+        1.190916684103659,
+        -0.20710678118654752
+      ]
+    },
+    {
+      "id": "position_above_one",
+      "prices": [
+        1,
+        1,
+        9
+      ],
+      "scale": 0,
+      "period": 3,
+      "k": "1/1",
+      "mean": "11/3",
+      "variance": "128/9",
+      "radius_squared": "128/9",
+      "exact_outputs": null,
+      "outputs_middle_upper_lower_width_position": [
+        3.6666666666666665,
+        7.43790283299492,
+        -0.1045694996615868,
+        2.05703790890632,
+        1.2071067811865475
+      ]
+    },
+    {
+      "id": "wide_offset",
+      "prices": [
+        1152921504606846975,
+        1152921504606846976,
+        1152921504606846977
+      ],
+      "scale": 0,
+      "period": 3,
+      "k": "2/1",
+      "mean": "1152921504606846976/1",
+      "variance": "2/3",
+      "radius_squared": "8/3",
+      "exact_outputs": null,
+      "outputs_middle_upper_lower_width_position": [
+        1.152921504606847e+18,
+        1.152921504606847e+18,
+        1.152921504606847e+18,
+        2.8327915739802466e-18,
+        0.8061862178478972
+      ]
+    },
+    {
+      "id": "scale18",
+      "prices": [
+        1152921504606846975,
+        1152921504606846976,
+        1152921504606846977
+      ],
+      "scale": 18,
+      "period": 3,
+      "k": "2/1",
+      "mean": "4398046511104/3814697265625",
+      "variance": "1/1500000000000000000000000000000000000",
+      "radius_squared": "1/375000000000000000000000000000000000",
+      "exact_outputs": null,
+      "outputs_middle_upper_lower_width_position": [
+        1.152921504606847,
+        1.152921504606847,
+        1.152921504606847,
+        2.8327915739802466e-18,
+        0.8061862178478972
+      ]
+    },
+    {
+      "id": "int64_limit",
+      "prices": [
+        9223372036854775805,
+        9223372036854775806,
+        9223372036854775807
+      ],
+      "scale": 0,
+      "period": 3,
+      "k": "2/1",
+      "mean": "9223372036854775806/1",
+      "variance": "2/3",
+      "radius_squared": "8/3",
+      "exact_outputs": null,
+      "outputs_middle_upper_lower_width_position": [
+        9.223372036854776e+18,
+        9.223372036854776e+18,
+        9.223372036854776e+18,
+        3.540989467475308e-19,
+        0.8061862178478972
+      ]
+    },
+    {
+      "id": "near_lower_zero_positive",
+      "prices": [
+        1,
+        7
+      ],
+      "scale": 0,
+      "period": 2,
+      "k": "333333/250000",
+      "mean": "4/1",
+      "variance": "9/1",
+      "radius_squared": "999998000001/62500000000",
+      "exact_outputs": [
+        "4/1",
+        "1999999/250000",
+        "1/250000",
+        "999999/500000",
+        "583333/666666"
+      ],
+      "outputs_middle_upper_lower_width_position": [
+        4.0,
+        7.999996,
+        4e-06,
+        1.999998,
+        0.875000375000375
+      ]
+    },
+    {
+      "id": "near_lower_zero_negative",
+      "prices": [
+        1,
+        7
+      ],
+      "scale": 0,
+      "period": 2,
+      "k": "1000000/749999",
+      "mean": "4/1",
+      "variance": "9/1",
+      "radius_squared": "9000000000000/562498500001",
+      "exact_outputs": [
+        "4/1",
+        "5999996/749999",
+        "-4/749999",
+        "1500000/749999",
+        "1749999/2000000"
+      ],
+      "outputs_middle_upper_lower_width_position": [
+        4.0,
+        8.000005333340445,
+        -5.333340444453926e-06,
+        2.0000026666702224,
+        0.8749995
+      ]
+    },
+    {
+      "id": "small_multiplier",
+      "prices": [
+        1,
+        7
+      ],
+      "scale": 18,
+      "period": 2,
+      "k": "1/1000000",
+      "mean": "1/250000000000000000",
+      "variance": "9/1000000000000000000000000000000000000",
+      "radius_squared": "9/1000000000000000000000000000000000000000000000000",
+      "exact_outputs": [
+        "1/250000000000000000",
+        "4000003/1000000000000000000000000",
+        "3999997/1000000000000000000000000",
+        "3/2000000",
+        "1000001/2"
+      ],
+      "outputs_middle_upper_lower_width_position": [
+        4e-18,
+        4.000003e-18,
+        3.999997e-18,
+        1.5e-06,
+        500000.5
+      ]
+    },
+    {
+      "id": "large_multiplier",
+      "prices": [
+        1,
+        7
+      ],
+      "scale": 0,
+      "period": 2,
+      "k": "1000000/1",
+      "mean": "4/1",
+      "variance": "9/1",
+      "radius_squared": "9000000000000/1",
+      "exact_outputs": [
+        "4/1",
+        "3000004/1",
+        "-2999996/1",
+        "1500000/1",
+        "1000001/2000000"
+      ],
+      "outputs_middle_upper_lower_width_position": [
+        4.0,
+        3000004.0,
+        -2999996.0,
+        1500000.0,
+        0.5000005
+      ]
+    }
+  ]
+}

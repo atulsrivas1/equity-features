@@ -1,3 +1,11 @@
+## EQ139 exact band proof and current qualification
+
+The a3 builder now snapshots the standalone band harness, its eight evidence guards, unaltered36-profile raw report/frozen A sidecar and38-entry applicability map alongside the original5preparation/7indicator guards. Narrow Git attributes preserve original Windows raw bytes and hashes; CI checks the proof without rerunning the long experiment. [Measured source and limits](stories/EQ-139_BENCHMARK.md) remain bound to9d51. Historical502 Windows four-form qualification passed78 intraday methods per form and exact source/archive/typing/core closure; final successor/current Windows/Linux CI/artifacts and actual main acceptance still need qualification. No registry/stable channel change.
+
+## EQ139 a3 source qualification preparation
+
+The exact intraday builder pin is0.1.0a3. Its verification snapshot now includes [original band fixture source/goldens](../tests/fixtures/intraday_bands/README.md) and [accepted EQ139 plan](stories/EQ-139_PLAN.md). Existing5legacy/7indicator evidence guards/raw proofs remain intact. The standalone band harness, distinct new guard count and source-frozen installed/timing/currentCI/artifact/main qualification are still being prepared; no completed a3 build or performance run is claimed. Accepted a2 main ee516/run39250677084 and its four-form both-platform channel remain separate original evidence.
+
 ## EQ138 final-source proof requirements
 
 The intraday builder retains old/core/optional package invariants and four fresh installed forms, and now executes5legacy-preparation plus7output measurement guards. Source scopes include the exact public EQ138raw report/frozen sidecar, report and37-entry applicability record, preserving rawWindowsCRLF bytes through narrow -text/cr-at-eol attributes. These are proof-retention checks, not CI reruns of long performance timings. [Source-bound output evidence](stories/EQ-138_BENCHMARK.md) is distinct from final installed/candidate/main qualification; current live issue472 controls acceptance.

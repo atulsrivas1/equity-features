@@ -1,3 +1,13 @@
+## EQ139 measured evidence and proof retention
+
+Separate numerical/source review ran170 fresh methods and295 original numerical scenarios/1608 scalars. Separately reviewed9d51 performance evidence has36 profiles/504 retained samples and781 evidence assertions;72 preflight full-result readiness comparisons do not replace those numerical oracles. All six combined requests and two narrow large singles meet frozen gates,28nonwins remain recorded. Eight band safeguards now retain original raw/sidecar hashes, all samples/source applicability, failed partial/parent-source data and all-A-before-B ordering; original5preparation/7indicator guards remain. [Measurement details/limits](stories/EQ-139_BENCHMARK.md) distinguish observations from pending final successor/installed/currentCI/main delivery.
+
+## EQ139 original source fixtures
+
+[Original band goldens](../tests/fixtures/intraday_bands/README.md) use pairwise variance/rational-square arithmetic and independent Decimal240 direct expressions. Producer tests independently use centered Fraction variance/Decimal300 direct expressions,13fixedgoldens,36period/scale/multiplier cases,31subsets, extrema/scale18/int64/max4096, hostile global context, exactzero/negative/outside cases and complete quality/evidence/identity/reset/carry/correction checks. Current78source methods include14new band methods; strict10files passes. This source work is separate from timing, installation and release acceptance.
+
+The first band-only fixture run had a helper-argument error (tuple passed to integer split cut) and an incorrect expected empty-delivery reason. The accepted API distinguishes an empty delivery (governed_gap/observed_empty) from an explicitly observed empty slot (observed_empty/no_eligible_observations). Corrected fixtures follow that contract and add the explicit slot case; producer mathematics and tolerances were unchanged. All original13expected mathematical cases remain byte-for-byte equal at the JSON case level to the pre-code source. Both current source and future installed suites must retain this distinction.
+
 ## EQ138 actual measurement complete
 
 [Exactf1raw measurements and method](stories/EQ-138_BENCHMARK.md) passed523 separate assertions. All24full-result comparisons preserve parity/resource conditions; all6combined selections meet frozen adoption,18individuals retain directfallback. All37measuredexecutionentries remain unchanged; final successor/installed/currentCI/main delivery remains separate. Source-bound builder now runs5legacy and7output evidence-preservation guards; actual long performance measurements are not rerun inside CI. The parent-closure repairs retain completed samples on rejection without changing old successful evidence.

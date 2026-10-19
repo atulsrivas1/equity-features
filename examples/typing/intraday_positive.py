@@ -11,4 +11,4 @@ assert len(entries) == 8
 
 def snapshot(batches: tuple[CanonicalBatch, ...] | None, context: IntradayContext,
              config: ConfigSpec) -> FeatureResult:
-    return compute_intraday(batches, context, config, features=('intraday.ema',))
+    return compute_intraday(batches, context, config, features=('intraday.ema','intraday.band_middle','intraday.band_position'))

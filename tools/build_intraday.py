@@ -18,9 +18,9 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT_ROOT=ROOT/'dist/intraday'
 PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'),
           'features':('equity_features','0.0.4a4'),
-          'intraday':('equity_features_intraday','0.1.0a2')}
+          'intraday':('equity_features_intraday','0.1.0a3')}
 SCOPES=['packages/'+name for name in PACKAGES]+[
-    'tests/intraday','examples/intraday_preparation.py',
+    'tests/intraday','tests/fixtures/intraday_bands','examples/intraday_preparation.py',
     'examples/typing/intraday_positive.py','examples/typing/intraday_negative.py',
     'examples/typing/intraday_negative_expected.json',
     'tools/build_intraday.py','tools/continuous_archives.py','tools/continuous_installed.py',
@@ -28,10 +28,14 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'tools/check_boundary.py','tools/check_intraday_boundary.py','tools/test_ci_gate.py',
     'tools/benchmark_intraday_preparation.py','tools/test_intraday_benchmark.py',
     'tools/benchmark_intraday_indicators.py','tools/test_intraday_indicator_benchmark.py',
-    'requirements-dev.txt','mypy.ini','.github/workflows/packages.yml',
+    'tools/benchmark_intraday_bands.py','tools/test_intraday_band_benchmark.py',
+    '.gitattributes','requirements-dev.txt','mypy.ini','.github/workflows/packages.yml',
+    'docs/stories/EQ-139_FINAL_AUTHOR_VALIDATION.json',
     'docs/api/INTRADAY.md','docs/features/INTRADAY_FOUNDATIONS.md',
     'docs/stories/EQ-137_PLAN.md','docs/stories/EQ-137_FACT_READINESS.md',
-    'docs/stories/EQ-138_PLAN.md',
+    'docs/stories/EQ-138_PLAN.md','docs/stories/EQ-139_PLAN.md','docs/stories/EQ-139_BENCHMARK.md',
+    'docs/stories/EQ-139_BAND_BENCHMARK.json','docs/stories/EQ-139_BAND_BASELINE.json',
+    'docs/stories/EQ-139_MEASUREMENT_APPLICABILITY.json',
     'docs/stories/EQ-138_BENCHMARK.md','docs/stories/EQ-138_MEASUREMENT_APPLICABILITY.json',
     'docs/stories/EQ-138_INDICATOR_BENCHMARK.json','docs/stories/EQ-138_INDICATOR_BASELINE.json',
     'docs/stories/EQ-137_PREPARATION_BENCHMARK.json','docs/stories/EQ-137_PREPARATION_BASELINE.json']
@@ -135,7 +139,7 @@ def main():
     OUT.mkdir(parents=True,exist_ok=True)
     report={'schema':'intraday-qualification:1','source_commit':head,'whole_git_tree_sha256':sha(tree),
         'system':platform.system(),'python':platform.python_version(),'source':modes,'whole_tree':whole_before,
-        'artifacts':{},'forms':[],'status':'running','limits':'Batch preparation and EMA/RSI/ATR source/installed qualification; no performance ranking or host containment proof.'}
+        'artifacts':{},'forms':[],'status':'running','limits':'Batch preparation, EMA/RSI/ATR and rolling-band source/installed qualification; no performance ranking or host containment proof.'}
     def save():(OUT/'qualification.json').write_bytes((json.dumps(report,sort_keys=True,indent=2)+'\n').encode())
     save();work=ROOT/'work';work.mkdir(exist_ok=True)
     try:
@@ -143,6 +147,8 @@ def main():
         report['benchmark_guard_methods_passed']=5;save()
         run(sys.executable,'-B',ROOT/'tools/test_intraday_indicator_benchmark.py')
         report['indicator_benchmark_guard_methods_passed']=7;save()
+        run(sys.executable,'-B',ROOT/'tools/test_intraday_band_benchmark.py')
+        report['band_benchmark_guard_methods_passed']=8;save()
         with tempfile.TemporaryDirectory(prefix='intraday-',dir=work) as temporary:
             owned=Path(temporary).resolve();assert owned.is_relative_to(work.resolve())
             verification=owned/'verification'

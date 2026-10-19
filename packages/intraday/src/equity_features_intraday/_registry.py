@@ -1,4 +1,4 @@
-"""Own descriptive identities; planned outputs are explicitly non-executable."""
+"""Own optional batch identities; public state operations remain unsupported."""
 from dataclasses import asdict, dataclass
 import hashlib
 import json
@@ -6,7 +6,7 @@ import json
 from equity_feature_contracts import ErrorCode
 from ._context import ALGORITHM, fail
 
-PACKAGE_VERSION = "0.1.0a2"
+PACKAGE_VERSION = "0.1.0a3"
 
 
 @dataclass(frozen=True)
@@ -28,7 +28,7 @@ _CATALOG = tuple(sorted((
     IntradayFeature("intraday.atr", ALGORITHM, "currency/share", 1, "anchored_true_ranges", supports_batch=True),
     *(IntradayFeature(f"intraday.band_{name}", ALGORITHM,
                       "fraction" if name in ("width_ratio", "position") else "currency/share",
-                      2, "rolling_price_moments")
+                      2, "rolling_price_moments", supports_batch=True)
       for name in ("middle", "upper", "lower", "width_ratio", "position")),
 ), key=lambda feature: feature.feature_id))
 
