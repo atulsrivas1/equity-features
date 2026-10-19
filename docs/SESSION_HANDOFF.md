@@ -1,3 +1,13 @@
+## GOV030 expanded planning review result — October 18, 2026
+
+Separate owner-authorized local automated reviewer `/root/dependency_plan_review` passed the expanded private source-index/filter/planning artifacts and public scope packet at `16ef7ada13536a84fd3e66fa2c5517b2e5a53091`. Four findings were corrected: platform-specific declaration evidence was combined, equity filters missed concrete mixed-worker calculations, source export applied EOL conversion, and census labels overstated declaration scope. No actionable findings remain in the reviewed planning scope. This is not human/hosted review, complete formula qualification, numerical parity, runtime binding proof, rendered-browser verification or a performance result. Detailed receipts and source-derived material remain local.
+
+This continuity-only review record requires final-head renewal. The live Project owns current status; applicable current CI and publication/main readback remain pending. PR463 stays draft and GOV030 is not Released/Done. Keep the expanded inventory's explicit unreviewed/dynamic/configuration/anonymous-declaration limits. Local filter tests exercise generated logic with a minimal DOM stub; browser file-URL policy blocked rendered verification, with no workaround attempted.
+
+Resume: renew review for this documentation-only delta without changing the frozen master artifacts; advance to Test for current applicable CI. Record actual publication/readback before later lifecycle transitions. No new runtime/release/default/source-publication authority follows from this review.
+
+## Earlier expanded-inventory checkpoint retained as history
+
 ## GOV030 repository-wide inventory extension — October 18, 2026
 
 The owner extended [GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) to account for every worker and calculation domain in the designated local comparison, then select equity calculations wherever they occur, including mixed workers. The prior equity-only matrix and review are retained as historical evidence. The local master now separates command entrypoints, package import reachability, function contracts, schema fields, expression witnesses, source-read calculation families and unreviewed candidates. A complete syntax census does not establish a complete qualified mathematical catalog or a minimal execution DAG. Equity-output calculations, mixed calculations and equity-input dependencies need distinct labels. Non-Go configuration/scripts and dynamic/external bindings remain explicit review queues.

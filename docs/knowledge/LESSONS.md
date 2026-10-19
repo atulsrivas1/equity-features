@@ -1,3 +1,11 @@
+## Bind planning evidence to source declarations and bytes — GOV030 review, October 18, 2026
+
+The expanded [GOV030 review](https://github.com/atulsrivas1/equity-features/issues/462) resolved four inventory errors before accepting the disclosed planning scope. A logical function name is insufficient when platform/build variants share it: expression witnesses require unique declaration identity and source bounds. A source export may transform line endings; committed-byte claims require actual blob identity or an explicit transformation record. Source-read equity relevance must propagate across all views, while heuristic candidates remain labeled. Declaration counts must state whether anonymous/local declarations are included.
+
+Separate local automated reviewer `/root/dependency_plan_review` passed the corrected expanded artifacts/public packet at `16ef7ada13536a84fd3e66fa2c5517b2e5a53091`. The evidence supports the stated static index and projection scope, not complete mathematical semantics, runtime dispatch, browser layout, parity or speed. Final documentation-only renewal, current CI and publication/readback remain delivery gates. Preserve both the earlier findings and corrected evidence; do not reuse superseded hashes as acceptance for changed files.
+
+## Earlier expanded-inventory checkpoint retained as history
+
 ## Worker domain does not determine calculation domain — GOV030 extension, October 18, 2026
 
 Owner direction expanded [GOV-030 #462](https://github.com/atulsrivas1/equity-features/issues/462) from selected equity paths to a complete worker/domain inventory with an equity projection. Record calculation outputs separately from asset inputs and worker labels: a mixed consumer may calculate equity statistics, while an option calculation may merely require an underlying-price input. Preserve all-domain and unreviewed views so name-based filtering cannot silently hide a relevant path. A field declaration, package import, source-read family and qualified scalar feature are different units; never sum their counts as a unique feature count.
