@@ -7,7 +7,7 @@ from typing import cast
 
 from equity_feature_contracts import (
     CanonicalBatch, ConfigSpec, Coverage, DataKind, ErrorCode, InputBinding,
-    Reason, validate_batch,
+    Reason, SessionSpec, validate_batch,
 )
 from ._context import IntradayContext, Slot, fail, label
 
@@ -34,39 +34,17 @@ class Admitted:
     observed_empty_delivery: bool
 
 
-def admit(batches: tuple[CanonicalBatch, ...], context: IntradayContext,
-          config: ConfigSpec) -> Admitted:
-    if type(batches) is not tuple:
-        fail("concrete owned canonical tuple required", ErrorCode.INVALID_SCHEMA)
-    if len(batches) > 4096:
-        fail("at most 4096 input chunks supported", ErrorCode.BOUNDS)
-    if any(type(b) is not CanonicalBatch for b in batches):
-        fail("concrete canonical chunks required", ErrorCode.INVALID_SCHEMA)
-    slots = context.slots()
-    facts = [SlotFacts(s) for s in slots]
-    lookup = {(s.session_id, s.start_ns, s.end_ns): s for s in slots}
-    by_name = {f"slot:{s.index}": s for s in slots}
-    session_slots: dict[str, list[Slot]] = {}
-    for governed_slot in slots:
-        session_slots.setdefault(governed_slot.session_id, []).append(governed_slot)
-    starts = {key: tuple(s.start_ns for s in group) for key, group in session_slots.items()}
-    ends = {key: tuple(s.end_ns for s in group) for key, group in session_slots.items()}
-    inputs: list[InputBinding] = []
-    seen_rows: set[int] = set()
-    seen_coverage: set[int] = set()
+def validate_envelopes(batches: tuple[CanonicalBatch, ...], context: IntradayContext,
+                       config: ConfigSpec, slot_count: int) -> tuple[SessionSpec, ...]:
+    """Finish every chunk's limits/unit/identity phase before payload semantics."""
     seen_ids: set[str] = set()
     source_identity: tuple[str, str, str] | None = None
     policy: str | None = None
-    previous_scope_end: int | None = None
-    previous_row = -1
-    empty_delivery = not batches
-    if batches:
-        empty_delivery = all(b.row_count == 0 and b.metadata.coverage.complete
-                             and b.metadata.coverage.expected == 0 for b in batches)
-    for chunk, batch in enumerate(batches):
+    governed: list[SessionSpec] = []
+    for batch in batches:
         if batch.kind != DataKind.BAR:
             fail("intraday requires actual BAR inputs", ErrorCode.INVALID_SCHEMA)
-        if batch.row_count > len(slots) or len(batch.metadata.interval_coverage) > len(slots):
+        if batch.row_count > slot_count or len(batch.metadata.interval_coverage) > slot_count:
             fail("delivery exceeds governed slot bound", ErrorCode.BOUNDS)
         meta = batch.metadata
         if meta.namespace != context.sessions[0].namespace:
@@ -100,9 +78,47 @@ def admit(batches: tuple[CanonicalBatch, ...], context: IntradayContext,
         if (scope.include_opening_auction, scope.include_closing_auction) != (
                 session.include_opening_auction, session.include_closing_auction):
             fail("scope/session auction policy differs", ErrorCode.INCONSISTENT_IDENTITY)
+        governed.append(session)
+    return tuple(governed)
+
+
+def admit(batches: tuple[CanonicalBatch, ...], context: IntradayContext,
+          config: ConfigSpec) -> Admitted:
+    if type(batches) is not tuple:
+        fail("concrete owned canonical tuple required", ErrorCode.INVALID_SCHEMA)
+    if len(batches) > 4096:
+        fail("at most 4096 input chunks supported", ErrorCode.BOUNDS)
+    if any(type(b) is not CanonicalBatch for b in batches):
+        fail("concrete canonical chunks required", ErrorCode.INVALID_SCHEMA)
+    slots = context.slots()
+    facts = [SlotFacts(s) for s in slots]
+    lookup = {(s.session_id, s.start_ns, s.end_ns): s for s in slots}
+    by_name = {f"slot:{s.index}": s for s in slots}
+    session_slots: dict[str, list[Slot]] = {}
+    for governed_slot in slots:
+        session_slots.setdefault(governed_slot.session_id, []).append(governed_slot)
+    starts = {key: tuple(s.start_ns for s in group) for key, group in session_slots.items()}
+    ends = {key: tuple(s.end_ns for s in group) for key, group in session_slots.items()}
+    inputs: list[InputBinding] = []
+    seen_rows: set[int] = set()
+    seen_coverage: set[int] = set()
+    previous_scope_end: int | None = None
+    previous_row = -1
+    empty_delivery = not batches
+    if batches:
+        empty_delivery = all(b.row_count == 0 and b.metadata.coverage.complete
+                             and b.metadata.coverage.expected == 0 for b in batches)
+    governed = validate_envelopes(batches, context, config, len(slots))
+    for batch in batches:
+        validate_batch(batch, required_fields=())
+    for chunk, batch in enumerate(batches):
+        meta = batch.metadata
+        scope = meta.scope
+        if scope is None:
+            fail("validated scope missing", ErrorCode.INCONSISTENT_IDENTITY)
+        session = governed[chunk]
         if meta.coverage.observed != batch.row_count:
             fail("aggregate observed coverage differs from actual rows", ErrorCode.INCONSISTENT_IDENTITY)
-        validate_batch(batch, required_fields=())
         columns = {c.name: c.values for c in batch.columns}
         present = frozenset(columns)
         rows: dict[int, int] = {}

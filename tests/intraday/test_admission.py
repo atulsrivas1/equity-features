@@ -37,6 +37,23 @@ class AdmissionTests(unittest.TestCase):
             columns=tuple(Column(col.name,(0,)+col.values[1:]) if col.name=='close' else col for col in batches[0].columns))
         self.assert_code(ErrorCode.INVALID_UNIT,lambda:make((bad,),c,cfg))
 
+    def test_later_chunk_unit_or_snapshot_precedes_first_malformed_payload(self):
+        batches,c,cfg=supplied()
+        first,last=split(batches[0],2)
+        first=replace(first,columns=tuple(Column(col.name,(0,)+col.values[1:]) if col.name=='close' else col for col in first.columns))
+        variants=((replace(last.metadata,price_unit=PriceUnit(0,'EUR')),ErrorCode.INVALID_UNIT),
+                  (replace(last.metadata,source=replace(last.metadata.source,snapshot_id='wrong')),ErrorCode.INCONSISTENT_IDENTITY))
+        for metadata,code in variants:
+            with self.subTest(code=code):
+                self.assert_code(code,lambda:make((first,replace(last,metadata=metadata)),c,cfg))
+
+    def test_all_payload_semantics_precede_cross_chunk_grid_admission(self):
+        batches,c,cfg=supplied()
+        first,last=split(batches[0],2)
+        first=replace(first,columns=tuple(Column(col.name,(1,)+col.values[1:]) if col.name=='start_ns' else col for col in first.columns))
+        last=replace(last,columns=tuple(Column(col.name,(0,)+col.values[1:]) if col.name=='close' else col for col in last.columns))
+        self.assert_code(ErrorCode.INVALID_SCHEMA,lambda:make((first,last),c,cfg))
+
     def test_chunked_delivery_has_same_values_but_actual_distinct_provenance(self):
         batches,c,cfg=supplied()
         single=make(batches,c,cfg).operand('price_moments')

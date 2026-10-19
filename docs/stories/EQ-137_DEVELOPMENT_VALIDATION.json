@@ -3,7 +3,7 @@
   "accepted": false,
   "stage": "initial source development, before installed qualification and final review",
   "checks": {
-    "source_unittest_methods": 45,
+    "source_unittest_methods": 47,
     "strict_mypy_files": 8,
     "ci_gate_methods": 13,
     "intraday_boundary_negative": 20,
@@ -20,7 +20,8 @@
     "Initial a072727 Windows build passed repeat archives, SDist rebuilds and early source-isolated installed checks, then rejected source closure after author edited source-bound API document concurrently. Not accepted. Rerun on frozen successor required.",
     "BENCH01 review: HEAD-only benchmark binding was insufficient; now parent/child actual origins/versions, complete package module inventory and exact Git/materialized hashes are checked before/after measurements.",
     "BENCH02 review: baseline sidecar could overwrite earlier evidence; now both paths guarded and exclusively created. Partial failed samples retained, old input lifetime released after each sample.",
-    "BENCH03 review: post-measurement source failure lost seven samples; structured failed result now preserves source-invalid samples without adopting them; regression guard passes."
+    "BENCH03 review: post-measurement source failure lost seven samples; structured failed result now preserves source-invalid samples without adopting them; regression guard passes.",
+    "PREP04: per-chunk phase ordering let an earlier malformed price mask a later unit/source mismatch, or earlier grid issue mask later malformed payload. Split admission into complete envelope pass, all payload semantic validation in input order, then grid/coverage. Two new regression methods cover these cases;47producer methods pass."
   ],
   "pending": [
     "full independent source review",
@@ -35,5 +36,13 @@
     "identity": "separate local automated Codex reviewer /root/r17_review",
     "initial_16file_source_receipt_sha256": "5c7c2798255e416e9c5dba261b6f97e01e8eb6d9b0e6743b9c5514ff1f2d36bd",
     "limits": "Partial source only; renewed full source/build/performance/delivery review remains mandatory."
+  },
+  "historical_installed_qualification": {
+    "source_commit": "291920c82f327c4001dff55645de615062327ac9",
+    "os": "Windows",
+    "status": "completed",
+    "forms": 4,
+    "source_head_and_materialization_closure": true,
+    "limitations": "Subsequent PREP04 correction changes producer source; requires fresh successor qualification. No Linux/main delivery acceptance inferred."
   }
 }
