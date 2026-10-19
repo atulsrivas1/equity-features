@@ -1,4 +1,4 @@
-"""Original supplied-data preparation example; no data acquisition or output kernel."""
+"""Original supplied-data preparation and batch EMA example; no data acquisition."""
 from fractions import Fraction
 from equity_feature_contracts import (
     AdjustmentSpec, AvailabilitySpec, BatchMetadata, CanonicalBatch, Column, Coverage,
