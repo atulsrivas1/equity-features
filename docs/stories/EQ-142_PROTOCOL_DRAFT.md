@@ -1,3 +1,9 @@
+# Current source-correct implementation clarifications
+
+Sequential execution has no pool-shutdown requirement or global-worker-shutdown limitation; those apply only to thread/process modes. All mode-independent resource/component/outcome/result/publication joins remain. Each nested job task list is a nonempty list of unique known hashes, and serialized-owner scope references exactly match ordered job scopes. These corrections resolve initial implementation review findings without changing production scheduling or mathematics.
+
+The new [local fragment record](EQ-142_RECORD_CONTRACTS.json) closes the collector's bounded per-invocation transport; it does not substitute for the complete sample source/product/native envelope. A source-correct native sampler may report retired zero only with a retained owned-process signaled-handle proof, explicitly retaining disposition/terminal_wait/snapshot count; unknown/live missing/racing observations remain rejecting errors. Source snapshots/thread counts/RSS are sampled and non-atomic. [Benchmark protocol](EQ-142_BENCHMARK_PROTOCOL.json) records the initial development failure and prospective mechanism correction; no timing or threshold change occurred. Current exact successor source review/pre-timing qualification remains required. Earlier pre-code choices below retain their original context.
+
 # EQ142 concrete choices for the public pre-code packet
 
 Draft for separate review; not Ready, execution or a source/harness freeze. Resolve review findings and qualify actual canonical inputs before timing. Original eight intraday batch features and ordinary supplied-core compatibility remain the selected scope. No cache, scheduler or resource-default adoption belongs to this story.
