@@ -1,3 +1,9 @@
+## R17 intraday and supplied-worker examples
+
+After the [matching installation](INSTALLING.md), run [direct preparation/example](../examples/intraday_preparation.py) with the installed Python: it checks exact supplied preparation and selected EMA/middle/position values11.0/11.0/0.5. The [worker synthetic example](https://github.com/atulsrivas1/equity-feature-workers/blob/231349aaf2bf1b9ec21f45807382ca9c6522520c/examples/supplied_intraday.py) imports explicit intraday callbacks, computes all eight outputs and asserts EMA14.75 using supplied facts only; its default is sequential. Run it as a script after installing the combined six-package set. These examples do not fetch data, publish externally or imply a persistent pool. Their unchanged source and package qualification are mapped in [R17 evidence](R17_ACCEPTANCE.md); no new performance result is claimed. Missing/observed-empty/coverage/cutoff and per-output quality remain in the [API contract](api/INTRADAY.md).
+
+## Earlier checkpoints retained as history
+
 # Runnable supplied-input examples
 
 EQ040 introduced the walkthrough; the current selected consumer0.4.0 matches corepair0.0.4a4. Use the [minimal quickstart](QUICKSTART.md) for the exact three-wheel retained channel, prerequisites, four-line output, explicit missing results and scoped timing. All data are synthetic supplied facts; calendars, coverage, source revisions and C/K/E are explicit. Core does not acquire data, consult a clock or schedule work. [Public API](api/PUBLIC_API.md), [extension/install commands](api/EXTENSIONS.md), [build delivery](BUILD_DELIVERY.md).

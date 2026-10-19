@@ -1,0 +1,80 @@
+{
+  "schema": "equity-features.eq141-author-validation.v1",
+  "result": "AUTHOR_DOCUMENTATION_EVIDENCE_CHECKS_PASS_SEPARATE_REVIEW_CI_DELIVERY_PENDING",
+  "basis_head": "6b81715b29052a5ec705158a3f7bfe4de958ef30",
+  "indexed_git_blob_sha256_excluding_this_receipt": {
+    "README.md": "211d5c074db491ed27c2a9c4986366aba3b29c14fde98e90a0b95bf3f21831e0",
+    "docs/BUILD_DELIVERY.md": "e1691adb6c03971cb3ce88eb764ba9b5bff34af61328ee86db64e804721a1543",
+    "docs/CHANGELOG.md": "3c5426af29bf30415cb60d2c93f954c064bace793d0bd36aa10659836911e8aa",
+    "docs/COMPATIBILITY.md": "fbaf3d1fdfa6fd5b2ae740a20e7186e1db76f89ef4e83ab60a5f14bc6c0cbc65",
+    "docs/EXAMPLES.md": "fb98c0d8e5c54a4224ab299f3d5b1e1e67fcb41c71eabbb108385282c3af8619",
+    "docs/INSTALLING.md": "6d563f9603ba0a5356b01676b351dd07932c9cb77324b282314e0f99253dd79e",
+    "docs/PROJECT_KNOWLEDGE.md": "6c646fb947cea7600ff2a4512f7a68aa116a445b858e7f87cfc1e88e30241ed4",
+    "docs/R17_ACCEPTANCE.md": "c1a6f001d58965169c6857c6b4321918962ba25493bc761b0af37f00b069ba39",
+    "docs/R17_ACCEPTANCE_INPUTS.json": "ec79940cf672c3acc35c4ffcb7dc25d70ea715ed702a9dae3d0b174c5e28f88c",
+    "docs/R17_AUTONOMOUS_HANDOFF.md": "a4fc255bb1107c124934994033b097e3e115630164efdb0668d473d0739e5edb",
+    "docs/R17_INPUTS.json": "d31955194372464d8edcb7545e5d978791cdd5850ede4f884e41f2c8ab9a0833",
+    "docs/R17_RELEASE_PLAN.md": "489676e184a8a678002e5115385215b4d61ae9f0a764bafe19fcbabb9f1df658",
+    "docs/R17_TEST_STRATEGY.md": "6e6f656789e1fe717c189ade3c47a67558080c754424caaaed60a98caddade9c",
+    "docs/SESSION_HANDOFF.md": "f2e8f0edd69d7ddba93039a532779b817bcba5c9520c8a8d543b38e5f0a682fd",
+    "docs/api/INTRADAY.md": "75eec3f2b68a8de574803d8c3167be40d866ea7063fbe0d5c62dd8aaedab56fa",
+    "docs/knowledge/LESSONS.md": "b17c05574d4bcd596dc4aa90391a746c8591a3e367b2dbea503c8c51fdcfb692",
+    "docs/stories/EQ-140_IMPLEMENTATION.md": "75099a34318f51910028e72274fb4a2375a284d4f65a042be786d86985592716",
+    "docs/stories/EQ-141_PLAN.md": "04960026e9ccb4cf9e3540aa3deb247dd5245104b5bd1e3505d8421b51906917",
+    "docs/stories/r17-delivery/EQ140_MAIN_FINAL_ACCEPTANCE_PUBLIC_REVIEW.json": "b8b193e297989c765321d69399d1e55e83fb296446d290495cd89109107815de",
+    "docs/stories/r17-delivery/EQ140_MAIN_FINAL_ACCEPTANCE_PUBLIC_REVIEW.md": "0d8e757f900e9349e8ef3eae03119dde1ed9beb1ed8fa5ec20703ec540b47e67",
+    "docs/stories/r17-delivery/EQ140_MAIN_HOSTED_ARTIFACT_PUBLIC_REVIEW.json": "04966a7eeeeeacc723e2ad81e07f6b4aab331079a2b1191a9c471bc0f2ea4ac4",
+    "docs/stories/r17-delivery/EQ140_MAIN_HOSTED_ARTIFACT_PUBLIC_REVIEW.md": "188c1bb3f3216ef074585028d3d845f0541ba817c402452d1c009fff300f66ff",
+    "docs/stories/r17-delivery/EQ140_MAIN_SOURCE_PUBLIC_READBACK.json": "b21b7a4779bf7492caa050269921c93c195bb94e38fe9784571336de31933286",
+    "docs/stories/r17-delivery/EQ140_MAIN_SOURCE_PUBLIC_READBACK.md": "a10ff7ce08742c02eee6c04aaa2cba0e1530e41807945997556c6b3d135addc9",
+    "docs/stories/r17-delivery/EQ140_POSTRELEASE_PUBLIC_REVIEW.json": "8b7977436292c3098e32a79c3c9448fe017a6c65a69e6241e038ef27d3e749d6",
+    "docs/stories/r17-delivery/EQ140_POSTRELEASE_PUBLIC_REVIEW.md": "1501201e110f3f6d63b26798a9cbe14e2a655903f3cceb85ad3cd4a100e4022f",
+    "docs/stories/r17-delivery/EQ141_READY_INPUT_PUBLIC_REVIEW.json": "6e6b2395e294d5e822163fc45f4157ced32eb0e1122b89e39be65688cfd45fe6",
+    "docs/stories/r17-delivery/EQ141_READY_INPUT_PUBLIC_REVIEW.md": "a4f5a569e5de49833cc4f9d6f9d4a5f292cc7171b3c1f2c225466f51c08dea60"
+  },
+  "document_checks": {
+    "files_before_receipt": 28,
+    "json_files_before_receipt": 7,
+    "initial_document_pass_local_links": 1626,
+    "final_local_links": 1627,
+    "final_files_including_receipt": 29,
+    "final_json_files_including_receipt": 8,
+    "public_home_path_hits": 0,
+    "inventory_joins": "5acceptedpredecessors/6versions/8ownIDs/2OS24archivehashes8forms58methodskipjoins/5exactpublicJSONproofidentities"
+  },
+  "source_reference_checks": {
+    "core_ids": 39,
+    "table_formulas": 31,
+    "original_intraday_reference_methods": 24,
+    "pure_import_boundary": "passed; no installed qualification claim"
+  },
+  "fresh_documented_installation": {
+    "platform": "Windows",
+    "python": "3.12.10",
+    "pip": "25.0.1",
+    "actual_main_artifact_id": 12211898603,
+    "operation": "fresh offline six-wheel combined-extra installation; documented command passed",
+    "versions": {
+      "equity-feature-contracts": "0.0.4a4",
+      "equity-features": "0.0.4a4",
+      "equity-features-intraday": "0.1.0a3",
+      "equity-feature-io-contracts": "0.1.0a2",
+      "equity-feature-io-sdk": "0.1.0a2",
+      "equity-feature-workers": "0.1.0a14"
+    },
+    "direct_example": "passed selected EMA/middle/position11.0/11.0/0.5",
+    "worker_example": "passed all8outputs/EMA14.75",
+    "original_seven_profile_fixture": {
+      "assertions": 83,
+      "results": 8,
+      "receipt_sha256": "c38d13d13f04914bff996e76a6c5f604724fbbc56938799cf1bbadcc2213c68f"
+    }
+  },
+  "private_author_log_receipt_sha256": "21c019696ee22f34dd9aead177167a3f69054744a24a51bd06dc90779f1b9818",
+  "limits": [
+    "Authorchecks, not separate automated/human review or release acceptance.",
+    "Additional Windows example environment is not a new Linux run or replacement for 8main qualification forms/pip25.1.1.",
+    "No runtime/math/package/workflow/version changes or new timing/performance/adoption.",
+    "Final exact-head review/currentCI/actual main/channel/access/expiry/final acceptance/Released/Done and aggregate closure remain."
+  ]
+}

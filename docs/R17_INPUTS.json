@@ -2,7 +2,7 @@
   "schema": "equity-features.r17-handoff.v1",
   "owner_execution_selected": true,
   "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW",
-  "implementation_admission": "EQ136/EQ137 verified Done; EQ138 own Ready inputs accepted and implemented, exactf1 output measurements independently accepted523assertions (6combined adopted,18single directfallback). Finalsuccessor/source/currentCI/installed/main acceptance pending. EQ139-141 ownReady gates remain; liveProjectauthority.",
+  "implementation_admission": "EQ136–140 verifiedClosedDone; EQ141 actual51-assertion ReadyinputPASS/Readyreadback/assignedAtul/Inprogressreadback. Final documentation/evidence audit only; finalcurrentheadreview/CI/publication/main/channel/acceptance/ReleasedDone/E25milestoneclosure remain. LiveProjectauthority.",
   "governance_issue": 464,
   "planning_pr": 498,
   "epic": 465,
@@ -108,7 +108,7 @@
     "stories/EQ-137_FACT_READINESS.md",
     "stories/EQ-137_BENCHMARK.md"
   ],
-  "stop_after": "Verified R17 acceptance, then prepare the owner-selected R18 handoff and qualify R18 Ready/review inputs before execution. No R19\u201321 or live/provider/deployment/recurring scope.",
+  "stop_after": "Verified R17 acceptance, then prepare the owner-selected R18 handoff and qualify R18 Ready/review inputs before execution. No R19–21 or live/provider/deployment/recurring scope.",
   "planning_rebase_base": "61d16a11b9b47095a23ef010ddff1260a4993eca",
   "initial_planning_review": {
     "head": "7da0c12dbf5956ffc1e232b2ad9902780c61bbb9",
@@ -134,5 +134,26 @@
     "source": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
     "public_evidence": "https://github.com/atulsrivas1/equity-features/issues/471#issuecomment-6264779008",
     "status": "Exact preparation measurement and candidate bothOS artifacts accepted; final story delivery pending"
+  },
+  "delivered_component_snapshot": {
+    "sources": {
+      "equity-features": "c7010a0a7b8ad290d1fe9f10bc1528ea09b3885b",
+      "equity-feature-workers": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "equity-feature-io": "18d86761aa3eebb7414e51e8fa2aba089717b5eb"
+    },
+    "distributions": {
+      "equity-feature-contracts": "0.0.4a4",
+      "equity-features": "0.0.4a4",
+      "equity-features-intraday": "0.1.0a3",
+      "equity-feature-io-contracts": "0.1.0a2",
+      "equity-feature-io-sdk": "0.1.0a2",
+      "equity-feature-workers": "0.1.0a14"
+    },
+    "main_artifacts": [
+      12212142183,
+      12211898603
+    ],
+    "qualification_inventory": "docs/R17_ACCEPTANCE_INPUTS.json",
+    "status": "Accepted136-140components, notcompletedEQ141/R17"
   }
 }

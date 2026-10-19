@@ -1,3 +1,9 @@
+## Final foundation audit
+
+The [R17 qualification report](R17_ACCEPTANCE.md) and [input inventory](R17_ACCEPTANCE_INPUTS.json) join accepted independent original mathematics/readiness/state/precision fixtures, full-result parity, source-bound preparation/indicator/band/worker studies and actual installed/channel evidence. EQ141 adds no new numerical behavior or timing; unchanged execution bytes retain explicitly scoped evidence. All48 worker alternatives remain nonwins. Current-head review/CI and actual final main/channel/acceptance gates still apply. Earlier specifications and study plans below retain their original workload/source scope.
+
+## Earlier checkpoints retained as history
+
 ## EQ139 measured evidence and proof retention
 
 Separate numerical/source review ran170 fresh methods and295 original numerical scenarios/1608 scalars. Separately reviewed9d51 performance evidence has36 profiles/504 retained samples and781 evidence assertions;72 preflight full-result readiness comparisons do not replace those numerical oracles. All six combined requests and two narrow large singles meet frozen gates,28nonwins remain recorded. Eight band safeguards now retain original raw/sidecar hashes, all samples/source applicability, failed partial/parent-source data and all-A-before-B ordering; original5preparation/7indicator guards remain. [Measurement details/limits](stories/EQ-139_BENCHMARK.md) distinguish observations from pending final successor/installed/currentCI/main delivery.

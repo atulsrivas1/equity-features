@@ -1,0 +1,213 @@
+{
+  "schema": "eq140-postrelease-review:1",
+  "reviewer": "Authorized separate automated local Codex reviewer r17_review; not human or hosted review",
+  "utc": "2026-10-19T18:43:56.806651+00:00",
+  "result": "POSTRELEASE_VERIFIED_SUPPORTS_OWNER_CLOSE_DONE",
+  "final_acceptance_receipt_sha256": "bdbf76a1d99cd0f9c461a96d462c0460ef313cb69f72a1261b0367af653634b9",
+  "checks": [
+    {
+      "name": "Exact accepted final receipt",
+      "pass": true
+    },
+    {
+      "name": "Final acceptance and no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Actual OPEN Released assigned owner",
+      "pass": true
+    },
+    {
+      "name": "Current Released header and final receipt",
+      "pass": true
+    },
+    {
+      "name": "Six crosscut acceptance items checked",
+      "pass": true
+    },
+    {
+      "name": "Accurate performance and future release boundaries",
+      "pass": true
+    },
+    {
+      "name": "Fresh body agrees recorded owner Released readback",
+      "pass": true
+    },
+    {
+      "name": "Public final acceptance comment exact receipt author",
+      "pass": true
+    },
+    {
+      "name": "worker published main remains accepted",
+      "pass": true
+    },
+    {
+      "name": "worker merged publication remains exact",
+      "pass": true
+    },
+    {
+      "name": "worker public delivery documentation retained",
+      "pass": true
+    },
+    {
+      "name": "canonical published main remains accepted",
+      "pass": true
+    },
+    {
+      "name": "canonical merged publication remains exact",
+      "pass": true
+    },
+    {
+      "name": "canonical public delivery documentation retained",
+      "pass": true
+    },
+    {
+      "name": "39301717508 actual main terminal vector remains successful",
+      "pass": true
+    },
+    {
+      "name": "39301445350 actual main terminal vector remains successful",
+      "pass": true
+    },
+    {
+      "name": "39301445563 actual main terminal vector remains successful",
+      "pass": true
+    },
+    {
+      "name": "39301445496 actual main terminal vector remains successful",
+      "pass": true
+    },
+    {
+      "name": "39301445348 actual main terminal vector remains successful",
+      "pass": true
+    },
+    {
+      "name": "39301445531 actual main terminal vector remains successful",
+      "pass": true
+    },
+    {
+      "name": "39301445577 actual main terminal vector remains successful",
+      "pass": true
+    },
+    {
+      "name": "39301445592 actual main terminal vector remains successful",
+      "pass": true
+    },
+    {
+      "name": "39301445653 actual main terminal vector remains successful",
+      "pass": true
+    },
+    {
+      "name": "12212142183 actual main channel accessible exact digest unexpired",
+      "pass": true
+    },
+    {
+      "name": "12211898603 actual main channel accessible exact digest unexpired",
+      "pass": true
+    }
+  ],
+  "actual_main_CI": [
+    {
+      "id": 39301717508,
+      "head_sha": "c7010a0a7b8ad290d1fe9f10bc1528ea09b3885b",
+      "jobs": 35,
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39301717508"
+    },
+    {
+      "id": 39301445350,
+      "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "jobs": 2,
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445350"
+    },
+    {
+      "id": 39301445563,
+      "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "jobs": 2,
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445563"
+    },
+    {
+      "id": 39301445496,
+      "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "jobs": 2,
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445496"
+    },
+    {
+      "id": 39301445348,
+      "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "jobs": 2,
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445348"
+    },
+    {
+      "id": 39301445531,
+      "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "jobs": 2,
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445531"
+    },
+    {
+      "id": 39301445577,
+      "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "jobs": 2,
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445577"
+    },
+    {
+      "id": 39301445592,
+      "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "jobs": 2,
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445592"
+    },
+    {
+      "id": 39301445653,
+      "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "jobs": 2,
+      "conclusion": "success",
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445653"
+    }
+  ],
+  "actual_main_artifacts": [
+    {
+      "id": 12212142183,
+      "digest": "sha256:093ae40f4161cbc17c041625cbd453e8a9075f0f93a74d121d0eb46de2722c2a",
+      "expires_at": "2026-11-18T18:20:09Z"
+    },
+    {
+      "id": 12211898603,
+      "digest": "sha256:9c1a790bbbdef162172b202f30c24f104fc556e7d9bb0c1b4a15e3a583d61bd5",
+      "expires_at": "2026-11-18T18:21:33Z"
+    }
+  ],
+  "findings": [],
+  "limits": [
+    "Read-only postrelease verification; no GitHub or lifecycle mutation.",
+    "Retains accepted source, numerical, measurement, archive and installed evidence; no fresh workload execution or archive rebuild.",
+    "Finite Actions artifact channel; no stable registry or physical durability claim.",
+    "All 48 worker alternatives remain nonwins; default sequential. EQ141 and R17 final acceptance outstanding; no R18 review acceptance."
+  ],
+  "supports": "Owner may close EQ140 and record Done after publishing this verification; actual Closed/Done readback remains required.",
+  "document_kind": "Public derivative of original private detailed receipt, not byte-identical or new execution",
+  "original_private_receipt_sha256": "a6a1f1f13683969ef48bc98fa237fe92cb860df0fde593561b9b5587d5ae5d2b",
+  "actual_issue": {
+    "url": "https://github.com/atulsrivas1/equity-features/issues/474",
+    "state": "OPEN",
+    "Project": "Released",
+    "crosscut_acceptance_checked": 6
+  },
+  "public_final_comment_url": "https://github.com/atulsrivas1/equity-features/issues/474#issuecomment-6274586014",
+  "merged_PRs": {
+    "worker": {
+      "url": "https://github.com/atulsrivas1/equity-feature-workers/pull/57",
+      "merge_commit_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c"
+    },
+    "canonical": {
+      "url": "https://github.com/atulsrivas1/equity-features/pull/562",
+      "merge_commit_sha": "c7010a0a7b8ad290d1fe9f10bc1528ea09b3885b"
+    }
+  }
+}

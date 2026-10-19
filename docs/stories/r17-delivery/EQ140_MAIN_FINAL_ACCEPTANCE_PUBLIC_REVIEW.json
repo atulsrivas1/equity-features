@@ -1,0 +1,121 @@
+{
+  "schema": "eq140-public-final-main-acceptance-derivative:1",
+  "reviewer": "SeparateauthorizedlocalautomatedCodexreviewer r17_review; nothumanorhostedreview",
+  "document_kind": "Publicderivativeofprivateexactreceipt, notidenticalbytes/newexecution",
+  "original_private_receipt_sha256": "bdbf76a1d99cd0f9c461a96d462c0460ef313cb69f72a1261b0367af653634b9",
+  "result": "ACTUAL_MAIN_FINAL_ACCEPTANCE_PASS_SUPPORTS_RELEASED_THEN_DONE",
+  "main_heads": {
+    "worker": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+    "canonical": "c7010a0a7b8ad290d1fe9f10bc1528ea09b3885b"
+  },
+  "retained_component_receipts": {
+    "EQ140_MAIN_SOURCE_READBACK.json": "800ea465ba67594973664cca48396260337a87ded6895628048357c787694af8",
+    "EQ140_FINAL_SOURCE_RENEWAL.json": "cb14179ce64f25f5adf96fcc46e1f63a442d3c8486351a9628d863afea420abe",
+    "EQ140_CANDIDATE_DELIVERY_REVIEW.json": "9271a17b68f91eebd6f0e2b70f19b7d2465956f797d19a4baaf1b055b8c3d5f3",
+    "EQ140_BE4_MEASUREMENT_REVIEW.json": "dd6a5e66b2d81642f8bc35dbae81a1b8891c78f8845c68b4f9a5ad3d99ee38e4",
+    "EQ140_MAIN_HOSTED_ARTIFACT_REVIEW.json": "944c557580a9afc17cbec9978d080d0f7664c293b389388db7a3018a8cbe3222"
+  },
+  "checks": 42,
+  "actual_main_CI": {
+    "canonical": {
+      "run_id": 39301717508,
+      "attempt": 1,
+      "event": "push",
+      "head_sha": "c7010a0a7b8ad290d1fe9f10bc1528ea09b3885b",
+      "mandatory_jobs": 35,
+      "terminal_SUCCESS": 35,
+      "classification": "FULL",
+      "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39301717508"
+    },
+    "worker": {
+      "event": "push",
+      "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "workflow_runs": [
+        {
+          "id": 39301445350,
+          "path": ".github/workflows/agent-research.yml",
+          "attempt": 1,
+          "mandatory_jobs": 2,
+          "terminal_SUCCESS": 2
+        },
+        {
+          "id": 39301445563,
+          "path": ".github/workflows/client.yml",
+          "attempt": 1,
+          "mandatory_jobs": 2,
+          "terminal_SUCCESS": 2
+        },
+        {
+          "id": 39301445496,
+          "path": ".github/workflows/eq080-feasibility.yml",
+          "attempt": 1,
+          "mandatory_jobs": 2,
+          "terminal_SUCCESS": 2
+        },
+        {
+          "id": 39301445348,
+          "path": ".github/workflows/foundation.yml",
+          "attempt": 1,
+          "mandatory_jobs": 2,
+          "terminal_SUCCESS": 2
+        },
+        {
+          "id": 39301445531,
+          "path": ".github/workflows/mcp.yml",
+          "attempt": 1,
+          "mandatory_jobs": 2,
+          "terminal_SUCCESS": 2
+        },
+        {
+          "id": 39301445577,
+          "path": ".github/workflows/resilience.yml",
+          "attempt": 1,
+          "mandatory_jobs": 2,
+          "terminal_SUCCESS": 2
+        },
+        {
+          "id": 39301445592,
+          "path": ".github/workflows/service.yml",
+          "attempt": 1,
+          "mandatory_jobs": 2,
+          "terminal_SUCCESS": 2
+        },
+        {
+          "id": 39301445653,
+          "path": ".github/workflows/supplied-inputs.yml",
+          "attempt": 1,
+          "mandatory_jobs": 2,
+          "terminal_SUCCESS": 2
+        }
+      ],
+      "mandatory_jobs": 16,
+      "terminal_SUCCESS": 16
+    },
+    "total_terminal_SUCCESS": 51
+  },
+  "actual_main_artifact_channel": {
+    "run_id": 39301445653,
+    "linux": {
+      "id": 12212142183,
+      "expires_at": "2026-11-18T18:20:09Z"
+    },
+    "windows": {
+      "id": 12211898603,
+      "expires_at": "2026-11-18T18:21:33Z"
+    },
+    "reviewed_forms": 8,
+    "discovered_methods_per_form": 58,
+    "retention": "FiniteGitHubActionsartifactchannel; currentaccess/digest/source/expirychecked, nostableregistryclaim"
+  },
+  "actual_issue_stage_at_review": "OPEN/assigned/Ready to release",
+  "metadata_review": "CurrentissueandmergedPRsreviewed: exactpublishedmainheads/source147/artifacts/all51actualmainSUCCESS; candidatehistoryseparate; all48nonwins/defaultseq; source/core/service/capability/privacy/evidence andEQ141/R17/R18boundaries accurate. Finalpublication/readbackcheckboxremaineduncheckeduntilacceptedreleaseverification.",
+  "findings": [],
+  "supports": "Owner mayrecordactualReleasedreadback, thenverifydeliveredresultandfinalacceptancerecordbeforeclose/Done. ThisreceiptperformsnoGitHub/lifecyclemutation.",
+  "limits": [
+    "Actualmainacceptance onlyafterallgates; noGitHub/lifecyclemutation byreviewer.",
+    "Main35plusworker16currentmandatoryjobs andactualmainbothOSfreshartifacts, notcandidatechannelrelabeled.",
+    "Canonicalpurepackages unchangedvsacceptedb1f; actualmainfullpackageCIandactualworker6-distributionmainartifacts bindthatcomponent. No unrelatedruntimechangegatewaiver.",
+    "InstalledRECORD/directURL/launcher rawbytesnotretained; source-boundexecutedcollector+closedreceiptjoins qualifythem. No newmeasurementorhostedenvironmentrecreation.",
+    "All48be4alternativeprofilesremainednonwins; no speed/live/fastest/R18reviewclaim."
+  ]
+}

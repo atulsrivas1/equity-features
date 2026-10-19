@@ -1,3 +1,11 @@
+## R17 actual source and package channel
+
+[Qualification](R17_ACCEPTANCE.md) and [machine inventory](R17_ACCEPTANCE_INPUTS.json) bind canonicalc701/worker231/I/O18d delivered components and exact actual build pins (coreb1f/I/O18d/workers231). Actual worker main run39301445653 produced Linux12212142183/Windows12211898603,12repeat-equal wheel/SDist archives per OS for six distributions and fourfreshbase/combined installed forms per OS. Exact ZIP/archive/source/report/typing/core/skip/expiry proofs are in [public main artifact review](stories/r17-delivery/EQ140_MAIN_HOSTED_ARTIFACT_PUBLIC_REVIEW.md). Canonical documents and this audit leave all calculation package/build/workflow/runtime inputs unchanged; no new build/timing is inferred from a documentation hash. Current EQ141 source review/CI and actual main/channel/final acceptance still apply.
+
+Reproduce the existing worker `tools/build_supplied_inputs.py --core-root <core-checkout> --io-root <io-checkout>` at exact worker231 with coreb1f/I/O18d available as Git sources; use the tool's fresh output and fixed qualification process. The tool owns its build/install fixtures outside pure calculations. See [installation](INSTALLING.md); do not relabel a local reconstruction or expired/missing artifact as an actual hosted channel. No stable registry/tag or physical durability promise is added.
+
+## Earlier checkpoints retained as history
+
 ## EQ139 exact band proof and current qualification
 
 The a3 builder now snapshots the standalone band harness, its eight evidence guards, unaltered36-profile raw report/frozen A sidecar and38-entry applicability map alongside the original5preparation/7indicator guards. Narrow Git attributes preserve original Windows raw bytes and hashes; CI checks the proof without rerunning the long experiment. [Measured source and limits](stories/EQ-139_BENCHMARK.md) remain bound to9d51. Historical502 Windows four-form qualification passed78 intraday methods per form and exact source/archive/typing/core closure; final successor/current Windows/Linux CI/artifacts and actual main acceptance still need qualification. No registry/stable channel change.

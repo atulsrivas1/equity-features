@@ -1,0 +1,10 @@
+EQ140 actual-main source readback: PASS
+
+147assertions independently verified both actualdefaultmain commits, soleexpectedparents/reviewedtrees/Atulauthor/GitHubcommitter/verifiedsignature and mergedmatched-headPRs.
+
+Worker`231349aaf2bf1b9ec21f45807382ca9c6522520c`: all487publicGit leaves and55changedpublicblobs equalreviewedb7. Canonical`c7010a0a7b8ad290d1fe9f10bc1528ea09b3885b`: all1289publicGit leaves and9changedpublicblobs equalreviewed77. ExactpublishedrawproofSHA dc3dd441...verified; source-independent workerexecution bytes and canonicalpurepackage noimpact remainbound. Candidatecheckouts/be4source preserved.
+
+Actual474remainsOPEN/assigned/Ready to release. This qualifiespublishedsourcecomponent ONLY; no mainCI/artifact/channel/finalacceptance orReleased/Done claim. Canonicalcurrentmain hadzeroobservedPUSHruns atreadback; activeworkflow/Actionsenabled/noCI-skipmarker observation doesnotestablishdispatchor35gates. Actualworker mainruns areobservationsonly. No reviewer source/GitHub/lifecycle mutation, timingrerun orR18reviewgrant.
+
+PrivateexactreceiptSHA256 `800ea465ba67594973664cca48396260337a87ded6895628048357c787694af8`
+PublicderivativeJSONSHA256 `b21b7a4779bf7492caa050269921c93c195bb94e38fe9784571336de31933286` (notidenticalbytes/newexecution).

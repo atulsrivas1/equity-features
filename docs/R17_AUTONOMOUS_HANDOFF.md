@@ -1,3 +1,12 @@
+## R17 final audit in progress
+
+All EQ136–140 are verified CLOSED/ProjectDone; [EQ141](https://github.com/atulsrivas1/equity-features/issues/475) passed51 separate Ready-input assertions (private SHA8c653497e3a1c1c3924b9cd09563a6e71b442673f44687771e30a8b2d1b4bddb), actual Ready readback, Atul assignment and actual In progress readback. [Qualification report](R17_ACCEPTANCE.md) and [exact input inventory](R17_ACCEPTANCE_INPUTS.json) audit the accepted six-package set, independent mathematical/readiness proof, all source-bound studies/nonwins and current main both-platform channel. No runtime/math/version change is introduced. Final EQ141 source review/currentCI/publication/main/readback/Released/Done and E25/milestone closure remain mandatory; live Project owns current status.
+
+Next: freeze/review the complete audit and public proof derivatives, run appropriate documentation/evidence checks and current CI, qualify actual published main and channel, then final acceptance/Released/Done and aggregate closure. R18 handoff/execution follows verified R17 with its own applicable review route; no local grant inferred. Preserve original dirty and frozen137/138/139/be4 sources/environment and unrelated work. Worker486-Job study remains48nonwins/sequentialfallback; no new timing or persistent/live/fastest claim.
+
+
+## Earlier checkpoints retained as history
+
 ## EQ137 delivery checkpoint — October 19, 2026
 
 EQ136 is accepted Done. EQ137 is In progress in [PR500](https://github.com/atulsrivas1/equity-features/pull/500). [Measured preparation evidence](stories/EQ-137_BENCHMARK.md) and independently reviewed candidate Windows/Linux artifacts qualify exact source `c7a46d6`; final-head review/CI/artifacts, publication and main acceptance remain. The [session handoff](SESSION_HANDOFF.md) records exact proofs, remaining gates and resume steps. Scope/dependencies are unchanged; the live Project owns status. Finish R17 before the selected R18 handoff and execution. Earlier snapshots below retain their original dates and limits.

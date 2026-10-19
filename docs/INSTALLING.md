@@ -1,3 +1,20 @@
+## R17 supplied intraday installation
+
+Use the matching six-package experimental set listed in [R17 inputs](R17_ACCEPTANCE_INPUTS.json): contracts/core0.0.4a4, intraday0.1.0a3, I/O contracts/SDK0.1.0a2 and workers0.1.0a14. Actual reviewed [worker run39301445653 artifacts](https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445653) contain wheel and SDist archives for each. Choose Linux12212142183 or Windows12211898603; GitHub artifact download may require authentication. Expiry is2026-11-18T18:20:09Z/Linux and18:21:33Z/Windows; verify access and the ZIP/archive SHA256 inventory before use. This is finite-retention source/Actions delivery, not a stable registry release. Supported qualified runtimes are CPython3.12 x64 Windows/Linux (actual producers3.12.10/3.12.15).
+
+Extract the chosen artifact into a caller-owned directory, then create a clean CPython3.12 virtual environment. Install the six matching wheels together from its qualification directory, for example with that environment's Python:
+
+```text
+python -m pip install --no-index --find-links <qualification-directory> "equity-feature-workers[intraday]==0.1.0a14"
+```
+
+The wheels directory must contain all six matching distributions; do not mix unrelated service/consumer archives. A base worker install omits the intraday extra and must preserve intraday import absence. For direct calculations only, install matching contracts/core/intraday wheels. Selected-source SDist rebuild qualification is separate from assuming arbitrary offline builds have a backend available; [build guide](BUILD_DELIVERY.md) and [actual installed proof](stories/r17-delivery/EQ140_MAIN_HOSTED_ARTIFACT_PUBLIC_REVIEW.md) record the fixed pip/build/source process and base/combined wheel/rebuilt forms.
+
+Import `equity_features_intraday` directly or explicit `equity_feature_workers.intraday` / `equity_feature_workers.supplied_session` callbacks; existing root dispatch does not automatically select them. Existing service/client/MCP pins remain separate. [Examples](EXAMPLES.md), [compatibility](COMPATIBILITY.md), [intraday API](api/INTRADAY.md). No provider acquisition or persistent state is included. The documented combined-wheel command was also exercised in one fresh author Windows CPython3.12.10/pip25.0.1 environment; this additional example check is distinct from the accepted both-platform pip25.1.1 build/installation qualification. EQ141/R17 final source-delivery status remains in the [live issue](https://github.com/atulsrivas1/equity-features/issues/475).
+
+
+## Earlier checkpoints retained as history
+
 ## EQ107 corrected source qualification — October15,2026
 
 The optional local agent ledger0.1.0a1 has completed corrected source qualification at `8d7ef728c05a0d56b124e2cef58efa91a3a54c32`: actual author Windows and current CI Windows/Linux each build ten repeat-equal archives, preserve eight accepted identities, and test four fresh store-light/producer wheel/sdist forms. Each OS executes320 installed method invocations plus8 outer inert archive controls, with17 distinct raw logs and full source/member/metadata/license/RECORD/installed maps. Four actual child-death SQL cut points per form retain canonical-prefix/full verification and uncertain-proposal reconciliation; original config/input/result/quality/source/receipt parity remains unchanged.

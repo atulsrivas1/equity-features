@@ -1,3 +1,9 @@
+## R17 foundation qualification and release audit
+
+Accepted EQ136–140 deliver original intraday contracts, immutable compatible preparation, EMA/RSI/ATR and five price-band batch outputs, plus explicit supplied-worker intraday/core-gap callbacks and bounded receipt admission. Core39/source independence/default dispatch and unsupported intraday state modes are unchanged. [EQ141 qualification audit](R17_ACCEPTANCE.md) adds source/evidence/channel inventory, installation/migration/API/examples/compatibility/release limits and exact public review derivatives; no runtime/package version change. Actual worker main study remains486Jobs/all48nonwins/sequentialfallback. Final EQ141 current-head review/CI/main publication/channel/readback/acceptance and E25/milestone closure remain live gates, not implied by this changelog. Older entries below retain original development/source snapshots.
+
+## Earlier checkpoints retained as history
+
 ## EQ140 supplied-worker comparison and qualification
 
 Supplied callbacks implement all eight intraday outputs and original four core dispatcher gaps with explicit input/history/absence/receipt contracts. Completed be4 worker study passed separate evidence audit:486Jobs/6A/48B,108warmups/378retained, all48nonwins under frozen wall/resource/tail gates; sequential stays default/fallback. [Evidence and current delivery gates](stories/EQ-140_IMPLEMENTATION.md) retain exact source/history/limitations and current ff32CI/bothOS four-form58-method hosted reports. Final successor/source/artifact/main acceptance remains pending; R17/EQ141 are unfinished and R18 follows verified R17.
