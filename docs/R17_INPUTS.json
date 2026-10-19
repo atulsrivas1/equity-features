@@ -1,7 +1,7 @@
 {
   "schema": "equity-features.r17-handoff.v1",
   "owner_execution_selected": true,
-  "review_authorization": "PENDING_FOR_NEW_GOV031_R17_SCOPE",
+  "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW_NOT_COMPLETED",
   "implementation_admission": "BLOCKED_ON_ACTUAL_PREREQUISITE_PUBLICATION_AND_REVIEW",
   "governance_issue": 464,
   "planning_pr": 498,
