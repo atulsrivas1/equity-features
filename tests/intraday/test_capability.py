@@ -19,9 +19,13 @@ class CapabilityTests(unittest.TestCase):
         self.assertEqual(len(intraday_catalog_digest()),64)
         self.assertEqual(intraday_catalog_digest(),intraday_catalog_digest())
 
-    def test_no_output_or_state_capabilities_claimed(self):
+    def test_exact_three_batch_and_no_state_capabilities_claimed(self):
         for entry in describe_intraday():
             for cap in ('batch','update','restore','merge','replay'):
+                if cap == 'batch' and entry.feature_id in ('intraday.ema','intraday.rsi','intraday.atr'):
+                    require_intraday_capability(entry.feature_id,cap)
+                    self.assertTrue(entry.supports_batch)
+                    continue
                 with self.subTest(feature=entry.feature_id,cap=cap),self.assertRaises(ContractError) as caught:
                     require_intraday_capability(entry.feature_id,cap)
                 self.assertEqual(caught.exception.code,ErrorCode.UNSUPPORTED_CAPABILITY)
@@ -29,7 +33,7 @@ class CapabilityTests(unittest.TestCase):
 
     def test_unknown_and_unimplemented_dispatch_are_distinct(self):
         with self.assertRaises(ContractError) as caught:
-            compute_intraday(None,context(),config(),features=('intraday.ema',))
+            compute_intraday(None,context(),config(),features=('intraday.band_middle',))
         self.assertEqual(caught.exception.code,ErrorCode.UNSUPPORTED_CAPABILITY)
         with self.assertRaises(ContractError) as caught:
             compute_intraday(None,context(),config(),features=('invented',))

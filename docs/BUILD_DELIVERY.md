@@ -1,3 +1,11 @@
+## EQ138 final-source proof requirements
+
+The intraday builder retains old/core/optional package invariants and four fresh installed forms, and now executes5legacy-preparation plus7output measurement guards. Source scopes include the exact public EQ138raw report/frozen sidecar, report and37-entry applicability record, preserving rawWindowsCRLF bytes through narrow -text/cr-at-eol attributes. These are proof-retention checks, not CI reruns of long performance timings. [Source-bound output evidence](stories/EQ-138_BENCHMARK.md) is distinct from final installed/candidate/main qualification; current live issue472 controls acceptance.
+
+## EQ138 experimental intraday0.1.0a2 development
+
+The intraday builder's exact pin moves to0.1.0a2 for the three EMA/RSI/ATR batch outputs; contracts/features0.0.4a4 remain fixed. Existing closed-archive/repeat/selectedSDist rebuild/fourfreshinstalledform/typing/example/core invariance gates apply on Windows/Linux. [Plan](stories/EQ-138_PLAN.md) and [issue472](https://github.com/atulsrivas1/equity-features/issues/472) own current qualification; no installed artifact or releaseda2 is inferred from these development changes. EQ137's actual main deliverye790/run39238396373 is accepted and retained separately.
+
 ## EQ137 preparation measurements and current acceptance
 
 The optional intraday0.1.0a1 source now supplies six immutable preparation families, not indicator outputs. [Measured sourcec7a46d6](stories/EQ-137_BENCHMARK.md) reduced median preparation elapsed time59.55–64.76% across six synthetic cases with full-projection/resource gates; no worker/end-to-end/fastest claim. Independent both-OS candidate artifacts completed four fresh installed forms each, with exact archives/RECORD/typing/example/oldcore checks. [Actual component evidence](https://github.com/atulsrivas1/equity-features/issues/471#issuecomment-6264779008) and [live issue](https://github.com/atulsrivas1/equity-features/issues/471) separate historical measurements/candidate artifacts from pending final-head CI, release and main acceptance. Core versions/discovery remain0.0.4a4/39; own output/state capabilities remain false. No registry/stable publication or completed R17 is inferred.

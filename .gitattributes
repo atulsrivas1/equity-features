@@ -4,3 +4,7 @@
 # Preserve EQ137 raw measurement and frozen A-sidecar bytes/hashes.
 /docs/stories/EQ-137_PREPARATION_BENCHMARK.json -text whitespace=cr-at-eol
 /docs/stories/EQ-137_PREPARATION_BASELINE.json -text whitespace=cr-at-eol
+
+# Preserve EQ138 full-result measurements and frozen baseline exactly.
+/docs/stories/EQ-138_INDICATOR_BENCHMARK.json -text whitespace=cr-at-eol
+/docs/stories/EQ-138_INDICATOR_BASELINE.json -text whitespace=cr-at-eol

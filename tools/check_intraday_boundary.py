@@ -11,14 +11,19 @@ SYMBOLS = {
     'dataclasses': {'dataclass', 'asdict'},
     'fractions': {'Fraction'},
     'typing': {'NoReturn', 'SupportsIndex', 'cast'},
+    'decimal': {'Context', 'Decimal', 'DecimalException', 'localcontext', 'ROUND_HALF_EVEN',
+                'InvalidOperation', 'DivisionByZero', 'Overflow', 'Underflow', 'Subnormal',
+                'Clamped', 'FloatOperation'},
+    'math': {'isfinite'},
     'equity_feature_contracts': {
         'AdjustmentSpec', 'AvailabilitySpec', 'ConfigSpec', 'ContractError', 'ErrorCode',
         'Parameter', 'PriceUnit', 'SessionSpec', 'WindowSpec', 'CanonicalBatch',
         'Coverage', 'DataKind', 'InputBinding', 'Reason', 'Status', 'validate_batch', 'FeatureResult',
+        'EntityKey', 'EvidenceRow', 'FeatureColumn', 'QualityRow', 'ResultMetadata', 'ValueType',
     },
 }
 MODULES = {'json': {'loads', 'dumps'}, 'hashlib': {'sha256'}}
-INTERNAL = {'_context', '_admission', '_prepare', '_registry', '_dispatch'}
+INTERNAL = {'_context', '_admission', '_prepare', '_registry', '_dispatch', '_indicators'}
 FORBIDDEN = {
     'open', '__import__', 'eval', 'exec', 'compile', 'getattr', 'setattr', 'delattr',
     'globals', 'locals', 'vars', 'dir', 'input', 'print', 'breakpoint', 'help',
@@ -103,10 +108,13 @@ NEGATIVE = (
     'object.__setattr__(x,"unknown",value)',
     'def prepare_intraday():\n object.__setattr__(result,name,value)',
     'f=object.__setattr__', 'object=other',
+    'from decimal import getcontext', 'from decimal import setcontext',
+    'import decimal', 'from decimal import DefaultContext',
 )
 POSITIVE = (
     'from fractions import Fraction', 'import json as j\nx=j.loads("{}")',
     'from equity_feature_contracts import CanonicalBatch', 'from ._context import Slot',
+    'from decimal import Context, Decimal, localcontext',
     'def prepare_intraday():\n result=object.__new__(IntradayPreparation)\n object.__setattr__(result,"batches",())',
 )
 

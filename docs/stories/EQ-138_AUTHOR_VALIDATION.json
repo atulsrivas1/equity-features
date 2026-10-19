@@ -1,0 +1,162 @@
+{
+  "schema": "equity-features.eq138-author-validation.v1",
+  "kind": "author checks, separate final-head review and delivery still required",
+  "base": "e790c30241c4420a08adbf2e92403a4cd9a74375",
+  "runtime": "CPython3.12.10",
+  "tests": {
+    "intraday_methods": 64,
+    "legacy_measurement_guards": 5,
+    "output_measurement_guards": 7,
+    "intraday_reference_methods": 24,
+    "daily_reference_methods": 31,
+    "CI_gate_methods": 13,
+    "CI_provenance_methods": 12,
+    "total_methods": 156
+  },
+  "typing_files": 9,
+  "intraday_purity_negative": 24,
+  "intraday_purity_positive": 6,
+  "shared_boundaries": "PASS existing controls retained",
+  "public_markdown_utf8_and_new_report_local_links": "PASS",
+  "staged_diff_whitespace": "PASS",
+  "exact_indexed_raw_bytes": "PASS",
+  "measured_source": "f1e35e151adb7a28273a7158a7cd7718deca474f",
+  "measured_execution_entries_unchanged": 37,
+  "independent_measurement_evidence_receipt": "390460bc6cfcb12932c2a26aabce19aaee3d76cd485e5070c49cb982065744e4",
+  "source_snapshot_excludes_self": true,
+  "source_snapshot": {
+    ".gitattributes": {
+      "git_sha256": "80796ba7177f2f71538453fee0307b42a3d866d0fe7c813ce272936e8659d792",
+      "materialized_sha256": "80796ba7177f2f71538453fee0307b42a3d866d0fe7c813ce272936e8659d792"
+    },
+    "docs/BUILD_DELIVERY.md": {
+      "git_sha256": "a1ad2402cda0772a08d5ad945ffdb0d178bbafd496c7aced5d74bcdc5b6301f1",
+      "materialized_sha256": "a1ad2402cda0772a08d5ad945ffdb0d178bbafd496c7aced5d74bcdc5b6301f1"
+    },
+    "docs/CHANGELOG.md": {
+      "git_sha256": "8a8e638590c9cc1fc1bb8616b5a0ad294539679f572335c802c2929d2698ae60",
+      "materialized_sha256": "8a8e638590c9cc1fc1bb8616b5a0ad294539679f572335c802c2929d2698ae60"
+    },
+    "docs/COMPATIBILITY.md": {
+      "git_sha256": "4714214c9c70a397b53b4c01a7f1879110251b5e64ec6e561ca451b2c93e446e",
+      "materialized_sha256": "4714214c9c70a397b53b4c01a7f1879110251b5e64ec6e561ca451b2c93e446e"
+    },
+    "docs/PROJECT_KNOWLEDGE.md": {
+      "git_sha256": "ee0d720aef735ba17094ba073e5a2cdf92992a8f3b11f3f473c023104781997f",
+      "materialized_sha256": "ee0d720aef735ba17094ba073e5a2cdf92992a8f3b11f3f473c023104781997f"
+    },
+    "docs/R17_INPUTS.json": {
+      "git_sha256": "fb189bb10e2092eea31905b35392f5c57d02f8d3b2293b55a68c8c696571991e",
+      "materialized_sha256": "fb189bb10e2092eea31905b35392f5c57d02f8d3b2293b55a68c8c696571991e"
+    },
+    "docs/R17_TEST_STRATEGY.md": {
+      "git_sha256": "3d2105ab8beb3ed4759134bec9e186179297a42012483759405272062cb8dba7",
+      "materialized_sha256": "3d2105ab8beb3ed4759134bec9e186179297a42012483759405272062cb8dba7"
+    },
+    "docs/SESSION_HANDOFF.md": {
+      "git_sha256": "230938289169d2e0e3117e3baf724d09acd398782390730ccdc2c8720e4ab66f",
+      "materialized_sha256": "230938289169d2e0e3117e3baf724d09acd398782390730ccdc2c8720e4ab66f"
+    },
+    "docs/api/INTRADAY.md": {
+      "git_sha256": "72a829c70eb9bcf827979183d188fe7ed44264723526ed6b0f48fe1183d1a0b3",
+      "materialized_sha256": "72a829c70eb9bcf827979183d188fe7ed44264723526ed6b0f48fe1183d1a0b3"
+    },
+    "docs/decisions/R17_INTRADAY_PACKAGE.md": {
+      "git_sha256": "f9af099f0e7df23f0d00bf9bd3a779f542e5259fa3de0ec02209fd7db46a228f",
+      "materialized_sha256": "f9af099f0e7df23f0d00bf9bd3a779f542e5259fa3de0ec02209fd7db46a228f"
+    },
+    "docs/features/INTRADAY_FOUNDATIONS.md": {
+      "git_sha256": "77bdbbb10c0ae8a7562534b5dfd584f7c97be2a2277440f66603cd4fb4df8995",
+      "materialized_sha256": "77bdbbb10c0ae8a7562534b5dfd584f7c97be2a2277440f66603cd4fb4df8995"
+    },
+    "docs/knowledge/LESSONS.md": {
+      "git_sha256": "bf92952a6eac6e236d4e83f560306dfbcfbe0f9d40627d7260fa90029229b48f",
+      "materialized_sha256": "bf92952a6eac6e236d4e83f560306dfbcfbe0f9d40627d7260fa90029229b48f"
+    },
+    "docs/stories/EQ-138_BENCHMARK.md": {
+      "git_sha256": "4ff6cd13a1c2e22ddd0e5b1c20e3beab99fe928e49d1a0d2a5b13c6e60eb7ad0",
+      "materialized_sha256": "4ff6cd13a1c2e22ddd0e5b1c20e3beab99fe928e49d1a0d2a5b13c6e60eb7ad0"
+    },
+    "docs/stories/EQ-138_INDICATOR_BASELINE.json": {
+      "git_sha256": "a05cd38c88b5cf389c6cbeada2ab97298ae6c7c563f523ed6fcc670606050c47",
+      "materialized_sha256": "a05cd38c88b5cf389c6cbeada2ab97298ae6c7c563f523ed6fcc670606050c47"
+    },
+    "docs/stories/EQ-138_INDICATOR_BENCHMARK.json": {
+      "git_sha256": "64ac8acbdaf8bd571a574704998f86303bb27f212071f5cb833436fd6e65e3a4",
+      "materialized_sha256": "64ac8acbdaf8bd571a574704998f86303bb27f212071f5cb833436fd6e65e3a4"
+    },
+    "docs/stories/EQ-138_MEASUREMENT_APPLICABILITY.json": {
+      "git_sha256": "113e38e3bbf8f7960fdba3ece9326404ad5ae31a5058f4a2c4fa283949cd757d",
+      "materialized_sha256": "113e38e3bbf8f7960fdba3ece9326404ad5ae31a5058f4a2c4fa283949cd757d"
+    },
+    "docs/stories/EQ-138_PLAN.md": {
+      "git_sha256": "117b6db71bdeaa451d4e50a656d027b0340b4c27a56791a917859bcc86d819cd",
+      "materialized_sha256": "117b6db71bdeaa451d4e50a656d027b0340b4c27a56791a917859bcc86d819cd"
+    },
+    "examples/intraday_preparation.py": {
+      "git_sha256": "afd0b87401145b018a7ae5a1ebc817728f661e50451b0e5ef6adb516d794099d",
+      "materialized_sha256": "3a7b54ebe0d39584e728a2d9dce082d6cd41b0cad4e9e84231f5eb2167174a05"
+    },
+    "examples/typing/intraday_positive.py": {
+      "git_sha256": "855a8dd757f4c872589b37035833e08df4c8a9ce461f1d835b2ba2c61c2b9f71",
+      "materialized_sha256": "ae8a9981b873ffb851b45e181920159a68cad2c9bc34b103b46e171c78063d8e"
+    },
+    "packages/intraday/README.md": {
+      "git_sha256": "3460368de1786d21ab759764f7c4810583e698e6edea2ab37a55819022981b5f",
+      "materialized_sha256": "8eec2a968f53a29f8a87e61e7cd1f5aa9165210726dffbc16451f74de1ff8bee"
+    },
+    "packages/intraday/pyproject.toml": {
+      "git_sha256": "dad28ad5dd5c0fc0cd3ae990102ddc6674b33b9cec6661ac627d6ae8d221ff7f",
+      "materialized_sha256": "aeabcf2f793d37864c8bb9443334f5b8eb311fadfa40477af28427e90d961107"
+    },
+    "packages/intraday/src/equity_features_intraday/__init__.py": {
+      "git_sha256": "21d3666bcd2e508e110ba1777ad7cff627c216b5e7ebbc6a9a3dc770ae0074a0",
+      "materialized_sha256": "d1711a0ebeb032519737126650e829e221190565dd4289edd21fafc1185d0321"
+    },
+    "packages/intraday/src/equity_features_intraday/_dispatch.py": {
+      "git_sha256": "9cc37c0c34a90fc8a6b53c2f734a92cb56f74ea87bb159735ea36f61d51713da",
+      "materialized_sha256": "11471bd17e8045934d4eb3a4d5939f26fdd97e45c0ebb5e23e4382880ea44e4a"
+    },
+    "packages/intraday/src/equity_features_intraday/_indicators.py": {
+      "git_sha256": "07658c8dcfb183318e6489df68491aa412c4f9a753fa39c003e5e6b28e12c594",
+      "materialized_sha256": "07658c8dcfb183318e6489df68491aa412c4f9a753fa39c003e5e6b28e12c594"
+    },
+    "packages/intraday/src/equity_features_intraday/_registry.py": {
+      "git_sha256": "2060c37bf8ba1f2e0cf7d3165194ffb80ee3947d95b10b905d56e81024e734ab",
+      "materialized_sha256": "41a00057f82f2fba12ac27cedb3f11f420d92037789d5ee5949795d2b0aa0eeb"
+    },
+    "tests/intraday/test_capability.py": {
+      "git_sha256": "3bd6060ce834394f516751368195a72479154acb0345d47662fd53f03e7f6f5c",
+      "materialized_sha256": "658e1de8899e323ca0dfa48827e1b5fd3c9cb0252e6ea5c97550166c4c440ae4"
+    },
+    "tests/intraday/test_indicators.py": {
+      "git_sha256": "de78aef1f4a79b9b79071e8b362397753d4ab5b80cc7c2e86c66886282434985",
+      "materialized_sha256": "de78aef1f4a79b9b79071e8b362397753d4ab5b80cc7c2e86c66886282434985"
+    },
+    "tools/benchmark_intraday_indicators.py": {
+      "git_sha256": "826fc954096e185a6672255fe5f7469451f2908924c3e32db51e6cbd0a1de513",
+      "materialized_sha256": "826fc954096e185a6672255fe5f7469451f2908924c3e32db51e6cbd0a1de513"
+    },
+    "tools/benchmark_intraday_preparation.py": {
+      "git_sha256": "ec122384a6fe6907f8469d25bc30dbd10777cd8148785f92a5953b4efe2684db",
+      "materialized_sha256": "ec122384a6fe6907f8469d25bc30dbd10777cd8148785f92a5953b4efe2684db"
+    },
+    "tools/build_intraday.py": {
+      "git_sha256": "5d040c1cc150ec65f7d9b5da4e9cfa94e3251b6391256054e0d595140dc5c423",
+      "materialized_sha256": "5d040c1cc150ec65f7d9b5da4e9cfa94e3251b6391256054e0d595140dc5c423"
+    },
+    "tools/check_intraday_boundary.py": {
+      "git_sha256": "950b005bf80f7fdbea045a541e35e900c5d9551ac063b171e8106103752850f7",
+      "materialized_sha256": "358de1b4145fcdf883e60b9f5cf60e23729174ac41511ac7a49c5fddfdd3b188"
+    },
+    "tools/test_intraday_benchmark.py": {
+      "git_sha256": "9d09932c361cdb8420917fc4e0a8893a7ba198b5e07d972f16dc066122cd3f4a",
+      "materialized_sha256": "9d09932c361cdb8420917fc4e0a8893a7ba198b5e07d972f16dc066122cd3f4a"
+    },
+    "tools/test_intraday_indicator_benchmark.py": {
+      "git_sha256": "e53211038f337d1de8cbbfdbdfca7754f0a45664f92b60655bd0ce9702f7fcd7",
+      "materialized_sha256": "e53211038f337d1de8cbbfdbdfca7754f0a45664f92b60655bd0ce9702f7fcd7"
+    }
+  },
+  "remaining": "Actual final-head separate source/legacy-fix/applicability review, fresh final4forms/currentbothOSartifacts/CI and actualmain channel/readback/final acceptance; no Done from merge."
+}

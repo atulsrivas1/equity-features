@@ -1,3 +1,15 @@
+## Retain completed child measurements when the collector rejects source closure
+
+EQ138OUTBENCH01 and companionOUTBENCH02 showed that a completed child can return seven valid samples before the parent notices a source mismatch. Saving only an outer error type loses the most useful diagnostic evidence. Both harnesses now preserve the parsed child/case/mode/source/samples/explicit closure phase before rejecting acceptance, with independent mocked-parent regression guards. Historical successful source-closed measurements remain valid. [Raw output evidence](../stories/EQ-138_BENCHMARK.md) also shows why adoption must use frozen case-specific noise margins: all18single-feature optimizations were rejected, including apparently positive reductions, while sixcombined requests passed. Keep an honest direct fallback.
+
+## EQ138 benchmark failure retention correction
+
+Separate source review independently reproduced a parent-closure failure that lost a completed child's seven samples before adding that case to the baseline. The corrected output harness persists the full parsed child with case, mode, original source identity, samples and explicit parent-child closure phase before raising; a sixth guard executes this path and verifies the saved failure. This does not invalidate successful historical measurements or manufacture new ones. Frozen923c8f8 completed all four local Windows installed forms with64methods and source/materialization closure before edits. Its proof remains bound to923; the corrected successor must renew affected source/benchmark/installed evidence before timings and final acceptance.
+
+## Keep fact readiness separate from each recursive seed
+
+[EQ138 plan](../stories/EQ-138_PLAN.md) consumes the accepted preparation facts directly. Three admitted closes can seed EMA3 while RSI3 and ATR3 still need a fourth dependency slot; a single admitted close is valid preparation but cannot seed ATR1. Preserve per-output expected/observed counts and independent required fields. Compute RSI from high-precision initialized gain/loss witnesses before one Float64 conversion, so flat tails do not falsely become neutral through underflow. Independent expanded geometric weights and hostile-global-context fixtures qualify the source; final performance/install/delivery evidence remains separately required.
+
 ## Validate cross-chunk phases globally; freeze sources through measurements
 
 [EQ137 PREP04 and measured component evidence](https://github.com/atulsrivas1/equity-features/issues/471#issuecomment-6264779008) show why per-chunk ordering is insufficient for a declared global rejection order: an early malformed price masked a later unit mismatch; an early grid defect masked a later malformed payload. Validate all supplied envelopes, then all payload semantics in input order, then cross-chunk grid/coverage. Producer regressions preserve these combined defects and independent field readiness.

@@ -1,3 +1,7 @@
+## EQ138 implementation decision
+
+The [accepted pre-code plan](../stories/EQ-138_PLAN.md) advances only the optional distribution to0.1.0a2 for three batch indicators. Keep core/contracts pins, schema1/math_policyv1 and intraday-v1 unchanged. Fresh explicit local Decimal120 arithmetic, exact seeds and one final Float64 conversion preserve bounded long-tail RSI and source independence; independent fixtures plus actual output timings must qualify the choice. Five band/state capabilities stay false. No executor/resource-default/provider/I-O change is selected in this story.
+
 # R17 intraday package and compatibility decision
 
 EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470). Accepted EQ136 specification choice, October 19, 2026. EQ137 implements preparation under this choice; each output and actual package release still requires its own evidence.
