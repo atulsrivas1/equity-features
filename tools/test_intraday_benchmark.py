@@ -1,4 +1,6 @@
 """Preserve frozen measurement evidence and report partial failed repetitions."""
+import hashlib
+import json
 import subprocess
 import sys
 import tempfile
@@ -9,6 +11,18 @@ import benchmark_intraday_preparation as benchmark
 
 
 class BenchmarkGuardTests(unittest.TestCase):
+    def test_original_committed_measurement_and_baseline_bytes_are_preserved(self):
+        root=benchmark.ROOT/'docs/stories'
+        report=(root/'EQ-137_PREPARATION_BENCHMARK.json').read_bytes()
+        baseline=(root/'EQ-137_PREPARATION_BASELINE.json').read_bytes()
+        self.assertEqual(hashlib.sha256(report).hexdigest(),'78f33000ae88ff0ad1612fb86813d2b8081de92567108eaacd6c4c710aa55996')
+        baseline_sha=hashlib.sha256(baseline).hexdigest()
+        self.assertEqual(baseline_sha,'66b76dba6582cedab49c6a37dc9e174085b76e74e90b733cba72a72510be6c38')
+        value=json.loads(report)
+        self.assertEqual(value['frozen_baseline_sha256'],baseline_sha)
+        self.assertEqual(value['source_commit'],'c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3')
+        self.assertEqual(value['status'],'completed')
+
     def test_existing_report_or_baseline_is_never_overwritten(self):
         for existing in ('result.json','result.baseline.json'):
             with tempfile.TemporaryDirectory() as temporary:

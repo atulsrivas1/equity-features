@@ -2,5 +2,5 @@
 /docs/stories/EQ-088_MEASURED.json -text -diff
 
 # Preserve EQ137 raw measurement and frozen A-sidecar bytes/hashes.
-/docs/stories/EQ-137_PREPARATION_BENCHMARK.json -text
-/docs/stories/EQ-137_PREPARATION_BASELINE.json -text
+/docs/stories/EQ-137_PREPARATION_BENCHMARK.json -text whitespace=cr-at-eol
+/docs/stories/EQ-137_PREPARATION_BASELINE.json -text whitespace=cr-at-eol

@@ -8,7 +8,7 @@
     "ci_gate_methods": 13,
     "intraday_boundary_negative": 20,
     "intraday_boundary_positive": 5,
-    "benchmark_guard_methods": 3
+    "benchmark_guard_methods": 4
   },
   "failures_retained": [
     "Initial chunk-name test matched context_sha256; narrowed exact numeric suffix test.",
@@ -21,7 +21,8 @@
     "BENCH01 review: HEAD-only benchmark binding was insufficient; now parent/child actual origins/versions, complete package module inventory and exact Git/materialized hashes are checked before/after measurements.",
     "BENCH02 review: baseline sidecar could overwrite earlier evidence; now both paths guarded and exclusively created. Partial failed samples retained, old input lifetime released after each sample.",
     "BENCH03 review: post-measurement source failure lost seven samples; structured failed result now preserves source-invalid samples without adopting them; regression guard passes.",
-    "PREP04: per-chunk phase ordering let an earlier malformed price mask a later unit/source mismatch, or earlier grid issue mask later malformed payload. Split admission into complete envelope pass, all payload semantic validation in input order, then grid/coverage. Two new regression methods cover these cases;47producer methods pass."
+    "PREP04: per-chunk phase ordering let an earlier malformed price mask a later unit/source mismatch, or earlier grid issue mask later malformed payload. Split admission into complete envelope pass, all payload semantic validation in input order, then grid/coverage. Two new regression methods cover these cases;47producer methods pass.",
+    "Preserving original CRLF measurement bytes with -text initially triggered Git whitespace diagnostics. Added cr-at-eol only on the two exact raw-evidence paths, without altering bytes or recorded hashes. New fourth guard protects both literal raw SHA256 identities and frozen-baseline linkage; builder source snapshots accept exact Git bytes as well as ordinary LF/CRLF text equivalence."
   ],
   "pending": [
     "full final-head source/documentation review",

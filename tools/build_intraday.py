@@ -29,7 +29,8 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'tools/benchmark_intraday_preparation.py','tools/test_intraday_benchmark.py',
     'requirements-dev.txt','mypy.ini','.github/workflows/packages.yml',
     'docs/api/INTRADAY.md','docs/features/INTRADAY_FOUNDATIONS.md',
-    'docs/stories/EQ-137_PLAN.md','docs/stories/EQ-137_FACT_READINESS.md']
+    'docs/stories/EQ-137_PLAN.md','docs/stories/EQ-137_FACT_READINESS.md',
+    'docs/stories/EQ-137_PREPARATION_BENCHMARK.json','docs/stories/EQ-137_PREPARATION_BASELINE.json']
 
 
 
@@ -111,7 +112,7 @@ def main():
     assert not output('git','status','--porcelain','--untracked-files=all','--',*SCOPES)
     snapshot={name:output('git','show',head+':'+name) for name in paths}
     live={name:(ROOT/name).read_bytes() for name in paths}
-    assert all(live[name].replace(b'\r\n',b'\n')==body for name,body in snapshot.items())
+    assert all(live[name]==body or live[name].replace(b'\r\n',b'\n')==body for name,body in snapshot.items())
     modes={}
     for line in tree.decode().splitlines():
         prefix,name=line.split('\t');mode,kind,blob=prefix.split()
@@ -135,7 +136,7 @@ def main():
     save();work=ROOT/'work';work.mkdir(exist_ok=True)
     try:
         run(sys.executable,'-B',ROOT/'tools/test_intraday_benchmark.py')
-        report['benchmark_guard_methods_passed']=3;save()
+        report['benchmark_guard_methods_passed']=4;save()
         with tempfile.TemporaryDirectory(prefix='intraday-',dir=work) as temporary:
             owned=Path(temporary).resolve();assert owned.is_relative_to(work.resolve())
             verification=owned/'verification'
