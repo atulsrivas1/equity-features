@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "governance": {
+    "number": 502,
+    "id": 5922911104,
+    "url": "https://github.com/atulsrivas1/equity-features/issues/502"
+  },
+  "releases": {
+    "R22": {
+      "number": 26,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/26"
+    },
+    "R23": {
+      "number": 27,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/27"
+    },
+    "R24": {
+      "number": 28,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/28"
+    }
+  },
+  "stories": [
+    {
+      "id": "EQ-164",
+      "release": "R22",
+      "epic": "E30",
+      "title": "Reconcile every equity family and worker to accepted or planned scope",
+      "dependencies": [],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/504",
+      "scope": "Audit the complete frozen command register including shared/mixed candidates; retain explicit in-scope, out-of-scope, accepted-reuse and unresolved dispositions. Reconcile all 78 equity family groups, original core definitions and cross-layer gaps. Every in-scope output/worker must have a primary numbered implementation or accepted-reuse story and release, not only an umbrella audit. Newly discovered gaps require explicit follow-up stories before this story can be accepted.",
+      "validation": "Independent inventory accounting, source-safe public manifest, no orphan/duplicate IDs, actual issue/milestone/Project/parent readback. Static reachability is not numerical completeness.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-165",
+      "release": "R22",
+      "epic": "E30",
+      "title": "Define and implement supplied session clock and trading-status semantics",
+      "dependencies": [
+        "EQ-164"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/505",
+      "scope": "Separate supplied trading/quoting/halt/resume/SSR events from inferred opening diagnostics. Specify session phase, early closes, elapsed/remaining session time, units, timezone/DST, unknown/stale state and ordered publisher/event transitions.",
+      "validation": "Independent calendar/event fixtures, boundary equality, missing/contradictory status and reset/replay cases; qualified supported input bindings.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-166",
+      "release": "R22",
+      "epic": "E30",
+      "title": "Implement calendar-period levels and extended-session aggregates",
+      "dependencies": [
+        "EQ-164"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/506",
+      "scope": "Specify prior/current week/month/YTD boundaries, target inclusion and calendar extrema separately from fixed-count windows. Specify premarket/extended-hours extrema, volume, changes and regular open under supplied calendars/eligible facts.",
+      "validation": "Independent holidays/week/month/year boundaries, early closes, DST, missing sessions, adjustments and phase eligibility; no fixed-day substitution.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-167",
+      "release": "R22",
+      "epic": "E30",
+      "title": "Implement explicit VWAP anchors and gap/opening-drive primitives",
+      "dependencies": [
+        "EQ-164"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/507",
+      "scope": "Specify caller-supplied causal anchor/reset identities and compatible VWAP reuse. Define scalar gap-fill/drive/crossing primitives separately from scanner/episode policies, with chronology, tie order and missing prior-reference behavior.",
+      "validation": "Independent tiny trade/bar paths, anchor/denominator/reset/correction fixtures; no future-derived anchor at origin time; compare direct and supplied-series paths.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-168",
+      "release": "R22",
+      "epic": "E30",
+      "title": "Qualify supplied classifications and reference/action gates",
+      "dependencies": [
+        "EQ-164"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/508",
+      "scope": "Complete required supplied sector/industry/universe/action/reference checks under known-at, effective interval, revision and declared coverage. Reuse accepted contracts and existing R6 provider stories; do not fetch providers or infer missing history.",
+      "validation": "Historical/current-only membership counterexamples, split/basis mismatches, missing/partial/observed-zero populations and cross-layer refusal parity.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-169",
+      "release": "R22",
+      "epic": "E30",
+      "title": "Qualify session and reference completion release",
+      "dependencies": [
+        "EQ-165",
+        "EQ-166",
+        "EQ-167",
+        "EQ-168",
+        "EQ-163"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/509",
+      "scope": "Audit exact selected R22 output/API/I-O/worker capability bindings, independent documentation and compatibility; preserve unresolved scope through new numbered stories rather than blanket completion.",
+      "validation": "Both-platform installed artifacts, independent math/time/status fixtures, bounded end-to-end baselines, applicable reviews/CI/publication/readback; all selected children accepted.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-170",
+      "release": "R23",
+      "epic": "E31",
+      "title": "Implement remaining price channels and squeeze primitives",
+      "dependencies": [
+        "EQ-164",
+        "EQ-139",
+        "EQ-149"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/511",
+      "scope": "Specify Keltner and Donchian channels, selected pivot levels, price-band width percentile and Bollinger/Keltner squeeze primitives. Distinguish primitive arithmetic from source-specific thresholds/policies and freeze exact input/seed/alignment dependencies.",
+      "validation": "Independent extrema/ATR/price-moment examples, zero ranges, short histories, target exclusion and separate readiness; no duplicate existing band/kernel implementation.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-171",
+      "release": "R23",
+      "epic": "E31",
+      "title": "Specify and implement admitted candle and structural-pattern evidence",
+      "dependencies": [
+        "EQ-164"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/512",
+      "scope": "Freeze a bounded explicit catalogue of candle/NR4/NR7 and selected geometric structures with original specifications, tolerances, deterministic ties, confirmation times and causal availability. No vague promise of all named chart patterns; omitted variants remain separately numbered.",
+      "validation": "Independent positive/negative/boundary fixtures including repaint/lookahead counterexamples and correction replay; scope decision before Ready.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-172",
+      "release": "R23",
+      "epic": "E31",
+      "title": "Complete remaining equity statistical projections",
+      "dependencies": [
+        "EQ-164",
+        "EQ-155",
+        "EQ-158"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/513",
+      "scope": "Resolve uncovered up-session fractions, core-benchmark agreement/dispersion, scalar SMA/relative momentum comparisons, dollar-volume/up-volume projections, drawdown/distance and trailing trade/notional rate projections. Reuse accepted primitives; freeze per-output units, population, zero/tie and window rules.",
+      "validation": "Literal small-array/tape expectations, missing anchors, nonmatching windows, observed zeros and target inclusion; explicit no-change reuse decisions and source-safe output manifest.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-173",
+      "release": "R23",
+      "epic": "E31",
+      "title": "Implement supplied point-in-time event and fundamental features",
+      "dependencies": [
+        "EQ-164",
+        "EQ-168"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/514",
+      "scope": "Define arithmetic over supplied earnings/analyst/insider/float/short-interest and scheduled corporate-event records, including counts and trading-session distance. Freeze required fields/units and coverage. Provider acquisition, text-model inference and rights remain separate existing/deferred scope.",
+      "validation": "Independent synthetic records, revisions/known-at, missing collections versus zero, dilution/units and event-calendar boundary cases; no provider operation required.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-174",
+      "release": "R23",
+      "epic": "E31",
+      "title": "Extend observed-path outcomes without signal leakage",
+      "dependencies": [
+        "EQ-164",
+        "EQ-103"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/515",
+      "scope": "Extend existing endpoint labels only where missing: sampled-path MFE/MAE, declared barriers, time-to-target and selected candidate/large-print outcome binding. Define maturity, observation resolution, origin identity, full path coverage and embargo; no tick-extreme or profitability inference.",
+      "validation": "Independent mature/immature paths and barriers, gaps, sampling/threshold ties, late corrections and unchanged origin signal bytes; labels never become current-feature prerequisites.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-175",
+      "release": "R23",
+      "epic": "E31",
+      "title": "Qualify remaining equity calculation release",
+      "dependencies": [
+        "EQ-170",
+        "EQ-171",
+        "EQ-172",
+        "EQ-173",
+        "EQ-174",
+        "EQ-169"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/516",
+      "scope": "Close selected new pure calculation/label scope with discoverable output manifest, correct source-independent packaging and qualified selected consumer bindings. Broader unselected patterns remain visible.",
+      "validation": "Independent numerical/temporal fixtures, clean both-platform artifacts, direct/worker parity where declared, measured resource-bounded workloads and actual acceptance/readback.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-176",
+      "release": "R24",
+      "epic": "E32",
+      "title": "Implement explicit equity scanner and watchlist catalogues",
+      "dependencies": [
+        "EQ-164",
+        "EQ-163",
+        "EQ-169",
+        "EQ-175",
+        "EQ-102"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/518",
+      "scope": "Inventory every selected equity scanner/watchlist identity; map to original public specifications and exact supplied feature/coverage dependencies. Reuse generic scan/rank APIs where valid; preserve matched/not-matched/unavailable and rule/version identity.",
+      "validation": "One source-safe catalogue ledger per selected identity with independent positive/negative/unavailable/tie cases; missing formula/rights stays blocked, not silently dropped.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-177",
+      "release": "R24",
+      "epic": "E32",
+      "title": "Implement selected strategy context, tape summaries and score profiles",
+      "dependencies": [
+        "EQ-164",
+        "EQ-175"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/519",
+      "scope": "Define original versioned component normalization, weights, tape summaries, profile joins and level selection with per-output readiness. Keep generic math separate from product/source policy and distinguish evidence from narrative.",
+      "validation": "Independent component/score examples, missing components, conflicting clocks/bases and unrelated-branch isolation; no future outcome input or performance claim from scores.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-178",
+      "release": "R24",
+      "epic": "E32",
+      "title": "Implement deterministic confirmation and candidate lifecycle",
+      "dependencies": [
+        "EQ-164",
+        "EQ-176",
+        "EQ-177"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/520",
+      "scope": "Freeze confirmation/persistence/reclaim/failure/episode transitions over supplied chronological evidence. Separate pure transition state from worker claims/retry/checkpoint persistence; specify identity, revision/reset, correction/replay and duplicate handling.",
+      "validation": "Independent transition tables and adversarial histories, replay/correction idempotence, no duplicate alerts, serialized identity chain with independent-identity parity.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-179",
+      "release": "R24",
+      "epic": "E32",
+      "title": "Implement same-identity score and membership history",
+      "dependencies": [
+        "EQ-164",
+        "EQ-177",
+        "EQ-178"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/521",
+      "scope": "Define score trends and membership tenure/persistence over causal same-formula/config/scope histories; do not substitute raw price history or revised future knowledge for historical score facts.",
+      "validation": "Independent prior-only trends/tenure examples, identity/config changes, missing sessions, late corrections and membership lifecycle boundaries.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-180",
+      "release": "R24",
+      "epic": "E32",
+      "title": "Qualify every admitted equity worker and I-O binding",
+      "dependencies": [
+        "EQ-164",
+        "EQ-146",
+        "EQ-163",
+        "EQ-169",
+        "EQ-175",
+        "EQ-176",
+        "EQ-177",
+        "EQ-178",
+        "EQ-179"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/522",
+      "scope": "For every equity and confirmed mixed/shared worker, link each output to accepted/new pure API, admitted source and sink, lifecycle/resource owner, installed worker route and exact dependencies. Reuse or consolidate commands without one-process-per-feature requirement. Audit acquisition, status, reference, history, publication, replay, maintenance and product-adapter roles. Out-of-scope options/product-only commands receive explicit exclusion or separate planning record. No private code/data migration without rights.",
+      "validation": "Complete worker/role/output traceability with no unplanned in-scope records; synthetic end-to-end full-result/status/quality/evidence and refusal parity, fault/recovery/readback, bounded CPU/RAM/I-O and direct/current alternatives. Provider/live/product operation gates remain separate.",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-181",
+      "release": "R24",
+      "epic": "E32",
+      "title": "Accept complete planned equity family and worker coverage",
+      "dependencies": [
+        "EQ-180"
+      ],
+      "url": "https://github.com/atulsrivas1/equity-features/issues/523",
+      "scope": "Independently reconcile the full selected family/worker ledger to Done accepted scopes and separately tracked residuals. Every selected implementation, adapter, worker, policy, compatibility/documentation and release gate must be evidenced; no acceptance from syntax census alone.",
+      "validation": "Final no-orphan traceability; separate exact-head review/CI/both-platform installed artifacts and source/readback. Measure total time, throughput, memory and live latency only for declared supported workloads with result parity; retain all exclusions and failures.",
+      "status": "Backlog"
+    }
+  ],
+  "scope": "Future equity planning only; no runtime start or review authorization. Exact source-derived per-command/family rows remain local."
+}

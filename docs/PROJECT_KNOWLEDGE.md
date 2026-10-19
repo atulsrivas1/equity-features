@@ -2746,3 +2746,8 @@ EQ055 source9a82f1d is reviewed/qualified with94tests/current24archives24reports
 EQ055 final85efa9d acceptedDone after separate source/receipt reviews, allCI/current24archives24reports/four fresh synthetic94forms/four private68/9/3forms/core invariance and Releasedpostread. EQ056 is dependency-ready final bounded R4 audit; [plan](stories/EQ-056_PLAN.md). Pure mathematics/source isolation unchanged; STOP beforeR5 after eight accepted stories/E07/milestone5.
 
 EQ056 [final R4 audit](R4_ACCEPTANCE.md) maps seven accepted predecessors and its conditional final delivery, actuala7/corea4 archives, both testing layers and explicit source/cost/privacy limits. All eight/e07/milestone5 closure is pending finalheadreview/currentCI/actualpublication/archive equality/currentreports/privatehash/livechannels/Releasedpostread. STOP beforeR5.
+
+
+## Full equity planning coverage — October19,2026
+
+Owner clarified that inventory alone is insufficient: every equity family/worker needs a numbered story and release. [Future release plan](EQUITY_COVERAGE_RELEASE_PLAN.md) adds R22-R24/EQ164-181; existing delivered and R17-R21 scope is reused. Planning/traceability is not numerical completeness or implementation; exact source-derived registers stay local.

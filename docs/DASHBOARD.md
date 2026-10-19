@@ -318,3 +318,8 @@ Owner restored R2-before-R3. Existing R3 chat finishes only both R1 defect repai
 ## R4 execution preparation — October 6, 2026
 
 [R4 handoff](R4_AUTONOMOUS_HANDOFF.md) and [two-layer test strategy](R4_TEST_STRATEGY.md) prepared under [GOV013 #258](https://github.com/atulsrivas1/equity-features/issues/258). Eight story plans,52provisional points; both synthetic DuckDB conformance and frozen representative real-data integration required. Preparation is not implementation or R4 acceptance. Review authorization/publication and live Project remain authoritative.
+
+
+## Future equity coverage planning
+
+[Complete plan](EQUITY_COVERAGE_RELEASE_PLAN.md) / https://github.com/atulsrivas1/equity-features/issues/502 adds R22-R24 and18stories, all future Backlog. Existing R17-R21 execution unchanged; see live Project.

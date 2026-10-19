@@ -851,3 +851,30 @@ Scope baseline only; current status belongs to the live Project. All new deliver
 | EQ-161 | R21 | [Implement path efficiency and choppiness measures](https://github.com/atulsrivas1/equity-features/issues/495) | EQ-137, EQ-138; core; 5 points; [full plan](R21_RELEASE_PLAN.md) |
 | EQ-162 | R21 | [Implement deterministic notional-ranked largest prints](https://github.com/atulsrivas1/equity-features/issues/496) | EQ-136; core + worker bindings; 5 points; [full plan](R21_RELEASE_PLAN.md) |
 | EQ-163 | R21 | [Qualify and deliver tape, quote and path release](https://github.com/atulsrivas1/equity-features/issues/497) | EQ-158, EQ-159, EQ-160, EQ-161, EQ-162, EQ-157; cross-repository acceptance; 5 points; [full plan](R21_RELEASE_PLAN.md) |
+
+
+## Equity coverage planning extension — October19,2026
+
+[Plan](EQUITY_COVERAGE_RELEASE_PLAN.md): R22/E30/EQ164-169, R23/E31/EQ170-175, R24/E32/EQ176-181. Future Backlog/unassigned/no dates; no active-release change. Governed by https://github.com/atulsrivas1/equity-features/issues/502.
+
+
+| Planned story | Release | Scope | Dependencies |
+| --- | --- | --- | --- |
+| [EQ-164](https://github.com/atulsrivas1/equity-features/issues/504) | R22 | Reconcile every equity family and worker to accepted or planned scope | GOV032 publication |
+| [EQ-165](https://github.com/atulsrivas1/equity-features/issues/505) | R22 | Define and implement supplied session clock and trading-status semantics | EQ-164 |
+| [EQ-166](https://github.com/atulsrivas1/equity-features/issues/506) | R22 | Implement calendar-period levels and extended-session aggregates | EQ-164 |
+| [EQ-167](https://github.com/atulsrivas1/equity-features/issues/507) | R22 | Implement explicit VWAP anchors and gap/opening-drive primitives | EQ-164 |
+| [EQ-168](https://github.com/atulsrivas1/equity-features/issues/508) | R22 | Qualify supplied classifications and reference/action gates | EQ-164 |
+| [EQ-169](https://github.com/atulsrivas1/equity-features/issues/509) | R22 | Qualify session and reference completion release | EQ-165, EQ-166, EQ-167, EQ-168, EQ-163 |
+| [EQ-170](https://github.com/atulsrivas1/equity-features/issues/511) | R23 | Implement remaining price channels and squeeze primitives | EQ-164, EQ-139, EQ-149 |
+| [EQ-171](https://github.com/atulsrivas1/equity-features/issues/512) | R23 | Specify and implement admitted candle and structural-pattern evidence | EQ-164 |
+| [EQ-172](https://github.com/atulsrivas1/equity-features/issues/513) | R23 | Complete remaining equity statistical projections | EQ-164, EQ-155, EQ-158 |
+| [EQ-173](https://github.com/atulsrivas1/equity-features/issues/514) | R23 | Implement supplied point-in-time event and fundamental features | EQ-164, EQ-168 |
+| [EQ-174](https://github.com/atulsrivas1/equity-features/issues/515) | R23 | Extend observed-path outcomes without signal leakage | EQ-164, EQ-103 |
+| [EQ-175](https://github.com/atulsrivas1/equity-features/issues/516) | R23 | Qualify remaining equity calculation release | EQ-170, EQ-171, EQ-172, EQ-173, EQ-174, EQ-169 |
+| [EQ-176](https://github.com/atulsrivas1/equity-features/issues/518) | R24 | Implement explicit equity scanner and watchlist catalogues | EQ-164, EQ-163, EQ-169, EQ-175, EQ-102 |
+| [EQ-177](https://github.com/atulsrivas1/equity-features/issues/519) | R24 | Implement selected strategy context, tape summaries and score profiles | EQ-164, EQ-175 |
+| [EQ-178](https://github.com/atulsrivas1/equity-features/issues/520) | R24 | Implement deterministic confirmation and candidate lifecycle | EQ-164, EQ-176, EQ-177 |
+| [EQ-179](https://github.com/atulsrivas1/equity-features/issues/521) | R24 | Implement same-identity score and membership history | EQ-164, EQ-177, EQ-178 |
+| [EQ-180](https://github.com/atulsrivas1/equity-features/issues/522) | R24 | Qualify every admitted equity worker and I-O binding | EQ-164, EQ-146, EQ-163, EQ-169, EQ-175, EQ-176, EQ-177, EQ-178, EQ-179 |
+| [EQ-181](https://github.com/atulsrivas1/equity-features/issues/523) | R24 | Accept complete planned equity family and worker coverage | EQ-180 |

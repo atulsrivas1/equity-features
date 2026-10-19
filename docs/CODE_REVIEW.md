@@ -225,3 +225,8 @@ The owner-authorized bounded R4.1 local-review alternative includes its GOV-015 
 ## R7 authorized local review — October 9, 2026
 
 The owner explicitly authorizes separate local Codex reviewers for bounded R7, beginning EQ075/PR356. Each reviewer must inspect the actual final head and affected contracts/callers, record identity, executed checks, findings/disposition and limitations. Relevant changes require renewed final-head coverage. Author self-review and CI alone remain insufficient. This is local automated review, not hosted activation or human review. All numerical, documentation, native/installed artifact and publication/readback gates applicable to each story remain mandatory; GOV005 remains separate. This does not authorize provider/private datasets, external deployment, paid access, later releases or recurring/destructive actions.
+
+
+## GOV032 equity coverage planning review pending
+
+GOV032#502 prepares the future R22-R24 packet only. Existing R17 and historical release-specific grants do not expand automatically. Before merging this planning PR, require a supported separate final-head semantic/source-safe review or an explicit owner alternative-review decision. Author checks/CI are not separate review. No future R22-R24 implementation or operational grant is created here.

@@ -4884,3 +4884,10 @@ An external proof-tool preparer wrote the intended capture file, then stopped at
 two literal-match guards before writing the artifact verifier. Exact capture bytes
 were retained; narrow source-expression matches were corrected before either
 proof tool executed. These are tooling failures, not kernel/CI qualification.
+
+
+## Equity coverage planning packet — October19,2026
+
+Owner requested numbered stories/releases for full equity inventory. GOV032 prepares18futureBacklogstories EQ164-181, three epics E30-E32 and R22-R24 milestones, native parent links and Project status. See EQUITY_COVERAGE_RELEASE_PLAN.md. Existing R17/R18 ownership and scope unchanged. Local matrix and mutation receipts retain detailed crosswalk. No private source/data/provider execution.
+
+Resume: validate scope/dependencies/no orphan mappings and actual GitHub metadata; draft PR needs required separate review/current CI before merge/publication acceptance. Do not claim Done or start future kernels. Prior R17-only local review grant is not expanded.

@@ -1,0 +1,25 @@
+{
+  "status": "PASS author readback",
+  "new_issues": 22,
+  "future_stories": 18,
+  "milestones": 3,
+  "native_parent_links": 18,
+  "future_status": "Backlog",
+  "future_assignees": [],
+  "due_dates": null,
+  "runtime_started": false,
+  "governance": 502,
+  "planning_only": true,
+  "independent_review": "PENDING: separate final-head review authorization required",
+  "author_checks": [
+    "18-story allocation/dependency/UTF8/link validator",
+    "existing documentation planning guard",
+    "78-family/296-command local planning traceability",
+    "actual issue/Project/milestone/native-parent readback"
+  ],
+  "limitations": [
+    "No numerical runtime, source parity or performance validation",
+    "New proposals remain Backlog; no runtime selection",
+    "Detailed source-derived crosswalk remains local"
+  ]
+}

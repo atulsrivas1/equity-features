@@ -2013,3 +2013,8 @@ The qualification interpreter generated sibling bytecode caches before the study
 ## EQ117: explicit deferral changes the assignment schema, not active story coverage
 
 Owner-approved Future Backlog rows must remain in the complete134-story inventory. The old release-only CI regex counted132 after deferring EQ118/EQ119. Extend the finite assignment domain, preserve all unique IDs and original release mappings, and assert the exact deferred/selected sets. Author and documentation review missed the parser dependency; preserve both actual failed jobs and the local old-fail/new-pass documentation checks. [Validation](../stories/EQ117_VALIDATION.json).
+
+
+### Inventory requires delivery planning — October19,2026
+
+Owner correction: accounted-for source families/workers need explicit numbered stories and release allocation, not only an inventory or a generic gap label. [Plan](../EQUITY_COVERAGE_RELEASE_PLAN.md) separates accepted reuse, specific future work, unresolved classification and exclusions. Exact per-output qualification remains a gate; full planning coverage does not imply formula/runtime completeness.
