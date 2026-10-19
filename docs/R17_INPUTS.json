@@ -1,7 +1,7 @@
 {
   "schema": "equity-features.r17-handoff.v1",
   "owner_execution_selected": true,
-  "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW_NOT_COMPLETED",
+  "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW",
   "implementation_admission": "BLOCKED_ON_ACTUAL_PREREQUISITE_PUBLICATION_AND_REVIEW",
   "governance_issue": 464,
   "planning_pr": 498,
@@ -102,5 +102,12 @@
     "stories/EQ-136_PLAN.md",
     "stories/EQ-136_FIXTURES.json"
   ],
-  "stop_after": "Verified R17 acceptance; no R18 implementation or live/provider/deployment/recurring scope."
+  "stop_after": "Verified R17 acceptance; no R18 implementation or live/provider/deployment/recurring scope.",
+  "planning_rebase_base": "61d16a11b9b47095a23ef010ddff1260a4993eca",
+  "initial_planning_review": {
+    "head": "7da0c12dbf5956ffc1e232b2ad9902780c61bbb9",
+    "reviewer": "/root/r17_review",
+    "disposition": "PASS within planning/handoff scope; final rebased source renewal required",
+    "receipt_sha256": "da5200247649d1300cde29a30863ffa7277405e6577a76f4b49d5e0ea7785875"
+  }
 }
