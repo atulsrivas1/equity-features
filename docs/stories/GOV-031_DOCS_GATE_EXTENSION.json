@@ -1,0 +1,23 @@
+{
+  "schema": "equity-features.planning-gate-extension.v1",
+  "planning_issue": 464,
+  "reason": "Owner-requested EQ-136\u2013EQ-163 release allocation; retain all historical allocation/catalog checks and CI operations.",
+  "replacements": [
+    {
+      "before": "assert len(stories) == 134",
+      "after": "assert len(stories) == 162"
+    },
+    {
+      "before": "range(1, 136)",
+      "after": "range(1, 164)"
+    },
+    {
+      "before": "all 134 active stories verified",
+      "after": "all 162 active stories verified"
+    },
+    {
+      "before": "          assert Path('docs/IO_WORKER_ARCHITECTURE.md').is_file()",
+      "after": "          import json\n          expansion = json.loads(Path('docs/EQUITY_EXPANSION_ROADMAP.json').read_text())\n          assert len(expansion['releases']) == 5\n          assert len(expansion['stories']) == 28\n          assert {s['id'] for s in expansion['stories']} == {f'EQ-{i:03}' for i in range(136, 164)}\n          allocations = dict(stories)\n          for story in expansion['stories']:\n              assert allocations[story['id']] == story['release']\n              assert story['points'] > 0 and story['scope'] and story['validation']\n              assert Path(f\"docs/{story['release']}_RELEASE_PLAN.md\").is_file()\n          assert expansion['planning_only'] is True\n          assert Path('docs/IO_WORKER_ARCHITECTURE.md').is_file()"
+    }
+  ]
+}

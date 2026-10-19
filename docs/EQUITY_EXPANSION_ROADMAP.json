@@ -1,0 +1,535 @@
+{
+  "date": "2026-10-19",
+  "governance": {
+    "number": 464,
+    "id": 5919537854,
+    "url": "https://github.com/atulsrivas1/equity-features/issues/464"
+  },
+  "requirements": [
+    "correctness",
+    "source independence",
+    "independent feature readiness",
+    "parallelism",
+    "efficient bounded available-resource use",
+    "measured end-to-end performance"
+  ],
+  "status_authority": "https://github.com/users/atulsrivas1/projects/2",
+  "planning_only": true,
+  "releases": [
+    {
+      "id": "R17",
+      "title": "R17 \u2014 Intraday equity foundations",
+      "epic": "E25",
+      "epic_url": "https://github.com/atulsrivas1/equity-features/issues/465",
+      "number": 21,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/21"
+    },
+    {
+      "id": "R18",
+      "title": "R18 \u2014 Dependency-driven execution and resource efficiency",
+      "epic": "E26",
+      "epic_url": "https://github.com/atulsrivas1/equity-features/issues/466",
+      "number": 22,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/22"
+    },
+    {
+      "id": "R19",
+      "title": "R19 \u2014 Trend, momentum and money-flow features",
+      "epic": "E27",
+      "epic_url": "https://github.com/atulsrivas1/equity-features/issues/467",
+      "number": 23,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/23"
+    },
+    {
+      "id": "R20",
+      "title": "R20 \u2014 Relative statistics, realized volatility and robust anomalies",
+      "epic": "E28",
+      "epic_url": "https://github.com/atulsrivas1/equity-features/issues/468",
+      "number": 24,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/24"
+    },
+    {
+      "id": "R21",
+      "title": "R21 \u2014 Equity tape, quote and path analytics",
+      "epic": "E29",
+      "epic_url": "https://github.com/atulsrivas1/equity-features/issues/469",
+      "number": 25,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/25"
+    }
+  ],
+  "stories": [
+    {
+      "id": "EQ-136",
+      "release": "R17",
+      "epic": "E25",
+      "title": "Define intraday mathematics, capability and dependency contracts",
+      "points": 5,
+      "dependencies": [],
+      "repository": "core/contracts",
+      "scope": "Freeze selected finalized-bar intervals, return/price bases, seeds, warm-up, missing/partial bars, session resets, adjustments, cutoff equality and correction/replay rules. Define per-output direct operands separately from upstream lineage; allocate new feature IDs only after specification review.",
+      "validation": "Independent tiny synthetic histories cover flat/rising/falling prices, short history, session boundaries, gaps, split-compatible revisions and seed alternatives. Existing daily semantics remain separately verified.",
+      "number": 470,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/470",
+      "issue_database_id": 5919545099
+    },
+    {
+      "id": "EQ-137",
+      "release": "R17",
+      "epic": "E25",
+      "title": "Implement compatible rolling primitives and shared preparation",
+      "points": 8,
+      "dependencies": [
+        "EQ-136"
+      ],
+      "repository": "core",
+      "scope": "Implement selected rolling price moments, extrema, return and true-range preparation with explicit identity and lifetime. Share compatible scans and intermediate values without coupling unrelated output readiness; numerical stability and legal state/merge behavior are explicit.",
+      "validation": "Compare against independent direct-window/high-precision expected results; test eviction, cancellation of old observations, restore/replay and unsupported merges. Measure fused versus separate preparation and peak memory.",
+      "number": 471,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/471",
+      "issue_database_id": 5919562777
+    },
+    {
+      "id": "EQ-138",
+      "release": "R17",
+      "epic": "E25",
+      "title": "Implement interval-aware EMA, RSI and ATR",
+      "points": 8,
+      "dependencies": [
+        "EQ-136",
+        "EQ-137"
+      ],
+      "repository": "core",
+      "scope": "Implement qualified intraday variants using supplied finalized bars. Independent EMA, RSI and ATR branches share admitted facts; recursive observations remain ordered per symbol, interval, configuration and revision. Advertise only implemented batch/update/restore/merge capabilities.",
+      "validation": "Independent seed and warm-up fixtures, missing/zero denominators, session/gap policies, batch versus legal update/replay parity; benchmark families separately and together.",
+      "number": 472,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/472",
+      "issue_database_id": 5919564652
+    },
+    {
+      "id": "EQ-139",
+      "release": "R17",
+      "epic": "E25",
+      "title": "Implement rolling price bands",
+      "points": 5,
+      "dependencies": [
+        "EQ-136",
+        "EQ-137"
+      ],
+      "repository": "core",
+      "scope": "Implement selected Bollinger-style price bands from rolling price moments with explicit variance convention, band parameters and zero-width policy. Price moments are not return volatility. Bands do not depend on RSI or ATR.",
+      "validation": "Independent mean/variance/band fixtures, constant values, numerical cancellation, short windows, large offsets and correction replay; quantify compatible preparation reuse.",
+      "number": 473,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/473",
+      "issue_database_id": 5919566667
+    },
+    {
+      "id": "EQ-140",
+      "release": "R17",
+      "epic": "E25",
+      "title": "Wire qualified feature inputs and independent worker branches",
+      "points": 5,
+      "dependencies": [
+        "EQ-138",
+        "EQ-139"
+      ],
+      "repository": "workers + I/O contracts",
+      "scope": "Bind the selected new APIs to supplied normalized inputs. Audit existing dispatcher gaps for structure, top-K, continuous quotes and prior-close arguments; wire only capabilities supported by admitted inputs, reporting explicit unsupported requirements. Keep acquisition outside calculations.",
+      "validation": "Synthetic end-to-end source-to-result contract tests, prior-close unavailable versus supplied cases, required-input discovery, and branch isolation when an unrelated reference is absent. Compare all values/status/quality/evidence with direct APIs.",
+      "number": 474,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/474",
+      "issue_database_id": 5919568710
+    },
+    {
+      "id": "EQ-141",
+      "release": "R17",
+      "epic": "E25",
+      "title": "Qualify and deliver intraday foundation release",
+      "points": 5,
+      "dependencies": [
+        "EQ-140"
+      ],
+      "repository": "cross-repository acceptance",
+      "scope": "Freeze selected R17 outputs and artifact versions; establish direct and current-worker compute-only and end-to-end baselines before adopting acceleration. Verify original daily API compatibility and all selected story evidence.",
+      "validation": "Repeated small/large/skewed workloads, cold/warm paths, current Windows/Linux artifacts and clean installs, separate final-head review, published-source/artifact readback and documentation. No live feed/SLA claim.",
+      "number": 475,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/475",
+      "issue_database_id": 5919570569
+    },
+    {
+      "id": "EQ-142",
+      "release": "R18",
+      "epic": "E26",
+      "title": "Qualify exact output DAGs and execution baselines",
+      "points": 5,
+      "dependencies": [
+        "EQ-141"
+      ],
+      "repository": "workers",
+      "scope": "Specialize selected outputs into operand/state/coverage nodes; distinguish configuration gates and publication ownership. Baseline sequential/thread/process modes, stage costs, queue/lock waits, copying, startup and sink bottlenecks. Reject unresolved dynamic/alias paths from scheduler refinement until qualified.",
+      "validation": "Independent dependency counterexamples, cycle checks, blocked-unrelated-branch cases and repeatable full-result parity; freeze representative workload and performance adoption rule before measurement.",
+      "number": 476,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/476",
+      "issue_database_id": 5919572613
+    },
+    {
+      "id": "EQ-143",
+      "release": "R18",
+      "epic": "E26",
+      "title": "Reuse compatible inputs and fuse shared calculation work",
+      "points": 8,
+      "dependencies": [
+        "EQ-142"
+      ],
+      "repository": "core + workers + I/O",
+      "scope": "Remove a demonstrated repeated admission, conversion, scan or serialization cost. Reuse only exact symbol/population/interval/window/cutoff/source/configuration/revision identities; immutable ownership and bounded lifetimes are explicit.",
+      "validation": "A/B end-to-end timing, independent output oracle, incompatible-identity rejection, bounded cache/queue memory, error/retry/cancel and stale-input cases; retain fallback if improvement is not demonstrated.",
+      "number": 477,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/477",
+      "issue_database_id": 5919574433
+    },
+    {
+      "id": "EQ-144",
+      "release": "R18",
+      "epic": "E26",
+      "title": "Schedule independent ready branches with ordered state ownership",
+      "points": 8,
+      "dependencies": [
+        "EQ-142",
+        "EQ-143"
+      ],
+      "repository": "workers",
+      "scope": "Refine only proven coarse serialization: independent same-symbol feature families can run once their own operands are ready. Preserve recurrence and mutation order inside each state key, actual universe joins and publication commit authority. Use tasks large enough to amortize transport.",
+      "validation": "Execution traces prove independent overlap and true dependency order; skew, missing benchmark, shared alias, cancellation/replay and deterministic result/status parity cases. No persistent live scheduler duplication of LIVE-002.",
+      "number": 478,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/478",
+      "issue_database_id": 5919576158
+    },
+    {
+      "id": "EQ-145",
+      "release": "R18",
+      "epic": "E26",
+      "title": "Qualify adaptive bounded resource profiles",
+      "points": 8,
+      "dependencies": [
+        "EQ-143",
+        "EQ-144"
+      ],
+      "repository": "workers + I/O",
+      "scope": "Use one job-wide CPU/native-thread/memory/I/O budget, explicit OS/other-job reserves, backpressure and admission. Detect actual available capacity at run time; benchmark supported concurrency levels before considering wider limits. Report declared reservations versus observed or enforced limits honestly.",
+      "validation": "Scaling curves and repeat distributions, peak parent/child RSS and copies, nested-thread oversubscription, memory pressure, queue saturation, sink contention, cancellation and low-resource fallback. CPU utilization alone is not acceptance.",
+      "number": 479,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/479",
+      "issue_database_id": 5919577890
+    },
+    {
+      "id": "EQ-146",
+      "release": "R18",
+      "epic": "E26",
+      "title": "Qualify and deliver measured parallel execution",
+      "points": 5,
+      "dependencies": [
+        "EQ-145"
+      ],
+      "repository": "cross-repository acceptance",
+      "scope": "Adopt only changes meeting predeclared correctness, wall-time and resource criteria; document workload-specific winning and losing profiles. Preserve existing source-independent APIs and baseline fallback; publish reproducible synthetic benchmark instructions.",
+      "validation": "Independent numerical/status/quality/evidence parity, critical-path and end-to-end latency/throughput measurements, both-platform installed artifacts, final review, publication/readback and complete R18 evidence. No universal fastest claim.",
+      "number": 480,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/480",
+      "issue_database_id": 5919579668
+    },
+    {
+      "id": "EQ-147",
+      "release": "R19",
+      "epic": "E27",
+      "title": "Implement MACD line, signal and histogram",
+      "points": 5,
+      "dependencies": [
+        "EQ-138"
+      ],
+      "repository": "core",
+      "scope": "Specify fast/slow EMA and signal seeds, periods and availability. Fast and slow chains are independent; signal depends on ordered MACD observations. Reuse compatible EMA preparation without a whole-indicator barrier.",
+      "validation": "Independent hand-calculated seeds and line/signal/histogram fixtures, insufficient history, corrections and legal state parity; direct/fused and worker performance cases.",
+      "number": 481,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/481",
+      "issue_database_id": 5919581375
+    },
+    {
+      "id": "EQ-148",
+      "release": "R19",
+      "epic": "E27",
+      "title": "Implement directional movement, DMI and ADX",
+      "points": 8,
+      "dependencies": [
+        "EQ-137",
+        "EQ-138"
+      ],
+      "repository": "core",
+      "scope": "Specify directional movement ties, true range, smoothing, DX/ADX initialization and zero-denominator availability. Share compatible true range; ADX follows its actual DMI/DX observations.",
+      "validation": "Independent OHLC fixtures including inside/outside bars, ties, flat prices and warm-up; replay/state equivalence, compatibility isolation and repeated timing.",
+      "number": 482,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/482",
+      "issue_database_id": 5919583247
+    },
+    {
+      "id": "EQ-149",
+      "release": "R19",
+      "epic": "E27",
+      "title": "Implement stochastic oscillators and Williams percent R",
+      "points": 5,
+      "dependencies": [
+        "EQ-137"
+      ],
+      "repository": "core",
+      "scope": "Specify rolling high/low populations, close location, smoothing stages and zero-range handling. Reuse compatible extrema; independent selected oscillators need not wait on unrelated indicators.",
+      "validation": "Independent extrema/oscillator fixtures, ties, zero ranges, evictions, gaps and smoothing warm-up; compare shared versus independent preparation.",
+      "number": 483,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/483",
+      "issue_database_id": 5919584971
+    },
+    {
+      "id": "EQ-150",
+      "release": "R19",
+      "epic": "E27",
+      "title": "Implement OBV, accumulation/distribution and Chaikin money flow",
+      "points": 8,
+      "dependencies": [
+        "EQ-136",
+        "EQ-137"
+      ],
+      "repository": "core",
+      "scope": "Specify signed OBV ties/initialization, close-location weighting, zero-range bars, rolling denominators and exact volume units. Share admitted bars and compatible money-flow preparation with independent result readiness.",
+      "validation": "Independent synthetic volume/price fixtures, zero volume/range, warm-up, revision replay, precision and order cases; benchmark combined families and direct outputs.",
+      "number": 484,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/484",
+      "issue_database_id": 5919586662
+    },
+    {
+      "id": "EQ-151",
+      "release": "R19",
+      "epic": "E27",
+      "title": "Implement explicitly aligned Ichimoku components",
+      "points": 8,
+      "dependencies": [
+        "EQ-137"
+      ],
+      "repository": "core",
+      "scope": "Specify conversion/base/leading/lagging components, periods, displacement and observation versus display timestamps. A displayed shifted value cannot imply future information was available at origin time.",
+      "validation": "Independent timestamp-index fixtures, short history, gaps, displaced arrays, cutoff/availability and lookahead counterexamples; measure extrema reuse and output size.",
+      "number": 485,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/485",
+      "issue_database_id": 5919588325
+    },
+    {
+      "id": "EQ-152",
+      "release": "R19",
+      "epic": "E27",
+      "title": "Qualify and deliver advanced indicator release",
+      "points": 5,
+      "dependencies": [
+        "EQ-147",
+        "EQ-148",
+        "EQ-149",
+        "EQ-150",
+        "EQ-151",
+        "EQ-146"
+      ],
+      "repository": "cross-repository acceptance",
+      "scope": "Reconcile every selected indicator with public discovery/specifications and actual supported worker bindings. Publish independent dependency diagrams, capability matrix and synthetic examples; preserve R17/R18 behavior.",
+      "validation": "Independent math/temporal fixtures, serial/parallel and state parity where supported, repeated workload timing/memory, both-platform clean installs, final review and exact release/publication readback.",
+      "number": 486,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/486",
+      "issue_database_id": 5919590030
+    },
+    {
+      "id": "EQ-153",
+      "release": "R20",
+      "epic": "E28",
+      "title": "Implement correlation, beta and residual returns",
+      "points": 8,
+      "dependencies": [
+        "EQ-136",
+        "EQ-137"
+      ],
+      "repository": "core",
+      "scope": "Specify aligned instrument/benchmark return witnesses, return basis, sample population, covariance convention, minimum coverage, zero benchmark variance and beta-adjusted residual semantics. Join only the requested pair.",
+      "validation": "Independent small-array correlation/beta/residual results, missing/asynchronous witnesses, constant benchmark, cutoff revisions and population mismatch; pairwise parallel scaling and shared preparation timing.",
+      "number": 487,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/487",
+      "issue_database_id": 5919591663
+    },
+    {
+      "id": "EQ-154",
+      "release": "R20",
+      "epic": "E28",
+      "title": "Implement separately specified daily and intraday log-return RV",
+      "points": 8,
+      "dependencies": [
+        "EQ-136",
+        "EQ-137"
+      ],
+      "repository": "core",
+      "scope": "Specify daily centered log-return and intraday regular-session realized-variance families separately: sampling, annualization, overnight exclusion, session calendars and early closes. Preserve existing simple-return volatility as a distinct API.",
+      "validation": "Independent log-return arithmetic, centered versus uncentered and simple versus log counterexamples, incomplete grids, early closes, zero/nonpositive prices, coverage and annualization; performance/parity for window reuse.",
+      "number": 488,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/488",
+      "issue_database_id": 5919593292
+    },
+    {
+      "id": "EQ-155",
+      "release": "R20",
+      "epic": "E28",
+      "title": "Implement robust historical summaries and ranks",
+      "points": 8,
+      "dependencies": [
+        "EQ-136"
+      ],
+      "repository": "core",
+      "scope": "Specify prior-only median, MAD, percentile/quantile convention, ties, minimum history, zero MAD, cohort and cutoff availability. Choose exact/approximate algorithms explicitly; approximation requires a separate accepted error contract.",
+      "validation": "Independent sorted-array expectations, ties, zero dispersion, missing values, target exclusion, revisions and deterministic ranks; measure time/memory across history sizes.",
+      "number": 489,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/489",
+      "issue_database_id": 5919594955
+    },
+    {
+      "id": "EQ-156",
+      "release": "R20",
+      "epic": "E28",
+      "title": "Implement robust volume pace and anomaly normalization",
+      "points": 8,
+      "dependencies": [
+        "EQ-155",
+        "EQ-136"
+      ],
+      "repository": "core + worker bindings",
+      "scope": "Combine compatible current volume observations with prior-only same-bucket/session robust baselines. Specify elapsed coverage, excluded sessions, irregular/early-close buckets, zero baseline and availability. Do not replace median/MAD with mean ratios.",
+      "validation": "Independent bucket alignment and prior-only fixtures, lookahead/target-contamination counterexamples, missing buckets and clock boundaries; current and prior prep overlap with result parity and memory measurements.",
+      "number": 490,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/490",
+      "issue_database_id": 5919596810
+    },
+    {
+      "id": "EQ-157",
+      "release": "R20",
+      "epic": "E28",
+      "title": "Qualify and deliver relative and robust statistics",
+      "points": 5,
+      "dependencies": [
+        "EQ-153",
+        "EQ-154",
+        "EQ-155",
+        "EQ-156",
+        "EQ-152"
+      ],
+      "repository": "cross-repository acceptance",
+      "scope": "Qualify selected pairwise, RV and robust outputs with actual worker capabilities, examples and discoverable semantic distinctions. Options IV surfaces, option-relative policies and product scanners are excluded.",
+      "validation": "Independent numerical/causal validation, branch-isolation and requested-output closure cases, repeated representative benchmarks, both-platform installed artifacts, final review, versioned release and public readback.",
+      "number": 491,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/491",
+      "issue_database_id": 5919598931
+    },
+    {
+      "id": "EQ-158",
+      "release": "R21",
+      "epic": "E29",
+      "title": "Implement rolling trade windows and tick-rule signed volume",
+      "points": 8,
+      "dependencies": [
+        "EQ-136",
+        "EQ-137"
+      ],
+      "repository": "core",
+      "scope": "Specify event ordering, timestamp ties, window endpoints, sign carry/seed, eligibility, volume/notional precision and late correction replay. These trade-sign proxies must not be represented as observed aggressor or dealer positions.",
+      "validation": "Independent tiny tapes with ties, unchanged prices, seed gaps, expiration and corrections; ordered-state and batch/replay parity plus hot-symbol throughput/memory cases.",
+      "number": 492,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/492",
+      "issue_database_id": 5919600821
+    },
+    {
+      "id": "EQ-159",
+      "release": "R21",
+      "epic": "E29",
+      "title": "Implement microprice and selected quote dynamics",
+      "points": 8,
+      "dependencies": [
+        "EQ-136"
+      ],
+      "repository": "core + qualified input bindings",
+      "scope": "Specify selected microprice/quote-change outputs, size/price units, crossed/locked/zero-size/invalid quotes, sampling and coverage. Trade-snapshot quotes cannot silently satisfy continuous quote requirements.",
+      "validation": "Independent price/size examples, gap/stale/invalid/crossed/zero-size coverage, ordered quote state, cutoff replay and unavailable-input cases; direct/worker and memory benchmarks.",
+      "number": 493,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/493",
+      "issue_database_id": 5919602461
+    },
+    {
+      "id": "EQ-160",
+      "release": "R21",
+      "epic": "E29",
+      "title": "Implement VWAP slopes and selected path statistics",
+      "points": 8,
+      "dependencies": [
+        "EQ-137",
+        "EQ-158"
+      ],
+      "repository": "core",
+      "scope": "Specify which bar/trade VWAP series and eligible population each slope/path output consumes, coordinate/time basis, anchor and sampling. Support supplied compatible series without forcing a trade-window recomputation.",
+      "validation": "Independent weighted-series and time-axis fixtures, irregular spacing, zero volume, missing intervals, origin-time availability and correction cases; demonstrate series preparation reuse.",
+      "number": 494,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/494",
+      "issue_database_id": 5919604482
+    },
+    {
+      "id": "EQ-161",
+      "release": "R21",
+      "epic": "E29",
+      "title": "Implement path efficiency and choppiness measures",
+      "points": 5,
+      "dependencies": [
+        "EQ-137",
+        "EQ-138"
+      ],
+      "repository": "core",
+      "scope": "Specify selected path-efficiency/choppiness formulas, range/ATR/return basis, window, gaps, zero denominators and log-domain validity. Direct operands are output-specific; no blanket context or scanner dependency.",
+      "validation": "Independent monotone/flat/oscillating OHLC fixtures, short histories, gap/zero-range and invalid-log cases, replay parity and shared preparation performance.",
+      "number": 495,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/495",
+      "issue_database_id": 5919606469
+    },
+    {
+      "id": "EQ-162",
+      "release": "R21",
+      "epic": "E29",
+      "title": "Implement deterministic notional-ranked largest prints",
+      "points": 5,
+      "dependencies": [
+        "EQ-136"
+      ],
+      "repository": "core + worker bindings",
+      "scope": "Specify eligible trade notional, exact units/precision, ranking, K, stable tie keys and partition merge rules. Existing size-ranked top-K remains separately named and compatible.",
+      "validation": "Independent trades whose size and notional rankings differ, equal-notional ties, boundaries, partition/merge and overflow cases; benchmark selection and transport without claiming equivalent rankings.",
+      "number": 496,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/496",
+      "issue_database_id": 5919608446
+    },
+    {
+      "id": "EQ-163",
+      "release": "R21",
+      "epic": "E29",
+      "title": "Qualify and deliver tape, quote and path release",
+      "points": 5,
+      "dependencies": [
+        "EQ-158",
+        "EQ-159",
+        "EQ-160",
+        "EQ-161",
+        "EQ-162",
+        "EQ-157"
+      ],
+      "repository": "cross-repository acceptance",
+      "scope": "Qualify selected equity outputs end-to-end with real declared input capabilities. Preserve source-independent calculations and previously accepted contracts; scanner/watchlist/strategy policies, options exposures and live feed deployment remain separate.",
+      "validation": "Independent math/temporal and source capability fixtures, requested-output closure, bounded state and serial/parallel parity, representative both-platform benchmarks/install artifacts, final review and exact published release readback.",
+      "number": 497,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/497",
+      "issue_database_id": 5919610158
+    }
+  ]
+}

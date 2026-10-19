@@ -130,6 +130,14 @@ class WorkflowTests(unittest.TestCase):
             if path.endswith('/docs.yml'):
                 self.assertEqual(text.count(EXTRA_DOC_TESTS), 1)
                 text = text.replace(EXTRA_DOC_TESTS, '')
+                # Deliberate owner-requested planning allocation extension, not CI routing.
+                migration = json.loads((self.root/'docs/stories/GOV-031_DOCS_GATE_EXTENSION.json').read_bytes())
+                self.assertEqual(migration['schema'], 'equity-features.planning-gate-extension.v1')
+                self.assertEqual(migration['planning_issue'], 464)
+                self.assertEqual(len(migration['replacements']), 4)
+                for change in reversed(migration['replacements']):
+                    self.assertEqual(text.count(change['after']), 1)
+                    text = text.replace(change['after'], change['before'])
             elif path.endswith('/evidence-evaluation.yml'):
                 marker = '      - uses: actions/upload-artifact@v4\n'
                 pieces = text.split(marker); self.assertEqual(len(pieces), 3)

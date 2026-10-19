@@ -23,12 +23,23 @@ jobs:
               assert Path(name).is_file(), name
           text = Path('docs/BACKLOG.md').read_text()
           stories = re.findall(r'^\| (EQ-\d{3}) \| (R\d+(?:\.\d+)?|Future Backlog \(unselected\)) \|', text, re.M)
-          assert len(stories) == 134
-          assert {x for x, _ in stories} == {f'EQ-{i:03}' for i in range(1, 136)} - {'EQ-094'}
+          assert len(stories) == 162
+          assert {x for x, _ in stories} == {f'EQ-{i:03}' for i in range(1, 164)} - {'EQ-094'}
           assert {sid for sid, release in stories if release == 'R4.1'} == {f'EQ-{i:03}' for i in range(121, 131)}
           assert {sid for sid, release in stories if release == 'R14'} == {f'EQ-{i:03}' for i in range(131, 136)}
           assert {sid for sid, release in stories if release == 'Future Backlog (unselected)'} == {'EQ-118', 'EQ-119'}
           assert {sid for sid, release in stories if release == 'R13'} == {'EQ-116', 'EQ-117', 'EQ-120'}
+          import json
+          expansion = json.loads(Path('docs/EQUITY_EXPANSION_ROADMAP.json').read_text())
+          assert len(expansion['releases']) == 5
+          assert len(expansion['stories']) == 28
+          assert {s['id'] for s in expansion['stories']} == {f'EQ-{i:03}' for i in range(136, 164)}
+          allocations = dict(stories)
+          for story in expansion['stories']:
+              assert allocations[story['id']] == story['release']
+              assert story['points'] > 0 and story['scope'] and story['validation']
+              assert Path(f"docs/{story['release']}_RELEASE_PLAN.md").is_file()
+          assert expansion['planning_only'] is True
           assert Path('docs/IO_WORKER_ARCHITECTURE.md').is_file()
           assert Path('docs/R4_1_DELIVERY_PLAN.md').is_file()
           assert Path('docs/R4_1_AUTONOMOUS_HANDOFF.md').is_file()
@@ -39,7 +50,7 @@ jobs:
           for row in rows:
               assert row[2].strip()
               assert re.fullmatch(r'EQ-00[2-6](?:, EQ-00[2-6])*', row[4].strip())
-          print('Planning documents and all 134 active stories verified; EQ-094 stays retired.')
+          print('Planning documents and all 162 active stories verified; EQ-094 stays retired.')
           print('39 unique feature IDs have inputs, releases and formula-story mappings.')
           workflow = Path('docs/PUBLIC_DEVELOPMENT.md').read_text()
           statuses = re.findall(r'^\| (Backlog|Ready|In progress|Code review|Test|Ready to release|Released|Done) \|', workflow, re.M)

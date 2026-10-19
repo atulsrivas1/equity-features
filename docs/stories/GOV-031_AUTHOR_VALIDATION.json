@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-10-19T03:20:54.73539-04:00",
+  "pass": true,
+  "kind": "author planning allocation and GitHub readback; not separate review",
+  "stories": 28,
+  "epics": 5,
+  "releases": 5,
+  "governance": 1,
+  "historical_prefixes_preserved": 5,
+  "native_subissue_links": 28,
+  "checks": [
+    "unique IDs and release allocations",
+    "acyclic dependency order",
+    "required acceptance and provisional points",
+    "original document byte preservation",
+    "new relative links and UTF8/source boundary",
+    "actual updated docs.yml planning gate",
+    "GitHub issue/milestone/parent readback",
+    "actual Project Backlog and points",
+    "documentation-only scope with necessary planning-gate extension"
+  ],
+  "limits": [
+    "No independent review",
+    "No implementation/numerical/performance evidence",
+    "No current CI/main publication acceptance"
+  ],
+  "ci_gate_regression_methods": 12,
+  "notes": "Existing CI workflow-equivalence baseline remains unchanged; a narrow, explicit GOV031 planning gate migration is reversed before comparing the original baseline hash. No package runtime or registry change."
+}

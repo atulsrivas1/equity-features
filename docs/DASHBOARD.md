@@ -1,3 +1,7 @@
+## Owner-requested equity release roadmap — October 19, 2026
+
+[GOV-031](https://github.com/atulsrivas1/equity-features/issues/464) allocates R17–R21, epics E25–E29 and EQ-136–EQ-163 following the equity gap discussion. [Roadmap](EQUITY_EXPANSION_ROADMAP.md) and exact allocation JSON define requirements, per-story dependencies/points/ownership, independent correctness, source independence, independent feature readiness, measured parallel performance and bounded efficient resource use. This is planned scope; no implementation starts or dates are promised. Earlier no-R17-selection captures below are historical. The live Project owns current status; GOV030/PR463 and existing live/provider/security/research deferrals retain their separate gates and ownership.
+
 ## R8 evidence and current acceptance authority
 
 [R8 evidence index](R8_ACCEPTANCE.md) links the original EQ085–092 runtime scope, separately assigned GOV020 and measured/native/package/causal/isolation evidence. [Final delivery story104](https://github.com/atulsrivas1/equity-features/issues/104), both epic acceptance records and [milestone9](https://github.com/atulsrivas1/equity-features/milestone/9) own current final release/closure readbacks. Earlier dated preparation/status snapshots below are historical; do not restart completed work or infer future release execution from this index.
