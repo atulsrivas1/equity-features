@@ -27,6 +27,7 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'tools/continuous_legacy.py','tools/build_explanations.py',
     'tools/check_boundary.py','tools/check_intraday_boundary.py','tools/test_ci_gate.py',
     'tools/benchmark_intraday_preparation.py','tools/test_intraday_benchmark.py',
+    'tools/benchmark_intraday_indicators.py','tools/test_intraday_indicator_benchmark.py',
     'requirements-dev.txt','mypy.ini','.github/workflows/packages.yml',
     'docs/api/INTRADAY.md','docs/features/INTRADAY_FOUNDATIONS.md',
     'docs/stories/EQ-137_PLAN.md','docs/stories/EQ-137_FACT_READINESS.md',
@@ -132,12 +133,14 @@ def main():
     OUT.mkdir(parents=True,exist_ok=True)
     report={'schema':'intraday-qualification:1','source_commit':head,'whole_git_tree_sha256':sha(tree),
         'system':platform.system(),'python':platform.python_version(),'source':modes,'whole_tree':whole_before,
-        'artifacts':{},'forms':[],'status':'running','limits':'Preparation-only source/installed qualification; no output kernel, performance ranking or host containment proof.'}
+        'artifacts':{},'forms':[],'status':'running','limits':'Batch preparation and EMA/RSI/ATR source/installed qualification; no performance ranking or host containment proof.'}
     def save():(OUT/'qualification.json').write_bytes((json.dumps(report,sort_keys=True,indent=2)+'\n').encode())
     save();work=ROOT/'work';work.mkdir(exist_ok=True)
     try:
         run(sys.executable,'-B',ROOT/'tools/test_intraday_benchmark.py')
         report['benchmark_guard_methods_passed']=4;save()
+        run(sys.executable,'-B',ROOT/'tools/test_intraday_indicator_benchmark.py')
+        report['indicator_benchmark_guard_methods_passed']=5;save()
         with tempfile.TemporaryDirectory(prefix='intraday-',dir=work) as temporary:
             owned=Path(temporary).resolve();assert owned.is_relative_to(work.resolve())
             verification=owned/'verification'
