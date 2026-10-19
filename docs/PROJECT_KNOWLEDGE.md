@@ -1,3 +1,13 @@
+## EQ142 assigned In progress; initial worker graph implementation
+
+Separate automated [Ready review129](reviews/EQ142_READY_INPUT_PUBLIC_REVIEW.json) accepted exact canonical packet `3da74c8d560dfb53e316c1a213d26a0212acc977`; private receipt `dc924e74028fa38fbcb71626643899db84ea215cbc87d32a68e0d609d7339462`. [Actual Ready](https://github.com/atulsrivas1/equity-features/issues/476#issuecomment-6277126653) was read back before assignment and [actual In progress](https://github.com/atulsrivas1/equity-features/issues/476#issuecomment-6277128619). E26 aggregates In progress; EQ143–146 remain Backlog. GOV034/R17 are verified Done. Frozen Ready inventory binds its original3da74 packet, not later changed continuity or new tool sources.
+
+[Worker draft PR58](https://github.com/atulsrivas1/equity-feature-workers/pull/58), initial `769da3ae55ad12f494aca1052ab884c6f3eb2fda`, implements development-only descriptive task/job graphs/source qualification and closed graph validation. Eight initial development methods pass using unchanged installed six-wheel Windows baseline: independent topology/reachability, copied/wrapped/caller-alias distinctions, export/code/module-alias mutations, cycles/nested fields and transitive generic population/job barriers. This is partial implementation, not final source review, new installed/platform/CI qualification or timing. Calculations/package versions/default dispatch remain unchanged. Existing R17 all48 worker nonwins/sequential fallback remain.
+
+Next: bounded opt-in tracer, native thread/resource sampler, independent call/byte/exception/spawn/restoration/clock/trace-limit controls and exact reviewed source-bound harness/installed/bothOS/artifact admission before any frozen A/A timing. No cache/scheduler/resource-default adoption in EQ142. Preserve frozen/dirty sources and immutable measurement environment; user R18 review authorization remains effective. No R19+/live/provider/admin/registry/recurring scope.
+
+## Earlier checkpoints retained as history
+
 ## EQ142 concrete packet; GOV034 verified Done
 
 [GOV034 verified exit](https://github.com/atulsrivas1/equity-features/issues/564#issuecomment-6276541768) is actual CLOSED/ProjectDone after all35 main checks and separate final/post/closing reviews. Main is `fbb3d30efbe37d9f0c56728787209764dde68ba8`; the handoff is delivered. R18 implementation is not complete.

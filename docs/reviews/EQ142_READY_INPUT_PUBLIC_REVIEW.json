@@ -1,0 +1,593 @@
+{
+  "reviewer": "Authorized separate automated local Codex reviewer r17_review",
+  "utc": "2026-10-19T20:54:52.395749+00:00",
+  "head": "3da74c8d560dfb53e316c1a213d26a0212acc977",
+  "base": "fbb3d30efbe37d9f0c56728787209764dde68ba8",
+  "result": "EQ142_READY_INPUT_PASS_SUPPORTS_OWNER_READY_THEN_ASSIGNED_IN_PROGRESS_NOT_RUNTIME_ACCEPTANCE",
+  "checks": [
+    {
+      "name": "Frozen exact clean checkout",
+      "pass": true
+    },
+    {
+      "name": "Current actual canonical prerequisite main",
+      "pass": true
+    },
+    {
+      "name": "Actual published own linked draft/head/base/author",
+      "pass": true
+    },
+    {
+      "name": "Exact public commit tree and local Atul attribution",
+      "pass": true
+    },
+    {
+      "name": "Sixteen bounded plan/docs/fixture files",
+      "pass": true
+    },
+    {
+      "name": "Calculation/packages/tools/workflow/default unchanged",
+      "pass": true
+    },
+    {
+      "name": "docs/PROJECT_KNOWLEDGE.md UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/SESSION_HANDOFF.md UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/knowledge/LESSONS.md UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/reviews/GOV034_CLOSING_PUBLIC_READBACK.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/reviews/GOV034_CLOSING_PUBLIC_READBACK.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BASELINE_ALIAS_INVENTORY.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BASELINE_ALIAS_INVENTORY.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BASELINE_PREPARATION.md UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BENCHMARK_PROTOCOL.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BENCHMARK_PROTOCOL.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_CLOSED_HOOK_INVENTORY.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_CLOSED_HOOK_INVENTORY.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_INDEPENDENT_CASES_DRAFT.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_INDEPENDENT_CASES_DRAFT.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_INPUTS.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_INPUTS.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_PROTOCOL_DRAFT.md UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_RECORD_CONTRACTS.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_RECORD_CONTRACTS.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_WORKLOAD_PREFLIGHT.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_WORKLOAD_PREFLIGHT.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/CANONICAL_CASES.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/CANONICAL_CASES.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/GRAPH_EXPECTATIONS.json UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/GRAPH_EXPECTATIONS.json indexed JSON decodes",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/generate_original.py UTF8/private-home safe",
+      "pass": true
+    },
+    {
+      "name": "docs/PROJECT_KNOWLEDGE.md exact UTF8 prior history suffix",
+      "pass": true
+    },
+    {
+      "name": "docs/SESSION_HANDOFF.md exact UTF8 prior history suffix",
+      "pass": true
+    },
+    {
+      "name": "docs/knowledge/LESSONS.md exact UTF8 prior history suffix",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_PLAN.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_PLAN.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_PROTOCOL_DRAFT.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_PROTOCOL_DRAFT.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BASELINE_PREPARATION.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BASELINE_PREPARATION.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_INDEPENDENT_CASES_DRAFT.json packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_INDEPENDENT_CASES_DRAFT.json packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_RECORD_CONTRACTS.json packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_RECORD_CONTRACTS.json packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BENCHMARK_PROTOCOL.json packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BENCHMARK_PROTOCOL.json packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_CLOSED_HOOK_INVENTORY.json packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_CLOSED_HOOK_INVENTORY.json packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_WORKLOAD_PREFLIGHT.json packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_WORKLOAD_PREFLIGHT.json packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/GRAPH_EXPECTATIONS.json packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/GRAPH_EXPECTATIONS.json packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/CANONICAL_CASES.json packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/CANONICAL_CASES.json packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/generate_original.py packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/generate_original.py packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/reviews/GOV034_CLOSING_PUBLIC_READBACK.json packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/reviews/GOV034_CLOSING_PUBLIC_READBACK.json packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/PROJECT_KNOWLEDGE.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/PROJECT_KNOWLEDGE.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/SESSION_HANDOFF.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/SESSION_HANDOFF.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/knowledge/LESSONS.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/knowledge/LESSONS.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "AGENTS.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "AGENTS.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/CODE_REVIEW.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/CODE_REVIEW.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/PUBLIC_DEVELOPMENT.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/PUBLIC_DEVELOPMENT.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/DELIVERY_POLICY.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/DELIVERY_POLICY.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/R18_AUTONOMOUS_HANDOFF.md packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/R18_AUTONOMOUS_HANDOFF.md packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "docs/R18_INPUTS.json packet raw identity",
+      "pass": true
+    },
+    {
+      "name": "docs/R18_INPUTS.json packet committed blob/newline identity",
+      "pass": true
+    },
+    {
+      "name": "Exactly21 indexed packet source joins",
+      "pass": true
+    },
+    {
+      "name": "docs/PROJECT_KNOWLEDGE.md actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/SESSION_HANDOFF.md actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/knowledge/LESSONS.md actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/reviews/GOV034_CLOSING_PUBLIC_READBACK.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BASELINE_ALIAS_INVENTORY.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BASELINE_PREPARATION.md actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BENCHMARK_PROTOCOL.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_CLOSED_HOOK_INVENTORY.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_INDEPENDENT_CASES_DRAFT.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_INPUTS.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_PROTOCOL_DRAFT.md actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_RECORD_CONTRACTS.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_WORKLOAD_PREFLIGHT.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/CANONICAL_CASES.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/GRAPH_EXPECTATIONS.json actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/generate_original.py actual public Git bytes",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_RECORD_CONTRACTS.json exact previously reviewed semantics",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_BENCHMARK_PROTOCOL.json exact previously reviewed semantics",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_CLOSED_HOOK_INVENTORY.json exact previously reviewed semantics",
+      "pass": true
+    },
+    {
+      "name": "docs/stories/EQ-142_WORKLOAD_PREFLIGHT.json exact previously reviewed semantics",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/GRAPH_EXPECTATIONS.json exact previously reviewed semantics",
+      "pass": true
+    },
+    {
+      "name": "tests/fixtures/eq142_graph/CANONICAL_CASES.json exact previously reviewed semantics",
+      "pass": true
+    },
+    {
+      "name": "GOV034_CLOSING_READBACK.json exact original accepted scoped receipt",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_CLOSING_READBACK.json exact original accepted scoped receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ142_RECORD_CORRECTION_REVIEW.json exact original accepted scoped receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ142_WORKLOAD_PREFLIGHT_REVIEW.json exact original accepted scoped receipt",
+      "pass": true
+    },
+    {
+      "name": "Exact public original governance closing derivative",
+      "pass": true
+    },
+    {
+      "name": "564 actual prerequisite ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "465 actual prerequisite ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "470 actual prerequisite ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "471 actual prerequisite ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "472 actual prerequisite ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "473 actual prerequisite ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "474 actual prerequisite ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "475 actual prerequisite ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "476 actual original runtime Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "477 actual original runtime Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "478 actual original runtime Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "479 actual original runtime Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "480 actual original runtime Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "equity-features actual three-source main pin",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-workers actual three-source main pin",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-io actual three-source main pin",
+      "pass": true
+    },
+    {
+      "name": "Exact current milestone22 open6open1closed",
+      "pass": true
+    },
+    {
+      "name": "Current exact prerequisite actual main35 SUCCESS",
+      "pass": true
+    },
+    {
+      "name": "12212142183 fresh finite main artifact metadata/access/expiry/source",
+      "pass": true
+    },
+    {
+      "name": "12211898603 fresh finite main artifact metadata/access/expiry/source",
+      "pass": true
+    },
+    {
+      "name": "Actual owner bounded R18 review grant",
+      "pass": true
+    },
+    {
+      "name": "Manual semantic review accepts exact published math/readiness/source/closed records/clock/parity/resource/protocol scope and resolved findings",
+      "pass": true
+    },
+    {
+      "name": "Manual fresh issue476/PR566 metadata accurately records pending Ready/no runtime or timing/current own scope",
+      "pass": true
+    },
+    {
+      "name": "Fresh read-only OS capacity and clean isolated worker source snapshot supports one active implementation; no timing admission inferred",
+      "pass": true
+    }
+  ],
+  "public_changed_blob_proofs": {
+    "docs/PROJECT_KNOWLEDGE.md": "3244d5fad594137c6998099836af7f6b5032e0f3c2426ac45aa7adcb2a369fae",
+    "docs/SESSION_HANDOFF.md": "363068a511f1205fb7f904585aa53fb8d7bfa3a78510364245f52078f9dddaa3",
+    "docs/knowledge/LESSONS.md": "7ea20e1e35b3a781917177f950806a757e443b6d253008ace6f8f363ee191249",
+    "docs/reviews/GOV034_CLOSING_PUBLIC_READBACK.json": "236ca8d9d6bb7ddab3b898532613436eeb7741e6cb295e5ae44b4cad84f6e1d8",
+    "docs/stories/EQ-142_BASELINE_ALIAS_INVENTORY.json": "16d4ab15eba7f298045c58577bca90a799e63316f1f9ae61960796e2640f31ee",
+    "docs/stories/EQ-142_BASELINE_PREPARATION.md": "67196a5cbc154daa8262c6331f264877e58a69d7394faa2a716c534e83a272d0",
+    "docs/stories/EQ-142_BENCHMARK_PROTOCOL.json": "dbb9d93dfb6df8121992da735bc8a238627a032c653e72188137facff2e8123f",
+    "docs/stories/EQ-142_CLOSED_HOOK_INVENTORY.json": "72076356c42a1afdddd90fe647786c011a74fd3d73a0bd73fe5726bd37db879c",
+    "docs/stories/EQ-142_INDEPENDENT_CASES_DRAFT.json": "ebb052e8149900cf1a4bb5aed57f720aa710e82086b7a02b5c3573888fd58346",
+    "docs/stories/EQ-142_INPUTS.json": "e0eea0e49333617400666b9b479e7d8c0192c79b51837234e26b57d4cdf22839",
+    "docs/stories/EQ-142_PROTOCOL_DRAFT.md": "afa4cbbd93e37c3785bed2c6406d141c225a7a640156447a5377fd7f2307f568",
+    "docs/stories/EQ-142_RECORD_CONTRACTS.json": "8e3997cb3e77333e9e6be7d19e6dbe891ae7cb5185bb17a387370c80f5a6720f",
+    "docs/stories/EQ-142_WORKLOAD_PREFLIGHT.json": "8cbd9ba99ddf1d7f6aee9175bd29d1059c12ca6751a55005727bb3f390b9a14a",
+    "tests/fixtures/eq142_graph/CANONICAL_CASES.json": "cdcf805501389fb1fed25f7410e3f5439eb35c0000f684feed79688abfca142f",
+    "tests/fixtures/eq142_graph/GRAPH_EXPECTATIONS.json": "2890dc8d9f0fc77d01caae046eb8a6dfa0bde86f7ce0bcbfd16372a2a396453f",
+    "tests/fixtures/eq142_graph/generate_original.py": "b60619bf592a0b416310e7ef606c244d80afa1decd366c256a0b100c83fb47ca"
+  },
+  "semantic_review": {
+    "scope": "Existing8 intraday batch outputs/descriptive task and actual job boundaries/opt-in bounded development tracer and native sampler. No kernel math/API/version/default/cache/scheduler adoption. Qualified exact builtin callback only; unknown callbacks conservative.",
+    "contracts": "Independent output readiness, scheduled slots, anchor exception/unrounded witness/state/full result/global evidence/whole-call failure preserved. Closed nested records and stable seven-field diagnostics/full product parity resolve RECORD01. Local durations/parent causal bounds only; global numeric critical path unavailable.",
+    "evidence": "16 original canonical cases/four hand graphs/39 hook operations/42 actual callback+SDK task preflight/72 source-derived mode-class admission calculations retain original review identities and limitations. Independent610 stored checks and separate920 author-helper rerun are distinct; no72 mode/native executions or measured baseline claimed.",
+    "required_future_gates": "Implement and independently review actual graph/tracer/native/harness; qualify hook/property/private aliases/reentrancy/spawn/restoration/original exceptions/counts/bytes/clock/bounds/resources/transport/installed/bothOS before frozen A/A. Retain all failures/nonwins; current candidate/main/publication/readback/release gates remain.",
+    "lifecycle": "GOV034/EQ141/R17 actual ClosedDone; five runtime stories actual Backlog/unassigned. Packet is publicly reviewed input at exact draft head, not completed EQ142 implementation or accepted candidate CI. This review supports owner Ready then assignment/In progress only."
+  },
+  "finding_dispositions": [
+    {
+      "id": "EQ142-PRECODE-RECORD01",
+      "status": "resolved in exact committed records"
+    },
+    {
+      "id": "FIXTURE-PICKLE",
+      "status": "resolved canonical value-domain identities vs original observed pickle diagnostics; original declared labels not fresh seals"
+    }
+  ],
+  "supplemental_evidence": {
+    "local_link_check": {
+      "sha256": "034a3a47d6f7e320070d6917242f2b8949e1b847518b5c40fb7756518c77276f",
+      "parsed_local_target_checks": 1120,
+      "limit": "Local target existence, not every fragment or external URL."
+    },
+    "fresh_capacity": {
+      "sha256": "4211fbd44b614f04e9ec9fa94d67396c1422e35a25ceb78641ec5b6b38c06b7d",
+      "allowed_slots": 48,
+      "free_memory_bytes": 225576644608,
+      "free_storage_bytes": 430671958016,
+      "limit": "Read-only snapshot, no reservations or idle/resource guarantee."
+    }
+  },
+  "findings": [],
+  "limits": [
+    "No new workload/trace/hooks/native/build/installed execution or source/GitHub/lifecycle mutation.",
+    "Ready-input gate only; own implementation/source/hook/spawn/restoration/count/error/clock/native/resource/installed controls remain before timing, current candidate/main/release gates remain later.",
+    "Previously reviewed exact16-fixture/42-callback/72-source-derived-cohort evidence retained in its original scope, not72 supervisor/native mode executions or performance acceptance."
+  ],
+  "original_private_receipt_sha256": "dc924e74028fa38fbcb71626643899db84ea215cbc87d32a68e0d609d7339462",
+  "derivative_notice": "Reviewer-authored public derivative; distinct bytes, no new execution.",
+  "actual_status": {
+    "issue": 476,
+    "state": "OPEN",
+    "Project": "Backlog",
+    "assignees": [],
+    "milestone": 22,
+    "milestone_state": "open",
+    "open_issues": 6,
+    "closed_issues": 1
+  },
+  "pr_url": "https://github.com/atulsrivas1/equity-features/pull/566"
+}
