@@ -10,6 +10,8 @@ assert {r['id'] for r in rows}=={f'EQ-{i}' for i in range(164,182)}
 assert set(plan['releases'])=={'R22','R23','R24'}
 assert plan['governance']['number']==502
 graph={r['id']:r['dependencies'] for r in rows}
+assert graph['EQ-174']==['EQ-164','EQ-091'], 'Endpoint labels are EQ091, not GitHub issue103'
+assert 'EQ-090' in graph['EQ-176'] and 'EQ-102' not in graph['EQ-176'], 'Generic scanner is EQ090, not issue102'
 for release,start,end in [('R22',164,170),('R23',170,176),('R24',176,182)]:
     assert {r['id'] for r in rows if r['release']==release}=={f'EQ-{i}' for i in range(start,end)}
     text=(root/f'docs/{release}_RELEASE_PLAN.md').read_text(encoding='utf-8')

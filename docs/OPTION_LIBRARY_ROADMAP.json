@@ -1,0 +1,517 @@
+{
+  "schema_version": 1,
+  "governance": {
+    "number": 525,
+    "id": 5923080517,
+    "url": "https://github.com/atulsrivas1/equity-features/issues/525"
+  },
+  "releases": {
+    "R25": {
+      "number": 29,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/29"
+    },
+    "R26": {
+      "number": 30,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/30"
+    },
+    "R27": {
+      "number": 31,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/31"
+    },
+    "R28": {
+      "number": 32,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/32"
+    },
+    "R29": {
+      "number": 33,
+      "url": "https://github.com/atulsrivas1/equity-features/milestone/33"
+    }
+  },
+  "stories": [
+    {
+      "id": "EQ-182",
+      "title": "Specify option facts, model boundaries and library ownership",
+      "release": "R25",
+      "epic": "E33",
+      "dependencies": [
+        "EQ-012",
+        "EQ-013",
+        "EQ-014",
+        "EQ-016"
+      ],
+      "layer": "contracts/design",
+      "scope": "Reconcile option and mixed source candidates/finite product definitions into source-safe output and dependency manifests. Define option identity, exercise/settlement, expiry/time conventions, price/size/currency/multiplier units, underlying alignment, rates/dividends, quote eligibility, revisions and known-at. Select the initial model/exercise scope explicitly before Ready. Keep supplied model facts separate from calculated outputs. Assign every admitted gap a concrete story; decide modules versus distributions from consumers, preserving existing APIs.",
+      "validation": "Independent contract/timestamp/multiplier/exercise counterexamples, no orphan admitted definitions and compatibility review; unresolved conventions remain blocked, not defaults.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/527",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-183",
+      "title": "Implement admitted contract pricing and Greek calculations",
+      "release": "R25",
+      "epic": "E33",
+      "dependencies": [
+        "EQ-182"
+      ],
+      "layer": "pure calculation",
+      "scope": "Specify and implement only the reviewed pricing/model/exercise profiles and selected Greeks. Define discount/carry/time bases, dimensions, scaling, limits, expiry/zero-volatility and unsupported-input behavior. Share compatible model intermediates; supplied Greek facts need not invoke the model.",
+      "validation": "Independent analytic/high-precision or independently implemented fixtures and finite-difference crosschecks with declared error budgets, edge limits, input ownership and bounded batch memory.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/528",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-184",
+      "title": "Implement bounded implied-volatility inversion",
+      "release": "R25",
+      "epic": "E33",
+      "dependencies": [
+        "EQ-182",
+        "EQ-183"
+      ],
+      "layer": "pure calculation",
+      "scope": "Define admissible quotes/price bounds, model-specific IV roots, bracketing, tolerances, convergence budgets, ambiguous/nonexistent roots, expiry and null/status. Reuse pricing operands without changing selected model semantics.",
+      "validation": "Independent known-price/volatility pairs and invalid/near-boundary/poor-conditioning cases; residual and solver-budget evidence, exact statuses and measured baseline parity.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/529",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-185",
+      "title": "Implement option and model-reference I-O contracts and conformance",
+      "release": "R25",
+      "epic": "E33",
+      "dependencies": [
+        "EQ-182",
+        "EQ-125"
+      ],
+      "layer": "I/O",
+      "scope": "Define explicitly supplied/file/synthetic option trade/quote/definition, rates/dividends/model/OI/position reference and output-sink contracts using existing SDK/receipt/version boundaries. Preserve source identity, clocks, action/multiplier and declared coverage. Provider entitlement and actual provider acquisition stay in separately selected adapter scope.",
+      "validation": "Independent synthetic source/sink conformance, missing/stale/revised references, normalized-unit/precision/error fixtures, bounded reads and complete receipt/readback; no private/provider call required.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/530",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-186",
+      "title": "Wire independent option compute worker branches",
+      "release": "R25",
+      "epic": "E33",
+      "dependencies": [
+        "EQ-183",
+        "EQ-184",
+        "EQ-185",
+        "EQ-143",
+        "EQ-144"
+      ],
+      "layer": "workers",
+      "scope": "Expose selected pricing/Greek/IV requests over admitted supplied facts and existing I/O. Schedule independently ready contract/metric branches under one resource owner; IV-only inputs cannot block a supplied-Greek or different ready output. Bound task/batch size, backend threads, copies, in-flight memory and sink ownership.",
+      "validation": "Direct versus installed-worker full-result/quality/evidence parity, unrelated-missing-input isolation, retry/recovery/readback and repeated budget-constrained kernel/end-to-end workloads.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/531",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-187",
+      "title": "Qualify option foundation library and cross-layer release",
+      "release": "R25",
+      "epic": "E33",
+      "dependencies": [
+        "EQ-183",
+        "EQ-184",
+        "EQ-185",
+        "EQ-186"
+      ],
+      "layer": "release acceptance",
+      "scope": "Qualify exact supported model/contract/API/I-O/worker combinations, package/module boundaries, independent consumer examples and immutable release evidence. Existing equity APIs and pure dependency boundaries remain intact.",
+      "validation": "Both-platform clean wheel/sdist installs, independent numerical/causal/error fixtures, artifact/source closure, separate final-head review and actual publication/readback; finite supported model scope stated.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/532",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-188",
+      "title": "Specify option execution and shared tape semantics",
+      "release": "R26",
+      "epic": "E34",
+      "dependencies": [
+        "EQ-182",
+        "EQ-158",
+        "EQ-159"
+      ],
+      "layer": "contracts/design",
+      "scope": "Freeze supported execution/quote alignment, sign proxies/unknowns, event ordering/ties, cancellations/corrections, eligibility, windows and multiplier/price precision. Reuse equity tape/quote kernels only where mathematics and evidence match; retain explicit asset conventions and source-specific inference limits.",
+      "validation": "Independent tiny tapes, causal quote alignment/sign carry, missing coverage and correction replay; observed trade direction is not customer intent or dealer positioning.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/534",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-189",
+      "title": "Implement option flow rollups and concentration primitives",
+      "release": "R26",
+      "epic": "E34",
+      "dependencies": [
+        "EQ-188",
+        "EQ-183"
+      ],
+      "layer": "pure calculation",
+      "scope": "Implement selected eligible counts/contracts, premium/notional, signed/unknown summaries, declared group/window rollups and concentration over supplied populations. Separate reducer arithmetic from unusual-flow screens and trade-selection policy.",
+      "validation": "Literal independently calculated tape/group results, exact scaled accumulation/overflow, ties, unknown/empty/partial populations and legal ordered merge/replay parity.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/535",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-190",
+      "title": "Implement admitted equity-option participation and lead-lag measures",
+      "release": "R26",
+      "epic": "E34",
+      "dependencies": [
+        "EQ-188",
+        "EQ-153",
+        "EQ-158"
+      ],
+      "layer": "pure calculation",
+      "scope": "Define compatible equity/option signed buckets, shares/contracts/premium denominators and aligned descriptive lag/correlation measures. Preserve time direction, paired sample counts and zero-variance/denominator behavior; no future buckets as current prerequisites.",
+      "validation": "Independent paired bucket vectors, sign/clock/unit/coverage mismatches, positive/negative lag and leakage counterexamples; reused equity arithmetic only under exact matching definitions.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/536",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-191",
+      "title": "Qualify option flow input, replay and sink mappings",
+      "release": "R26",
+      "epic": "E34",
+      "dependencies": [
+        "EQ-185",
+        "EQ-188"
+      ],
+      "layer": "I/O",
+      "scope": "Map selected normalized execution/quote/spot/group facts and replay inputs to flow contracts and typed sinks. Share immutable admitted populations across products when identities/rights match; bound source reads and cached memory.",
+      "validation": "Synthetic source-to-fact/readback and replay closure, revisions, partial windows, actual versus proxy direction/quote semantics and denied unsupported mappings.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/537",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-192",
+      "title": "Implement bounded flow and microstructure workers",
+      "release": "R26",
+      "epic": "E34",
+      "dependencies": [
+        "EQ-189",
+        "EQ-190",
+        "EQ-191",
+        "EQ-144",
+        "EQ-145"
+      ],
+      "layer": "workers",
+      "scope": "Wire independent rollup/concentration/cross-market branches; preserve ordered per-contract/underlying signing state and only selected joins. Reuse buckets across outputs and products; coordinate native/worker parallelism, memory, I-O and publication.",
+      "validation": "Direct/worker/evidence parity, causal state/replay, restart/fault/readback, skew/hot-entity and shared-input workload measurements without oversubscription.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/538",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-193",
+      "title": "Qualify shared microstructure and option flow release",
+      "release": "R26",
+      "epic": "E34",
+      "dependencies": [
+        "EQ-187",
+        "EQ-192"
+      ],
+      "layer": "release acceptance",
+      "scope": "Prove selected option/equity reuse and separate asset-specific definitions, explicit capabilities, source-independent packages, adapter/worker combinations and synthetic examples. Product screens remain later policy scope.",
+      "validation": "Independent tiny-tape and cross-asset fixtures, both-platform installed artifacts, resource/throughput/latency/copy evidence with parity, separate review and actual release/readback.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/539",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-194",
+      "title": "Specify distinct volatility estimators and surface conventions",
+      "release": "R27",
+      "epic": "E35",
+      "dependencies": [
+        "EQ-182"
+      ],
+      "layer": "contracts/design",
+      "scope": "Separate existing equity SIMPLE-return RV, planned LOG-return RV and each implied estimator. Freeze selected option strip/model-IV/surface/tenor definitions, units, forward/strike/expiry selection, day count, sampling, interpolation, coverage and negative/invalid variance handling. Reuse EQ154/155 rather than duplicate RV/statistics.",
+      "validation": "Independent convention-separation and interpolation/coverage references; unresolved model/expiry/basis choices explicit before Ready. No probability/forecast claim from descriptive measures.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/541",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-195",
+      "title": "Implement admitted option strips and IV surfaces",
+      "release": "R27",
+      "epic": "E35",
+      "dependencies": [
+        "EQ-183",
+        "EQ-184",
+        "EQ-194"
+      ],
+      "layer": "pure calculation",
+      "scope": "Implement reviewed strip and selected surface outputs from supplied eligible quotes/model/expiry frames. Define finite support, forward/strike/delta selection, numerical stability and per-expiry readiness; preserve distinct estimator identities.",
+      "validation": "Independent small chains and high-precision references, sparse/crossed/invalid inputs, strike/expiry boundaries, monotonicity/arbitrage checks only where specified, and full unavailable/evidence cases.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/542",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-196",
+      "title": "Implement constant-tenor volatility, skew and move scales",
+      "release": "R27",
+      "epic": "E35",
+      "dependencies": [
+        "EQ-194",
+        "EQ-195"
+      ],
+      "layer": "pure calculation",
+      "scope": "Specify supported tenor interpolation and skew/term-structure/move scaling over admitted expiry outputs. Bind exact target/anchor clocks, bracketing/classifications and variance/time conventions; distinguish numerical scale from probability and current from frozen forecast evidence.",
+      "validation": "Independent small expiry grids, exact-target/bracketing/zero-time/missing-classification cases, units and clock mismatch, pure supplied-expiry reuse and bounded target fan-out.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/543",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-197",
+      "title": "Implement volatility histories and aligned comparison arithmetic",
+      "release": "R27",
+      "epic": "E35",
+      "dependencies": [
+        "EQ-194",
+        "EQ-196",
+        "EQ-154",
+        "EQ-155",
+        "EQ-168",
+        "EQ-173"
+      ],
+      "layer": "pure calculation",
+      "scope": "Reuse existing robust statistics and equity RV with compatible method/cohort/time/basis populations. Define selected IV-RV spreads/ratios, history changes, comparable ranks, group medians/competition ranks and event-residual arithmetic. Product scan thresholds/pressure policies remain separate.",
+      "validation": "Independent sorted/group/time vectors, prior-only/target-exclusion/tie/zero-MAD/zero-RV cases, dated membership and event coverage; no claim that forward IV minus trailing RV is a horizon-matched forecast.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/544",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-198",
+      "title": "Implement volatility frame, history and reference I-O",
+      "release": "R27",
+      "epic": "E35",
+      "dependencies": [
+        "EQ-185",
+        "EQ-194"
+      ],
+      "layer": "I/O",
+      "scope": "Provide selected quote/expiry/price/grid/history/event/group normalized frames and typed output mappings. Share compatible immutable preparations; preserve actual observation/knowledge/coverage and separate current/prior populations.",
+      "validation": "Synthetic acquisition/normalization/sink/readback and comparable-history conformance, revision/clock/basis mismatches, bounded read/copy/cache evidence and explicit unsupported inputs.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/545",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-199",
+      "title": "Implement independent volatility worker branches",
+      "release": "R27",
+      "epic": "E35",
+      "dependencies": [
+        "EQ-195",
+        "EQ-196",
+        "EQ-197",
+        "EQ-198",
+        "EQ-144",
+        "EQ-145"
+      ],
+      "layer": "workers",
+      "scope": "Schedule independently ready RV, strip/surface, tenor, history and comparison outputs. RV does not wait on IV; joins require only actual operands. Reuse verified histories/expiry populations across targets/products under shared resource limits.",
+      "validation": "Direct/worker full-result parity, unrelated failure isolation, ordered history revisions and restart/readback; cold/warm/skewed workload throughput, peak memory and live latency where supported.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/546",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-200",
+      "title": "Qualify volatility library and cross-layer release",
+      "release": "R27",
+      "epic": "E35",
+      "dependencies": [
+        "EQ-187",
+        "EQ-199"
+      ],
+      "layer": "release acceptance",
+      "scope": "Qualify exact estimator/API/I-O/worker/method combinations and preserve old equity volatility ownership/compatibility. Publish synthetic calculation/consumer examples and explicit unsupported conventions.",
+      "validation": "Independent numerical/timing/coverage fixtures, both-platform installs/artifacts, measured current/alternative baselines with parity, separate final-head review and actual publication/readback.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/547",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-201",
+      "title": "Specify exposure assumptions, population and model boundaries",
+      "release": "R28",
+      "epic": "E36",
+      "dependencies": [
+        "EQ-182",
+        "EQ-183"
+      ],
+      "layer": "contracts/design",
+      "scope": "Define selected gamma/vanna or other admitted sensitivity exposures, dimensional scaling, OI/position/sign assumptions, standard/nonstandard multiplier policy, scope and causal spot/model reference alignment. OI is not observed dealer positioning. Freeze independent GEX/VEX operands and completeness before code.",
+      "validation": "Independent dimensional/small-contract reference vectors, unknown sign/OI/multiplier/spot inputs and distinct metric readiness; declared position scenarios and model conventions explicit.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/549",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-202",
+      "title": "Implement exposure contributions and declared grids",
+      "release": "R28",
+      "epic": "E36",
+      "dependencies": [
+        "EQ-201"
+      ],
+      "layer": "pure calculation",
+      "scope": "Compute selected supplied-Greek/position contributions and governed strike/expiry/entity reductions. Reuse leaf contributions; completeness/partial sums are explicit. A metric needing additional model inputs must not block a separately ready metric.",
+      "validation": "Independent exact/small decimal reductions, sign/unit/overflow/tie cases, partial/missing/complete populations and stable reduction/parity policy; no automatic dealer net-position claim.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/550",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-203",
+      "title": "Implement exposure changes and explicit counterfactual arithmetic",
+      "release": "R28",
+      "epic": "E36",
+      "dependencies": [
+        "EQ-201",
+        "EQ-202"
+      ],
+      "layer": "pure calculation",
+      "scope": "Compare compatible before/after grids and selected ordered repricing/OI counterfactuals under actual clocks/reference identities. Distinguish arithmetic attribution from causal explanation. Product node filters/alerts and level selection remain later policy.",
+      "validation": "Independent multi-step scenarios, order sensitivity, unequal frames, corrections/duplicate snapshots and unavailable intermediates; reuse grids without recomputing leaf exposures.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/551",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-204",
+      "title": "Implement exposure reference and generation I-O",
+      "release": "R28",
+      "epic": "E36",
+      "dependencies": [
+        "EQ-185",
+        "EQ-201"
+      ],
+      "layer": "I/O",
+      "scope": "Bind supplied Greek/model/OI/position/spot/definition facts and exact declared populations to typed exposure snapshots and generation sinks. Reuse original source/receipt evidence and bounded immutable input caches.",
+      "validation": "Synthetic reference/normalization/sink/readback conformance, missing/stale/foreign scope and OI revision cases; backend writer restrictions and rights limits retained.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/552",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-205",
+      "title": "Implement bounded exposure and change workers",
+      "release": "R28",
+      "epic": "E36",
+      "dependencies": [
+        "EQ-202",
+        "EQ-203",
+        "EQ-204",
+        "EQ-144",
+        "EQ-145"
+      ],
+      "layer": "workers",
+      "scope": "Wire per-metric/contract/cell readiness and compatible reductions, snapshot changes and verified publication. One coordinated resource owner accounts for grids, backend threads, queues and concurrent products; GEX does not await VEX-only operands.",
+      "validation": "Direct/worker/full receipt parity, partial-grid isolation, source correction/replay, faults/recovery and synthetic small/large/skewed grid resource/time measurements.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/553",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-206",
+      "title": "Qualify exposure library and cross-layer release",
+      "release": "R28",
+      "epic": "E36",
+      "dependencies": [
+        "EQ-187",
+        "EQ-205"
+      ],
+      "layer": "release acceptance",
+      "scope": "Qualify explicit assumption/model/population/output/API/I-O/worker combinations and preserve reusable option-contract facts. Publish original synthetic exposure examples and honest limits; do not equate arithmetic to investor intent.",
+      "validation": "Independent dimensional/numerical/timing fixtures, both-platform installed artifacts, measured current/alternative baselines and parity, separate final-head review and exact publication/readback.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/554",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-207",
+      "title": "Plan and implement admitted FlowSeeker policies over shared libraries",
+      "release": "R29",
+      "epic": "E37",
+      "dependencies": [
+        "EQ-193",
+        "EQ-176",
+        "EQ-177",
+        "EQ-178"
+      ],
+      "layer": "product policy/integration",
+      "scope": "Reconcile every selected flow screen/rollup/tracker definition to exact primitive, evidence, policy version and worker. Implement original allowed activity/execution/concentration/group/divergence interpretations without embedding thresholds in generic kernels. Link pure outcomes on the delayed path; unselected source variants receive numbered dispositions.",
+      "validation": "Independent positive/negative/unavailable policy cases, origin-time/partial-population and catalogue-identity checks, direct-to-product parity and all admitted outputs mapped; no legacy parity from familiar names.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/556",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-208",
+      "title": "Plan and implement admitted Heatseeker level and change policies",
+      "release": "R29",
+      "epic": "E37",
+      "dependencies": [
+        "EQ-206",
+        "EQ-177",
+        "EQ-178"
+      ],
+      "layer": "product policy/integration",
+      "scope": "Bind shared exposure grids/changes to explicit node filters, level selection, proximity, projection and candidate/alert lifecycle policies. Require declared policy-specific completeness while preserving independently ready numerical metrics.",
+      "validation": "Independent level/filter/tie/partial-grid/clock scenarios, lifecycle/replay and policy-specific unavailable status; catalogue completeness and full input/output/evidence binding.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/557",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-209",
+      "title": "Plan and implement admitted Tempest scan and context policies",
+      "release": "R29",
+      "epic": "E37",
+      "dependencies": [
+        "EQ-200",
+        "EQ-176",
+        "EQ-177"
+      ],
+      "layer": "product policy/integration",
+      "scope": "Bind volatility outputs to selected pricing pressure/anomaly, preset scans, relative/group context and frozen forecast consumers. Keep numeric estimators distinct from product weighting/thresholds and policy admission; map every admitted finite definition and retain explicit residual scope.",
+      "validation": "Independent policy/weight/rank/group examples, unavailable components, exact source-frame joins and catalogue/producer checks; descriptive scales and forecasts retain their distinct claims.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/558",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-210",
+      "title": "Qualify product projections, tools and delayed outcome integration",
+      "release": "R29",
+      "epic": "E37",
+      "dependencies": [
+        "EQ-207",
+        "EQ-208",
+        "EQ-209",
+        "EQ-174",
+        "EQ-179",
+        "EQ-084"
+      ],
+      "layer": "I/O/workers/product delivery",
+      "scope": "Compose accepted product policies with existing bounded service/tool/receipt interfaces and selected projection sinks. Preserve per-product auth/scope/expiry, original calculation evidence, immutable current outputs and separately mature labels/calibration. Hosting/live feeds/notifications require separately selected operating authority; this story can qualify synthetic local composition.",
+      "validation": "Synthetic installed end-to-end request-to-verified-projection and delayed-outcome replay, scope isolation/error/expiry/fault cases, chronological leakage controls and resource budgets shared across all products.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/559",
+      "status": "Backlog"
+    },
+    {
+      "id": "EQ-211",
+      "title": "Accept options library and product integration coverage",
+      "release": "R29",
+      "epic": "E37",
+      "dependencies": [
+        "EQ-187",
+        "EQ-193",
+        "EQ-200",
+        "EQ-206",
+        "EQ-210",
+        "EQ-181"
+      ],
+      "layer": "release acceptance",
+      "scope": "Reconcile admitted option/mixed command and finite-definition ledgers to specific accepted libraries/I-O/workers/product policies, with explicit excluded/deferred/newly numbered residuals. No source catalogue count substitutes for mathematical or product acceptance. Preserve equity release history and document exact supported package composition.",
+      "validation": "Independent no-orphan/consumer/source-rights audit, full result/status/quality/evidence parity, both-platform exact artifacts, shared-machine mixed workloads and measured end-to-end time/memory/latency against credible alternatives, required review/CI/publication/readback.",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/560",
+      "status": "Backlog"
+    }
+  ],
+  "review_status": "Pending supported separate final-head review; no implementation grant",
+  "scope": "Planning only. Detailed source/command/finite-definition crosswalks remain local."
+}

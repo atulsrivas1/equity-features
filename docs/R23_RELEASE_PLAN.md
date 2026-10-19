@@ -36,7 +36,7 @@ Validation and acceptance: Independent synthetic records, revisions/known-at, mi
 
 ## EQ-174: Extend observed-path outcomes without signal leakage
 
-[Issue](https://github.com/atulsrivas1/equity-features/issues/515). Dependencies: EQ-164, EQ-103.
+[Issue](https://github.com/atulsrivas1/equity-features/issues/515). Dependencies: EQ-164, EQ-091.
 
 Extend existing endpoint labels only where missing: sampled-path MFE/MAE, declared barriers, time-to-target and selected candidate/large-print outcome binding. Define maturity, observation resolution, origin identity, full path coverage and embargo; no tick-extreme or profitability inference.
 

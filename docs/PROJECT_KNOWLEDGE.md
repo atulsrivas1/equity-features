@@ -2751,3 +2751,8 @@ EQ056 [final R4 audit](R4_ACCEPTANCE.md) maps seven accepted predecessors and it
 ## Full equity planning coverage — October19,2026
 
 Owner clarified that inventory alone is insufficient: every equity family/worker needs a numbered story and release. [Future release plan](EQUITY_COVERAGE_RELEASE_PLAN.md) adds R22-R24/EQ164-181; existing delivered and R17-R21 scope is reused. Planning/traceability is not numerical completeness or implementation; exact source-derived registers stay local.
+
+
+## Owner-selected option library planning — October19,2026
+
+[Roadmap](OPTION_LIBRARY_RELEASE_PLAN.md) plans option foundations, option/shared microstructure, volatility, exposure and product integration. Calculation/I-O/worker/policy/release boundaries explicit; reuse equity RV/events/labels/strategies rather than duplicate. FutureBacklog only; no review/runtime/operating grant.

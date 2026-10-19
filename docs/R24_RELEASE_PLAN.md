@@ -4,7 +4,7 @@ Owner-requested future planning. [Epic](https://github.com/atulsrivas1/equity-fe
 
 ## EQ-176: Implement explicit equity scanner and watchlist catalogues
 
-[Issue](https://github.com/atulsrivas1/equity-features/issues/518). Dependencies: EQ-164, EQ-163, EQ-169, EQ-175, EQ-102.
+[Issue](https://github.com/atulsrivas1/equity-features/issues/518). Dependencies: EQ-164, EQ-163, EQ-169, EQ-175, EQ-090.
 
 Inventory every selected equity scanner/watchlist identity; map to original public specifications and exact supplied feature/coverage dependencies. Reuse generic scan/rank APIs where valid; preserve matched/not-matched/unavailable and rule/version identity.
 

@@ -164,7 +164,7 @@
       "title": "Extend observed-path outcomes without signal leakage",
       "dependencies": [
         "EQ-164",
-        "EQ-103"
+        "EQ-091"
       ],
       "url": "https://github.com/atulsrivas1/equity-features/issues/515",
       "scope": "Extend existing endpoint labels only where missing: sampled-path MFE/MAE, declared barriers, time-to-target and selected candidate/large-print outcome binding. Define maturity, observation resolution, origin identity, full path coverage and embargo; no tick-extreme or profitability inference.",
@@ -199,7 +199,7 @@
         "EQ-163",
         "EQ-169",
         "EQ-175",
-        "EQ-102"
+        "EQ-090"
       ],
       "url": "https://github.com/atulsrivas1/equity-features/issues/518",
       "scope": "Inventory every selected equity scanner/watchlist identity; map to original public specifications and exact supplied feature/coverage dependencies. Reuse generic scan/rank APIs where valid; preserve matched/not-matched/unavailable and rule/version identity.",

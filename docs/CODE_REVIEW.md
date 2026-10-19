@@ -230,3 +230,8 @@ The owner explicitly authorizes separate local Codex reviewers for bounded R7, b
 ## GOV032 equity coverage planning review pending
 
 GOV032#502 prepares the future R22-R24 packet only. Existing R17 and historical release-specific grants do not expand automatically. Before merging this planning PR, require a supported separate final-head semantic/source-safe review or an explicit owner alternative-review decision. Author checks/CI are not separate review. No future R22-R24 implementation or operational grant is created here.
+
+
+## GOV033 future library planning review pending
+
+The option/library/product extension requires supported separate final-head planning review or an explicit owner alternative before merge. Prior grants remain bounded; no completed review or R25-R29 implementation authority is inferred. Author static/metadata checks and CI alone do not replace that review.

@@ -4891,3 +4891,15 @@ proof tool executed. These are tooling failures, not kernel/CI qualification.
 Owner requested numbered stories/releases for full equity inventory. GOV032 prepares18futureBacklogstories EQ164-181, three epics E30-E32 and R22-R24 milestones, native parent links and Project status. See EQUITY_COVERAGE_RELEASE_PLAN.md. Existing R17/R18 ownership and scope unchanged. Local matrix and mutation receipts retain detailed crosswalk. No private source/data/provider execution.
 
 Resume: validate scope/dependencies/no orphan mappings and actual GitHub metadata; draft PR needs required separate review/current CI before merge/publication acceptance. Do not claim Done or start future kernels. Prior R17-only local review grant is not expanded.
+
+
+## GOV033 option-library planning — October19,2026
+
+Owner accepted planning option/volatility/exposure/sharedmicrostructure libraries then product integration. R25-R29/EQ182-211 now have numbered canonical issues, native epic links, milestones and futureBacklog status. See OPTION_LIBRARY_RELEASE_PLAN.md and JSON. Existing R17/R18 and R22-R24 scopes/ownership unchanged. Detailed catalogue/command dispositions remain local; initial model/rights/exact-output decisions are required before Ready.
+
+Resume: validate metadata/acyclic cross-roadmap dependencies and matrix links, then supported separate final-head review/current CI/publication/readback. Existing R17-only review grant is not extended; no new runtime work or operating/private/provider authority.
+
+
+### Planning validation and dependency correction
+
+Author verified30stories/fivemilestones/30nativeparents Open/Backlog/unassigned/no dates; static cross-roadmap graph, original docs guard and report checks passed. Graph validation caught an issue-number/story-ID mix-up: scoped service is EQ084, generic scanner EQ090 and endpoint labels EQ091; corrected both public issues and R23/R24/R29 plans/roadmap/backlog with superseded raw-body receipts kept locally. EQ094 stays retired. No numerical/benchmark or independent review claimed. Exact final source review/currentCI/publication/readback remain pending.

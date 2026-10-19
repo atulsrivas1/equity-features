@@ -870,11 +870,49 @@ Scope baseline only; current status belongs to the live Project. All new deliver
 | [EQ-171](https://github.com/atulsrivas1/equity-features/issues/512) | R23 | Specify and implement admitted candle and structural-pattern evidence | EQ-164 |
 | [EQ-172](https://github.com/atulsrivas1/equity-features/issues/513) | R23 | Complete remaining equity statistical projections | EQ-164, EQ-155, EQ-158 |
 | [EQ-173](https://github.com/atulsrivas1/equity-features/issues/514) | R23 | Implement supplied point-in-time event and fundamental features | EQ-164, EQ-168 |
-| [EQ-174](https://github.com/atulsrivas1/equity-features/issues/515) | R23 | Extend observed-path outcomes without signal leakage | EQ-164, EQ-103 |
+| [EQ-174](https://github.com/atulsrivas1/equity-features/issues/515) | R23 | Extend observed-path outcomes without signal leakage | EQ-164, EQ-091 |
 | [EQ-175](https://github.com/atulsrivas1/equity-features/issues/516) | R23 | Qualify remaining equity calculation release | EQ-170, EQ-171, EQ-172, EQ-173, EQ-174, EQ-169 |
-| [EQ-176](https://github.com/atulsrivas1/equity-features/issues/518) | R24 | Implement explicit equity scanner and watchlist catalogues | EQ-164, EQ-163, EQ-169, EQ-175, EQ-102 |
+| [EQ-176](https://github.com/atulsrivas1/equity-features/issues/518) | R24 | Implement explicit equity scanner and watchlist catalogues | EQ-164, EQ-163, EQ-169, EQ-175, EQ-090 |
 | [EQ-177](https://github.com/atulsrivas1/equity-features/issues/519) | R24 | Implement selected strategy context, tape summaries and score profiles | EQ-164, EQ-175 |
 | [EQ-178](https://github.com/atulsrivas1/equity-features/issues/520) | R24 | Implement deterministic confirmation and candidate lifecycle | EQ-164, EQ-176, EQ-177 |
 | [EQ-179](https://github.com/atulsrivas1/equity-features/issues/521) | R24 | Implement same-identity score and membership history | EQ-164, EQ-177, EQ-178 |
 | [EQ-180](https://github.com/atulsrivas1/equity-features/issues/522) | R24 | Qualify every admitted equity worker and I-O binding | EQ-164, EQ-146, EQ-163, EQ-169, EQ-175, EQ-176, EQ-177, EQ-178, EQ-179 |
 | [EQ-181](https://github.com/atulsrivas1/equity-features/issues/523) | R24 | Accept complete planned equity family and worker coverage | EQ-180 |
+
+
+## Option and product libraries — future R25-R29
+
+[Overview](OPTION_LIBRARY_RELEASE_PLAN.md) / https://github.com/atulsrivas1/equity-features/issues/525. All30implementationstories futureBacklog/unassigned/no dates; accepted and active equity scope unchanged.
+
+| Planned story | Release | Layer / scope | Dependencies |
+| --- | --- | --- | --- |
+| [EQ-182](https://github.com/atulsrivas1/equity-features/issues/527) | R25 | contracts/design: Specify option facts, model boundaries and library ownership | EQ-012, EQ-013, EQ-014, EQ-016 |
+| [EQ-183](https://github.com/atulsrivas1/equity-features/issues/528) | R25 | pure calculation: Implement admitted contract pricing and Greek calculations | EQ-182 |
+| [EQ-184](https://github.com/atulsrivas1/equity-features/issues/529) | R25 | pure calculation: Implement bounded implied-volatility inversion | EQ-182, EQ-183 |
+| [EQ-185](https://github.com/atulsrivas1/equity-features/issues/530) | R25 | I/O: Implement option and model-reference I-O contracts and conformance | EQ-182, EQ-125 |
+| [EQ-186](https://github.com/atulsrivas1/equity-features/issues/531) | R25 | workers: Wire independent option compute worker branches | EQ-183, EQ-184, EQ-185, EQ-143, EQ-144 |
+| [EQ-187](https://github.com/atulsrivas1/equity-features/issues/532) | R25 | release acceptance: Qualify option foundation library and cross-layer release | EQ-183, EQ-184, EQ-185, EQ-186 |
+| [EQ-188](https://github.com/atulsrivas1/equity-features/issues/534) | R26 | contracts/design: Specify option execution and shared tape semantics | EQ-182, EQ-158, EQ-159 |
+| [EQ-189](https://github.com/atulsrivas1/equity-features/issues/535) | R26 | pure calculation: Implement option flow rollups and concentration primitives | EQ-188, EQ-183 |
+| [EQ-190](https://github.com/atulsrivas1/equity-features/issues/536) | R26 | pure calculation: Implement admitted equity-option participation and lead-lag measures | EQ-188, EQ-153, EQ-158 |
+| [EQ-191](https://github.com/atulsrivas1/equity-features/issues/537) | R26 | I/O: Qualify option flow input, replay and sink mappings | EQ-185, EQ-188 |
+| [EQ-192](https://github.com/atulsrivas1/equity-features/issues/538) | R26 | workers: Implement bounded flow and microstructure workers | EQ-189, EQ-190, EQ-191, EQ-144, EQ-145 |
+| [EQ-193](https://github.com/atulsrivas1/equity-features/issues/539) | R26 | release acceptance: Qualify shared microstructure and option flow release | EQ-187, EQ-192 |
+| [EQ-194](https://github.com/atulsrivas1/equity-features/issues/541) | R27 | contracts/design: Specify distinct volatility estimators and surface conventions | EQ-182 |
+| [EQ-195](https://github.com/atulsrivas1/equity-features/issues/542) | R27 | pure calculation: Implement admitted option strips and IV surfaces | EQ-183, EQ-184, EQ-194 |
+| [EQ-196](https://github.com/atulsrivas1/equity-features/issues/543) | R27 | pure calculation: Implement constant-tenor volatility, skew and move scales | EQ-194, EQ-195 |
+| [EQ-197](https://github.com/atulsrivas1/equity-features/issues/544) | R27 | pure calculation: Implement volatility histories and aligned comparison arithmetic | EQ-194, EQ-196, EQ-154, EQ-155, EQ-168, EQ-173 |
+| [EQ-198](https://github.com/atulsrivas1/equity-features/issues/545) | R27 | I/O: Implement volatility frame, history and reference I-O | EQ-185, EQ-194 |
+| [EQ-199](https://github.com/atulsrivas1/equity-features/issues/546) | R27 | workers: Implement independent volatility worker branches | EQ-195, EQ-196, EQ-197, EQ-198, EQ-144, EQ-145 |
+| [EQ-200](https://github.com/atulsrivas1/equity-features/issues/547) | R27 | release acceptance: Qualify volatility library and cross-layer release | EQ-187, EQ-199 |
+| [EQ-201](https://github.com/atulsrivas1/equity-features/issues/549) | R28 | contracts/design: Specify exposure assumptions, population and model boundaries | EQ-182, EQ-183 |
+| [EQ-202](https://github.com/atulsrivas1/equity-features/issues/550) | R28 | pure calculation: Implement exposure contributions and declared grids | EQ-201 |
+| [EQ-203](https://github.com/atulsrivas1/equity-features/issues/551) | R28 | pure calculation: Implement exposure changes and explicit counterfactual arithmetic | EQ-201, EQ-202 |
+| [EQ-204](https://github.com/atulsrivas1/equity-features/issues/552) | R28 | I/O: Implement exposure reference and generation I-O | EQ-185, EQ-201 |
+| [EQ-205](https://github.com/atulsrivas1/equity-features/issues/553) | R28 | workers: Implement bounded exposure and change workers | EQ-202, EQ-203, EQ-204, EQ-144, EQ-145 |
+| [EQ-206](https://github.com/atulsrivas1/equity-features/issues/554) | R28 | release acceptance: Qualify exposure library and cross-layer release | EQ-187, EQ-205 |
+| [EQ-207](https://github.com/atulsrivas1/equity-features/issues/556) | R29 | product policy/integration: Plan and implement admitted FlowSeeker policies over shared libraries | EQ-193, EQ-176, EQ-177, EQ-178 |
+| [EQ-208](https://github.com/atulsrivas1/equity-features/issues/557) | R29 | product policy/integration: Plan and implement admitted Heatseeker level and change policies | EQ-206, EQ-177, EQ-178 |
+| [EQ-209](https://github.com/atulsrivas1/equity-features/issues/558) | R29 | product policy/integration: Plan and implement admitted Tempest scan and context policies | EQ-200, EQ-176, EQ-177 |
+| [EQ-210](https://github.com/atulsrivas1/equity-features/issues/559) | R29 | I/O/workers/product delivery: Qualify product projections, tools and delayed outcome integration | EQ-207, EQ-208, EQ-209, EQ-174, EQ-179, EQ-084 |
+| [EQ-211](https://github.com/atulsrivas1/equity-features/issues/560) | R29 | release acceptance: Accept options library and product integration coverage | EQ-187, EQ-193, EQ-200, EQ-206, EQ-210, EQ-181 |

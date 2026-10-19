@@ -1,0 +1,31 @@
+{
+  "status": "PASS author actual readback; no independent review",
+  "new_issues": 36,
+  "future_stories": 30,
+  "milestones": 5,
+  "native_parent_links": 30,
+  "future_status": "Backlog",
+  "future_assignees": [],
+  "due_dates": null,
+  "runtime_started": false,
+  "governance": 525,
+  "planning_only": true,
+  "review_status": "Pending supported separate final-head review; prior R17 grant not expanded",
+  "author_checks": [
+    "30-story/five-release cross-roadmap DAG and scoped I-O/worker/acceptance validator",
+    "existing18story validator and historical documentation guard",
+    "actual GitHub issue/Project/milestone/30-native-parent readback",
+    "13-view Node mockDOM report checks;10domain roadmap/16product-family mappings/144candidate-command links"
+  ],
+  "dependency_corrections": [
+    "EQ174 reuses EQ091 endpoint labels, not GitHub issue103",
+    "EQ176 reuses EQ090 scanner, not GitHub issue102",
+    "EQ210 reuses EQ084 service; EQ094 remains retired"
+  ],
+  "limitations": [
+    "No numerical/runtime/performance validation",
+    "No independent or human review claim",
+    "Detailed source-derived mapping remains local",
+    "Five new releases remain future Backlog with no dates"
+  ]
+}

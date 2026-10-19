@@ -323,3 +323,8 @@ Owner restored R2-before-R3. Existing R3 chat finishes only both R1 defect repai
 ## Future equity coverage planning
 
 [Complete plan](EQUITY_COVERAGE_RELEASE_PLAN.md) / https://github.com/atulsrivas1/equity-features/issues/502 adds R22-R24 and18stories, all future Backlog. Existing R17-R21 execution unchanged; see live Project.
+
+
+## Future option/product library planning
+
+[Roadmap](OPTION_LIBRARY_RELEASE_PLAN.md) / https://github.com/atulsrivas1/equity-features/issues/525 adds R25-R29/E33-E37/EQ182-211, all futureBacklog, without changing current equity priority.
