@@ -34,8 +34,8 @@ These are responsibility boundaries, not a requirement to create separate proces
 
 Reuse equity trade/quote/window and largest-print scope in EQ-158/159/162, admitted equity integration in EQ-180, option foundations in EQ-182–187 and option/shared microstructure in EQ-188–193. EQ-207 owns Flow Analyst product policy/composition; EQ-210/211 retain selected delivery/integration and release gates. This document adds no competing calculations, adapters or worker framework.
 
-## Next product decision
+## Deferred product details
 
-Choose the primary first-version workflow: **intraday monitoring**, **end-of-day research**, or **both**. That choice is still open. It guides the initial questions/screens, history depth, data cadence and explicit latency/freshness needs; it does not by itself authorize source acquisition or live deployment.
+The owner subsequently clarified that this discussion is only defining high-level products. Intraday monitoring versus end-of-day research versus both remains unselected and is deferred; it is not a prerequisite question to force during this discussion. It would later guide screens, history, cadence and freshness, without itself authorizing acquisition or deployment.
 
-After that, define the initial user questions and minimum screens, selected datasets/feature IDs, filters and evidence/availability behavior, then split any genuinely new scope into linked stories before Ready. Candidate activity/concentration/unusual-activity/price-versus-flow views remain proposals until that discussion.
+Use the [high-level product map](PRODUCT_MAP.md) for product purposes and watchlist/strategy placement. Candidate activity/concentration/unusual-activity/price-versus-flow views and detailed datasets/feature IDs, filters and UI behavior remain proposals for later discussion. Any genuinely new implementation scope still needs linked stories before Ready.

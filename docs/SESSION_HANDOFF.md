@@ -4917,3 +4917,10 @@ Author18/30story validators and13view mockDOM/no-brand checks passed; live story
 Owner requested documenting the discussion. Added FLOW_ANALYST_PRODUCT.md under existing EQ207/GOV033/R29: stock/option/ETF trading scope, ETF market-data versus fund-flow distinction, historical retained-inventory limitations and I/O -> supplied-fact calculations -> workers -> verified data/query -> product/UI responsibilities. Raw private source inventories were inspected read-only; exact corpus paths/volumes/content are not published. This is no fresh physical audit, new source admission, math/API/runtime or operating change.
 
 Use Flow Analyst/Exposure Analyst/Volatility Analyst as application names, superseding capability-only application labels. Scope of the latter two is still for later discussion. Next discuss Flow Analyst primary workflow (intraday/EOD/both), then initial user questions/screens/datasets and acceptance; do not infer an answered workflow choice or live SLA. Existing planning/review gates and active equity execution unchanged.
+
+
+## Owner requests product/watchlist/strategy documentation — October19,2026
+
+Added PRODUCT_MAP.md with named and proposed product purposes, in-product/shared watchlists, cross-product strategy inputs, Research Analyst evaluation and current candidate placement. Automated execution stays outside this discussion. Corrected FLOW_ANALYST_PRODUCT.md: earlier forced-next intraday/EOD/screen questions are superseded by owner high-level-only direction; those details are deferred, not required now.
+
+No new feature/story/release/implementation/workflow/SLA/operating selection or exhaustive feature-to-product completeness claim. Existing GOV033 planning captures guidance only. Resume product discussion one at a time at purpose/boundary level; do not force detailed UI/workflow decisions. Documentation checks only; separate review/CI/publication gates remain pending.

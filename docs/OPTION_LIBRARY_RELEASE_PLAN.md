@@ -31,3 +31,8 @@ Owner direction: use Option flow analysis, Option exposure analysis and Volatili
 ## Product discussion: Flow Analyst
 
 [Initial decisions](FLOW_ANALYST_PRODUCT.md) record Flow Analyst targeting stocks, options and ETF trading. ETF fund flows are separate and unverified. I/O and pure features support worker-generated datasets; products query/display them. Intraday versus end-of-day first-version focus is still open. The owner-discussed application names are Flow Analyst, Exposure Analyst and Volatility Analyst; earlier capability-only naming paragraphs are retained as history, superseded for application names.
+
+
+## High-level product roles and cross-product capabilities
+
+[Product map](PRODUCT_MAP.md) records the seven discussed product groups, watchlists within relevant analysts plus shared watchlists, and Research Analyst as the proposed strategy-definition/historical-evaluation home. Current matching candidates may appear in relevant products. Four additional product boundaries remain proposals; automated execution is separate. Owner scope is high-level discussion: no screens/workflow/cadence or new delivery commitments selected.

@@ -2038,3 +2038,8 @@ Owner correction: label reusable consumers by capability (Option flow analysis, 
 ### Separate market coverage, trading activity and fund movements
 
 Flow Analyst discussion confirms stock/option/ETF trading as initial product direction. ETFs can appear within equity trading data; holdings do not prove creation/redemption flows. A historical retained inventory is not a current complete/entitled/live qualified dataset. Keep that distinction in product availability and UI semantics, and keep worker-generated feature evidence separate from presentation. See [decisions](../FLOW_ANALYST_PRODUCT.md).
+
+
+### Match planning depth to the owner discussion
+
+Owner clarified that products were being defined at a high level, not by screens, cadence or intraday/EOD workflow. [Product map](../PRODUCT_MAP.md) records watchlists as shared/in-product capabilities and strategy evaluation in the proposed Research Analyst, while current matches can surface across analysts. Preserve deferred details as deferred rather than repeatedly making them the next required question. No new delivery scope or complete inventory mapping is inferred.

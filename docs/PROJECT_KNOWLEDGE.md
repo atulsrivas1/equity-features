@@ -2766,3 +2766,8 @@ Use descriptive capability groups: Option flow analysis, Option exposure analysi
 ## Flow Analyst product scope discussion — October19,2026
 
 [Product decisions](FLOW_ANALYST_PRODUCT.md): initial markets stocks/options/ETF trading; source coverage admitted per instrument/date/type, not a full-data or live-readiness claim. ETF creations/redemptions not established by trade or holdings data. Workers generate verified datasets using I/O and pure features; product/query/UI consumes them. Application names: Flow Analyst, Exposure Analyst, Volatility Analyst; pure library technical names retained. Next decision intraday monitoring versus end-of-day research versus both remains open.
+
+
+## High-level products, watchlists and strategies — October19,2026
+
+[Product map](PRODUCT_MAP.md): Flow/Exposure/Volatility Analyst named; Equity/Market/Event/Research Analyst proposed boundaries. Watchlists sit within relevant products and may share a cross-product capability. Strategies use shared features; Research Analyst is the proposed definition/exploration/historical-evaluation home, current matches can surface in appropriate analysts. Automated execution is separate. Owner explicitly limits discussion to high-level product purposes/boundaries; defer screens, intraday/EOD, data cadence and implementation choices.
