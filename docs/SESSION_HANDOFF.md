@@ -1,3 +1,13 @@
+## EQ142 concrete packet; GOV034 verified Done
+
+[GOV034 verified exit](https://github.com/atulsrivas1/equity-features/issues/564#issuecomment-6276541768) is actual CLOSED/ProjectDone after all35 main checks and separate final/post/closing reviews. Main is `fbb3d30efbe37d9f0c56728787209764dde68ba8`; the handoff is delivered. R18 implementation is not complete.
+
+[EQ142](https://github.com/atulsrivas1/equity-features/issues/476)/[draft PR566](https://github.com/atulsrivas1/equity-features/pull/566) now contains concrete closed graph/job/trace/protocol records, original portable16-case fixtures, four independent full graph sets,39-hook identity inventory and42-task/920-check workload preflight. [Baseline evidence](stories/EQ-142_BASELINE_PREPARATION.md) distinguishes independent mathematical checks, source-derived72 logical reservations and actual SDK controls from unimplemented tracing/native execution or timing. All runtime children remain Backlog/unassigned at this snapshot. [Current inputs/index](stories/EQ-142_INPUTS.json) and exact final committed separate pre-code review precede EQ142 Ready→assigned In progress.
+
+Next: resolve exact-packet/current-input Ready review; implement descriptive graphs and opt-in bounded tooling outside kernels in a new worker checkout; qualify source/hook/native/installed controls before any timing; freeze A/A protocol and retain failures. No numerical, package-version/default or persistent-live change is introduced by the packet. Owner R18 local review authorization remains effective. Preserve original dirty/frozen sources and immutable measurement environments; all48 R17 worker alternatives remain nonwins/sequential default.
+
+## Earlier checkpoints retained as history
+
 ## EQ142 concrete pre-code preparation; handoff main acceptance pending
 
 [GOV034 #564](https://github.com/atulsrivas1/equity-features/issues/564)/PR565 published actual main `fbb3d30efbe37d9f0c56728787209764dde68ba8` after separate source110/candidate45 and all70 current candidate checks. Separate actual-main source38 passed; actual main run39316319732 remains nonterminal in this preparation snapshot. Final actual-main acceptance and Released/postrelease/Done remain required. Live Project is current authority.

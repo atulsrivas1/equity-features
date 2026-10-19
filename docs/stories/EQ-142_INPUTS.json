@@ -1,0 +1,434 @@
+{
+  "schema": "eq142-precode-inputs:1",
+  "stage": "EXACT_PUBLIC_PRECODE_PACKET_PENDING_SEPARATE_READY_REVIEW",
+  "snapshot_utc": "2026-10-19T20:50:22.948534+00:00",
+  "status_authority": "https://github.com/users/atulsrivas1/projects/2",
+  "issue": 476,
+  "epic": 466,
+  "milestone": 22,
+  "source_snapshot": {
+    "equity-features": "fbb3d30efbe37d9f0c56728787209764dde68ba8",
+    "equity-feature-workers": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+    "equity-feature-io": "18d86761aa3eebb7414e51e8fa2aba089717b5eb"
+  },
+  "package_build_sources": {
+    "core": "b1f5445eb9799b73753e413669b94166997fc468",
+    "io": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+    "worker": "231349aaf2bf1b9ec21f45807382ca9c6522520c"
+  },
+  "distributions": {
+    "equity-feature-contracts": "0.0.4a4",
+    "equity-features": "0.0.4a4",
+    "equity-features-intraday": "0.1.0a3",
+    "equity-feature-io-contracts": "0.1.0a2",
+    "equity-feature-io-sdk": "0.1.0a2",
+    "equity-feature-workers": "0.1.0a14"
+  },
+  "accepted_prerequisites": {
+    "EQ141": {
+      "assignees": [
+        {
+          "id": "U_kgDOBiDqvA",
+          "login": "atulsrivas1",
+          "name": "Atul Srivastava",
+          "databaseId": 102820540
+        }
+      ],
+      "milestone": {
+        "number": 21,
+        "title": "R17 \u2014 Intraday equity foundations",
+        "description": "R17 delivered and verified. All six EQ136\u2013141 stories and E25 are CLOSED/ProjectDone; milestone21 closed with zero open and seven closed issues. Separate aggregate semantic, postrelease and actual closing reviews accepted source-independent eight intraday batch outputs, supplied worker bindings, correctness/readiness/precision and exact six-package both-platform experimental artifact channel. Evidence: https://github.com/atulsrivas1/equity-features/issues/465 and PR563/docs/R17_ACCEPTANCE.md. All48 worker alternatives remain nonwins/sequential fallback. Finite artifact retention and original evidence limitations apply. No fastest/live/SLA, persistent-state or stable registry claim. R18 preparation follows verified R17 with its own readiness/review gates.",
+        "dueOn": null
+      },
+      "number": 475,
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4a2b7cbd",
+            "name": "Done"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "CLOSED",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/475"
+    },
+    "R17": {
+      "epic": {
+        "assignees": [],
+        "milestone": {
+          "number": 21,
+          "title": "R17 \u2014 Intraday equity foundations",
+          "description": "R17 delivered and verified. All six EQ136\u2013141 stories and E25 are CLOSED/ProjectDone; milestone21 closed with zero open and seven closed issues. Separate aggregate semantic, postrelease and actual closing reviews accepted source-independent eight intraday batch outputs, supplied worker bindings, correctness/readiness/precision and exact six-package both-platform experimental artifact channel. Evidence: https://github.com/atulsrivas1/equity-features/issues/465 and PR563/docs/R17_ACCEPTANCE.md. All48 worker alternatives remain nonwins/sequential fallback. Finite artifact retention and original evidence limitations apply. No fastest/live/SLA, persistent-state or stable registry claim. R18 preparation follows verified R17 with its own readiness/review gates.",
+          "dueOn": null
+        },
+        "number": 465,
+        "projectItems": [
+          {
+            "status": {
+              "optionId": "4a2b7cbd",
+              "name": "Done"
+            },
+            "title": "Equity Features \u2014 Roadmap"
+          }
+        ],
+        "state": "CLOSED",
+        "url": "https://github.com/atulsrivas1/equity-features/issues/465"
+      },
+      "milestone": {
+        "number": 21,
+        "state": "closed",
+        "open_issues": 0,
+        "closed_issues": 7
+      },
+      "closing_receipt_sha256": "2d1df84598904dfc079af7e075dc30160de869650a5d39060051d5b8adefdc9b",
+      "public_exit": "https://github.com/atulsrivas1/equity-features/issues/465#issuecomment-6275623502"
+    },
+    "GOV034": {
+      "issue": {
+        "assignees": [
+          {
+            "id": "U_kgDOBiDqvA",
+            "login": "atulsrivas1",
+            "name": "Atul Srivastava",
+            "databaseId": 102820540
+          }
+        ],
+        "milestone": {
+          "number": 22,
+          "title": "R18 \u2014 Dependency-driven execution and resource efficiency",
+          "description": "Owner-requested planned equity roadmap. Correctness, source independence, independent feature readiness, measured performance and bounded resource-efficient parallelism are mandatory. Scope/acceptance: https://github.com/atulsrivas1/equity-features/issues/464. Backlog until prerequisite contracts/review accepted; no dates or performance/SLA commitment. No live-feed/provider/deployment selection.",
+          "dueOn": null
+        },
+        "number": 564,
+        "projectItems": [
+          {
+            "status": {
+              "optionId": "4a2b7cbd",
+              "name": "Done"
+            },
+            "title": "Equity Features \u2014 Roadmap"
+          }
+        ],
+        "state": "CLOSED",
+        "url": "https://github.com/atulsrivas1/equity-features/issues/564"
+      },
+      "actual_main": "fbb3d30efbe37d9f0c56728787209764dde68ba8",
+      "main_ci_run": 39316319732,
+      "actual_success_jobs": 35,
+      "closing_review_public_sha256": "236ca8d9d6bb7ddab3b898532613436eeb7741e6cb295e5ae44b4cad84f6e1d8",
+      "public_exit": "https://github.com/atulsrivas1/equity-features/issues/564#issuecomment-6276541768",
+      "public_pr_exit": "https://github.com/atulsrivas1/equity-features/pull/565#issuecomment-6276542212"
+    }
+  },
+  "actual_main_artifacts_access_snapshot": [
+    {
+      "id": 12212142183,
+      "name": "supplied-inputs-231349aaf2bf1b9ec21f45807382ca9c6522520c-ubuntu-24.04",
+      "digest": "sha256:093ae40f4161cbc17c041625cbd453e8a9075f0f93a74d121d0eb46de2722c2a",
+      "expired": false,
+      "expires_at": "2026-11-18T18:20:09Z",
+      "workflow_run": {
+        "id": 39301445653,
+        "repository_id": 1408067204,
+        "head_repository_id": 1408067204,
+        "head_branch": "main",
+        "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c"
+      }
+    },
+    {
+      "id": 12211898603,
+      "name": "supplied-inputs-231349aaf2bf1b9ec21f45807382ca9c6522520c-windows-latest",
+      "digest": "sha256:9c1a790bbbdef162172b202f30c24f104fc556e7d9bb0c1b4a15e3a583d61bd5",
+      "expired": false,
+      "expires_at": "2026-11-18T18:21:33Z",
+      "workflow_run": {
+        "id": 39301445653,
+        "repository_id": 1408067204,
+        "head_repository_id": 1408067204,
+        "head_branch": "main",
+        "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c"
+      }
+    }
+  ],
+  "artifact_limitations": "Existing actual six-package finite Windows/Linux main archives. Fresh local Windows baseline matched108 non-RECORD payloads; no new Linux/full RECORD/directURL/launcher proof. Old package build source is not relabeled as current docs/tool source. Renew applicable source/installed/bothOS/archive/artifact/native qualification for changed tool/harness before timing and final delivery.",
+  "runtime_story_snapshot": {
+    "476": {
+      "assignees": [],
+      "milestone": {
+        "number": 22,
+        "title": "R18 \u2014 Dependency-driven execution and resource efficiency",
+        "description": "Owner-requested planned equity roadmap. Correctness, source independence, independent feature readiness, measured performance and bounded resource-efficient parallelism are mandatory. Scope/acceptance: https://github.com/atulsrivas1/equity-features/issues/464. Backlog until prerequisite contracts/review accepted; no dates or performance/SLA commitment. No live-feed/provider/deployment selection.",
+        "dueOn": null
+      },
+      "number": 476,
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/476"
+    },
+    "477": {
+      "assignees": [],
+      "milestone": {
+        "number": 22,
+        "title": "R18 \u2014 Dependency-driven execution and resource efficiency",
+        "description": "Owner-requested planned equity roadmap. Correctness, source independence, independent feature readiness, measured performance and bounded resource-efficient parallelism are mandatory. Scope/acceptance: https://github.com/atulsrivas1/equity-features/issues/464. Backlog until prerequisite contracts/review accepted; no dates or performance/SLA commitment. No live-feed/provider/deployment selection.",
+        "dueOn": null
+      },
+      "number": 477,
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/477"
+    },
+    "478": {
+      "assignees": [],
+      "milestone": {
+        "number": 22,
+        "title": "R18 \u2014 Dependency-driven execution and resource efficiency",
+        "description": "Owner-requested planned equity roadmap. Correctness, source independence, independent feature readiness, measured performance and bounded resource-efficient parallelism are mandatory. Scope/acceptance: https://github.com/atulsrivas1/equity-features/issues/464. Backlog until prerequisite contracts/review accepted; no dates or performance/SLA commitment. No live-feed/provider/deployment selection.",
+        "dueOn": null
+      },
+      "number": 478,
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/478"
+    },
+    "479": {
+      "assignees": [],
+      "milestone": {
+        "number": 22,
+        "title": "R18 \u2014 Dependency-driven execution and resource efficiency",
+        "description": "Owner-requested planned equity roadmap. Correctness, source independence, independent feature readiness, measured performance and bounded resource-efficient parallelism are mandatory. Scope/acceptance: https://github.com/atulsrivas1/equity-features/issues/464. Backlog until prerequisite contracts/review accepted; no dates or performance/SLA commitment. No live-feed/provider/deployment selection.",
+        "dueOn": null
+      },
+      "number": 479,
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/479"
+    },
+    "480": {
+      "assignees": [],
+      "milestone": {
+        "number": 22,
+        "title": "R18 \u2014 Dependency-driven execution and resource efficiency",
+        "description": "Owner-requested planned equity roadmap. Correctness, source independence, independent feature readiness, measured performance and bounded resource-efficient parallelism are mandatory. Scope/acceptance: https://github.com/atulsrivas1/equity-features/issues/464. Backlog until prerequisite contracts/review accepted; no dates or performance/SLA commitment. No live-feed/provider/deployment selection.",
+        "dueOn": null
+      },
+      "number": 480,
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/480"
+    }
+  },
+  "milestone_snapshot": {
+    "number": 22,
+    "state": "open",
+    "open_issues": 6,
+    "closed_issues": 1
+  },
+  "milestone_issue_numbers": [
+    466,
+    476,
+    477,
+    478,
+    479,
+    480,
+    564
+  ],
+  "review_route": "Owner explicitly authorizes separate local Codex review for PR565/GOV034, EQ142\u2013146, necessary companion changes and final R18 delivery. Permission is not completed review; actual final-head review and all original gates remain. No R19+ grant or hosted activation.",
+  "review_authorization_url": "https://github.com/atulsrivas1/equity-features/issues/564#issuecomment-6275820553",
+  "preparation_evidence": {
+    "canonical_v3_review_sha256": "af76493c6ae6cf8ed237e1fba8f4ddd72762975d6a04451bacbd08bf510c590e",
+    "canonical_v3_assertions": 146,
+    "workload_review_sha256": "076012600f4fc63e486a42524b96ac6f51c4086971ffa6a20530892d2df6a30a",
+    "actual_workload_callback_publication_tasks": 42,
+    "author_workload_checks": 920,
+    "independent_arithmetic_joins": 610,
+    "source_derived_mode_class_reservations": 72,
+    "hook_graph_bounded_review_sha256": "296f5d43b1e76d23539394a0e8aff140073d69c234149f1d43fc0a4d317bb511",
+    "bounded_checks": 136,
+    "limitations": "Scoped mathematical/source/contract receipts, not final committed public current-input Ready or runtime/native acceptance. Original closed-record item resolved; final exact-packet Ready review remains.",
+    "correction_review_sha256": "31af7d1bc337634aa257bf7848181e22008e4907b7a5e01273bc181b14cc12a2",
+    "correction_schema_delta_checks": 26,
+    "canonical_v4_renewed_checks": 146,
+    "portable_generator_exact_reproduction_sha256": "cdcf805501389fb1fed25f7410e3f5439eb35c0000f684feed79688abfca142f"
+  },
+  "packet_index": {
+    "docs/stories/EQ-142_PLAN.md": {
+      "git_blob": "b69b888dad16926a87081519f2e3d05c66ad99d1",
+      "raw_sha256": "1c997e5f51bc9eec80990222ddee0b1fb61811dc8b98f6342b28e3f0ff411756",
+      "raw_bytes": 6492,
+      "indexed_bytes": 6455
+    },
+    "docs/stories/EQ-142_PROTOCOL_DRAFT.md": {
+      "git_blob": "ec1790a7ef44f95b8e51545daa1f426a55c61a6f",
+      "raw_sha256": "afa4cbbd93e37c3785bed2c6406d141c225a7a640156447a5377fd7f2307f568",
+      "raw_bytes": 27367,
+      "indexed_bytes": 27367
+    },
+    "docs/stories/EQ-142_BASELINE_PREPARATION.md": {
+      "git_blob": "e68ea6f4813775daeddd8d94a209474dd0eedbe4",
+      "raw_sha256": "67196a5cbc154daa8262c6331f264877e58a69d7394faa2a716c534e83a272d0",
+      "raw_bytes": 10309,
+      "indexed_bytes": 10309
+    },
+    "docs/stories/EQ-142_INDEPENDENT_CASES_DRAFT.json": {
+      "git_blob": "c795e040ac08862fefb1024ff6f10f0da8aa8ebd",
+      "raw_sha256": "ebb052e8149900cf1a4bb5aed57f720aa710e82086b7a02b5c3573888fd58346",
+      "raw_bytes": 9928,
+      "indexed_bytes": 9928
+    },
+    "docs/stories/EQ-142_RECORD_CONTRACTS.json": {
+      "git_blob": "26b294dce2755588b4431222694cdd0e323fc498",
+      "raw_sha256": "d4bb312ac15f4ce7a9376f193810e50e7480fb8695ed9378573c3e1f5f1b413d",
+      "raw_bytes": 34537,
+      "indexed_bytes": 33842
+    },
+    "docs/stories/EQ-142_BENCHMARK_PROTOCOL.json": {
+      "git_blob": "63fc9e7d64a292c676629dae280b8825d77f694d",
+      "raw_sha256": "f26f39076c72852a9df1b0219d939a4c9dd19605047b683e40d82e0b2b00d254",
+      "raw_bytes": 14356,
+      "indexed_bytes": 14013
+    },
+    "docs/stories/EQ-142_CLOSED_HOOK_INVENTORY.json": {
+      "git_blob": "2c4b273bdc32d76f075b0050fc7d44ff2e240f10",
+      "raw_sha256": "72076356c42a1afdddd90fe647786c011a74fd3d73a0bd73fe5726bd37db879c",
+      "raw_bytes": 35786,
+      "indexed_bytes": 35786
+    },
+    "docs/stories/EQ-142_WORKLOAD_PREFLIGHT.json": {
+      "git_blob": "4ba16342dd4da61818e8cf218ac5d9800144ed60",
+      "raw_sha256": "8cbd9ba99ddf1d7f6aee9175bd29d1059c12ca6751a55005727bb3f390b9a14a",
+      "raw_bytes": 232979,
+      "indexed_bytes": 232979
+    },
+    "tests/fixtures/eq142_graph/GRAPH_EXPECTATIONS.json": {
+      "git_blob": "ba85c1bdcedc6e62a6c2eae1a46afb7e6d12f6b8",
+      "raw_sha256": "2890dc8d9f0fc77d01caae046eb8a6dfa0bde86f7ce0bcbfd16372a2a396453f",
+      "raw_bytes": 9721,
+      "indexed_bytes": 9721
+    },
+    "tests/fixtures/eq142_graph/CANONICAL_CASES.json": {
+      "git_blob": "9935a946514d5c48899c59b7a6c4ea2b60ac6429",
+      "raw_sha256": "cdcf805501389fb1fed25f7410e3f5439eb35c0000f684feed79688abfca142f",
+      "raw_bytes": 280467,
+      "indexed_bytes": 280467
+    },
+    "tests/fixtures/eq142_graph/generate_original.py": {
+      "git_blob": "f665344a601849f0776af52627b2808fc89f3b9e",
+      "raw_sha256": "b60619bf592a0b416310e7ef606c244d80afa1decd366c256a0b100c83fb47ca",
+      "raw_bytes": 18687,
+      "indexed_bytes": 18687
+    },
+    "docs/reviews/GOV034_CLOSING_PUBLIC_READBACK.json": {
+      "git_blob": "495e91ed51e3f7d1f8bbd5c75c7bf14502b0bdab",
+      "raw_sha256": "236ca8d9d6bb7ddab3b898532613436eeb7741e6cb295e5ae44b4cad84f6e1d8",
+      "raw_bytes": 4562,
+      "indexed_bytes": 4562
+    },
+    "docs/PROJECT_KNOWLEDGE.md": {
+      "git_blob": "167fc0b7a0976c203f74a6f2d7c7afd9f7f578f2",
+      "raw_sha256": "3244d5fad594137c6998099836af7f6b5032e0f3c2426ac45aa7adcb2a369fae",
+      "raw_bytes": 683637,
+      "indexed_bytes": 683637
+    },
+    "docs/SESSION_HANDOFF.md": {
+      "git_blob": "0b318c85c2926c1784929c246888b33806aee1f9",
+      "raw_sha256": "363068a511f1205fb7f904585aa53fb8d7bfa3a78510364245f52078f9dddaa3",
+      "raw_bytes": 1057506,
+      "indexed_bytes": 1057506
+    },
+    "docs/knowledge/LESSONS.md": {
+      "git_blob": "1c9706eed24031b9916a6b7bc7897259b24b2bb4",
+      "raw_sha256": "7ea20e1e35b3a781917177f950806a757e443b6d253008ace6f8f363ee191249",
+      "raw_bytes": 415942,
+      "indexed_bytes": 415942
+    },
+    "AGENTS.md": {
+      "git_blob": "7b9caf3f75906b8032401ed36a9af537f8bc4d73",
+      "raw_sha256": "8ced1e84d625482a281b0c92df4c8b54056fcf856019ce29c3e91782d21576af",
+      "raw_bytes": 21063,
+      "indexed_bytes": 20945
+    },
+    "docs/CODE_REVIEW.md": {
+      "git_blob": "74ae154b546d3e8a9d4e31902b4c6a907c7ffd08",
+      "raw_sha256": "b0d22dfdc6ee70f969e7b659ea5f9018706f9b9ca249befc7a6006275444f21b",
+      "raw_bytes": 41613,
+      "indexed_bytes": 41370
+    },
+    "docs/PUBLIC_DEVELOPMENT.md": {
+      "git_blob": "7931e233dffa93762febce8fba9fba8efe2b0824",
+      "raw_sha256": "5b4b4d4eaaa7405fef36f2f114131eea7aae7dd59b978ac900b10c019e813a37",
+      "raw_bytes": 9483,
+      "indexed_bytes": 9415
+    },
+    "docs/DELIVERY_POLICY.md": {
+      "git_blob": "5d90b5cba8c1a8d3adafcda081440bbbb70b5e4b",
+      "raw_sha256": "40be1599dc2b7b3cbaedaa1b68385837771bc5cc4c3f832e7706e3994c75f899",
+      "raw_bytes": 8010,
+      "indexed_bytes": 7939
+    },
+    "docs/R18_AUTONOMOUS_HANDOFF.md": {
+      "git_blob": "8b3dc3dabdfb66d982ecd9b1389dfc6d823fcb70",
+      "raw_sha256": "107142c9f0a1012f454c27c162ddcb7298d306008cfd5b7ebdb58f45e3651bb9",
+      "raw_bytes": 8485,
+      "indexed_bytes": 8438
+    },
+    "docs/R18_INPUTS.json": {
+      "git_blob": "dbc75b658cae6dc6c35391f02b82e556f8be1227",
+      "raw_sha256": "7190805a2626d31dcd0e663b7041a6b46072d6154dfa1c2035db20ff23164fdc",
+      "raw_bytes": 9381,
+      "indexed_bytes": 9115
+    }
+  },
+  "index_policy": "Index excludes this inventory itself to avoid circular self hash. Exact final commit review binds inventory plus indexed files. Raw sha256/bytes distinguish Windows line endings from indexed Git blobs. Source/protocol/fixture bytes change => renew relevant coverage.",
+  "next": "Separate exact final committed packet/current inputs Ready review. Only actual Ready PASS admits Ready then assignment/In progress. Implement graph/tracer/native/harness outside calculations; qualify actual source/runtime/alias/spawn/restoration/count/error/clock/trace/resource/installed controls before frozen A/A timing. No cache/scheduler/default adoption in EQ142.",
+  "nonclaims": [
+    "runtime implemented",
+    "performance timing",
+    "Ready accepted",
+    "R18 released",
+    "fastest library",
+    "physical resource enforcement",
+    "live SLA"
+  ]
+}

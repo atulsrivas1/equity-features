@@ -1,0 +1,138 @@
+{
+  "reviewer": "Authorized separate automated local Codex reviewer r17_review; not human or hosted review",
+  "utc": "2026-10-19T20:23:49.547185+00:00",
+  "stage": "closing",
+  "main": "fbb3d30efbe37d9f0c56728787209764dde68ba8",
+  "checks": [
+    {
+      "name": "GOV034_FINAL_SOURCE_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_CLOSING_READBACK.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_HOSTED_ARTIFACT_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "Exact unchanged execution inputs",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-workers actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-io actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "12211898603 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "12212142183 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "GOV034_CANDIDATE_DELIVERY_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "GOV034_CANDIDATE_DELIVERY_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Accepted exact candidate delivery",
+      "pass": true
+    },
+    {
+      "name": "GOV034_MAIN_SOURCE_READBACK.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "GOV034_MAIN_SOURCE_READBACK.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "GOV034_MAIN_FINAL_ACCEPTANCE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "GOV034_MAIN_FINAL_ACCEPTANCE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Actual accepted matching main source/final",
+      "pass": true
+    },
+    {
+      "name": "Actual current canonical main unchanged",
+      "pass": true
+    },
+    {
+      "name": "Actual main35 stays source-bound successful",
+      "pass": true
+    },
+    {
+      "name": "GOV034_POSTRELEASE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "GOV034_POSTRELEASE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Exact accepted governance postrelease review",
+      "pass": true
+    },
+    {
+      "name": "Actual GOV034 CLOSED Done",
+      "pass": true
+    },
+    {
+      "name": "476 R18 implementation still Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "477 R18 implementation still Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "478 R18 implementation still Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "479 R18 implementation still Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "480 R18 implementation still Backlog/unassigned",
+      "pass": true
+    },
+    {
+      "name": "All seven exact R18 assigned issues preserved",
+      "pass": true
+    },
+    {
+      "name": "R18 milestone remains open governance only",
+      "pass": true
+    }
+  ],
+  "candidate_review_sha256": "05f0684bf1e36583fc58a70a6525297d11fe48e545166161d1aee0b7a62fa30e",
+  "main_source_review_sha256": "cd3a17f2477615a0b455132d46135da345c416039652dffcd988b7bdebffbf04",
+  "final_review_sha256": "0076e853e68a59d39c320f72f61c4c53623ccc2bc03d485c5024449a7be69381",
+  "findings": [],
+  "limits": [
+    "No source/GitHub/lifecycle mutation or workload/numerical/build/installed/native execution.",
+    "Current exact prior six-package channel reused only unchanged execution; finite retention/original installed evidence limits remain.",
+    "GOV034 delivery does not accept EQ142 Ready or R18 release/aggregate. Own concrete reviewed EQ142 packet/current inputs still mandatory; no R19+ authority."
+  ],
+  "result": "ACTUAL_GOV034_CLOSING_READBACK_PASS_NOT_R18_RELEASE",
+  "original_private_receipt_sha256": "267aaf0d30156ce90d099302b8b91aacdca3399fba3377185ce65218229e722f",
+  "derivative_notice": "Public derivative; distinct bytes, no new execution.",
+  "postrelease_review_sha256": "877737d86975385413481f3250417e28eb14aa038c1114449ac2b90418e81db4",
+  "manual_metadata_review": "Actual issue564 CLOSED/ProjectDone/sixchecked and merged PR Done prefix accurate; all seven milestone22 items preserved, milestone remains open6open1closed; five runtime children Backlog/unassigned. Original source/main35/current finite six-package channel remain unchanged."
+}
