@@ -37,6 +37,18 @@ Source: [implementation inventory](https://github.com/atulsrivas1/equity-feature
 
 The optional continuous-market package has six separate batch definitions; it does not expand the 39-ID equity registry or make history incremental. Generic strategy scanning/ranking and future labels are optional consumers. An extension mechanism is not implementation of every externally named feature. Daily APIs do not imply arbitrary intraday-bar support. Exact notional, close-weighted proxies, sampling, window anchors and formula versions remain distinct.
 
+### Source and worker coverage are separate
+
+| Layer | Current source-supported coverage | Planning consequence |
+| --- | --- | --- |
+| DuckDB input mapping | Trades, TBBO as trade-snapshot quotes, 1-minute bars and daily bars | TBBO does not provide continuous quote coverage; grids, sampling, actual-notional availability and admission still matter |
+| Local CSV/Parquet/DBN adapter | Normalized ordinary trades | File format support does not imply quote/bar/status or live-feed capability |
+| Session worker dispatcher | `compute_bars`, `compute_trades`, `compute_quotes` | Separate core `compute_structure` (two IDs), `compute_top_k` and `compute_time_weighted` are not wired into this dispatcher |
+| Prior-close-dependent bar values | Pure `compute_bars` accepts `prior_close`; current session dispatcher calls it with batch/config/entity only | Emitting a feature ID does not supply its prior-close binding; distinguish a produced unavailable result from a fully supplied calculation |
+| Required-input/breadth workers | Explicit history/baseline/relative command families and declared-universe breadth commands | Caller-owned contexts/witnesses and actual admitted dependencies remain necessary; there is no automatic universal feature DAG |
+
+These observations describe the inspected interfaces, not defects inferred in already accepted release scope. Evidence: [session dispatch](https://github.com/atulsrivas1/equity-feature-workers/blob/a69ae9cfeb62730fc78705b4752b94c6f9438275/packages/workers/src/equity_feature_workers/commands.py), [separate core session exports](https://github.com/atulsrivas1/equity-features/blob/76f650058cf10825706385272c940a161a8f5c4e/packages/features/src/equity_features/session/__init__.py), [prior-close API](https://github.com/atulsrivas1/equity-features/blob/76f650058cf10825706385272c940a161a8f5c4e/packages/features/src/equity_features/session/bars.py), [DuckDB mapping](https://github.com/atulsrivas1/equity-feature-io/blob/18d86761aa3eebb7414e51e8fa2aba089717b5eb/packages/duckdb/src/equity_feature_duckdb/mapping.py), [file adapter capabilities](https://github.com/atulsrivas1/equity-feature-io/blob/18d86761aa3eebb7414e51e8fa2aba089717b5eb/packages/files/src/equity_feature_files/adapter.py). Select any wiring/input-contract changes explicitly before treating them as executable performance workloads.
+
 ## Dependency records before scheduling
 
 For each selected output, record:
