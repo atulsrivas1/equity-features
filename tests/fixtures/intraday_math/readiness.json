@@ -1,0 +1,20 @@
+{
+  "schema": "equity-features.intraday-readiness-expectations.v1",
+  "scope": "Manually specified conditional cases for later production tests; no production admission or codec execution is claimed by this file.",
+  "base": {"anchor":0,"target":4,"period":3,"closes":[10,12,11,14,13],"highs":[11,13,13,15,15],"lows":[9,10,10,11,12],"slot_end_ns":[10,20,30,40,50],"C":50,"K":60,"known_at_ns":[10,20,30,40,50],"complete_each_slot":true,"volume_column":"absent","source":"original synthetic conditional fixture"},
+  "cases": [
+    {"name":"close_only_columns","change":{"absent_columns":["high","low"]},"expect":{"ema":{"status":"available","expected":5,"observed":5},"rsi":{"status":"available","expected":5,"observed":5},"atr":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":1},"bands":{"status":"available","expected":3,"observed":3}}},
+    {"name":"target_close_null_without_volume","change":{"null_close_indices":[4]},"expect":{"ema":{"status":"incomplete_coverage","reasons":["null_field"],"expected":5,"observed":4},"rsi":{"status":"incomplete_coverage","reasons":["null_field"],"expected":5,"observed":4},"atr":{"status":"available","expected":5,"observed":5},"bands":{"status":"incomplete_coverage","reasons":["null_field"],"expected":3,"observed":2}}},
+    {"name":"old_governed_gap","change":{"omitted_row_and_coverage_indices":[0]},"expect":{"ema":{"status":"incomplete_coverage","reasons":["governed_gap"],"expected":5,"observed":4},"rsi":{"status":"incomplete_coverage","reasons":["governed_gap"],"expected":5,"observed":4},"atr":{"status":"incomplete_coverage","reasons":["governed_gap"],"expected":5,"observed":4},"bands":{"status":"available","expected":3,"observed":3}}},
+    {"name":"old_unknown_knowledge","change":{"known_at_ns":[null,20,30,40,50]},"expect":{"ema":{"status":"incomplete_coverage","reasons":["unknown_availability"],"expected":5,"observed":4},"rsi":{"status":"incomplete_coverage","reasons":["unknown_availability"],"expected":5,"observed":4},"atr":{"status":"incomplete_coverage","reasons":["unknown_availability"],"expected":5,"observed":4},"bands":{"status":"available","expected":3,"observed":3}}},
+    {"name":"completed_equal_cutoff","change":{},"expect":{"ema":{"status":"available","expected":5,"observed":5},"rsi":{"status":"available","expected":5,"observed":5},"atr":{"status":"available","expected":5,"observed":5},"bands":{"status":"available","expected":3,"observed":3}},"evidence_boundary":"completed_interval"},
+    {"name":"future_known_target","change":{"known_at_ns":[10,20,30,40,61]},"expect":{"ema":{"status":"incomplete_coverage","reasons":["future_knowledge"],"expected":5,"observed":4},"rsi":{"status":"incomplete_coverage","reasons":["future_knowledge"],"expected":5,"observed":4},"atr":{"status":"incomplete_coverage","reasons":["future_knowledge"],"expected":5,"observed":4},"bands":{"status":"incomplete_coverage","reasons":["future_knowledge"],"expected":3,"observed":2}}},
+    {"name":"absent_delivery","change":{"batches":null},"expect":{"ema":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":0},"rsi":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":0},"atr":{"status":"missing_input","reasons":["absent_input"],"expected":5,"observed":0},"bands":{"status":"missing_input","reasons":["absent_input"],"expected":3,"observed":0}}}
+  ],
+  "global_admission_cases": [
+    {"name":"forming_supplied_row","change":{"C":49},"error":"bounds"},
+    {"name":"positive_volume_supplied_null_high","change":{"positive_volume_indices":[4],"null_high_indices":[4]},"error":"invalid_schema","note":"Malformed supplied OHLC remains a global error, even for a close-only request."},
+    {"name":"control_in_session_identity","change":{"session_id":"S\n1"},"error":"invalid_config"},
+    {"name":"duplicate_row_across_chunks","change":{"duplicate_row_index":2},"error":"duplicate"}
+  ]
+}
