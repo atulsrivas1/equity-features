@@ -1,7 +1,7 @@
 # Equity Features Intraday
 
-Experimental pure supplied-data intraday preparation and snapshot EMA/RSI/ATR,
-distribution `equity-features-intraday`0.1.0a2, Python3.12, Apache-2.0.
+Experimental pure supplied-data intraday preparation and snapshot EMA/RSI/ATR and rolling price bands,
+distribution `equity-features-intraday`0.1.0a3, Python3.12, Apache-2.0.
 Callers supply canonical BAR facts, actual exchange sessions and an explicit
 bounded intraday grid. Context/configuration, coverage, action/unit/source
 identity and known-at eligibility are validated without acquisition or I/O.
@@ -25,8 +25,13 @@ seeds and ordered Decimal120 recurrences in an explicit local context. Each
 output has its own N/N+1 warm-up, required fields, quality and evidence. RSI
 preserves the initialized gain/loss ratio through a long flat tail. Shared
 preparation and direct calls produce the same complete selected result.
-Own discovery has eight IDs: three executable batch indicators, five planned
-band outputs whose invocation raises UNSUPPORTED_CAPABILITY (EQ139).
+Rolling middle/upper/lower/width/position consume exact population moments
+and an unrounded radius witness. Cancellation-safe expressions preserve exact
+zeros, tiny/nonpositive lower values and positions outside[0,1]. Zero variance
+leaves price bands and width available; only position is not applicable.
+Own discovery has eight executable batch IDs, with all state flags false.
+This a3 source is under EQ139 qualification; source tests do not establish
+installed delivery or new measured performance.
 Existing core39 discovery and daily calculations remain unchanged. Public
 incremental update, checkpoint restore and arbitrary merge are unsupported.
 
@@ -34,5 +39,5 @@ The channel is qualifying GitHub Actions main artifacts/source with finite
 retention, described in the repository build/delivery guide; registry/stable
 publication is not selected. [EQ137 acceptance](https://github.com/atulsrivas1/equity-features/issues/471)
 records accepted preparation0.1.0a1 delivery. [EQ138](https://github.com/atulsrivas1/equity-features/issues/472)
-records actual0.1.0a2 review, qualification and delivery status. Historical
+records actual0.1.0a3 review, qualification and delivery status. Historical
 preparation timings do not establish output performance for this version.

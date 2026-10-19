@@ -1,0 +1,219 @@
+{
+  "scope": "Author initial EQ139 source development checks; no separate review, performance, installed package, candidate/main CI or delivery acceptance.",
+  "accepted_input_main": "ee516615aec269e75f9f053ef14b39e440cae743",
+  "initial_plan_parent": "4678e596e68ffccadfe7eeb8b04cadefbbbbbbfe",
+  "python": "3.12.10",
+  "mypy": "1.15.0",
+  "intraday_distribution": "0.1.0a3",
+  "checks": [
+    {
+      "check": "intraday",
+      "methods": 78,
+      "returncode": 0
+    },
+    {
+      "check": "intraday_reference",
+      "methods": 24,
+      "returncode": 0
+    },
+    {
+      "check": "history_reference",
+      "methods": 31,
+      "returncode": 0
+    },
+    {
+      "check": "legacy_benchmark_guards",
+      "methods": 5,
+      "returncode": 0
+    },
+    {
+      "check": "indicator_benchmark_guards",
+      "methods": 7,
+      "returncode": 0
+    },
+    {
+      "check": "ci_gate",
+      "methods": 13,
+      "returncode": 0
+    },
+    {
+      "check": "ci_provenance",
+      "methods": 12,
+      "returncode": 0
+    },
+    {
+      "check": "strict_typing",
+      "methods": null,
+      "returncode": 0
+    },
+    {
+      "check": "shared_purity",
+      "methods": null,
+      "returncode": 0
+    },
+    {
+      "check": "intraday_purity",
+      "methods": null,
+      "returncode": 0
+    },
+    {
+      "check": "example",
+      "methods": null,
+      "returncode": 0
+    }
+  ],
+  "total_methods": 170,
+  "strict_source_example_files": 10,
+  "intraday_boundary_controls": {
+    "negative": 24,
+    "positive": 6
+  },
+  "original_golden_cases": 13,
+  "additional_centered_period_scale_multiplier_cases": 36,
+  "band_nonempty_selected_subsets": 31,
+  "new_band_methods": 14,
+  "source_snapshot_excludes_receipt_itself": true,
+  "source_files": {
+    "docs/BUILD_DELIVERY.md": {
+      "git_blob_sha1": "17075e86427aee1f93b01698bba9ce28964d3e1d",
+      "git_bytes_sha256": "32636f528bb74b2d752b084ae569f8505ba3d3cb726aeff5b75d537fccf5d84e",
+      "materialized_sha256": "32636f528bb74b2d752b084ae569f8505ba3d3cb726aeff5b75d537fccf5d84e"
+    },
+    "docs/CHANGELOG.md": {
+      "git_blob_sha1": "cc23043d7ab229e2eb73478e0eaee0c8dfe9c9f1",
+      "git_bytes_sha256": "60f53db46ed67be3c71d74f7dd2ef082595fb45bb53ac197bd1aff477206f310",
+      "materialized_sha256": "60f53db46ed67be3c71d74f7dd2ef082595fb45bb53ac197bd1aff477206f310"
+    },
+    "docs/COMPATIBILITY.md": {
+      "git_blob_sha1": "b29e7b889a483f10c2bbda84ffa0e39b02213588",
+      "git_bytes_sha256": "e94790dc7635358fb2431532149382b7d7b363688c30615eeb621832c296d481",
+      "materialized_sha256": "e94790dc7635358fb2431532149382b7d7b363688c30615eeb621832c296d481"
+    },
+    "docs/PROJECT_KNOWLEDGE.md": {
+      "git_blob_sha1": "4dbf3beb8665c035c472b9946657ce742f2749c1",
+      "git_bytes_sha256": "3cbe3f6937031b4a1a0e97b8eaa09d86e4a8fd2348647ac9b8b0f07d93d153d4",
+      "materialized_sha256": "3cbe3f6937031b4a1a0e97b8eaa09d86e4a8fd2348647ac9b8b0f07d93d153d4"
+    },
+    "docs/R17_TEST_STRATEGY.md": {
+      "git_blob_sha1": "395749367336fc3ef3c71c494e1ed17b45d06096",
+      "git_bytes_sha256": "d06eb7fa6523deb95b7a98983bc4009706a472c121855a982885e593e38a97a1",
+      "materialized_sha256": "d06eb7fa6523deb95b7a98983bc4009706a472c121855a982885e593e38a97a1"
+    },
+    "docs/SESSION_HANDOFF.md": {
+      "git_blob_sha1": "c91a370c5d7fe2dcf9a027e7da1c152d0f6b6179",
+      "git_bytes_sha256": "e50328a2b34a052ff81b64c49c9cd7fb9bff7cac40c668aff7a16a1d0188007a",
+      "materialized_sha256": "e50328a2b34a052ff81b64c49c9cd7fb9bff7cac40c668aff7a16a1d0188007a"
+    },
+    "docs/api/INTRADAY.md": {
+      "git_blob_sha1": "2fd493aa43fbecf3b247ce508163640c0cd09106",
+      "git_bytes_sha256": "5469af89669c98ab7f7e02547337d6ac177ced1bd50ad635a30f50aa1effeb5f",
+      "materialized_sha256": "5469af89669c98ab7f7e02547337d6ac177ced1bd50ad635a30f50aa1effeb5f"
+    },
+    "docs/decisions/R17_INTRADAY_PACKAGE.md": {
+      "git_blob_sha1": "df41b283a88be37c1624b8889aefe24bcc7f92aa",
+      "git_bytes_sha256": "548edcf3ddedfdeab3390cd878422415a76af6fbdb1c94ef431c8bba171d6b26",
+      "materialized_sha256": "548edcf3ddedfdeab3390cd878422415a76af6fbdb1c94ef431c8bba171d6b26"
+    },
+    "docs/features/INTRADAY_FOUNDATIONS.md": {
+      "git_blob_sha1": "baa70006b03c73068029db4f70c526e550985ed9",
+      "git_bytes_sha256": "e688691522817b8e9b45e56daabf48dd8477a57acc025df0ba2832038bbfe8ff",
+      "materialized_sha256": "e688691522817b8e9b45e56daabf48dd8477a57acc025df0ba2832038bbfe8ff"
+    },
+    "docs/knowledge/LESSONS.md": {
+      "git_blob_sha1": "470dd392cad1fd6c2a45985a5ff19dcb23f0a859",
+      "git_bytes_sha256": "0b353a677ec999e29da28159b2730791f24b46e9eedc235f9bd939686389c657",
+      "materialized_sha256": "0b353a677ec999e29da28159b2730791f24b46e9eedc235f9bd939686389c657"
+    },
+    "docs/stories/EQ-139_PLAN.md": {
+      "git_blob_sha1": "835ae36a0e407baf11a61a427ba6439d38af398a",
+      "git_bytes_sha256": "0ee751afa271c79a3acfcd937a4a08e84a9781f2aaaa10aca58b08603cc8692e",
+      "materialized_sha256": "0ee751afa271c79a3acfcd937a4a08e84a9781f2aaaa10aca58b08603cc8692e"
+    },
+    "examples/intraday_preparation.py": {
+      "git_blob_sha1": "6505467bffa04a799c344ac653eb7a3cb4e9aaf7",
+      "git_bytes_sha256": "08912e33a8dfe152365bead0dbcebeb521200121cfeef351985f3c074d54ac50",
+      "materialized_sha256": "08912e33a8dfe152365bead0dbcebeb521200121cfeef351985f3c074d54ac50"
+    },
+    "examples/typing/intraday_positive.py": {
+      "git_blob_sha1": "171b93919c62042bb1975cf881055cf0f4cebf09",
+      "git_bytes_sha256": "56f724ad23ccdf6d8fad31a08451be9cef789ff2406a49b12fb67e7df94f1d2e",
+      "materialized_sha256": "56f724ad23ccdf6d8fad31a08451be9cef789ff2406a49b12fb67e7df94f1d2e"
+    },
+    "packages/intraday/README.md": {
+      "git_blob_sha1": "c6cf37713453e098316f646d28365b43556190d5",
+      "git_bytes_sha256": "85374e91f651d91b75792d0c531770b61fc0ba7e56e47e384841f2f03dfa5239",
+      "materialized_sha256": "85374e91f651d91b75792d0c531770b61fc0ba7e56e47e384841f2f03dfa5239"
+    },
+    "packages/intraday/pyproject.toml": {
+      "git_blob_sha1": "b516155bc653b7c79cc64090b31e8272c084452c",
+      "git_bytes_sha256": "9abfe16a898d5377a1bce9fa9f5f28dd4f5888b127d9936fa3d06867a8f2c7c6",
+      "materialized_sha256": "9abfe16a898d5377a1bce9fa9f5f28dd4f5888b127d9936fa3d06867a8f2c7c6"
+    },
+    "packages/intraday/src/equity_features_intraday/__init__.py": {
+      "git_blob_sha1": "fff68c56cdecc7e09a6587ebcda65ad214c51be1",
+      "git_bytes_sha256": "af90965c1dfca30269f8a459920533795815726fefb395665f3167fd1e274dae",
+      "materialized_sha256": "af90965c1dfca30269f8a459920533795815726fefb395665f3167fd1e274dae"
+    },
+    "packages/intraday/src/equity_features_intraday/_bands.py": {
+      "git_blob_sha1": "87f9552b2d8216ce8f677aa8fdc8bdff57babae2",
+      "git_bytes_sha256": "476caea16d35d8d8e0f292adc180e3a2c82b7758ed550bb99c1f3a4142f4d7f1",
+      "materialized_sha256": "476caea16d35d8d8e0f292adc180e3a2c82b7758ed550bb99c1f3a4142f4d7f1"
+    },
+    "packages/intraday/src/equity_features_intraday/_dispatch.py": {
+      "git_blob_sha1": "daa1b1d487c305bfe3579af9f1f12378e198259a",
+      "git_bytes_sha256": "d5c148d544f321ea1dc519e31f3e1f63e8e5530a9a9299bb00997512170f1ec7",
+      "materialized_sha256": "51c88d2899084236e30a29f459a18152ead8f4c248140cfcbf216984c3b94483"
+    },
+    "packages/intraday/src/equity_features_intraday/_registry.py": {
+      "git_blob_sha1": "13c41a749421ef55418a93cb9a6855ac04f6962c",
+      "git_bytes_sha256": "ae04e403552958895d72815260c94657499fcbdb5d3ff932576572d26bec077b",
+      "materialized_sha256": "ae04e403552958895d72815260c94657499fcbdb5d3ff932576572d26bec077b"
+    },
+    "tests/fixtures/intraday_bands/GOLDENS.json": {
+      "git_blob_sha1": "4db03e606edb22bca68d2a7215be82edaeecc1ed",
+      "git_bytes_sha256": "6b2e6cbbde2483b75ec675b445dd5301f629a9f9bedb14ea89f0108c80d75331",
+      "materialized_sha256": "6b2e6cbbde2483b75ec675b445dd5301f629a9f9bedb14ea89f0108c80d75331"
+    },
+    "tests/fixtures/intraday_bands/README.md": {
+      "git_blob_sha1": "d1a9f8d521d721d1ec64b2a88703a33e4a9cc93a",
+      "git_bytes_sha256": "77df76337b933ab33498de47545a68d2863ed246b099937d8eba967a4e2b32d2",
+      "materialized_sha256": "77df76337b933ab33498de47545a68d2863ed246b099937d8eba967a4e2b32d2"
+    },
+    "tests/fixtures/intraday_bands/generate_original.py": {
+      "git_blob_sha1": "dc77da99bed47ab41c79d261d1e76b8d0437893b",
+      "git_bytes_sha256": "664e3767137df9d9d38a25bca921c2907227a2e0a8bd02740090d76b31d9b547",
+      "materialized_sha256": "664e3767137df9d9d38a25bca921c2907227a2e0a8bd02740090d76b31d9b547"
+    },
+    "tests/intraday/test_bands.py": {
+      "git_blob_sha1": "b76c1039f9e06a4ef56088fa21436c287680a7af",
+      "git_bytes_sha256": "433076507ced9f5fbe7baf3940f33abf8615d3e56857abe8acec3a02a81d59ce",
+      "materialized_sha256": "433076507ced9f5fbe7baf3940f33abf8615d3e56857abe8acec3a02a81d59ce"
+    },
+    "tests/intraday/test_capability.py": {
+      "git_blob_sha1": "cd239c32d73dafacd187aee577ba34a95acb340d",
+      "git_bytes_sha256": "691ed78ea1bbea9e5688c8292da52bccb924d617dc7dbaace87b1a2156cf3e27",
+      "materialized_sha256": "691ed78ea1bbea9e5688c8292da52bccb924d617dc7dbaace87b1a2156cf3e27"
+    },
+    "tools/benchmark_intraday_indicators.py": {
+      "git_blob_sha1": "30fd732f10ea0d42f09e02a43bb825fb151b1277",
+      "git_bytes_sha256": "dad9545e0d3c18bd2f2d9aee2f935d7d847e76d5212301cb9cc596e372216ab1",
+      "materialized_sha256": "dad9545e0d3c18bd2f2d9aee2f935d7d847e76d5212301cb9cc596e372216ab1"
+    },
+    "tools/benchmark_intraday_preparation.py": {
+      "git_blob_sha1": "6e94818a98391d27c3a17f1779eec603530ba639",
+      "git_bytes_sha256": "dcc72cfd8cb3c0569023ebaf2ba14eb7a366620bfb0ea68a202456004c3a9e01",
+      "materialized_sha256": "dcc72cfd8cb3c0569023ebaf2ba14eb7a366620bfb0ea68a202456004c3a9e01"
+    },
+    "tools/build_intraday.py": {
+      "git_blob_sha1": "78b6fe93f71e292315ec72abe7ff9cdd66d0d477",
+      "git_bytes_sha256": "c3eb8d540ff6cc42e0bbeb1beb9db30301b2367a19bae728b0bf627ab08e2292",
+      "materialized_sha256": "c3eb8d540ff6cc42e0bbeb1beb9db30301b2367a19bae728b0bf627ab08e2292"
+    },
+    "tools/check_intraday_boundary.py": {
+      "git_blob_sha1": "d5f5e4f20c9698df1fb63ec6fcdb054b376ab5fb",
+      "git_bytes_sha256": "b7c4b6e5d94a2a91f1144f4d299fc2aa9fbf143dfbfb2537e6c6e2efb8b4ed59",
+      "materialized_sha256": "b7c4b6e5d94a2a91f1144f4d299fc2aa9fbf143dfbfb2537e6c6e2efb8b4ed59"
+    }
+  },
+  "limits": "Initial source only; standalone36profile harness/new guards/build scopes/frozen qualification/timings/full final review/current CI/main delivery remain pending. Historical a1/a2 raw measurements remain at original sources."
+}

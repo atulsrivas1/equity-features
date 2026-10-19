@@ -1,3 +1,7 @@
+## EQ139 prospective a3 compatibility
+
+Optional intraday0.1.0a3 source now advertises all eight batch IDs with all state flags false; no core/contracts0.0.4a4/core39 or schema/math/algorithm change. Both existing benchmark import-version assertions and builder pins move together; their original a1/a2 raw measurement bytes/source identities stay historical. Current source checks78methods/strict10files do not substitute for exact current installed/both-platform artifacts, old-core absence/presence checks, final review or main acceptance. [EQ139 plan](stories/EQ-139_PLAN.md).
+
 ## EQ138 measured execution and current package compatibility
 
 All37f1measured execution entries remain byte-identical in the [successor applicability record](stories/EQ-138_MEASUREMENT_APPLICABILITY.json). Legacybenchmark retention repair and rawproof/docs/build/test changes do not imply whole-head identity; fresh successor qualification remains mandatory. Package/core pins/schema/mathpolicy/discovery boundaries are unchanged from the EQ138plan; no wireprepared state or new IO/worker support is inferred.

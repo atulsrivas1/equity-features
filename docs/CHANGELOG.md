@@ -1,3 +1,7 @@
+## EQ139 source development — intraday0.1.0a3
+
+Adds five independent rolling price-band batch cells using exact population moments, local Decimal120 radius and cancellation-safe lower/position evaluation. All eight own batch IDs are now executable in source; public state operations remain unsupported and core39/schema/math policy are unchanged. Original independent fixtures and full quality/evidence/identity cases accompany the source. Final review, new measured band comparison, installed artifacts and release acceptance remain pending; this is not a releaseda3 claim.
+
 ## EQ138 measurement and final-source qualification
 
 [Output measurements](stories/EQ-138_BENCHMARK.md) at exactf1source passed separate523-assertion evidence review: all6combined requests meet adoption (41.91–48.08% median reduction),18single-feature profiles retain ordinary calls,24full-result projections match. Public raw bytes/frozen margins and37unchanged execution entries are preserved. Legacy/new benchmark parent-closure failure paths now retain completed samples, with5legacy/7output guards. Final successor review/currentCI/bothOS/main acceptance remains; do not infer releaseda2 or R17completion from this component.

@@ -1,4 +1,4 @@
-"""Original supplied-data preparation and batch EMA example; no data acquisition."""
+"""Original supplied-data preparation and selected batch snapshots; no acquisition."""
 from fractions import Fraction
 from equity_feature_contracts import (
     AdjustmentSpec, AvailabilitySpec, BatchMetadata, CanonicalBatch, Column, Coverage,
@@ -22,9 +22,10 @@ def example() -> None:
     prepared=prepare_intraday((batch,),context,config,requirements=('price_moments','anchored_closes'))
     assert prepared.operand('price_moments').values==(Fraction(11),Fraction(2,3),Fraction(0))
     assert prepared.operand('anchored_closes').values==(Fraction(10),Fraction(12),Fraction(11))
-    result=compute_intraday((batch,),context,config,features=('intraday.ema',),preparation=prepared)
-    assert result.values[0].values==(11.0,)
-    assert result.metadata.backend_version=='0.1.0a2'
+    result=compute_intraday((batch,),context,config,features=('intraday.ema','intraday.band_middle','intraday.band_position'),preparation=prepared)
+    assert {column.feature_id:column.values[0] for column in result.values}=={
+        'intraday.band_middle':11.0,'intraday.band_position':0.5,'intraday.ema':11.0}
+    assert result.metadata.backend_version=='0.1.0a3'
 
 
 if __name__=='__main__':example()

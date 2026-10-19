@@ -1,3 +1,7 @@
+## EQ139 selected band arithmetic
+
+Prospective a3 retains the pure optional-package boundary and original mathematics. A selected band family shares exact moments and one unrounded radius; it does not wait on rounded price-feature outputs. Exact squared-radius and rationalized lower/negative-position expressions preserve signs and exactzeros under local Decimal120. [Accepted plan](../stories/EQ-139_PLAN.md) records the pre-code counterexample, original fixtures, independent tests and full qualification gates. No core/dependency/schema/state or worker-default change is selected. Existing source-bound a1/a2 performance evidence is historical, not a3 timing.
+
 ## EQ138 implementation decision
 
 The [accepted pre-code plan](../stories/EQ-138_PLAN.md) advances only the optional distribution to0.1.0a2 for three batch indicators. Keep core/contracts pins, schema1/math_policyv1 and intraday-v1 unchanged. Fresh explicit local Decimal120 arithmetic, exact seeds and one final Float64 conversion preserve bounded long-tail RSI and source independence; independent fixtures plus actual output timings must qualify the choice. Five band/state capabilities stay false. No executor/resource-default/provider/I-O change is selected in this story.
