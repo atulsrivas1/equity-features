@@ -1,3 +1,7 @@
+## Conditional final-audit preparation
+
+[EQ141 pre-code plan](stories/EQ-141_PLAN.md) is being published for conditional review while EQ140 actual-main qualification remains. EQ141 stays Backlog until EQ140 verified Done and its own exact public-packet Ready inputs/review. R17 is incomplete; live Project owns current status. This documentation-only preparation overlaps CI without starting another implementation story. Earlier checkpoints below retain historical scope.
+
 ## EQ137 delivery checkpoint — October 19, 2026
 
 EQ136 is accepted Done. EQ137 is In progress in [PR500](https://github.com/atulsrivas1/equity-features/pull/500). [Measured preparation evidence](stories/EQ-137_BENCHMARK.md) and independently reviewed candidate Windows/Linux artifacts qualify exact source `c7a46d6`; final-head review/CI/artifacts, publication and main acceptance remain. The [session handoff](SESSION_HANDOFF.md) records exact proofs, remaining gates and resume steps. Scope/dependencies are unchanged; the live Project owns status. Finish R17 before the selected R18 handoff and execution. Earlier snapshots below retain their original dates and limits.

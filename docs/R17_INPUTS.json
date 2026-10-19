@@ -2,7 +2,7 @@
   "schema": "equity-features.r17-handoff.v1",
   "owner_execution_selected": true,
   "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW",
-  "implementation_admission": "EQ136/EQ137 verified Done; EQ138 own Ready inputs accepted and implemented, exactf1 output measurements independently accepted523assertions (6combined adopted,18single directfallback). Finalsuccessor/source/currentCI/installed/main acceptance pending. EQ139-141 ownReady gates remain; liveProjectauthority.",
+  "implementation_admission": "EQ136–139 verified Done. EQ140 reviewed changes actually published; main source and both-platform package components accepted, actual51 main CI/final acceptance/Released/Done still required. EQ141 conditional public pre-code preparation only, Backlog until accepted140Done/currentinputs/separate public-packetReadyreview. LiveProjectauthority.",
   "governance_issue": 464,
   "planning_pr": 498,
   "epic": 465,
@@ -108,7 +108,7 @@
     "stories/EQ-137_FACT_READINESS.md",
     "stories/EQ-137_BENCHMARK.md"
   ],
-  "stop_after": "Verified R17 acceptance, then prepare the owner-selected R18 handoff and qualify R18 Ready/review inputs before execution. No R19\u201321 or live/provider/deployment/recurring scope.",
+  "stop_after": "Verified R17 acceptance, then prepare the owner-selected R18 handoff and qualify R18 Ready/review inputs before execution. No R19–21 or live/provider/deployment/recurring scope.",
   "planning_rebase_base": "61d16a11b9b47095a23ef010ddff1260a4993eca",
   "initial_planning_review": {
     "head": "7da0c12dbf5956ffc1e232b2ad9902780c61bbb9",
