@@ -1,3 +1,7 @@
+## EQ139 actual band measurement component
+
+The a3 five-band implementation passed separate original numerical/source review and source-bound9d51 measured evidence review781 assertions/504 retained samples. All six combined-band synthetic profiles measured66.997–72.137% lower medians under frozen parity/resource gates; two narrow large single-band profiles also pass,28retain direct fallback. Raw bytes, original margins and38-entry applicability are retained with eight band guards, alongside5legacy/7indicator controls. Historical502 Windows4forms passed; final successor/bothOS/currentCI/main/release acceptance is still pending. This is not a releaseda3 or completedR17 claim.
+
 ## EQ139 source development — intraday0.1.0a3
 
 Adds five independent rolling price-band batch cells using exact population moments, local Decimal120 radius and cancellation-safe lower/position evaluation. All eight own batch IDs are now executable in source; public state operations remain unsupported and core39/schema/math policy are unchanged. Original independent fixtures and full quality/evidence/identity cases accompany the source. Final review, new measured band comparison, installed artifacts and release acceptance remain pending; this is not a releaseda3 claim.

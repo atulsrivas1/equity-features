@@ -1,3 +1,7 @@
+## EQ139 measured component; final delivery pending
+
+[Actual band comparison](../stories/EQ-139_BENCHMARK.md) at frozen9d51 passed separate781-assertion evidence review:36A/36B profiles and504 retained samples preserve full-result projection parity. Six combined selections and two narrow large single-band observations pass every frozen gate;28nonwins retain direct fallback. All38 execution entries remain unchanged in the successor applicability map. This direct synthetic result is distinct from actual worker/live/end-to-end behavior and final current-head/both-platform installed/CI/main acceptance. The source API remains eight batch IDs with all public state flags false.
+
 ## EQ139 eight-output a3 source checkpoint
 
 Experimental intraday0.1.0a3 implements the five rolling band outputs over exact price_moments, alongside the accepted three recursive indicators. [Accepted plan](../stories/EQ-139_PLAN.md) freezes cancellation-safe evaluation and independent windows: exact R²=k²V, lower=(mu²-R²)/(mu+R), negative-residual position=(R²-r²)/(2R(R-r)); exact-zero numerators normalize+0.0. Other cells share the unrounded radius, not published rounded bounds. Zero variance makes only position null/not_applicable/zero_denominator. Width/position units remain fraction; bands require2..4096 slots and own per-window quality/evidence. No public state capability is added.

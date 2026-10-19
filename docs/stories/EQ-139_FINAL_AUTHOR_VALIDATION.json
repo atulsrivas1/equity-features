@@ -1,0 +1,88 @@
+{
+  "time": "2026-10-19T13:33:33.527332+00:00",
+  "scope": "Author final development checks; separate review/current CI/installed and delivery gates remain separate.",
+  "checks": [
+    {
+      "check": "intraday",
+      "methods": 78,
+      "returncode": 0
+    },
+    {
+      "check": "intraday_reference",
+      "methods": 24,
+      "returncode": 0
+    },
+    {
+      "check": "history_reference",
+      "methods": 31,
+      "returncode": 0
+    },
+    {
+      "check": "legacy_benchmark_guards",
+      "methods": 5,
+      "returncode": 0
+    },
+    {
+      "check": "indicator_benchmark_guards",
+      "methods": 7,
+      "returncode": 0
+    },
+    {
+      "check": "band_benchmark_guards",
+      "methods": 8,
+      "returncode": 0
+    },
+    {
+      "check": "ci_gate",
+      "methods": 13,
+      "returncode": 0
+    },
+    {
+      "check": "ci_provenance",
+      "methods": 12,
+      "returncode": 0
+    },
+    {
+      "check": "strict_typing",
+      "methods": null,
+      "returncode": 0
+    },
+    {
+      "check": "shared_purity",
+      "methods": null,
+      "returncode": 0
+    },
+    {
+      "check": "intraday_purity",
+      "methods": null,
+      "returncode": 0
+    },
+    {
+      "check": "example",
+      "methods": null,
+      "returncode": 0
+    }
+  ],
+  "total_methods": 178,
+  "catalog_digest": "e7dcd5fbaf28a3a74f4b26a6e638b2c3cc5d6271fab744297ab16595bab02d86",
+  "source_versions": {
+    "intraday": "0.1.0a3",
+    "contracts": "0.0.4a4",
+    "core": "0.0.4a4"
+  },
+  "batch_ids": [
+    "intraday.atr",
+    "intraday.band_lower",
+    "intraday.band_middle",
+    "intraday.band_position",
+    "intraday.band_upper",
+    "intraday.band_width_ratio",
+    "intraday.ema",
+    "intraday.rsi"
+  ],
+  "all_state_flags_false": true,
+  "measured_source": "9d51cbd26ba0de390fedccdf870f2c157ad6f054",
+  "measured_execution_entries": 38,
+  "new_guard_source_lf_sha256": "dfb965dc223ced00b42bdcf26a1078dcdf291ff306621c5f017d102c34fc2cf0",
+  "builder_source_lf_sha256": "e4043033723c7b039c0bf34de0c8e757499fe3f97a411083cc6813bbd0697e68"
+}

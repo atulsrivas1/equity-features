@@ -29,10 +29,13 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'tools/benchmark_intraday_preparation.py','tools/test_intraday_benchmark.py',
     'tools/benchmark_intraday_indicators.py','tools/test_intraday_indicator_benchmark.py',
     'tools/benchmark_intraday_bands.py','tools/test_intraday_band_benchmark.py',
-    'requirements-dev.txt','mypy.ini','.github/workflows/packages.yml',
+    '.gitattributes','requirements-dev.txt','mypy.ini','.github/workflows/packages.yml',
+    'docs/stories/EQ-139_FINAL_AUTHOR_VALIDATION.json',
     'docs/api/INTRADAY.md','docs/features/INTRADAY_FOUNDATIONS.md',
     'docs/stories/EQ-137_PLAN.md','docs/stories/EQ-137_FACT_READINESS.md',
     'docs/stories/EQ-138_PLAN.md','docs/stories/EQ-139_PLAN.md','docs/stories/EQ-139_BENCHMARK.md',
+    'docs/stories/EQ-139_BAND_BENCHMARK.json','docs/stories/EQ-139_BAND_BASELINE.json',
+    'docs/stories/EQ-139_MEASUREMENT_APPLICABILITY.json',
     'docs/stories/EQ-138_BENCHMARK.md','docs/stories/EQ-138_MEASUREMENT_APPLICABILITY.json',
     'docs/stories/EQ-138_INDICATOR_BENCHMARK.json','docs/stories/EQ-138_INDICATOR_BASELINE.json',
     'docs/stories/EQ-137_PREPARATION_BENCHMARK.json','docs/stories/EQ-137_PREPARATION_BASELINE.json']
@@ -145,7 +148,7 @@ def main():
         run(sys.executable,'-B',ROOT/'tools/test_intraday_indicator_benchmark.py')
         report['indicator_benchmark_guard_methods_passed']=7;save()
         run(sys.executable,'-B',ROOT/'tools/test_intraday_band_benchmark.py')
-        report['band_benchmark_guard_methods_passed']=7;save()
+        report['band_benchmark_guard_methods_passed']=8;save()
         with tempfile.TemporaryDirectory(prefix='intraday-',dir=work) as temporary:
             owned=Path(temporary).resolve();assert owned.is_relative_to(work.resolve())
             verification=owned/'verification'

@@ -8,3 +8,7 @@
 # Preserve EQ138 full-result measurements and frozen baseline exactly.
 /docs/stories/EQ-138_INDICATOR_BENCHMARK.json -text whitespace=cr-at-eol
 /docs/stories/EQ-138_INDICATOR_BASELINE.json -text whitespace=cr-at-eol
+
+# Preserve EQ139 raw band measurements and frozen baseline exactly.
+/docs/stories/EQ-139_BAND_BENCHMARK.json -text whitespace=cr-at-eol
+/docs/stories/EQ-139_BAND_BASELINE.json -text whitespace=cr-at-eol

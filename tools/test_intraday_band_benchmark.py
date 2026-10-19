@@ -11,6 +11,42 @@ import benchmark_intraday_bands as benchmark
 
 
 class BenchmarkGuardTests(unittest.TestCase):
+    def test_committed_band_measurement_retains_all_profiles_and_original_bytes(self):
+        root=benchmark.ROOT/'docs/stories'
+        report=(root/'EQ-139_BAND_BENCHMARK.json').read_bytes()
+        baseline=(root/'EQ-139_BAND_BASELINE.json').read_bytes()
+        self.assertEqual(hashlib.sha256(report).hexdigest(),'7faea4e4a1178c4989c59b2fca92d333ada98b1efe6253c589cf5224efb128c8')
+        digest=hashlib.sha256(baseline).hexdigest()
+        self.assertEqual(digest,'50f84119b0a17980ac11d3737b8f2b3920c522db28c36aadac702236cc23fdab')
+        value=json.loads(report);frozen=json.loads(baseline)
+        self.assertEqual(value['source_commit'],'9d51cbd26ba0de390fedccdf870f2c157ad6f054')
+        self.assertEqual(value['status'],'completed')
+        self.assertEqual(value['frozen_baseline_sha256'],digest)
+        self.assertEqual(value['baseline'],frozen['baseline'])
+        self.assertEqual(value['thresholds'],frozen['thresholds'])
+        self.assertEqual(frozen['candidate'],{})
+        self.assertEqual(frozen['decisions'],{})
+        self.assertEqual(set(value['baseline']),set(value['candidate']))
+        self.assertEqual(set(value['decisions']),set(value['cases']))
+        self.assertEqual(len(value['cases']),36)
+        samples=[]
+        for side in ('baseline','candidate'):
+            for item in value[side].values():
+                self.assertEqual(item['status'],'completed')
+                self.assertEqual(item['source_identity'],value['source_identity'])
+                self.assertEqual(item['warmups'],2)
+                self.assertEqual(len(item['samples']),7)
+                samples.extend(item['samples'])
+        self.assertEqual(len(samples),504)
+        expected={case for case in value['cases'] if case.endswith('/all')}|{'large/middle','large/lower'}
+        self.assertEqual({k for k,v in value['decisions'].items() if v['adopt_shared_for_case']},expected)
+        self.assertTrue(all(v['conditions']['full_projection_parity'] for v in value['decisions'].values()))
+        proof=json.loads((root/'EQ-139_MEASUREMENT_APPLICABILITY.json').read_bytes())
+        self.assertEqual(proof['source_entry_count'],38)
+        self.assertEqual(set(proof['files']),set(value['source_identity']['source']))
+        for name,identity in value['source_identity']['source'].items():
+            self.assertEqual(hashlib.sha256((benchmark.ROOT/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest(),identity['git_sha256'])
+
     def test_existing_report_or_baseline_is_never_overwritten(self):
         for existing in ('result.json','result.baseline.json'):
             with tempfile.TemporaryDirectory() as temporary:

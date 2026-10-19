@@ -1,3 +1,7 @@
+## EQ139 measured evidence and proof retention
+
+Separate numerical/source review ran170 fresh methods and295 original numerical scenarios/1608 scalars. Separately reviewed9d51 performance evidence has36 profiles/504 retained samples and781 evidence assertions;72 preflight full-result readiness comparisons do not replace those numerical oracles. All six combined requests and two narrow large singles meet frozen gates,28nonwins remain recorded. Eight band safeguards now retain original raw/sidecar hashes, all samples/source applicability, failed partial/parent-source data and all-A-before-B ordering; original5preparation/7indicator guards remain. [Measurement details/limits](stories/EQ-139_BENCHMARK.md) distinguish observations from pending final successor/installed/currentCI/main delivery.
+
 ## EQ139 original source fixtures
 
 [Original band goldens](../tests/fixtures/intraday_bands/README.md) use pairwise variance/rational-square arithmetic and independent Decimal240 direct expressions. Producer tests independently use centered Fraction variance/Decimal300 direct expressions,13fixedgoldens,36period/scale/multiplier cases,31subsets, extrema/scale18/int64/max4096, hostile global context, exactzero/negative/outside cases and complete quality/evidence/identity/reset/carry/correction checks. Current78source methods include14new band methods; strict10files passes. This source work is separate from timing, installation and release acceptance.
