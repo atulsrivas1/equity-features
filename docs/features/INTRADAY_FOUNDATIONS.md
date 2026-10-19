@@ -1,3 +1,7 @@
+## EQ138 independent output and measured-sharing evidence
+
+Independent exact impulse-response/interval-envelope cases validate102 scenarios/186 available scalar values/78warm-up checks, distinct from A/B parity. [Measured sourcef1](../stories/EQ-138_BENCHMARK.md) qualifies shared requests for all3indicators in six frozen cases; individual cases keep direct fallback. Actual math/units/warm-up/coverage/Float64 tolerance do not change. Current final source/installed/main acceptance remains the implementation issue's gate.
+
 ## EMA/RSI/ATR implementation checkpoint
 
 [EQ138 plan](../stories/EQ-138_PLAN.md) implements the three accepted batch recurrences using exact rational seeds, explicitly local Decimal120 arithmetic and one guarded final Float64 conversion. Independent original expanded geometric weights verify seeds/tails/scale/wide offsets, with long-flat RSI and hostile global-context cases. Each output uses its own required operands and N/N+1 warm-up; no bands/output dependencies or public recurrence state are introduced. Actual qualification and release evidence remains on EQ138.

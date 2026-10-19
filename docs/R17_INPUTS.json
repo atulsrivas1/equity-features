@@ -2,7 +2,7 @@
   "schema": "equity-features.r17-handoff.v1",
   "owner_execution_selected": true,
   "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW",
-  "implementation_admission": "EQ136 and EQ137 accepted Closed/Done, main e790c30241c4420a08adbf2e92403a4cd9a74375. EQ138 own public Ready inputs separately accepted28assertions; In progress. EQ139-141 retain own actual readiness/delivery gates. Live Project owns status.",
+  "implementation_admission": "EQ136/EQ137 verified Done; EQ138 own Ready inputs accepted and implemented, exactf1 output measurements independently accepted523assertions (6combined adopted,18single directfallback). Finalsuccessor/source/currentCI/installed/main acceptance pending. EQ139-141 ownReady gates remain; liveProjectauthority.",
   "governance_issue": 464,
   "planning_pr": 498,
   "epic": 465,

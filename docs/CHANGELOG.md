@@ -1,3 +1,7 @@
+## EQ138 measurement and final-source qualification
+
+[Output measurements](stories/EQ-138_BENCHMARK.md) at exactf1source passed separate523-assertion evidence review: all6combined requests meet adoption (41.91–48.08% median reduction),18single-feature profiles retain ordinary calls,24full-result projections match. Public raw bytes/frozen margins and37unchanged execution entries are preserved. Legacy/new benchmark parent-closure failure paths now retain completed samples, with5legacy/7output guards. Final successor review/currentCI/bothOS/main acceptance remains; do not infer releaseda2 or R17completion from this component.
+
 ## Intraday0.1.0a2 development — EQ138
 
 Selected batch EMA/RSI/ATR now have source implementations with independent warm-up/field readiness and exact-seed/local Decimal120 precision. Own discovery advertises exactly three batch outputs; bands/state remain unsupported. Core/contracts versions/39-ID discovery stay unchanged. [Plan](stories/EQ-138_PLAN.md) and [live issue](https://github.com/atulsrivas1/equity-features/issues/472) distinguish development checks from pending final review, timings, installed artifacts and delivery. EQ137 preparation0.1.0a1 is accepted Done on maine790, actual35checks/bothOS fourforms/final separate acceptance21 assertions.

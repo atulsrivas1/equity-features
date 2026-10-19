@@ -11,6 +11,28 @@ import benchmark_intraday_indicators as benchmark
 
 
 class BenchmarkGuardTests(unittest.TestCase):
+    def test_committed_output_report_and_frozen_baseline_bytes(self):
+        root=benchmark.ROOT/'docs/stories'
+        report=(root/'EQ-138_INDICATOR_BENCHMARK.json').read_bytes()
+        baseline=(root/'EQ-138_INDICATOR_BASELINE.json').read_bytes()
+        self.assertEqual(hashlib.sha256(report).hexdigest(),'64ac8acbdaf8bd571a574704998f86303bb27f212071f5cb833436fd6e65e3a4')
+        baseline_sha=hashlib.sha256(baseline).hexdigest()
+        self.assertEqual(baseline_sha,'a05cd38c88b5cf389c6cbeada2ab97298ae6c7c563f523ed6fcc670606050c47')
+        value=json.loads(report);frozen=json.loads(baseline)
+        self.assertEqual(value['frozen_baseline_sha256'],baseline_sha)
+        self.assertEqual(value['source_commit'],'f1e35e151adb7a28273a7158a7cd7718deca474f')
+        self.assertEqual(value['status'],'completed')
+        self.assertEqual(len(value['cases']),24)
+        self.assertEqual(value['baseline'],frozen['baseline'])
+        self.assertEqual(value['thresholds'],frozen['thresholds'])
+        self.assertEqual(frozen['candidate'],{})
+        self.assertEqual(frozen['decisions'],{})
+        self.assertEqual(len(value['candidate']),24)
+        self.assertEqual(len(value['decisions']),24)
+        self.assertEqual(sorted(k for k,v in value['decisions'].items() if v['adopt_shared_for_case']),
+                         sorted(k for k in value['cases'] if k.endswith('/all')))
+        self.assertTrue(all(v['conditions']['full_projection_parity'] for v in value['decisions'].values()))
+
     def test_existing_report_or_baseline_is_never_overwritten(self):
         for existing in ('result.json','result.baseline.json'):
             with tempfile.TemporaryDirectory() as temporary:

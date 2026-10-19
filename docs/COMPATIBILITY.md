@@ -1,3 +1,7 @@
+## EQ138 measured execution and current package compatibility
+
+All37f1measured execution entries remain byte-identical in the [successor applicability record](stories/EQ-138_MEASUREMENT_APPLICABILITY.json). Legacybenchmark retention repair and rawproof/docs/build/test changes do not imply whole-head identity; fresh successor qualification remains mandatory. Package/core pins/schema/mathpolicy/discovery boundaries are unchanged from the EQ138plan; no wireprepared state or new IO/worker support is inferred.
+
 ## EQ138 intraday0.1.0a2 development
 
 Optional intraday distribution advances from accepted0.1.0a1 preparation to proposed0.1.0a2 batch EMA/RSI/ATR. It still requires only contracts0.0.4a4; core/features0.0.4a4/39-ID discovery and companion exact pins are unchanged. Own catalog digest changes with package identity and exactly three executable batch flags; five bands and update/restore/merge stay false. Existing same-original-batch/context/config preparation reuse remains local; no wire state compatibility is introduced. [Plan](stories/EQ-138_PLAN.md) and [current issue](https://github.com/atulsrivas1/equity-features/issues/472) retain pending exact-head/install/bothOS/performance/delivery qualification.
