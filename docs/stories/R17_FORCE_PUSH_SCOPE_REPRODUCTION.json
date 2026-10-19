@@ -1,0 +1,43 @@
+{
+  "pass": true,
+  "kind": "isolated actual-source missing-pre-rebase-base reproduction",
+  "candidate": "47635704ddf1711b4acef3a22746a0a753a143af",
+  "push_before": "7da0c12dbf5956ffc1e232b2ad9902780c61bbb9",
+  "negative_record": {
+    "schema": "equity-features.ci-scope.v1",
+    "valid": false,
+    "decision": "FULL",
+    "reason": "SOURCE_INVALID",
+    "repository": "atulsrivas1/equity-features",
+    "event": null,
+    "base": null,
+    "source_head": null,
+    "checkout_head": null,
+    "checkout_tree": null,
+    "diff_sha256": null,
+    "allowlist_sha256": "fe8860b35869529b4cabdf940905d7bc3979974e031dd041a228d8eb0b3cf2ee",
+    "changes_count": null
+  },
+  "after_fetching_only_missing_base_record": {
+    "schema": "equity-features.ci-scope.v1",
+    "valid": true,
+    "decision": "FULL",
+    "reason": "NON_READER_CHANGE",
+    "repository": "atulsrivas1/equity-features",
+    "event": "push",
+    "base": "7da0c12dbf5956ffc1e232b2ad9902780c61bbb9",
+    "source_head": "47635704ddf1711b4acef3a22746a0a753a143af",
+    "checkout_head": "47635704ddf1711b4acef3a22746a0a753a143af",
+    "checkout_tree": "28c14363770be0d5c4a4936e35d162c80d756949",
+    "diff_sha256": "3624b76068fbe5024a5f7f3bcf538007df380099d12d7c4faa86096d93593ac6",
+    "allowlist_sha256": "fe8860b35869529b4cabdf940905d7bc3979974e031dd041a228d8eb0b3cf2ee",
+    "changes_count": 6
+  },
+  "failed_GitHub_scope_artifact_matches_negative": true,
+  "unchanged_classifier_sha256": "070ee24794a86d33d497c4b3dc92862082206ff84ab3d93ef360e4fed12db739",
+  "conclusion": "Exact same classifier/event/head is SOURCE_INVALID when old force-push before commit is absent, valid FULL after only that commit becomes available. New ordinary commit with reachable476parent avoids this event-base condition without weakening guard.",
+  "limits": [
+    "Synthetic reconstruction of owned event fields; not a rerun of GitHub environment.",
+    "Failed GitHub push remains failed; no source guard or production change."
+  ]
+}

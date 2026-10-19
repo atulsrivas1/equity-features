@@ -1,0 +1,113 @@
+{
+  "schema": "equity-features.r17-handoff.v1",
+  "owner_execution_selected": true,
+  "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW",
+  "implementation_admission": "BLOCKED_ON_ACTUAL_PREREQUISITE_PUBLICATION_AND_REVIEW",
+  "governance_issue": 464,
+  "planning_pr": 498,
+  "epic": 465,
+  "milestone": 21,
+  "canonical_base": "76f650058cf10825706385272c940a161a8f5c4e",
+  "roadmap_head_before_handoff": "223334de810095a3d28b73693084b551891a2f18",
+  "inspection_pins": {
+    "core": "76f650058cf10825706385272c940a161a8f5c4e",
+    "io": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+    "workers": "a69ae9cfeb62730fc78705b4752b94c6f9438275"
+  },
+  "prerequisites": [
+    {
+      "issue": 462,
+      "pr": 463,
+      "gate": "Actual accepted GOV030 planning publication and readback; source-derived details remain local."
+    },
+    {
+      "issue": 464,
+      "pr": 498,
+      "gate": "Reviewed GOV031/R17 handoff publication and readback; actual final-head CI."
+    },
+    {
+      "milestone": 19,
+      "gate": "Retain accepted R16 baseline; do not reopen completed release."
+    }
+  ],
+  "stories": [
+    {
+      "id": "EQ-136",
+      "issue": 470,
+      "points": 5,
+      "dependencies": [],
+      "repository": "core/contracts"
+    },
+    {
+      "id": "EQ-137",
+      "issue": 471,
+      "points": 8,
+      "dependencies": [
+        "EQ-136"
+      ],
+      "repository": "core"
+    },
+    {
+      "id": "EQ-138",
+      "issue": 472,
+      "points": 8,
+      "dependencies": [
+        "EQ-136",
+        "EQ-137"
+      ],
+      "repository": "core"
+    },
+    {
+      "id": "EQ-139",
+      "issue": 473,
+      "points": 5,
+      "dependencies": [
+        "EQ-136",
+        "EQ-137"
+      ],
+      "repository": "core"
+    },
+    {
+      "id": "EQ-140",
+      "issue": 474,
+      "points": 5,
+      "dependencies": [
+        "EQ-138",
+        "EQ-139"
+      ],
+      "repository": "workers + I/O contracts"
+    },
+    {
+      "id": "EQ-141",
+      "issue": 475,
+      "points": 5,
+      "dependencies": [
+        "EQ-140"
+      ],
+      "repository": "cross-repository acceptance"
+    }
+  ],
+  "required_properties": [
+    "correctness",
+    "source independence",
+    "independent feature readiness",
+    "parallelism",
+    "efficient bounded available-resource use",
+    "measured end-to-end performance"
+  ],
+  "documents": [
+    "R17_RELEASE_PLAN.md",
+    "R17_AUTONOMOUS_HANDOFF.md",
+    "R17_TEST_STRATEGY.md",
+    "stories/EQ-136_PLAN.md",
+    "stories/EQ-136_FIXTURES.json"
+  ],
+  "stop_after": "Verified R17 acceptance; no R18 implementation or live/provider/deployment/recurring scope.",
+  "planning_rebase_base": "61d16a11b9b47095a23ef010ddff1260a4993eca",
+  "initial_planning_review": {
+    "head": "7da0c12dbf5956ffc1e232b2ad9902780c61bbb9",
+    "reviewer": "/root/r17_review",
+    "disposition": "PASS within planning/handoff scope; final rebased source renewal required",
+    "receipt_sha256": "da5200247649d1300cde29a30863ffa7277405e6577a76f4b49d5e0ea7785875"
+  }
+}

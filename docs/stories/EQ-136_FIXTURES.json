@@ -1,0 +1,92 @@
+{
+  "schema": "equity-features.intraday-spec-proposal.v1",
+  "status": "DRAFT_EXPECTED_ARITHMETIC_NOT_RUNTIME_PARITY",
+  "period": 3,
+  "price_scale": 0,
+  "closes": [
+    10,
+    12,
+    11,
+    14,
+    13
+  ],
+  "highs": [
+    11,
+    13,
+    13,
+    15,
+    15
+  ],
+  "lows": [
+    9,
+    10,
+    10,
+    11,
+    12
+  ],
+  "anchor_index": 0,
+  "expected": {
+    "ema": {
+      "first_index": 2,
+      "seed_fraction": "11",
+      "at_index_3": "25/2",
+      "at_index_4": "51/4"
+    },
+    "rsi": {
+      "first_index": 3,
+      "seed_gain": "5/3",
+      "seed_loss": "1/3",
+      "at_index_3": "250/3",
+      "at_index_4": "200/3"
+    },
+    "atr": {
+      "first_index": 3,
+      "true_ranges_indices_1_to_4": [
+        3,
+        3,
+        4,
+        3
+      ],
+      "seed_fraction": "10/3",
+      "at_index_4": "29/9"
+    },
+    "bands_at_index_4": {
+      "period_closes": [
+        11,
+        14,
+        13
+      ],
+      "middle": "38/3",
+      "population_variance": "14/9",
+      "std_expression": "sqrt(14)/3",
+      "k": 2,
+      "upper_expression": "(38+2*sqrt(14))/3",
+      "lower_expression": "(38-2*sqrt(14))/3",
+      "width_ratio_expression": "2*sqrt(14)/19",
+      "position_expression": "(1+2*sqrt(14))/(4*sqrt(14))"
+    }
+  },
+  "independence_cases": [
+    {
+      "case": "complete_closes_missing_high_low",
+      "available_branches": [
+        "ema",
+        "rsi",
+        "bands"
+      ],
+      "unavailable_branch": "atr"
+    },
+    {
+      "case": "constant_positive_closes_after_warmup",
+      "ema": "constant_close",
+      "rsi": 50,
+      "bands": "equal middle/lower/upper; width_ratio=0",
+      "band_position": "unavailable_zero_width"
+    }
+  ],
+  "limits": [
+    "No production code is imported or executed by expected values.",
+    "This fixture alone does not qualify all temporal, precision, state or input contracts.",
+    "Definitions and IDs require independent review and specification publication."
+  ]
+}

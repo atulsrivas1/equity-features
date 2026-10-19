@@ -1,0 +1,22 @@
+{
+  "kind": "author R17 handoff/proposed-fixture validation",
+  "pass": true,
+  "checked_at_utc": "2026-10-19T07:28:39.858827+00:00",
+  "six_story_allocation": true,
+  "new_document_links_utf8_source_boundary": true,
+  "five_historical_suffixes_preserved": true,
+  "proposed_rational_seed_and_step_arithmetic": true,
+  "actual_documentation_planning_gate": true,
+  "artifact_sha256": {
+    "docs\\R17_RELEASE_PLAN.md": "03e6962f1973d737c92013120b3cb331a854fe5d46fae26c5d8e9604aef267cd",
+    "docs\\R17_AUTONOMOUS_HANDOFF.md": "25c54168d58b1dd45b6c696bd7f6267f37cc63071191ebe7d6af84d9b9239c9e",
+    "docs\\R17_TEST_STRATEGY.md": "9be57476d2395a81da61024d9e80c96a5c9804214c7069d2f0c2688818f5c7f8",
+    "docs\\stories\\EQ-136_PLAN.md": "8faaaa2658bad84bcc132b9bd34224d8a80808f42cb222f6fcfbfd8e929dfa00",
+    "docs\\stories\\EQ-136_FIXTURES.json": "40c0f5afb2d251968d39a806206c0b7e4830a9439ef6705e3dd4590d064517a8"
+  },
+  "limits": [
+    "Author validation, not separate review.",
+    "Draft mathematical expectations only; no production kernel or runtime numerical parity.",
+    "No performance, Ready, CI or publication acceptance."
+  ]
+}

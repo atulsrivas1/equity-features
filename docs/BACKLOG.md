@@ -1,3 +1,11 @@
+## Owner selects bounded R17 execution — October 19, 2026
+
+The owner requested the R17 handoff and then work on R17. [Execution handoff](R17_AUTONOMOUS_HANDOFF.md), [inputs](R17_INPUTS.json), [test strategy](R17_TEST_STRATEGY.md) and [EQ136 initial pre-code proposal](stories/EQ-136_PLAN.md) now make the bounded mission concrete. This supersedes earlier preparation-only/no-start-selection text prospectively. GOV030/PR463 and GOV031/PR498 review/current-CI/publication prerequisites remain actual gates; no kernel, accepted math/new registry ID or measured performance result is claimed. Work on this preparation remains under GOV031; EQ136–141 stay Backlog until real Ready admission. New separate-review authorization for PR498/handoff/R17 is pending; earlier bounded grants do not imply it. Live Project remains status authority.
+
+## Owner-requested equity release roadmap — October 19, 2026
+
+[GOV-031](https://github.com/atulsrivas1/equity-features/issues/464) allocates R17–R21, epics E25–E29 and EQ-136–EQ-163 following the equity gap discussion. [Roadmap](EQUITY_EXPANSION_ROADMAP.md) and exact allocation JSON define requirements, per-story dependencies/points/ownership, independent correctness, source independence, independent feature readiness, measured parallel performance and bounded efficient resource use. This is planned scope; no implementation starts or dates are promised. Earlier no-R17-selection captures below are historical. The live Project owns current status; GOV030/PR463 and existing live/provider/security/research deferrals retain their separate gates and ownership.
+
 ## GOV030 descendant-source reconciliation — October 19, 2026
 
 [GOV030#462](https://github.com/atulsrivas1/equity-features/issues/462#issuecomment-6261226683) / [PR463](https://github.com/atulsrivas1/equity-features/pull/463): owner authorized the repository-wide matrix extension after discovering additional product pipelines in a descendant committed checkout of the same repository. Preserve old source-bound evidence; reconcile added and changed shared/product code, actual named/field outputs, direct prerequisites versus upstream lineage, library coverage/gaps and bounded processing plan. Renew separate final review and applicable documentation delivery gates. This selects no runtime story/release/default or performance commitment; Project remains current status authority.
@@ -786,3 +794,38 @@ Tracking: https://github.com/atulsrivas1/equity-features/issues/277. R4.1, plann
 | EQ-133 | R14 | [Create a clear first-contribution path](https://github.com/atulsrivas1/equity-features/issues/314) | Provide actionable bounded starter tasks, acceptance, setup/check instructions and triage/credit guidance. Dependencies: EQ132; existing review and rights rules. |
 | EQ-134 | R14 | [Prepare useful demonstrations and targeted launch material](https://github.com/atulsrivas1/equity-features/issues/315) | Replay sanitized demonstrations and prepare audience-specific material; sending/posting requires explicit authorization. Dependencies: both library and research participation paths under C1. |
 | EQ-135 | R14 | [Measure onboarding feedback and verify C1 delivery](https://github.com/atulsrivas1/equity-features/issues/316) | Record manual metric definitions, observed pilot evidence or explicit defer, limitations, exact reviewed delivery receipts and coordinated R14/M5 acceptance. Dependencies: all preceding C1 artifacts; no fabricated adoption. |
+
+## Owner-requested R17–R21 equity expansion allocations
+
+Scope baseline only; current status belongs to the live Project. All new delivery stories start Backlog/unassigned; points are provisional. Mathematical/pre-code plans and accepted dependencies precede Ready.
+
+| ID | Release | Story | Dependencies / ownership / complexity |
+| --- | --- | --- | --- |
+| EQ-136 | R17 | [Define intraday mathematics, capability and dependency contracts](https://github.com/atulsrivas1/equity-features/issues/470) | GOV-031/GOV030 publication and R16 acceptance; core/contracts; 5 points; [full plan](R17_RELEASE_PLAN.md) |
+| EQ-137 | R17 | [Implement compatible rolling primitives and shared preparation](https://github.com/atulsrivas1/equity-features/issues/471) | EQ-136; core; 8 points; [full plan](R17_RELEASE_PLAN.md) |
+| EQ-138 | R17 | [Implement interval-aware EMA, RSI and ATR](https://github.com/atulsrivas1/equity-features/issues/472) | EQ-136, EQ-137; core; 8 points; [full plan](R17_RELEASE_PLAN.md) |
+| EQ-139 | R17 | [Implement rolling price bands](https://github.com/atulsrivas1/equity-features/issues/473) | EQ-136, EQ-137; core; 5 points; [full plan](R17_RELEASE_PLAN.md) |
+| EQ-140 | R17 | [Wire qualified feature inputs and independent worker branches](https://github.com/atulsrivas1/equity-features/issues/474) | EQ-138, EQ-139; workers + I/O contracts; 5 points; [full plan](R17_RELEASE_PLAN.md) |
+| EQ-141 | R17 | [Qualify and deliver intraday foundation release](https://github.com/atulsrivas1/equity-features/issues/475) | EQ-140; cross-repository acceptance; 5 points; [full plan](R17_RELEASE_PLAN.md) |
+| EQ-142 | R18 | [Qualify exact output DAGs and execution baselines](https://github.com/atulsrivas1/equity-features/issues/476) | EQ-141; workers; 5 points; [full plan](R18_RELEASE_PLAN.md) |
+| EQ-143 | R18 | [Reuse compatible inputs and fuse shared calculation work](https://github.com/atulsrivas1/equity-features/issues/477) | EQ-142; core + workers + I/O; 8 points; [full plan](R18_RELEASE_PLAN.md) |
+| EQ-144 | R18 | [Schedule independent ready branches with ordered state ownership](https://github.com/atulsrivas1/equity-features/issues/478) | EQ-142, EQ-143; workers; 8 points; [full plan](R18_RELEASE_PLAN.md) |
+| EQ-145 | R18 | [Qualify adaptive bounded resource profiles](https://github.com/atulsrivas1/equity-features/issues/479) | EQ-143, EQ-144; workers + I/O; 8 points; [full plan](R18_RELEASE_PLAN.md) |
+| EQ-146 | R18 | [Qualify and deliver measured parallel execution](https://github.com/atulsrivas1/equity-features/issues/480) | EQ-145; cross-repository acceptance; 5 points; [full plan](R18_RELEASE_PLAN.md) |
+| EQ-147 | R19 | [Implement MACD line, signal and histogram](https://github.com/atulsrivas1/equity-features/issues/481) | EQ-138; core; 5 points; [full plan](R19_RELEASE_PLAN.md) |
+| EQ-148 | R19 | [Implement directional movement, DMI and ADX](https://github.com/atulsrivas1/equity-features/issues/482) | EQ-137, EQ-138; core; 8 points; [full plan](R19_RELEASE_PLAN.md) |
+| EQ-149 | R19 | [Implement stochastic oscillators and Williams percent R](https://github.com/atulsrivas1/equity-features/issues/483) | EQ-137; core; 5 points; [full plan](R19_RELEASE_PLAN.md) |
+| EQ-150 | R19 | [Implement OBV, accumulation/distribution and Chaikin money flow](https://github.com/atulsrivas1/equity-features/issues/484) | EQ-136, EQ-137; core; 8 points; [full plan](R19_RELEASE_PLAN.md) |
+| EQ-151 | R19 | [Implement explicitly aligned Ichimoku components](https://github.com/atulsrivas1/equity-features/issues/485) | EQ-137; core; 8 points; [full plan](R19_RELEASE_PLAN.md) |
+| EQ-152 | R19 | [Qualify and deliver advanced indicator release](https://github.com/atulsrivas1/equity-features/issues/486) | EQ-147, EQ-148, EQ-149, EQ-150, EQ-151, EQ-146; cross-repository acceptance; 5 points; [full plan](R19_RELEASE_PLAN.md) |
+| EQ-153 | R20 | [Implement correlation, beta and residual returns](https://github.com/atulsrivas1/equity-features/issues/487) | EQ-136, EQ-137; core; 8 points; [full plan](R20_RELEASE_PLAN.md) |
+| EQ-154 | R20 | [Implement separately specified daily and intraday log-return RV](https://github.com/atulsrivas1/equity-features/issues/488) | EQ-136, EQ-137; core; 8 points; [full plan](R20_RELEASE_PLAN.md) |
+| EQ-155 | R20 | [Implement robust historical summaries and ranks](https://github.com/atulsrivas1/equity-features/issues/489) | EQ-136; core; 8 points; [full plan](R20_RELEASE_PLAN.md) |
+| EQ-156 | R20 | [Implement robust volume pace and anomaly normalization](https://github.com/atulsrivas1/equity-features/issues/490) | EQ-155, EQ-136; core + worker bindings; 8 points; [full plan](R20_RELEASE_PLAN.md) |
+| EQ-157 | R20 | [Qualify and deliver relative and robust statistics](https://github.com/atulsrivas1/equity-features/issues/491) | EQ-153, EQ-154, EQ-155, EQ-156, EQ-152; cross-repository acceptance; 5 points; [full plan](R20_RELEASE_PLAN.md) |
+| EQ-158 | R21 | [Implement rolling trade windows and tick-rule signed volume](https://github.com/atulsrivas1/equity-features/issues/492) | EQ-136, EQ-137; core; 8 points; [full plan](R21_RELEASE_PLAN.md) |
+| EQ-159 | R21 | [Implement microprice and selected quote dynamics](https://github.com/atulsrivas1/equity-features/issues/493) | EQ-136; core + qualified input bindings; 8 points; [full plan](R21_RELEASE_PLAN.md) |
+| EQ-160 | R21 | [Implement VWAP slopes and selected path statistics](https://github.com/atulsrivas1/equity-features/issues/494) | EQ-137, EQ-158; core; 8 points; [full plan](R21_RELEASE_PLAN.md) |
+| EQ-161 | R21 | [Implement path efficiency and choppiness measures](https://github.com/atulsrivas1/equity-features/issues/495) | EQ-137, EQ-138; core; 5 points; [full plan](R21_RELEASE_PLAN.md) |
+| EQ-162 | R21 | [Implement deterministic notional-ranked largest prints](https://github.com/atulsrivas1/equity-features/issues/496) | EQ-136; core + worker bindings; 5 points; [full plan](R21_RELEASE_PLAN.md) |
+| EQ-163 | R21 | [Qualify and deliver tape, quote and path release](https://github.com/atulsrivas1/equity-features/issues/497) | EQ-158, EQ-159, EQ-160, EQ-161, EQ-162, EQ-157; cross-repository acceptance; 5 points; [full plan](R21_RELEASE_PLAN.md) |
