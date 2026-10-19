@@ -1,3 +1,7 @@
+## EQ142 join native lifetimes without inventing clock alignment
+
+[EQ142 lifetime controls](../stories/EQ-142_BASELINE_PREPARATION.md) join direct membership in an explicitly owned Job to PID, OS creation identity and trace startup nonce in both directions. A creation FILETIME identifies a lifetime; it is not monotonic elapsed time. Direct QPF enriches an unqueried local clock but does not establish cross-process raw counter alignment or empirical precision. Preserve original errors through cleanup, close only owned opened handles, and qualify codecs separately from sampler/all-descendant/root acceptance. Standalone bounded proof files still need actual plan/admission/aggregate accounting at integration.
+
 ## EQ142 retain actual metadata before evidence gates
 
 [EQ142 outcome controls](../stories/EQ-142_BASELINE_PREPARATION.md) distinguish actual SupervisorOutcome fields from diagnostic-only identities and scalar metadata from full codec bodies. Inspect the real type/helper API before designing a ledger. Persist actual row/admission/task/timing metadata before proof/parity checks and retain injected error identity. State explicitly that selected input rows include cancelled/undispatched work and identity-distinct rows do not prove cache reuse. Accepted outputs do not enumerate every backend commit. Mark failure records explicitly unaccepted as well as success records, and preserve failed development attempts with honest source/log limitations.
