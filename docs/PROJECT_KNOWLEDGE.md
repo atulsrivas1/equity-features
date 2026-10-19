@@ -1,3 +1,13 @@
+## EQ142 concrete pre-code preparation; handoff main acceptance pending
+
+[GOV034 #564](https://github.com/atulsrivas1/equity-features/issues/564)/PR565 published actual main `fbb3d30efbe37d9f0c56728787209764dde68ba8` after separate source110/candidate45 and all70 current candidate checks. Separate actual-main source38 passed; actual main run39316319732 remains nonterminal in this preparation snapshot. Final actual-main acceptance and Released/postrelease/Done remain required. Live Project is current authority.
+
+This branch prepares [EQ142's concrete protocol](stories/EQ-142_PROTOCOL_DRAFT.md), [independent cases](stories/EQ-142_INDEPENDENT_CASES_DRAFT.json), [source alias inventory](stories/EQ-142_BASELINE_ALIAS_INVENTORY.json) and [scoped tiny baseline review](stories/EQ-142_BASELINE_PREPARATION.md). All runtime children remain Backlog/unassigned. Ten tiny mathematical/readiness controls and separate110-assertion review are actual preparation, not a graph/tracer/workload or Ready acceptance. Remaining canonical cases/input admission, final protocol and separate pre-code review precede implementation. Owner R18 review grant is actual and requires no repeated permission.
+
+Next: verified GOV034 final delivery; finish independent fixtures and exact public Ready packet/current inputs; then EQ142 Ready→assigned In progress. Preserve original dirty/frozen sources and measurement environments. No runtime/default/version change or timing is introduced by this documentation draft.
+
+## Earlier checkpoints retained as history
+
 ## R18 review authorized; final handoff review next
 
 [Owner authorization](https://github.com/atulsrivas1/equity-features/issues/564#issuecomment-6275820553) now covers separate automated local review of PR565/GOV034, EQ142–146, necessary component changes and final R18 delivery. This supersedes the earlier pending review-route decision; it is not completed review or hosted activation. The concrete handoff has author24UTF8/6JSON/1336local-link/privacy and exact proof/index checks; renew its source/index identities and current CI after recording this decision. GOV034 proceeds to actual final-head Code review, then Test/currentCI/guarded publication/actualmain/finalacceptance/Released/Done. All five runtime stories remain Backlog/unassigned until their own real Ready gates. No R18 runtime or timing has started.

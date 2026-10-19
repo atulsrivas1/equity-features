@@ -1,0 +1,249 @@
+{
+  "result": "READ_ONLY_BASELINE_HOOK_ALIAS_INVENTORY_NOT_TRACE_COVERAGE_OR_READY",
+  "schema": "eq142-hook-alias-inventory-preparation:1",
+  "inspected_modules": [
+    "equity_feature_io_sdk",
+    "equity_feature_io_sdk.codec",
+    "equity_feature_io_sdk.conformance",
+    "equity_feature_io_sdk.factories",
+    "equity_feature_io_sdk.publication",
+    "equity_feature_workers",
+    "equity_feature_workers._supplied",
+    "equity_feature_workers.acquisition",
+    "equity_feature_workers.barriers",
+    "equity_feature_workers.breadth_commands",
+    "equity_feature_workers.commands",
+    "equity_feature_workers.diagnostics",
+    "equity_feature_workers.intraday",
+    "equity_feature_workers.manifests",
+    "equity_feature_workers.publication",
+    "equity_feature_workers.required_inputs",
+    "equity_feature_workers.supervisor",
+    "equity_features.composition",
+    "equity_features_intraday",
+    "equity_features_intraday._admission",
+    "equity_features_intraday._bands",
+    "equity_features_intraday._context",
+    "equity_features_intraday._dispatch",
+    "equity_features_intraday._indicators",
+    "equity_features_intraday._prepare",
+    "equity_features_intraday._registry"
+  ],
+  "functions": [
+    {
+      "definition": "equity_feature_io_sdk.codec.decode_result",
+      "source_file": "codec.py",
+      "source_sha256": "2dbd595418cb7c5ea5231b2c32863304399453a6a7ad46dcca0be55dbdcd2dfc",
+      "definition_line": 149,
+      "module_global_aliases": [
+        "equity_feature_io_sdk.codec.decode_result",
+        "equity_feature_io_sdk.decode_result",
+        "equity_feature_workers.supervisor.decode_result"
+      ]
+    },
+    {
+      "definition": "equity_feature_io_sdk.codec.encode_receipt",
+      "source_file": "codec.py",
+      "source_sha256": "2dbd595418cb7c5ea5231b2c32863304399453a6a7ad46dcca0be55dbdcd2dfc",
+      "definition_line": 229,
+      "module_global_aliases": [
+        "equity_feature_io_sdk.codec.encode_receipt",
+        "equity_feature_io_sdk.encode_receipt",
+        "equity_feature_workers.manifests.encode_receipt",
+        "equity_feature_workers.publication.encode_receipt"
+      ]
+    },
+    {
+      "definition": "equity_feature_io_sdk.codec.encode_result",
+      "source_file": "codec.py",
+      "source_sha256": "2dbd595418cb7c5ea5231b2c32863304399453a6a7ad46dcca0be55dbdcd2dfc",
+      "definition_line": 135,
+      "module_global_aliases": [
+        "equity_feature_io_sdk.codec.encode_result",
+        "equity_feature_io_sdk.conformance.encode_result",
+        "equity_feature_io_sdk.encode_result",
+        "equity_feature_io_sdk.publication.encode_result",
+        "equity_feature_workers.barriers.encode_result",
+        "equity_feature_workers.breadth_commands.encode_result",
+        "equity_feature_workers.commands.encode_result",
+        "equity_feature_workers.supervisor.encode_result"
+      ]
+    },
+    {
+      "definition": "equity_feature_io_sdk.publication.prepare_publication",
+      "source_file": "publication.py",
+      "source_sha256": "bcac45f3fea1b1e9a28e352df4641840cb2cc078d5ab7efc63d6e539ce60ac88",
+      "definition_line": 60,
+      "module_global_aliases": [
+        "equity_feature_io_sdk.conformance.prepare_publication",
+        "equity_feature_io_sdk.prepare_publication",
+        "equity_feature_io_sdk.publication.prepare_publication",
+        "equity_feature_workers.commands.prepare_publication",
+        "equity_feature_workers.publication.prepare_publication",
+        "equity_feature_workers.supervisor.prepare_publication"
+      ]
+    },
+    {
+      "definition": "equity_feature_io_sdk.publication.publish",
+      "source_file": "publication.py",
+      "source_sha256": "bcac45f3fea1b1e9a28e352df4641840cb2cc078d5ab7efc63d6e539ce60ac88",
+      "definition_line": 167,
+      "module_global_aliases": [
+        "equity_feature_io_sdk.conformance.publish",
+        "equity_feature_io_sdk.publication.publish",
+        "equity_feature_io_sdk.publish",
+        "equity_feature_workers.commands.publish",
+        "equity_feature_workers.publication.publish"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers._supplied.admit",
+      "source_file": "_supplied.py",
+      "source_sha256": "14c2808ccf9d21ea5739d4507a09cb570abefadcd18cf4f7801c43d38771c56a",
+      "definition_line": 49,
+      "module_global_aliases": [
+        "equity_feature_workers._supplied.admit",
+        "equity_feature_workers.intraday.admit"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers._supplied.result_identity",
+      "source_file": "_supplied.py",
+      "source_sha256": "14c2808ccf9d21ea5739d4507a09cb570abefadcd18cf4f7801c43d38771c56a",
+      "definition_line": 73,
+      "module_global_aliases": [
+        "equity_feature_workers._supplied.result_identity",
+        "equity_feature_workers.intraday.result_identity"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers.barriers._admit_entities",
+      "source_file": "barriers.py",
+      "source_sha256": "41d2be6c29475c0f0fa1a1c550a3dfa4200c9e105a88d6cc1d393640b2427cd9",
+      "definition_line": 117,
+      "module_global_aliases": [
+        "equity_feature_workers.barriers._admit_entities",
+        "equity_feature_workers.publication._admit_entities",
+        "equity_feature_workers.supervisor._admit_entities"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers.intraday._context",
+      "source_file": "intraday.py",
+      "source_sha256": "4f9cc1a088c685ad0c29e60d964088cbc4e86bd0bf4977b761518b99b0116079",
+      "definition_line": 25,
+      "module_global_aliases": [
+        "equity_feature_workers.intraday._context"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers.manifests._canonical",
+      "source_file": "manifests.py",
+      "source_sha256": "915071757d40d46c6d192f4687ca874935fe1100fdc3398675d00ed7a937b537",
+      "definition_line": 316,
+      "module_global_aliases": [
+        "equity_feature_workers.manifests._canonical"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers.manifests.encode_output",
+      "source_file": "manifests.py",
+      "source_sha256": "915071757d40d46c6d192f4687ca874935fe1100fdc3398675d00ed7a937b537",
+      "definition_line": 379,
+      "module_global_aliases": [
+        "equity_feature_workers.barriers.encode_output",
+        "equity_feature_workers.encode_output",
+        "equity_feature_workers.manifests.encode_output",
+        "equity_feature_workers.publication.encode_output",
+        "equity_feature_workers.supervisor.encode_output"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers.manifests.encode_task",
+      "source_file": "manifests.py",
+      "source_sha256": "915071757d40d46c6d192f4687ca874935fe1100fdc3398675d00ed7a937b537",
+      "definition_line": 359,
+      "module_global_aliases": [
+        "equity_feature_workers.barriers.encode_task",
+        "equity_feature_workers.encode_task",
+        "equity_feature_workers.manifests.encode_task",
+        "equity_feature_workers.supervisor.encode_task"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers.supervisor._inputs",
+      "source_file": "supervisor.py",
+      "source_sha256": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe",
+      "definition_line": 41,
+      "module_global_aliases": [
+        "equity_feature_workers.supervisor._inputs"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers.supervisor._size",
+      "source_file": "supervisor.py",
+      "source_sha256": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe",
+      "definition_line": 34,
+      "module_global_aliases": [
+        "equity_feature_workers.supervisor._size"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers.supervisor._validate_results",
+      "source_file": "supervisor.py",
+      "source_sha256": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe",
+      "definition_line": 193,
+      "module_global_aliases": [
+        "equity_feature_workers.supervisor._validate_results"
+      ]
+    },
+    {
+      "definition": "equity_feature_workers.supervisor.partition_tasks",
+      "source_file": "supervisor.py",
+      "source_sha256": "59b24de70e3873ab2d3c8a5f5d9be155d7ee1984605ac07318fb561858dbdbfe",
+      "definition_line": 152,
+      "module_global_aliases": [
+        "equity_feature_workers.partition_tasks",
+        "equity_feature_workers.supervisor.partition_tasks"
+      ]
+    },
+    {
+      "definition": "equity_features_intraday._admission.admit",
+      "source_file": "_admission.py",
+      "source_sha256": "86e16e7bd1ffb645baead36665ef61babffb92c0511ef755e2120a0537f7e742",
+      "definition_line": 85,
+      "module_global_aliases": [
+        "equity_features_intraday._admission.admit",
+        "equity_features_intraday._prepare.admit"
+      ]
+    },
+    {
+      "definition": "equity_features_intraday._dispatch.compute_intraday",
+      "source_file": "_dispatch.py",
+      "source_sha256": "d5c148d544f321ea1dc519e31f3e1f63e8e5530a9a9299bb00997512170f1ec7",
+      "definition_line": 13,
+      "module_global_aliases": [
+        "equity_feature_workers.intraday.compute_intraday",
+        "equity_features_intraday._dispatch.compute_intraday",
+        "equity_features_intraday.compute_intraday"
+      ]
+    },
+    {
+      "definition": "equity_features_intraday._prepare.prepare_intraday",
+      "source_file": "_prepare.py",
+      "source_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c",
+      "definition_line": 179,
+      "module_global_aliases": [
+        "equity_feature_workers.intraday.prepare_intraday",
+        "equity_features_intraday._dispatch.prepare_intraday",
+        "equity_features_intraday._prepare.prepare_intraday",
+        "equity_features_intraday.prepare_intraday"
+      ]
+    }
+  ],
+  "limits": [
+    "Only inspected module-global exact object aliases; not arbitrary caller-held references, closures or complete runtime coverage.",
+    "No wrappers installed; no graph, instrumentation, workloads or timing executed.",
+    "Class method/property hooks, source semantics, spawn/thread handling and bounded sidecar protocol remain to freeze/review."
+  ]
+}

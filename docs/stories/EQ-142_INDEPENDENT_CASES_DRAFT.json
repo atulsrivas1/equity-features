@@ -1,0 +1,118 @@
+{
+  "schema": "eq142-independent-operand-fixtures-draft:1",
+  "status": "LOCAL_PRECODE_PROPOSAL_NOT_EXECUTED_OR_READY",
+  "authority": "Accepted original R17 mathematical/readiness contracts; manually specified graph edges and analytic expected values. Final schema, actual canonical inputs and expected full-result binding remain to freeze/review before Ready.",
+  "default_context": {"anchor": 0, "period": 3, "price_scale": 0, "band_k": "2/1", "complete_known_at": true, "epoch": "reset"},
+  "cases": [
+    {
+      "id": "ema_only_has_no_high_low_or_other_output_edge",
+      "target": 2, "closes": [10, 11, 12], "high_low": "columns_absent",
+      "selected": ["intraday.ema"],
+      "required_close_slots": [0, 1, 2], "required_high_low_slots": [],
+      "expected": {"intraday.ema": {"status": "available", "value_exact": "11", "expected": 3, "observed": 3}},
+      "forbidden_output_prerequisites": ["intraday.rsi", "intraday.atr", "intraday.band_middle"]
+    },
+    {
+      "id": "ema_ready_rsi_has_independent_seed_warmup",
+      "target": 2, "closes": [10, 11, 12], "high_low": "columns_absent",
+      "selected": ["intraday.ema", "intraday.rsi"],
+      "expected": {"intraday.ema": {"status": "available", "value_exact": "11", "expected": 3, "observed": 3}, "intraday.rsi": {"status": "insufficient_history", "expected": 4, "observed": 3, "reasons": ["insufficient_history"]}},
+      "shared_fact_family": "anchored_closes", "separate_ordered_states": ["EMA seed/recurrence", "RSI gain/loss seed/recurrence"],
+      "forbidden_edges": ["RSI readiness -> EMA", "EMA output -> RSI"]
+    },
+    {
+      "id": "missing_high_low_affects_atr_not_ema",
+      "target": 2, "closes": [10, 11, 12], "high_low": "columns_absent",
+      "selected": ["intraday.ema", "intraday.atr"],
+      "atr_required_close_slots": [0, 1], "atr_required_high_low_slots": [1, 2],
+      "expected": {"intraday.ema": {"status": "available", "value_exact": "11"}, "intraday.atr": {"status": "missing_input", "expected": 4, "observed": 1, "reasons": ["absent_input", "insufficient_history"]}},
+      "forbidden_edges": ["ATR readiness -> EMA", "ATR target close", "ATR anchor high/low"]
+    },
+    {
+      "id": "atr_single_anchor_observes_close_only",
+      "period": 1, "target": 0, "closes": [10], "high_low": "columns_absent", "selected": ["intraday.atr"],
+      "required_close_slots": [0], "required_high_low_slots": [],
+      "expected": {"intraday.atr": {"status": "insufficient_history", "expected": 2, "observed": 1, "reasons": ["insufficient_history"]}},
+      "forbidden_edges": ["anchor high/low", "first true range = high-low"]
+    },
+    {
+      "id": "atr_target_close_not_required_when_successor_exists",
+      "period": 1, "target": 1, "selected": ["intraday.atr"],
+      "chunks": [{"slot": 0, "close": 10, "high_low": "columns_absent"}, {"slot": 1, "close": "column_absent", "high": 12, "low": 9}],
+      "required_close_slots": [0], "required_high_low_slots": [1],
+      "expected": {"intraday.atr": {"status": "available", "value_exact": "max(12-9,abs(12-10),abs(9-10)) = 3", "expected": 2, "observed": 2}},
+      "note": "Use absent close column in the target chunk, not an invalid positive-volume supplied-null close. Canonical structure must still pass."
+    },
+    {
+      "id": "rolling_bands_ignore_older_anchored_gap",
+      "target": 4, "closes_by_slot": {"1": 9, "2": 10, "3": 11, "4": 12}, "absent_slots": [0],
+      "selected": ["intraday.ema", "intraday.band_middle", "intraday.band_width_ratio", "intraday.band_position"],
+      "band_required_close_slots": [2, 3, 4], "ema_required_close_slots": [0, 1, 2, 3, 4],
+      "expected": {"intraday.ema": {"status": "incomplete_coverage"}, "intraday.band_middle": {"status": "available", "value_exact": "11"}, "intraday.band_width_ratio": {"status": "available", "value_expression": "4*sqrt(2/3)/11"}, "intraday.band_position": {"status": "available", "value_expression": "1/2+1/(4*sqrt(2/3))"}},
+      "forbidden_edges": ["old slot0 close -> rolling band window", "EMA availability -> any band"]
+    },
+    {
+      "id": "required_band_gap_cannot_be_compacted",
+      "target": 4, "closes_by_slot": {"0": 8, "1": 9, "2": 10, "4": 12}, "absent_slots": [3], "selected": ["intraday.band_middle"],
+      "required_close_slots": [2, 3, 4],
+      "expected": {"intraday.band_middle": {"status": "incomplete_coverage", "expected": 3, "observed": 2, "reasons": ["governed_gap"]}},
+      "forbidden_edges": ["substitute older slot1 for required slot3"]
+    },
+    {
+      "id": "zero_variance_position_guard_is_not_global_band_failure",
+      "target": 2, "closes": [11, 11, 11], "selected": ["intraday.band_lower", "intraday.band_middle", "intraday.band_upper", "intraday.band_width_ratio", "intraday.band_position"],
+      "expected": {"intraday.band_lower": {"status": "available", "value_exact": "11"}, "intraday.band_middle": {"status": "available", "value_exact": "11"}, "intraday.band_upper": {"status": "available", "value_exact": "11"}, "intraday.band_width_ratio": {"status": "available", "value_exact": "0"}, "intraday.band_position": {"status": "not_applicable", "expected": 3, "observed": 3, "reasons": ["zero_denominator"]}},
+      "forbidden_edges": ["position division guard -> middle/lower/upper/width readiness"]
+    },
+    {
+      "id": "band_position_is_unclamped",
+      "target": 2, "closes": [1, 1, 100], "band_k": "1/10", "selected": ["intraday.band_position"],
+      "expected": {"intraday.band_position": {"status": "available", "mean_exact": "34", "variance_exact": "2178", "value_expression": "1/2+10/sqrt(2)", "strictly_above": "1"}},
+      "forbidden_edges": ["clamp result to [0,1]"]
+    },
+    {
+      "id": "large_offset_requires_unrounded_witness",
+      "target": 2, "closes": [1152921504606846975, 1152921504606846976, 1152921504606846977], "selected": ["intraday.band_middle", "intraday.band_lower", "intraday.band_upper", "intraday.band_width_ratio", "intraday.band_position"],
+      "expected": {"mean_exact": "2^60", "variance_exact": "2/3", "intraday.band_width_ratio": {"status": "available", "value_expression": "4*sqrt(2/3)/(2^60)", "strictly_positive": true}, "intraday.band_position": {"status": "available", "value_expression": "1/2+1/(4*sqrt(2/3))"}},
+      "forbidden_edges": ["rounded public upper/lower -> width/position arithmetic"]
+    },
+    {
+      "id": "common_structural_rejection_remains_real",
+      "selected": ["intraday.ema"], "supplied_structure": "contradictory complete OHLC with high below low",
+      "expected": {"disposition": "reject common admission using original typed error", "no_available_numeric_result": true},
+      "note": "This is not the same as absent optional H/L in a valid admitted close-only batch."
+    },
+    {
+      "id": "whole_call_arithmetic_failure_is_not_per_cell_isolation",
+      "selected": ["intraday.ema", "intraday.band_middle"], "condition": "existing guarded arithmetic invariant/finite-conversion failure",
+      "expected": {"disposition": "original whole-call OVERFLOW, not a partial success result"},
+      "note": "Final actual trigger uses the accepted independent overflow fixture or reviewed guarded-failure injection; this abstract scenario is not an executed test."
+    },
+    {
+      "id": "task_identity_does_not_supply_unverified_content_seal",
+      "condition": "Same declared source/acquisition/revision/metadata but differing supplied value tuple in two separate graph proposals",
+      "expected": {"disposition": "no new verified-compatible-input certificate from metadata labels or task/reuse hash alone; retain truthful caller/owner contract and explicit body-verification disposition"},
+      "same_job_duplicate_task_case": "existing duplicate task identity is a real admission conflict, not permission to execute conflicting data twice",
+      "note": "Original R17 benchmark computes acquisition_sha from actual pickle bytes. Generic admission does not thereby attest fresh rehash on each call."
+    },
+    {
+      "id": "callback_qualification_is_exact_not_a_name_or_header",
+      "conditions": ["actual qualified builtin", "copied name/qualname", "caller wrapper", "unknown FunctionType", "mutated alias/export"],
+      "expected": {"qualified_builtin": "source-bound descriptive graph only", "all_other_cases": "explicit conservative unresolved qualification unless separately proven"},
+      "forbidden_edges": ["FunctionType/no closure -> purity/thread safety", "header spelling -> scheduler authority"]
+    },
+    {
+      "id": "transitive_population_component_and_real_universe_join",
+      "task_populations": [["A"], ["A", "B"], ["B", "C"], ["D"]],
+      "expected": {"baseline_components": [[0, 1, 2], [3]], "unknown_callback_refinement": "conservative unchanged", "real_universe_join": "retained as actual prerequisite"},
+      "note": "More configured workers do not split existing connected components; no runtime scheduler change is selected in EQ142."
+    },
+    {
+      "id": "combined_task_global_evidence_and_publication_join",
+      "selected": ["intraday.ema", "intraday.rsi", "intraday.atr", "intraday.band_middle"], "evidence_limit": 2,
+      "expected": {"result_headers": "exact full selected task headers", "evidence": "sort all actual selected evidence by feature/slot, apply one global limit2", "publication": "original generation/task/commit ownership; no partial-header result"},
+      "forbidden_edges": ["independent per-family caps followed by concatenation", "postcommit rejection -> rollback/physical durability"]
+    }
+  ],
+  "remaining_preReady_work": "Materialize exact canonical input/manifest/config/result/graph fixture records under accepted source, independently verify analytic values and typed rejection details, freeze actual hook/clock/task/byte/receipt/overhead/reserve matrix and public schemas, then separate review. This file is not a generated golden from production or a completed test result."
+}
