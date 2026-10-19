@@ -1,0 +1,15 @@
+{
+  "mypy_version": "1.15.0",
+  "diagnostics": [
+    {
+      "line": 4,
+      "code": "arg-type",
+      "contains": "incompatible type \"str\"; expected \"int\""
+    },
+    {
+      "line": 7,
+      "code": "misc",
+      "contains": "is read-only"
+    }
+  ]
+}

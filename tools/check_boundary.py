@@ -336,7 +336,15 @@ def check():
     continuous_packages=(ROOT/'packages/continuous',)
     known_packages=set(pure_packages)|set(research_packages)|set(evidence_packages)|set(explanation_packages)|set(diagnostic_packages)|set(provenance_packages)|set(conformance_packages)|set(agent_packages)|set(ledger_packages)
     known_packages|=set(continuous_packages)
+    # EQ137 explicitly admits only the separately checked pure intraday package.
+    intraday_package=ROOT/'packages/intraday'
+    known_packages.add(intraday_package)
     assert {p.parent for p in (ROOT/'packages').glob('*/pyproject.toml')} <= known_packages,'unreviewed package boundary'
+    if (intraday_package/'pyproject.toml').is_file():
+        # Historical selected-source snapshots omit this optional package/tool.
+        # Full checkouts containing it must supply and pass its dedicated policy.
+        from check_intraday_boundary import check_intraday
+        check_intraday()
     check_continuous()
     for p in (root/'pyproject.toml' for root in pure_packages):
         project=tomllib.loads(p.read_text(encoding='utf-8'))['project']

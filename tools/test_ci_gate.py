@@ -24,6 +24,17 @@ INTRADAY_DOC_TEST = '''      - name: Verify original intraday mathematics refere
 '''
 
 
+# EQ137 admits exactly one reviewed additive block after foundation upload.
+# Historical hashes remain unchanged; arbitrary altered suffixes stay visible.
+INTRADAY_PACKAGE_BLOCK = '      - name: Install intraday preparation package\n        run: python -m pip install --no-deps --no-build-isolation -e packages/intraday\n      - run: python -m pip check\n      - run: python -B tools/check_intraday_boundary.py\n      - run: python -B -m mypy --strict packages/intraday/src\n      - run: python -I -B -m unittest discover -s tests/intraday\n      - run: python -B tools/build_intraday.py\n      - name: Retain verified experimental intraday artifacts\n        uses: actions/upload-artifact@v4\n        with:\n          name: intraday-${{ github.sha }}-${{ matrix.os }}-attempt-${{ github.run_attempt }}\n          path: dist/intraday/\n          retention-days: 30\n          if-no-files-found: error\n'
+
+
+def normalize_intraday_package_block(text: str) -> str:
+    if text.count(INTRADAY_PACKAGE_BLOCK) != 1 or not text.endswith(INTRADAY_PACKAGE_BLOCK):
+        raise ValueError('exact single final intraday package block required')
+    return text[:-len(INTRADAY_PACKAGE_BLOCK)]
+
+
 def record(docs: bool = False) -> dict:
     return dict(schema='equity-features.ci-scope.v1', valid=True, decision='DOCS' if docs else 'FULL',
                 reason='READERS_ONLY' if docs else 'NON_READER_CHANGE', repository='atulsrivas1/equity-features',
@@ -157,8 +168,23 @@ class WorkflowTests(unittest.TestCase):
                 self.assertEqual(pieces[2], normal)
                 text = pieces[0]+marker+pieces[1].replace("if: always() && github.event_name == 'workflow_dispatch'", 'if: always()')
             else:
+                if path.endswith('/packages.yml'):
+                    text = normalize_intraday_package_block(text)
                 text = text.replace('-attempt-${{ github.run_attempt }}', '')
             self.assertEqual(hashlib.sha256(text.encode()).hexdigest(), expected, path)
+
+    def test_intraday_addition_is_exact_single_final_block(self):
+        original=(self.root/'.github/workflows/packages.yml').read_text(encoding='utf-8')
+        base=normalize_intraday_package_block(original)
+        self.assertEqual(original,base+INTRADAY_PACKAGE_BLOCK)
+        altered=(base,original+INTRADAY_PACKAGE_BLOCK,original+'# extra\n',
+                 original.replace('tools/build_intraday.py','tools/skip_intraday.py'),
+                 original.replace('path: dist/intraday/','path: dist/'),
+                 original.replace('python -m pip check\n      - run: python -B tools/check_intraday',
+                                  'python -m pip check --help\n      - run: python -B tools/check_intraday'))
+        for value in altered:
+            with self.subTest(value=value[-100:]),self.assertRaises(ValueError):
+                normalize_intraday_package_block(value)
 
     def test_leaf_trigger_migration_and_manual_evaluation_contract(self):
         for name in ('docs', *PACKAGES):

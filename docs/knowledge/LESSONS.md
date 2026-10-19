@@ -1,3 +1,7 @@
+## Shared preparation facts and output warm-up — EQ137, October 19, 2026
+
+Raw anchored closes/TR facts can qualify before a consuming indicator has seed history. Apply each output's own N or N+1 history requirement; never turn the shared fact-view status into a global output barrier. [Reviewed pre-code supplement](../stories/EQ-137_FACT_READINESS.md) and initial producer tests in tests/intraday/test_preparation.py exercise the single-close anchor and close-only/target-close distinctions. Source development checks are not accepted output-kernel evidence. Installed isolation, independent review and actual performance measurement remain separate gates.
+
 ## EQ136 — dependency witnesses and transport identity, October 19, 2026
 
 [Original intraday mathematics](../features/INTRADAY_FOUNDATIONS.md) has a concrete counterexample:2^60±1 closes retain nonzero population variance while rounded Float64 band bounds coincide. Ratios must branch from compatible pre-rounding radius/centered residuals, not published rounded bounds; arithmetic dependency labels alone can introduce both numerical errors and unnecessary scheduling barriers. [Independent reference](../../tools/verify_intraday_examples.py) uses expanded rational smoothing weights and centered Fraction/Decimal120 arithmetic; it does not qualify production kernels or performance.

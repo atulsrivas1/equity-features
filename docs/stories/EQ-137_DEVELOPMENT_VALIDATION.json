@@ -1,0 +1,28 @@
+{
+  "schema": "equity-features.eq137-development-checks.v1",
+  "accepted": false,
+  "stage": "initial source development, before installed qualification and final review",
+  "checks": {
+    "source_unittest_methods": 45,
+    "strict_mypy_files": 8,
+    "ci_gate_methods": 13,
+    "intraday_boundary_negative": 20,
+    "intraday_boundary_positive": 5
+  },
+  "failures_retained": [
+    "Initial chunk-name test matched context_sha256; narrowed exact numeric suffix test.",
+    "Initial type annotations/capability snapshot API assumptions corrected before passing checks.",
+    "Expanded window oracle exposed test helper fixed evaluation_ns60; made synthetic timing/session bounds depend on actual window length.",
+    "Example strict typing rejected int tuple versus Fraction tuple; expected literals now explicitly Fraction.",
+    "Separate early review PREP03: unit mismatch must precede supplied malformed price semantics; corrected admission order and added combined-error regression."
+  ],
+  "pending": [
+    "full independent source review",
+    "four installed forms on both OS",
+    "archive/build qualification",
+    "frozen protocol preparation benchmarks",
+    "final source CI",
+    "publication/readback",
+    "acceptance"
+  ]
+}

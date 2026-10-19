@@ -1,5 +1,7 @@
 # Intraday snapshot API and transport contract
 
+EQ137 implementation progress: context/configuration and the six preparation families now have producer source and synthetic tests. [Runnable example](../../examples/intraday_preparation.py) and [pre-code fact-readiness contract](../stories/EQ-137_FACT_READINESS.md) describe this preparation-only stage. Output dispatch remains explicitly unsupported; installed qualification and final story acceptance are pending. The frozen target API below also covers future EQ138/EQ139 outputs.
+
 EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470). Concrete specification for separate review, not an importable API or accepted implementation. [Mathematics](../features/INTRADAY_FOUNDATIONS.md), [package choice](../decisions/R17_INTRADAY_PACKAGE.md). All names below describe the selected first optional version; dependent implementation must match the accepted revision.
 
 ## Owned context and public operations
@@ -98,7 +100,7 @@ Public capabilities for this version: batch snapshot and caller-supplied full-hi
 
 Frozen `IntradayFeature` fields: feature_id, algorithm_version, unit, minimum_period, operand_family, supports_batch, supports_update, supports_restore, supports_merge. Operand families are `anchored_closes`, `anchored_true_ranges` or `rolling_price_moments` with the exact mathematical closure in the linked contract; RSI/EMA are separate recurrences despite sharing a family. Entries are lexicographically sorted and unique. Catalog digest is SHA256 of canonical ASCII compact sorted-key JSON with schema `equity-features.intraday-catalog.v1`, package_version and these complete entries. Reject unknown/different catalog versions/digests on imported prepared metadata. Declaration of a planned ID does not imply executable capability: before its kernel ships supports_batch isFalse and invoking it is UNSUPPORTED_CAPABILITY; after qualification it becomesTrue with a changed delivered package/catalog identity. All public state flags remainFalse in R17. EQ141's delivered discovery must show all eight actually supported batch outputs.
 
-EQ136 delivers reviewed documents and independent fixtures only. No production export, worker binding, implemented discovery, runtime measurement or installed-artifact claim is made by this specification. EQ137–141 must qualify actual implementations and their own current evidence.
+EQ136 delivers reviewed documents and independent fixtures only. No production export, worker binding, implemented discovery, runtime measurement or installed-artifact claim is made by this specification. EQ137â€“141 must qualify actual implementations and their own current evidence.
 
 ## Optional compatible preparation protocol
 
