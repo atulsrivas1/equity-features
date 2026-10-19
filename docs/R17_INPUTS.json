@@ -2,7 +2,7 @@
   "schema": "equity-features.r17-handoff.v1",
   "owner_execution_selected": true,
   "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW",
-  "implementation_admission": "EQ136–139 verified Done. EQ140 reviewed changes actually published; main source and both-platform package components accepted, actual51 main CI/final acceptance/Released/Done still required. EQ141 conditional public pre-code preparation only, Backlog until accepted140Done/currentinputs/separate public-packetReadyreview. LiveProjectauthority.",
+  "implementation_admission": "EQ136–140 verifiedClosedDone; EQ141 actual51-assertion ReadyinputPASS/Readyreadback/assignedAtul/Inprogressreadback. Final documentation/evidence audit only; finalcurrentheadreview/CI/publication/main/channel/acceptance/ReleasedDone/E25milestoneclosure remain. LiveProjectauthority.",
   "governance_issue": 464,
   "planning_pr": 498,
   "epic": 465,
@@ -134,5 +134,26 @@
     "source": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
     "public_evidence": "https://github.com/atulsrivas1/equity-features/issues/471#issuecomment-6264779008",
     "status": "Exact preparation measurement and candidate bothOS artifacts accepted; final story delivery pending"
+  },
+  "delivered_component_snapshot": {
+    "sources": {
+      "equity-features": "c7010a0a7b8ad290d1fe9f10bc1528ea09b3885b",
+      "equity-feature-workers": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+      "equity-feature-io": "18d86761aa3eebb7414e51e8fa2aba089717b5eb"
+    },
+    "distributions": {
+      "equity-feature-contracts": "0.0.4a4",
+      "equity-features": "0.0.4a4",
+      "equity-features-intraday": "0.1.0a3",
+      "equity-feature-io-contracts": "0.1.0a2",
+      "equity-feature-io-sdk": "0.1.0a2",
+      "equity-feature-workers": "0.1.0a14"
+    },
+    "main_artifacts": [
+      12212142183,
+      12211898603
+    ],
+    "qualification_inventory": "docs/R17_ACCEPTANCE_INPUTS.json",
+    "status": "Accepted136-140components, notcompletedEQ141/R17"
   }
 }

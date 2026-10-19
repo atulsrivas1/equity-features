@@ -8,6 +8,10 @@ The supported experimental platform is CPython 3.12 x64 on Windows and Linux. Us
 
 The [repository map](docs/START_HERE.md#choose-a-repository) distinguishes the calculation library, optional companions and independent strategy research. Accepted engineering releases do not establish a profitable strategy or production service. The [R13 receipt](docs/R13_ACCEPTANCE.md) preserves the negative, diagnostic-only evaluation and the decision to defer witness expansion.
 
+## Intraday foundation and supplied workers
+
+The optional intraday0.1.0a3 package provides eight batch outputs: EMA, RSI, ATR and five price-band measures. Explicit workers0.1.0a14 callbacks bind supplied inputs and preserve per-output readiness; core39 and default worker dispatch remain unchanged. [Install the matching six-package set](docs/INSTALLING.md), [run synthetic examples](docs/EXAMPLES.md), and inspect [R17 qualification/limits](docs/R17_ACCEPTANCE.md). The complete worker comparison adopted none of48 alternatives; sequential remains default/fallback. Public intraday update/restore/merge and persistent live execution are unsupported. [EQ141](https://github.com/atulsrivas1/equity-features/issues/475) owns final release audit/delivery; no fastest/live/SLA claim follows.
+
 ## Retained delivery history
 
 ## R13 local evidence pilot: DEFER expansion

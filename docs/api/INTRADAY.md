@@ -1,3 +1,9 @@
+## R17 implemented component and delivery boundary
+
+Intraday0.1.0a3 implements all eight own batch IDs, with update/restore/merge unsupported and full supplied-history replay only. [EQ139](https://github.com/atulsrivas1/equity-features/issues/473) and [EQ140](https://github.com/atulsrivas1/equity-features/issues/474) are verifiedDone; [R17 audit](../R17_ACCEPTANCE.md) joins actual source/package/independent numerical/readiness/worker evidence and final delivery gates. [Explicit worker API](https://github.com/atulsrivas1/equity-feature-workers/blob/231349aaf2bf1b9ec21f45807382ca9c6522520c/docs/api/SUPPLIED_INPUTS.md) binds selected closure/input/history/diagnostics/receipt rules without changing core39/default dispatch. [Install/examples](../INSTALLING.md) and actual capabilities are current; historical source-development checkpoints below do not override accepted equations/quality/state limits. EQ141 changes no public API or mathematics.
+
+## Earlier checkpoints retained as history
+
 ## EQ139 measured component; final delivery pending
 
 [Actual band comparison](../stories/EQ-139_BENCHMARK.md) at frozen9d51 passed separate781-assertion evidence review:36A/36B profiles and504 retained samples preserve full-result projection parity. Six combined selections and two narrow large single-band observations pass every frozen gate;28nonwins retain direct fallback. All38 execution entries remain unchanged in the successor applicability map. This direct synthetic result is distinct from actual worker/live/end-to-end behavior and final current-head/both-platform installed/CI/main acceptance. The source API remains eight batch IDs with all public state flags false.

@@ -1,3 +1,9 @@
+## Verified EQ140 delivery
+
+[EQ140 actual Done](https://github.com/atulsrivas1/equity-features/issues/474#issuecomment-6274655166) followed main51SUCCESS/final42/source147/actual main bothOS package proof, actualReleased/postrelease25 and actualClosedDone. Published canonicalc7010a0a7b8ad290d1fe9f10bc1528ea09b3885b/workers231349aaf2bf1b9ec21f45807382ca9c6522520c. [Final proof](r17-delivery/EQ140_MAIN_FINAL_ACCEPTANCE_PUBLIC_REVIEW.md), [artifact proof](r17-delivery/EQ140_MAIN_HOSTED_ARTIFACT_PUBLIC_REVIEW.md), [postread](r17-delivery/EQ140_POSTRELEASE_PUBLIC_REVIEW.md) and [R17 audit](../R17_ACCEPTANCE.md) retain exact sources, artifacts and limits. Historical qualification snapshots below are not current status. All48 measured alternatives remain nonwins/sequentialfallback; no new timing or completedR17 follows.
+
+## Earlier checkpoints retained as history
+
 # EQ140 supplied-input implementation and qualification
 
 [EQ140](https://github.com/atulsrivas1/equity-features/issues/474) is OPEN/assigned; live Project owns its current review/test stage. [Worker PR57](https://github.com/atulsrivas1/equity-feature-workers/pull/57) implements the accepted [binding contract](EQ-140_BINDING_CONTRACT.md); [canonical PR562](https://github.com/atulsrivas1/equity-features/pull/562) carries the design and delivery evidence. Final-source review, actual main publication/readback and final acceptance remain required before Released/Done.

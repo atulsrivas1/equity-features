@@ -1,3 +1,12 @@
+## R17 final audit in progress
+
+All EQ136–140 are verified CLOSED/ProjectDone; [EQ141](https://github.com/atulsrivas1/equity-features/issues/475) passed51 separate Ready-input assertions (private SHA8c653497e3a1c1c3924b9cd09563a6e71b442673f44687771e30a8b2d1b4bddb), actual Ready readback, Atul assignment and actual In progress readback. [Qualification report](R17_ACCEPTANCE.md) and [exact input inventory](R17_ACCEPTANCE_INPUTS.json) audit the accepted six-package set, independent mathematical/readiness proof, all source-bound studies/nonwins and current main both-platform channel. No runtime/math/version change is introduced. Final EQ141 source review/currentCI/publication/main/readback/Released/Done and E25/milestone closure remain mandatory; live Project owns current status.
+
+Next: freeze/review the complete audit and public proof derivatives, run appropriate documentation/evidence checks and current CI, qualify actual published main and channel, then final acceptance/Released/Done and aggregate closure. R18 handoff/execution follows verified R17 with its own applicable review route; no local grant inferred. Preserve original dirty and frozen137/138/139/be4 sources/environment and unrelated work. Worker486-Job study remains48nonwins/sequentialfallback; no new timing or persistent/live/fastest claim.
+
+
+## Earlier checkpoints retained as history
+
 ## EQ141 conditional pre-code publication; EQ140 main acceptance pending
 
 [EQ141 plan](stories/EQ-141_PLAN.md) prepares the cross-repository R17 audit in a public draft while EQ140 main CI completes. EQ141 remains Backlog/unassigned until actual EQ140 Done/current inputs and separate final public-packet Ready review; this is no second implementation pull. The [live Project](https://github.com/users/atulsrivas1/projects/2) owns actual status.

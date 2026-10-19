@@ -1,3 +1,9 @@
+## R17 current component compatibility
+
+The [six qualified distributions](R17_ACCEPTANCE_INPUTS.json) preserve core/contracts0.0.4a4/core39, I/O contracts/SDK0.1.0a2, intraday0.1.0a3 and workers0.1.0a14. Own intraday discovery has eight batch IDs; update/restore/merge remain false, replay is full supplied-history recalculation. Original daily APIs/config/discovery and worker default dispatch are unchanged. Explicit supplied callbacks add no a14 service/client/MCP migration. No public schema/algorithm/math policy or package version changes in the EQ141 audit. [Qualified installation forms/skip ledgers](R17_ACCEPTANCE.md), [installation/migration](INSTALLING.md), [API](api/INTRADAY.md). Historical version/source snapshots below retain their exact original evidence; direct-study percentages are not whole-worker performance.
+
+## Earlier checkpoints retained as history
+
 ## EQ139 actual measured execution applicability
 
 [Actual a3 band measurements](stories/EQ-139_BENCHMARK.md) remain bound to9d51; all38 measured execution entries are unchanged in the current author applicability map. Raw evidence and source/package versions are never relabeled. New proof-retention guard/builder/docs changes do not imply whole-head equivalence; current successor/both-platform installed artifacts, final review/CI/main acceptance remain mandatory. Core/contracts0.0.4a4/core39, accepted schemas/math policy and all unsupported state flags remain unchanged.
