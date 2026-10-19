@@ -1,3 +1,11 @@
+## EQ137 preparation measurement implementation
+
+The [benchmark tool](../tools/benchmark_intraday_preparation.py) specializes the frozen workloads below to the six implemented preparation families. Output kernels and actual worker modes remain later stories. One isolated measurement process constructs real immutable synthetic inputs, calls source admission/preparation, validates local compatible reuse and inspects full projections; construction and admitted calculation stages are separate and included in total sample time. No provider/source/sink or queue/IPC latency is claimed. The old supplied snapshot is released after each sample, so a replacement does not silently retain two full input sets.
+
+Record current CPU topology, Windows process-group affinity limitation, free/total memory and actual imported package versions/origins. Bind exact Git/materialized source hashes in parent and each child, before/after timing and after each child. All baseline samples/thresholds are frozen in an exclusively created sidecar before any shared timing. The memory bound adds parent peak and measurement-child peak (conservative non-simultaneous high-water sum); samples report child core-seconds and total subprocess time separately. Native numerical threads, worker children, IPC and queues are zero in this preparation-only comparison. Object construction/copy and inspection time are included; this does not claim a traced count of every interpreter allocation or copy byte.
+
+Failures preserve available samples/case/mode/phase and fail acceptance. [Guard tests](../tools/test_intraday_benchmark.py) verify existing report/baseline preservation and structured retention of partial and source-invalid final samples. Correctness preflight compares full family projections for complete, absent H/L, governed-gap, flat and actually corrected-price/revision inputs. Independent mathematical oracles remain producer tests, separate from this A/B parity comparison. No benchmark result is claimed before the source-frozen run completes.
+
 # R17 correctness, independence and performance qualification
 
 ## EQ136 concrete specification and frozen measurement plan

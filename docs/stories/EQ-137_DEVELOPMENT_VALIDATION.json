@@ -7,14 +7,20 @@
     "strict_mypy_files": 8,
     "ci_gate_methods": 13,
     "intraday_boundary_negative": 20,
-    "intraday_boundary_positive": 5
+    "intraday_boundary_positive": 5,
+    "benchmark_guard_methods": 3
   },
   "failures_retained": [
     "Initial chunk-name test matched context_sha256; narrowed exact numeric suffix test.",
     "Initial type annotations/capability snapshot API assumptions corrected before passing checks.",
     "Expanded window oracle exposed test helper fixed evaluation_ns60; made synthetic timing/session bounds depend on actual window length.",
     "Example strict typing rejected int tuple versus Fraction tuple; expected literals now explicitly Fraction.",
-    "Separate early review PREP03: unit mismatch must precede supplied malformed price semantics; corrected admission order and added combined-error regression."
+    "Separate early review PREP03: unit mismatch must precede supplied malformed price semantics; corrected admission order and added combined-error regression.",
+    "Partial packaging review PKG01 found UTF8 mojibake in EQ137-141 API text; restored accepted UTF8 source plus intended progress paragraph.",
+    "Initial a072727 Windows build passed repeat archives, SDist rebuilds and early source-isolated installed checks, then rejected source closure after author edited source-bound API document concurrently. Not accepted. Rerun on frozen successor required.",
+    "BENCH01 review: HEAD-only benchmark binding was insufficient; now parent/child actual origins/versions, complete package module inventory and exact Git/materialized hashes are checked before/after measurements.",
+    "BENCH02 review: baseline sidecar could overwrite earlier evidence; now both paths guarded and exclusively created. Partial failed samples retained, old input lifetime released after each sample.",
+    "BENCH03 review: post-measurement source failure lost seven samples; structured failed result now preserves source-invalid samples without adopting them; regression guard passes."
   ],
   "pending": [
     "full independent source review",
@@ -24,5 +30,10 @@
     "final source CI",
     "publication/readback",
     "acceptance"
-  ]
+  ],
+  "review": {
+    "identity": "separate local automated Codex reviewer /root/r17_review",
+    "initial_16file_source_receipt_sha256": "5c7c2798255e416e9c5dba261b6f97e01e8eb6d9b0e6743b9c5514ff1f2d36bd",
+    "limits": "Partial source only; renewed full source/build/performance/delivery review remains mandatory."
+  }
 }
