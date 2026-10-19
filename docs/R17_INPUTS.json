@@ -2,7 +2,7 @@
   "schema": "equity-features.r17-handoff.v1",
   "owner_execution_selected": true,
   "review_authorization": "OWNER_AUTHORIZED_SEPARATE_LOCAL_REVIEW",
-  "implementation_admission": "EQ136 accepted specification; EQ137 preparation component qualified at c7a46d6, final delivery pending. EQ138 and later require their own accepted inputs and reviewed public pre-code plans. Live Project is status authority.",
+  "implementation_admission": "EQ136 and EQ137 accepted Closed/Done, main e790c30241c4420a08adbf2e92403a4cd9a74375. EQ138 own public Ready inputs separately accepted28assertions; In progress. EQ139-141 retain own actual readiness/delivery gates. Live Project owns status.",
   "governance_issue": 464,
   "planning_pr": 498,
   "epic": 465,

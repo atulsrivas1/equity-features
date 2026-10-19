@@ -1,7 +1,7 @@
 # Equity Features Intraday
 
-Experimental pure supplied-data intraday preparation, distribution
-`equity-features-intraday`0.1.0a1, Python3.12, Apache-2.0.
+Experimental pure supplied-data intraday preparation and snapshot EMA/RSI/ATR,
+distribution `equity-features-intraday`0.1.0a2, Python3.12, Apache-2.0.
 Callers supply canonical BAR facts, actual exchange sessions and an explicit
 bounded intraday grid. Context/configuration, coverage, action/unit/source
 identity and known-at eligibility are validated without acquisition or I/O.
@@ -20,13 +20,19 @@ The recorded one-process preparation benchmark at sourcec7a46d6 reduced median
 elapsed time59.55–64.76% across six synthetic workloads with full projection
 parity and declared resource gates; this is no library ranking or worker SLA.
 
-Own discovery describes eight planned EMA/RSI/ATR and band outputs, but all
-output capabilities are false in this preparation-only version; invoking an
-output raises UNSUPPORTED_CAPABILITY. Output kernels belong to EQ138/EQ139.
+`compute_intraday` calculates selected EMA/RSI/ATR cells, using exact rational
+seeds and ordered Decimal120 recurrences in an explicit local context. Each
+output has its own N/N+1 warm-up, required fields, quality and evidence. RSI
+preserves the initialized gain/loss ratio through a long flat tail. Shared
+preparation and direct calls produce the same complete selected result.
+Own discovery has eight IDs: three executable batch indicators, five planned
+band outputs whose invocation raises UNSUPPORTED_CAPABILITY (EQ139).
 Existing core39 discovery and daily calculations remain unchanged. Public
 incremental update, checkpoint restore and arbitrary merge are unsupported.
 
 The channel is qualifying GitHub Actions main artifacts/source with finite
 retention, described in the repository build/delivery guide; registry/stable
 publication is not selected. [EQ137 acceptance](https://github.com/atulsrivas1/equity-features/issues/471)
-records actual current review, installed-platform and delivery status.
+records accepted preparation0.1.0a1 delivery. [EQ138](https://github.com/atulsrivas1/equity-features/issues/472)
+records actual0.1.0a2 review, qualification and delivery status. Historical
+preparation timings do not establish output performance for this version.

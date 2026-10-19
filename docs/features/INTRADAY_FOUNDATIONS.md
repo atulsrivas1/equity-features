@@ -1,3 +1,7 @@
+## EMA/RSI/ATR implementation checkpoint
+
+[EQ138 plan](../stories/EQ-138_PLAN.md) implements the three accepted batch recurrences using exact rational seeds, explicitly local Decimal120 arithmetic and one guarded final Float64 conversion. Independent original expanded geometric weights verify seeds/tails/scale/wide offsets, with long-flat RSI and hostile global-context cases. Each output uses its own required operands and N/N+1 warm-up; no bands/output dependencies or public recurrence state are introduced. Actual qualification and release evidence remains on EQ138.
+
 # Intraday foundations contract
 
 EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470), R17. Accepted original mathematical contract; actual implementation/release acceptance belongs to the linked implementation stories. The [initial proposal](../stories/EQ-136_PLAN.md) is preserved as history. This document refines direct dependencies and precision using explicit synthetic counterexamples. [Packaging choice](../decisions/R17_INTRADAY_PACKAGE.md).

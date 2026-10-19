@@ -1,3 +1,7 @@
+## Keep fact readiness separate from each recursive seed
+
+[EQ138 plan](../stories/EQ-138_PLAN.md) consumes the accepted preparation facts directly. Three admitted closes can seed EMA3 while RSI3 and ATR3 still need a fourth dependency slot; a single admitted close is valid preparation but cannot seed ATR1. Preserve per-output expected/observed counts and independent required fields. Compute RSI from high-precision initialized gain/loss witnesses before one Float64 conversion, so flat tails do not falsely become neutral through underflow. Independent expanded geometric weights and hostile-global-context fixtures qualify the source; final performance/install/delivery evidence remains separately required.
+
 ## Validate cross-chunk phases globally; freeze sources through measurements
 
 [EQ137 PREP04 and measured component evidence](https://github.com/atulsrivas1/equity-features/issues/471#issuecomment-6264779008) show why per-chunk ordering is insufficient for a declared global rejection order: an early malformed price masked a later unit mismatch; an early grid defect masked a later malformed payload. Validate all supplied envelopes, then all payload semantics in input order, then cross-chunk grid/coverage. Producer regressions preserve these combined defects and independent field readiness.

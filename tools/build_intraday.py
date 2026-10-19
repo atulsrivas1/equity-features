@@ -18,7 +18,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT_ROOT=ROOT/'dist/intraday'
 PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'),
           'features':('equity_features','0.0.4a4'),
-          'intraday':('equity_features_intraday','0.1.0a1')}
+          'intraday':('equity_features_intraday','0.1.0a2')}
 SCOPES=['packages/'+name for name in PACKAGES]+[
     'tests/intraday','examples/intraday_preparation.py',
     'examples/typing/intraday_positive.py','examples/typing/intraday_negative.py',
@@ -30,6 +30,7 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'requirements-dev.txt','mypy.ini','.github/workflows/packages.yml',
     'docs/api/INTRADAY.md','docs/features/INTRADAY_FOUNDATIONS.md',
     'docs/stories/EQ-137_PLAN.md','docs/stories/EQ-137_FACT_READINESS.md',
+    'docs/stories/EQ-138_PLAN.md',
     'docs/stories/EQ-137_PREPARATION_BENCHMARK.json','docs/stories/EQ-137_PREPARATION_BASELINE.json']
 
 

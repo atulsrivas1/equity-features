@@ -6,7 +6,7 @@ import json
 from equity_feature_contracts import ErrorCode
 from ._context import ALGORITHM, fail
 
-PACKAGE_VERSION = "0.1.0a1"
+PACKAGE_VERSION = "0.1.0a2"
 
 
 @dataclass(frozen=True)
@@ -23,9 +23,9 @@ class IntradayFeature:
 
 
 _CATALOG = tuple(sorted((
-    IntradayFeature("intraday.ema", ALGORITHM, "currency/share", 1, "anchored_closes"),
-    IntradayFeature("intraday.rsi", ALGORITHM, "RSI points", 2, "anchored_closes"),
-    IntradayFeature("intraday.atr", ALGORITHM, "currency/share", 1, "anchored_true_ranges"),
+    IntradayFeature("intraday.ema", ALGORITHM, "currency/share", 1, "anchored_closes", supports_batch=True),
+    IntradayFeature("intraday.rsi", ALGORITHM, "RSI points", 2, "anchored_closes", supports_batch=True),
+    IntradayFeature("intraday.atr", ALGORITHM, "currency/share", 1, "anchored_true_ranges", supports_batch=True),
     *(IntradayFeature(f"intraday.band_{name}", ALGORITHM,
                       "fraction" if name in ("width_ratio", "position") else "currency/share",
                       2, "rolling_price_moments")

@@ -57,7 +57,7 @@ def source_identity():
         assert actual==wanted,('untracked/missing runtime module',module.__name__)
         origins[module.__name__]={'origin':origin.relative_to(ROOT).as_posix(),'version':version(distribution)}
     assert origins['equity_feature_contracts']['version']=='0.0.4a4'
-    assert origins['equity_features_intraday']['version']=='0.1.0a1'
+    assert origins['equity_features_intraday']['version']=='0.1.0a2'
     return {'head':head,'source':sources,'libraries':origins,'runtime':'pinned source development environment; artifact installs qualified separately'}
 
 
