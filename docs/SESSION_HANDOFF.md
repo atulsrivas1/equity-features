@@ -4910,3 +4910,10 @@ Author verified30stories/fivemilestones/30nativeparents Open/Backlog/unassigned/
 Owner rejected naming the product consumers after the source products. Updated current draft plans/backlog/JSON, R29 milestone33/E37#555, EQ207-209#556-558 and affected issue bodies/PR524 to descriptive Option flow analysis, Option exposure analysis and Volatility analysis. Matrix HTML/Markdown/JSON now display no rejected brands; raw original source/receipts remain untouched and private source alias mapping preserves joins.
 
 Author18/30story validators and13view mockDOM/no-brand checks passed; live story-title readback matched. Naming only: no runtime/API/math/release-scope/status change. Required separate review/currentCI/publication remain pending. Resume with capability names; source product IDs are provenance, not chosen branding.
+
+
+## Flow Analyst initial product decisions — October19,2026
+
+Owner requested documenting the discussion. Added FLOW_ANALYST_PRODUCT.md under existing EQ207/GOV033/R29: stock/option/ETF trading scope, ETF market-data versus fund-flow distinction, historical retained-inventory limitations and I/O -> supplied-fact calculations -> workers -> verified data/query -> product/UI responsibilities. Raw private source inventories were inspected read-only; exact corpus paths/volumes/content are not published. This is no fresh physical audit, new source admission, math/API/runtime or operating change.
+
+Use Flow Analyst/Exposure Analyst/Volatility Analyst as application names, superseding capability-only application labels. Scope of the latter two is still for later discussion. Next discuss Flow Analyst primary workflow (intraday/EOD/both), then initial user questions/screens/datasets and acceptance; do not infer an answered workflow choice or live SLA. Existing planning/review gates and active equity execution unchanged.

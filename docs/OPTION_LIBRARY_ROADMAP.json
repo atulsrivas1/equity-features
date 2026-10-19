@@ -426,7 +426,7 @@
     },
     {
       "id": "EQ-207",
-      "title": "Plan and implement admitted option flow policies over shared libraries",
+      "title": "Plan and implement admitted Flow Analyst policies over shared libraries",
       "release": "R29",
       "epic": "E37",
       "dependencies": [

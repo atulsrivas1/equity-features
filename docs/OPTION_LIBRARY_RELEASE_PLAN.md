@@ -26,3 +26,8 @@ Existing equity execution priority and draft R22-R24 remain unchanged. Provider/
 ## Capability naming
 
 Owner direction: use Option flow analysis, Option exposure analysis and Volatility analysis as descriptive capability groups. These are not selected product brands. Historical source identifiers remain only as provenance; current issue/release/matrix naming uses capabilities. Naming does not change story IDs, dependencies, scope or status.
+
+
+## Product discussion: Flow Analyst
+
+[Initial decisions](FLOW_ANALYST_PRODUCT.md) record Flow Analyst targeting stocks, options and ETF trading. ETF fund flows are separate and unverified. I/O and pure features support worker-generated datasets; products query/display them. Intraday versus end-of-day first-version focus is still open. The owner-discussed application names are Flow Analyst, Exposure Analyst and Volatility Analyst; earlier capability-only naming paragraphs are retained as history, superseded for application names.

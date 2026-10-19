@@ -2761,3 +2761,8 @@ Owner clarified that inventory alone is insufficient: every equity family/worker
 ## Owner naming direction — October19,2026
 
 Use descriptive capability groups: Option flow analysis, Option exposure analysis, Volatility analysis. Do not select product brands through this library roadmap. Current plans/issues/milestone/matrix use those labels; original source history retains its identifiers for provenance. Scope, IDs and statuses unchanged.
+
+
+## Flow Analyst product scope discussion — October19,2026
+
+[Product decisions](FLOW_ANALYST_PRODUCT.md): initial markets stocks/options/ETF trading; source coverage admitted per instrument/date/type, not a full-data or live-readiness claim. ETF creations/redemptions not established by trade or holdings data. Workers generate verified datasets using I/O and pure features; product/query/UI consumes them. Application names: Flow Analyst, Exposure Analyst, Volatility Analyst; pure library technical names retained. Next decision intraday monitoring versus end-of-day research versus both remains open.

@@ -2033,3 +2033,8 @@ The options DAG check rejected EQ094 because it is retired; the intended existin
 ### Source product names are not new product names
 
 Owner correction: label reusable consumers by capability (Option flow analysis, Option exposure analysis, Volatility analysis). Keep historical source names in original provenance, while current issue/release/document/matrix labels remain descriptive. Preserve stable internal joins across display renames; no architecture or implementation change follows from naming.
+
+
+### Separate market coverage, trading activity and fund movements
+
+Flow Analyst discussion confirms stock/option/ETF trading as initial product direction. ETFs can appear within equity trading data; holdings do not prove creation/redemption flows. A historical retained inventory is not a current complete/entitled/live qualified dataset. Keep that distinction in product availability and UI semantics, and keep worker-generated feature evidence separate from presentation. See [decisions](../FLOW_ANALYST_PRODUCT.md).

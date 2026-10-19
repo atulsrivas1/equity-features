@@ -2,7 +2,7 @@
 
 Owner-requested future planning, October19,2026. [Epic](https://github.com/atulsrivas1/equity-features/issues/555), [milestone](https://github.com/atulsrivas1/equity-features/milestone/33), [governance](https://github.com/atulsrivas1/equity-features/issues/525). Planned Backlog/unassigned/no due date; live Project owns status.
 
-## EQ-207: Plan and implement admitted option flow policies over shared libraries
+## EQ-207: Plan and implement admitted Flow Analyst policies over shared libraries
 
 [Issue](https://github.com/atulsrivas1/equity-features/issues/556); layer: product policy/integration. Dependencies: EQ-193, EQ-176, EQ-177, EQ-178.
 
