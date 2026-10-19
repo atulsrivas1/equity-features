@@ -1,3 +1,9 @@
+## EQ142 native evidence needs complete ownership and failure boundaries
+
+[Native qualification](../stories/EQ-142_BASELINE_PREPARATION.md) distinguishes the launched process from the calculation parent, direct Job membership from OS ancestry, and direct lifetime witnesses from sampled resources. A timestamp gap cannot prove a live descendant; retain an actual live row after observed launcher exit. Constrain local samples to the actual resumed-to-empty interval, preserve original native integer widths and cumulative counters, and reconcile metadata from the same clock without claiming empirical precision or raw cross-process alignment.
+
+Cleanup is a separate failure domain. Attempt each owned termination, reap and close even when accounting or another close fails. Keep the primary object and real cause, record independent failures, and reject cleanup-only errors. Include early creation refusal and probe handles, not just the main runner. A collided Job permits closing only the caller's opened reference. Retain failed fixtures and reviewer reproductions; broad green tests do not override an independent finding, and a narrow successor renewal is not a full rerun.
+
 ## EQ142 observed completion needs the actual shutdown boundary
 
 [Executor evidence](../stories/EQ-142_BASELINE_PREPARATION.md) must distinguish an actual successful waited shutdown from later Future states. Retain actual submission owners, zero-submit and partial cancellation, the original shutdown exception, and partial non-atomic queries without retry. Bind original descriptors and code identities independently; separately source-bound manual queries are not patched hooks or profiler identities. Reconcile the full original delegate identity when migrating count cardinality, and correct prospective count wording before code. Observer failures preserve original products/errors; bounded component evidence does not qualify a complete sample, installed build or performance claim.
