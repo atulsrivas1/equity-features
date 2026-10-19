@@ -4924,3 +4924,8 @@ Use Flow Analyst/Exposure Analyst/Volatility Analyst as application names, super
 Added PRODUCT_MAP.md with named and proposed product purposes, in-product/shared watchlists, cross-product strategy inputs, Research Analyst evaluation and current candidate placement. Automated execution stays outside this discussion. Corrected FLOW_ANALYST_PRODUCT.md: earlier forced-next intraday/EOD/screen questions are superseded by owner high-level-only direction; those details are deferred, not required now.
 
 No new feature/story/release/implementation/workflow/SLA/operating selection or exhaustive feature-to-product completeness claim. Existing GOV033 planning captures guidance only. Resume product discussion one at a time at purpose/boundary level; do not force detailed UI/workflow decisions. Documentation checks only; separate review/CI/publication gates remain pending.
+
+
+## Owner execution priority — October19,2026
+
+Wait for verified R17 and R18 completion before starting option implementation. The intended next option foundation is R25/EQ182-187; this does not require every equity release R19-R24 to finish first. Keep the separate option releases/stories planned Backlog and preserve current equity ownership. R17/R18 release acceptance (EQ141/EQ146), option-plan review/publication and concrete story readiness remain actual gates; no automatic start or new review/operating authority is inferred. This decision creates no reminder, monitor or recurring work.

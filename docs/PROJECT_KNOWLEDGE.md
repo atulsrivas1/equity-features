@@ -2771,3 +2771,8 @@ Use descriptive capability groups: Option flow analysis, Option exposure analysi
 ## High-level products, watchlists and strategies — October19,2026
 
 [Product map](PRODUCT_MAP.md): Flow/Exposure/Volatility Analyst named; Equity/Market/Event/Research Analyst proposed boundaries. Watchlists sit within relevant products and may share a cross-product capability. Strategies use shared features; Research Analyst is the proposed definition/exploration/historical-evaluation home, current matches can surface in appropriate analysts. Automated execution is separate. Owner explicitly limits discussion to high-level product purposes/boundaries; defer screens, intraday/EOD, data cadence and implementation choices.
+
+
+## Owner execution priority — October19,2026
+
+Wait for verified R17 and R18 completion before starting option implementation. The intended next option foundation is R25/EQ182-187; this does not require every equity release R19-R24 to finish first. Keep the separate option releases/stories planned Backlog and preserve current equity ownership. R17/R18 release acceptance (EQ141/EQ146), option-plan review/publication and concrete story readiness remain actual gates; no automatic start or new review/operating authority is inferred. This decision creates no reminder, monitor or recurring work.

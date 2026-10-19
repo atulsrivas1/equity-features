@@ -2043,3 +2043,8 @@ Flow Analyst discussion confirms stock/option/ETF trading as initial product dir
 ### Match planning depth to the owner discussion
 
 Owner clarified that products were being defined at a high level, not by screens, cadence or intraday/EOD workflow. [Product map](../PRODUCT_MAP.md) records watchlists as shared/in-product capabilities and strategy evaluation in the proposed Research Analyst, while current matches can surface across analysts. Preserve deferred details as deferred rather than repeatedly making them the next required question. No new delivery scope or complete inventory mapping is inferred.
+
+
+### Separate release numbering from execution priority
+
+Owner selects waiting for accepted R17/R18 before option implementation, then assessing R25 readiness. R25 numbering is shared roadmap identity, not a requirement to finish every equity release through R24. Preserve actual shared math dependencies separately from this explicit execution gate.

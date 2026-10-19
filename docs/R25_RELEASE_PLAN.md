@@ -65,3 +65,8 @@ Validation: Both-platform clean wheel/sdist installs, independent numerical/caus
 Future Backlog, unassigned, no due date or runtime selection. Current equity R17/R18 sequence and R22-R24 draft plan are preserved. Dependency lists are admission gates, not global runtime barriers. Release numbers are planning order, not a fabricated mathematical dependence between volatility/exposure branches. No provider spending/private data operation, live-feed/SLA, hosted deployment, notification sending, registry/admin/destructive/recurring scope or future review authorization is granted by this plan. Existing deferred provider/LIVE/SEC stories remain authoritative.
 
 All selected children accepted; every admitted output/worker/product definition tied to accepted scope or separately numbered residual before final coverage acceptance.
+
+
+## Owner execution priority — October19,2026
+
+Wait for verified R17 and R18 completion before starting option implementation. The intended next option foundation is R25/EQ182-187; this does not require every equity release R19-R24 to finish first. Keep the separate option releases/stories planned Backlog and preserve current equity ownership. R17/R18 release acceptance (EQ141/EQ146), option-plan review/publication and concrete story readiness remain actual gates; no automatic start or new review/operating authority is inferred. This decision creates no reminder, monitor or recurring work.

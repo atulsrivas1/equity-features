@@ -513,5 +513,15 @@
     }
   ],
   "review_status": "Pending supported separate final-head review; no implementation grant",
-  "scope": "Planning only. Detailed source/command/finite-definition crosswalks remain local."
+  "scope": "Planning only. Detailed source/command/finite-definition crosswalks remain local.",
+  "execution_priority": {
+    "decision_date": "2026-10-19",
+    "option_implementation_gate": [
+      "Verified R17 acceptance / EQ-141",
+      "Verified R18 acceptance / EQ-146"
+    ],
+    "next_option_release": "R25",
+    "require_all_equity_releases_first": false,
+    "start_policy": "Keep Backlog until actual dependencies, planning publication/review and concrete Ready gates met; no automatic start."
+  }
 }

@@ -36,3 +36,8 @@ Owner direction: use Option flow analysis, Option exposure analysis and Volatili
 ## High-level product roles and cross-product capabilities
 
 [Product map](PRODUCT_MAP.md) records the seven discussed product groups, watchlists within relevant analysts plus shared watchlists, and Research Analyst as the proposed strategy-definition/historical-evaluation home. Current matching candidates may appear in relevant products. Four additional product boundaries remain proposals; automated execution is separate. Owner scope is high-level discussion: no screens/workflow/cadence or new delivery commitments selected.
+
+
+## Owner execution priority — October19,2026
+
+Wait for verified R17 and R18 completion before starting option implementation. The intended next option foundation is R25/EQ182-187; this does not require every equity release R19-R24 to finish first. Keep the separate option releases/stories planned Backlog and preserve current equity ownership. R17/R18 release acceptance (EQ141/EQ146), option-plan review/publication and concrete story readiness remain actual gates; no automatic start or new review/operating authority is inferred. This decision creates no reminder, monitor or recurring work.
