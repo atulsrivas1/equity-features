@@ -22,6 +22,8 @@ Futures, FX, bonds, crypto and ETF creation/redemption datasets are possible lat
 
 ## Data generation and product use
 
+See the [shared product architecture diagram](PRODUCT_MAP.md#high-level-product-architecture) for the API, MCP, assistant and web/desktop surfaces above the data-generation foundation.
+
 1. I/O acquires/reads and normalizes selected facts and publishes selected results through declared source/sink contracts.
 2. Feature libraries calculate from supplied facts/configuration/state; they do not fetch, schedule or publish.
 3. Workers coordinate inputs, dependency readiness, calculations, bounded shared resources, recovery and verified publication to generate datasets.

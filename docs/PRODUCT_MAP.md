@@ -40,6 +40,47 @@ Historical labels and subsequent outcomes support research; future observations 
 
 I/O reads/normalizes and publishes data; pure feature libraries calculate from supplied facts; workers coordinate data-generation dependencies/resources/recovery/publication. Product backends/query layers consume admitted generated datasets and the UI presents them. Products may request jobs and share compatible datasets. Library boundaries do not mandate separate processes or per-product recomputation.
 
+## High-level product architecture
+
+A product delivers a coherent set of user capabilities through an API, MCP tools, an AI assistant and web/desktop interfaces, backed by shared generated data and domain logic. These are complementary surfaces of the same product and share definitions, permissions, availability and evidence.
+
+```mermaid
+flowchart TB
+    Sources["Market & reference data"]
+
+    subgraph Foundation["Shared data-generation foundation"]
+        IO["I/O adapters & sinks"]
+        Features["Pure feature libraries"]
+        Workers["Workers<br/>Dependencies, resources & execution"]
+        Data[("Generated datasets<br/>Results, quality & provenance")]
+
+        IO -->|Normalized inputs| Workers
+        Features -->|Calculations| Workers
+        Workers -->|Publish through I/O| Data
+    end
+
+    Sources --> IO
+
+    subgraph Product["Product — for example, Flow Analyst"]
+        Services["Shared product capabilities<br/>Queries, policies & permissions"]
+        API["API"]
+        MCP["MCP tools"]
+        Assistant["AI assistant"]
+        UI["Web / Desktop UI"]
+
+        Services --> API
+        Services --> MCP
+        API --> UI
+        API --> Assistant
+        MCP --> Assistant
+        Assistant -->|Conversational experience| UI
+    end
+
+    Data --> Services
+```
+
+Flow Analyst, Exposure Analyst and Volatility Analyst can use this structure while sharing compatible datasets and libraries. The arrows show conceptual data/capability flow, not exact runtime calls or a mandatory process/service topology. Workers invoke pure calculations; product services can request worker jobs. UI and assistant surfaces use shared product capabilities rather than duplicate feature mathematics. This diagram records product direction, not delivered API/MCP/assistant/UI scope or a deployment selection.
+
 ## Level of discussion
 
 The owner clarified that the current discussion is high-level product definition. Screens, detailed feature allocation, intraday/EOD workflow, cadence/SLA, datasets and implementation decisions are deferred, not unanswered prerequisites that must be forced now. Continue with product purpose, boundaries, overlap, watchlists and strategy placement one product at a time. The [Flow Analyst note](FLOW_ANALYST_PRODUCT.md) retains its initial-market and data-availability distinctions.

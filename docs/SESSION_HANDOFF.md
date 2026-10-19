@@ -4929,3 +4929,8 @@ No new feature/story/release/implementation/workflow/SLA/operating selection or 
 ## Owner execution priority — October19,2026
 
 Wait for verified R17 and R18 completion before starting option implementation. The intended next option foundation is R25/EQ182-187; this does not require every equity release R19-R24 to finish first. Keep the separate option releases/stories planned Backlog and preserve current equity ownership. R17/R18 release acceptance (EQ141/EQ146), option-plan review/publication and concrete story readiness remain actual gates; no automatic start or new review/operating authority is inferred. This decision creates no reminder, monitor or recurring work.
+
+
+## Shared product architecture diagram — October19,2026
+
+Owner requested adding the discussed diagram. PRODUCT_MAP.md now defines shared I/O/features/workers/generated data and per-product shared capabilities exposed through API, MCP, AI assistant and web/desktop UI. FLOW_ANALYST_PRODUCT.md links to it. Arrows are conceptual capability/data flow, not process boundaries or exact calls; no new implementation/release/operating scope or completed UI/assistant claim. Current high-level-only discussion and R17/R18 priority gates retained.
