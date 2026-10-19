@@ -1,0 +1,31 @@
+# R17 intraday package and compatibility decision
+
+EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470). Author proposal, October 19, 2026; separate contract review and publication are pending. This records a concrete choice for review, not implemented package support.
+
+## Choice
+
+Implement the eight selected R17 outputs in a separate optional pure distribution in the canonical equity-features repository: proposed distribution `equity-features-intraday`, import namespace `equity_features_intraday`, initial experimental version `0.1.0a1`. Depend exactly on `equity-feature-contracts==0.0.4a4`. Packaging/version become delivered facts only after the implementation and installed-artifact gates. The existing 39 core built-ins, registry digest, daily APIs and downstream exact pins remain unchanged.
+
+Own descriptive discovery must distinguish the eight intraday IDs, formula version `intraday-v1`, context codec version, actual capabilities and delivered package version from the existing core Registry. Do not forge the core definition's closed R1/R2/R3 release field, register dot IDs as caller-colon custom features or advertise 47 core built-ins. Existing continuous/research distributions demonstrate optional packaging; they do not establish intraday interoperability.
+
+This fits R17's existing repository ownership and indicator scope. Extending core discovery would require an intentional schema/catalog/version migration and downstream qualification, adding a larger compatibility surface without changing the selected calculations. No new indicator family, executor, provider or live service is selected.
+
+## Input and result boundary
+
+Use actual canonical BAR batches, an owned immutable typed intraday context, and a genuine existing ConfigSpec envelope. Do not pass intraday rows to daily HistoryContext, invent one session per bar or treat WindowSpec.count as a bar period. WindowSpec carries real unique session membership through the target; its existing `completed_eod` token means target inclusion at this generic layer, not observed completion. Intraday admission separately proves each consumed bar ends at or before C. See [generic specifications](../contracts/SPECS.md) and the independent daily-specific completion rules in [historical formulas](../features/HISTORICAL_FORMULAS.md).
+
+The public operation produces one snapshot cell per instrument/target-session/feature at an explicit target slot, using schema1 FeatureResult. Target, initialization anchor, period, band multiplier, operation/context versions and exact context digest must be bound in the final ConfigSpec before either direct or worker calculation. Distinct same-session endpoints require distinct configurations. No full-series output or public incremental state is claimed by this package version.
+
+The final direct configuration and input bindings must equal those used in the worker TaskManifest and result metadata. No digest projection or post-calculation metadata rewrite is permitted. Exact closed context transport, limits and provenance are EQ136 contract deliverables and EQ140 integration obligations; passing constructors alone is insufficient qualification.
+
+## Capabilities and independent work
+
+Select batch snapshot and replay by explicit full supplied-history recalculation for R17. Public update, checkpoint restore and arbitrary state merge remain unsupported, with typed unsupported-capability rejection. Internal rolling preparation and recurrences do not imply supported public state. This bounds the first version while retaining explicit state ownership and a future extension path; it makes no live latency claim. A persistent orchestration service remains deferred under E24.
+
+EMA, RSI, rolling price moments and true range/ATR are independent branches after shared input admission. Mean/radius/centered-close witnesses feed band cells directly. Width/position must not wait for separately materialized rounded band outputs. Preserve causal recurrence order within a symbol/anchor; use existing worker modes for independent work. R18 owns scheduler/resource refinements after R17 acceptance.
+
+## Required evidence and documentation impact
+
+Before this choice is accepted: separate review of the full mathematics/API/context/status/precision/discovery contract and independent fixtures. Before package delivery: own builds, strict typing, supported Windows/Linux wheel and sdist installed checks, genuine direct/worker transport and complete result/quality/evidence/identity parity, current source and artifact acceptance. No pin broadening or core-registry test edits merely to accommodate the new package.
+
+This specification changes no production code, package version, existing registry, acquisition planner, worker default or published artifact. It requires no runtime benchmark of documentation. Implementation stories must establish those capabilities and performance with actual evidence.
