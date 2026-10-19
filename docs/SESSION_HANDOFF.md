@@ -4903,3 +4903,10 @@ Resume: validate metadata/acyclic cross-roadmap dependencies and matrix links, t
 ### Planning validation and dependency correction
 
 Author verified30stories/fivemilestones/30nativeparents Open/Backlog/unassigned/no dates; static cross-roadmap graph, original docs guard and report checks passed. Graph validation caught an issue-number/story-ID mix-up: scoped service is EQ084, generic scanner EQ090 and endpoint labels EQ091; corrected both public issues and R23/R24/R29 plans/roadmap/backlog with superseded raw-body receipts kept locally. EQ094 stays retired. No numerical/benchmark or independent review claimed. Exact final source review/currentCI/publication/readback remain pending.
+
+
+## Capability labels replace product branding — October19,2026
+
+Owner rejected naming the product consumers after the source products. Updated current draft plans/backlog/JSON, R29 milestone33/E37#555, EQ207-209#556-558 and affected issue bodies/PR524 to descriptive Option flow analysis, Option exposure analysis and Volatility analysis. Matrix HTML/Markdown/JSON now display no rejected brands; raw original source/receipts remain untouched and private source alias mapping preserves joins.
+
+Author18/30story validators and13view mockDOM/no-brand checks passed; live story-title readback matched. Naming only: no runtime/API/math/release-scope/status change. Required separate review/currentCI/publication remain pending. Resume with capability names; source product IDs are provenance, not chosen branding.

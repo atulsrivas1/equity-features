@@ -2022,9 +2022,14 @@ Owner correction: accounted-for source families/workers need explicit numbered s
 
 ### Plan reusable option mathematics before product policy — October19,2026
 
-[Option roadmap](../OPTION_LIBRARY_RELEASE_PLAN.md) separates contracts/model/IV, tape arithmetic, volatility and exposure from FlowSeeker/Heatseeker/Tempest policies. Each includes I-O/worker/acceptance; volatility and exposure do not form a false runtime chain. Source catalogue coverage is not numerical completeness. Existing equity math stays owned and is reused only with matching semantics; input/intermediate reuse and shared hardware budgets are requirements, not speed evidence.
+[Option roadmap](../OPTION_LIBRARY_RELEASE_PLAN.md) separates contracts/model/IV, tape arithmetic, volatility and exposure from Option flow analysis/Option exposure analysis/Volatility analysis policies. Each includes I-O/worker/acceptance; volatility and exposure do not form a false runtime chain. Source catalogue coverage is not numerical completeness. Existing equity math stays owned and is reused only with matching semantics; input/intermediate reuse and shared hardware budgets are requirements, not speed evidence.
 
 
 ### Story IDs differ from GitHub issue numbers
 
 The options DAG check rejected EQ094 because it is retired; the intended existing service was EQ084 (GitHub issue94). Reconciliation also corrected endpoint labels EQ091/issue103 and generic scanner EQ090/issue102 in the earlier draft. Explicit semantic dependency assertions now supplement existence/acyclic checks. Preserve superseded receipts, fix the actual issues and all versioned plans together, and do not turn a reference error into a gate waiver.
+
+
+### Source product names are not new product names
+
+Owner correction: label reusable consumers by capability (Option flow analysis, Option exposure analysis, Volatility analysis). Keep historical source names in original provenance, while current issue/release/document/matrix labels remain descriptive. Preserve stable internal joins across display renames; no architecture or implementation change follows from naming.

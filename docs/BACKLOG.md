@@ -911,8 +911,8 @@ Scope baseline only; current status belongs to the live Project. All new deliver
 | [EQ-204](https://github.com/atulsrivas1/equity-features/issues/552) | R28 | I/O: Implement exposure reference and generation I-O | EQ-185, EQ-201 |
 | [EQ-205](https://github.com/atulsrivas1/equity-features/issues/553) | R28 | workers: Implement bounded exposure and change workers | EQ-202, EQ-203, EQ-204, EQ-144, EQ-145 |
 | [EQ-206](https://github.com/atulsrivas1/equity-features/issues/554) | R28 | release acceptance: Qualify exposure library and cross-layer release | EQ-187, EQ-205 |
-| [EQ-207](https://github.com/atulsrivas1/equity-features/issues/556) | R29 | product policy/integration: Plan and implement admitted FlowSeeker policies over shared libraries | EQ-193, EQ-176, EQ-177, EQ-178 |
-| [EQ-208](https://github.com/atulsrivas1/equity-features/issues/557) | R29 | product policy/integration: Plan and implement admitted Heatseeker level and change policies | EQ-206, EQ-177, EQ-178 |
-| [EQ-209](https://github.com/atulsrivas1/equity-features/issues/558) | R29 | product policy/integration: Plan and implement admitted Tempest scan and context policies | EQ-200, EQ-176, EQ-177 |
+| [EQ-207](https://github.com/atulsrivas1/equity-features/issues/556) | R29 | product policy/integration: Plan and implement admitted option flow policies over shared libraries | EQ-193, EQ-176, EQ-177, EQ-178 |
+| [EQ-208](https://github.com/atulsrivas1/equity-features/issues/557) | R29 | product policy/integration: Plan and implement admitted option exposure level and change policies | EQ-206, EQ-177, EQ-178 |
+| [EQ-209](https://github.com/atulsrivas1/equity-features/issues/558) | R29 | product policy/integration: Plan and implement admitted volatility scan and context policies | EQ-200, EQ-176, EQ-177 |
 | [EQ-210](https://github.com/atulsrivas1/equity-features/issues/559) | R29 | I/O/workers/product delivery: Qualify product projections, tools and delayed outcome integration | EQ-207, EQ-208, EQ-209, EQ-174, EQ-179, EQ-084 |
 | [EQ-211](https://github.com/atulsrivas1/equity-features/issues/560) | R29 | release acceptance: Accept options library and product integration coverage | EQ-187, EQ-193, EQ-200, EQ-206, EQ-210, EQ-181 |

@@ -426,7 +426,7 @@
     },
     {
       "id": "EQ-207",
-      "title": "Plan and implement admitted FlowSeeker policies over shared libraries",
+      "title": "Plan and implement admitted option flow policies over shared libraries",
       "release": "R29",
       "epic": "E37",
       "dependencies": [
@@ -443,7 +443,7 @@
     },
     {
       "id": "EQ-208",
-      "title": "Plan and implement admitted Heatseeker level and change policies",
+      "title": "Plan and implement admitted option exposure level and change policies",
       "release": "R29",
       "epic": "E37",
       "dependencies": [
@@ -459,7 +459,7 @@
     },
     {
       "id": "EQ-209",
-      "title": "Plan and implement admitted Tempest scan and context policies",
+      "title": "Plan and implement admitted volatility scan and context policies",
       "release": "R29",
       "epic": "E37",
       "dependencies": [

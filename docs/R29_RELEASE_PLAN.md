@@ -1,8 +1,8 @@
-# R29 — FlowSeeker, Heatseeker and Tempest library integration
+# R29 — Option flow, exposure and volatility integration
 
 Owner-requested future planning, October19,2026. [Epic](https://github.com/atulsrivas1/equity-features/issues/555), [milestone](https://github.com/atulsrivas1/equity-features/milestone/33), [governance](https://github.com/atulsrivas1/equity-features/issues/525). Planned Backlog/unassigned/no due date; live Project owns status.
 
-## EQ-207: Plan and implement admitted FlowSeeker policies over shared libraries
+## EQ-207: Plan and implement admitted option flow policies over shared libraries
 
 [Issue](https://github.com/atulsrivas1/equity-features/issues/556); layer: product policy/integration. Dependencies: EQ-193, EQ-176, EQ-177, EQ-178.
 
@@ -10,7 +10,7 @@ Reconcile every selected flow screen/rollup/tracker definition to exact primitiv
 
 Validation: Independent positive/negative/unavailable policy cases, origin-time/partial-population and catalogue-identity checks, direct-to-product parity and all admitted outputs mapped; no legacy parity from familiar names.
 
-## EQ-208: Plan and implement admitted Heatseeker level and change policies
+## EQ-208: Plan and implement admitted option exposure level and change policies
 
 [Issue](https://github.com/atulsrivas1/equity-features/issues/557); layer: product policy/integration. Dependencies: EQ-206, EQ-177, EQ-178.
 
@@ -18,7 +18,7 @@ Bind shared exposure grids/changes to explicit node filters, level selection, pr
 
 Validation: Independent level/filter/tie/partial-grid/clock scenarios, lifecycle/replay and policy-specific unavailable status; catalogue completeness and full input/output/evidence binding.
 
-## EQ-209: Plan and implement admitted Tempest scan and context policies
+## EQ-209: Plan and implement admitted volatility scan and context policies
 
 [Issue](https://github.com/atulsrivas1/equity-features/issues/558); layer: product policy/integration. Dependencies: EQ-200, EQ-176, EQ-177.
 

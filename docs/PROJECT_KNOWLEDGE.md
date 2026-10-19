@@ -2756,3 +2756,8 @@ Owner clarified that inventory alone is insufficient: every equity family/worker
 ## Owner-selected option library planning — October19,2026
 
 [Roadmap](OPTION_LIBRARY_RELEASE_PLAN.md) plans option foundations, option/shared microstructure, volatility, exposure and product integration. Calculation/I-O/worker/policy/release boundaries explicit; reuse equity RV/events/labels/strategies rather than duplicate. FutureBacklog only; no review/runtime/operating grant.
+
+
+## Owner naming direction — October19,2026
+
+Use descriptive capability groups: Option flow analysis, Option exposure analysis, Volatility analysis. Do not select product brands through this library roadmap. Current plans/issues/milestone/matrix use those labels; original source history retains its identifiers for provenance. Scope, IDs and statuses unchanged.
