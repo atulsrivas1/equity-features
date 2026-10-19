@@ -1,0 +1,130 @@
+{
+  "reviewer": "Authorized separate automated local Codex reviewer r17_review",
+  "utc": "2026-10-19T19:27:37.069282+00:00",
+  "result": "ACTUAL_MAIN_FINAL_ACCEPTANCE_PASS_SUPPORTS_RELEASED_THEN_VERIFIED_DONE",
+  "stage": "main-final",
+  "main": "576abecb1711047c65006cb76b5c121fa63491f2",
+  "head": "27122cdd38b54db4009c6d8deb13394c3d787810",
+  "checks": [
+    {
+      "name": "EQ141_FINAL_SOURCE_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_READY_INPUT_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_HOSTED_ARTIFACT_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "Exact unchanged execution inputs",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-workers actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-io actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "12211898603 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "12212142183 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "Actual supplied main unchanged",
+      "pass": true
+    },
+    {
+      "name": "Exact accepted actual main source receipt",
+      "pass": true
+    },
+    {
+      "name": "39308979595 exact terminal35 source/event/workflow",
+      "pass": true
+    },
+    {
+      "name": "39308979595 mandatory matrices and final aggregator",
+      "pass": true
+    },
+    {
+      "name": "39308979595 unique current scope artifact",
+      "pass": true
+    },
+    {
+      "name": "39308979595 scope actual access/head/run",
+      "pass": true
+    },
+    {
+      "name": "39308979595 scope exact server digest",
+      "pass": true
+    },
+    {
+      "name": "39308979595 retained raw scope exact",
+      "pass": true
+    },
+    {
+      "name": "39308979595 closed safe scope namespace",
+      "pass": true
+    },
+    {
+      "name": "39308979595 FULL actual source/base/tree/event",
+      "pass": true
+    },
+    {
+      "name": "39308979595 exact recomputed rawdiff",
+      "pass": true
+    },
+    {
+      "name": "39308979595 actual PUSH checkout head",
+      "pass": true
+    },
+    {
+      "name": "Actual OPEN Ready to release",
+      "pass": true
+    }
+  ],
+  "main_source_review_sha256": "e2a2113a94232746d0557fd8d45e9a3714d6686286f437eb75b9ea61fadccb86",
+  "findings": [],
+  "limits": [
+    "No lifecycle/source mutation or new workload/numeric/installed/native execution.",
+    "Actual existing six-package channel reused only with unchanged package/tools/tests/workflow/config execution bytes and exact source-bound accepted artifact proof.",
+    "Finite artifact retention; all48 worker alternatives nonwins; no R18 review acceptance."
+  ],
+  "document_kind": "Public derivative of private detailed actual-main final acceptance; not identical bytes or new execution",
+  "original_private_receipt_sha256": "07f66c372c571e2006b976de118fd762e12b4b94ccb13ea825b174715d8c33e7",
+  "actual_main_run": {
+    "id": 39308979595,
+    "event": "push",
+    "head_sha": "576abecb1711047c65006cb76b5c121fa63491f2",
+    "attempt": 1,
+    "terminal_SUCCESS": 35,
+    "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39308979595",
+    "scope": {
+      "allowlist_sha256": "fe8860b35869529b4cabdf940905d7bc3979974e031dd041a228d8eb0b3cf2ee",
+      "base": "c7010a0a7b8ad290d1fe9f10bc1528ea09b3885b",
+      "changes_count": 29,
+      "checkout_head": "576abecb1711047c65006cb76b5c121fa63491f2",
+      "checkout_tree": "ee62f15a00fdebc25ef89bddfd6353027cca015a",
+      "decision": "FULL",
+      "diff_sha256": "d107bfbddf1118ee4e1c3dd304e6c799bc5e59b17529b21e26ab4600c20c09ab",
+      "event": "push",
+      "reason": "NON_READER_CHANGE",
+      "repository": "atulsrivas1/equity-features",
+      "schema": "equity-features.ci-scope.v1",
+      "source_head": "576abecb1711047c65006cb76b5c121fa63491f2",
+      "valid": true
+    },
+    "scope_artifact_id": 12213364502,
+    "scope_zip_sha256": "1cf4dab899f0801fff0977bbd3f8625252e7adac3850350e07c4962e24a00ae1"
+  },
+  "manual_metadata_review": "Current actual issue OPEN/Ready to release and merged PR explicitly identify acceptedsource43, actualmain35SUCCESS, finaldelivery pending; original no-impact/math/capability/nonwins/channel/privacy/installed evidence limitations retained. No affecting findings.",
+  "supports": "Owner actual Released/readback, then separate postrelease verification and actual Done/closing readback; sixDone aggregate review/epic/milestone remain future stages."
+}

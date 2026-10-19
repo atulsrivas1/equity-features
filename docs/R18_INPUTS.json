@@ -1,0 +1,265 @@
+{
+  "schema": "equity-features.r18-handoff-inputs.v1",
+  "stage": "GOV034_PROPOSAL_NOT_READY_OR_IMPLEMENTATION",
+  "snapshot_utc": "2026-10-19T19:39:30.158317+00:00",
+  "status_authority": "https://github.com/users/atulsrivas1/projects/2",
+  "governance_issue": 564,
+  "epic": 466,
+  "milestone": 22,
+  "implementation_issues": [
+    476,
+    477,
+    478,
+    479,
+    480
+  ],
+  "source_snapshot": {
+    "equity-features": "576abecb1711047c65006cb76b5c121fa63491f2",
+    "equity-feature-workers": "231349aaf2bf1b9ec21f45807382ca9c6522520c",
+    "equity-feature-io": "18d86761aa3eebb7414e51e8fa2aba089717b5eb"
+  },
+  "package_build_sources": {
+    "core": "b1f5445eb9799b73753e413669b94166997fc468",
+    "io": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+    "worker": "231349aaf2bf1b9ec21f45807382ca9c6522520c"
+  },
+  "distributions": {
+    "equity-feature-contracts": "0.0.4a4",
+    "equity-features": "0.0.4a4",
+    "equity-features-intraday": "0.1.0a3",
+    "equity-feature-io-contracts": "0.1.0a2",
+    "equity-feature-io-sdk": "0.1.0a2",
+    "equity-feature-workers": "0.1.0a14"
+  },
+  "R17_verified_exit": {
+    "epic": 465,
+    "children": [
+      470,
+      471,
+      472,
+      473,
+      474,
+      475
+    ],
+    "milestone": 21,
+    "state": "closed",
+    "open_issues": 0,
+    "closed_issues": 7,
+    "private_closing_receipt_sha256": "2d1df84598904dfc079af7e075dc30160de869650a5d39060051d5b8adefdc9b",
+    "public_comment": "https://github.com/atulsrivas1/equity-features/issues/465#issuecomment-6275623502"
+  },
+  "original_accepted_story_receipts": [
+    {
+      "story": "EQ-136",
+      "issue": 470,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/470",
+      "state": "CLOSED",
+      "project_status": "Done",
+      "accepted_canonical_main": "8044f2a0f59d29b85981aaa446777ac2f92fc29b",
+      "final_receipt_sha256": "b9b0982552750b8c7430bc898a6ab0e7bc6b2e6106646db741d58fbb2a81a201"
+    },
+    {
+      "story": "EQ-137",
+      "issue": 471,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/471",
+      "state": "CLOSED",
+      "project_status": "Done",
+      "accepted_canonical_main": "e790c30241c4420a08adbf2e92403a4cd9a74375",
+      "final_receipt_sha256": "83b66b6d4632d3d2c2d4f374284258644f3e6c57cccc5f641f8087c9c4cfccc0"
+    },
+    {
+      "story": "EQ-138",
+      "issue": 472,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/472",
+      "state": "CLOSED",
+      "project_status": "Done",
+      "accepted_canonical_main": "ee516615aec269e75f9f053ef14b39e440cae743",
+      "final_receipt_sha256": "992a9bfcd1c6994d1c75812eefef811c3a65cbf16bd44b157c30b413f69e03c9"
+    },
+    {
+      "story": "EQ-139",
+      "issue": 473,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/473",
+      "state": "CLOSED",
+      "project_status": "Done",
+      "accepted_canonical_main": "b1f5445eb9799b73753e413669b94166997fc468",
+      "final_receipt_sha256": "7cbf5e65a9d0a14014b0a9607e43d924b3a4e1c573b247be315d35d812fcf62d"
+    },
+    {
+      "story": "EQ-140",
+      "issue": 474,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/474",
+      "state": "CLOSED",
+      "project_status": "Done",
+      "accepted_canonical_main": "c7010a0a7b8ad290d1fe9f10bc1528ea09b3885b",
+      "final_receipt_sha256": "bdbf76a1d99cd0f9c461a96d462c0460ef313cb69f72a1261b0367af653634b9"
+    }
+  ],
+  "EQ141_final_receipt_sha256": "07f66c372c571e2006b976de118fd762e12b4b94ccb13ea825b174715d8c33e7",
+  "public_review_derivative_sha256": {
+    "R17_AGGREGATE_CLOSING_PUBLIC_READBACK.json": "14b247e57f9c52e543eb8d9e7a76e8128220362f18c57ebefc452028cf61aded",
+    "R17_AGGREGATE_ACCEPTANCE_PUBLIC_REVIEW.json": "10fa511e67e7cfee40591023a3af086ad35a7f23101388653afe99545920db9c",
+    "R17_AGGREGATE_POSTRELEASE_PUBLIC_REVIEW.json": "dcb15b2a3b1ea806808b4ff041435d062971dbdffd989d1c4788973f10381500",
+    "EQ141_MAIN_FINAL_ACCEPTANCE_PUBLIC_REVIEW.json": "39ba2c71cde5b4d48e162642f2df4441eabd53b860c003f0b6fb1845da712ea2"
+  },
+  "actual_canonical_main_ci": {
+    "run": 39308979595,
+    "head": "576abecb1711047c65006cb76b5c121fa63491f2",
+    "jobs": 35,
+    "conclusion": "success",
+    "scope": "R17 exact full-scope actual-main acceptance; not CI acceptance of the new handoff candidate"
+  },
+  "actual_main_artifacts_access_snapshot": [
+    {
+      "id": 12212142183,
+      "name": "supplied-inputs-231349aaf2bf1b9ec21f45807382ca9c6522520c-ubuntu-24.04",
+      "digest": "sha256:093ae40f4161cbc17c041625cbd453e8a9075f0f93a74d121d0eb46de2722c2a",
+      "expired": false,
+      "expires_at": "2026-11-18T18:20:09Z",
+      "workflow_run": {
+        "id": 39301445653,
+        "repository_id": 1408067204,
+        "head_repository_id": 1408067204,
+        "head_branch": "main",
+        "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c"
+      }
+    },
+    {
+      "id": 12211898603,
+      "name": "supplied-inputs-231349aaf2bf1b9ec21f45807382ca9c6522520c-windows-latest",
+      "digest": "sha256:9c1a790bbbdef162172b202f30c24f104fc556e7d9bb0c1b4a15e3a583d61bd5",
+      "expired": false,
+      "expires_at": "2026-11-18T18:21:33Z",
+      "workflow_run": {
+        "id": 39301445653,
+        "repository_id": 1408067204,
+        "head_repository_id": 1408067204,
+        "head_branch": "main",
+        "head_sha": "231349aaf2bf1b9ec21f45807382ca9c6522520c"
+      }
+    }
+  ],
+  "artifact_scope": "Existing accepted six-package,24rawarchives,eightfreshbase/combinedwheel/SDistforms/Windows+Linux. No new installation, archive redecoding or timing by this planning capture. Original raw installed RECORD/directURL/launcher retention limits remain. Finite access must be renewed before Ready/delivery.",
+  "R18_children_snapshot": {
+    "476": {
+      "assignees": [],
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/476"
+    },
+    "477": {
+      "assignees": [],
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/477"
+    },
+    "478": {
+      "assignees": [],
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/478"
+    },
+    "479": {
+      "assignees": [],
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/479"
+    },
+    "480": {
+      "assignees": [],
+      "projectItems": [
+        {
+          "status": {
+            "optionId": "4744133d",
+            "name": "Backlog"
+          },
+          "title": "Equity Features \u2014 Roadmap"
+        }
+      ],
+      "state": "OPEN",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/480"
+    }
+  },
+  "R18_story_dependencies": {
+    "EQ142": [
+      "EQ141",
+      "GOV034 publication and reviewed current EQ142 plan"
+    ],
+    "EQ143": [
+      "EQ142"
+    ],
+    "EQ144": [
+      "EQ142",
+      "EQ143"
+    ],
+    "EQ145": [
+      "EQ143",
+      "EQ144"
+    ],
+    "EQ146": [
+      "EQ145"
+    ]
+  },
+  "R18_milestone_inventory_expected": [
+    466,
+    476,
+    477,
+    478,
+    479,
+    480,
+    564
+  ],
+  "review_route": "Supported completed separate review or explicit bounded owner alternative decision still required; no R18 local grant inferred from R17. GOV005 hosted activation remains unverified. CI diagnostics/review-submission tools are not independent review execution.",
+  "R17_worker_study": {
+    "measured_source": "be4d6667e9b46981cf430c86888b52c7812b0424",
+    "cohorts_A": 6,
+    "cohorts_B": 48,
+    "owned_jobs": 486,
+    "warmups": 108,
+    "retained": 378,
+    "adopted_worker_alternatives": 0,
+    "default": "sequential",
+    "scope": "Historical exact-source synthetic Windows results; no new R18 timing, no sum of direct-stage wins, no physical memory/fastest/live claim."
+  },
+  "ready_gate": "GOV034 exact final-head separate review/currentCI/publication/actualmain/finalacceptance; EQ142 exact graph+fixture+trace+workload+adoption packet/currentinputs/separatereview before runtimeReady.",
+  "boundaries": {
+    "runtime_change": false,
+    "math_change": false,
+    "default_resource_change": false,
+    "version_change": false,
+    "persistent_live_claim": false,
+    "new_registry_channel": false
+  }
+}

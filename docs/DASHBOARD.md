@@ -1,3 +1,7 @@
+## Current release handoff
+
+[R17 verified exit](https://github.com/atulsrivas1/equity-features/issues/465#issuecomment-6275623502) establishes all EQ136–141/E25 Done and milestone21 closed. [GOV034](https://github.com/atulsrivas1/equity-features/issues/564) prepares the [R18 handoff](R18_AUTONOMOUS_HANDOFF.md) for existing E26/EQ142–146; runtime admission awaits its supported separate-review and exact Ready gates. Use [live Project](https://github.com/users/atulsrivas1/projects/2) for current status. The handoff's current source/package/channel snapshot is in [R18_INPUTS.json](R18_INPUTS.json); no R18 runtime/timing is claimed.
+
 ## Owner selects bounded R17 execution — October 19, 2026
 
 The owner requested the R17 handoff and then work on R17. [Execution handoff](R17_AUTONOMOUS_HANDOFF.md), [inputs](R17_INPUTS.json), [test strategy](R17_TEST_STRATEGY.md) and [EQ136 initial pre-code proposal](stories/EQ-136_PLAN.md) now make the bounded mission concrete. This supersedes earlier preparation-only/no-start-selection text prospectively. GOV030/PR463 and GOV031/PR498 review/current-CI/publication prerequisites remain actual gates; no kernel, accepted math/new registry ID or measured performance result is claimed. Work on this preparation remains under GOV031; EQ136–141 stay Backlog until real Ready admission. New separate-review authorization for PR498/handoff/R17 is pending; earlier bounded grants do not imply it. Live Project remains status authority.
