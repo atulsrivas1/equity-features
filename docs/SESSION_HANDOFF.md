@@ -1,3 +1,10 @@
+## Owner selects bounded R17 execution — October 19, 2026
+
+The owner requested the R17 handoff and then work on R17. [Execution handoff](R17_AUTONOMOUS_HANDOFF.md), [inputs](R17_INPUTS.json), [test strategy](R17_TEST_STRATEGY.md) and [EQ136 initial pre-code proposal](stories/EQ-136_PLAN.md) now make the bounded mission concrete. This supersedes earlier preparation-only/no-start-selection text prospectively. GOV030/PR463 and GOV031/PR498 review/current-CI/publication prerequisites remain actual gates; no kernel, accepted math/new registry ID or measured performance result is claimed. Work on this preparation remains under GOV031; EQ136–141 stay Backlog until real Ready admission. New separate-review authorization for PR498/handoff/R17 is pending; earlier bounded grants do not imply it. Live Project remains status authority.
+
+
+Resume: finish review authorization/independent final-head review for the concrete planning packet, actual candidate checks and GOV030/GOV031 publication/readback. Keep R17 math as a proposal until EQ136 contracts/fixtures pass the proper gates. Then pull EQ136 first, one implementation story at a time; preserve all primary-checkout work and link companion repository PRs. Stop after R17 acceptance. The review policy requires separate completed final-head review; no new scoped grant has been inferred from the owner's execution request.
+
 ## GOV-031 equity roadmap planning — October 19, 2026
 
 Owner requested epics/stories/releases for missing equity families, then explicitly prioritized correctness, independence, parallelism, measured performance and efficient available-resource use. [Roadmap](EQUITY_EXPANSION_ROADMAP.md) allocates R17–R21/E25–E29/EQ-136–163 with exact issue links, dependencies, provisional points and per-story acceptance. Only GOV-031 planning is active; all new feature/execution stories and epics remain Backlog/unassigned. Preserve active GOV030#462/PR463 and the original dirty workspace. No runtime, registry IDs, provider/live operation, package release or deadline is selected by this planning work.

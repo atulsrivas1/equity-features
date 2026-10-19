@@ -1,0 +1,26 @@
+# R17 correctness, independence and performance qualification
+
+This is the proposed qualification contract, not executed production evidence. [Handoff](R17_AUTONOMOUS_HANDOFF.md), [EQ136 proposal](stories/EQ-136_PLAN.md), [synthetic goldens](stories/EQ-136_FIXTURES.json). Freeze exact choices in reviewed EQ136 before implementation. Independent oracles must not call the optimized kernel under test.
+
+| Requirement | Independent checks | Acceptance evidence |
+| --- | --- | --- |
+| Mathematics | Tiny rational price/return/TR histories; exact window sums and direct centered squared deviations; seed, flat/rising/falling/alternating/large-offset cases | Reviewed formulas and expected values; exact scaled arithmetic where declared, reviewed Float64 tolerance and unavailable semantics |
+| Timing and availability | Half-open grids, end=cutoff, later known-at evidence, early close, absent versus observed-empty slots, gaps and corrections | No forming/future/unknown input silently qualifies; original cutoff and evidence identity retained |
+| Independence | Complete closes with missing H/L, supplied moments without ATR, missing unrelated prior-close/benchmark, selected-only output requests | EMA/RSI/bands proceed when their own inputs qualify; ATR cannot invent required H/L or prior close; no unrelated context/global barrier |
+| Initialization/state | Explicit reset/carry anchors, insufficient N/N+1 observations, batch against legal update/replay, restore compatibility, old revision isolation | Actual supported capabilities demonstrated separately; illegal merge/order/state identities rejected; no unsupported incremental claim |
+| Numerical robustness | Large offsets with tiny variation, long flat tails, near-zero denominators, integer overflow guards, eviction and cancellation | Independent direct/high-precision reference, specified error bounds and no plausible-looking wrong zero/negative variance |
+| Resource behavior | Shared versus separate preparation, nested-thread accounting, hot-symbol skew, queue/cache limits, cancellation and sink pressure | Bounded ownership/lifetimes and preserved fallback; reservations versus observed/enforced memory distinguished |
+| Source/worker integration | Direct core results versus actual supplied normalized worker inputs; required-input discovery; optional prior-close/structure/top-K/continuous quote compatibility | Values/nulls/status/quality/evidence/identities match; unsupported feed capabilities remain explicit |
+| Delivery | Current candidate/main checks, both OS supported wheel/sdist forms, fresh installed examples/typing where affected, exact artifact/source pins | Separate final-head review, no unresolved acceptance findings, exact publication/readback and story/release receipts |
+
+For EQ136 specification-only work, verify formulas, expected fixture arithmetic, links/encoding/schema/dependency clarity and no-impact dispositions; do not benchmark documentation or fabricate package runtime evidence. Kernel/state/worker tests belong to the affected implementation story. Reuse applicable accepted regression suites without treating historical green results as current-head runs.
+
+## Benchmark protocol to freeze before measurement
+
+Use synthetic/generated inputs or explicitly licensed data with exact schema, symbol/session counts, bar grid and history length, requested outputs/periods, missingness/skew, cutoff/revisions, source/sink, batch size, hardware/runtime/dependencies, CPU/native-thread/memory/I/O budgets and cold/warm/cache class recorded. Final workload sizes and thresholds are selected in the reviewed pre-code plan from actual machine capacity; no fabricated deadline or speed target.
+
+Cases: small direct-call overhead; large multi-symbol history; a hot-symbol skew; long warm-up; close-only input with absent H/L; gap/correction replay; combined direct/worker pipeline; output/sink-bound work; bounded memory/queue pressure. Include a realistic mix alongside isolated indicator kernels.
+
+Compare independent unfused reference, shared direct preparation and supported current worker modes. Freeze full output/status/quality/evidence/identity parity before timing and verify it for every candidate. After declared warm-ups, use at least five measured repetitions per selected case; report every sample and median/range. Separate queue/startup noise and cold/warm cases. This repetition policy is proposed, not proof of statistical significance. For optimization, freeze an adoption margin from pilot noise and workload goals before comparing candidates; do not tune it after seeing a win. Reject a candidate failing correctness or resource bounds regardless of speed.
+
+Measure wall time/makespan, critical-path stage times without summing overlap as wall time, throughput, latency distributions where meaningful, CPU/core-seconds, peak aggregate parent/child memory with sampling limitations, source/copy/IPC/output bytes and queue/lock wait. Refresh capacity at measurement time. Current worker caps/modes remain constraints; do not widen them silently. More utilization does not establish lower elapsed time. R17 records foundation baselines and compatible reuse evidence; R18 is the separate selected-output scheduler/resource optimization release.
