@@ -1,6 +1,6 @@
 # Intraday foundations contract
 
-EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470), R17. Working original contract for separate review; not accepted mathematics or implemented API. The [initial proposal](../stories/EQ-136_PLAN.md) is preserved as history. This document refines direct dependencies and precision using explicit synthetic counterexamples. [Packaging choice](../decisions/R17_INTRADAY_PACKAGE.md).
+EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470), R17. Accepted original mathematical contract; actual implementation/release acceptance belongs to the linked implementation stories. The [initial proposal](../stories/EQ-136_PLAN.md) is preserved as history. This document refines direct dependencies and precision using explicit synthetic counterexamples. [Packaging choice](../decisions/R17_INTRADAY_PACKAGE.md).
 
 ## Governed observations
 
@@ -47,4 +47,4 @@ Missing whole inputs, absent columns, null/empty slots, insufficient warm-up, go
 
 R17 selects batch snapshots and explicit full-history replay; public update/restore/merge are unsupported for this first optional version. Internal reusable preparation must be immutable, bounded and bound to exact instrument/population/grid/scale/action/window/anchor/cutoff/configuration/source-revision identities. Recurrences within a symbol remain ordered. Shared admission/preparation and independent symbol/family work may run in existing supported worker modes; no new executor or unconditional concurrency increase is selected here.
 
-The linked API, [synthetic goldens](../../tests/fixtures/intraday_math/README.md), [test strategy](../R17_TEST_STRATEGY.md) and package decision form the concrete specification proposal. Complete separate final-head review, applicable validation and actual publication/readback before EQ136 acceptance or dependent kernel Ready. EQ136 itself claims no production implementation, installed package, benchmark or R17 acceptance.
+The linked API, [synthetic goldens](../../tests/fixtures/intraday_math/README.md), [test strategy](../R17_TEST_STRATEGY.md) and package decision form the accepted specification. Each dependent implementation still requires its own actual Ready inputs, separate final-head review, applicable validation and publication/readback. EQ136 itself claims no production implementation, installed package, benchmark or R17 acceptance.

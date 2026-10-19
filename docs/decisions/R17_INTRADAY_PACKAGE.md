@@ -1,6 +1,6 @@
 # R17 intraday package and compatibility decision
 
-EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470). Author proposal, October 19, 2026; separate contract review and publication are pending. This records a concrete choice for review, not implemented package support.
+EQ136 [#470](https://github.com/atulsrivas1/equity-features/issues/470). Accepted EQ136 specification choice, October 19, 2026. EQ137 implements preparation under this choice; each output and actual package release still requires its own evidence.
 
 ## Choice
 
@@ -29,3 +29,11 @@ EMA, RSI, rolling price moments and true range/ATR are independent branches afte
 Before this choice is accepted: separate review of the full mathematics/API/context/status/precision/discovery contract and independent fixtures. Before package delivery: own builds, strict typing, supported Windows/Linux wheel and sdist installed checks, genuine direct/worker transport and complete result/quality/evidence/identity parity, current source and artifact acceptance. No pin broadening or core-registry test edits merely to accommodate the new package.
 
 This specification changes no production code, package version, existing registry, acquisition planner, worker default or published artifact. It requires no runtime benchmark of documentation. Implementation stories must establish those capabilities and performance with actual evidence.
+
+## EQ137 immutable producer and arithmetic
+
+The preparation-only0.1.0a1 package exposes six selected immutable operand families, with raw fact readiness separated from each future indicator's warm-up. Exact Fraction inspection values preserve declared price units; population variance uses centered integer sums and guarded bounds before division. Missing unrelated fields cannot block a qualified family. Admission validates all chunk envelopes first, all supplied payload semantics in input order second, then grid/coverage/order; PREP04 regression cases enforce that global ordering.
+
+Preparation retains the original immutable CanonicalBatch objects in order. Local reuse checks those same objects and exact context/config/version identity; equal source labels on newly constructed batches cannot bypass admission. There is no public constructor, pickle/restore/merge, global digest lookup or execution state. Static boundary controls are validation, not a sandbox against arbitrary Python callers.
+
+[Original measured source and raw evidence](../stories/EQ-137_BENCHMARK.md) support explicit compatible sharing for the six recorded workloads; separate calls remain available. No automatic executor, wider worker budget, output-kernel support or registry change is selected. Exact current final-head package/CI/publication acceptance remains in [EQ137](https://github.com/atulsrivas1/equity-features/issues/471).

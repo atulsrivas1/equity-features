@@ -1,0 +1,1679 @@
+{
+  "baseline": {
+    "large": {
+      "aggregate_peak_bound_bytes": 226017280,
+      "case": "large",
+      "ipc_bytes": 0,
+      "mode": "separate",
+      "native_compute_threads": 0,
+      "parent_peak_bytes": 34713600,
+      "queue_bytes": 0,
+      "samples": [
+        {
+          "admission_preparation_identity_inspection_seconds": 35.04792910005199,
+          "construction_seconds": 2.637656799983233,
+          "core_seconds": 37.640625,
+          "peak_process_bytes": 190328832,
+          "projection_sha256": "88799258dc5b7280b7170b2a0d8741f5704ea8d438048210660474934a55a62d",
+          "wall_seconds": 37.68558699998539
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 34.717430800024886,
+          "construction_seconds": 2.5075230000074953,
+          "core_seconds": 37.046875,
+          "peak_process_bytes": 190328832,
+          "projection_sha256": "88799258dc5b7280b7170b2a0d8741f5704ea8d438048210660474934a55a62d",
+          "wall_seconds": 37.22495510004228
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 36.30521510000108,
+          "construction_seconds": 2.538875900034327,
+          "core_seconds": 38.75,
+          "peak_process_bytes": 190328832,
+          "projection_sha256": "88799258dc5b7280b7170b2a0d8741f5704ea8d438048210660474934a55a62d",
+          "wall_seconds": 38.844092400046065
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 37.19364700000733,
+          "construction_seconds": 2.7726912000216544,
+          "core_seconds": 39.71875,
+          "peak_process_bytes": 190328832,
+          "projection_sha256": "88799258dc5b7280b7170b2a0d8741f5704ea8d438048210660474934a55a62d",
+          "wall_seconds": 39.96633980004117
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 36.27770730003249,
+          "construction_seconds": 2.8563208999694325,
+          "core_seconds": 38.9375,
+          "peak_process_bytes": 190328832,
+          "projection_sha256": "88799258dc5b7280b7170b2a0d8741f5704ea8d438048210660474934a55a62d",
+          "wall_seconds": 39.13402940001106
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 35.28768609999679,
+          "construction_seconds": 2.557330699986778,
+          "core_seconds": 37.75,
+          "peak_process_bytes": 190328832,
+          "projection_sha256": "88799258dc5b7280b7170b2a0d8741f5704ea8d438048210660474934a55a62d",
+          "wall_seconds": 37.845018699998036
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 35.043733300000895,
+          "construction_seconds": 2.6509795000310987,
+          "core_seconds": 37.5625,
+          "peak_process_bytes": 191303680,
+          "projection_sha256": "88799258dc5b7280b7170b2a0d8741f5704ea8d438048210660474934a55a62d",
+          "wall_seconds": 37.694714099983685
+        }
+      ],
+      "source_identity": {
+        "head": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+        "libraries": {
+          "equity_feature_contracts": {
+            "origin": "packages/contracts/src/equity_feature_contracts/__init__.py",
+            "version": "0.0.4a4"
+          },
+          "equity_features_intraday": {
+            "origin": "packages/intraday/src/equity_features_intraday/__init__.py",
+            "version": "0.1.0a1"
+          }
+        },
+        "runtime": "pinned source development environment; artifact installs qualified separately",
+        "source": {
+          "packages/contracts/LICENSE": {
+            "git_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "materialized_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+          },
+          "packages/contracts/README.md": {
+            "git_sha256": "d11c207bf950d0c3eb8f3af409b3f2753b4ecd2c8f24cf0d12f5b5b1facfa406",
+            "materialized_sha256": "b2ad97dd34277cf6b71cf78385b7559524518bfc01def64c06488623408ebaa6"
+          },
+          "packages/contracts/pyproject.toml": {
+            "git_sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1",
+            "materialized_sha256": "1c13c3fe24043650e851ad829aa1f951e33c4eadd7c1ebaeceec591142378538"
+          },
+          "packages/contracts/src/equity_feature_contracts/__init__.py": {
+            "git_sha256": "02956fd250ad281d33636fe9d924c90d461c6788dfb9ca2aedb8a0013b70d63b",
+            "materialized_sha256": "531160c9effe06c1a5bc1ded6659430a980a21ae03be66ee4b7da800af4cb91e"
+          },
+          "packages/contracts/src/equity_feature_contracts/_catalog.py": {
+            "git_sha256": "338f2602231b8d9abedf39064c16fb361418a2f2fd6ca19310a1a76cb6ff3e54",
+            "materialized_sha256": "f2cf024552dc2df42867a66ffccab40441f54577a611d7026df1561adbbcfd7a"
+          },
+          "packages/contracts/src/equity_feature_contracts/_implemented.py": {
+            "git_sha256": "0f314e8f1e3a260b4d21855036d9d5c4d6ef6d71aa71aa4a59c01d9d6cb39ee5",
+            "materialized_sha256": "544e87fdcd3b04a24422dcbf98fb7ea4722fdec83b8655dcaca7d58cb7c9813f"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapter_kit.py": {
+            "git_sha256": "a5b0537ad1b6b4fc0d6a92f76d4b11366f9a52e0cf8702adbe2573bec95e6b15",
+            "materialized_sha256": "e2937519dad1ae9e51a8caa9ab9b9800482234fc0fb6e162d816ffe034843e7b"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapters.py": {
+            "git_sha256": "386ded9505e98a5ee3c8e6fd6e38bf1a5491c6896e1e5f31a69b210e36259ac6",
+            "materialized_sha256": "270943d26c781cfadf24a443821f315cbdd483cc8482dc453d1aa93ce554f982"
+          },
+          "packages/contracts/src/equity_feature_contracts/breadth.py": {
+            "git_sha256": "9b528c7e782cdf1982cde8db5aa5506b8f7026334e464a7ef8ad064af7a28cad",
+            "materialized_sha256": "3e19c42f6d68d786155d0753a5b510c667cfd151391a57ea1f0fef4b5379a43c"
+          },
+          "packages/contracts/src/equity_feature_contracts/buckets.py": {
+            "git_sha256": "51f5306ffab90a880c05aa792f98225a0fb160cbf1abf1f8fbdc7118a5690f28",
+            "materialized_sha256": "d282ded1260105b27d02107f84f34cd6c8ca99b51cd2164f1cdbbf17bb88bade"
+          },
+          "packages/contracts/src/equity_feature_contracts/columnar.py": {
+            "git_sha256": "856b86bd411a0dd2ed1174848286acf1368a2c0e1224a74fd810a179babdd7d5",
+            "materialized_sha256": "f044f33bcefd0ec301617aa67935d374ae25692fc800cb1c00a877acd7f34b65"
+          },
+          "packages/contracts/src/equity_feature_contracts/composition.py": {
+            "git_sha256": "c65164fc7d4011752f49c519452733180cdcb5709008bf3b5eaaf260f0b0656a",
+            "materialized_sha256": "238329418c430bc0120d7ae9198f8fa4a0223185113a6b19d56af9397d85a47e"
+          },
+          "packages/contracts/src/equity_feature_contracts/errors.py": {
+            "git_sha256": "6bb3d0cff7a5ee6de18fc6bd7301177f52c4d15e1025c99b11223dd08d6d641b",
+            "materialized_sha256": "bb4da6b39ccd63ba06dd8bcaadf648f12ca142c4d557247a1b41da2933d77fb4"
+          },
+          "packages/contracts/src/equity_feature_contracts/history.py": {
+            "git_sha256": "3656132833beb741a2ca6359276fb08f79ca1799eaf618bd198db9a0dc4c8e23",
+            "materialized_sha256": "4fa7b1bc4280eb0a7f8a7aad5767adf2313a04bc36edd5ebffbf3a4c2cc73bba"
+          },
+          "packages/contracts/src/equity_feature_contracts/inputs.py": {
+            "git_sha256": "1084aed63b47e693ffbef92c34c7036040288f409d1f379bd1415d3b4ff5152a",
+            "materialized_sha256": "5c55770c93dbeae7a555dcde6408828572aef18c4b9ce660555e12d2ccc61b38"
+          },
+          "packages/contracts/src/equity_feature_contracts/normalization.py": {
+            "git_sha256": "a40c9b49cbfc81519bf5b8c898ced0211b4e5172ab0445c237e6435ca4abd861",
+            "materialized_sha256": "5da0cc7f75b36ba82239a15b466cff86a884879f8ecb045a0be7f7dbbd49e132"
+          },
+          "packages/contracts/src/equity_feature_contracts/policies.py": {
+            "git_sha256": "e3cb47e4d52c117c74165d4fa9655ff546910523f7d16cd733d6c341c76c8419",
+            "materialized_sha256": "3b6fdb05a9cd1f325501b5f6d1739ed370c9c89d933ce80c46c1b64558ffadef"
+          },
+          "packages/contracts/src/equity_feature_contracts/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "packages/contracts/src/equity_feature_contracts/registry.py": {
+            "git_sha256": "3a22ff0f2b846aec1ef8b30eb9ee232a269a0806f3dab047375c8619422592dd",
+            "materialized_sha256": "445321090958840524a9484a96532dfb4d793fd522758b84e08a7a571cd88a97"
+          },
+          "packages/contracts/src/equity_feature_contracts/relative.py": {
+            "git_sha256": "3f536ca042a1bebb0be24507dcef3e6af5462b951558b6fba8de1fd014802cc4",
+            "materialized_sha256": "b73f4a196ac0ec7203d94a74ab4f0199ffbbd6c5e04e80c8437ec4a23286c83a"
+          },
+          "packages/contracts/src/equity_feature_contracts/results.py": {
+            "git_sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e",
+            "materialized_sha256": "97055e87ec1a80c475c39647a3406f3f1fd48eb9f44bed1029e0b8a671b80395"
+          },
+          "packages/contracts/src/equity_feature_contracts/specs.py": {
+            "git_sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3",
+            "materialized_sha256": "480f250ae76bcf77287c331b8ac6186186092be8dd23fd47594e49b5d08a48d2"
+          },
+          "packages/contracts/src/equity_feature_contracts/streaming.py": {
+            "git_sha256": "ef29a5150a483775872834306827e123786de4d22462181503a0afa4b20b27fd",
+            "materialized_sha256": "dd65c91b2903e28b2cd3d76fb2389c577e2f74bf9408e7281ffa8c38161e9aa6"
+          },
+          "packages/contracts/src/equity_feature_contracts/validation.py": {
+            "git_sha256": "ade9ca17b65a5b08bf82de24169261a64c6e384b503cf92e474f85ecd8cdc9e9",
+            "materialized_sha256": "701bd7265796642260e01cad3f94e97e9a8540e654015327b29bd39376f91710"
+          },
+          "packages/contracts/src/equity_feature_contracts/volume.py": {
+            "git_sha256": "67292683238f8e2e22f6b25e9d03a26e67651934f1158328215198657f33bdde",
+            "materialized_sha256": "2a086c0e921a92501d616c552be591d797a90c42a61d54cd44a7e61b57e6f3e5"
+          },
+          "packages/intraday/LICENSE": {
+            "git_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+            "materialized_sha256": "47b2b7375318c574ef44d0def1e28d296e8bac5940d24d2694f5d99e7053b780"
+          },
+          "packages/intraday/README.md": {
+            "git_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970",
+            "materialized_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970"
+          },
+          "packages/intraday/pyproject.toml": {
+            "git_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d",
+            "materialized_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d"
+          },
+          "packages/intraday/src/equity_features_intraday/__init__.py": {
+            "git_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec",
+            "materialized_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec"
+          },
+          "packages/intraday/src/equity_features_intraday/_admission.py": {
+            "git_sha256": "86e16e7bd1ffb645baead36665ef61babffb92c0511ef755e2120a0537f7e742",
+            "materialized_sha256": "a975a26fa15be47234edad35ceff7c33f6684743f5839e6d604072cbe6ce25f0"
+          },
+          "packages/intraday/src/equity_features_intraday/_context.py": {
+            "git_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9",
+            "materialized_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9"
+          },
+          "packages/intraday/src/equity_features_intraday/_dispatch.py": {
+            "git_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4",
+            "materialized_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4"
+          },
+          "packages/intraday/src/equity_features_intraday/_prepare.py": {
+            "git_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c",
+            "materialized_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c"
+          },
+          "packages/intraday/src/equity_features_intraday/_registry.py": {
+            "git_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79",
+            "materialized_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79"
+          },
+          "packages/intraday/src/equity_features_intraday/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "tools/benchmark_intraday_preparation.py": {
+            "git_sha256": "c312ac3c18572647ff148a32b138793fc594660fb19ea88602c0d5ef74396edd",
+            "materialized_sha256": "0cb621c934f844fc79705fb42ec1b80cb2d19200dbc172eaaf3c5432f6040bb4"
+          }
+        }
+      },
+      "stages": "Construct immutable supplied inputs, admission/preparation, actual reuse identity checks and full projection inspection. No worker/startup/IPC/queue or external source/sink.",
+      "status": "completed",
+      "subprocess_total_seconds": 350.2829578000237,
+      "summary": {
+        "iqr_seconds": 1.298910350044025,
+        "median_core_seconds": 37.75,
+        "median_seconds": 37.845018699998036,
+        "p95_seconds": 39.96633980004117,
+        "peak_process_bytes": 191303680
+      },
+      "warmups": 2,
+      "worker_children": 0
+    },
+    "long14": {
+      "aggregate_peak_bound_bytes": 74121216,
+      "case": "long14",
+      "ipc_bytes": 0,
+      "mode": "separate",
+      "native_compute_threads": 0,
+      "parent_peak_bytes": 35151872,
+      "queue_bytes": 0,
+      "samples": [
+        {
+          "admission_preparation_identity_inspection_seconds": 0.49282250000396743,
+          "construction_seconds": 0.032621099962852895,
+          "core_seconds": 0.53125,
+          "peak_process_bytes": 37928960,
+          "projection_sha256": "e80b053476b5cf3d17b7bc8edfb06d6cb2abecbe83e1cde6b18cc54e45837b21",
+          "wall_seconds": 0.5254443999729119
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.4872855999856256,
+          "construction_seconds": 0.03610710002249107,
+          "core_seconds": 0.515625,
+          "peak_process_bytes": 38379520,
+          "projection_sha256": "e80b053476b5cf3d17b7bc8edfb06d6cb2abecbe83e1cde6b18cc54e45837b21",
+          "wall_seconds": 0.5233937000157312
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5119140999740921,
+          "construction_seconds": 0.035855500027537346,
+          "core_seconds": 0.546875,
+          "peak_process_bytes": 38969344,
+          "projection_sha256": "e80b053476b5cf3d17b7bc8edfb06d6cb2abecbe83e1cde6b18cc54e45837b21",
+          "wall_seconds": 0.5477707000100054
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5045137000270188,
+          "construction_seconds": 0.03823139995802194,
+          "core_seconds": 0.546875,
+          "peak_process_bytes": 38969344,
+          "projection_sha256": "e80b053476b5cf3d17b7bc8edfb06d6cb2abecbe83e1cde6b18cc54e45837b21",
+          "wall_seconds": 0.5427458999911323
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5255993999890052,
+          "construction_seconds": 0.03499879996525124,
+          "core_seconds": 0.546875,
+          "peak_process_bytes": 38969344,
+          "projection_sha256": "e80b053476b5cf3d17b7bc8edfb06d6cb2abecbe83e1cde6b18cc54e45837b21",
+          "wall_seconds": 0.5605995999649167
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5231750999810174,
+          "construction_seconds": 0.0432645000400953,
+          "core_seconds": 0.5625,
+          "peak_process_bytes": 38969344,
+          "projection_sha256": "e80b053476b5cf3d17b7bc8edfb06d6cb2abecbe83e1cde6b18cc54e45837b21",
+          "wall_seconds": 0.566441000031773
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5117795000551268,
+          "construction_seconds": 0.03364930005045608,
+          "core_seconds": 0.546875,
+          "peak_process_bytes": 38969344,
+          "projection_sha256": "e80b053476b5cf3d17b7bc8edfb06d6cb2abecbe83e1cde6b18cc54e45837b21",
+          "wall_seconds": 0.5454297999967821
+        }
+      ],
+      "source_identity": {
+        "head": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+        "libraries": {
+          "equity_feature_contracts": {
+            "origin": "packages/contracts/src/equity_feature_contracts/__init__.py",
+            "version": "0.0.4a4"
+          },
+          "equity_features_intraday": {
+            "origin": "packages/intraday/src/equity_features_intraday/__init__.py",
+            "version": "0.1.0a1"
+          }
+        },
+        "runtime": "pinned source development environment; artifact installs qualified separately",
+        "source": {
+          "packages/contracts/LICENSE": {
+            "git_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "materialized_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+          },
+          "packages/contracts/README.md": {
+            "git_sha256": "d11c207bf950d0c3eb8f3af409b3f2753b4ecd2c8f24cf0d12f5b5b1facfa406",
+            "materialized_sha256": "b2ad97dd34277cf6b71cf78385b7559524518bfc01def64c06488623408ebaa6"
+          },
+          "packages/contracts/pyproject.toml": {
+            "git_sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1",
+            "materialized_sha256": "1c13c3fe24043650e851ad829aa1f951e33c4eadd7c1ebaeceec591142378538"
+          },
+          "packages/contracts/src/equity_feature_contracts/__init__.py": {
+            "git_sha256": "02956fd250ad281d33636fe9d924c90d461c6788dfb9ca2aedb8a0013b70d63b",
+            "materialized_sha256": "531160c9effe06c1a5bc1ded6659430a980a21ae03be66ee4b7da800af4cb91e"
+          },
+          "packages/contracts/src/equity_feature_contracts/_catalog.py": {
+            "git_sha256": "338f2602231b8d9abedf39064c16fb361418a2f2fd6ca19310a1a76cb6ff3e54",
+            "materialized_sha256": "f2cf024552dc2df42867a66ffccab40441f54577a611d7026df1561adbbcfd7a"
+          },
+          "packages/contracts/src/equity_feature_contracts/_implemented.py": {
+            "git_sha256": "0f314e8f1e3a260b4d21855036d9d5c4d6ef6d71aa71aa4a59c01d9d6cb39ee5",
+            "materialized_sha256": "544e87fdcd3b04a24422dcbf98fb7ea4722fdec83b8655dcaca7d58cb7c9813f"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapter_kit.py": {
+            "git_sha256": "a5b0537ad1b6b4fc0d6a92f76d4b11366f9a52e0cf8702adbe2573bec95e6b15",
+            "materialized_sha256": "e2937519dad1ae9e51a8caa9ab9b9800482234fc0fb6e162d816ffe034843e7b"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapters.py": {
+            "git_sha256": "386ded9505e98a5ee3c8e6fd6e38bf1a5491c6896e1e5f31a69b210e36259ac6",
+            "materialized_sha256": "270943d26c781cfadf24a443821f315cbdd483cc8482dc453d1aa93ce554f982"
+          },
+          "packages/contracts/src/equity_feature_contracts/breadth.py": {
+            "git_sha256": "9b528c7e782cdf1982cde8db5aa5506b8f7026334e464a7ef8ad064af7a28cad",
+            "materialized_sha256": "3e19c42f6d68d786155d0753a5b510c667cfd151391a57ea1f0fef4b5379a43c"
+          },
+          "packages/contracts/src/equity_feature_contracts/buckets.py": {
+            "git_sha256": "51f5306ffab90a880c05aa792f98225a0fb160cbf1abf1f8fbdc7118a5690f28",
+            "materialized_sha256": "d282ded1260105b27d02107f84f34cd6c8ca99b51cd2164f1cdbbf17bb88bade"
+          },
+          "packages/contracts/src/equity_feature_contracts/columnar.py": {
+            "git_sha256": "856b86bd411a0dd2ed1174848286acf1368a2c0e1224a74fd810a179babdd7d5",
+            "materialized_sha256": "f044f33bcefd0ec301617aa67935d374ae25692fc800cb1c00a877acd7f34b65"
+          },
+          "packages/contracts/src/equity_feature_contracts/composition.py": {
+            "git_sha256": "c65164fc7d4011752f49c519452733180cdcb5709008bf3b5eaaf260f0b0656a",
+            "materialized_sha256": "238329418c430bc0120d7ae9198f8fa4a0223185113a6b19d56af9397d85a47e"
+          },
+          "packages/contracts/src/equity_feature_contracts/errors.py": {
+            "git_sha256": "6bb3d0cff7a5ee6de18fc6bd7301177f52c4d15e1025c99b11223dd08d6d641b",
+            "materialized_sha256": "bb4da6b39ccd63ba06dd8bcaadf648f12ca142c4d557247a1b41da2933d77fb4"
+          },
+          "packages/contracts/src/equity_feature_contracts/history.py": {
+            "git_sha256": "3656132833beb741a2ca6359276fb08f79ca1799eaf618bd198db9a0dc4c8e23",
+            "materialized_sha256": "4fa7b1bc4280eb0a7f8a7aad5767adf2313a04bc36edd5ebffbf3a4c2cc73bba"
+          },
+          "packages/contracts/src/equity_feature_contracts/inputs.py": {
+            "git_sha256": "1084aed63b47e693ffbef92c34c7036040288f409d1f379bd1415d3b4ff5152a",
+            "materialized_sha256": "5c55770c93dbeae7a555dcde6408828572aef18c4b9ce660555e12d2ccc61b38"
+          },
+          "packages/contracts/src/equity_feature_contracts/normalization.py": {
+            "git_sha256": "a40c9b49cbfc81519bf5b8c898ced0211b4e5172ab0445c237e6435ca4abd861",
+            "materialized_sha256": "5da0cc7f75b36ba82239a15b466cff86a884879f8ecb045a0be7f7dbbd49e132"
+          },
+          "packages/contracts/src/equity_feature_contracts/policies.py": {
+            "git_sha256": "e3cb47e4d52c117c74165d4fa9655ff546910523f7d16cd733d6c341c76c8419",
+            "materialized_sha256": "3b6fdb05a9cd1f325501b5f6d1739ed370c9c89d933ce80c46c1b64558ffadef"
+          },
+          "packages/contracts/src/equity_feature_contracts/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "packages/contracts/src/equity_feature_contracts/registry.py": {
+            "git_sha256": "3a22ff0f2b846aec1ef8b30eb9ee232a269a0806f3dab047375c8619422592dd",
+            "materialized_sha256": "445321090958840524a9484a96532dfb4d793fd522758b84e08a7a571cd88a97"
+          },
+          "packages/contracts/src/equity_feature_contracts/relative.py": {
+            "git_sha256": "3f536ca042a1bebb0be24507dcef3e6af5462b951558b6fba8de1fd014802cc4",
+            "materialized_sha256": "b73f4a196ac0ec7203d94a74ab4f0199ffbbd6c5e04e80c8437ec4a23286c83a"
+          },
+          "packages/contracts/src/equity_feature_contracts/results.py": {
+            "git_sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e",
+            "materialized_sha256": "97055e87ec1a80c475c39647a3406f3f1fd48eb9f44bed1029e0b8a671b80395"
+          },
+          "packages/contracts/src/equity_feature_contracts/specs.py": {
+            "git_sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3",
+            "materialized_sha256": "480f250ae76bcf77287c331b8ac6186186092be8dd23fd47594e49b5d08a48d2"
+          },
+          "packages/contracts/src/equity_feature_contracts/streaming.py": {
+            "git_sha256": "ef29a5150a483775872834306827e123786de4d22462181503a0afa4b20b27fd",
+            "materialized_sha256": "dd65c91b2903e28b2cd3d76fb2389c577e2f74bf9408e7281ffa8c38161e9aa6"
+          },
+          "packages/contracts/src/equity_feature_contracts/validation.py": {
+            "git_sha256": "ade9ca17b65a5b08bf82de24169261a64c6e384b503cf92e474f85ecd8cdc9e9",
+            "materialized_sha256": "701bd7265796642260e01cad3f94e97e9a8540e654015327b29bd39376f91710"
+          },
+          "packages/contracts/src/equity_feature_contracts/volume.py": {
+            "git_sha256": "67292683238f8e2e22f6b25e9d03a26e67651934f1158328215198657f33bdde",
+            "materialized_sha256": "2a086c0e921a92501d616c552be591d797a90c42a61d54cd44a7e61b57e6f3e5"
+          },
+          "packages/intraday/LICENSE": {
+            "git_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+            "materialized_sha256": "47b2b7375318c574ef44d0def1e28d296e8bac5940d24d2694f5d99e7053b780"
+          },
+          "packages/intraday/README.md": {
+            "git_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970",
+            "materialized_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970"
+          },
+          "packages/intraday/pyproject.toml": {
+            "git_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d",
+            "materialized_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d"
+          },
+          "packages/intraday/src/equity_features_intraday/__init__.py": {
+            "git_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec",
+            "materialized_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec"
+          },
+          "packages/intraday/src/equity_features_intraday/_admission.py": {
+            "git_sha256": "86e16e7bd1ffb645baead36665ef61babffb92c0511ef755e2120a0537f7e742",
+            "materialized_sha256": "a975a26fa15be47234edad35ceff7c33f6684743f5839e6d604072cbe6ce25f0"
+          },
+          "packages/intraday/src/equity_features_intraday/_context.py": {
+            "git_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9",
+            "materialized_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9"
+          },
+          "packages/intraday/src/equity_features_intraday/_dispatch.py": {
+            "git_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4",
+            "materialized_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4"
+          },
+          "packages/intraday/src/equity_features_intraday/_prepare.py": {
+            "git_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c",
+            "materialized_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c"
+          },
+          "packages/intraday/src/equity_features_intraday/_registry.py": {
+            "git_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79",
+            "materialized_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79"
+          },
+          "packages/intraday/src/equity_features_intraday/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "tools/benchmark_intraday_preparation.py": {
+            "git_sha256": "c312ac3c18572647ff148a32b138793fc594660fb19ea88602c0d5ef74396edd",
+            "materialized_sha256": "0cb621c934f844fc79705fb42ec1b80cb2d19200dbc172eaaf3c5432f6040bb4"
+          }
+        }
+      },
+      "stages": "Construct immutable supplied inputs, admission/preparation, actual reuse identity checks and full projection inspection. No worker/startup/IPC/queue or external source/sink.",
+      "status": "completed",
+      "subprocess_total_seconds": 11.48004310001852,
+      "summary": {
+        "iqr_seconds": 0.020090000005438924,
+        "median_core_seconds": 0.546875,
+        "median_seconds": 0.5454297999967821,
+        "p95_seconds": 0.566441000031773,
+        "peak_process_bytes": 38969344
+      },
+      "warmups": 2,
+      "worker_children": 0
+    },
+    "long20": {
+      "aggregate_peak_bound_bytes": 74596352,
+      "case": "long20",
+      "ipc_bytes": 0,
+      "mode": "separate",
+      "native_compute_threads": 0,
+      "parent_peak_bytes": 35794944,
+      "queue_bytes": 0,
+      "samples": [
+        {
+          "admission_preparation_identity_inspection_seconds": 0.49914329999592155,
+          "construction_seconds": 0.031870000006165355,
+          "core_seconds": 0.53125,
+          "peak_process_bytes": 38567936,
+          "projection_sha256": "19c92dfe65be3beddd48c525264e5e79fceddfcd47002fca2c7c335eef53f070",
+          "wall_seconds": 0.5310148000135086
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5060054999776185,
+          "construction_seconds": 0.04202150000492111,
+          "core_seconds": 0.546875,
+          "peak_process_bytes": 38707200,
+          "projection_sha256": "19c92dfe65be3beddd48c525264e5e79fceddfcd47002fca2c7c335eef53f070",
+          "wall_seconds": 0.5480280999909155
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.48302019998664036,
+          "construction_seconds": 0.0325654000043869,
+          "core_seconds": 0.515625,
+          "peak_process_bytes": 38801408,
+          "projection_sha256": "19c92dfe65be3beddd48c525264e5e79fceddfcd47002fca2c7c335eef53f070",
+          "wall_seconds": 0.5155865999986418
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5200371000100859,
+          "construction_seconds": 0.03643139998894185,
+          "core_seconds": 0.5625,
+          "peak_process_bytes": 38801408,
+          "projection_sha256": "19c92dfe65be3beddd48c525264e5e79fceddfcd47002fca2c7c335eef53f070",
+          "wall_seconds": 0.5564694000058807
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.49172730004647747,
+          "construction_seconds": 0.033785599982365966,
+          "core_seconds": 0.515625,
+          "peak_process_bytes": 38801408,
+          "projection_sha256": "19c92dfe65be3beddd48c525264e5e79fceddfcd47002fca2c7c335eef53f070",
+          "wall_seconds": 0.5255139000364579
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.4860583000117913,
+          "construction_seconds": 0.0364063999732025,
+          "core_seconds": 0.53125,
+          "peak_process_bytes": 38801408,
+          "projection_sha256": "19c92dfe65be3beddd48c525264e5e79fceddfcd47002fca2c7c335eef53f070",
+          "wall_seconds": 0.5224657999933697
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5094605999765918,
+          "construction_seconds": 0.0379584000329487,
+          "core_seconds": 0.546875,
+          "peak_process_bytes": 38801408,
+          "projection_sha256": "19c92dfe65be3beddd48c525264e5e79fceddfcd47002fca2c7c335eef53f070",
+          "wall_seconds": 0.5474202000186779
+        }
+      ],
+      "source_identity": {
+        "head": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+        "libraries": {
+          "equity_feature_contracts": {
+            "origin": "packages/contracts/src/equity_feature_contracts/__init__.py",
+            "version": "0.0.4a4"
+          },
+          "equity_features_intraday": {
+            "origin": "packages/intraday/src/equity_features_intraday/__init__.py",
+            "version": "0.1.0a1"
+          }
+        },
+        "runtime": "pinned source development environment; artifact installs qualified separately",
+        "source": {
+          "packages/contracts/LICENSE": {
+            "git_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "materialized_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+          },
+          "packages/contracts/README.md": {
+            "git_sha256": "d11c207bf950d0c3eb8f3af409b3f2753b4ecd2c8f24cf0d12f5b5b1facfa406",
+            "materialized_sha256": "b2ad97dd34277cf6b71cf78385b7559524518bfc01def64c06488623408ebaa6"
+          },
+          "packages/contracts/pyproject.toml": {
+            "git_sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1",
+            "materialized_sha256": "1c13c3fe24043650e851ad829aa1f951e33c4eadd7c1ebaeceec591142378538"
+          },
+          "packages/contracts/src/equity_feature_contracts/__init__.py": {
+            "git_sha256": "02956fd250ad281d33636fe9d924c90d461c6788dfb9ca2aedb8a0013b70d63b",
+            "materialized_sha256": "531160c9effe06c1a5bc1ded6659430a980a21ae03be66ee4b7da800af4cb91e"
+          },
+          "packages/contracts/src/equity_feature_contracts/_catalog.py": {
+            "git_sha256": "338f2602231b8d9abedf39064c16fb361418a2f2fd6ca19310a1a76cb6ff3e54",
+            "materialized_sha256": "f2cf024552dc2df42867a66ffccab40441f54577a611d7026df1561adbbcfd7a"
+          },
+          "packages/contracts/src/equity_feature_contracts/_implemented.py": {
+            "git_sha256": "0f314e8f1e3a260b4d21855036d9d5c4d6ef6d71aa71aa4a59c01d9d6cb39ee5",
+            "materialized_sha256": "544e87fdcd3b04a24422dcbf98fb7ea4722fdec83b8655dcaca7d58cb7c9813f"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapter_kit.py": {
+            "git_sha256": "a5b0537ad1b6b4fc0d6a92f76d4b11366f9a52e0cf8702adbe2573bec95e6b15",
+            "materialized_sha256": "e2937519dad1ae9e51a8caa9ab9b9800482234fc0fb6e162d816ffe034843e7b"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapters.py": {
+            "git_sha256": "386ded9505e98a5ee3c8e6fd6e38bf1a5491c6896e1e5f31a69b210e36259ac6",
+            "materialized_sha256": "270943d26c781cfadf24a443821f315cbdd483cc8482dc453d1aa93ce554f982"
+          },
+          "packages/contracts/src/equity_feature_contracts/breadth.py": {
+            "git_sha256": "9b528c7e782cdf1982cde8db5aa5506b8f7026334e464a7ef8ad064af7a28cad",
+            "materialized_sha256": "3e19c42f6d68d786155d0753a5b510c667cfd151391a57ea1f0fef4b5379a43c"
+          },
+          "packages/contracts/src/equity_feature_contracts/buckets.py": {
+            "git_sha256": "51f5306ffab90a880c05aa792f98225a0fb160cbf1abf1f8fbdc7118a5690f28",
+            "materialized_sha256": "d282ded1260105b27d02107f84f34cd6c8ca99b51cd2164f1cdbbf17bb88bade"
+          },
+          "packages/contracts/src/equity_feature_contracts/columnar.py": {
+            "git_sha256": "856b86bd411a0dd2ed1174848286acf1368a2c0e1224a74fd810a179babdd7d5",
+            "materialized_sha256": "f044f33bcefd0ec301617aa67935d374ae25692fc800cb1c00a877acd7f34b65"
+          },
+          "packages/contracts/src/equity_feature_contracts/composition.py": {
+            "git_sha256": "c65164fc7d4011752f49c519452733180cdcb5709008bf3b5eaaf260f0b0656a",
+            "materialized_sha256": "238329418c430bc0120d7ae9198f8fa4a0223185113a6b19d56af9397d85a47e"
+          },
+          "packages/contracts/src/equity_feature_contracts/errors.py": {
+            "git_sha256": "6bb3d0cff7a5ee6de18fc6bd7301177f52c4d15e1025c99b11223dd08d6d641b",
+            "materialized_sha256": "bb4da6b39ccd63ba06dd8bcaadf648f12ca142c4d557247a1b41da2933d77fb4"
+          },
+          "packages/contracts/src/equity_feature_contracts/history.py": {
+            "git_sha256": "3656132833beb741a2ca6359276fb08f79ca1799eaf618bd198db9a0dc4c8e23",
+            "materialized_sha256": "4fa7b1bc4280eb0a7f8a7aad5767adf2313a04bc36edd5ebffbf3a4c2cc73bba"
+          },
+          "packages/contracts/src/equity_feature_contracts/inputs.py": {
+            "git_sha256": "1084aed63b47e693ffbef92c34c7036040288f409d1f379bd1415d3b4ff5152a",
+            "materialized_sha256": "5c55770c93dbeae7a555dcde6408828572aef18c4b9ce660555e12d2ccc61b38"
+          },
+          "packages/contracts/src/equity_feature_contracts/normalization.py": {
+            "git_sha256": "a40c9b49cbfc81519bf5b8c898ced0211b4e5172ab0445c237e6435ca4abd861",
+            "materialized_sha256": "5da0cc7f75b36ba82239a15b466cff86a884879f8ecb045a0be7f7dbbd49e132"
+          },
+          "packages/contracts/src/equity_feature_contracts/policies.py": {
+            "git_sha256": "e3cb47e4d52c117c74165d4fa9655ff546910523f7d16cd733d6c341c76c8419",
+            "materialized_sha256": "3b6fdb05a9cd1f325501b5f6d1739ed370c9c89d933ce80c46c1b64558ffadef"
+          },
+          "packages/contracts/src/equity_feature_contracts/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "packages/contracts/src/equity_feature_contracts/registry.py": {
+            "git_sha256": "3a22ff0f2b846aec1ef8b30eb9ee232a269a0806f3dab047375c8619422592dd",
+            "materialized_sha256": "445321090958840524a9484a96532dfb4d793fd522758b84e08a7a571cd88a97"
+          },
+          "packages/contracts/src/equity_feature_contracts/relative.py": {
+            "git_sha256": "3f536ca042a1bebb0be24507dcef3e6af5462b951558b6fba8de1fd014802cc4",
+            "materialized_sha256": "b73f4a196ac0ec7203d94a74ab4f0199ffbbd6c5e04e80c8437ec4a23286c83a"
+          },
+          "packages/contracts/src/equity_feature_contracts/results.py": {
+            "git_sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e",
+            "materialized_sha256": "97055e87ec1a80c475c39647a3406f3f1fd48eb9f44bed1029e0b8a671b80395"
+          },
+          "packages/contracts/src/equity_feature_contracts/specs.py": {
+            "git_sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3",
+            "materialized_sha256": "480f250ae76bcf77287c331b8ac6186186092be8dd23fd47594e49b5d08a48d2"
+          },
+          "packages/contracts/src/equity_feature_contracts/streaming.py": {
+            "git_sha256": "ef29a5150a483775872834306827e123786de4d22462181503a0afa4b20b27fd",
+            "materialized_sha256": "dd65c91b2903e28b2cd3d76fb2389c577e2f74bf9408e7281ffa8c38161e9aa6"
+          },
+          "packages/contracts/src/equity_feature_contracts/validation.py": {
+            "git_sha256": "ade9ca17b65a5b08bf82de24169261a64c6e384b503cf92e474f85ecd8cdc9e9",
+            "materialized_sha256": "701bd7265796642260e01cad3f94e97e9a8540e654015327b29bd39376f91710"
+          },
+          "packages/contracts/src/equity_feature_contracts/volume.py": {
+            "git_sha256": "67292683238f8e2e22f6b25e9d03a26e67651934f1158328215198657f33bdde",
+            "materialized_sha256": "2a086c0e921a92501d616c552be591d797a90c42a61d54cd44a7e61b57e6f3e5"
+          },
+          "packages/intraday/LICENSE": {
+            "git_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+            "materialized_sha256": "47b2b7375318c574ef44d0def1e28d296e8bac5940d24d2694f5d99e7053b780"
+          },
+          "packages/intraday/README.md": {
+            "git_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970",
+            "materialized_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970"
+          },
+          "packages/intraday/pyproject.toml": {
+            "git_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d",
+            "materialized_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d"
+          },
+          "packages/intraday/src/equity_features_intraday/__init__.py": {
+            "git_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec",
+            "materialized_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec"
+          },
+          "packages/intraday/src/equity_features_intraday/_admission.py": {
+            "git_sha256": "86e16e7bd1ffb645baead36665ef61babffb92c0511ef755e2120a0537f7e742",
+            "materialized_sha256": "a975a26fa15be47234edad35ceff7c33f6684743f5839e6d604072cbe6ce25f0"
+          },
+          "packages/intraday/src/equity_features_intraday/_context.py": {
+            "git_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9",
+            "materialized_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9"
+          },
+          "packages/intraday/src/equity_features_intraday/_dispatch.py": {
+            "git_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4",
+            "materialized_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4"
+          },
+          "packages/intraday/src/equity_features_intraday/_prepare.py": {
+            "git_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c",
+            "materialized_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c"
+          },
+          "packages/intraday/src/equity_features_intraday/_registry.py": {
+            "git_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79",
+            "materialized_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79"
+          },
+          "packages/intraday/src/equity_features_intraday/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "tools/benchmark_intraday_preparation.py": {
+            "git_sha256": "c312ac3c18572647ff148a32b138793fc594660fb19ea88602c0d5ef74396edd",
+            "materialized_sha256": "0cb621c934f844fc79705fb42ec1b80cb2d19200dbc172eaaf3c5432f6040bb4"
+          }
+        }
+      },
+      "stages": "Construct immutable supplied inputs, admission/preparation, actual reuse identity checks and full projection inspection. No worker/startup/IPC/queue or external source/sink.",
+      "status": "completed",
+      "subprocess_total_seconds": 11.614349299983587,
+      "summary": {
+        "iqr_seconds": 0.023734299989882857,
+        "median_core_seconds": 0.53125,
+        "median_seconds": 0.5310148000135086,
+        "p95_seconds": 0.5564694000058807,
+        "peak_process_bytes": 38801408
+      },
+      "warmups": 2,
+      "worker_children": 0
+    },
+    "long60": {
+      "aggregate_peak_bound_bytes": 74588160,
+      "case": "long60",
+      "ipc_bytes": 0,
+      "mode": "separate",
+      "native_compute_threads": 0,
+      "parent_peak_bytes": 36069376,
+      "queue_bytes": 0,
+      "samples": [
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5456858000252396,
+          "construction_seconds": 0.03790499997558072,
+          "core_seconds": 0.578125,
+          "peak_process_bytes": 38400000,
+          "projection_sha256": "404187ae0037e1ebeb1b0577931974286e5968b290fb1619aa296a137995f023",
+          "wall_seconds": 0.5835920000099577
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5634420000133105,
+          "construction_seconds": 0.04116339999018237,
+          "core_seconds": 0.609375,
+          "peak_process_bytes": 38518784,
+          "projection_sha256": "404187ae0037e1ebeb1b0577931974286e5968b290fb1619aa296a137995f023",
+          "wall_seconds": 0.6046065999544226
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5532330000423826,
+          "construction_seconds": 0.03692149999551475,
+          "core_seconds": 0.59375,
+          "peak_process_bytes": 38518784,
+          "projection_sha256": "404187ae0037e1ebeb1b0577931974286e5968b290fb1619aa296a137995f023",
+          "wall_seconds": 0.59015589999035
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.5558261999976821,
+          "construction_seconds": 0.04233539995038882,
+          "core_seconds": 0.59375,
+          "peak_process_bytes": 38518784,
+          "projection_sha256": "404187ae0037e1ebeb1b0577931974286e5968b290fb1619aa296a137995f023",
+          "wall_seconds": 0.5981628999579698
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.4947229999816045,
+          "construction_seconds": 0.03527960000792518,
+          "core_seconds": 0.53125,
+          "peak_process_bytes": 38518784,
+          "projection_sha256": "404187ae0037e1ebeb1b0577931974286e5968b290fb1619aa296a137995f023",
+          "wall_seconds": 0.5300035999971442
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.4813204000238329,
+          "construction_seconds": 0.04052330000558868,
+          "core_seconds": 0.53125,
+          "peak_process_bytes": 38518784,
+          "projection_sha256": "404187ae0037e1ebeb1b0577931974286e5968b290fb1619aa296a137995f023",
+          "wall_seconds": 0.5218447000370361
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.4914495999692008,
+          "construction_seconds": 0.030935000046156347,
+          "core_seconds": 0.515625,
+          "peak_process_bytes": 38518784,
+          "projection_sha256": "404187ae0037e1ebeb1b0577931974286e5968b290fb1619aa296a137995f023",
+          "wall_seconds": 0.5223857999662869
+        }
+      ],
+      "source_identity": {
+        "head": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+        "libraries": {
+          "equity_feature_contracts": {
+            "origin": "packages/contracts/src/equity_feature_contracts/__init__.py",
+            "version": "0.0.4a4"
+          },
+          "equity_features_intraday": {
+            "origin": "packages/intraday/src/equity_features_intraday/__init__.py",
+            "version": "0.1.0a1"
+          }
+        },
+        "runtime": "pinned source development environment; artifact installs qualified separately",
+        "source": {
+          "packages/contracts/LICENSE": {
+            "git_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "materialized_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+          },
+          "packages/contracts/README.md": {
+            "git_sha256": "d11c207bf950d0c3eb8f3af409b3f2753b4ecd2c8f24cf0d12f5b5b1facfa406",
+            "materialized_sha256": "b2ad97dd34277cf6b71cf78385b7559524518bfc01def64c06488623408ebaa6"
+          },
+          "packages/contracts/pyproject.toml": {
+            "git_sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1",
+            "materialized_sha256": "1c13c3fe24043650e851ad829aa1f951e33c4eadd7c1ebaeceec591142378538"
+          },
+          "packages/contracts/src/equity_feature_contracts/__init__.py": {
+            "git_sha256": "02956fd250ad281d33636fe9d924c90d461c6788dfb9ca2aedb8a0013b70d63b",
+            "materialized_sha256": "531160c9effe06c1a5bc1ded6659430a980a21ae03be66ee4b7da800af4cb91e"
+          },
+          "packages/contracts/src/equity_feature_contracts/_catalog.py": {
+            "git_sha256": "338f2602231b8d9abedf39064c16fb361418a2f2fd6ca19310a1a76cb6ff3e54",
+            "materialized_sha256": "f2cf024552dc2df42867a66ffccab40441f54577a611d7026df1561adbbcfd7a"
+          },
+          "packages/contracts/src/equity_feature_contracts/_implemented.py": {
+            "git_sha256": "0f314e8f1e3a260b4d21855036d9d5c4d6ef6d71aa71aa4a59c01d9d6cb39ee5",
+            "materialized_sha256": "544e87fdcd3b04a24422dcbf98fb7ea4722fdec83b8655dcaca7d58cb7c9813f"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapter_kit.py": {
+            "git_sha256": "a5b0537ad1b6b4fc0d6a92f76d4b11366f9a52e0cf8702adbe2573bec95e6b15",
+            "materialized_sha256": "e2937519dad1ae9e51a8caa9ab9b9800482234fc0fb6e162d816ffe034843e7b"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapters.py": {
+            "git_sha256": "386ded9505e98a5ee3c8e6fd6e38bf1a5491c6896e1e5f31a69b210e36259ac6",
+            "materialized_sha256": "270943d26c781cfadf24a443821f315cbdd483cc8482dc453d1aa93ce554f982"
+          },
+          "packages/contracts/src/equity_feature_contracts/breadth.py": {
+            "git_sha256": "9b528c7e782cdf1982cde8db5aa5506b8f7026334e464a7ef8ad064af7a28cad",
+            "materialized_sha256": "3e19c42f6d68d786155d0753a5b510c667cfd151391a57ea1f0fef4b5379a43c"
+          },
+          "packages/contracts/src/equity_feature_contracts/buckets.py": {
+            "git_sha256": "51f5306ffab90a880c05aa792f98225a0fb160cbf1abf1f8fbdc7118a5690f28",
+            "materialized_sha256": "d282ded1260105b27d02107f84f34cd6c8ca99b51cd2164f1cdbbf17bb88bade"
+          },
+          "packages/contracts/src/equity_feature_contracts/columnar.py": {
+            "git_sha256": "856b86bd411a0dd2ed1174848286acf1368a2c0e1224a74fd810a179babdd7d5",
+            "materialized_sha256": "f044f33bcefd0ec301617aa67935d374ae25692fc800cb1c00a877acd7f34b65"
+          },
+          "packages/contracts/src/equity_feature_contracts/composition.py": {
+            "git_sha256": "c65164fc7d4011752f49c519452733180cdcb5709008bf3b5eaaf260f0b0656a",
+            "materialized_sha256": "238329418c430bc0120d7ae9198f8fa4a0223185113a6b19d56af9397d85a47e"
+          },
+          "packages/contracts/src/equity_feature_contracts/errors.py": {
+            "git_sha256": "6bb3d0cff7a5ee6de18fc6bd7301177f52c4d15e1025c99b11223dd08d6d641b",
+            "materialized_sha256": "bb4da6b39ccd63ba06dd8bcaadf648f12ca142c4d557247a1b41da2933d77fb4"
+          },
+          "packages/contracts/src/equity_feature_contracts/history.py": {
+            "git_sha256": "3656132833beb741a2ca6359276fb08f79ca1799eaf618bd198db9a0dc4c8e23",
+            "materialized_sha256": "4fa7b1bc4280eb0a7f8a7aad5767adf2313a04bc36edd5ebffbf3a4c2cc73bba"
+          },
+          "packages/contracts/src/equity_feature_contracts/inputs.py": {
+            "git_sha256": "1084aed63b47e693ffbef92c34c7036040288f409d1f379bd1415d3b4ff5152a",
+            "materialized_sha256": "5c55770c93dbeae7a555dcde6408828572aef18c4b9ce660555e12d2ccc61b38"
+          },
+          "packages/contracts/src/equity_feature_contracts/normalization.py": {
+            "git_sha256": "a40c9b49cbfc81519bf5b8c898ced0211b4e5172ab0445c237e6435ca4abd861",
+            "materialized_sha256": "5da0cc7f75b36ba82239a15b466cff86a884879f8ecb045a0be7f7dbbd49e132"
+          },
+          "packages/contracts/src/equity_feature_contracts/policies.py": {
+            "git_sha256": "e3cb47e4d52c117c74165d4fa9655ff546910523f7d16cd733d6c341c76c8419",
+            "materialized_sha256": "3b6fdb05a9cd1f325501b5f6d1739ed370c9c89d933ce80c46c1b64558ffadef"
+          },
+          "packages/contracts/src/equity_feature_contracts/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "packages/contracts/src/equity_feature_contracts/registry.py": {
+            "git_sha256": "3a22ff0f2b846aec1ef8b30eb9ee232a269a0806f3dab047375c8619422592dd",
+            "materialized_sha256": "445321090958840524a9484a96532dfb4d793fd522758b84e08a7a571cd88a97"
+          },
+          "packages/contracts/src/equity_feature_contracts/relative.py": {
+            "git_sha256": "3f536ca042a1bebb0be24507dcef3e6af5462b951558b6fba8de1fd014802cc4",
+            "materialized_sha256": "b73f4a196ac0ec7203d94a74ab4f0199ffbbd6c5e04e80c8437ec4a23286c83a"
+          },
+          "packages/contracts/src/equity_feature_contracts/results.py": {
+            "git_sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e",
+            "materialized_sha256": "97055e87ec1a80c475c39647a3406f3f1fd48eb9f44bed1029e0b8a671b80395"
+          },
+          "packages/contracts/src/equity_feature_contracts/specs.py": {
+            "git_sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3",
+            "materialized_sha256": "480f250ae76bcf77287c331b8ac6186186092be8dd23fd47594e49b5d08a48d2"
+          },
+          "packages/contracts/src/equity_feature_contracts/streaming.py": {
+            "git_sha256": "ef29a5150a483775872834306827e123786de4d22462181503a0afa4b20b27fd",
+            "materialized_sha256": "dd65c91b2903e28b2cd3d76fb2389c577e2f74bf9408e7281ffa8c38161e9aa6"
+          },
+          "packages/contracts/src/equity_feature_contracts/validation.py": {
+            "git_sha256": "ade9ca17b65a5b08bf82de24169261a64c6e384b503cf92e474f85ecd8cdc9e9",
+            "materialized_sha256": "701bd7265796642260e01cad3f94e97e9a8540e654015327b29bd39376f91710"
+          },
+          "packages/contracts/src/equity_feature_contracts/volume.py": {
+            "git_sha256": "67292683238f8e2e22f6b25e9d03a26e67651934f1158328215198657f33bdde",
+            "materialized_sha256": "2a086c0e921a92501d616c552be591d797a90c42a61d54cd44a7e61b57e6f3e5"
+          },
+          "packages/intraday/LICENSE": {
+            "git_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+            "materialized_sha256": "47b2b7375318c574ef44d0def1e28d296e8bac5940d24d2694f5d99e7053b780"
+          },
+          "packages/intraday/README.md": {
+            "git_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970",
+            "materialized_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970"
+          },
+          "packages/intraday/pyproject.toml": {
+            "git_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d",
+            "materialized_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d"
+          },
+          "packages/intraday/src/equity_features_intraday/__init__.py": {
+            "git_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec",
+            "materialized_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec"
+          },
+          "packages/intraday/src/equity_features_intraday/_admission.py": {
+            "git_sha256": "86e16e7bd1ffb645baead36665ef61babffb92c0511ef755e2120a0537f7e742",
+            "materialized_sha256": "a975a26fa15be47234edad35ceff7c33f6684743f5839e6d604072cbe6ce25f0"
+          },
+          "packages/intraday/src/equity_features_intraday/_context.py": {
+            "git_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9",
+            "materialized_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9"
+          },
+          "packages/intraday/src/equity_features_intraday/_dispatch.py": {
+            "git_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4",
+            "materialized_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4"
+          },
+          "packages/intraday/src/equity_features_intraday/_prepare.py": {
+            "git_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c",
+            "materialized_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c"
+          },
+          "packages/intraday/src/equity_features_intraday/_registry.py": {
+            "git_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79",
+            "materialized_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79"
+          },
+          "packages/intraday/src/equity_features_intraday/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "tools/benchmark_intraday_preparation.py": {
+            "git_sha256": "c312ac3c18572647ff148a32b138793fc594660fb19ea88602c0d5ef74396edd",
+            "materialized_sha256": "0cb621c934f844fc79705fb42ec1b80cb2d19200dbc172eaaf3c5432f6040bb4"
+          }
+        }
+      },
+      "stages": "Construct immutable supplied inputs, admission/preparation, actual reuse identity checks and full projection inspection. No worker/startup/IPC/queue or external source/sink.",
+      "status": "completed",
+      "subprocess_total_seconds": 11.84908280003583,
+      "summary": {
+        "iqr_seconds": 0.06796469999244437,
+        "median_core_seconds": 0.578125,
+        "median_seconds": 0.5835920000099577,
+        "p95_seconds": 0.6046065999544226,
+        "peak_process_bytes": 38518784
+      },
+      "warmups": 2,
+      "worker_children": 0
+    },
+    "skewed": {
+      "aggregate_peak_bound_bytes": 83292160,
+      "case": "skewed",
+      "ipc_bytes": 0,
+      "mode": "separate",
+      "native_compute_threads": 0,
+      "parent_peak_bytes": 34721792,
+      "queue_bytes": 0,
+      "samples": [
+        {
+          "admission_preparation_identity_inspection_seconds": 2.613527300010901,
+          "construction_seconds": 0.1701245000003837,
+          "core_seconds": 2.765625,
+          "peak_process_bytes": 48467968,
+          "projection_sha256": "bacc73ec6a572c4ae5462ae9308249e9399aa7ea476a77f3486ad80dfe1510a6",
+          "wall_seconds": 2.783652800018899
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 2.626667100004852,
+          "construction_seconds": 0.17189080000389367,
+          "core_seconds": 2.8125,
+          "peak_process_bytes": 48467968,
+          "projection_sha256": "bacc73ec6a572c4ae5462ae9308249e9399aa7ea476a77f3486ad80dfe1510a6",
+          "wall_seconds": 2.7985586999566294
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 2.6025270999525674,
+          "construction_seconds": 0.1704810000373982,
+          "core_seconds": 2.734375,
+          "peak_process_bytes": 48467968,
+          "projection_sha256": "bacc73ec6a572c4ae5462ae9308249e9399aa7ea476a77f3486ad80dfe1510a6",
+          "wall_seconds": 2.7730091999983415
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 2.5863279000041075,
+          "construction_seconds": 0.17356159997871146,
+          "core_seconds": 2.71875,
+          "peak_process_bytes": 48467968,
+          "projection_sha256": "bacc73ec6a572c4ae5462ae9308249e9399aa7ea476a77f3486ad80dfe1510a6",
+          "wall_seconds": 2.759890799992718
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 2.5995779000222683,
+          "construction_seconds": 0.18165420001605526,
+          "core_seconds": 2.78125,
+          "peak_process_bytes": 48570368,
+          "projection_sha256": "bacc73ec6a572c4ae5462ae9308249e9399aa7ea476a77f3486ad80dfe1510a6",
+          "wall_seconds": 2.7812332000466995
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 2.5803474000422284,
+          "construction_seconds": 0.1851706999586895,
+          "core_seconds": 2.75,
+          "peak_process_bytes": 48570368,
+          "projection_sha256": "bacc73ec6a572c4ae5462ae9308249e9399aa7ea476a77f3486ad80dfe1510a6",
+          "wall_seconds": 2.765519399952609
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 2.593715400027577,
+          "construction_seconds": 0.17809629999101162,
+          "core_seconds": 2.734375,
+          "peak_process_bytes": 48570368,
+          "projection_sha256": "bacc73ec6a572c4ae5462ae9308249e9399aa7ea476a77f3486ad80dfe1510a6",
+          "wall_seconds": 2.771812900027726
+        }
+      ],
+      "source_identity": {
+        "head": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+        "libraries": {
+          "equity_feature_contracts": {
+            "origin": "packages/contracts/src/equity_feature_contracts/__init__.py",
+            "version": "0.0.4a4"
+          },
+          "equity_features_intraday": {
+            "origin": "packages/intraday/src/equity_features_intraday/__init__.py",
+            "version": "0.1.0a1"
+          }
+        },
+        "runtime": "pinned source development environment; artifact installs qualified separately",
+        "source": {
+          "packages/contracts/LICENSE": {
+            "git_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "materialized_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+          },
+          "packages/contracts/README.md": {
+            "git_sha256": "d11c207bf950d0c3eb8f3af409b3f2753b4ecd2c8f24cf0d12f5b5b1facfa406",
+            "materialized_sha256": "b2ad97dd34277cf6b71cf78385b7559524518bfc01def64c06488623408ebaa6"
+          },
+          "packages/contracts/pyproject.toml": {
+            "git_sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1",
+            "materialized_sha256": "1c13c3fe24043650e851ad829aa1f951e33c4eadd7c1ebaeceec591142378538"
+          },
+          "packages/contracts/src/equity_feature_contracts/__init__.py": {
+            "git_sha256": "02956fd250ad281d33636fe9d924c90d461c6788dfb9ca2aedb8a0013b70d63b",
+            "materialized_sha256": "531160c9effe06c1a5bc1ded6659430a980a21ae03be66ee4b7da800af4cb91e"
+          },
+          "packages/contracts/src/equity_feature_contracts/_catalog.py": {
+            "git_sha256": "338f2602231b8d9abedf39064c16fb361418a2f2fd6ca19310a1a76cb6ff3e54",
+            "materialized_sha256": "f2cf024552dc2df42867a66ffccab40441f54577a611d7026df1561adbbcfd7a"
+          },
+          "packages/contracts/src/equity_feature_contracts/_implemented.py": {
+            "git_sha256": "0f314e8f1e3a260b4d21855036d9d5c4d6ef6d71aa71aa4a59c01d9d6cb39ee5",
+            "materialized_sha256": "544e87fdcd3b04a24422dcbf98fb7ea4722fdec83b8655dcaca7d58cb7c9813f"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapter_kit.py": {
+            "git_sha256": "a5b0537ad1b6b4fc0d6a92f76d4b11366f9a52e0cf8702adbe2573bec95e6b15",
+            "materialized_sha256": "e2937519dad1ae9e51a8caa9ab9b9800482234fc0fb6e162d816ffe034843e7b"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapters.py": {
+            "git_sha256": "386ded9505e98a5ee3c8e6fd6e38bf1a5491c6896e1e5f31a69b210e36259ac6",
+            "materialized_sha256": "270943d26c781cfadf24a443821f315cbdd483cc8482dc453d1aa93ce554f982"
+          },
+          "packages/contracts/src/equity_feature_contracts/breadth.py": {
+            "git_sha256": "9b528c7e782cdf1982cde8db5aa5506b8f7026334e464a7ef8ad064af7a28cad",
+            "materialized_sha256": "3e19c42f6d68d786155d0753a5b510c667cfd151391a57ea1f0fef4b5379a43c"
+          },
+          "packages/contracts/src/equity_feature_contracts/buckets.py": {
+            "git_sha256": "51f5306ffab90a880c05aa792f98225a0fb160cbf1abf1f8fbdc7118a5690f28",
+            "materialized_sha256": "d282ded1260105b27d02107f84f34cd6c8ca99b51cd2164f1cdbbf17bb88bade"
+          },
+          "packages/contracts/src/equity_feature_contracts/columnar.py": {
+            "git_sha256": "856b86bd411a0dd2ed1174848286acf1368a2c0e1224a74fd810a179babdd7d5",
+            "materialized_sha256": "f044f33bcefd0ec301617aa67935d374ae25692fc800cb1c00a877acd7f34b65"
+          },
+          "packages/contracts/src/equity_feature_contracts/composition.py": {
+            "git_sha256": "c65164fc7d4011752f49c519452733180cdcb5709008bf3b5eaaf260f0b0656a",
+            "materialized_sha256": "238329418c430bc0120d7ae9198f8fa4a0223185113a6b19d56af9397d85a47e"
+          },
+          "packages/contracts/src/equity_feature_contracts/errors.py": {
+            "git_sha256": "6bb3d0cff7a5ee6de18fc6bd7301177f52c4d15e1025c99b11223dd08d6d641b",
+            "materialized_sha256": "bb4da6b39ccd63ba06dd8bcaadf648f12ca142c4d557247a1b41da2933d77fb4"
+          },
+          "packages/contracts/src/equity_feature_contracts/history.py": {
+            "git_sha256": "3656132833beb741a2ca6359276fb08f79ca1799eaf618bd198db9a0dc4c8e23",
+            "materialized_sha256": "4fa7b1bc4280eb0a7f8a7aad5767adf2313a04bc36edd5ebffbf3a4c2cc73bba"
+          },
+          "packages/contracts/src/equity_feature_contracts/inputs.py": {
+            "git_sha256": "1084aed63b47e693ffbef92c34c7036040288f409d1f379bd1415d3b4ff5152a",
+            "materialized_sha256": "5c55770c93dbeae7a555dcde6408828572aef18c4b9ce660555e12d2ccc61b38"
+          },
+          "packages/contracts/src/equity_feature_contracts/normalization.py": {
+            "git_sha256": "a40c9b49cbfc81519bf5b8c898ced0211b4e5172ab0445c237e6435ca4abd861",
+            "materialized_sha256": "5da0cc7f75b36ba82239a15b466cff86a884879f8ecb045a0be7f7dbbd49e132"
+          },
+          "packages/contracts/src/equity_feature_contracts/policies.py": {
+            "git_sha256": "e3cb47e4d52c117c74165d4fa9655ff546910523f7d16cd733d6c341c76c8419",
+            "materialized_sha256": "3b6fdb05a9cd1f325501b5f6d1739ed370c9c89d933ce80c46c1b64558ffadef"
+          },
+          "packages/contracts/src/equity_feature_contracts/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "packages/contracts/src/equity_feature_contracts/registry.py": {
+            "git_sha256": "3a22ff0f2b846aec1ef8b30eb9ee232a269a0806f3dab047375c8619422592dd",
+            "materialized_sha256": "445321090958840524a9484a96532dfb4d793fd522758b84e08a7a571cd88a97"
+          },
+          "packages/contracts/src/equity_feature_contracts/relative.py": {
+            "git_sha256": "3f536ca042a1bebb0be24507dcef3e6af5462b951558b6fba8de1fd014802cc4",
+            "materialized_sha256": "b73f4a196ac0ec7203d94a74ab4f0199ffbbd6c5e04e80c8437ec4a23286c83a"
+          },
+          "packages/contracts/src/equity_feature_contracts/results.py": {
+            "git_sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e",
+            "materialized_sha256": "97055e87ec1a80c475c39647a3406f3f1fd48eb9f44bed1029e0b8a671b80395"
+          },
+          "packages/contracts/src/equity_feature_contracts/specs.py": {
+            "git_sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3",
+            "materialized_sha256": "480f250ae76bcf77287c331b8ac6186186092be8dd23fd47594e49b5d08a48d2"
+          },
+          "packages/contracts/src/equity_feature_contracts/streaming.py": {
+            "git_sha256": "ef29a5150a483775872834306827e123786de4d22462181503a0afa4b20b27fd",
+            "materialized_sha256": "dd65c91b2903e28b2cd3d76fb2389c577e2f74bf9408e7281ffa8c38161e9aa6"
+          },
+          "packages/contracts/src/equity_feature_contracts/validation.py": {
+            "git_sha256": "ade9ca17b65a5b08bf82de24169261a64c6e384b503cf92e474f85ecd8cdc9e9",
+            "materialized_sha256": "701bd7265796642260e01cad3f94e97e9a8540e654015327b29bd39376f91710"
+          },
+          "packages/contracts/src/equity_feature_contracts/volume.py": {
+            "git_sha256": "67292683238f8e2e22f6b25e9d03a26e67651934f1158328215198657f33bdde",
+            "materialized_sha256": "2a086c0e921a92501d616c552be591d797a90c42a61d54cd44a7e61b57e6f3e5"
+          },
+          "packages/intraday/LICENSE": {
+            "git_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+            "materialized_sha256": "47b2b7375318c574ef44d0def1e28d296e8bac5940d24d2694f5d99e7053b780"
+          },
+          "packages/intraday/README.md": {
+            "git_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970",
+            "materialized_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970"
+          },
+          "packages/intraday/pyproject.toml": {
+            "git_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d",
+            "materialized_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d"
+          },
+          "packages/intraday/src/equity_features_intraday/__init__.py": {
+            "git_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec",
+            "materialized_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec"
+          },
+          "packages/intraday/src/equity_features_intraday/_admission.py": {
+            "git_sha256": "86e16e7bd1ffb645baead36665ef61babffb92c0511ef755e2120a0537f7e742",
+            "materialized_sha256": "a975a26fa15be47234edad35ceff7c33f6684743f5839e6d604072cbe6ce25f0"
+          },
+          "packages/intraday/src/equity_features_intraday/_context.py": {
+            "git_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9",
+            "materialized_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9"
+          },
+          "packages/intraday/src/equity_features_intraday/_dispatch.py": {
+            "git_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4",
+            "materialized_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4"
+          },
+          "packages/intraday/src/equity_features_intraday/_prepare.py": {
+            "git_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c",
+            "materialized_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c"
+          },
+          "packages/intraday/src/equity_features_intraday/_registry.py": {
+            "git_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79",
+            "materialized_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79"
+          },
+          "packages/intraday/src/equity_features_intraday/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "tools/benchmark_intraday_preparation.py": {
+            "git_sha256": "c312ac3c18572647ff148a32b138793fc594660fb19ea88602c0d5ef74396edd",
+            "materialized_sha256": "0cb621c934f844fc79705fb42ec1b80cb2d19200dbc172eaaf3c5432f6040bb4"
+          }
+        }
+      },
+      "stages": "Construct immutable supplied inputs, admission/preparation, actual reuse identity checks and full projection inspection. No worker/startup/IPC/queue or external source/sink.",
+      "status": "completed",
+      "subprocess_total_seconds": 31.60972499998752,
+      "summary": {
+        "iqr_seconds": 0.01377685004263185,
+        "median_core_seconds": 2.75,
+        "median_seconds": 2.7730091999983415,
+        "p95_seconds": 2.7985586999566294,
+        "peak_process_bytes": 48570368
+      },
+      "warmups": 2,
+      "worker_children": 0
+    },
+    "small": {
+      "aggregate_peak_bound_bytes": 65384448,
+      "case": "small",
+      "ipc_bytes": 0,
+      "mode": "separate",
+      "native_compute_threads": 0,
+      "parent_peak_bytes": 34713600,
+      "queue_bytes": 0,
+      "samples": [
+        {
+          "admission_preparation_identity_inspection_seconds": 0.03128389996709302,
+          "construction_seconds": 0.0020272000110708177,
+          "core_seconds": 0.03125,
+          "peak_process_bytes": 30482432,
+          "projection_sha256": "3252220b3a8de61f313df0329c4fc6a891dfe8d58e011c912b4827a139485855",
+          "wall_seconds": 0.033311799983493984
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.03111219999846071,
+          "construction_seconds": 0.002139599993824959,
+          "core_seconds": 0.03125,
+          "peak_process_bytes": 30511104,
+          "projection_sha256": "3252220b3a8de61f313df0329c4fc6a891dfe8d58e011c912b4827a139485855",
+          "wall_seconds": 0.033252599998377264
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.034636199998203665,
+          "construction_seconds": 0.0020172999938949943,
+          "core_seconds": 0.046875,
+          "peak_process_bytes": 30552064,
+          "projection_sha256": "3252220b3a8de61f313df0329c4fc6a891dfe8d58e011c912b4827a139485855",
+          "wall_seconds": 0.036654299998190254
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.036898399994242936,
+          "construction_seconds": 0.002530300000216812,
+          "core_seconds": 0.03125,
+          "peak_process_bytes": 30572544,
+          "projection_sha256": "3252220b3a8de61f313df0329c4fc6a891dfe8d58e011c912b4827a139485855",
+          "wall_seconds": 0.039429399999789894
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.03562949999468401,
+          "construction_seconds": 0.002488599973730743,
+          "core_seconds": 0.046875,
+          "peak_process_bytes": 30609408,
+          "projection_sha256": "3252220b3a8de61f313df0329c4fc6a891dfe8d58e011c912b4827a139485855",
+          "wall_seconds": 0.0381187999737449
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.035883699951227754,
+          "construction_seconds": 0.002019900013692677,
+          "core_seconds": 0.03125,
+          "peak_process_bytes": 30638080,
+          "projection_sha256": "3252220b3a8de61f313df0329c4fc6a891dfe8d58e011c912b4827a139485855",
+          "wall_seconds": 0.037904399971012026
+        },
+        {
+          "admission_preparation_identity_inspection_seconds": 0.034651099995244294,
+          "construction_seconds": 0.0024343000259250402,
+          "core_seconds": 0.046875,
+          "peak_process_bytes": 30670848,
+          "projection_sha256": "3252220b3a8de61f313df0329c4fc6a891dfe8d58e011c912b4827a139485855",
+          "wall_seconds": 0.03708620002726093
+        }
+      ],
+      "source_identity": {
+        "head": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+        "libraries": {
+          "equity_feature_contracts": {
+            "origin": "packages/contracts/src/equity_feature_contracts/__init__.py",
+            "version": "0.0.4a4"
+          },
+          "equity_features_intraday": {
+            "origin": "packages/intraday/src/equity_features_intraday/__init__.py",
+            "version": "0.1.0a1"
+          }
+        },
+        "runtime": "pinned source development environment; artifact installs qualified separately",
+        "source": {
+          "packages/contracts/LICENSE": {
+            "git_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "materialized_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+          },
+          "packages/contracts/README.md": {
+            "git_sha256": "d11c207bf950d0c3eb8f3af409b3f2753b4ecd2c8f24cf0d12f5b5b1facfa406",
+            "materialized_sha256": "b2ad97dd34277cf6b71cf78385b7559524518bfc01def64c06488623408ebaa6"
+          },
+          "packages/contracts/pyproject.toml": {
+            "git_sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1",
+            "materialized_sha256": "1c13c3fe24043650e851ad829aa1f951e33c4eadd7c1ebaeceec591142378538"
+          },
+          "packages/contracts/src/equity_feature_contracts/__init__.py": {
+            "git_sha256": "02956fd250ad281d33636fe9d924c90d461c6788dfb9ca2aedb8a0013b70d63b",
+            "materialized_sha256": "531160c9effe06c1a5bc1ded6659430a980a21ae03be66ee4b7da800af4cb91e"
+          },
+          "packages/contracts/src/equity_feature_contracts/_catalog.py": {
+            "git_sha256": "338f2602231b8d9abedf39064c16fb361418a2f2fd6ca19310a1a76cb6ff3e54",
+            "materialized_sha256": "f2cf024552dc2df42867a66ffccab40441f54577a611d7026df1561adbbcfd7a"
+          },
+          "packages/contracts/src/equity_feature_contracts/_implemented.py": {
+            "git_sha256": "0f314e8f1e3a260b4d21855036d9d5c4d6ef6d71aa71aa4a59c01d9d6cb39ee5",
+            "materialized_sha256": "544e87fdcd3b04a24422dcbf98fb7ea4722fdec83b8655dcaca7d58cb7c9813f"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapter_kit.py": {
+            "git_sha256": "a5b0537ad1b6b4fc0d6a92f76d4b11366f9a52e0cf8702adbe2573bec95e6b15",
+            "materialized_sha256": "e2937519dad1ae9e51a8caa9ab9b9800482234fc0fb6e162d816ffe034843e7b"
+          },
+          "packages/contracts/src/equity_feature_contracts/adapters.py": {
+            "git_sha256": "386ded9505e98a5ee3c8e6fd6e38bf1a5491c6896e1e5f31a69b210e36259ac6",
+            "materialized_sha256": "270943d26c781cfadf24a443821f315cbdd483cc8482dc453d1aa93ce554f982"
+          },
+          "packages/contracts/src/equity_feature_contracts/breadth.py": {
+            "git_sha256": "9b528c7e782cdf1982cde8db5aa5506b8f7026334e464a7ef8ad064af7a28cad",
+            "materialized_sha256": "3e19c42f6d68d786155d0753a5b510c667cfd151391a57ea1f0fef4b5379a43c"
+          },
+          "packages/contracts/src/equity_feature_contracts/buckets.py": {
+            "git_sha256": "51f5306ffab90a880c05aa792f98225a0fb160cbf1abf1f8fbdc7118a5690f28",
+            "materialized_sha256": "d282ded1260105b27d02107f84f34cd6c8ca99b51cd2164f1cdbbf17bb88bade"
+          },
+          "packages/contracts/src/equity_feature_contracts/columnar.py": {
+            "git_sha256": "856b86bd411a0dd2ed1174848286acf1368a2c0e1224a74fd810a179babdd7d5",
+            "materialized_sha256": "f044f33bcefd0ec301617aa67935d374ae25692fc800cb1c00a877acd7f34b65"
+          },
+          "packages/contracts/src/equity_feature_contracts/composition.py": {
+            "git_sha256": "c65164fc7d4011752f49c519452733180cdcb5709008bf3b5eaaf260f0b0656a",
+            "materialized_sha256": "238329418c430bc0120d7ae9198f8fa4a0223185113a6b19d56af9397d85a47e"
+          },
+          "packages/contracts/src/equity_feature_contracts/errors.py": {
+            "git_sha256": "6bb3d0cff7a5ee6de18fc6bd7301177f52c4d15e1025c99b11223dd08d6d641b",
+            "materialized_sha256": "bb4da6b39ccd63ba06dd8bcaadf648f12ca142c4d557247a1b41da2933d77fb4"
+          },
+          "packages/contracts/src/equity_feature_contracts/history.py": {
+            "git_sha256": "3656132833beb741a2ca6359276fb08f79ca1799eaf618bd198db9a0dc4c8e23",
+            "materialized_sha256": "4fa7b1bc4280eb0a7f8a7aad5767adf2313a04bc36edd5ebffbf3a4c2cc73bba"
+          },
+          "packages/contracts/src/equity_feature_contracts/inputs.py": {
+            "git_sha256": "1084aed63b47e693ffbef92c34c7036040288f409d1f379bd1415d3b4ff5152a",
+            "materialized_sha256": "5c55770c93dbeae7a555dcde6408828572aef18c4b9ce660555e12d2ccc61b38"
+          },
+          "packages/contracts/src/equity_feature_contracts/normalization.py": {
+            "git_sha256": "a40c9b49cbfc81519bf5b8c898ced0211b4e5172ab0445c237e6435ca4abd861",
+            "materialized_sha256": "5da0cc7f75b36ba82239a15b466cff86a884879f8ecb045a0be7f7dbbd49e132"
+          },
+          "packages/contracts/src/equity_feature_contracts/policies.py": {
+            "git_sha256": "e3cb47e4d52c117c74165d4fa9655ff546910523f7d16cd733d6c341c76c8419",
+            "materialized_sha256": "3b6fdb05a9cd1f325501b5f6d1739ed370c9c89d933ce80c46c1b64558ffadef"
+          },
+          "packages/contracts/src/equity_feature_contracts/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "packages/contracts/src/equity_feature_contracts/registry.py": {
+            "git_sha256": "3a22ff0f2b846aec1ef8b30eb9ee232a269a0806f3dab047375c8619422592dd",
+            "materialized_sha256": "445321090958840524a9484a96532dfb4d793fd522758b84e08a7a571cd88a97"
+          },
+          "packages/contracts/src/equity_feature_contracts/relative.py": {
+            "git_sha256": "3f536ca042a1bebb0be24507dcef3e6af5462b951558b6fba8de1fd014802cc4",
+            "materialized_sha256": "b73f4a196ac0ec7203d94a74ab4f0199ffbbd6c5e04e80c8437ec4a23286c83a"
+          },
+          "packages/contracts/src/equity_feature_contracts/results.py": {
+            "git_sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e",
+            "materialized_sha256": "97055e87ec1a80c475c39647a3406f3f1fd48eb9f44bed1029e0b8a671b80395"
+          },
+          "packages/contracts/src/equity_feature_contracts/specs.py": {
+            "git_sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3",
+            "materialized_sha256": "480f250ae76bcf77287c331b8ac6186186092be8dd23fd47594e49b5d08a48d2"
+          },
+          "packages/contracts/src/equity_feature_contracts/streaming.py": {
+            "git_sha256": "ef29a5150a483775872834306827e123786de4d22462181503a0afa4b20b27fd",
+            "materialized_sha256": "dd65c91b2903e28b2cd3d76fb2389c577e2f74bf9408e7281ffa8c38161e9aa6"
+          },
+          "packages/contracts/src/equity_feature_contracts/validation.py": {
+            "git_sha256": "ade9ca17b65a5b08bf82de24169261a64c6e384b503cf92e474f85ecd8cdc9e9",
+            "materialized_sha256": "701bd7265796642260e01cad3f94e97e9a8540e654015327b29bd39376f91710"
+          },
+          "packages/contracts/src/equity_feature_contracts/volume.py": {
+            "git_sha256": "67292683238f8e2e22f6b25e9d03a26e67651934f1158328215198657f33bdde",
+            "materialized_sha256": "2a086c0e921a92501d616c552be591d797a90c42a61d54cd44a7e61b57e6f3e5"
+          },
+          "packages/intraday/LICENSE": {
+            "git_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+            "materialized_sha256": "47b2b7375318c574ef44d0def1e28d296e8bac5940d24d2694f5d99e7053b780"
+          },
+          "packages/intraday/README.md": {
+            "git_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970",
+            "materialized_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970"
+          },
+          "packages/intraday/pyproject.toml": {
+            "git_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d",
+            "materialized_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d"
+          },
+          "packages/intraday/src/equity_features_intraday/__init__.py": {
+            "git_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec",
+            "materialized_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec"
+          },
+          "packages/intraday/src/equity_features_intraday/_admission.py": {
+            "git_sha256": "86e16e7bd1ffb645baead36665ef61babffb92c0511ef755e2120a0537f7e742",
+            "materialized_sha256": "a975a26fa15be47234edad35ceff7c33f6684743f5839e6d604072cbe6ce25f0"
+          },
+          "packages/intraday/src/equity_features_intraday/_context.py": {
+            "git_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9",
+            "materialized_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9"
+          },
+          "packages/intraday/src/equity_features_intraday/_dispatch.py": {
+            "git_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4",
+            "materialized_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4"
+          },
+          "packages/intraday/src/equity_features_intraday/_prepare.py": {
+            "git_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c",
+            "materialized_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c"
+          },
+          "packages/intraday/src/equity_features_intraday/_registry.py": {
+            "git_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79",
+            "materialized_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79"
+          },
+          "packages/intraday/src/equity_features_intraday/py.typed": {
+            "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "tools/benchmark_intraday_preparation.py": {
+            "git_sha256": "c312ac3c18572647ff148a32b138793fc594660fb19ea88602c0d5ef74396edd",
+            "materialized_sha256": "0cb621c934f844fc79705fb42ec1b80cb2d19200dbc172eaaf3c5432f6040bb4"
+          }
+        }
+      },
+      "stages": "Construct immutable supplied inputs, admission/preparation, actual reuse identity checks and full projection inspection. No worker/startup/IPC/queue or external source/sink.",
+      "status": "completed",
+      "subprocess_total_seconds": 6.862194899993483,
+      "summary": {
+        "iqr_seconds": 0.0030285499815363437,
+        "median_core_seconds": 0.03125,
+        "median_seconds": 0.03708620002726093,
+        "p95_seconds": 0.039429399999789894,
+        "peak_process_bytes": 30670848
+      },
+      "warmups": 2,
+      "worker_children": 0
+    }
+  },
+  "candidate": {},
+  "capacity": {
+    "affinity_limit": "Windows current process group mask; multi-group scheduling is not measured.",
+    "affinity_logical_cpus": 48,
+    "affinity_mask": 281474976710655,
+    "available_memory_bytes": 225858334720,
+    "cpu_inventory": [
+      {
+        "Name": "Intel(R) Xeon(R) Platinum 8160 CPU @ 2.10GHz",
+        "NumberOfCores": 24,
+        "NumberOfLogicalProcessors": 48
+      },
+      {
+        "Name": "Intel(R) Xeon(R) Platinum 8160 CPU @ 2.10GHz",
+        "NumberOfCores": 24,
+        "NumberOfLogicalProcessors": 48
+      }
+    ],
+    "limits": "One pure Python process. Affinity is permitted capacity, not CPU reservation; memory uses OS peak working set/RSS, not physical enforcement.",
+    "logical_cpus": 96,
+    "memory_budget_bytes": 1073741824,
+    "native_threads_per_worker": 1,
+    "os": "Windows-11-10.0.26300-SP0",
+    "physical_cores": 48,
+    "processor": "Intel64 Family 6 Model 85 Stepping 4, GenuineIntel",
+    "python": "3.12.10",
+    "total_memory_bytes": 273400750080,
+    "workers": 1
+  },
+  "cases": {
+    "large": [
+      64,
+      4096,
+      20
+    ],
+    "long14": [
+      1,
+      4096,
+      14
+    ],
+    "long20": [
+      1,
+      4096,
+      20
+    ],
+    "long60": [
+      1,
+      4096,
+      60
+    ],
+    "skewed": [
+      64,
+      256,
+      20
+    ],
+    "small": [
+      1,
+      256,
+      20
+    ]
+  },
+  "decisions": {},
+  "generator": "positive-scaled-integer-quadratic-v1",
+  "quality_parity": {
+    "families_each": 6,
+    "full_projection_cases": 5,
+    "limits": "Preparation parity only; no FeatureResult or worker equivalence claim.",
+    "passed": true
+  },
+  "rule": "A first. B median improvement >=max(5%,3*IQR(A)/median(A)); full P parity; peakRSS<=min(1GiB,25%initial free) and<=1.25A; median coreseconds<=1.25A; small latency p95<=1.10A.",
+  "schema": "equity-features.eq137-preparation-benchmark.v1",
+  "source_commit": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+  "source_identity": {
+    "head": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+    "libraries": {
+      "equity_feature_contracts": {
+        "origin": "packages/contracts/src/equity_feature_contracts/__init__.py",
+        "version": "0.0.4a4"
+      },
+      "equity_features_intraday": {
+        "origin": "packages/intraday/src/equity_features_intraday/__init__.py",
+        "version": "0.1.0a1"
+      }
+    },
+    "runtime": "pinned source development environment; artifact installs qualified separately",
+    "source": {
+      "packages/contracts/LICENSE": {
+        "git_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+        "materialized_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+      },
+      "packages/contracts/README.md": {
+        "git_sha256": "d11c207bf950d0c3eb8f3af409b3f2753b4ecd2c8f24cf0d12f5b5b1facfa406",
+        "materialized_sha256": "b2ad97dd34277cf6b71cf78385b7559524518bfc01def64c06488623408ebaa6"
+      },
+      "packages/contracts/pyproject.toml": {
+        "git_sha256": "ebc04b7a8eaa8fe013d1d3cd0890b6eb32a53f243ca315d7ca542a2f124776a1",
+        "materialized_sha256": "1c13c3fe24043650e851ad829aa1f951e33c4eadd7c1ebaeceec591142378538"
+      },
+      "packages/contracts/src/equity_feature_contracts/__init__.py": {
+        "git_sha256": "02956fd250ad281d33636fe9d924c90d461c6788dfb9ca2aedb8a0013b70d63b",
+        "materialized_sha256": "531160c9effe06c1a5bc1ded6659430a980a21ae03be66ee4b7da800af4cb91e"
+      },
+      "packages/contracts/src/equity_feature_contracts/_catalog.py": {
+        "git_sha256": "338f2602231b8d9abedf39064c16fb361418a2f2fd6ca19310a1a76cb6ff3e54",
+        "materialized_sha256": "f2cf024552dc2df42867a66ffccab40441f54577a611d7026df1561adbbcfd7a"
+      },
+      "packages/contracts/src/equity_feature_contracts/_implemented.py": {
+        "git_sha256": "0f314e8f1e3a260b4d21855036d9d5c4d6ef6d71aa71aa4a59c01d9d6cb39ee5",
+        "materialized_sha256": "544e87fdcd3b04a24422dcbf98fb7ea4722fdec83b8655dcaca7d58cb7c9813f"
+      },
+      "packages/contracts/src/equity_feature_contracts/adapter_kit.py": {
+        "git_sha256": "a5b0537ad1b6b4fc0d6a92f76d4b11366f9a52e0cf8702adbe2573bec95e6b15",
+        "materialized_sha256": "e2937519dad1ae9e51a8caa9ab9b9800482234fc0fb6e162d816ffe034843e7b"
+      },
+      "packages/contracts/src/equity_feature_contracts/adapters.py": {
+        "git_sha256": "386ded9505e98a5ee3c8e6fd6e38bf1a5491c6896e1e5f31a69b210e36259ac6",
+        "materialized_sha256": "270943d26c781cfadf24a443821f315cbdd483cc8482dc453d1aa93ce554f982"
+      },
+      "packages/contracts/src/equity_feature_contracts/breadth.py": {
+        "git_sha256": "9b528c7e782cdf1982cde8db5aa5506b8f7026334e464a7ef8ad064af7a28cad",
+        "materialized_sha256": "3e19c42f6d68d786155d0753a5b510c667cfd151391a57ea1f0fef4b5379a43c"
+      },
+      "packages/contracts/src/equity_feature_contracts/buckets.py": {
+        "git_sha256": "51f5306ffab90a880c05aa792f98225a0fb160cbf1abf1f8fbdc7118a5690f28",
+        "materialized_sha256": "d282ded1260105b27d02107f84f34cd6c8ca99b51cd2164f1cdbbf17bb88bade"
+      },
+      "packages/contracts/src/equity_feature_contracts/columnar.py": {
+        "git_sha256": "856b86bd411a0dd2ed1174848286acf1368a2c0e1224a74fd810a179babdd7d5",
+        "materialized_sha256": "f044f33bcefd0ec301617aa67935d374ae25692fc800cb1c00a877acd7f34b65"
+      },
+      "packages/contracts/src/equity_feature_contracts/composition.py": {
+        "git_sha256": "c65164fc7d4011752f49c519452733180cdcb5709008bf3b5eaaf260f0b0656a",
+        "materialized_sha256": "238329418c430bc0120d7ae9198f8fa4a0223185113a6b19d56af9397d85a47e"
+      },
+      "packages/contracts/src/equity_feature_contracts/errors.py": {
+        "git_sha256": "6bb3d0cff7a5ee6de18fc6bd7301177f52c4d15e1025c99b11223dd08d6d641b",
+        "materialized_sha256": "bb4da6b39ccd63ba06dd8bcaadf648f12ca142c4d557247a1b41da2933d77fb4"
+      },
+      "packages/contracts/src/equity_feature_contracts/history.py": {
+        "git_sha256": "3656132833beb741a2ca6359276fb08f79ca1799eaf618bd198db9a0dc4c8e23",
+        "materialized_sha256": "4fa7b1bc4280eb0a7f8a7aad5767adf2313a04bc36edd5ebffbf3a4c2cc73bba"
+      },
+      "packages/contracts/src/equity_feature_contracts/inputs.py": {
+        "git_sha256": "1084aed63b47e693ffbef92c34c7036040288f409d1f379bd1415d3b4ff5152a",
+        "materialized_sha256": "5c55770c93dbeae7a555dcde6408828572aef18c4b9ce660555e12d2ccc61b38"
+      },
+      "packages/contracts/src/equity_feature_contracts/normalization.py": {
+        "git_sha256": "a40c9b49cbfc81519bf5b8c898ced0211b4e5172ab0445c237e6435ca4abd861",
+        "materialized_sha256": "5da0cc7f75b36ba82239a15b466cff86a884879f8ecb045a0be7f7dbbd49e132"
+      },
+      "packages/contracts/src/equity_feature_contracts/policies.py": {
+        "git_sha256": "e3cb47e4d52c117c74165d4fa9655ff546910523f7d16cd733d6c341c76c8419",
+        "materialized_sha256": "3b6fdb05a9cd1f325501b5f6d1739ed370c9c89d933ce80c46c1b64558ffadef"
+      },
+      "packages/contracts/src/equity_feature_contracts/py.typed": {
+        "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "packages/contracts/src/equity_feature_contracts/registry.py": {
+        "git_sha256": "3a22ff0f2b846aec1ef8b30eb9ee232a269a0806f3dab047375c8619422592dd",
+        "materialized_sha256": "445321090958840524a9484a96532dfb4d793fd522758b84e08a7a571cd88a97"
+      },
+      "packages/contracts/src/equity_feature_contracts/relative.py": {
+        "git_sha256": "3f536ca042a1bebb0be24507dcef3e6af5462b951558b6fba8de1fd014802cc4",
+        "materialized_sha256": "b73f4a196ac0ec7203d94a74ab4f0199ffbbd6c5e04e80c8437ec4a23286c83a"
+      },
+      "packages/contracts/src/equity_feature_contracts/results.py": {
+        "git_sha256": "728226086b9a552e0de5e8d21f79c000bf97673297692a18218e54153650470e",
+        "materialized_sha256": "97055e87ec1a80c475c39647a3406f3f1fd48eb9f44bed1029e0b8a671b80395"
+      },
+      "packages/contracts/src/equity_feature_contracts/specs.py": {
+        "git_sha256": "9db84cf4c4b8006da6e2e5fbac4646eb77927729bc6143b68b84bea447b979f3",
+        "materialized_sha256": "480f250ae76bcf77287c331b8ac6186186092be8dd23fd47594e49b5d08a48d2"
+      },
+      "packages/contracts/src/equity_feature_contracts/streaming.py": {
+        "git_sha256": "ef29a5150a483775872834306827e123786de4d22462181503a0afa4b20b27fd",
+        "materialized_sha256": "dd65c91b2903e28b2cd3d76fb2389c577e2f74bf9408e7281ffa8c38161e9aa6"
+      },
+      "packages/contracts/src/equity_feature_contracts/validation.py": {
+        "git_sha256": "ade9ca17b65a5b08bf82de24169261a64c6e384b503cf92e474f85ecd8cdc9e9",
+        "materialized_sha256": "701bd7265796642260e01cad3f94e97e9a8540e654015327b29bd39376f91710"
+      },
+      "packages/contracts/src/equity_feature_contracts/volume.py": {
+        "git_sha256": "67292683238f8e2e22f6b25e9d03a26e67651934f1158328215198657f33bdde",
+        "materialized_sha256": "2a086c0e921a92501d616c552be591d797a90c42a61d54cd44a7e61b57e6f3e5"
+      },
+      "packages/intraday/LICENSE": {
+        "git_sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c",
+        "materialized_sha256": "47b2b7375318c574ef44d0def1e28d296e8bac5940d24d2694f5d99e7053b780"
+      },
+      "packages/intraday/README.md": {
+        "git_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970",
+        "materialized_sha256": "05a64aad0545f0697bccff3def384904f193905bbb38a6f9d51e34ac11bd2970"
+      },
+      "packages/intraday/pyproject.toml": {
+        "git_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d",
+        "materialized_sha256": "ab7df8948ab11627faf993e9fcd4a28c0437d5e223a9bc5068acf86eca867c1d"
+      },
+      "packages/intraday/src/equity_features_intraday/__init__.py": {
+        "git_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec",
+        "materialized_sha256": "c60a4130a8ae1d2ab3ad7b851fe2db5d48a9906351923a506e7381ef67916bec"
+      },
+      "packages/intraday/src/equity_features_intraday/_admission.py": {
+        "git_sha256": "86e16e7bd1ffb645baead36665ef61babffb92c0511ef755e2120a0537f7e742",
+        "materialized_sha256": "a975a26fa15be47234edad35ceff7c33f6684743f5839e6d604072cbe6ce25f0"
+      },
+      "packages/intraday/src/equity_features_intraday/_context.py": {
+        "git_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9",
+        "materialized_sha256": "90232f34c9832e64977b437b11028e42f78df6c07e1a19060cbb38ebc63237c9"
+      },
+      "packages/intraday/src/equity_features_intraday/_dispatch.py": {
+        "git_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4",
+        "materialized_sha256": "ffe56933bc080c4035f29e95c4fa91ff9552393b9a862e1fb4001ed059c73be4"
+      },
+      "packages/intraday/src/equity_features_intraday/_prepare.py": {
+        "git_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c",
+        "materialized_sha256": "b8fc859fa0b274b6bd65e4c939383f18f8401985d9f5f1250c35287daf16799c"
+      },
+      "packages/intraday/src/equity_features_intraday/_registry.py": {
+        "git_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79",
+        "materialized_sha256": "9dce577e1e2acde4976554564de15b506ab50bce010db52abc9589ad58804c79"
+      },
+      "packages/intraday/src/equity_features_intraday/py.typed": {
+        "git_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "materialized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "tools/benchmark_intraday_preparation.py": {
+        "git_sha256": "c312ac3c18572647ff148a32b138793fc594660fb19ea88602c0d5ef74396edd",
+        "materialized_sha256": "0cb621c934f844fc79705fb42ec1b80cb2d19200dbc172eaaf3c5432f6040bb4"
+      }
+    }
+  },
+  "status": "running",
+  "thresholds": {
+    "large": 0.1029654941122351,
+    "long14": 0.11050001304782457,
+    "long20": 0.13408835303241495,
+    "long60": 0.349377818705284,
+    "skewed": 0.05,
+    "small": 0.2449873521129274
+  }
+}

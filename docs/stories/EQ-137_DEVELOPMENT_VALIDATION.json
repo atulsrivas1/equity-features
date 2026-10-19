@@ -1,0 +1,72 @@
+{
+  "schema": "equity-features.eq137-development-checks.v1",
+  "accepted": false,
+  "stage": "initial source development, before installed qualification and final review",
+  "checks": {
+    "source_unittest_methods": 48,
+    "strict_mypy_files": 8,
+    "ci_gate_methods": 13,
+    "intraday_boundary_negative": 20,
+    "intraday_boundary_positive": 5,
+    "benchmark_guard_methods": 4
+  },
+  "failures_retained": [
+    "Initial chunk-name test matched context_sha256; narrowed exact numeric suffix test.",
+    "Initial type annotations/capability snapshot API assumptions corrected before passing checks.",
+    "Expanded window oracle exposed test helper fixed evaluation_ns60; made synthetic timing/session bounds depend on actual window length.",
+    "Example strict typing rejected int tuple versus Fraction tuple; expected literals now explicitly Fraction.",
+    "Separate early review PREP03: unit mismatch must precede supplied malformed price semantics; corrected admission order and added combined-error regression.",
+    "Partial packaging review PKG01 found UTF8 mojibake in EQ137-141 API text; restored accepted UTF8 source plus intended progress paragraph.",
+    "Initial a072727 Windows build passed repeat archives, SDist rebuilds and early source-isolated installed checks, then rejected source closure after author edited source-bound API document concurrently. Not accepted. Rerun on frozen successor required.",
+    "BENCH01 review: HEAD-only benchmark binding was insufficient; now parent/child actual origins/versions, complete package module inventory and exact Git/materialized hashes are checked before/after measurements.",
+    "BENCH02 review: baseline sidecar could overwrite earlier evidence; now both paths guarded and exclusively created. Partial failed samples retained, old input lifetime released after each sample.",
+    "BENCH03 review: post-measurement source failure lost seven samples; structured failed result now preserves source-invalid samples without adopting them; regression guard passes.",
+    "PREP04: per-chunk phase ordering let an earlier malformed price mask a later unit/source mismatch, or earlier grid issue mask later malformed payload. Split admission into complete envelope pass, all payload semantic validation in input order, then grid/coverage. Two new regression methods cover these cases;47producer methods pass.",
+    "Preserving original CRLF measurement bytes with -text initially triggered Git whitespace diagnostics. Added cr-at-eol only on the two exact raw-evidence paths, without altering bytes or recorded hashes. New fourth guard protects both literal raw SHA256 identities and frozen-baseline linkage; builder source snapshots accept exact Git bytes as well as ordinary LF/CRLF text equivalence."
+  ],
+  "pending": [
+    "full final-head source/documentation review",
+    "current final-head CI/bothOS artifact applicability",
+    "publication/readback",
+    "final story acceptance"
+  ],
+  "review": {
+    "identity": "separate local automated Codex reviewer /root/r17_review",
+    "initial_16file_source_receipt_sha256": "5c7c2798255e416e9c5dba261b6f97e01e8eb6d9b0e6743b9c5514ff1f2d36bd",
+    "limits": "Partial source only; renewed full source/build/performance/delivery review remains mandatory."
+  },
+  "historical_installed_qualification": {
+    "source_commit": "291920c82f327c4001dff55645de615062327ac9",
+    "os": "Windows",
+    "status": "completed",
+    "forms": 4,
+    "source_head_and_materialization_closure": true,
+    "limitations": "Subsequent PREP04 correction changes producer source; requires fresh successor qualification. No Linux/main delivery acceptance inferred."
+  },
+  "measured_component": {
+    "source_commit": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+    "report": "EQ-137_PREPARATION_BENCHMARK.json",
+    "baseline": "EQ-137_PREPARATION_BASELINE.json",
+    "cases": 6,
+    "adopted_cases": 6,
+    "reduction_percent_range": [
+      59.55,
+      64.76
+    ],
+    "review_assertions": 128,
+    "review_receipt_sha256": "94f30e513a0d090b5e59febc47b93fa3d47c83172ccbc562ea8878b08f8741c0",
+    "limits": "Historical exact source; preparation only, no worker/ranking/SLA/full R17 claim."
+  },
+  "candidate_artifact_component": {
+    "source_commit": "c7a46d6489ad9fde4c0bbfc401e9ccafaa6ad2b3",
+    "push_run": 39233722244,
+    "linux_artifact": 12177369573,
+    "windows_artifact": 12177224182,
+    "forms_per_os": 4,
+    "review_assertions": 83,
+    "review_receipt_sha256": "5fe39cc996e70573c80d3c7a7b11aa41439c0e5a9a5b43eebd5c6b5b2c311d26",
+    "expires": "2026-11-18",
+    "local_repeat_four_forms_completed": true,
+    "limits": "Current final-head artifact/main acceptance remains separate."
+  }
+}
