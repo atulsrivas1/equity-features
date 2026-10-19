@@ -1,3 +1,7 @@
+## EQ142 measurement boundaries and executed helper closure
+
+[EQ142 development controls](../stories/EQ-142_BASELINE_PREPARATION.md) exposed a CPU guard inconsistent with the unchanged backend slot, a directly executed package-inventory helper omitted from fingerprints, and a selected interval ending before parity checks. Include backend+host reservations, close all executed helper sources and verify the actual timing boundary with callback timestamps before study freeze. Record absent optional install metadata truthfully rather than fabricating origin evidence. Development controls/source-specific receipts do not establish a fresh installed platform, full-sample or performance acceptance; retain failures and renew exact changed-source review.
+
 ## EQ142 evidence readers need admission before allocation
 
 During [EQ142](../stories/EQ-142_BASELINE_PREPARATION.md) development, separate review found byte/object/aggregate checks applied after reading retained bodies, and a postcommit readback-encoding exception that could obscure the original outcome. Read at most limit+1 bytes, admit full reservation sums before loading fragments, enforce reopen limits incrementally, and keep backend verification failures separate from proof-storage failures and original worker results. Actual32-method development regression evidence is scoped to this increment; complete harness/platform/timing acceptance remains outstanding. Preserve earlier reviews with their exact source scope. This corrects evidence tooling only; no product/default or acceptance-threshold change.
