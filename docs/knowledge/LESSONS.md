@@ -1,3 +1,11 @@
+## EQ142 qualification must respect the real test host
+
+[EQ142 hosted qualification](../stories/EQ-142_BASELINE_PREPARATION.md) rejected hardcoded development CPU budgets that exceeded the runner. Bound test budgets by actual CPU-count/affinity evidence, preserve backend/host reserves and retain precise unsupported-capacity skips in the ledger. Unknown count/probe failure must reject rather than invent capacity; a valid one-slot affinity must remain distinguishable. Simulated four/six-slot controls prove branch behavior, not physical-host or performance qualification. Preserve failing hosted runs and renew actual current-source installed/CI evidence.
+
+## EQ142 observer installation needs transactional cleanup and failure status
+
+[EQ142 qualification](../stories/EQ-142_BASELINE_PREPARATION.md) separate fault injection found a profiling hook left installed when the second setter failed. Cleanup alone was insufficient: a setter can mutate then raise, leaving an apparently complete observer snapshot. Guard the entire installation, disable observation before cleanup, restore each owned hook independently, preserve foreign hooks and mark incomplete installation failed. Test direct and guarded activation with original return/exception identity. Keep profile-based count qualification separate from official timing and completion-status evidence.
+
 ## EQ142 measurement boundaries and executed helper closure
 
 [EQ142 development controls](../stories/EQ-142_BASELINE_PREPARATION.md) exposed a CPU guard inconsistent with the unchanged backend slot, a directly executed package-inventory helper omitted from fingerprints, and a selected interval ending before parity checks. Include backend+host reservations, close all executed helper sources and verify the actual timing boundary with callback timestamps before study freeze. Record absent optional install metadata truthfully rather than fabricating origin evidence. Development controls/source-specific receipts do not establish a fresh installed platform, full-sample or performance acceptance; retain failures and renew exact changed-source review.
