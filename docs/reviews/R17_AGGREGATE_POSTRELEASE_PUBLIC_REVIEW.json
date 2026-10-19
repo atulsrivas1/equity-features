@@ -1,0 +1,194 @@
+{
+  "reviewer": "Authorized separate automated local Codex reviewer r17_review; not human or hosted review",
+  "utc": "2026-10-19T19:33:45.524808+00:00",
+  "main": "576abecb1711047c65006cb76b5c121fa63491f2",
+  "stage": "aggregate-postrelease",
+  "checks": [
+    {
+      "name": "EQ141_CANDIDATE_DELIVERY_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CANDIDATE_DELIVERY_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_SOURCE_READBACK.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_SOURCE_READBACK.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_FINAL_ACCEPTANCE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_FINAL_ACCEPTANCE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Actual main final acceptance source",
+      "pass": true
+    },
+    {
+      "name": "EQ141_FINAL_SOURCE_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_READY_INPUT_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_HOSTED_ARTIFACT_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "Exact unchanged execution inputs",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-workers actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-io actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "12211898603 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "12212142183 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "Actual canonical main unchanged",
+      "pass": true
+    },
+    {
+      "name": "Actual current main35 stays successful",
+      "pass": true
+    },
+    {
+      "name": "EQ141_POSTRELEASE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_POSTRELEASE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Accepted postrelease proof",
+      "pass": true
+    },
+    {
+      "name": "Actual EQ141 CLOSED Done",
+      "pass": true
+    },
+    {
+      "name": "470 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "471 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "472 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "473 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "474 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CLOSING_READBACK.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CLOSING_READBACK.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Actual accepted EQ141 closing readback",
+      "pass": true
+    },
+    {
+      "name": "All seven actual milestone issues exact no exclusions",
+      "pass": true
+    },
+    {
+      "name": "Six milestone child issues actually closed",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_ACCEPTANCE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_ACCEPTANCE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Exact accepted aggregate semantic review",
+      "pass": true
+    },
+    {
+      "name": "Actual E25 OPEN Released with milestone one open six closed",
+      "pass": true
+    },
+    {
+      "name": "All six child and six crosscut items checked",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_TEST_READBACK.json owner-retained actual lifecycle snapshot reviewed",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_TEST_READY_READBACK.json owner-retained actual lifecycle snapshot reviewed",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_RELEASED_READBACK.json owner-retained actual lifecycle snapshot reviewed",
+      "pass": true
+    }
+  ],
+  "final_review_sha256": "07f66c372c571e2006b976de118fd762e12b4b94ccb13ea825b174715d8c33e7",
+  "findings": [],
+  "limits": [
+    "No lifecycle/source mutation or new numerical/installed/native/timing execution.",
+    "All original source/measurement/artifact scope and retained-byte limits apply;48 worker nonwins/defaultsequential.",
+    "R17 acceptance does not grant R18 separate-review authorization."
+  ],
+  "result": "R17_AGGREGATE_POSTRELEASE_VERIFIED_SUPPORTS_OWNER_DONE_AND_MILESTONE_CLOSURE",
+  "owner_retained_intermediate_lifecycle_snapshots": {
+    "R17_AGGREGATE_TEST_READBACK.json": "1b9b0f13ad376f6058f5237ad23cc90521cce127a8c25d4a527343569a43b905",
+    "R17_AGGREGATE_TEST_READY_READBACK.json": "4da9eef94870df72bb44a5dbd74f20fa4deab73924eb2b7b6864cffef71de312",
+    "R17_AGGREGATE_RELEASED_READBACK.json": "66023e11d6f38be848866f5c0aaaa2cb1710ef55e2737865f2dc8c2c08aab667"
+  },
+  "manual_metadata_review": "Fresh actual E25OPEN/Released/12checked; milestoneopen1open6closed; current source/main35/channel; accepted65review and public6275574924, six actual childDone reviewed. Test/Ready owner-retained snapshots inspected with exact identities; historical states not claimed as new live API observations.",
+  "document_kind": "Public derivative of private detailed aggregate postrelease receipt; not identical bytes or new execution",
+  "original_private_receipt_sha256": "42ef6de45e5e1ef42619334e974d8af6b29d42d1eb5e641902f0afe0f505f24a",
+  "aggregate_acceptance_review_sha256": "69c9c43aad08c83b6481e34064fc0dd9cd85dcdcc0ed4f593ec7761f933dc7b9",
+  "actual_epic": {
+    "url": "https://github.com/atulsrivas1/equity-features/issues/465",
+    "state": "OPEN",
+    "Project": "Released",
+    "checked_items": 12
+  },
+  "actual_milestone": {
+    "number": 21,
+    "state": "open",
+    "open_issues": 1,
+    "closed_issues": 6
+  },
+  "supports": "Owner E25 close/Done and milestone21 closure, followed by independent actual final closing readback. No R18 review authorization."
+}

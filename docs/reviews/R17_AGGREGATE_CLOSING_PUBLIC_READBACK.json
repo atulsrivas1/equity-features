@@ -1,0 +1,218 @@
+{
+  "reviewer": "Authorized separate automated local Codex reviewer r17_review; not human or hosted review",
+  "utc": "2026-10-19T19:35:06.153340+00:00",
+  "main": "576abecb1711047c65006cb76b5c121fa63491f2",
+  "stage": "aggregate-closing",
+  "checks": [
+    {
+      "name": "EQ141_CANDIDATE_DELIVERY_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CANDIDATE_DELIVERY_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_SOURCE_READBACK.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_SOURCE_READBACK.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_FINAL_ACCEPTANCE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_FINAL_ACCEPTANCE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Actual main final acceptance source",
+      "pass": true
+    },
+    {
+      "name": "EQ141_FINAL_SOURCE_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_READY_INPUT_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_HOSTED_ARTIFACT_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "Exact unchanged execution inputs",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-workers actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-io actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "12211898603 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "12212142183 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "Actual canonical main unchanged",
+      "pass": true
+    },
+    {
+      "name": "Actual current main35 stays successful",
+      "pass": true
+    },
+    {
+      "name": "EQ141_POSTRELEASE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_POSTRELEASE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Accepted postrelease proof",
+      "pass": true
+    },
+    {
+      "name": "Actual EQ141 CLOSED Done",
+      "pass": true
+    },
+    {
+      "name": "470 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "471 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "472 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "473 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "474 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CLOSING_READBACK.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CLOSING_READBACK.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Actual accepted EQ141 closing readback",
+      "pass": true
+    },
+    {
+      "name": "All seven actual milestone issues exact no exclusions",
+      "pass": true
+    },
+    {
+      "name": "Six milestone child issues actually closed",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_ACCEPTANCE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_ACCEPTANCE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Exact accepted aggregate semantic review",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_POSTRELEASE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "R17_AGGREGATE_POSTRELEASE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Exact accepted aggregate postrelease review",
+      "pass": true
+    },
+    {
+      "name": "Actual E25 CLOSED Done and milestone closed zero open seven closed",
+      "pass": true
+    }
+  ],
+  "final_review_sha256": "07f66c372c571e2006b976de118fd762e12b4b94ccb13ea825b174715d8c33e7",
+  "findings": [],
+  "limits": [
+    "No lifecycle/source mutation or new numerical/installed/native/timing execution.",
+    "All original source/measurement/artifact scope and retained-byte limits apply;48 worker nonwins/defaultsequential.",
+    "R17 acceptance does not grant R18 separate-review authorization."
+  ],
+  "result": "ACTUAL_R17_AGGREGATE_CLOSING_READBACK_PASS",
+  "document_kind": "Public derivative of private detailed final R17 closing readback; not identical bytes or new execution",
+  "original_private_receipt_sha256": "2d1df84598904dfc079af7e075dc30160de869650a5d39060051d5b8adefdc9b",
+  "aggregate_acceptance_review_sha256": "69c9c43aad08c83b6481e34064fc0dd9cd85dcdcc0ed4f593ec7761f933dc7b9",
+  "aggregate_postrelease_review_sha256": "42ef6de45e5e1ef42619334e974d8af6b29d42d1eb5e641902f0afe0f505f24a",
+  "actual_milestone": {
+    "number": 21,
+    "html_url": "https://github.com/atulsrivas1/equity-features/milestone/21",
+    "state": "closed",
+    "open_issues": 0,
+    "closed_issues": 7
+  },
+  "actual_epic": {
+    "url": "https://github.com/atulsrivas1/equity-features/issues/465",
+    "state": "CLOSED",
+    "Project": "Done"
+  },
+  "actual_six_children": [
+    {
+      "issue": 470,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 471,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 472,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 473,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 474,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 475,
+      "state": "CLOSED",
+      "Project": "Done"
+    }
+  ],
+  "manual_metadata_review": "Actual final E25/milestone Done/closed/zeroopen metadata reviewed; all seven scoped issues accounted for, exact aggregate65/postrelease39 proofs and six childDone, currentmain35/source/currentpeer+six-package artifact channel verified. No affecting findings.",
+  "verified_exit": "R17 scoped foundation delivery exit independently verified. No fastest/whole-worker acceleration claim:48alternatives nonwins/defaultseq. No R18 separate-review authorization."
+}

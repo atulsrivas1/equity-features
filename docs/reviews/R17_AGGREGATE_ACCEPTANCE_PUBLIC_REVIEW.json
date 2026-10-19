@@ -1,0 +1,357 @@
+{
+  "reviewer": "Authorized separate automated local Codex reviewer r17_review; not human or hosted review",
+  "utc": "2026-10-19T19:32:06.500086+00:00",
+  "main": "576abecb1711047c65006cb76b5c121fa63491f2",
+  "stage": "aggregate",
+  "checks": [
+    {
+      "name": "EQ141_CANDIDATE_DELIVERY_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CANDIDATE_DELIVERY_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_SOURCE_READBACK.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_SOURCE_READBACK.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_FINAL_ACCEPTANCE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_FINAL_ACCEPTANCE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Actual main final acceptance source",
+      "pass": true
+    },
+    {
+      "name": "EQ141_FINAL_SOURCE_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_READY_INPUT_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_HOSTED_ARTIFACT_REVIEW.json exact accepted independent receipt",
+      "pass": true
+    },
+    {
+      "name": "Exact unchanged execution inputs",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-workers actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "equity-feature-io actual peer main unchanged",
+      "pass": true
+    },
+    {
+      "name": "12211898603 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "12212142183 current original main artifact source/digest/access/expiry",
+      "pass": true
+    },
+    {
+      "name": "Actual canonical main unchanged",
+      "pass": true
+    },
+    {
+      "name": "Actual current main35 stays successful",
+      "pass": true
+    },
+    {
+      "name": "EQ141_POSTRELEASE_REVIEW.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_POSTRELEASE_REVIEW.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Accepted postrelease proof",
+      "pass": true
+    },
+    {
+      "name": "Actual EQ141 CLOSED Done",
+      "pass": true
+    },
+    {
+      "name": "470 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "471 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "472 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "473 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "474 predecessor remains ClosedDone",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CLOSING_READBACK.json exact accepted receipt",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CLOSING_READBACK.json no affecting findings",
+      "pass": true
+    },
+    {
+      "name": "Actual accepted EQ141 closing readback",
+      "pass": true
+    },
+    {
+      "name": "All seven actual milestone issues exact no exclusions",
+      "pass": true
+    },
+    {
+      "name": "Six milestone child issues actually closed",
+      "pass": true
+    },
+    {
+      "name": "Actual E25 Code review with milestone one open six closed",
+      "pass": true
+    },
+    {
+      "name": "EQ136_MAIN_ACCEPTANCE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ137_MAIN_ACCEPTANCE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ138_MAIN_ACCEPTANCE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ139_MAIN_FINAL_ACCEPTANCE.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_FINAL_ACCEPTANCE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_SOURCE_READBACK.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_HOSTED_ARTIFACT_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_PUBLIC_PRECODE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_FINAL_SOURCE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CANDIDATE_DELIVERY_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_SOURCE_READBACK.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_MAIN_FINAL_ACCEPTANCE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_POSTRELEASE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ141_CLOSING_READBACK.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ137_BENCHMARK_FINAL_EVIDENCE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ138_BENCHMARK_FINAL_EVIDENCE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ139_BENCHMARK_FINAL_EVIDENCE_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ140_BE4_MEASUREMENT_REVIEW.json original exact receipt/no findings",
+      "pass": true
+    },
+    {
+      "name": "EQ138_BENCHMARK_FINAL_EVIDENCE_REVIEW.json actual scoped wins and nonwins",
+      "pass": true
+    },
+    {
+      "name": "EQ139_BENCHMARK_FINAL_EVIDENCE_REVIEW.json actual scoped wins and nonwins",
+      "pass": true
+    },
+    {
+      "name": "Worker original study counts and valid resources",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_SOURCE_PUBLIC_READBACK.json exact published public derivative",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_HOSTED_ARTIFACT_PUBLIC_REVIEW.json exact published public derivative",
+      "pass": true
+    },
+    {
+      "name": "EQ140_MAIN_FINAL_ACCEPTANCE_PUBLIC_REVIEW.json exact published public derivative",
+      "pass": true
+    },
+    {
+      "name": "EQ140_POSTRELEASE_PUBLIC_REVIEW.json exact published public derivative",
+      "pass": true
+    },
+    {
+      "name": "EQ141_READY_INPUT_PUBLIC_REVIEW.json exact published public derivative",
+      "pass": true
+    },
+    {
+      "name": "Scheduled slot and single-anchor ATR exception",
+      "pass": true
+    },
+    {
+      "name": "Unrounded witness zero width unclamped position",
+      "pass": true
+    },
+    {
+      "name": "Full history batch-only unsupported state modes",
+      "pass": true
+    },
+    {
+      "name": "No aggregate invented speed or worker adoption",
+      "pass": true
+    },
+    {
+      "name": "Accounting and absent raw-body limits",
+      "pass": true
+    },
+    {
+      "name": "Six versions core39 eight IDs and false state flags",
+      "pass": true
+    },
+    {
+      "name": "All six original R17 allocated stories",
+      "pass": true
+    }
+  ],
+  "final_review_sha256": "07f66c372c571e2006b976de118fd762e12b4b94ccb13ea825b174715d8c33e7",
+  "findings": [],
+  "limits": [
+    "No lifecycle/source mutation or new numerical/installed/native/timing execution.",
+    "All original source/measurement/artifact scope and retained-byte limits apply;48 worker nonwins/defaultsequential.",
+    "R17 acceptance does not grant R18 separate-review authorization."
+  ],
+  "result": "R17_AGGREGATE_REVIEW_PASS_SUPPORTS_TEST_THEN_READY_TO_RELEASE",
+  "exact_original_receipts": {
+    "EQ136_MAIN_ACCEPTANCE_REVIEW.json": "b9b0982552750b8c7430bc898a6ab0e7bc6b2e6106646db741d58fbb2a81a201",
+    "EQ137_MAIN_ACCEPTANCE_REVIEW.json": "83b66b6d4632d3d2c2d4f374284258644f3e6c57cccc5f641f8087c9c4cfccc0",
+    "EQ138_MAIN_ACCEPTANCE_REVIEW.json": "992a9bfcd1c6994d1c75812eefef811c3a65cbf16bd44b157c30b413f69e03c9",
+    "EQ139_MAIN_FINAL_ACCEPTANCE.json": "7cbf5e65a9d0a14014b0a9607e43d924b3a4e1c573b247be315d35d812fcf62d",
+    "EQ140_MAIN_FINAL_ACCEPTANCE_REVIEW.json": "bdbf76a1d99cd0f9c461a96d462c0460ef313cb69f72a1261b0367af653634b9",
+    "EQ140_MAIN_SOURCE_READBACK.json": "800ea465ba67594973664cca48396260337a87ded6895628048357c787694af8",
+    "EQ140_MAIN_HOSTED_ARTIFACT_REVIEW.json": "944c557580a9afc17cbec9978d080d0f7664c293b389388db7a3018a8cbe3222",
+    "EQ141_PUBLIC_PRECODE_REVIEW.json": "489430fa4ec7272bdaaf6a914c4eb0771536d52c99ac6ecf47968365a454150a",
+    "EQ141_FINAL_SOURCE_REVIEW.json": "a4f6904477053b43001dcb2c7e0850f74c83719eb2bd7a86c260faff380894c3",
+    "EQ141_CANDIDATE_DELIVERY_REVIEW.json": "435694004e80cbd2dbeac84b93bb00fa4dde2227c65620831fe3b4f5de77c607",
+    "EQ141_MAIN_SOURCE_READBACK.json": "e2a2113a94232746d0557fd8d45e9a3714d6686286f437eb75b9ea61fadccb86",
+    "EQ141_MAIN_FINAL_ACCEPTANCE_REVIEW.json": "07f66c372c571e2006b976de118fd762e12b4b94ccb13ea825b174715d8c33e7",
+    "EQ141_POSTRELEASE_REVIEW.json": "8d5506e482935497203249d90d471c770a4ae2636761ac75ea8eb0c5b00a4c0f",
+    "EQ141_CLOSING_READBACK.json": "be621a370cc8bc376da7c7fcede0ed3ac0dff3a27fa20be37c39613412b505d7",
+    "EQ137_BENCHMARK_FINAL_EVIDENCE_REVIEW.json": "94f30e513a0d090b5e59febc47b93fa3d47c83172ccbc562ea8878b08f8741c0",
+    "EQ138_BENCHMARK_FINAL_EVIDENCE_REVIEW.json": "390460bc6cfcb12932c2a26aabce19aaee3d76cd485e5070c49cb982065744e4",
+    "EQ139_BENCHMARK_FINAL_EVIDENCE_REVIEW.json": "b8bbd6dae2dc4aeb5338b78eb9e70bf2aba5ae9004f751ec3ffbd7a58a9ad3f7",
+    "EQ140_BE4_MEASUREMENT_REVIEW.json": "dd6a5e66b2d81642f8bc35dbae81a1b8891c78f8845c68b4f9a5ad3d99ee38e4"
+  },
+  "semantic_review": [
+    "All six original contracts/preparation/three ordered indicators/five moment bands/intraday and four core-gap supplied callbacks/release audit are delivered, no expanded feature/provider/live scope.",
+    "Original independent mathematical/readiness/precision/identity/temporal fixtures remain distinct from optimized A/B parity; no optimized implementation as sole oracle.",
+    "Core39/daily source independence/default dispatch/service boundaries unchanged; eight batch intraday IDs only, no public update/restore/merge/persistent state.",
+    "Preparation/indicator/band wins retain exact source/applicability; whole worker48 alternatives nonwins/defaultseq. R17 does not establish fastest library or whole-worker acceleration.",
+    "Actual published source43 all1303leaves/29publicblobs and source148 execution-no-impact bind current docs; actualmain21/candidate38/post24/closing26 chain separately retained.",
+    "Original bothOS24archives/eight58method forms/exact skip/typing/core/source/install proof reused only unchanged execution; no reconstructed missing hosted RECORD/directURL/launcher bytes.",
+    "Additional Windows installation/example evidence explicitly author-only, no Linux/newtiming interpretation.",
+    "No R18 review authorization inferred."
+  ],
+  "evidence_join_review_sha256": "059591effdc215b358b99fb8d4f21e3a95a1886fc2150aaacdca05fa9a186049",
+  "resolved_metadata_findings": [
+    "Owner corrected E25 stale In progress clause to actual Code review and marked milestone original Backlog allocation historical before final confirmation. No source/math/runtime change."
+  ],
+  "supports": "Owner may record actual Test formal acceptance/readback then Ready to release/readback. Actual OPEN/Released/readback and separate aggregate-postrelease verification remain before owner Done and milestone closure. No lifecycle mutation by reviewer.",
+  "document_kind": "Public derivative of original private detailed aggregate review, not identical bytes or new execution",
+  "original_private_receipt_sha256": "69c9c43aad08c83b6481e34064fc0dd9cd85dcdcc0ed4f593ec7761f933dc7b9",
+  "actual_epic": {
+    "url": "https://github.com/atulsrivas1/equity-features/issues/465",
+    "state": "OPEN",
+    "Project": "Code review"
+  },
+  "actual_milestone": {
+    "number": 21,
+    "html_url": "https://github.com/atulsrivas1/equity-features/milestone/21",
+    "state": "open",
+    "open_issues": 1,
+    "closed_issues": 6
+  },
+  "actual_six_children": [
+    {
+      "issue": 470,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 471,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 472,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 473,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 474,
+      "state": "CLOSED",
+      "Project": "Done"
+    },
+    {
+      "issue": 475,
+      "state": "CLOSED",
+      "Project": "Done"
+    }
+  ]
+}

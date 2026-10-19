@@ -1,3 +1,7 @@
+## Handoff mission completed; owner-selected R18 follows
+
+[Verified R17 exit](https://github.com/atulsrivas1/equity-features/issues/465#issuecomment-6275623502) accepted all six children and E25 Done with milestone21 closed/zero open/seven closed. The [R18 handoff](R18_AUTONOMOUS_HANDOFF.md) under [GOV034](https://github.com/atulsrivas1/equity-features/issues/564) is the selected next preparation. This prospectively supersedes the old stop-before-R18 instruction below; it does not extend R17's local-review grant or waive R18 readiness. Original mission/specification/receipt history remains unchanged.
+
 ## R17 final audit in progress
 
 All EQ136–140 are verified CLOSED/ProjectDone; [EQ141](https://github.com/atulsrivas1/equity-features/issues/475) passed51 separate Ready-input assertions (private SHA8c653497e3a1c1c3924b9cd09563a6e71b442673f44687771e30a8b2d1b4bddb), actual Ready readback, Atul assignment and actual In progress readback. [Qualification report](R17_ACCEPTANCE.md) and [exact input inventory](R17_ACCEPTANCE_INPUTS.json) audit the accepted six-package set, independent mathematical/readiness proof, all source-bound studies/nonwins and current main both-platform channel. No runtime/math/version change is introduced. Final EQ141 source review/currentCI/publication/main/readback/Released/Done and E25/milestone closure remain mandatory; live Project owns current status.

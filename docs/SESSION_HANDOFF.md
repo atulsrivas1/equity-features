@@ -1,3 +1,21 @@
+## R18 review authorized; final handoff review next
+
+[Owner authorization](https://github.com/atulsrivas1/equity-features/issues/564#issuecomment-6275820553) now covers separate automated local review of PR565/GOV034, EQ142–146, necessary component changes and final R18 delivery. This supersedes the earlier pending review-route decision; it is not completed review or hosted activation. The concrete handoff has author24UTF8/6JSON/1336local-link/privacy and exact proof/index checks; renew its source/index identities and current CI after recording this decision. GOV034 proceeds to actual final-head Code review, then Test/currentCI/guarded publication/actualmain/finalacceptance/Released/Done. All five runtime stories remain Backlog/unassigned until their own real Ready gates. No R18 runtime or timing has started.
+
+R17 remains verified delivered; original scope, exact source/measurement/channel limits and all48 worker nonwins/sequential default remain. Next: independent handoff semantic/source/evidence review, then finalize the exact EQ142 schemas/counterexamples/workload/overhead/harness/adoption packet before runtime Ready. Preserve all frozen/dirty/unrelated checkouts. Live Project owns current status.
+
+## Earlier checkpoints retained as history
+
+## Verified R17 exit; concrete R18 handoff preparation
+
+[R17 final closing verification](https://github.com/atulsrivas1/equity-features/issues/465#issuecomment-6275623502) passed38 assertions with no findings (private receipt SHA256 `2d1df84598904dfc079af7e075dc30160de869650a5d39060051d5b8adefdc9b`). E25 and EQ136–141 are actually CLOSED/ProjectDone; milestone21 closed/0open7closed. Aggregate semantic65 and postrelease39 reviews and actual Test/Readyrelease/Released/closing readbacks are retained in the [public review records](reviews/R17_AGGREGATE_CLOSING_PUBLIC_READBACK.md). Canonical published main576abecb1711047c65006cb76b5c121fa63491f2 passed all35 current checks. Worker231349aaf2bf1b9ec21f45807382ca9c6522520c and I/O18d86761aa3eebb7414e51e8fa2aba089717b5eb/current six-package both-platform finite channel remain accepted with original source/installed evidence limits. Eight own intraday batch IDs/core39 and all48 whole-worker nonwins/sequential default remain explicit; no fastest/live/persistent claim.
+
+The owner-selected next work is [GOV034](https://github.com/atulsrivas1/equity-features/issues/564): [R18 handoff](R18_AUTONOMOUS_HANDOFF.md), [inputs](R18_INPUTS.json), [dependency/source map](R18_EXECUTION_MAP.md), [test strategy](R18_TEST_STRATEGY.md) and [EQ142 proposal](stories/EQ-142_PLAN.md). Preparation is actual work under GOV034; E26/EQ142–146 runtime remains Backlog/unassigned pending handoff publication, separate supported review and each exact Ready packet. Existing R17 local-review authorization does not extend by inference. Current status belongs to [the live Project](https://github.com/users/atulsrivas1/projects/2).
+
+Next: finish GOV034 author documentation/evidence checks, publish a linked concrete draft, establish the supported separate-review route, complete actual final-head/currentCI/publication/readback/acceptance, then refine/review exact EQ142 graph/trace/fixtures/workload/overhead/adoption definitions before Ready. No new R18 measurement or runtime change is claimed. Preserve original dirty and frozen137/138/139/be4/140 checkouts and measurement environments; no new chat/automation or R19+ work.
+
+## Earlier checkpoints retained as history
+
 ## R17 final audit in progress
 
 All EQ136–140 are verified CLOSED/ProjectDone; [EQ141](https://github.com/atulsrivas1/equity-features/issues/475) passed51 separate Ready-input assertions (private SHA8c653497e3a1c1c3924b9cd09563a6e71b442673f44687771e30a8b2d1b4bddb), actual Ready readback, Atul assignment and actual In progress readback. [Qualification report](R17_ACCEPTANCE.md) and [exact input inventory](R17_ACCEPTANCE_INPUTS.json) audit the accepted six-package set, independent mathematical/readiness proof, all source-bound studies/nonwins and current main both-platform channel. No runtime/math/version change is introduced. Final EQ141 source review/currentCI/publication/main/readback/Released/Done and E25/milestone closure remain mandatory; live Project owns current status.
