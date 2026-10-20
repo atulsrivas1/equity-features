@@ -1,3 +1,7 @@
+## EQ142 topology and retained proof types
+
+[Prospective contract](../stories/EQ-142_COMPLETE_ROOT_PRECODE.json): a Windows primary-group mask is group-local evidence, not the complete machine allowance. Record topology and valid group/mask joins before choosing a conservative budget. A wall timestamp and a process CPU reading cannot be ordered because both use nanoseconds. Explicitly state which source/report/finalization costs are timed. Strict integer checks must precede Python equality on untrusted proof indices: false equals0 and can otherwise bypass a reference join. Keep actual diagnostics, prospective review and completed runtime qualification distinct.
+
 ## EQ142 persistence is distinct from accepted metadata
 
 [Publication evidence](../stories/EQ-142_BASELINE_PREPARATION.md) must observe the method that actually owns the admission branch. The public run wrapper does not directly encode final candidates; the source-bound private _run does. Capture actual original bytes and receipts, then resolve full codec joins after hooks restore. Keep an observed commit separate from a source-derived cumulative metadata counter and the actual accepted output. A throwing commit can still have persisted through SDK recovery; missing output is not rollback evidence.
