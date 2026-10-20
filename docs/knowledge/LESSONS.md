@@ -1,3 +1,7 @@
+## EQ142 route evidence from actual writer directories
+
+[Wrapper contract](../stories/EQ-142_COMPLETE_ROOT_PRECODE.json): a nested runner directory changes every directory-relative evidence writer, including diagnostics. Shared product objects follow the reference parent, not the sample. Bind each codec to its actual fixed namespace before implementation, preserve exclusive creation and use actual returned writer references. Descriptive schema renames do not silently change unchanged task/budget identity domains.
+
 ## EQ142 source bindings and directory aliases need actual validation
 
 [Capacity qualification](../stories/EQ-142_BASELINE_PREPARATION.md): inspect the actual approved call target, not an assumed alias. Windows shutil calls nt._getdiskusage; os does not export that private name. Preserve failed constructor evidence before correcting the source contract. A legitimate filesystem alias can differ from its resolved path without indirection: check input components before resolution and canonical components after, rather than rejecting every spelling difference. Raw resource observations and arithmetic do not prove owned namespace bytes or launch eligibility; keep those full joins mandatory in the controller/root. Actual native skips and source-only Linux checks are not installed platform qualification.
