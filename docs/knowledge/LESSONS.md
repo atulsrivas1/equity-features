@@ -1,3 +1,7 @@
+## EQ142 byte integrity is one proof layer
+
+[Bounded readers](../stories/EQ-142_BASELINE_PREPARATION.md): use a fixed read-only codec/context/name registry, an independently selected expected name and declared-size-plus-one read bound. Canonical JSON and exact hash/length checks establish representation integrity, not codec semantics, original writer provenance, namespace ownership, source/native identity or complete sample acceptance. Keep those gates explicit, and test actual requested read size under growth after stat rather than a tautological stream-closure expression.
+
 ## EQ142 equal metadata need not have equal pickle representation
 
 [Plan reconstruction](../stories/EQ-142_BASELINE_PREPARATION.md): dictionary equality omits order and object-key aliasing, which protocol5 memoization observes. Preserve the original literal construction and compare decoded/reordered inputs against independent original bytes/length. A purported pure value helper must close operation collection/member types before iteration; otherwise a caller iterator can execute. Green broad tests that omit these controls do not close independently reproduced findings. Keep source/directory admission outside the pure constructor and require those proofs before using its resource arithmetic.
