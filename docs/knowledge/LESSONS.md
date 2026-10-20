@@ -1,3 +1,7 @@
+## EQ142 source bindings and directory aliases need actual validation
+
+[Capacity qualification](../stories/EQ-142_BASELINE_PREPARATION.md): inspect the actual approved call target, not an assumed alias. Windows shutil calls nt._getdiskusage; os does not export that private name. Preserve failed constructor evidence before correcting the source contract. A legitimate filesystem alias can differ from its resolved path without indirection: check input components before resolution and canonical components after, rather than rejecting every spelling difference. Raw resource observations and arithmetic do not prove owned namespace bytes or launch eligibility; keep those full joins mandatory in the controller/root. Actual native skips and source-only Linux checks are not installed platform qualification.
+
 ## EQ142 identifiers need their native width
 
 [Capacity contract](../stories/EQ-142_COMPLETE_ROOT_PRECODE.json): an opaque platform device ID is not a bounded count. Preserve its unsigned64 width in a canonical decimal string, with synthetic above2^53/max/overflow cases and exact same-device joins. Verify actual native feasibility before using a proposed schema to gate work. Keep actual hardware identifiers private, and distinguish component arithmetic/source observations from full namespace provenance and launch admission.
