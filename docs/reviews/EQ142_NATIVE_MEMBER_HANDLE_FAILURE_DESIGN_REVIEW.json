@@ -1,0 +1,95 @@
+{
+  "schema": "eq142-native-observer-failure-prospective-review:1",
+  "status": "ACCEPTED_BOUNDED_REPAIR_DESIGN_NOT_IMPLEMENTATION_OR_GATE",
+  "reviewer": "Separate local Codex /root/r17_review under owner-authorized R18 review",
+  "observed_at_utc": "2026-10-20T17:21:22.044592+00:00",
+  "source": {
+    "canonical_head": "71e94c2ac64e152a9d6781a46af8c8298b4d6d75",
+    "worker_head": "177ee89cd7ddbd44f8c68a0e5c8fc2cacbe4bcbe"
+  },
+  "source_sha256": {
+    "canonical": {},
+    "worker": {
+      "tools/eq142_native.py": "08e36dfb8c1227c6a94153517b2ca9bbb60236eab641fb0ae836b697a86de4a0",
+      "tools/supplied_native.py": "b7efa025f670a7b73be72a5a9d297a620cb886f4c8bec1f3d0dc9fe90ad40fcb",
+      "tools/eq142_native_closure.py": "c3e835cd8281d7cdf2fdce8e674d29f0ca7f70310172f37467cd03e6d6564d96",
+      "tests/test_eq142_owned_witness.py": "ee8e9aa613d7a61aca305838c77ff3188e736b8c33ab225ba4966b7811025971",
+      "tests/test_eq142_native.py": "b16eadad062a6ba2c18e879b740167516d181767aa027043e53d48c55e26c954",
+      "tests/test_eq142_native_closure.py": "c381b8cb851d0c9b9de7b333d572ef168940acb01d65173955018e955acb485b"
+    }
+  },
+  "failed_evidence": {
+    "log_sha256": "272d6d42eeb6967c09e3319b94cbdf02ec0bdd85bb350e3e8ce20d91d81a479e",
+    "qualification_failed_report_sha256": "f72fd1eeb00ec389770bdb0e914e1ea2961df4fe8d6191a9f6860d4458571144",
+    "exit_code": 1,
+    "completed_forms": [
+      "light-wheel",
+      "light-sdist"
+    ],
+    "failed_form": "combined-wheel",
+    "collected_methods": 280,
+    "failures": 1,
+    "failed_case": "NativeOwnedWitnessIntegration process/uninstrumented_A",
+    "native_exit_code": 0,
+    "actual_probe_errors": [
+      {
+        "code": "OPEN_PROCESS",
+        "winerror": 87
+      }
+    ],
+    "failing_raw_native_receipt": "TemporaryDirectory content not retained; no reconstruction.",
+    "full_native_4984_scope": "Genuine separately passed current177 full-native correctness remains valid source-specific evidence; does not waive Windows four-form failure."
+  },
+  "findings": [
+    {
+      "id": "EQ142NATIVEHANDLE01",
+      "confirmed_source_fact": "RSS member handles close before thread sampler reopens PID; actual no-pid OPEN_PROCESS row matches thread-probe aggregate source path, while RSS-open error has pid.",
+      "inference_limit": "Short-lived process exit or PID reuse in the gap is plausible, not proven by retained failed raw evidence or87."
+    },
+    {
+      "id": "EQ142NATIVEERROR01",
+      "confirmed_source_fact": "Thread OpenProcess failure does not capture last-error before finally closes prior handles; outer aggregate reads last-error after cleanup.",
+      "inert_reproduction_sha256": "689b93975e921feec6adb2ffc3e88c28dcdf947649010ba572665b0bdb261951",
+      "actual_inert_result": "Fake second OpenProcess5, fake successful cleanup87, existing source aggregate87. No Win32 API, real process or calculation executed.",
+      "inference_limit": "Does not prove actual87 was overwritten, but current failed diagnostic cannot establish original API error provenance."
+    }
+  ],
+  "accepted_repair_requirements": [
+    "Use RSS OpenProcess 0x100410 (query/read/SYNCHRONIZE), retain each successful member handle through the thread snapshot and same-handle creation/membership/wait checks. No PID reopen gap for those retained members.",
+    "Optional verified_member_handles is a closed exact PID map with required expected-lifetime map. Borrowed mode must never OpenProcess or close borrowed handles; validate actual GetProcessId, creation and Job membership. Standalone mode may own/open/close its own member handles. Snapshot remains locally owned.",
+    "Iteration scope closes every acquired member handle exactly once after success, continue, partial acquisition or failure, independently attempting all closes. Preserve primary exception object/cause and separate cleanup-failure evidence.",
+    "Capture meaningful API GetLastError immediately at failure and save it on the error; aggregate that saved value after cleanup. Logical mismatch/unknown states have no invented stale Win32 error; use explicit unknown/null. Maintain existing rejection of any probe_errors.",
+    "Positive signaled wait on the retained verified lifetime may produce existing observed_terminated zero-thread disposition. Live missing snapshot, unknown wait, membership/creation/GetProcessId mismatch and initial OpenProcess failure remain rejecting.",
+    "Keep original supplied_native/packages/calculations/defaults unchanged; same <=256 owned member handles per iteration, native16MiB/rows15MiB/60001samples/1024errors/256lifetimes, deadlines/cohorts/thresholds unchanged. No87 suppression, skipped samples, retry or assertion weakening.",
+    "Before broad qualification: deterministic borrowed-no-open/no-close, exact handle/lifetime/PID, terminal/live/unknown, partial acquisition/body+cleanup failure and immediate-error5/cleanup87 controls; actual focused native witness all sequential/thread/process A/B modes with unchanged probe_errors==[]; separate reviewed committed source and fresh mandatory gates afterward."
+  ],
+  "contract_scope": "Observer lifetime/ownership and diagnostic correctness repair within existing EQ142; no product/math/budget/threshold change. Record decision before code. No receipt/schema relaxation; if diagnostic error-null representation needs clarification, record it prospectively.",
+  "primary_sources": [
+    {
+      "title": "Microsoft Process Handles and Identifiers",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/process-handles-and-identifiers",
+      "supports": "Handles stay valid until closed, including after process termination."
+    },
+    {
+      "title": "Microsoft Terminating a Process",
+      "url": "https://learn.microsoft.com/en-us/windows/desktop/ProcThread/terminating-a-process",
+      "supports": "Process object remains while another process keeps an open handle."
+    },
+    {
+      "title": "Microsoft GetLastError",
+      "url": "https://learn.microsoft.com/windows/desktop/api/errhandlingapi/nf-errhandlingapi-getlasterror",
+      "supports": "Read immediately after failing API; subsequent calls may overwrite last-error."
+    }
+  ],
+  "reviewer_inspection_correction": "Initial snapshot assertion assumed unit tests were in the52 runtime-state file map. They are not; relevant tests separately matched immutable177 Git objects after newline normalization and were retained. No author defect or source mutation.",
+  "all_reviewer_execution_ended": true,
+  "implementation_accepted": false,
+  "windows_gate_accepted": false,
+  "manifest_approved": false,
+  "official_timing_authority": false,
+  "limits": [
+    "Read-only actual failed source/report/log and one inert fake handle/error-state reproduction only. No native process, input generator, calculation callback, test/build or performance workload.",
+    "Full Windows qualification failed; old local/CI/source evidence cannot become new source acceptance automatically. Failed root/report/source retained; no retries or suppression authorized by this review."
+  ],
+  "derivative_of_private_receipt_sha256": "52d3dbabe0609af78ec9eb8c9be88a4ed1cd3199f98e380a499177d79e2d5ba0"
+}
