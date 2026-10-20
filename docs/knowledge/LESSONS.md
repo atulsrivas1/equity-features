@@ -1,3 +1,7 @@
+## EQ142 identifiers need their native width
+
+[Capacity contract](../stories/EQ-142_COMPLETE_ROOT_PRECODE.json): an opaque platform device ID is not a bounded count. Preserve its unsigned64 width in a canonical decimal string, with synthetic above2^53/max/overflow cases and exact same-device joins. Verify actual native feasibility before using a proposed schema to gate work. Keep actual hardware identifiers private, and distinguish component arithmetic/source observations from full namespace provenance and launch admission.
+
 ## EQ142 shared-verifier parity needs independent arithmetic
 
 [Retained publication qualification](../stories/EQ-142_BASELINE_PREPARATION.md): equality between a live adapter and extracted pure verifier cannot catch a defect in their shared logic. Keep an immutable resource base and derive each row from its cumulative prefix once. Independent explicit multi-task prefix sums, exact-final-cap success and one-byte-over rejection exposed a regression despite12 green author and12 green reviewer methods. Preserve that failed source/result, then renew actual boundary checks. Strict proof indices must reject bool before equality; pure semantic validation still requires independently established provenance.
