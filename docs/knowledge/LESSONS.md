@@ -1,3 +1,7 @@
+## EQ142 pure evidence readers and live buffers have separate duties
+
+[Retained trace closure](../stories/EQ-142_BASELINE_PREPARATION.md): recompute full semantic joins from canonical bytes instead of trusting cached summary flags. Share the reducer with the live adapter while preserving its one-body streaming behavior. Admit the entire reservation envelope before any read/decode and keep namespace/writer/source/native provenance explicit. Preserve failing fixture evidence before aligning independently specified expectations with an existing closed field contract; never label that as a runtime correction or broader acceptance.
+
 ## EQ142 preserve actual writer returns and stable identity domains
 
 [Owned wrapper](../stories/EQ-142_BASELINE_PREPARATION.md): compose exclusive directory owners through a fixed child rather than weakening original mkdir. Retain the original returned reference and existing process startup identity; independently join native provenance later. A renamed descriptive wire schema need not alter unchanged task/budget identity domains. Test that compatibility directly, distinguish accepted metadata from backend commit observations, and keep pure schema checks mandatory when optional/native integrations skip.
