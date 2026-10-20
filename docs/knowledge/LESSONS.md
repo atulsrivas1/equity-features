@@ -1,3 +1,13 @@
+## EQ142 isolated command verification
+
+CLI01 shows that in-process alias imports do not verify a documented isolated Python entry point. Exercise a fresh isolated subprocess and check owned module origins without dispatch before the native qualification. Retain the actual refusal and renew source review after correction.
+
+## EQ142 controller boundary corrections
+
+Separate final-source review679ae3290237759cdceb438fc5bf57f6f176e462679b160da1818f6d30e2e132 closes STUDY01/CTRL03/04 within exact reviewed source: bind locally recomputable metadata identities instead of copying producer claims; set diagnostic location only after actual exclusive ownership; and retain the original native failure payload without relabeling it as successful evidence. Source review passes69 checks and55 portable methods per platform; actual full native qualification and all current execution/release gates remain pending. Failed/reproduced snapshots remain preserved. [Public bounded review](../reviews/EQ142_CONTROLLER_V9_CORRECTED_SOURCE_REVIEW.json) and [decision log](../stories/EQ-142_CONTROLLER_DECISIONS.md).
+
+Bounded output size also needs bounded intermediate work: use slices before concatenating arbitrary type metadata, and reduce one raw trace population at a time before retaining seven statistical vectors. These are memory/correctness choices, not measured speedup claims. Original mathematical and resource/adoption gates remain unchanged.
+
 ## EQ142 controller pre-admission and failure bounds
 
 Prospective draft review c38e5e7a2f9ac17cb6affc540312a2493b6b2ecc576648fa558bc2b4619ce812 identified aggregate byte checks after bulk reads and a missing cumulative object-count guard. Validate the whole declared set before reading bodies; use one shared object budget across all preparation pairs, and reject new registrations before filesystem work. No actual overrun was observed. Implementation fixes remain subject to separate review. V9 review9b70fc4471395daeb805c01b952468399103adffb5830001b8aa45e46d375755 separately bounds one diagnostic attempt and partial names inside existing caps. Correctness feedback is not runtime qualification or performance evidence.
