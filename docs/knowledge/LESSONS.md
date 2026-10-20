@@ -1,3 +1,23 @@
+## EQ142 bind logical parent without assuming launcher equality
+
+[Runner joins](../stories/EQ-142_BASELINE_PREPARATION.md) require the actual returned wrapper PID/nonce, original parent witness and native lifetime identity. A launcher may differ from its logical Python parent; direct membership is not inferred ancestry. Compare parent phase/witness ticks only within that parent clock; retain Job CPU counters in100ns units. Successful cached source/admission/product labels need independently regenerated expected facts and full retained codecs; a pure join does not qualify its caller's context or whole namespace.
+
+## EQ142 timing gates apply to exploratory diagnostics
+
+[EQ142 plan](../stories/EQ-142_PLAN.md) requires committed, separately reviewed harness/source/protocol and completed local qualification before timing. The premature single-cohort probe was retained but excluded from timing/performance/adoption/release qualification. A development-only label does not create an exception. Satisfy the existing gate before any further performance diagnostic; preserve ordinary correctness testing as a separate activity. Fixed execution totals also require per-fragment roles and actual parent-local barriers: global counts alone can hide coherent redistribution or reordering. [Current correction status](../stories/EQ-142_BASELINE_PREPARATION.md).
+
+## EQ142 separate source invariants from observed variable waits
+
+[Retained execution checks](../stories/EQ-142_BASELINE_PREPARATION.md): derive fixed counts from pinned source, original selections and independent readiness; unavailable indicators and available bands have distinct entry counts. Match causal rows to actual raw parent hook intervals and exact pending populations. Validate variable waits from those relations rather than freezing a polling count. Do not invent a captured completed-Future return set, cross-process elapsed cost or observed barrier from descriptive plans. Canonical wire comparisons distinguish bool/int cached fields. Other operation counts and native/source/namespace authority remain separate gates.
+
+## EQ142 full diagnostic semantics need original source shape
+
+[PRODUCT01 correction](../stories/EQ-142_BASELINE_PREPARATION.md): valid SDK dataclasses and canonical hashes still permit source-impossible stage prefixes or coherent omission from two related records. Successful study telemetry must use the exact original execution stages/probes and the separate frozen publisher prefix. Generic failure-preserving schemas remain broader. Review receipt0666978449e3db65cd990c349b868dcd2fb62ac5780689f32d6c38460c46c6ef reproduces both cases; corrected six methods pass, separate correction review remains. Scope each test receipt to its actual file hashes; a later-added integration method is not covered by an earlier five-method run.
+
+## EQ142 bind mathematical proofs through full original codecs
+
+[Semantic product joins](../stories/EQ-142_BASELINE_PREPARATION.md): a coherently rehashed record or changed baseline cannot substitute for separately pinned independent mathematics. Reconstruct output envelopes using their original publisher limits; enforce the distinct supervisor result cap separately. Reopen diagnostic dataclasses through original constructors and exact encoding when no public decoder exists. Mutation fixtures must remain structurally valid to test deeper semantic rejection. Preserve failed runs before correcting the checker or fixtures. Source/writer/fixed namespace and physical commit authority remain separate gates.
+
 ## EQ142 byte integrity is one proof layer
 
 [Bounded readers](../stories/EQ-142_BASELINE_PREPARATION.md): use a fixed read-only codec/context/name registry, an independently selected expected name and declared-size-plus-one read bound. Canonical JSON and exact hash/length checks establish representation integrity, not codec semantics, original writer provenance, namespace ownership, source/native identity or complete sample acceptance. Keep those gates explicit, and test actual requested read size under growth after stat rather than a tautological stream-closure expression.

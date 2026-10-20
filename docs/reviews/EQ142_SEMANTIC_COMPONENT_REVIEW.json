@@ -1,0 +1,300 @@
+{
+  "schema": "eq142-semantic-component-review-summary:1",
+  "status": "BOUNDED_COMPONENT_REVIEWS_AND_DEVELOPMENT_CORRECTNESS_NOT_COMPLETE_ROOT",
+  "review_bases": {
+    "canonical": "f86f0a9d824cbafb961800138851918d62cad7c5",
+    "worker": "dda2bb431f724fb7d13d5c7a79159da372a0dd7e"
+  },
+  "review_route": "Owner-authorized separate automated local Codex /root/r17_review; not human or hosted review",
+  "source_sha256": {
+    "tools/eq142_products.py": "992054c000b5f8af95149ee5b0f370076f787503f6100146ae5d586b98a91522",
+    "tools/eq142_execution.py": "f94a7aa3df677ed33e327923c9a9f49a325eeba867ae8d21d3737c8cef9ea0ce",
+    "tools/eq142_runner_bundle.py": "fab46cc089b3d5e1bd8ddab86226df9d73bcba70279c9a4c1147fa81203033e0",
+    "tests/test_eq142_products.py": "4fa73efaad9ed00ff65fdc65e87f944e0e4c296256a5dab4f7e3307b3c361f9d",
+    "tests/test_eq142_execution.py": "5dbb66954f1b1c926179479577ca1f031dfb7742fc3eda92aa95ee1636e3b0d2",
+    "tests/test_eq142_runner_bundle.py": "62d4472a49faddba0de10ad9e14712e1ac117f37683cf4139dd09874f9ecfb70",
+    "tests/test_eq142_sample.py": "d078f714b1fe732552de506d5059c246ed23d8250f420d7136f88780d2b1baa5"
+  },
+  "author_broad": {
+    "methods": 143,
+    "seconds": 948.563,
+    "skips": 0,
+    "exit_code": 0,
+    "source_unchanged_selected_map": true,
+    "receipt_sha256": "f55c9fbd91d4258da8cf225e0399f922feaf9d655b089d8dbb3ba98ea47cb037",
+    "log_sha256": "bc8765d13bd7facc881038a571d728c468b9a9ff70f5b5606e2ff6d45b8b9dfe",
+    "scope": "Working Windows development source before any subsequent canonical-docs pin renewal; no fresh installed/archive/Linux/currentCI/study acceptance"
+  },
+  "reviews": {
+    "product": {
+      "status": "PASS_BOUNDED_PRODUCT_SEMANTICS_CORRECTION",
+      "derivative_of_private_receipt_sha256": "7e52a12c7943e7c9d82f1761a59019afe74166728e1dd40c54643abcdbfc1532",
+      "reviewer": "Independent automated local Codex reviewer",
+      "heads": {
+        "canonical": "f86f0a9d824cbafb961800138851918d62cad7c5",
+        "worker": "dda2bb431f724fb7d13d5c7a79159da372a0dd7e"
+      },
+      "source_sha256": {
+        "worker": {
+          "tests/test_eq142_sample.py": "ebbe7500e8b4c2c695d6375f738a1915b2c44ec94fbfbc88f5dc9f6485dfb3da",
+          "tests/test_eq142_products.py": "4fa73efaad9ed00ff65fdc65e87f944e0e4c296256a5dab4f7e3307b3c361f9d",
+          "tools/eq142_products.py": "992054c000b5f8af95149ee5b0f370076f787503f6100146ae5d586b98a91522"
+        },
+        "canonical": {}
+      },
+      "executed": {
+        "WINDOWS": {
+          "portable_methods": 6,
+          "portable_seconds": 1.173,
+          "portable_log_sha256": "5adac407b456defbd63feb6c13b7ac81e08f0df57d8745202e6955032a384ea5",
+          "independent_controls": 62,
+          "actual_representative_cases": 4,
+          "representative_report_sha256": "e6d24d01bdd4b297928de3784add14dd8da49abe0f105c2c5bdfc47adf02789b",
+          "scope": "Actual original source-bound A/B sequential/nonpublishing +spawn/publishing on family_missing_hl; retained full codecs/records/diagnostics and independent regenerated inputs/oracle/preflight. Development component only, no physical/native-root/study authority."
+        },
+        "LINUX": {
+          "portable_methods": 6,
+          "portable_seconds": 0.847,
+          "portable_log_sha256": "9ca7a8695c4b5e98afb05d5c4e141f12af9c3867ac86d1484ef3c80cc0275ff0",
+          "independent_controls": 62,
+          "actual_representative_cases": 4,
+          "representative_report_sha256": "9d6d63aea43212634e06913d47ffb41b53053956add7a741fe1c7367cfce4242",
+          "scope": "Actual original source-bound A/B sequential/nonpublishing +spawn/publishing on family_missing_hl; retained full codecs/records/diagnostics and independent regenerated inputs/oracle/preflight. Development component only, no physical/native-root/study authority."
+        }
+      },
+      "dispositions": {
+        "EQ142PRODUCT01": "Closed: successful summary must have exact queue_wait/calculation/serialization probes0; raw nonpublishing equals all3, frozen publishing exact serialization0/queue_probe1/queue_wait0/publication0 prefix plus actualexecution3. Coherent extra/missing/reordered/wrongprobe attacks reject without changing stable product references."
+      },
+      "author_evidence": {
+        "corrected6_seconds": 1.142,
+        "corrected6_sha256": "bcdcb65024d488fb1814eb71e42d24e192ef0d8dc2caca83c754d5e246533702",
+        "precorrection_live_method": 1,
+        "precorrection_live_cases": 32,
+        "precorrection_live_seconds": 589.784,
+        "precorrection_live_sha256": "a3a6e3e6ffdb638f66e71e1fe6d91851c504e8a84bbdef9ce7e88f0de13497db",
+        "scope": "Author32 completed successfully BEFORE PRODUCT01 correction; actual source/log joined, not corrected-source acceptance or performance evidence. Author earlier5 binds helper/portabletest before added live method. Reviewer did not rerun heavy32."
+      },
+      "limits": [
+        "Bounded source/component correction only. Trusted independent input/oracle/reference/preflight and writer/source/namespace/native/root provenance remain caller gates.",
+        "Windows uses accepted baseline dependencies; Linux uses new owned offline review environment with six exact historical D049 wheels. Current-source semantic controls, not fresh currentarchive/fourform/platform qualification.",
+        "No complete root/sample/currentinstalled/currentCI/officialstudy/performance/delivery/release acceptance.",
+        "Original failures/diagnostics/source snapshots retained. No author/protected source mutation; all reviewer executions ended.",
+        "Derivative public-safe summary, not identical detailed receipt bytes or a new execution."
+      ]
+    },
+    "execution": {
+      "status": "PASS_BOUNDED_EXEC01_EXEC02_CORRECTIONS",
+      "reviewer": "Independent automated local Codex /root/r17_review",
+      "reviewed_at_utc": "2026-10-20T02:34:47.267975+00:00",
+      "source_sha256": {
+        "worker": {
+          "tools/eq142_execution.py": "f94a7aa3df677ed33e327923c9a9f49a325eeba867ae8d21d3737c8cef9ea0ce",
+          "tests/test_eq142_execution.py": "5dbb66954f1b1c926179479577ca1f031dfb7742fc3eda92aa95ee1636e3b0d2",
+          "tests/test_eq142_sample.py": "0a1e5037285de4fe1560bfa415b32a425ec83d3da8bc8503e8d5c5572dbf1751"
+        },
+        "canonical": {}
+      },
+      "checks": 19,
+      "assertions": [
+        "indexed author receipt exact",
+        "indexed author exit/source",
+        "indexed current source tools/eq142_execution.py",
+        "indexed current source tests/test_eq142_execution.py",
+        "indexed current source tests/test_eq142_sample.py",
+        "author7 indexed log0.187",
+        "prior source retained tools/eq142_execution.py",
+        "prior source retained tests/test_eq142_execution.py",
+        "prior source retained tests/test_eq142_sample.py",
+        "live sample method unchanged by correction",
+        "accepted product exact tools/eq142_products.py",
+        "accepted product exact tests/test_eq142_products.py",
+        "protected original source untouched",
+        "WINDOWS current7 actual",
+        "WINDOWS independent56",
+        "WINDOWS two current actual controls",
+        "LINUX current7 actual",
+        "LINUX independent56",
+        "LINUX two current actual controls"
+      ],
+      "executed": {
+        "WINDOWS": {
+          "methods": 7,
+          "seconds": 0.195,
+          "log_sha256": "10cfe01aa03e31420d3403d06fbe107270aa59cc96531b8d87be2549de2ff4b0",
+          "independent_controls": 56,
+          "actual_representative_cases": 2,
+          "representative_receipt_sha256": "d1c8077c016c9983824ab55d762bf88372f4082c5c0ea2eb99260d22d9716df5"
+        },
+        "LINUX": {
+          "methods": 7,
+          "seconds": 0.185,
+          "log_sha256": "2a1ff096ec9ad2e3f069864d9259223ed671251624b4aa1bee50ddafe4a496ef",
+          "independent_controls": 56,
+          "actual_representative_cases": 2,
+          "representative_receipt_sha256": "e40f781b5ff9bd8c25b5d79e8ce06994e819e6b58539bbc71ddb41f6b9ac941a"
+        }
+      },
+      "findings": [
+        {
+          "id": "EQ142EXEC01",
+          "disposition": "CLOSED for exact working source: fragment-specific parent/delegate per-task and operation counts plus task-operation ancestry reject original retained coherent role counterexample."
+        },
+        {
+          "id": "EQ142EXEC02",
+          "disposition": "CLOSED for exact working source: hash-sorted coordinator validations follow returned waited shutdown or same-process/clock/timeline complete sequential calls; same-parent submit/drain/SDK/commit intervals and ancestry reject original retained coherent early-validation counterexample."
+        }
+      ],
+      "scope": [
+        "Indexed operation/task anchor lookup inspected; current7 tests include corrected roles/barriers. All56 independent controls per platform include original raw retained counterexample replay, role/publication/barrier attacks, strict cached types, counts, causal population, explicit independent-child-clock translation and sequential conflicting identity rejection.",
+        "Actual current source-bound B sequential/nonpublishing and spawn/publishing controls passed on each platform. Legitimate task-labelled manual spans remain allowed; no all-null inference.",
+        "Parent causal wait completed-membership remains original-source-required, not falsely captured; no independent-child raw-tick comparisons. Native ownership, full namespace, input/source provenance, count-index and complete root composition remain separate."
+      ],
+      "author_history": {
+        "indexed7_seconds": 0.187,
+        "prior_corrected7_seconds": 0.193,
+        "prior_corrected_actual12_seconds": 69.698,
+        "prior_actual12_scope": "Before indexing optimization, not relabelled as fresh current12 execution. Pre-correction review/failures and original source snapshots retained."
+      },
+      "reviewer_attempts": [
+        "Initial added sequential-conflict control correctly rejected during raw reducer refresh, outside reviewer rejection wrapper; both failed external control logs retained. Corrected only reviewer wrapper to include refresh inside expected rejection. No author source correction or suppression."
+      ],
+      "limits": [
+        "Working component review only. Linux current-source component controls use reviewer-owned offline historical six-wheel environment; no current archive/installed/four-form/platform qualification.",
+        "No full12/32 broad workload rerun, native root/currentCI/study/timing/performance/adoption/release acceptance.",
+        "No source/GitHub mutation. All reviewer execution ended."
+      ],
+      "derivative_of_private_receipt_sha256": "bc87e4e99d2a0ea68f77790e72d2f0296d853282826fddf2fd7fd89ab3652cbb",
+      "derivative_notice": "Public-safe derivative; not original receipt byte identity or new execution."
+    },
+    "runner": {
+      "status": "PASS_BOUNDED_NORMAL_RUNNER_BUNDLE_COMPONENT",
+      "reviewer": "Independent automated local Codex /root/r17_review",
+      "reviewed_at_utc": "2026-10-20T02:39:01.549843+00:00",
+      "source_sha256": {
+        "worker": {
+          "tools/eq142_runner_bundle.py": "fab46cc089b3d5e1bd8ddab86226df9d73bcba70279c9a4c1147fa81203033e0",
+          "tests/test_eq142_runner_bundle.py": "62d4472a49faddba0de10ad9e14712e1ac117f37683cf4139dd09874f9ecfb70",
+          "tests/test_eq142_sample.py": "d078f714b1fe732552de506d5059c246ed23d8250f420d7136f88780d2b1baa5"
+        },
+        "canonical": {}
+      },
+      "checks": 20,
+      "assertions": [
+        "author actual4 control receipt exact",
+        "author actual live exit0/source",
+        "current3 author source-bound tools/eq142_runner_bundle.py",
+        "current3 author source-bound tests/test_eq142_runner_bundle.py",
+        "current3 author source-bound tests/test_eq142_sample.py",
+        "author initialportable receipt exact",
+        "pure source unchanged since initial4 tools/eq142_runner_bundle.py",
+        "pure source unchanged since initial4 tests/test_eq142_runner_bundle.py",
+        "protected source unchanged",
+        "accepted execution unchanged tools/eq142_execution.py",
+        "accepted execution unchanged tests/test_eq142_execution.py",
+        "only added bundle native live method",
+        "WINDOWS actual4",
+        "WINDOWS independent50",
+        "LINUX actual4",
+        "LINUX independent50",
+        "reviewer actual1method4ownedcontrols",
+        "end stable tools/eq142_runner_bundle.py",
+        "end stable tests/test_eq142_runner_bundle.py",
+        "end stable tests/test_eq142_sample.py"
+      ],
+      "executed": {
+        "WINDOWS": {
+          "portable_methods": 4,
+          "seconds": 0.036,
+          "log_sha256": "97de6b318776b06d3eb8199e636f0c86e8dc44d14fa81d00b8f8743f0a885d1f",
+          "independent_controls": 50,
+          "native_api_execution": true,
+          "actual_native_method": {
+            "methods": 1,
+            "control_cases": 4,
+            "seconds": 31.136,
+            "log_sha256": "8ab30a4fa42d51ea856fe3ba95b72a57235cbb56ed2e1a3011573a4a9d72600f",
+            "cases": "A/sequential1 and B/spawn2, each admitted and owned-runner-e2e series; correctness only, no performance interpretation."
+          }
+        },
+        "LINUX": {
+          "portable_methods": 4,
+          "seconds": 0.04,
+          "log_sha256": "e1ad23c185ec1fd14d484a179c8aedfe9993338e765e4608aa6ae2f40f0bcc2e",
+          "independent_controls": 50,
+          "native_api_execution": false,
+          "scope": "Synthetic portable current-source grammar/closed records in reviewer-owned offline historical six-wheel environment; no Linux native API or installed/current archive qualification."
+        }
+      },
+      "findings": [],
+      "coverage": [
+        "Closed normal/conditional runner2 fields bind actual wrapper-selected immutable runner bytes and sample/purpose/selector/control/reference to caller-regenerated source/job/admission/product expectations. Strict canonical equality distinguishes bool/int.",
+        "A explicitly lacks traces/publication/executor observations and plans. B witness population/order/ref hashes and cached joined processes are recomputed; raw trace/executor/publication semantic authorities remain separate. Profiled controls retain selected wall null and no timing authority; count qualification is not accepted by this helper.",
+        "Actual wrapper process binding matches parent direct witness nonce/PID, exact Job membership and lifetime/native-local closure; original initial launcher may differ from logical calculation parent. No OS ancestry or all-descendant attestation.",
+        "Parent witness capture is inside same-parent phase; canonical interval arithmetic and Job before/after accounting ABI bounds/monotonic totals remain separate ns versus100ns units. No external observer/parent raw-tick subtraction.",
+        "Independent controls cover no I/O/mutation, trusted map differences, unknown/extra conditional fields, bool/types, overflow/regression/active/termination counters, A fabricated observers/plan, profiled-A refusal, wrapper ref/sample/purpose drift, coherent out-of-phase parent witness refs, distinct owned launcher/logical parent and malformed parent refs."
+      ],
+      "author_history": {
+        "portable4_seconds": 0.035,
+        "portable4_scope": "Before live sample method added; two pure helper/test leaves exact, not author execution of later added method.",
+        "actual4_native_controls_methods": 1,
+        "actual4_native_seconds": 30.913,
+        "actual4_receipt_sha256": "6d2e4fe0275dfe9842623f1a117636c41d9314cdef0aa115d6aa13085bd56792",
+        "attempt": "Initial author helper refused unsupported command pattern before test execution; no runtime failure fabricated. Broad author batch active separately; no broad acceptance inferred."
+      },
+      "limits": [
+        "Caller must independently regenerate and qualify trusted source/job/admission/plan/product maps. Product/ref shapes alone do not prove raw SDK semantics, raw supervisor/product body joins or publication semantics.",
+        "B raw trace fragments/executor/causal roles and raw writer/source bindings must be independently verified by existing components/future root. Cached retained trace/process fields are not self-authenticating authority.",
+        "Native receipt is locally source-qualified evidence, not attestation; sampled resource coverage remains non-atomic/incomplete. No selected complete-E2E measurement or cross-process raw chronology established.",
+        "Synthetic portable native fixtures are grammar controls, not actual native execution or platform qualification. Windows actual owned controls are separate; no Linux native APIs invoked.",
+        "No complete root/index/capacity/current source-frozen archive/installed/four-form/both-platform/currentCI/study/performance/adoption/release acceptance.",
+        "All reviewer execution ended. No author/source/GitHub mutation; exact reviewed3 leaves retained."
+      ],
+      "derivative_of_private_receipt_sha256": "628ef848fee437f5a2e5859e8fbb0d9463113cca7a1d1fac62cd184882ea625c",
+      "derivative_notice": "Public-safe derivative, not identical private bytes or new execution."
+    },
+    "excluded_probe": {
+      "status": "AUDITED_EXCLUDED_DEVELOPMENT_DIAGNOSTIC_NOT_QUALIFIED_TIMING",
+      "reviewer": "Independent automated local Codex /root/r17_review",
+      "reviewed_at_utc": "2026-10-20T02:35:49.009900+00:00",
+      "probe_report_sha256": "02d36cb55c665557144fe29a689f824f6d054bd29e95df2e909177544fb8fe4f",
+      "probe_script_sha256": "7c6ae051a360f75396a1e9e373cd5fb64ce577f261581db4cdfcab3f6a32a5c6",
+      "checks": 370,
+      "observed_records": 18,
+      "retained_per_control": 7,
+      "warmups_per_control": 2,
+      "protocol_disposition": {
+        "finding": "EQ142DIAG01",
+        "status": "RUN_RETAINED_AND_EXCLUDED",
+        "basis": "docs/stories/EQ-142_PLAN.md broad no-timing-before-committed-reviewed-harness/local-qualification gate; current V7 contains no explicit development-diagnostic exception.",
+        "actual": "Premature timed diagnostic executed before complete committed harness and current qualification. Author agent /root acknowledged the timing-gate violation and committed to no further exploratory timing before the gate. No human-owner acknowledgement, exception or authorization is inferred.",
+        "required": "Retain exact raw run, document failure and exclusion; no retroactive exception or accepted timing evidence. Any future scope amendment must be prospective and reviewed."
+      },
+      "scope": [
+        "Independent stdlib-only audit re-read exact18 native/runner/diagnostic/wrapper records, saved script and source map. Recomputed every partial parent wall/Job CPU delta, retained medians and arithmetic ratios; no new timings or source execution.",
+        "Saved source loop and native local intervals support observed A-before-B ordering; this is source-qualified local evidence, not independently witnessed or signed execution chronology.",
+        "Existing parent admitted-phase only. New external product/execution/native verification, native finalization, full outer report/source closure and complete root were outside measured parent interval. No complete observer/E2E qualification.",
+        "Sampled native RSS is separate from physical enforcement/all-descendant coverage. No noise/overhead/adoption gate was independently accepted. A ownership-qualified common metadata is not a pristine uninstrumented-cost baseline."
+      ],
+      "limits": [
+        "No complete root/index/capacity/fresh current archives/installed/both-platform/currentCI/study/adoption/performance/release acceptance.",
+        "No original product/native validators rerun for all18 in this audit; checks of retained status/refs/source/arithmetic do not substitute for those future gates. Separate component correction review executed its own representative current cases.",
+        "Raw local paths, device/source installation metadata remain private; public derivative omits raw ratios/medians and private path details. No GitHub/source mutation."
+      ],
+      "attribution_correction": {
+        "supersedes_private_receipt_sha256": "a93e976f816a138940d8646bc6999e3edd2dc260f965fffdf1854dc110d84ace",
+        "supersedes_public_derivative_sha256": "825a967a74f8446b5bde4cf10d3f9429c95771f5193fba36fc4c14afc698104f",
+        "reason": "Reviewer incorrectly attributed the author agent acknowledgement to the owner. Original exact receipts retained; only attribution corrected, exclusion/arithmetic scope unchanged.",
+        "original_failed_audit_attempt": "Initial reviewer source comparison equated differently structured source_state and inventory.source maps. Failed audit log retained; corrected reference inventory and source tool-file joins, no producer/evidence change."
+      },
+      "derivative_of_private_receipt_sha256": "100866867eb979d8aee6294a1c26b5f8a54c4c0772e271520ef9c20c09950936",
+      "derivative_notice": "Attribution-corrected public-safe derivative, not original byte identity or new execution."
+    }
+  },
+  "limits": [
+    "Full root/source/current artifact/installed bothOS/CI/capacity/count-index/namespace/outer-envelope/study/release gates remain",
+    "Product and execution source/test leaves retain reviewed bytes; sample-test additions have distinct review scopes and current broad execution",
+    "Correctness-test durations are not performance evidence; premature observer diagnostic retained and excluded; attribution corrected to author agent only",
+    "No calculation/package/default/source-pin/threshold/cap/cohort change; no complete sample or fastest/parallel adoption claim"
+  ],
+  "full_sample_accepted": false
+}
