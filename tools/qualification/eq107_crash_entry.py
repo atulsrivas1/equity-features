@@ -5,6 +5,17 @@ from pathlib import Path
 import sys
 import time
 
+def publish_go(root):
+    """Complete visibility in the owned single-writer test namespace only."""
+    target=root/'GO';temporary=root/'GO.tmp'
+    if os.path.lexists(target) or os.path.lexists(temporary):
+        raise ValueError('fixed GO entry exists')
+    with temporary.open('xb') as stream:
+        if stream.write(b'go')!=2:raise ValueError('fixed GO short write')
+    # A rename exception may occur before or after effect. Propagate it and
+    # retain available evidence; do not retry, undo, or claim no effect.
+    temporary.rename(target)
+
 def publish(path, obj, cap):
     raw=json.dumps(obj,sort_keys=True,separators=(',',':')).encode('ascii')
     if len(raw)>cap or path.exists():raise ValueError('fixed witness bound')

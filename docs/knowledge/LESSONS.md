@@ -1,3 +1,15 @@
+## EQ142GO01 subtests do not prove cleanup success
+
+[GO companion correction](../stories/EQ-142_CI_GO_VISIBILITY_COMPANION.md): unittest.subTest can record failure and continue through a later success flag. Do not infer safe evidence deletion from reaching the end of that loop. The same deterministic controls now fail fast, leaving failed roots available. Verify failure retention with a deliberately corrupted result and verify successful cleanup separately. Preserve exact failed-source snapshots and raw diagnostics; positive protocol/crash controls alone did not expose or close this test-control defect.
+
+## EQ142 distinguish complete visibility from rename failure outcome
+
+[Companion contract](../stories/EQ-142_CI_GO_VISIBILITY_COMPANION.md) and [prospective constraints](https://github.com/atulsrivas1/equity-features/issues/476#issuecomment-6282381714): refuse both fixed names using lexists, including dangling entries. In a source-owned single-writer namespace, exclusive temporary creation, exact write and successful close before rename prevent an empty visible GO. A rename exception does not prove no effect: preserve the actual target/temporary/root, propagate failure without retry or undo, and distinguish before-effect from after-effect injections. POSIX rename may replace another writer's destination; this scoped helper makes no concurrent-writer no-replace, fsync or power-loss claim. Four original physical crash methods and fixed deadlines remain mandatory alongside deterministic protocol controls.
+
+## EQ142 publish a complete cross-process signal before making it visible
+
+[CI companion design](../stories/EQ-142_CI_GO_VISIBILITY_COMPANION.md): file creation and later payload write are separate observable actions. The original fixed GO handshake admits an empty-file interleaving, independently reproduced with original isolated child exit1/owned cleanup. Publish the fixed complete payload only after close through same-directory rename; source-owned single-writer visibility is not power-loss durability. Preserve original ownership/cut/deadline assertions and deterministic negative controls. A similar hosted exit1 does not prove identical cause when the hosted child stderr is missing. Retain initial diagnostic setup failures separately from the successful reproduction.
+
 ## EQ142 bind logical parent without assuming launcher equality
 
 [Runner joins](../stories/EQ-142_BASELINE_PREPARATION.md) require the actual returned wrapper PID/nonce, original parent witness and native lifetime identity. A launcher may differ from its logical Python parent; direct membership is not inferred ancestry. Compare parent phase/witness ticks only within that parent clock; retain Job CPU counters in100ns units. Successful cached source/admission/product labels need independently regenerated expected facts and full retained codecs; a pure join does not qualify its caller's context or whole namespace.

@@ -1,5 +1,6 @@
 """Fresh installed, fixed child-death controls; source review required before use."""
 import hashlib
+from contextlib import nullcontext
 import json
 import os
 from pathlib import Path
@@ -10,6 +11,7 @@ import tempfile
 import threading
 import time
 import unittest
+from unittest.mock import patch
 import equity_feature_agent_evidence as a
 import equity_feature_agent_ledger as l
 
@@ -36,6 +38,78 @@ def wait_inactive(child, *, clock=time.monotonic, sleep=time.sleep):
         sleep(.01)
 
 class CrashTests(unittest.TestCase):
+    def verify_go_publication(self):
+        """Deterministic handshake controls within the original four methods."""
+        publish_go=runpy.run_path(str(HELPERS/'eq107_crash_entry.py'))['publish_go']
+        parent=Path(tempfile.gettempdir()).resolve()
+        root=Path(tempfile.mkdtemp(prefix='eq107-go-',dir=parent)).resolve()
+        # Fail fast: subTest would swallow failures and permit success cleanup.
+        passed=False
+        real_open=Path.open;real_rename=Path.rename
+        try:
+            for mode in ('success','short_write','close_failure','rename_before','rename_after'):
+                case=root/mode;case.mkdir();target=case/'GO';temporary=case/'GO.tmp'
+                observations=[]
+                class Writer:
+                    def __enter__(inner):
+                        inner.stream=real_open(temporary,'xb')
+                        self.assertFalse(os.path.lexists(target));observations.append('opened')
+                        return inner
+                    def write(inner,raw):
+                        self.assertEqual(raw,b'go');self.assertFalse(os.path.lexists(target))
+                        observations.append('write')
+                        return inner.stream.write(b'g' if mode=='short_write' else raw)
+                    def __exit__(inner,*exc):
+                        self.assertFalse(os.path.lexists(target));inner.stream.close()
+                        observations.append('closed')
+                        if mode=='close_failure':raise OSError('injected close failure')
+                def opened(path,*args,**kwargs):
+                    self.assertEqual(path,temporary);self.assertEqual(args,('xb',));self.assertEqual(kwargs,{})
+                    return Writer()
+                def renamed(path,destination):
+                    self.assertEqual(path,temporary);self.assertEqual(destination,target)
+                    self.assertEqual(observations,['opened','write','closed'])
+                    with real_open(temporary,'rb') as stream:self.assertEqual(stream.read(),b'go')
+                    self.assertFalse(os.path.lexists(target))
+                    observations.append('rename')
+                    if mode=='rename_before':raise OSError('injected before effect')
+                    result=real_rename(path,destination)
+                    if mode=='rename_after':raise OSError('injected after effect')
+                    return result
+                # The rename observer uses the original open, so the mock
+                # intercepts only the publisher's exclusive creation.
+                with patch.object(Path,'open',opened),patch.object(Path,'rename',renamed):
+                    if mode=='success':publish_go(case)
+                    else:
+                        with self.assertRaises(ValueError if mode=='short_write' else OSError):publish_go(case)
+                visible=mode in ('success','rename_after')
+                self.assertEqual(os.path.lexists(target),visible)
+                self.assertEqual(os.path.lexists(temporary),not visible)
+                self.assertEqual((target if visible else temporary).read_bytes(),b'g' if mode=='short_write' else b'go')
+                self.assertEqual(observations,['opened','write','closed']+([] if mode in ('short_write','close_failure') else ['rename']))
+            for name in ('GO','GO.tmp'):
+                for kind in ('file','directory','dangling_entry'):
+                    case=root/(name.replace('.','_')+'_'+kind);case.mkdir();entry=case/name
+                    if kind=='file':entry.write_bytes(b'preserved')
+                    elif kind=='directory':entry.mkdir()
+                    # Model a dangling directory entry: exists() is false,
+                    # lexists() is true. No platform symlink privilege needed.
+                    lexists=os.path.lexists
+                    def exists(path):return path==entry or lexists(path)
+                    entry_control=patch('os.path.lexists',exists) if kind=='dangling_entry' else nullcontext()
+                    with entry_control,patch.object(Path,'open',side_effect=AssertionError('must refuse before open')):
+                        with self.assertRaisesRegex(ValueError,'fixed GO entry exists'):publish_go(case)
+                    if kind=='file':self.assertEqual(entry.read_bytes(),b'preserved')
+                    elif kind=='directory':self.assertTrue(entry.is_dir())
+                    else:self.assertFalse(entry.exists())
+                    self.assertFalse(os.path.lexists(case/('GO.tmp' if name=='GO' else 'GO')))
+            passed=True
+        finally:
+            if passed:
+                assert root.parent==parent and root.name.startswith('eq107-go-') and not root.is_symlink()
+                shutil.rmtree(root);assert not root.exists()
+            else:print('Retained owned GO qualification root:',root)
+
     def exercise(self,mode):
         started=time.monotonic()
         assert sys.flags.isolated
@@ -76,7 +150,7 @@ class CrashTests(unittest.TestCase):
             self.assertEqual(set(ready),{'pid','isolated'});self.assertIs(ready['isolated'],True)
             self.assertIs(type(ready['pid']),int);child.verify_entry(ready['pid'])
             self.assertFalse(child.entry_exited())
-            with (root/'GO').open('xb') as stream:stream.write(b'go')
+            runpy.run_path(str(entry))['publish_go'](root)
             self.assertEqual(child.wait(4),91);self.assertTrue(child.entry_exited())
             wait_inactive(child)
             phase=bounded_json(root/'phase.json',1024)
@@ -129,7 +203,9 @@ class CrashTests(unittest.TestCase):
             if errors and not active_exception:raise ValueError('owned crash cleanup failed') from errors[0]
         self.assertTrue(body_ok and settled and not errors)
 
-    def test_before_begin(self):self.exercise('before_BEGIN')
+    def test_before_begin(self):
+        self.verify_go_publication()
+        self.exercise('before_BEGIN')
     def test_after_insert(self):self.exercise('after_INSERT')
     def test_after_metadata(self):self.exercise('after_metadata')
     def test_after_commit(self):self.exercise('after_COMMIT')
