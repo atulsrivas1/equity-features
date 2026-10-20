@@ -1,3 +1,7 @@
+## EQ142 shared-verifier parity needs independent arithmetic
+
+[Retained publication qualification](../stories/EQ-142_BASELINE_PREPARATION.md): equality between a live adapter and extracted pure verifier cannot catch a defect in their shared logic. Keep an immutable resource base and derive each row from its cumulative prefix once. Independent explicit multi-task prefix sums, exact-final-cap success and one-byte-over rejection exposed a regression despite12 green author and12 green reviewer methods. Preserve that failed source/result, then renew actual boundary checks. Strict proof indices must reject bool before equality; pure semantic validation still requires independently established provenance.
+
 ## EQ142 topology and retained proof types
 
 [Prospective contract](../stories/EQ-142_COMPLETE_ROOT_PRECODE.json): a Windows primary-group mask is group-local evidence, not the complete machine allowance. Record topology and valid group/mask joins before choosing a conservative budget. A wall timestamp and a process CPU reading cannot be ordered because both use nanoseconds. Explicitly state which source/report/finalization costs are timed. Strict integer checks must precede Python equality on untrusted proof indices: false equals0 and can otherwise bypass a reference join. Keep actual diagnostics, prospective review and completed runtime qualification distinct.
