@@ -1,3 +1,7 @@
+## EQ142 equal metadata need not have equal pickle representation
+
+[Plan reconstruction](../stories/EQ-142_BASELINE_PREPARATION.md): dictionary equality omits order and object-key aliasing, which protocol5 memoization observes. Preserve the original literal construction and compare decoded/reordered inputs against independent original bytes/length. A purported pure value helper must close operation collection/member types before iteration; otherwise a caller iterator can execute. Green broad tests that omit these controls do not close independently reproduced findings. Keep source/directory admission outside the pure constructor and require those proofs before using its resource arithmetic.
+
 ## EQ142 pure evidence readers and live buffers have separate duties
 
 [Retained trace closure](../stories/EQ-142_BASELINE_PREPARATION.md): recompute full semantic joins from canonical bytes instead of trusting cached summary flags. Share the reducer with the live adapter while preserving its one-body streaming behavior. Admit the entire reservation envelope before any read/decode and keep namespace/writer/source/native provenance explicit. Preserve failing fixture evidence before aligning independently specified expectations with an existing closed field contract; never label that as a runtime correction or broader acceptance.
