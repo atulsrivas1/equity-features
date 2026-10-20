@@ -1,3 +1,7 @@
+## EQ142 controller pre-admission and failure bounds
+
+Prospective draft review c38e5e7a2f9ac17cb6affc540312a2493b6b2ecc576648fa558bc2b4619ce812 identified aggregate byte checks after bulk reads and a missing cumulative object-count guard. Validate the whole declared set before reading bodies; use one shared object budget across all preparation pairs, and reject new registrations before filesystem work. No actual overrun was observed. Implementation fixes remain subject to separate review. V9 review9b70fc4471395daeb805c01b952468399103adffb5830001b8aa45e46d375755 separately bounds one diagnostic attempt and partial names inside existing caps. Correctness feedback is not runtime qualification or performance evidence.
+
 ## EQ142 preserve provenance across process and preparation boundaries
 
 [V8 clarification](../stories/EQ-142_COMPLETE_ROOT_PRECODE.md) distinguishes a source-derived fixed wrapper readback from the nested actual original runner return. Native completion alone does not capture stdout provenance. Reference preparation also leaves full product/diagnostic files: capture actual original writer references and close their fixed namespace, rather than ignoring them or rehashing to invent returns. Bind count reuse to the full source/runtime/installed state and actual capacity freeze across every ordered supported selector. Reconcile existing category budgets using actual encoded lengths; a prior capacity receipt describes its earlier prefix, not a later journal total. These are controller obligations, not facts established by a pure record join.
