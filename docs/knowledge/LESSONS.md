@@ -1,3 +1,9 @@
+## EQ142 persistence is distinct from accepted metadata
+
+[Publication evidence](../stories/EQ-142_BASELINE_PREPARATION.md) must observe the method that actually owns the admission branch. The public run wrapper does not directly encode final candidates; the source-bound private _run does. Capture actual original bytes and receipts, then resolve full codec joins after hooks restore. Keep an observed commit separate from a source-derived cumulative metadata counter and the actual accepted output. A throwing commit can still have persisted through SDK recovery; missing output is not rollback evidence.
+
+Retain available partial evidence before rejecting a later join or storage failure. Unknown links stay unknown, repeat retention must not replay original operations or codecs, and changed source cannot authorize a codec. A broad green count does not close an independently reproduced failure. Keep identity-cardinality contracts, implementation guards and independent at-limit/one-over controls consistent as the source-bound inventory expands; preserve old source and failed tests explicitly.
+
 ## EQ142 native evidence needs complete ownership and failure boundaries
 
 [Native qualification](../stories/EQ-142_BASELINE_PREPARATION.md) distinguishes the launched process from the calculation parent, direct Job membership from OS ancestry, and direct lifetime witnesses from sampled resources. A timestamp gap cannot prove a live descendant; retain an actual live row after observed launcher exit. Constrain local samples to the actual resumed-to-empty interval, preserve original native integer widths and cumulative counters, and reconcile metadata from the same clock without claiming empirical precision or raw cross-process alignment.
