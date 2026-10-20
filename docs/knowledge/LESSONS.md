@@ -1,3 +1,7 @@
+## EQ142 preserve actual writer returns and stable identity domains
+
+[Owned wrapper](../stories/EQ-142_BASELINE_PREPARATION.md): compose exclusive directory owners through a fixed child rather than weakening original mkdir. Retain the original returned reference and existing process startup identity; independently join native provenance later. A renamed descriptive wire schema need not alter unchanged task/budget identity domains. Test that compatibility directly, distinguish accepted metadata from backend commit observations, and keep pure schema checks mandatory when optional/native integrations skip.
+
 ## EQ142 route evidence from actual writer directories
 
 [Wrapper contract](../stories/EQ-142_COMPLETE_ROOT_PRECODE.json): a nested runner directory changes every directory-relative evidence writer, including diagnostics. Shared product objects follow the reference parent, not the sample. Bind each codec to its actual fixed namespace before implementation, preserve exclusive creation and use actual returned writer references. Descriptive schema renames do not silently change unchanged task/budget identity domains.
