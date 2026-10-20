@@ -1,0 +1,302 @@
+{
+  "status": "PASS_ORIGINAL_BOTH_LOCAL_PLATFORM_AGENT_LEDGER_GO_COMPANION_QUALIFICATION_COMPONENT",
+  "reviewer": "Independent automated local Codex /root/r17_review",
+  "reviewed_at_utc": "2026-10-20T03:33:24.958023+00:00",
+  "head": "f211abd227421d185a723c0b2bb2a9bb23e58414",
+  "source_sha256": {
+    "canonical": {
+      "docs/PROJECT_KNOWLEDGE.md": "7f0937674c296a0b91e8585cc77efa75deb89214adba9bdec6bfeef219bd5a14",
+      "docs/SESSION_HANDOFF.md": "0737889873142770a14bca27a97805bf938383f737980a4aeb416acf3179185e",
+      "docs/knowledge/LESSONS.md": "75871afc4b52ef53ed3b12dba5c92f91f046d1412478476c2eed6c89db350ee1",
+      "docs/stories/EQ-142_BASELINE_PREPARATION.md": "6c9b07fe5e5040deaec3a35cc5e1c06eb78a7742c7bc79a141eb3299a1d0aef7",
+      "docs/stories/EQ-142_CI_GO_VISIBILITY_COMPANION.md": "e09f88ee511a5275734e931df041919a5ef240e46b52ab45ac7af913b04c3f57",
+      "tests/agent_ledger_crash/test_crash.py": "6eb4cffa32bbacc3d17776ee1a4bab0fd3243dcf757d06267a2a738ad05d2f4e",
+      "tools/qualification/eq107_crash_entry.py": "1ff3ebfbe935201d06cba17970d1061bbe41b84303c17dff92a64fe514561d2f"
+    },
+    "worker": {}
+  },
+  "checks": 15,
+  "assertions": [
+    "LINUX exact independent audit",
+    "WINDOWS exact independent audit",
+    "exact independent public source receipt",
+    "unchanged reviewed source docs/PROJECT_KNOWLEDGE.md",
+    "unchanged reviewed source docs/SESSION_HANDOFF.md",
+    "unchanged reviewed source docs/knowledge/LESSONS.md",
+    "unchanged reviewed source docs/stories/EQ-142_BASELINE_PREPARATION.md",
+    "unchanged reviewed source docs/stories/EQ-142_CI_GO_VISIBILITY_COMPANION.md",
+    "unchanged reviewed source tests/agent_ledger_crash/test_crash.py",
+    "unchanged reviewed source tools/qualification/eq107_crash_entry.py",
+    "clean exact Equity Features",
+    "clean exact eq142-execution-baseline",
+    "actual current draft exact source",
+    "actual unchanged reviewed PR semantics",
+    "actual issue OPEN Atul Inprogress"
+  ],
+  "independent_artifact_audit_receipts": {
+    "LINUX": "0f45e7127126246146a7db923bc003fb6f6dced741d6d0941332b95baf9228e5",
+    "WINDOWS": "0b18e964044fc4d1065d58354c50677d27faf7dcb83bb87a793ad81572e996bc"
+  },
+  "platforms": {
+    "LINUX": {
+      "checks": 529,
+      "original_report_sha256": "d14299c065672788f526d3ffc9a37f1229e73650252306fb502a7c382d28f106",
+      "original_log_sha256": "039feb5d2809766b729546d02063fa17ac72fd6cc1d6f93c0e1eb203c6b94b05",
+      "archives": {
+        "equity_feature_agent_evidence-0.1.0a1-py3-none-any.whl": {
+          "sha256": "56071fb2717e5fffd08a7da38a34e4e1bfe55a78d0026e1d54d413d389a10ea3",
+          "bytes": 19404,
+          "runtime_members": 5,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_agent_evidence-0.1.0a1.tar.gz": {
+          "sha256": "d1d438ce6f2587a8c93421d853811751bd3dc272927d08ab3a9eb82cf2573bfd",
+          "bytes": 16644,
+          "runtime_members": 5,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_agent_ledger-0.1.0a1-py3-none-any.whl": {
+          "sha256": "4d6a2de188259177abf2a0b5a17830e78b3ea6ebce1571316cdbf7153ea80b07",
+          "bytes": 17051,
+          "runtime_members": 6,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_agent_ledger-0.1.0a1.tar.gz": {
+          "sha256": "bab0bb3ed827eb89ac3784a61fe5df576f65466180a17dc9d506c8daa1b1d43a",
+          "bytes": 13931,
+          "runtime_members": 6,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+          "sha256": "acaa84fc0340c4640ced2b7cdbef04d5ba7cfaec20cd0525b866b415147635cc",
+          "bytes": 69728,
+          "runtime_members": 22,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_contracts-0.0.4a4.tar.gz": {
+          "sha256": "f32a66f31759b10c9ac251f4dffb2388a3e2ce50d2e5e15c69ac7038828f97a9",
+          "bytes": 53768,
+          "runtime_members": 22,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_evidence-0.1.0a2-py3-none-any.whl": {
+          "sha256": "0d7002a270c06d2dc7cdaff3091f67aa3db24417a57fedebf8b0fb47f3dd8ae2",
+          "bytes": 17911,
+          "runtime_members": 5,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_evidence-0.1.0a2.tar.gz": {
+          "sha256": "2d2cf67ce6d5e3e74abb8818e10d04b13d4c6ea63cc4647bd8d4f0adae43bd60",
+          "bytes": 14589,
+          "runtime_members": 5,
+          "physical_source_metadata_checked": true
+        },
+        "equity_features-0.0.4a4-py3-none-any.whl": {
+          "sha256": "cf8965e1600a3d8ef10dbefcfdea21f2d48ad8c8f80e0268abe12c365b1cd26e",
+          "bytes": 65151,
+          "runtime_members": 23,
+          "physical_source_metadata_checked": true
+        },
+        "equity_features-0.0.4a4.tar.gz": {
+          "sha256": "14e7b8b0ec1b245747d53081a73c9ef060c0f637d205ae97b5e14304b4d95c8f",
+          "bytes": 48412,
+          "runtime_members": 23,
+          "physical_source_metadata_checked": true
+        }
+      },
+      "forms": [
+        {
+          "form": "wheel",
+          "combined_actual_core_producer": false,
+          "methods": {
+            "ledger": 34,
+            "crash": 4,
+            "declarations": 26
+          },
+          "typing_passed": true,
+          "optional_independence": true
+        },
+        {
+          "form": "wheel",
+          "combined_actual_core_producer": true,
+          "methods": {
+            "ledger": 34,
+            "crash": 4,
+            "declarations": 26,
+            "producer": 1,
+            "accepted_evidence": 31
+          },
+          "typing_passed": true,
+          "optional_independence": false
+        },
+        {
+          "form": "sdist",
+          "combined_actual_core_producer": false,
+          "methods": {
+            "ledger": 34,
+            "crash": 4,
+            "declarations": 26
+          },
+          "typing_passed": true,
+          "optional_independence": true
+        },
+        {
+          "form": "sdist",
+          "combined_actual_core_producer": true,
+          "methods": {
+            "ledger": 34,
+            "crash": 4,
+            "declarations": 26,
+            "producer": 1,
+            "accepted_evidence": 31
+          },
+          "typing_passed": true,
+          "optional_independence": false
+        }
+      ],
+      "installed_methods_total": 320,
+      "archive_control_methods": 8,
+      "python": "3.12.15",
+      "selected_source_files": 112
+    },
+    "WINDOWS": {
+      "checks": 865,
+      "original_report_sha256": "c33efe49eef2a433763a1f7a533fc04d10ea0974ddfd08ccb42c9d55826f8305",
+      "original_log_sha256": "f80dc9f5412502e515ebedcf83021072a14e1b159dbc2fbf5ff788f0685a2e26",
+      "archives": {
+        "equity_feature_agent_evidence-0.1.0a1-py3-none-any.whl": {
+          "sha256": "b945a6c672d4f70031d98358bedd55184bfe7ad5c173c76bb9ac0f2cbd2ae5a9",
+          "bytes": 19427,
+          "runtime_members": 5,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_agent_evidence-0.1.0a1.tar.gz": {
+          "sha256": "2a63b65289b9055d0f6372b13222f33151166b53806a0aad2c0aeb0ce1cceea4",
+          "bytes": 16759,
+          "runtime_members": 5,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_agent_ledger-0.1.0a1-py3-none-any.whl": {
+          "sha256": "c2381a2def8a598f18c5c31cc8a8f22876e98037e06afb3783f06740c46c033b",
+          "bytes": 17072,
+          "runtime_members": 6,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_agent_ledger-0.1.0a1.tar.gz": {
+          "sha256": "a73f03e7959ce2c5ff0cc606b8edce6c1e115af00c44e2753ebf551ff6b1dc8e",
+          "bytes": 14043,
+          "runtime_members": 6,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+          "sha256": "11b29b397f1225449fff8b074593a0b5e76a5f4eebf76434d195937fcd3e1151",
+          "bytes": 69743,
+          "runtime_members": 22,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_contracts-0.0.4a4.tar.gz": {
+          "sha256": "18e93f66044a760a97188ec7ba1f486cab6cbe960dfafe027c4db8bb3e53dcc7",
+          "bytes": 53911,
+          "runtime_members": 22,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_evidence-0.1.0a2-py3-none-any.whl": {
+          "sha256": "6791b4afad95f9595749f627c3757da66ef628e15301c665118b088ed741d8ce",
+          "bytes": 17927,
+          "runtime_members": 5,
+          "physical_source_metadata_checked": true
+        },
+        "equity_feature_evidence-0.1.0a2.tar.gz": {
+          "sha256": "c69e51e6b99f38bedc0550371d6c9d8d7f2dd9c99b0d10d6d40a35eb32da35c7",
+          "bytes": 14654,
+          "runtime_members": 5,
+          "physical_source_metadata_checked": true
+        },
+        "equity_features-0.0.4a4-py3-none-any.whl": {
+          "sha256": "ce4f020e6b3f994714656e28d4d33bd617a5fb28bd5084ad74066e714c32de2d",
+          "bytes": 65170,
+          "runtime_members": 23,
+          "physical_source_metadata_checked": true
+        },
+        "equity_features-0.0.4a4.tar.gz": {
+          "sha256": "08b7c1002099c877e25584a5ea6f6bdabcee81286dbc06a3fba9db53d7297ad7",
+          "bytes": 48557,
+          "runtime_members": 23,
+          "physical_source_metadata_checked": true
+        }
+      },
+      "forms": [
+        {
+          "form": "wheel",
+          "combined_actual_core_producer": false,
+          "methods": {
+            "ledger": 34,
+            "crash": 4,
+            "declarations": 26
+          },
+          "typing_passed": true,
+          "optional_independence": true
+        },
+        {
+          "form": "wheel",
+          "combined_actual_core_producer": true,
+          "methods": {
+            "ledger": 34,
+            "crash": 4,
+            "declarations": 26,
+            "producer": 1,
+            "accepted_evidence": 31
+          },
+          "typing_passed": true,
+          "optional_independence": false
+        },
+        {
+          "form": "sdist",
+          "combined_actual_core_producer": false,
+          "methods": {
+            "ledger": 34,
+            "crash": 4,
+            "declarations": 26
+          },
+          "typing_passed": true,
+          "optional_independence": true
+        },
+        {
+          "form": "sdist",
+          "combined_actual_core_producer": true,
+          "methods": {
+            "ledger": 34,
+            "crash": 4,
+            "declarations": 26,
+            "producer": 1,
+            "accepted_evidence": 31
+          },
+          "typing_passed": true,
+          "optional_independence": false
+        }
+      ],
+      "installed_methods_total": 320,
+      "archive_control_methods": 8,
+      "python": "3.12.10",
+      "selected_source_files": 112
+    }
+  },
+  "findings": [],
+  "closed_finding": "EQ142GO01 remains closed at exact committed seven-file source.",
+  "public_metadata": {
+    "PR566_body_sha256": "2fda34b76f9f37fc7dfe4036388b91d123de6812533c5018aa0a1b58074f478a",
+    "issue": "https://github.com/atulsrivas1/equity-features/issues/476",
+    "progress_comment": "https://github.com/atulsrivas1/equity-features/issues/476#issuecomment-6282512062"
+  },
+  "all_reviewer_execution_ended": true,
+  "limitations": [
+    "Linux original qualifier was independently executed in fresh clean exact committed clone/new pinned environment. Windows author original qualifier execution was independently audited from retained raw report/logs/archives and exact Git/materialized source; no new reviewer Windows installed rerun claimed.",
+    "Per platform: ten raw first-repeat archives independently read; actual original second-repeat comparison and accepted-eight parity passed. Four forms,320 installed methods plus8 archive controls, strict typing, optional absence/combined producer, SQLite and installed-source closure passed without skips. Successful original temporary repeat/install environments were deleted by unchanged qualifier cleanup; they are not claimed retained.",
+    "Windows Git payload and Windows materialized hashes independently checked; explicit CRLF/LF equivalence only. No cross-platform raw archive byte equality imposed; each platform matches its own frozen accepted-eight baseline.",
+    "Hosted current CI vectors and hosted artifacts are separate next review. No full EQ142 worker/root/index/namespace/capacity/outer-envelope/study/performance/adoption/release acceptance or lifecycle transition.",
+    "Historical hosted failure cause remains UNKNOWN; independent local visibility race does not establish it. Premature observer timing probe remains excluded, no owner exception.",
+    "Reviewer did not mutate author sources, GitHub, lifecycle or protected environments."
+  ],
+  "derivative_of_private_receipt_sha256": "9f0f1c1a5b6f78161991a4614cf7162dc23305fccc6e289014cd75a93ddb8783",
+  "derivative_notice": "Public-safe derivative; not private receipt byte identity or new execution."
+}

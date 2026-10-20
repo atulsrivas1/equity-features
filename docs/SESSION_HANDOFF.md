@@ -1,3 +1,15 @@
+## EQ142 GO companion qualified; complete-root V8 clarification prepared
+
+Canonical f211abd and worker0b768cc remain component sources. Separate local /root/r17_review accepted original GO companion archive/installed qualification on Windows and Linux:320 methods plus8 archive controls each, no skips; receipt9f0f1c1a5b6f78161991a4614cf7162dc23305fccc6e289014cd75a93ddb8783. Current canonical push39363395701 and PR39363399827 each have35 successful jobs; worker0b has32 successful jobs across16 runs spanning8 workflows. Scoped artifact review efb4d1e2fcb0f966783dc4849e77ab4501024f35bd7624e257111c5a5e939b62 inspected all four selected push bundles. Worker optional/platform/CPU-capacity skips remain explicit; hosted success does not establish all native modes or whole EQ142. Both local qualification processes and reviewer execution ended. These results close the earlier pending companion gates within their exact scope; the original hosted failure cause remains unknown.
+
+Paired complete-root proposal V8 prospectively clarifies outer source-derived wrapper readback versus nested actual runner return, twelve reference-preparation pairs with actual recorder references, deterministic72-row complete source/runtime/capacity matrix, fixed short namespaces and actual encoded category/prefix accounting. Existing32MiB metadata allocation covers31,211,520 bytes; no resource cap, cohort, timing boundary, threshold, numerical formula, package payload or default changes. Controller implementation/promotion follows prospective review and paired publication. No complete-root emitter, official study or performance/release acceptance is provided by this documentation.
+
+Next: implement the full controller and fixed context, independent fixtures and separate review; qualify current committed source/archive/installed/CI; freeze actual capacity/source/count evidence; then official all-A-before-B study. All development acceptance flags remain false. EQ142 remains In progress, EQ143–146 Backlog. Preserve staged drafts and excluded premature timing evidence.
+
+See [V8 clarification](stories/EQ-142_COMPLETE_ROOT_PRECODE.md).
+
+## Earlier checkpoints retained as history
+
 ## EQ142GO01 failure-retention correction; review renewal pending
 
 Separate automated local /root/r17_review found EQ142GO01 in the first working regression: unittest.subTest records a failed assertion and continues, so unconditional passed=True could remove the failed diagnostic root. The retained independent fault probe observed one failure, zero errors and root absent. Exact failed-source review SHA256 `8a37fcb3960b84b98b9fd065e392d535fc186ebc6e62726c3ca87a459ae128ea`, snapshots and raw evidence remain retained. Earlier positive tests do not clear this defect.

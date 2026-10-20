@@ -1,3 +1,9 @@
+## EQ142 preserve provenance across process and preparation boundaries
+
+[V8 clarification](../stories/EQ-142_COMPLETE_ROOT_PRECODE.md) distinguishes a source-derived fixed wrapper readback from the nested actual original runner return. Native completion alone does not capture stdout provenance. Reference preparation also leaves full product/diagnostic files: capture actual original writer references and close their fixed namespace, rather than ignoring them or rehashing to invent returns. Bind count reuse to the full source/runtime/installed state and actual capacity freeze across every ordered supported selector. Reconcile existing category budgets using actual encoded lengths; a prior capacity receipt describes its earlier prefix, not a later journal total. These are controller obligations, not facts established by a pure record join.
+
+## Earlier checkpoints retained as history
+
 ## EQ142GO01 subtests do not prove cleanup success
 
 [GO companion correction](../stories/EQ-142_CI_GO_VISIBILITY_COMPANION.md): unittest.subTest can record failure and continue through a later success flag. Do not infer safe evidence deletion from reaching the end of that loop. The same deterministic controls now fail fast, leaving failed roots available. Verify failure retention with a deliberately corrupted result and verify successful cleanup separately. Preserve exact failed-source snapshots and raw diagnostics; positive protocol/crash controls alone did not expose or close this test-control defect.

@@ -1,0 +1,923 @@
+{
+  "status": "PASS_CURRENT_SOURCE_BOUND_CI_AND_SCOPED_HOSTED_ARTIFACT_COMPONENTS",
+  "reviewer": "Independent automated local Codex /root/r17_review",
+  "reviewed_at_utc": "2026-10-20T03:36:43.470410+00:00",
+  "heads": {
+    "equity-features": "f211abd227421d185a723c0b2bb2a9bb23e58414",
+    "equity-feature-workers": "0b768cc7f169398fefd0f179fdc6fa31e891fabb"
+  },
+  "check_count": 81,
+  "checks": [
+    "equity-features complete exact current head run population",
+    "equity-features exact push PR workflow matrix",
+    "equity-feature-workers complete exact current head run population",
+    "equity-feature-workers exact push PR workflow matrix",
+    "run39363399827 terminal exact job population",
+    "run39363399827 aggregate and two OS components",
+    "run39363395701 terminal exact job population",
+    "run39363395701 aggregate and two OS components",
+    "run39361571085 terminal exact job population",
+    "run39361571085 both OS",
+    "run39361571080 terminal exact job population",
+    "run39361571080 both OS",
+    "run39361571091 terminal exact job population",
+    "run39361571091 both OS",
+    "run39361571086 terminal exact job population",
+    "run39361571086 both OS",
+    "run39361571105 terminal exact job population",
+    "run39361571105 both OS",
+    "run39361571109 terminal exact job population",
+    "run39361571109 both OS",
+    "run39361571083 terminal exact job population",
+    "run39361571083 both OS",
+    "run39361571088 terminal exact job population",
+    "run39361571088 both OS",
+    "run39361566242 terminal exact job population",
+    "run39361566242 both OS",
+    "run39361566213 terminal exact job population",
+    "run39361566213 both OS",
+    "run39361566287 terminal exact job population",
+    "run39361566287 both OS",
+    "run39361566214 terminal exact job population",
+    "run39361566214 both OS",
+    "run39361566315 terminal exact job population",
+    "run39361566315 both OS",
+    "run39361566284 terminal exact job population",
+    "run39361566284 both OS",
+    "run39361566222 terminal exact job population",
+    "run39361566222 both OS",
+    "run39361566269 terminal exact job population",
+    "run39361566269 both OS",
+    "worker eight named workflow pairs",
+    "12238532751 actual current source run name expiry",
+    "12238532751 independent access server digest original retained bytes",
+    "12238532751 closed ZIP names",
+    "12238532751 exact raw member declarations",
+    "12238532751 all members in same report namespace",
+    "12238532751 exact local fully audited ten archives raw bytes",
+    "12238532751 actual hosted closure repeat accepted8",
+    "12238532751 selected canonical Git source closure",
+    "12238532751 four actual original forms",
+    "12238532751wheelFalse full actual method/raw logs/type/payload joins",
+    "12238532751wheelTrue full actual method/raw logs/type/payload joins",
+    "12238532751sdistFalse full actual method/raw logs/type/payload joins",
+    "12238532751sdistTrue full actual method/raw logs/type/payload joins",
+    "122385327518 original raw archive controls",
+    "12238487319 actual current source run name expiry",
+    "12238487319 independent access server digest original retained bytes",
+    "12238487319 closed ZIP names",
+    "12238487319 exact raw member declarations",
+    "12238487319 all members in same report namespace",
+    "12238487319 exact local fully audited ten archives raw bytes",
+    "12238487319 actual hosted closure repeat accepted8",
+    "12238487319 selected canonical Git source closure",
+    "12238487319 four actual original forms",
+    "12238487319wheelFalse full actual method/raw logs/type/payload joins",
+    "12238487319wheelTrue full actual method/raw logs/type/payload joins",
+    "12238487319sdistFalse full actual method/raw logs/type/payload joins",
+    "12238487319sdistTrue full actual method/raw logs/type/payload joins",
+    "122384873198 original raw archive controls",
+    "12237224433 actual current source run name expiry",
+    "12237224433 independent access server digest original retained bytes",
+    "12237224433 closed ZIP names",
+    "12237224433 exact raw member declarations",
+    "12237224433 all members in same report namespace",
+    "12237224433 exact independent worker raw semantics receipt",
+    "12237194890 actual current source run name expiry",
+    "12237194890 independent access server digest original retained bytes",
+    "12237194890 closed ZIP names",
+    "12237194890 exact raw member declarations",
+    "12237194890 all members in same report namespace",
+    "12237194890 exact independent worker raw semantics receipt"
+  ],
+  "vectors": [
+    {
+      "repo": "equity-features",
+      "run": 39363399827,
+      "head": "f211abd227421d185a723c0b2bb2a9bb23e58414",
+      "event": "pull_request",
+      "workflow": "Source-bound qualification",
+      "jobs": [
+        {
+          "id": 118434532986,
+          "name": "scope",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434532986"
+        },
+        {
+          "id": 118434533258,
+          "name": "docs / check",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434533258"
+        },
+        {
+          "id": 118434573299,
+          "name": "evidence-pilot / evidence-pilot (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573299"
+        },
+        {
+          "id": 118434573307,
+          "name": "agent-ledger / agent-ledger (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573307"
+        },
+        {
+          "id": 118434573309,
+          "name": "diagnostics / diagnostics (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573309"
+        },
+        {
+          "id": 118434573315,
+          "name": "agent-evidence / agent-evidence (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573315"
+        },
+        {
+          "id": 118434573317,
+          "name": "evidence / evidence (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573317"
+        },
+        {
+          "id": 118434573330,
+          "name": "agent-evidence / agent-evidence (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573330"
+        },
+        {
+          "id": 118434573331,
+          "name": "agent-ledger / agent-ledger (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573331"
+        },
+        {
+          "id": 118434573332,
+          "name": "evidence / evidence (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573332"
+        },
+        {
+          "id": 118434573350,
+          "name": "conformance / conformance (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573350"
+        },
+        {
+          "id": 118434573353,
+          "name": "evidence-evaluation / evidence-evaluation (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573353"
+        },
+        {
+          "id": 118434573360,
+          "name": "evidence-pilot / evidence-pilot (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573360"
+        },
+        {
+          "id": 118434573373,
+          "name": "diagnostics / diagnostics (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573373"
+        },
+        {
+          "id": 118434573396,
+          "name": "transport / wire (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573396"
+        },
+        {
+          "id": 118434573403,
+          "name": "conformance / conformance (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573403"
+        },
+        {
+          "id": 118434573415,
+          "name": "evidence-evaluation / evidence-evaluation (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573415"
+        },
+        {
+          "id": 118434573419,
+          "name": "provenance / provenance (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573419"
+        },
+        {
+          "id": 118434573445,
+          "name": "continuous / continuous (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573445"
+        },
+        {
+          "id": 118434573453,
+          "name": "r10 / r10 (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573453"
+        },
+        {
+          "id": 118434573454,
+          "name": "r10 / r10 (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573454"
+        },
+        {
+          "id": 118434573459,
+          "name": "r9 / r9 (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573459"
+        },
+        {
+          "id": 118434573466,
+          "name": "provenance / provenance (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573466"
+        },
+        {
+          "id": 118434573471,
+          "name": "transport / wire (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573471"
+        },
+        {
+          "id": 118434573499,
+          "name": "r9 / r9 (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573499"
+        },
+        {
+          "id": 118434573503,
+          "name": "packages / compatibility (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573503"
+        },
+        {
+          "id": 118434573518,
+          "name": "explanations / explanations (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573518"
+        },
+        {
+          "id": 118434573520,
+          "name": "quickstart / quickstart (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573520"
+        },
+        {
+          "id": 118434573523,
+          "name": "quickstart / quickstart (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573523"
+        },
+        {
+          "id": 118434573526,
+          "name": "continuous / continuous (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573526"
+        },
+        {
+          "id": 118434573536,
+          "name": "packages / compatibility (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573536"
+        },
+        {
+          "id": 118434573562,
+          "name": "research / research (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573562"
+        },
+        {
+          "id": 118434573579,
+          "name": "explanations / explanations (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573579"
+        },
+        {
+          "id": 118434573589,
+          "name": "research / research (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118434573589"
+        },
+        {
+          "id": 118438027554,
+          "name": "check",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363399827/job/118438027554"
+        }
+      ]
+    },
+    {
+      "repo": "equity-features",
+      "run": 39363395701,
+      "head": "f211abd227421d185a723c0b2bb2a9bb23e58414",
+      "event": "push",
+      "workflow": "Source-bound qualification",
+      "jobs": [
+        {
+          "id": 118434519861,
+          "name": "scope",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434519861"
+        },
+        {
+          "id": 118434520249,
+          "name": "docs / check",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434520249"
+        },
+        {
+          "id": 118434565864,
+          "name": "agent-evidence / agent-evidence (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434565864"
+        },
+        {
+          "id": 118434565896,
+          "name": "agent-evidence / agent-evidence (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434565896"
+        },
+        {
+          "id": 118434565994,
+          "name": "diagnostics / diagnostics (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434565994"
+        },
+        {
+          "id": 118434566011,
+          "name": "agent-ledger / agent-ledger (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566011"
+        },
+        {
+          "id": 118434566038,
+          "name": "diagnostics / diagnostics (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566038"
+        },
+        {
+          "id": 118434566039,
+          "name": "agent-ledger / agent-ledger (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566039"
+        },
+        {
+          "id": 118434566052,
+          "name": "conformance / conformance (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566052"
+        },
+        {
+          "id": 118434566078,
+          "name": "evidence / evidence (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566078"
+        },
+        {
+          "id": 118434566099,
+          "name": "conformance / conformance (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566099"
+        },
+        {
+          "id": 118434566105,
+          "name": "continuous / continuous (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566105"
+        },
+        {
+          "id": 118434566109,
+          "name": "provenance / provenance (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566109"
+        },
+        {
+          "id": 118434566130,
+          "name": "continuous / continuous (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566130"
+        },
+        {
+          "id": 118434566190,
+          "name": "evidence / evidence (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566190"
+        },
+        {
+          "id": 118434566194,
+          "name": "provenance / provenance (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566194"
+        },
+        {
+          "id": 118434566222,
+          "name": "quickstart / quickstart (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566222"
+        },
+        {
+          "id": 118434566250,
+          "name": "transport / wire (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566250"
+        },
+        {
+          "id": 118434566288,
+          "name": "quickstart / quickstart (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566288"
+        },
+        {
+          "id": 118434566290,
+          "name": "evidence-evaluation / evidence-evaluation (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566290"
+        },
+        {
+          "id": 118434566293,
+          "name": "explanations / explanations (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566293"
+        },
+        {
+          "id": 118434566320,
+          "name": "transport / wire (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566320"
+        },
+        {
+          "id": 118434566326,
+          "name": "evidence-evaluation / evidence-evaluation (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566326"
+        },
+        {
+          "id": 118434566372,
+          "name": "packages / compatibility (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566372"
+        },
+        {
+          "id": 118434566401,
+          "name": "r9 / r9 (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566401"
+        },
+        {
+          "id": 118434566408,
+          "name": "research / research (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566408"
+        },
+        {
+          "id": 118434566421,
+          "name": "evidence-pilot / evidence-pilot (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566421"
+        },
+        {
+          "id": 118434566425,
+          "name": "research / research (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566425"
+        },
+        {
+          "id": 118434566433,
+          "name": "r9 / r9 (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566433"
+        },
+        {
+          "id": 118434566443,
+          "name": "r10 / r10 (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566443"
+        },
+        {
+          "id": 118434566445,
+          "name": "evidence-pilot / evidence-pilot (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566445"
+        },
+        {
+          "id": 118434566459,
+          "name": "explanations / explanations (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566459"
+        },
+        {
+          "id": 118434566468,
+          "name": "packages / compatibility (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566468"
+        },
+        {
+          "id": 118434566479,
+          "name": "r10 / r10 (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118434566479"
+        },
+        {
+          "id": 118438045334,
+          "name": "check",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-features/actions/runs/39363395701/job/118438045334"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361571085,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "pull_request",
+      "workflow": "Optional Python client qualification",
+      "jobs": [
+        {
+          "id": 118428721888,
+          "name": "client (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571085/job/118428721888"
+        },
+        {
+          "id": 118428722184,
+          "name": "client (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571085/job/118428722184"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361571080,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "pull_request",
+      "workflow": "EQ080 pre-code OS feasibility",
+      "jobs": [
+        {
+          "id": 118428721898,
+          "name": "host-probe (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571080/job/118428721898"
+        },
+        {
+          "id": 118428722299,
+          "name": "host-probe (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571080/job/118428722299"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361571091,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "pull_request",
+      "workflow": "Supplied input package checks",
+      "jobs": [
+        {
+          "id": 118428722053,
+          "name": "supplied-inputs (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571091/job/118428722053"
+        },
+        {
+          "id": 118428722532,
+          "name": "supplied-inputs (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571091/job/118428722532"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361571086,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "pull_request",
+      "workflow": "Optional bounded MCP qualification",
+      "jobs": [
+        {
+          "id": 118428722017,
+          "name": "mcp (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571086/job/118428722017"
+        },
+        {
+          "id": 118428722421,
+          "name": "mcp (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571086/job/118428722421"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361571105,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "pull_request",
+      "workflow": "Typed foundation checks",
+      "jobs": [
+        {
+          "id": 118428722228,
+          "name": "foundation (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571105/job/118428722228"
+        },
+        {
+          "id": 118428722546,
+          "name": "foundation (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571105/job/118428722546"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361571109,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "pull_request",
+      "workflow": "Optional service qualification",
+      "jobs": [
+        {
+          "id": 118428722177,
+          "name": "service (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571109/job/118428722177"
+        },
+        {
+          "id": 118428722434,
+          "name": "service (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571109/job/118428722434"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361571083,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "pull_request",
+      "workflow": "Synthetic agent research qualification",
+      "jobs": [
+        {
+          "id": 118428721803,
+          "name": "agent-research (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571083/job/118428721803"
+        },
+        {
+          "id": 118428721910,
+          "name": "agent-research (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571083/job/118428721910"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361571088,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "pull_request",
+      "workflow": "Accepted R7 baseline compatibility (immutable 6538f21b)",
+      "jobs": [
+        {
+          "id": 118428722417,
+          "name": "accepted-r7-baseline (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571088/job/118428722417"
+        },
+        {
+          "id": 118428722612,
+          "name": "accepted-r7-baseline (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361571088/job/118428722612"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361566242,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "push",
+      "workflow": "Optional bounded MCP qualification",
+      "jobs": [
+        {
+          "id": 118428705178,
+          "name": "mcp (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566242/job/118428705178"
+        },
+        {
+          "id": 118428705328,
+          "name": "mcp (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566242/job/118428705328"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361566213,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "push",
+      "workflow": "Supplied input package checks",
+      "jobs": [
+        {
+          "id": 118428704515,
+          "name": "supplied-inputs (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566213/job/118428704515"
+        },
+        {
+          "id": 118428704949,
+          "name": "supplied-inputs (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566213/job/118428704949"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361566287,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "push",
+      "workflow": "EQ080 pre-code OS feasibility",
+      "jobs": [
+        {
+          "id": 118428705014,
+          "name": "host-probe (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566287/job/118428705014"
+        },
+        {
+          "id": 118428705208,
+          "name": "host-probe (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566287/job/118428705208"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361566214,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "push",
+      "workflow": "Optional Python client qualification",
+      "jobs": [
+        {
+          "id": 118428705076,
+          "name": "client (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566214/job/118428705076"
+        },
+        {
+          "id": 118428705329,
+          "name": "client (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566214/job/118428705329"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361566315,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "push",
+      "workflow": "Optional service qualification",
+      "jobs": [
+        {
+          "id": 118428705435,
+          "name": "service (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566315/job/118428705435"
+        },
+        {
+          "id": 118428705670,
+          "name": "service (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566315/job/118428705670"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361566284,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "push",
+      "workflow": "Synthetic agent research qualification",
+      "jobs": [
+        {
+          "id": 118428705072,
+          "name": "agent-research (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566284/job/118428705072"
+        },
+        {
+          "id": 118428705358,
+          "name": "agent-research (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566284/job/118428705358"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361566222,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "push",
+      "workflow": "Accepted R7 baseline compatibility (immutable 6538f21b)",
+      "jobs": [
+        {
+          "id": 118428705097,
+          "name": "accepted-r7-baseline (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566222/job/118428705097"
+        },
+        {
+          "id": 118428705273,
+          "name": "accepted-r7-baseline (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566222/job/118428705273"
+        }
+      ]
+    },
+    {
+      "repo": "equity-feature-workers",
+      "run": 39361566269,
+      "head": "0b768cc7f169398fefd0f179fdc6fa31e891fabb",
+      "event": "push",
+      "workflow": "Typed foundation checks",
+      "jobs": [
+        {
+          "id": 118428705087,
+          "name": "foundation (windows-latest)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566269/job/118428705087"
+        },
+        {
+          "id": 118428705363,
+          "name": "foundation (ubuntu-24.04)",
+          "conclusion": "success",
+          "url": "https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39361566269/job/118428705363"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12238532751,
+      "repo": "equity-features",
+      "run": 39363395701,
+      "name": "agent-ledger-f211abd227421d185a723c0b2bb2a9bb23e58414-windows-latest-attempt-1",
+      "sha256": "a974b20f6b9b75b18cf4eb218e097d9d90f10809a735cd0d6a5a15e8facbcbe0",
+      "expires_at": "2026-11-19T03:28:35Z",
+      "report_sha256": "c00d55ddd8160d4ba9e5d726859ad7241be9fa3b47cd4192afec71455e18fc6a",
+      "scope": "Canonical GO companion: all4forms320 installed executions+8archivecontrols/no skips; ten raw archives identical fully audited local platform set."
+    },
+    {
+      "id": 12238487319,
+      "repo": "equity-features",
+      "run": 39363395701,
+      "name": "agent-ledger-f211abd227421d185a723c0b2bb2a9bb23e58414-ubuntu-24.04-attempt-1",
+      "sha256": "910826f5105e52a43fc67e3712148463e77d0ae47c94d5faf389bb7dc7645c29",
+      "expires_at": "2026-11-19T03:24:49Z",
+      "report_sha256": "7471e815ede6ec8954e47e81ba407f1db9da51f5aa4dedcb5fd7c6ee73a5c416",
+      "scope": "Canonical GO companion: all4forms320 installed executions+8archivecontrols/no skips; ten raw archives identical fully audited local platform set."
+    },
+    {
+      "id": 12237224433,
+      "repo": "equity-feature-workers",
+      "run": 39361566213,
+      "name": "supplied-inputs-0b768cc7f169398fefd0f179fdc6fa31e891fabb-ubuntu-24.04",
+      "sha256": "457e98e0ca4a0af330f489c6e4370bae22895c7a33b076a0c7578424c3a71918",
+      "expires_at": "2026-11-19T03:00:03Z",
+      "report_sha256": "745c6323a9869e9f514b7ecde5ae0e65246c69894d638dc5a507f4ce198b021a",
+      "scope": "Worker0b component with exact optional/platform/CPU method+subtest skip ledger;201 collected is not201 fully executed or full mode/native qualification."
+    },
+    {
+      "id": 12237194890,
+      "repo": "equity-feature-workers",
+      "run": 39361566213,
+      "name": "supplied-inputs-0b768cc7f169398fefd0f179fdc6fa31e891fabb-windows-latest",
+      "sha256": "0f5adf4515fedf27fa2a9c9f2294203f8425238612a8a66614be72d24f63121e",
+      "expires_at": "2026-11-19T03:02:09Z",
+      "report_sha256": "673c3bcd3482e783163d91e383ebf8d3df20bcab76ef678178601442698d0166",
+      "scope": "Worker0b component with exact optional/platform/CPU method+subtest skip ledger;201 collected is not201 fully executed or full mode/native qualification."
+    }
+  ],
+  "all_reviewer_execution_ended": true,
+  "findings": [],
+  "limitations": [
+    "Canonical70+worker32 current mandatory job successes verified freshly through API; separate necessary companion/component gates, not whole EQ142 delivery or fullroot acceptance.",
+    "Actual canonical PUSH agent-ledger bothOS raw10/accepted8/4forms qualification bound to exact source and independently fully audited local raw archive sets.",
+    "Actual worker PUSH bothOS raw12archives/rebuild/source/installed joins independently checked. Windowslight67optional rows/combined26capacity rows; Linuxlight92optional/native rows/combined51rows incl22capacity. Subtest skip rows cannot be subtracted from201method collection or presented as all-mode qualification. Exact ledgers retained in separate artifact receipts.",
+    "No recreated hosted environments, new numerical workload/timing or native fullstudy. Installed generated RECORD/direct_url/launcher bytes unavailable; source-bound executed collector metadata inspected without inventing raw bytes.",
+    "Independent rawZIP access/digest/current finiteexpiry verified. Artifact expiry later requires recheck. No publicsource/lifecycle mutation or source behavior changes.",
+    "Reviewer helper initial encoding alias typo prevented preparer execution; later identity check rejected valid subtest suffixes; hosted/local installed metadata equality initially rejected actual source-path-dependent RECORD/direct_url differences. Exact installed namespace and all nongenerated archive payloads retained; only these source-derived pip-generated bodies differ, unavailable raw bodies not claimed decoded. Failed logs/source retained; corrected only reviewer method-vs-subtest accounting, source skip rules/counts/expectations unchanged."
+  ],
+  "derivative_of_private_receipt_sha256": "efb4d1e2fcb0f966783dc4849e77ab4501024f35bd7624e257111c5a5e939b62",
+  "derivative_notice": "Public-safe derivative; not original private byte identity or new execution."
+}
