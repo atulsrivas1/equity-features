@@ -1,3 +1,7 @@
+## EQ142 validate actual clock metadata before full qualification
+
+CPUMETA01: finite positive runtime clock resolution can use exponent notation under .17g, while the existing record grammar requires fixed notation. Test the actual producer output against the actual validator on each platform before expensive native qualification. Convert the already reported decimal value exactly; .17f rounding can erase small values, and widening the grammar would change the contract. Preserve real clock/units/boundaries and all failed evidence. [Failure and prospective design review](../reviews/EQ142_CPU_CLOCK_METADATA_FAILURE_REVIEW.json); [decision22](../stories/EQ-142_CONTROLLER_DECISIONS.md). Working52-method Windows regression is not committed/native/platform/study acceptance.
+
 ## EQ142 qualification observer duration is a separate budget
 
 An actual independent-count-profiler run reached the controller120-second allowance in c019; it did not establish a numerical defect or official performance result. Check the existing API/specification before selecting a prospective correction. The chosen count-only600-second allowance stays within the native API ceiling; preserve normal/official120, all encoded/resource/adoption limits and failed evidence. A new source fingerprint requires an entirely fresh count matrix rather than promoting its old normal prefix.

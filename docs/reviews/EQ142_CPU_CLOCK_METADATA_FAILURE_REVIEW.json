@@ -1,0 +1,46 @@
+{
+  "schema": "eq142-cpu-clock-metadata-failure-public:1",
+  "status": "CONFIRMED_BLOCKER_CPUMETA01_PROSPECTIVE_MINIMAL_PRODUCER_FIX_SUPPORTED",
+  "reviewer": "/root/r17_review",
+  "private_receipt_sha256": "52ec9a5f427709a2f505cd62403e3d9000a43b468141641bdff9fa260edf17bc",
+  "heads": {
+    "canonical": "9fc5f9edc96dc169b84045486df3e0153a04b23d",
+    "worker": "3cef3489296aae7c809254aaedbea47863e670e3"
+  },
+  "failure_stage": "measurement_envelope",
+  "failed_normal_fixture": "a-c001-w0",
+  "finding": {
+    "id": "CPUMETA01",
+    "producer": "tools/eq142_workspace.py DevelopmentWorkspace._cpu_clock (line370)",
+    "consumer": "tools/eq142_envelope.py validate_cpu_clock (line33)",
+    "cause": "format(actual process_time nominal resolution,.17g) legitimately emits exponent notation, while existing closed validator accepts only positive finite fixed-point decimal strings <=64 characters.",
+    "recommendation": "Keep actual get_clock_info and .17g numeric reporting. Convert that existing string exactly with format(Decimal(existing_reported_string), f), using explicit imported Decimal; keep positive/finite/64-character validation unchanged. Do not use .17f (fractional-place rounding), float reconversion or clock-source/threshold changes.",
+    "contract_basis": "Published complete-root actual_cpu_clock reported_resolution_seconds is actual positive canonical decimal nominal metadata, not empirical precision or QPF inverse. CPU values stay in separate process_time domain; no wall cross-subtraction. Representation correction only, no cap/deadline/cohort/timing boundary change.",
+    "required_regressions": [
+      "Direct actual source _cpu_clock -> unchanged validate_cpu_clock on Windows and Linux without constructing a workspace.",
+      "Exact Decimal equality of old .17g and new fixed strings; retain all other clock fields unchanged.",
+      "Known exponent forms, ordinary decimals, context independence, zero/negative/nonfinite/over64 refusal; no rounding away small positive resolution.",
+      "Fresh source-qualified full gate remains required after correction; failed root/index/admission never promoted/reused as successor acceptance."
+    ]
+  },
+  "actual_clock_reported_strings": {
+    "WINDOWS": {
+      "old": "9.9999999999999995e-08",
+      "exact_fixed": "0.000000099999999999999995",
+      "unchanged_validator_accepts": true
+    },
+    "LINUX": {
+      "old": "1.0000000000000001e-09",
+      "exact_fixed": "0.0000000010000000000000001",
+      "unchanged_validator_accepts": true
+    }
+  },
+  "limits": [
+    "Exact functions extracted from AST and executed for metadata only; full workspace not imported or instantiated.",
+    "No native API workload, original package calculation, test suite, full matrix or benchmark executed by reviewer.",
+    "Full72 count index/admission existence is observed failed-run evidence, not terminal native/Windows/manifest or official timing acceptance.",
+    "Independent Windows four-form source3cef run remains separately active; do not cancel/relabel its eventual outcome.",
+    "Earlier395/full-index raw preparation receipts retain their exact earlier observation scopes."
+  ],
+  "all_reviewer_execution_ended": true
+}
