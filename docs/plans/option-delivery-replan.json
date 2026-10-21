@@ -3,7 +3,7 @@
   "governance_issue": 572,
   "predecessor_governance_issue": 525,
   "planning_only": true,
-  "tracker_state": "migration_pending_review",
+  "tracker_state": "reviewed_source_tracker_reconciled_backlog",
   "source_commit": "a7cde58fc05166c9818c9107ed52269186d16afa",
   "source_hashes": {
     "CALCULATION_CATALOG.json": "0954e408f70ead630956c75c0849ceef1d068eb68c26f83cd7b2f1950fb6ad78",
@@ -1528,5 +1528,15 @@
   "input_output": "Selected qualified source DuckDB or labelled synthetic fixtures -> adapter -> worker -> pure libraries -> sink -> separate output DuckDB; no setup-only release.",
   "optional_api": true,
   "product_ui_required": false,
-  "public_deployment_required": false
+  "public_deployment_required": false,
+  "tracker_reconciliation": {
+    "story_updates": 36,
+    "epic_updates": 5,
+    "milestone_updates": 5,
+    "reviewed_source": "fd7e8634f55ef604523d8741403c212582cead41",
+    "implementation_status": "Backlog",
+    "implementation_unassigned": true,
+    "native_new_story_parents_verified": true,
+    "publication_lifecycle": "GOV036 issue572 / PR579; use live evidence"
+  }
 }
