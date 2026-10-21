@@ -1,4 +1,338 @@
 {
+  "current_numbered_layer_allocation": {
+    "as_of": "2026-10-21",
+    "precedence": "Current numbered allocations supersede historical proposed_not_created/null task identifiers only. Original story/task records and native homes remain historical baseline; this is not wholesale tracker migration or readiness.",
+    "actual_new_issue_count": 16,
+    "existing_ef1_layer_issue_count": 2,
+    "final16_tracker_readback_sha256": "283bd22381dd8dbd9932feaccce945b7dd56a5d8878b938a320c0ee787af4e0c",
+    "allocations": [
+      {
+        "planning_key": "EF1-IO",
+        "planned_release": "EF1",
+        "layer": "io",
+        "story": "EQ-212",
+        "issue": 570,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/570",
+        "native_parent": 569,
+        "native_milestone": 34,
+        "observed_state": "OPEN",
+        "observed_project_status": "In progress",
+        "observed_at": "2026-10-21; existing EF1 routing snapshot",
+        "release_acceptance_story": "EQ-169",
+        "release_acceptance_issue": 509,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false
+      },
+      {
+        "planning_key": "EF1-W",
+        "planned_release": "EF1",
+        "layer": "workers",
+        "story": "EQ-213",
+        "issue": 571,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/571",
+        "native_parent": 569,
+        "native_milestone": 34,
+        "observed_state": "OPEN",
+        "observed_project_status": "In progress",
+        "observed_at": "2026-10-21; existing EF1 routing snapshot",
+        "release_acceptance_story": "EQ-169",
+        "release_acceptance_issue": 509,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false
+      },
+      {
+        "planning_key": "EF2-IO",
+        "planned_release": "EF2",
+        "layer": "io",
+        "story": "EQ-221",
+        "issue": 609,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/609",
+        "native_parent": 467,
+        "native_milestone": 23,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-152",
+        "release_acceptance_issue": 486,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "4181fd769c509a25fc09ec43f5f2ec25c93f7b4f834b896e9b52ede8f27fbc9b"
+      },
+      {
+        "planning_key": "EF2-W",
+        "planned_release": "EF2",
+        "layer": "workers",
+        "story": "EQ-222",
+        "issue": 610,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/610",
+        "native_parent": 467,
+        "native_milestone": 23,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-152",
+        "release_acceptance_issue": 486,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "bc8e3bce341e0962ed24a67aff913e41be47d52803e46b22550b736c4e175ef6"
+      },
+      {
+        "planning_key": "EF3-IO",
+        "planned_release": "EF3",
+        "layer": "io",
+        "story": "EQ-223",
+        "issue": 611,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/611",
+        "native_parent": 468,
+        "native_milestone": 24,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-157",
+        "release_acceptance_issue": 491,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "79d5fc9a95bbf7a4604ebb59c17d0c242b082d7dba9b1dbe0db273836af9e5b0"
+      },
+      {
+        "planning_key": "EF3-W",
+        "planned_release": "EF3",
+        "layer": "workers",
+        "story": "EQ-224",
+        "issue": 612,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/612",
+        "native_parent": 468,
+        "native_milestone": 24,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-157",
+        "release_acceptance_issue": 491,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "2bdd4b2d714678fbe6ed82ae8584de89cb46d7da0f5c95107009722d229c7786"
+      },
+      {
+        "planning_key": "EF4-IO",
+        "planned_release": "EF4",
+        "layer": "io",
+        "story": "EQ-225",
+        "issue": 613,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/613",
+        "native_parent": 469,
+        "native_milestone": 25,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-163",
+        "release_acceptance_issue": 497,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "9410c1af45396ab91379e1a2d8d28948591d4bfe572f721f2b0fed1c5010291c"
+      },
+      {
+        "planning_key": "EF4-W",
+        "planned_release": "EF4",
+        "layer": "workers",
+        "story": "EQ-226",
+        "issue": 614,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/614",
+        "native_parent": 469,
+        "native_milestone": 25,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-163",
+        "release_acceptance_issue": 497,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "a33679a933a3da2acf974b79e2de9e02922a5469298518019c651de523a50ad3"
+      },
+      {
+        "planning_key": "EF5-IO",
+        "planned_release": "EF5",
+        "layer": "io",
+        "story": "EQ-227",
+        "issue": 615,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/615",
+        "native_parent": 510,
+        "native_milestone": 27,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-235",
+        "release_acceptance_issue": 623,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "2de17bf4fc447962b175715e647ce5c40ce765162ff9a6c702d703275ec94153"
+      },
+      {
+        "planning_key": "EF5-W",
+        "planned_release": "EF5",
+        "layer": "workers",
+        "story": "EQ-228",
+        "issue": 616,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/616",
+        "native_parent": 510,
+        "native_milestone": 27,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-235",
+        "release_acceptance_issue": 623,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "9f9bba0f96293b545bc375b28a25d11893fdf88c32a33935bb0d9925c7568065"
+      },
+      {
+        "planning_key": "EF5-A",
+        "planned_release": "EF5",
+        "layer": "acceptance",
+        "story": "EQ-235",
+        "issue": 623,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/623",
+        "native_parent": 510,
+        "native_milestone": 27,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-235",
+        "release_acceptance_issue": 623,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "cd765c4363775ebfc80da2220fdbad667dde2bdc96e3c24a2291c97d60f77a41"
+      },
+      {
+        "planning_key": "EF6-IO",
+        "planned_release": "EF6",
+        "layer": "io",
+        "story": "EQ-229",
+        "issue": 617,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/617",
+        "native_parent": 510,
+        "native_milestone": 27,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-236",
+        "release_acceptance_issue": 624,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "69aafcb3f6ef1d295ed519a75bcababb9caf32c74569c51055d5371c7eea4415"
+      },
+      {
+        "planning_key": "EF6-W",
+        "planned_release": "EF6",
+        "layer": "workers",
+        "story": "EQ-230",
+        "issue": 618,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/618",
+        "native_parent": 510,
+        "native_milestone": 27,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-236",
+        "release_acceptance_issue": 624,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "c4541290f2abd9ce1f75e8c09eb21086bd0f68db221d29cc0a3f43c75317f83b"
+      },
+      {
+        "planning_key": "EF6-A",
+        "planned_release": "EF6",
+        "layer": "acceptance",
+        "story": "EQ-236",
+        "issue": 624,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/624",
+        "native_parent": 510,
+        "native_milestone": 27,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-236",
+        "release_acceptance_issue": 624,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "0c8251fa19055afbeb5068d0642fe9ca83d1127769deb6a7baaea9e3df5db71a"
+      },
+      {
+        "planning_key": "EF7-IO",
+        "planned_release": "EF7",
+        "layer": "io",
+        "story": "EQ-231",
+        "issue": 619,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/619",
+        "native_parent": 510,
+        "native_milestone": 27,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-175",
+        "release_acceptance_issue": 516,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "7fddea8f9b466f411980e5879e66b15961cb68297f2c262349af3e443e3a2018"
+      },
+      {
+        "planning_key": "EF7-W",
+        "planned_release": "EF7",
+        "layer": "workers",
+        "story": "EQ-232",
+        "issue": 620,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/620",
+        "native_parent": 510,
+        "native_milestone": 27,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-175",
+        "release_acceptance_issue": 516,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "a0d735541cc50934d8627cc6aaacef153eee2fb961f9fc2b09d62cb304ec2fbe"
+      },
+      {
+        "planning_key": "EF8-IO",
+        "planned_release": "EF8",
+        "layer": "io",
+        "story": "EQ-233",
+        "issue": 621,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/621",
+        "native_parent": 517,
+        "native_milestone": 28,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-181",
+        "release_acceptance_issue": 523,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "69b4ca5e6f5a33aabde3839571477b6c3b3ae7454c46dc3d9b1d663b671422db"
+      },
+      {
+        "planning_key": "EF8-W",
+        "planned_release": "EF8",
+        "layer": "workers",
+        "story": "EQ-234",
+        "issue": 622,
+        "url": "https://github.com/atulsrivas1/equity-features/issues/622",
+        "native_parent": 517,
+        "native_milestone": 28,
+        "observed_state": "OPEN",
+        "observed_project_status": "Backlog",
+        "observed_at": "2026-10-21T10:36:03.825023+00:00",
+        "release_acceptance_story": "EQ-181",
+        "release_acceptance_issue": 523,
+        "allocation_only": true,
+        "math_api_source_consumer_acceptance": false,
+        "actual_body_sha256": "f1889634c8e7c8fa6d76ad3dfa0d7774dc3db6a11a7114cd1d9fa0cde86c11a7"
+      }
+    ],
+    "full_eq164_accepted": false,
+    "accepted_private_math_source_consumer_bindings": 0,
+    "conditional_diagnostic_story_created": false
+  },
   "ownership_reconciliation": {
     "governance_issue": 504,
     "status": "accepted_planned_ownership_math_unaccepted",
@@ -66,6 +400,32 @@
   "releases": [
     {
       "id": "EF1",
+      "current_numbered_owners": {
+        "library_story_owners": [
+          {
+            "story": "EQ-165",
+            "issue": 505
+          },
+          {
+            "story": "EQ-166",
+            "issue": 506
+          },
+          {
+            "story": "EQ-167",
+            "issue": 507
+          },
+          {
+            "story": "EQ-168",
+            "issue": 508
+          }
+        ],
+        "io_issue": 570,
+        "worker_issue": 571,
+        "acceptance_story": "EQ-169",
+        "acceptance_issue": 509,
+        "native_home_migration_claimed": false,
+        "implementation_admission_changed": false
+      },
       "title": "Sessions, levels and reference features",
       "goal": "Session/status clocks, extended sessions, calendar levels, anchored VWAP/gaps and governed references, delivered alongside the accepted OHLCV baseline.",
       "state": "proposed_allocation_not_migrated",
@@ -256,6 +616,40 @@
     },
     {
       "id": "EF2",
+      "current_numbered_owners": {
+        "library_story_owners": [
+          {
+            "story": "EQ-147",
+            "issue": 481
+          },
+          {
+            "story": "EQ-148",
+            "issue": 482
+          },
+          {
+            "story": "EQ-149",
+            "issue": 483
+          },
+          {
+            "story": "EQ-150",
+            "issue": 484
+          },
+          {
+            "story": "EQ-151",
+            "issue": 485
+          },
+          {
+            "story": "EQ-170",
+            "issue": 511
+          }
+        ],
+        "io_issue": 609,
+        "worker_issue": 610,
+        "acceptance_story": "EQ-152",
+        "acceptance_issue": 486,
+        "native_home_migration_claimed": false,
+        "implementation_admission_changed": false
+      },
       "title": "Trend, momentum and channels",
       "goal": "MACD, DMI/ADX, stochastic/Williams, OBV/A-D/CMF, aligned Ichimoku and admitted price-channel/squeeze features.",
       "state": "proposed_allocation_not_migrated",
@@ -465,6 +859,36 @@
     },
     {
       "id": "EF3",
+      "current_numbered_owners": {
+        "library_story_owners": [
+          {
+            "story": "EQ-153",
+            "issue": 487
+          },
+          {
+            "story": "EQ-154",
+            "issue": 488
+          },
+          {
+            "story": "EQ-155",
+            "issue": 489
+          },
+          {
+            "story": "EQ-156",
+            "issue": 490
+          },
+          {
+            "story": "EQ-220",
+            "issue": 598
+          }
+        ],
+        "io_issue": 611,
+        "worker_issue": 612,
+        "acceptance_story": "EQ-157",
+        "acceptance_issue": 491,
+        "native_home_migration_claimed": false,
+        "implementation_admission_changed": false
+      },
       "title": "Relative statistics and anomalies",
       "goal": "Correlation/beta/residuals, separately specified log-return RV, robust histories/ranks and volume pace/anomalies.",
       "state": "proposed_allocation_not_migrated",
@@ -642,6 +1066,40 @@
     },
     {
       "id": "EF4",
+      "current_numbered_owners": {
+        "library_story_owners": [
+          {
+            "story": "EQ-158",
+            "issue": 492
+          },
+          {
+            "story": "EQ-159",
+            "issue": 493
+          },
+          {
+            "story": "EQ-160",
+            "issue": 494
+          },
+          {
+            "story": "EQ-161",
+            "issue": 495
+          },
+          {
+            "story": "EQ-162",
+            "issue": 496
+          },
+          {
+            "story": "EQ-172",
+            "issue": 513
+          }
+        ],
+        "io_issue": 613,
+        "worker_issue": 614,
+        "acceptance_story": "EQ-163",
+        "acceptance_issue": 497,
+        "native_home_migration_claimed": false,
+        "implementation_admission_changed": false
+      },
       "title": "Tape, quotes and path statistics",
       "goal": "Trade windows/signing, quote dynamics/microprice, VWAP/path statistics, efficiency/choppiness, notional top-K and remaining projections.",
       "state": "proposed_allocation_not_migrated",
@@ -852,6 +1310,20 @@
     },
     {
       "id": "EF5",
+      "current_numbered_owners": {
+        "library_story_owners": [
+          {
+            "story": "EQ-171",
+            "issue": 512
+          }
+        ],
+        "io_issue": 615,
+        "worker_issue": 616,
+        "acceptance_story": "EQ-235",
+        "acceptance_issue": 623,
+        "native_home_migration_claimed": false,
+        "implementation_admission_changed": false
+      },
       "title": "Price structures and patterns",
       "goal": "Original independently specified candle/structural pattern evidence and assigned price-action projections.",
       "state": "proposed_allocation_not_migrated",
@@ -982,6 +1454,20 @@
     },
     {
       "id": "EF6",
+      "current_numbered_owners": {
+        "library_story_owners": [
+          {
+            "story": "EQ-173",
+            "issue": 514
+          }
+        ],
+        "io_issue": 617,
+        "worker_issue": 618,
+        "acceptance_story": "EQ-236",
+        "acceptance_issue": 624,
+        "native_home_migration_claimed": false,
+        "implementation_admission_changed": false
+      },
       "title": "Events and fundamentals",
       "goal": "Arithmetic over supplied point-in-time event/fundamental/short-interest/reference facts.",
       "state": "proposed_allocation_not_migrated",
@@ -1113,6 +1599,20 @@
     },
     {
       "id": "EF7",
+      "current_numbered_owners": {
+        "library_story_owners": [
+          {
+            "story": "EQ-174",
+            "issue": 515
+          }
+        ],
+        "io_issue": 619,
+        "worker_issue": 620,
+        "acceptance_story": "EQ-175",
+        "acceptance_issue": 516,
+        "native_home_migration_claimed": false,
+        "implementation_admission_changed": false
+      },
       "title": "Observed outcomes",
       "goal": "Mature observed-path MFE/MAE, barriers and time-to-target with cumulative remaining-numerical qualification.",
       "state": "proposed_allocation_not_migrated",
@@ -1244,6 +1744,38 @@
     },
     {
       "id": "EF8",
+      "current_numbered_owners": {
+        "library_story_owners": [
+          {
+            "story": "EQ-176",
+            "issue": 518
+          },
+          {
+            "story": "EQ-177",
+            "issue": 519
+          },
+          {
+            "story": "EQ-178",
+            "issue": 520
+          },
+          {
+            "story": "EQ-179",
+            "issue": 521
+          }
+        ],
+        "io_issue": 621,
+        "worker_issue": 622,
+        "acceptance_story": "EQ-181",
+        "acceptance_issue": 523,
+        "native_home_migration_claimed": false,
+        "implementation_admission_changed": false,
+        "integration_story_owners": [
+          {
+            "story": "EQ-180",
+            "issue": 522
+          }
+        ]
+      },
       "title": "Equity policies and complete coverage",
       "goal": "Admitted scanner/watchlist/context policies, confirmation/lifecycle/history and complete equity binding/coverage audit.",
       "state": "proposed_allocation_not_migrated",
