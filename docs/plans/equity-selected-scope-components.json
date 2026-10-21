@@ -1,0 +1,2503 @@
+{
+  "schema_version": 1,
+  "kind": "draft_actual_numbered_selected_scope_component_routes",
+  "source_public_manifest_sha256": "b76c50912bd015dcd3a69fa3617fd3527899db20700bd6ca6fe6ae8f88cbbc17",
+  "actual_publication_report_sha256": "061bdf035d4cc1ebc282be4e22857a43f3ef516e45625cbeb6b7adcb9e148d61",
+  "route_acceptance": "pending coordinator and fresh independent review; no mathematical or full inventory acceptance",
+  "rows": [
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0690",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0691",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0692",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0693",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0694",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0695",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0696",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0697",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0698",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0699",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0700",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 611,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "representation_envelope_only"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0701",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 611,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "representation_envelope_only"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0702",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "supplied_rate_operand; exact #492 ordered source profile remains separate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0703",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0704",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0705",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0706",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0707",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "supplied_median_profile_operand_or_flag; no_mean_substitution"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0708",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "supplied_median_profile_operand_or_flag; no_mean_substitution"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0709",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "supplied_median_profile_operand_or_flag; no_mean_substitution"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0710",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "supplied_median_profile_operand_or_flag; no_mean_substitution"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0711",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "supplied_median_profile_operand_or_flag; no_mean_substitution"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0712",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "supplied_median_profile_operand_or_flag; no_mean_substitution"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0713",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0714",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "adaptive_or_generic_session_summary_profile",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0715",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 519,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0716",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 519,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0717",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 519,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0718",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 519,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0719",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 519,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0720",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 519,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_current_policy_operand"
+        },
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "ordered_diagnostic_policy_episode_edge"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "F0721",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 611,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "representation_envelope_only"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "S0336",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_catalogue_predicate"
+        },
+        {
+          "primary_numbered_owner": 519,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_score_or_trigger_policy"
+        },
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_adaptive_or_session_summary_operand",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "S0337",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_catalogue_predicate"
+        },
+        {
+          "primary_numbered_owner": 519,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_score_or_trigger_policy"
+        },
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_adaptive_or_session_summary_operand",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S01-ADAPTIVE",
+      "opaque_id": "S0357",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_catalogue_predicate"
+        },
+        {
+          "primary_numbered_owner": 519,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_score_or_trigger_policy"
+        },
+        {
+          "primary_numbered_owner": 626,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_adaptive_or_session_summary_operand",
+          "canonical_story": "EQ-237",
+          "allocation_source": "actual_issue_creation_and_readback"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S02-REJECTION",
+      "opaque_id": "F0088",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 506,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "pure_rejected_path_diagnostic"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S02-REJECTION",
+      "opaque_id": "F0089",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 506,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "pure_rejected_path_diagnostic"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S02-REJECTION",
+      "opaque_id": "F0142",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 570,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "supplied_diagnostic_copy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S02-REJECTION",
+      "opaque_id": "F0143",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 570,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "supplied_diagnostic_copy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "F0452",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "separate_current_inclusive_historical_mean_proxy_companion"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0001",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0002",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0003",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0004",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0005",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0006",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0007",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0008",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0009",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0010",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0011",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0012",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0013",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0014",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0015",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0016",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0017",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0018",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0019",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0020",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0021",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0022",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0023",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0024",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S03-MEAN-RATIO",
+      "opaque_id": "W0025",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "selected_watchlist_catalogue"
+        },
+        {
+          "primary_numbered_owner": 490,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "actual_historical_mean_proxy_operand; conditional36only_after_proof"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S04-RETRACEMENT",
+      "opaque_id": "S0276",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 511,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF2",
+          "io_issue": 609,
+          "worker_issue": 610,
+          "role": "caller_parameterized_retracement_level"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_proximity_crossing_score_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S04-RETRACEMENT",
+      "opaque_id": "S0277",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 511,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF2",
+          "io_issue": 609,
+          "worker_issue": 610,
+          "role": "caller_parameterized_retracement_level"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_proximity_crossing_score_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S04-RETRACEMENT",
+      "opaque_id": "S0278",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 511,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF2",
+          "io_issue": 609,
+          "worker_issue": 610,
+          "role": "caller_parameterized_retracement_level"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_proximity_crossing_score_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S04-RETRACEMENT",
+      "opaque_id": "S0279",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 511,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF2",
+          "io_issue": 609,
+          "worker_issue": 610,
+          "role": "caller_parameterized_retracement_level"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_proximity_crossing_score_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S04-RETRACEMENT",
+      "opaque_id": "S0280",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 511,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF2",
+          "io_issue": 609,
+          "worker_issue": 610,
+          "role": "caller_parameterized_retracement_level"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_proximity_crossing_score_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S04-RETRACEMENT",
+      "opaque_id": "S0281",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 511,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF2",
+          "io_issue": 609,
+          "worker_issue": 610,
+          "role": "caller_parameterized_retracement_level"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_proximity_crossing_score_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S04-RETRACEMENT",
+      "opaque_id": "S0282",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 511,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF2",
+          "io_issue": 609,
+          "worker_issue": 610,
+          "role": "caller_parameterized_retracement_level"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_proximity_crossing_score_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S04-RETRACEMENT",
+      "opaque_id": "S0283",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 511,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF2",
+          "io_issue": 609,
+          "worker_issue": 610,
+          "role": "caller_parameterized_retracement_level"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_proximity_crossing_score_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S04-RETRACEMENT",
+      "opaque_id": "S0284",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 511,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF2",
+          "io_issue": 609,
+          "worker_issue": 610,
+          "role": "caller_parameterized_retracement_level"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_proximity_crossing_score_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S05-RATE-DIFFERENCE",
+      "opaque_id": "F0193",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "raw_rolling_return_or_share_rate_or_rate_difference; not_technical_second_derivative"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S05-RATE-DIFFERENCE",
+      "opaque_id": "F0593",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "raw_rolling_return_or_share_rate_or_rate_difference; not_technical_second_derivative"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S05-RATE-DIFFERENCE",
+      "opaque_id": "F0594",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "raw_rolling_return_or_share_rate_or_rate_difference; not_technical_second_derivative"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S05-RATE-DIFFERENCE",
+      "opaque_id": "F0595",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "raw_rolling_return_or_share_rate_or_rate_difference; not_technical_second_derivative"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S05-RATE-DIFFERENCE",
+      "opaque_id": "F0596",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "raw_rolling_return_or_share_rate_or_rate_difference; not_technical_second_derivative"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S05-RATE-DIFFERENCE",
+      "opaque_id": "F0597",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "raw_rolling_return_or_share_rate_or_rate_difference; not_technical_second_derivative"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S05-RATE-DIFFERENCE",
+      "opaque_id": "F0598",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "raw_rolling_return_or_share_rate_or_rate_difference; not_technical_second_derivative"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S05-RATE-DIFFERENCE",
+      "opaque_id": "F0599",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "raw_rolling_return_or_share_rate_or_rate_difference; not_technical_second_derivative"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S05-RATE-DIFFERENCE",
+      "opaque_id": "F0620",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 513,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF4",
+          "io_issue": 613,
+          "worker_issue": 614,
+          "role": "raw_rolling_return_or_share_rate_or_rate_difference; not_technical_second_derivative"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0090",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0091",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0092",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0093",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0094",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0095",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0096",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0097",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0098",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S06-RANK",
+      "opaque_id": "S0099",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0287",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "stateless_selected_predicate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0288",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "stateless_selected_predicate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0291",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "stateless_selected_predicate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0292",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "stateless_selected_predicate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0293",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "stateless_selected_predicate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0296",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "stateless_selected_predicate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0297",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "stateless_selected_predicate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0303",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "stateless_selected_predicate"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0289",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "latched_ordered_transition"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0290",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "latched_ordered_transition"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0294",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "latched_ordered_transition"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0295",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "latched_ordered_transition"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0298",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "latched_ordered_transition"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0299",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "latched_ordered_transition"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0300",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "latched_ordered_transition"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0301",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "latched_ordered_transition"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0341",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 507,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "supplied_anchor_arithmetic"
+        },
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_ordered_anchor_discovery"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0342",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 507,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "supplied_anchor_arithmetic"
+        },
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_ordered_anchor_discovery"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0343",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "ordered_anchor_discovery_or_state_projection"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0344",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "ordered_anchor_discovery_or_state_projection"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0345",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "ordered_anchor_discovery_or_state_projection"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0346",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 520,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "ordered_anchor_discovery_or_state_projection"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0307",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 505,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "opening_observable"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_lateness_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0271",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 506,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "first_regular_trade_price_or_narrow_presence"
+        },
+        {
+          "primary_numbered_owner": 505,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "separate_observation_clock"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S07-ROLE-SPLIT",
+      "opaque_id": "F0284",
+      "kind": "field",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 506,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "first_regular_trade_price_or_narrow_presence"
+        },
+        {
+          "primary_numbered_owner": 505,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF1",
+          "io_issue": 570,
+          "worker_issue": 571,
+          "role": "separate_observation_clock"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S08-POPULATION",
+      "opaque_id": "S0003",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 598,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "observed_population_companion"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_breadth_regime_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S08-POPULATION",
+      "opaque_id": "S0004",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 598,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "observed_population_companion"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_breadth_regime_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S08-POPULATION",
+      "opaque_id": "S0005",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 598,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "observed_population_companion"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_breadth_regime_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    },
+    {
+      "selection_id": "S08-POPULATION",
+      "opaque_id": "S0006",
+      "kind": "consumer",
+      "proposed_component_owners": [
+        {
+          "primary_numbered_owner": 598,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF3",
+          "io_issue": 611,
+          "worker_issue": 612,
+          "role": "observed_population_companion"
+        },
+        {
+          "primary_numbered_owner": 518,
+          "proposed_new_owner_key": null,
+          "planned_release": "EF8",
+          "io_issue": 621,
+          "worker_issue": 622,
+          "role": "separate_breadth_regime_policy"
+        }
+      ],
+      "all_mathematical_canonical_source_rights_consumer_equivalence_acceptance": false,
+      "implementation_ready": false
+    }
+  ],
+  "all_full_inventory_and_semantic_acceptance": false
+}
