@@ -1,0 +1,56 @@
+{
+  "kind": "public_generic_BAR_transport_actual_execution_summary",
+  "status": "ACTUAL_EXECUTION_RECORDED_INDEPENDENT_ACTUAL_EVIDENCE_ACCEPTANCE_PENDING",
+  "preparation_base_manifest_sha256": "9c2762790bc78139bb802c116f34e312ae22084055ddd57f2e89a13137813358",
+  "basis": "Append-only sanitized summary of actual coordinator execution receipts; not a fresh independent review, numerical implementation pass, shared freeze or source grant.",
+  "probe_sha256": "c964bcb35d65834a40c7b9645275869c30a6dc8857c6b2789c54c301deb50167",
+  "source_pins_sha256": "4a0b16e92c964689315d402102db6f4790bc9dfb593daf9c719c5001360ca2ec",
+  "oracle_sha256": "05d5b4815df3fd621993037c84f9d897a32ee84c833715e6ca1f6c4e1473d030",
+  "actual_final_receipt_sha256": "d760f17a05ffd1ab4893b90888a789a898905d80d595b5dfc3af3bc10e42692d",
+  "actual_parent_receipt_sha256": "9325fd316e631bd3ef85287f2ad15a06f4be3c07b2727f1c3b3b9305e5e5ab3b",
+  "actual_parent_child_exit_code": 0,
+  "actual_coordinator_exec_chunk": "35dd83",
+  "execution_finished_utc": "2026-10-21T09:35:02.312052+00:00",
+  "actual_counts": {
+    "config": 100,
+    "unsupported_decode": 100,
+    "constructor": 100,
+    "canonical": 96,
+    "task": 96,
+    "generic_admit": 94,
+    "SDK": 46,
+    "tamper_acceptance": 3,
+    "identity_negative": 2
+  },
+  "total_case_and_control_records": 105,
+  "closed_source_inventory_files": 209,
+  "closed_importable_subset_files": 111,
+  "source_pin_sets_reported_unchanged": true,
+  "recorded_sources": {
+    "core": "ab6d1e6214282f92e002599cc3c185dab85fa9fd",
+    "io": "1d69e42b01d102e72a0870f65e49a1ad2daef3d7",
+    "workers": "2e393be18a3f8cbca7201482bde5bf3c8c484ed8"
+  },
+  "recorded_measured_maxima_bytes": {
+    "context_ascii_bytes": 357,
+    "actual_pickle5_input_bytes": 6443,
+    "task_json_bytes": 5786,
+    "sdk_result_bytes": 5348
+  },
+  "maximum_proof_text_UTF8_bytes_including_negative_controls": 4097,
+  "numerical_producer_executed": false,
+  "proof_parser_executed": false,
+  "producer_specific_worker_closure_executed": false,
+  "sink_calls": 0,
+  "independent_actual_evidence_review_sha256": null,
+  "independent_publication_review_sha256": null,
+  "shared_freeze": false,
+  "source_authoring_authorized": false,
+  "limitations": [
+    "No producer mathematics, proof parser, producer worker route/closure or sink method called.",
+    "N50 generic Task missing prior calendar refusal is not an observed new endpoint config refusal.",
+    "Generic admission of structurally invalid negative DTOs does not override earlier canonical refusal.",
+    "Generic tamper acceptance is a missing producer-specific closure, not validated rejection.",
+    "Zero sink calls means nonexecution, not rejection-before-publication evidence."
+  ]
+}

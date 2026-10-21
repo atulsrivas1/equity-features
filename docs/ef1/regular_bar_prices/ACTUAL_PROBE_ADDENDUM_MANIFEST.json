@@ -1,0 +1,21 @@
+{
+  "kind": "append_only_public_preparation_actual_generic_probe_addendum",
+  "status": "ACTUAL_EXECUTION_SUMMARY_REQUIRES_INDEPENDENT_ACTUAL_EVIDENCE_AND_PUBLICATION_REVIEW",
+  "predecessor_manifest_sha256": "9c2762790bc78139bb802c116f34e312ae22084055ddd57f2e89a13137813358",
+  "predecessor_seven_files_unchanged": true,
+  "additions": {
+    "ACTUAL_GENERIC_PROBE_PENDING_REVIEW.json": {
+      "sha256": "797ad8bf92ef5d71859195f8a8662b9021f7d810c3109cf77349315af431ebfb",
+      "bytes": 2730
+    },
+    "ACTUAL_GENERIC_PROBE_PENDING_REVIEW.md": {
+      "sha256": "9ff5316408ef1400d1b12af55c12f5d01b4d736b86220174aef3eb14c1cedced",
+      "bytes": 2905
+    }
+  },
+  "shared_freeze": false,
+  "implementation_authorized": false,
+  "independent_actual_evidence_review_sha256": null,
+  "independent_publication_review_sha256": null,
+  "limits": "Raw actual receipts and source origins remain private. No independent acceptance asserted by author. Pending base status is preserved history, not denial of the later recorded execution."
+}

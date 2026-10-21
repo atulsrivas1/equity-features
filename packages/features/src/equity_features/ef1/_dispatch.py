@@ -18,6 +18,9 @@ def compute_ef1(batches: tuple[CanonicalBatch | None, ...] | list[CanonicalBatch
                 *, entity: EntityKey) -> FeatureResult:
     """Return the complete selected producer with original actual input bindings."""
     context = decode_ef1_context(config)
+    if context["producer"] == "regular_bar_prices":
+        from ._regular_bar_prices import compute_regular_bar_prices
+        return compute_regular_bar_prices(batches, config, entity=entity)
     if context["producer"] == "path_gap_endpoint":
         from ._gap_endpoint import compute_gap_endpoint
         return compute_gap_endpoint(batches, config, entity=entity)

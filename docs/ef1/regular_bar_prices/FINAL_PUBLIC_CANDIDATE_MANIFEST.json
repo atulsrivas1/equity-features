@@ -1,0 +1,79 @@
+{
+  "kind": "final_source_safe_regular_bar_price_public_candidate",
+  "status": "GENERIC_EVIDENCE_REVIEWED_AWAITING_DISTINCT_PUBLICATION_REVIEW_AND_COORDINATOR_FREEZE",
+  "scope": "Same EF1 EQ166/EQ212/EQ213 three-layer increment; complete V3 proposal and original100 synthetic literal packets.",
+  "reader_entry_point": "STATUS_AND_EVIDENCE_PRECEDENCE.md",
+  "mathematical_V3_proposal_sha256": "b0e4011666e5ad426fb03c09d63e229873f3dee1cffd8b5bfef7eab047ebb2c7",
+  "mathematical_V3_independent_recheck_sha256": "506164fb43c0f8091429ceef19a3d7e78c215ab0f6484e4f6bb7a484284e87a4",
+  "actual_generic_probe_independent_review_sha256": "6d914f952c198a706ea58edbe62af3ec1b8989269a09d7275ca6373f74ec5ed0",
+  "unchanged_oracle_sha256": "05d5b4815df3fd621993037c84f9d897a32ee84c833715e6ca1f6c4e1473d030",
+  "preserved_base_manifest_sha256": "9c2762790bc78139bb802c116f34e312ae22084055ddd57f2e89a13137813358",
+  "preserved_actual_summary_manifest_sha256": "0e1e1a7299a25f3698af02f363e65226abad40ae0a510e9b67ad2ce22a580f9e",
+  "products": {
+    "ACTUAL_EVIDENCE_ACCEPTANCE_ADDENDUM.json": {
+      "sha256": "cca662d24591153dc16d113c3b8d6d08d0e6666a920b4276a91a4385990c8846",
+      "bytes": 2122
+    },
+    "ACTUAL_GENERIC_PROBE_PENDING_REVIEW.json": {
+      "sha256": "797ad8bf92ef5d71859195f8a8662b9021f7d810c3109cf77349315af431ebfb",
+      "bytes": 2730
+    },
+    "ACTUAL_GENERIC_PROBE_PENDING_REVIEW.md": {
+      "sha256": "9ff5316408ef1400d1b12af55c12f5d01b4d736b86220174aef3eb14c1cedced",
+      "bytes": 2905
+    },
+    "ACTUAL_PROBE_ADDENDUM_MANIFEST.json": {
+      "sha256": "0e1e1a7299a25f3698af02f363e65226abad40ae0a510e9b67ad2ce22a580f9e",
+      "bytes": 1032
+    },
+    "EXISTING_DTO_FIELDS.json": {
+      "sha256": "6a59959e92a9645a8e8ad775191f6402e641fa175629b3632b552ec99223fbb1",
+      "bytes": 5056
+    },
+    "LAYER_HANDOFFS.md": {
+      "sha256": "5d5d65ba1e565585bcf9c96ff526e98879dfbb2b50748ff4d1c9b8c1598d56ef",
+      "bytes": 9542
+    },
+    "PREPARATION_STATUS.json": {
+      "sha256": "b0ecd4a3f32f97edd9783ba627a38808ce1d7841d0ba4ee51d0379a507b98cd9",
+      "bytes": 1457
+    },
+    "PUBLICATION_MANIFEST.json": {
+      "sha256": "9c2762790bc78139bb802c116f34e312ae22084055ddd57f2e89a13137813358",
+      "bytes": 2965
+    },
+    "README.md": {
+      "sha256": "0766cc090d96858402ec35ada066b58b2ba1a4025a078bdce061119cff0faebb",
+      "bytes": 2194
+    },
+    "REGULAR_BAR_PRICES_CONTRACT_V3.md": {
+      "sha256": "45e3fcba80aee9a8c9b26ee31a830f7a0cb44de3adb47722984de9ad2fb5860c",
+      "bytes": 19701
+    },
+    "REGULAR_BAR_PRICES_ORACLE.json": {
+      "sha256": "05d5b4815df3fd621993037c84f9d897a32ee84c833715e6ca1f6c4e1473d030",
+      "bytes": 1582974
+    },
+    "STATUS_AND_EVIDENCE_PRECEDENCE.md": {
+      "sha256": "7972081087b5151a4ccae10135a2422ca68a705595c73b0fcf280e8511b931d1",
+      "bytes": 2992
+    }
+  },
+  "author_checks": {
+    "UTF8_explicit_LF_all_products": true,
+    "base_seven_and_actual_summary_three_bytes_preserved": true,
+    "oracle_exact_unchanged_bytes": true,
+    "all100_synthetic_requests_and46results54refusal_targets_preserved": true,
+    "no_private_path_credential_pattern_matches": true,
+    "source_DTO_field_checks_and_worker_task_fields_read_without_import": true
+  },
+  "independent_publication_review_sha256": null,
+  "shared_freeze": false,
+  "implementation_authorized": false,
+  "numerical_implementation_validated": false,
+  "source_or_runtime_admitted": false,
+  "full_EQ164_complete": false,
+  "EF1_release_accepted": false,
+  "package_tag_release_publication_authorized": false,
+  "status_precedence": "Current actual generic acceptance is the append-only acceptance addendum/status entry. Base and pending-summary fields retain preparation history. Fresh independent review applies to this entire derivative, and only coordinator freeze/grant can authorize source work."
+}
