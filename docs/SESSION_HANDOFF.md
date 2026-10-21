@@ -1,3 +1,19 @@
+## EF1 sampled-path library authoring — October 20, 2026
+
+Under the [exact path authoring freeze](ef1/PATH_SOURCE_AUTHORING_FREEZE.json),
+the selected EQ167 slice now has additive pure library source, closed discovery/
+context/dispatch, API/mathematics documentation and 50 authored independent test
+methods: 14 frozen path goldens, nine canonical-policy controls and 27 boundary/
+readiness methods. Original ef1-contract1, canonical contracts/codec and package
+versions are unchanged. Both availability modes retain original causal candidate
+knowledge, exact delivered-population counts and bounded original witnesses.
+This is source authoring only: no runtime/import/syntax/test/build/benchmark/DB
+or N: operation, numerical acceptance, commit or push is claimed. Coordinator
+must review the actual diff, integrate I/O/workers, reconcile purity/test census
+and dependency pins, then obtain fresh independent review and exact-head local
+validation after the protected EQ142 reservation is lifted by actual evidence.
+Full EQ164 audit and all original release gates remain required.
+
 ## EF1 supplied-clock successor integration — October20,2026
 
 EQ165 supplied clock now has source-reviewed five-field library implementation with13 authored independent methods, including exact frozen C01 C/K/E tuples and causal original proof knowledge in both known-at and reconstruction modes. Generic AvailabilitySpec and anchor mathematics remain unchanged. I/O calendar conversion has12 authored tests; bounded worker route has8, plus coordinator four-form qualification additions. The three layers remain source candidates; no clock runtime or release acceptance is claimed. Original status/history/open diagnostics, other EF1 producers and full EQ164 audit remain required.

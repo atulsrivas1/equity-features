@@ -7,6 +7,7 @@ from equity_feature_contracts import CanonicalBatch, ConfigSpec, EntityKey, Feat
 from ._anchor import compute_ef1 as compute_anchor
 from ._clock import compute_clock
 from ._status import compute_status
+from ._path import compute_path_gap, compute_path_drive
 from ._context import decode_ef1_context
 
 
@@ -20,4 +21,8 @@ def compute_ef1(batches: tuple[CanonicalBatch | None, ...] | list[CanonicalBatch
     present = cast(tuple[CanonicalBatch, ...] | list[CanonicalBatch], batches)
     if context["producer"] == "clock":
         return compute_clock(present, config, entity=entity)
+    if context["producer"] == "path_gap":
+        return compute_path_gap(present, config, entity=entity)
+    if context["producer"] == "path_drive":
+        return compute_path_drive(present, config, entity=entity)
     return compute_anchor(present, config, entity=entity)

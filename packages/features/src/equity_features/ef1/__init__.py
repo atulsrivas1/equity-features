@@ -1,4 +1,4 @@
-"""Experimental EF1 anchor, supplied-clock and current-status slices; no I/O."""
+"""Experimental EF1 anchor, clock, status and sampled path slices; no I/O."""
 from ._context import build_ef1_config, decode_ef1_context
 from ._definitions import EF1Definition, ef1_definitions
 from ._dispatch import compute_ef1

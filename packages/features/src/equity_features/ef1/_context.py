@@ -197,6 +197,16 @@ def _parse(text: object) -> dict[str, Any]:
         if selection["max_age_ns"] is not None and _integer(selection["max_age_ns"]) < 0:
             fail(ErrorCode.BOUNDS, "explicit maximum state age must be nonnegative")
         _clock_calendar(raw["calendar"])
+    elif raw["producer"] in ("path_gap", "path_drive"):
+        selection = raw["selection"]
+        keys = {"sampling"} if raw["producer"] == "path_gap" else {"sampling", "duration_ns"}
+        if type(selection) is not dict or set(selection) != keys:
+            fail(ErrorCode.INVALID_CONFIG, "exact sampled path selection required")
+        if selection["sampling"] not in ("eligible_trade", "completed_bar_close"):
+            fail(ErrorCode.UNSUPPORTED_CAPABILITY, "unsupported sampled path kind")
+        if raw["producer"] == "path_drive" and _integer(selection["duration_ns"]) <= 0:
+            fail(ErrorCode.BOUNDS, "positive drive duration required")
+        _clock_calendar(raw["calendar"])
     elif raw["producer"] == "clock":
         if type(raw["selection"]) is not dict or raw["selection"]:
             fail(ErrorCode.INVALID_CONFIG, "clock selection must be an empty object")
@@ -275,6 +285,24 @@ def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
             fail(ErrorCode.INCONSISTENT_IDENTITY, "actual scheduled-close declarations differ")
         if scheduled < config.session.close_ns or calendar["early_close"] != (config.session.close_ns < scheduled):
             fail(ErrorCode.BOUNDS, "inconsistent actual/scheduled close")
+    if raw["producer"] in ("path_gap", "path_drive"):
+        if type(config.price_unit) is not PriceUnit:
+            fail(ErrorCode.INVALID_UNIT, "sampled path prices require explicit PriceUnit")
+        sessions = raw["calendar"]["sessions"]
+        gap = raw["producer"] == "path_gap"
+        if len(sessions) != (2 if gap else 1) or sessions[-1][0] != config.session.session_id:
+            fail(ErrorCode.INCONSISTENT_IDENTITY, "exact prior/target calendar slots required")
+        if gap and (sessions[0][1] >= sessions[1][1] or sessions[0][3] > config.session.open_ns):
+            fail(ErrorCode.BOUNDS, "prior slot must strictly precede target civil date/open")
+        cutoff = config.availability.market_cutoff_ns
+        if cutoff <= config.session.open_ns or gap and cutoff > config.session.close_ns:
+            fail(ErrorCode.BOUNDS, "invalid sampled path cutoff")
+        if not gap:
+            end = config.session.open_ns + raw["selection"]["duration_ns"]
+            if end > _I64_MAX or end < _I64_MIN:
+                fail(ErrorCode.OVERFLOW, "drive endpoint exceeds int64")
+            if end > config.session.close_ns:
+                fail(ErrorCode.BOUNDS, "drive exceeds actual regular close")
     return cast(Mapping[str, Any], _freeze(raw))
 
 

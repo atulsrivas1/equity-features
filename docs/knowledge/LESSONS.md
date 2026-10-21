@@ -1,3 +1,17 @@
+## Sampled-path readiness preserves structural facts — October 20, 2026
+
+The [reviewed path amendment](../ef1/PATH_CONTRACT_PROPOSAL.md) separates numerical
+dependencies from canonical structural admission. Unused supplied OHLC/volume
+cells remain validated; dropping original fields to admit an invalid DAILY or
+BAR row changes the input rather than resolving readiness. The nine literal
+canonical-policy controls and 14 path goldens in the
+[frozen companion](../ef1/PATH_CONTRACT_PROPOSAL.json) drive independent authored
+tests. Candidate knowledge is required in reconstruction too, selected evidence
+is bounded without replacing complete population bindings, and latest remaining
+gap differs from maximum-prefix fill after reversal. Source authoring and fixture
+counts are not executed numerical evidence; protected study reservations remain
+in force until the coordinator obtains actual terminal evidence.
+
 ## Matrix scope and option delivery arrangement — October 20, 2026
 
 Owner corrected equity-only orientation and then requested option replanning under the new working agreement. The matrix includes primitives and policy consumers (scanners/watchlists/strategies/context/lifecycle), so a pricing/Greeks backlog alone cannot establish option coverage. [GOV036](https://github.com/atulsrivas1/equity-features/issues/572) gives explicit primary library/module/story ownership and separate I/O/worker tracks. Preserve existing IDs and active owners; distinguish finite inventory accounting from qualified formulas, executable dependencies and numerical acceptance. Repository boundaries and logical library boundaries are separate decisions. Supersede old execution arrangements explicitly rather than silently treating an older option plan as current.

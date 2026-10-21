@@ -314,4 +314,9 @@ under EQ050, separate from both pure calculation packages. Unknown availability,
 source eligibility/clock/precision evidence and trade-snapshot sampling stay explicit.
 Historical acquisition/conformance/real numerical R4 qualification remain open.
 
+The optional EF1 namespace has a source-authored [sampled gap and opening-drive
+candidate](docs/api/EF1_PATHS.md), with supplied causal inputs, independent frozen
+fixtures and bounded original witnesses. Runtime checks, integration and release
+acceptance remain pending; no legacy numerical equivalence is claimed.
+
 R4 optional DuckDB adapter0.1.0a7 has accepted actual synthetic conformance and representative private numerical qualifications. [R4 acceptance audit](docs/R4_ACCEPTANCE.md) maps all eight stories, current installs/source limits and final publication gates. Purecorepair0.0.4a4/consumer0.4.0 remain unchanged; existing experimental Actions channel only.
