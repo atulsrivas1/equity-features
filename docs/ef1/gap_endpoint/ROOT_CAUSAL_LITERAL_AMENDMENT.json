@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "kind": "coordinator_literal_causal_amendment",
+  "status": "ACCEPTED_AND_FROZEN_FOR_SOURCE_CONFORMANCE",
+  "coordinator": "/root",
+  "date_utc": "2026-10-21T07:59:00.695068+00:00",
+  "base_freeze_commit": "16fd04449aa48eea07d19e3a1bd4e3b42cbdc444",
+  "preserved_original_oracle": "GAP_ENDPOINT_ORACLE.json",
+  "preserved_original_oracle_sha256": "751cd98fd7951aa7c2d4394d9a5fee87e184d9d484d9f43d4de4983b7333f40f",
+  "current_conformance_oracle": "GAP_ENDPOINT_ORACLE_CAUSAL_V4.json",
+  "current_conformance_oracle_sha256": "a6c44880da0dbb7141130e6228068d0748ea04fbc4e8ff75b62f2812414a53ad",
+  "independent_reviewer": "/root/ef1_gap_endpoint_v3_independent_review",
+  "independent_review_sha256": "eb165d30d68be52ce931e07dd01795fb11b6ad2e577ef86c9500733e60005191",
+  "case": "E28_prior_late_even_zero_gap",
+  "amended_quality": "Both fields missing_input/future_knowledge; unavailable P cannot establish equality O=P.",
+  "changes": [
+    {
+      "pointer": "/packets/27/expected_result/quality/0/status",
+      "before": "not_applicable",
+      "after": "missing_input"
+    },
+    {
+      "pointer": "/packets/27/expected_result/quality/0/reasons",
+      "before": [
+        "zero_denominator"
+      ],
+      "after": [
+        "future_knowledge"
+      ]
+    }
+  ],
+  "mathematical_contract_unchanged": true,
+  "all_other_request_result_evidence_metadata_count_rational_fields_unchanged": true,
+  "original_evidence_limit": "Prior SDK probe proves transport only; previous fixture review missed this contradiction. Preserve all historical reviews/probes and implementation mismatch.",
+  "implementation_gate": "Rerun all71fullresults and43negative targets against successor; no quarantine/expectedFailure as conformance acceptance. Existing originaloracle immutability check remains.",
+  "release_boundary_unchanged": true
+}
