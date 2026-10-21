@@ -28,7 +28,7 @@ linked current sections for supported imports, behavior and qualification limits
 
 Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.
 
-Final EQ092 source/docs/current-candidate/current-main release evidence and aggregate acceptance are recorded on [story104](https://github.com/atulsrivas1/equity-features/issues/104) and the [R8 evidence index](../R8_ACCEPTANCE.md). GitHub reviewed source/finite-retention experimental CI artifacts are the channel. No new numerical API/schema/default, stable registry, provider or trading-profitability claim. Earlier candidate/preparation snapshots below are historical.
+Final EQ092 source/docs/current-candidate/current-main release evidence and aggregate acceptance are recorded on [story104](https://github.com/atulsrivas1/equity-features/issues/104) and the [R8 evidence index](../releases/R8/R8_ACCEPTANCE.md). GitHub reviewed source/finite-retention experimental CI artifacts are the channel. No new numerical API/schema/default, stable registry, provider or trading-profitability claim. Earlier candidate/preparation snapshots below are historical.
 
 ## EQ092 chronological consumer candidate — October 14
 
@@ -118,7 +118,7 @@ Next independent exact candidate source/security/ledger/lifecycle/schema review 
 
 ## EQ082 experimental optional MCP profile checkpoint
 
-Public owner registrations/profile snapshots implemented in companion optional equity-feature-mcp0.1.0a0 after actual Ready/start admission. StdioServer/tool execution/reference ledger remain unfinished, no installed or release acceptance. See [MCP design and actual evidence](../R7_MCP_TOOLS.md) and [story92](https://github.com/atulsrivas1/equity-features/issues/92). Closed source-independent client/service/calculation boundaries and scoped native receipt authority unchanged.
+Public owner registrations/profile snapshots implemented in companion optional equity-feature-mcp0.1.0a0 after actual Ready/start admission. StdioServer/tool execution/reference ledger remain unfinished, no installed or release acceptance. See [MCP design and actual evidence](../releases/R7/R7_MCP_TOOLS.md) and [story92](https://github.com/atulsrivas1/equity-features/issues/92). Closed source-independent client/service/calculation boundaries and scoped native receipt authority unchanged.
 
 ## EQ081 accepted; EQ082 MCP pre-code preparation
 
@@ -178,7 +178,7 @@ Finalreview corrected Q22 strongercache-denial wording and distinguished pending
 
 ## EQ080 internal owned entry candidate
 
-Optional service.a3 internal operator configuration now freezes at most four owned-synthetic source profiles and validates complete startup-frame EOF before parent ACK/site/native/Service startup. It adds no HTTP inventory/code/path/argument operation, calculation API or hosted authorization. See [same-story boundary](../R7_QUOTA_CACHE_AUDIT.md) and [approved pre-code entry plan](../stories/EQ-080_OWNED_ENTRY_PLAN.md). Current separate source/artifact/full-map/release qualification remains pending.
+Optional service.a3 internal operator configuration now freezes at most four owned-synthetic source profiles and validates complete startup-frame EOF before parent ACK/site/native/Service startup. It adds no HTTP inventory/code/path/argument operation, calculation API or hosted authorization. See [same-story boundary](../releases/R7/R7_QUOTA_CACHE_AUDIT.md) and [approved pre-code entry plan](../stories/EQ-080_OWNED_ENTRY_PLAN.md). Current separate source/artifact/full-map/release qualification remains pending.
 
 ## EQ080 retained result representation cache — development candidate
 
@@ -194,7 +194,7 @@ Optional service.a3 can explicitly admit an owned synthetic finite audit store t
 
 ## EQ080 bootstrap foundation candidate
 
-Optional service0.1.0a3 defers native graph initialization until explicit public access, preserving existing exports. [Current implementation and remaining isolation gates](../R7_QUOTA_CACHE_AUDIT.md) records121 editable Windows tests/strict7, approved pre-code and actual start. Supervisor/cache/audit runtime and physical/installed/release qualification remain pending. Prior EQ079 is accepted6097119023; older pending captures below are history.
+Optional service0.1.0a3 defers native graph initialization until explicit public access, preserving existing exports. [Current implementation and remaining isolation gates](../releases/R7/R7_QUOTA_CACHE_AUDIT.md) records121 editable Windows tests/strict7, approved pre-code and actual start. Supervisor/cache/audit runtime and physical/installed/release qualification remain pending. Prior EQ079 is accepted6097119023; older pending captures below are history.
 
 ## R7 data-only transport design
 

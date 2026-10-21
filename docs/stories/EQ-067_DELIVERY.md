@@ -1,6 +1,6 @@
 # EQ067 research delivery evidence
 
-[Issue76](https://github.com/atulsrivas1/equity-features/issues/76), [PR342](https://github.com/atulsrivas1/equity-features/pull/342), R6/E09. Research result: [provider capability/rights matrix](../R6_PROVIDER_CAPABILITIES.md), [pre-code plan](EQ-067_PLAN.md), source-qualified documentation at f2b14c4bc9362bee39a01108461264241dfd5132. No provider implementation or integration is delivered. No numerical formula/API/core/package/test/workflow version changes.
+[Issue76](https://github.com/atulsrivas1/equity-features/issues/76), [PR342](https://github.com/atulsrivas1/equity-features/pull/342), R6/E09. Research result: [provider capability/rights matrix](../releases/R6/R6_PROVIDER_CAPABILITIES.md), [pre-code plan](EQ-067_PLAN.md), source-qualified documentation at f2b14c4bc9362bee39a01108461264241dfd5132. No provider implementation or integration is delivered. No numerical formula/API/core/package/test/workflow version changes.
 
 Separate local automated reviewer `/root/r6_review` completed [exact source review](https://github.com/atulsrivas1/equity-features/pull/342#issuecomment-6062285073), independently checking primary evidence, contracts, literal integer/Decimal vectors, UTF8/134stories/39features/eight-stage/390local links,23timing tests/import boundary/license consistency/Atul attribution. Current split-route and superseded download-wording findings resolved; unreadable applicable Databento agreement remains explicitly unknown alongside readable licensing guidance. This is not human or hosted review.
 

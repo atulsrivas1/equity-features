@@ -1,6 +1,6 @@
 ## R11 local threat and access boundaries
 
-The supported surface is experimental local Python/SQLite/stdio with synthetic owned loopback qualification. [R11 threat, rights and delivery receipt](docs/R11_ACCEPTANCE.md) distinguishes current native artifact-read grants/principals/TTL, owner-prepared report declarations, caller-owned expected anchors, retained payloads and explicit replay. Callers do not select code, paths, SQL, origins, credentials, TLS policy or providers through MCP handlers. Calculations remain pure supplied-input computations.
+The supported surface is experimental local Python/SQLite/stdio with synthetic owned loopback qualification. [R11 threat, rights and delivery receipt](docs/releases/R11/R11_ACCEPTANCE.md) distinguishes current native artifact-read grants/principals/TTL, owner-prepared report declarations, caller-owned expected anchors, retained payloads and explicit replay. Callers do not select code, paths, SQL, origins, credentials, TLS policy or providers through MCP handlers. Calculations remain pure supplied-input computations.
 
 Supplied actor/model/time labels and unsigned checkpoints are not authentication or a trusted external witness. Redact before recording; corrections do not erase plaintext/backups. Logical application bounds do not establish physical memory/storage quotas or hard callback/kernel/cleanup deadlines. Process-death/reopen checks do not certify power-loss or arbitrary filesystem recovery. Local automated review is not external/human security certification; that assessment is deferred for this bounded local release. Any hosted/trust expansion requires its own assessment/access/operations decision. No new public service or provider/private-data permission is granted.
 
@@ -30,7 +30,7 @@ The EQ106 pure event source candidate accepts explicit public/synthetic scalar d
 
 ## EQ105 source qualification boundary
 
-EQ105 measurement and consumer tooling operate outside pure packages on fixed synthetic supplied fixtures. No credentials/provider acquisition or source-history authentication; metadata omits hostname/paths/secrets. Complete assertions/report parsing do not certify execution. Descriptive durations are not physical quotas, native deadlines or performance promises; malformed reports/timers refuse fixed codes. [Limits](docs/R10_CONSUMER_GUIDE.md).
+EQ105 measurement and consumer tooling operate outside pure packages on fixed synthetic supplied fixtures. No credentials/provider acquisition or source-history authentication; metadata omits hostname/paths/secrets. Complete assertions/report parsing do not certify execution. Descriptive durations are not physical quotas, native deadlines or performance promises; malformed reports/timers refuse fixed codes. [Limits](docs/releases/R10/R10_CONSUMER_GUIDE.md).
 
 ## External conformance is not evidence authority
 

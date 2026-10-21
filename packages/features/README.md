@@ -21,7 +21,7 @@ Digests are corruption checks, not authentication; global discarded identity and
 source delivery trust remain caller-owned. No persistence or throughput promise.
 
 See [session API](../../docs/api/INCREMENTAL.md),
-[R1 acceptance](../../docs/R1_ACCEPTANCE.md), and repository examples.
+[R1 acceptance](../../docs/releases/R1/R1_ACCEPTANCE.md), and repository examples.
 Experimental main GitHub Actions wheels/sdists are the distribution channel;
 actual source/hashes/expiry/install receipts are recorded per story. No public
 registry publication, stable API, concrete provider or automatic thread ownership.

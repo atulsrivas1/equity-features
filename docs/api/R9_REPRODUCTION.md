@@ -1,6 +1,6 @@
 # R9 synthetic reproduction consumer
 
-Experimental composition of accepted contracts/features0.0.4a4, evidence0.1.0a2 and explanations/bundles0.1.0a1. Calculations remain unchanged. [Public example](../../examples/r9_reproduction.py), [pre-code contract](../stories/EQ-100_PLAN.md), [independent expectations](../stories/EQ-100_EXPECTATIONS.json), [acceptance gates](../R9_ACCEPTANCE.md).
+Experimental composition of accepted contracts/features0.0.4a4, evidence0.1.0a2 and explanations/bundles0.1.0a1. Calculations remain unchanged. [Public example](../../examples/r9_reproduction.py), [pre-code contract](../stories/EQ-100_PLAN.md), [independent expectations](../stories/EQ-100_EXPECTATIONS.json), [acceptance gates](../releases/R9/R9_ACCEPTANCE.md).
 
 After installing matching reviewed archives, run `python -I examples/r9_reproduction.py`. Actual synthetic trade outputs are3/10/1011/101.1/10/3. The consumer binds full input/config/result content, explains declared facts, exports/reads data-only bytes and explicitly replays one fixed installed calculator. Replay compares full canonical results; reading never implicitly calculates. The example writes no files.
 

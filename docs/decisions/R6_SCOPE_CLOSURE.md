@@ -1,6 +1,6 @@
 # Owner-revised R6 scope — October 8, 2026
 
-The owner explicitly requests Databento and Massive returned to Backlog and R6 closed. [GOV019 #354](https://github.com/atulsrivas1/equity-features/issues/354) delivers this scope decision; [revised acceptance](../R6_ACCEPTANCE.md) binds the retained delivery and actual closure receipt. This supersedes the earlier instruction to finish all eight R6 stories before closure; it does not claim their missing criteria passed.
+The owner explicitly requests Databento and Massive returned to Backlog and R6 closed. [GOV019 #354](https://github.com/atulsrivas1/equity-features/issues/354) delivers this scope decision; [revised acceptance](../releases/R6/R6_ACCEPTANCE.md) binds the retained delivery and actual closure receipt. This supersedes the earlier instruction to finish all eight R6 stories before closure; it does not claim their missing criteria passed.
 
 ## Revised release and deferred work
 
@@ -17,7 +17,7 @@ EQ072 and EQ074 depend on the deferred providers and cannot stay mandatory unfin
 
 ## Preserved candidates and review
 
-I/O PR15/16, canonical PR349/350 and preparation PR351 remain unmerged drafts with their branches and evidence preserved. Databento/Massive source and synthetic native qualification are implemented/prepared evidence, not a released accepted provider adapter. The original [eight-story handoff](../R6_AUTONOMOUS_HANDOFF.md), [test strategy](../R6_TEST_STRATEGY.md), [GOV018 review](../reviews/R6_CURRENT_REVIEW.md) and earlier statuses remain dated history. No synthetic success becomes actual-provider proof by this closure.
+I/O PR15/16, canonical PR349/350 and preparation PR351 remain unmerged drafts with their branches and evidence preserved. Databento/Massive source and synthetic native qualification are implemented/prepared evidence, not a released accepted provider adapter. The original [eight-story handoff](../releases/R6/R6_AUTONOMOUS_HANDOFF.md), [test strategy](../releases/R6/R6_TEST_STRATEGY.md), [GOV018 review](../reviews/R6_CURRENT_REVIEW.md) and earlier statuses remain dated history. No synthetic success becomes actual-provider proof by this closure.
 
 Future execution must select the deferred story/release deliberately, establish missing inputs and re-admit exact source/current review/CI/native/install/artifact/publication gates. Old green checks and expiring artifacts cannot authorize a later changed candidate. Applications allocate cumulative allowance across instances/failed attempts; controller-local limits do not create spending permission. No provider download, cost, entitlement, live/cache/paid-credit/subscription permission follows from this scope decision.
 

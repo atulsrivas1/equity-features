@@ -12,7 +12,7 @@ GOV-011 knowledge import, October 5, 2026. Repository baseline inspected: `b9bc2
 | Temporal admission and corporate actions | [Timing policy](../features/TIMING_ADJUSTMENT_POLICY.md), [timing decision](../decisions/timing-adjustment.md) |
 | Public data, quality and adapter contracts | [Inputs](../contracts/INPUTS.md), [specifications](../contracts/SPECS.md), [results](../contracts/RESULTS.md), [validation](../contracts/VALIDATION.md), [registry](../contracts/REGISTRY.md), [adapters](../contracts/ADAPTERS.md) |
 | Runtime, state and merge capabilities | [Incremental API](../api/INCREMENTAL.md), [continuous quotes](../api/CONTINUOUS_QUOTES.md), actual source registry and version |
-| Accepted foundation/session artifacts | [R0 acceptance](../R0_ACCEPTANCE.md), [R1 acceptance](../R1_ACCEPTANCE.md), their story receipts, [build delivery](../BUILD_DELIVERY.md) |
+| Accepted foundation/session artifacts | [R0 acceptance](../releases/R0/R0_ACCEPTANCE.md), [R1 acceptance](../releases/R1/R1_ACCEPTANCE.md), their story receipts, [build delivery](../BUILD_DELIVERY.md) |
 | Later defects and repair qualification | [R1 review](../reviews/R1_REVIEW.md), BUG-001–004 issue/PR records, live status |
 | Release work and authority | [Handoff](../SESSION_HANDOFF.md), release-specific execution packages, [GOV-010](https://github.com/atulsrivas1/equity-features/issues/167) and linked publication evidence |
 | Rights/publication | [Release access](../decisions/release-access.md), [workflow](../PUBLIC_DEVELOPMENT.md) |

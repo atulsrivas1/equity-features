@@ -68,7 +68,7 @@ Wider modes were slower here and failed the frozen adoption rule. Some smaller/l
 
 There are plausible costs to measure in current code: Python tuple materialization and Python-loop kernels; repeated validation/codec/hash work; process startup, pickle/copies and whole-shard results; coarse same-instrument serialization; acquisition before dispatch and serial publication/generation/catalog afterward. Static inspection does not establish their relative contribution. Logical byte/CPU declarations are not hard RSS/physical resource limits or configuration of arbitrary native libraries; cancellation joins running cooperative work rather than imposing a hard callback deadline.
 
-[Original benchmark analysis and all timing limits](../stories/EQ-088_ANALYSIS.md), [R5 retained measurements](../R5_ACCEPTANCE.md), [independent raw-statistic reconciliation](AUDIT001_WORKER_PERFORMANCE.json).
+[Original benchmark analysis and all timing limits](../stories/EQ-088_ANALYSIS.md), [R5 retained measurements](../releases/R5/R5_ACCEPTANCE.md), [independent raw-statistic reconciliation](AUDIT001_WORKER_PERFORMANCE.json).
 
 ## Recommended next direction, in order
 
