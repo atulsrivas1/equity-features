@@ -1,3 +1,7 @@
+## Owner clarification: local merge evidence — October 20, 2026
+
+The owner reaffirmed that local builds and local test runs provide merge validation. This supersedes older mandatory hosted-CI wording: GitHub Actions completion is not an acceptance or merge prerequisite. Retain independent review, appropriate exact-commit local checks, build/install evidence where applicable, numerical fixtures and integration/release gates. Documentation-only changes use relevant local source/document checks; do not invent package builds for them. Record actual commands, source commit, environment and results. Do not claim unexecuted local checks or infer validation of another platform from a local run. Any actual repository protection conflict must be reported separately; it does not redefine this agreement. Existing ownership/resource reservations remain protected.
+
 # Coordinator working agreement
 
 Owner adopted October 20, 2026, by supplying a WatchYourList conversation and directing this project to use the same working agreement. This document records the transferable agreement, adapted to this project's calculation, I/O and worker layers. It does not import the other project's release tasks, repository permissions, commit identity or environment-specific tooling restrictions. The private transcript remains outside public documentation.
