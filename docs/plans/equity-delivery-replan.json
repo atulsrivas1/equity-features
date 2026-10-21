@@ -2218,7 +2218,7 @@
   ],
   "current_selected_scope_publication": {
   "as_of": "2026-10-21",
-  "state": "draft_versioned_reconciliation_pending_review_and_dependency_publication",
+  "state": "selected_dependencies_published_full_audit_unaccepted",
   "actual_adaptive_owner": {
     "story": "EQ-237",
     "issue": 626,
@@ -2246,7 +2246,8 @@
     612,
     519
   ],
-  "dependency_appends_published": false,
+  "dependency_appends_published": true,
+  "actual_dependency_publication_report_sha256": "1e15228acab391b3700ab530ba46669569f6c549f935b29451deda7b2bd0181c",
   "conditional_mean_fallback_created": false,
   "component_manifest": "equity-selected-scope-components.json",
   "complete_identity_route_review_index": "equity-audit-route-coverage.json",
