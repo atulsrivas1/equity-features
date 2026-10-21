@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "kind": "coordinator_portable_byte_identity_amendment",
+  "status": "ACCEPTED_CANONICAL_GIT_LF_SOURCE_IDENTITIES",
+  "coordinator": "/root",
+  "date_utc": "2026-10-21T08:07:06.031656+00:00",
+  "independent_reviewer": "/root/ef1_gap_endpoint_core_pr_independent_review",
+  "independent_review_sha256": "479addc18e9c188e5778d2ad773a0f434b8383a3cfc5df09315bd1508e3fdf85",
+  "correction": "Root originally froze Windows CRLF byte hashes while Git normalized published bytes to LF. Original Windows review/receipt hashes remain historical; use explicit canonical LF source hashes below for current conformance.",
+  "files": {
+    "GAP_ENDPOINT_ORACLE_CAUSAL_V4.json": {
+      "reviewed_windows_bytes_sha256": "a6c44880da0dbb7141130e6228068d0748ea04fbc4e8ff75b62f2812414a53ad",
+      "canonical_git_lf_sha256": "698994acf9d324d3c94334b02f307b2997ce320eb397d7f7cb5f8ea359d4f239",
+      "semantic_json_equal": true,
+      "only_CRLF_to_LF": true,
+      "canonical_already_committed": true
+    },
+    "FREEZE_CANDIDATE_MANIFEST.json": {
+      "reviewed_windows_bytes_sha256": "0c7d78585e396f25460f4d7353cb06caa4775a891e8040952d133a8978b7d6e7",
+      "canonical_git_lf_sha256": "f417f9fa7c999338a135c1fbc62cb0337821213b780de2c66e38feb0cdab2fb8",
+      "semantic_json_equal": true,
+      "only_CRLF_to_LF": true,
+      "canonical_already_committed": true
+    },
+    "ROOT_SOURCE_AUTHORING_FREEZE.json": {
+      "reviewed_windows_bytes_sha256": "a538b6c69001a65de0a0bd4f28d7cf47558a90f4568aff97b2dd1a7aef5ea3da",
+      "canonical_git_lf_sha256": "6104f38198fffe7222b457377f506b3186e8c744e68a0d5dbb8ea1beff7dfe3f",
+      "semantic_json_equal": true,
+      "only_CRLF_to_LF": true,
+      "canonical_already_committed": true
+    },
+    "ROOT_CAUSAL_LITERAL_AMENDMENT.json": {
+      "reviewed_windows_bytes_sha256": "ae3273cb6a1fc185974b647aaf05cc4ef5fd04b1d65eaa1ae784cbb5d74d5b3f",
+      "canonical_git_lf_sha256": "4aec5444cd6272c1e27e91bd7df5300177cc8056abbaeae3e544f0273defa05a",
+      "semantic_json_equal": true,
+      "only_CRLF_to_LF": true,
+      "canonical_already_committed": true
+    }
+  },
+  "active_oracle": "GAP_ENDPOINT_ORACLE_CAUSAL_V4.json",
+  "active_oracle_sha256": "698994acf9d324d3c94334b02f307b2997ce320eb397d7f7cb5f8ea359d4f239",
+  "original_oracle_sha256": "751cd98fd7951aa7c2d4394d9a5fee87e184d9d484d9f43d4de4983b7333f40f",
+  "mathematics_and_all_json_values_unchanged": true,
+  "prior_causal_amendment_preserved": true,
+  "source_policy": "Append narrow eol=lf rules to existing core attributes, preserving all prior evidence byte policies. Companion repositories already enforce LF.",
+  "acceptance": "Fresh corrected-consumer/source-Git-blob checks required across three layers; prior mutable Windows passes are not relabelled portable artifact evidence. Full release gates remain."
+}

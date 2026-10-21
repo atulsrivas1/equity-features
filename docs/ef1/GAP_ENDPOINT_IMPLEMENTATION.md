@@ -1,3 +1,7 @@
+## Portable source-byte amendment — October 21, 2026
+
+Current conformance uses the canonical Git LF oracle SHA256 `698994acf9d324d3c94334b02f307b2997ce320eb397d7f7cb5f8ea359d4f239`. Earlier `a6c44880` identifies the semantically identical Windows CRLF copy, preserved in historical receipts. Root's independently reviewed canonical-byte amendment records both identities and preserves every request/result JSON value. Active digest consumers are corrected; fresh canonical-source validation is required before portable qualification. Earlier successful mutable-source runs below retain their exact scope.
+
 # Supplied gap endpoint implementation
 
 [EQ167 #507](https://github.com/atulsrivas1/equity-features/issues/507) adds the pure `path_gap_endpoint` producer through the existing `build_ef1_config`, `decode_ef1_context`, `ef1_definitions` and `compute_ef1` entry points. The [frozen complete contract](gap_endpoint/GAP_ENDPOINT_CONTRACT_V4.md) governs mathematics, original availability and admission. Call `compute_ef1` with exactly four nullable slots: calendar provenance, path, prior close and population proof. Two REFERENCE roles are validated by position and closed fact family.

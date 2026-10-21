@@ -30,7 +30,7 @@ def evaluate(packet):
 class GapEndpointPackets(unittest.TestCase):
     def test_immutable_oracle(self):
         self.assertEqual(hashlib.sha256(ORACLE_BYTES).hexdigest(), '751cd98fd7951aa7c2d4394d9a5fee87e184d9d484d9f43d4de4983b7333f40f')
-        self.assertEqual(hashlib.sha256(CAUSAL_BYTES).hexdigest(), 'a6c44880da0dbb7141130e6228068d0748ea04fbc4e8ff75b62f2812414a53ad')
+        self.assertEqual(hashlib.sha256(CAUSAL_BYTES).hexdigest(), '698994acf9d324d3c94334b02f307b2997ce320eb397d7f7cb5f8ea359d4f239')
         self.assertEqual(len(PACKETS), 114)
 
     def test_complete_result_literals(self):
