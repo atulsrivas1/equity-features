@@ -21,3 +21,7 @@ Current core EF1 workflow selects clock worker b302f34d2b3190d917a73d00f62ebbc28
 ## Supplied-status successor qualification
 
 The current-state status successor retains every anchor, clock and legacy suite and adds exact26 library,18 I/O and19 worker test methods in each of four fresh installed forms. Three S01-S03 physical status readbacks/HTML exports supplement the existing two anchor and seven clock exports. Original event witnesses, canonical bindings and metadata must survive full persisted-result readback; no browser inspection is inferred from generated HTML. Exact purity populations become695 total/669 strict with50 calculation modules and a separately asserted26-method status group. All denied-entrypoint, mutation/no-skip and historical-cohort boundaries remain. Source authoring/review is distinct from current remote execution and EF1 release acceptance.
+
+## Supplied status exact composition
+
+The standalone EF1 workflow now pins reviewed status worker7dcf3dcb072fc2f363567fce3931a93478ef4497 and I/O22de254d6cd0ad79bbe746e9484ba4f64dc616a1 while qualifying its actual current core checkout. The worker separately selects reviewed core bootstrapb7dd36b2d523dcf5139900decaa7c62e6353dcbe, a finite immutable graph. Exact status counts26/18/19 and S01-S03 physical readback demos join all prior required suites/forms. This source selection is not runtime acceptance; remote status qualification remains pending.
