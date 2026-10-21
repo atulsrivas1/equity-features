@@ -31,7 +31,7 @@ Strategies/profiles, context scores, component weights/gates, watchlists, scanne
 | heatseeker | resource_output_family | 5 | market-screeners | EQ-208 |
 | high_extension_compact_v2 | dictionary_feature | 21 | strategy-context | EQ-177 |
 | intraday_registration | component | 18 | equity-feature-workers | EQ-180 |
-| option_p1 | request_kind | 13 | equity-feature-workers | EQ-218 |
+| option_p1 | request_kind | 13 | option-feature-workers | EQ-218 |
 | option_v1 | feature | 1 | equity-features | EQ-177 |
 | option_v1 | feature | 3 | market-microstructure | EQ-189 |
 | option_v1 | feature | 1 | market-microstructure | EQ-215 |
@@ -64,7 +64,7 @@ Strategies/profiles, context scores, component weights/gates, watchlists, scanne
 | tempest | preset_scan | 14 | market-screeners | EQ-209 |
 | tempest | pressure_constituent | 3 | market-screeners | EQ-209 |
 | tempest | pricing_anomaly | 4 | market-screeners | EQ-209 |
-| tempest | producer_adapter_contract | 29 | equity-feature-io | EQ-198 |
+| tempest | producer_adapter_contract | 29 | option-feature-io | EQ-198 |
 | tempest | relative_comparison | 15 | volatility-features | EQ-197 |
 | tempest | scan_field | 17 | market-screeners | EQ-209 |
 
