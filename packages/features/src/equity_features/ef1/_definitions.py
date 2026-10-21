@@ -29,6 +29,8 @@ class EF1Definition:
 
 def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
     """Describe the complete selected executable producer; unsupported producers fail."""
+    requirements: tuple[InputRequirement, ...]
+    fields: tuple[tuple[str, ValueType, str, str], ...]
     context = decode_ef1_context(config)
     if context["producer"] in ("path_gap", "path_drive"):
         trades = context["selection"]["sampling"] == "eligible_trade"
