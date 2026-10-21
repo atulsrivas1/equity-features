@@ -1,3 +1,7 @@
+## Matrix scope and option delivery arrangement — October 20, 2026
+
+Owner corrected equity-only orientation and then requested option replanning under the new working agreement. The matrix includes primitives and policy consumers (scanners/watchlists/strategies/context/lifecycle), so a pricing/Greeks backlog alone cannot establish option coverage. [GOV036](https://github.com/atulsrivas1/equity-features/issues/572) gives explicit primary library/module/story ownership and separate I/O/worker tracks. Preserve existing IDs and active owners; distinguish finite inventory accounting from qualified formulas, executable dependencies and numerical acceptance. Repository boundaries and logical library boundaries are separate decisions. Supersede old execution arrangements explicitly rather than silently treating an older option plan as current.
+
 ## Feature slices must include their adapters and execution — October 20, 2026
 
 Owner corrected GOV035's separate pipeline/setup release. Mock adapters are enabling I/O work, not a standalone release outcome. [Revised plan](../EQUITY_DELIVERY_REPLAN.md) now makes every release feature-bearing with explicit library, I/O, worker and integrated local demo obligations. Shared setup is owned within EF1 and reused/extended later. Browser demonstration is not a production UI deployment. Validator checks concrete per-layer deliverables, all retained IDs, no stale EF1-A edge and no setup-only release. Earlier9/22review evidence is not successor acceptance; renew review and CI.
