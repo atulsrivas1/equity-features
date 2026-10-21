@@ -70,6 +70,25 @@ Strategies/profiles, context scores, component weights/gates, watchlists, scanne
 
 ## Coverage closure
 
+### R26 native evidence checkpoint — October 21, 2026
+
+The six named R26 declarations below bind to the public [feature profiles](https://github.com/atulsrivas1/option-features/blob/48ec370182afd0a057fc597e2c4cfd40b163af45/docs/r26/FEATURE_BINDINGS.json), [mathematics](https://github.com/atulsrivas1/option-features/blob/48ec370182afd0a057fc597e2c4cfd40b163af45/docs/r26/MATHEMATICS.md) and [typed API](https://github.com/atulsrivas1/option-features/blob/48ec370182afd0a057fc597e2c4cfd40b163af45/docs/r26/FLOW_CONTRACT.md). All use the new `option-flow-features` producer and `option-flow-contracts` records. These are source-independent supplied-fact calculations; source/provider variants and policy presets are not silently qualified by native arithmetic.
+
+| Named declaration | Story | Frozen profile | Independent scenario evidence |
+| --- | --- | --- | --- |
+| `flow.net_directional_premium` | EQ189 | `option-right-adjusted-premium1` | F01 mixed multipliers; F10 quote alignment; F19 corrections |
+| `flow.short_dte_premium_share` | EQ215 | `option-calendar-short-dte1` | F27 separate references; F28 DTE boundaries; F41 negative calendar DTE |
+| `flow.otm_premium_share` | EQ215 | `option-spot-otm1` | F27 separate references; F29 spot causality; F41 independent OTM eligibility |
+| `activity.relative_volume` | EQ215 | `option-prior-median1` | F24 median/MAD; F25 zero/constant; F26 missing/incomplete/future baselines |
+| `activity.premium_robust_z` | EQ215 | `option-prior-premium-mad1` | F24 median/MAD; F25 zero/constant; F26 baseline admission |
+| `execution.cluster_premium` | EQ215 | `option-quote-cluster1` | F21 adjacent-gap clusters; F22 cluster breakers |
+
+See the [frozen scenario definitions](https://github.com/atulsrivas1/option-features/blob/48ec370182afd0a057fc597e2c4cfd40b163af45/docs/r26/INDEPENDENT_FIXTURE_CASES.json), [independent full-row construction](https://github.com/atulsrivas1/option-features/blob/48ec370182afd0a057fc597e2c4cfd40b163af45/docs/r26/FULL_ROW_ORACLE.md) and candidate PRs [library9](https://github.com/atulsrivas1/option-features/pull/9), [I/O5](https://github.com/atulsrivas1/option-feature-io/pull/5), [workers5](https://github.com/atulsrivas1/option-feature-workers/pull/5). The frozen packet defines44 native typed outputs and44 scenario definitions; these counts differ from the six named declarations and from433 independently constructed result rows. They do not represent2497 delivered catalogue capabilities.
+
+Actual installed component qualification passed on Windows CPython3.12.10 and Linux CPython3.12.3, for original wheels and sdist-rebuilt wheels: each cohort passed126 component methods,433 complete independent rows and19 expected input errors. Original-wheel end-to-end integration passed on both platforms; remaining rebuilt integration, tamper/isolation, original R25 regression and resource measurements are still under qualification at this checkpoint. The Windows original-wheel stored-results browser demo was exported and inspected. The separate pure-library example is source-reviewed but its installed execution remains pending. No pending result counts as passed.
+
+`source_parity_qualified=false` remains explicit in the frozen binding packet. Residuals retain sign inference variants/proxy limitations, source policy presets, joint-reference semantics, baseline zero sentinels and alternate cluster span/repeated-print/rounded-premium definitions. These require their own source-compatible evidence before any full source-parity claim. Three reserved equity-option outputs remain unsupported; actual accepted EQ153/EQ158 producers still gate EQ190 and full EQ193 acceptance. No R26 publication or full-matrix coverage is claimed.
+
 Before declaring a release ready, reconcile its exact identity manifest to original formulas/contracts, direct producer/consumer edges, units, clocks, revisions, coverage and independent fixtures. Record aliases, shared inputs, supplied facts and non-calculation support explicitly. All16 source product/library crosswalk findings must have dispositions, including equity-owned RV and future-outcome consumers. Retain unresolved dynamic dispatch, typed writes, decoder paths and coarse family unions as qualification work; the finite-catalogue assignment does not settle them.
 
 EQ182 owns foundation reconciliation; EQ188/194/201 own domain qualification; EQ207-209/216 own consumer identities and policy rights; EQ211 audits cumulative complete coverage and numbered residuals. A capability with unresolved rights, semantics or producer binding remains blocked and cannot count as delivered coverage. An explicit deferred disposition explains the remaining gap; it does not satisfy an unqualified promise to cover the entire matrix.
