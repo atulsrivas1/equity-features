@@ -18,21 +18,21 @@ No new repository is required. Add separately versioned optional domain packages
 
 ## Actual dependency audit
 
-Live Project inspection on October21: EQ141/R17 and R25 are Done; EQ144, EQ145, EQ146, EQ153, EQ158 and EQ159 remain Backlog. The existing owner amendment explicitly removes the blanket R18/EQ146 gate only for R25. Its scope does not authorize R26 to bypass it.
+Live Project inspection on October21: EQ141/R17 and R25 are Done; EQ144, EQ145, EQ146, EQ153, EQ158 and EQ159 remain Backlog. The historical owner amendment removed the blanket R18/EQ146 gate only for R25. The separate approved R26 amendment below now defines R26 native admission; it does not accept missing equity producers.
 
 EQ188 names EQ158/EQ159; EQ190 names EQ153/EQ158; EQ192 names EQ144/EQ145. Generic signed equity windows, correlation and quote dynamics remain equity-owned. Option contracts/asset conventions may be specified independently; claiming accepted equity reuse before actual compatible producers exist would be false. No equity math is duplicated or moved to evade an unimplemented producer.
 
 The R25 trade record lacks execution price, signing/order/correction contracts. Its canonical snapshot sort, numeric-only result, BSM request, strict sink and independent-snapshot worker replay do not establish flow compatibility. R26 requires reviewed additive flow contracts, exact decimal accumulation and new typed storage/ordered execution admission, with old interfaces retained.
 
-## Proposed bounded admission amendment — NOT APPROVED
+## Owner-approved bounded admission amendment — October 21, 2026
 
-Recommended path: permit EQ188 option-only contract authoring independently of its EQ158/EQ159 delivery prerequisites and, after separately reviewed frozen mathematics/interfaces/fixtures, option-native R26 implementation using accepted R25 foundations and its own compatibility/resource protocol. Replace only the blanket R18/EQ146 delivery prerequisite and EQ192 EQ144/EQ145 implementation-admission references with explicit R26-owned bounded execution and acceptance obligations. Do not claim an unimplemented R18 capability. Resource availability remains a separate actual gate.
+The owner selected extending independent admission to R26 option-native tracks while retaining equity integration gates. Permit EQ188 option-only contract authoring independently of its EQ158/EQ159 delivery prerequisites and, after separately reviewed frozen mathematics/interfaces/fixtures, option-native R26 implementation using accepted R25 foundations and its own compatibility/resource protocol. Replace only the blanket R18/EQ146 delivery prerequisite and EQ192 EQ144/EQ145 implementation-admission references with explicit R26-owned bounded execution and acceptance obligations. Do not claim an unimplemented R18 capability. Resource availability remains a separate actual gate.
 
 Preserve EQ153/EQ158/EQ159 as real compatibility/integration gates for the outputs that consume their mathematics. Reviewed source interfaces may allow parallel consumer authoring; actual runtime integration and full EQ193/R26 release acceptance still wait for the required compatible producers. This proposal neither declares full R26 independent nor silently defers/drops EQ190 or changes later-release gates. Existing EF1/R18/equity ownership stays intact.
 
-Alternative: retain the existing gates entirely, complete this preparation, then wait for the requisite equity/R18 deliveries before R26 implementation. Choosing that alternative does not authorize this chat to take over their active work.
+The alternative of retaining every existing gate was not selected. No active equity/R18 work is transferred to this chat.
 
-The owner must select the admission path before dependent runtime implementation. Until then all work here is source-only preparation, with no kernel tests, build, data operation or benchmark admission inferred.
+The admission path is now approved. Numerical authoring still requires independently reviewed frozen exact contracts/fixtures and an explicit story/layer handoff. Actual runtime resource availability and artifact qualification remain separate gates; no previous R25 grant is silently reused.
 
 ## Delivery and acceptance
 

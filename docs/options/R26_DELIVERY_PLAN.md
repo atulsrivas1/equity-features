@@ -1,6 +1,6 @@
 # R26 — Option flow, activity and execution
 
-[Replan](../OPTION_DELIVERY_REPLAN.md). Existing epic [E34](https://github.com/atulsrivas1/equity-features/issues/533); milestone [30](https://github.com/atulsrivas1/equity-features/milestone/30). Owner selected R26 preparation on October 21, 2026; [current preparation](../r26/PREPARATION.md) and GOV038#592 record the pending admission choice. Project owns live status. The seven delivery stories remain dependency-blocked Backlog until actual applicable gates are resolved. Preserve equity/R18 ownership.
+[Replan](../OPTION_DELIVERY_REPLAN.md). Existing epic [E34](https://github.com/atulsrivas1/equity-features/issues/533); milestone [30](https://github.com/atulsrivas1/equity-features/milestone/30). Owner selected R26 preparation on October 21, 2026; [current preparation](../r26/PREPARATION.md) and GOV038#592 record the approved scoped admission decision. Project owns live status. Delivery entry still requires reviewed exact contracts; EQ190 and full R26 acceptance retain actual equity producer gates. Preserve equity/R18 ownership.
 
 ## Parallel layer contracts
 
@@ -28,7 +28,7 @@ Compare independently expected results with direct calls, installed workers and 
 
 Freeze supported execution/quote alignment, sign proxies/unknowns, event ordering/ties, cancellations/corrections, eligibility, windows and multiplier/price precision. Reuse equity tape/quote kernels only where mathematics and evidence match; retain explicit asset conventions and source-specific inference limits.
 
-Dependencies: EQ-182, EQ-158, EQ-159. Delivery gates are separate from runtime operand dependencies.
+Dependencies: EQ-182. The owner-approved R26 amendment removes EQ158/EQ159 delivery from option-native contract admission; actual shared equity producer integration remains with EQ190. Delivery gates are separate from runtime operand dependencies.
 
 Independent validation: Independent tiny tapes, causal quote alignment/sign carry, missing coverage and correction replay; observed trade direction is not customer intent or dealer positioning.
 
@@ -68,7 +68,7 @@ Independent validation: Synthetic source-to-fact/readback and replay closure, re
 
 Wire independent rollup/concentration/cross-market branches; preserve ordered per-contract/underlying signing state and only selected joins. Reuse buckets across outputs and products; coordinate native/worker parallelism, memory, I-O and publication.
 
-Dependencies: EQ-189, EQ-190, EQ-191, EQ-144, EQ-145, EQ-215. Delivery gates are separate from runtime operand dependencies.
+Dependencies: EQ-189, EQ-190, EQ-191, EQ-215. R26-owned bounded-execution/resource qualification replaces EQ144/EQ145 implementation admission under the scoped owner amendment; real producer/integration gates remain. Delivery gates are separate from runtime operand dependencies.
 
 Independent validation: Direct/worker/evidence parity, causal state/replay, restart/fault/readback, skew/hot-entity and shared-input workload measurements without oversubscription.
 

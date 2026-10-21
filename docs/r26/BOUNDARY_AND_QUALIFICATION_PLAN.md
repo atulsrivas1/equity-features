@@ -1,6 +1,6 @@
 # R26 additive boundaries and qualification proposal
 
-Status: GOV038 source-only proposal; not frozen, implemented or admitted. Read [preparation and pending owner choice](PREPARATION.md). Existing seven delivery stories and full EQ190/EQ193 scope remain; accepted equity producers are not manufactured by this design.
+Status: GOV038 source-only proposal; not frozen, implemented or admitted. Read [preparation and the approved scoped owner decision](PREPARATION.md). Existing seven delivery stories and full EQ190/EQ193 scope remain; accepted equity producers are not manufactured by this design.
 
 ## Candidate packages and compatibility
 

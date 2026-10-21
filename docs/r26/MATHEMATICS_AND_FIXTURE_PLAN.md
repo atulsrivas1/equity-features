@@ -1,6 +1,6 @@
 # R26 original mathematical and independent-fixture proposal
 
-Status: source-only planning under GOV038. These are original proposed contracts and hand-derived synthetic arithmetic witnesses, not frozen semantics, executed fixtures, implementation tests or private-source parity. [Admission](PREPARATION.md) remains pending. Exact source-derived binding details stay private. The six named matrix outputs allocated to R26 and additional typed measures must receive individual formula/profile/producer bindings under EQ188; different source variants cannot be counted as one qualified behavior.
+Status: source-only planning under GOV038. These are original proposed contracts and hand-derived synthetic arithmetic witnesses, not frozen semantics, executed fixtures, implementation tests or private-source parity. [Scoped native admission](PREPARATION.md) is owner-approved; exact contract/fixture freeze and story/runtime grants remain pending. Exact source-derived binding details stay private. The six named matrix outputs allocated to R26 and additional typed measures must receive individual formula/profile/producer bindings under EQ188; different source variants cannot be counted as one qualified behavior.
 
 ## Numeric and population contracts to freeze
 
