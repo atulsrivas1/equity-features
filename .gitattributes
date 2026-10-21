@@ -22,3 +22,8 @@
 /docs/ef1/PERIOD_PHASE_CONTRACT_PROPOSAL.md text eol=lf
 /docs/ef1/PERIOD_PHASE_CONTRACT_PROPOSAL.json text eol=lf
 /docs/ef1/PERIOD_PHASE_SOURCE_AUTHORING_FREEZE.json text eol=lf
+
+# Exact observable source-design freeze bytes on every platform.
+docs/ef1/OBSERVABLE_CONTRACT_PROPOSAL.md text eol=lf
+docs/ef1/OBSERVABLE_CONTRACT_PROPOSAL.json text eol=lf
+docs/ef1/OBSERVABLE_SOURCE_AUTHORING_FREEZE.json text eol=lf
