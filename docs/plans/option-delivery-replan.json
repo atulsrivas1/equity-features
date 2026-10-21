@@ -3,7 +3,7 @@
   "governance_issue": 572,
   "predecessor_governance_issue": 525,
   "planning_only": true,
-  "tracker_state": "reviewed_source_tracker_reconciled_backlog",
+  "tracker_state": "repository_amendment_under_review_implementation_backlog",
   "source_commit": "a7cde58fc05166c9818c9107ed52269186d16afa",
   "source_hashes": {
     "CALCULATION_CATALOG.json": "0954e408f70ead630956c75c0849ceef1d068eb68c26f83cd7b2f1950fb6ad78",
@@ -19,12 +19,38 @@
     "published_option_plan",
     "reviewed_story_contracts"
   ],
-  "repository_decision": "Reuse three existing repositories; separately owned pure library packages, no repository per feature or product. New paths are planned, not created.",
+  "repository_decision": "Owner selected dedicated option-features, option-feature-io and option-feature-workers repositories after GOV036. Existing equity repositories supply only explicitly qualified dependencies; do not migrate or duplicate equity mathematics.",
   "repositories": [
+    {
+      "repository": "atulsrivas1/option-features",
+      "exists": true,
+      "owns": "Pure option contracts, calculations and separately optional domain packages",
+      "paths": [
+        "packages/option-contracts (planned)",
+        "packages/features (planned)",
+        "future option policy/volatility/exposure packages (planned)"
+      ]
+    },
+    {
+      "repository": "atulsrivas1/option-feature-io",
+      "exists": true,
+      "owns": "Native option conversion, codec and sinks",
+      "paths": [
+        "packages/io (planned)"
+      ]
+    },
+    {
+      "repository": "atulsrivas1/option-feature-workers",
+      "exists": true,
+      "owns": "Option request admission, selected-output execution and persistence",
+      "paths": [
+        "packages/workers (planned)"
+      ]
+    },
     {
       "repository": "atulsrivas1/equity-features",
       "exists": true,
-      "owns": "Canonical planning and pure libraries",
+      "owns": "Shared reference/dependency only; no ownership transfer or assumed option compatibility",
       "paths": [
         "packages/contracts",
         "packages/option-features (planned)",
@@ -38,7 +64,7 @@
     {
       "repository": "atulsrivas1/equity-feature-io",
       "exists": true,
-      "owns": "Canonical input conversion and output sinks",
+      "owns": "Shared reference/dependency only; no ownership transfer or assumed option compatibility",
       "paths": [
         "packages/io-contracts",
         "packages/io-sdk",
@@ -50,7 +76,7 @@
     {
       "repository": "atulsrivas1/equity-feature-workers",
       "exists": true,
-      "owns": "Bounded execution and ordered persistence",
+      "owns": "Shared reference/dependency only; no ownership transfer or assumed option compatibility",
       "paths": [
         "packages/workers"
       ]
@@ -59,8 +85,8 @@
   "libraries": [
     {
       "id": "option-features",
-      "repository": "atulsrivas1/equity-features",
-      "path": "packages/option-features (planned)",
+      "repository": "atulsrivas1/option-features",
+      "path": "Option-owned packages planned in option-features; compatible generic equity packages reused without moving accepted APIs",
       "modules": [
         "reference",
         "pricing",
@@ -80,8 +106,8 @@
     },
     {
       "id": "market-microstructure",
-      "repository": "atulsrivas1/equity-features",
-      "path": "packages/microstructure (planned)",
+      "repository": "atulsrivas1/option-features",
+      "path": "Option-owned packages planned in option-features; compatible generic equity packages reused without moving accepted APIs",
       "modules": [
         "option_execution",
         "flow_rollups",
@@ -93,12 +119,13 @@
         "EQ-189",
         "EQ-190",
         "EQ-215"
-      ]
+      ],
+      "reuse_note": "Generic equity primitives retain equity ownership; option-specific extensions belong to option-features and consume qualified shared APIs."
     },
     {
       "id": "volatility-features",
-      "repository": "atulsrivas1/equity-features",
-      "path": "packages/volatility (planned)",
+      "repository": "atulsrivas1/option-features",
+      "path": "Option-owned packages planned in option-features; compatible generic equity packages reused without moving accepted APIs",
       "modules": [
         "strips",
         "surfaces",
@@ -117,8 +144,8 @@
     },
     {
       "id": "exposure-features",
-      "repository": "atulsrivas1/equity-features",
-      "path": "packages/exposure (planned)",
+      "repository": "atulsrivas1/option-features",
+      "path": "Option-owned packages planned in option-features; compatible generic equity packages reused without moving accepted APIs",
       "modules": [
         "contributions",
         "grids",
@@ -133,8 +160,8 @@
     },
     {
       "id": "market-screeners / strategy-context / signal-lifecycle",
-      "repository": "atulsrivas1/equity-features",
-      "path": "packages/strategies",
+      "repository": "atulsrivas1/option-features",
+      "path": "Option-owned packages planned in option-features; compatible generic equity packages reused without moving accepted APIs",
       "modules": [
         "option_scans",
         "watchlists",
@@ -152,8 +179,8 @@
     },
     {
       "id": "outcome-labels",
-      "repository": "atulsrivas1/equity-features",
-      "path": "packages/labels",
+      "repository": "atulsrivas1/option-features",
+      "path": "Option-owned packages planned in option-features; compatible generic equity packages reused without moving accepted APIs",
       "modules": [
         "option_move_outcomes",
         "descriptive_calibration"
@@ -212,21 +239,21 @@
             "EQ-184",
             "EQ-214"
           ],
-          "repository": "atulsrivas1/equity-features",
+          "repository": "atulsrivas1/option-features",
           "deliverables": "Compute supported reference/liquidity/chain, pricing, Greek and IV outputs from admitted supplied facts."
         },
         "io": {
           "stories": [
             "EQ-185"
           ],
-          "repository": "atulsrivas1/equity-feature-io",
+          "repository": "atulsrivas1/option-feature-io",
           "deliverables": "Map option definitions/trades/quotes, underlying, clocks, multiplier, model/reference facts and result rows; qualify selected DuckDB tables or synthetic fixtures and configure the separate output sink."
         },
         "workers": {
           "stories": [
             "EQ-186"
           ],
-          "repository": "atulsrivas1/equity-feature-workers",
+          "repository": "atulsrivas1/option-feature-workers",
           "deliverables": "Route selected contract metrics with independent readiness, bounded batches and retry/readback."
         }
       },
@@ -262,21 +289,21 @@
             "EQ-190",
             "EQ-215"
           ],
-          "repository": "atulsrivas1/equity-features",
+          "repository": "atulsrivas1/option-features",
           "deliverables": "Compute option execution/cluster, directional-premium, concentration, activity baselines and admitted equity-option measures."
         },
         "io": {
           "stories": [
             "EQ-191"
           ],
-          "repository": "atulsrivas1/equity-feature-io",
+          "repository": "atulsrivas1/option-feature-io",
           "deliverables": "Map ordered trades/quotes, quote-alignment witnesses, prior populations and compatible equity histories; persist flow/window outputs and eligibility evidence."
         },
         "workers": {
           "stories": [
             "EQ-192"
           ],
-          "repository": "atulsrivas1/equity-feature-workers",
+          "repository": "atulsrivas1/option-feature-workers",
           "deliverables": "Preserve event order/sign carry and independent ready windows with bounded shared preparation and stored-result parity."
         }
       },
@@ -312,21 +339,21 @@
             "EQ-196",
             "EQ-197"
           ],
-          "repository": "atulsrivas1/equity-features",
+          "repository": "atulsrivas1/option-features",
           "deliverables": "Compute admitted option strips/surfaces, constant-tenor variance, skew/curvature/term structure, move scales and compatible historical/comparison statistics."
         },
         "io": {
           "stories": [
             "EQ-198"
           ],
-          "repository": "atulsrivas1/equity-feature-io",
+          "repository": "atulsrivas1/option-feature-io",
           "deliverables": "Map quote/expiry frames, rates/dividends/classification, histories, group membership and separately supplied equity RV with exact method/time/basis identities."
         },
         "workers": {
           "stories": [
             "EQ-199"
           ],
-          "repository": "atulsrivas1/equity-feature-workers",
+          "repository": "atulsrivas1/option-feature-workers",
           "deliverables": "Run independent expiry/strip/surface and ready target/history branches; join only actual operands and persist distinct unavailable states."
         }
       },
@@ -360,21 +387,21 @@
             "EQ-202",
             "EQ-203"
           ],
-          "repository": "atulsrivas1/equity-features",
+          "repository": "atulsrivas1/option-features",
           "deliverables": "Compute declared sensitivity contributions, per-metric grids and ordered before/after or explicit counterfactual changes."
         },
         "io": {
           "stories": [
             "EQ-204"
           ],
-          "repository": "atulsrivas1/equity-feature-io",
+          "repository": "atulsrivas1/option-feature-io",
           "deliverables": "Map supplied/calculated Greeks, causal OI/position assumptions, spot, standard multiplier and population/frame versions; persist completeness per metric/cell."
         },
         "workers": {
           "stories": [
             "EQ-205"
           ],
-          "repository": "atulsrivas1/equity-feature-workers",
+          "repository": "atulsrivas1/option-feature-workers",
           "deliverables": "Execute independent GEX/VEX-ready branches and bounded grid reductions without waiting for unrelated volatility products; serialize change/history publication."
         }
       },
@@ -413,21 +440,21 @@
             "EQ-216",
             "EQ-219"
           ],
-          "repository": "atulsrivas1/equity-features",
+          "repository": "atulsrivas1/option-features",
           "deliverables": "Compose versioned scanner/watchlist, exposure-level, volatility-context, strategy/meta-score and lifecycle policies; compute separately mature descriptive outcomes."
         },
         "io": {
           "stories": [
             "EQ-217"
           ],
-          "repository": "atulsrivas1/equity-feature-io",
+          "repository": "atulsrivas1/option-feature-io",
           "deliverables": "Map immutable feature/policy frames, weights, groups, watchlist memberships and ordered history; persist results and delayed labels with exact provenance."
         },
         "workers": {
           "stories": [
             "EQ-218"
           ],
-          "repository": "atulsrivas1/equity-feature-workers",
+          "repository": "atulsrivas1/option-feature-workers",
           "deliverables": "Evaluate selected ready policies/strategies and ordered lifecycle transitions under the shared runtime; independently execute mature outcome branches."
         }
       },
@@ -1270,7 +1297,7 @@
     {
       "namespace": "option_p1",
       "kind": "request_kind",
-      "library": "equity-feature-workers",
+      "library": "option-feature-workers",
       "story": "EQ-218",
       "count": 13
     },
@@ -1538,5 +1565,21 @@
     "implementation_unassigned": true,
     "native_new_story_parents_verified": true,
     "publication_lifecycle": "GOV036 issue572 / PR579; use live evidence"
+  },
+  "superseding_repository_governance_issue": 581,
+  "r25_preparation": {
+    "governance_issue": 581,
+    "status": "source_only_contract_draft",
+    "implementation_admitted": false,
+    "contract_owner": "atulsrivas1/option-features",
+    "contract_path": "docs/r25",
+    "blocking_acceptance_story": "EQ-146",
+    "new_interface_findings": [
+      "Shares-only equity metadata cannot represent native contract quantities",
+      "Closed exact result codec/sink needs an explicit option-native or shared extension",
+      "Single-instrument worker admission cannot relabel distinct underlying identity",
+      "Chain activity score is not raw chain sums/counts"
+    ],
+    "version_policy": "Independent package versions, exact qualified alpha/artifact locks, schema/formula/model/data identities separate"
   }
 }

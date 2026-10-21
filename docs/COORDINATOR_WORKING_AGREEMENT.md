@@ -24,7 +24,7 @@ Owner selected a new, separate DuckDB database for generated feature data. Worke
 
 ## Feature API and SaaS direction — October 20, 2026
 
-Subsequent owner clarification: API is optional/secondary and its timing is delegated to the coordinator. Prioritize the core three-layer local pipeline. Preserve API-compatible semantics, but an API or SaaS implementation must not block the core release. The agreed initial team is three implementation workers plus this coordinator, with fresh independent reviewers at review gates. See [release pipeline and planning readback](COORDINATED_RELEASE_PLAN.md).
+Subsequent owner clarification: API is optional/secondary and its timing is delegated to the coordinator. Prioritize the core three-layer local pipeline. Preserve API-compatible semantics, but an API or SaaS implementation must not block the core release. The agreed initial team is three implementation workers plus this coordinator, with fresh independent reviewers at review gates. See the [published release dashboard and plans](DASHBOARD.md).
 
 Owner requires feature capabilities to be available through both reusable libraries and an API suitable for future SaaS use. Add an API/service layer consuming the same canonical feature contracts and library implementations. Transport serialization and request validation belong to the API; numerical feature logic remains in the libraries. Workers coordinate adapters, feature execution and configured sinks. Preserve the owner's agreed processing flow: existing DuckDB on N: or synthetic data -> input adapter -> workers -> feature libraries -> output sink -> new output DuckDB. Workers invoke the adapter and pass library results to the sink.
 

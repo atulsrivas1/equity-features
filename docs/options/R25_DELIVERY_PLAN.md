@@ -1,5 +1,7 @@
 # R25 — Option reference, pricing, Greeks and implied volatility
 
+Owner-selected preparation is tracked by [GOV037 #581](https://github.com/atulsrivas1/equity-features/issues/581) and the [preparation handoff](../r25/PREPARATION.md). Dedicated option repositories supersede the earlier co-location assumption. New mathematical/record/layer contracts are draft and EQ146 remains unaccepted; numerical implementation is not admitted.
+
 [Replan](../OPTION_DELIVERY_REPLAN.md). Existing epic [E33](https://github.com/atulsrivas1/equity-features/issues/526); milestone [29](https://github.com/atulsrivas1/equity-features/milestone/29). Planning only; Project owns live status. Preserve equity/R18 ownership and option implementation gates.
 
 ## Parallel layer contracts
