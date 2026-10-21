@@ -86,12 +86,12 @@ def main():
             assert len(selected[p])==d['bytes'] and sha(selected[p])==d['sha256']
     else:
         evolution_bytes=selected['docs/ef1/EVIDENCE_EVALUATION_SOURCE_EVOLUTION.json']
-        assert len(evolution_bytes)==3404 and sha(evolution_bytes)=='05831d44907d2d544d04faa0cb4f99bc441f4d985e95ee664dafe612d142b0e9'
+        assert len(evolution_bytes)==3751 and sha(evolution_bytes)=='318ea40a5b91707ea3dfe6af8a2843aac5e8961780b61309f9f5d120dd0d1095'
         source_evolution=json.loads(evolution_bytes)
         assert source_evolution['schema']=='ef1.eq117.qualification-source-evolution:1'
         assert source_evolution['historical_pin_receipt']==dict(bytes=len(pin_bytes),sha256=sha(pin_bytes))
         modified,added=source_evolution['modified'],source_evolution['added']
-        assert len(modified)==7 and len(added)==4
+        assert len(modified)==7 and len(added)==6
         assert set(modified)<=set(historical) and not set(added)&set(historical)
         assert governed==set(historical)|set(added), 'undeclared package source addition/deletion'
         for p,d in historical.items():
