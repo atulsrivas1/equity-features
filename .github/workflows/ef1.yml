@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: atulsrivas1/equity-feature-workers
-          ref: 7dcf3dcb072fc2f363567fce3931a93478ef4497
+          ref: 6abde966386bfa60eb4ee292d221c80f8ac179ed
           path: component
       - uses: actions/checkout@v4
         with:
