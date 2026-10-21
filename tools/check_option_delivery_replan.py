@@ -50,7 +50,7 @@ def check(root: Path, source: Path | None = None, ledger_path: Path | None = Non
     plan = json.loads((root / 'docs/plans/option-delivery-replan.json').read_text(encoding='utf-8'))
     assert plan['planning_only'] and plan['preserve_equity_and_r18']
     assert plan['governance_issue'] == 572
-    # Later-release default retained; the owner authorized a scoped R25 exception.
+    # Later-release default retained; R25 and R26 have separate scoped exceptions.
     assert plan['option_implementation_requires'] == ['EQ-141', 'EQ-146', 'published_option_plan', 'reviewed_story_contracts']
     assert plan['r25_implementation_requires'] == ['EQ-141', 'published_option_plan', 'reviewed_story_contracts', 'reviewed_r25_compatibility_and_resource_plan']
     assert plan['owner_gate_amendment']['scope'] == 'R25 only'
@@ -83,8 +83,28 @@ def check(root: Path, source: Path | None = None, ledger_path: Path | None = Non
             assert 'EQ-094' not in s['dependencies']
     assert 'EQ-084' not in stories['EQ-210']['dependencies'], 'Optional API must not gate local release'
     assert set(stories['EQ-186']['dependencies']) == {'EQ-183', 'EQ-184', 'EQ-185', 'EQ-214'}
-    # Preserve the later option branch's explicit R18 producer gates.
-    assert {sid: set(stories[sid]['dependencies']) & {'EQ-143', 'EQ-144', 'EQ-145', 'EQ-146'} for sid in ['EQ-192', 'EQ-199', 'EQ-205']} == {sid: {'EQ-144', 'EQ-145'} for sid in ['EQ-192', 'EQ-199', 'EQ-205']}
+    # Validate the owner's R26-only native admission amendment without weakening
+    # actual equity integration or the unchanged later-release R18 gates.
+    r26 = plan['r26_owner_gate_amendment']
+    assert r26['owner_approved'] is True and r26['governance_issue'] == 592
+    assert r26['removed_blanket_delivery'] == ['EQ-146']
+    assert r26['retained_full_release_acceptance'] is True
+    assert r26['r27_r29_unchanged'] is True
+    assert r26['publication_approval_separate'] is True
+    assert set(r26['eq188_dependencies']) == set(stories['EQ-188']['dependencies']) == {'EQ-182'}
+    assert set(r26['eq192_dependencies']) == set(stories['EQ-192']['dependencies']) == {'EQ-189', 'EQ-190', 'EQ-191', 'EQ-215'}
+    assert set(r26['retained_eq190_integration']) == {'EQ-153', 'EQ-158'}
+    assert set(stories['EQ-190']['dependencies']) == {'EQ-188', 'EQ-153', 'EQ-158'}
+    assert set(stories['EQ-193']['dependencies']) == {'EQ-187', 'EQ-192', 'EQ-215'}
+    assert r26['scope'] == 'R26 option-native admission only; retain actual equity integration gates'
+    assert r26['replacement_gates'] == [
+        'frozen independently reviewed native contracts and conformance fixtures',
+        'R26-owned exact package/schema compatibility',
+        'R26-owned bounded execution/resource qualification',
+        'actual numerical/platform/state/storage/browser acceptance',
+    ]
+    assert not any(dep in {'EQ-143', 'EQ-144', 'EQ-145', 'EQ-146'} for s in plan['stories'] if s['release'] == 'R26' for dep in s['dependencies'])
+    assert {sid: set(stories[sid]['dependencies']) & {'EQ-143', 'EQ-144', 'EQ-145', 'EQ-146'} for sid in ['EQ-199', 'EQ-205']} == {sid: {'EQ-144', 'EQ-145'} for sid in ['EQ-199', 'EQ-205']}
     assert not any(dep in {'EQ-143', 'EQ-144', 'EQ-146'} for s in plan['stories'] if s['release'] == 'R25' for dep in s['dependencies'])
     assert all(row['library'] == 'option-feature-io' for row in plan['catalogue_accounting'] if row['story'] == 'EQ-198')
     assert all('option-' not in path for repo in plan['repositories'] if repo['repository'].startswith('atulsrivas1/equity-') for path in repo['paths'])
