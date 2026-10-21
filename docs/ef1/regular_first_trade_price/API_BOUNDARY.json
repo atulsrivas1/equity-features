@@ -1,0 +1,174 @@
+{
+  "status": "PROPOSED_UNFROZEN_NOT_IMPLEMENTED_NO_EXECUTION_OR_SOURCE_GRANT",
+  "producer": "regular_first_trade_price",
+  "config_identity": "ef1.regular_first_trade_price",
+  "config_algorithm_version": "v1",
+  "config_schema_version": "1",
+  "feature_header": {
+    "feature_id": "session.regular.first_trade_price",
+    "algorithm_version": "v1",
+    "dtype": "float64",
+    "unit": "currency/share",
+    "schema_version": "1"
+  },
+  "result_metadata": {
+    "backend_id": "python-exact",
+    "backend_version": "0.0.4a5",
+    "schema_version": "1",
+    "math_policy_version": "v1",
+    "evidence_limit": 1
+  },
+  "canonical_package_version": "0.0.4a4",
+  "current_api_shape": [
+    "build_ef1_config",
+    "decode_ef1_context",
+    "ef1_definitions",
+    "compute_ef1"
+  ],
+  "producer_support_in_current_frozen_api": false,
+  "proposed_context": {
+    "exact_keys": [
+      "version",
+      "producer",
+      "calendar",
+      "selection"
+    ],
+    "version": "ef1-context1",
+    "producer": "regular_first_trade_price",
+    "selection": {
+      "phase_profile": "regular_no_auctions1",
+      "sampling": "eligible_trade"
+    }
+  },
+  "nullable_slot_roles": [
+    "calendar_provenance",
+    "trades",
+    "population_proof"
+  ],
+  "present_slot_kinds": [
+    "reference",
+    "trade",
+    "reference"
+  ],
+  "present_bindings_lexical_order": [
+    "calendar_provenance",
+    "population_proof",
+    "trades"
+  ],
+  "population_proof": {
+    "fact_kind": "ef1.regular_trade.population.v1",
+    "version": "ef1-regular-trade-population1",
+    "profile_id": "regular-trade-membership-asof1",
+    "reference_prefix": "rtp1:",
+    "payload_keys": [
+      "adjustment",
+      "complete",
+      "eligibility_policy",
+      "end_ns",
+      "include_closing_auction",
+      "include_opening_auction",
+      "instrument_id",
+      "knowledge_cutoff_ns",
+      "market_cutoff_ns",
+      "namespace",
+      "phase_profile",
+      "population_sha256",
+      "price_unit",
+      "producer",
+      "profile_id",
+      "proof_source",
+      "row_count",
+      "sampling",
+      "session_id",
+      "start_ns",
+      "trades_source",
+      "version"
+    ],
+    "canonical_encoding": "compact sorted-key ASCII JSON; exact closed fields/types; SHA256 over payload bytes",
+    "membership_projection_document_version": "ef1-gap-membership-projection1",
+    "membership_projection_kind": "trade",
+    "membership_columns": [
+      "instrument_id",
+      "session_id",
+      "event_ns",
+      "order_key",
+      "event_id",
+      "eligible",
+      "condition_present",
+      "condition"
+    ],
+    "excluded_from_membership": [
+      "price",
+      "size",
+      "known_at_ns",
+      "optional price/size/known_at column presence"
+    ],
+    "closed_binding_keys": [
+      "source_id",
+      "snapshot_id",
+      "mapping_version",
+      "input_id"
+    ],
+    "reference_columns": [
+      "instrument_id",
+      "session_id",
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+    ]
+  },
+  "worker_task": {
+    "family": "regular_first_trade_price",
+    "instruments": [
+      "X"
+    ],
+    "max_input_batches": 3,
+    "max_input_bytes": 1048576,
+    "ordered_history": false,
+    "warmup_sessions": [],
+    "initialization_sha256": null,
+    "merge_policy": "none",
+    "ownership": "serialized_destination",
+    "protocol_version": "efworker-task1",
+    "canonical_package_version": "0.0.4a4",
+    "canonical_schema_version": "1",
+    "math_policy_version": "v1"
+  },
+  "bounds": {
+    "context_ASCII_bytes": 4096,
+    "proof_ASCII_bytes": 4096,
+    "json_max_depth": 8,
+    "max_collection_entries": 64,
+    "input_protocol5_pickle_bytes": 1048576,
+    "task_JSON_bytes": 1048576,
+    "result_cells": 1,
+    "declared_evidence": 1,
+    "maximum_actual_evidence": 1
+  },
+  "result_cells": 1,
+  "declared_evidence_limit": 1,
+  "maximum_actual_evidence": 1,
+  "stage_argument_profiles": {
+    "initial_canonical": "validate_batch(batch, required_fields=()) with no session or availability",
+    "contextual_variant": "validate_batch(batch, session=config.session, availability=config.availability, required_fields=()); a separate call that can refuse geometry earlier",
+    "status": "N154 has actual failed-run BatchMetadata BOUNDS constructor evidence; all other prior stage labels remain provisional or future until reviewed addendum. No new producer/worker implementation is established."
+  },
+  "source_independence": "Calculations select/compute only; adapters convert/acquire; workers orchestrate; sink publishes to a new separate output DuckDB.",
+  "source_qualification": "Synthetic fixtures only. Original observed identity/order/phase/eligibility/coverage/known-at/rights and numerical or consumer parity are unqualified.",
+  "literal_oracle_version": "V3; reviewed mathematics V2 unchanged",
+  "literal_refusal_stage_census": {
+    "BatchMetadata_constructor": 1,
+    "CanonicalBatch_constructor": 23,
+    "ConfigSpec_constructor": 1,
+    "Coverage_constructor": 4,
+    "PriceUnit_constructor": 3,
+    "canonical_validate_batch": 20,
+    "future_new_config_decode": 11,
+    "future_new_pure_semantic": 95,
+    "transport_schema_admission": 1
+  },
+  "literal_refusal_stage_census_is_runtime_census": false
+}

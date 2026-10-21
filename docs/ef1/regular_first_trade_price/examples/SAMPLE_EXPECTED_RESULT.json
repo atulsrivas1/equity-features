@@ -1,0 +1,175 @@
+{
+  "values": [
+    {
+      "feature_id": "session.regular.first_trade_price",
+      "algorithm_version": "v1",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "entities": [
+        {
+          "instrument_id": "X",
+          "session_id": "S"
+        }
+      ],
+      "values": [
+        1.01
+      ],
+      "schema_version": "1"
+    }
+  ],
+  "quality": [
+    {
+      "entity": {
+        "instrument_id": "X",
+        "session_id": "S"
+      },
+      "feature_id": "session.regular.first_trade_price",
+      "status": "available",
+      "expected": 3,
+      "observed": 3,
+      "reasons": []
+    }
+  ],
+  "metadata": {
+    "namespace": "SYN",
+    "session_id": "S",
+    "availability": {
+      "market_cutoff_ns": 14,
+      "knowledge_cutoff_ns": 14,
+      "evaluation_ns": 14,
+      "mode": "known_at",
+      "reconstruction_reason": null
+    },
+    "config_digest": "451161eaa58aa937acad1ad4e341ff8312c1b1efd06e8ee5ad5773f8dac92199",
+    "inputs": [
+      {
+        "role": "calendar_provenance",
+        "kind": "reference",
+        "metadata": {
+          "namespace": "SYN",
+          "source": {
+            "source_id": "synthetic-calendar_provenance",
+            "snapshot_id": "R1",
+            "mapping_version": "ef1-reference-map1",
+            "input_id": "calendar_provenance-1"
+          },
+          "coverage": {
+            "expected": 1,
+            "observed": 1,
+            "complete": true
+          },
+          "price_unit": null,
+          "adjustment": {
+            "basis": "raw",
+            "policy_version": "raw-v1",
+            "action_snapshot": "none",
+            "anchor": "none"
+          },
+          "sampling": "none",
+          "quantity_unit": "shares",
+          "ordering": "declared",
+          "duplicate_policy": "reject",
+          "scope": null,
+          "interval_coverage": []
+        },
+        "schema_version": "1"
+      },
+      {
+        "role": "population_proof",
+        "kind": "reference",
+        "metadata": {
+          "namespace": "SYN",
+          "source": {
+            "source_id": "synthetic-population_proof",
+            "snapshot_id": "SYN1",
+            "mapping_version": "synthetic-map1",
+            "input_id": "population_proof-1"
+          },
+          "coverage": {
+            "expected": 1,
+            "observed": 1,
+            "complete": true
+          },
+          "price_unit": null,
+          "adjustment": {
+            "basis": "raw",
+            "policy_version": "raw-v1",
+            "action_snapshot": "none",
+            "anchor": "none"
+          },
+          "sampling": "none",
+          "quantity_unit": "shares",
+          "ordering": "declared",
+          "duplicate_policy": "reject",
+          "scope": null,
+          "interval_coverage": []
+        },
+        "schema_version": "1"
+      },
+      {
+        "role": "trades",
+        "kind": "trade",
+        "metadata": {
+          "namespace": "SYN",
+          "source": {
+            "source_id": "synthetic-trades",
+            "snapshot_id": "SYN1",
+            "mapping_version": "synthetic-map1",
+            "input_id": "trades-1"
+          },
+          "coverage": {
+            "expected": 3,
+            "observed": 3,
+            "complete": true
+          },
+          "price_unit": {
+            "scale": 2,
+            "currency": "USD"
+          },
+          "adjustment": {
+            "basis": "raw",
+            "policy_version": "raw-v1",
+            "action_snapshot": "none",
+            "anchor": "none"
+          },
+          "sampling": "none",
+          "quantity_unit": "shares",
+          "ordering": "declared",
+          "duplicate_policy": "reject",
+          "scope": {
+            "start_ns": 10,
+            "end_ns": 14,
+            "eligibility_policy": "supplied_path",
+            "include_opening_auction": false,
+            "include_closing_auction": false
+          },
+          "interval_coverage": []
+        },
+        "schema_version": "1"
+      }
+    ],
+    "backend_id": "python-exact",
+    "backend_version": "0.0.4a5",
+    "evidence_limit": 1,
+    "schema_version": "1",
+    "math_policy_version": "v1"
+  },
+  "evidence": [
+    {
+      "entity": {
+        "instrument_id": "X",
+        "session_id": "S"
+      },
+      "feature_id": "session.regular.first_trade_price",
+      "input_id": "trades-1",
+      "row_id": "t1",
+      "event_ns": 11,
+      "known_at_ns": 11,
+      "effective_start_ns": null,
+      "effective_end_ns": null,
+      "use": "consumed",
+      "exclusion_reason": null,
+      "boundary": "ordinary"
+    }
+  ]
+}
