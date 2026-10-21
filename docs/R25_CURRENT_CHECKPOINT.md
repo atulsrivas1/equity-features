@@ -1,3 +1,7 @@
+## R25 published; final acceptance recorded — October 21, 2026
+
+Owner-approved `v0.1.0a1` GitHub prereleases are published in all three option repositories. Actual approved tag commits/trees and all twelve freshly downloaded asset checksums are verified independently; see [published acceptance](R25_RELEASE_ACCEPTANCE.md). All technical gates remain passed. The epic and seven stories have entered Released; final Done/closure and milestone completion follow merge of this reviewed acceptance record, with the live Project as current authority. No further publication approval or runtime qualification is pending. Earlier Ready-to-release/UNRELEASED snapshots below retain chronology. Preserve original qualified build-source labels and EQ142's unaccepted interrupted-study status; no later-release work is authorized by this checkpoint.
+
 # R25 current delivery checkpoint
 
 Checkpoint: October 21, 2026. R25 is the first option release: nine selected matrix outputs plus five pricing/Greek foundation outputs. Implementation is merged; release acceptance and publication are separate. Live [Project](https://github.com/users/atulsrivas1/projects/2) remains status authority. [E33](https://github.com/atulsrivas1/equity-features/issues/526) and [EQ187](https://github.com/atulsrivas1/equity-features/issues/532) own final delivery.

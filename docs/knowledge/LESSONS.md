@@ -1,3 +1,7 @@
+## EF1 main refresh preserves completed R25 evidence - October 21, 2026
+
+The cumulative EF1 source candidate retains current [R25 release acceptance](../R25_RELEASE_ACCEPTANCE.md), owner policy and both original byte-line histories. Historical pending/unreleased snapshots remain dated history; EF1 qualification remains separately pending. Direct raw Git byte comparisons are required after every documentation edit, including identity-only text edits.
+
 ## EF1 integration preserves evidence identities - October 21, 2026
 
 The cumulative [EF1 source rollup](https://github.com/atulsrivas1/equity-features/pull/589) must preserve current main's owner policy and R25 history while retaining the bounded EF1 authoring evidence. A documentation-only main refresh does not rename earlier qualification source commits or turn an in-progress final cohort into a completed run. Prove equality of package, build, test, fixture and qualification inputs individually, classify any additive checker, and obtain fresh independent review of the full main-to-rollup diff before source merge. Existing full audit, browser demo and release gates remain distinct from bounded source qualification.
@@ -37,6 +41,9 @@ is bounded without replacing complete population bindings, and latest remaining
 gap differs from maximum-prefix fill after reversal. Source authoring and fixture
 counts are not executed numerical evidence; protected study reservations remain
 in force until the coordinator obtains actual terminal evidence.
+## R25 publication requires actual delivery readback — October 21, 2026
+
+Owner approval permitted the exact prepared GitHub prereleases. [Published acceptance](../R25_RELEASE_ACCEPTANCE.md) binds all three actual tags to reviewed commit/tree targets and all twelve downloaded assets to approved sizes/SHA256. Verify delivered bytes before Released, then record reviewed documentation/acceptance before Done and issue/milestone closure. A later documentation commit does not rewrite immutable artifact source markers. Retain older pending-state snapshots as chronology and use the live Project for current execution status.
 
 ## R25 qualification distinguishes acceptance domains — October 21, 2026
 
