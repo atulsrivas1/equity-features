@@ -1,3 +1,7 @@
+## R25 publication requires actual delivery readback — October 21, 2026
+
+Owner approval permitted the exact prepared GitHub prereleases. [Published acceptance](../R25_RELEASE_ACCEPTANCE.md) binds all three actual tags to reviewed commit/tree targets and all twelve downloaded assets to approved sizes/SHA256. Verify delivered bytes before Released, then record reviewed documentation/acceptance before Done and issue/milestone closure. A later documentation commit does not rewrite immutable artifact source markers. Retain older pending-state snapshots as chronology and use the live Project for current execution status.
+
 ## R25 qualification distinguishes acceptance domains — October 21, 2026
 
 [Current R25 evidence](../R25_CURRENT_CHECKPOINT.md) records actual local execution separately from source review and release acceptance. An independently reviewed resource release does not accept an interrupted study; missing exit receipts prove neither continued execution nor success. Match original PID plus creation-time witnesses and preserve original logs/results.
