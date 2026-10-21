@@ -1,0 +1,15 @@
+{
+  "status": "approved_source_authoring_not_executed",
+  "review_sha256": "341b75cbe6611049deb13d7b0daf504846f7b230c2e3601263c37daa8f226562",
+  "amendment_path": "docs/ef1/STATUS_INPUT_SLOTS.md",
+  "reviewer": "/root/ef1_status_contract_review",
+  "new_feature_ids": false,
+  "decision": "Reviewed items1-7 override only previously ambiguous status local missing-role representation, deterministic proof/witness admission and aggregate bound. Proposal-stage wording in preserved reviewed bytes is superseded by this receipt.",
+  "schema": "ef1.status-input-slots-freeze:1",
+  "wire_schema_changes": false,
+  "amendment_sha256": "bff0f3f110cd5b99950d94e0acc19acba0570f2e9eae727f7d88281f45ecd3e0",
+  "coordinator": "/root",
+  "original_contract_sha256": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
+  "date_eastern": "2026-10-20",
+  "qualification": "Source authoring only; local runtime reserved to separate EQ142 owner, current review/CI/numerical/installed/integration/browser/full audit/release gates mandatory."
+}

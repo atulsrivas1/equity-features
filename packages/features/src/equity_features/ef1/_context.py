@@ -185,6 +185,18 @@ def _parse(text: object) -> dict[str, Any]:
         for key in _DEFINITION_KEYS - {"start_ns"}:
             label(definition[key])
         _integer(definition["start_ns"])
+    elif raw["producer"] == "status":
+        selection = raw["selection"]
+        if type(selection) is not dict or set(selection) != {"dimension", "epoch", "seed_reference_id", "max_age_ns"}:
+            fail(ErrorCode.INVALID_CONFIG, "exact status selection required")
+        if type(selection["dimension"]) is not str or selection["dimension"] not in ("trading", "quoting", "ssr"):
+            fail(ErrorCode.INVALID_CONFIG, "closed status dimension required")
+        label(selection["epoch"])
+        if selection["seed_reference_id"] is not None:
+            label(selection["seed_reference_id"])
+        if selection["max_age_ns"] is not None and _integer(selection["max_age_ns"]) < 0:
+            fail(ErrorCode.BOUNDS, "explicit maximum state age must be nonnegative")
+        _clock_calendar(raw["calendar"])
     elif raw["producer"] == "clock":
         if type(raw["selection"]) is not dict or raw["selection"]:
             fail(ErrorCode.INVALID_CONFIG, "clock selection must be an empty object")

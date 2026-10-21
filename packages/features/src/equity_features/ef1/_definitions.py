@@ -30,6 +30,22 @@ class EF1Definition:
 def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
     """Describe the complete selected executable producer; unsupported producers fail."""
     context = decode_ef1_context(config)
+    if context["producer"] == "status":
+        requirements = tuple(InputRequirement(role, "canonical:1",
+            ("reference_id", "fact_kind", "effective_start_ns", "effective_end_ns", "text", "known_at_ns"),
+            DataKind.REFERENCE, rule="actual causal supplied status/calendar declaration")
+            for role in ("calendar_provenance", "status_states", "status_prefix", "status_validity"))
+        dimension = context["selection"]["dimension"]
+        return (
+            EF1Definition("session.status.admission_reason", ValueType.STRING, "reason", requirements,
+                          "first applicable closed status admission reason"),
+            EF1Definition("session.status.admission_state", ValueType.STRING, "state", requirements,
+                          "ready iff the selected current state is proved and admitted"),
+            EF1Definition("session.status." + dimension + "_age_ns", ValueType.INT64, "ns", requirements,
+                          "C minus original effective time of proved current event"),
+            EF1Definition("session.status." + dimension + "_state", ValueType.STRING, "state", requirements,
+                          "last event strictly before C in the proved causal supplied prefix"),
+        )
     if context["producer"] == "clock":
         requirements = (InputRequirement("calendar_provenance", "canonical:1",
                         ("reference_id", "fact_kind", "effective_start_ns", "effective_end_ns",

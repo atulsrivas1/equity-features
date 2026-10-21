@@ -1,0 +1,84 @@
+{
+  "schema": "ef1.status-source-authoring:1",
+  "status": "source_complete_f1_corrected_unexecuted_recheck_pending",
+  "author": "/root/ef1_status_library",
+  "base_commit": "eaa5131fc6d85d8ff35ac788af9c3c23ebbd9fb6",
+  "branch": "codex/ef1-supplied-status",
+  "original_contract_sha256": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
+  "slot_amendment_sha256": "bff0f3f110cd5b99950d94e0acc19acba0570f2e9eae727f7d88281f45ecd3e0",
+  "scope": "Supplied current-state only; original history/open diagnostics and full EQ164 audit remain mandatory",
+  "source_files": [
+    {
+      "path": "packages/features/src/equity_features/ef1/__init__.py",
+      "sha256": "89a8297e73598c804e562c8f99088b74863dac3307cbc31046ba3915dd40be5d"
+    },
+    {
+      "path": "packages/features/src/equity_features/ef1/_context.py",
+      "sha256": "251fc12808f63de12a2b1aeed09cab74c14e5cbb3a19e0600005955b20626c35"
+    },
+    {
+      "path": "packages/features/src/equity_features/ef1/_definitions.py",
+      "sha256": "59dc1078c3e4232c644f404aee1dd67813a72f85059fd15a662f545660a40421"
+    },
+    {
+      "path": "packages/features/src/equity_features/ef1/_dispatch.py",
+      "sha256": "2917e532c67d22b5ac4ea0e14d77aa131fb1178bbd8fac7d8459b3778dad60fa"
+    },
+    {
+      "path": "packages/features/src/equity_features/ef1/_status.py",
+      "sha256": "5f1984e9857d3627fe81b1df5fe03fde27f6d4fc2f13ee7413cc0fefe6265b87"
+    },
+    {
+      "path": "tests/unit/test_ef1_status.py",
+      "sha256": "74ab23ebd715fbb5ebbead74eb2680d077cf87445d83968a2f2495a958774989"
+    },
+    {
+      "path": "docs/api/EF1_STATUS.md",
+      "sha256": "c709d2fcfc54b2da706e879e74534a77b1a34c852ccdba9c781ef3d6d15732ad"
+    },
+    {
+      "path": "docs/features/EF1_STATUS.md",
+      "sha256": "022b37ef0d27f47fae64fe3988b5c6a0a117da6cab970259a6359c76208a8c0d"
+    },
+    {
+      "path": "docs/ef1/STATUS_LITERAL_GOLDENS.json",
+      "sha256": "6e4d98239220b76cf70308fdff3d370306f8981ae6194874260d60235b7589a8"
+    },
+    {
+      "path": "examples/ef1_status.py",
+      "sha256": "56e688639a544f91349148c5d13c5ba4dd89add6788edb8a0c6d6a7532ebf5c8"
+    },
+    {
+      "path": "docs/SESSION_HANDOFF.md",
+      "sha256": "8c4ba0d679e0cf21f5161ac129503c210cd57967e6eaea0b750ee3b3dfb15975"
+    },
+    {
+      "path": "docs/knowledge/LESSONS.md",
+      "sha256": "68e29e2ebd6efddd5a13bf2f8911043653c9008eddc934c35c0940938d0d1d7c"
+    }
+  ],
+  "static_text_check": "git diff --check: no whitespace errors; line-ending notices only",
+  "not_executed": [
+    "local runtime/import/syntax/test/build/benchmark",
+    "database or N-drive access",
+    "commit/push",
+    "independent corrected-source recheck",
+    "remote CI",
+    "numerical/artifact/integration/browser/release qualification"
+  ],
+  "coordinator_owned_exclusions": [
+    "STATUS_INPUT_SLOTS.md",
+    "STATUS_INPUT_SLOTS_FREEZE.json",
+    "CI/pins/census/guards"
+  ],
+  "next": "Coordinator inspects F1 correction and original independent reviewer rechecks corrected exact hashes; remote qualification and remaining release gates follow",
+  "supersedes_receipt_sha256": "9af8425e6769ad5a620631eb6e6720225037f55236ab720808a92c453a0dff50",
+  "independent_source_review": {
+    "reviewer": "/root/ef1_status_library_review",
+    "finding": "F1 P2: applicable validity original knowledge must remain independent of transition readiness",
+    "disposition": "narrow source correction authored; independent recheck pending",
+    "regression": "S01 unknown halt/future validity and symmetric future halt/unknown validity in known_at and reconstruction; exact both reasons and no witness",
+    "retained": "S02 prerequisite expiry and existing unknown-validity/known-expired-state case"
+  },
+  "coordinator_correction": "Removed only the new trailing blank line caught by staged whitespace check; no semantic change. Independent final-byte review and runtime qualification remain separate."
+}
