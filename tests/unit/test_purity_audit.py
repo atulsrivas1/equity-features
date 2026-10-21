@@ -140,10 +140,15 @@ class PurityAuditTests(unittest.TestCase):
     def test_independent_calculation_fixtures_without_external_entrypoints(self):
         suite = calculation_suite()
         expected = suite.countTestCases()
-        # EQ111 adds sixteen public capability fixtures to the same audit.
-        self.assertEqual(expected, 635)
+        # Accepted census635 plus exactly21 EF1 anchor fixtures; no skipped subset.
+        self.assertEqual(expected, 635 + 21)
+        import test_ef1_anchor
+        self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_anchor).countTestCases(), 21)
         before = module_data()
-        self.assertEqual(len(before), 43)
+        self.assertEqual(len(before), 43 + 4)
+        self.assertEqual({name for name in before if name == 'equity_features.ef1' or name.startswith('equity_features.ef1.')},
+                         {'equity_features.ef1', 'equity_features.ef1._definitions',
+                          'equity_features.ef1._context', 'equity_features.ef1._anchor'})
         bridge_cases = set()
         reads = []
         class AuditResult(unittest.TestResult):
@@ -176,13 +181,13 @@ class PurityAuditTests(unittest.TestCase):
                     yield test
         suite = unittest.TestSuite(test for test in flatten(calculation_suite())
                                    if test.id() not in ARROW_CASES)
-        self.assertEqual(suite.countTestCases(), 609)
+        self.assertEqual(suite.countTestCases(), 609 + 21)
         before = module_data()
         result = unittest.TestResult()
         with patch.object(unittest.case, 'time', SimpleNamespace(perf_counter=lambda: 0.0)):
             with denied_entrypoints():
                 suite.run(result)
-        self.assertEqual(result.testsRun, 609)
+        self.assertEqual(result.testsRun, 609 + 21)
         self.assertEqual(result.skipped, [])
         self.assertFalse(result.errors, str(result.errors[:1]))
         self.assertFalse(result.failures, str(result.failures[:1]))

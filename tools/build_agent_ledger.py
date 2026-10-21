@@ -278,10 +278,25 @@ def main():
                 if repeat==0:report['artifacts'][path.name]=inspection;shutil.copyfile(path,OUT/path.name)
                 else:assert inspection==report['artifacts'][path.name], 'repeat archive differs'
     assert len(report['artifacts'])==10;report['repeat_archive_parity']=True
-    baseline=json.loads(snapshot['docs/stories/EQ-107_ACCEPTED_ARCHIVES.json']);expected=baseline['systems'][platform.system()]['archives'];assert len(expected)==8
+    baseline_bytes=snapshot['docs/stories/EQ-107_ACCEPTED_ARCHIVES.json']
+    assert sha(baseline_bytes)=='7b404c0668fc1959cf4c0809c9bda3a38c90b0d348585e28e3c7a3289b1dbd4e', 'historical archive receipt changed'
+    baseline=json.loads(baseline_bytes);expected=baseline['systems'][platform.system()]['archives'];assert len(expected)==8
+    replacements={
+        'equity_features-0.0.4a4-py3-none-any.whl':'equity_features-0.0.4a5-py3-none-any.whl',
+        'equity_features-0.0.4a4.tar.gz':'equity_features-0.0.4a5.tar.gz'}
+    assert PACKAGES['features']==('equity_features','0.0.4a5')
+    assert set(replacements)<=set(expected) and not set(replacements)&set(report['artifacts'])
+    assert set(replacements.values())<=set(report['artifacts'])
+    assert set(report['artifacts'])==((set(expected)-set(replacements))|set(replacements.values())|
+        {'equity_feature_agent_ledger-0.1.0a1-py3-none-any.whl','equity_feature_agent_ledger-0.1.0a1.tar.gz'})
     for name,item in expected.items():
+        if name in replacements:continue  # Explicit a4->a5 evolution; preserve historical evidence below.
         assert report['artifacts'][name]['sha256']==item['sha256'] and report['artifacts'][name]['bytes']==item['bytes'], 'accepted archive drift'
-    report['accepted_eight_archive_parity']={'head':baseline['head'],'archives':expected};save()
+    report['historical_archive_comparison']={'head':baseline['head'],'archives':expected,
+        'unchanged_archive_count':6,'unchanged_archive_parity':True,
+        'changed_artifacts':{old:{'current_name':new,'historical':expected[old],
+            'current':report['artifacts'][new]} for old,new in replacements.items()},
+        'accepted_eight_archive_parity':False,'reason':'EF1 explicitly replaces only features a4 with a5'};save()
     for form,suffix in [('wheel','.whl'),('sdist','.tar.gz')]:
         archives={n:next(OUT.glob(module+'-*'+suffix)) for n,(module,_) in PACKAGES.items()}
         for combined in (False,True):
