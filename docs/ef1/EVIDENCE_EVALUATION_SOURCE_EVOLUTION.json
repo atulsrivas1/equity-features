@@ -1,0 +1,99 @@
+{
+  "schema": "ef1.eq117.qualification-source-evolution:1",
+  "status": "source_only_not_executed_not_study_acceptance",
+  "historical_pin_receipt": {
+    "bytes": 19347,
+    "sha256": "5da427709f7b28da6c79156fe3d1bc91254b0511417317cbe1d50b500fb4fe5a"
+  },
+  "reviewed_source_commit": "5a16449fef951142d16459acefa1ab1921fe73df",
+  "modified": {
+    "packages/explanations/README.md": {
+      "historical": {
+        "bytes": 1030,
+        "sha256": "070fc76ee99502140e0c992224918eef45d6a899d92fb0bdeddecd169d7ccf99"
+      },
+      "current": {
+        "bytes": 2137,
+        "sha256": "f535f0be66f7a762354540bdde2ca14ca5ccc00c7aa57a07a0139bba7e90b841"
+      }
+    },
+    "packages/explanations/pyproject.toml": {
+      "historical": {
+        "bytes": 672,
+        "sha256": "a87bb5ff985e0f5e04b65048afd202456892b679b424967e45418bedb02c3747"
+      },
+      "current": {
+        "bytes": 672,
+        "sha256": "f2ab24878c3fbee90c9189389e13d5c259e79a61ff5d0d56a059a9ea33825ecf"
+      }
+    },
+    "packages/explanations/src/equity_feature_explanations/__init__.py": {
+      "historical": {
+        "bytes": 375,
+        "sha256": "597b03a3f824e7ebdf258443e895a755d3914cea767e08c4fc47f8b5fc08ea96"
+      },
+      "current": {
+        "bytes": 414,
+        "sha256": "5c5c2031318d09515a449a2c0bb661e48be1f9ddcbb716800a93e622c5f2cbaf"
+      }
+    },
+    "packages/explanations/src/equity_feature_explanations/_explain.py": {
+      "historical": {
+        "bytes": 18925,
+        "sha256": "c6592114ba8ac0158e6d7577d8a3423c8a058ec218ff31e7d4f546ef78d000dd"
+      },
+      "current": {
+        "bytes": 19005,
+        "sha256": "7d5a8cf56e724a22bc58a3dd12767aaac5a3c9b4ee13fc36cf36b61998ece1ce"
+      }
+    },
+    "packages/features/pyproject.toml": {
+      "historical": {
+        "bytes": 736,
+        "sha256": "ca095c7a8a7466de390ff943c4a33f6b41852a7b844d5d2d3291abb544be56d9"
+      },
+      "current": {
+        "bytes": 736,
+        "sha256": "563039230a395f0e50b00f4e84053df60d1b6c3d995b0cede9ab4c23331d29ea"
+      }
+    },
+    "packages/features/src/equity_features/__init__.py": {
+      "historical": {
+        "bytes": 221,
+        "sha256": "b3f507d789a5f9a2171dd6269a7ec75ff7d322b3c78e4cb52251497b22297034"
+      },
+      "current": {
+        "bytes": 221,
+        "sha256": "42bf1530058b6a96dac8beea1d5df46ea61fa445efa9cfd7ac5424f58ee40ba9"
+      }
+    },
+    "tools/build_agent_ledger.py": {
+      "historical": {
+        "bytes": 21995,
+        "sha256": "0b4fdd8d11d8f3415f00a0c9e41ad1a9fcb9cde2e188551fc62c72a51fd84d00"
+      },
+      "current": {
+        "bytes": 23238,
+        "sha256": "f41217b79bb1f16b3842664ce2aa12f41c2abc8927382f396b9c73c982971878"
+      }
+    }
+  },
+  "added": {
+    "packages/features/src/equity_features/ef1/__init__.py": {
+      "bytes": 353,
+      "sha256": "ba5891ab03e7096f22d65feba6d9d1d4592f1b60fd18554345e02963d8b1f728"
+    },
+    "packages/features/src/equity_features/ef1/_anchor.py": {
+      "bytes": 13289,
+      "sha256": "45b1d79796f48158e633266d9ff7a607610370dcfd8207fae7e5bdc4d8b5def6"
+    },
+    "packages/features/src/equity_features/ef1/_context.py": {
+      "bytes": 8163,
+      "sha256": "eeb26c97c8daf39e599835846f25e05fff1d8ad1338c8ab1ba980c95e1b822ab"
+    },
+    "packages/features/src/equity_features/ef1/_definitions.py": {
+      "bytes": 2259,
+      "sha256": "37cdd50675604dec01093c2114c52cc5e82ea1f7e3c3bd73a9300fc2de076449"
+    }
+  }
+}

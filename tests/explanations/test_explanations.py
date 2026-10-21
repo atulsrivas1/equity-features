@@ -54,7 +54,7 @@ def declared_trade_fixture(backend_version):
     cfg, batch, declaration, _, entity, fid = fixture(backend_version)
     golden = (('session.trade.count', ValueType.INT64, 'trades', 3),
         ('session.trade.volume', ValueType.INT64, 'shares', 10),
-        ('session.trade.notional', ValueType.DECIMAL128, 'currency', 1011),
+        ('session.trade.notional', ValueType.DECIMAL128, 'currency coefficient / 10^price_scale', 1011),
         ('session.trade.vwap', ValueType.FLOAT64, 'currency/share', 101.1),
         ('session.trade.mean_size', ValueType.FLOAT64, 'shares/trade', 10 / 3))
     result = FeatureResult(
