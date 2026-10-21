@@ -63,6 +63,20 @@ def check(root: Path) -> dict[str, int | str]:
     assert "EQ-175" in final["EQ-180"]["retain_dependencies"]
     assert {f"EQ-{i}" for i in range(170, 175)} <= set(final["EQ-175"]["retain_dependencies"])
     assert "options releases/stories" in data["unchanged_exclusions"]
+    inventory = data["primary_inventory"]
+    assert inventory["original_accounting"] == {
+        "feature_groups": 78, "eod_scanner_identities": 357, "watchlist_identities": 25,
+        "exported_fields": 721, "principal_structs": 30, "original_core_feature_ids": 39,
+    }
+    assert not inventory["counts_are_unique_math_features"] and not inventory["private_rows_published"]
+    assert inventory["pr463_readback"]["merged"]
+    assert {row["id"] for row in inventory["findings"]} == {
+        "original_dispatch_gaps", "optional_prior_close", "batch_history_and_intraday",
+        "coarse_sharding", "resource_topology", "inventory_coverage",
+    }
+    for row in inventory["findings"]:
+        assert (root / row["accepted_evidence"]).is_file(), row["accepted_evidence"]
+        assert row["release_owners"] and set(row["release_owners"]) <= {"R18", *(f"EF{i}" for i in range(1, 10))}
     text = (root / "docs/EQUITY_DELIVERY_REPLAN.md").read_text(encoding="utf-8")
     for link in re.findall(r"\]\(([^)]+)\)", text):
         if "://" in link or link.startswith("#"):

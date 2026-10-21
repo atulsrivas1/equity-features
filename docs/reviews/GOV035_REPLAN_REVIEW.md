@@ -25,3 +25,7 @@ This is local automated review, not human review or hosted-review activation. Re
 - An initial PowerShell foreach-pipeline parse error and a failed exact-context documentation patch changed no files; corrected syntax/contexts were used. These are retained author preparation failures, not CI/runtime results.
 
 No N: source opened, output database created, private code/data published, numerical benchmark run or active EQ142 source/runtime/default changed. Current PR CI, final-head review, actual main publication/readback and tracker migration remain distinct gates; their actual evidence belongs on the linked issue/PR.
+
+## Owner-supplied matrix findings renewal
+
+After first committed-head review, the owner explicitly reiterated the feature matrix and processing plan and quoted their historical dispatch/prior-close/batch/intraday/sharding/resource findings. Added a source-finding reconciliation table and machine-readable ledger retaining the original78/357/25/721/39 accounting, the expanded source pin and scoped R17 supplied-route evidence. Fresh PR463 metadata readback confirms merged rather than the quoted older draft/Test state. Original default acquisition remains separate from accepted supplied callbacks. This new content requires renewed final-head review before push; the first review does not automatically qualify it.

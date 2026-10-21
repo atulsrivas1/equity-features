@@ -1261,5 +1261,93 @@
       "retain_dependency": "EQ-175",
       "reason": "Exact per-policy catalogue/component producer manifests not frozen; no replacement placeholder establishes Ready. Origin-time runtime operands remain separate from mature future labels."
     }
-  ]
+  ],
+  "primary_inventory": {
+    "authority": "owner-designated evolving feature matrix and processing plan; original records preserved alongside expanded equity/mixed projection",
+    "original_source_pin": "0999022b3a020dd77995242227e76ad3d3cfacc6",
+    "expanded_source_pin": "a7cde58fc05166c9818c9107ed52269186d16afa",
+    "original_accounting": {
+      "feature_groups": 78,
+      "eod_scanner_identities": 357,
+      "watchlist_identities": 25,
+      "exported_fields": 721,
+      "principal_structs": 30,
+      "original_core_feature_ids": 39
+    },
+    "counts_are_unique_math_features": false,
+    "private_rows_published": false,
+    "pr463_readback": {
+      "date_eastern": "2026-10-20",
+      "merged": true,
+      "state": "closed",
+      "historical_draft_test_snapshot_superseded": true
+    },
+    "findings": [
+      {
+        "id": "original_dispatch_gaps",
+        "original": "Four original core IDs lacked built-in session-worker dispatch",
+        "current": "EQ140 provides scoped supplied routes; default acquisition/dispatch remains distinct",
+        "release_owners": [
+          "EF1",
+          "EF9"
+        ],
+        "accepted_evidence": "docs/R17_ACCEPTANCE.md"
+      },
+      {
+        "id": "optional_prior_close",
+        "original": "Bar wrapper omitted prior-close consumed by two outputs",
+        "current": "EQ140 supplied bars accepts causal optional binding; absent references remain unavailable",
+        "release_owners": [
+          "EF1",
+          "EF9"
+        ],
+        "accepted_evidence": "docs/stories/EQ-140_BINDING_CONTRACT.md"
+      },
+      {
+        "id": "batch_history_and_intraday",
+        "original": "Batch-only history and explicit intraday contract gap",
+        "current": "Original history mode limits remain; R17 delivers eight explicit batch intraday outputs without update/restore/merge",
+        "release_owners": [
+          "EF1",
+          "EF2",
+          "EF3",
+          "EF4",
+          "EF5",
+          "EF6",
+          "EF7",
+          "EF8",
+          "EF9"
+        ],
+        "accepted_evidence": "docs/R17_ACCEPTANCE.md"
+      },
+      {
+        "id": "coarse_sharding",
+        "original": "Intersecting-population components serialize siblings",
+        "current": "Preserve guards until accepted measured reuse and qualified scheduling",
+        "release_owners": [
+          "R18"
+        ],
+        "accepted_evidence": "docs/R18_EXECUTION_MAP.md"
+      },
+      {
+        "id": "resource_topology",
+        "original": "32-worker interface and historical96-logical-processor report",
+        "current": "No96-worker grant; refresh actual allowed capacity and qualify profiles",
+        "release_owners": [
+          "R18"
+        ],
+        "accepted_evidence": "docs/R18_TEST_STRATEGY.md"
+      },
+      {
+        "id": "inventory_coverage",
+        "original": "78groups/357scanners/25watchlists/721fields compared to39coreIDs",
+        "current": "EQ164 reconciles original+new equity/mixed; EF9 qualifies admitted policies/bindings and retained exclusions",
+        "release_owners": [
+          "EF1",
+          "EF9"
+        ],
+        "accepted_evidence": "docs/EQUITY_DELIVERY_REPLAN.md"
+      }
+    ]
+  }
 }

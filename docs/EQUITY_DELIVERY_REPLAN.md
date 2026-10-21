@@ -22,6 +22,23 @@ This document is a concrete draft plan, not implementation acceptance or a timet
 
 Evidence: [R17 accepted aggregate #465](https://github.com/atulsrivas1/equity-features/issues/465), [R4.1 acceptance](R4_1_ACCEPTANCE.md), [R5 acceptance](R5_ACCEPTANCE.md), [BUG006 #337](https://github.com/atulsrivas1/equity-features/issues/337). This readback is not a new source audit or numerical rerun. Freeze actual compatible core/I/O/worker package versions and artifacts in each EF contract before implementation.
 
+## Primary matrix and processing-plan reconciliation
+
+The owner-designated searchable feature matrix and processing plan are primary evolving references, not incidental catalogues. The October18 equity baseline inventories78feature groups,357EOD scanner identities,25watchlists and721fields from30principal structs against39coreIDs. These overlapping accounting units are not a unique feature total. The matrix entry point now redirects to the expanded October19 three-product inventory; use its equity/mixed projection, preserve original baseline records and exclude option-specific work from this plan. Detailed source-derived rows and private paths stay local.
+
+The owner's quoted snapshot describes PR463 as draft/Test. Fresh GitHub readback on October20 confirms [PR463](https://github.com/atulsrivas1/equity-features/pull/463) is merged; its bounded planning acceptance does not establish numerical parity or speed. Likewise, source findings must be reconciled against later accepted implementation rather than copied forward as unresolved defects.
+
+| Original matrix/plan finding | Later evidence and remaining disposition | Replan owner |
+| --- | --- | --- |
+| Four original core IDs have no built-in session-worker dispatch | R17/EQ140 adds explicit supplied-input routes for two structure outputs, trade top-K and continuous quotes. Accepted default acquisition/dispatch remains a distinct unchanged path; no universal default-dispatch repair is inferred | EF1 compatibility ledger identifies exact callable routes; EF9/EQ180 verifies every admitted binding |
+| Bar wrapper omits prior-close input consumed by two outputs | EQ140's supplied bars callback accepts the causal optional prior-close binding and its history/identity rules. Do not invent it when absent or claim the old default acquisition supplies it | EF1 source/binding contract and EF9 cumulative readback |
+| History is batch-only; intraday indicators need their own contracts | Original history/baseline/relative/breadth limitations remain. R17 delivered explicit intraday EMA/RSI/ATR/band mathematics and batch supplied-history replay; neither daily relabelling nor incremental state is assumed | EF1 capability baseline; exact modes in every later EF release |
+| Coarse instrument sharding serializes independent families | Remains a measured-refinement subject, not permission to remove population/state/alias guards | Existing R18 EQ142 baseline, EQ143 measured reuse, EQ144 qualified scheduling |
+| Worker cap32 versus historical OS report96 logical processors | Both are snapshot-scoped constraints, not a grant to run96workers. Refresh allowed capacity/reserves and qualify supported resource profiles; configured, observed and enforced limits stay distinct | R18 EQ145/146 and per-release resource contracts |
+| Scanner/watchlist/field inventory is broader than39coreIDs | EQ164 must reconcile every original group,357scanner/25watchlist identity and721field baseline with newer equity-relevant additions, true duplicates, policies and explicit exclusions. EQ176/180/181 preserve admitted scope and residual accounting | EF1/EQ164; EF9 catalogues and complete coverage |
+
+R17 evidence: [acceptance](R17_ACCEPTANCE.md), [EQ140 binding contract](stories/EQ-140_BINDING_CONTRACT.md) and [EQ140 #474](https://github.com/atulsrivas1/equity-features/issues/474). These establish the declared supplied paths; EF1 still must qualify the selected source-to-worker-to-sink composition. No new legacy numerical parity is asserted. Preserve the processing plan's sequence: exact output dependencies and independent fixtures -> representative baselines -> compatible reuse -> measured scheduling/resource changes. Preserve ordered recurrence/sign carry, universe joins, sink serialization and future-outcome isolation throughout.
+
 ## Revised functional releases
 
 | Release | Usable outcome | Existing story allocation | New layer/delivery work |
