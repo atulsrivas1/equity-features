@@ -11,7 +11,11 @@ from ._context import decode_ef1_context
 
 @dataclass(frozen=True)
 class EF1Definition:
-    """Own non-transport metadata: existing FeatureDefinition restricts built-in IDs."""
+    """Own discovery metadata; choose one complete alternative when present.
+
+    requirements are common prerequisites when alternatives are declared.
+    Existing canonical FeatureDefinition and InputRequirement remain unchanged.
+    """
 
     feature_id: str
     dtype: ValueType
@@ -21,6 +25,7 @@ class EF1Definition:
     algorithm_version: str = "v1"
     schema_version: str = "1"
     capabilities: Capabilities = Capabilities(batch=True)
+    alternative_requirements: tuple[tuple[InputRequirement, ...], ...] = ()
 
     @property
     def outputs(self) -> tuple[OutputField, ...]:
@@ -32,6 +37,24 @@ def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
     requirements: tuple[InputRequirement, ...]
     fields: tuple[tuple[str, ValueType, str, str], ...]
     context = decode_ef1_context(config)
+    if context["producer"] in ("reference_classification", "reference_action"):
+        classification = context["producer"] == "reference_classification"
+        roles = ("classification_facts", "classification_history", "classification_projection") if classification else (
+            "market", "action_facts", "action_history", "action_projection", "source_representation", "source_quantity_basis")
+        requirements = tuple(InputRequirement(role, "canonical:1",
+            ("reference_id", "fact_kind", "effective_start_ns", "known_at_ns"), DataKind.REFERENCE,
+            rule="exact nullable role slot; complete causal population and actual source-bound proof")
+            for role in roles if role != "market")
+        alternatives = () if classification else tuple((InputRequirement("market", "canonical:1",
+            ("known_at_ns",), kind, rule="choose exactly one complete alternative; one actual nullable market slot"),
+            *requirements) for kind in (DataKind.TRADE, DataKind.BAR, DataKind.DAILY))
+        fields = (("reference.classification.value", ValueType.STRING, "classification", "causal active membership with historical complete projection"),
+                  ("reference.gate.classification_reason", ValueType.STRING, "reason", "first closed failed then unknown reason"),
+                  ("reference.gate.classification_state", ValueType.STRING, "state", "failed dominates unknown; otherwise passed")) if classification else (
+                  ("reference.gate.action_reason", ValueType.STRING, "reason", "first closed failed then unknown reason"),
+                  ("reference.gate.action_state", ValueType.STRING, "state", "declaration/history admission only; never applies factors"))
+        return tuple(EF1Definition(name, dtype, unit, requirements, formula, alternative_requirements=alternatives)
+                     for name, dtype, unit, formula in fields)
     if context["producer"] in ("path_gap", "path_drive"):
         trades = context["selection"]["sampling"] == "eligible_trade"
         requirements = (

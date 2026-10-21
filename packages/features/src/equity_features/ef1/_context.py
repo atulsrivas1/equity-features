@@ -9,7 +9,7 @@ from types import MappingProxyType
 from typing import Any, NoReturn, cast
 
 from equity_feature_contracts import (
-    AdjustmentSpec, AvailabilitySpec, ConfigSpec, ContractError, ErrorCode,
+    ActionPolicy, AdjustmentSpec, AvailabilitySpec, ConfigSpec, ContractError, ErrorCode,
     Parameter, PriceUnit, SessionSpec, WindowSpec,
 )
 
@@ -185,6 +185,25 @@ def _parse(text: object) -> dict[str, Any]:
         for key in _DEFINITION_KEYS - {"start_ns"}:
             label(definition[key])
         _integer(definition["start_ns"])
+    elif raw["producer"] in ("reference_classification", "reference_action"):
+        if raw["calendar"] is not None:
+            fail(ErrorCode.INVALID_CONFIG, "reference producer has no calendar context")
+        selection = raw["selection"]
+        if raw["producer"] == "reference_classification":
+            if type(selection) is not dict or set(selection) != {"fact_kind", "scope_id", "effective_ns"}:
+                fail(ErrorCode.INVALID_CONFIG, "exact classification selection required")
+            if selection["fact_kind"] not in ("sector_membership", "industry_membership", "universe_membership"):
+                fail(ErrorCode.UNSUPPORTED_CAPABILITY, "closed classification kind required")
+            label(selection["scope_id"])
+            _integer(selection["effective_ns"])
+        else:
+            if type(selection) is not dict or set(selection) != {"scope_id", "scope_start_ns", "scope_end_ns", "policy"}:
+                fail(ErrorCode.INVALID_CONFIG, "exact action selection required")
+            label(selection["scope_id"])
+            start, end = _integer(selection["scope_start_ns"]), _integer(selection["scope_end_ns"])
+            policy = _action_policy(selection["policy"])
+            if not start <= policy.anchor_ns < end:
+                fail(ErrorCode.BOUNDS, "action anchor must be inside positive declared scope")
     elif raw["producer"] == "status":
         selection = raw["selection"]
         if type(selection) is not dict or set(selection) != {"dimension", "epoch", "seed_reference_id", "max_age_ns"}:
@@ -216,6 +235,20 @@ def _parse(text: object) -> dict[str, Any]:
     if canonical_json(raw) != text:
         fail(ErrorCode.INVALID_CONFIG, "noncanonical mathematical JSON")
     return cast(dict[str, Any], raw)
+
+
+
+def _action_policy(value: Any) -> ActionPolicy:
+    if not isinstance(value, Mapping) or set(value) != {
+            "adjustment", "anchor_ns", "representation", "quantity_basis", "dividend_convention", "schema_version"}:
+        fail(ErrorCode.INVALID_CONFIG, "exact action policy fields required")
+    adjustment = value["adjustment"]
+    if not isinstance(adjustment, Mapping) or set(adjustment) != {"basis", "policy_version", "action_snapshot", "anchor"}:
+        fail(ErrorCode.INVALID_CONFIG, "exact action adjustment fields required")
+    for item in adjustment.values():
+        label(item)
+    return ActionPolicy(AdjustmentSpec(**dict(adjustment)), _integer(value["anchor_ns"]),
+                        value["representation"], value["quantity_basis"], value["dividend_convention"], value["schema_version"])
 
 
 def _freeze(value: Any) -> Any:
@@ -258,7 +291,22 @@ def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
     raw = _parse(config.parameters[0].value)
     if config.identity != "ef1." + raw["producer"]:
         fail(ErrorCode.INCOMPATIBLE_VERSION, "EF1 producer/config identity mismatch")
-    if raw["producer"] == "anchor":
+    if raw["producer"] in ("reference_classification", "reference_action"):
+        if config.window != WindowSpec(1, config.session.session_id, (config.session.session_id,), "completed_eod"):
+            fail(ErrorCode.INCONSISTENT_IDENTITY, "reference window must be target-only")
+        selection = raw["selection"]
+        if raw["producer"] == "reference_classification":
+            if selection["effective_ns"] > config.availability.market_cutoff_ns:
+                fail(ErrorCode.BOUNDS, "classification query exceeds market cutoff")
+        else:
+            policy = _action_policy(selection["policy"])
+            if policy.adjustment != config.adjustment:
+                fail(ErrorCode.INCONSISTENT_IDENTITY, "action policy/config adjustment mismatch")
+            if policy.anchor_ns > config.availability.market_cutoff_ns:
+                fail(ErrorCode.BOUNDS, "action anchor exceeds market cutoff")
+            if type(config.price_unit) is not PriceUnit:
+                fail(ErrorCode.INVALID_UNIT, "action market requires explicit PriceUnit")
+    elif raw["producer"] == "anchor":
         if type(config.price_unit) is not PriceUnit:
             fail(ErrorCode.INVALID_UNIT, "anchor prices require an explicit PriceUnit")
         if config.window != WindowSpec(1, config.session.session_id,

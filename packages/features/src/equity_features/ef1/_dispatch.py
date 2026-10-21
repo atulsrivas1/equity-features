@@ -7,6 +7,7 @@ from equity_feature_contracts import CanonicalBatch, ConfigSpec, EntityKey, Feat
 from ._anchor import compute_ef1 as compute_anchor
 from ._clock import compute_clock
 from ._status import compute_status
+from ._reference import compute_reference
 from ._path import compute_path_gap, compute_path_drive
 from ._context import decode_ef1_context
 
@@ -15,6 +16,8 @@ def compute_ef1(batches: tuple[CanonicalBatch | None, ...] | list[CanonicalBatch
                 *, entity: EntityKey) -> FeatureResult:
     """Return the complete selected producer with original actual input bindings."""
     context = decode_ef1_context(config)
+    if context["producer"] in ("reference_classification", "reference_action"):
+        return compute_reference(batches, config, entity=entity)
     if context["producer"] == "status":
         return compute_status(batches, config, entity=entity)
     # Legacy producers retain their own concrete present-only validation.
