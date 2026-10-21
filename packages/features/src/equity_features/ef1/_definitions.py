@@ -37,6 +37,15 @@ def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
     requirements: tuple[InputRequirement, ...]
     fields: tuple[tuple[str, ValueType, str, str], ...]
     context = decode_ef1_context(config)
+    if context["producer"] == "path_gap_endpoint":
+        kind = DataKind.TRADE if context["selection"]["sampling"] == "eligible_trade" else DataKind.BAR
+        requirements = tuple(InputRequirement(role, "canonical:1", ("known_at_ns",), role_kind,
+            rule="fixed nullable role; causal source-bound population and selected endpoint operands")
+            for role, role_kind in (("calendar_provenance", DataKind.REFERENCE), ("path", kind),
+                                    ("prior_close", DataKind.DAILY), ("population_proof", DataKind.REFERENCE)))
+        return tuple(EF1Definition("session.gap_endpoint." + name, ValueType.FLOAT64, "fraction", requirements, formula)
+            for name, formula in (("current_fill_fraction", "clamp((O-L)/(O-P),0,1); nonzero gap only"),
+                                  ("opening_gap_fraction", "(O-P)/P")))
     if context["producer"] == "daily_observations":
         from ._daily_context import ROLES
         requirements = tuple(InputRequirement(role, "canonical:1",

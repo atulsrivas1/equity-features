@@ -33,3 +33,7 @@ docs/ef1/OBSERVABLE_PUBLICATION_AMENDMENT.md text eol=lf
 docs/ef1/OBSERVABLE_PUBLICATION_AMENDMENT.json text eol=lf
 docs/ef1/OBSERVABLE_PUBLICATION_FIXTURES.json text eol=lf
 docs/ef1/OBSERVABLE_PUBLICATION_FREEZE.json text eol=lf
+
+# Exact portable gap-endpoint JSON and independently hashed daily fixture.
+/docs/ef1/gap_endpoint/*.json text eol=lf
+/tests/fixtures/ef1_daily_observations.json text eol=lf
