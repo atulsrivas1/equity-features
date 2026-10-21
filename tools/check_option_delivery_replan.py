@@ -50,10 +50,20 @@ def check(root: Path, source: Path | None = None, ledger_path: Path | None = Non
     plan = json.loads((root / 'docs/plans/option-delivery-replan.json').read_text(encoding='utf-8'))
     assert plan['planning_only'] and plan['preserve_equity_and_r18']
     assert plan['governance_issue'] == 572
+    # Later-release default retained; the owner authorized a scoped R25 exception.
     assert plan['option_implementation_requires'] == ['EQ-141', 'EQ-146', 'published_option_plan', 'reviewed_story_contracts']
+    assert plan['r25_implementation_requires'] == ['EQ-141', 'published_option_plan', 'reviewed_story_contracts', 'reviewed_r25_compatibility_and_resource_plan']
+    assert plan['owner_gate_amendment']['scope'] == 'R25 only'
+    assert plan['owner_gate_amendment']['governance_issue'] == 581
+    assert set(plan['r25_preparation']['independent_qualification_owners']) == {'EQ-182', 'EQ-185', 'EQ-186', 'EQ-187'}
     assert [r['id'] for r in plan['releases']] == [f'R{i}' for i in range(25, 30)]
     assert {(r['epic_issue'], r['milestone_number']) for r in plan['releases']} == {(526,29),(533,30),(540,31),(548,32),(555,33)}
     stories = {s['id']: s for s in plan['stories']}
+    authoring=plan['r25_parallel_source_authoring']
+    assert authoring['contract_story']=='EQ-182'
+    assert authoring['tracks']=={'libraries':['EQ-183','EQ-184','EQ-214'],'io':['EQ-185'],'workers':['EQ-186']}
+    assert 'retained unchanged' in authoring['producer_dependencies']
+
     assert len(stories) == len(plan['stories']) == 36
     assert set(stories) == {f'EQ-{i}' for i in range(182,212)} | {f'EQ-{i}' for i in range(214,220)}
     assert not {'EQ-212','EQ-213'} & stories.keys(), 'EF1 ownership must be preserved'
@@ -72,7 +82,12 @@ def check(root: Path, source: Path | None = None, ledger_path: Path | None = Non
             assert s['release']==r['id'] and s['scope'] and s['validation'] and s['points']>0
             assert 'EQ-094' not in s['dependencies']
     assert 'EQ-084' not in stories['EQ-210']['dependencies'], 'Optional API must not gate local release'
-    assert {'EQ-214'} <= set(stories['EQ-186']['dependencies'])
+    assert set(stories['EQ-186']['dependencies']) == {'EQ-183', 'EQ-184', 'EQ-185', 'EQ-214'}
+    # Preserve the later option branch's explicit R18 producer gates.
+    assert {sid: set(stories[sid]['dependencies']) & {'EQ-143', 'EQ-144', 'EQ-145', 'EQ-146'} for sid in ['EQ-192', 'EQ-199', 'EQ-205']} == {sid: {'EQ-144', 'EQ-145'} for sid in ['EQ-192', 'EQ-199', 'EQ-205']}
+    assert not any(dep in {'EQ-143', 'EQ-144', 'EQ-146'} for s in plan['stories'] if s['release'] == 'R25' for dep in s['dependencies'])
+    assert all(row['library'] == 'option-feature-io' for row in plan['catalogue_accounting'] if row['story'] == 'EQ-198')
+    assert all('option-' not in path for repo in plan['repositories'] if repo['repository'].startswith('atulsrivas1/equity-') for path in repo['paths'])
     assert {'EQ-216','EQ-217','EQ-218','EQ-219'} <= set(stories['EQ-211']['dependencies'])
     # Add equity allocation dependencies to catch backwards cross-plan cycles.
     equity=json.loads((root/'docs/plans/equity-delivery-replan.json').read_text(encoding='utf-8'))

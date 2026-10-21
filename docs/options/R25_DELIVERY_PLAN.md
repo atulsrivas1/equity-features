@@ -1,5 +1,7 @@
 # R25 — Option reference, pricing, Greeks and implied volatility
 
+Owner-selected preparation is tracked by [GOV037 #581](https://github.com/atulsrivas1/equity-features/issues/581) and the [preparation handoff](../r25/PREPARATION.md). Dedicated option repositories supersede the earlier co-location assumption. New mathematical/record/layer contracts are draft. The owner approved independent R25 admission on October 20, superseding the blanket EQ146 prerequisite and EQ186 EQ143/EQ144 dependencies. Implementation still awaits reviewed frozen contracts and its own real Ready gates; R18 acceptance is not claimed.
+
 [Replan](../OPTION_DELIVERY_REPLAN.md). Existing epic [E33](https://github.com/atulsrivas1/equity-features/issues/526); milestone [29](https://github.com/atulsrivas1/equity-features/milestone/29). Planning only; Project owns live status. Preserve equity/R18 ownership and option implementation gates.
 
 ## Parallel layer contracts
@@ -68,7 +70,7 @@ Independent validation: Independent synthetic source/sink conformance, missing/s
 
 Expose selected pricing/Greek/IV requests over admitted supplied facts and existing I/O. Schedule independently ready contract/metric branches under one resource owner; IV-only inputs cannot block a supplied-Greek or different ready output. Bound task/batch size, backend threads, copies, in-flight memory and sink ownership.
 
-Dependencies: EQ-183, EQ-184, EQ-185, EQ-143, EQ-144, EQ-214. Delivery gates are separate from runtime operand dependencies.
+Dependencies: EQ-183, EQ-184, EQ-185, EQ-214. The owner-approved R25 exception removes EQ143/EQ144 delivery gates; qualify native admission/execution, exact compatibility and bounded resources independently. A sequential baseline is permitted; parallel modes require measured parity/resource evidence. Delivery gates are separate from runtime operand dependencies.
 
 Independent validation: Direct versus installed-worker full-result/quality/evidence parity, unrelated-missing-input isolation, retry/recovery/readback and repeated budget-constrained kernel/end-to-end workloads.
 
@@ -91,3 +93,7 @@ Define and implement supplied-fact DTE, moneyness, multiplier, spread/quote-cove
 Dependencies: EQ-182. Delivery gates are separate from runtime operand dependencies.
 
 Independent validation: Independent expiry/calendar/settlement, strike/spot/zero denominator, multiplier/action, locked/crossed/stale quote, partial-chain and supplied-versus-calculated cases.
+
+## Admission plan versus release evidence
+
+The [owner decision](https://github.com/atulsrivas1/equity-features/issues/581#issuecomment-6306471591) changes R25's release dependency only. Before implementation, independently review and freeze the interface/compatibility plan, expected fixtures, version policy and resource qualification protocol. Actual built artifacts, executed numerical and resource measurements, installed cross-layer integration and demonstration are implementation/release evidence; they are required before acceptance, not prerequisites for writing the code they qualify. Each Ready story still requires its applicable reviewed inputs and actual producer prerequisites.

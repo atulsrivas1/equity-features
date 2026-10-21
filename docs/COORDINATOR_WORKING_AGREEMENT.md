@@ -1,3 +1,7 @@
+## Owner clarification: local merge evidence — October 20, 2026
+
+The owner reaffirmed that local builds and local test runs provide merge validation. This supersedes older mandatory hosted-CI wording: GitHub Actions completion is not an acceptance or merge prerequisite. Retain independent review, appropriate exact-commit local checks, build/install evidence where applicable, numerical fixtures and integration/release gates. Documentation-only changes use relevant local source/document checks; do not invent package builds for them. Record actual commands, source commit, environment and results. Do not claim unexecuted local checks or infer validation of another platform from a local run. Any actual repository protection conflict must be reported separately; it does not redefine this agreement. Existing ownership/resource reservations remain protected.
+
 # Coordinator working agreement
 
 Owner adopted October 20, 2026, by supplying a WatchYourList conversation and directing this project to use the same working agreement. This document records the transferable agreement, adapted to this project's calculation, I/O and worker layers. It does not import the other project's release tasks, repository permissions, commit identity or environment-specific tooling restrictions. The private transcript remains outside public documentation.
@@ -5,10 +9,18 @@ Owner adopted October 20, 2026, by supplying a WatchYourList conversation and di
 ## Responsibilities and release preparation
 
 - This main conversation coordinates delivery and acts as product owner, architect and technical lead within owner-approved scope. It owns shared contracts, cross-repository integration and accurate release evidence.
-- Recheck current GitHub Project status, issues, active owners, accepted releases and dependencies before selecting a release. Preserve current release ownership and the owner's R17/R18 acceptance prerequisite for option implementation.
+- Recheck current GitHub Project status, issues, active owners, accepted releases and dependencies before selecting a release. Preserve current release ownership and apply the scoped R25 gate amendment below; the earlier R17/R18 blanket prerequisite remains historical for R25 and unchanged for later releases.
 - Use the current feature matrix and processing/planning document as primary feature references; reread relevant versions because they may change. Catalogues and review receipts support them. Inventory is separate from delivered numerical capability.
 - Select the release, establish mathematical semantics and boundary contracts for each affected layer, select numbered stories and add genuinely missing scope through the existing workflow.
 - Prepare reviewed, frozen contract versions, conformance cases, independent fixtures and layer handoffs before parallel implementation. Record exact commits and relevant manifest hashes. Only the coordinator authorizes contract amendments.
+
+## Owner amendment: independent R25 admission — October 20, 2026
+
+After reviewing the three repository/contract drafts, the owner explicitly approved revising the gate so R25 can proceed independently of R18 acceptance. This supersedes the earlier blanket EQ146/R18 prerequisite for R25 and removes EQ143/EQ144 from EQ186's delivery dependencies only. R17/EQ141 remains the accepted reference cohort; neither R18 acceptance nor its optimization capabilities are claimed. Later-release dependencies remain unchanged.
+
+R25 still requires the published plan, independently reviewed frozen mathematical/record/layer contracts and fixtures, plus its own exact package/schema/executor compatibility and resource qualification. EQ182 owns contract admission; EQ185 owns native I/O compatibility; EQ186 owns independently qualified bounded execution; EQ187 owns integrated numerical, installed Windows/Linux artifact, stored-readback and browser-demo acceptance. Before each story becomes Ready, establish its actual applicable prerequisites. No dependency on unimplemented R18 behavior may be hidden in a compatibility claim.
+
+Preserve active EF1/R18 ownership and reserved measurement windows. Source preparation can proceed independently; resource-intensive qualification must use a nonconflicting environment or an available window. All existing independent review, CI, numerical, lifecycle, data-rights and publication/operating approval boundaries remain. [GOV037](https://github.com/atulsrivas1/equity-features/issues/581) and [R25 preparation](r25/PREPARATION.md) record the scoped successor decision and remaining work.
 
 ## Initial adapter and sink agreement — October 20, 2026
 
@@ -24,7 +36,7 @@ Owner selected a new, separate DuckDB database for generated feature data. Worke
 
 ## Feature API and SaaS direction — October 20, 2026
 
-Subsequent owner clarification: API is optional/secondary and its timing is delegated to the coordinator. Prioritize the core three-layer local pipeline. Preserve API-compatible semantics, but an API or SaaS implementation must not block the core release. The agreed initial team is three implementation workers plus this coordinator, with fresh independent reviewers at review gates. See [release pipeline and planning readback](COORDINATED_RELEASE_PLAN.md).
+Subsequent owner clarification: API is optional/secondary and its timing is delegated to the coordinator. Prioritize the core three-layer local pipeline. Preserve API-compatible semantics, but an API or SaaS implementation must not block the core release. The agreed initial team is three implementation workers plus this coordinator, with fresh independent reviewers at review gates. See the [published release dashboard and plans](DASHBOARD.md).
 
 Owner requires feature capabilities to be available through both reusable libraries and an API suitable for future SaaS use. Add an API/service layer consuming the same canonical feature contracts and library implementations. Transport serialization and request validation belong to the API; numerical feature logic remains in the libraries. Workers coordinate adapters, feature execution and configured sinks. Preserve the owner's agreed processing flow: existing DuckDB on N: or synthetic data -> input adapter -> workers -> feature libraries -> output sink -> new output DuckDB. Workers invoke the adapter and pass library results to the sink.
 
@@ -46,8 +58,8 @@ The API is an additional delivery layer, not a reason to duplicate calculations 
 
 - Coordinator review covers every layer's local changes, numerical semantics, documentation and boundary compatibility before authorizing push.
 - Every PR, including documentation, requires a fresh independent read-only reviewer distinct from its author. Provide the diff, requirements and relevant contracts, without the author's reasoning narrative. Record actual reviewer identity, coverage, findings and limitations.
-- Resolve valid findings, document reasoned rebuttals and obtain rechecks. Do not merge unresolved blocking disagreements. Required current-head CI and existing repository release gates still apply.
-- After coordinator approval, instruct the worker to push and, once independent review and required checks pass, merge within established repository authorization. Production/package publication remains an owner approval boundary.
+- Resolve valid findings, document reasoned rebuttals and obtain rechecks. Do not merge unresolved blocking disagreements. Appropriate exact-head local validation and existing repository release gates still apply; hosted CI is optional merge evidence.
+- After coordinator approval, instruct the worker to push and, once independent review and required local checks pass, merge within established repository authorization. Production/package publication remains an owner approval boundary.
 - The coordinator owns changes spanning repositories, dependency/artifact qualification and final integration. Layer tests alone do not establish compatible results.
 - Verify actual calculation-to-I/O-to-worker composition, units, timing, provenance, missingness, errors and supported execution modes with independent expected results. Measure performance claims and establish result parity under the existing project rules.
 - Every release includes a browser demo of completed capabilities using synthetic or explicitly licensed examples. A library release may use a small demonstration harness. Show actual outputs and remaining gaps; automated tests do not replace this demo. A demo does not authorize building a production app or exposing private data.
@@ -62,3 +74,7 @@ The API is an additional delivery layer, not a reason to duplicate calculations 
 - Communicate briefly, preferably one decision at a time and about seven or eight lines for routine replies. Report blockers promptly and state what was actually done and which checks remain.
 
 Adoption prepares the delivery workflow only. No release selection, worker launch, new runtime operation or takeover of another active release is implied by this document.
+
+## Admission plan versus release evidence
+
+The [owner decision](https://github.com/atulsrivas1/equity-features/issues/581#issuecomment-6306471591) changes R25's release dependency only. Before implementation, independently review and freeze the interface/compatibility plan, expected fixtures, version policy and resource qualification protocol. Actual built artifacts, executed numerical and resource measurements, installed cross-layer integration and demonstration are implementation/release evidence; they are required before acceptance, not prerequisites for writing the code they qualify. Each Ready story still requires its applicable reviewed inputs and actual producer prerequisites.

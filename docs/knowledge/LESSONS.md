@@ -1,3 +1,11 @@
+## EF1 integration preserves evidence identities - October 21, 2026
+
+The cumulative [EF1 source rollup](https://github.com/atulsrivas1/equity-features/pull/589) must preserve current main's owner policy and R25 history while retaining the bounded EF1 authoring evidence. A documentation-only main refresh does not rename earlier qualification source commits or turn an in-progress final cohort into a completed run. Prove equality of package, build, test, fixture and qualification inputs individually, classify any additive checker, and obtain fresh independent review of the full main-to-rollup diff before source merge. Existing full audit, browser demo and release gates remain distinct from bounded source qualification.
+
+Feature algorithm revisions and the shared global math-policy identity are separate contracts. Observable-v2 feature semantics do not by themselves require a new global policy version: the reviewed publication amendment retains global v1 and unchanged generic SDK/sink compatibility. Literal constructor admission is weaker than actual producer-to-worker-to-sink qualification; preserve the failed incompatible-policy run and require the real integrated result.
+
+## Earlier lessons retained as history
+
 ## Period endpoints need precise field dependencies — October 21, 2026
 
 The [frozen period contract](../ef1/PERIOD_PHASE_CONTRACT_PROPOSAL.md) requires
@@ -29,6 +37,24 @@ is bounded without replacing complete population bindings, and latest remaining
 gap differs from maximum-prefix fill after reversal. Source authoring and fixture
 counts are not executed numerical evidence; protected study reservations remain
 in force until the coordinator obtains actual terminal evidence.
+
+## R25 qualification distinguishes acceptance domains — October 21, 2026
+
+[Current R25 evidence](../R25_CURRENT_CHECKPOINT.md) records actual local execution separately from source review and release acceptance. An independently reviewed resource release does not accept an interrupted study; missing exit receipts prove neither continued execution nor success. Match original PID plus creation-time witnesses and preserve original logs/results.
+
+Numerical diagnostics must compare the same point/domain: Vega at the returned IV candidate can differ from Vega at the independent exact root within a valid convergence bracket. Derive admissible candidate/Vega ranges independently; do not tune root goldens or widen output budgets to production observations. Canonical Decimal lexical checks are separate from exact economic-value equality. Known complete empty coverage retains zero/zero metadata; unknown/incomplete prerequisites require null coverage.
+
+Preserve failed artifact identities and reviewed corrections. Build source markers precede wheel construction. Actual clean installed origin/inventory/bytecode/tamper checks and isolated dependency closures complement numerical fixtures. After documentation or merge-parent changes, prove source-content equivalence and retain original artifact source identities rather than fabricate a new-commit test run. Wait for actual completion of every required cohort before aggregate acceptance: all four final R25 cohorts now have completed reports and independently checked full payload parity. Merged code and technical qualification are not a published release. Hosted CI remains optional under owner local-proof policy.
+
+## Owner-approved independent R25 gate — October 20, 2026
+
+[GOV037 #581](https://github.com/atulsrivas1/equity-features/issues/581) records the owner's explicit decision that R25 may proceed independently of R18 acceptance. Supersede the blanket EQ146 prerequisite for R25 and remove EQ143/EQ144 only from EQ186; retain accepted EQ141/R17 references and every later-release dependency. R25 must qualify its own option-native package/schema/executor compatibility, bounded resources, independent numerical fixtures, installed both-platform artifacts and integrated direct/worker/stored parity plus actual browser demo. Shared package presence never establishes option compatibility. Active EF1/R18 ownership and measurement windows remain protected.
+
+Current amendment is source preparation, not numerical implementation, completed review or admission of all stories. Next: reconcile public dependency/repository records, resolve and independently review frozen contracts, then admit applicable Ready stories and fresh layer workers. [Preparation](../r25/PREPARATION.md) and [coordinator agreement](../COORDINATOR_WORKING_AGREEMENT.md) govern exact gates. Earlier preparation snapshots below retain their original chronology and superseded R18 gate.
+
+## Option dependency reuse requires actual contract admission — October 20, 2026
+
+R25 read-only source preflights show that package dependency alone does not make a domain extensible: accepted equity BatchMetadata fixes quantity_unit to shares, exact result/SDK registries and sink schema are closed, and worker supplied inputs require a single identity. New option facts need a reviewed native or shared-extension contract, with distinct underlying identity and contract units. Reuse mathematics through compatible public APIs, not lossy encoding or monkey-patching. Also distinguish signed model delta from absolute-delta projection and raw chain sums/counts from a policy score. [Preparation](../r25/PREPARATION.md) links current scope/gates; no runtime parity is established by these findings.
 
 ## Matrix scope and option delivery arrangement — October 20, 2026
 
