@@ -59,6 +59,11 @@ def check(root: Path, source: Path | None = None, ledger_path: Path | None = Non
     assert [r['id'] for r in plan['releases']] == [f'R{i}' for i in range(25, 30)]
     assert {(r['epic_issue'], r['milestone_number']) for r in plan['releases']} == {(526,29),(533,30),(540,31),(548,32),(555,33)}
     stories = {s['id']: s for s in plan['stories']}
+    authoring=plan['r25_parallel_source_authoring']
+    assert authoring['contract_story']=='EQ-182'
+    assert authoring['tracks']=={'libraries':['EQ-183','EQ-184','EQ-214'],'io':['EQ-185'],'workers':['EQ-186']}
+    assert 'retained unchanged' in authoring['producer_dependencies']
+
     assert len(stories) == len(plan['stories']) == 36
     assert set(stories) == {f'EQ-{i}' for i in range(182,212)} | {f'EQ-{i}' for i in range(214,220)}
     assert not {'EQ-212','EQ-213'} & stories.keys(), 'EF1 ownership must be preserved'
