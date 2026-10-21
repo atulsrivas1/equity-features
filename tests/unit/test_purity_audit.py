@@ -141,27 +141,30 @@ class PurityAuditTests(unittest.TestCase):
         suite = calculation_suite()
         expected = suite.countTestCases()
         # Accepted635 plus all EF1 independent fixtures; no skipped subset.
-        self.assertEqual(expected, 635 + 21 + 13 + 26 + 50 + 99 + 75)
+        self.assertEqual(expected, 635 + 21 + 13 + 26 + 50 + 99 + 75 + 111)
         import test_ef1_anchor
         import test_ef1_clock
         import test_ef1_status
         import test_ef1_path
         import test_ef1_reference
         import test_ef1_period_phase
+        import test_ef1_observable
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_anchor).countTestCases(), 21)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_clock).countTestCases(), 13)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_status).countTestCases(), 26)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_path).countTestCases(), 50)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_reference).countTestCases(), 99)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_period_phase).countTestCases(), 75)
+        self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_observable).countTestCases(), 111)
         before = module_data()
-        self.assertEqual(len(before), 43 + 10)
+        self.assertEqual(len(before), 43 + 12)
         self.assertEqual({name for name in before if name == 'equity_features.ef1' or name.startswith('equity_features.ef1.')},
                          {'equity_features.ef1', 'equity_features.ef1._definitions',
                           'equity_features.ef1._context', 'equity_features.ef1._anchor',
                           'equity_features.ef1._clock', 'equity_features.ef1._dispatch',
                           'equity_features.ef1._status', 'equity_features.ef1._path',
-                          'equity_features.ef1._reference', 'equity_features.ef1._period'})
+                          'equity_features.ef1._reference', 'equity_features.ef1._period',
+                          'equity_features.ef1._observable', 'equity_features.ef1._observable_context'})
         bridge_cases = set()
         reads = []
         class AuditResult(unittest.TestResult):
@@ -194,13 +197,13 @@ class PurityAuditTests(unittest.TestCase):
                     yield test
         suite = unittest.TestSuite(test for test in flatten(calculation_suite())
                                    if test.id() not in ARROW_CASES)
-        self.assertEqual(suite.countTestCases(), 609 + 21 + 13 + 26 + 50 + 99 + 75)
+        self.assertEqual(suite.countTestCases(), 609 + 21 + 13 + 26 + 50 + 99 + 75 + 111)
         before = module_data()
         result = unittest.TestResult()
         with patch.object(unittest.case, 'time', SimpleNamespace(perf_counter=lambda: 0.0)):
             with denied_entrypoints():
                 suite.run(result)
-        self.assertEqual(result.testsRun, 609 + 21 + 13 + 26 + 50 + 99 + 75)
+        self.assertEqual(result.testsRun, 609 + 21 + 13 + 26 + 50 + 99 + 75 + 111)
         self.assertEqual(result.skipped, [])
         self.assertFalse(result.errors, str(result.errors[:1]))
         self.assertFalse(result.failures, str(result.failures[:1]))

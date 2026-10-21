@@ -339,6 +339,9 @@ def _components(config: ConfigSpec) -> None:
 
 def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
     """Validate a canonical config and return a recursively immutable detached selection."""
+    if type(config) is ConfigSpec and config.algorithm_version == "observable-v2":
+        from ._observable_context import decode_observable
+        return decode_observable(config)
     _components(config)
     if (config.algorithm_version, config.schema_version) != ("v1", "1"):
         fail(ErrorCode.INCOMPATIBLE_VERSION, "unsupported EF1 config identity/version")
@@ -443,8 +446,13 @@ def build_ef1_config(selection: dict[str, Any], *, session: SessionSpec,
         fail(ErrorCode.INVALID_CONFIG, "concrete mathematical context dictionary required")
     _tree(selection)
     text = canonical_json(selection)
-    raw = _parse(text)
-    config = ConfigSpec("ef1." + raw["producer"], "v1", (Parameter("ef1_context_json", text),),
+    observable = selection.get("version") == "ef1-observable-context2"
+    if observable:
+        from ._observable_context import parse_observable
+        raw = parse_observable(text)
+    else:
+        raw = _parse(text)
+    config = ConfigSpec("ef1." + raw["producer"], "observable-v2" if observable else "v1", (Parameter("ef1_context_json", text),),
                         session, window, availability, adjustment, price_unit)
     decode_ef1_context(config)
     return config

@@ -37,6 +37,27 @@ def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
     requirements: tuple[InputRequirement, ...]
     fields: tuple[tuple[str, ValueType, str, str], ...]
     context = decode_ef1_context(config)
+    if context["producer"] in ("opening_trade", "opening_trade_seconds", "status_history"):
+        history = context["producer"] == "status_history"
+        observable_roles: tuple[str, ...] = ("calendar_provenance", "history_events", "history_prefix", "history_seed", "source_capability") if history else (
+            "calendar_provenance", "market_prefix", "source_capability", "trades")
+        requirements = tuple(InputRequirement(role, "canonical:1", ("known_at_ns",),
+            DataKind.TRADE if role == "trades" else DataKind.REFERENCE,
+            rule="exact nullable positional original observable-v2 role; causal original identity/order") for role in observable_roles)
+        if history:
+            observable_fields: tuple[tuple[str, ValueType, str], ...] = (("admission_reason", ValueType.STRING, "reason"), ("admission_state", ValueType.STRING, "state"),
+                      ("event_count", ValueType.INT64, "count"), ("halt_observed", ValueType.BOOL, "boolean"),
+                      ("resume_observed", ValueType.BOOL, "boolean"), ("ssr_on_observed", ValueType.BOOL, "boolean"))
+        elif context["producer"] == "opening_trade_seconds":
+            observable_fields = (("delay_seconds", ValueType.INT64, "s"),)
+        else:
+            observable_fields = (("admission_reason", ValueType.STRING, "reason"), ("admission_state", ValueType.STRING, "state"),
+                      ("delay_ns", ValueType.INT64, "ns"), ("first_trade_time_ns", ValueType.INT64, "utc_ns"),
+                      ("observed", ValueType.BOOL, "boolean"))
+        prefix = "session.status_history." if history else "session.open_observation."
+        return tuple(EF1Definition(prefix + name, dtype, unit, requirements,
+            "bounded complete original causal population; frozen observable-v2 dependency mathematics", "observable-v2")
+            for name, dtype, unit in observable_fields)
     if context["producer"] in ("period", "extended"):
         period = context["producer"] == "period"
         requirements = (

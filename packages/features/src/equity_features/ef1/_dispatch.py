@@ -10,6 +10,7 @@ from ._status import compute_status
 from ._reference import compute_reference
 from ._path import compute_path_gap, compute_path_drive
 from ._period import compute_period_phase
+from ._observable import compute_observable
 from ._context import decode_ef1_context
 
 
@@ -17,6 +18,8 @@ def compute_ef1(batches: tuple[CanonicalBatch | None, ...] | list[CanonicalBatch
                 *, entity: EntityKey) -> FeatureResult:
     """Return the complete selected producer with original actual input bindings."""
     context = decode_ef1_context(config)
+    if context["producer"] in ("opening_trade", "opening_trade_seconds", "status_history"):
+        return compute_observable(batches, config, entity=entity)
     if context["producer"] in ("reference_classification", "reference_action"):
         return compute_reference(batches, config, entity=entity)
     if context["producer"] == "status":
