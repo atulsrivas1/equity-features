@@ -37,6 +37,38 @@ def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
     requirements: tuple[InputRequirement, ...]
     fields: tuple[tuple[str, ValueType, str, str], ...]
     context = decode_ef1_context(config)
+    if context["producer"] in ("period", "extended"):
+        period = context["producer"] == "period"
+        requirements = (
+            InputRequirement("calendar_provenance", "canonical:1",
+                ("reference_id", "fact_kind", "effective_start_ns", "effective_end_ns", "text", "known_at_ns"),
+                DataKind.REFERENCE, rule="complete causal supplied calendar proof; all declared sessions/segments"),
+            InputRequirement("daily_history" if period else "bars", "canonical:1",
+                ("open", "high", "low", "close", "volume", "actual_notional", "known_at_ns"),
+                DataKind.DAILY if period else DataKind.BAR,
+                rule="exact nullable governed DAILY slots" if period else "exact nullable positive phase prefix"),
+            InputRequirement("bars" if period else "prior_close", "canonical:1",
+                ("open", "high", "low", "close", "volume", "actual_notional", "known_at_ns") if period else ("close", "known_at_ns"),
+                DataKind.BAR if period else DataKind.DAILY,
+                rule="exact nullable target regular prefix" if period else "immediate predecessor regular DAILY; only prior-close return depends on it"),
+        )
+        fields = (
+            ("close", ValueType.FLOAT64, "currency/share", "last price-bearing original interval close"),
+            ("high", ValueType.FLOAT64, "currency/share", "maximum supplied interval high; earliest tie"),
+            ("low", ValueType.FLOAT64, "currency/share", "minimum supplied interval low; earliest tie"),
+            ("notional", ValueType.DECIMAL128, "currency", "sum actual notional coefficients; known zero volume contributes zero"),
+            ("open", ValueType.FLOAT64, "currency/share", "first price-bearing original interval open"),
+            ("open_close_return", ValueType.FLOAT64, "fraction", "(last close-first open)/first open"),
+            ("volume", ValueType.INT64, "shares", "sum delivered required interval volumes"),
+        )
+        if period:
+            fields += (("scheduled_sessions", ValueType.INT64, "sessions", "supplied civil-period calendar membership count"),
+                       ("completed_sessions", ValueType.INT64, "sessions", "members with actual regular close <= C"))
+        else:
+            fields += (("prior_close_return", ValueType.FLOAT64, "fraction", "(phase close-predecessor regular close)/predecessor regular close"),)
+        prefix = "calendar.period." if period else "session.extended."
+        return tuple(EF1Definition(prefix + name, dtype, unit, requirements, formula)
+                     for name, dtype, unit, formula in sorted(fields))
     if context["producer"] in ("reference_classification", "reference_action"):
         classification = context["producer"] == "reference_classification"
         roles = ("classification_facts", "classification_history", "classification_projection") if classification else (

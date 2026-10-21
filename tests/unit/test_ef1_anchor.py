@@ -281,5 +281,7 @@ class EF1Anchors(unittest.TestCase):
         self.assertEqual(len(builtin_registry().list_features()), 39)
         self.assertEqual((__version__, contracts_version), ("0.0.4a5", "0.0.4a4"))
         other = context()
-        other["producer"] = "period"
+        # Period is now an admitted additive producer; preserve the original
+        # unsupported-dispatch control with an actually unsupported identity.
+        other["producer"] = "unimplemented_producer"
         self.error(ErrorCode.UNSUPPORTED_CAPABILITY, lambda: config(selection=other))

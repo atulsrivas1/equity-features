@@ -9,6 +9,7 @@ from ._clock import compute_clock
 from ._status import compute_status
 from ._reference import compute_reference
 from ._path import compute_path_gap, compute_path_drive
+from ._period import compute_period_phase
 from ._context import decode_ef1_context
 
 
@@ -22,6 +23,8 @@ def compute_ef1(batches: tuple[CanonicalBatch | None, ...] | list[CanonicalBatch
         return compute_status(batches, config, entity=entity)
     # Legacy producers retain their own concrete present-only validation.
     present = cast(tuple[CanonicalBatch, ...] | list[CanonicalBatch], batches)
+    if context["producer"] in ("period", "extended"):
+        return compute_period_phase(present, config, entity=entity)
     if context["producer"] == "clock":
         return compute_clock(present, config, entity=entity)
     if context["producer"] == "path_gap":

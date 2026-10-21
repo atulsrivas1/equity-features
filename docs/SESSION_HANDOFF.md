@@ -1,3 +1,24 @@
+## EF1 bounded period/phase library authoring — October21,2026
+
+EQ166/#506 reviewed-subset admission adds17 original period/extended headers
+under [freeze1](ef1/PERIOD_PHASE_SOURCE_AUTHORING_FREEZE.json). Author
+`/root/ef1_period_library_implementation` changed only this isolated candidate.
+Actual coordinator-admitted bounded Windows source checks passed284 EF1 methods
+(75new/209previous), strict typing59files and all3 purity audits with919 full/
+893 strict fixtures and53 owned modules. All42 full expected success packets and
+20typed errors remain byte-frozen; no output oracle/coercion/schema change.
+An old unsupported-dispatch fixture's period label became unimplemented_producer
+as period is now implemented; its assertion/count remain. Initial int/string
+typing error was corrected without changing mathematics; failed logs retained.
+
+See [implementation/evidence](ef1/PERIOD_PHASE_IMPLEMENTATION.md) and
+[public API](api/EF1_PERIOD_PHASE.md). No commit/push by author. Next coordinator:
+review actual diff, obtain fresh independent review, commit/pin three layers,
+run exact-source installed/build/full-sink/browser checks. Original full EQ166
+variants and EQ164 audit remain mandatory; no whole-story/release/private parity
+or other-platform qualification is claimed. Older resource/no-runtime statements
+below describe their dated authoring stage, not this newly admitted source run.
+
 ## EF1 sampled-path library authoring — October 20, 2026
 
 Under the [exact path authoring freeze](ef1/PATH_SOURCE_AUTHORING_FREEZE.json),

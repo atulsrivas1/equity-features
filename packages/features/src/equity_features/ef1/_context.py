@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import replace
+from datetime import date, timedelta
 import hashlib
 import json
 from types import MappingProxyType
@@ -226,6 +227,26 @@ def _parse(text: object) -> dict[str, Any]:
         if raw["producer"] == "path_drive" and _integer(selection["duration_ns"]) <= 0:
             fail(ErrorCode.BOUNDS, "positive drive duration required")
         _clock_calendar(raw["calendar"])
+    elif raw["producer"] in ("period", "extended"):
+        _clock_calendar(raw["calendar"])
+        selection = raw["selection"]
+        if raw["producer"] == "extended":
+            if type(selection) is not dict or set(selection) != {"phase"} or selection["phase"] not in ("premarket", "postmarket"):
+                fail(ErrorCode.INVALID_CONFIG, "closed exact extended phase selection required")
+        else:
+            if type(selection) is not dict or set(selection) != {"period_id", "kind", "count", "start_date", "end_date_exclusive", "inclusion"}:
+                fail(ErrorCode.INVALID_CONFIG, "exact civil-period selection required")
+            label(selection["period_id"])
+            if selection["kind"] not in ("week", "month", "year", "rolling_weeks", "rolling_months") or selection["inclusion"] not in ("current_to_cutoff", "prior_complete"):
+                fail(ErrorCode.INVALID_CONFIG, "closed civil-period kind/inclusion required")
+            count = selection["count"]
+            if type(count) is not int or not 1 <= count <= 64 or (selection["kind"] in ("week", "month", "year") and count != 1):
+                fail(ErrorCode.BOUNDS, "bounded exact period count required")
+            _date_label(selection["start_date"])
+            _date_label(selection["end_date_exclusive"])
+            civil_start, civil_end = _period_dates(raw["calendar"]["target_date"], selection)
+            if (selection["start_date"], selection["end_date_exclusive"]) != (civil_start, civil_end):
+                fail(ErrorCode.INCONSISTENT_IDENTITY, "selection differs from exact civil-period boundaries")
     elif raw["producer"] == "clock":
         if type(raw["selection"]) is not dict or raw["selection"]:
             fail(ErrorCode.INVALID_CONFIG, "clock selection must be an empty object")
@@ -235,6 +256,41 @@ def _parse(text: object) -> dict[str, Any]:
     if canonical_json(raw) != text:
         fail(ErrorCode.INVALID_CONFIG, "noncanonical mathematical JSON")
     return cast(dict[str, Any], raw)
+
+
+def _period_dates(target: str, selection: Mapping[str, Any]) -> tuple[str, str]:
+    """Civil Gregorian arithmetic only: no timezone/weekday/provider discovery."""
+    def month_shift(value: date, amount: int) -> date:
+        number = value.year * 12 + value.month - 1 + amount
+        year, month = divmod(number, 12)
+        if not 1 <= year <= 9999:
+            fail(ErrorCode.BOUNDS, "civil month outside supported Gregorian range")
+        month += 1
+        leap = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+        days = (31, 29 if leap else 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+        return date(year, month, min(value.day, days[month - 1]))
+    try:
+        day = date.fromisoformat(target)
+        kind, prior = selection["kind"], selection["inclusion"] == "prior_complete"
+        if kind.startswith("rolling_"):
+            end = day if prior else day + timedelta(days=1)
+            start = end - timedelta(days=7 * selection["count"]) if kind == "rolling_weeks" else month_shift(end, -selection["count"])
+        elif kind == "week":
+            start = day - timedelta(days=day.weekday())
+            if prior:
+                start -= timedelta(days=7)
+            end = start + timedelta(days=7)
+        elif kind == "month":
+            start = day.replace(day=1)
+            if prior:
+                start = month_shift(start, -1)
+            end = month_shift(start, 1)
+        else:
+            start = date(day.year - int(prior), 1, 1)
+            end = date(start.year + 1, 1, 1)
+    except (ValueError, OverflowError):
+        fail(ErrorCode.BOUNDS, "civil period outside supported Gregorian range")
+    return start.isoformat(), end.isoformat()
 
 
 
@@ -333,6 +389,31 @@ def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
             fail(ErrorCode.INCONSISTENT_IDENTITY, "actual scheduled-close declarations differ")
         if scheduled < config.session.close_ns or calendar["early_close"] != (config.session.close_ns < scheduled):
             fail(ErrorCode.BOUNDS, "inconsistent actual/scheduled close")
+    if raw["producer"] in ("period", "extended"):
+        if type(config.price_unit) is not PriceUnit:
+            fail(ErrorCode.INVALID_UNIT, "period/phase prices require explicit PriceUnit")
+        sessions = raw["calendar"]["sessions"]
+        target_date = raw["calendar"]["target_date"]
+        if len({row[1] for row in sessions}) != len(sessions):
+            fail(ErrorCode.DUPLICATE, "one governed session per supplied civil date required")
+        if raw["producer"] == "extended":
+            if len(sessions) != 2 or sessions[-1][0] != config.session.session_id:
+                fail(ErrorCode.INCONSISTENT_IDENTITY, "extended requires predecessor and target calendar/window slots")
+            if sessions[0][1] >= target_date or sessions[0][3] > config.session.open_ns:
+                fail(ErrorCode.BOUNDS, "extended predecessor must precede target date/open")
+            if not any(row[0] == raw["selection"]["phase"] for row in raw["calendar"]["segments"]):
+                fail(ErrorCode.INVALID_CONFIG, "selected supplied extended segment required")
+        else:
+            selection = raw["selection"]
+            members = [row for row in sessions if selection["start_date"] <= row[1] < selection["end_date_exclusive"]]
+            if any(row not in members and row[0] != config.session.session_id for row in sessions):
+                fail(ErrorCode.INCONSISTENT_IDENTITY, "extraneous session outside selected civil period and target anchor")
+            cutoff = config.availability.market_cutoff_ns
+            if selection["inclusion"] == "prior_complete":
+                if selection["end_date_exclusive"] > target_date or any(row[3] > cutoff for row in members):
+                    fail(ErrorCode.BOUNDS, "prior period must be fully completed before target")
+            elif any(row[1] < target_date and row[3] > cutoff for row in members):
+                fail(ErrorCode.BOUNDS, "earlier required session has not completed by cutoff")
     if raw["producer"] in ("path_gap", "path_drive"):
         if type(config.price_unit) is not PriceUnit:
             fail(ErrorCode.INVALID_UNIT, "sampled path prices require explicit PriceUnit")

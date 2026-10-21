@@ -1,3 +1,21 @@
+## Period endpoints need precise field dependencies — October 21, 2026
+
+The [frozen period contract](../ef1/PERIOD_PHASE_CONTRACT_PROPOSAL.md) requires
+whole delivered-population coverage, volume eligibility and causal knowledge
+to identify endpoints. Once those identities are ready, first open depends on
+the first price-bearing row's open, and last close on the last row's close.
+Absent optional open on a later BAR or close on an earlier DAILY must not erase
+those independently ready endpoints. Every field actually supplied still passes
+canonical structural validation. The [implementation evidence](../ef1/PERIOD_PHASE_IMPLEMENTATION.md)
+records an independent nine-value control alongside all62 frozen packets;
+source tests/typing/purity passed without changing any frozen expected result.
+
+Capability-refusal tests must use identities that remain unimplemented. Period
+authoring necessarily superseded the old anchor test's period-as-unsupported
+label; retaining UNSUPPORTED_CAPABILITY with unimplemented_producer preserves
+its original purpose, while separate frozen cases govern malformed period
+configs. This change and the initial observed failure are recorded explicitly.
+
 ## Sampled-path readiness preserves structural facts — October 20, 2026
 
 The [reviewed path amendment](../ef1/PATH_CONTRACT_PROPOSAL.md) separates numerical
