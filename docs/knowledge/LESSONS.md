@@ -1,3 +1,9 @@
+## Bind corrected queues to corrected provenance and separate proof counts — October 21, 2026
+
+Independent review found a remaining R26 queue still referencing historical provenance after the actual corrected base run had bound a successor file. The queue was not dispatched. A narrowly changed successor pinned corrected provenance consistently in its inputs, command and receipt checks; final dispatch additionally required actual completed supplemental receipt hashes. Preserve rejected source/plans and never infer a pending prerequisite passed.
+
+Stored demos must distinguish unique main fixtures from repeated replay controls and component tests from actual worker/storage proof. The corrected export independently compared complete stored payloads/wires to frozen expectations and verified unchanged database bytes before showing synthetic results. Two singleton replay controls do not establish multi-cut replay or an independent restore oracle. [Actual corrected checkpoint and retained gates](../SESSION_HANDOFF.md) records the limits.
+
 ## Inspect immutable generated artifacts and historical hash domains — October 21, 2026
 
 R26 archive inspection initially assumed that Windows exports normalized only Python files and that the original sdist SOURCES list included generated setup.cfg. Exact raw inspection established 24 finite LF-to-CRLF paths under the frozen attributes; Linux exports matched Git blobs. Immutable source distributions omitted both generated root PKG-INFO and setup.cfg from SOURCES, while later extracted rebuild staging had changed its generated metadata. Audit immutable archive bytes, enumerate permitted export transformations explicitly and preserve failed inspector versions. Matching wheels alone does not establish source provenance.
