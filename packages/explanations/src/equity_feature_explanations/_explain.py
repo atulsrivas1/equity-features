@@ -20,6 +20,7 @@ MAX_NODES = 16384
 MAX_DEPTH = 20
 MAX_CONTENT_BYTES = 33554432
 _CODES = ('invalid_schema', 'unsupported_version', 'inconsistent_binding', 'duplicate', 'limit_exceeded')
+_LEGACY_BACKEND_VERSIONS = ('0.0.4a4', '0.0.4a5')
 
 
 class ExplanationError(ValueError):
@@ -180,7 +181,7 @@ class Explanation:
         _require(self.formula == definition.formula and self.formula_document == definition.formula_document, 'inconsistent_binding')
         _require(FormulaBinding(self.feature_id, self.formula_version) in self.receipt.formulas, 'inconsistent_binding')
         _require(self.receipt.metadata.math_policy_version == 'v1' and self.receipt.metadata.backend_id == 'python-exact'
-            and self.receipt.metadata.backend_version == '0.0.4a4', 'unsupported_version')
+            and self.receipt.metadata.backend_version in _LEGACY_BACKEND_VERSIONS, 'unsupported_version')
         _require(len(self.inputs) == len(self.receipt.inputs))
         for summary, reference, binding in zip(self.inputs, self.receipt.inputs, self.receipt.metadata.inputs, strict=True):
             _require(type(summary) is InputSummary)
@@ -293,7 +294,7 @@ def explain_result(result: FeatureResult, receipt: ExecutionReceipt, configurati
         _require(entity_count <= 10000, 'limit_exceeded')
     _require(configuration.schema_version == '1' and configuration.algorithm_version == 'v1'
         and result.metadata.schema_version == '1' and result.metadata.math_policy_version == 'v1', 'unsupported_version')
-    _require(result.metadata.backend_id == 'python-exact' and result.metadata.backend_version == '0.0.4a4', 'unsupported_version')
+    _require(result.metadata.backend_id == 'python-exact' and result.metadata.backend_version in _LEGACY_BACKEND_VERSIONS, 'unsupported_version')
     try:
         config_fp = fingerprint_config(configuration); output_fp = fingerprint_result(result)
         total = config_fp.byte_length + output_fp.byte_length

@@ -21,9 +21,9 @@ IO = ROOT / '.eq116-inputs/io'
 IO_HEAD = '18d86761aa3eebb7414e51e8fa2aba089717b5eb'
 PACKAGES = {
     'contracts': ('equity_feature_contracts', '0.0.4a4'),
-    'features': ('equity_features', '0.0.4a4'),
+    'features': ('equity_features', '0.0.4a5'),
     'evidence': ('equity_feature_evidence', '0.1.0a2'),
-    'explanations': ('equity_feature_explanations', '0.1.0a1'),
+    'explanations': ('equity_feature_explanations', '0.1.0a2'),
     'diagnostics': ('equity_feature_diagnostics', '0.1.0a1'),
     'agent-evidence': ('equity_feature_agent_evidence', '0.1.0a1'),
     'agent-ledger': ('equity_feature_agent_ledger', '0.1.0a1'),

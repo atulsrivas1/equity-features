@@ -1,0 +1,1960 @@
+{
+  "contract_version": "ef1-contract1",
+  "status": "proposed_not_frozen_not_executed",
+  "author": "/root/ef1_libraries",
+  "date": "2026-10-20",
+  "evidence_kind": "Original hand-authored expected mathematical and admission fixtures; compact fixture notation is not an accepted worker wire schema. No tests/builds or measured wire admission performed.",
+  "packaging": {
+    "distribution": "equity-features",
+    "public_module": "equity_features.ef1",
+    "canonical_contract_changes": "none; existing CanonicalBatch/ConfigSpec/FeatureResult records and scalar ValueTypes only",
+    "new_distribution": false,
+    "new_result_codec": false,
+    "baseline_contract_version": "0.0.4a4",
+    "planned_feature_version": "0.0.4a5",
+    "worker_version_admission": "EF1-only companion admission of features0.0.4a5/contracts0.0.4a4; old backend0.0.4a4 routes retain existing identity admission. No accept-all versions; actual artifacts require qualification before release."
+  },
+  "api": {
+    "compute": "compute_ef1(batches, config, *, entity) -> FeatureResult",
+    "discovery": "ef1_definitions(config) -> complete immutable per-producer definitions",
+    "builder": "build_ef1_config(selection, *, session, window, availability, price_unit, adjustment) -> ConfigSpec",
+    "decoder": "decode_ef1_context(config) -> validated pure mathematical selection",
+    "execution": "one complete fixed producer output set per homogeneous producer/config; no subset, no output concatenation or metadata rewriting",
+    "modes": {
+      "batch": true,
+      "full_supplied_replay": true,
+      "update": false,
+      "restore": false,
+      "merge": false
+    }
+  },
+  "context": {
+    "parameter": "ef1_context_json",
+    "algorithm_version": "v1",
+    "only_parameters": [
+      "ef1_context_json"
+    ],
+    "top_level_exact_keys": [
+      "version",
+      "producer",
+      "calendar",
+      "selection"
+    ],
+    "version": "ef1-context1",
+    "calendar_required_for": [
+      "clock",
+      "status",
+      "period",
+      "extended",
+      "path_gap",
+      "path_drive"
+    ],
+    "calendar_null_for": [
+      "anchor",
+      "reference_action",
+      "reference_classification"
+    ],
+    "encoding": "ASCII JSON ensure_ascii=true, sort_keys=true, separators comma/colon without whitespace, allow_nan=false; compare exact reencoded bytes; reject duplicates, unknown fields, noncanonical integers, unsafe strings and bool-as-int",
+    "bounds": {
+      "max_codepoints": 4096,
+      "max_utf8_bytes": 4096,
+      "max_depth": 8,
+      "max_governed_sessions": 64,
+      "max_segments": 3,
+      "max_reference_rows": 4096,
+      "max_result_evidence_rows": 128,
+      "max_actual_task_bytes": 1048576
+    },
+    "wire_admission": "Existing conservative worker config preflight, collection limits and actual full encoded task bounds all apply independently. Passing these mathematical counts does not prove task admission. Overflow rejects; no hidden chunking or truncation.",
+    "calendar": {
+      "nullable": true,
+      "exact_keys": [
+        "calendar_id",
+        "revision",
+        "timezone",
+        "target_date",
+        "sessions",
+        "segments",
+        "scheduled_close_ns",
+        "early_close"
+      ],
+      "target_session_schedule": "scheduled_close_ns is int64 and early_close is bool, both exactly equal ConfigSpec.session fields; actual regular close<=scheduled_close_ns and early_close exactly equals actual regular close<scheduled_close_ns. These fields are included in the c1 calendar hash; no proof reused with changed scheduled close/flag.",
+      "sessions_row": [
+        "session_id",
+        "civil_date_YYYY_MM_DD",
+        "open_ns",
+        "close_ns"
+      ],
+      "segments_row": [
+        "premarket_or_regular_or_postmarket",
+        "start_ns",
+        "end_ns"
+      ],
+      "ordering": "sessions strict chronological unique; their IDs identical to actual ConfigSpec.window.governed_sessions and their bounds identical to actual worker governed IntervalSpec declarations; segments strict disjoint chronological with regular equal to actual ConfigSpec.session; no generated weekdays or OS timezone lookup",
+      "proof": "calendar_provenance REFERENCE, fact_kind ef1.calendar.provenance, reference_id c1:<lowercase SHA256 of this exact canonical ASCII calendar subobject>, text supplied_schedule, original known_at, positive finite effective interval covers all supplied session/segment bounds; snapshot_id equals calendar.revision",
+      "known_at": "never present in mathematical calendar JSON; absent/unknown/future proof makes calendar-dependent values unavailable"
+    },
+    "selection_schemas": {
+      "clock": {
+        "exact_keys": []
+      },
+      "status": {
+        "exact_keys": [
+          "dimension",
+          "epoch",
+          "seed_reference_id",
+          "max_age_ns"
+        ],
+        "dimension": [
+          "trading",
+          "quoting",
+          "ssr"
+        ],
+        "max_age_ns": "null or explicit nonnegative int64; null is no event-age expiry",
+        "seed_reference_id": "null or exact selected original canonical state row ID; no acquired event value/time/known-at in context"
+      },
+      "period": {
+        "exact_keys": [
+          "period_id",
+          "kind",
+          "count",
+          "start_date",
+          "end_date_exclusive",
+          "inclusion"
+        ],
+        "kind": [
+          "week",
+          "month",
+          "year",
+          "rolling_weeks",
+          "rolling_months"
+        ],
+        "count": "week/month/year require1; rolling count positive integer<=64",
+        "inclusion": [
+          "current_to_cutoff",
+          "prior_complete"
+        ],
+        "dates": "Explicit validated Gregorian dates. Week Monday, month day1, year Jan1. Rolling end is target_date for prior_complete or target_date+1civil day for current_to_cutoff; rolling start=end-7*count civil days or end shifted back count civil months with day clamped to target-month end. All exact selected governed membership must fit context; no252-session substitution for52weeks."
+      },
+      "extended": {
+        "exact_keys": [
+          "phase"
+        ],
+        "phase": [
+          "premarket",
+          "postmarket"
+        ]
+      },
+      "anchor": {
+        "exact_keys": [
+          "mode",
+          "definition"
+        ],
+        "mode": [
+          "trades",
+          "bars_actual_notional"
+        ],
+        "definition": {
+          "exact_keys": [
+            "anchor_id",
+            "reset_id",
+            "start_ns",
+            "selection_policy_id",
+            "revision"
+          ]
+        },
+        "proof": "anchor_provenance REFERENCE kind ef1.anchor.provenance, reference_id a1:<lowercase SHA256 exact canonical ASCII definition subobject>, text supplied_anchor, effective_start_ns=start_ns, original known_at; source.snapshot_id=definition.revision; end null or>C; request start<C strictly"
+      },
+      "path_gap": {
+        "exact_keys": [
+          "sampling"
+        ],
+        "sampling": [
+          "eligible_trade",
+          "completed_bar_close"
+        ]
+      },
+      "path_drive": {
+        "exact_keys": [
+          "sampling",
+          "duration_ns"
+        ],
+        "sampling": [
+          "eligible_trade",
+          "completed_bar_close"
+        ],
+        "duration_ns": "positive int64; regular_open+duration<=actual_regular_close; full completed selected opening window required"
+      },
+      "reference_classification": {
+        "exact_keys": [
+          "fact_kind",
+          "scope_id",
+          "effective_ns"
+        ],
+        "fact_kind": [
+          "sector_membership",
+          "universe_membership",
+          "industry_membership"
+        ]
+      },
+      "reference_action": {
+        "exact_keys": [
+          "scope_id",
+          "scope_start_ns",
+          "scope_end_ns",
+          "policy"
+        ],
+        "policy": {
+          "exact_keys": [
+            "adjustment",
+            "anchor_ns",
+            "representation",
+            "quantity_basis",
+            "dividend_convention",
+            "schema_version"
+          ],
+          "adjustment_exact_keys": [
+            "basis",
+            "policy_version",
+            "action_snapshot",
+            "anchor"
+          ],
+          "representation": [
+            "apply_factors",
+            "caller_transformed"
+          ],
+          "quantity_basis": [
+            "raw_shares",
+            "split_shares"
+          ],
+          "schema_version": "1"
+        }
+      }
+    },
+    "minimal_context_literal": "{\"calendar\":{\"calendar_id\":\"C\",\"early_close\":false,\"revision\":\"R1\",\"scheduled_close_ns\":30,\"segments\":[[\"regular\",10,30]],\"sessions\":[[\"S\",\"2026-10-20\",10,30]],\"target_date\":\"2026-10-20\",\"timezone\":\"UTC\"},\"producer\":\"clock\",\"selection\":{},\"version\":\"ef1-context1\"}",
+    "small_prior_period_literal": "{\"calendar\":{\"calendar_id\":\"C\",\"early_close\":false,\"revision\":\"R1\",\"scheduled_close_ns\":40,\"segments\":[[\"regular\",30,40]],\"sessions\":[[\"P\",\"2026-10-19\",10,20],[\"S\",\"2026-10-20\",30,40]],\"target_date\":\"2026-10-20\",\"timezone\":\"UTC\"},\"producer\":\"period\",\"selection\":{\"count\":1,\"end_date_exclusive\":\"2026-10-20\",\"inclusion\":\"prior_complete\",\"kind\":\"rolling_weeks\",\"period_id\":\"W\",\"start_date\":\"2026-10-13\"},\"version\":\"ef1-context1\"}"
+  },
+  "config_reconstruction": {
+    "identity": "ef1.<producer>",
+    "algorithm_version": "v1",
+    "parameters": "exactly one Parameter ef1_context_json with exact canonical ASCII context bytes",
+    "session": "unchanged actual target regular SessionSpec",
+    "window": "WindowSpec count=number of context calendar sessions, target actual target ID, governed_sessions exact context session IDs, anchor completed_eod; when calendar null use count1,target-only governed IDs. EF1 does not invoke legacy selected_sessions to derive its period population.",
+    "availability": "exact requested actual C/K/E/mode/reconstruction reason",
+    "price_unit": "exact caller-declared canonical unit; mandatory for price/notional producers; nullable only clock/status/classification assessments",
+    "adjustment": "exact declared requested canonical adjustment; actual market bindings remain separately retained and checked",
+    "digest": "reconstruct exact public ConfigSpec and compare full digest; worker must never replace result digest/input bindings"
+  },
+  "canonical_input_roles": {
+    "clock": [
+      [
+        "calendar_provenance",
+        "reference"
+      ]
+    ],
+    "status": [
+      [
+        "calendar_provenance",
+        "reference"
+      ],
+      [
+        "status_states",
+        "reference"
+      ],
+      [
+        "status_prefix",
+        "reference"
+      ],
+      [
+        "status_validity",
+        "reference"
+      ]
+    ],
+    "period": [
+      [
+        "calendar_provenance",
+        "reference"
+      ],
+      [
+        "daily_history",
+        "daily"
+      ],
+      [
+        "bars",
+        "bar"
+      ]
+    ],
+    "extended": [
+      [
+        "calendar_provenance",
+        "reference"
+      ],
+      [
+        "bars",
+        "bar"
+      ],
+      [
+        "prior_close",
+        "daily"
+      ]
+    ],
+    "anchor_trades": [
+      [
+        "trades",
+        "trade"
+      ],
+      [
+        "anchor_provenance",
+        "reference"
+      ]
+    ],
+    "anchor_bars": [
+      [
+        "bars",
+        "bar"
+      ],
+      [
+        "anchor_provenance",
+        "reference"
+      ]
+    ],
+    "path_gap": [
+      [
+        "calendar_provenance",
+        "reference"
+      ],
+      [
+        "path",
+        "trade_or_bar_exact_selected_sampling"
+      ],
+      [
+        "prior_close",
+        "daily"
+      ]
+    ],
+    "path_drive": [
+      [
+        "calendar_provenance",
+        "reference"
+      ],
+      [
+        "path",
+        "trade_or_bar_exact_selected_sampling"
+      ]
+    ],
+    "reference_classification": [
+      [
+        "classification_facts",
+        "reference"
+      ],
+      [
+        "classification_history",
+        "reference"
+      ],
+      [
+        "classification_projection",
+        "reference"
+      ]
+    ],
+    "reference_action": [
+      [
+        "market",
+        "bar_or_daily_or_trade"
+      ],
+      [
+        "action_facts",
+        "reference"
+      ],
+      [
+        "action_history",
+        "reference"
+      ],
+      [
+        "action_projection",
+        "reference"
+      ],
+      [
+        "source_representation",
+        "reference"
+      ],
+      [
+        "source_quantity_basis",
+        "reference"
+      ]
+    ],
+    "slot_rules": "Every listed role declared exactly once, actual or missing; actual tuple follows nonmissing-role order and exact manifest/batch bijection. Unique actual input_id. Original complete actual metadata of every supplied batch in result inputs, including excluded facts. Prior-complete period declares bars missing; no target bars consumed. Shared physical BAR path/open witness uses one path role. No new DataKind, hidden context facts, closure or DTO transport."
+  },
+  "closed_reference_mapping": {
+    "identity_encoding": "B is reversible canonical UTF8 base64url without padding. Combined reference_id<=128codepoints/512UTF8bytes; reject overflow/noncanonical encoding, never truncate or replace IDs with fabricated order.",
+    "source_relation": "Every proof relation names actual target input_id P and matches actual namespace/entity/source.source_id/source.snapshot_id; proofs and facts have distinct actual input_ids. Cross-source attestations unsupported. Mapping version per role must match explicit ef1-reference-map1 conversion. This validates declarations, not authenticated acquisition.",
+    "status_state": {
+      "reference_id": "s1:D:B(epoch):seq19:B(event_id)",
+      "D": {
+        "t": "trading",
+        "q": "quoting",
+        "s": "ssr"
+      },
+      "sequence": "19digit zero-padded nonnegative int64; strict increase, effective time nondecreasing; equal time tie by sequence; numeric sequence gaps alone do not prove missing messages",
+      "fact_kinds": [
+        "ef1.status.trading",
+        "ef1.status.quoting",
+        "ef1.status.ssr"
+      ],
+      "texts": {
+        "trading": [
+          "active",
+          "halted",
+          "closed"
+        ],
+        "quoting": [
+          "enabled",
+          "disabled"
+        ],
+        "ssr": [
+          "on",
+          "off"
+        ]
+      }
+    },
+    "status_prefix": {
+      "reference_id": "p1:D:B(epoch):B(P):B(certificate_id)",
+      "fact_kind": "ef1.status.prefix_complete",
+      "text": "D",
+      "interval": "positive finite [start,end), start<=seed original effective time and C<=end; original known_at<=K; complete supplied proof population"
+    },
+    "status_validity": {
+      "reference_id": "p1:D:B(epoch):B(P):B(certificate_id)",
+      "fact_kind": "ef1.status.validity",
+      "text": "D",
+      "interval": "positive finite [start,end), start<=C<end; original known_at<=K; complete proof population; distinct dedicated batch permits same certificate ID in different proof kinds"
+    },
+    "classification_history": {
+      "reference_id": "h1:F:B(scope_id):B(P):B(certificate_id)",
+      "F": {
+        "s": "sector_membership",
+        "u": "universe_membership",
+        "i": "industry_membership"
+      },
+      "fact_kind": "ef1.classification.history",
+      "texts": [
+        "historical",
+        "current_only",
+        "unknown"
+      ],
+      "interval": "start<=effective_query<end and original known_at<=K"
+    },
+    "projection": {
+      "reference_id": "r1:B(P):B(certificate_id)",
+      "fact_kind": "ef1.reference.projection",
+      "texts": [
+        "complete",
+        "partial",
+        "unknown"
+      ],
+      "check": "complete requires actual target Coverage.complete and expected=observed=actual rows before effective filtering; unknown/partial projection remains unknown"
+    },
+    "action_history": {
+      "reference_id": "a1:B(scope_id):B(P):B(certificate_id)",
+      "fact_kind": "ef1.action.history",
+      "texts": [
+        "historical",
+        "current_only",
+        "unknown"
+      ],
+      "interval": "covers requested whole action scope_start..scope_end, original known_at<=K"
+    },
+    "source_representation": {
+      "reference_id": "q1:B(P):B(certificate_id)",
+      "fact_kind": "ef1.action.representation",
+      "texts": [
+        "raw",
+        "caller_transformed"
+      ]
+    },
+    "source_quantity": {
+      "reference_id": "q1:B(P):B(certificate_id)",
+      "fact_kind": "ef1.action.quantity_basis",
+      "texts": [
+        "raw_shares",
+        "split_shares"
+      ]
+    },
+    "unused_fields": "Proof/status/classification rows have no price/factor payload; source factor rows have exact positive factor_num/den, no text/price and no finite effective_end; no JSON payloads. Calendar/anchor hash grammars are disjoint by fact_kind/role from action a1 relation grammar.",
+    "canonical_order": "All REFERENCE rows already ordered by effective_start_ns,reference_id; no producer/worker sorting. Status semantic sequence/epoch checks additional to canonical validation."
+  },
+  "headers": [
+    {
+      "id": "session.clock.phase",
+      "dtype": "string",
+      "unit": "state",
+      "scale": "none",
+      "producer": "clock"
+    },
+    {
+      "id": "session.clock.regular_elapsed_ns",
+      "dtype": "int64",
+      "unit": "ns",
+      "scale": 0,
+      "producer": "clock"
+    },
+    {
+      "id": "session.clock.regular_remaining_ns",
+      "dtype": "int64",
+      "unit": "ns",
+      "scale": 0,
+      "producer": "clock"
+    },
+    {
+      "id": "session.clock.regular_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "clock"
+    },
+    {
+      "id": "session.clock.early_close",
+      "dtype": "bool",
+      "unit": "boolean",
+      "scale": "none",
+      "producer": "clock"
+    },
+    {
+      "id": "session.status.trading_state",
+      "dtype": "string",
+      "unit": "state",
+      "scale": "none",
+      "producer": "status:trading"
+    },
+    {
+      "id": "session.status.trading_age_ns",
+      "dtype": "int64",
+      "unit": "ns",
+      "scale": 0,
+      "producer": "status:trading"
+    },
+    {
+      "id": "session.status.quoting_state",
+      "dtype": "string",
+      "unit": "state",
+      "scale": "none",
+      "producer": "status:quoting"
+    },
+    {
+      "id": "session.status.quoting_age_ns",
+      "dtype": "int64",
+      "unit": "ns",
+      "scale": 0,
+      "producer": "status:quoting"
+    },
+    {
+      "id": "session.status.ssr_state",
+      "dtype": "string",
+      "unit": "state",
+      "scale": "none",
+      "producer": "status:ssr"
+    },
+    {
+      "id": "session.status.ssr_age_ns",
+      "dtype": "int64",
+      "unit": "ns",
+      "scale": 0,
+      "producer": "status:ssr"
+    },
+    {
+      "id": "session.status.admission_state",
+      "dtype": "string",
+      "unit": "state",
+      "scale": "none",
+      "producer": "status:any_one_dimension"
+    },
+    {
+      "id": "session.status.admission_reason",
+      "dtype": "string",
+      "unit": "reason",
+      "scale": "none",
+      "producer": "status:any_one_dimension"
+    },
+    {
+      "id": "calendar.period.open",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "scale": "PriceUnit.scale input; output full currency/share",
+      "producer": "period"
+    },
+    {
+      "id": "calendar.period.high",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "scale": "PriceUnit.scale input; output full currency/share",
+      "producer": "period"
+    },
+    {
+      "id": "calendar.period.low",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "scale": "PriceUnit.scale input; output full currency/share",
+      "producer": "period"
+    },
+    {
+      "id": "calendar.period.close",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "scale": "PriceUnit.scale input; output full currency/share",
+      "producer": "period"
+    },
+    {
+      "id": "calendar.period.volume",
+      "dtype": "int64",
+      "unit": "shares",
+      "scale": 0,
+      "producer": "period"
+    },
+    {
+      "id": "calendar.period.notional",
+      "dtype": "decimal128",
+      "unit": "currency",
+      "scale": "retained integer coefficient at PriceUnit.scale",
+      "producer": "period"
+    },
+    {
+      "id": "calendar.period.open_close_return",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "period"
+    },
+    {
+      "id": "calendar.period.scheduled_sessions",
+      "dtype": "int64",
+      "unit": "sessions",
+      "scale": 0,
+      "producer": "period"
+    },
+    {
+      "id": "calendar.period.completed_sessions",
+      "dtype": "int64",
+      "unit": "sessions",
+      "scale": 0,
+      "producer": "period"
+    },
+    {
+      "id": "session.extended.open",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "scale": "PriceUnit.scale input; output full currency/share",
+      "producer": "extended"
+    },
+    {
+      "id": "session.extended.high",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "scale": "PriceUnit.scale input; output full currency/share",
+      "producer": "extended"
+    },
+    {
+      "id": "session.extended.low",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "scale": "PriceUnit.scale input; output full currency/share",
+      "producer": "extended"
+    },
+    {
+      "id": "session.extended.close",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "scale": "PriceUnit.scale input; output full currency/share",
+      "producer": "extended"
+    },
+    {
+      "id": "session.extended.volume",
+      "dtype": "int64",
+      "unit": "shares",
+      "scale": 0,
+      "producer": "extended"
+    },
+    {
+      "id": "session.extended.notional",
+      "dtype": "decimal128",
+      "unit": "currency",
+      "scale": "retained integer coefficient at PriceUnit.scale",
+      "producer": "extended"
+    },
+    {
+      "id": "session.extended.open_close_return",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "extended"
+    },
+    {
+      "id": "session.extended.prior_close_return",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "extended"
+    },
+    {
+      "id": "session.anchor.vwap",
+      "dtype": "float64",
+      "unit": "currency/share",
+      "scale": "PriceUnit.scale input; output full currency/share",
+      "producer": "anchor"
+    },
+    {
+      "id": "session.anchor.volume",
+      "dtype": "int64",
+      "unit": "shares",
+      "scale": 0,
+      "producer": "anchor"
+    },
+    {
+      "id": "session.anchor.notional",
+      "dtype": "decimal128",
+      "unit": "currency",
+      "scale": "retained integer coefficient at PriceUnit.scale",
+      "producer": "anchor"
+    },
+    {
+      "id": "session.gap.remaining_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "path_gap"
+    },
+    {
+      "id": "session.gap.fill_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "path_gap"
+    },
+    {
+      "id": "session.gap.filled",
+      "dtype": "bool",
+      "unit": "boolean",
+      "scale": "none",
+      "producer": "path_gap"
+    },
+    {
+      "id": "session.gap.first_fill_ns",
+      "dtype": "int64",
+      "unit": "ns",
+      "scale": 0,
+      "producer": "path_gap"
+    },
+    {
+      "id": "session.opening_drive.return",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "path_drive"
+    },
+    {
+      "id": "session.opening_drive.excursion_up",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "path_drive"
+    },
+    {
+      "id": "session.opening_drive.excursion_down",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "path_drive"
+    },
+    {
+      "id": "reference.gate.action_state",
+      "dtype": "string",
+      "unit": "state",
+      "scale": "none",
+      "producer": "reference_action"
+    },
+    {
+      "id": "reference.gate.action_reason",
+      "dtype": "string",
+      "unit": "reason",
+      "scale": "none",
+      "producer": "reference_action"
+    },
+    {
+      "id": "reference.gate.classification_state",
+      "dtype": "string",
+      "unit": "state",
+      "scale": "none",
+      "producer": "reference_classification"
+    },
+    {
+      "id": "reference.gate.classification_reason",
+      "dtype": "string",
+      "unit": "reason",
+      "scale": "none",
+      "producer": "reference_classification"
+    },
+    {
+      "id": "reference.classification.value",
+      "dtype": "string",
+      "unit": "classification",
+      "scale": "none",
+      "producer": "reference_classification"
+    }
+  ],
+  "header_rules": {
+    "algorithm_version": "v1",
+    "schema_version": "1",
+    "order": "lexicographic by feature_id; complete fixed selected producer set, including its diagnosis outputs",
+    "status_group": "selected dimension's state and age plus common admission state/reason, exactly4headers",
+    "scale": "No independent notional scale; decimal128 retained coefficient at bound PriceUnit.scale, not full float currency. FLOAT64 prices converted exactly once from scaled integers/Fraction. All bindings retain currency and scale.",
+    "baseline": "Accepted core39 and R17 headers/units/versions remain unchanged and run as separate accepted homogeneous producer WorkItems. No extra EF1 duplicate baseline IDs."
+  },
+  "quality_projection": {
+    "normal": "existing Status/Reason only; malformed schema/order/unit/basis/overflow typed ContractError before any result",
+    "precedence": [
+      "missing_input/absent_input",
+      "missing_input/unknown_availability",
+      "missing_input/future_knowledge",
+      "incomplete_coverage/governed_gap",
+      "insufficient_history/insufficient_history",
+      "not_applicable/no_eligible_observations",
+      "not_applicable/zero_denominator",
+      "available/empty_reasons"
+    ],
+    "all_visible_reasons": "Retain all independently applicable existing reasons in fixed lexical order; status precedence above chooses one status. No new gate reason inserted into legacy Reason enum.",
+    "status_max_age": "Explicit max reject -> state null, missing_input/ineligible, admission unavailable/stale_state. Proven descriptive age remains available. No selected max -> no event-age expiry.",
+    "status_unknown": "Unknown seed/prefix/validity/required transition -> state and current-state age null with original missing/coverage/knowledge reason; no last-observed-age fallback. Finite state/validity expiry -> missing_input/ineligible.",
+    "assessment": "State/reason diagnostic outputs available with expected=observed=1 for a completed evaluation, even outcome unknown/failed. That is assessment readiness, not factual readiness. All source input bindings and excluded original facts retained.",
+    "classification_value": "Passed gate -> actual selected nonblank membership text available; proved absence -> null/not_applicable/no_eligible_observations; missing proof/population or late/unknown fact -> null with applicable missing-input reason; partial projection -> null/incomplete_coverage/governed_gap; known mismatch -> null/missing_input/ineligible.",
+    "gate_reason_precedence": {
+      "failed": [
+        "action_policy_mismatch",
+        "revision_mismatch",
+        "wrong_scope",
+        "outside_effective_interval",
+        "future_knowledge",
+        "membership_absent"
+      ],
+      "unknown": [
+        "absent_reference",
+        "incomplete_reference",
+        "incomplete_projection",
+        "historical_proof_unknown",
+        "missing_text",
+        "unknown_availability"
+      ],
+      "passed": "none"
+    },
+    "gate_rule": "Evaluate visible conditions; visible failed comparison wins over unknown prerequisites. Otherwise unknown prerequisites -> unknown, else passed. Scalar reason first in selected list; structural overlap/invalid identity remains error. Future knowledge is failed only when it is a directly evaluated active required fact or proof, never irrelevant future-effective rows.",
+    "numerical_coverage": "For each numerical scalar expected/observed count its exact required field/slot population; zero-denominator/no-price statuses are independent from aggregate totals. Context declarations do not invent observed market completeness. Full metadata/source/known-at/evidence/config identity parity is required beyond numeric tolerance."
+  },
+  "semantics_addenda": {
+    "period_counts": "scheduled_sessions counts all supplied governed sessions whose civil date lies within exact selected period; completed_sessions counts those with actual close<=C. Both depend on full causally admitted calendar proof, not price delivery, and can remain ready while period OHLC is missing. Current-period price aggregation uses only eligible sessions/prefix<=C, never future daily prices. A current period may contain supplied known future schedule definitions for scheduled count; they are calendar knowledge, not market observations.",
+    "period_completion": "prior_complete requires entire selected period end_date_exclusive<=target_date and all selected regular sessions completed. current_to_cutoff uses completed earlier DAILY plus optional target BAR prefix only. A current-prefix at C=regular_open is an explicit no-observation contribution, no fake zero-width batch. Earlier covered period sessions still aggregate normally.",
+    "phase_zero_prefix": "C<phase_start: selected extended values all null/not_applicable/no_eligible_observations. C=phase_start: no market batch permitted; explicit mathematical zero-prefix branch gives volume/notional0 available expected=observed0, prices/returns null/not_applicable/no_eligible_observations, using actual calendar proof only. No InputScope(start,start). C>phase_start uses actual positive-duration canonical batch scope.",
+    "anchor_cutoff": "Require start<C. start=C or start>C -> typed ContractError BOUNDS. Positive-duration complete empty batch -> volume/notional0, VWAPnull/not_applicable/zero_denominator. Missing market delivery -> missing_input, never zero.",
+    "anchor_proof": "Proof declaration admits exact supplied mathematical anchor; it does not authenticate selection history or claim a breakout algorithm computed the anchor. Threshold/policy-derived anchor selection remains EF8.",
+    "path_open": "Use same complete canonical path batch to derive opening witness. TRADE: first eligible price under exact auction policy. BAR: first positive-volume bar.open, while samples are its completed closes. No duplicate cloned BAR IDs or separate hidden open scalar. Whole path prefix starts actual regular open.",
+    "gap": "G=O-P; remaining=max(0,(last-P)/G); fill=max sampled clamp((O-x)/G,0,1); filled exists (x-P)*G<=0; first_fill timestamp first eligible hit. G0 makes all four gap-specific outputs not_applicable/zero_denominator. No hit -> first_fill null/not_applicable/no_eligible_observations, filledFalse available. OHLC low alone is never a sampled close hit.",
+    "drive": "Completed window[regular_open,open+duration), final sampled return last/O-1, up=max(0,maxsample/O-1),down=max(0,1-minsample/O). Trades at window end excluded, completed bars ending there admitted. No private strength threshold or episode state.",
+    "action_quantity": "apply_factors expects actual raw representation and actual raw_shares source basis; output policy may request split_shares and accepted utility transforms explicitly. caller_transformed expects actual caller_transformed and source quantity exactly requested output quantity basis. Gates do not apply factors and do not add a dividend twice. A requested transformed split-share output does not imply incoming raw volume was already split-adjusted."
+  },
+  "fixture_notation": {
+    "identity": {
+      "namespace": "SYN",
+      "instrument_id": "X",
+      "session_id": "S",
+      "source_id": "F",
+      "snapshot_id": "R1",
+      "mapping_version": "ef1-reference-map1",
+      "currency": "USD"
+    },
+    "all_rows": "Every row in fixture notation expands with instrument_id X/session S unless its literal prior-session ID is P. Row lists are CanonicalBatch column values in listed names, not new worker objects. Metadata SourceBinding/input_id and real row counts must be instantiated without substitutions. Reference proof relations target the actual named input_id.",
+    "availability_default": "For a literal fixture query with C and no K/E, K=C,E=C,known_at mode,reconstruction_reason null. Explicit query values override this test notation only; the public decoder invents no cutoffs.",
+    "quality_default": "All supplied required market/proof inputs in a positive fixture have eligible original known-at and complete exact scope. Every numerical/scalar value is available with empty reasons unless its explicit expected quality states otherwise. Calendar/anchor proof fixture IDs are the c1/a1 digest of the exact literal supplied definition, never a hash of an output.",
+    "coverage_complete": "Metadata Coverage(expected=literal rows,observed=literal rows,complete=true); status stream/prefix validity and population projection require their separate literal proof rows, never row-count inference.",
+    "known_at_default": "5 only when fixture explicitly adopts this common source profile; null remains null, never defaulted after decoding",
+    "exact_expectations": "Rational strings below are independent mathematical expectations, not Float64 wire values. Implementation later compares its one Float64 conversion with tolerance1e-12; int/decimal coefficient/state/quality/reason/UTCns compare exactly. Proof hashes derive from frozen literal canonical definition bytes, not from a calculation output."
+  },
+  "fixtures": [
+    {
+      "id": "C01",
+      "producer": "clock",
+      "facts": {
+        "regular": [
+          10,
+          30
+        ],
+        "segments": [
+          [
+            "premarket",
+            0,
+            10
+          ],
+          [
+            "regular",
+            10,
+            30
+          ],
+          [
+            "postmarket",
+            30,
+            40
+          ]
+        ],
+        "scheduled_close": 40,
+        "early_close": true,
+        "calendar_proof": "eligible actual c1 matching calendar with effective bounds[0,40),known_at5"
+      },
+      "queries": [
+        {
+          "C": 10,
+          "K": 10,
+          "E": 40,
+          "values": {
+            "phase": "regular",
+            "regular_elapsed_ns": 0,
+            "regular_remaining_ns": 20,
+            "regular_fraction": "0",
+            "early_close": true
+          }
+        },
+        {
+          "C": 20,
+          "K": 20,
+          "E": 40,
+          "values": {
+            "phase": "regular",
+            "regular_elapsed_ns": 10,
+            "regular_remaining_ns": 10,
+            "regular_fraction": "1/2",
+            "early_close": true
+          }
+        },
+        {
+          "C": 30,
+          "K": 30,
+          "E": 40,
+          "values": {
+            "phase": "postmarket",
+            "regular_elapsed_ns": 20,
+            "regular_remaining_ns": 0,
+            "regular_fraction": "1",
+            "early_close": true
+          }
+        },
+        {
+          "C": 40,
+          "K": 40,
+          "E": 40,
+          "values": {
+            "phase": "closed",
+            "regular_elapsed_ns": 20,
+            "regular_remaining_ns": 0,
+            "regular_fraction": "1",
+            "early_close": true
+          }
+        }
+      ],
+      "quality": "all5available,emptyreasons"
+    },
+    {
+      "id": "C02",
+      "producer": "clock",
+      "mutation": "calendar_provenance slot missing",
+      "expected": {
+        "all5values": null,
+        "status": "missing_input",
+        "reasons": [
+          "absent_input"
+        ]
+      }
+    },
+    {
+      "id": "S01",
+      "producer": "status",
+      "dimension": "trading",
+      "input_id": "st",
+      "epoch": "e",
+      "state_columns": [
+        "reference_id",
+        "fact_kind",
+        "effective_start_ns",
+        "effective_end_ns",
+        "text",
+        "known_at_ns"
+      ],
+      "state_rows": [
+        [
+          "s1:t:ZQ:0000000000000000000:c2VlZA",
+          "ef1.status.trading",
+          8,
+          null,
+          "active",
+          8
+        ],
+        [
+          "s1:t:ZQ:0000000000000000001:aGFsdA",
+          "ef1.status.trading",
+          12,
+          null,
+          "halted",
+          12
+        ],
+        [
+          "s1:t:ZQ:0000000000000000002:cmVzdW1l",
+          "ef1.status.trading",
+          16,
+          null,
+          "active",
+          16
+        ]
+      ],
+      "prefix_row": [
+        "p1:t:ZQ:c3Q:cHJlZg",
+        "ef1.status.prefix_complete",
+        8,
+        20,
+        "t",
+        8
+      ],
+      "validity_row": [
+        "p1:t:ZQ:c3Q:dmFsaWQ",
+        "ef1.status.validity",
+        8,
+        21,
+        "t",
+        8
+      ],
+      "max_age_ns": null,
+      "queries": [
+        {
+          "C": 16,
+          "K": 16,
+          "E": 20,
+          "values": {
+            "state": "halted",
+            "age_ns": 4,
+            "admission_state": "ready",
+            "admission_reason": "none"
+          },
+          "state_quality": "available",
+          "age_quality": "available"
+        },
+        {
+          "C": 17,
+          "K": 17,
+          "E": 20,
+          "values": {
+            "state": "active",
+            "age_ns": 1,
+            "admission_state": "ready",
+            "admission_reason": "none"
+          },
+          "state_quality": "available",
+          "age_quality": "available"
+        },
+        {
+          "C": 17,
+          "K": 15,
+          "E": 20,
+          "values": {
+            "state": null,
+            "age_ns": null,
+            "admission_state": "unavailable",
+            "admission_reason": "future_knowledge"
+          },
+          "state_quality": "missing_input/future_knowledge",
+          "age_quality": "missing_input/future_knowledge"
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "producer": "status",
+      "dimension": "ssr",
+      "input_id": "st",
+      "epoch": "e",
+      "state_row": [
+        "s1:s:ZQ:0000000000000000000:c2VlZA",
+        "ef1.status.ssr",
+        5,
+        null,
+        "on",
+        5
+      ],
+      "prefix_row": [
+        "p1:s:ZQ:c3Q:cHJlZg",
+        "ef1.status.prefix_complete",
+        5,
+        16,
+        "s",
+        5
+      ],
+      "validity_row": [
+        "p1:s:ZQ:c3Q:dmFsaWQ",
+        "ef1.status.validity",
+        5,
+        17,
+        "s",
+        5
+      ],
+      "queries": [
+        {
+          "C": 16,
+          "K": 16,
+          "E": 20,
+          "max_age_ns": null,
+          "state": "on",
+          "age_ns": 11,
+          "state_quality": "available",
+          "age_quality": "available",
+          "admission_reason": "none"
+        },
+        {
+          "C": 16,
+          "K": 16,
+          "E": 20,
+          "max_age_ns": 10,
+          "state": null,
+          "age_ns": 11,
+          "state_quality": "missing_input/ineligible",
+          "age_quality": "available",
+          "admission_reason": "stale_state"
+        },
+        {
+          "C": 15,
+          "K": 15,
+          "E": 20,
+          "max_age_ns": 10,
+          "state": "on",
+          "age_ns": 10,
+          "state_quality": "available",
+          "age_quality": "available",
+          "admission_reason": "none"
+        },
+        {
+          "C": 17,
+          "K": 17,
+          "E": 20,
+          "max_age_ns": null,
+          "state": null,
+          "age_ns": null,
+          "state_quality": "incomplete_coverage/governed_gap",
+          "age_quality": "incomplete_coverage/governed_gap",
+          "admission_reason": "incomplete_status_prefix"
+        }
+      ],
+      "separate_mutation": {
+        "prefix_end": 20,
+        "C": 17,
+        "validity_end": 17,
+        "expected_state": null,
+        "expected_age": null,
+        "expected_quality": "missing_input/ineligible",
+        "admission_reason": "outside_effective_interval"
+      }
+    },
+    {
+      "id": "S03",
+      "producer": "status",
+      "dimension": "ssr",
+      "same_time_rows": [
+        [
+          "s1:s:ZQ:0000000000000000000:YQ",
+          "ef1.status.ssr",
+          5,
+          null,
+          "on",
+          5
+        ],
+        [
+          "s1:s:ZQ:0000000000000000001:Yg",
+          "ef1.status.ssr",
+          5,
+          null,
+          "off",
+          5
+        ]
+      ],
+      "query": {
+        "C": 6,
+        "K": 6,
+        "E": 20
+      },
+      "eligible_prefix_and_validity": true,
+      "expected": {
+        "state": "off",
+        "age_ns": 1
+      },
+      "bad_mutation": {
+        "duplicate_sequence": 0,
+        "error": "ContractError.DUPLICATE"
+      }
+    },
+    {
+      "id": "P01",
+      "producer": "period",
+      "calendar_sessions": [
+        [
+          "P",
+          "2026-10-19",
+          0,
+          10
+        ],
+        [
+          "S",
+          "2026-10-20",
+          10,
+          30
+        ]
+      ],
+      "selection": {
+        "period_id": "M",
+        "kind": "month",
+        "count": 1,
+        "start_date": "2026-10-01",
+        "end_date_exclusive": "2026-11-01",
+        "inclusion": "current_to_cutoff"
+      },
+      "C": 20,
+      "daily_columns": [
+        "session_id",
+        "start_ns",
+        "end_ns",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "actual_notional",
+        "known_at_ns"
+      ],
+      "daily_rows": [
+        [
+          "P",
+          0,
+          10,
+          10,
+          12,
+          9,
+          11,
+          2,
+          21,
+          10
+        ]
+      ],
+      "bar_rows": [
+        [
+          "S",
+          10,
+          20,
+          11,
+          14,
+          10,
+          13,
+          3,
+          36,
+          20
+        ]
+      ],
+      "price_scale": 0,
+      "expected": {
+        "open": "10",
+        "high": "14",
+        "low": "9",
+        "close": "13",
+        "volume": 5,
+        "notional_coefficient": 57,
+        "open_close_return": "3/10",
+        "scheduled_sessions": 2,
+        "completed_sessions": 1
+      },
+      "missing_notional_mutation": {
+        "current_bar_notional": null,
+        "notional": null,
+        "notional_quality": "missing_input/null_field",
+        "other8unchanged": true
+      }
+    },
+    {
+      "id": "P02",
+      "producer": "period",
+      "mutation_of": "P01",
+      "mutation": "prior DAILY slot absent but scheduled session retained",
+      "expected": {
+        "open": null,
+        "high": null,
+        "low": null,
+        "close": null,
+        "volume": null,
+        "notional": null,
+        "open_close_return": null,
+        "price_quality": "incomplete_coverage/governed_gap",
+        "scheduled_sessions": 2,
+        "completed_sessions": 1,
+        "counts_quality": "available"
+      }
+    },
+    {
+      "id": "P03",
+      "producer": "period",
+      "query_definitions": [
+        {
+          "kind": "rolling_weeks",
+          "count": 3,
+          "target_date": "2026-10-20",
+          "inclusion": "prior_complete",
+          "expected_start": "2026-09-29",
+          "expected_end_exclusive": "2026-10-20"
+        },
+        {
+          "kind": "rolling_months",
+          "count": 3,
+          "target_date": "2026-05-31",
+          "inclusion": "prior_complete",
+          "expected_start": "2026-02-28",
+          "expected_end_exclusive": "2026-05-31"
+        },
+        {
+          "kind": "rolling_weeks",
+          "count": 52,
+          "target_date": "2026-10-20",
+          "inclusion": "prior_complete",
+          "expected_start": "2025-10-21",
+          "expected_end_exclusive": "2026-10-20"
+        }
+      ],
+      "coverage_rule": "supplied exact sessions within civil interval only; a declared holiday absent from grid is not a missing price slot; removing a governed session price is a gap"
+    },
+    {
+      "id": "E01",
+      "producer": "extended",
+      "phase": "premarket",
+      "phase_bounds": [
+        0,
+        10
+      ],
+      "regular": [
+        10,
+        30
+      ],
+      "C": 10,
+      "bar_columns": [
+        "start_ns",
+        "end_ns",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "actual_notional",
+        "known_at_ns"
+      ],
+      "bar_rows": [
+        [
+          0,
+          10,
+          8,
+          10,
+          7,
+          9,
+          2,
+          17,
+          10
+        ]
+      ],
+      "prior_close": {
+        "session_id": "P",
+        "end_ns": 0,
+        "close": 8,
+        "known_at_ns": 0
+      },
+      "price_scale": 0,
+      "expected": {
+        "open": "8",
+        "high": "10",
+        "low": "7",
+        "close": "9",
+        "volume": 2,
+        "notional_coefficient": 17,
+        "open_close_return": "1/8",
+        "prior_close_return": "1/8"
+      }
+    },
+    {
+      "id": "E02",
+      "producer": "extended",
+      "phase_bounds": [
+        0,
+        10
+      ],
+      "C": 0,
+      "bars_slot": "missing_no_interval",
+      "calendar_proof": "eligible actual original reference",
+      "expected": {
+        "open": null,
+        "high": null,
+        "low": null,
+        "close": null,
+        "volume": 0,
+        "notional_coefficient": 0,
+        "open_close_return": null,
+        "prior_close_return": null,
+        "totals_quality": "available/expected0observed0",
+        "price_quality": "not_applicable/no_eligible_observations",
+        "fake_InputScope": false
+      }
+    },
+    {
+      "id": "A01",
+      "producer": "anchor",
+      "anchor_start": 10,
+      "C": 20,
+      "K": 20,
+      "E": 20,
+      "trade_columns": [
+        "event_ns",
+        "order_key",
+        "event_id",
+        "eligible",
+        "price",
+        "size",
+        "known_at_ns"
+      ],
+      "trade_rows": [
+        [
+          10,
+          0,
+          "a",
+          true,
+          1000,
+          2,
+          10
+        ],
+        [
+          15,
+          1,
+          "b",
+          true,
+          1300,
+          1,
+          15
+        ]
+      ],
+      "price_scale": 2,
+      "anchor_proof": "actual matching a1 hash reference,kind ef1.anchor.provenance,start10,text supplied_anchor,known_at10",
+      "expected": {
+        "vwap": "11",
+        "volume": 3,
+        "notional_coefficient": 3300
+      },
+      "bar_equivalent": {
+        "columns": [
+          "start_ns",
+          "end_ns",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "actual_notional",
+          "known_at_ns"
+        ],
+        "rows": [
+          [
+            10,
+            20,
+            1000,
+            1300,
+            1000,
+            1300,
+            3,
+            3300,
+            20
+          ]
+        ],
+        "expected_same_values": true
+      },
+      "missing_bar_notional": {
+        "notional": null,
+        "vwap": null,
+        "volume": 3,
+        "quality": "missing_input/null_field"
+      }
+    },
+    {
+      "id": "A02",
+      "producer": "anchor",
+      "anchor_start": 10,
+      "C": 20,
+      "covered_input_scope": [
+        10,
+        20
+      ],
+      "market_rows": [],
+      "coverage": {
+        "expected": 0,
+        "observed": 0,
+        "complete": true
+      },
+      "eligible_actual_anchor_proof": true,
+      "expected": {
+        "volume": 0,
+        "notional_coefficient": 0,
+        "vwap": null,
+        "vwap_quality": "not_applicable/zero_denominator",
+        "totals_quality": "available"
+      }
+    },
+    {
+      "id": "A03",
+      "producer": "anchor",
+      "anchor_start": 20,
+      "C": 20,
+      "expected_error": "ContractError.BOUNDS",
+      "expected_result": null,
+      "forbidden": "constructing InputScope(20,20), changing cutoff, fabricating empty positive interval"
+    },
+    {
+      "id": "G01",
+      "producer": "path_gap",
+      "sampling": "eligible_trade",
+      "P": 10,
+      "path_trade_rows": [
+        [
+          10,
+          0,
+          "a",
+          true,
+          12,
+          1,
+          10
+        ],
+        [
+          11,
+          1,
+          "b",
+          true,
+          11,
+          1,
+          11
+        ],
+        [
+          12,
+          2,
+          "c",
+          true,
+          9,
+          1,
+          12
+        ]
+      ],
+      "C": 13,
+      "expected": {
+        "opening_price": "12",
+        "remaining_fraction": "0",
+        "fill_fraction": "1",
+        "filled": true,
+        "first_fill_ns": 12
+      },
+      "prefix_C12": {
+        "remaining_fraction": "1/2",
+        "fill_fraction": "1/2",
+        "filled": false,
+        "first_fill_ns": null,
+        "first_fill_quality": "not_applicable/no_eligible_observations"
+      }
+    },
+    {
+      "id": "G02",
+      "producer": "path_gap",
+      "sampling": "completed_bar_close",
+      "P": 10,
+      "bar_row": {
+        "start_ns": 10,
+        "end_ns": 12,
+        "open": 12,
+        "high": 13,
+        "low": 9,
+        "close": 11,
+        "volume": 2,
+        "known_at_ns": 12
+      },
+      "C": 12,
+      "expected": {
+        "opening_price": "12",
+        "remaining_fraction": "1/2",
+        "fill_fraction": "1/2",
+        "filled": false,
+        "first_fill_ns": null
+      },
+      "no_intrabar_hit": true,
+      "same_input_id_for_open_and_path": true
+    },
+    {
+      "id": "G03",
+      "producer": "path_gap",
+      "P": 12,
+      "O": 10,
+      "sample_values": [
+        10,
+        11,
+        12
+      ],
+      "sample_times": [
+        10,
+        11,
+        12
+      ],
+      "C": 13,
+      "expected": {
+        "remaining_fraction": "0",
+        "fill_fraction": "1",
+        "filled": true,
+        "first_fill_ns": 12
+      },
+      "zero_gap_mutation": {
+        "P": 10,
+        "expected_all4": null,
+        "quality": "not_applicable/zero_denominator"
+      }
+    },
+    {
+      "id": "D01",
+      "producer": "path_drive",
+      "sampling": "eligible_trade",
+      "regular": [
+        10,
+        30
+      ],
+      "duration_ns": 5,
+      "C": 15,
+      "path_trade_rows": [
+        [
+          10,
+          0,
+          "a",
+          true,
+          10,
+          1,
+          10
+        ],
+        [
+          12,
+          1,
+          "b",
+          true,
+          12,
+          1,
+          12
+        ],
+        [
+          14,
+          2,
+          "c",
+          true,
+          11,
+          1,
+          14
+        ]
+      ],
+      "excluded_future_row": {
+        "event_ns": 15,
+        "price": 20,
+        "admission": "If actually supplied in this canonical prefix batch, typed BOUNDS; future observation belongs to later separately scoped input, never silently filtered"
+      },
+      "expected": {
+        "return": "1/10",
+        "excursion_up": "1/5",
+        "excursion_down": "0"
+      },
+      "incomplete_query": {
+        "C": 14,
+        "expected_all3": null,
+        "quality": "incomplete_coverage/governed_gap"
+      },
+      "early_close_mutation": {
+        "regular_close": 14,
+        "expected_error": "ContractError.BOUNDS"
+      }
+    },
+    {
+      "id": "R01",
+      "producer": "reference_classification",
+      "request": {
+        "fact_kind": "sector_membership",
+        "scope_id": "U",
+        "effective_ns": 20
+      },
+      "input_id": "cl",
+      "fact_columns": [
+        "reference_id",
+        "fact_kind",
+        "effective_start_ns",
+        "effective_end_ns",
+        "text",
+        "known_at_ns"
+      ],
+      "fact_rows": [
+        [
+          "a",
+          "sector_membership",
+          0,
+          20,
+          "A",
+          5
+        ],
+        [
+          "b",
+          "sector_membership",
+          20,
+          40,
+          "B",
+          5
+        ]
+      ],
+      "history_row": [
+        "h1:s:VQ:Y2w:aA",
+        "ef1.classification.history",
+        0,
+        40,
+        "historical",
+        5
+      ],
+      "projection_row": [
+        "r1:Y2w:cA",
+        "ef1.reference.projection",
+        0,
+        40,
+        "complete",
+        5
+      ],
+      "coverage": {
+        "expected": 2,
+        "observed": 2,
+        "complete": true
+      },
+      "C": 20,
+      "K": 20,
+      "E": 20,
+      "expected": {
+        "classification_state": "passed",
+        "classification_reason": "none",
+        "classification_value": "B",
+        "value_quality": "available"
+      },
+      "current_only_mutation": {
+        "proof_text": "current_only",
+        "expected_state": "unknown",
+        "expected_reason": "historical_proof_unknown",
+        "expected_value": null
+      },
+      "partial_projection_mutation": {
+        "proof_text": "partial",
+        "expected_state": "unknown",
+        "expected_reason": "incomplete_projection",
+        "expected_value": null
+      }
+    },
+    {
+      "id": "R02",
+      "producer": "reference_classification",
+      "input_id": "cl",
+      "fact_rows": [],
+      "coverage": {
+        "expected": 0,
+        "observed": 0,
+        "complete": true
+      },
+      "history_and_projection": "same actual eligible h1/r1 rows as R01",
+      "expected": {
+        "classification_state": "failed",
+        "classification_reason": "membership_absent",
+        "classification_value": null,
+        "value_quality": "not_applicable/no_eligible_observations",
+        "assessment_quality": "available1/1"
+      },
+      "missing_population_mutation": {
+        "state": "unknown",
+        "reason": "absent_reference"
+      },
+      "missing_projection_mutation": {
+        "state": "unknown",
+        "reason": "incomplete_projection"
+      }
+    },
+    {
+      "id": "R03",
+      "producer": "reference_action",
+      "market_input_id": "mk",
+      "price_scale": 0,
+      "market_raw": {
+        "price": 100,
+        "size": 10,
+        "notional_coefficient": 1000,
+        "adjustment": "raw/raw-v1/none/none"
+      },
+      "factor_input_id": "ac",
+      "factor_row": {
+        "reference_id": "split",
+        "fact_kind": "split_factor",
+        "effective_start_ns": 20,
+        "factor_num": 1,
+        "factor_den": 2,
+        "known_at_ns": 20
+      },
+      "proofs": {
+        "action_history": {
+          "reference_id": "a1:VQ:YWM:aA",
+          "kind": "ef1.action.history",
+          "text": "historical",
+          "start": 0,
+          "end": 21,
+          "known_at": 20
+        },
+        "action_projection": {
+          "reference_id": "r1:YWM:cA",
+          "kind": "ef1.reference.projection",
+          "text": "complete",
+          "start": 0,
+          "end": 21,
+          "known_at": 20
+        },
+        "source_representation": {
+          "reference_id": "q1:bWs:cg",
+          "kind": "ef1.action.representation",
+          "text": "raw",
+          "start": 0,
+          "end": 21,
+          "known_at": 20
+        },
+        "source_quantity_basis": {
+          "reference_id": "q1:bWs:cQ",
+          "kind": "ef1.action.quantity_basis",
+          "text": "raw_shares",
+          "start": 0,
+          "end": 21,
+          "known_at": 20
+        }
+      },
+      "policy": {
+        "representation": "apply_factors",
+        "quantity_basis": "split_shares",
+        "basis": "split",
+        "anchor_ns": 20,
+        "action_snapshot": "R1"
+      },
+      "C": 20,
+      "K": 20,
+      "E": 20,
+      "expected_gate": {
+        "state": "passed",
+        "reason": "none"
+      },
+      "independent_accepted_application_expectation": {
+        "price": 50,
+        "size": 20,
+        "notional_coefficient": 1000
+      },
+      "caller_transformed_mismatch": {
+        "request_representation": "caller_transformed",
+        "source_representation": "caller_transformed",
+        "request_quantity": "split_shares",
+        "source_quantity": "raw_shares",
+        "expected_state": "failed",
+        "reason": "action_policy_mismatch"
+      }
+    },
+    {
+      "id": "B01",
+      "purpose": "malformed canonical identity and source proof controls",
+      "mutations": [
+        {
+          "case": "proof names wrong target input_id",
+          "error": "ContractError.INCONSISTENT_IDENTITY"
+        },
+        {
+          "case": "same source proof snapshot differs from target",
+          "error": "ContractError.INCONSISTENT_IDENTITY"
+        },
+        {
+          "case": "noncanonical s1 seq or negative sequence",
+          "error": "ContractError.INVALID_SCHEMA"
+        },
+        {
+          "case": "overlapping active memberships",
+          "error": "ContractError.DUPLICATE"
+        },
+        {
+          "case": "context exceeds4096ASCIIcodepoints",
+          "error": "ContractError.BOUNDS"
+        },
+        {
+          "case": "actual encoded task exceeds1048576bytes",
+          "error": "existing worker manifest resource admission; not a numerical result"
+        },
+        {
+          "case": "shared market role cloned under second input_id to fabricate alias",
+          "error": "reject fabricated identity; actual source bindings must remain faithful"
+        }
+      ]
+    }
+  ],
+  "scope_residual_dispositions": [
+    {
+      "id": "EF1R01",
+      "owner": "EQ166",
+      "disposition": "support scheduled_sessions and completed_sessions exact outputs; observed/price-bearing count variants not implicitly implemented"
+    },
+    {
+      "id": "EF1R02",
+      "owner": "EQ166",
+      "disposition": "support explicit ISO week/month/year and configurable rolling_weeks/rolling_months; full membership/proof must fit bounds, otherwise typed rejection, no semantic truncation"
+    },
+    {
+      "id": "EF1R03",
+      "owner": "EQ172",
+      "disposition": "distance projections named residual for explicit EQ172 manifest; underlying levels supported here and quality flags derive from canonical readiness"
+    },
+    {
+      "id": "EF1R04",
+      "owner": "EQ165_then_EQ178",
+      "disposition": "current supplied status supported; transition-history flags, multi-venue arbitration and inferred/open-delay diagnostics remain named EF1R04 residual pending explicit original specification/numbered owner amendment; no claim implemented"
+    },
+    {
+      "id": "EF1R05",
+      "owner": "EQ176",
+      "disposition": "firstN/midday/lastN policy flags remain consumer interval policies; no copied private window defaults; phase/elapsed/fraction/early_close supported here"
+    },
+    {
+      "id": "EF1R06",
+      "owner": "EQ176_EQ178",
+      "disposition": "gap-hold/reclaim/failure and opening-range episode policies are EF8 exact catalogue/transition scope; only sampled gap/drive primitive outputs supported here"
+    },
+    {
+      "id": "EF1R07",
+      "owner": "EQ178",
+      "disposition": "threshold/policy-derived breakout anchors EF8; EF1 only explicitly supplied causal declaration and arithmetic, never inferred anchor selection"
+    },
+    {
+      "id": "EF1R08",
+      "owner": "EQ171_EQ172_EQ177_EQ178",
+      "disposition": "price velocity/acceleration remains assigned EQ171 and exact scalar projections EQ172; threshold strength/status/trend-window rules EF8. Their names are unspecifiable without original formula choices and stay named residuals, not invented semantics"
+    },
+    {
+      "id": "EF1R09",
+      "owner": "EQ168",
+      "disposition": "support exact selected classification.value plus historical/projection proof gates; benchmark mapping remains actual supplied input to selected consumer"
+    },
+    {
+      "id": "EF1R10",
+      "owner": "EQ166",
+      "disposition": "support explicitly named phase open-close and prior-close returns over canonical bars; source trade-to-phase construction/ambiguous change names require adapter construction qualification, not an inferred denominator"
+    }
+  ],
+  "remaining_freeze_blockers": [
+    "Final independent exact-byte recheck of coordinator amendments; runtime wire/artifact/numerical qualification remains prospective, not a source-authoring prerequisite. Full EQ164 audit and named residuals remain mandatory EF1 release gate by explicit owner sequencing amendment."
+  ],
+  "coordinator_amendment": "COORDINATOR_CONTRACT_DECISIONS.md: implementation admission amendment, October20",
+  "proof_interval_rule": "Every source representation/quantity, classification history/projection and action history/projection proof has a positive finite interval, original known_at<=K, and covers its selected effective query or required entire history scope. Source representation/quantity cover every selected market observation effective time and the declared target scope. Missing/late/expired proof is unknown, present wrong-target/source/revision is typed identity error. No inference from source snapshot or row count alone.",
+  "authority": "This ledger is normative for exact roles/headers/context/closed scalar reasons and expectations. Library mathematical proposal supplies formulas where consistent. IO literal semantic labels are descriptions only, never alternate persisted reasons. Earlier conflicting IO/worker exploratory mappings are superseded by coordinator amendment."
+}

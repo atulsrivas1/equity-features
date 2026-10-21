@@ -6,12 +6,15 @@ import tomllib
 
 ROOT=Path(__file__).resolve().parents[1]
 
+versions={}
 for name,expected in [('contracts','equity-feature-contracts'),('features','equity-features')]:
     p=ROOT/'packages'/name
     meta=tomllib.loads((p/'pyproject.toml').read_text(encoding='utf-8'))['project']
     assert meta['name']==expected and meta['license']=='Apache-2.0'
     assert (p/'LICENSE').read_text(encoding='utf-8').strip()==(ROOT/'LICENSE').read_text(encoding='utf-8').strip()
     assert (p/'src'/expected.replace('-','_')/'py.typed').exists()
+    versions[name]=meta['version']
+assert versions=={'contracts':'0.0.4a4','features':'0.0.4a5'}
 
 code='''
 import sys, importlib.abc
@@ -29,10 +32,12 @@ import equity_features.state
 import equity_features.merging
 import equity_features.policies
 import equity_features.history
-assert c.__version__==f.contracts_version==f.__version__==EXPECTED_VERSION
+import equity_features.ef1
+assert c.__version__==f.contracts_version==EXPECTED_VERSIONS['contracts']
+assert f.__version__==EXPECTED_VERSIONS['features']
 assert not hasattr(f,'compute')
 '''
-code=code.replace('EXPECTED_VERSION',repr(meta['version']))
+code=code.replace('EXPECTED_VERSIONS',repr(versions))
 prefix=f'import sys;sys.path[:0]={str([str(ROOT/"packages/contracts/src"),str(ROOT/"packages/features/src")])}\n'
 subprocess.run([sys.executable,'-I','-c',prefix+code],check=True)
 print('Two package source imports, metadata, py.typed and inward dependency verified.')

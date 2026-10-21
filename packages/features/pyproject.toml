@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "equity-features"
-version = "0.0.4a4"
+version = "0.0.4a5"
 description = "Experimental source-independent session/history calculations and supplied policies"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"

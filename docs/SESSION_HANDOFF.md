@@ -24,12 +24,91 @@ After reviewed admission amendment [PR593](https://github.com/atulsrivas1/equity
 
 The checker now validates the owner-approved R26-only admission amendment, EQ188/EQ192 dependencies, retained EQ190 equity producers and full EQ193 acceptance. EQ199/EQ205 retain their existing EQ144/EQ145 guards; later releases and numerical gates remain unchanged. The corrected local planning check passes, and sixteen adverse plan mutations are rejected, covering approval, scope/publication boundaries, both equity producers, the worker integration dependency and later-release guards. This is static planning evidence only. Next: independent exact-commit review and merge, then notify the active Equity Features coordinator and continue R26 contract freeze. Historical checkpoints below preserve their original status.
 
+## EF1 final installed qualification passed; integration continues - October 21, 2026
+
+The exact frozen core `ca6340c050c035cb97ad270bfeee5d6dea1264c8`, I/O `55161a551d6c379a8ab5326957fed1386d049151` and worker `16812700bcab74ba8ff2364518a51364e933331a` cohort passed all four installed forms on Windows and Linux: 22 suites/665 methods per form, 2,660 method executions per platform, zero skips and 200 verified-readback demo executions across both. Coordinator artifact audit and fresh independent final review passed. [Current evidence and limits](EF1_CUMULATIVE_QUALIFICATION.md) preserves exact source/runtime/receipt identities. Later documentation integration commits are not relabeled as executed runtime sources.
+
+Next: review the bounded current documentation delta, verify source-payload equivalence and exact integration-head checks, then complete authorized source integration. Actual browser inspection, full original audit/source-version/consumer bindings, residual variants, suitable N-drive input qualification and release gates remain open. No whole story completion, EF1 release or package publication is claimed. Preserve current R26/R25/R18 ownership and original interrupted EQ142 evidence. Every earlier section below is retained byte-for-byte as its historical checkpoint; older running/pending-source snapshots do not override this later evidence.
+
 ## R26 selected; source-only preparation active — October 21, 2026
 
 [GOV038#592](https://github.com/atulsrivas1/equity-features/issues/592) is In progress for source-only release preparation after completed R25. [R26 preparation](r26/PREPARATION.md) retains all seven E34/EQ188-193/EQ215 stories in the existing three option repositories. Live dependency checks show EQ144/145/146/153/158/159 still Backlog. R25's independent gate amendment does not extend to R26. The owner approved independent R26 option-native admission, retaining actual EQ153/EQ158 producer integration and full R26 scope. The scoped coordinator amendment records exact supersession; later releases and active ownership are unchanged.
 
 Three fresh R26 preparation analysts reviewed dependency/matrix, original mathematics and existing boundary code. Private source-derived reports remain local; planning/formula proposals are not frozen contracts or numerical execution. Existing R25 interfaces/artifacts and EF1/R18 ownership are preserved. Next: publish the independently reviewed scoped amendment, freeze exact contracts/independent fixtures, then admit applicable option-native stories and fresh implementation workers. No build/kernel test/data/benchmark or package publication is currently admitted. Hosted CI remains optional under owner local-build/test policy.
 
+## EF1 main refresh and current R25 history - October 21, 2026
+
+This isolated cumulative EF1 candidate now incorporates actual main `84be03f2989409435fc74ad4c65b424b69ba8db4`. Current R25 completion and publication evidence is recorded in [R25 release acceptance](R25_RELEASE_ACCEPTANCE.md) and [current R25 checkpoint](R25_CURRENT_CHECKPOINT.md); earlier pending-publication entries below remain historical. The final EF1 665-method qualification is still running; no completed final-cohort proof or whole EF1 release acceptance is inferred. Only documentation changes from this main refresh are admitted. Preserve independent R25/R18 ownership and the original interrupted EQ142 evidence.
+
+## EF1 cumulative integration candidate - October 21, 2026
+
+The release coordinator is preparing a preservation-first cumulative source rollup for [EF1 epic569](https://github.com/atulsrivas1/equity-features/issues/569). This isolated no-commit candidate merges actual main `200c652f230a878c0e2010ffcd4133714dc0a8d2` into the reviewed implementation source `ca6340c050c035cb97ad270bfeee5d6dea1264c8`. R25 checkpoints, owner local-merge-evidence policy, independent ownership and all historical sections below are preserved. The chronological EF1 authoring snapshots below describe their original stage; they are not current qualification authority.
+
+The bounded reference and period cohorts have actual completed Windows and Linux qualification; their original source identities remain authoritative. The final observable cohort (core `ca6340c050c035cb97ad270bfeee5d6dea1264c8`, I/O `55161a551d6c379a8ab5326957fed1386d049151`, worker `16812700bcab74ba8ff2364518a51364e933331a`) is undergoing its separate exact-source qualification. No completed final-cohort run is inferred here. The publication amendment retains global math policy v1 and observable feature algorithm v2; constructor validity alone did not establish sink compatibility. Original failed runs and reviewed corrections remain retained.
+
+Next: finish and audit both final platform receipts, prove package/build/test input equivalence after this main refresh, obtain fresh independent review of the complete cumulative diff and preservation resolution, and run applicable exact-candidate document/source checks before an authorized source merge. Full original audit/bindings, source qualification, consumer variants, suitable N-drive input qualification and the actual EF1 browser demo/release gates remain open. No whole-story completion, original-source parity, package publication or EF1 release acceptance is claimed. Preserve R25/R18 ownership and interrupted EQ142 study evidence; release of its resource hold did not accept that study.
+
+## Earlier EF1 and R25 checkpoints retained as history
+
+## EF1 bounded period/phase library authoring — October21,2026
+
+EQ166/#506 reviewed-subset admission adds17 original period/extended headers
+under [freeze1](ef1/PERIOD_PHASE_SOURCE_AUTHORING_FREEZE.json). Author
+`/root/ef1_period_library_implementation` changed only this isolated candidate.
+Actual coordinator-admitted bounded Windows source checks passed284 EF1 methods
+(75new/209previous), strict typing59files and all3 purity audits with919 full/
+893 strict fixtures and53 owned modules. All42 full expected success packets and
+20typed errors remain byte-frozen; no output oracle/coercion/schema change.
+An old unsupported-dispatch fixture's period label became unimplemented_producer
+as period is now implemented; its assertion/count remain. Initial int/string
+typing error was corrected without changing mathematics; failed logs retained.
+
+See [implementation/evidence](ef1/PERIOD_PHASE_IMPLEMENTATION.md) and
+[public API](api/EF1_PERIOD_PHASE.md). No commit/push by author. Next coordinator:
+review actual diff, obtain fresh independent review, commit/pin three layers,
+run exact-source installed/build/full-sink/browser checks. Original full EQ166
+variants and EQ164 audit remain mandatory; no whole-story/release/private parity
+or other-platform qualification is claimed. Older resource/no-runtime statements
+below describe their dated authoring stage, not this newly admitted source run.
+
+## EF1 sampled-path library authoring — October 20, 2026
+
+Under the [exact path authoring freeze](ef1/PATH_SOURCE_AUTHORING_FREEZE.json),
+the selected EQ167 slice now has additive pure library source, closed discovery/
+context/dispatch, API/mathematics documentation and 50 authored independent test
+methods: 14 frozen path goldens, nine canonical-policy controls and 27 boundary/
+readiness methods. Original ef1-contract1, canonical contracts/codec and package
+versions are unchanged. Both availability modes retain original causal candidate
+knowledge, exact delivered-population counts and bounded original witnesses.
+This is source authoring only: no runtime/import/syntax/test/build/benchmark/DB
+or N: operation, numerical acceptance, commit or push is claimed. Coordinator
+must review the actual diff, integrate I/O/workers, reconcile purity/test census
+and dependency pins, then obtain fresh independent review and exact-head local
+validation after the protected EQ142 reservation is lifted by actual evidence.
+Full EQ164 audit and all original release gates remain required.
+
+## EF1 supplied-clock successor integration — October20,2026
+
+EQ165 supplied clock now has source-reviewed five-field library implementation with13 authored independent methods, including exact frozen C01 C/K/E tuples and causal original proof knowledge in both known-at and reconstruction modes. Generic AvailabilitySpec and anchor mathematics remain unchanged. I/O calendar conversion has12 authored tests; bounded worker route has8, plus coordinator four-form qualification additions. The three layers remain source candidates; no clock runtime or release acceptance is claimed. Original status/history/open diagnostics, other EF1 producers and full EQ164 audit remain required.
+
+The successor inherits the separately reviewed anchor CI corrections and adds exact669/643 purity populations,49 modules and a six-module additive EQ117 qualification receipt. Historical source/archive receipts, original study refusal, all unchanged comparisons and release gates are retained. Independent source reports cover library, I/O, worker and coordinator qualification/census additions; final source-pin review and actual Windows/Linux installed execution remain pending. Local runtime/tests/builds/DB work remains held during the separate official EQ142 study. Continue integration and current-head qualification after agent completion reports.
+## EF1 current-candidate CI accounting correction — October 20, 2026
+
+Coordinator superseded the attempted current-a5 EQ116/EQ117 source admission after review found frozen I/O bundle/replay backend4 contracts. Routine pilot/evaluation workflows now select accepted historical07cfa3 with originalIO18d867; raw Git verification found all91 governed EQ116 pins exactly unchanged. Evaluation workflow_dispatch still selects github.sha, preserving original source-pin refusal and reservation controls; no study enabled. Current evaluation builder restored byte-identically to07 and own unused public source-evolution JSON removed, with bytes/patch preserved locally and in Git history. Exact CI002 ref normalization plus negative controls authored; independent final diff review/current CI pending. Historical a4 gate success never qualifies currenta5; use new EF1 installed lanes for current core/worker/sink evidence. Full audit/release gates unchanged; no local runtime/imports/tests/builds/DB.
+
+After independently reviewed accounting correction committed5a16449, further remote failures identified the new explanation fixture's wrong notional unit and EQ117's stale historical source pins. Source-only follow-up corrects the fixture unit and explicitly hash-binds exactly seven modified/four additive qualification inputs in docs/ef1/EVIDENCE_EVALUATION_SOURCE_EVOLUTION.json, preserving original EQ116 receipt bytes and all unchanged/source/build/install gates. Optional historical study mode retains original source equality and refuses changed source; old study approval is not transferred to this cohort. Fresh independent review, coordinator commit/push and actual renewed CI remain pending. No local runtime/imports/tests/builds/DB operation.
+
+Draft PR580 candidatec91380e03ac9684a4fc355a2185e5178e540c561 remote package jobs118995417826/118995417809 fail on stale exact test census; agent jobs118995417467/118995417456 fail on historical featuresa4 archive keys after building currenta5. Source-only corrections now explicitly account21 added anchor fixtures/four modules and declare exactly two changed feature archives, retaining hash-bound original acceptance receipts, exact unchanged archive comparisons and all repeat/install guards. See [packaging amendment](ef1/PACKAGING_AMENDMENT.md). Correction author `/root/ef1_current_ci_triage`; fresh independent review, coordinator approval, commit/push and renewed CI remain pending. No local tests/imports/builds/DB operations; actual audited fixture execution and agent installed composition have not passed these jobs. Whole EF1 remains In progress with full audit/release gates retained. Resume by reviewing the actual correction diff, resolving findings, then renewing remote qualification; do not infer acceptance from source accounting alone.
+
+## GOV036 option replan preparation — October 20, 2026
+
+Owner requests option planning under the newly adopted coordinator arrangement. Isolated codex/option-delivery-plan branch prepares [GOV036 #572](https://github.com/atulsrivas1/equity-features/issues/572), [five feature releases](OPTION_DELIVERY_REPLAN.md), [36 story contracts](plans/option-delivery-replan.json), [aggregate coverage](OPTION_MATRIX_COVERAGE.md) and a source-optional accounting validator. All30 existing EQ182-211 are retained; six new scopes EQ214-219 (#573-578) cover reference/liquidity, activity baselines, strategies/context, policy I/O, policy workers and delayed calibration. Private allocation matches all2497 frozen finite catalogue identities,296 command roles and16 product crosswalk findings; this is accounting only, with exact producer/mathematics/typed-write/dynamic-dispatch qualification still required. A preparation helper syntax error and a shell quoting attempt failed before output generation; corrected helper regenerated documents. First link check exposed the coordinator agreement missing from main, so the existing owner agreement is included without importing private chats. Source/ledger checks now pass. No datasets opened or databases created; no runtime benchmarks or numerical acceptance claimed. Fresh independent /root/option_plan_review reconciled exact source identities/aggregates/command accounting and found one P2: the validator read the wrong equity dependency field. Corrected effective equity edges/amendments/gates and added a source-schema cross-plan back-edge rejection control; option/private-ledger/equity validators and import guard pass. All six new issues have native epic parents and Project Backlog/5 provisional points; a partial Project-registration failure was recovered with batched GraphQL mutations after a large Project listing exceeded available query budget. PR579 is published via the existing CLI identity after the connector rejected PR creation (422 collaborator permission); no account changes. Fresh independent reviewer approved exact4d5d8d2 planning content, no open findings. First remote docs CI failed because adding a checker step changed an immutable workflow; restored original workflow instead of changing its guards, and all13 CI-gate controls pass locally. New issue milestone/label optional connector fields were absent on readback and repaired through REST; targeted live readback confirms all36 option stories Open/Backlog/unassigned in their milestones. Review record: docs/reviews/GOV036_OPTION_PLAN_REVIEW.md. Independent incremental reviewer approved fd7e863 with no blocking findings, including exact workflow restoration and all46 prepared metadata payloads. Applied the reviewed source-safe contracts to36 issues/five epics/five milestones after public reviewed-source publication; old issue bodies retained privately and issue links bind immutable fd7e863. Final targeted readback confirms all36 Open/Backlog/unassigned/correct release milestones; GOV036 Test. Existing GOV033 points to successor572; PR524 and active equity/R18 sources are preserved. Cancelled only the two superseded own4d5 CI runs after retaining their failure evidence; no other session jobs changed. Next: final metadata-diff review/currentCI and planning publication/readback, retaining implementation Backlog. Do not rerun stateful preparation/migration helpers blindly; use saved reviewed receipts and current GitHub state. No numerical result is claimed. Preserve dirty primary files, EF1 and R18 worktrees and all active jobs.
+
+## GOV035 three-layer correction — October 20, 2026
+
+## EF1 source-authoring admission — October20,2026
+
+Owner authorized reviewed-subset three-layer implementation while retaining full EQ164 inventory audit as mandatory EF1/EQ169 release gate. See [reviewed contract and sequencing amendment](ef1/IMPLEMENTATION_ADMISSION.md). Milestone34/epic569; retained stories504–509 plus IO570/worker571. Exact ef1-contract1 independently reviewed; this is source-authoring admission, not runtime or release acceptance. Active EQ142 is preserved.
 ## R25 published; final acceptance recorded — October 21, 2026
 
 Owner-approved `v0.1.0a1` GitHub prereleases are published in all three option repositories. Actual approved tag commits/trees and all twelve freshly downloaded asset checksums are verified independently; see [published acceptance](R25_RELEASE_ACCEPTANCE.md). All technical gates remain passed. The epic and seven stories have entered Released; final Done/closure and milestone completion follow merge of this reviewed acceptance record, with the live Project as current authority. No further publication approval or runtime qualification is pending. Earlier Ready-to-release/UNRELEASED snapshots below retain chronology. Preserve original qualified build-source labels and EQ142's unaccepted interrupted-study status; no later-release work is authorized by this checkpoint.
@@ -5097,3 +5176,36 @@ An external proof-tool preparer wrote the intended capture file, then stopped at
 two literal-match guards before writing the artifact verifier. Exact capture bytes
 were retained; narrow source-expression matches were corrected before either
 proof tool executed. These are tooling failures, not kernel/CI qualification.
+## EQ114 preparation-tool correction record
+
+The initial working-freeze count assertion applied blanket CRLF normalization to
+the whole repository and falsely classified the preserved raw EQ088 measurement
+file. It wrote no freeze receipt. Changed-path selection now respects Git path
+attributes;30owned paths/104effective inputs are frozen, and exact published
+Gitblob/whole-tree verification remains required. No EQ088 bytes changed.
+An external proof-tool preparer wrote the intended capture file, then stopped at
+two literal-match guards before writing the artifact verifier. Exact capture bytes
+were retained; narrow source-expression matches were corrected before either
+proof tool executed. These are tooling failures, not kernel/CI qualification.
+
+## EF1 supplied current-status source preparation — October20,2026
+
+Worker /root/ef1_status_library authored the supplied current-state subset in isolated codex/ef1-supplied-status at base eaa5131fc6d85d8ff35ac788af9c3c23ebbd9fb6. Existing EQ165 remains In progress; original transition-history/open diagnostics and full EQ164 audit remain mandatory. Source adds status context/discovery/dispatch, pure closed status reference evaluation, independent literal S01–S03/B01 fixtures, formula/API docs and synthetic example. Anchor/clock mathematics, built-in39 registry, canonical contracts/version/codec, adapter/worker pins and CI declarations are unchanged by this worker.
+
+Coordinator is resolving explicit missing-role slots, narrow deterministic base64 import admission, unique full-scope certificate selection and selected original event witnesses. S02 C17 fixture exposes a prerequisite issue: prefix ends16 and validity ends17, while literal quality expects gap-only rather than combined expiry; coordinator ruling is required before finalizing evaluation dependency order. This is a contract finding, not numerical evidence.
+
+No local runtime/import/syntax/test/build/benchmark, database or N-drive access; no commit or push. Authored tests are unexecuted. Resume: obtain reviewed coordinator receipt for these boundaries, finish source accordingly, report exact changed paths/hashes for actual coordinator review, then fresh independent source review and coordinator-owned remote CI/integrated qualification. Do not infer release acceptance from source completion.
+
+### Supplied-status coordinator clarification received
+
+The independently reviewed STATUS_INPUT_SLOTS amendment is now frozen by docs/ef1/STATUS_INPUT_SLOTS_FREEZE.json (amendment SHA256 bff0f3f110cd5b99950d94e0acc19acba0570f2e9eae727f7d88281f45ecd3e0; reviewer /root/ef1_status_contract_review). This supersedes the pending-boundary paragraph above. Exactly four in-process CanonicalBatch-or-None slots preserve original empty/missing declarations; canonical result bindings retain lexical role order. Coherent absent-state proof relations, unique individually covering certificates, aggregate4096 reference rows, two original current-event witnesses and strict original causal knowledge in both modes are source-authored. Base64 guard policy remains coordinator-owned; library uses only the two explicitly admitted deterministic from-import functions.
+
+S02 resolution: complete prefix/eligible required transitions must establish current-event identity before semantic validity/state expiry/max age applies. Prefix_end16 at C17 gives exactly gap-only quality and no current witness; separate complete-prefix/validity_end17 gives ineligible expiry. All structural rows/identity/ambiguity checks remain unconditional. Authored tests include these literal qualities, all missing/empty slots, absent-state contradictions, overlap/fragment controls, each dimension's causal/reconstruction knowledge failures, selected/stale witnesses, aggregate4096/4097 and overflow. Tests/example remain unexecuted. Next: coordinator actual source review and fresh independent final-head review/remote qualification; no story/release completion is claimed.
+
+Worker source preparation is complete and ready for coordinator review in the designated worktree; docs/ef1/STATUS_SOURCE_AUTHORING.json records exact authored file hashes. No commit/push, local import/syntax/test/build/benchmark, source/output database or N-drive operation occurred. `git diff --check` reported no whitespace errors (line-ending notices only). This static text check does not qualify any test or numerical result. Current-state source completion does not complete EQ165, EF1 release, original history/open diagnostics, full audit or integration/browser gates.
+
+### Supplied-status independent source review F1 correction
+
+Fresh reviewer /root/ef1_status_library_review identified one P2 in the initial actual source: prefix/transition failure incorrectly suppressed original knowledge checking on a uniquely structurally applicable validity certificate. Corrected narrowly by evaluating that certificate's original known-at independently, while preserving prefix prerequisites for semantic expiry/max-age, S02 gap-only quality and no current witnesses on factual failure. Added exact S01 combined unknown-transition/future-validity and symmetric future-transition/unknown-validity expectations in both known_at and reconstruction modes. Both legacy reasons remain lexical, scalar reason unknown_availability, state/age null and witnesses absent. Existing unknown-validity/known-expired-state fixture remains.
+
+This supersedes the initial receipt's unreviewed status: an independent initial source review exists with F1 changes requested; corrected bytes await the same reviewer's recheck. No runtime/import/syntax/test/build/benchmark/database/N-drive access, CI/guard edits, commit or push. Refresh docs/ef1/STATUS_SOURCE_AUTHORING.json hashes and return corrected actual source to coordinator/reviewer; no numerical or release acceptance is claimed.

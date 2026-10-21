@@ -1,0 +1,44 @@
+{
+  "version": "ef1-reference-source-freeze2",
+  "status": "reviewed_frozen_for_subset_source_authoring_only",
+  "coordinator": "/root",
+  "author": "/root/ef1_reference_contracts",
+  "independent_reviewer": "/root/ef1_reference_contract_review",
+  "original_contract_sha256": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
+  "markdown_sha256": "30ff6deaefee6edef3bca10f79684074edee3b63f80bf8397af32e1d137e28d5",
+  "fixtures_sha256": "5160d91fc966137a1728c6c26dde15d6772ea35811efc4ea9832b2f7460a28f0",
+  "independent_review_sha256": "2c424b5cc8dc1463e2a495999b44125c6b7c7a38eec9c4284125a63036d475fa",
+  "story": 508,
+  "supporting_stories": [
+    570,
+    571
+  ],
+  "literal_packets": 55,
+  "negative_controls": 42,
+  "amendments": [
+    "EF1-REF-A1 active-required late proof assessment",
+    "EF1-REF-A2 blank/null semantic text with explicit bounds",
+    "EF1-REF-A3 complete quality status precedence"
+  ],
+  "supersession": "This receipt supersedes proposed/not-frozen stage wording in the byte-preserved proposal pair only. Original ef1-contract1 bytes remain unchanged; named amendments resolve the reviewed reference subset.",
+  "scope": "reference_classification sector/industry/universe and reference_action complete homogeneous five-header subset",
+  "local_runtime": "not executed; protected EQ142 reservation remains",
+  "release_gates": [
+    "full original EQ164 audit",
+    "original official/reference-close obligations within EQ168",
+    "independent implementation review",
+    "exact-commit local numerical/build/install qualification",
+    "cross-layer full result readback/browser demo",
+    "actual release acceptance"
+  ],
+  "limitations": [
+    "no original/private numerical parity",
+    "no canonical schema/codec changes",
+    "no provider/N-drive/data qualification",
+    "no whole-story or EF1 completion",
+    "no package publication"
+  ],
+  "admission": "Source handoff requires current ownership/dependency readback; this receipt alone does not change Project status",
+  "source_document_normalization": "Public Markdown and fixture JSON use LF line endings matching committed Git blobs; Markdown removes only final blank line. Private approved CRLF originals bfe8e83a140cb41ade3daa249ff36052abbcccef338b975014d8cf27ed2e0b76 and d4c9345c5b8af69a3ea24a26c0bc4dcd0586bf7703134ad959d9f54b6a4f46ad retained. No semantic or parsed fixture-object change; exact line-ending normalization requires independent recheck.",
+  "original_contract_identity_scope": "original_contract_sha256 identifies the unchanged reviewed working-copy ledger bytes; historical Git text normalization gives a different original-contract blob identity. This receipt does not rewrite that historical file or claim its SHA is a portable Git-blob SHA."
+}

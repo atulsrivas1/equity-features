@@ -15,6 +15,59 @@ PACKAGES = ('agent-evidence', 'agent-ledger', 'conformance', 'continuous', 'diag
             'provenance', 'quickstart', 'r9', 'r10', 'research', 'transport')
 ROOTS = ('scope', 'docs', *PACKAGES)
 
+
+def normalize_ef1_companion_pins(path: str, text: str) -> str:
+    """Restore only the two exact reviewed refs for immutable job comparison.
+
+    Keep every original command, permission, runner, artifact and guard covered
+    by the unchanged CI002 baseline hashes. Other workflow paths are untouched.
+    """
+    if path not in {'.github/workflows/'+name+'.yml'
+                    for name in ('provenance', 'conformance', 'r10')}:
+        return text
+    for current, historical in (
+        ('b56701cc1e48920378df18a2081d0f5f9f4ad3bb', '6538f21b441c8527b465899b98cfd0476e7af08a'),
+        ('f20abd5acd74a4917fdaf087e9c92757746e7ea4', '18d86761aa3eebb7414e51e8fa2aba089717b5eb'),
+    ):
+        marker = '          ref: '+current+'\n'
+        if text.count(marker) != 1:
+            raise ValueError('exact single reviewed EF1 companion ref required')
+        text = text.replace(marker, '          ref: '+historical+'\n')
+    return text
+
+
+def normalize_historical_evidence_checkout(path: str, text: str) -> str:
+    """Remove only the exact reviewed first-checkout ref for old-cohort gates.
+
+    Current a5 acceptance belongs to EF1's installed lane. Manual evaluation
+    keeps github.sha and the original source-pin refusal; no study is enabled.
+    """
+    refs={
+        '.github/workflows/evidence-pilot.yml': '07cfa3bf5c9a268ed73aed99c067030606b5493d',
+        '.github/workflows/evidence-evaluation.yml': "${{ github.event_name != 'workflow_dispatch' && '07cfa3bf5c9a268ed73aed99c067030606b5493d' || github.sha }}",
+    }
+    if path not in refs:
+        return text
+    ref_line='          ref: '+refs[path]+'\n'
+    block='      - uses: actions/checkout@v4\n        with:\n'+ref_line+'          persist-credentials: false\n'
+    if text.count(ref_line)!=1 or text.count(block)!=1:
+        raise ValueError('exact single historical evidence checkout required')
+    return text.replace(block, block.replace(ref_line,''))
+
+def normalize_historical_r9_checkout(path: str, text: str) -> str:
+    """Restore only R9's exact first historical canonical checkout block."""
+    if path != '.github/workflows/r9.yml':
+        return text
+    checkout = '      - uses: actions/checkout@v4\n'
+    ref_line = '          ref: 07cfa3bf5c9a268ed73aed99c067030606b5493d\n'
+    block = checkout+'        with:\n'+ref_line
+    steps = '    steps:\n'
+    if (text.count(ref_line) != 1 or text.count(block) != 1
+            or text.count(steps) != 1 or steps+block not in text):
+        raise ValueError('exact single first historical R9 checkout required')
+    return text.replace(block, checkout)
+
+
 # EQ136 adds one exact mathematical-reference operation. Remove only this
 # literal step for the historical CI002 equivalence comparison; retain the
 # immutable baseline hash and every original operation/routing check.
@@ -146,6 +199,9 @@ class WorkflowTests(unittest.TestCase):
         for path, expected in hashes.items():
             text = (self.root/path).read_text(encoding='utf-8')
             text = text[text.index('permissions:\n'):]
+            text = normalize_ef1_companion_pins(path, text)
+            text = normalize_historical_evidence_checkout(path, text)
+            text = normalize_historical_r9_checkout(path, text)
             if path.endswith('/docs.yml'):
                 self.assertEqual(text.count(INTRADAY_DOC_TEST), 1)
                 text = text.replace(INTRADAY_DOC_TEST, '')
@@ -172,6 +228,68 @@ class WorkflowTests(unittest.TestCase):
                     text = normalize_intraday_package_block(text)
                 text = text.replace('-attempt-${{ github.run_attempt }}', '')
             self.assertEqual(hashlib.sha256(text.encode()).hexdigest(), expected, path)
+
+    def test_ef1_pin_migration_preserves_every_other_leaf_operation(self):
+        path = '.github/workflows/provenance.yml'
+        original = (self.root/path).read_text(encoding='utf-8')
+        restored = normalize_ef1_companion_pins(path, original)
+        self.assertIn('ref: 6538f21b441c8527b465899b98cfd0476e7af08a', restored)
+        for altered in (original.replace('b56701cc1e48920378df18a2081d0f5f9f4ad3bb', '0'*40),
+                        original+"          ref: f20abd5acd74a4917fdaf087e9c92757746e7ea4\n"):
+            with self.assertRaises(ValueError):
+                normalize_ef1_companion_pins(path, altered)
+        for altered in (original.replace('contents: read', 'contents: write'),
+                        original.replace('python tools/check_boundary.py', 'python tools/skip_boundary.py')):
+            self.assertNotEqual(normalize_ef1_companion_pins(path, altered), restored)
+        self.assertEqual(normalize_ef1_companion_pins('.github/workflows/packages.yml', original), original)
+
+    def test_historical_evidence_checkout_is_exact_and_preserves_study_refusal(self):
+        for name in ('evidence-pilot','evidence-evaluation'):
+            path='.github/workflows/'+name+'.yml'
+            original=(self.root/path).read_text(encoding='utf-8')
+            restored=normalize_historical_evidence_checkout(path,original)
+            pin='07cfa3bf5c9a268ed73aed99c067030606b5493d'
+            for altered in (original.replace(pin,'0'*40),
+                            original.replace('          ref: '+pin+'\n','') if name=='evidence-pilot'
+                            else original.replace("          ref: ${{ github.event_name != 'workflow_dispatch' && '"+pin+"' || github.sha }}\n",''),
+                            original+next(line+'\n' for line in original.splitlines() if '          ref:' in line),
+                            original.replace('          persist-credentials: false','          persist-credentials: true',1)):
+                with self.assertRaises(ValueError):
+                    normalize_historical_evidence_checkout(path,altered)
+            if name=='evidence-evaluation':
+                for altered in (original.replace("!= 'workflow_dispatch'","== 'workflow_dispatch'",1),
+                                original.replace('|| github.sha','|| github.ref'),
+                                original.replace("${{ github.event_name != 'workflow_dispatch' && '"+pin+"' || github.sha }}",pin)):
+                    with self.assertRaises(ValueError):
+                        normalize_historical_evidence_checkout(path,altered)
+            for altered in (original.replace('contents: read','contents: write'),
+                            original.replace('python tools/check_boundary.py','python tools/skip_boundary.py')):
+                self.assertNotEqual(normalize_historical_evidence_checkout(path,altered),restored)
+            self.assertEqual(normalize_historical_evidence_checkout('.github/workflows/packages.yml',original),original)
+
+    def test_historical_r9_checkout_is_exact_and_preserves_other_operations(self):
+        path = '.github/workflows/r9.yml'
+        original = (self.root/path).read_text(encoding='utf-8')
+        restored = normalize_historical_r9_checkout(path, original)
+        checkout = '      - uses: actions/checkout@v4\n'
+        ref_line = '          ref: 07cfa3bf5c9a268ed73aed99c067030606b5493d\n'
+        block = checkout+'        with:\n'+ref_line
+        foreign = checkout+'        with:\n          repository: atulsrivas1/equity-feature-io\n'
+        moved = original.replace(block, checkout).replace(
+            foreign, foreign+ref_line)
+        for altered in (original.replace(ref_line, ref_line.replace('07cfa3', '000000')),
+                        original.replace(ref_line, ''), original+ref_line,
+                        original+block, moved,
+                        original.replace(checkout, '      - uses: actions/checkout@v3\n', 1),
+                        original.replace('    steps:\n', '    steps:\n      - run: echo before\n', 1)):
+            with self.assertRaises(ValueError):
+                normalize_historical_r9_checkout(path, altered)
+        for altered in (original.replace('contents: read', 'contents: write'),
+                        original.replace('python tools/check_boundary.py', 'python tools/skip_boundary.py'),
+                        original.replace('python tools/build_r9.py', 'python tools/skip_r9.py'),
+                        original.replace('path: dist/r9/', 'path: dist/')):
+            self.assertNotEqual(normalize_historical_r9_checkout(path, altered), restored)
+        self.assertEqual(normalize_historical_r9_checkout('.github/workflows/explanations.yml', original), original)
 
     def test_intraday_addition_is_exact_single_final_block(self):
         original=(self.root/'.github/workflows/packages.yml').read_text(encoding='utf-8')

@@ -12,3 +12,24 @@
 # Preserve EQ139 raw band measurements and frozen baseline exactly.
 /docs/stories/EQ-139_BAND_BENCHMARK.json -text whitespace=cr-at-eol
 /docs/stories/EQ-139_BAND_BASELINE.json -text whitespace=cr-at-eol
+
+# Reference contract hashes identify portable LF source bytes.
+/docs/ef1/REFERENCE_CONTRACT_PROPOSAL.md text eol=lf
+/docs/ef1/REFERENCE_CONTRACT_PROPOSAL.json text eol=lf
+/docs/ef1/REFERENCE_SOURCE_AUTHORING_FREEZE.json text eol=lf
+
+# Period/phase source contracts retain reviewed portable LF identities.
+/docs/ef1/PERIOD_PHASE_CONTRACT_PROPOSAL.md text eol=lf
+/docs/ef1/PERIOD_PHASE_CONTRACT_PROPOSAL.json text eol=lf
+/docs/ef1/PERIOD_PHASE_SOURCE_AUTHORING_FREEZE.json text eol=lf
+
+# Exact observable source-design freeze bytes on every platform.
+docs/ef1/OBSERVABLE_CONTRACT_PROPOSAL.md text eol=lf
+docs/ef1/OBSERVABLE_CONTRACT_PROPOSAL.json text eol=lf
+docs/ef1/OBSERVABLE_SOURCE_AUTHORING_FREEZE.json text eol=lf
+
+# Reviewed observable publication metadata amendment.
+docs/ef1/OBSERVABLE_PUBLICATION_AMENDMENT.md text eol=lf
+docs/ef1/OBSERVABLE_PUBLICATION_AMENDMENT.json text eol=lf
+docs/ef1/OBSERVABLE_PUBLICATION_FIXTURES.json text eol=lf
+docs/ef1/OBSERVABLE_PUBLICATION_FREEZE.json text eol=lf

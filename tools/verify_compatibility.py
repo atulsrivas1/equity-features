@@ -9,7 +9,7 @@ import equity_feature_contracts as c
 import equity_features as f
 
 assert sys.version_info[:2]==(3,12) and sys.maxsize==2**63-1
-assert c.__version__==f.__version__==f.contracts_version
+assert (c.__version__,f.__version__,f.contracts_version)==('0.0.4a4','0.0.4a5','0.0.4a4')
 assert np.__version__=='2.2.6' and pa.__version__=='20.0.0'
 a=np.array([2**63-1,-2**63],dtype=np.int64)
 assert a.tolist()==[2**63-1,-2**63]

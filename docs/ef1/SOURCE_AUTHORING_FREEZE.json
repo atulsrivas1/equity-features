@@ -1,0 +1,17 @@
+{
+  "contract": "ef1-contract1",
+  "date_eastern": "2026-10-20",
+  "approval": "Independent static source-authoring approval by /root/ef1_contract_recheck; no runtime or release acceptance",
+  "sha256": {
+    "CONTRACT_FIXTURE_LEDGER.json": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
+    "COORDINATOR_CONTRACT_DECISIONS.md": "d106d73cf336454e4a39f713ae0943fde7303ce8b8711cd5c7bc757090821a78",
+    "WORKER_CONTRACT_PROPOSAL.md": "4894a047612d18705a4a6c9d77ebcd6d3725c4e16bfab96734c26d0fe2d9c444"
+  },
+  "owner_amendment": "Reviewed-subset parallel implementation authorized; EQ164 full audit remains mandatory EF1 release gate",
+  "local_runtime": "No competing tests/builds/benchmarks while EQ142 resources reserved; source authoring only initially",
+  "source_pins": {
+    "core": "e3c5e55077dabcf64a3e11f1210ac6f3a923a2b3",
+    "io": "18d86761aa3eebb7414e51e8fa2aba089717b5eb",
+    "workers": "231349aaf2bf1b9ec21f45807382ca9c6522520c"
+  }
+}

@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist/explanations'
 EPOCH = 1700000000
 PACKAGES = {'contracts':('equity_feature_contracts','0.0.4a4'),
-            'features':('equity_features','0.0.4a4'), 'evidence':('equity_feature_evidence','0.1.0a2'), 'explanations':('equity_feature_explanations','0.1.0a1')}
+            'features':('equity_features','0.0.4a5'), 'evidence':('equity_feature_evidence','0.1.0a2'), 'explanations':('equity_feature_explanations','0.1.0a2')}
 
 
 def run(*args, cwd=ROOT, env=None):

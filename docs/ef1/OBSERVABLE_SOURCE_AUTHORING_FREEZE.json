@@ -1,0 +1,50 @@
+{
+  "version": "ef1-observable-source-freeze1",
+  "status": "reviewed_frozen_for_bounded_subset_source_authoring_only",
+  "coordinator": "/root",
+  "design_author": "/root/ef1_observable_scope_contract",
+  "amendment_author": "/root/ef1_observable_artifact_metadata_binding",
+  "independent_reviewer": "/root/ef1_observable_v3_admission_review",
+  "markdown_sha256": "53cd8893083bb8820523249b877b30c0797ee8beb9792a002916269408fef613",
+  "fixtures_sha256": "d0fb7b4fafc2b824e8998dbf10c7f27d8443fdb1218be7588c674002a2dcfc3c",
+  "reviewed_private_markdown_sha256": "02d2236f5044f2144f893d45f6a93cfab4b99f6a29da1c07ca106f3445ab3ee7",
+  "markdown_byte_transformation": "Only CRLF->LF; UTF8 without BOM. Fixture JSON bytes unchanged.",
+  "independent_review_sha256": "c46e0fb15974b638897f234f86a049ae8068498cc7b523c0e8963e3ae55a0f9d",
+  "prior_math_design_review_sha256": "683a667ed81c1ee12f462ebd9f72376ece42ca267061e43b7724fba14baae751",
+  "original_working_ledger_sha256": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
+  "story": 505,
+  "supporting_stories": [
+    570,
+    571
+  ],
+  "producer_headers": {
+    "status_history": 6,
+    "opening_trade": 5,
+    "opening_trade_seconds": 1
+  },
+  "literal_packets": 89,
+  "success_constructor_packets": 58,
+  "intentional_producer_errors": 31,
+  "actual_public_constructor_probe": {
+    "scope": "Generic source-selected canonical constructors plus data-only fixed-slot preparation",
+    "receipt_sha256": "105d4b52a918c8dba297d258a61d90932fa8fa69391417a8e369998bf0330309",
+    "typed_errors_executed": false,
+    "constructed": 58,
+    "producer_called": false,
+    "failed": 0
+  },
+  "transport": "Fixed nullable four opening/five history slots; preserve missing None versus original delivered-empty batch, actual metadata and worker role positions",
+  "artifact_metadata": "57 original success backend-version placeholders bound to fixed actual features0.0.4a5; all original math/config/source/quality/evidence unchanged; intentional X15 preserved",
+  "preservation": "All87 V3 packets unchanged by transport correction; paired T01/T02 independently distinguish identical empty proof at prefix versus capability; named observable amendment2 retains original baseline scope",
+  "supersession": "Receipt and final V4 transport section supersede retained proposed/not-frozen/unexecuted stage paragraphs and historical metadata/transport wording only",
+  "residual_gates": [
+    "Actual producer error/numerical/control validation",
+    "Exact worker wire/origins/installed artifacts and sink readback",
+    "Missing real original event identity/order capability; no invented ordinals",
+    "Full original EQ164 field/source-version/scanner/watchlist/command/consumer joins",
+    "Original multi-publisher/policy and other owned variants; no silent scope transfer",
+    "Browser and release acceptance"
+  ],
+  "admission": "Current dependency/ownership/status readback and separate layer grants required before implementation",
+  "limits": "No canonical schema/codec change, source truth/private parity, full story closure, dataset qualification, hidden truncation or package publication"
+}

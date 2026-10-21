@@ -17,7 +17,7 @@ from continuous_archives import inspect
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'dist/continuous'
 PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'),
-          'features':('equity_features','0.0.4a4'),
+          'features':('equity_features','0.0.4a5'),
           'continuous':('equity_feature_continuous','0.1.0a2')}
 SCOPES=['packages/'+name for name in PACKAGES]+[
     'tests/continuous','tests/unit/test_continuous_capability.py',
