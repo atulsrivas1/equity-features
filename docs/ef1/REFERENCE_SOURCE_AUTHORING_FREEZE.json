@@ -1,0 +1,43 @@
+{
+  "version": "ef1-reference-source-freeze1",
+  "status": "reviewed_frozen_for_subset_source_authoring_only",
+  "coordinator": "/root",
+  "author": "/root/ef1_reference_contracts",
+  "independent_reviewer": "/root/ef1_reference_contract_review",
+  "original_contract_sha256": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
+  "markdown_sha256": "4b3b36e0d65ad9333f2beccde8eb536e77f7729925bf825fa25f9b11cf570782",
+  "fixtures_sha256": "d4c9345c5b8af69a3ea24a26c0bc4dcd0586bf7703134ad959d9f54b6a4f46ad",
+  "independent_review_sha256": "2c424b5cc8dc1463e2a495999b44125c6b7c7a38eec9c4284125a63036d475fa",
+  "story": 508,
+  "supporting_stories": [
+    570,
+    571
+  ],
+  "literal_packets": 55,
+  "negative_controls": 42,
+  "amendments": [
+    "EF1-REF-A1 active-required late proof assessment",
+    "EF1-REF-A2 blank/null semantic text with explicit bounds",
+    "EF1-REF-A3 complete quality status precedence"
+  ],
+  "supersession": "This receipt supersedes proposed/not-frozen stage wording in the byte-preserved proposal pair only. Original ef1-contract1 bytes remain unchanged; named amendments resolve the reviewed reference subset.",
+  "scope": "reference_classification sector/industry/universe and reference_action complete homogeneous five-header subset",
+  "local_runtime": "not executed; protected EQ142 reservation remains",
+  "release_gates": [
+    "full original EQ164 audit",
+    "original official/reference-close obligations within EQ168",
+    "independent implementation review",
+    "exact-commit local numerical/build/install qualification",
+    "cross-layer full result readback/browser demo",
+    "actual release acceptance"
+  ],
+  "limitations": [
+    "no original/private numerical parity",
+    "no canonical schema/codec changes",
+    "no provider/N-drive/data qualification",
+    "no whole-story or EF1 completion",
+    "no package publication"
+  ],
+  "admission": "Source handoff requires current ownership/dependency readback; this receipt alone does not change Project status",
+  "source_document_normalization": "Coordinator removed one trailing blank line at EOF after staged whitespace check; semantic text unchanged. Original reviewed proposal MD bfe8e83a140cb41ade3daa249ff36052abbcccef338b975014d8cf27ed2e0b76 retained privately; public normalized bytes independently rechecked."
+}
