@@ -6,10 +6,44 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
 import re
+
+
+def dependency_graph(plan: dict, equity: dict) -> dict[str, set[str]]:
+    graph = {s['id']: set(s['dependencies']) for s in plan['stories']}
+    for rel in equity['releases']:
+        for s in rel['existing_stories']:
+            graph.setdefault(s['story'], set()).update(s['existing_dependencies'])
+        for task in rel['proposed_tasks']:
+            graph.setdefault(task['planning_key'], set()).update(task.get('dependencies', []))
+        graph.setdefault(rel['acceptance_gate'], set()).update(rel['release_gate_additional_dependencies'])
+        if rel.get('common_composition_dependency'):
+            for s in rel['existing_stories']:
+                graph[s['story']].add(rel['common_composition_dependency'])
+    for amendment in equity['dependency_amendments']:
+        edges = graph.setdefault(amendment['story'], set())
+        edges.difference_update(amendment['remove'])
+        edges.update(amendment['add'])
+    return graph
+
+
+def assert_acyclic(graph: dict[str, set[str]]) -> None:
+    visiting, done = set(), set()
+    def visit(node):
+        assert node not in visiting, f'Dependency cycle at {node}'
+        if node in done:
+            return
+        visiting.add(node)
+        for dep in graph.get(node, []):
+            visit(dep)
+        visiting.remove(node)
+        done.add(node)
+    for sid in graph:
+        visit(sid)
 
 
 def check(root: Path, source: Path | None = None, ledger_path: Path | None = None) -> dict:
@@ -41,19 +75,22 @@ def check(root: Path, source: Path | None = None, ledger_path: Path | None = Non
     assert {'EQ-214'} <= set(stories['EQ-186']['dependencies'])
     assert {'EQ-216','EQ-217','EQ-218','EQ-219'} <= set(stories['EQ-211']['dependencies'])
     # Add equity allocation dependencies to catch backwards cross-plan cycles.
-    graph={s['id']:set(s['dependencies']) for s in stories.values()}
     equity=json.loads((root/'docs/plans/equity-delivery-replan.json').read_text(encoding='utf-8'))
-    for rel in equity['releases']:
-        for s in rel['existing_stories']:
-            graph.setdefault(s['story'],set()).update(s.get('dependencies',[]))
-    visiting,done=set(),set()
-    def visit(node):
-        assert node not in visiting, f'Dependency cycle at {node}'
-        if node in done: return
-        visiting.add(node)
-        for dep in graph.get(node,[]): visit(dep)
-        visiting.remove(node);done.add(node)
-    for sid in graph: visit(sid)
+    graph=dependency_graph(plan,equity)
+    assert_acyclic(graph)
+    # Independent adversarial control: an equity -> option back-edge must be
+    # rejected because the option history story already consumes equity RV.
+    assert 'EQ-154' in graph['EQ-197']
+    adversarial_equity=deepcopy(equity)
+    producer=next(s for r in adversarial_equity['releases'] for s in r['existing_stories'] if s['story']=='EQ-154')
+    producer['existing_dependencies'].append('EQ-197')
+    cyclic=dependency_graph(plan,adversarial_equity)
+    try:
+        assert_acyclic(cyclic)
+    except AssertionError as error:
+        assert 'Dependency cycle' in str(error)
+    else:
+        raise AssertionError('Cross-plan back-edge was not rejected')
     counts=plan['catalogue_accounting']
     assert sum(r['count'] for r in counts)==plan['catalogue_records']==2497
     assert plan['command_records']==296 and plan['named_option_feature_records']==26

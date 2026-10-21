@@ -1007,9 +1007,9 @@
       "scope": "Define and implement supplied-fact DTE, moneyness, multiplier, spread/quote-coverage and admitted chain/liquidity summaries. Separate raw measures from versioned eligibility/score policy; no inferred trade direction, observed liquidity or synthetic coverage.",
       "validation": "Independent expiry/calendar/settlement, strike/spot/zero denominator, multiplier/action, locked/crossed/stale quote, partial-chain and supplied-versus-calculated cases.",
       "points": 5,
-      "issue": null,
-      "url": null,
-      "planning_status": "new_story_to_issue"
+      "issue": 573,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/573",
+      "planning_status": "new_story_issued_backlog"
     },
     {
       "id": "EQ-215",
@@ -1024,9 +1024,9 @@
       "scope": "Specify prior-only relative volume/trade-count and median/MAD premium anomaly measures, quote-aligned execution clusters and short-DTE/OTM participation over declared populations. Reuse compatible equity/tape reducers without treating mean and median or event and known-at clocks as interchangeable.",
       "validation": "Independent sorted history and ordered event vectors, zero-MAD/empty/incomplete baseline, tick/quote ties and gaps, corrections, window boundaries, eligibility and unit-scaled premium cases.",
       "points": 5,
-      "issue": null,
-      "url": null,
-      "planning_status": "new_story_to_issue"
+      "issue": 574,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/574",
+      "planning_status": "new_story_issued_backlog"
     },
     {
       "id": "EQ-216",
@@ -1043,9 +1043,9 @@
       "scope": "Reconcile option/mixed strategy profiles, direction/expiry lanes, component gates, normalized evidence, configurable weights, tape summaries and meta scores. Implement original versioned pure composition in the optional strategies package; reuse equity-owned producers and select exact operand closure per strategy. Descriptive scores are not trading recommendations or profitability claims.",
       "validation": "Independent component/weight/gate/population/tie vectors, missing optional versus required evidence, chronological eligibility and cross-policy identity cases; no future label dependency in origin-time computation.",
       "points": 5,
-      "issue": null,
-      "url": null,
-      "planning_status": "new_story_to_issue"
+      "issue": 575,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/575",
+      "planning_status": "new_story_issued_backlog"
     },
     {
       "id": "EQ-217",
@@ -1062,9 +1062,9 @@
       "scope": "Extend existing I/O SDK for immutable option feature/policy frames, strategy/context inputs, watchlist memberships and supplied ordered lifecycle/history. Convert and persist versioned canonical outputs into the separate output DuckDB; preserve real/synthetic/unavailable provenance and repeat-write/revision rules.",
       "validation": "Independent conversion and readback fixtures, compatible policy versions, missing inputs, stale/future frames, membership history, exact precision and deterministic repeat-write/conflict tests.",
       "points": 5,
-      "issue": null,
-      "url": null,
-      "planning_status": "new_story_to_issue"
+      "issue": 576,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/576",
+      "planning_status": "new_story_issued_backlog"
     },
     {
       "id": "EQ-218",
@@ -1083,9 +1083,9 @@
       "scope": "Compose ready selected policy/strategy branches and ordered watchlist/lifecycle transitions using the shared worker runtime. Preserve per-output readiness, one bounded resource owner, deterministic retry/cancellation and serialized sink ownership. No service or API required for local execution.",
       "validation": "Direct-library versus worker versus stored full-result parity, independent readiness, ordered correction/replay, recovery/fault and bounded-memory cases; local browser readback of actual stored results.",
       "points": 5,
-      "issue": null,
-      "url": null,
-      "planning_status": "new_story_to_issue"
+      "issue": 577,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/577",
+      "planning_status": "new_story_issued_backlog"
     },
     {
       "id": "EQ-219",
@@ -1100,9 +1100,9 @@
       "scope": "Freeze origin-time forecast/scale evidence and define admitted mature realized-fraction, sigma-observation and descriptive calibration arithmetic over supplied observations. Extend the optional labels package; preserve pending/mature states, observation resolution, embargo and revisions. No inferred horizon matching or model accuracy from a descriptive scale.",
       "validation": "Independent pending/mature, zero-scale, partial-path, revision and exact-time vectors; unchanged origin feature bytes, delayed data never reachable from origin-time policy DAG.",
       "points": 5,
-      "issue": null,
-      "url": null,
-      "planning_status": "new_story_to_issue"
+      "issue": 578,
+      "url": "https://github.com/atulsrivas1/equity-features/issues/578",
+      "planning_status": "new_story_issued_backlog"
     }
   ],
   "catalogue_accounting": [

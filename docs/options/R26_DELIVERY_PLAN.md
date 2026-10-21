@@ -84,7 +84,7 @@ Independent validation: Independent tiny-tape and cross-asset fixtures, both-pla
 
 ### EQ-215: Implement option activity baselines and execution-window measures
 
-New story; issue allocation pending. Layer: pure calculation. Provisional complexity: 5 points; not an estimate of days.
+[#574](https://github.com/atulsrivas1/equity-features/issues/574). Layer: pure calculation. Provisional complexity: 5 points; not an estimate of days.
 
 Specify prior-only relative volume/trade-count and median/MAD premium anomaly measures, quote-aligned execution clusters and short-DTE/OTM participation over declared populations. Reuse compatible equity/tape reducers without treating mean and median or event and known-at clocks as interchangeable.
 

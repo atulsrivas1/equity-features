@@ -74,7 +74,7 @@ Independent validation: Independent no-orphan/consumer/source-rights audit, full
 
 ### EQ-216: Implement option strategy, context and meta-score composition
 
-New story; issue allocation pending. Layer: policy calculation. Provisional complexity: 5 points; not an estimate of days.
+[#575](https://github.com/atulsrivas1/equity-features/issues/575). Layer: policy calculation. Provisional complexity: 5 points; not an estimate of days.
 
 Reconcile option/mixed strategy profiles, direction/expiry lanes, component gates, normalized evidence, configurable weights, tape summaries and meta scores. Implement original versioned pure composition in the optional strategies package; reuse equity-owned producers and select exact operand closure per strategy. Descriptive scores are not trading recommendations or profitability claims.
 
@@ -84,7 +84,7 @@ Independent validation: Independent component/weight/gate/population/tie vectors
 
 ### EQ-217: Map option policies, strategies and watchlist state to canonical storage
 
-New story; issue allocation pending. Layer: I/O. Provisional complexity: 5 points; not an estimate of days.
+[#576](https://github.com/atulsrivas1/equity-features/issues/576). Layer: I/O. Provisional complexity: 5 points; not an estimate of days.
 
 Extend existing I/O SDK for immutable option feature/policy frames, strategy/context inputs, watchlist memberships and supplied ordered lifecycle/history. Convert and persist versioned canonical outputs into the separate output DuckDB; preserve real/synthetic/unavailable provenance and repeat-write/revision rules.
 
@@ -94,7 +94,7 @@ Independent validation: Independent conversion and readback fixtures, compatible
 
 ### EQ-218: Execute bounded option policies, strategies and watchlist lifecycles
 
-New story; issue allocation pending. Layer: workers. Provisional complexity: 5 points; not an estimate of days.
+[#577](https://github.com/atulsrivas1/equity-features/issues/577). Layer: workers. Provisional complexity: 5 points; not an estimate of days.
 
 Compose ready selected policy/strategy branches and ordered watchlist/lifecycle transitions using the shared worker runtime. Preserve per-output readiness, one bounded resource owner, deterministic retry/cancellation and serialized sink ownership. No service or API required for local execution.
 
@@ -104,7 +104,7 @@ Independent validation: Direct-library versus worker versus stored full-result p
 
 ### EQ-219: Implement option move outcomes and descriptive calibration
 
-New story; issue allocation pending. Layer: delayed calculation. Provisional complexity: 5 points; not an estimate of days.
+[#578](https://github.com/atulsrivas1/equity-features/issues/578). Layer: delayed calculation. Provisional complexity: 5 points; not an estimate of days.
 
 Freeze origin-time forecast/scale evidence and define admitted mature realized-fraction, sigma-observation and descriptive calibration arithmetic over supplied observations. Extend the optional labels package; preserve pending/mature states, observation resolution, embargo and revisions. No inferred horizon matching or model accuracy from a descriptive scale.
 

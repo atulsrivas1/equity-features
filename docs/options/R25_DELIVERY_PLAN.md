@@ -84,7 +84,7 @@ Independent validation: Both-platform clean wheel/sdist installs, independent nu
 
 ### EQ-214: Implement option reference, liquidity and chain evidence
 
-New story; issue allocation pending. Layer: pure calculation. Provisional complexity: 5 points; not an estimate of days.
+[#573](https://github.com/atulsrivas1/equity-features/issues/573). Layer: pure calculation. Provisional complexity: 5 points; not an estimate of days.
 
 Define and implement supplied-fact DTE, moneyness, multiplier, spread/quote-coverage and admitted chain/liquidity summaries. Separate raw measures from versioned eligibility/score policy; no inferred trade direction, observed liquidity or synthetic coverage.
 
