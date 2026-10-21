@@ -1,3 +1,7 @@
+## Option planning successor
+
+[GOV036 #572](https://github.com/atulsrivas1/equity-features/issues/572) prepares the [replanned option releases](OPTION_DELIVERY_REPLAN.md) under the coordinator agreement, retaining R25-R29 and existing option IDs while making matrix, library, I/O and worker ownership explicit. This is planning work; use the live Project for actual lifecycle. Active EF1/equity/R18 execution is preserved.
+
 ## Current release handoff
 
 [R17 verified exit](https://github.com/atulsrivas1/equity-features/issues/465#issuecomment-6275623502) establishes all EQ136–141/E25 Done and milestone21 closed. [GOV034](https://github.com/atulsrivas1/equity-features/issues/564) prepares the [R18 handoff](R18_AUTONOMOUS_HANDOFF.md) for existing E26/EQ142–146; runtime admission awaits its supported separate-review and exact Ready gates. Use [live Project](https://github.com/users/atulsrivas1/projects/2) for current status. The handoff's current source/package/channel snapshot is in [R18_INPUTS.json](R18_INPUTS.json); no R18 runtime/timing is claimed.
