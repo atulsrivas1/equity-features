@@ -1,3 +1,11 @@
+## R25 qualification distinguishes acceptance domains — October 21, 2026
+
+[Current R25 evidence](../R25_CURRENT_CHECKPOINT.md) records actual local execution separately from source review and release acceptance. An independently reviewed resource release does not accept an interrupted study; missing exit receipts prove neither continued execution nor success. Match original PID plus creation-time witnesses and preserve original logs/results.
+
+Numerical diagnostics must compare the same point/domain: Vega at the returned IV candidate can differ from Vega at the independent exact root within a valid convergence bracket. Derive admissible candidate/Vega ranges independently; do not tune root goldens or widen output budgets to production observations. Canonical Decimal lexical checks are separate from exact economic-value equality. Known complete empty coverage retains zero/zero metadata; unknown/incomplete prerequisites require null coverage.
+
+Preserve failed artifact identities and reviewed corrections. Build source markers precede wheel construction. Actual clean installed origin/inventory/bytecode/tamper checks and isolated dependency closures complement numerical fixtures. After documentation or merge-parent changes, prove source-content equivalence and retain original artifact source identities rather than fabricate a new-commit test run. Three completed integration cohorts are not four; merged code is not a published release. Hosted CI remains optional under owner local-proof policy.
+
 ## Owner-approved independent R25 gate — October 20, 2026
 
 [GOV037 #581](https://github.com/atulsrivas1/equity-features/issues/581) records the owner's explicit decision that R25 may proceed independently of R18 acceptance. Supersede the blanket EQ146 prerequisite for R25 and remove EQ143/EQ144 only from EQ186; retain accepted EQ141/R17 references and every later-release dependency. R25 must qualify its own option-native package/schema/executor compatibility, bounded resources, independent numerical fixtures, installed both-platform artifacts and integrated direct/worker/stored parity plus actual browser demo. Shared package presence never establishes option compatibility. Active EF1/R18 ownership and measurement windows remain protected.
