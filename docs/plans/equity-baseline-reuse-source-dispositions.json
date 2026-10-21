@@ -1,0 +1,227 @@
+{
+  "all40_exact_retained_order": true,
+  "accepted_canonical_reuses": 0,
+  "source_copy_proofs_are_not_canonical_reuse": true,
+  "rows": [
+    {
+      "opaque_id": "F0087",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0090",
+      "disposition": "distinct_versioned_variant_if_pure_value_required",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0096",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0097",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0098",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0099",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0100",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0101",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0102",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0127",
+      "disposition": "unresolved_representation_or_distinct_derived_contract",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0141",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0144",
+      "disposition": "distinct_versioned_variant_if_pure_value_required",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0151",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0152",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0161",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0169",
+      "disposition": "unresolved_representation_or_distinct_derived_contract",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0189",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0192",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0194",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0347",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0348",
+      "disposition": "distinct_versioned_profile_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0349",
+      "disposition": "distinct_versioned_profile_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0350",
+      "disposition": "distinct_versioned_profile_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0351",
+      "disposition": "distinct_versioned_profile_if_original_semantics_retained",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0435",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0436",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0437",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0438",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0439",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0440",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0441",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0442",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0443",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0444",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0445",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0446",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0449",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0450",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0458",
+      "disposition": "unresolved_operand_route_not_relative_result_alias",
+      "canonical_reuse_accepted": false
+    },
+    {
+      "opaque_id": "F0459",
+      "disposition": "unresolved_operand_route_not_relative_result_alias",
+      "canonical_reuse_accepted": false
+    }
+  ],
+  "separate36_control_not_counted": true,
+  "full_audit_accepted": false,
+  "schema_version": 1,
+  "status": "all40_static_source_compatibility_dispositions_coordinator_reviewed_PR_review_pending",
+  "source_review_reports_sha256": [
+    "a908329897535aebfea56e6798f7bb83ed82f35b20e0ae2c1e504406ef58a9c8",
+    "9396c6e54679f3ba2c941c3a8d381e4e270c282c7077dd814acfa9546fde6f56",
+    "0652d1568e3d92cefef1a05bb520b6775bcfa3078a9fad966c92f1ff379b511e"
+  ],
+  "full_EQ164_accepted": false,
+  "scope_or_numerical_or_API_rights_consumer_acceptance": false,
+  "earlier_partial_censuses": "Superseded only for reviewed source-disposition count; earlier first-ten/twenty receipts remain historical.",
+  "separate_baseline36_control": {
+    "counted_among40": false,
+    "opaque_id": "F0452",
+    "static_source_compatibility": "incompatible_operands_population_and_readiness",
+    "preserve_separately_selected_companion_owner": 490,
+    "baseline_reopened_or_reuse_accepted": false
+  },
+  "public_kernel_parameter_control": "Catalog periods are defaults; actual supported parameter ranges must be read before inferring new scope. Nondefault periods alone require no new feature story."
+}

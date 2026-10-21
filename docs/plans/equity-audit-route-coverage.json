@@ -1428,6 +1428,11 @@
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0087",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -1491,6 +1496,11 @@
         "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0090",
+        "disposition": "distinct_versioned_variant_if_pure_value_required",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -1598,6 +1608,11 @@
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0096",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -1625,6 +1640,11 @@
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0097",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -1652,6 +1672,11 @@
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0098",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -1679,6 +1704,11 @@
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0099",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -1706,6 +1736,11 @@
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0100",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -1733,6 +1768,11 @@
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0101",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -1760,6 +1800,11 @@
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0102",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -2171,6 +2216,11 @@
         "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
         "reuse_accepted": false,
         "new_scope_or_numerical_reuse_accepted": false
+      },
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0127",
+        "disposition": "unresolved_representation_or_distinct_derived_contract",
+        "canonical_reuse_accepted": false
       }
     },
     {
@@ -2395,7 +2445,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0141",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0142",
@@ -2447,7 +2502,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0144",
+        "disposition": "distinct_versioned_variant_if_pure_value_required",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0145",
@@ -2559,7 +2619,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0151",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0152",
@@ -2575,7 +2640,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0152",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0153",
@@ -2719,7 +2789,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0161",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0162",
@@ -2847,7 +2922,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0169",
+        "disposition": "unresolved_representation_or_distinct_derived_contract",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0170",
@@ -3167,7 +3247,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0189",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0190",
@@ -3215,7 +3300,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0192",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0193",
@@ -3249,7 +3339,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0194",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0195",
@@ -5787,7 +5882,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0347",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0348",
@@ -5803,7 +5903,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0348",
+        "disposition": "distinct_versioned_profile_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0349",
@@ -5819,7 +5924,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0349",
+        "disposition": "distinct_versioned_profile_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0350",
@@ -5835,7 +5945,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0350",
+        "disposition": "distinct_versioned_profile_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0351",
@@ -5851,7 +5966,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0351",
+        "disposition": "distinct_versioned_profile_if_original_semantics_retained",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0352",
@@ -7195,7 +7315,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0435",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0436",
@@ -7211,7 +7336,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0436",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0437",
@@ -7227,7 +7357,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0437",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0438",
@@ -7243,7 +7378,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0438",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0439",
@@ -7259,7 +7399,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0439",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0440",
@@ -7275,7 +7420,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0440",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0441",
@@ -7291,7 +7441,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0441",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0442",
@@ -7307,7 +7462,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0442",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0443",
@@ -7323,7 +7483,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0443",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0444",
@@ -7339,7 +7504,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0444",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0445",
@@ -7355,7 +7525,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0445",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0446",
@@ -7371,7 +7546,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0446",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0447",
@@ -7419,7 +7599,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0449",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0450",
@@ -7435,7 +7620,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0450",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0451",
@@ -7565,7 +7755,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0458",
+        "disposition": "unresolved_operand_route_not_relative_result_alias",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0459",
@@ -7581,7 +7776,12 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_all40_baseline_source_disposition": {
+        "opaque_id": "F0459",
+        "disposition": "unresolved_operand_route_not_relative_result_alias",
+        "canonical_reuse_accepted": false
+      }
     },
     {
       "opaque_id": "F0460",
@@ -39429,5 +39629,14 @@
     "exact_baseline_reuse_accepted": 0,
     "remaining_baseline_candidates_unreviewed_by_increment": 30,
     "full_audit_accepted": false
+  },
+  "all40_source_review_current_state": {
+    "manifest": "equity-baseline-reuse-source-dispositions.json",
+    "source_dispositions_completed": 40,
+    "remaining_of40_unreviewed": 0,
+    "canonical_numerical_reuses_accepted": 0,
+    "separate_baseline36_control_not_counted_among40": true,
+    "source_copy_is_not_numerical_reuse": true,
+    "full_EQ164_accepted": false
   }
 }
