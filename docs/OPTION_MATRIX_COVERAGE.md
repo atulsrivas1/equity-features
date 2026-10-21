@@ -1,3 +1,9 @@
+## R26 portable variant contract proposal and remaining proof — October 21, 2026
+
+[Combined public proposal](r26-variants/README.md) retains raw mathematical producers in EQ188/EQ189/EQ215: premium/sign/directional routes, joint observed-reference shares, both pooled baselines with actual current/daily producers and finite consumers, parent/repeated/venue subsets, explicit-anchor inclusive span and three concentration keys. The source-independent pure daily projection owns exact count conversion. Independent boundary review is complete for fixture authoring; complete typed/error/wire fixtures, joint freeze and implementation remain open. R29 screens/presets and full-restated signing witness gap remain distinct. This adds reviewed design, not delivered feature coverage.
+
+The old44 queue is now actually stopped/reaped with7/29 queued passes and22notrun, verified cleanup and released locks; all four base/four supplemental old44 integrations passed for their older exact candidate. Never relabel those results for changed code. Actual accepted EQ153/EQ158 still gate EQ190/full EQ193, with both prerequisites currently Backlog. See [current handoff](SESSION_HANDOFF.md) for exact review limits and resume steps. No full matrix/source parity/release or publication claim follows.
+
 ## R26 raw-profile completion direction — October 21, 2026
 
 The owner’s matrix completion direction requires contract-first completion of raw mathematics already allocated to EQ188/EQ189/EQ215. [Actual EQ188 rework](https://github.com/atulsrivas1/equity-features/issues/534#issuecomment-6314500357), [EQ189](https://github.com/atulsrivas1/equity-features/issues/535#issuecomment-6314501219) and [EQ215](https://github.com/atulsrivas1/equity-features/issues/574#issuecomment-6314501898) are In progress. Passing selected profiles do not settle complete matrix coverage; R29 screens/presets/first-qualified policy cannot silently absorb omitted raw primitives.

@@ -38,6 +38,11 @@ docs/ef1/OBSERVABLE_PUBLICATION_FREEZE.json text eol=lf
 /docs/ef1/gap_endpoint/*.json text eol=lf
 /tests/fixtures/ef1_daily_observations.json text eol=lf
 
+# R26 portable variant proposals retain exact reviewed LF source hashes.
+/docs/r26-variants/*.md text eol=lf
+# The sealed mathematics source has three CRLF lines; preserve its exact hash.
+/docs/r26-variants/PUBLIC_SAFE_MATHEMATICS_ALLOCATION_DRAFT3.md -text whitespace=cr-at-eol
+
 # Exact portable regular-BAR contract and independent literal packet bytes.
 /docs/ef1/regular_bar_prices/*.json text eol=lf
 /docs/ef1/regular_bar_prices/*.md text eol=lf
