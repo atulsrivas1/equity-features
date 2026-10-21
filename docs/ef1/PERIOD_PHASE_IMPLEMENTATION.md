@@ -48,3 +48,6 @@ integration remain required. Original observed counts, fixed windows, regular-op
 other-denominator, large-period and full EQ164 audit obligations stay open.
 No whole-story completion, Linux, private parity, benchmark, provider/N-drive
 qualification, release or publication is inferred.
+
+
+Final source composition selects I/O89bc3d0d61cda5e8b1f5056b500c1f660a051045 (PR23) and workerb40adfbae5a9fa442aea20af3f32ba2e3ba6a4e9 (PR64). Worker lanes pin this library's reviewed bootstrap37ac44a3d0406231caf481c44f4ccce70fb2aba0; the standalone lane uses its actual current core checkout. This finite immutable graph preserves all older16 suites/19 demos and adds core75/I-O17/worker17 methods and two period demos in each installed form. All three implementation candidates have fresh independent source approval and bounded Windows source checks, while exact-commit four-form/platform/browser/full-original-audit/release qualification remains pending. Source selections do not establish installed acceptance.
