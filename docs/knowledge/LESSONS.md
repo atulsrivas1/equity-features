@@ -1,3 +1,7 @@
+## Read the actual branch ref before source delivery - October21,2026
+
+PR607's base.sha still named1e7 while actual refs/heads/main advanced to ebcb2bc9 with R26 documentation. Treating the PR snapshot as current main made the original405/conflict diagnosis wrong. Preserve that mistake and native failure, compare live branch refs before merge/replacement preparation, integrate concurrent documents without taking their ownership, and obtain fresh actual-head review. The direct-main guard stopped replacement preparation before mutation; the existing source branch reconciles both complete histories. Qualified BAR runtime/packets remain unchanged. [Actual correction and limits](../ef1/REGULAR_BAR_PRICES_LOCAL_QUALIFICATION.md).
+
 ## Extend aggregate purity discovery with every producer - October 21, 2026
 
 Feature-focused success does not establish that the aggregate denied-entrypoint audit ran. Independent PR607 review found that its fixed census omitted six inherited gap fixtures and nine regular-BAR fixtures before execution. Preserve the failure, add explicit per-module case counts and owned-module coverage, and execute the full audit after correction. All three corrected methods passed without changing numerical source, independent literals or guards. [Current implementation evidence](../ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md) distinguishes source review, companion composition and pending installed/release gates.
@@ -5,6 +9,12 @@ Feature-focused success does not establish that the aggregate denied-entrypoint 
 ## Derive probe stages from actual guards — October 21, 2026
 
 A negative request can be carried by a generic transport even when its future numerical producer must reject it. Inspect the actual constructor, canonical validator, manifest and generic admission guards before assigning a refusal stage. A row-session mismatch is not an instrument mismatch, and a generic result comparator may leave producer-specific math/evidence closure unchecked. Record those gaps explicitly; never weaken the future contract or count generic acceptance as numerical conformance. The BAR pre-execution review rejected a mistaken expected refusal before execution; its immutable oracle and rejected candidate remain preserved in local evidence.
+
+## Selected-profile proof does not close allocated raw mathematics — October 21, 2026
+
+R26 matrix reconciliation identified additional primitive responsibilities despite broad passing installed and stored-result evidence. [Actual contract rework](https://github.com/atulsrivas1/equity-features/issues/534#issuecomment-6314500357) keeps those responsibilities with EQ188/EQ189/EQ215; a later screen/policy allocation does not deliver the underlying mathematics. A supplied premium or baseline operand also does not establish its producer. Preserve old successful receipts and immutable outputs while preparing separately identified contracts, independent fixtures and boundary review before freeze. Packaging choices and implementation follow that review. Portable numeric recipes do not imply original-source bit parity.
+
+Queue evidence must be checkpointed: an active child and stop-after-current request establish neither completion nor idle cleanup. Preserve unexecuted gates, avoid changing leased inputs, and require fresh applicable qualification for an amended candidate. [Current handoff](../SESSION_HANDOFF.md#r26-matrix-backed-raw-profile-contract-rework--october-21-2026) records actual reviewed cohorts and limits without converting selected-profile proof into complete matrix/release acceptance.
 
 ## Preserve proposal history beside actual numbered allocations - October 21, 2026
 
