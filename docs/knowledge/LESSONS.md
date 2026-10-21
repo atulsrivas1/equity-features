@@ -1,3 +1,7 @@
+## R26 admission needs its own dependency evidence — October 21, 2026
+
+[Preparation](../r26/PREPARATION.md) first verified that R25's scoped independent-admission amendment left later releases unchanged. The owner then explicitly extended independent admission to R26 native tracks, retaining EQ153/EQ158 integration and full R26 scope; record this distinct decision rather than infer a global waiver. Distinguish scalar operands, qualified shared mathematical producers and scheduler delivery gates. Supplied fixtures do not deliver missing equity producers; do not duplicate equity mathematics or silently drop cross-market scope to claim independence. Ordered execution/revisions, exact premium representation and carried checkpoint state require new explicit flow contracts; an identity-sorted R25 snapshot cannot stand in for a tape. Reconcile conflicting source behaviors under named original policies and independent fixtures before freeze.
+
 ## R25 publication requires actual delivery readback — October 21, 2026
 
 Owner approval permitted the exact prepared GitHub prereleases. [Published acceptance](../R25_RELEASE_ACCEPTANCE.md) binds all three actual tags to reviewed commit/tree targets and all twelve downloaded assets to approved sizes/SHA256. Verify delivered bytes before Released, then record reviewed documentation/acceptance before Done and issue/milestone closure. A later documentation commit does not rewrite immutable artifact source markers. Retain older pending-state snapshots as chronology and use the live Project for current execution status.

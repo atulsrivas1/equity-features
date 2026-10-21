@@ -1,6 +1,6 @@
 # R26 — Option flow, activity and execution
 
-[Replan](../OPTION_DELIVERY_REPLAN.md). Existing epic [E34](https://github.com/atulsrivas1/equity-features/issues/533); milestone [30](https://github.com/atulsrivas1/equity-features/milestone/30). Planning only; Project owns live status. Preserve equity/R18 ownership and option implementation gates.
+[Replan](../OPTION_DELIVERY_REPLAN.md). Existing epic [E34](https://github.com/atulsrivas1/equity-features/issues/533); milestone [30](https://github.com/atulsrivas1/equity-features/milestone/30). Owner selected R26 preparation on October 21, 2026; [current preparation](../r26/PREPARATION.md) and GOV038#592 record the approved scoped admission decision. Project owns live status. Delivery entry still requires reviewed exact contracts; EQ190 and full R26 acceptance retain actual equity producer gates. Preserve equity/R18 ownership.
 
 ## Parallel layer contracts
 
@@ -18,7 +18,7 @@ Release acceptance: EQ-193; integrated composition: EQ-193. No setup-only releas
 
 Ordered synthetic prints/quotes with ties, baseline gaps, short-DTE/OTM shares and an independent equity-option alignment example.
 
-Compare independently expected results with direct calls, installed workers and stored readback. Include available, unavailable and invalid cases, timing/identity/provenance, supported modes, retries and sink conflicts. Freeze actual compatible package artifacts, applicable Windows/Linux checks and resource workloads before implementation. Required fresh independent review and CI remain mandatory. Demonstration is performed at implementation acceptance, not claimed by this planning packet.
+Compare independently expected results with direct calls, installed workers and stored readback. Include available, unavailable and invalid cases, timing/identity/provenance, supported modes, retries and sink conflicts. Before implementation, freeze the exact compatibility/version, supported-platform and resource qualification plan. Actual compatible built artifacts, executed Windows/Linux checks and measured resource evidence are required before release acceptance, not before authoring the implementation they qualify. Fresh independent review and appropriate exact-head local build/test checks remain mandatory; hosted CI is optional under the owner clarification. Demonstration is performed at implementation acceptance, not claimed by this planning packet.
 
 ## Story contracts
 
@@ -28,7 +28,7 @@ Compare independently expected results with direct calls, installed workers and 
 
 Freeze supported execution/quote alignment, sign proxies/unknowns, event ordering/ties, cancellations/corrections, eligibility, windows and multiplier/price precision. Reuse equity tape/quote kernels only where mathematics and evidence match; retain explicit asset conventions and source-specific inference limits.
 
-Dependencies: EQ-182, EQ-158, EQ-159. Delivery gates are separate from runtime operand dependencies.
+Dependencies: EQ-182. The owner-approved R26 amendment removes EQ158/EQ159 delivery from option-native contract admission; actual shared equity producer integration remains with EQ190. Delivery gates are separate from runtime operand dependencies.
 
 Independent validation: Independent tiny tapes, causal quote alignment/sign carry, missing coverage and correction replay; observed trade direction is not customer intent or dealer positioning.
 
@@ -68,7 +68,7 @@ Independent validation: Synthetic source-to-fact/readback and replay closure, re
 
 Wire independent rollup/concentration/cross-market branches; preserve ordered per-contract/underlying signing state and only selected joins. Reuse buckets across outputs and products; coordinate native/worker parallelism, memory, I-O and publication.
 
-Dependencies: EQ-189, EQ-190, EQ-191, EQ-144, EQ-145, EQ-215. Delivery gates are separate from runtime operand dependencies.
+Dependencies: EQ-189, EQ-190, EQ-191, EQ-215. R26-owned bounded-execution/resource qualification replaces EQ144/EQ145 implementation admission under the scoped owner amendment; real producer/integration gates remain. Delivery gates are separate from runtime operand dependencies.
 
 Independent validation: Direct/worker/evidence parity, causal state/replay, restart/fault/readback, skew/hot-entity and shared-input workload measurements without oversubscription.
 

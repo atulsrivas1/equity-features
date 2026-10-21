@@ -1,3 +1,7 @@
+## R26 scoped admission successor — October 21, 2026
+
+Owner selected R26 and approved independent option-native admission with real equity integration gates retained. [Preparation](r26/PREPARATION.md), GOV038#592 and the [coordinator amendment](COORDINATOR_WORKING_AGREEMENT.md#owner-amendment-independent-r26-option-native-admission--october-21-2026) supersede only R26's historical blanket R18/EQ146, EQ188 EQ158/EQ159 authoring and EQ192 EQ144/EQ145 implementation-admission references. EQ190 still requires actual compatible EQ153/EQ158 producers, and full R26 scope/acceptance is retained. Later releases and other ownership remain unchanged. The older R25-only description below is preserved as history, not current R26 admission authority.
+
 # Option delivery replan under the coordinator working agreement
 
 October 20, 2026. [GOV036 #572](https://github.com/atulsrivas1/equity-features/issues/572) replans the option portion of the full matrix under the [coordinator agreement](COORDINATOR_WORKING_AGREEMENT.md), using the same feature-bearing three-layer delivery model as [equities](EQUITY_DELIVERY_REPLAN.md). It supersedes the delivery arrangement in the [GOV033/PR524 option proposal](https://github.com/atulsrivas1/equity-features/pull/524), preserving historical evidence and existing numbered issues rather than creating a competing option backlog. It does not change the equity release allocation or take ownership of EF1/R18.
