@@ -1606,5 +1606,31 @@
       "Active EF1/R18 ownership and reserved measurement windows",
       "All later-release dependencies and publication approval boundaries"
     ]
+  },
+  "r25_parallel_source_authoring": {
+    "authority": "owner-adopted coordinator agreement; R25 selected and independent gate amendment",
+    "contract_story": "EQ-182",
+    "contract_repository": "atulsrivas1/option-features",
+    "contract_manifest": "docs/r25/CONTRACT_MANIFEST.json",
+    "source_admission": "independently reviewed immutable interface/method/fixture definitions and coordinator exact-commit grant; no artifact qualification inferred",
+    "tracks": {
+      "libraries": [
+        "EQ-183",
+        "EQ-184",
+        "EQ-214"
+      ],
+      "io": [
+        "EQ-185"
+      ],
+      "workers": [
+        "EQ-186"
+      ]
+    },
+    "producer_dependencies": "retained unchanged as runtime/integration/merge/release prerequisites; frozen interfaces permit selected source-authoring group",
+    "contract_bootstrap": "independently installable option-feature-contracts before I/O/worker runtime conformance; numerical feature package not required for types",
+    "runtime_gate": "actual protected-resource availability plus applicable exact installed artifacts/validation",
+    "integration_gate": "actual compatible producers and independent exact-head local tests/builds; mocks and hosted CI are not substitute proof",
+    "release_gate": "EQ-187 complete artifact/platform/numerical/direct-worker-stored/browser acceptance",
+    "scope": "R25 only; does not change later release dependencies or mark any producer Done"
   }
 }
