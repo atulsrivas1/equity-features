@@ -14,13 +14,13 @@ Owner selected planning and implementation of the next option release on October
 | [EQ192#538](https://github.com/atulsrivas1/equity-features/issues/538) | Bounded ordered flow execution/replay/publication | option-feature-workers |
 | [EQ193#539](https://github.com/atulsrivas1/equity-features/issues/539) | Both-platform artifacts, independent integration, resource evidence and browser demo | cross-repository acceptance |
 
-No new repository is required. Add separately versioned optional domain packages only where dependency isolation warrants them; freeze exact distribution/import names and compatibility before implementation. Preserve all R25 APIs, released artifacts and source markers. Existing EQ188-193/EQ215 acceptance and full matrix coverage obligations remain unchanged. The seven delivery stories are currently Backlog/unassigned.
+No new repository is required. Add separately versioned optional domain packages only where dependency isolation warrants them; freeze exact distribution/import names and compatibility before implementation. Preserve all R25 APIs, released artifacts and source markers. Existing EQ188-193/EQ215 acceptance and full matrix coverage obligations remain unchanged. EQ188 is In progress for source-only exact contract design after actual Ready admission; the other six delivery stories remain Backlog/unassigned.
 
 ## Actual dependency audit
 
 Live Project inspection on October21: EQ141/R17 and R25 are Done; EQ144, EQ145, EQ146, EQ153, EQ158 and EQ159 remain Backlog. The historical owner amendment removed the blanket R18/EQ146 gate only for R25. The separate approved R26 amendment below now defines R26 native admission; it does not accept missing equity producers.
 
-EQ188 names EQ158/EQ159; EQ190 names EQ153/EQ158; EQ192 names EQ144/EQ145. Generic signed equity windows, correlation and quote dynamics remain equity-owned. Option contracts/asset conventions may be specified independently; claiming accepted equity reuse before actual compatible producers exist would be false. No equity math is duplicated or moved to evade an unimplemented producer.
+Historically, before the scoped amendment below, EQ188 named EQ158/EQ159 and EQ192 named EQ144/EQ145. EQ190 still names EQ153/EQ158 as actual equity integration prerequisites. Generic signed equity windows, correlation and quote dynamics remain equity-owned. Option contracts/asset conventions may be specified independently; claiming accepted equity reuse before actual compatible producers exist would be false. No equity math is duplicated or moved to evade an unimplemented producer.
 
 The R25 trade record lacks execution price, signing/order/correction contracts. Its canonical snapshot sort, numeric-only result, BSM request, strict sink and independent-snapshot worker replay do not establish flow compatibility. R26 requires reviewed additive flow contracts, exact decimal accumulation and new typed storage/ordered execution admission, with old interfaces retained.
 
