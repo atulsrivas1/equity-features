@@ -1,0 +1,1043 @@
+{
+  "kind": "source_safe_public_output_ownership_plan",
+  "status": "accepted_planned_ownership; mathematical/API contracts remain unfrozen and unaccepted",
+  "canonical_name_status": "Specification names only; no public API or registry allocation",
+  "current_source_heads": {
+    "core": "3da07b69c5acb40c948708a19ee2fff1ad57e2da",
+    "io": "2111ad6f889fd4bcf4a93e658493dfb8812da36c",
+    "workers": "fbf8c846938512fceb4d0895c86a5b451eb55be3"
+  },
+  "common_contract": {
+    "identity": [
+      "namespace",
+      "instrument/aggregate identity",
+      "target session",
+      "config version/digest",
+      "original source/snapshot/input mapping",
+      "original row/event identity",
+      "revision/basis",
+      "actual effective/known-at clocks"
+    ],
+    "timing": "Actual signed-int64 instants and explicit half-open requested intervals; original known-at in both modes, no clock lookup or fabricated completion.",
+    "precision": "Explicit scaled integer units and checked wide arithmetic; numerical policy and one final fraction/price conversion frozen independently before Ready.",
+    "quality": "Per-output exact dependencies; unknown never becomes zero/false; missing vs present-empty and complete vs partial remain distinct. Preserve value/null/status/quality/metadata/evidence identities.",
+    "evidence": "Actual original witnesses and deterministic tie order, independent of retained diagnostic limits; freeze closed result set and evidence limits before source authoring.",
+    "rights": "Source-independent public specifications and synthetic/licensed fixtures only. No private source code, constants, source key aliases or raw chats.",
+    "admission": "No source work until exact mathematics/interface/quality/errors/bounds and independent full-result fixtures are reviewed and frozen. This manifest is not that freeze."
+  },
+  "contracts": {
+    "SR01": {
+      "universe": "Explicit unique expected membership/revision and evaluation point. Snapshot versus ordered membership/update/reset profiles separate. Eligibility proof is supplied; membership derivation is pure under its own selected profile, never adapter invention.",
+      "member_facts": "Actual current endpoint/reference returns, cumulative shares, compatible VWAP/momentum/extrema and predicate readiness. Each producer and original clock/basis/revision is named.",
+      "denominators": "Per-output eligible/expected/known counts are explicit. Counts do not infer negative predicates from unknown inputs. Ratios with zero denominator are null/not_applicable under the proposed normalized profile; exact status/reasons frozen before Ready.",
+      "semantics": "Current-direction grouped cumulative member volumes, not tick-rule signed trades. Net count differs from a cumulative time-series line. No private eligibility/proximity default.",
+      "reuse": "EQ035 completed-history direction/above-SMA only where exact operand/grid compatibility is proved; EQ060 only assembly barriers. Neither supplies this entire family.",
+      "dependencies": [
+        "EQ-164",
+        "exact selected EQ166/EQ167/current-return/VWAP/volume producers",
+        "reviewed declared-universe membership contract"
+      ],
+      "allocation_blocked": false,
+      "numerical_owner": "EQ-220 #598 / planned EF3; actual native parent468 / milestone24 / Backlog"
+    },
+    "SR02": {
+      "population": "Full admitted valid normal/locked sampled quote population in declared scope and sampling mode; crossed/invalid states explicitly excluded. No pooling/time-weight inference.",
+      "spread_basis": "Nonnegative quote cash spread; per-observation unrounded positive midpoint for BPS. Independent maxima may have different witnesses.",
+      "ties": "Earliest event time, then ascending canonical order key and original event ID.",
+      "readiness": "Full dependency population/knowledge proof; all-invalid/empty/missing/partial distinct. Truncated diagnostic rows are never the operands.",
+      "dependencies": [
+        "EQ-136",
+        "actual selected quote/state/coverage contracts"
+      ],
+      "scope_note": "Existing selected quote-dynamics home; additive outputs require reviewed contract, not alias of existing means."
+    },
+    "SR03": {
+      "roles": [
+        "primary market",
+        "secondary market",
+        "sector"
+      ],
+      "prior_close_profile": "Each leg explicitly consumes actual prior-session close reference and causal current endpoint; not regular-open return and not fake completed history.",
+      "rolling_profile": "Exact matched start/end/horizon, phase and coverage for each leg. Original profile differences, asynchronous endpoints and selected age rule explicit; no silently substituted endpoint.",
+      "basis": "Same currency and compatible adjustment policy/anchor, each instrument's actual source/action/revision retained independently.",
+      "sector": "Explicit supplied benchmark mapping and causal sector membership/projection. Unavailable sector dependencies do not block market outputs.",
+      "readiness": "Both required return legs independently ready; beta-residual additionally consumes independent ready beta from EQ153.",
+      "retained_story_dependencies": [
+        "EQ-164",
+        "EQ-155",
+        "EQ-158"
+      ],
+      "additional_selected_operand_links": [
+        "EQ-166",
+        "EQ-167",
+        "EQ-153 for beta residual only",
+        "EQ-168 for actual membership/reference admission"
+      ],
+      "source_compatibility": "Not accepted. Completed-history EQ034 ReturnReference is not widened or fabricated by this packet."
+    },
+    "B11/SR04": {
+      "open_price_profiles": "First eligible regular trade and first retained positive-volume completed-bar open are distinct, with exact firstness proof.",
+      "calculated_close": "Reuse accepted reducers on exact proof; otherwise EQ166 pure construction, not EQ212 calculation. Last endpoint/auction/phase/late/reset controls explicit.",
+      "supplied_authoritative_close": "Source fact mapped by EQ212, admitted by EQ168; never overwritten into calculated close.",
+      "before_ready": [
+        "Choose exact selected endpoint profile",
+        "independent fixture versus missing first/final observations",
+        "actual compatible field/unit/basis/source clocks"
+      ]
+    },
+    "B11": {
+      "EF1_retained": [
+        "first-open under EQ166",
+        "existing generic return/path primitives under EQ167; no technical-source alias without proof",
+        "opening-drive magnitude and mathematical readiness under EQ167"
+      ],
+      "separation": "Opening-drive readiness is not a scanner/episode policy. No private horizon or scale default. Technical signed streak and derivatives require actual completed-bar adjacency, elapsed duration, predecessor count and reset/gap semantics.",
+      "decision": "D3 resolved for planned ownership: technical session return/velocity/acceleration and selected signed completed-window trend count belong to EQ171/EF5. First-open/drive/readiness and generic EQ167 return/gap primitives remain EF1. No established EF1 obligation is removed; no alias without exact scope proof.",
+      "fixtures": [
+        "zero/reversal/gap/reset",
+        "first retained bar versus first trade",
+        "horizon boundary",
+        "missing prior derivative",
+        "future/unknown endpoint",
+        "full result/evidence and inherited producer regression"
+      ],
+      "EF5_approved_allocation": [
+        "technical session return",
+        "velocity",
+        "acceleration",
+        "signed completed-window trend count selected under associated structure plan"
+      ]
+    },
+    "B12": {
+      "population": "Actual expected publisher/epoch/revision declaration, selected interval and causal prefix/seed. Missing venue cannot shrink expected population.",
+      "fact_roles": "Separate original trading, quoting and restriction fields; no acquisition or inferred live venue.",
+      "output_dependencies": "Freeze per-output counts/OR/state unknown precedence. True witness versus complete false proof differs; unavailable knowledge remains unavailable in both modes.",
+      "state_policy": "Explicit reviewed versioned reduction over supplied states and population. Do not infer it from an unversioned label.",
+      "fixtures": [
+        "expected/observed mismatch",
+        "partial/zero-known publishers",
+        "conflicting/revised rows",
+        "stale/unknown/future",
+        "reset/restore/ties"
+      ]
+    },
+    "SR04": {
+      "partition": [
+        {
+          "role": "supplied close/provenance mapping",
+          "owner": "EQ-212 #570"
+        },
+        {
+          "role": "pure close/phase construction",
+          "owner": "EQ-166 #506"
+        },
+        {
+          "role": "reference admission and absolute BPS comparison",
+          "owner": "EQ-168 #508"
+        },
+        {
+          "role": "explicit tolerance comparison policy",
+          "owner": "EQ-168 #508 reference comparison; no strategy policy"
+        },
+        {
+          "role": "bounded scheduling/serialization/sink",
+          "owner": "EQ-213 #571"
+        }
+      ],
+      "denominator": "Supplied authoritative same-session positive close, distinct from calculated close. Independently freeze exact absolute-relative BPS convention and precision; no private default tolerance.",
+      "EF1_retained": true,
+      "no_future_projection_deferral": true
+    }
+  },
+  "proposed_context_and_transport_roles": [
+    {
+      "role": "declared universe/membership policy/evaluation",
+      "owner": "New numerical breadth story owns derivation; selected release adapter task owns representation (unnumbered until allocated). EQ212 applies only to EF1."
+    },
+    {
+      "role": "source identities, target/effective/known-at clocks, reference source",
+      "owner": "Actual selected release adapter owns representation; EQ168/EQ165 own EF1 admission where selected. No blanket future adapter allocation to EQ212."
+    },
+    {
+      "role": "mathematical readiness flags",
+      "owner": "same numerical producer as measurement; quality where compatible, not inferred adapter bool"
+    },
+    {
+      "role": "private source predicates/threshold policy",
+      "owner": "no publication/adoption; exact rights-safe independent specification required"
+    }
+  ],
+  "outputs": [
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.selected_member_count",
+      "unit": "members",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "universe",
+        "eligible_membership"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.prior_reference_eligible_count",
+      "unit": "members",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "universe",
+        "eligible_membership",
+        "prior_reference_availability"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.advancing_count",
+      "unit": "members",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "member_current_returns"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.declining_count",
+      "unit": "members",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "member_current_returns"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.unchanged_count",
+      "unit": "members",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "member_current_returns"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.direction_net_count",
+      "unit": "members",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "advancing_count",
+        "declining_count"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.advance_decline_ratio",
+      "unit": "ratio",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "advancing_count",
+        "declining_count"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.up_volume",
+      "unit": "shares",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "member_current_returns",
+        "member_cumulative_volume"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.down_volume",
+      "unit": "shares",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "member_current_returns",
+        "member_cumulative_volume"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.up_down_volume_ratio",
+      "unit": "ratio",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "up_volume",
+        "down_volume"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.prior_reference_coverage_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "prior_reference_eligible_count",
+        "selected_member_count"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.above_vwap_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "member_endpoint_price",
+        "member_vwap",
+        "eligible_membership"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.positive_momentum_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "member_ready_momentum",
+        "eligible_membership"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.near_high_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "member_endpoint_price",
+        "member_selected_high",
+        "explicit_proximity_profile",
+        "eligible_membership"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.near_low_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "member_endpoint_price",
+        "member_selected_low",
+        "explicit_proximity_profile",
+        "eligible_membership"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR02",
+      "canonical_name": "quote.sampled.maximum_spread",
+      "unit": "price",
+      "primary_numerical_owner": "EQ-159",
+      "issue": 493,
+      "planned_delivery": "EF4",
+      "kind": "measurement",
+      "operands": [
+        "full_valid_quote_population"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR02",
+      "canonical_name": "quote.sampled.maximum_midpoint_bps",
+      "unit": "bps",
+      "primary_numerical_owner": "EQ-159",
+      "issue": 493,
+      "planned_delivery": "EF4",
+      "kind": "measurement",
+      "operands": [
+        "full_valid_quote_population",
+        "same_quote_midpoint"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR03",
+      "canonical_name": "relative.session.primary.prior_close_excess_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-172",
+      "issue": 513,
+      "planned_delivery": "EF4",
+      "kind": "measurement",
+      "operands": [
+        "instrument_prior_close_return",
+        "primary_benchmark_prior_close_return"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR03",
+      "canonical_name": "relative.session.primary.window_excess_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-172",
+      "issue": 513,
+      "planned_delivery": "EF4",
+      "kind": "measurement",
+      "operands": [
+        "instrument_matched_window_return",
+        "primary_benchmark_matched_window_return"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR03",
+      "canonical_name": "relative.session.secondary.prior_close_excess_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-172",
+      "issue": 513,
+      "planned_delivery": "EF4",
+      "kind": "measurement",
+      "operands": [
+        "instrument_prior_close_return",
+        "secondary_benchmark_prior_close_return"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR03",
+      "canonical_name": "relative.session.secondary.window_excess_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-172",
+      "issue": 513,
+      "planned_delivery": "EF4",
+      "kind": "measurement",
+      "operands": [
+        "instrument_matched_window_return",
+        "secondary_benchmark_matched_window_return"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR03",
+      "canonical_name": "relative.session.sector.prior_close_excess_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-172",
+      "issue": 513,
+      "planned_delivery": "EF4",
+      "kind": "measurement",
+      "operands": [
+        "instrument_prior_close_return",
+        "sector_benchmark_prior_close_return",
+        "causal_sector_membership"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR03",
+      "canonical_name": "relative.session.sector.window_excess_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-172",
+      "issue": 513,
+      "planned_delivery": "EF4",
+      "kind": "measurement",
+      "operands": [
+        "instrument_matched_window_return",
+        "sector_benchmark_matched_window_return",
+        "causal_sector_membership"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR03 preserved owner",
+      "canonical_name": "relative.session.primary.beta_residual_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-153",
+      "issue": 487,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "instrument_return",
+        "matched_benchmark_return",
+        "independently_ready_beta"
+      ],
+      "coordinator_decision": "Existing beta/residual owner retained; exact current-session profile still needs its own reviewed operand contract",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR03 preserved owner",
+      "canonical_name": "relative.session.secondary.beta_residual_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-153",
+      "issue": 487,
+      "planned_delivery": "EF3",
+      "kind": "measurement",
+      "operands": [
+        "instrument_return",
+        "matched_benchmark_return",
+        "independently_ready_beta"
+      ],
+      "coordinator_decision": "Existing beta/residual owner retained; exact current-session profile still needs its own reviewed operand contract",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B11/SR04",
+      "canonical_name": "session.regular.first_trade_price",
+      "unit": "price",
+      "primary_numerical_owner": "EQ-166",
+      "issue": 506,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "regular_eligible_trades",
+        "firstness_prefix"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B11/SR04",
+      "canonical_name": "session.regular.first_completed_bar_open",
+      "unit": "price",
+      "primary_numerical_owner": "EQ-166",
+      "issue": 506,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "ordered_positive_volume_completed_bars",
+        "firstness_prefix"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR04",
+      "canonical_name": "session.close.calculated_price",
+      "unit": "price",
+      "primary_numerical_owner": "EQ-166",
+      "issue": 506,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "declared_eligible_trade_or_bar_population",
+        "final_endpoint_proof"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B11",
+      "canonical_name": "session.open_to_endpoint_return_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-167",
+      "issue": 507,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "selected_open_price",
+        "selected_endpoint_price",
+        "matched_phase_scope"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B11",
+      "canonical_name": "session.opening_drive.normalized_strength",
+      "unit": "dimensionless",
+      "primary_numerical_owner": "EQ-167",
+      "issue": 507,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "selected_open_price",
+        "completed_drive_endpoint",
+        "explicit_horizon",
+        "explicit_normalization"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B11",
+      "canonical_name": "session.opening_drive.readiness",
+      "unit": "state",
+      "primary_numerical_owner": "EQ-167",
+      "issue": 507,
+      "planned_delivery": "EF1",
+      "kind": "mathematical_readiness",
+      "operands": [
+        "explicit_horizon",
+        "calendar_closure",
+        "completed_drive_endpoint"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B11",
+      "canonical_name": "technical.signed_trend_window_count",
+      "unit": "windows",
+      "primary_numerical_owner": "EQ-171",
+      "issue": 512,
+      "planned_delivery": "EF5",
+      "kind": "measurement",
+      "operands": [
+        "ordered_completed_close_windows",
+        "adjacency",
+        "session_reset"
+      ],
+      "coordinator_decision": "D3 resolved for planned ownership under EQ171/EF5, including signed completed-window trend count; exact numerical contracts and independent fixtures remain required. Established EF1 obligations and generic EQ167 primitives remain.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B11",
+      "canonical_name": "technical.price_velocity_fraction_per_second",
+      "unit": "fraction_per_second",
+      "primary_numerical_owner": "EQ-171",
+      "issue": 512,
+      "planned_delivery": "EF5",
+      "kind": "measurement",
+      "operands": [
+        "adjacent_completed_close_pair",
+        "explicit_elapsed_duration"
+      ],
+      "coordinator_decision": "D3 resolved for planned ownership under EQ171/EF5, including signed completed-window trend count; exact numerical contracts and independent fixtures remain required. Established EF1 obligations and generic EQ167 primitives remain.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B11",
+      "canonical_name": "technical.momentum_acceleration_fraction_per_second_squared",
+      "unit": "fraction_per_second_squared",
+      "primary_numerical_owner": "EQ-171",
+      "issue": 512,
+      "planned_delivery": "EF5",
+      "kind": "measurement",
+      "operands": [
+        "two_independently_ready_compatible_velocity_samples",
+        "explicit_elapsed_duration"
+      ],
+      "coordinator_decision": "D3 resolved for planned ownership under EQ171/EF5, including signed completed-window trend count; exact numerical contracts and independent fixtures remain required. Established EF1 obligations and generic EQ167 primitives remain.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B12",
+      "canonical_name": "session.venue_status.known_trading_count",
+      "unit": "publishers",
+      "primary_numerical_owner": "EQ-165",
+      "issue": 505,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "expected_publishers",
+        "causal_publisher_states"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B12",
+      "canonical_name": "session.venue_status.known_nontrading_count",
+      "unit": "publishers",
+      "primary_numerical_owner": "EQ-165",
+      "issue": 505,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "expected_publishers",
+        "causal_publisher_states"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B12",
+      "canonical_name": "session.venue_status.quoting_any",
+      "unit": "bool",
+      "primary_numerical_owner": "EQ-165",
+      "issue": 505,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "expected_publishers",
+        "causal_publisher_quoting_flags"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B12",
+      "canonical_name": "session.venue_status.restriction_any",
+      "unit": "bool",
+      "primary_numerical_owner": "EQ-165",
+      "issue": 505,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "expected_publishers",
+        "causal_publisher_restriction_flags"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B12",
+      "canonical_name": "session.venue_status.aggregate_state",
+      "unit": "state",
+      "primary_numerical_owner": "EQ-165",
+      "issue": 505,
+      "planned_delivery": "EF1",
+      "kind": "state_reduction",
+      "operands": [
+        "expected_publishers",
+        "causal_publisher_states",
+        "explicit_state_policy"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B12",
+      "canonical_name": "session.venue_status.aggregate_reason",
+      "unit": "reason",
+      "primary_numerical_owner": "EQ-165",
+      "issue": 505,
+      "planned_delivery": "EF1",
+      "kind": "state_reduction",
+      "operands": [
+        "aggregate_state",
+        "per_output_unknown_facts",
+        "explicit_state_policy"
+      ],
+      "coordinator_decision": null,
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR04",
+      "canonical_name": "reference.close.absolute_difference_bps",
+      "unit": "bps",
+      "primary_numerical_owner": "EQ-168",
+      "issue": 508,
+      "planned_delivery": "EF1",
+      "kind": "measurement",
+      "operands": [
+        "calculated_close",
+        "supplied_authoritative_close",
+        "reference_admission"
+      ],
+      "coordinator_decision": "Explicit EQ168 reference comparison/projection amendment required; existing reference gates do not deliver this arithmetic or authenticate source",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR04",
+      "canonical_name": "reference.close.within_tolerance",
+      "unit": "bool",
+      "primary_numerical_owner": "EQ-168",
+      "issue": 508,
+      "planned_delivery": "EF1",
+      "kind": "reference_comparison",
+      "operands": [
+        "absolute_difference_bps",
+        "explicit_tolerance_policy"
+      ],
+      "coordinator_decision": "Explicit EQ168 reference comparison/projection amendment required; existing reference gates do not deliver this arithmetic or authenticate source",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR04",
+      "canonical_name": "reference.close.comparison_state",
+      "unit": "state",
+      "primary_numerical_owner": "EQ-168",
+      "issue": 508,
+      "planned_delivery": "EF1",
+      "kind": "reference_comparison",
+      "operands": [
+        "independently_ready_close_operands",
+        "reference_admission",
+        "explicit_tolerance_policy"
+      ],
+      "coordinator_decision": "Explicit EQ168 reference comparison/projection amendment required; existing reference gates do not deliver this arithmetic or authenticate source",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR04",
+      "canonical_name": "reference.close.supplied_price",
+      "unit": "price",
+      "primary_numerical_owner": "EQ-168",
+      "issue": 508,
+      "planned_delivery": "EF1",
+      "kind": "admitted_fact_projection",
+      "operands": [
+        "supplied_authoritative_close",
+        "reference_admission"
+      ],
+      "coordinator_decision": "Explicit EQ168 reference comparison/projection amendment required; existing reference gates do not deliver this arithmetic or authenticate source",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B12",
+      "canonical_name": "session.venue_status.latest_event_ns",
+      "unit": "utc_ns",
+      "primary_numerical_owner": "EQ-165",
+      "issue": 505,
+      "planned_delivery": "EF1",
+      "kind": "clock_reduction",
+      "operands": [
+        "declared_publisher_clock_population",
+        "causal_publisher_event_times"
+      ],
+      "coordinator_decision": "Freeze selected publisher clock population; never replace original event clock with query cutoff",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "SR01",
+      "canonical_name": "breadth.session.latest_observed_member_event_ns",
+      "unit": "utc_ns",
+      "primary_numerical_owner": "EQ-220",
+      "issue": 598,
+      "planned_delivery": "EF3",
+      "kind": "clock_reduction",
+      "operands": [
+        "declared_member_clock_population",
+        "original_member_event_times"
+      ],
+      "coordinator_decision": "D1/D2 resolved for planned ownership; exact universe/population/operand/clock contract and independent fixtures remain required.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    },
+    {
+      "group": "B11",
+      "canonical_name": "technical.session_return_fraction",
+      "unit": "fraction",
+      "primary_numerical_owner": "EQ-171",
+      "issue": 512,
+      "planned_delivery": "EF5",
+      "kind": "measurement",
+      "operands": [
+        "first_retained_session_open",
+        "current_eligible_endpoint",
+        "matched_phase_scope",
+        "original_known_at"
+      ],
+      "coordinator_decision": "D3 resolved for planned ownership under EQ171/EF5, including signed completed-window trend count; exact numerical contracts and independent fixtures remain required. Established EF1 obligations and generic EQ167 primitives remain.",
+      "accepted": false,
+      "implemented_by_this_packet": false,
+      "planned_ownership_accepted": true
+    }
+  ],
+  "scope_decisions": [
+    "D1/D2 resolved: EQ220 #598, planned EF3; actual OPEN/Backlog/native parent468/milestone24, unassigned/no due date; no release migration inferred.",
+    "D3 resolved: approved EF5 technical return/velocity/acceleration allocation and selected signed completed-window trend count; retain EF1 first-open/drive/readiness and generic return/gap primitives.",
+    "D4 remains open: exact rights-safe mathematical, timing, precision, initialization, coverage, quality/error and independent fixture contracts before implementation.",
+    "D5 remains open: actual per-output producer/consumer/rights/source joins, layer/dependency/readback and release qualification; planned owner allocation is not acceptance."
+  ],
+  "accepted_canonical_bindings": 0,
+  "full_EQ164_complete": false,
+  "schema_version": 1,
+  "governance_issue": 504,
+  "ownership_plan_accepted": true,
+  "planned_ownership_count": 47,
+  "mathematics_api_accepted": false,
+  "source_evidence": [
+    "https://github.com/atulsrivas1/equity-features/issues/506#issuecomment-6310691012",
+    "https://github.com/atulsrivas1/equity-features/issues/504#issuecomment-6310692250"
+  ],
+  "supplemental_owner_readback": {
+    "story": "EQ-220",
+    "issue": 598,
+    "title": "[EQ-220] Implement declared-universe session breadth extensions",
+    "url": "https://github.com/atulsrivas1/equity-features/issues/598",
+    "planned_release": "EF3",
+    "ownership_status": "accepted_planned_ownership",
+    "actual_readback_date": "2026-10-21",
+    "observed_issue_state": "OPEN",
+    "observed_project_status": "Backlog",
+    "native_parent_issue": 468,
+    "actual_milestone_number": 24,
+    "actual_milestone_title": "R20 — Relative statistics, realized volatility and robust anomalies",
+    "tracker_release_migration": "pending; existing R20 milestone retained",
+    "assignees": [],
+    "due_date": null,
+    "required_dependencies": [
+      "EQ-164",
+      "EQ-169"
+    ],
+    "selected_operand_dependencies": "Name actual session/return/VWAP/volume/momentum producers per output before Ready; no blanket operand barrier.",
+    "layer_tasks_before_ready": [
+      "EF3-IO",
+      "EF3-W"
+    ],
+    "release_acceptance_gate": "EQ-157",
+    "planned_release_gate_additional_dependencies": [
+      "EQ-220"
+    ],
+    "dependency_status": "planned; issue/release-gate reconciliation and actual producer readiness required before Ready",
+    "tracks": {
+      "libraries": "Pure declared-universe population, per-member eligibility, counts, direction-grouped cumulative volume, ratios and supplied-predicate fractions; independent complete-result fixtures.",
+      "io": "Existing EF3-IO planning task maps supplied versioned membership and actual per-member operands, retaining identities/clocks/basis/unknown and canonical output evidence; no numerical derivation hidden in adapters.",
+      "workers": "Existing EF3-W planning task binds per-output dependencies, bounded execution and direct/worker/stored result parity; no new planning-task number."
+    },
+    "math_api_accepted": false,
+    "implementation_admitted": false
+  }
+}

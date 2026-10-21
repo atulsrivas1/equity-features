@@ -1,3 +1,7 @@
+## Numbered ownership is distinct from numerical acceptance — October 21, 2026
+
+An umbrella story or generic input schema cannot close a missing numerical producer. [EQ164 reconciliation](../ef1/OWNERSHIP_RECONCILIATION.md) assigns actual EQ220/#598 to declared-universe breadth while preserving accepted historical breadth and the original 35-story allocation; [the output manifest](../plans/equity-output-ownership.json) accepts planned ownership only. A provisional ledger label cannot override the approved EF5 technical price-action allocation or silently erase an established EF1 obligation. Keep generic anchor returns, technical session returns, supplied reference facts, pure arithmetic and caller policy distinct until exact operand equivalence is proved. Actual parent/milestone/Project readbacks govern tracker facts; release-name association proves neither migration nor delivery. All mathematical/fixture/rights/source/consumer and installed integration/browser/release gates remain separate.
+
 # R26 actual archive and installed boundary evidence — October 21, 2026
 
 A successful source suite does not qualify an installed artifact. R26 now has actual original/rebuilt builds and closed installed component proof on both supported platforms; retain all four independently anchored cohorts and genuine before/after verification. Source-only tool/docs/test changes can preserve artifact package identity when the exact package tree is independently compared; do not rebuild solely to create a different archive or falsely qualify changed production.
