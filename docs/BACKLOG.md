@@ -1,3 +1,9 @@
+## Owner-approved independent R25 gate — October 20, 2026
+
+[GOV037 #581](https://github.com/atulsrivas1/equity-features/issues/581) records the owner's explicit decision that R25 may proceed independently of R18 acceptance. Supersede the blanket EQ146 prerequisite for R25 and remove EQ143/EQ144 only from EQ186; retain accepted EQ141/R17 references and every later-release dependency. R25 must qualify its own option-native package/schema/executor compatibility, bounded resources, independent numerical fixtures, installed both-platform artifacts and integrated direct/worker/stored parity plus actual browser demo. Shared package presence never establishes option compatibility. Active EF1/R18 ownership and measurement windows remain protected.
+
+Current amendment is source preparation, not numerical implementation, completed review or admission of all stories. Next: reconcile public dependency/repository records, resolve and independently review frozen contracts, then admit applicable Ready stories and fresh layer workers. [Preparation](r25/PREPARATION.md) and [coordinator agreement](COORDINATOR_WORKING_AGREEMENT.md) govern exact gates. Earlier preparation snapshots below retain their original chronology and superseded R18 gate.
+
 ## R25 repository and contract preparation — October 20, 2026
 
 GOV037 #581 prepares the owner-selected first option release in option-features, option-feature-io and option-feature-workers. This corrects the earlier assumed equity-repository homes, preserves R25-R29 story/release IDs and does not start runtime implementation. EQ146 remains unaccepted; all seven R25 implementation stories retain Backlog. See [preparation](r25/PREPARATION.md) and [revised repository map](OPTION_DELIVERY_REPLAN.md).

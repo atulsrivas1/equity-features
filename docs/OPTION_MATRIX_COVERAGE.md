@@ -64,7 +64,7 @@ Strategies/profiles, context scores, component weights/gates, watchlists, scanne
 | tempest | preset_scan | 14 | market-screeners | EQ-209 |
 | tempest | pressure_constituent | 3 | market-screeners | EQ-209 |
 | tempest | pricing_anomaly | 4 | market-screeners | EQ-209 |
-| tempest | producer_adapter_contract | 29 | equity-feature-io | EQ-198 |
+| tempest | producer_adapter_contract | 29 | option-feature-io | EQ-198 |
 | tempest | relative_comparison | 15 | volatility-features | EQ-197 |
 | tempest | scan_field | 17 | market-screeners | EQ-209 |
 

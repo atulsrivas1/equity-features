@@ -53,10 +53,8 @@
       "owns": "Shared reference/dependency only; no ownership transfer or assumed option compatibility",
       "paths": [
         "packages/contracts",
-        "packages/option-features (planned)",
-        "packages/microstructure (planned)",
-        "packages/volatility (planned)",
-        "packages/exposure (planned)",
+        "packages/core",
+        "packages/intraday",
         "packages/strategies",
         "packages/labels"
       ]
@@ -69,8 +67,7 @@
         "packages/io-contracts",
         "packages/io-sdk",
         "packages/duckdb",
-        "packages/duckdb-sink",
-        "packages/option-inputs (planned)"
+        "packages/duckdb-sink"
       ]
     },
     {
@@ -546,12 +543,10 @@
         "EQ-183",
         "EQ-184",
         "EQ-185",
-        "EQ-143",
-        "EQ-144",
         "EQ-214"
       ],
       "layer": "workers",
-      "scope": "Expose selected pricing/Greek/IV requests over admitted supplied facts and existing I/O. Schedule independently ready contract/metric branches under one resource owner; IV-only inputs cannot block a supplied-Greek or different ready output. Bound task/batch size, backend threads, copies, in-flight memory and sink ownership.",
+      "scope": "Expose selected pricing/Greek/IV requests over admitted supplied facts and existing I/O. Schedule independently ready contract/metric branches under one resource owner; IV-only inputs cannot block a supplied-Greek or different ready output. Bound task/batch size, backend threads, copies, in-flight memory and sink ownership. Qualify the option-native admission/executor independently; R18 reuse/fusion/DAG optimization is not assumed or required. One bounded sequential baseline is permitted; any parallel mode requires its own measured parity/resource qualification.",
       "validation": "Direct versus installed-worker full-result/quality/evidence parity, unrelated-missing-input isolation, retry/recovery/readback and repeated budget-constrained kernel/end-to-end workloads.",
       "url": "https://github.com/atulsrivas1/equity-features/issues/531",
       "issue": 531,
@@ -1528,7 +1523,7 @@
     {
       "namespace": "tempest",
       "kind": "producer_adapter_contract",
-      "library": "equity-feature-io",
+      "library": "option-feature-io",
       "story": "EQ-198",
       "count": 29
     },
@@ -1573,13 +1568,43 @@
     "implementation_admitted": false,
     "contract_owner": "atulsrivas1/option-features",
     "contract_path": "docs/r25",
-    "blocking_acceptance_story": "EQ-146",
     "new_interface_findings": [
       "Shares-only equity metadata cannot represent native contract quantities",
       "Closed exact result codec/sink needs an explicit option-native or shared extension",
       "Single-instrument worker admission cannot relabel distinct underlying identity",
       "Chain activity score is not raw chain sums/counts"
     ],
-    "version_policy": "Independent package versions, exact qualified alpha/artifact locks, schema/formula/model/data identities separate"
+    "version_policy": "Independent package versions, exact qualified alpha/artifact locks, schema/formula/model/data identities separate",
+    "gate_amendment": "owner_gate_amendment",
+    "independent_qualification_owners": {
+      "EQ-182": "Freeze mathematical and option-native record/error/version contracts and independent fixtures",
+      "EQ-185": "Qualify option-native codec/source/sink and exact package/schema compatibility",
+      "EQ-186": "Qualify option-native admission/executor with one bounded resource owner and cancellation/retry/publication rules; no R18 optimization assumption",
+      "EQ-187": "Accept exact installed package/artifact cohort, numerical/integration/resource evidence, both platforms and browser demo"
+    }
+  },
+  "r25_implementation_requires": [
+    "EQ-141",
+    "published_option_plan",
+    "reviewed_story_contracts",
+    "reviewed_r25_compatibility_and_resource_plan"
+  ],
+  "owner_gate_amendment": {
+    "date": "2026-10-20",
+    "governance_issue": 581,
+    "scope": "R25 only",
+    "decision": "Owner explicitly approved revising the gate so R25 can proceed independently of R18 acceptance.",
+    "supersedes": [
+      "R25 blanket EQ-146 acceptance prerequisite",
+      "EQ-186 prerequisites EQ-143 and EQ-144"
+    ],
+    "retains": [
+      "Accepted EQ-141/R17 reference inputs",
+      "Published plan and independently reviewed frozen contracts before parallel implementation",
+      "R25 package/schema/executor compatibility, independent numerical and resource qualification",
+      "Integrated installed direct/worker/stored parity, both-platform artifacts and actual browser demo",
+      "Active EF1/R18 ownership and reserved measurement windows",
+      "All later-release dependencies and publication approval boundaries"
+    ]
   }
 }
