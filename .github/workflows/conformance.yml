@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: atulsrivas1/equity-feature-workers
-          ref: 839e7fb5405b47dff51d00c3f0ef04f31a7c21fe
+          ref: b56701cc1e48920378df18a2081d0f5f9f4ad3bb
           path: work/accepted-workers
       - uses: actions/setup-python@v5
         with:

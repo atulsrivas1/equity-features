@@ -26,7 +26,7 @@ def normalize_ef1_companion_pins(path: str, text: str) -> str:
                     for name in ('provenance', 'conformance', 'r10')}:
         return text
     for current, historical in (
-        ('839e7fb5405b47dff51d00c3f0ef04f31a7c21fe', '6538f21b441c8527b465899b98cfd0476e7af08a'),
+        ('b56701cc1e48920378df18a2081d0f5f9f4ad3bb', '6538f21b441c8527b465899b98cfd0476e7af08a'),
         ('f20abd5acd74a4917fdaf087e9c92757746e7ea4', '18d86761aa3eebb7414e51e8fa2aba089717b5eb'),
     ):
         marker = '          ref: '+current+'\n'
@@ -199,7 +199,7 @@ class WorkflowTests(unittest.TestCase):
         original = (self.root/path).read_text(encoding='utf-8')
         restored = normalize_ef1_companion_pins(path, original)
         self.assertIn('ref: 6538f21b441c8527b465899b98cfd0476e7af08a', restored)
-        for altered in (original.replace('839e7fb5405b47dff51d00c3f0ef04f31a7c21fe', '0'*40),
+        for altered in (original.replace('b56701cc1e48920378df18a2081d0f5f9f4ad3bb', '0'*40),
                         original+"          ref: f20abd5acd74a4917fdaf087e9c92757746e7ea4\n"):
             with self.assertRaises(ValueError):
                 normalize_ef1_companion_pins(path, altered)
