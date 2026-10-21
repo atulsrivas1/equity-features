@@ -1,3 +1,7 @@
+## R26 corrected candidate evidence — October 21, 2026
+
+Fresh review corrections are source-qualified at library5df4bbb with73methods and559complete rows/19errors. The126 supplemental rows cover definition partitions and causal selection clocks without replacing the original433-row oracle or expanding the44 native outputs/six named matrix declarations. Separate Windows/Linux corrected artifact builds passed, but independent artifact admission and clean installed qualification remain pending. Earlier installed/browser evidence still binds its older candidate. See [current handoff](SESSION_HANDOFF.md) and [immutable supplemental evidence](https://github.com/atulsrivas1/option-features/blob/5df4bbb3ea23225d5316b4f93c13b5975cd9435b/docs/r26/SUPPLEMENTAL_REGRESSIONS.md). Actual EQ153/EQ158 still gate EQ190 and full EQ193. This checkpoint adds no source-variant, equity integration or release acceptance claim.
+
 # Option matrix coverage accounting
 
 Pinned matrix source commit: `a7cde58fc05166c9818c9107ed52269186d16afa`. Detailed source-derived identities, formulas and command paths remain local under existing rights restrictions. Public rows below report aggregate planning ownership; counts overlap and are not unique formulas. [Plan](OPTION_DELIVERY_REPLAN.md), [machine-readable allocation](plans/option-delivery-replan.json).

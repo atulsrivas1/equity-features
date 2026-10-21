@@ -1,3 +1,7 @@
+## Supplemental expected results must survive independent reconstruction — October 21, 2026
+
+For R26's uncovered definition-partition and causal-clock branches, keep production-author unit assertions separate from independently authored full expected records. A second reviewer reconstructed all20 supplemental cases/126rows without importing the producer, fixture generators or original reference helper; public generators then reproduced the exact independently audited bytes. Preserve original frozen contracts/oracles and link each proof to its actual source or installed artifact identity. Source success and matching original/rebuilt wheels establish different facts; independent artifact admission and clean installed checks remain necessary. [Corrected candidate evidence](../SESSION_HANDOFF.md) records the actual results and remaining gates.
+
 ## Fresh review can invalidate a qualified candidate — October 21, 2026
 
 R26 passed broad independent fixtures and installed pipeline checks before a fresh source reviewer identified uncovered definition partitions, context-removal economic clocks and unconditional reserved-output boundary rules. Keep passing evidence attached to its actual producer; neither its breadth nor package installation proves untested contract branches. Return affected stories to rework, preserve immutable expected data, author independent supplemental counterexamples and qualify corrected exact packages. [Current rework evidence](../SESSION_HANDOFF.md) links the accepted findings.
