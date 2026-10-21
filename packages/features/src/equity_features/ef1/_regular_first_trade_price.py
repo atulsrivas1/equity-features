@@ -186,9 +186,10 @@ def compute_regular_first_trade_price(batches: tuple[CanonicalBatch | None, ...]
         cols = _market(trades, config, entity, config.session.open_ns, config.availability.market_cutoff_ns)
         if trades.metadata.interval_coverage or trades.metadata.sampling != "none" or trades.metadata.quantity_unit != "shares":
             fail(ErrorCode.INVALID_SCHEMA, "first-trade metadata shape mismatch")
+        conditions = cols.get("condition", (None,) * trades.row_count)
         for i in range(trades.row_count):
             event = cols["event_ns"][i]
-            condition = cols.get("condition", (None,) * trades.row_count)[i]
+            condition = conditions[i]
             if condition is not None and condition not in ("regular", "opening_auction", "closing_auction"):
                 fail(ErrorCode.INVALID_SCHEMA, "closed regular trade condition required")
             if not config.session.open_ns <= event < config.availability.market_cutoff_ns or condition in ("opening_auction", "closing_auction"):

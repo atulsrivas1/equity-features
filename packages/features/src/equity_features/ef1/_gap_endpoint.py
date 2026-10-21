@@ -106,12 +106,14 @@ def _projection(path: CanonicalBatch) -> str:
     rows: list[list[Any]] = []
     if path.kind == DataKind.TRADE:
         names = ["instrument_id", "session_id", "event_ns", "order_key", "event_id", "eligible", "condition_present", "condition"]
+        conditions = cols.get("condition", (None,) * path.row_count)
         for i in range(path.row_count):
-            rows.append([cols[n][i] for n in names[:6]] + ["condition" in cols, cols.get("condition", (None,) * path.row_count)[i]])
+            rows.append([cols[n][i] for n in names[:6]] + ["condition" in cols, conditions[i]])
     else:
         names = ["instrument_id", "session_id", "start_ns", "end_ns", "volume_present", "volume_class"]
+        volumes = cols.get("volume", (None,) * path.row_count)
         for i in range(path.row_count):
-            volume = cols.get("volume", (None,) * path.row_count)[i]
+            volume = volumes[i]
             rows.append([cols[n][i] for n in names[:4]] + ["volume" in cols, "unknown" if volume is None else "positive" if volume > 0 else "zero"])
     return hashlib.sha256(_json({"version": "ef1-gap-membership-projection1", "kind": path.kind.value,
         "membership_columns": names, "rows": rows}).encode("ascii")).hexdigest()
