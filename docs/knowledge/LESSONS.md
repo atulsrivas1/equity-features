@@ -1,3 +1,9 @@
+## Selected-profile proof does not close allocated raw mathematics — October 21, 2026
+
+R26 matrix reconciliation identified additional primitive responsibilities despite broad passing installed and stored-result evidence. [Actual contract rework](https://github.com/atulsrivas1/equity-features/issues/534#issuecomment-6314500357) keeps those responsibilities with EQ188/EQ189/EQ215; a later screen/policy allocation does not deliver the underlying mathematics. A supplied premium or baseline operand also does not establish its producer. Preserve old successful receipts and immutable outputs while preparing separately identified contracts, independent fixtures and boundary review before freeze. Packaging choices and implementation follow that review. Portable numeric recipes do not imply original-source bit parity.
+
+Queue evidence must be checkpointed: an active child and stop-after-current request establish neither completion nor idle cleanup. Preserve unexecuted gates, avoid changing leased inputs, and require fresh applicable qualification for an amended candidate. [Current handoff](../SESSION_HANDOFF.md#r26-matrix-backed-raw-profile-contract-rework--october-21-2026) records actual reviewed cohorts and limits without converting selected-profile proof into complete matrix/release acceptance.
+
 ## Preserve proposal history beside actual numbered allocations - October 21, 2026
 
 Keep historical task records intact and add an explicitly dated current allocation map. [Actual numbered owners](../ef1/NUMBERED_LAYER_OWNERS.md) now bind the 18 planned tasks; sixteen new issues have independently reviewed bodies and verified native parents, milestones, Project Backlog status and complete corrected-body hashes. Recheck identifiers immediately before creation, distinguish the acceptance owner from its prerequisites, and reconcile reciprocal links after actual allocation.
