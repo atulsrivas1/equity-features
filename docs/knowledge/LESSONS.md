@@ -1,3 +1,11 @@
+## Fresh review can invalidate a qualified candidate — October 21, 2026
+
+R26 passed broad independent fixtures and installed pipeline checks before a fresh source reviewer identified uncovered definition partitions, context-removal economic clocks and unconditional reserved-output boundary rules. Keep passing evidence attached to its actual producer; neither its breadth nor package installation proves untested contract branches. Return affected stories to rework, preserve immutable expected data, author independent supplemental counterexamples and qualify corrected exact packages. [Current rework evidence](../SESSION_HANDOFF.md) links the accepted findings.
+
+Partition first, then order within the complete semantic partition: a run-key-only change still over-splits A/B/A interleaving. Distinct reference identities need not mean distinct economic definitions. An admitted cancellation can causally establish an older quote/prefix and therefore its value availability, while remaining outside the frozen minimal context digest. A sink need not recalculate numerical formulas to enforce an unconditional unsupported capability state. These repairs implement existing frozen contracts rather than waiving or revising expectations.
+
+Stop obsolete scheduling without killing an independently owned numerical child or changing its resource lease. Validate exact process identity and preserve original queue counts/receipts; uncertainty after suspension must remain paused for explicit reconciliation, never silently resume obsolete dispatch. Complete actual child cleanup before releasing any owned hold. Process-control source review is separate from successful execution evidence.
+
 ## R26 matrix evidence must have immutable bindings — October 21, 2026
 
 Native installed numerical success does not settle private source variants or a full matrix promise. Bind each named declaration to its exact mathematical profile, scenario evidence and producer; distinguish declarations, typed outputs, scenarios and result-row counts. Fresh review of the six R26 bindings caught moving-branch evidence URLs; all five were pinned to the actual reviewed commit before acceptance. Preserve explicit source-parity=false residuals and actual equity integration gates. See the [dated matrix crosswalk](../OPTION_MATRIX_COVERAGE.md#r26-native-evidence-checkpoint--october-21-2026).
