@@ -1,0 +1,236 @@
+{
+  "kind": "existing_public_DTO_field_reference",
+  "status": "Preparation reference; no new DTO, constructor, version field or implementation grant",
+  "canonical_contract_package_version": "0.0.4a4",
+  "feature_backend_id": "python-exact",
+  "feature_backend_version": "0.0.4a5",
+  "canonical_records": {
+    "SourceBinding": [
+      "source_id",
+      "snapshot_id",
+      "mapping_version",
+      "input_id"
+    ],
+    "PriceUnit": [
+      "scale",
+      "currency"
+    ],
+    "AdjustmentSpec": [
+      "basis",
+      "policy_version",
+      "action_snapshot",
+      "anchor"
+    ],
+    "Coverage": [
+      "expected",
+      "observed",
+      "complete"
+    ],
+    "InputScope": [
+      "start_ns",
+      "end_ns",
+      "eligibility_policy",
+      "include_opening_auction",
+      "include_closing_auction"
+    ],
+    "IntervalCoverage": [
+      "name",
+      "start_ns",
+      "end_ns",
+      "coverage"
+    ],
+    "BatchMetadata": [
+      "namespace",
+      "source",
+      "coverage",
+      "price_unit",
+      "adjustment",
+      "sampling",
+      "quantity_unit",
+      "ordering",
+      "duplicate_policy",
+      "scope",
+      "interval_coverage"
+    ],
+    "CanonicalBatch": [
+      "kind",
+      "columns",
+      "metadata"
+    ],
+    "Column": [
+      "name",
+      "values"
+    ],
+    "SessionSpec": [
+      "namespace",
+      "session_id",
+      "open_ns",
+      "close_ns",
+      "timezone_label",
+      "intervals",
+      "scheduled_close_ns",
+      "early_close",
+      "include_opening_auction",
+      "include_closing_auction"
+    ],
+    "AvailabilitySpec": [
+      "market_cutoff_ns",
+      "knowledge_cutoff_ns",
+      "evaluation_ns",
+      "mode",
+      "reconstruction_reason"
+    ],
+    "WindowSpec": [
+      "count",
+      "target_session_id",
+      "governed_sessions",
+      "anchor"
+    ],
+    "Parameter": [
+      "name",
+      "value"
+    ],
+    "ConfigSpec": [
+      "identity",
+      "algorithm_version",
+      "parameters",
+      "session",
+      "window",
+      "availability",
+      "adjustment",
+      "price_unit",
+      "schema_version"
+    ],
+    "EntityKey": [
+      "instrument_id",
+      "session_id"
+    ],
+    "FeatureColumn": [
+      "feature_id",
+      "algorithm_version",
+      "dtype",
+      "unit",
+      "entities",
+      "values",
+      "schema_version"
+    ],
+    "QualityRow": [
+      "entity",
+      "feature_id",
+      "status",
+      "expected",
+      "observed",
+      "reasons"
+    ],
+    "InputBinding": [
+      "role",
+      "kind",
+      "metadata",
+      "schema_version"
+    ],
+    "ResultMetadata": [
+      "namespace",
+      "session_id",
+      "availability",
+      "config_digest",
+      "inputs",
+      "backend_id",
+      "backend_version",
+      "evidence_limit",
+      "schema_version",
+      "math_policy_version"
+    ],
+    "EvidenceRow": [
+      "entity",
+      "feature_id",
+      "input_id",
+      "row_id",
+      "event_ns",
+      "known_at_ns",
+      "effective_start_ns",
+      "effective_end_ns",
+      "use",
+      "exclusion_reason",
+      "boundary"
+    ],
+    "FeatureResult": [
+      "values",
+      "quality",
+      "metadata",
+      "evidence"
+    ]
+  },
+  "worker_records": {
+    "InputManifest": [
+      "role",
+      "acquisition_sha256",
+      "revision_id",
+      "state",
+      "binding",
+      "known_at_ns"
+    ],
+    "TaskManifest": [
+      "job_id",
+      "generation_id",
+      "partition_id",
+      "family",
+      "instruments",
+      "config",
+      "features",
+      "inputs",
+      "governed_sessions",
+      "destination_scope",
+      "ownership",
+      "max_input_batches",
+      "max_input_bytes",
+      "ordered_history",
+      "warmup_sessions",
+      "initialization_sha256",
+      "merge_policy",
+      "protocol_version",
+      "canonical_package_version",
+      "canonical_schema_version",
+      "math_policy_version"
+    ]
+  },
+  "execution_records": {
+    "WorkItem": [
+      "task",
+      "batches",
+      "calculate"
+    ]
+  },
+  "publication_records": {
+    "FeatureHeader": [
+      "feature_id",
+      "algorithm_version",
+      "dtype",
+      "unit",
+      "schema_version"
+    ],
+    "SinkRequirements": [
+      "protocol_version",
+      "codec_version",
+      "identity_version",
+      "digest_version",
+      "canonical_package_version",
+      "canonical_schema_version",
+      "math_policy_version",
+      "visibility",
+      "writer_mode",
+      "reservation_retention_ns",
+      "max_results",
+      "max_chunk_bytes",
+      "max_total_bytes",
+      "max_result_cells",
+      "max_evidence_rows"
+    ]
+  },
+  "warnings": [
+    "CanonicalBatch constructor has exactly kind/columns/metadata; its literal schema_version is checked transport identity.",
+    "ConfigSpec has schema_version/algorithm_version, no package/build/version argument.",
+    "SourceBinding has only source_id/snapshot_id/mapping_version/input_id; no revision property.",
+    "IntervalCoverage.coverage must be a typed Coverage.",
+    "TaskManifest package/schema/math protocol fields describe canonical contracts, not the features backend version."
+  ]
+}

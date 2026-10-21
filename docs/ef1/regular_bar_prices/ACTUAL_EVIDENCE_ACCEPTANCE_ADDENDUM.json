@@ -1,0 +1,32 @@
+{
+  "kind": "append_only_regular_bar_public_candidate_actual_probe_acceptance",
+  "status": "GENERIC_STRUCTURAL_EVIDENCE_ACCEPTED_PUBLICATION_REVIEW_AND_ROOT_FREEZE_PENDING",
+  "base_preparation_manifest_sha256": "9c2762790bc78139bb802c116f34e312ae22084055ddd57f2e89a13137813358",
+  "actual_probe_preparation_addendum_manifest_sha256": "0e1e1a7299a25f3698af02f363e65226abad40ae0a510e9b67ad2ce22a580f9e",
+  "actual_generic_evidence_independent_review_sha256": "6d914f952c198a706ea58edbe62af3ec1b8989269a09d7275ca6373f74ec5ed0",
+  "actual_probe_final_receipt_sha256": "d760f17a05ffd1ab4893b90888a789a898905d80d595b5dfc3af3bc10e42692d",
+  "actual_probe_parent_receipt_sha256": "9325fd316e631bd3ef85287f2ad15a06f4be3c07b2727f1c3b3b9305e5e5ab3b",
+  "review_scope": "All105generic case/control observations, actual source/origin bounds and actual child exit independently checked. No new regular_bar_prices producer, proof parser, producer-specific worker callback/closure or sink execution.",
+  "status_precedence": {
+    "preserved_preparation_history": [
+      "README.md",
+      "PREPARATION_STATUS.json",
+      "PUBLICATION_MANIFEST.json",
+      "ACTUAL_GENERIC_PROBE_PENDING_REVIEW.json",
+      "ACTUAL_GENERIC_PROBE_PENDING_REVIEW.md",
+      "ACTUAL_PROBE_ADDENDUM_MANIFEST.json"
+    ],
+    "current_generic_evidence_state": "Accepted only within the independent review scope recorded above. Earlier pending fields describe preparation chronology, not the current acceptance state.",
+    "reader_entry_point": "STATUS_AND_EVIDENCE_PRECEDENCE.md",
+    "unresolved_authority": "Fresh independent source-safe publication review and explicit coordinator exact-byte shared freeze/source grant still required."
+  },
+  "source_authoring_gate_eligible_after_publication_review_and_coordinator_freeze": true,
+  "independent_publication_review_sha256": null,
+  "shared_freeze": false,
+  "implementation_authorized": false,
+  "numerical_implementation_validated": false,
+  "source_or_runtime_admission": false,
+  "full_EQ164_complete": false,
+  "EF1_release_accepted": false,
+  "package_tag_release_publication_authorized": false
+}
