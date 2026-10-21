@@ -35,7 +35,8 @@ CONTROL = ('tools/build_evidence_evaluation.py','tools/build_agent_ledger.py',
  'tools/evidence_pilot_archives.py','tests/evidence_evaluation/test_evaluation.py',
  'docs/stories/EQ116_INPUTS.json','docs/stories/EQ117_EVALUATION_PROPOSAL.json',
  'docs/stories/EQ117_OWNER_DECISION.json','docs/stories/EQ117_MEASUREMENT_PROTOCOL.md',
- '.github/workflows/evidence-evaluation.yml','requirements-dev.txt')
+ '.github/workflows/evidence-evaluation.yml','requirements-dev.txt',
+ 'docs/ef1/EVIDENCE_EVALUATION_SOURCE_EVOLUTION.json')
 
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 def encoded(value):return (json.dumps(value,sort_keys=True,indent=2,ensure_ascii=True,allow_nan=False)+'\n').encode('ascii')
@@ -69,10 +70,37 @@ def main():
               any(p.startswith('packages/'+n+'/') for n in PACKAGES if n!='bundles')}
     assert set(HARNESS+CONTROL)<=set(selected)
     io_source={p:git(IO,'show',IO_HEAD+':'+p) for p in io_whole if p.startswith('packages/bundles/')}
-    pins=json.loads(selected['docs/stories/EQ116_INPUTS.json'])
+    pin_bytes=selected['docs/stories/EQ116_INPUTS.json']
+    assert len(pin_bytes)==19347 and sha(pin_bytes)=='5da427709f7b28da6c79156fe3d1bc91254b0511417317cbe1d50b500fb4fe5a'
+    pins=json.loads(pin_bytes)
     assert set(io_source)==set(pins['io'])
-    for p,d in pins['canonical'].items():
-        if p.startswith('packages/') or p in ('examples/agent_research.py','tools/build_agent_ledger.py'):
+    historical={p:d for p,d in pins['canonical'].items() if p.startswith('packages/') or
+                p in ('examples/agent_research.py','tools/build_agent_ledger.py')}
+    governed={p for p in selected if p.startswith('packages/') or
+              p in ('examples/agent_research.py','tools/build_agent_ledger.py')}
+    source_evolution=None
+    if study:
+        # Historical owner acceptance does not authorize a study of this new cohort.
+        assert governed==set(historical)
+        for p,d in historical.items():
+            assert len(selected[p])==d['bytes'] and sha(selected[p])==d['sha256']
+    else:
+        evolution_bytes=selected['docs/ef1/EVIDENCE_EVALUATION_SOURCE_EVOLUTION.json']
+        assert len(evolution_bytes)==3404 and sha(evolution_bytes)=='05831d44907d2d544d04faa0cb4f99bc441f4d985e95ee664dafe612d142b0e9'
+        source_evolution=json.loads(evolution_bytes)
+        assert source_evolution['schema']=='ef1.eq117.qualification-source-evolution:1'
+        assert source_evolution['historical_pin_receipt']==dict(bytes=len(pin_bytes),sha256=sha(pin_bytes))
+        modified,added=source_evolution['modified'],source_evolution['added']
+        assert len(modified)==7 and len(added)==4
+        assert set(modified)<=set(historical) and not set(added)&set(historical)
+        assert governed==set(historical)|set(added), 'undeclared package source addition/deletion'
+        for p,d in historical.items():
+            current=d
+            if p in modified:
+                assert modified[p]['historical']==d
+                current=modified[p]['current']
+            assert len(selected[p])==current['bytes'] and sha(selected[p])==current['sha256'], 'undeclared source drift: '+p
+        for p,d in added.items():
             assert len(selected[p])==d['bytes'] and sha(selected[p])==d['sha256']
     for p,d in pins['io'].items():assert len(io_source[p])==d['bytes'] and sha(io_source[p])==d['sha256']
     assert sha(selected['docs/stories/EQ117_EVALUATION_PROPOSAL.json'])=='7405067b0360126a462bb7a66b5a89416cf93399843b0933b358760804e45073'
@@ -104,7 +132,8 @@ def main():
         system=platform.system(),python=platform.python_version(),machine=platform.machine(),
         whole_git_tree=whole,whole_io_git_tree=io_whole,
         effective_source={p:dict(bytes=len(raw),sha256=sha(raw)) for p,raw in selected.items()},
-        io_source=pins['io'],archives={},logs=logs,study_requested=study)
+        io_source=pins['io'],archives={},logs=logs,study_requested=study,
+        source_evolution=source_evolution,historical_study_source_parity=source_evolution is None)
     def save():(OUT/'qualification.json').write_bytes(encoded(report))
     def closure():
         assert git(ROOT,'rev-parse','HEAD').decode().strip()==head and tree(ROOT,head)==whole
