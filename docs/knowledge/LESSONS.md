@@ -1,3 +1,9 @@
+## R26 matrix evidence must have immutable bindings — October 21, 2026
+
+Native installed numerical success does not settle private source variants or a full matrix promise. Bind each named declaration to its exact mathematical profile, scenario evidence and producer; distinguish declarations, typed outputs, scenarios and result-row counts. Fresh review of the six R26 bindings caught moving-branch evidence URLs; all five were pinned to the actual reviewed commit before acceptance. Preserve explicit source-parity=false residuals and actual equity integration gates. See the [dated matrix crosswalk](../OPTION_MATRIX_COVERAGE.md#r26-native-evidence-checkpoint--october-21-2026).
+
+An approved example source is not an executed example. Exact package-tree equivalence justifies preserving prior built artifacts after documentation/example-only changes, while the new example still needs its own installed full-wire comparison. A receipt summary must keep pending/unstarted/failure states and process-cleanup limitations distinct from confirmed results; neither a queued command nor an initial lease snapshot proves later completion. Current [continuity](../SESSION_HANDOFF.md) records actual results and resume work.
+
 # R26 actual pipeline and isolated regression scope — October 21, 2026
 
 Component tests and full-row comparisons in an installed runtime still do not prove the worker/storage path. The first actual R26 pipeline now passes all 101 checks, and the browser display is bound to fresh reads of the real accepted databases. Retain exact receipt hashes, immutable expected rows, source database byte checks, explicit failed/open gates and independent artifact review. A generated resource pack becomes usable only after separate recomputation; its existence is not a resource measurement. [Actual pipeline checkpoint](../SESSION_HANDOFF.md).
