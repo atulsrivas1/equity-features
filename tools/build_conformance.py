@@ -15,12 +15,12 @@ from email.parser import BytesParser
 import build_explanations as common
 
 ROOT=Path(__file__).resolve().parents[1]
-PINS={'io':'18d86761aa3eebb7414e51e8fa2aba089717b5eb','workers':'6538f21b441c8527b465899b98cfd0476e7af08a'}
-PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'), 'features':('equity_features','0.0.4a4'),
+PINS={'io':'f20abd5acd74a4917fdaf087e9c92757746e7ea4','workers':'b56701cc1e48920378df18a2081d0f5f9f4ad3bb'}
+PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'), 'features':('equity_features','0.0.4a5'),
     'evidence':('equity_feature_evidence','0.1.0a2'),'diagnostics':('equity_feature_diagnostics','0.1.0a1'),
-    'provenance':('equity_feature_provenance','0.1.0a1'),'io-contracts':('equity_feature_io_contracts','0.1.0a2'),
-    'io-sdk':('equity_feature_io_sdk','0.1.0a2'),'duckdb':('equity_feature_duckdb','0.1.0a8'),
-    'duckdb-sink':('equity_feature_duckdb_sink','0.1.0a0'),'workers':('equity_feature_workers','0.1.0a13'),
+    'provenance':('equity_feature_provenance','0.1.0a2'),'io-contracts':('equity_feature_io_contracts','0.1.0a2'),
+    'io-sdk':('equity_feature_io_sdk','0.1.0a2'),'duckdb':('equity_feature_duckdb','0.1.0a9'),
+    'duckdb-sink':('equity_feature_duckdb_sink','0.1.0a0'),'workers':('equity_feature_workers','0.1.0a15'),
     'conformance':('equity_feature_conformance','0.1.0a1')}
 common.PACKAGES=PACKAGES
 run=common.run

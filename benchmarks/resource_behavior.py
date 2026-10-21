@@ -222,7 +222,7 @@ def main():
         if args.family is None:parser.error('child family required')
         import equity_feature_contracts as c,equity_features as f,equity_feature_demo as d
         assert all('site-packages' in Path(m.__file__).parts for m in (c,f,d)), 'actual installed core and consumer required'
-        assert c.__version__==f.__version__==f.contracts_version
+        assert (c.__version__,f.__version__,f.contracts_version)==('0.0.4a4','0.0.4a5','0.0.4a4')
         spec=importlib.util.spec_from_file_location('native_probe',Path(__file__).with_name('run_baseline.py'));native=importlib.util.module_from_spec(spec);spec.loader.exec_module(native)
         initial,method=native.peak_bytes();result=run_case(args.family,rows,args.chunk_size,args.k,args.observations,args.windows)
         result['controls']=controls()

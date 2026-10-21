@@ -52,3 +52,9 @@ EQ034 adds owned supplied return references and batch market/sector spreads with
 EQ035 adds compute_direction_breadth and compute_above_sma_breadth using supplied dependencies only; [API](../../docs/api/DECLARED_BREADTH.md). Missing members preserve expected U and exact SMA witness comparison. Both batch only.
 
 Pure compose_features collects supplied typed instances with coherent target/C-K-E, actual backend versions and original proof/frame ownership checks. Missing dependencies remain explicit; no hidden calculation, acquisition or state operation. See feature_composition.py and docs/api/FEATURE_COMPOSITION.md.
+
+Optional `equity_features.ef1` now includes source-authored sampled `path_gap` and
+`path_drive` candidates through the existing closed API. See the
+[path API](../../docs/api/EF1_PATHS.md) and
+[mathematics](../../docs/features/EF1_PATHS.md). Independent fixture tests are
+authored; runtime, installed integration and release acceptance are pending.

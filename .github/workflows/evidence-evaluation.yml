@@ -21,6 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event_name != 'workflow_dispatch' && '07cfa3bf5c9a268ed73aed99c067030606b5493d' || github.sha }}
           persist-credentials: false
       - uses: actions/checkout@v4
         with:

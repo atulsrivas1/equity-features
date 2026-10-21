@@ -1,3 +1,11 @@
+## EF1 bounded period/extended synthetic examples
+
+The [period/phase API example](api/EF1_PERIOD_PHASE.md) links complete frozen
+synthetic configs/inputs and independent expected results for all17 headers.
+PERIOD_BASE and EXTENDED_BASE are executed by the75-method source fixture suite,
+with complete quality/provenance/evidence comparisons. Source execution does
+not establish the installed worker-to-DuckDB/browser release demonstration.
+
 ## R17 intraday and supplied-worker examples
 
 After the [matching installation](INSTALLING.md), run [direct preparation/example](../examples/intraday_preparation.py) with the installed Python: it checks exact supplied preparation and selected EMA/middle/position values11.0/11.0/0.5. The [worker synthetic example](https://github.com/atulsrivas1/equity-feature-workers/blob/231349aaf2bf1b9ec21f45807382ca9c6522520c/examples/supplied_intraday.py) imports explicit intraday callbacks, computes all eight outputs and asserts EMA14.75 using supplied facts only; its default is sequential. Run it as a script after installing the combined six-package set. These examples do not fetch data, publish externally or imply a persistent pool. Their unchanged source and package qualification are mapped in [R17 evidence](R17_ACCEPTANCE.md); no new performance result is claimed. Missing/observed-empty/coverage/cutoff and per-output quality remain in the [API contract](api/INTRADAY.md).

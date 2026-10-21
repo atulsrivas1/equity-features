@@ -19,6 +19,14 @@ BACKEND_APIS={
 }
 
 NEGATIVE_FIXTURES=(
+    "import types", "import types as t", "from types import CodeType",
+    "from types import FunctionType", "from types import *",
+    "from types import MappingProxyType, CodeType",
+    "import base64", "import base64 as b64",
+    "from base64 import *", "from base64 import encode", "from base64 import decode",
+    "from base64 import urlsafe_b64decode, decode",
+    "from base64 import urlsafe_b64encode, encode",
+    "from base64.extra import urlsafe_b64decode",
     "import equity_feature_io_contracts", "import equity_feature_io_sdk",
     "import equity_feature_workers", "import equity_feature_duckdb",
     "import requests as r", "from pathlib import Path as P", "import os",
@@ -50,6 +58,12 @@ NEGATIVE_FIXTURES=(
     "from .columnar import *",
 )
 POSITIVE_FIXTURES=(
+    "from types import MappingProxyType\nx=MappingProxyType({'a':1})",
+    "from types import MappingProxyType as ReadOnly\nx=ReadOnly({'a':1})",
+    "from base64 import urlsafe_b64decode\nx=urlsafe_b64decode(b'ZQ==')",
+    "from base64 import urlsafe_b64encode\nx=urlsafe_b64encode(b'e')",
+    "from base64 import urlsafe_b64decode, urlsafe_b64encode\nx=urlsafe_b64encode(urlsafe_b64decode(b'ZQ=='))",
+    "from base64 import urlsafe_b64decode as decode_id, urlsafe_b64encode as encode_id\nx=encode_id(decode_id(b'ZQ=='))",
     'from dataclasses import dataclass\nfrom .types import T',
     'import numpy as np\nx=np.array([1],dtype=np.int64)\nx.tolist()',
     'from numpy import array as make\nmake([1])',
@@ -80,7 +94,14 @@ def violations(source):
                         found.append(f'{node.lineno}: forbidden relative namespace/wildcard import {item.name}')
                 continue
             module=node.module or ''
-            if module.split('.')[0] not in ALLOWED or (module.split('.')[0] in BACKENDS and module not in BACKENDS):
+            # A single explicit read-only mapping constructor is a reviewed pure
+            # API. Do not admit the types namespace or any code/function API.
+            pure_mapping = module == 'types' and len(node.names) == 1 and node.names[0].name == 'MappingProxyType'
+            # Only the two deterministic in-memory identity codecs are admitted;
+            # base64's namespace and file-oriented encode/decode APIs stay denied.
+            pure_base64 = module == 'base64' and bool(node.names) and all(
+                item.name in {'urlsafe_b64decode', 'urlsafe_b64encode'} for item in node.names)
+            if (module.split('.')[0] not in ALLOWED and not (pure_mapping or pure_base64)) or (module.split('.')[0] in BACKENDS and module not in BACKENDS):
                 found.append(f'{node.lineno}: forbidden import {module}')
             for item in node.names:
                 imported.setdefault(item.asname or item.name,set()).add(module+'.'+item.name)
@@ -407,7 +428,7 @@ def check():
     for root in provenance_packages:
         if not root.exists():continue
         project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2','equity-feature-diagnostics==0.1.0a1','equity-feature-workers==0.1.0a13','equity-feature-io-contracts==0.1.0a2','equity-feature-io-sdk==0.1.0a2','equity-feature-duckdb==0.1.0a8','equity-feature-duckdb-sink==0.1.0a0']
+        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2','equity-feature-diagnostics==0.1.0a1','equity-feature-workers==0.1.0a15','equity-feature-io-contracts==0.1.0a2','equity-feature-io-sdk==0.1.0a2','equity-feature-duckdb==0.1.0a9','equity-feature-duckdb-sink==0.1.0a0']
         assert not project.get('optional-dependencies',{})
         for path in root.glob('src/**/*.py'):
             errors=provenance_violations(path.read_text(encoding='utf-8'));assert not errors,(path,errors)

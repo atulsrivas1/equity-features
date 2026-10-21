@@ -113,7 +113,7 @@ def _caps(value: object) -> None:
     if type(value) is a.AcquisitionReceipt:
         _seq(value.files, 32); _seq(value.missing_sessions, 128)
         require(type(value.schema) is str and value.schema == 'acquisition1', 'unsupported_version')
-        require(type(value.adapter_version) is str and value.adapter_version == '0.1.0a8', 'unsupported_version')
+        require(type(value.adapter_version) is str and value.adapter_version == '0.1.0a9', 'unsupported_version')
         require(type(value.canonical_schema) is int and value.canonical_schema == 1, 'unsupported_version')
         for digest in (value.request_digest, value.configuration_digest, value.resolved_digest,
                 value.input_evidence_digest, value.catalog_sha256): _digest(digest)

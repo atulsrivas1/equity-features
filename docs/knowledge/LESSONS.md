@@ -8,6 +8,49 @@ The checker now validates the owner-approved R26-only admission amendment, EQ188
 
 [Preparation](../r26/PREPARATION.md) first verified that R25's scoped independent-admission amendment left later releases unchanged. The owner then explicitly extended independent admission to R26 native tracks, retaining EQ153/EQ158 integration and full R26 scope; record this distinct decision rather than infer a global waiver. Distinguish scalar operands, qualified shared mathematical producers and scheduler delivery gates. Supplied fixtures do not deliver missing equity producers; do not duplicate equity mathematics or silently drop cross-market scope to claim independence. Ordered execution/revisions, exact premium representation and carried checkpoint state require new explicit flow contracts; an identity-sorted R25 snapshot cannot stand in for a tape. Reconcile conflicting source behaviors under named original policies and independent fixtures before freeze.
 
+## EF1 main refresh preserves completed R25 evidence - October 21, 2026
+
+The cumulative EF1 source candidate retains current [R25 release acceptance](../R25_RELEASE_ACCEPTANCE.md), owner policy and both original byte-line histories. Historical pending/unreleased snapshots remain dated history; EF1 qualification remains separately pending. Direct raw Git byte comparisons are required after every documentation edit, including identity-only text edits.
+
+## EF1 integration preserves evidence identities - October 21, 2026
+
+The cumulative [EF1 source rollup](https://github.com/atulsrivas1/equity-features/pull/589) must preserve current main's owner policy and R25 history while retaining the bounded EF1 authoring evidence. A documentation-only main refresh does not rename earlier qualification source commits or turn an in-progress final cohort into a completed run. Prove equality of package, build, test, fixture and qualification inputs individually, classify any additive checker, and obtain fresh independent review of the full main-to-rollup diff before source merge. Existing full audit, browser demo and release gates remain distinct from bounded source qualification.
+
+Feature algorithm revisions and the shared global math-policy identity are separate contracts. Observable-v2 feature semantics do not by themselves require a new global policy version: the reviewed publication amendment retains global v1 and unchanged generic SDK/sink compatibility. Literal constructor admission is weaker than actual producer-to-worker-to-sink qualification; preserve the failed incompatible-policy run and require the real integrated result.
+
+## Earlier lessons retained as history
+
+## Period endpoints need precise field dependencies — October 21, 2026
+
+The [frozen period contract](../ef1/PERIOD_PHASE_CONTRACT_PROPOSAL.md) requires
+whole delivered-population coverage, volume eligibility and causal knowledge
+to identify endpoints. Once those identities are ready, first open depends on
+the first price-bearing row's open, and last close on the last row's close.
+Absent optional open on a later BAR or close on an earlier DAILY must not erase
+those independently ready endpoints. Every field actually supplied still passes
+canonical structural validation. The [implementation evidence](../ef1/PERIOD_PHASE_IMPLEMENTATION.md)
+records an independent nine-value control alongside all62 frozen packets;
+source tests/typing/purity passed without changing any frozen expected result.
+
+Capability-refusal tests must use identities that remain unimplemented. Period
+authoring necessarily superseded the old anchor test's period-as-unsupported
+label; retaining UNSUPPORTED_CAPABILITY with unimplemented_producer preserves
+its original purpose, while separate frozen cases govern malformed period
+configs. This change and the initial observed failure are recorded explicitly.
+
+## Sampled-path readiness preserves structural facts — October 20, 2026
+
+The [reviewed path amendment](../ef1/PATH_CONTRACT_PROPOSAL.md) separates numerical
+dependencies from canonical structural admission. Unused supplied OHLC/volume
+cells remain validated; dropping original fields to admit an invalid DAILY or
+BAR row changes the input rather than resolving readiness. The nine literal
+canonical-policy controls and 14 path goldens in the
+[frozen companion](../ef1/PATH_CONTRACT_PROPOSAL.json) drive independent authored
+tests. Candidate knowledge is required in reconstruction too, selected evidence
+is bounded without replacing complete population bindings, and latest remaining
+gap differs from maximum-prefix fill after reversal. Source authoring and fixture
+counts are not executed numerical evidence; protected study reservations remain
+in force until the coordinator obtains actual terminal evidence.
 ## R25 publication requires actual delivery readback — October 21, 2026
 
 Owner approval permitted the exact prepared GitHub prereleases. [Published acceptance](../R25_RELEASE_ACCEPTANCE.md) binds all three actual tags to reviewed commit/tree targets and all twelve downloaded assets to approved sizes/SHA256. Verify delivered bytes before Released, then record reviewed documentation/acceptance before Done and issue/milestone closure. A later documentation commit does not rewrite immutable artifact source markers. Retain older pending-state snapshots as chronology and use the live Project for current execution status.
@@ -2115,3 +2158,14 @@ The qualification interpreter generated sibling bytecode caches before the study
 ## EQ117: explicit deferral changes the assignment schema, not active story coverage
 
 Owner-approved Future Backlog rows must remain in the complete134-story inventory. The old release-only CI regex counted132 after deferring EQ118/EQ119. Extend the finite assignment domain, preserve all unique IDs and original release mappings, and assert the exact deferred/selected sets. Author and documentation review missed the parser dependency; preserve both actual failed jobs and the local old-fail/new-pass documentation checks. [Validation](../stories/EQ117_VALIDATION.json).
+## EQ117: explicit deferral changes the assignment schema, not active story coverage
+
+Owner-approved Future Backlog rows must remain in the complete134-story inventory. The old release-only CI regex counted132 after deferring EQ118/EQ119. Extend the finite assignment domain, preserve all unique IDs and original release mappings, and assert the exact deferred/selected sets. Author and documentation review missed the parser dependency; preserve both actual failed jobs and the local old-fail/new-pass documentation checks. [Validation](../stories/EQ117_VALIDATION.json).
+
+## EF1 supplied-status prerequisite evidence (source preparation, October20,2026)
+
+The current-status slice must preserve an original seed/required transition stream and explicit prefix/validity proofs; last-observed state or age is not a safe fallback when required knowledge is missing. No default event-age expiry follows from an old unchanged event. Independent S01–S03 authored fixtures retain cutoff equality, semantic same-time sequence and explicit max-age behavior. A source review exposed S02's C17 gap/validity dependency question; coordinator resolution is pending before numerical qualification. Evidence: [status mathematics](../features/EF1_STATUS.md), [API](../api/EF1_STATUS.md), tests/unit/test_ef1_status.py. No runtime evidence or completed story is claimed.
+
+The status prerequisite question above is resolved by the reviewed [slot/proof amendment](../ef1/STATUS_INPUT_SLOTS.md) and freeze receipt: expiry/max age depend on proved current identity; prefix/transition failure cannot fabricate additional validity conclusions. Structural identity/order/ambiguity still rejects unconditionally. Preserve S02 gap-only literal versus its separate complete-prefix expiry mutation, and emit original selected witnesses only after current identity is proved. Source-authored fixtures cover this correction; execution remains pending.
+
+Independent status source review F1 corrected a narrower causal-quality error: prefix/transition readiness cannot suppress original known-at checks on a uniquely structurally applicable required validity certificate. Only semantic expiry/max-age depend on those factual prerequisites. S01 combined unknown halt/future validity (and symmetric future halt/unknown validity) must retain both lexical reasons in both availability modes, with no current witness. Source correction and authored regression cases are pending independent recheck and runtime qualification; reviewer /root/ef1_status_library_review is distinct from author.

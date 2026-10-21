@@ -15,7 +15,7 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'dist/diagnostics'
 EPOCH=1700000000
 PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'),
-    'features':('equity_features','0.0.4a4'), 'evidence':('equity_feature_evidence','0.1.0a2'),
+    'features':('equity_features','0.0.4a5'), 'evidence':('equity_feature_evidence','0.1.0a2'),
     'diagnostics':('equity_feature_diagnostics','0.1.0a1')}
 # Reuse the unchanged reviewed archive/install functions with this closed table.
 common.PACKAGES=PACKAGES

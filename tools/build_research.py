@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist/research'
 EPOCH = 1700000000
 PACKAGES = {'contracts': ('equity_feature_contracts', '0.0.4a4'),
-            'features': ('equity_features', '0.0.4a4'), 'strategies': ('equity_feature_strategies', '0.1.0a1'),
+            'features': ('equity_features', '0.0.4a5'), 'strategies': ('equity_feature_strategies', '0.1.0a1'),
             'labels': ('equity_feature_labels', '0.1.0a1')}
 
 
@@ -162,9 +162,9 @@ from pathlib import Path
 from importlib.metadata import distribution
 import equity_feature_contracts as c
 import equity_features as f
-assert c.__version__==f.__version__=='0.0.4a4'
+assert (c.__version__,f.__version__,f.contracts_version)==('0.0.4a4','0.0.4a5','0.0.4a4')
 assert distribution('equity-feature-contracts').version=='0.0.4a4'
-assert distribution('equity-features').version=='0.0.4a4'
+assert distribution('equity-features').version=='0.0.4a5'
 assert distribution('equity-feature-contracts').requires is not None
 required=[r for r in distribution('equity-features').requires if ';' not in r]
 assert required==['equity-feature-contracts==0.0.4a4']

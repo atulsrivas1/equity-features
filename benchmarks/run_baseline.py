@@ -138,7 +138,7 @@ def child(args):
     from equity_features.session import compute_trades,compute_top_k
     from equity_features.incremental import SessionAccumulator
     assert 'site-packages' in Path(c.__file__).parts and 'site-packages' in Path(f.__file__).parts, 'actual installed pair required'
-    assert c.__version__==f.__version__==f.contracts_version
+    assert (c.__version__,f.__version__,f.contracts_version)==('0.0.4a4','0.0.4a5','0.0.4a4')
     pa.set_cpu_count(1); pa.set_io_thread_count(1)
     before,method=peak_bytes(); start=time.perf_counter_ns()
     batch,config,entity,prices,sizes,digest=trade_fixture(args.rows,args.seed,args.skew)

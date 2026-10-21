@@ -1,0 +1,15 @@
+{
+  "contract": "ef1-contract1",
+  "kind": "independent authored current-status literal expectations; unexecuted",
+  "cases": [
+    {"id": "S01-C16", "C": 16, "K": 16, "state": "halted", "age_ns": 4, "admission_state": "ready", "admission_reason": "none"},
+    {"id": "S01-C17", "C": 17, "K": 17, "state": "active", "age_ns": 1, "admission_state": "ready", "admission_reason": "none"},
+    {"id": "S01-late", "C": 17, "K": 15, "state": null, "age_ns": null, "admission_state": "unavailable", "admission_reason": "future_knowledge"},
+    {"id": "S02-no-max", "C": 16, "K": 16, "max_age_ns": null, "state": "on", "age_ns": 11, "admission_state": "ready", "admission_reason": "none"},
+    {"id": "S02-max", "C": 16, "K": 16, "max_age_ns": 10, "state": null, "age_ns": 11, "admission_state": "unavailable", "admission_reason": "stale_state"},
+    {"id": "S02-equality", "C": 15, "K": 15, "max_age_ns": 10, "state": "on", "age_ns": 10, "admission_state": "ready", "admission_reason": "none"},
+    {"id": "S02-prefix-gap", "C": 17, "K": 17, "state": null, "age_ns": null, "admission_state": "unavailable", "admission_reason": "incomplete_status_prefix"},
+    {"id": "S02-validity-expiry", "C": 17, "K": 17, "prefix_end": 20, "validity_end": 17, "state": null, "age_ns": null, "admission_state": "unavailable", "admission_reason": "outside_effective_interval"},
+    {"id": "S03-tie", "C": 6, "K": 6, "state": "off", "age_ns": 1, "admission_state": "ready", "admission_reason": "none"}
+  ]
+}

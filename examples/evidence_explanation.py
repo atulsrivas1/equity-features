@@ -4,6 +4,7 @@ from equity_feature_contracts import (
     DataKind, EntityKey, InputScope, Parameter, PriceUnit, SessionSpec, SourceBinding, WindowSpec,
 )
 from equity_features.session import compute_trades
+from equity_features import __version__ as producer_version
 from equity_feature_evidence import (
     EnvironmentDeclaration, EvidenceDisclosure, ExecutionClaim, PackageVersion,
     make_content_receipt,
@@ -25,7 +26,7 @@ before = result
 assert tuple(column.values[0] for column in result.values) == (3, 10, 1011, 101.1, 10 / 3)
 receipt = make_content_receipt(result, config, (('trades', batch),),
     EnvironmentDeclaration('CPython', '3.12', 'caller-declared', (
-        PackageVersion('equity-feature-contracts', '0.0.4a4'), PackageVersion('equity-features', '0.0.4a4'))),
+        PackageVersion('equity-feature-contracts', '0.0.4a4'), PackageVersion('equity-features', producer_version))),
     ExecutionClaim(), EvidenceDisclosure('not_supplied', 0))
 summary = explain_result(result, receipt, config, entity=entity, feature_id='session.trade.count',
     inputs=(('trades', batch),), evidence_limit=0)
