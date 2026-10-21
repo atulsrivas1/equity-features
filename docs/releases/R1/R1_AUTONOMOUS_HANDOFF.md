@@ -221,7 +221,7 @@ For each item:
 
 ## Exit and stop boundary
 
-Publish docs/releases/R1/R1_ACCEPTANCE.md linking the 23 IDs to implementations, fixtures,
+Publish docs/R1_ACCEPTANCE.md linking the 23 IDs to implementations, fixtures,
 capability/mode support and each accepted story/fix. Include exact source/version,
 typing/reference/unit/parity evidence, both OS CI, actual downloaded artifacts,
 clean-install execution, review identity, precision/copy/bounded-state limits and
