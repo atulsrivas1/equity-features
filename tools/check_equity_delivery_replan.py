@@ -95,7 +95,67 @@ def check(root: Path) -> dict[str, int | str]:
             continue
         assert (root / "docs" / link.split("#", 1)[0]).is_file(), link
     assert not re.search(r"(?<![A-Za-z])[A-Za-z]:[\\/]", text), "private filesystem path in public plan"
-    return {"result": "PASS", "existing_stories": len(stories), "releases": len(releases), "proposed_tasks": len(tasks)}
+    _check_output_ownership(root, data, stories)
+    return {"result": "PASS", "existing_stories": len(stories), "releases": len(releases), "proposed_tasks": len(tasks), "supplemental_stories": 1, "planned_outputs": 47}
+
+
+def _check_output_ownership(root: Path, data: dict, stories: list[dict]) -> None:
+    """Validate supplemental planning separately from the historical 35 stories."""
+    reconciliation = data["ownership_reconciliation"]
+    assert reconciliation["governance_issue"] == 504
+    assert reconciliation["status"] == "accepted_planned_ownership_math_unaccepted"
+    assert reconciliation["planned_output_count"] == 47
+    assert reconciliation["original_35_story_allocation_preserved"]
+    assert reconciliation["original_18_proposed_tasks_preserved"]
+    assert reconciliation["math_api_accepted"] is False
+    assert reconciliation["full_EQ164_complete"] is False
+    assert (root / reconciliation["document"]).is_file()
+    supplemental, = data["supplemental_stories"]
+    assert supplemental["story"] == "EQ-220" and supplemental["issue"] == 598
+    assert supplemental["story"] not in {row["story"] for row in stories}
+    assert supplemental["issue"] not in {row["issue"] for row in stories}
+    assert supplemental["url"] == "https://github.com/atulsrivas1/equity-features/issues/598"
+    assert supplemental["ownership_status"] == "accepted_planned_ownership"
+    assert supplemental["planned_release"] == "EF3"
+    assert supplemental["observed_issue_state"] == "OPEN"
+    assert supplemental["observed_project_status"] == "Backlog"
+    assert supplemental["native_parent_issue"] == 468
+    assert supplemental["actual_milestone_number"] == 24
+    assert supplemental["assignees"] == [] and supplemental["due_date"] is None
+    assert supplemental["required_dependencies"] == ["EQ-164", "EQ-169"]
+    assert supplemental["layer_tasks_before_ready"] == ["EF3-IO", "EF3-W"]
+    assert supplemental["release_acceptance_gate"] == "EQ-157"
+    assert supplemental["planned_release_gate_additional_dependencies"] == ["EQ-220"]
+    assert set(supplemental["tracks"]) == {"libraries", "io", "workers"}
+    assert all(supplemental["tracks"].values())
+    assert supplemental["math_api_accepted"] is False
+    assert supplemental["implementation_admitted"] is False
+    manifest = json.loads((root / reconciliation["output_manifest"]).read_text(encoding="utf-8"))
+    assert manifest["schema_version"] == 1 and manifest["governance_issue"] == 504
+    assert manifest["ownership_plan_accepted"] is True
+    assert manifest["mathematics_api_accepted"] is False
+    assert manifest["accepted_canonical_bindings"] == 0
+    assert manifest["full_EQ164_complete"] is False
+    assert manifest["supplemental_owner_readback"] == supplemental
+    outputs = manifest["outputs"]
+    assert len(outputs) == manifest["planned_ownership_count"] == 47
+    assert len({row["canonical_name"] for row in outputs}) == 47
+    owners = {
+        row["story"]: (row["issue"], release["id"])
+        for release in data["releases"] for row in release["existing_stories"]
+    }
+    owners["EQ-220"] = (598, "EF3")
+    counts = {"EQ-153": 2, "EQ-159": 2, "EQ-165": 7, "EQ-166": 3,
+              "EQ-167": 3, "EQ-168": 4, "EQ-171": 4, "EQ-172": 6, "EQ-220": 16}
+    assert {row["primary_numerical_owner"] for row in outputs} == set(counts)
+    for owner, count in counts.items():
+        assert sum(row["primary_numerical_owner"] == owner for row in outputs) == count
+    for row in outputs:
+        assert re.fullmatch(r"[a-z][a-z0-9_.]*", row["canonical_name"])
+        assert (row["issue"], row["planned_delivery"]) == owners[row["primary_numerical_owner"]]
+        assert row["unit"] and row["operands"] and row["kind"]
+        assert row["planned_ownership_accepted"] is True
+        assert row["accepted"] is False and row["implemented_by_this_packet"] is False
 
 
 if __name__ == "__main__":
