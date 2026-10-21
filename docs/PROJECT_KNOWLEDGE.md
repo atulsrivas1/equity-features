@@ -1,3 +1,9 @@
+## R26 planning-checker correction — October 21, 2026
+
+After reviewed admission amendment [PR593](https://github.com/atulsrivas1/equity-features/pull/593), the Equity Features coordinator found that the inherited planning checker still required EQ192 to depend on EQ144/EQ145. The failure was reproduced; it was a stale planning assertion, not an EF1 numerical failure. [GOV038#592](https://github.com/atulsrivas1/equity-features/issues/592) reopened for this narrow correction.
+
+The checker now validates the owner-approved R26-only admission amendment, EQ188/EQ192 dependencies, retained EQ190 equity producers and full EQ193 acceptance. EQ199/EQ205 retain their existing EQ144/EQ145 guards; later releases and numerical gates remain unchanged. The corrected local planning check passes, and sixteen adverse plan mutations are rejected, covering approval, scope/publication boundaries, both equity producers, the worker integration dependency and later-release guards. This is static planning evidence only. Next: independent exact-commit review and merge, then notify the active Equity Features coordinator and continue R26 contract freeze. Historical checkpoints below preserve their original status.
+
 ## R26 selected; source-only preparation active — October 21, 2026
 
 [GOV038#592](https://github.com/atulsrivas1/equity-features/issues/592) is In progress for source-only release preparation after completed R25. [R26 preparation](r26/PREPARATION.md) retains all seven E34/EQ188-193/EQ215 stories in the existing three option repositories. Live dependency checks show EQ144/145/146/153/158/159 still Backlog. R25's independent gate amendment does not extend to R26. The owner approved independent R26 option-native admission, retaining actual EQ153/EQ158 producer integration and full R26 scope. The scoped coordinator amendment records exact supersession; later releases and active ownership are unchanged.
@@ -29,6 +35,10 @@ After GOV036, owner confirmed three separate option repositories, one-way equity
 ## Option replan direction — October 20, 2026
 
 Owner requests replanning options under the new coordinator arrangement, matching the already planned equity feature releases. [GOV036 #572](https://github.com/atulsrivas1/equity-features/issues/572) prepares [the option successor plan](OPTION_DELIVERY_REPLAN.md). Use the entire matrix: option features, scanners, watchlists, strategies/context/meta scores, lifecycle and separately mature outcomes, with equity/shared reuse. Five existing release/epic identities and 30 story IDs are retained; six additional scopes EQ214-219 (#573-578) are issued as Backlog. Canonical issue/epic/milestone contracts are reconciled to the independently reviewed published source; final planning delivery evidence is on PR579. Plan library ownership in the existing calculation repository, I/O in its companion and workers in theirs; logical libraries do not require one repository each. Source-derived exact ledgers stay local. This is a reviewable planning allocation, not implementation or numerical parity. Preserve EF1/R18 owners and existing option admission gates.
+
+## Owner correction: three layers per feature release — October 20, 2026
+
+[GOV035/PR568](https://github.com/atulsrivas1/equity-features/pull/568) revised to8feature-bearing releases/35existingstories/18proposedtasks. Every release has goal-specific library, I/O and worker deliverables, developed in parallel after contract/prerequisite review. EF1 now delivers new session/reference/level features EQ164-169 with shared DuckDB/mock/sink setup inside its layer work; mocks do not get a release. Output is installable libraries/adapters/workers plus DuckDB data; browser viewer is local demonstration tooling, not product UI or public deployment. [Plan](EQUITY_DELIVERY_REPLAN.md) and [JSON](plans/equity-delivery-replan.json) supersede the nine-release proposal below. Existing issue dependencies/migration gates and R18 ownership remain explicit.
 
 ## Owner correction: three layers per feature release — October 20, 2026
 
