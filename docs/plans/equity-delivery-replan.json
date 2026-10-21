@@ -1,0 +1,1636 @@
+{
+  "schema_version": 2,
+  "governance_issue": 567,
+  "date_eastern": "2026-10-20",
+  "status": "draft_proposal_tracker_migration_pending",
+  "historical_releases_preserved": true,
+  "scope": "equity_only",
+  "active_r18_preserved": true,
+  "r18_dependencies_unchanged": true,
+  "old_equity_story_range": [
+    147,
+    181
+  ],
+  "expected_story_count": 35,
+  "releases": [
+    {
+      "id": "EF1",
+      "title": "Sessions, levels and reference features",
+      "goal": "Session/status clocks, extended sessions, calendar levels, anchored VWAP/gaps and governed references, delivered alongside the accepted OHLCV baseline.",
+      "state": "proposed_allocation_not_migrated",
+      "milestone_number": null,
+      "epic_issue": null,
+      "existing_stories": [
+        {
+          "story": "EQ-164",
+          "issue": 504,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/504",
+          "title": "[EQ-164] Reconcile every equity family and worker to accepted or planned scope",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 26,
+            "title": "R22 — Equity sessions, references and coverage closure"
+          },
+          "existing_dependencies": [],
+          "existing_governance_dependencies": [
+            "GOV032_planning_publication",
+            "accepted_inventory_and_coverage_decisions"
+          ]
+        },
+        {
+          "story": "EQ-165",
+          "issue": 505,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/505",
+          "title": "[EQ-165] Define and implement supplied session clock and trading-status semantics",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 26,
+            "title": "R22 — Equity sessions, references and coverage closure"
+          },
+          "existing_dependencies": [
+            "EQ-164"
+          ]
+        },
+        {
+          "story": "EQ-166",
+          "issue": 506,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/506",
+          "title": "[EQ-166] Implement calendar-period levels and extended-session aggregates",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 26,
+            "title": "R22 — Equity sessions, references and coverage closure"
+          },
+          "existing_dependencies": [
+            "EQ-164"
+          ]
+        },
+        {
+          "story": "EQ-167",
+          "issue": 507,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/507",
+          "title": "[EQ-167] Implement explicit VWAP anchors and gap/opening-drive primitives",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 26,
+            "title": "R22 — Equity sessions, references and coverage closure"
+          },
+          "existing_dependencies": [
+            "EQ-164"
+          ]
+        },
+        {
+          "story": "EQ-168",
+          "issue": 508,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/508",
+          "title": "[EQ-168] Qualify supplied classifications and reference/action gates",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 26,
+            "title": "R22 — Equity sessions, references and coverage closure"
+          },
+          "existing_dependencies": [
+            "EQ-164"
+          ]
+        },
+        {
+          "story": "EQ-169",
+          "issue": 509,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/509",
+          "title": "[EQ-169] Qualify session and reference completion release",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 26,
+            "title": "R22 — Equity sessions, references and coverage closure"
+          },
+          "existing_dependencies": [
+            "EQ-165",
+            "EQ-166",
+            "EQ-167",
+            "EQ-168",
+            "EQ-163"
+          ]
+        }
+      ],
+      "proposed_tasks": [
+        {
+          "planning_key": "EF1-IO",
+          "layer": "io",
+          "title": "Sessions, levels and reference features: input/output mapping",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map bars, prior history, session calendars, classifications/actions and optional prior-close facts",
+            "Provide explicit DuckDB-backed or synthetic input and configure separate output DuckDB using existing sink"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF1-W",
+          "layer": "workers",
+          "title": "Sessions, levels and reference features: bounded execution and readback",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Bind accepted OHLCV plus new session/reference outputs to bounded worker requests",
+            "Verify dependency readiness, causal reference binding, serialized persistence, retry and full-result readback"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        }
+      ],
+      "acceptance_gate": "EQ-169",
+      "layers": [
+        "libraries",
+        "io",
+        "workers"
+      ],
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-164",
+            "EQ-165",
+            "EQ-166",
+            "EQ-167",
+            "EQ-168"
+          ],
+          "deliverables": [
+            "Specify and implement session/status, calendar levels, extended sessions, anchors/gaps and reference/action gates",
+            "Reconcile all original equity scope and preserve accepted numerical APIs"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF1-IO",
+          "deliverables": [
+            "Map bars, prior history, session calendars, classifications/actions and optional prior-close facts",
+            "Provide explicit DuckDB-backed or synthetic input and configure separate output DuckDB using existing sink"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF1-W",
+          "deliverables": [
+            "Bind accepted OHLCV plus new session/reference outputs to bounded worker requests",
+            "Verify dependency readiness, causal reference binding, serialized persistence, retry and full-result readback"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
+      "release_gate_additional_dependencies": [
+        "EF1-IO",
+        "EF1-W"
+      ],
+      "demo_required": true,
+      "demo_goal": "Run a selected session with baseline and new session/reference outputs, showing provenance, missing-reference behavior and stored-result parity.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false
+    },
+    {
+      "id": "EF2",
+      "title": "Trend, momentum and channels",
+      "goal": "MACD, DMI/ADX, stochastic/Williams, OBV/A-D/CMF, aligned Ichimoku and admitted price-channel/squeeze features.",
+      "state": "proposed_allocation_not_migrated",
+      "milestone_number": null,
+      "epic_issue": null,
+      "existing_stories": [
+        {
+          "story": "EQ-147",
+          "issue": 481,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/481",
+          "title": "[EQ-147] Implement MACD line, signal and histogram",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 23,
+            "title": "R19 — Trend, momentum and money-flow features"
+          },
+          "existing_dependencies": [
+            "EQ-138"
+          ]
+        },
+        {
+          "story": "EQ-148",
+          "issue": 482,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/482",
+          "title": "[EQ-148] Implement directional movement, DMI and ADX",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 23,
+            "title": "R19 — Trend, momentum and money-flow features"
+          },
+          "existing_dependencies": [
+            "EQ-137",
+            "EQ-138"
+          ]
+        },
+        {
+          "story": "EQ-149",
+          "issue": 483,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/483",
+          "title": "[EQ-149] Implement stochastic oscillators and Williams percent R",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 23,
+            "title": "R19 — Trend, momentum and money-flow features"
+          },
+          "existing_dependencies": [
+            "EQ-137"
+          ]
+        },
+        {
+          "story": "EQ-150",
+          "issue": 484,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/484",
+          "title": "[EQ-150] Implement OBV, accumulation/distribution and Chaikin money flow",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 23,
+            "title": "R19 — Trend, momentum and money-flow features"
+          },
+          "existing_dependencies": [
+            "EQ-136",
+            "EQ-137"
+          ]
+        },
+        {
+          "story": "EQ-151",
+          "issue": 485,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/485",
+          "title": "[EQ-151] Implement explicitly aligned Ichimoku components",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 23,
+            "title": "R19 — Trend, momentum and money-flow features"
+          },
+          "existing_dependencies": [
+            "EQ-137"
+          ]
+        },
+        {
+          "story": "EQ-152",
+          "issue": 486,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/486",
+          "title": "[EQ-152] Qualify and deliver advanced indicator release",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 23,
+            "title": "R19 — Trend, momentum and money-flow features"
+          },
+          "existing_dependencies": [
+            "EQ-147",
+            "EQ-148",
+            "EQ-149",
+            "EQ-150",
+            "EQ-151",
+            "EQ-146"
+          ]
+        },
+        {
+          "story": "EQ-170",
+          "issue": 511,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/511",
+          "title": "[EQ-170] Implement remaining price channels and squeeze primitives",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 27,
+            "title": "R23 — Remaining equity calculations, events and observed outcomes"
+          },
+          "existing_dependencies": [
+            "EQ-164",
+            "EQ-139",
+            "EQ-149"
+          ]
+        }
+      ],
+      "proposed_tasks": [
+        {
+          "planning_key": "EF2-IO",
+          "layer": "io",
+          "title": "Trend, momentum and channels: input/output mapping",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map ordered OHLCV/warm-up windows, volume and selected channel/reference operands",
+            "Persist trend/channel values, readiness, identities and evidence through canonical sink conversion"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF2-W",
+          "layer": "workers",
+          "title": "Trend, momentum and channels: bounded execution and readback",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Route selected indicator families with exact warm-up/operand closure and independent readiness",
+            "Preserve shared preparation compatibility, resource bounds and verified persisted results"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        }
+      ],
+      "acceptance_gate": "EQ-152",
+      "layers": [
+        "libraries",
+        "io",
+        "workers"
+      ],
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-147",
+            "EQ-148",
+            "EQ-149",
+            "EQ-150",
+            "EQ-151",
+            "EQ-170"
+          ],
+          "deliverables": [
+            "Implement independently specified trend, momentum, money-flow and channel/squeeze kernels",
+            "Freeze seed/window/gap/displacement and percentile conventions before Ready"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF2-IO",
+          "deliverables": [
+            "Map ordered OHLCV/warm-up windows, volume and selected channel/reference operands",
+            "Persist trend/channel values, readiness, identities and evidence through canonical sink conversion"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF2-W",
+          "deliverables": [
+            "Route selected indicator families with exact warm-up/operand closure and independent readiness",
+            "Preserve shared preparation compatibility, resource bounds and verified persisted results"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
+      "release_gate_additional_dependencies": [
+        "EF2-IO",
+        "EF2-W"
+      ],
+      "demo_required": true,
+      "demo_goal": "Run selected indicators/channels with warm-up and missing-operand cases; compare direct, worker and stored outputs.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
+    },
+    {
+      "id": "EF3",
+      "title": "Relative statistics and anomalies",
+      "goal": "Correlation/beta/residuals, separately specified log-return RV, robust histories/ranks and volume pace/anomalies.",
+      "state": "proposed_allocation_not_migrated",
+      "milestone_number": null,
+      "epic_issue": null,
+      "existing_stories": [
+        {
+          "story": "EQ-153",
+          "issue": 487,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/487",
+          "title": "[EQ-153] Implement correlation, beta and residual returns",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 24,
+            "title": "R20 — Relative statistics, realized volatility and robust anomalies"
+          },
+          "existing_dependencies": [
+            "EQ-136",
+            "EQ-137"
+          ]
+        },
+        {
+          "story": "EQ-154",
+          "issue": 488,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/488",
+          "title": "[EQ-154] Implement separately specified daily and intraday log-return RV",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 24,
+            "title": "R20 — Relative statistics, realized volatility and robust anomalies"
+          },
+          "existing_dependencies": [
+            "EQ-136",
+            "EQ-137"
+          ]
+        },
+        {
+          "story": "EQ-155",
+          "issue": 489,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/489",
+          "title": "[EQ-155] Implement robust historical summaries and ranks",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 24,
+            "title": "R20 — Relative statistics, realized volatility and robust anomalies"
+          },
+          "existing_dependencies": [
+            "EQ-136"
+          ]
+        },
+        {
+          "story": "EQ-156",
+          "issue": 490,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/490",
+          "title": "[EQ-156] Implement robust volume pace and anomaly normalization",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 24,
+            "title": "R20 — Relative statistics, realized volatility and robust anomalies"
+          },
+          "existing_dependencies": [
+            "EQ-155",
+            "EQ-136"
+          ]
+        },
+        {
+          "story": "EQ-157",
+          "issue": 491,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/491",
+          "title": "[EQ-157] Qualify and deliver relative and robust statistics",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 24,
+            "title": "R20 — Relative statistics, realized volatility and robust anomalies"
+          },
+          "existing_dependencies": [
+            "EQ-153",
+            "EQ-154",
+            "EQ-155",
+            "EQ-156",
+            "EQ-152"
+          ]
+        }
+      ],
+      "proposed_tasks": [
+        {
+          "planning_key": "EF3-IO",
+          "layer": "io",
+          "title": "Relative statistics and anomalies: input/output mapping",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map paired histories, benchmark/calendar/cutoff alignment and declared reference populations",
+            "Persist statistic definitions, coverage, units and null/evidence semantics"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF3-W",
+          "layer": "workers",
+          "title": "Relative statistics and anomalies: bounded execution and readback",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Plan only selected pair/population dependencies and bounded shared histories",
+            "Execute robust/relative families with full-result readback and partial-population controls"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        }
+      ],
+      "acceptance_gate": "EQ-157",
+      "layers": [
+        "libraries",
+        "io",
+        "workers"
+      ],
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-153",
+            "EQ-154",
+            "EQ-155",
+            "EQ-156"
+          ],
+          "deliverables": [
+            "Implement aligned return statistics and distinct daily/intraday RV conventions",
+            "Implement robust median/MAD/rank/pace definitions with independent expected fixtures"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF3-IO",
+          "deliverables": [
+            "Map paired histories, benchmark/calendar/cutoff alignment and declared reference populations",
+            "Persist statistic definitions, coverage, units and null/evidence semantics"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF3-W",
+          "deliverables": [
+            "Plan only selected pair/population dependencies and bounded shared histories",
+            "Execute robust/relative families with full-result readback and partial-population controls"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
+      "release_gate_additional_dependencies": [
+        "EF3-IO",
+        "EF3-W"
+      ],
+      "demo_required": true,
+      "demo_goal": "Compare a symbol/benchmark slice and robust anomaly results; show insufficient history and stored parity.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
+    },
+    {
+      "id": "EF4",
+      "title": "Tape, quotes and path statistics",
+      "goal": "Trade windows/signing, quote dynamics/microprice, VWAP/path statistics, efficiency/choppiness, notional top-K and remaining projections.",
+      "state": "proposed_allocation_not_migrated",
+      "milestone_number": null,
+      "epic_issue": null,
+      "existing_stories": [
+        {
+          "story": "EQ-158",
+          "issue": 492,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/492",
+          "title": "[EQ-158] Implement rolling trade windows and tick-rule signed volume",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 25,
+            "title": "R21 — Equity tape, quote and path analytics"
+          },
+          "existing_dependencies": [
+            "EQ-136",
+            "EQ-137"
+          ]
+        },
+        {
+          "story": "EQ-159",
+          "issue": 493,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/493",
+          "title": "[EQ-159] Implement microprice and selected quote dynamics",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 25,
+            "title": "R21 — Equity tape, quote and path analytics"
+          },
+          "existing_dependencies": [
+            "EQ-136"
+          ]
+        },
+        {
+          "story": "EQ-160",
+          "issue": 494,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/494",
+          "title": "[EQ-160] Implement VWAP slopes and selected path statistics",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 25,
+            "title": "R21 — Equity tape, quote and path analytics"
+          },
+          "existing_dependencies": [
+            "EQ-137",
+            "EQ-158"
+          ]
+        },
+        {
+          "story": "EQ-161",
+          "issue": 495,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/495",
+          "title": "[EQ-161] Implement path efficiency and choppiness measures",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 25,
+            "title": "R21 — Equity tape, quote and path analytics"
+          },
+          "existing_dependencies": [
+            "EQ-137",
+            "EQ-138"
+          ]
+        },
+        {
+          "story": "EQ-162",
+          "issue": 496,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/496",
+          "title": "[EQ-162] Implement deterministic notional-ranked largest prints",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 25,
+            "title": "R21 — Equity tape, quote and path analytics"
+          },
+          "existing_dependencies": [
+            "EQ-136"
+          ]
+        },
+        {
+          "story": "EQ-163",
+          "issue": 497,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/497",
+          "title": "[EQ-163] Qualify and deliver tape, quote and path release",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 25,
+            "title": "R21 — Equity tape, quote and path analytics"
+          },
+          "existing_dependencies": [
+            "EQ-158",
+            "EQ-159",
+            "EQ-160",
+            "EQ-161",
+            "EQ-162",
+            "EQ-157"
+          ]
+        },
+        {
+          "story": "EQ-172",
+          "issue": 513,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/513",
+          "title": "[EQ-172] Complete remaining equity statistical projections",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 27,
+            "title": "R23 — Remaining equity calculations, events and observed outcomes"
+          },
+          "existing_dependencies": [
+            "EQ-164",
+            "EQ-155",
+            "EQ-158"
+          ]
+        }
+      ],
+      "proposed_tasks": [
+        {
+          "planning_key": "EF4-IO",
+          "layer": "io",
+          "title": "Tape, quotes and path statistics: input/output mapping",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map trades/quotes, sequence/carry/window boundaries and compatible supporting histories",
+            "Persist window/path results and exact projection/evidence records"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF4-W",
+          "layer": "workers",
+          "title": "Tape, quotes and path statistics: bounded execution and readback",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Preserve tick-sign carry and true per-identity order while admitting independent branches",
+            "Bound event windows/results and verify cancellation, sink ownership and readback"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        }
+      ],
+      "acceptance_gate": "EQ-163",
+      "layers": [
+        "libraries",
+        "io",
+        "workers"
+      ],
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-158",
+            "EQ-159",
+            "EQ-160",
+            "EQ-161",
+            "EQ-162",
+            "EQ-172"
+          ],
+          "deliverables": [
+            "Implement ordered trade/quote/path kernels and deterministic notional ties",
+            "Retain the whole EQ172 projection scope and its actual EQ155/EQ158 operands"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF4-IO",
+          "deliverables": [
+            "Map trades/quotes, sequence/carry/window boundaries and compatible supporting histories",
+            "Persist window/path results and exact projection/evidence records"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF4-W",
+          "deliverables": [
+            "Preserve tick-sign carry and true per-identity order while admitting independent branches",
+            "Bound event windows/results and verify cancellation, sink ownership and readback"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
+      "release_gate_additional_dependencies": [
+        "EF4-IO",
+        "EF4-W"
+      ],
+      "demo_required": true,
+      "demo_goal": "Run an ordered tape/quote window with ties, missing operands and path projections, then inspect persisted results.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
+    },
+    {
+      "id": "EF5",
+      "title": "Price structures and patterns",
+      "goal": "Original independently specified candle/structural pattern evidence and assigned price-action projections.",
+      "state": "proposed_allocation_not_migrated",
+      "milestone_number": null,
+      "epic_issue": null,
+      "existing_stories": [
+        {
+          "story": "EQ-171",
+          "issue": 512,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/512",
+          "title": "[EQ-171] Specify and implement admitted candle and structural-pattern evidence",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 27,
+            "title": "R23 — Remaining equity calculations, events and observed outcomes"
+          },
+          "existing_dependencies": [
+            "EQ-164"
+          ]
+        }
+      ],
+      "proposed_tasks": [
+        {
+          "planning_key": "EF5-IO",
+          "layer": "io",
+          "title": "Price structures and patterns: input/output mapping",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map exact bar windows, structural context and availability/revision identities",
+            "Persist pattern/version, values, readiness and witnesses"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF5-W",
+          "layer": "workers",
+          "title": "Price structures and patterns: bounded execution and readback",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Execute selected bounded pattern windows without future-data consumption",
+            "Preserve correction/replay scope and verified output publication"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF5-A",
+          "layer": "acceptance",
+          "title": "Price structures and patterns: integrated release qualification and local demo",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered acceptance issue and accept all three layer dependencies",
+          "deliverables": [
+            "independent full-result fixture evidence",
+            "I/O and worker conformance/readback",
+            "actual local browser demonstration of computed and stored results"
+          ],
+          "acceptance": [
+            "all owned numerical stories and IO/W tasks accepted",
+            "fresh independent review, current CI and applicable installed artifacts",
+            "actual delivery/readback before Done"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        }
+      ],
+      "acceptance_gate": "EF5-A",
+      "layers": [
+        "libraries",
+        "io",
+        "workers"
+      ],
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-171"
+          ],
+          "deliverables": [
+            "Implement the admitted candle/structure catalogue and associated price-action returns/velocity/acceleration",
+            "Separate deterministic mathematical evidence from consumer policy"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF5-IO",
+          "deliverables": [
+            "Map exact bar windows, structural context and availability/revision identities",
+            "Persist pattern/version, values, readiness and witnesses"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF5-W",
+          "deliverables": [
+            "Execute selected bounded pattern windows without future-data consumption",
+            "Preserve correction/replay scope and verified output publication"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
+      "release_gate_additional_dependencies": [
+        "EF5-IO",
+        "EF5-W"
+      ],
+      "demo_required": true,
+      "demo_goal": "Run positive, negative and unavailable pattern examples with witnesses and stored readback.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
+    },
+    {
+      "id": "EF6",
+      "title": "Events and fundamentals",
+      "goal": "Arithmetic over supplied point-in-time event/fundamental/short-interest/reference facts.",
+      "state": "proposed_allocation_not_migrated",
+      "milestone_number": null,
+      "epic_issue": null,
+      "existing_stories": [
+        {
+          "story": "EQ-173",
+          "issue": 514,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/514",
+          "title": "[EQ-173] Implement supplied point-in-time event and fundamental features",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 27,
+            "title": "R23 — Remaining equity calculations, events and observed outcomes"
+          },
+          "existing_dependencies": [
+            "EQ-164",
+            "EQ-168"
+          ]
+        }
+      ],
+      "proposed_tasks": [
+        {
+          "planning_key": "EF6-IO",
+          "layer": "io",
+          "title": "Events and fundamentals: input/output mapping",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map explicitly eligible event/fundamental snapshots and reference/action bindings",
+            "Label unavailable inputs and synthetic examples; persist PIT evidence without inventing availability"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF6-W",
+          "layer": "workers",
+          "title": "Events and fundamentals: bounded execution and readback",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Join only causally eligible facts to selected instrument/session requests",
+            "Reject future/unknown evidence according to contract and verify published results"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF6-A",
+          "layer": "acceptance",
+          "title": "Events and fundamentals: integrated release qualification and local demo",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered acceptance issue and accept all three layer dependencies",
+          "deliverables": [
+            "independent full-result fixture evidence",
+            "I/O and worker conformance/readback",
+            "actual local browser demonstration of computed and stored results"
+          ],
+          "acceptance": [
+            "all owned numerical stories and IO/W tasks accepted",
+            "fresh independent review, current CI and applicable installed artifacts",
+            "actual delivery/readback before Done"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        }
+      ],
+      "acceptance_gate": "EF6-A",
+      "layers": [
+        "libraries",
+        "io",
+        "workers"
+      ],
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-173"
+          ],
+          "deliverables": [
+            "Implement admitted supplied-fact event/fundamental arithmetic",
+            "Freeze effective/known-at, revisions, denominators and missingness; no acquisition in kernels"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF6-IO",
+          "deliverables": [
+            "Map explicitly eligible event/fundamental snapshots and reference/action bindings",
+            "Label unavailable inputs and synthetic examples; persist PIT evidence without inventing availability"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF6-W",
+          "deliverables": [
+            "Join only causally eligible facts to selected instrument/session requests",
+            "Reject future/unknown evidence according to contract and verify published results"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
+      "release_gate_additional_dependencies": [
+        "EF6-IO",
+        "EF6-W"
+      ],
+      "demo_required": true,
+      "demo_goal": "Run supplied event facts with known-at boundaries, revisions and a synthetic missing-data case; inspect stored evidence.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
+    },
+    {
+      "id": "EF7",
+      "title": "Observed outcomes",
+      "goal": "Mature observed-path MFE/MAE, barriers and time-to-target with cumulative remaining-numerical qualification.",
+      "state": "proposed_allocation_not_migrated",
+      "milestone_number": null,
+      "epic_issue": null,
+      "existing_stories": [
+        {
+          "story": "EQ-174",
+          "issue": 515,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/515",
+          "title": "[EQ-174] Extend observed-path outcomes without signal leakage",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 27,
+            "title": "R23 — Remaining equity calculations, events and observed outcomes"
+          },
+          "existing_dependencies": [
+            "EQ-164",
+            "EQ-91"
+          ]
+        },
+        {
+          "story": "EQ-175",
+          "issue": 516,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/516",
+          "title": "[EQ-175] Qualify remaining equity calculation release",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 27,
+            "title": "R23 — Remaining equity calculations, events and observed outcomes"
+          },
+          "existing_dependencies": [
+            "EQ-170",
+            "EQ-171",
+            "EQ-172",
+            "EQ-173",
+            "EQ-174",
+            "EQ-169"
+          ]
+        }
+      ],
+      "proposed_tasks": [
+        {
+          "planning_key": "EF7-IO",
+          "layer": "io",
+          "title": "Observed outcomes: input/output mapping",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map frozen origin identity and mature observed paths with explicit coverage/resolution",
+            "Persist pending/mature results separately from current feature inputs"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF7-W",
+          "layer": "workers",
+          "title": "Observed outcomes: bounded execution and readback",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Schedule delayed calculations only when their own horizon/coverage is ready",
+            "Preserve origin bytes and deterministic retry/publication/readback"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        }
+      ],
+      "acceptance_gate": "EQ-175",
+      "layers": [
+        "libraries",
+        "io",
+        "workers"
+      ],
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-174"
+          ],
+          "deliverables": [
+            "Implement sampled-path outcomes/maturity separately from origin-time signals",
+            "Retain EQ175 cumulative EQ170-174/reference audit; no premature closure"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF7-IO",
+          "deliverables": [
+            "Map frozen origin identity and mature observed paths with explicit coverage/resolution",
+            "Persist pending/mature results separately from current feature inputs"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF7-W",
+          "deliverables": [
+            "Schedule delayed calculations only when their own horizon/coverage is ready",
+            "Preserve origin bytes and deterministic retry/publication/readback"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
+      "release_gate_additional_dependencies": [
+        "EF7-IO",
+        "EF7-W"
+      ],
+      "demo_required": true,
+      "demo_goal": "Show pending then mature outcomes on a synthetic chronological replay, with unchanged origin signals and stored parity.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
+    },
+    {
+      "id": "EF8",
+      "title": "Equity policies and complete coverage",
+      "goal": "Admitted scanner/watchlist/context policies, confirmation/lifecycle/history and complete equity binding/coverage audit.",
+      "state": "proposed_allocation_not_migrated",
+      "milestone_number": null,
+      "epic_issue": null,
+      "existing_stories": [
+        {
+          "story": "EQ-176",
+          "issue": 518,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/518",
+          "title": "[EQ-176] Implement explicit equity scanner and watchlist catalogues",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 28,
+            "title": "R24 — Equity policies, lifecycle and complete worker integration"
+          },
+          "existing_dependencies": [
+            "EQ-164",
+            "EQ-163",
+            "EQ-169",
+            "EQ-175",
+            "EQ-90"
+          ]
+        },
+        {
+          "story": "EQ-177",
+          "issue": 519,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/519",
+          "title": "[EQ-177] Implement selected strategy context, tape summaries and score profiles",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 28,
+            "title": "R24 — Equity policies, lifecycle and complete worker integration"
+          },
+          "existing_dependencies": [
+            "EQ-164",
+            "EQ-175"
+          ]
+        },
+        {
+          "story": "EQ-178",
+          "issue": 520,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/520",
+          "title": "[EQ-178] Implement deterministic confirmation and candidate lifecycle",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 28,
+            "title": "R24 — Equity policies, lifecycle and complete worker integration"
+          },
+          "existing_dependencies": [
+            "EQ-164",
+            "EQ-176",
+            "EQ-177"
+          ]
+        },
+        {
+          "story": "EQ-179",
+          "issue": 521,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/521",
+          "title": "[EQ-179] Implement same-identity score and membership history",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 28,
+            "title": "R24 — Equity policies, lifecycle and complete worker integration"
+          },
+          "existing_dependencies": [
+            "EQ-164",
+            "EQ-177",
+            "EQ-178"
+          ]
+        },
+        {
+          "story": "EQ-180",
+          "issue": 522,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/522",
+          "title": "[EQ-180] Qualify every admitted equity worker and I-O binding",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 28,
+            "title": "R24 — Equity policies, lifecycle and complete worker integration"
+          },
+          "existing_dependencies": [
+            "EQ-164",
+            "EQ-146",
+            "EQ-163",
+            "EQ-169",
+            "EQ-175",
+            "EQ-176",
+            "EQ-177",
+            "EQ-178",
+            "EQ-179"
+          ]
+        },
+        {
+          "story": "EQ-181",
+          "issue": 523,
+          "url": "https://github.com/atulsrivas1/equity-features/issues/523",
+          "title": "[EQ-181] Accept complete planned equity family and worker coverage",
+          "observed_status": "Backlog",
+          "previous_milestone": {
+            "number": 28,
+            "title": "R24 — Equity policies, lifecycle and complete worker integration"
+          },
+          "existing_dependencies": [
+            "EQ-180"
+          ]
+        }
+      ],
+      "proposed_tasks": [
+        {
+          "planning_key": "EF8-IO",
+          "layer": "io",
+          "title": "Equity policies and complete coverage: input/output mapping",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map selected feature/policy frames and ordered state/history inputs without recomputing mathematics",
+            "Persist matches/unavailable states, transitions, membership/score history and provenance"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        },
+        {
+          "planning_key": "EF8-W",
+          "layer": "workers",
+          "title": "Equity policies and complete coverage: bounded execution and readback",
+          "github_issue": null,
+          "state": "proposed_not_created",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Evaluate selected policies on ready immutable feature frames and own lifecycle persistence",
+            "Audit all admitted old/new worker and I/O bindings using accumulated release receipts; retain EQ146 gate"
+          ],
+          "acceptance": [
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
+          ],
+          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
+        }
+      ],
+      "acceptance_gate": "EQ-181",
+      "layers": [
+        "libraries",
+        "io",
+        "workers"
+      ],
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-176",
+            "EQ-177",
+            "EQ-178",
+            "EQ-179",
+            "EQ-180"
+          ],
+          "deliverables": [
+            "Implement original versioned rules, context scores and pure lifecycle transitions using supplied accepted features",
+            "Reconcile all admitted catalogue identities and explicit residual/exclusion scope"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF8-IO",
+          "deliverables": [
+            "Map selected feature/policy frames and ordered state/history inputs without recomputing mathematics",
+            "Persist matches/unavailable states, transitions, membership/score history and provenance"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF8-W",
+          "deliverables": [
+            "Evaluate selected policies on ready immutable feature frames and own lifecycle persistence",
+            "Audit all admitted old/new worker and I/O bindings using accumulated release receipts; retain EQ146 gate"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
+      "release_gate_additional_dependencies": [
+        "EF8-IO",
+        "EF8-W"
+      ],
+      "demo_required": true,
+      "demo_goal": "Run selected scans and lifecycle/history transitions, showing unavailable rules, stored provenance and complete admitted-coverage report.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
+    }
+  ],
+  "dependency_amendments": [
+    {
+      "story": "EQ-152",
+      "remove": [
+        "EQ-146"
+      ],
+      "add": [
+        "EQ-169",
+        "EQ-170"
+      ],
+      "note": "Preserve EQ147-151; qualify any adopted R18 runtime separately",
+      "effective": "only_after_reviewed_publication_and_explicit_tracker_migration"
+    },
+    {
+      "story": "EQ-157",
+      "remove": [
+        "EQ-152"
+      ],
+      "add": [
+        "EQ-169"
+      ],
+      "note": "Preserve EQ153-156 and exact history/benchmark capabilities",
+      "effective": "only_after_reviewed_publication_and_explicit_tracker_migration"
+    },
+    {
+      "story": "EQ-163",
+      "remove": [
+        "EQ-157"
+      ],
+      "add": [
+        "EQ-169",
+        "EQ-172"
+      ],
+      "note": "Preserve EQ158-162; EQ172 retains EQ155 and EQ158",
+      "effective": "only_after_reviewed_publication_and_explicit_tracker_migration"
+    },
+    {
+      "story": "EQ-169",
+      "remove": [
+        "EQ-163"
+      ],
+      "add": [],
+      "note": "Preserve EQ164-168; add EF1-IO/W and independently qualified accepted runtime; remove only blanket tape-release edge",
+      "effective": "only_after_reviewed_publication_and_explicit_tracker_migration"
+    }
+  ],
+  "conditional_dependencies": [
+    {
+      "story": "EQ-170",
+      "decision": "Freeze EQ170 bandwidth-percentile convention; add EQ155 only if approved implementation consumes it. The affected EF2 component follows EF3 if selected.",
+      "blocking_decision": true
+    }
+  ],
+  "final_audits": [
+    {
+      "story": "EQ-175",
+      "retain_dependencies": [
+        "EQ-170",
+        "EQ-171",
+        "EQ-172",
+        "EQ-173",
+        "EQ-174",
+        "EQ-169"
+      ],
+      "meaning": "cumulative numerical audit plus EF7 delayed-path qualification"
+    },
+    {
+      "story": "EQ-180",
+      "retain_dependencies": [
+        "EQ-164",
+        "EQ-146",
+        "EQ-163",
+        "EQ-169",
+        "EQ-175",
+        "EQ-176",
+        "EQ-177",
+        "EQ-178",
+        "EQ-179"
+      ],
+      "meaning": "all admitted bindings and measured runtime qualification plus accumulated per-release IO/worker receipts"
+    },
+    {
+      "story": "EQ-181",
+      "retain_dependencies": [
+        "EQ-180"
+      ],
+      "meaning": "complete admitted equity coverage and explicit residual accounting"
+    }
+  ],
+  "migration_gates": [
+    "independent plan review and publication",
+    "numbered issues/epics/milestones for proposed tasks",
+    "35-story allocation and dependency reconciliation with retained history",
+    "published compatible runtime and exact configured source/sink contracts",
+    "resource isolation from active EQ142 qualification/timing",
+    "actual dependency-satisfied Ready admission"
+  ],
+  "unchanged_exclusions": [
+    "options releases/stories",
+    "API/SaaS implementation",
+    "live/provider acquisition",
+    "production deployment",
+    "paid operations",
+    "private data/source publication",
+    "EQ142 frozen source/workload/ownership"
+  ],
+  "safety_note": "Source inventory and planning state are not numerical, runtime, performance or release acceptance.",
+  "governance_amendments": [
+    {
+      "story": "EQ-164",
+      "remove": [
+        "GOV032_planning_publication"
+      ],
+      "add": [
+        "GOV035_published_equity_allocation",
+        "accepted_inventory_and_coverage_decisions"
+      ],
+      "effective": "only_after_reviewed_publication_and_explicit_tracker_migration",
+      "preserve": "Full original inventory, rights and coverage reconciliation; GOV032 original prerequisite retained until replacement is effective."
+    }
+  ],
+  "deferred_policy_amendments": [
+    {
+      "story": "EQ-176",
+      "retain_dependency": "EQ-175",
+      "reason": "Exact per-policy catalogue/component producer manifests not frozen; no replacement placeholder establishes Ready. Origin-time runtime operands remain separate from mature future labels."
+    },
+    {
+      "story": "EQ-177",
+      "retain_dependency": "EQ-175",
+      "reason": "Exact per-policy catalogue/component producer manifests not frozen; no replacement placeholder establishes Ready. Origin-time runtime operands remain separate from mature future labels."
+    }
+  ],
+  "primary_inventory": {
+    "authority": "owner-designated evolving feature matrix and processing plan; original records preserved alongside expanded equity/mixed projection",
+    "original_source_pin": "0999022b3a020dd77995242227e76ad3d3cfacc6",
+    "expanded_source_pin": "a7cde58fc05166c9818c9107ed52269186d16afa",
+    "original_accounting": {
+      "feature_groups": 78,
+      "eod_scanner_identities": 357,
+      "watchlist_identities": 25,
+      "exported_fields": 721,
+      "principal_structs": 30,
+      "original_core_feature_ids": 39
+    },
+    "counts_are_unique_math_features": false,
+    "private_rows_published": false,
+    "pr463_readback": {
+      "date_eastern": "2026-10-20",
+      "merged": true,
+      "state": "closed",
+      "historical_draft_test_snapshot_superseded": true
+    },
+    "findings": [
+      {
+        "id": "original_dispatch_gaps",
+        "original": "Four original core IDs lacked built-in session-worker dispatch",
+        "current": "EQ140 provides scoped supplied routes; default acquisition/dispatch remains distinct",
+        "release_owners": [
+          "EF1",
+          "EF8"
+        ],
+        "accepted_evidence": "docs/R17_ACCEPTANCE.md"
+      },
+      {
+        "id": "optional_prior_close",
+        "original": "Bar wrapper omitted prior-close consumed by two outputs",
+        "current": "EQ140 supplied bars accepts causal optional binding; absent references remain unavailable",
+        "release_owners": [
+          "EF1",
+          "EF8"
+        ],
+        "accepted_evidence": "docs/stories/EQ-140_BINDING_CONTRACT.md"
+      },
+      {
+        "id": "batch_history_and_intraday",
+        "original": "Batch-only history and explicit intraday contract gap",
+        "current": "Original history mode limits remain; R17 delivers eight explicit batch intraday outputs without update/restore/merge",
+        "release_owners": [
+          "EF1",
+          "EF2",
+          "EF3",
+          "EF4",
+          "EF5",
+          "EF6",
+          "EF7",
+          "EF8"
+        ],
+        "accepted_evidence": "docs/R17_ACCEPTANCE.md"
+      },
+      {
+        "id": "coarse_sharding",
+        "original": "Intersecting-population components serialize siblings",
+        "current": "Preserve guards until accepted measured reuse and qualified scheduling",
+        "release_owners": [
+          "R18"
+        ],
+        "accepted_evidence": "docs/R18_EXECUTION_MAP.md"
+      },
+      {
+        "id": "resource_topology",
+        "original": "32-worker interface and historical96-logical-processor report",
+        "current": "No96-worker grant; refresh actual allowed capacity and qualify profiles",
+        "release_owners": [
+          "R18"
+        ],
+        "accepted_evidence": "docs/R18_TEST_STRATEGY.md"
+      },
+      {
+        "id": "inventory_coverage",
+        "original": "78groups/357scanners/25watchlists/721fields compared to39coreIDs",
+        "current": "EQ164 reconciles original+new equity/mixed; EF8 qualifies admitted policies/bindings and retained exclusions",
+        "release_owners": [
+          "EF1",
+          "EF8"
+        ],
+        "accepted_evidence": "docs/EQUITY_DELIVERY_REPLAN.md"
+      }
+    ]
+  },
+  "revision_reason": "Owner correction: every release must have a dedicated equity feature goal and parallel library/IO/worker tracks. No mock/setup-only release or production UI/deployment.",
+  "shared_setup": {
+    "standalone_release": false,
+    "owned_by": "EF1 layer tasks, then reused and extended by each release",
+    "items": [
+      "compatible accepted runtime pinning",
+      "configured DuckDB/synthetic fixture selection",
+      "canonical sink/run identity and separate output DB configuration",
+      "small local results viewer for demonstrations"
+    ],
+    "library_changes": "EF1 delivers new EQ165-168 feature work, not only old-feature wrapper integration"
+  },
+  "delivery_artifacts": [
+    "installable feature libraries",
+    "input adapters and output sinks",
+    "worker commands/configuration",
+    "verified generated feature data in output DuckDB",
+    "local demonstration viewer and evidence"
+  ]
+}
