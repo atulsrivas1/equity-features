@@ -24,7 +24,7 @@ from equity_feature_explanations import (
 from equity_feature_explanations import _explain as implementation
 
 
-def fixture():
+def fixture(backend_version='0.0.4a4'):
     entity = EntityKey('A', 'S'); fid = 'session.trade.count'
     cfg = ConfigSpec('explain-fixture', 'v1', (Parameter('eligibility_policy', 'example-v1'),),
         SessionSpec('demo', 'S', 100, 200, 'caller'), WindowSpec(1, 'S', ('P', 'S')),
@@ -38,7 +38,7 @@ def fixture():
     result = FeatureResult((FeatureColumn(fid, 'v1', ValueType.INT64, 'trades', (entity,), (3,)),),
         (QualityRow(entity, fid, Status.AVAILABLE, 3, 3),),
         ResultMetadata('demo', 'S', cfg.availability, cfg.digest,
-            (InputBinding('trades', DataKind.TRADE, batch.metadata),), 'python-exact', '0.0.4a4'))
+            (InputBinding('trades', DataKind.TRADE, batch.metadata),), 'python-exact', backend_version))
     return cfg, batch, result, receipt(cfg, batch, result), entity, fid
 
 
@@ -47,6 +47,22 @@ def receipt(cfg, batch, result, disclosure=None):
         EnvironmentDeclaration('CPython', '3.12', 'hand-authored-fixture',
             (PackageVersion('equity-feature-contracts', '0.0.4a4'),)),
         ExecutionClaim(), disclosure or EvidenceDisclosure('not_supplied', 0))
+
+
+def declared_trade_fixture(backend_version):
+    """Independent full legacy-trade goldens; no calculator result is relabelled."""
+    cfg, batch, declaration, _, entity, fid = fixture(backend_version)
+    golden = (('session.trade.count', ValueType.INT64, 'trades', 3),
+        ('session.trade.volume', ValueType.INT64, 'shares', 10),
+        ('session.trade.notional', ValueType.DECIMAL128, 'currency', 1011),
+        ('session.trade.vwap', ValueType.FLOAT64, 'currency/share', 101.1),
+        ('session.trade.mean_size', ValueType.FLOAT64, 'shares/trade', 10 / 3))
+    result = FeatureResult(
+        tuple(FeatureColumn(name, 'v1', dtype, unit, (entity,), (value,))
+              for name, dtype, unit, value in golden),
+        tuple(QualityRow(entity, name, Status.AVAILABLE, 3, 3)
+              for name, _, _, _ in golden), declaration.metadata)
+    return cfg, batch, result, receipt(cfg, batch, result), entity, fid
 
 
 def retained():
@@ -143,6 +159,32 @@ class ExplanationTests(unittest.TestCase):
         cfg, batch, result, ref, entity, fid = fixture()
         self.rejects('unsupported_version', lambda: self.operation((replace(cfg, algorithm_version='v2'), batch, result, ref, entity, fid)))
 
+    def test_lib02_hand_authored_legacy_backend_pair_preserves_values_quality_and_identity(self):
+        # These are separate hand-authored declaration fixtures, not an actual
+        # calculator result with its identity rewritten to impersonate a4/a5.
+        legacy = declared_trade_fixture('0.0.4a4')
+        current = declared_trade_fixture('0.0.4a5')
+        self.assertEqual(legacy[2].values, current[2].values)
+        self.assertEqual(legacy[2].quality, current[2].quality)
+        self.assertEqual(legacy[2].values[0].values, (3,))
+        self.assertEqual(tuple(column.values[0] for column in legacy[2].values),
+                         (3, 10, 1011, 101.1, 10 / 3))
+        self.assertEqual(legacy[2].quality[0], QualityRow(legacy[4], legacy[5], Status.AVAILABLE, 3, 3))
+        self.assertNotEqual(legacy[3].output, current[3].output)
+        for values, version in ((legacy, '0.0.4a4'), (current, '0.0.4a5')):
+            explanation = self.operation(values)
+            self.assertEqual(explanation.quality, values[2].quality[0])
+            self.assertEqual(explanation.receipt.metadata.backend_version, version)
+            self.assertEqual(explanation.receipt.output, fingerprint_result(values[2]))
+            self.assertEqual(explanation.formula, 'n=len(T)')
+        self.assertEqual(self.operation(legacy).findings, self.operation(current).findings)
+
+    def test_lib02_unknown_backend_refuses_factory_and_direct_constructor(self):
+        unknown = declared_trade_fixture('0.0.4a6')
+        self.rejects('unsupported_version', lambda: self.operation(unknown))
+        current = self.operation(declared_trade_fixture('0.0.4a5'))
+        self.rejects('unsupported_version', lambda: replace(current, receipt=unknown[3]))
+
     def test_output_mutation_same_metadata(self):
         cfg, batch, result, ref, entity, fid = fixture()
         changed = replace(result, values=(replace(result.values[0], values=(4,)),))
@@ -231,6 +273,7 @@ class ExplanationTests(unittest.TestCase):
     def test_actual_optional_producer_missing_empty_partial(self):
         try:
             from equity_features.session import compute_trades
+            from equity_features import __version__ as producer_version
         except ImportError:
             self.skipTest('Optional actual calculator is absent in light consumer')
         cfg, batch, _, _, entity, fid = fixture()
@@ -242,6 +285,8 @@ class ExplanationTests(unittest.TestCase):
             (Status.AVAILABLE, 0, 0, ()), (Status.INCOMPLETE_COVERAGE, 3, 2, (Reason.GOVERNED_GAP,))]
         for supplied, target in zip(variants, expected, strict=True):
             result = compute_trades(supplied, cfg, entity=entity)
+            self.assertEqual(result.metadata.backend_version, producer_version)
+            self.assertIn(producer_version, ('0.0.4a4', '0.0.4a5'))
             ref = receipt(cfg, supplied, result)
             value = self.operation((cfg, supplied, result, ref, entity, fid))
             q = value.quality

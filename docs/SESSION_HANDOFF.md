@@ -1,5 +1,9 @@
 ## GOV035 three-layer correction — October 20, 2026
 
+## EF1 source-authoring admission — October20,2026
+
+Owner authorized reviewed-subset three-layer implementation while retaining full EQ164 inventory audit as mandatory EF1/EQ169 release gate. See [reviewed contract and sequencing amendment](ef1/IMPLEMENTATION_ADMISSION.md). Milestone34/epic569; retained stories504–509 plus IO570/worker571. Exact ef1-contract1 independently reviewed; this is source-authoring admission, not runtime or release acceptance. Active EQ142 is preserved.
+
 Owner explicitly rejects a release dedicated to mocks/setup and asks every release to include all3layers for its own goal; confirms no product UI/deployment. Revised [plan](EQUITY_DELIVERY_REPLAN.md)/[JSON](plans/equity-delivery-replan.json) to EF1-8,35retainedstories,18proposedtasks. EF1 now owns EQ164-169 session/status/levels/anchors/references plus baseline compatibility/source/mock/output setup. Each release carries explicit feature-library, I/O and worker deliverables, shared-contract parallelism and goal-specific local computed/stored demo. EF1 gate is EQ169; removed obsolete EF1-A/C tasks and all EF1-A dependency references; retained real cross-release inputs and active R18. Governance returned Test->In progress for actual plan rework; no implementation story/milestone changed. Lightweight updated validator PASS35/8/18. Fresh independent renewed review/current-head CI/publication remain before delivery. Existing9/22review receipts below are historical and do not qualify this successor.
 
 ## GOV035 equity-only release replanning — October 20, 2026

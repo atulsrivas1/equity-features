@@ -17,7 +17,7 @@ from continuous_archives import inspect
 ROOT=Path(__file__).resolve().parents[1]
 OUT_ROOT=ROOT/'dist/intraday'
 PACKAGES={'contracts':('equity_feature_contracts','0.0.4a4'),
-          'features':('equity_features','0.0.4a4'),
+          'features':('equity_features','0.0.4a5'),
           'intraday':('equity_features_intraday','0.1.0a3')}
 SCOPES=['packages/'+name for name in PACKAGES]+[
     'tests/intraday','tests/fixtures/intraday_bands','examples/intraday_preparation.py',

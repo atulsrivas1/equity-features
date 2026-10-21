@@ -1,5 +1,9 @@
 ## Owner correction: three layers per feature release — October 20, 2026
 
+## EF1 source-authoring admission — October20,2026
+
+Owner authorized reviewed-subset three-layer implementation while retaining full EQ164 inventory audit as mandatory EF1/EQ169 release gate. See [reviewed contract and sequencing amendment](ef1/IMPLEMENTATION_ADMISSION.md). Milestone34/epic569; retained stories504–509 plus IO570/worker571. Exact ef1-contract1 independently reviewed; this is source-authoring admission, not runtime or release acceptance. Active EQ142 is preserved.
+
 [GOV035/PR568](https://github.com/atulsrivas1/equity-features/pull/568) revised to8feature-bearing releases/35existingstories/18proposedtasks. Every release has goal-specific library, I/O and worker deliverables, developed in parallel after contract/prerequisite review. EF1 now delivers new session/reference/level features EQ164-169 with shared DuckDB/mock/sink setup inside its layer work; mocks do not get a release. Output is installable libraries/adapters/workers plus DuckDB data; browser viewer is local demonstration tooling, not product UI or public deployment. [Plan](EQUITY_DELIVERY_REPLAN.md) and [JSON](plans/equity-delivery-replan.json) supersede the nine-release proposal below. Existing issue dependencies/migration gates and R18 ownership remain explicit.
 
 ## Equity-only replan — October 20, 2026

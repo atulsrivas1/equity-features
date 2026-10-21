@@ -1,5 +1,9 @@
 ## GOV035 revision: eight feature releases with three parallel tracks
 
+## EF1 source-authoring admission — October20,2026
+
+Owner authorized reviewed-subset three-layer implementation while retaining full EQ164 inventory audit as mandatory EF1/EQ169 release gate. See [reviewed contract and sequencing amendment](ef1/IMPLEMENTATION_ADMISSION.md). Milestone34/epic569; retained stories504–509 plus IO570/worker571. Exact ef1-contract1 independently reviewed; this is source-authoring admission, not runtime or release acceptance. Active EQ142 is preserved.
+
 Owner corrected the first proposal: no dedicated mock/setup release and no product UI/deployment. [Current EF1-EF8 plan](EQUITY_DELIVERY_REPLAN.md) moves EQ164-169 session/reference feature delivery into EF1, with source/mock/sink setup implemented alongside its libraries and workers. All35 EQ147-181 stories remain assigned once;18 proposed I/O/acceptance tasks and concrete three-track contracts are in [JSON](plans/equity-delivery-replan.json). Earlier nine-release/22-task proposal below is superseded, not current execution authority. Trackers remain unchanged pending reviewed migration; active EQ142 stays preserved.
 
 ## GOV035: equity-only vertical release replan — proposed

@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'dist/agent-ledger-corrected'
 EPOCH = 1700000000
 PACKAGES = {'contracts':('equity_feature_contracts','0.0.4a4'),
-            'features':('equity_features','0.0.4a4'), 'evidence':('equity_feature_evidence','0.1.0a2'),
+            'features':('equity_features','0.0.4a5'), 'evidence':('equity_feature_evidence','0.1.0a2'),
             'agent-evidence':('equity_feature_agent_evidence','0.1.0a1'),
             'agent-ledger':('equity_feature_agent_ledger','0.1.0a1')}
 

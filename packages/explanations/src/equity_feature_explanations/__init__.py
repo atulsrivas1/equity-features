@@ -2,5 +2,6 @@
 from ._explain import (ExplanationError, ExplanationFinding, InputSummary,
     EvidenceReference, Explanation, explain_result, encode_explanation)
 
+__version__ = '0.1.0a2'
 __all__ = ['ExplanationError', 'ExplanationFinding', 'InputSummary',
-    'EvidenceReference', 'Explanation', 'explain_result', 'encode_explanation']
+    'EvidenceReference', 'Explanation', 'explain_result', 'encode_explanation', '__version__']

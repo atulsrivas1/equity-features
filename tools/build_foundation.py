@@ -92,7 +92,7 @@ def clean_install(paths):
         if paths[0].suffix!='.whl': run(str(py),'-m','pip','install','--no-deps','setuptools==80.9.0')
         run(str(py),'-m','pip','install','--no-index','--no-deps','--no-build-isolation',*[str(p) for p in paths])
         run(str(py),'-m','pip','check')
-        run(str(py),'-I','-c','import equity_feature_contracts as c; import equity_features as f; assert c.__version__==f.__version__==f.contracts_version; print("Clean installed foundation imports verified",c.__version__)')
+        run(str(py),'-I','-c','import equity_feature_contracts as c; import equity_features as f; assert (c.__version__,f.__version__,f.contracts_version)==("0.0.4a4","0.0.4a5","0.0.4a4"); print("Clean installed foundation imports verified",c.__version__,f.__version__)')
         run(str(py),'-m','pip','install','--no-deps','numpy==2.2.6','pyarrow==20.0.0')
         consumer_paths=sorted(p for p in paths[0].parent.glob('equity_feature_demo-*') if (p.suffix=='.whl')==(paths[0].suffix=='.whl'))
         assert len(consumer_paths)==1,'matching standalone consumer artifact required'
@@ -155,7 +155,7 @@ print('Independent installed consumer public imports and immutable core verified
             run(str(py),'-I',str(resource),'--quick','--output',str(resource_output))
         tests=ROOT/'tests/unit'
         if tests.exists(): run(str(py),'-m','unittest','discover','-s',str(tests))
-        for name in ('canonical_inputs','in_memory_adapter','session_bars','session_structure','session_trades','session_top_k','session_quotes','continuous_quotes','session_incremental','session_state','session_merge','action_policies','history_windows','history_averages','history_recursive','history_volatility','daily_volume','interval_volume','relative_returns','declared_breadth','feature_composition','legacy_comparison'):
+        for name in ('canonical_inputs','in_memory_adapter','session_bars','session_structure','session_trades','session_top_k','session_quotes','continuous_quotes','session_incremental','session_state','session_merge','action_policies','history_windows','history_averages','history_recursive','history_volatility','daily_volume','interval_volume','relative_returns','declared_breadth','feature_composition','legacy_comparison','ef1_anchor'):
             example=ROOT/f'examples/{name}.py'
             if example.exists(): run(str(py),str(example))
 
