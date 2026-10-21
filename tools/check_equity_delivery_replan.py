@@ -14,24 +14,32 @@ def check(root: Path) -> dict[str, int | str]:
     assert data["active_r18_preserved"] and data["r18_dependencies_unchanged"]
     assert data["historical_releases_preserved"]
     releases = data["releases"]
-    assert [release["id"] for release in releases] == [f"EF{i}" for i in range(1, 10)]
+    assert data["schema_version"] == 2
+    assert [release["id"] for release in releases] == [f"EF{i}" for i in range(1, 9)]
     stories = [story for release in releases for story in release["existing_stories"]]
     expected = {f"EQ-{i}" for i in range(147, 182)}
     assert len(stories) == 35 and {story["story"] for story in stories} == expected
     assert len({story["issue"] for story in stories}) == 35
     owners = {story["story"]: release["id"] for release in releases for story in release["existing_stories"]}
     assert owners["EQ-164"] == "EF1"
-    assert owners["EQ-170"] == "EF3" and owners["EQ-172"] == "EF5"
-    assert owners["EQ-171"] == "EF6" and owners["EQ-173"] == "EF7"
-    assert owners["EQ-174"] == owners["EQ-175"] == "EF8"
-    assert all(owners[f"EQ-{i}"] == "EF9" for i in range(176, 182))
+    assert all(owners[f"EQ-{i}"] == "EF1" for i in range(164, 170))
+    assert owners["EQ-170"] == "EF2" and owners["EQ-172"] == "EF4"
+    assert owners["EQ-171"] == "EF5" and owners["EQ-173"] == "EF6"
+    assert owners["EQ-174"] == owners["EQ-175"] == "EF7"
+    assert all(owners[f"EQ-{i}"] == "EF8" for i in range(176, 182))
     tasks = [task for release in releases for task in release["proposed_tasks"]]
-    assert len(tasks) == 22 and len({task["planning_key"] for task in tasks}) == 22
+    assert len(tasks) == 18 and len({task["planning_key"] for task in tasks}) == 18
     for release in releases:
         assert release["state"] == "proposed_allocation_not_migrated"
         assert release["milestone_number"] is None and release["epic_issue"] is None
         assert set(release["layers"]) == {"libraries", "io", "workers"}
         assert release["demo_required"] and not release["api_required"]
+        assert not release["ui_product_required"] and not release["public_deployment_required"]
+        assert release["goal"] and release["demo_goal"]
+        assert set(release["tracks"]) == {"libraries", "io", "workers"}
+        assert all(track["deliverables"] and track["contract_first"] for track in release["tracks"].values())
+        assert release["tracks"]["libraries"]["existing_stories"]
+        assert release["parallel_after"]
         own_keys = {task["planning_key"] for task in release["proposed_tasks"]}
         own_stories = {story["story"] for story in release["existing_stories"]}
         assert release["acceptance_gate"] in own_keys | own_stories
@@ -76,7 +84,11 @@ def check(root: Path) -> dict[str, int | str]:
     }
     for row in inventory["findings"]:
         assert (root / row["accepted_evidence"]).is_file(), row["accepted_evidence"]
-        assert row["release_owners"] and set(row["release_owners"]) <= {"R18", *(f"EF{i}" for i in range(1, 10))}
+        assert row["release_owners"] and set(row["release_owners"]) <= {"R18", *(f"EF{i}" for i in range(1, 9))}
+    assert not data["shared_setup"]["standalone_release"]
+    assert not any(task["planning_key"] in {"EF1-C", "EF1-A"} for task in tasks)
+    assert all("EF1-A" not in row["add"] for row in data["dependency_amendments"])
+    assert all(row.get("common_composition_dependency") != "EF1-A" for row in releases)
     text = (root / "docs/EQUITY_DELIVERY_REPLAN.md").read_text(encoding="utf-8")
     for link in re.findall(r"\]\(([^)]+)\)", text):
         if "://" in link or link.startswith("#"):

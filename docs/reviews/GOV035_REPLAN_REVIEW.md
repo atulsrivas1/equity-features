@@ -1,5 +1,11 @@
 # GOV035 equity release replan: review and author evidence
 
+## Current owner-directed successor: review renewal required
+
+Fresh read-only reviewer `/root/equity_three_layer_review` checked the successor's goals/tracks, retained scopes and effective dependency graph. It found one P3 stale audit label (EQ175 still said EF8 delayed-path instead of EF7); corrected the label. Reviewer found no orphan references, stale EF1-A edges or explicit graph cycles; actual EQ172 operands, cumulative EQ175 audit, EQ146 final gate and R18/options boundaries remain. Independent planning checker passed8/35/18 and whitespace check passed. Committed-head renewal remains required; working review is not final source/CI/publication acceptance.
+
+The owner rejected the separate mock/setup release and confirmed no production UI/deployment. The successor has8feature releases,35retainedEQ147-181stories and18proposedtasks. EF1 now owns new session/reference features EQ164-169, while each release has explicit library/I-O/worker deliverables, parallel-after-contract boundaries and an integrated local demo. EF1-A/C are removed; EQ169 is the common composition gate without a self-edge. The updated static planning validator passes35/8/18; prior nine-release review receipts below remain historical. Fresh independent successor and committed-head review/currentCI are required before renewed publication. No feature code/tests/builds/benchmarks/data operations performed.
+
 [Issue567](https://github.com/atulsrivas1/equity-features/issues/567). October 20, 2026. Documentation/planning only; no numerical implementation or runtime acceptance is asserted.
 
 ## Independent semantic review

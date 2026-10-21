@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "governance_issue": 567,
   "date_eastern": "2026-10-20",
   "status": "draft_proposal_tracker_migration_pending",
@@ -15,7 +15,8 @@
   "releases": [
     {
       "id": "EF1",
-      "title": "Working equity pipeline",
+      "title": "Sessions, levels and reference features",
+      "goal": "Session/status clocks, extended sessions, calendar levels, anchored VWAP/gaps and governed references, delivered alongside the accepted OHLCV baseline.",
       "state": "proposed_allocation_not_migrated",
       "milestone_number": null,
       "epic_issue": null,
@@ -35,94 +36,7 @@
             "GOV032_planning_publication",
             "accepted_inventory_and_coverage_decisions"
           ]
-        }
-      ],
-      "proposed_tasks": [
-        {
-          "planning_key": "EF1-C",
-          "layer": "libraries",
-          "title": "Verify canonical library compatibility and independent five-output session fixtures",
-          "github_issue": null,
-          "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
-          "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
-          ],
-          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
-        {
-          "planning_key": "EF1-IO",
-          "layer": "io",
-          "title": "Qualify configured DuckDB or synthetic inputs and configure separate output DuckDB via existing sink",
-          "github_issue": null,
-          "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
-          "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
-          ],
-          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
-        },
-        {
-          "planning_key": "EF1-W",
-          "layer": "workers",
-          "title": "Compose admitted inputs, accepted features and sink with bounded execution and factual retry/commit handling",
-          "github_issue": null,
-          "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
-          "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
-          ],
-          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
-        },
-        {
-          "planning_key": "EF1-A",
-          "layer": "acceptance",
-          "title": "Qualify direct/worker/stored parity, installed evidence and executable browser demo",
-          "github_issue": null,
-          "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
-          "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
-          ],
-          "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
-        }
-      ],
-      "acceptance_gate": "EF1-A",
-      "layers": [
-        "libraries",
-        "io",
-        "workers"
-      ],
-      "demo_required": true,
-      "api_required": false,
-      "release_gate_additional_dependencies": [
-        "EF1-IO",
-        "EF1-W"
-      ]
-    },
-    {
-      "id": "EF2",
-      "title": "Sessions, levels and references",
-      "state": "proposed_allocation_not_migrated",
-      "milestone_number": null,
-      "epic_issue": null,
-      "existing_stories": [
         {
           "story": "EQ-165",
           "issue": 505,
@@ -200,34 +114,42 @@
       ],
       "proposed_tasks": [
         {
-          "planning_key": "EF2-IO",
+          "planning_key": "EF1-IO",
           "layer": "io",
-          "title": "Qualify sessions, levels and references input mappings and output projections",
+          "title": "Sessions, levels and reference features: input/output mapping",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map bars, prior history, session calendars, classifications/actions and optional prior-close facts",
+            "Provide explicit DuckDB-backed or synthetic input and configure separate output DuckDB using existing sink"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF2-W",
+          "planning_key": "EF1-W",
           "layer": "workers",
-          "title": "Bind sessions, levels and references to bounded execution and verified output readback",
+          "title": "Sessions, levels and reference features: bounded execution and readback",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Bind accepted OHLCV plus new session/reference outputs to bounded worker requests",
+            "Verify dependency readiness, causal reference binding, serialized persistence, retry and full-result readback"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         }
@@ -238,17 +160,53 @@
         "io",
         "workers"
       ],
-      "demo_required": true,
-      "api_required": false,
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-164",
+            "EQ-165",
+            "EQ-166",
+            "EQ-167",
+            "EQ-168"
+          ],
+          "deliverables": [
+            "Specify and implement session/status, calendar levels, extended sessions, anchors/gaps and reference/action gates",
+            "Reconcile all original equity scope and preserve accepted numerical APIs"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF1-IO",
+          "deliverables": [
+            "Map bars, prior history, session calendars, classifications/actions and optional prior-close facts",
+            "Provide explicit DuckDB-backed or synthetic input and configure separate output DuckDB using existing sink"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF1-W",
+          "deliverables": [
+            "Bind accepted OHLCV plus new session/reference outputs to bounded worker requests",
+            "Verify dependency readiness, causal reference binding, serialized persistence, retry and full-result readback"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
       "release_gate_additional_dependencies": [
-        "EF2-IO",
-        "EF2-W"
+        "EF1-IO",
+        "EF1-W"
       ],
-      "common_composition_dependency": "EF1-A"
+      "demo_required": true,
+      "demo_goal": "Run a selected session with baseline and new session/reference outputs, showing provenance, missing-reference behavior and stored-result parity.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false
     },
     {
-      "id": "EF3",
+      "id": "EF2",
       "title": "Trend, momentum and channels",
+      "goal": "MACD, DMI/ADX, stochastic/Williams, OBV/A-D/CMF, aligned Ichimoku and admitted price-channel/squeeze features.",
       "state": "proposed_allocation_not_migrated",
       "milestone_number": null,
       "epic_issue": null,
@@ -363,34 +321,42 @@
       ],
       "proposed_tasks": [
         {
-          "planning_key": "EF3-IO",
+          "planning_key": "EF2-IO",
           "layer": "io",
-          "title": "Qualify trend, momentum and channels input mappings and output projections",
+          "title": "Trend, momentum and channels: input/output mapping",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map ordered OHLCV/warm-up windows, volume and selected channel/reference operands",
+            "Persist trend/channel values, readiness, identities and evidence through canonical sink conversion"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF3-W",
+          "planning_key": "EF2-W",
           "layer": "workers",
-          "title": "Bind trend, momentum and channels to bounded execution and verified output readback",
+          "title": "Trend, momentum and channels: bounded execution and readback",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Route selected indicator families with exact warm-up/operand closure and independent readiness",
+            "Preserve shared preparation compatibility, resource bounds and verified persisted results"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         }
@@ -401,17 +367,55 @@
         "io",
         "workers"
       ],
-      "demo_required": true,
-      "api_required": false,
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-147",
+            "EQ-148",
+            "EQ-149",
+            "EQ-150",
+            "EQ-151",
+            "EQ-170"
+          ],
+          "deliverables": [
+            "Implement independently specified trend, momentum, money-flow and channel/squeeze kernels",
+            "Freeze seed/window/gap/displacement and percentile conventions before Ready"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF2-IO",
+          "deliverables": [
+            "Map ordered OHLCV/warm-up windows, volume and selected channel/reference operands",
+            "Persist trend/channel values, readiness, identities and evidence through canonical sink conversion"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF2-W",
+          "deliverables": [
+            "Route selected indicator families with exact warm-up/operand closure and independent readiness",
+            "Preserve shared preparation compatibility, resource bounds and verified persisted results"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
       "release_gate_additional_dependencies": [
-        "EF3-IO",
-        "EF3-W"
+        "EF2-IO",
+        "EF2-W"
       ],
-      "common_composition_dependency": "EF1-A"
+      "demo_required": true,
+      "demo_goal": "Run selected indicators/channels with warm-up and missing-operand cases; compare direct, worker and stored outputs.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
     },
     {
-      "id": "EF4",
+      "id": "EF3",
       "title": "Relative statistics and anomalies",
+      "goal": "Correlation/beta/residuals, separately specified log-return RV, robust histories/ranks and volume pace/anomalies.",
       "state": "proposed_allocation_not_migrated",
       "milestone_number": null,
       "epic_issue": null,
@@ -496,34 +500,42 @@
       ],
       "proposed_tasks": [
         {
-          "planning_key": "EF4-IO",
+          "planning_key": "EF3-IO",
           "layer": "io",
-          "title": "Qualify relative statistics and anomalies input mappings and output projections",
+          "title": "Relative statistics and anomalies: input/output mapping",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map paired histories, benchmark/calendar/cutoff alignment and declared reference populations",
+            "Persist statistic definitions, coverage, units and null/evidence semantics"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF4-W",
+          "planning_key": "EF3-W",
           "layer": "workers",
-          "title": "Bind relative statistics and anomalies to bounded execution and verified output readback",
+          "title": "Relative statistics and anomalies: bounded execution and readback",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Plan only selected pair/population dependencies and bounded shared histories",
+            "Execute robust/relative families with full-result readback and partial-population controls"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         }
@@ -534,17 +546,53 @@
         "io",
         "workers"
       ],
-      "demo_required": true,
-      "api_required": false,
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-153",
+            "EQ-154",
+            "EQ-155",
+            "EQ-156"
+          ],
+          "deliverables": [
+            "Implement aligned return statistics and distinct daily/intraday RV conventions",
+            "Implement robust median/MAD/rank/pace definitions with independent expected fixtures"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF3-IO",
+          "deliverables": [
+            "Map paired histories, benchmark/calendar/cutoff alignment and declared reference populations",
+            "Persist statistic definitions, coverage, units and null/evidence semantics"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF3-W",
+          "deliverables": [
+            "Plan only selected pair/population dependencies and bounded shared histories",
+            "Execute robust/relative families with full-result readback and partial-population controls"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
       "release_gate_additional_dependencies": [
-        "EF4-IO",
-        "EF4-W"
+        "EF3-IO",
+        "EF3-W"
       ],
-      "common_composition_dependency": "EF1-A"
+      "demo_required": true,
+      "demo_goal": "Compare a symbol/benchmark slice and robust anomaly results; show insufficient history and stored parity.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
     },
     {
-      "id": "EF5",
+      "id": "EF4",
       "title": "Tape, quotes and path statistics",
+      "goal": "Trade windows/signing, quote dynamics/microprice, VWAP/path statistics, efficiency/choppiness, notional top-K and remaining projections.",
       "state": "proposed_allocation_not_migrated",
       "milestone_number": null,
       "epic_issue": null,
@@ -660,34 +708,42 @@
       ],
       "proposed_tasks": [
         {
-          "planning_key": "EF5-IO",
+          "planning_key": "EF4-IO",
           "layer": "io",
-          "title": "Qualify tape, quotes and path statistics input mappings and output projections",
+          "title": "Tape, quotes and path statistics: input/output mapping",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map trades/quotes, sequence/carry/window boundaries and compatible supporting histories",
+            "Persist window/path results and exact projection/evidence records"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF5-W",
+          "planning_key": "EF4-W",
           "layer": "workers",
-          "title": "Bind tape, quotes and path statistics to bounded execution and verified output readback",
+          "title": "Tape, quotes and path statistics: bounded execution and readback",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Preserve tick-sign carry and true per-identity order while admitting independent branches",
+            "Bound event windows/results and verify cancellation, sink ownership and readback"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         }
@@ -698,17 +754,55 @@
         "io",
         "workers"
       ],
-      "demo_required": true,
-      "api_required": false,
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-158",
+            "EQ-159",
+            "EQ-160",
+            "EQ-161",
+            "EQ-162",
+            "EQ-172"
+          ],
+          "deliverables": [
+            "Implement ordered trade/quote/path kernels and deterministic notional ties",
+            "Retain the whole EQ172 projection scope and its actual EQ155/EQ158 operands"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF4-IO",
+          "deliverables": [
+            "Map trades/quotes, sequence/carry/window boundaries and compatible supporting histories",
+            "Persist window/path results and exact projection/evidence records"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF4-W",
+          "deliverables": [
+            "Preserve tick-sign carry and true per-identity order while admitting independent branches",
+            "Bound event windows/results and verify cancellation, sink ownership and readback"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
       "release_gate_additional_dependencies": [
-        "EF5-IO",
-        "EF5-W"
+        "EF4-IO",
+        "EF4-W"
       ],
-      "common_composition_dependency": "EF1-A"
+      "demo_required": true,
+      "demo_goal": "Run an ordered tape/quote window with ties, missing operands and path projections, then inspect persisted results.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
     },
     {
-      "id": "EF6",
+      "id": "EF5",
       "title": "Price structures and patterns",
+      "goal": "Original independently specified candle/structural pattern evidence and assigned price-action projections.",
       "state": "proposed_allocation_not_migrated",
       "milestone_number": null,
       "epic_issue": null,
@@ -730,71 +824,115 @@
       ],
       "proposed_tasks": [
         {
-          "planning_key": "EF6-IO",
+          "planning_key": "EF5-IO",
           "layer": "io",
-          "title": "Qualify price structures and patterns input mappings and output projections",
+          "title": "Price structures and patterns: input/output mapping",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map exact bar windows, structural context and availability/revision identities",
+            "Persist pattern/version, values, readiness and witnesses"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF6-W",
+          "planning_key": "EF5-W",
           "layer": "workers",
-          "title": "Bind price structures and patterns to bounded execution and verified output readback",
+          "title": "Price structures and patterns: bounded execution and readback",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Execute selected bounded pattern windows without future-data consumption",
+            "Preserve correction/replay scope and verified output publication"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF6-A",
+          "planning_key": "EF5-A",
           "layer": "acceptance",
-          "title": "Qualify price structures and patterns integrated release and browser demo",
+          "title": "Price structures and patterns: integrated release qualification and local demo",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered acceptance issue and accept all three layer dependencies",
+          "deliverables": [
+            "independent full-result fixture evidence",
+            "I/O and worker conformance/readback",
+            "actual local browser demonstration of computed and stored results"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "all owned numerical stories and IO/W tasks accepted",
+            "fresh independent review, current CI and applicable installed artifacts",
+            "actual delivery/readback before Done"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         }
       ],
-      "acceptance_gate": "EF6-A",
+      "acceptance_gate": "EF5-A",
       "layers": [
         "libraries",
         "io",
         "workers"
       ],
-      "demo_required": true,
-      "api_required": false,
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-171"
+          ],
+          "deliverables": [
+            "Implement the admitted candle/structure catalogue and associated price-action returns/velocity/acceleration",
+            "Separate deterministic mathematical evidence from consumer policy"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF5-IO",
+          "deliverables": [
+            "Map exact bar windows, structural context and availability/revision identities",
+            "Persist pattern/version, values, readiness and witnesses"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF5-W",
+          "deliverables": [
+            "Execute selected bounded pattern windows without future-data consumption",
+            "Preserve correction/replay scope and verified output publication"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
       "release_gate_additional_dependencies": [
-        "EF6-IO",
-        "EF6-W"
+        "EF5-IO",
+        "EF5-W"
       ],
-      "common_composition_dependency": "EF1-A"
+      "demo_required": true,
+      "demo_goal": "Run positive, negative and unavailable pattern examples with witnesses and stored readback.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
     },
     {
-      "id": "EF7",
+      "id": "EF6",
       "title": "Events and fundamentals",
+      "goal": "Arithmetic over supplied point-in-time event/fundamental/short-interest/reference facts.",
       "state": "proposed_allocation_not_migrated",
       "milestone_number": null,
       "epic_issue": null,
@@ -817,71 +955,115 @@
       ],
       "proposed_tasks": [
         {
-          "planning_key": "EF7-IO",
+          "planning_key": "EF6-IO",
           "layer": "io",
-          "title": "Qualify events and fundamentals input mappings and output projections",
+          "title": "Events and fundamentals: input/output mapping",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map explicitly eligible event/fundamental snapshots and reference/action bindings",
+            "Label unavailable inputs and synthetic examples; persist PIT evidence without inventing availability"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF7-W",
+          "planning_key": "EF6-W",
           "layer": "workers",
-          "title": "Bind events and fundamentals to bounded execution and verified output readback",
+          "title": "Events and fundamentals: bounded execution and readback",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Join only causally eligible facts to selected instrument/session requests",
+            "Reject future/unknown evidence according to contract and verify published results"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF7-A",
+          "planning_key": "EF6-A",
           "layer": "acceptance",
-          "title": "Qualify events and fundamentals integrated release and browser demo",
+          "title": "Events and fundamentals: integrated release qualification and local demo",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered acceptance issue and accept all three layer dependencies",
+          "deliverables": [
+            "independent full-result fixture evidence",
+            "I/O and worker conformance/readback",
+            "actual local browser demonstration of computed and stored results"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "all owned numerical stories and IO/W tasks accepted",
+            "fresh independent review, current CI and applicable installed artifacts",
+            "actual delivery/readback before Done"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         }
       ],
-      "acceptance_gate": "EF7-A",
+      "acceptance_gate": "EF6-A",
       "layers": [
         "libraries",
         "io",
         "workers"
       ],
-      "demo_required": true,
-      "api_required": false,
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-173"
+          ],
+          "deliverables": [
+            "Implement admitted supplied-fact event/fundamental arithmetic",
+            "Freeze effective/known-at, revisions, denominators and missingness; no acquisition in kernels"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF6-IO",
+          "deliverables": [
+            "Map explicitly eligible event/fundamental snapshots and reference/action bindings",
+            "Label unavailable inputs and synthetic examples; persist PIT evidence without inventing availability"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF6-W",
+          "deliverables": [
+            "Join only causally eligible facts to selected instrument/session requests",
+            "Reject future/unknown evidence according to contract and verify published results"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
       "release_gate_additional_dependencies": [
-        "EF7-IO",
-        "EF7-W"
+        "EF6-IO",
+        "EF6-W"
       ],
-      "common_composition_dependency": "EF1-A"
+      "demo_required": true,
+      "demo_goal": "Run supplied event facts with known-at boundaries, revisions and a synthetic missing-data case; inspect stored evidence.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
     },
     {
-      "id": "EF8",
+      "id": "EF7",
       "title": "Observed outcomes",
+      "goal": "Mature observed-path MFE/MAE, barriers and time-to-target with cumulative remaining-numerical qualification.",
       "state": "proposed_allocation_not_migrated",
       "milestone_number": null,
       "epic_issue": null,
@@ -923,34 +1105,42 @@
       ],
       "proposed_tasks": [
         {
-          "planning_key": "EF8-IO",
+          "planning_key": "EF7-IO",
           "layer": "io",
-          "title": "Qualify observed outcomes input mappings and output projections",
+          "title": "Observed outcomes: input/output mapping",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map frozen origin identity and mature observed paths with explicit coverage/resolution",
+            "Persist pending/mature results separately from current feature inputs"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF8-W",
+          "planning_key": "EF7-W",
           "layer": "workers",
-          "title": "Bind observed outcomes to bounded execution and verified output readback",
+          "title": "Observed outcomes: bounded execution and readback",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Schedule delayed calculations only when their own horizon/coverage is ready",
+            "Preserve origin bytes and deterministic retry/publication/readback"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         }
@@ -961,17 +1151,50 @@
         "io",
         "workers"
       ],
-      "demo_required": true,
-      "api_required": false,
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-174"
+          ],
+          "deliverables": [
+            "Implement sampled-path outcomes/maturity separately from origin-time signals",
+            "Retain EQ175 cumulative EQ170-174/reference audit; no premature closure"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF7-IO",
+          "deliverables": [
+            "Map frozen origin identity and mature observed paths with explicit coverage/resolution",
+            "Persist pending/mature results separately from current feature inputs"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF7-W",
+          "deliverables": [
+            "Schedule delayed calculations only when their own horizon/coverage is ready",
+            "Preserve origin bytes and deterministic retry/publication/readback"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
       "release_gate_additional_dependencies": [
-        "EF8-IO",
-        "EF8-W"
+        "EF7-IO",
+        "EF7-W"
       ],
-      "common_composition_dependency": "EF1-A"
+      "demo_required": true,
+      "demo_goal": "Show pending then mature outcomes on a synthetic chronological replay, with unchanged origin signals and stored parity.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
     },
     {
-      "id": "EF9",
+      "id": "EF8",
       "title": "Equity policies and complete coverage",
+      "goal": "Admitted scanner/watchlist/context policies, confirmation/lifecycle/history and complete equity binding/coverage audit.",
       "state": "proposed_allocation_not_migrated",
       "milestone_number": null,
       "epic_issue": null,
@@ -1080,34 +1303,42 @@
       ],
       "proposed_tasks": [
         {
-          "planning_key": "EF9-IO",
+          "planning_key": "EF8-IO",
           "layer": "io",
-          "title": "Qualify equity policies and complete coverage input mappings and output projections",
+          "title": "Equity policies and complete coverage: input/output mapping",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Map selected feature/policy frames and ordered state/history inputs without recomputing mathematics",
+            "Persist matches/unavailable states, transitions, membership/score history and provenance"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         },
         {
-          "planning_key": "EF9-W",
+          "planning_key": "EF8-W",
           "layer": "workers",
-          "title": "Bind equity policies and complete coverage to bounded execution and verified output readback",
+          "title": "Equity policies and complete coverage: bounded execution and readback",
           "github_issue": null,
           "state": "proposed_not_created",
-          "before_ready": "Create canonical numbered issue, link epic/milestone, freeze exact scope/fixtures/pins and accept prerequisites",
+          "before_ready": "Create canonical numbered issue, link owning delivery, freeze contracts/fixtures/pins and accept prerequisites",
+          "deliverables": [
+            "Evaluate selected policies on ready immutable feature frames and own lifecycle persistence",
+            "Audit all admitted old/new worker and I/O bindings using accumulated release receipts; retain EQ146 gate"
+          ],
           "acceptance": [
-            "canonical identity/units/timing/provenance preserved",
-            "independent expected or compatibility evidence appropriate to layer",
-            "documented missingness/errors/retry/publication boundaries",
-            "integrated full-result DuckDB readback and browser demo at release gate",
-            "independent review and current applicable CI/artifact/delivery evidence"
+            "canonical units, timing, identity, missingness and provenance preserved",
+            "independent fixture/conformance evidence appropriate to this layer",
+            "complete direct/worker/stored result parity at owning release gate",
+            "documented error, retry, cancellation and commit ownership",
+            "current independent review, applicable CI/artifact qualification and local demo evidence"
           ],
           "canonical_issue_assignment": "required_before_tracker_migration_completion_and_Ready"
         }
@@ -1118,13 +1349,49 @@
         "io",
         "workers"
       ],
-      "demo_required": true,
-      "api_required": false,
+      "tracks": {
+        "libraries": {
+          "existing_stories": [
+            "EQ-176",
+            "EQ-177",
+            "EQ-178",
+            "EQ-179",
+            "EQ-180"
+          ],
+          "deliverables": [
+            "Implement original versioned rules, context scores and pure lifecycle transitions using supplied accepted features",
+            "Reconcile all admitted catalogue identities and explicit residual/exclusion scope"
+          ],
+          "contract_first": true
+        },
+        "io": {
+          "planning_task": "EF8-IO",
+          "deliverables": [
+            "Map selected feature/policy frames and ordered state/history inputs without recomputing mathematics",
+            "Persist matches/unavailable states, transitions, membership/score history and provenance"
+          ],
+          "contract_first": true
+        },
+        "workers": {
+          "planning_task": "EF8-W",
+          "deliverables": [
+            "Evaluate selected policies on ready immutable feature frames and own lifecycle persistence",
+            "Audit all admitted old/new worker and I/O bindings using accumulated release receipts; retain EQ146 gate"
+          ],
+          "contract_first": true
+        }
+      },
+      "parallel_after": "Reviewed shared contracts and actual layer prerequisites; use fixtures while dependent layer implementation proceeds",
       "release_gate_additional_dependencies": [
-        "EF9-IO",
-        "EF9-W"
+        "EF8-IO",
+        "EF8-W"
       ],
-      "common_composition_dependency": "EF1-A"
+      "demo_required": true,
+      "demo_goal": "Run selected scans and lifecycle/history transitions, showing unavailable rules, stored provenance and complete admitted-coverage report.",
+      "api_required": false,
+      "ui_product_required": false,
+      "public_deployment_required": false,
+      "common_composition_dependency": "EQ-169"
     }
   ],
   "dependency_amendments": [
@@ -1134,7 +1401,7 @@
         "EQ-146"
       ],
       "add": [
-        "EF1-A",
+        "EQ-169",
         "EQ-170"
       ],
       "note": "Preserve EQ147-151; qualify any adopted R18 runtime separately",
@@ -1146,7 +1413,7 @@
         "EQ-152"
       ],
       "add": [
-        "EF1-A"
+        "EQ-169"
       ],
       "note": "Preserve EQ153-156 and exact history/benchmark capabilities",
       "effective": "only_after_reviewed_publication_and_explicit_tracker_migration"
@@ -1157,7 +1424,7 @@
         "EQ-157"
       ],
       "add": [
-        "EF1-A",
+        "EQ-169",
         "EQ-172"
       ],
       "note": "Preserve EQ158-162; EQ172 retains EQ155 and EQ158",
@@ -1168,17 +1435,15 @@
       "remove": [
         "EQ-163"
       ],
-      "add": [
-        "EF1-A"
-      ],
-      "note": "Preserve EQ165-168 and exact consumed reference capabilities",
+      "add": [],
+      "note": "Preserve EQ164-168; add EF1-IO/W and independently qualified accepted runtime; remove only blanket tape-release edge",
       "effective": "only_after_reviewed_publication_and_explicit_tracker_migration"
     }
   ],
   "conditional_dependencies": [
     {
       "story": "EQ-170",
-      "decision": "Freeze bandwidth-percentile population/rank convention; add EQ155 only if approved implementation consumes it. That component follows EF4 if selected.",
+      "decision": "Freeze EQ170 bandwidth-percentile convention; add EQ155 only if approved implementation consumes it. The affected EF2 component follows EF3 if selected.",
       "blocking_decision": true
     }
   ],
@@ -1193,7 +1458,7 @@
         "EQ-174",
         "EQ-169"
       ],
-      "meaning": "cumulative numerical audit plus EF8 delayed-path qualification"
+      "meaning": "cumulative numerical audit plus EF7 delayed-path qualification"
     },
     {
       "story": "EQ-180",
@@ -1289,7 +1554,7 @@
         "current": "EQ140 provides scoped supplied routes; default acquisition/dispatch remains distinct",
         "release_owners": [
           "EF1",
-          "EF9"
+          "EF8"
         ],
         "accepted_evidence": "docs/R17_ACCEPTANCE.md"
       },
@@ -1299,7 +1564,7 @@
         "current": "EQ140 supplied bars accepts causal optional binding; absent references remain unavailable",
         "release_owners": [
           "EF1",
-          "EF9"
+          "EF8"
         ],
         "accepted_evidence": "docs/stories/EQ-140_BINDING_CONTRACT.md"
       },
@@ -1315,8 +1580,7 @@
           "EF5",
           "EF6",
           "EF7",
-          "EF8",
-          "EF9"
+          "EF8"
         ],
         "accepted_evidence": "docs/R17_ACCEPTANCE.md"
       },
@@ -1341,13 +1605,32 @@
       {
         "id": "inventory_coverage",
         "original": "78groups/357scanners/25watchlists/721fields compared to39coreIDs",
-        "current": "EQ164 reconciles original+new equity/mixed; EF9 qualifies admitted policies/bindings and retained exclusions",
+        "current": "EQ164 reconciles original+new equity/mixed; EF8 qualifies admitted policies/bindings and retained exclusions",
         "release_owners": [
           "EF1",
-          "EF9"
+          "EF8"
         ],
         "accepted_evidence": "docs/EQUITY_DELIVERY_REPLAN.md"
       }
     ]
-  }
+  },
+  "revision_reason": "Owner correction: every release must have a dedicated equity feature goal and parallel library/IO/worker tracks. No mock/setup-only release or production UI/deployment.",
+  "shared_setup": {
+    "standalone_release": false,
+    "owned_by": "EF1 layer tasks, then reused and extended by each release",
+    "items": [
+      "compatible accepted runtime pinning",
+      "configured DuckDB/synthetic fixture selection",
+      "canonical sink/run identity and separate output DB configuration",
+      "small local results viewer for demonstrations"
+    ],
+    "library_changes": "EF1 delivers new EQ165-168 feature work, not only old-feature wrapper integration"
+  },
+  "delivery_artifacts": [
+    "installable feature libraries",
+    "input adapters and output sinks",
+    "worker commands/configuration",
+    "verified generated feature data in output DuckDB",
+    "local demonstration viewer and evidence"
+  ]
 }

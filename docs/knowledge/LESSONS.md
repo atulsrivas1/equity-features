@@ -1,3 +1,7 @@
+## Feature slices must include their adapters and execution — October 20, 2026
+
+Owner corrected GOV035's separate pipeline/setup release. Mock adapters are enabling I/O work, not a standalone release outcome. [Revised plan](../EQUITY_DELIVERY_REPLAN.md) now makes every release feature-bearing with explicit library, I/O, worker and integrated local demo obligations. Shared setup is owned within EF1 and reused/extended later. Browser demonstration is not a production UI deployment. Validator checks concrete per-layer deliverables, all retained IDs, no stale EF1-A edge and no setup-only release. Earlier9/22review evidence is not successor acceptance; renew review and CI.
+
 ## Equity planning: layer workflows are not release replanning — October 20, 2026
 
 Owner correction: describing three parallel workers against the unchanged old roadmap did not replan delivery. [GOV035](https://github.com/atulsrivas1/equity-features/issues/567) now groups actual remaining work into complete [EF slices](../EQUITY_DELIVERY_REPLAN.md), retaining all35 story IDs, explicit new layer work and migration gates. Reuse accepted calculations/worker/sink capabilities; source-family association is not full implementation. A catalog-backed DuckDB reader is not arbitrary table mapping. Distinguish actual numerical/input dependencies from blanket prior-release gates, amend them explicitly rather than ignoring them, and preserve active measurement ownership. Independent review and actual tracker migration remain separate from a complete draft allocation.
