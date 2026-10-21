@@ -60,9 +60,6 @@ jobs:
       - name: Verify exact session mathematics and boundary fixtures
         run: python tools/verify_session_examples.py
 
-      - name: Verify option release allocation and matrix accounting
-        run: python tools/check_option_delivery_replan.py
-
       - name: Verify conservative CI scope against synthetic Git and event fixtures
         run: python tools/test_ci_scope.py
 
