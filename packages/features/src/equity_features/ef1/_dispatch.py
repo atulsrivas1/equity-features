@@ -18,6 +18,9 @@ def compute_ef1(batches: tuple[CanonicalBatch | None, ...] | list[CanonicalBatch
                 *, entity: EntityKey) -> FeatureResult:
     """Return the complete selected producer with original actual input bindings."""
     context = decode_ef1_context(config)
+    if context["producer"] == "daily_observations":
+        from ._daily import compute_daily
+        return compute_daily(batches, config, entity=entity)
     if context["producer"] in ("opening_trade", "opening_trade_seconds", "status_history"):
         return compute_observable(batches, config, entity=entity)
     if context["producer"] in ("reference_classification", "reference_action"):

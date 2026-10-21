@@ -37,6 +37,19 @@ def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
     requirements: tuple[InputRequirement, ...]
     fields: tuple[tuple[str, ValueType, str, str], ...]
     context = decode_ef1_context(config)
+    if context["producer"] == "daily_observations":
+        from ._daily_context import ROLES
+        requirements = tuple(InputRequirement(role, "canonical:1",
+            ("reference_id", "fact_kind", "effective_start_ns", "effective_end_ns", "text", "known_at_ns"),
+            DataKind.REFERENCE, rule="exact nullable source-bound daily observation role") for role in ROLES)
+        return tuple(EF1Definition("session.daily_observations." + name,
+            ValueType.INT64 if name == "selected_observed_count" else ValueType.FLOAT64,
+            "observations" if name == "selected_observed_count" else "price", requirements, formula,
+            "daily-observations-v2") for name, formula in (
+                ("high", "maximum selected common high; earliest tie"),
+                ("low", "minimum selected common low; earliest tie"),
+                ("open", "first selected common open"),
+                ("selected_observed_count", "count raw-admitted selected observations; independent of common basis")))
     if context["producer"] in ("opening_trade", "opening_trade_seconds", "status_history"):
         history = context["producer"] == "status_history"
         observable_roles: tuple[str, ...] = ("calendar_provenance", "history_events", "history_prefix", "history_seed", "source_capability") if history else (

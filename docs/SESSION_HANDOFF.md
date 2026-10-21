@@ -1,3 +1,40 @@
+## EF1 daily observations author correction checkpoint — October 21, 2026
+
+EQ166's optional daily_observations library candidate is awaiting fresh bounded
+independent recheck. [Contract/API](ef1/DAILY_OBSERVATIONS.md) and
+[author evidence](ef1/DAILY_OBSERVATIONS_VALIDATION.md) accompany the source.
+The unchanged V3A1 synthetic fixture contains 91 complete results and 28 direct
+pure refusals. All match actual computation. Ten daily methods, including the
+known minimum/common gap and distinguishing identity/date controls, plus the
+retained EF1/registry regression passed 427 methods. Strict typing passed all
+14 EF1 source files. Three purity audits passed with actual discovered counts
+1040 complete/1014 strict nested methods and 57 module identities.
+
+First review found missing cross-role identity/absence checks and duplicate-date
+stage handling. A second recheck found a remaining orphan basis with actual
+empty raw/common parents and missing coverage. Its independent control failed
+before the symmetric actual-raw-parent guard, then passed after the fix.
+Legitimate raw=None and common missing/empty capability cases remain covered.
+Current daily source SHA256 is 84e0d2a939e04bbf2457e0b43e11656c3767fea430647359c42493d4eb3d8450;
+the previous builds and cross-layer runs bind earlier sources and are retained.
+A build of this final correction remains pending source recheck.
+
+V3A2 clarifies civil syntax versus actual instants: valid date/config parsing
+proves no authentic calendar interval or source representability. Actual int64,
+positive/completed/causal interval checks remain mandatory; source adapters
+supply factual timezone/date mapping, with no pure-library timezone inference.
+
+Failures remain explicit: original one-oracle inconsistency resolved through
+independent V3A1 clarification; initial author counts 1135/1109 overstated their
+actual 1035/1009 by 100; global current-count replacement corrupted unrelated
+historical handoff receipts. Failed copies and receipts are preserved privately.
+All three historical continuity bodies were restored directly from immutable
+base 877f8aea0489da4e3d41e7f04bf551a2e8e4a470 and exact raw-Git suffix equality
+is verified after this owned-prefix edit. No historical facts are corrected by
+new current counts. Coordinator/fresh review, exact-commit checks, final
+cross-layer/installed Windows/Linux forms, full EQ164 audit and browser/release
+gates remain; no original binary64/inferred source parity or publication claim.
+
 ## R26 selected; source-only preparation active — October 21, 2026
 
 [GOV038#592](https://github.com/atulsrivas1/equity-features/issues/592) is In progress for source-only release preparation after completed R25. [R26 preparation](r26/PREPARATION.md) retains all seven E34/EQ188-193/EQ215 stories in the existing three option repositories. Live dependency checks show EQ144/145/146/153/158/159 still Backlog. R25's independent gate amendment does not extend to R26. The owner approved independent R26 option-native admission, retaining actual EQ153/EQ158 producer integration and full R26 scope. The scoped coordinator amendment records exact supersession; later releases and active ownership are unchanged.

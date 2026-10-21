@@ -1,3 +1,33 @@
+## EF1 daily proof fences, identity and evidence corrections — October 21, 2026
+
+[Daily observations](../ef1/DAILY_OBSERVATIONS.md) separates selected numeric
+operands, proof-slot unions and dependency-specific original knowledge. Missing
+raw must not become admitted membership to match a shorter quality oracle.
+An independent oracle disagreement requires coordinator resolution and fresh
+review, retaining actual failures instead of deriving goldens from output.
+
+Missing physical parents cannot hide contradictory retained IDs or basis facts
+contradicting proven absence. Validate actual empty raw parents independently
+of whether coverage is present; the second recheck exposed this remaining
+orphan after explicit-absence variants passed. Preserve raw=None and common
+None/empty capability gaps. Duplicate civil dates precede later order/joins.
+Known raw minimum/latest gates suppress all outputs even if common is missing,
+while fully supplied selected structural arithmetic checks still run first.
+
+V3A2 distinguishes civil syntax from actual represented/authentic intervals.
+Do not infer local-day bounds from UTC endpoints or use a decoder-only civil
+label control as factual source or timezone qualification. Exact actual int64,
+positive/completed/causal bounds and adapter-supplied truthful mapping remain.
+
+Author counts 1135/1109 were an arithmetic overcount by 100; actual prior counts
+were 1035/1009. Derive current census from discovery/source assertions rather
+than hand totals. A global numeric count replacement also corrupted historical
+IDs and measurements. Preserve failed bytes, restore complete original bodies
+from immutable raw Git, and assert suffix byte equality after every bounded
+owned-prefix edit. A green test log cannot validate unrelated manual evidence.
+The current 1040/1014 audit census includes ten daily methods and preserves
+prior controls; author proof still requires independent source/doc recheck.
+
 ## R26 admission needs its own dependency evidence — October 21, 2026
 
 [Preparation](../r26/PREPARATION.md) first verified that R25's scoped independent-admission amendment left later releases unchanged. The owner then explicitly extended independent admission to R26 native tracks, retaining EQ153/EQ158 integration and full R26 scope; record this distinct decision rather than infer a global waiver. Distinguish scalar operands, qualified shared mathematical producers and scheduler delivery gates. Supplied fixtures do not deliver missing equity producers; do not duplicate equity mathematics or silently drop cross-market scope to claim independence. Ordered execution/revisions, exact premium representation and carried checkpoint state require new explicit flow contracts; an identity-sorted R25 snapshot cannot stand in for a tape. Reconcile conflicting source behaviors under named original policies and independent fixtures before freeze.
