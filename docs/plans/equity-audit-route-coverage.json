@@ -1427,7 +1427,7 @@
         ],
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {
@@ -1490,7 +1490,7 @@
         ],
         "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {
@@ -1597,7 +1597,7 @@
         ],
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {
@@ -1624,7 +1624,7 @@
         ],
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {
@@ -1651,7 +1651,7 @@
         ],
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {
@@ -1678,7 +1678,7 @@
         ],
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {
@@ -1705,7 +1705,7 @@
         ],
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {
@@ -1732,7 +1732,7 @@
         ],
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {
@@ -1759,7 +1759,7 @@
         ],
         "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {
@@ -2170,7 +2170,7 @@
         ],
         "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
         "reuse_accepted": false,
-        "public_or_issue_publication_authorized": false
+        "new_scope_or_numerical_reuse_accepted": false
       }
     },
     {

@@ -22,7 +22,7 @@
       ],
       "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     },
     {
       "opaque_id": "F0090",
@@ -33,7 +33,7 @@
       ],
       "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     },
     {
       "opaque_id": "F0096",
@@ -44,7 +44,7 @@
       ],
       "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     },
     {
       "opaque_id": "F0097",
@@ -55,7 +55,7 @@
       ],
       "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     },
     {
       "opaque_id": "F0098",
@@ -66,7 +66,7 @@
       ],
       "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     },
     {
       "opaque_id": "F0099",
@@ -77,7 +77,7 @@
       ],
       "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     },
     {
       "opaque_id": "F0100",
@@ -88,7 +88,7 @@
       ],
       "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     },
     {
       "opaque_id": "F0101",
@@ -99,7 +99,7 @@
       ],
       "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     },
     {
       "opaque_id": "F0102",
@@ -110,7 +110,7 @@
       ],
       "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     },
     {
       "opaque_id": "F0127",
@@ -121,7 +121,7 @@
       ],
       "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
       "reuse_accepted": false,
-      "public_or_issue_publication_authorized": false
+      "new_scope_or_numerical_reuse_accepted": false
     }
   ],
   "full_audit_accepted": false
