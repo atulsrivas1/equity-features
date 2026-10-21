@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "kind": "coordinator_source_authoring_freeze",
+  "status": "FROZEN_FOR_THREE_LAYER_SOURCE_AUTHORING",
+  "frozen_utc": "2026-10-21T07:53:05.305962+00:00",
+  "coordinator": "/root",
+  "candidate_manifest_sha256": "0c7d78585e396f25460f4d7353cb06caa4775a891e8040952d133a8978b7d6e7",
+  "independent_reviewer": "/root/ef1_gap_endpoint_v3_independent_review",
+  "independent_public_review_sha256": "5747dc0651619c8b3a7d9b0814916dc9a1143503bc4aaea394d0fa1663679110",
+  "independent_final_metadata_recheck_sha256": "2c45f92261020b006de63df2aa827f929674ab16f9009f88f6fa65ad5afb47c1",
+  "reviewed_assets": [
+    {
+      "name": "GAP_ENDPOINT_CONTRACT_V4.md",
+      "sha256": "101c264af2b67af7e308619b56f9eaebd05a3a2d45d3d61d5e7da20f046fbe5e",
+      "bytes": 32646
+    },
+    {
+      "name": "GAP_ENDPOINT_ORACLE.json",
+      "sha256": "751cd98fd7951aa7c2d4394d9a5fee87e184d9d484d9f43d4de4983b7333f40f",
+      "bytes": 2429159
+    },
+    {
+      "name": "LAYER_HANDOFFS.md",
+      "sha256": "90b2fb5537f91eea41562a9bc5dbaf1e256ebdeca8b945a501b69c687f067759",
+      "bytes": 9535
+    },
+    {
+      "name": "ORACLE_EXACT_COMPARISON.json",
+      "sha256": "827ff1e19a5cddc332cfd6cedac540cf161efb659546d234cfc27e15b77de33c",
+      "bytes": 749
+    }
+  ],
+  "admitted_stories": {
+    "library": 507,
+    "io": 570,
+    "workers": 571
+  },
+  "prepared_source_heads": {
+    "core": "3da07b69c5acb40c948708a19ee2fff1ad57e2da",
+    "io": "2111ad6f889fd4bcf4a93e658493dfb8812da36c",
+    "workers": "fbf8c846938512fceb4d0895c86a5b451eb55be3"
+  },
+  "status_precedence": "This coordinator decision freezes exact reviewed assets; retained candidate headers describe preparation history. No mathematical asset bytes were changed.",
+  "authoring_boundaries": "Follow LAYER_HANDOFFS.md. Library pure; adapter conversion and factual provenance; workers orchestration and exact returned-result closure. Frozen oracle is read-only.",
+  "local_runtime_scope": "Bounded single-process focused tests and synthetic development output only; no exclusive study, full-machine benchmark or production/source database writes.",
+  "push_gate": "No author push until coordinator actual diff review and explicit instruction; fresh independent PR review and relevant exact-head local validation before merge.",
+  "not_accepted": [
+    "Endpoint implementation or numerical conformance",
+    "Observed source capability/rights or original parity",
+    "Complete EQ164 audit or EF1 release acceptance",
+    "Browser demonstration or installed artifact qualification",
+    "Package/tag/release publication or production deployment"
+  ]
+}

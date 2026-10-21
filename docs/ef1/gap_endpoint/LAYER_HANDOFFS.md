@@ -1,0 +1,47 @@
+# EF1 gap endpoint: three-layer implementation handoffs
+
+Status: PREPARED, NOT AN IMPLEMENTATION GRANT. Coordinator review, distinct independent publication review and exact shared-contract/oracle/hash freeze must precede source implementation. All tracks remain within EF1 and original numbered acceptance; no release/ownership takeover. Concrete local checkouts are in coordinator-local handoff metadata and are excluded from public publication.
+
+Read [the complete contract](GAP_ENDPOINT_CONTRACT_V4.md), [all114 literal packets](GAP_ENDPOINT_ORACLE.json), the freeze-candidate manifest and repository work agreements before selecting implementation. The literal packet is independent expected data, not generated from the future implementation. Follow constructor/adapter/worker/pure earliest-stage distinctions. The predecessor is generic compatibility evidence only, with endpoint decoder/route unsupported and endpoint tamper closure absent.
+
+## Shared immutable baseline and prepared source merge
+
+| Layer | Repository | Qualified numerical baseline | Prepared implementation baseline |
+| --- | --- | --- | --- |
+| Library | [equity-features](https://github.com/atulsrivas1/equity-features) |3a0b707733a6bcf9e092d118842bbd84d2befadd |3da07b69c5acb40c948708a19ee2fff1ad57e2da |
+| I/O | [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io) |a729d84f8f154fa8bfbd426765da88c2828be3f8 |2111ad6f889fd4bcf4a93e658493dfb8812da36c |
+| Workers | [equity-feature-workers](https://github.com/atulsrivas1/equity-feature-workers) |af7eec545deb17d3eacb168755e5f48942f246fd |fbf8c846938512fceb4d0895c86a5b451eb55be3 |
+
+Coordinator independently verified prepared I/O/worker trees equal their baseline trees; core execution inputs remain baseline-identical with continuity-only additions. This author read actual prepared HEADs; no repeated numerical qualification is implied by those documentation merges. Preserve original qualification workspaces unchanged. Exact implementation/artifact commits will differ after authoring and require their own validation/pins; matching version0.0.4a5 alone never proves source identity.
+
+## Library — EQ167 #507
+
+Owner story [EQ167 #507](https://github.com/atulsrivas1/equity-features/issues/507). Editable scope after explicit grant: pure features EF1 endpoint reducer/context/definitions/dispatch, corresponding unit/conformance/purity guards and relevant public API/formula/example/change/decision/handoff documentation. Existing shared canonical contracts/SDK/sink schemas, generic bounds, old producers and unrelated source remain unchanged unless a real contract defect is escalated to coordinator. Do not modify I/O/worker repos or frozen predecessor checkouts.
+
+Implement EXACT producer path_gap_endpoint, ef1.path_gap_endpoint/algorithmv1/schema1/context1 and two lexical fraction headers. Four fixed nullable slots, distinct REFERENCE roles, source-neutral gap-membership-asof1, bounded closed proof parser, actual four-field binding/C/K/entity/unit/basis/coverage/digest closure BEFORE missing readiness. Generic128-label guard stays; new JSON text gets its separate4096ASCII validation. Never use all-row numeric availability/legacy required-size flags from _samples for this per-field endpoint calculation.
+
+Population/calendar readiness then definite no-eligible BEFORE irrelevant prior numeric readiness; unknown membership not empty. O/P ready then known-zero-gap short circuit BEFORE final membership/L. Otherwise fill adds final L while opening gap remains independently ready. Exact rational intermediates/one conversion, delivered-population counts, selected evidence<=5/declared EXACT5/mathv1 and original-known timing in BOTH modes. Full requirements are normative in the contract; do not infer behavior from just these highlights.
+
+Validate all71 independent full expected results (every value/status/count/binding/evidence cell), all43 negative targets with actual earliest-stage evidence (E30 constructor refusal earns no pure credit), relevant old-family regression/purity/typing checks. Never replace expected results with implementation outputs. Document limitations/source compatibility accurately. Report exact source hashes, actual commands/environments/exits, failures and remaining work to coordinator; NO push until coordinator reviews actual changes and authorizes next steps.
+
+## I/O — EQ212 #570
+
+Owner story [EQ212 #570](https://github.com/atulsrivas1/equity-features/issues/570). Editable scope after grant: endpoint canonical conversion/input bundle, supplied/synthetic helpers, I/O conformance/composition tests and corresponding API/examples/release/decision/handoff docs. Keep library mathematics pure; no numerical gap formula or admission policy hidden in adapters. Existing generic SDK/codec/output-sink schema/identity/retry semantics remain unchanged. Do not modify library/worker source or predecessor qualification inputs.
+
+Provide .roles EXACT4 in frozen order, nullable .slots EXACT4, .batches containing only present batches in that role order, and truthful per-slot provenance. Preserve actual source/snapshot/mapping/input identities; semantic profile is source-neutral. Never rename real observations to synthetic, backdate a newly computed population declaration, infer original-known from event/file/import/publication time, fill missing volume/price, reorder/drop invalid rows or assert a later-created snapshot existed at K. Observed sources remain unqualified; use explicit unavailable capability or clearly synthetic fallback. Population digest is a canonical conversion/consistency operation over independent supplied membership facts, not authentication or a formula.
+
+Full oracle derivative remains unchanged expected data. Use actual library endpoint only once its compatible reviewed source exists; bootstrap pure canonical DTO conversions beforehand. Test114 shapes/stages without calling early adapter refusal pure coverage. Demonstrate71 actual computed full-result SDK roundtrips against independent expectations and unchanged sink NEW separate output DuckDB readback/retry/close/reopen in later integration. Retain units/availability/metadata/evidence exactly, all actual byte limits. No source database writing/provider qualification implied. Report hashes/source pins/actual commands and failures; NO push before coordinator actual review.
+
+## Workers — EQ213 #571
+
+Owner story [EQ213 #571](https://github.com/atulsrivas1/equity-features/issues/571). Editable scope after grant: closed endpoint route/work construction/runner wrappers, actual synthetic CLI/browser-demo harness, focused integration/qualification declarations/tests and relevant worker docs. Worker orchestrates canonical library calls, never reimplements endpoint arithmetic or generates source proof truth. Existing generic scheduling/codec/sink boundaries stay unchanged; coordinator owns cross-repo pins/qualification-controller changes.
+
+Task family exact path_gap_endpoint,4manifest declarations in exact role order, actual supplied tuple only present, reconstruct4slots from declared role/binding not DataKind. One homogeneous2-header result; explicit prior/target governed windows, ordered_historyfalse/warmupempty/initNone. Actual1MiB input pickle bound and separate TaskJSON/context/prooftext/output-byte budgets;2cells/exact5 numerical evidence. Preserve full FeatureResult/metadata/source inputs. Closed returned backend/source version/config/entities/headers/mathv1/evidence_limit5 checks are mandatory: generic predecessor comparator's acceptance of4/6/unknown math must become endpoint RESULT refusal BEFORE any sink begin/write/commit/read, with instrumented actual evidence. Ordinary wrong backend/config identity must still reject. Canonical unavailable numerical results may publish with exact status; no unavailable/source failure becomes fabricated output.
+
+Execute actual114 scenario routes/stages,71full result parity and complete returned-metadata negatives in direct API and runner. No constructor/adapter/unsupported-family early failure earns endpoint callback coverage. Compatible reviewed library/I/O source pins mandatory. Synthetic end-to-end demo actually computes, persists via unchanged sink to NEW separate DuckDB, reopens/verifies full expected result and emits truthful browser page. Qualify relevant installed forms/platforms after exact cohort freeze; do not relabel predecessor generic wire successes endpoint math/route acceptance. Report actual commands/environments/exits and hashes, retain all failures. NO push until coordinator actual review.
+
+## Common review/release boundaries
+
+Authors stop affected work and report contract defects; only coordinator amends shared semantics. Coordinator reviews every actual source/doc diff before push, then distinct fresh independent PR review/rechecks and appropriate exact-source local validation precede merge. Hosted Actions optional under owner policy. Track original acceptance/Project lifecycle honestly; source merge does not complete whole stories/release. Documentation/evidence accompanies each story; no deferred cleanup acceptance.
+
+Integrated readback, browser demo, full EF1 inventory/release gates and original source/consumer numerical-compatibility limitations remain explicit. API/SaaS optional; no production UI, source/prod DB writes, paid provider work, public deployment, package/tag/release publication or original-parity claim is granted here. Root implementation admission follows reviewed shared freeze, not this preparation file.
