@@ -1,0 +1,66 @@
+{
+  "kind": "source_safe_regular_bar_price_public_preparation_manifest",
+  "status": "AUTHOR_PREPARED_AWAITING_ACTUAL_GENERIC_PROBES_AND_DISTINCT_PUBLICATION_REVIEW",
+  "producer": "regular_bar_prices",
+  "contract_revision": "V3",
+  "source_mathematical_proposal_sha256": "b0e4011666e5ad426fb03c09d63e229873f3dee1cffd8b5bfef7eab047ebb2c7",
+  "source_V3_independent_recheck_sha256": "506164fb43c0f8091429ceef19a3d7e78c215ab0f6484e4f6bb7a484284e87a4",
+  "unchanged_oracle_sha256": "05d5b4815df3fd621993037c84f9d897a32ee84c833715e6ca1f6c4e1473d030",
+  "products": {
+    "EXISTING_DTO_FIELDS.json": {
+      "sha256": "6a59959e92a9645a8e8ad775191f6402e641fa175629b3632b552ec99223fbb1",
+      "bytes": 5056
+    },
+    "LAYER_HANDOFFS.md": {
+      "sha256": "5d5d65ba1e565585bcf9c96ff526e98879dfbb2b50748ff4d1c9b8c1598d56ef",
+      "bytes": 9542
+    },
+    "PREPARATION_STATUS.json": {
+      "sha256": "b0ecd4a3f32f97edd9783ba627a38808ce1d7841d0ba4ee51d0379a507b98cd9",
+      "bytes": 1457
+    },
+    "README.md": {
+      "sha256": "0766cc090d96858402ec35ada066b58b2ba1a4025a078bdce061119cff0faebb",
+      "bytes": 2194
+    },
+    "REGULAR_BAR_PRICES_CONTRACT_V3.md": {
+      "sha256": "45e3fcba80aee9a8c9b26ee31a830f7a0cb44de3adb47722984de9ad2fb5860c",
+      "bytes": 19701
+    },
+    "REGULAR_BAR_PRICES_ORACLE.json": {
+      "sha256": "05d5b4815df3fd621993037c84f9d897a32ee84c833715e6ca1f6c4e1473d030",
+      "bytes": 1582974
+    }
+  },
+  "oracle": {
+    "requests": 100,
+    "full_expected_results": 46,
+    "refusal_targets": 54,
+    "proposed_earliest_stage_counts": {
+      "canonical_validate_batch": 10,
+      "endpoint_pure_semantic_or_geometry": 37,
+      "Coverage_constructor": 1,
+      "CanonicalBatch_constructor": 3,
+      "endpoint_config_decode": 3
+    },
+    "actual_refusal_observations_claimed": false,
+    "all_requests_explicit_synthetic": true,
+    "original_wrapper_preserved_byte_for_byte": true
+  },
+  "author_static_checks": {
+    "all_product_files_UTF8_LF": true,
+    "oracle_bytes_equal_reviewed_predecessor": true,
+    "canonical_DTO_field_lists_equal_actual_source_AST": 21,
+    "actual_source_DTO_file_hashes_match": 9,
+    "private_path_and_credential_pattern_screen": "No matches; author screen, not independent publication approval.",
+    "original_scope_and_stage_errors_preserved": true
+  },
+  "generic_transport_probe_status": "PENDING_COORDINATOR_ACTUAL_EVIDENCE_AND_REVIEW",
+  "actual_generic_probe_receipt_sha256": null,
+  "independent_publication_review_sha256": null,
+  "shared_freeze": false,
+  "implementation_authorized": false,
+  "runtime_source_admission": false,
+  "publication_or_release_authorized": false,
+  "limits": "Source-safe public derivative preparation only. Mathematical review predates this derivative; it does not replace fresh derivative review. Actual generic constructors/codec/task/protocol sizes remain unclaimed until separate execution evidence. No source edits, release or implementation grant."
+}

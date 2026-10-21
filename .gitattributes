@@ -43,5 +43,17 @@ docs/ef1/OBSERVABLE_PUBLICATION_FREEZE.json text eol=lf
 # The sealed mathematics source has three CRLF lines; preserve its exact hash.
 /docs/r26-variants/PUBLIC_SAFE_MATHEMATICS_ALLOCATION_DRAFT3.md -text whitespace=cr-at-eol
 
+# Exact portable regular-BAR contract and independent literal packet bytes.
+/docs/ef1/regular_bar_prices/*.json text eol=lf
+/docs/ef1/regular_bar_prices/*.md text eol=lf
+
+# Portable bytes for the reviewed regular-BAR implementation cohort.
+/examples/ef1_regular_bar_prices.py text eol=lf
+/packages/features/src/equity_features/ef1/_context.py text eol=lf
+/packages/features/src/equity_features/ef1/_definitions.py text eol=lf
+/packages/features/src/equity_features/ef1/_dispatch.py text eol=lf
+/packages/features/src/equity_features/ef1/_regular_bar_prices.py text eol=lf
+/tests/unit/test_ef1_regular_bar_prices.py text eol=lf
+
 # Preserve the exact reviewed bytes of every sealed proposal input.
 /docs/r26-variants/PUBLIC_SAFE_*.md -text whitespace=cr-at-eol

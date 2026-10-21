@@ -1,0 +1,63 @@
+{
+  "kind": "coordinator_actual_regular_BAR_source_authoring_freeze",
+  "status": "REVIEWED_SHARED_CONTRACT_FROZEN_FOR_BOUNDED_THREE_LAYER_IMPLEMENTATION",
+  "coordinator": "/root",
+  "created_utc": "2026-10-21T09:42:06.162789+00:00",
+  "authority": "Owner-authorized reviewed-subset implementation, retaining complete EQ164 as mandatory EF1 release gate",
+  "scope": {
+    "release": "EF1",
+    "numerical_issue": 506,
+    "io_issue": 570,
+    "worker_issue": 571,
+    "producer": "regular_bar_prices",
+    "outputs": [
+      "session.close.calculated_price",
+      "session.regular.first_completed_bar_open"
+    ]
+  },
+  "public_base_commit": "d30f557762d4f16231cbcf0fcdc1802799d0d033",
+  "public_packet_manifest_sha256": "d806f383a73dd035360158eb295c9612856b3010cb6777cd5676221e2d5fa0a9",
+  "normative_contract_sha256": "45e3fcba80aee9a8c9b26ee31a830f7a0cb44de3adb47722984de9ad2fb5860c",
+  "oracle_sha256": "05d5b4815df3fd621993037c84f9d897a32ee84c833715e6ca1f6c4e1473d030",
+  "independent_mathematical_recheck_sha256": "506164fb43c0f8091429ceef19a3d7e78c215ab0f6484e4f6bb7a484284e87a4",
+  "independent_actual_generic_review_sha256": "6d914f952c198a706ea58edbe62af3ec1b8989269a09d7275ca6373f74ec5ed0",
+  "independent_public_packet_review_sha256": "242b99e963dc9cc96df88d5815201ea19e71dbadd4e4aecdb4c0002045d63d72",
+  "grant": {
+    "local_implementation": true,
+    "bounded_local_validation": true,
+    "synthetic_new_separate_output_DuckDB": true,
+    "commit_or_push_by_layer_authors": false,
+    "change_contract_or_oracle": false,
+    "admit_observed_source_or_original_parity": false,
+    "package_tag_release_publication": false,
+    "skip_independent_PR_or_release_gates": false
+  },
+  "planned_helpers": {
+    "io_module": "equity_feature_duckdb.regular_bar_prices",
+    "io_exports": [
+      "RegularBarPriceInputs",
+      "make_regular_bar_price_batch",
+      "make_regular_bar_population_proof",
+      "synthetic_regular_bar_price_config",
+      "synthetic_regular_bar_price_fixture"
+    ],
+    "worker_module": "equity_feature_workers.equity_regular_bar_prices",
+    "worker_exports": [
+      "regular_bar_price_headers",
+      "required_regular_bar_price_inputs",
+      "compute_regular_bar_price_inputs",
+      "make_ef1_regular_bar_price_work"
+    ],
+    "runner": "run_ef1_regular_bar_prices"
+  },
+  "remaining_gates": [
+    "Actual numerical library implementation and independent literal/refusal conformance",
+    "Actual conversion and complete direct/worker/SDK/stored/reopened result parity",
+    "Producer-specific before-any-sink closure and fault/retry tests",
+    "Coordinator actual diff review before push and distinct actual PR review before ordinary merge",
+    "Compatible installed artifacts/platforms and browser demonstration",
+    "Complete EQ164 source/ownership/math/API/consumer admission and remaining EF1 outputs",
+    "Whole EF1 release and owner publication authorization"
+  ],
+  "precedence": "This actual coordinator grant supersedes retained preparation-only statuses only for the exact reviewed packet and bounded source authoring. It does not relabel generic observations as new numerical implementation or release acceptance."
+}

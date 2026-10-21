@@ -1,0 +1,33 @@
+{
+  "kind": "public_regular_bar_price_preparation_status",
+  "status": "CANDIDATE_NOT_FROZEN_NO_SOURCE_AUTHORING_GRANT",
+  "producer": "regular_bar_prices",
+  "oracle_cases": 100,
+  "expected_full_results": 46,
+  "expected_refusal_targets": 54,
+  "all_requests_synthetic": true,
+  "mathematical_literal_review": {
+    "reviewed_proposal_sha256": "b0e4011666e5ad426fb03c09d63e229873f3dee1cffd8b5bfef7eab047ebb2c7",
+    "V3_independent_recheck_sha256": "506164fb43c0f8091429ceef19a3d7e78c215ab0f6484e4f6bb7a484284e87a4",
+    "scope": "Mathematical/literal/documentary review only; this new public derivative awaits distinct independent review."
+  },
+  "generic_transport_probe": {
+    "status": "PENDING_COORDINATOR_ACTUAL_EVIDENCE_AND_REVIEW",
+    "receipt_sha256": null,
+    "actual_source_heads": null,
+    "observed_successes": null,
+    "observed_failures": null,
+    "measured_context_ascii_bytes": null,
+    "measured_proof_ascii_bytes": null,
+    "measured_input_pickle5_bytes": null,
+    "measured_task_json_bytes": null,
+    "measured_sdk_output_bytes": null,
+    "scope": "No DTO constructors, SDK/Task transport, decoder or worker execution claimed by this packet. Unsupported current routes are not producer passes."
+  },
+  "shared_freeze": false,
+  "implementation_authorized": false,
+  "source_or_runtime_admitted": false,
+  "full_EQ164_complete": false,
+  "EF1_release_accepted": false,
+  "package_tag_release_publication_authorized": false
+}

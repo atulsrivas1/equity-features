@@ -217,6 +217,11 @@ def _parse(text: object) -> dict[str, Any]:
         if selection["max_age_ns"] is not None and _integer(selection["max_age_ns"]) < 0:
             fail(ErrorCode.BOUNDS, "explicit maximum state age must be nonnegative")
         _clock_calendar(raw["calendar"])
+    elif raw["producer"] == "regular_bar_prices":
+        if type(raw["selection"]) is not dict or raw["selection"] != {
+                "phase_profile": "regular_no_auctions1", "sampling": "completed_bar_close"}:
+            fail(ErrorCode.INVALID_CONFIG, "exact regular completed-bar profile required")
+        _clock_calendar(raw["calendar"])
     elif raw["producer"] in ("path_gap", "path_drive", "path_gap_endpoint"):
         selection = raw["selection"]
         keys = {"sampling"} if raw["producer"] != "path_drive" else {"sampling", "duration_ns"}
@@ -438,6 +443,15 @@ def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
                 fail(ErrorCode.OVERFLOW, "drive endpoint exceeds int64")
             if end > config.session.close_ns:
                 fail(ErrorCode.BOUNDS, "drive exceeds actual regular close")
+    if raw["producer"] == "regular_bar_prices":
+        if type(config.price_unit) is not PriceUnit:
+            fail(ErrorCode.INVALID_UNIT, "regular prices require explicit PriceUnit")
+        if len(raw["calendar"]["sessions"]) != 1:
+            fail(ErrorCode.INCONSISTENT_IDENTITY, "regular prices require target-only calendar")
+        if config.session.include_opening_auction or config.session.include_closing_auction:
+            fail(ErrorCode.INVALID_CONFIG, "ordinary regular bars exclude auctions")
+        if not config.session.open_ns < config.availability.market_cutoff_ns <= config.session.close_ns:
+            fail(ErrorCode.BOUNDS, "regular completed-bar cutoff outside session")
     return cast(Mapping[str, Any], _freeze(raw))
 
 
