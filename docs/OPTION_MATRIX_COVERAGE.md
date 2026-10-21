@@ -1,3 +1,7 @@
+## R26 corrected stored-result checkpoint — October 21, 2026
+
+Corrected Windows original-wheel worker/storage and stored browser proof now cover the original 433 rows plus 126 supplemental rows for the existing 44 native outputs. Two singleton replay controls/15 repeated rows are counted separately. Other platform/form pipeline and native gates remain in progress; matrix source-variant residuals are unchanged. Actual EQ153/EQ158 producers still gate all three reserved cross outputs and full EQ193. [Current evidence and resume work](SESSION_HANDOFF.md) distinguishes actual stored proof from pending checks and historical earlier candidates. No new matrix feature or whole-release acceptance follows.
+
 ## R26 corrected installed evidence — October 21, 2026
 
 Four fresh corrected installed cohorts now pass 137 methods, 559 full expected result rows and 19 input-error cases each. The 126 supplemental rows add independently fixed regression coverage for the existing 44 native outputs and six named matrix declarations. Full worker/storage, remaining native gates and actual equity producer integration are still open; matrix source-variant residuals are unchanged. [Current evidence and remaining work](SESSION_HANDOFF.md) distinguishes the corrected cohorts from historical earlier-candidate passes. No additional feature, equity or release acceptance follows from this checkpoint.
