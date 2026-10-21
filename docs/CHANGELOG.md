@@ -1,3 +1,7 @@
+## EF1 regular first-trade price - source development, October 21, 2026
+
+Adds opt-in `regular_first_trade_price`, selecting the first original eligible ordinary regular trade before numerical availability, with an independent causal membership proof and one final exact-ratio float conversion. All122 full frozen results and159 input refusals pass author source checks; the17 worker/result controls remain separate. [Implementation and pending gates](ef1/REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md), [API](api/EF1_REGULAR_FIRST_TRADE_PRICE.md) and [synthetic example](../examples/ef1_regular_first_trade_price.py) accompany this bounded source slice. Versions/default registry/shared contracts are unchanged; no whole-story, installed or release acceptance is claimed.
+
 ## EF1 regular completed-BAR prices - source development, October 21, 2026
 
 Adds the opt-in `regular_bar_prices` producer with first positive-volume completed regular BAR open and independently selected final close. Causal population proof and per-endpoint numerical availability preserve field independence; calculated close is a provisional prefix price. Existing versions/default registry/producers stay unchanged. [Implementation and open gates](ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md), [API](api/EF1_REGULAR_BAR_PRICES.md) and [synthetic example](../examples/ef1_regular_bar_prices.py) accompany all 100 frozen requests. Author source evidence is not released or installed cross-layer acceptance.

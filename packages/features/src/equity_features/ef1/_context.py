@@ -217,9 +217,9 @@ def _parse(text: object) -> dict[str, Any]:
         if selection["max_age_ns"] is not None and _integer(selection["max_age_ns"]) < 0:
             fail(ErrorCode.BOUNDS, "explicit maximum state age must be nonnegative")
         _clock_calendar(raw["calendar"])
-    elif raw["producer"] == "regular_bar_prices":
+    elif raw["producer"] in ("regular_bar_prices", "regular_first_trade_price"):
         if type(raw["selection"]) is not dict or raw["selection"] != {
-                "phase_profile": "regular_no_auctions1", "sampling": "completed_bar_close"}:
+                "phase_profile": "regular_no_auctions1", "sampling": ("eligible_trade" if raw["producer"] == "regular_first_trade_price" else "completed_bar_close")}:
             fail(ErrorCode.INVALID_CONFIG, "exact regular completed-bar profile required")
         _clock_calendar(raw["calendar"])
     elif raw["producer"] in ("path_gap", "path_drive", "path_gap_endpoint"):
@@ -443,7 +443,7 @@ def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
                 fail(ErrorCode.OVERFLOW, "drive endpoint exceeds int64")
             if end > config.session.close_ns:
                 fail(ErrorCode.BOUNDS, "drive exceeds actual regular close")
-    if raw["producer"] == "regular_bar_prices":
+    if raw["producer"] in ("regular_bar_prices", "regular_first_trade_price"):
         if type(config.price_unit) is not PriceUnit:
             fail(ErrorCode.INVALID_UNIT, "regular prices require explicit PriceUnit")
         if len(raw["calendar"]["sessions"]) != 1:

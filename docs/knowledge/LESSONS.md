@@ -1,3 +1,19 @@
+## Hoist eager defaults out of population loops - October 21, 2026
+
+Independent actual PR628 review found that dict.get evaluates its population-sized fallback even when a column is present. The new first-trade row loop and reused membership projection therefore allocated n-entry tuples n times. Bind optional column defaults once outside each loop, preserving absent/present membership identity and every original proof byte. Existing independent full literals and inherited gap/BAR tests validate the narrow correction; no numerical expectations are regenerated and no timing improvement is claimed without a benchmark. Preserve the original changes-requested review and candidate evidence, then re-pin composition and obtain final-head independent recheck. [Evidence and limits](../ef1/REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md).
+
+## Preserve original firstness before numerical availability - October 21, 2026
+
+The first-trade slice separates causal complete membership from the selected row's numerical clock. All122 independent whole results verify no fall-forward in either availability mode, optional size absence, original witness identity and exact final Fraction conversion. All159 actual refusal stages preserve structural faults before readiness, including invalid unused rows with absent peers and N154's earlier BatchMetadata guard. The initial implementation missed the explicit unknown-condition schema rejection and the fixed literal corpus caught N079; preserve that failed attempt and correct the source, never regenerate the expected packet. [Source evidence and limits](../ef1/REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md) retain the author checks and open independent/integration/release gates.
+
+## Extend aggregate purity discovery with every producer - October 21, 2026
+
+Feature-focused success does not establish that the aggregate denied-entrypoint audit ran. Independent PR607 review found that its fixed census omitted six inherited gap fixtures and nine regular-BAR fixtures before execution. Preserve the failure, add explicit per-module case counts and owned-module coverage, and execute the full audit after correction. All three corrected methods passed without changing numerical source, independent literals or guards. [Current implementation evidence](../ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md) distinguishes source review, companion composition and pending installed/release gates.
+
+## Derive probe stages from actual guards — October 21, 2026
+
+A negative request can be carried by a generic transport even when its future numerical producer must reject it. Inspect the actual constructor, canonical validator, manifest and generic admission guards before assigning a refusal stage. A row-session mismatch is not an instrument mismatch, and a generic result comparator may leave producer-specific math/evidence closure unchecked. Record those gaps explicitly; never weaken the future contract or count generic acceptance as numerical conformance. The BAR pre-execution review rejected a mistaken expected refusal before execution; its immutable oracle and rejected candidate remain preserved in local evidence.
+
 ## Read the actual branch ref before source delivery - October21,2026
 
 PR607's base.sha still named1e7 while actual refs/heads/main advanced to ebcb2bc9 with R26 documentation. Treating the PR snapshot as current main made the original405/conflict diagnosis wrong. Preserve that mistake and native failure, compare live branch refs before merge/replacement preparation, integrate concurrent documents without taking their ownership, and obtain fresh actual-head review. The direct-main guard stopped replacement preparation before mutation; the existing source branch reconciles both complete histories. Qualified BAR runtime/packets remain unchanged. [Actual correction and limits](../ef1/REGULAR_BAR_PRICES_LOCAL_QUALIFICATION.md).
@@ -2303,6 +2319,10 @@ The current-status slice must preserve an original seed/required transition stre
 The status prerequisite question above is resolved by the reviewed [slot/proof amendment](../ef1/STATUS_INPUT_SLOTS.md) and freeze receipt: expiry/max age depend on proved current identity; prefix/transition failure cannot fabricate additional validity conclusions. Structural identity/order/ambiguity still rejects unconditionally. Preserve S02 gap-only literal versus its separate complete-prefix expiry mutation, and emit original selected witnesses only after current identity is proved. Source-authored fixtures cover this correction; execution remains pending.
 
 Independent status source review F1 corrected a narrower causal-quality error: prefix/transition readiness cannot suppress original known-at checks on a uniquely structurally applicable required validity certificate. Only semantic expiry/max-age depend on those factual prerequisites. S01 combined unknown halt/future validity (and symmetric future halt/unknown validity) must retain both lexical reasons in both availability modes, with no current witness. Source correction and authored regression cases are pending independent recheck and runtime qualification; reviewer /root/ef1_status_library_review is distinct from author.
+
+## EF1 regular-BAR membership and numerical clocks - October 21, 2026
+
+Independent membership/class causality and selected numerical publication are separate facts. The original gap membership projection can be reused only with a separately closed producer/phase-bound proof family; old gap-family facts must refuse. Interior delayed prices need not block proven endpoints, while unknown outer volume independently blocks the relevant endpoint. Structural OHLC contradictions still refuse with absent peer proofs. Evidence: [frozen mathematics](../ef1/regular_bar_prices/REGULAR_BAR_PRICES_CONTRACT_V3.md), [author implementation checks](../ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md), tests/unit/test_ef1_regular_bar_prices.py. Author checks establish source behavior, not historical source capability or release acceptance.
 
 ## EF1 regular-BAR membership and numerical clocks - October 21, 2026
 

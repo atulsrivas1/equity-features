@@ -1,0 +1,102 @@
+{
+  "status": "CLOSED_APPEND_ONLY_ACTUAL_GENERIC_ADDENDUM_PACKET_STILL_PROPOSED_UNFROZEN_PENDING_INDEPENDENT_PACKET_REVIEW_AND_EXPLICIT_ROOT_GRANT",
+  "manifest_excludes_itself": true,
+  "files": {
+    "ACTUAL_GENERIC_EVIDENCE_ADDENDUM.json": {
+      "sha256": "e03e51ae481e51d2b597e76506dae549f1f04869fba590e7b51da645339132a8",
+      "bytes": 135093
+    },
+    "ACTUAL_GENERIC_EVIDENCE_ADDENDUM.md": {
+      "sha256": "fb3b8f629f86b93a5e63c39ef5263f31325f049e7507088e0c2fbdec81c4a760",
+      "bytes": 4294
+    },
+    "API_BOUNDARY.json": {
+      "sha256": "e853e25b73e70d6283fae93e2accfbfc37ea236a61fb719f73ce087a7a543108",
+      "bytes": 5285
+    },
+    "CASE_COVERAGE_PLAN_V2.json": {
+      "sha256": "017f1db43f258e3a2d63b6da1bab27af8f5f2f3de241801fa3cdea340798ed97",
+      "bytes": 20375
+    },
+    "examples/SAMPLE_EXPECTED_RESULT.json": {
+      "sha256": "b638d82c846d4b39c1be3b3fb6068d9d099a72aa65d227039c497ab9361614b9",
+      "bytes": 4560
+    },
+    "examples/SAMPLE_REQUEST.json": {
+      "sha256": "f820599cd40c3b1656ce17f3b82e0e6462cac4002b8a287102791794bfba309a",
+      "bytes": 9402
+    },
+    "examples/SDK_LITERAL_EXAMPLE.py": {
+      "sha256": "0850cbad7c93e9eebde69746bd18b318e9932d3b5a1abf336ba78c36fc4aa3f4",
+      "bytes": 3123
+    },
+    "EXISTING_DTO_FIELDS.json": {
+      "sha256": "d50ad2d047dc47130ab4cf2a4e9b309f536bc1d64e6922424d5f0f2737524a90",
+      "bytes": 4258
+    },
+    "GENERIC_PROBE_ADDENDUM_TEMPLATE.json": {
+      "sha256": "db5d14f7d7b30e58d997f1db084b40ed061ca17e83d66bed26e94a4b1c22e1b0",
+      "bytes": 3075
+    },
+    "GENERIC_PROBE_ADDENDUM_TEMPLATE.md": {
+      "sha256": "475c5e7cd0477121b3148a8fa96859aa0fe64b035ff8d0feddcfdc526beb07b7",
+      "bytes": 1850
+    },
+    "LAYER_HANDOFFS.md": {
+      "sha256": "739ad12c2a71f2699cf49964f5765fd33a8f71880c437b55dba2366502f91b04",
+      "bytes": 5460
+    },
+    "PREPARATION_STATUS.json": {
+      "sha256": "58496a7c43b0c1040edea16539f4f217b4a6af492457c7b59ddfd677916c5f7a",
+      "bytes": 3027
+    },
+    "README.md": {
+      "sha256": "afab827e2372bc6df813c47735bb292c8fa22745d606ee576641b5c3843e830f",
+      "bytes": 2034
+    },
+    "REGULAR_FIRST_TRADE_PRICE_CONTRACT_V2.md": {
+      "sha256": "5066dfd7248015bec819d4dfcdae6843f0befb0110ffbc0a0ca7d5c4c39a567e",
+      "bytes": 14579
+    },
+    "REGULAR_FIRST_TRADE_PRICE_ORACLE.json": {
+      "sha256": "e1835d416a09bd65fce59612323d23c241fe81dcb8493170002e2c3eadffe531",
+      "bytes": 4246201
+    },
+    "SOURCE_IDENTITY_AND_LIMITS.json": {
+      "sha256": "ebaf1d2a6c48472a48f77778ee6715f3d8fa695a018ba9f4ac614692c6488a2b",
+      "bytes": 2832
+    },
+    "STATUS_AND_EVIDENCE_PRECEDENCE.md": {
+      "sha256": "5c33890f0eb3d73503c1eca334120a415350f7ed3da2bef480afc3231a61003f",
+      "bytes": 3429
+    }
+  },
+  "product_count": 17,
+  "retained_base_product_count": 15,
+  "retained_V2_manifest_sha256": "53999dac01200e46ed31b3b47fd84918ecc17c6da3d26e45d1e21915e4f3b7e1",
+  "retained_base_bytes_exact": true,
+  "full_oracle_exact_file_sha256": "e1835d416a09bd65fce59612323d23c241fe81dcb8493170002e2c3eadffe531",
+  "canonical_parsed_full_oracle_sha256": "178083d6c130579480baa71ddaae1a91ce84b354d5e4790660977595677c2b72",
+  "counts": {
+    "complete_results": 122,
+    "isolated_input_refusals": 159,
+    "total_input_requests": 281,
+    "result_worker_controls": 17
+  },
+  "independent_actual_generic_review_sha256": "a345a4541f83afe6eff9a14db657e33e478f5207106e473805451be506006ec6",
+  "static_preparation_checks": {
+    "all_JSON_parsed": true,
+    "relative_markdown_links_inside_packet_resolve": true,
+    "all_products_ASCII_LF": true,
+    "no_private_absolute_paths_traces_or_host_details": true,
+    "original15_products_unchanged": true,
+    "exact_oracle_bytes_retained": true,
+    "actual_counts_recounted_from_retained_records": true,
+    "32_exact_deepest_stages_match": true,
+    "actual_proof_valid_maxima_measured_separately": true
+  },
+  "executed_during_this_preparation": "Stdlib reads/projections/static assertions only; no project, probe, producer or SDK execution.",
+  "new_probe_executions": 0,
+  "freeze": false,
+  "source_authoring_grant": false
+}
