@@ -1,0 +1,583 @@
+{
+  "status": "DRAFT_CASE_PLAN_NOT_FULL_FIXTURES_NOT_EXECUTED",
+  "scope": "Fresh independentauthor expands composite rows into isolated complete literal requests and entire expected FeatureResults/refusal targets; numbers below are plan rows, not asserted final fixture count.",
+  "complete_or_unavailable_case_plan": [
+    {
+      "id": "F01",
+      "intent": "False row precedes first eligible; original t1 selected, price101 scale2 ->1.01; witness t1.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F02",
+      "intent": "Single eligible trade; one scalar and one original event witness.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F03",
+      "intent": "Complete empty trades ->not_applicable/no_eligible_observations,counts0/0,no evidence.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F04",
+      "intent": "All eligible=false ->not_applicable; optional price/size/known_at absent irrelevant.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F05",
+      "intent": "Two same-time trades with increasing order_key; choose first eligible original order,never event_id sort.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F06",
+      "intent": "Event exactlyA admitted; ordinary trade eventC-1 admitted.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F07",
+      "intent": "C=Z allowed; only event<Z; no official-close/auction interpretation.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F08",
+      "intent": "First eligible original numeric known_at=K admitted.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F09",
+      "intent": "First eligible future price, later eligible known price ->missing_input/future_knowledge,never fallback.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F10",
+      "intent": "First eligible unknown clock ->missing_input/unknown_availability.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F11",
+      "intent": "Whole known_at column absent with selected price ->unknown_availability.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F12",
+      "intent": "Later eligible numeric clock future; complete causal membership proof keeps first selected price available.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F13",
+      "intent": "Earlier ineligible numeric clock future/unknown does not gate first eligible.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F14",
+      "intent": "Whole size column absent ->selected price remains available; membership unchanged.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F15",
+      "intent": "Ineligible size0/null allowed; no false candidate induced.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F16",
+      "intent": "Ineligible zero/negative price follows canonical rules and is not selected.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F17",
+      "intent": "Whole price column absent with eligible first ->missing_input/absent_input only; clocks irrelevant.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F18",
+      "intent": "Absent calendar/trades/proof,each separately:absent_input,originalpresentbindings retained.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F19",
+      "intent": "Present empty proof ->absent_input; empty batch retained asactualbinding.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F20",
+      "intent": "Unknown/future calendar and proof clocks in both availability modes retain lexical combined reasons.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F21",
+      "intent": "Consistent incomplete trades/proof/calendar separately ->governed_gap,incomplete_coverage.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F22",
+      "intent": "Missing role plus incompletepeer ->missing_input with absent_input+governed_gap,no numeric evidence.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F23",
+      "intent": "Incomplete trades with expectedNone legal; quality expectedNone/observedactual.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F24",
+      "intent": "Reconstruction success retains mode/reason; same selectedfuture/unknown remains unavailable.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F25",
+      "intent": "Scale0 exact integer and scale18 tiny positive coefficient; one finalfloat conversion.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F26",
+      "intent": "Price above2**53 and maxpositiveint64; compare independently derived exactfloat.hex.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F27",
+      "intent": "Absent condition column vs presentnull vsregular allphasepremisesvalid; their membershipdigests differ appropriately.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F28",
+      "intent": "Positive size1->2 or pricechange preserves membershipdigest but changes selectedprice onlyifselected.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F29",
+      "intent": "Alter later/ineligible prices/clocks withoutmembershipchange; firstvalue unchanged,fullbindingsoriginal.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F30",
+      "intent": "Alternate opaque source/mapping IDs matchingactualproof valid; no whitelist.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F31",
+      "intent": "65trades underoriginalprojection,independenttextbudgets<=4096; no64rowguard.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F32",
+      "intent": "Calendar earlyclose and validpre/postsegments; regularonly tradescope unaffected.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F33",
+      "intent": "Matching adjustedbasis/sourceactionidentity conversiononly,nofactorapplication.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F34",
+      "intent": "Older proof originalknown_at<=K eligible with exactrequestC/K and noTTL.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F35",
+      "intent": "Noeligible rows with allnumericalclocksmissing remainsnotapplicable afterpopulationready.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    },
+    {
+      "id": "F36",
+      "intent": "Preceding false-row eligibilitymutation shouldmovefirst andrequire freshproof;oldproof refusal elsewhere.",
+      "required_earliest_result_stage": "new_pure_result",
+      "observed": false
+    }
+  ],
+  "refusal_case_plan": [
+    {
+      "id": "X01",
+      "intent": "Bool price or size cell",
+      "proposed_earliest_stage": "CanonicalBatch_constructor",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X02",
+      "intent": "Price/event/order coefficient outside int64",
+      "proposed_earliest_stage": "CanonicalBatch_constructor",
+      "proposed_code": "overflow",
+      "observed": false
+    },
+    {
+      "id": "X03",
+      "intent": "Missing/null eligible or original identity/order field",
+      "proposed_earliest_stage": "CanonicalBatch_constructor",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X04",
+      "intent": "Wrong literal batchschema_version",
+      "proposed_earliest_stage": "transport_schema_admission",
+      "proposed_code": "incompatible_version",
+      "observed": false
+    },
+    {
+      "id": "X05",
+      "intent": "Complete Coverage(expectedNone or mismatch)",
+      "proposed_earliest_stage": "Coverage_constructor",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X06",
+      "intent": "Invalid PriceUnit scale/bool",
+      "proposed_earliest_stage": "PriceUnit_constructor",
+      "proposed_code": "invalid_unit",
+      "observed": false
+    },
+    {
+      "id": "X07",
+      "intent": "Eligible selected price presentnull/zero/negative",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X08",
+      "intent": "Eligible unused later price presentnull/nonpositive,evenmissingproof",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X09",
+      "intent": "Eligible selected/unused size presentnull/zero/negative",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X10",
+      "intent": "Ineligible size negative",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "bounds",
+      "observed": false
+    },
+    {
+      "id": "X11",
+      "intent": "Duplicate originaleventid",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "duplicate",
+      "observed": false
+    },
+    {
+      "id": "X12",
+      "intent": "Adjacent equal(event_ns,order_key), distinct originaleventIDs ->DUPLICATE underexistingcanonicalprecedence.",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "duplicate",
+      "observed": false
+    },
+    {
+      "id": "X13",
+      "intent": "Backwardevent/time/order withdistinctoriginaleventIDs ->INVALID_ORDER.",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "invalid_order",
+      "observed": false
+    },
+    {
+      "id": "X14",
+      "intent": "Duplicateproofreferenceid beforeone-rowshape",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "duplicate",
+      "observed": false
+    },
+    {
+      "id": "X15",
+      "intent": "Wrongnewselection/phase/auctionflags",
+      "proposed_earliest_stage": "new_config_decode",
+      "proposed_code": "invalid_config",
+      "observed": false
+    },
+    {
+      "id": "X16",
+      "intent": "Cutoff<=A or>CLOSE",
+      "proposed_earliest_stage": "new_config_decode",
+      "proposed_code": "bounds",
+      "observed": false
+    },
+    {
+      "id": "X17",
+      "intent": "Non-targetwindow or extraneouscalendar session",
+      "proposed_earliest_stage": "new_config_decode",
+      "proposed_code": "inconsistent_identity",
+      "observed": false
+    },
+    {
+      "id": "X18",
+      "intent": "Configversion/identity unsupported",
+      "proposed_earliest_stage": "new_config_decode",
+      "proposed_code": "incompatible_version",
+      "observed": false
+    },
+    {
+      "id": "X19",
+      "intent": "Wrongslotcount/kinds/swappedREFERENCEroles",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X20",
+      "intent": "Duplicateactualinputid",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "duplicate",
+      "observed": false
+    },
+    {
+      "id": "X21",
+      "intent": "Trademetadataunitmismatch",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_unit",
+      "observed": false
+    },
+    {
+      "id": "X22",
+      "intent": "Trademetadatabasis mismatch",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "unsupported_adjustment",
+      "observed": false
+    },
+    {
+      "id": "X23",
+      "intent": "Wrongnamespace/entity/session/observedcount/scope/sourcebinding",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "inconsistent_identity",
+      "observed": false
+    },
+    {
+      "id": "X24",
+      "intent": "EventbeforeA orat/afterC,includingineligible",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "bounds",
+      "observed": false
+    },
+    {
+      "id": "X25",
+      "intent": "Opening/closingauctioncondition atanytimestamp includingineligible",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "bounds",
+      "observed": false
+    },
+    {
+      "id": "X26",
+      "intent": "Unrecognisednonauctionconditionliteral",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X27",
+      "intent": "Oldgap/BAR/observablefactfamily atnewproofrole",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X28",
+      "intent": "Morethanonedistinctproofrow",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X29",
+      "intent": "Nonnullproofunit",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_unit",
+      "observed": false
+    },
+    {
+      "id": "X30",
+      "intent": "Proofmetadataadjustment mismatch",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "unsupported_adjustment",
+      "observed": false
+    },
+    {
+      "id": "X31",
+      "intent": "Malformed/noncanonical/nonASCII/floats/loosebool-int/unknownkey proofJSON",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X32",
+      "intent": "DuplicateJSONkey",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "duplicate",
+      "observed": false
+    },
+    {
+      "id": "X33",
+      "intent": "Over4096proofbytes/depth/collection/labelbounds",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "bounds",
+      "observed": false
+    },
+    {
+      "id": "X34",
+      "intent": "Unsupportedproofsemanticversion/profile",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "incompatible_version",
+      "observed": false
+    },
+    {
+      "id": "X35",
+      "intent": "Wrongproducer/phase/C/K/entity/flags/source/count/complete/hash/referenceID",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "inconsistent_identity",
+      "observed": false
+    },
+    {
+      "id": "X36",
+      "intent": "Payloadunitmismatch",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_unit",
+      "observed": false
+    },
+    {
+      "id": "X37",
+      "intent": "Payloadadjustmentmismatch",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "unsupported_adjustment",
+      "observed": false
+    },
+    {
+      "id": "X38",
+      "intent": "Wrongmembershipeligible/identity/order/condition witholdproof",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "inconsistent_identity",
+      "observed": false
+    },
+    {
+      "id": "X39",
+      "intent": "Invalidproofmetadata scope/intervalcoverage/extracolumns",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X40",
+      "intent": "Badcalendarfact/hash/revision/coverage evenmissingtrades",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "mixed_isolate_exact_subcases",
+      "observed": false
+    },
+    {
+      "id": "X41",
+      "intent": "Invalid unused suppliedtradepayload whilebothproofsabsent",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X42",
+      "intent": "Proofnegativecount/badexactpayloadshape",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "invalid_schema",
+      "observed": false
+    },
+    {
+      "id": "X43",
+      "intent": "Proofint64overflowclock/count",
+      "proposed_earliest_stage": "new_pure_semantic",
+      "proposed_code": "overflow",
+      "observed": false
+    },
+    {
+      "id": "X44",
+      "intent": "Nonadjacent repeated(event_ns,order_key) withdistinctoriginaleventIDs, e.g.(10,0,a),(11,1,b),(10,0,c) ->INVALID_ORDER beforeanynewproducer semanticcheck; originaleventIDrepeat remainsa separateglobalDUPLICATEcase.",
+      "proposed_earliest_stage": "canonical_validate_batch",
+      "proposed_code": "invalid_order",
+      "observed": false
+    }
+  ],
+  "worker_composition_plan": [
+    {
+      "id": "W01",
+      "intent": "AllindependentlyauthoredcompleteFeatureResults mustmatch direct/adapter/worker/SDK/newDB/retry/reopen; do notcount constructorrefusalsas callbackcoverage.",
+      "observed": false
+    },
+    {
+      "id": "W02",
+      "intent": "All3 declaredroles fixed;missing/empty/partial/complete semantics and originalpresent-subsequence preserved;never inferrolebyDataKind.",
+      "observed": false
+    },
+    {
+      "id": "W03",
+      "intent": "Wrongfamily/roles/bindings/governedscope/history/warmup/ownership/capacity refuse before any sinkcall.",
+      "observed": false
+    },
+    {
+      "id": "W04",
+      "intent": "Tamper backendID/version/configdigest/header/entity/availability/sourcebinding/mathpolicy/schema/evidence_limit0or2; distinguish DTO refusal from actualworker RESULTclosure.",
+      "observed": false
+    },
+    {
+      "id": "W05",
+      "intent": "Excessactualevidence or2cells cannotpublish;instrument sinkbegin/write/commit/read allzero.",
+      "observed": false
+    },
+    {
+      "id": "W06",
+      "intent": "Changedsource revision/config alterscanonicalidentity; identicalretry usesexistingreceipt; no fabricatedstate/replaycapability.",
+      "observed": false
+    },
+    {
+      "id": "W07",
+      "intent": "Actualcontext/proof/pickle5/TaskJSON/SDKbounds measuredindependently; exactboundary andoneover controls.",
+      "observed": false
+    },
+    {
+      "id": "W08",
+      "intent": "Preserveall legacyEF1 suites/packageorigins; sourcepurity/typing and compatibleinstalled8forms later, browseractualinspectionseparate.",
+      "observed": false
+    }
+  ],
+  "important_stage_rules": [
+    "API_DTO_HANDSHAKE sample was not constructed or qualified.",
+    "Transport schema_version is not a CanonicalBatch constructor argument.",
+    "Constructor/canonical/config failures remain distinct from pure semantic/callback execution.",
+    "Composite mixed-code cases mustsplit into exactsinglefaultrequests beforefreeze.",
+    "Current unsupportedproducer response is not successfulnewsemanticrefusal.",
+    "No expectedresultfromproducer orproductionhelper; full literals requireindependentauthor/reviewer.",
+    "RetaincanonicaloriginaleventID/globalDUPLICATE, adjacentequality/DUPLICATE, backwardincludingnonadjacentkeyrepeat/INVALID_ORDER precedence; validateactualearlieststageinprerequisiteprobe beforeoraclefreeze."
+  ]
+}

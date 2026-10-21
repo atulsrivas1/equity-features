@@ -1,0 +1,30 @@
+{
+  "status": "PUBLIC_SAFE_SYNTHETIC_PREPARATION_IDENTITY_NOT_SOURCE_ADMISSION",
+  "math_contract_version": "V2",
+  "reviewed_math_contract_sha256": "4826cd0a4fea6737e7d16c91d37da1de1ee5ef5c48c3439bd0713b5aacf54b0a",
+  "math_DTO_review_sha256": "cc8534347de5b246e13fd81f2a0cf18763f45d08a6e4f7a526265df7524a5e5d",
+  "independent_full_literal_review_V1_sha256": "6b38014690b6b9d275b0d78a5ea08a9904d0851cbe5041ccccee8e99df001a3c",
+  "independent_full_literal_review_V2_sha256": "1bed73a8bec49d38e3ed75e08186d517aa3fd5364ddc101890d3b3098da07395",
+  "full_literal_correction_manifest_sha256": "03ef7367674fd42a0f42f05961c7328adaefb7511a6f65c889931918b3f7b89f",
+  "full_oracle_exact_file_sha256": "e1835d416a09bd65fce59612323d23c241fe81dcb8493170002e2c3eadffe531",
+  "case_plan_source_sha256": "d1c936b348e1f8e5ee90487fc1d38298b31bd3b4271986847dc82ace4566e870",
+  "case_plan_public_LF_sha256": "017f1db43f258e3a2d63b6da1bab27af8f5f2f3de241801fa3cdea340798ed97",
+  "case_plan_normalization": "Only CRLF-to-LF text encoding; parsed JSON and all intent rows unchanged. Plan row counts are not fixture counts.",
+  "current_readonly_prerequisite_cohort": {
+    "core": "fab92c0486292c439d8be87bb22bad5ad9092090",
+    "io": "0a201082e336c0fe4d317eb3eaa11b34312af8fd",
+    "workers": "7e5d86e53b87242a7f95c83980fcef11676de359"
+  },
+  "cohort_limits": "Identifies prerequisite source context only; not execution evidence, compatibility qualification or support for the new producer.",
+  "input_data": "Entire fixture corpus is synthetic with explicitly synthetic original identities; no observed market dataset or source code is included.",
+  "original_source_identity_order_eligibility_phase_coverage_known_at_rights": "UNQUALIFIED",
+  "original_source_numerical_consumer_equivalence": "UNVERIFIED",
+  "proof_authentication": "Not claimed. Canonical checksums bind internal consistency, not independent historical truth or rights.",
+  "SDK_example_source": "R001 raw request and whole expected FeatureResult unchanged across original/V2/V3; copied without regeneration.",
+  "actual_generic_observations": "N154 constructor observation is retained by exact failed receipt identity. Whole generic evidence acceptance and a new run remain pending; addendum template is intentionally unpopulated.",
+  "full_oracle_version": "V3 expectation correction; contract mathematics V2 unchanged",
+  "previous_full_oracle_V2_sha256": "dacda30be5fbf71503c7f59158c0effa23e634a451c6be513814628dcaa5b2f6",
+  "previous_public_candidate_manifest_sha256": "a51b8221b2ef6c4d648a33c6257dc9ec20807179d8f3532d10382e6f140a5539",
+  "independent_V3_oracle_probe_correction_review_sha256": "e26172b13a381f805b043f37f85635cf88d2b43c5d476e5694646aebdf2e19cd",
+  "actual_failed_generic_run1_receipt_sha256": "7857cb92b20549729194b77376d9fd25327cfa9c79d2e8be584de4f8a529412c"
+}

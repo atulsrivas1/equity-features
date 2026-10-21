@@ -1,0 +1,5824 @@
+{
+  "status": "ACTUAL_LINUX_GENERIC_STRUCTURAL_WIRE_EVIDENCE_INDEPENDENTLY_APPROVED_PACKET_STILL_PROPOSED_UNFROZEN",
+  "precedence": "Append-only actual evidence supersedes the historical base generic-probe-pending labels only for this exact run2 generic source/DTO/wire scope. The15 retained base products and null template remain unchanged historical records. No freeze, source-authoring grant, producer implementation or release acceptance is inferred.",
+  "oracle_sha256": "e1835d416a09bd65fce59612323d23c241fe81dcb8493170002e2c3eadffe531",
+  "math_contract_sha256": "4826cd0a4fea6737e7d16c91d37da1de1ee5ef5c48c3439bd0713b5aacf54b0a",
+  "retained_V2_packet_manifest_sha256": "53999dac01200e46ed31b3b47fd84918ecc17c6da3d26e45d1e21915e4f3b7e1",
+  "actual_execution": {
+    "identity": "Linux generic prerequisite run2",
+    "platform": "Linux",
+    "python_version": "3.12.15",
+    "actual_child_exit_code": 0,
+    "actual_parent_outer_native_exit_code": 0,
+    "actual_outer_tool_exit_code": 0,
+    "child_waited_reaped": true,
+    "outer_native_reaped": true,
+    "outer_tool_completed_no_running_session": true,
+    "primary_failure": null,
+    "unexpected_discrepancies": [],
+    "final_provenance_errors": []
+  },
+  "source_cohort": {
+    "exact_heads": {
+      "core": "fab92c0486292c439d8be87bb22bad5ad9092090",
+      "io": "0a201082e336c0fe4d317eb3eaa11b34312af8fd",
+      "workers": "7e5d86e53b87242a7f95c83980fcef11676de359"
+    },
+    "closed_all_package_src_python_file_count": 212,
+    "closed_importable_namespace_file_count": 113,
+    "complete_source_hash_inventory_equal_before_after": true,
+    "Git_clean_all_three_roots_before_after": true,
+    "loaded_project_origins_match_exact_pinned_namespace_roots": true,
+    "loaded_origins_equal_post_stage_and_final": true,
+    "importable_file_count_is_loaded_module_count": false,
+    "driver_identity": {
+      "sha256": "5f5958701923433c3fe7ec504868fa996704b964a7ed412117d0e0441944bed0",
+      "matches_pinned_readonly_driver_parent_and_child": true,
+      "scope": "Retained pinned/parent/child executable identity checks; full host and local paths remain private."
+    }
+  },
+  "case_identity": {
+    "input_case_ids": [
+      "R001",
+      "R002",
+      "R003",
+      "R004",
+      "R005",
+      "R006",
+      "R007",
+      "R008",
+      "R009",
+      "R010",
+      "R011",
+      "R012",
+      "R013",
+      "R014",
+      "R015",
+      "R016",
+      "R017",
+      "R018",
+      "R019",
+      "R020",
+      "R021",
+      "R022",
+      "R023",
+      "R024",
+      "R025",
+      "R026",
+      "R027",
+      "R028",
+      "R029",
+      "R030",
+      "R031",
+      "R032",
+      "R033",
+      "R034",
+      "R035",
+      "R036",
+      "R037",
+      "R038",
+      "R039",
+      "R040",
+      "R041",
+      "R042",
+      "R043",
+      "R044",
+      "R045",
+      "R046",
+      "R047",
+      "R048",
+      "R049",
+      "R050",
+      "R051",
+      "R052",
+      "R053",
+      "R054",
+      "R055",
+      "R056",
+      "R057",
+      "R058",
+      "R059",
+      "R060",
+      "R061",
+      "R062",
+      "R063",
+      "R064",
+      "R065",
+      "R066",
+      "R067",
+      "R068",
+      "R069",
+      "R070",
+      "R071",
+      "R072",
+      "R073",
+      "R074",
+      "R075",
+      "R076",
+      "R077",
+      "R078",
+      "R079",
+      "R080",
+      "R081",
+      "R082",
+      "R083",
+      "R084",
+      "R085",
+      "R086",
+      "R087",
+      "R088",
+      "R089",
+      "R090",
+      "R091",
+      "R092",
+      "R093",
+      "R094",
+      "R095",
+      "R096",
+      "R097",
+      "R098",
+      "R099",
+      "R100",
+      "R101",
+      "R102",
+      "R103",
+      "R104",
+      "R105",
+      "R106",
+      "R107",
+      "R108",
+      "R109",
+      "R110",
+      "R111",
+      "R112",
+      "R113",
+      "R114",
+      "R115",
+      "R116",
+      "R117",
+      "R118",
+      "R119",
+      "R120",
+      "R121",
+      "R122",
+      "N001",
+      "N002",
+      "N003",
+      "N004",
+      "N005",
+      "N006",
+      "N007",
+      "N008",
+      "N009",
+      "N010",
+      "N011",
+      "N012",
+      "N013",
+      "N014",
+      "N015",
+      "N016",
+      "N017",
+      "N018",
+      "N019",
+      "N020",
+      "N021",
+      "N022",
+      "N023",
+      "N024",
+      "N025",
+      "N026",
+      "N027",
+      "N028",
+      "N029",
+      "N030",
+      "N031",
+      "N032",
+      "N033",
+      "N034",
+      "N035",
+      "N036",
+      "N037",
+      "N038",
+      "N039",
+      "N040",
+      "N041",
+      "N042",
+      "N043",
+      "N044",
+      "N045",
+      "N046",
+      "N047",
+      "N048",
+      "N049",
+      "N050",
+      "N051",
+      "N052",
+      "N053",
+      "N054",
+      "N055",
+      "N056",
+      "N057",
+      "N058",
+      "N059",
+      "N060",
+      "N061",
+      "N062",
+      "N063",
+      "N064",
+      "N065",
+      "N066",
+      "N067",
+      "N068",
+      "N069",
+      "N070",
+      "N071",
+      "N072",
+      "N073",
+      "N074",
+      "N075",
+      "N076",
+      "N077",
+      "N078",
+      "N079",
+      "N080",
+      "N081",
+      "N082",
+      "N083",
+      "N084",
+      "N085",
+      "N086",
+      "N087",
+      "N088",
+      "N089",
+      "N090",
+      "N091",
+      "N092",
+      "N093",
+      "N094",
+      "N095",
+      "N096",
+      "N097",
+      "N098",
+      "N099",
+      "N100",
+      "N101",
+      "N102",
+      "N103",
+      "N104",
+      "N105",
+      "N106",
+      "N107",
+      "N108",
+      "N109",
+      "N110",
+      "N111",
+      "N112",
+      "N113",
+      "N114",
+      "N115",
+      "N116",
+      "N117",
+      "N118",
+      "N119",
+      "N120",
+      "N121",
+      "N122",
+      "N123",
+      "N124",
+      "N125",
+      "N126",
+      "N127",
+      "N128",
+      "N129",
+      "N130",
+      "N131",
+      "N132",
+      "N133",
+      "N134",
+      "N135",
+      "N136",
+      "N137",
+      "N138",
+      "N139",
+      "N140",
+      "N141",
+      "N142",
+      "N143",
+      "N144",
+      "N145",
+      "N146",
+      "N147",
+      "N148",
+      "N149",
+      "N150",
+      "N151",
+      "N152",
+      "N153",
+      "N154",
+      "N155",
+      "N156",
+      "N157",
+      "N158",
+      "N159"
+    ],
+    "input_case_count": 281,
+    "result_control_ids": [
+      "W001",
+      "W002",
+      "W003",
+      "W004",
+      "W005",
+      "W006",
+      "W007",
+      "W008",
+      "W009",
+      "W010",
+      "W011",
+      "W012",
+      "W013",
+      "W014",
+      "W015",
+      "W016",
+      "W017"
+    ],
+    "result_control_count": 17,
+    "no_missing_or_duplicate_ids": true
+  },
+  "actual_observation_counts": {
+    "ConfigSpec_from_json/accepted": 280,
+    "current_decoder_unsupported/refused": 280,
+    "typed_batch_constructors/accepted": 248,
+    "canonical_required_fields_only/accepted": 228,
+    "canonical_contextual_session_availability_variant/accepted": 217,
+    "TaskManifest_wire_role_reconstruction/accepted": 244,
+    "generic_worker_admit/accepted": 242,
+    "current_dispatcher_unsupported/refused": 248,
+    "complete_expected_FeatureResult_constructors/accepted": 122,
+    "complete_expected_SDK_roundtrip/accepted": 122,
+    "generic_expected_result_identity/accepted": 122,
+    "typed_batch_constructors/refused": 32,
+    "canonical_required_fields_only/refused": 20,
+    "canonical_contextual_session_availability_variant/refused": 31,
+    "TaskManifest_wire_role_reconstruction/refused": 4,
+    "ConfigSpec_from_json/refused": 1,
+    "generic_worker_admit/refused": 2,
+    "candidate_FeatureResult_constructor/accepted": 14,
+    "candidate_SDK_roundtrip/accepted": 14,
+    "current_generic_result_identity/refused": 9,
+    "current_generic_result_identity/accepted": 5,
+    "candidate_FeatureResult_constructor/refused": 3
+  },
+  "exact_deepest_refused_constructor_counts": {
+    "BatchMetadata": 1,
+    "CanonicalBatch": 23,
+    "Coverage": 4,
+    "PriceUnit": 3,
+    "transport_schema_admission": 1
+  },
+  "exact_deepest_refused_constructor_records": [
+    {
+      "id": "N001",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N002",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N003",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "overflow",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "overflow",
+      "matches": true
+    },
+    {
+      "id": "N004",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "overflow",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "overflow",
+      "matches": true
+    },
+    {
+      "id": "N005",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "overflow",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "overflow",
+      "matches": true
+    },
+    {
+      "id": "N006",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "overflow",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "overflow",
+      "matches": true
+    },
+    {
+      "id": "N007",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "overflow",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "overflow",
+      "matches": true
+    },
+    {
+      "id": "N008",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "overflow",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "overflow",
+      "matches": true
+    },
+    {
+      "id": "N009",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "overflow",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "overflow",
+      "matches": true
+    },
+    {
+      "id": "N010",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "overflow",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "overflow",
+      "matches": true
+    },
+    {
+      "id": "N011",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N012",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N013",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N014",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N015",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N016",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N017",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N018",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N019",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N020",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N021",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N022",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_schema",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N023",
+      "actual_class": "transport_schema_admission",
+      "actual_code": "incompatible_version",
+      "expected_stage": "transport_schema_admission",
+      "expected_code": "incompatible_version",
+      "matches": true
+    },
+    {
+      "id": "N024",
+      "actual_class": "Coverage",
+      "actual_code": "invalid_schema",
+      "expected_stage": "Coverage_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N025",
+      "actual_class": "Coverage",
+      "actual_code": "invalid_schema",
+      "expected_stage": "Coverage_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N026",
+      "actual_class": "Coverage",
+      "actual_code": "invalid_schema",
+      "expected_stage": "Coverage_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N027",
+      "actual_class": "Coverage",
+      "actual_code": "invalid_schema",
+      "expected_stage": "Coverage_constructor",
+      "expected_code": "invalid_schema",
+      "matches": true
+    },
+    {
+      "id": "N028",
+      "actual_class": "PriceUnit",
+      "actual_code": "invalid_unit",
+      "expected_stage": "PriceUnit_constructor",
+      "expected_code": "invalid_unit",
+      "matches": true
+    },
+    {
+      "id": "N029",
+      "actual_class": "PriceUnit",
+      "actual_code": "invalid_unit",
+      "expected_stage": "PriceUnit_constructor",
+      "expected_code": "invalid_unit",
+      "matches": true
+    },
+    {
+      "id": "N030",
+      "actual_class": "PriceUnit",
+      "actual_code": "invalid_unit",
+      "expected_stage": "PriceUnit_constructor",
+      "expected_code": "invalid_unit",
+      "matches": true
+    },
+    {
+      "id": "N134",
+      "actual_class": "CanonicalBatch",
+      "actual_code": "invalid_unit",
+      "expected_stage": "CanonicalBatch_constructor",
+      "expected_code": "invalid_unit",
+      "matches": true
+    },
+    {
+      "id": "N154",
+      "actual_class": "BatchMetadata",
+      "actual_code": "bounds",
+      "expected_stage": "BatchMetadata_constructor",
+      "expected_code": "bounds",
+      "matches": true
+    }
+  ],
+  "actual_stage_case_records": {
+    "ConfigSpec_from_json": {
+      "accepted_case_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R010",
+        "R011",
+        "R012",
+        "R013",
+        "R014",
+        "R015",
+        "R016",
+        "R017",
+        "R018",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R029",
+        "R030",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R043",
+        "R044",
+        "R045",
+        "R046",
+        "R047",
+        "R048",
+        "R049",
+        "R050",
+        "R051",
+        "R052",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057",
+        "R058",
+        "R059",
+        "R060",
+        "R061",
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R066",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R071",
+        "R072",
+        "R073",
+        "R074",
+        "R075",
+        "R076",
+        "R077",
+        "R078",
+        "R079",
+        "R080",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R095",
+        "R096",
+        "R097",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108",
+        "R109",
+        "R110",
+        "R111",
+        "R112",
+        "R113",
+        "R114",
+        "R115",
+        "R116",
+        "R117",
+        "R118",
+        "R119",
+        "R120",
+        "R121",
+        "R122",
+        "N001",
+        "N002",
+        "N003",
+        "N004",
+        "N005",
+        "N006",
+        "N007",
+        "N008",
+        "N009",
+        "N010",
+        "N011",
+        "N012",
+        "N013",
+        "N014",
+        "N015",
+        "N016",
+        "N017",
+        "N018",
+        "N019",
+        "N020",
+        "N021",
+        "N022",
+        "N023",
+        "N024",
+        "N025",
+        "N026",
+        "N027",
+        "N028",
+        "N029",
+        "N030",
+        "N031",
+        "N032",
+        "N033",
+        "N034",
+        "N035",
+        "N036",
+        "N037",
+        "N038",
+        "N039",
+        "N040",
+        "N041",
+        "N042",
+        "N043",
+        "N044",
+        "N045",
+        "N046",
+        "N047",
+        "N048",
+        "N049",
+        "N050",
+        "N051",
+        "N052",
+        "N053",
+        "N054",
+        "N055",
+        "N056",
+        "N057",
+        "N058",
+        "N059",
+        "N061",
+        "N062",
+        "N063",
+        "N064",
+        "N065",
+        "N066",
+        "N067",
+        "N068",
+        "N069",
+        "N070",
+        "N071",
+        "N072",
+        "N073",
+        "N074",
+        "N075",
+        "N076",
+        "N077",
+        "N078",
+        "N079",
+        "N080",
+        "N081",
+        "N082",
+        "N083",
+        "N084",
+        "N085",
+        "N086",
+        "N087",
+        "N088",
+        "N089",
+        "N090",
+        "N091",
+        "N092",
+        "N093",
+        "N094",
+        "N095",
+        "N096",
+        "N097",
+        "N098",
+        "N099",
+        "N100",
+        "N101",
+        "N102",
+        "N103",
+        "N104",
+        "N105",
+        "N106",
+        "N107",
+        "N108",
+        "N109",
+        "N110",
+        "N111",
+        "N112",
+        "N113",
+        "N114",
+        "N115",
+        "N116",
+        "N117",
+        "N118",
+        "N119",
+        "N120",
+        "N121",
+        "N122",
+        "N123",
+        "N124",
+        "N125",
+        "N126",
+        "N127",
+        "N128",
+        "N129",
+        "N130",
+        "N131",
+        "N132",
+        "N133",
+        "N134",
+        "N135",
+        "N136",
+        "N137",
+        "N138",
+        "N139",
+        "N140",
+        "N141",
+        "N142",
+        "N143",
+        "N144",
+        "N145",
+        "N146",
+        "N147",
+        "N148",
+        "N149",
+        "N150",
+        "N151",
+        "N152",
+        "N153",
+        "N154",
+        "N155",
+        "N156",
+        "N157",
+        "N158",
+        "N159"
+      ],
+      "refused_cases": [
+        {
+          "id": "N060",
+          "exception_type": "ContractError",
+          "code": "incompatible_version"
+        }
+      ]
+    },
+    "current_decoder_unsupported": {
+      "accepted_case_ids": [],
+      "refused_cases": [
+        {
+          "id": "R001",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R002",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R003",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R004",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R005",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R006",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R007",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R008",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R009",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R010",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R011",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R012",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R013",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R014",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R015",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R016",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R017",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R018",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R019",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R020",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R021",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R022",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R023",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R024",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R025",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R026",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R027",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R028",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R029",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R030",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R031",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R032",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R033",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R034",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R035",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R036",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R037",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R038",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R039",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R040",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R041",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R042",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R043",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R044",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R045",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R046",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R047",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R048",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R049",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R050",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R051",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R052",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R053",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R054",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R055",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R056",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R057",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R058",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R059",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R060",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R061",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R062",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R063",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R064",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R065",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R066",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R067",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R068",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R069",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R070",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R071",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R072",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R073",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R074",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R075",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R076",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R077",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R078",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R079",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R080",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R081",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R082",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R083",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R084",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R085",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R086",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R087",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R088",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R089",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R090",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R091",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R092",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R093",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R094",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R095",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R096",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R097",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R098",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R099",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R100",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R101",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R102",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R103",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R104",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R105",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R106",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R107",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R108",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R109",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R110",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R111",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R112",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R113",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R114",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R115",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R116",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R117",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R118",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R119",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R120",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R121",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R122",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N001",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N002",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N003",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N004",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N005",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N006",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N007",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N008",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N009",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N010",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N011",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N012",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N013",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N014",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N015",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N016",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N017",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N018",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N019",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N020",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N021",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N022",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N023",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N024",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N025",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N026",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N027",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N028",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N029",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N030",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N031",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N032",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N033",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N034",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N035",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N036",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N037",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N038",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N039",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N040",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N041",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N042",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N043",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N044",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N045",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N046",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N047",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N048",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N049",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N050",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N051",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N052",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N053",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N054",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N055",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N056",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N057",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N058",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N059",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N061",
+          "exception_type": "ContractError",
+          "code": "incompatible_version"
+        },
+        {
+          "id": "N062",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N063",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N064",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N065",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N066",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N067",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N068",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N069",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N070",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N071",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N072",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N073",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N074",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N075",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N076",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N077",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N078",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N079",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N080",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N081",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N082",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N083",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N084",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N085",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N086",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N087",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N088",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N089",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N090",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N091",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N092",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N093",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N094",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N095",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N096",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N097",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N098",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N099",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N100",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N101",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N102",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N103",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N104",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N105",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N106",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N107",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N108",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N109",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N110",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N111",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N112",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N113",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N114",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N115",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N116",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N117",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N118",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N119",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N120",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N121",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N122",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N123",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N124",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N125",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N126",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N127",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N128",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N129",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N130",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N131",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N132",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N133",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N134",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N135",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N136",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N137",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N138",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N139",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N140",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N141",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N142",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N143",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N144",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N145",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N146",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N147",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N148",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N149",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N150",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N151",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N152",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N153",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N154",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N155",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N156",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N157",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N158",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N159",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        }
+      ]
+    },
+    "typed_batch_constructors": {
+      "accepted_case_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R010",
+        "R011",
+        "R012",
+        "R013",
+        "R014",
+        "R015",
+        "R016",
+        "R017",
+        "R018",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R029",
+        "R030",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R043",
+        "R044",
+        "R045",
+        "R046",
+        "R047",
+        "R048",
+        "R049",
+        "R050",
+        "R051",
+        "R052",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057",
+        "R058",
+        "R059",
+        "R060",
+        "R061",
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R066",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R071",
+        "R072",
+        "R073",
+        "R074",
+        "R075",
+        "R076",
+        "R077",
+        "R078",
+        "R079",
+        "R080",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R095",
+        "R096",
+        "R097",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108",
+        "R109",
+        "R110",
+        "R111",
+        "R112",
+        "R113",
+        "R114",
+        "R115",
+        "R116",
+        "R117",
+        "R118",
+        "R119",
+        "R120",
+        "R121",
+        "R122",
+        "N031",
+        "N032",
+        "N033",
+        "N034",
+        "N035",
+        "N036",
+        "N037",
+        "N038",
+        "N039",
+        "N040",
+        "N041",
+        "N042",
+        "N043",
+        "N044",
+        "N045",
+        "N046",
+        "N047",
+        "N048",
+        "N049",
+        "N050",
+        "N051",
+        "N052",
+        "N053",
+        "N054",
+        "N055",
+        "N056",
+        "N057",
+        "N058",
+        "N059",
+        "N061",
+        "N062",
+        "N063",
+        "N064",
+        "N065",
+        "N066",
+        "N067",
+        "N068",
+        "N069",
+        "N070",
+        "N071",
+        "N072",
+        "N073",
+        "N074",
+        "N075",
+        "N076",
+        "N077",
+        "N078",
+        "N079",
+        "N080",
+        "N081",
+        "N082",
+        "N083",
+        "N084",
+        "N085",
+        "N086",
+        "N087",
+        "N088",
+        "N089",
+        "N090",
+        "N091",
+        "N092",
+        "N093",
+        "N094",
+        "N095",
+        "N096",
+        "N097",
+        "N098",
+        "N099",
+        "N100",
+        "N101",
+        "N102",
+        "N103",
+        "N104",
+        "N105",
+        "N106",
+        "N107",
+        "N108",
+        "N109",
+        "N110",
+        "N111",
+        "N112",
+        "N113",
+        "N114",
+        "N115",
+        "N116",
+        "N117",
+        "N118",
+        "N119",
+        "N120",
+        "N121",
+        "N122",
+        "N123",
+        "N124",
+        "N125",
+        "N126",
+        "N127",
+        "N128",
+        "N129",
+        "N130",
+        "N131",
+        "N132",
+        "N133",
+        "N135",
+        "N136",
+        "N137",
+        "N138",
+        "N139",
+        "N140",
+        "N141",
+        "N142",
+        "N143",
+        "N144",
+        "N145",
+        "N146",
+        "N147",
+        "N148",
+        "N149",
+        "N150",
+        "N151",
+        "N152",
+        "N153",
+        "N155",
+        "N156",
+        "N157",
+        "N158",
+        "N159"
+      ],
+      "refused_cases": [
+        {
+          "id": "N001",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N002",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N003",
+          "exception_type": "ContractError",
+          "code": "overflow"
+        },
+        {
+          "id": "N004",
+          "exception_type": "ContractError",
+          "code": "overflow"
+        },
+        {
+          "id": "N005",
+          "exception_type": "ContractError",
+          "code": "overflow"
+        },
+        {
+          "id": "N006",
+          "exception_type": "ContractError",
+          "code": "overflow"
+        },
+        {
+          "id": "N007",
+          "exception_type": "ContractError",
+          "code": "overflow"
+        },
+        {
+          "id": "N008",
+          "exception_type": "ContractError",
+          "code": "overflow"
+        },
+        {
+          "id": "N009",
+          "exception_type": "ContractError",
+          "code": "overflow"
+        },
+        {
+          "id": "N010",
+          "exception_type": "ContractError",
+          "code": "overflow"
+        },
+        {
+          "id": "N011",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N012",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N013",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N014",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N015",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N016",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N017",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N018",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N019",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N020",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N021",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N022",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N023",
+          "exception_type": "ContractError",
+          "code": "incompatible_version"
+        },
+        {
+          "id": "N024",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N025",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N026",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N027",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N028",
+          "exception_type": "ContractError",
+          "code": "invalid_unit"
+        },
+        {
+          "id": "N029",
+          "exception_type": "ContractError",
+          "code": "invalid_unit"
+        },
+        {
+          "id": "N030",
+          "exception_type": "ContractError",
+          "code": "invalid_unit"
+        },
+        {
+          "id": "N134",
+          "exception_type": "ContractError",
+          "code": "invalid_unit"
+        },
+        {
+          "id": "N154",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        }
+      ]
+    },
+    "canonical_required_fields_only": {
+      "accepted_case_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R010",
+        "R011",
+        "R012",
+        "R013",
+        "R014",
+        "R015",
+        "R016",
+        "R017",
+        "R018",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R029",
+        "R030",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R043",
+        "R044",
+        "R045",
+        "R046",
+        "R047",
+        "R048",
+        "R049",
+        "R050",
+        "R051",
+        "R052",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057",
+        "R058",
+        "R059",
+        "R060",
+        "R061",
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R066",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R071",
+        "R072",
+        "R073",
+        "R074",
+        "R075",
+        "R076",
+        "R077",
+        "R078",
+        "R079",
+        "R080",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R095",
+        "R096",
+        "R097",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108",
+        "R109",
+        "R110",
+        "R111",
+        "R112",
+        "R113",
+        "R114",
+        "R115",
+        "R116",
+        "R117",
+        "R118",
+        "R119",
+        "R120",
+        "R121",
+        "R122",
+        "N051",
+        "N052",
+        "N053",
+        "N054",
+        "N055",
+        "N056",
+        "N057",
+        "N058",
+        "N059",
+        "N061",
+        "N062",
+        "N063",
+        "N064",
+        "N065",
+        "N066",
+        "N067",
+        "N068",
+        "N069",
+        "N070",
+        "N071",
+        "N072",
+        "N073",
+        "N074",
+        "N075",
+        "N076",
+        "N077",
+        "N078",
+        "N079",
+        "N080",
+        "N081",
+        "N082",
+        "N083",
+        "N084",
+        "N085",
+        "N086",
+        "N087",
+        "N088",
+        "N089",
+        "N090",
+        "N091",
+        "N092",
+        "N093",
+        "N094",
+        "N095",
+        "N096",
+        "N097",
+        "N098",
+        "N099",
+        "N100",
+        "N101",
+        "N102",
+        "N103",
+        "N104",
+        "N105",
+        "N106",
+        "N107",
+        "N108",
+        "N109",
+        "N110",
+        "N111",
+        "N112",
+        "N113",
+        "N114",
+        "N115",
+        "N116",
+        "N117",
+        "N118",
+        "N119",
+        "N120",
+        "N121",
+        "N122",
+        "N123",
+        "N124",
+        "N125",
+        "N126",
+        "N127",
+        "N128",
+        "N129",
+        "N130",
+        "N131",
+        "N132",
+        "N133",
+        "N135",
+        "N136",
+        "N137",
+        "N138",
+        "N139",
+        "N140",
+        "N141",
+        "N142",
+        "N143",
+        "N144",
+        "N145",
+        "N146",
+        "N147",
+        "N148",
+        "N149",
+        "N150",
+        "N151",
+        "N152",
+        "N153",
+        "N155",
+        "N156",
+        "N157",
+        "N158",
+        "N159"
+      ],
+      "refused_cases": [
+        {
+          "id": "N031",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N032",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N033",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N034",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N035",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N036",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N037",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N038",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N039",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N040",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N041",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N042",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N043",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N044",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N045",
+          "exception_type": "ContractError",
+          "code": "duplicate"
+        },
+        {
+          "id": "N046",
+          "exception_type": "ContractError",
+          "code": "duplicate"
+        },
+        {
+          "id": "N047",
+          "exception_type": "ContractError",
+          "code": "duplicate"
+        },
+        {
+          "id": "N048",
+          "exception_type": "ContractError",
+          "code": "invalid_order"
+        },
+        {
+          "id": "N049",
+          "exception_type": "ContractError",
+          "code": "invalid_order"
+        },
+        {
+          "id": "N050",
+          "exception_type": "ContractError",
+          "code": "duplicate"
+        }
+      ]
+    },
+    "canonical_contextual_session_availability_variant": {
+      "accepted_case_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R010",
+        "R011",
+        "R012",
+        "R013",
+        "R014",
+        "R015",
+        "R016",
+        "R017",
+        "R018",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R029",
+        "R030",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R043",
+        "R044",
+        "R045",
+        "R046",
+        "R047",
+        "R048",
+        "R049",
+        "R050",
+        "R051",
+        "R052",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057",
+        "R058",
+        "R059",
+        "R060",
+        "R061",
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R066",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R071",
+        "R072",
+        "R073",
+        "R074",
+        "R075",
+        "R076",
+        "R077",
+        "R078",
+        "R079",
+        "R080",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R095",
+        "R096",
+        "R097",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108",
+        "R109",
+        "R110",
+        "R111",
+        "R112",
+        "R113",
+        "R114",
+        "R115",
+        "R116",
+        "R117",
+        "R118",
+        "R119",
+        "R120",
+        "R121",
+        "R122",
+        "N051",
+        "N052",
+        "N053",
+        "N057",
+        "N058",
+        "N059",
+        "N061",
+        "N062",
+        "N063",
+        "N064",
+        "N065",
+        "N066",
+        "N067",
+        "N068",
+        "N070",
+        "N072",
+        "N073",
+        "N079",
+        "N080",
+        "N081",
+        "N082",
+        "N083",
+        "N084",
+        "N085",
+        "N086",
+        "N087",
+        "N088",
+        "N089",
+        "N090",
+        "N091",
+        "N092",
+        "N093",
+        "N094",
+        "N095",
+        "N096",
+        "N097",
+        "N098",
+        "N099",
+        "N100",
+        "N101",
+        "N102",
+        "N103",
+        "N104",
+        "N105",
+        "N106",
+        "N107",
+        "N108",
+        "N109",
+        "N110",
+        "N111",
+        "N112",
+        "N113",
+        "N114",
+        "N115",
+        "N116",
+        "N117",
+        "N118",
+        "N119",
+        "N120",
+        "N121",
+        "N122",
+        "N123",
+        "N124",
+        "N125",
+        "N126",
+        "N127",
+        "N128",
+        "N129",
+        "N130",
+        "N131",
+        "N132",
+        "N133",
+        "N135",
+        "N136",
+        "N137",
+        "N138",
+        "N139",
+        "N140",
+        "N141",
+        "N142",
+        "N143",
+        "N144",
+        "N145",
+        "N146",
+        "N147",
+        "N148",
+        "N149",
+        "N150",
+        "N151",
+        "N152",
+        "N153",
+        "N155",
+        "N156",
+        "N157",
+        "N158"
+      ],
+      "refused_cases": [
+        {
+          "id": "N031",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N032",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N033",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N034",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N035",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N036",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N037",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N038",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N039",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N040",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N041",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N042",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N043",
+          "exception_type": "ContractError",
+          "code": "invalid_schema"
+        },
+        {
+          "id": "N044",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N045",
+          "exception_type": "ContractError",
+          "code": "duplicate"
+        },
+        {
+          "id": "N046",
+          "exception_type": "ContractError",
+          "code": "duplicate"
+        },
+        {
+          "id": "N047",
+          "exception_type": "ContractError",
+          "code": "duplicate"
+        },
+        {
+          "id": "N048",
+          "exception_type": "ContractError",
+          "code": "invalid_order"
+        },
+        {
+          "id": "N049",
+          "exception_type": "ContractError",
+          "code": "invalid_order"
+        },
+        {
+          "id": "N050",
+          "exception_type": "ContractError",
+          "code": "duplicate"
+        },
+        {
+          "id": "N054",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N055",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N056",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N069",
+          "exception_type": "ContractError",
+          "code": "inconsistent_identity"
+        },
+        {
+          "id": "N071",
+          "exception_type": "ContractError",
+          "code": "inconsistent_identity"
+        },
+        {
+          "id": "N074",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N075",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N076",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N077",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N078",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "N159",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        }
+      ]
+    },
+    "TaskManifest_wire_role_reconstruction": {
+      "accepted_case_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R010",
+        "R011",
+        "R012",
+        "R013",
+        "R014",
+        "R015",
+        "R016",
+        "R017",
+        "R018",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R029",
+        "R030",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R043",
+        "R044",
+        "R045",
+        "R046",
+        "R047",
+        "R048",
+        "R049",
+        "R050",
+        "R051",
+        "R052",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057",
+        "R058",
+        "R059",
+        "R060",
+        "R061",
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R066",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R071",
+        "R072",
+        "R073",
+        "R074",
+        "R075",
+        "R076",
+        "R077",
+        "R078",
+        "R079",
+        "R080",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R095",
+        "R096",
+        "R097",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108",
+        "R109",
+        "R110",
+        "R111",
+        "R112",
+        "R113",
+        "R114",
+        "R115",
+        "R116",
+        "R117",
+        "R118",
+        "R119",
+        "R120",
+        "R121",
+        "R122",
+        "N031",
+        "N032",
+        "N033",
+        "N034",
+        "N035",
+        "N036",
+        "N037",
+        "N038",
+        "N039",
+        "N040",
+        "N041",
+        "N042",
+        "N043",
+        "N044",
+        "N045",
+        "N046",
+        "N047",
+        "N048",
+        "N049",
+        "N050",
+        "N051",
+        "N052",
+        "N053",
+        "N054",
+        "N055",
+        "N056",
+        "N057",
+        "N058",
+        "N061",
+        "N062",
+        "N063",
+        "N064",
+        "N065",
+        "N067",
+        "N068",
+        "N070",
+        "N071",
+        "N072",
+        "N073",
+        "N074",
+        "N075",
+        "N076",
+        "N077",
+        "N078",
+        "N079",
+        "N080",
+        "N081",
+        "N082",
+        "N083",
+        "N084",
+        "N085",
+        "N086",
+        "N087",
+        "N088",
+        "N089",
+        "N090",
+        "N091",
+        "N092",
+        "N093",
+        "N094",
+        "N095",
+        "N096",
+        "N097",
+        "N098",
+        "N099",
+        "N100",
+        "N101",
+        "N102",
+        "N103",
+        "N104",
+        "N105",
+        "N106",
+        "N107",
+        "N108",
+        "N109",
+        "N110",
+        "N111",
+        "N112",
+        "N113",
+        "N114",
+        "N115",
+        "N116",
+        "N117",
+        "N118",
+        "N119",
+        "N120",
+        "N121",
+        "N122",
+        "N123",
+        "N124",
+        "N125",
+        "N126",
+        "N127",
+        "N128",
+        "N129",
+        "N130",
+        "N131",
+        "N132",
+        "N133",
+        "N135",
+        "N136",
+        "N137",
+        "N138",
+        "N139",
+        "N140",
+        "N141",
+        "N142",
+        "N143",
+        "N144",
+        "N145",
+        "N146",
+        "N147",
+        "N148",
+        "N149",
+        "N150",
+        "N151",
+        "N152",
+        "N153",
+        "N155",
+        "N156",
+        "N157",
+        "N159"
+      ],
+      "refused_cases": [
+        {
+          "id": "N059",
+          "exception_type": "ManifestError",
+          "code": "INCONSISTENT_IDENTITY"
+        },
+        {
+          "id": "N066",
+          "exception_type": "ManifestError",
+          "code": "INVALID_MANIFEST"
+        },
+        {
+          "id": "N069",
+          "exception_type": "ManifestError",
+          "code": "INCONSISTENT_IDENTITY"
+        },
+        {
+          "id": "N158",
+          "exception_type": "ManifestError",
+          "code": "INCONSISTENT_IDENTITY"
+        }
+      ]
+    },
+    "generic_worker_admit": {
+      "accepted_case_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R010",
+        "R011",
+        "R012",
+        "R013",
+        "R014",
+        "R015",
+        "R016",
+        "R017",
+        "R018",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R029",
+        "R030",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R043",
+        "R044",
+        "R045",
+        "R046",
+        "R047",
+        "R048",
+        "R049",
+        "R050",
+        "R051",
+        "R052",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057",
+        "R058",
+        "R059",
+        "R060",
+        "R061",
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R066",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R071",
+        "R072",
+        "R073",
+        "R074",
+        "R075",
+        "R076",
+        "R077",
+        "R078",
+        "R079",
+        "R080",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R095",
+        "R096",
+        "R097",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108",
+        "R109",
+        "R110",
+        "R111",
+        "R112",
+        "R113",
+        "R114",
+        "R115",
+        "R116",
+        "R117",
+        "R118",
+        "R119",
+        "R120",
+        "R121",
+        "R122",
+        "N031",
+        "N032",
+        "N033",
+        "N034",
+        "N035",
+        "N036",
+        "N037",
+        "N038",
+        "N039",
+        "N040",
+        "N041",
+        "N042",
+        "N043",
+        "N044",
+        "N045",
+        "N046",
+        "N047",
+        "N048",
+        "N049",
+        "N050",
+        "N051",
+        "N052",
+        "N053",
+        "N054",
+        "N055",
+        "N056",
+        "N057",
+        "N058",
+        "N061",
+        "N062",
+        "N063",
+        "N064",
+        "N065",
+        "N067",
+        "N068",
+        "N071",
+        "N073",
+        "N074",
+        "N075",
+        "N076",
+        "N077",
+        "N078",
+        "N079",
+        "N080",
+        "N081",
+        "N082",
+        "N083",
+        "N084",
+        "N085",
+        "N086",
+        "N087",
+        "N088",
+        "N089",
+        "N090",
+        "N091",
+        "N092",
+        "N093",
+        "N094",
+        "N095",
+        "N096",
+        "N097",
+        "N098",
+        "N099",
+        "N100",
+        "N101",
+        "N102",
+        "N103",
+        "N104",
+        "N105",
+        "N106",
+        "N107",
+        "N108",
+        "N109",
+        "N110",
+        "N111",
+        "N112",
+        "N113",
+        "N114",
+        "N115",
+        "N116",
+        "N117",
+        "N118",
+        "N119",
+        "N120",
+        "N121",
+        "N122",
+        "N123",
+        "N124",
+        "N125",
+        "N126",
+        "N127",
+        "N128",
+        "N129",
+        "N130",
+        "N131",
+        "N132",
+        "N133",
+        "N135",
+        "N136",
+        "N137",
+        "N138",
+        "N139",
+        "N140",
+        "N141",
+        "N142",
+        "N143",
+        "N144",
+        "N145",
+        "N146",
+        "N147",
+        "N148",
+        "N149",
+        "N150",
+        "N151",
+        "N152",
+        "N153",
+        "N155",
+        "N156",
+        "N157",
+        "N159"
+      ],
+      "refused_cases": [
+        {
+          "id": "N070",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        },
+        {
+          "id": "N072",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        }
+      ]
+    },
+    "current_dispatcher_unsupported": {
+      "accepted_case_ids": [],
+      "refused_cases": [
+        {
+          "id": "R001",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R002",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R003",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R004",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R005",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R006",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R007",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R008",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R009",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R010",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R011",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R012",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R013",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R014",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R015",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R016",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R017",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R018",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R019",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R020",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R021",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R022",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R023",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R024",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R025",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R026",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R027",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R028",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R029",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R030",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R031",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R032",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R033",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R034",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R035",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R036",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R037",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R038",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R039",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R040",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R041",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R042",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R043",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R044",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R045",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R046",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R047",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R048",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R049",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R050",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R051",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R052",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R053",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R054",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R055",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R056",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R057",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R058",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R059",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R060",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R061",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R062",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R063",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R064",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R065",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R066",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R067",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R068",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R069",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R070",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R071",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R072",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R073",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R074",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R075",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R076",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R077",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R078",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R079",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R080",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R081",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R082",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R083",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R084",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R085",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R086",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R087",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R088",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R089",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R090",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R091",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R092",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R093",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R094",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R095",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R096",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R097",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R098",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R099",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R100",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R101",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R102",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R103",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R104",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R105",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R106",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R107",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R108",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R109",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R110",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R111",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R112",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R113",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R114",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R115",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R116",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R117",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R118",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R119",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R120",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R121",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "R122",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N031",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N032",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N033",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N034",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N035",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N036",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N037",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N038",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N039",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N040",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N041",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N042",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N043",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N044",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N045",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N046",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N047",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N048",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N049",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N050",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N051",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N052",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N053",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N054",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N055",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N056",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N057",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N058",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N059",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N061",
+          "exception_type": "ContractError",
+          "code": "incompatible_version"
+        },
+        {
+          "id": "N062",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N063",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N064",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N065",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N066",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N067",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N068",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N069",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N070",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N071",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N072",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N073",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N074",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N075",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N076",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N077",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N078",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N079",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N080",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N081",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N082",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N083",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N084",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N085",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N086",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N087",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N088",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N089",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N090",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N091",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N092",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N093",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N094",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N095",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N096",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N097",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N098",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N099",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N100",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N101",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N102",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N103",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N104",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N105",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N106",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N107",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N108",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N109",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N110",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N111",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N112",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N113",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N114",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N115",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N116",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N117",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N118",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N119",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N120",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N121",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N122",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N123",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N124",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N125",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N126",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N127",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N128",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N129",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N130",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N131",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N132",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N133",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N135",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N136",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N137",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N138",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N139",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N140",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N141",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N142",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N143",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N144",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N145",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N146",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N147",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N148",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N149",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N150",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N151",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N152",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N153",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N155",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N156",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N157",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N158",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        },
+        {
+          "id": "N159",
+          "exception_type": "ContractError",
+          "code": "unsupported_capability"
+        }
+      ]
+    },
+    "complete_expected_FeatureResult_constructors": {
+      "accepted_case_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R010",
+        "R011",
+        "R012",
+        "R013",
+        "R014",
+        "R015",
+        "R016",
+        "R017",
+        "R018",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R029",
+        "R030",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R043",
+        "R044",
+        "R045",
+        "R046",
+        "R047",
+        "R048",
+        "R049",
+        "R050",
+        "R051",
+        "R052",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057",
+        "R058",
+        "R059",
+        "R060",
+        "R061",
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R066",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R071",
+        "R072",
+        "R073",
+        "R074",
+        "R075",
+        "R076",
+        "R077",
+        "R078",
+        "R079",
+        "R080",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R095",
+        "R096",
+        "R097",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108",
+        "R109",
+        "R110",
+        "R111",
+        "R112",
+        "R113",
+        "R114",
+        "R115",
+        "R116",
+        "R117",
+        "R118",
+        "R119",
+        "R120",
+        "R121",
+        "R122"
+      ],
+      "refused_cases": []
+    },
+    "complete_expected_SDK_roundtrip": {
+      "accepted_case_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R010",
+        "R011",
+        "R012",
+        "R013",
+        "R014",
+        "R015",
+        "R016",
+        "R017",
+        "R018",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R029",
+        "R030",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R043",
+        "R044",
+        "R045",
+        "R046",
+        "R047",
+        "R048",
+        "R049",
+        "R050",
+        "R051",
+        "R052",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057",
+        "R058",
+        "R059",
+        "R060",
+        "R061",
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R066",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R071",
+        "R072",
+        "R073",
+        "R074",
+        "R075",
+        "R076",
+        "R077",
+        "R078",
+        "R079",
+        "R080",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R095",
+        "R096",
+        "R097",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108",
+        "R109",
+        "R110",
+        "R111",
+        "R112",
+        "R113",
+        "R114",
+        "R115",
+        "R116",
+        "R117",
+        "R118",
+        "R119",
+        "R120",
+        "R121",
+        "R122"
+      ],
+      "refused_cases": []
+    },
+    "generic_expected_result_identity": {
+      "accepted_case_ids": [
+        "R001",
+        "R002",
+        "R003",
+        "R004",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R010",
+        "R011",
+        "R012",
+        "R013",
+        "R014",
+        "R015",
+        "R016",
+        "R017",
+        "R018",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R029",
+        "R030",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042",
+        "R043",
+        "R044",
+        "R045",
+        "R046",
+        "R047",
+        "R048",
+        "R049",
+        "R050",
+        "R051",
+        "R052",
+        "R053",
+        "R054",
+        "R055",
+        "R056",
+        "R057",
+        "R058",
+        "R059",
+        "R060",
+        "R061",
+        "R062",
+        "R063",
+        "R064",
+        "R065",
+        "R066",
+        "R067",
+        "R068",
+        "R069",
+        "R070",
+        "R071",
+        "R072",
+        "R073",
+        "R074",
+        "R075",
+        "R076",
+        "R077",
+        "R078",
+        "R079",
+        "R080",
+        "R081",
+        "R082",
+        "R083",
+        "R084",
+        "R085",
+        "R086",
+        "R087",
+        "R088",
+        "R089",
+        "R090",
+        "R091",
+        "R092",
+        "R093",
+        "R094",
+        "R095",
+        "R096",
+        "R097",
+        "R098",
+        "R099",
+        "R100",
+        "R101",
+        "R102",
+        "R103",
+        "R104",
+        "R105",
+        "R106",
+        "R107",
+        "R108",
+        "R109",
+        "R110",
+        "R111",
+        "R112",
+        "R113",
+        "R114",
+        "R115",
+        "R116",
+        "R117",
+        "R118",
+        "R119",
+        "R120",
+        "R121",
+        "R122"
+      ],
+      "refused_cases": []
+    },
+    "candidate_FeatureResult_constructor": {
+      "accepted_case_ids": [
+        "W001",
+        "W002",
+        "W003",
+        "W004",
+        "W005",
+        "W008",
+        "W009",
+        "W010",
+        "W011",
+        "W012",
+        "W013",
+        "W015",
+        "W016",
+        "W017"
+      ],
+      "refused_cases": [
+        {
+          "id": "W006",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        },
+        {
+          "id": "W007",
+          "exception_type": "ContractError",
+          "code": "incompatible_version"
+        },
+        {
+          "id": "W014",
+          "exception_type": "ContractError",
+          "code": "bounds"
+        }
+      ]
+    },
+    "candidate_SDK_roundtrip": {
+      "accepted_case_ids": [
+        "W001",
+        "W002",
+        "W003",
+        "W004",
+        "W005",
+        "W008",
+        "W009",
+        "W010",
+        "W011",
+        "W012",
+        "W013",
+        "W015",
+        "W016",
+        "W017"
+      ],
+      "refused_cases": []
+    },
+    "current_generic_result_identity": {
+      "accepted_case_ids": [
+        "W004",
+        "W005",
+        "W011",
+        "W016",
+        "W017"
+      ],
+      "refused_cases": [
+        {
+          "id": "W001",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        },
+        {
+          "id": "W002",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        },
+        {
+          "id": "W003",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        },
+        {
+          "id": "W008",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        },
+        {
+          "id": "W009",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        },
+        {
+          "id": "W010",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        },
+        {
+          "id": "W012",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        },
+        {
+          "id": "W013",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        },
+        {
+          "id": "W015",
+          "exception_type": "CommandError",
+          "code": "RESULT_IDENTITY_MISMATCH"
+        }
+      ]
+    }
+  },
+  "canonical_argument_profiles": {
+    "canonical_required_fields_only": "validate_batch(batch,required_fields=()) without session or availability:228 admitted,20 refused",
+    "canonical_contextual_session_availability_variant": "validate_batch(batch,session=config.session,availability=config.availability,required_fields=()):217 admitted,31 refused",
+    "interpretation": "Separate actual calls; the contextual result never replaces the required-fields-only observation or establishes a new producer guard."
+  },
+  "full_expected_result_carriage": {
+    "cases": 122,
+    "typed_FeatureResult_constructor_passed": 122,
+    "SDK_encode_decode_full_asdict_equality_and_reencode_assertions_passed": 122,
+    "generic_result_identity_passed": 122,
+    "all_actual_float_hex_matched_independent_expected": true,
+    "producer_mathematics_executed": false,
+    "raw_SDK_payload_bytes_saved": false,
+    "raw_SDK_payload_hashes": null,
+    "scope": "Actual assertions and measured lengths over independently authored full literal results only; no invented independent payload-byte evidence."
+  },
+  "controls": {
+    "total": 17,
+    "DTO_constructor_refusals": 3,
+    "DTO_and_SDK_carriages": 14,
+    "generic_identity_refusals": 9,
+    "generic_identity_acceptance_case_ids": [
+      "W004",
+      "W005",
+      "W011",
+      "W016",
+      "W017"
+    ],
+    "interpretation": "Actual generic acceptance gaps, not implemented producer-specific before-sink rejection. W016 altered numerical scalar is whole-oracle mismatch only; generic comparison does not recompute mathematics."
+  },
+  "actual_size_maxima_bytes": {
+    "context_ascii": 395,
+    "proof_utf8": 4097,
+    "input_pickle5": 6613,
+    "task_json": 5630,
+    "sdk": 4334
+  },
+  "size_interpretation": {
+    "proof4097_is_intentional_negative_only": true,
+    "proof_over4096_case_ids": [
+      "N096"
+    ],
+    "successful_outcome_proof_max_UTF8_bytes": 963,
+    "successful_outcome_proof_max_depth_root0": 2,
+    "successful_outcome_proof_max_collection": 22,
+    "successful_outcome_proofs_ASCII_and_within4096_depth8_collection64": true,
+    "context_input_pickle_TaskJSON_SDK_independently_measured": true,
+    "each_constructible_transport_within_separate1048576_limit": true,
+    "unconstructible_case_downstream_sizes": "not fabricated",
+    "sixtyfive_trade_rows_retained": true,
+    "no_inferred64_trade_row_cap": true
+  },
+  "historical_failed_run1": {
+    "status": "FAILED_PRESERVED_NOT_RELABELLED",
+    "actual_final_receipt_sha256": "7857cb92b20549729194b77376d9fd25327cfa9c79d2e8be584de4f8a529412c",
+    "prior_static_review_sha256": "caddcfa63f13e4a7934d1a7fcffdb1f9340700e9050a64483bc6d991be3df637",
+    "actual_failure_review_sha256": "822a8790b0423ce729dbf57db3baf9b51c85bfae0de22a90c4f90ef7cf7593a4",
+    "correction_review_sha256": "e26172b13a381f805b043f37f85635cf88d2b43c5d476e5694646aebdf2e19cd",
+    "correction": "N154 actual BatchMetadata BOUNDS precedes CanonicalBatch/canonical/new semantics. Only that expected-error object changed; all raw inputs/whole expected results/proofs/other controls unchanged. Static miss and failed attempt remain historical."
+  },
+  "evidence_sha256": {
+    "exact_root_gate": "1543f3dad4dd2f38538c9f4cc2dda8e8329fe76bff5ab60c13dfbb94130da0b0",
+    "probe": "98227b63a03e5302572575a8689b6709978da79f47408923b05b54a22f273064",
+    "controller": "a0b51ab450888044e375c0ba0ebad671f91d857eb321ff0f359078b5f2e8853b",
+    "source_pins": "ef291ed0e85e12d24c4b6e7aa64c74539016e573e3653103c07b99955529d3ea",
+    "actual_outer_exit_receipt": "4cd45a1744a8e20a7cfed3fa761b67ac47b308fcf2cfe96a5cc25ca8878e73c6",
+    "actual_parent_child_exit_receipt": "5d20f166a627508159acebe4cb55573271bece26f51a41ed50f303f914a301fe",
+    "actual_outer_tool_terminal_receipt": "087c9252c9f36e28cdedbba11e7e5a45ba0ae491204eb4a88ccd9733dbaa7e2d",
+    "actual_final_receipt": "06b2493966a4b7503e0e744b715cc397a2232c32d1d62d4746408b2f79d7ef1f",
+    "actual_execution_result": "50ee19ba9972b9ab0328ecb4ee3da1bbc14d02d92dd6f3618cc895bba93008ce",
+    "native_parent_log": "533b6707f2e8ae236296960011ce1dfead92db78f384e6758e30607e420e3fae",
+    "native_outer_log": "64264274989c8b97a29675990a5356e03977fc399f8f8f56d3e8247921785e6c",
+    "independent_actual_evidence_review": "a345a4541f83afe6eff9a14db657e33e478f5207106e473805451be506006ec6",
+    "independent_actual_evidence_audit": "65147bae47ea6c18aa5041924f7aa95c0f61f1400ecce356d750fb729baae666"
+  },
+  "independent_review": {
+    "reviewer_identity": "/root/ef1_first_trade_full_oracle_independent_review",
+    "review_sha256": "a345a4541f83afe6eff9a14db657e33e478f5207106e473805451be506006ec6",
+    "disposition": "Approved exact actual Linux generic structural/wire evidence only."
+  },
+  "nonexecuted": {
+    "new_first_trade_producer": true,
+    "new_population_proof_parser": true,
+    "new_worker_route_or_guard": true,
+    "adapter_or_source_provider": true,
+    "sink_or_database": true,
+    "producer_mathematics": true
+  },
+  "limitations": [
+    "Current decoder/dispatcher unsupported responses prove no new producer computation.",
+    "Zero sink calls records nonexecution, not actual before-sink guard coverage.",
+    "No original-source rights, factual identity/order/eligibility/phase/completeness/known-at or original parity admission.",
+    "No new feature numerical/worker conformance, compatible build/install evidence or other-platform qualification.",
+    "Packet remains proposed pending independent packet/addendum review and explicit coordinator freeze/source grant.",
+    "Full EQ164, remaining EF1 outputs, browser/integration/release/publication gates remain open."
+  ],
+  "freeze": false,
+  "source_authoring_grant": false,
+  "producer_implemented": false,
+  "release_accepted": false
+}

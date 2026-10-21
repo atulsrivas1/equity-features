@@ -1,0 +1,66 @@
+{
+  "status": "TEMPLATE_ONLY_PENDING_ACTUAL_GENERIC_SOURCE_DTO_WIRE_EVIDENCE_REVIEW_NOT_AN_EXECUTION_RECEIPT",
+  "oracle_sha256": "e1835d416a09bd65fce59612323d23c241fe81dcb8493170002e2c3eadffe531",
+  "math_contract_sha256": "4826cd0a4fea6737e7d16c91d37da1de1ee5ef5c48c3439bd0713b5aacf54b0a",
+  "historical_failed_attempt": {
+    "identity": "Linux generic run1",
+    "whole_status": "FAILED_PRESERVED",
+    "actual_receipt_sha256": "7857cb92b20549729194b77376d9fd25327cfa9c79d2e8be584de4f8a529412c",
+    "observed_case": "N154",
+    "actual_grouped_stage": "typed_batch_constructors",
+    "actual_deepest_stage": "BatchMetadata_constructor",
+    "actual_error_code": "bounds",
+    "scope": "One historical observed constructor correction; not whole generic acceptance or producer conformance."
+  },
+  "new_attempt": {
+    "identity": null,
+    "platform": null,
+    "root_exact_grant_sha256": null,
+    "probe_sha256": null,
+    "controller_sha256": null,
+    "source_pins_sha256": null,
+    "actual_child_exit_code": null,
+    "actual_parent_exit_code": null,
+    "actual_outer_tool_reaped": null,
+    "actual_final_receipt_sha256": null,
+    "native_log_sha256": null,
+    "whole_status": "PENDING_NOT_CLAIMED"
+  },
+  "verified_observations": {
+    "actual_source_heads": null,
+    "actual_closed_all_src_file_count": null,
+    "actual_closed_namespace_file_count": null,
+    "actual_before_after_source_hashes_equal": null,
+    "actual_git_clean_before_after": null,
+    "actual_loaded_origins_verified": null,
+    "actual_config_case_ids": null,
+    "actual_grouped_constructor_case_ids_and_deepest_stages": null,
+    "actual_required_fields_only_case_ids_codes": null,
+    "actual_contextual_variant_case_ids_codes": null,
+    "actual_TaskManifest_wire_role_case_ids": null,
+    "actual_generic_admit_case_ids_codes": null,
+    "actual_current_unsupported_decoder_dispatcher_case_ids_codes": null,
+    "actual_full_expected_DTO_SDK_case_ids": null,
+    "actual_result_control_DTO_generic_case_ids_codes": null,
+    "actual_pickle5_sizes": null,
+    "actual_TaskJSON_sizes": null,
+    "actual_SDK_sizes": null,
+    "actual_SDK_payload_hashes": null,
+    "actual_unexpected_discrepancies": null
+  },
+  "independent_evidence_review": {
+    "reviewer_identity": null,
+    "report_sha256": null,
+    "disposition": "PENDING"
+  },
+  "interpretation_limits": [
+    "Generic source/DTO/wire evidence only; no new producer arithmetic or proof parser executed.",
+    "Contextual canonical optional-argument observations never substitute for required-fields-only results.",
+    "Generic result-tamper acceptance is not future worker guard evidence.",
+    "W016 is independent whole-oracle numerical mismatch, without worker math duplication.",
+    "Zero sink invocation is nonexecution, not demonstrated pre-sink rejection.",
+    "No original-source rights/known-at/completeness/parity, implementation, build/install/platform qualification, browser, release or publication acceptance."
+  ],
+  "producer_implementation_claimed": false,
+  "freeze_or_source_authoring_grant": false
+}
