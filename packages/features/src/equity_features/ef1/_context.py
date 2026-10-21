@@ -217,9 +217,9 @@ def _parse(text: object) -> dict[str, Any]:
         if selection["max_age_ns"] is not None and _integer(selection["max_age_ns"]) < 0:
             fail(ErrorCode.BOUNDS, "explicit maximum state age must be nonnegative")
         _clock_calendar(raw["calendar"])
-    elif raw["producer"] in ("path_gap", "path_drive"):
+    elif raw["producer"] in ("path_gap", "path_drive", "path_gap_endpoint"):
         selection = raw["selection"]
-        keys = {"sampling"} if raw["producer"] == "path_gap" else {"sampling", "duration_ns"}
+        keys = {"sampling"} if raw["producer"] != "path_drive" else {"sampling", "duration_ns"}
         if type(selection) is not dict or set(selection) != keys:
             fail(ErrorCode.INVALID_CONFIG, "exact sampled path selection required")
         if selection["sampling"] not in ("eligible_trade", "completed_bar_close"):
@@ -420,11 +420,11 @@ def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
                     fail(ErrorCode.BOUNDS, "prior period must be fully completed before target")
             elif any(row[1] < target_date and row[3] > cutoff for row in members):
                 fail(ErrorCode.BOUNDS, "earlier required session has not completed by cutoff")
-    if raw["producer"] in ("path_gap", "path_drive"):
+    if raw["producer"] in ("path_gap", "path_drive", "path_gap_endpoint"):
         if type(config.price_unit) is not PriceUnit:
             fail(ErrorCode.INVALID_UNIT, "sampled path prices require explicit PriceUnit")
         sessions = raw["calendar"]["sessions"]
-        gap = raw["producer"] == "path_gap"
+        gap = raw["producer"] != "path_drive"
         if len(sessions) != (2 if gap else 1) or sessions[-1][0] != config.session.session_id:
             fail(ErrorCode.INCONSISTENT_IDENTITY, "exact prior/target calendar slots required")
         if gap and (sessions[0][1] >= sessions[1][1] or sessions[0][3] > config.session.open_ns):

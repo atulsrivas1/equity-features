@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "kind": "ef1_gap_endpoint_public_shared_freeze_candidate_v4",
+  "status": "NOT FROZEN: coordinator + fresh independent publication review required before implementation grant",
+  "stories": {
+    "library": "https://github.com/atulsrivas1/equity-features/issues/507",
+    "io": "https://github.com/atulsrivas1/equity-features/issues/570",
+    "workers": "https://github.com/atulsrivas1/equity-features/issues/571"
+  },
+  "assets": [
+    {
+      "name": "GAP_ENDPOINT_CONTRACT_V4.md",
+      "sha256": "101c264af2b67af7e308619b56f9eaebd05a3a2d45d3d61d5e7da20f046fbe5e",
+      "bytes": 32646
+    },
+    {
+      "name": "GAP_ENDPOINT_ORACLE.json",
+      "sha256": "751cd98fd7951aa7c2d4394d9a5fee87e184d9d484d9f43d4de4983b7333f40f",
+      "bytes": 2429159
+    },
+    {
+      "name": "LAYER_HANDOFFS.md",
+      "sha256": "90b2fb5537f91eea41562a9bc5dbaf1e256ebdeca8b945a501b69c687f067759",
+      "bytes": 9535
+    },
+    {
+      "name": "ORACLE_EXACT_COMPARISON.json",
+      "sha256": "827ff1e19a5cddc332cfd6cedac540cf161efb659546d234cfc27e15b77de33c",
+      "bytes": 749
+    }
+  ],
+  "exclude_from_publication": [
+    "LAYER_HANDOFFS_LOCAL_ONLY.json",
+    "prepare_manifest_stdlib.py",
+    "LOCAL_PREPARATION_RECEIPT.json",
+    "authoring-superseded"
+  ],
+  "numerical_source_pins": {
+    "core": "3a0b707733a6bcf9e092d118842bbd84d2befadd",
+    "io": "a729d84f8f154fa8bfbd426765da88c2828be3f8",
+    "workers": "af7eec545deb17d3eacb168755e5f48942f246fd"
+  },
+  "prepared_source_heads": {
+    "core": "3da07b69c5acb40c948708a19ee2fff1ad57e2da",
+    "io": "2111ad6f889fd4bcf4a93e658493dfb8812da36c",
+    "workers": "fbf8c846938512fceb4d0895c86a5b451eb55be3"
+  },
+  "bounded_generic_evidence": {
+    "platform": "Windows64 CPython3.12.10 -I -B",
+    "actual_parent_waited_exit": 0,
+    "parent_ended_utc": "2026-10-21T07:41:36.759604Z",
+    "final_receipt_sha256": "c9f5b75b7941979946788a65c57e10eaf17ac56a81c1ea89da36bcf6f6d6bd50",
+    "actual_parent_exit_sha256": "67d14ce44b673b286bab421bebc29a42e5dc3ee174f7efce89d01d1b99fd664a",
+    "independent_evidence_review_sha256": "5c4420fc1f8bad70bc1769c249927ef0abc6461f4aaa4135a896a0f1015a5ff3",
+    "probe_sha256": "243c1640121a374b7cfcbc1803709b621907e0b326485339a272837f005361c1",
+    "source_pin_manifest_sha256": "584bad742bb169e4c250d2afa8ae3f3ff7f345f32c1d8caea0cd689c7f1eb90a",
+    "source_files": 206,
+    "source_unchanged": true,
+    "sink_calls": 0,
+    "maxima": {
+      "context_ascii": 339,
+      "input_pickle5": 7000,
+      "task_json": 6945,
+      "sdk_result": 7641
+    },
+    "counts": {
+      "config": 114,
+      "constructor_attempts": 114,
+      "canonical_attempts": 113,
+      "task_attempts": 113,
+      "generic_admit": 112,
+      "unsupported_decode": 114,
+      "unsupported_route": 112,
+      "SDK": 71,
+      "generic_tamper_acceptances": 3,
+      "identity_negatives": 2
+    },
+    "limitations": "Predecessor generic wire compatibility only; endpoint math/adapter/parser/route absent and future closure remains mandatory"
+  },
+  "root_freeze_requirements": [
+    "Coordinator full packet review",
+    "Fresh distinct source-safe publication review",
+    "Exact public contract/oracle/manifests/source/version pins",
+    "Explicit isolated three-layer implementation grants; no push before coordinator actual-diff review"
+  ],
+  "remaining_implementation_release_gates": [
+    "Independent full literal conformance and all actual earliest stages",
+    "Endpoint metadata/math/evidence tamper RESULT before any sink call",
+    "Exact-source local checks and fresh independent PR reviews",
+    "Integrated unchanged sink NEW separate output DuckDB full readback/retry",
+    "Applicable installed forms/Windows+Linux qualification and browser demo",
+    "Full EF1 inventory/dependency audit and original acceptance",
+    "Owner publication boundary; no package/tag/release approved"
+  ],
+  "numerical_requests_unchanged": {
+    "kind": "exact_original_synthetic_packet_semantic_comparison",
+    "source_sha256": "1291d71240dfaae668db2cad267752de15e27ee65c3df4182cb28cd9a0868663",
+    "successor_sha256": "751cd98fd7951aa7c2d4394d9a5fee87e184d9d484d9f43d4de4983b7333f40f",
+    "changed_top_level_keys": [
+      "kind",
+      "status"
+    ],
+    "packets": 114,
+    "full_results": 71,
+    "expected_errors": 43,
+    "canonical_packet_array_sha256": "979b77ea369b14bee9a35263d147104a9f6adacbc35126e4a691cce9d0950105",
+    "canonical_packet_bytes_equal": true,
+    "all_packet_values_equal": true,
+    "statement": "Every request/config/slot/projection/hash/expected result/error/rational field unchanged; only document kind/status updated. This is stdlib JSON/hash comparison, not a project probe."
+  }
+}

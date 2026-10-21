@@ -1,0 +1,16 @@
+{
+  "kind": "exact_original_synthetic_packet_semantic_comparison",
+  "source_sha256": "1291d71240dfaae668db2cad267752de15e27ee65c3df4182cb28cd9a0868663",
+  "successor_sha256": "751cd98fd7951aa7c2d4394d9a5fee87e184d9d484d9f43d4de4983b7333f40f",
+  "changed_top_level_keys": [
+    "kind",
+    "status"
+  ],
+  "packets": 114,
+  "full_results": 71,
+  "expected_errors": 43,
+  "canonical_packet_array_sha256": "979b77ea369b14bee9a35263d147104a9f6adacbc35126e4a691cce9d0950105",
+  "canonical_packet_bytes_equal": true,
+  "all_packet_values_equal": true,
+  "statement": "Every request/config/slot/projection/hash/expected result/error/rational field unchanged; only document kind/status updated. This is stdlib JSON/hash comparison, not a project probe."
+}
