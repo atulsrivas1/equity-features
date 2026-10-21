@@ -1,0 +1,128 @@
+{
+  "publication_state": "source_safe_coordinator_reviewed_proposals_actual_PR_review_pending",
+  "reviewed_ids": [
+    "F0087",
+    "F0090",
+    "F0096",
+    "F0097",
+    "F0098",
+    "F0099",
+    "F0100",
+    "F0101",
+    "F0102",
+    "F0127"
+  ],
+  "proposals": [
+    {
+      "opaque_id": "F0087",
+      "baseline_id_candidate": "session.trade.count",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "planned_numbered_owners": [
+        23
+      ],
+      "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    },
+    {
+      "opaque_id": "F0090",
+      "baseline_id_candidate": null,
+      "disposition": "distinct_versioned_variant_if_pure_value_required",
+      "planned_numbered_owners": [
+        21
+      ],
+      "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    },
+    {
+      "opaque_id": "F0096",
+      "baseline_id_candidate": "session.trade.vwap",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "planned_numbered_owners": [
+        23
+      ],
+      "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    },
+    {
+      "opaque_id": "F0097",
+      "baseline_id_candidate": "session.trade.volume",
+      "disposition": "conditional_planned_reuse_unresolved",
+      "planned_numbered_owners": [
+        23
+      ],
+      "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    },
+    {
+      "opaque_id": "F0098",
+      "baseline_id_candidate": "session.trade.notional",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "planned_numbered_owners": [
+        23
+      ],
+      "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    },
+    {
+      "opaque_id": "F0099",
+      "baseline_id_candidate": "session.structure.interval_ohlcv",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "planned_numbered_owners": [
+        22
+      ],
+      "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    },
+    {
+      "opaque_id": "F0100",
+      "baseline_id_candidate": "session.structure.interval_ohlcv",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "planned_numbered_owners": [
+        22
+      ],
+      "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    },
+    {
+      "opaque_id": "F0101",
+      "baseline_id_candidate": "session.structure.interval_ohlcv",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "planned_numbered_owners": [
+        22
+      ],
+      "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    },
+    {
+      "opaque_id": "F0102",
+      "baseline_id_candidate": "session.structure.interval_ohlcv",
+      "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+      "planned_numbered_owners": [
+        22
+      ],
+      "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    },
+    {
+      "opaque_id": "F0127",
+      "baseline_id_candidate": null,
+      "disposition": "unresolved_representation_or_distinct_derived_contract",
+      "planned_numbered_owners": [
+        23
+      ],
+      "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
+      "reuse_accepted": false,
+      "public_or_issue_publication_authorized": false
+    }
+  ],
+  "full_audit_accepted": false
+}

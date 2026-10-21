@@ -1417,7 +1417,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0087",
+        "baseline_id_candidate": "session.trade.count",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "planned_numbered_owners": [
+          23
+        ],
+        "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0088",
@@ -1469,7 +1480,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0090",
+        "baseline_id_candidate": null,
+        "disposition": "distinct_versioned_variant_if_pure_value_required",
+        "planned_numbered_owners": [
+          21
+        ],
+        "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0091",
@@ -1565,7 +1587,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0096",
+        "baseline_id_candidate": "session.trade.vwap",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "planned_numbered_owners": [
+          23
+        ],
+        "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0097",
@@ -1581,7 +1614,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0097",
+        "baseline_id_candidate": "session.trade.volume",
+        "disposition": "conditional_planned_reuse_unresolved",
+        "planned_numbered_owners": [
+          23
+        ],
+        "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0098",
@@ -1597,7 +1641,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0098",
+        "baseline_id_candidate": "session.trade.notional",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "planned_numbered_owners": [
+          23
+        ],
+        "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0099",
@@ -1613,7 +1668,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0099",
+        "baseline_id_candidate": "session.structure.interval_ohlcv",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "planned_numbered_owners": [
+          22
+        ],
+        "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0100",
@@ -1629,7 +1695,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0100",
+        "baseline_id_candidate": "session.structure.interval_ohlcv",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "planned_numbered_owners": [
+          22
+        ],
+        "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0101",
@@ -1645,7 +1722,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0101",
+        "baseline_id_candidate": "session.structure.interval_ohlcv",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "planned_numbered_owners": [
+          22
+        ],
+        "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0102",
@@ -1661,7 +1749,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0102",
+        "baseline_id_candidate": "session.structure.interval_ohlcv",
+        "disposition": "distinct_versioned_variant_if_original_semantics_retained",
+        "planned_numbered_owners": [
+          22
+        ],
+        "proposal": "Retain conditional baseline candidate only after exact population, precision, timing, coverage and unavailable-value semantics are proved; retaining differing semantics requires an explicit versioned profile.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0103",
@@ -2061,7 +2160,18 @@
       "selected_scope_override_applied": false,
       "prior_role_was_representation_or_supplied_fact": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "independent_baseline_reuse_review_update": {
+        "opaque_id": "F0127",
+        "baseline_id_candidate": null,
+        "disposition": "unresolved_representation_or_distinct_derived_contract",
+        "planned_numbered_owners": [
+          23
+        ],
+        "proposal": "Decide a separate typed diagnostic contract or preserve supplied metadata; no existing baseline value-ID alias.",
+        "reuse_accepted": false,
+        "public_or_issue_publication_authorized": false
+      }
     },
     {
       "opaque_id": "F0128",
@@ -34416,7 +34526,7 @@
     {
       "opaque_id": "C0041",
       "kind": "command",
-      "proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "proposed_disposition": "RETAIN_EQUITY_CALCULATION_COMPONENTS_EXCLUSION_REJECTED",
       "proposed_retained_equity_components": [],
       "selected_scope_decision_ids": [],
       "current_selected_scope_additional_components": [],
@@ -34426,7 +34536,17 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "historical_proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "independent_source_review_update": {
+        "opaque_id": "C0041",
+        "proposed_disposition": "RETAIN_EQUITY_CALCULATION_COMPONENTS_EXCLUSION_REJECTED",
+        "standalone_exclusion_rejected": true,
+        "coordinator_disposition_required": true,
+        "scope_ownership_or_dynamic_route_open": true,
+        "numerical_or_source_acceptance": false
+      },
+      "component_allocation_or_delegated_source_closure_open": true
     },
     {
       "opaque_id": "C0042",
@@ -34665,7 +34785,7 @@
     {
       "opaque_id": "C0051",
       "kind": "command",
-      "proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "proposed_disposition": "RETAIN_CALENDAR_PREDECESSOR_COMPONENT_OWNER_CHOICE_OPEN",
       "proposed_retained_equity_components": [],
       "selected_scope_decision_ids": [],
       "current_selected_scope_additional_components": [],
@@ -34675,7 +34795,17 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "historical_proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "independent_source_review_update": {
+        "opaque_id": "C0051",
+        "proposed_disposition": "RETAIN_CALENDAR_PREDECESSOR_COMPONENT_OWNER_CHOICE_OPEN",
+        "standalone_exclusion_rejected": true,
+        "coordinator_disposition_required": true,
+        "scope_ownership_or_dynamic_route_open": true,
+        "numerical_or_source_acceptance": false
+      },
+      "component_allocation_or_delegated_source_closure_open": true
     },
     {
       "opaque_id": "C0052",
@@ -34725,7 +34855,7 @@
     {
       "opaque_id": "C0055",
       "kind": "command",
-      "proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "proposed_disposition": "RETAIN_SESSION_READINESS_SELECTION_COMPONENT_POLICY_CHOICE_OPEN",
       "proposed_retained_equity_components": [],
       "selected_scope_decision_ids": [],
       "current_selected_scope_additional_components": [],
@@ -34735,7 +34865,17 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "historical_proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "independent_source_review_update": {
+        "opaque_id": "C0055",
+        "proposed_disposition": "RETAIN_SESSION_READINESS_SELECTION_COMPONENT_POLICY_CHOICE_OPEN",
+        "standalone_exclusion_rejected": true,
+        "coordinator_disposition_required": true,
+        "scope_ownership_or_dynamic_route_open": true,
+        "numerical_or_source_acceptance": false
+      },
+      "component_allocation_or_delegated_source_closure_open": true
     },
     {
       "opaque_id": "C0056",
@@ -36303,7 +36443,7 @@
     {
       "opaque_id": "C0139",
       "kind": "command",
-      "proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "proposed_disposition": "EXCLUDE_STANDALONE_NUMERICAL_FEATURE_KEEP_SCHEMA_CONSUMER_LINKS",
       "proposed_retained_equity_components": [],
       "selected_scope_decision_ids": [],
       "current_selected_scope_additional_components": [],
@@ -36313,7 +36453,17 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "historical_proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "independent_source_review_update": {
+        "opaque_id": "C0139",
+        "proposed_disposition": "EXCLUDE_STANDALONE_NUMERICAL_FEATURE_KEEP_SCHEMA_CONSUMER_LINKS",
+        "standalone_exclusion_rejected": false,
+        "coordinator_disposition_required": true,
+        "scope_ownership_or_dynamic_route_open": false,
+        "numerical_or_source_acceptance": false
+      },
+      "component_allocation_or_delegated_source_closure_open": false
     },
     {
       "opaque_id": "C0140",
@@ -36513,7 +36663,7 @@
     {
       "opaque_id": "C0153",
       "kind": "command",
-      "proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "proposed_disposition": "EXCLUDE_STANDALONE_MATH_DYNAMIC_CHILD_GRAPH_REMAINS_OPEN",
       "proposed_retained_equity_components": [],
       "selected_scope_decision_ids": [],
       "current_selected_scope_additional_components": [],
@@ -36523,7 +36673,17 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "historical_proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "independent_source_review_update": {
+        "opaque_id": "C0153",
+        "proposed_disposition": "EXCLUDE_STANDALONE_MATH_DYNAMIC_CHILD_GRAPH_REMAINS_OPEN",
+        "standalone_exclusion_rejected": false,
+        "coordinator_disposition_required": true,
+        "scope_ownership_or_dynamic_route_open": true,
+        "numerical_or_source_acceptance": false
+      },
+      "component_allocation_or_delegated_source_closure_open": true
     },
     {
       "opaque_id": "C0154",
@@ -36558,7 +36718,7 @@
     {
       "opaque_id": "C0156",
       "kind": "command",
-      "proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "proposed_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_MEASUREMENT_ONLY",
       "proposed_retained_equity_components": [],
       "selected_scope_decision_ids": [],
       "current_selected_scope_additional_components": [],
@@ -36568,7 +36728,17 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "historical_proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "independent_source_review_update": {
+        "opaque_id": "C0156",
+        "proposed_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_MEASUREMENT_ONLY",
+        "standalone_exclusion_rejected": false,
+        "coordinator_disposition_required": true,
+        "scope_ownership_or_dynamic_route_open": false,
+        "numerical_or_source_acceptance": false
+      },
+      "component_allocation_or_delegated_source_closure_open": false
     },
     {
       "opaque_id": "C0157",
@@ -37564,7 +37734,7 @@
     {
       "opaque_id": "C0215",
       "kind": "command",
-      "proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "proposed_disposition": "EXCLUDE_STANDALONE_PRICE_FEATURE_RETAIN_UNIVERSE_ADMISSION",
       "proposed_retained_equity_components": [],
       "selected_scope_decision_ids": [],
       "current_selected_scope_additional_components": [],
@@ -37574,7 +37744,17 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "historical_proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "independent_source_review_update": {
+        "opaque_id": "C0215",
+        "proposed_disposition": "EXCLUDE_STANDALONE_PRICE_FEATURE_RETAIN_UNIVERSE_ADMISSION",
+        "standalone_exclusion_rejected": false,
+        "coordinator_disposition_required": true,
+        "scope_ownership_or_dynamic_route_open": true,
+        "numerical_or_source_acceptance": false
+      },
+      "component_allocation_or_delegated_source_closure_open": true
     },
     {
       "opaque_id": "C0216",
@@ -38219,7 +38399,7 @@
     {
       "opaque_id": "C0247",
       "kind": "command",
-      "proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "proposed_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_STORAGE_RETENTION_ONLY",
       "proposed_retained_equity_components": [],
       "selected_scope_decision_ids": [],
       "current_selected_scope_additional_components": [],
@@ -38229,7 +38409,17 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "historical_proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "independent_source_review_update": {
+        "opaque_id": "C0247",
+        "proposed_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_STORAGE_RETENTION_ONLY",
+        "standalone_exclusion_rejected": false,
+        "coordinator_disposition_required": true,
+        "scope_ownership_or_dynamic_route_open": false,
+        "numerical_or_source_acceptance": false
+      },
+      "component_allocation_or_delegated_source_closure_open": false
     },
     {
       "opaque_id": "C0248",
@@ -38706,7 +38896,7 @@
     {
       "opaque_id": "C0267",
       "kind": "command",
-      "proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "proposed_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_FILESYSTEM_PROVENANCE_ONLY",
       "proposed_retained_equity_components": [],
       "selected_scope_decision_ids": [],
       "current_selected_scope_additional_components": [],
@@ -38716,7 +38906,17 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "historical_proposed_disposition": "proposed_operational_ingest_admin_validation_exclusion",
+      "independent_source_review_update": {
+        "opaque_id": "C0267",
+        "proposed_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_FILESYSTEM_PROVENANCE_ONLY",
+        "standalone_exclusion_rejected": false,
+        "coordinator_disposition_required": true,
+        "scope_ownership_or_dynamic_route_open": false,
+        "numerical_or_source_acceptance": false
+      },
+      "component_allocation_or_delegated_source_closure_open": false
     },
     {
       "opaque_id": "C0268",
@@ -39215,5 +39415,19 @@
       "external_interface_subprocess_closure_accepted": false,
       "semantics_source_consumer_acceptance": false
     }
-  ]
+  ],
+  "independent_source_review_increment": {
+    "command_manifest": "equity-nine-command-source-review.json",
+    "reuse_manifest": "equity-ten-baseline-reuse-review.json",
+    "command_source_review_sha256": "85ae85e2373ec8f8d9748aeef4bb9c73dcf38492875abcb25b9117d4ded68646",
+    "reuse_source_review_sha256": "a908329897535aebfea56e6798f7bb83ed82f35b20e0ae2c1e504406ef58a9c8",
+    "historical_208_no_component_proposals_preserved_as_history": true,
+    "nine_source_classifications_reviewed": true,
+    "C0041_exclusion_rejected": true,
+    "C0051_C0055_component_policy_ownership_open": true,
+    "six_standalone_feature_exclusions_supported_other_obligations_retained": true,
+    "exact_baseline_reuse_accepted": 0,
+    "remaining_baseline_candidates_unreviewed_by_increment": 30,
+    "full_audit_accepted": false
+  }
 }
