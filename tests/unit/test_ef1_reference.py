@@ -446,7 +446,7 @@ class ReferencePackets(unittest.TestCase):
     def test_finite_factor_end_rejected(self):
         source = packet("R03-CANONICAL")
         batches = list(inputs(source))
-        batches[1] = replace(batches[1], columns=(*batches[1].columns, Column("effective_end_ns", (21,))))
+        batches[1] = changed_batch(batches[1], effective_end_ns=(21,))
         self.error(ErrorCode.UNSUPPORTED_ADJUSTMENT, lambda: compute_ef1(batches, configuration(source), entity=EntityKey("X", "S")))
 
     def test_factor_text_cannot_be_discarded(self):

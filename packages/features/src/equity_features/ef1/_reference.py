@@ -5,7 +5,7 @@ These gates consume declarations. They neither fetch facts nor transform prices.
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Any
+from typing import Any, cast
 
 from equity_feature_contracts import (
     AdjustmentSpec, CanonicalBatch, ConfigSpec, DataKind, EntityKey, ErrorCode,
@@ -51,9 +51,9 @@ def _reference(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKey) -> 
         fail(ErrorCode.INCONSISTENT_IDENTITY, "actual reference namespace/population mismatch")
     if meta.ordering != "declared" or meta.duplicate_policy != "reject":
         fail(ErrorCode.INVALID_ORDER, "ordered unique reference population required")
-    for value in (meta.namespace, meta.source.source_id, meta.source.snapshot_id,
-                  meta.source.mapping_version, meta.source.input_id):
-        label(value)
+    for identity in (meta.namespace, meta.source.source_id, meta.source.snapshot_id,
+                     meta.source.mapping_version, meta.source.input_id):
+        label(identity)
     for interval in meta.interval_coverage:
         label(interval.name)
     if meta.source.mapping_version != "ef1-reference-map1":
@@ -207,7 +207,7 @@ def _proof(role: str, batch: CanonicalBatch | None, columns: Columns | None,
     if role.endswith("projection") and text != "complete":
         findings.add("incomplete_projection")
         reasons.add(Reason.GOVERNED_GAP)
-    return text
+    return cast(str, text)
 
 
 def _market(batch: CanonicalBatch, config: ConfigSpec, entity: EntityKey,
