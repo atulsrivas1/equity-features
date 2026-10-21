@@ -1,7 +1,7 @@
-"""Experimental EF1 anchor slice; explicit import, canonical scalar results, no I/O."""
+"""Experimental EF1 anchor and supplied-clock slices; canonical results, no I/O."""
 from ._context import build_ef1_config, decode_ef1_context
 from ._definitions import EF1Definition, ef1_definitions
-from ._anchor import compute_ef1
+from ._dispatch import compute_ef1
 
 __all__ = ["EF1Definition", "build_ef1_config", "decode_ef1_context",
            "ef1_definitions", "compute_ef1"]

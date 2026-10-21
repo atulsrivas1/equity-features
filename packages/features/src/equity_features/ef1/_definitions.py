@@ -28,8 +28,25 @@ class EF1Definition:
 
 
 def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
-    """Describe exactly the complete executable anchor producer; unsupported producers fail."""
+    """Describe the complete selected executable producer; unsupported producers fail."""
     context = decode_ef1_context(config)
+    if context["producer"] == "clock":
+        requirements = (InputRequirement("calendar_provenance", "canonical:1",
+                        ("reference_id", "fact_kind", "effective_start_ns", "effective_end_ns",
+                         "text", "known_at_ns"), DataKind.REFERENCE,
+                        rule="actual causal finite supplied-calendar hash declaration"),)
+        return (
+            EF1Definition("session.clock.early_close", ValueType.BOOL, "boolean", requirements,
+                          "actual_close < supplied_scheduled_close; equal to SessionSpec declaration"),
+            EF1Definition("session.clock.phase", ValueType.STRING, "state", requirements,
+                          "supplied half-open segment containing C, otherwise closed"),
+            EF1Definition("session.clock.regular_elapsed_ns", ValueType.INT64, "ns", requirements,
+                          "clamp(C-open,0,close-open)"),
+            EF1Definition("session.clock.regular_fraction", ValueType.FLOAT64, "fraction", requirements,
+                          "clamp(C-open,0,close-open)/(close-open)"),
+            EF1Definition("session.clock.regular_remaining_ns", ValueType.INT64, "ns", requirements,
+                          "close-open-clamp(C-open,0,close-open)"),
+        )
     trades = context["selection"]["mode"] == "trades"
     primary = InputRequirement("trades" if trades else "bars", "canonical:1",
                                ("price", "size") if trades else ("volume", "actual_notional"),

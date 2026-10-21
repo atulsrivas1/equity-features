@@ -281,5 +281,5 @@ class EF1Anchors(unittest.TestCase):
         self.assertEqual(len(builtin_registry().list_features()), 39)
         self.assertEqual((__version__, contracts_version), ("0.0.4a5", "0.0.4a4"))
         other = context()
-        other["producer"] = "clock"
+        other["producer"] = "period"
         self.error(ErrorCode.UNSUPPORTED_CAPABILITY, lambda: config(selection=other))
