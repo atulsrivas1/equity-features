@@ -17,3 +17,8 @@
 /docs/ef1/REFERENCE_CONTRACT_PROPOSAL.md text eol=lf
 /docs/ef1/REFERENCE_CONTRACT_PROPOSAL.json text eol=lf
 /docs/ef1/REFERENCE_SOURCE_AUTHORING_FREEZE.json text eol=lf
+
+# Period/phase source contracts retain reviewed portable LF identities.
+/docs/ef1/PERIOD_PHASE_CONTRACT_PROPOSAL.md text eol=lf
+/docs/ef1/PERIOD_PHASE_CONTRACT_PROPOSAL.json text eol=lf
+/docs/ef1/PERIOD_PHASE_SOURCE_AUTHORING_FREEZE.json text eol=lf

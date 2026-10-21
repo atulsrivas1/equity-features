@@ -1,0 +1,45 @@
+{
+  "version": "ef1-period-phase-source-freeze1",
+  "status": "reviewed_frozen_for_bounded_subset_source_authoring_only",
+  "coordinator": "/root",
+  "author": "/root/ef1_period_phase_contracts",
+  "independent_reviewer": "/root/ef1_period_contract_review",
+  "markdown_sha256": "15fbaab3e840bf78ef3f209a31cd86714ad4602281ea0d7ba24208cdcfb2104e",
+  "fixtures_sha256": "b4c78f03b3c1ec5100740803d4b853920f9aa28cb58d73446dea6b3f403db09c",
+  "independent_review_sha256": "fbe6b32d721905989a7ba458723499091677d0e7b78c13c8a947cb7e55f7a9cb",
+  "original_working_ledger_sha256": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
+  "story": 506,
+  "supporting_stories": [
+    570,
+    571
+  ],
+  "original_headers": 17,
+  "literal_packets": 62,
+  "success_constructor_packets": 42,
+  "intentional_producer_error_packets": 20,
+  "actual_constructor_probe": {
+    "scope": "generic source-selected ConfigSpec/CanonicalBatch/validate_batch/FeatureResult construction only",
+    "constructed": 42,
+    "failed": 0,
+    "producer_called": false,
+    "implicit_float_coercion": false,
+    "receipt_sha256": "92fa4ec51b3e92a787f71b159cd8ecadd84f748a32cd8e31238e1a4fc5a3ea3c"
+  },
+  "supersession": "Receipt supersedes proposed/not-frozen stage wording in byte-preserved proposal pair only; original six fixture nodes and seventeen headers unchanged.",
+  "choices": [
+    "mandatory nonnull mathematical calendar distinct from missing actual proof",
+    "extended predecessor+target mathematical window2 in every branch; unused prior exemption only operand/count",
+    "completed DAILY plus target BAR prefix; exact civil periods",
+    "BAR-only extended route and preceding regular close denominator both phases",
+    "explicit typed FLOAT64 fixture lexemes; source integers/coefficients preserved"
+  ],
+  "residual_gates": [
+    "original observed-count and fixed-observation variants",
+    "original regular-open/other-denominator bindings",
+    "large calendar periods beyond current bounds",
+    "full original EQ164 inventory and consumer joins",
+    "numerical producer/error/installed/worker/sink/browser/release qualification"
+  ],
+  "limits": "No original/private parity, provider/data qualification, full story closure, canonical schema/codec change, hidden truncation or package publication.",
+  "admission": "Requires current dependency/ownership readback and actual Project Ready admission before source handoffs."
+}
