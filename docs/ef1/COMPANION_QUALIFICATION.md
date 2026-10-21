@@ -1,0 +1,11 @@
+# EF1 companion qualification
+
+This is a candidate integration change under EQ167/EQ212/EQ213, not accepted numerical or release evidence. Features0.0.4a5 retains canonical contracts0.0.4a4. The new worker0.1.0a15 expects exact backend0.0.4a5 on its supplied-session and EF1 routes; unchanged mathematical outputs still require independent regression. Existing historical artifacts remain unchanged.
+
+The outer provenance candidate0.1.0a2 pins worker0.1.0a15 and DuckDB adapter0.1.0a9. Its acquisition-receipt version guard admits exactly adapter0.1.0a9; old/future/unknown stamps are refused before downstream binding. Other bounds, original source identities, hashes, timing, observation counts and canonical schemas are unchanged. This is an exact cohort migration, not a new authenticated-source assertion or new numerical feature. A forged-version regression is authored alongside the existing independent provenance/native fixtures.
+
+Current provenance, conformance and R10 workflows/builders use reviewed source pins for this cohort. Their historical manifests/receipts are preserved. The additional EF1 workflow qualifies the actual current core checkout with fixed companion commits using the worker's four-form installed helper, required nonempty/nonskipped fixtures and synthetic physical DuckDB/readback exports. It does not establish full EF1 coverage or measured performance.
+
+The first bootstrap core CI reported tuple-inference errors in the new anchor module and forbidden use of local name `time` in the existing static boundary check. Explicit reason-tuple annotations and the local name `event_ns` correct those source issues without changing mathematics or weakening checks. Both failures remain historical evidence; successor checks must actually pass. The source-authoring contract payload retains its original proposed status as reviewed historical bytes; SOURCE_AUTHORING_FREEZE.json records its later independent approval and exact hash.
+
+Local execution remains held during the separate official EQ142 study. Independent final-head review, actual current Windows/Linux CI, installed artifacts, complete-result parity/readback, full inventory audit, remaining producers and a browser demonstration are still mandatory before release. No package publication or EF1 completion is claimed.

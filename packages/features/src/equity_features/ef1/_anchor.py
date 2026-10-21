@@ -116,16 +116,16 @@ def _market_admit(batch: CanonicalBatch, config: ConfigSpec,
     conditions = columns.get("condition")
     for i in range(batch.row_count):
         if batch.kind == DataKind.TRADE:
-            time = columns["event_ns"][i]
+            event_ns = columns["event_ns"][i]
             condition = conditions[i] if conditions is not None else None
-            closing = (condition == "closing_auction" and time == cutoff == config.session.close_ns
+            closing = (condition == "closing_auction" and event_ns == cutoff == config.session.close_ns
                        and config.session.include_closing_auction)
-            if time < start or time >= cutoff and not closing:
+            if event_ns < start or event_ns >= cutoff and not closing:
                 fail(ErrorCode.BOUNDS, "trade outside requested anchor window")
             if condition == "closing_auction" and not closing:
                 fail(ErrorCode.BOUNDS, "closing auction has no admitted boundary")
             if condition == "opening_auction" and not (
-                    config.session.include_opening_auction and time == config.session.open_ns):
+                    config.session.include_opening_auction and event_ns == config.session.open_ns):
                 fail(ErrorCode.BOUNDS, "opening auction has no admitted boundary")
         else:
             if columns["start_ns"][i] < start or columns["end_ns"][i] > cutoff:
@@ -208,6 +208,8 @@ def compute_ef1(batches: tuple[CanonicalBatch, ...] | list[CanonicalBatch], conf
                               config.digest, bindings, "python-exact", __version__)
     expected: int | None = None
     observed = 0
+    volume_reasons: tuple[Reason, ...]
+    notional_reasons: tuple[Reason, ...]
     if market is None:
         volume, notional = 0, 0
         volume_reasons = notional_reasons = (Reason.ABSENT_INPUT,)

@@ -407,7 +407,7 @@ def check():
     for root in provenance_packages:
         if not root.exists():continue
         project=tomllib.loads((root/'pyproject.toml').read_text(encoding='utf-8'))['project']
-        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2','equity-feature-diagnostics==0.1.0a1','equity-feature-workers==0.1.0a13','equity-feature-io-contracts==0.1.0a2','equity-feature-io-sdk==0.1.0a2','equity-feature-duckdb==0.1.0a8','equity-feature-duckdb-sink==0.1.0a0']
+        assert project['dependencies']==['equity-feature-contracts==0.0.4a4','equity-feature-evidence==0.1.0a2','equity-feature-diagnostics==0.1.0a1','equity-feature-workers==0.1.0a15','equity-feature-io-contracts==0.1.0a2','equity-feature-io-sdk==0.1.0a2','equity-feature-duckdb==0.1.0a9','equity-feature-duckdb-sink==0.1.0a0']
         assert not project.get('optional-dependencies',{})
         for path in root.glob('src/**/*.py'):
             errors=provenance_violations(path.read_text(encoding='utf-8'));assert not errors,(path,errors)

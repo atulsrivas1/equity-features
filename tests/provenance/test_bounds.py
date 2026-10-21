@@ -14,6 +14,21 @@ from provenance_fixture import fixture
 
 
 class BoundsTests(unittest.TestCase):
+    def test_current_adapter_identity_is_exact_and_old_future_versions_refuse(self):
+        value = fixture()
+        acquired = value.acquired[0]
+        self.assertEqual(acquired.receipt.adapter_version, '0.1.0a9')
+        self.assertEqual(AcquiredInput('trades', acquired.receipt, acquired.batch).receipt,
+                         acquired.receipt)
+        for version in ('0.1.0a8', '0.1.0a10', 'unknown'):
+            # Deliberately forged version must fail before hashing/encoding. The
+            # immutable original remains unchanged, including its real a9 stamp.
+            candidate = replace(acquired.receipt)
+            object.__setattr__(candidate, 'adapter_version', version)
+            self.refusal('unsupported_version',
+                         lambda: AcquiredInput('trades', candidate, acquired.batch))
+        self.assertEqual(acquired.receipt.adapter_version, '0.1.0a9')
+
     def refusal(self,code,call):
         with self.assertRaises(ProvenanceError) as caught:call()
         self.assertEqual(caught.exception.code,code)

@@ -87,3 +87,40 @@ Additional successor SHA256:
 - `examples/evidence_explanation.py`: 1009ed4ca18c93994f1af7a5f20fade30a5e54fff4549ec40e3899a2a5681e1f
 
 No tests/imports/builds/benchmarks/data/DB/GitHub operations performed during any portion of this review. Only the local owned review report was written.
+
+## C2 companion source recheck over bootstrap1fa5601 — October 20, 2026
+
+Reviewed actual full dirty C2 delta: `_anchor.py` reason-tuple annotations and local event_ns rename; provenance package version/dependency/public version/preflight changes; forged-version test; provenance/conformance/R10 three builders and workflows; new EF1 workflow; companion qualification document; and subsequently corrected tools/check_boundary.py dependency assertion. No executable imports/tests/builds/data/DB/GitHub operations.
+
+The anchor corrections change static typing/name admission only; arithmetic, bound predicates and LIB01 guard remain unchanged. Provenancea2 pins worker15/adapter9 exactly, rejects non-a9 acquisition stamps before binding, and preserves other canonical/digest/source/scope predicates. Added test accepts the actual fixture a9 receipt then forges old/future/unknown copies and expects unsupported_version, preserving the original. No historical PackageVersion declaration was blindly rewritten. This is a prospective cohort transition; historical a1/worker13/adapter8 receipts are not claimed newly supported.
+
+Found C2-LIB03 during review: tools/check_boundary.py410 retained exact worker13/adapter8 dependency list, guaranteeing rejection of the new provenance pyproject. Coordinator corrected it during this review. Rechecked actual diff: now exact worker15/adapter9 with unchanged canonical and remaining dependencies. **C2-LIB03 resolved statically.**
+
+All three builder PINS and matching workflow checkouts now name actual IO `eddd0d35e9715b73c859fc68f5a00de56793dbf7` and worker `8d0cececc9ac8e9624775d78dca76e469da256e4`; no placeholder remains in reviewed source. New EF1 workflow selects current core checkout, those fixed companions, Python3.12 and reviewed worker tools/qualify_ef1.py with correct core/io relative arguments. Read the helper at that exact worker commit: exact eight-package identities, four installed forms, nonempty/nonskipped mandatory suites, source heads and synthetic DuckDB/output examples are explicit. Workflow invokes the reviewed path, rather than claiming historical package checks qualify EF1. Its output remains first-anchor qualification only, not full release acceptance/performance.
+
+Companion documentation accurately distinguishes failed bootstrap static CI from the successor source corrections, preserves the original contract ledger under its reviewed freeze wrapper, and retains local resource hold, future actual CI/platform/numerical/inventory/browser gates.
+
+**C2 source approved for coordinator commit/push** after verifying staged contents match this inspected delta. No actionable unresolved source defect found in this delta. This approval does not assert CI success, numerical execution, installed artifacts, exact final commit identity, independent PR completion, merge/release readiness or full EF1 scope. Once committed, renew exact head/changed-byte review coverage; all outstanding gates remain mandatory.
+
+C2 selected materialized SHA256:
+
+- `_anchor.py`:45b1d79796f48158e633266d9ff7a607610370dcfd8207fae7e5bdc4d8b5def6
+- provenance `_preflight.py`:0599d87ce6e744f7a7ea267eb9b4b972028322c8299e701bbda92af33c257bee
+- `tests/provenance/test_bounds.py`:01f92807cc45da17930ff46c9022b458f0119240f41b626271ad960c27b227cf
+- `.github/workflows/ef1.yml`:37374bc8c1c228f95e6b01c179423108520d2e2a62de394e19d0a8ea1873ebfc
+
+Complete C2 file identities at this observation:
+- .github/workflows/conformance.yml: 2e8f3c357ceb335e0b29d8ad28e8eb43f61d603dba084798e20b6c3e5e62d417
+- .github/workflows/provenance.yml: ebd02837693d9591b4f2b6a7b8d09194ca74209f28a358571deb12bb73396317
+- .github/workflows/r10.yml: 39337c38403bd213df5eacd4e3488fd4adc442c48de25528a263963623c17571
+- packages/features/src/equity_features/ef1/_anchor.py: 45b1d79796f48158e633266d9ff7a607610370dcfd8207fae7e5bdc4d8b5def6
+- packages/provenance/pyproject.toml: 6c533db959f307514eba175638bde2936e6fed077591ddc46fb17737bd65fa71
+- packages/provenance/src/equity_feature_provenance/__init__.py: edeca0a469872f0c9fd19e8be9b5ca0ea9ead7d19e2e83b23faad0cb17299c76
+- packages/provenance/src/equity_feature_provenance/_preflight.py: 0599d87ce6e744f7a7ea267eb9b4b972028322c8299e701bbda92af33c257bee
+- tests/provenance/test_bounds.py: 01f92807cc45da17930ff46c9022b458f0119240f41b626271ad960c27b227cf
+- tools/build_conformance.py: 6cd5d8af0e9ab2b41555e2e7c1747090e731cd8de27702e31487bb1e6d137331
+- tools/build_provenance.py: 0559a799db64eb29d29f48d3fb128e4b0e61cd3b4b34b4c0b17d0fbb22f9f7c1
+- tools/build_r10.py: 37fb3db058b7986b1e3ab5c784f0230465537d7b3ccf7c20f368fa32503abdb1
+- tools/check_boundary.py: 9d15e31e9eee5e58a4ed63292533c15b248fd3914edf85fc4b6a9927c3957788
+- .github/workflows/ef1.yml: 37374bc8c1c228f95e6b01c179423108520d2e2a62de394e19d0a8ea1873ebfc
+- docs/ef1/COMPANION_QUALIFICATION.md: 7ca152e962c90bdd0fd38ef8ac9038fc3f36d16d11bb1c2ebb431fc5277c6633
