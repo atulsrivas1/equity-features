@@ -1,3 +1,7 @@
+## Extend aggregate purity discovery with every producer - October 21, 2026
+
+Feature-focused success does not establish that the aggregate denied-entrypoint audit ran. Independent PR607 review found that its fixed census omitted six inherited gap fixtures and nine regular-BAR fixtures before execution. Preserve the failure, add explicit per-module case counts and owned-module coverage, and execute the full audit after correction. All three corrected methods passed without changing numerical source, independent literals or guards. [Current implementation evidence](../ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md) distinguishes source review, companion composition and pending installed/release gates.
+
 ## Derive probe stages from actual guards — October 21, 2026
 
 A negative request can be carried by a generic transport even when its future numerical producer must reject it. Inspect the actual constructor, canonical validator, manifest and generic admission guards before assigning a refusal stage. A row-session mismatch is not an instrument mismatch, and a generic result comparator may leave producer-specific math/evidence closure unchecked. Record those gaps explicitly; never weaken the future contract or count generic acceptance as numerical conformance. The BAR pre-execution review rejected a mistaken expected refusal before execution; its immutable oracle and rejected candidate remain preserved in local evidence.

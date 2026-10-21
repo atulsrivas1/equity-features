@@ -141,7 +141,7 @@ class PurityAuditTests(unittest.TestCase):
         suite = calculation_suite()
         expected = suite.countTestCases()
         # Accepted635 plus all EF1 independent fixtures; no skipped subset.
-        self.assertEqual(expected, 635 + 21 + 13 + 26 + 50 + 99 + 75 + 111 + 10)
+        self.assertEqual(expected, 635 + 21 + 13 + 26 + 50 + 99 + 75 + 111 + 10 + 6 + 9)
         import test_ef1_anchor
         import test_ef1_clock
         import test_ef1_status
@@ -150,6 +150,8 @@ class PurityAuditTests(unittest.TestCase):
         import test_ef1_period_phase
         import test_ef1_observable
         import test_ef1_daily_observations
+        import test_ef1_gap_endpoint
+        import test_ef1_regular_bar_prices
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_anchor).countTestCases(), 21)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_clock).countTestCases(), 13)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_status).countTestCases(), 26)
@@ -158,8 +160,10 @@ class PurityAuditTests(unittest.TestCase):
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_period_phase).countTestCases(), 75)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_observable).countTestCases(), 111)
         self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_daily_observations).countTestCases(), 10)
+        self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_gap_endpoint).countTestCases(), 6)
+        self.assertEqual(unittest.defaultTestLoader.loadTestsFromModule(test_ef1_regular_bar_prices).countTestCases(), 9)
         before = module_data()
-        self.assertEqual(len(before), 43 + 12 + 2)
+        self.assertEqual(len(before), 43 + 12 + 2 + 2)
         self.assertEqual({name for name in before if name == 'equity_features.ef1' or name.startswith('equity_features.ef1.')},
                          {'equity_features.ef1', 'equity_features.ef1._definitions',
                           'equity_features.ef1._context', 'equity_features.ef1._anchor',
@@ -167,7 +171,8 @@ class PurityAuditTests(unittest.TestCase):
                           'equity_features.ef1._status', 'equity_features.ef1._path',
                           'equity_features.ef1._reference', 'equity_features.ef1._period',
                           'equity_features.ef1._observable', 'equity_features.ef1._observable_context',
-                          'equity_features.ef1._daily', 'equity_features.ef1._daily_context'})
+                          'equity_features.ef1._daily', 'equity_features.ef1._daily_context',
+                          'equity_features.ef1._gap_endpoint', 'equity_features.ef1._regular_bar_prices'})
         bridge_cases = set()
         reads = []
         class AuditResult(unittest.TestResult):
@@ -200,13 +205,13 @@ class PurityAuditTests(unittest.TestCase):
                     yield test
         suite = unittest.TestSuite(test for test in flatten(calculation_suite())
                                    if test.id() not in ARROW_CASES)
-        self.assertEqual(suite.countTestCases(), 609 + 21 + 13 + 26 + 50 + 99 + 75 + 111 + 10)
+        self.assertEqual(suite.countTestCases(), 609 + 21 + 13 + 26 + 50 + 99 + 75 + 111 + 10 + 6 + 9)
         before = module_data()
         result = unittest.TestResult()
         with patch.object(unittest.case, 'time', SimpleNamespace(perf_counter=lambda: 0.0)):
             with denied_entrypoints():
                 suite.run(result)
-        self.assertEqual(result.testsRun, 609 + 21 + 13 + 26 + 50 + 99 + 75 + 111 + 10)
+        self.assertEqual(result.testsRun, 609 + 21 + 13 + 26 + 50 + 99 + 75 + 111 + 10 + 6 + 9)
         self.assertEqual(result.skipped, [])
         self.assertFalse(result.errors, str(result.errors[:1]))
         self.assertFalse(result.failures, str(result.failures[:1]))
