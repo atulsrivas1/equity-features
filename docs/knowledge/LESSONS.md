@@ -1,3 +1,9 @@
+## A tolerance needs an explicit selector and age clock — October 21, 2026
+
+Declaring a maximum quote age did not define which quote the new R26 family selected or whether age used trade event time or knowledge time. Plausible fixture values hid that ambiguity. The [separate portable selector](../r26-variants/PUBLIC_SAFE_QUOTE_SELECTOR_CLARIFICATION1.md) now specifies the original knowledge view, finite session prefix, immutable quote-root tie order, event-relative age, cancellation evidence and paired no-fallback rules. It deliberately makes no original44 or source-caller parity claim.
+
+Reconcile complete inputs and context proofs after such a clarification: quote-prefix membership uses quote IDs, and the original execution belongs in the selected context digest and dependencies. Successful reference generation does not establish semantic validity. Preserve the materialized old candidate, correct a source successor, and independently review its full records before conformance or implementation freeze. [Current evidence and resume steps](../SESSION_HANDOFF.md) retain those distinctions.
+
 ## Separate arithmetic seeds from realizable pipeline fixtures — October 21, 2026
 
 An arithmetic counterexample must also satisfy the selected upstream price, product, classifier, identity, grouping and temporal contracts before it proves full-pipeline behavior. R26's abstract H,H,1,1 signed-subtraction seed, where H=floor(MAX_I64/2), is a scalar result; positive integer paired quotes cannot realize an ask-side unit premium with scale, quantity and multiplier all equal to 1. For the full request fixture, use H,H,2,2 with realizable positive quotes and distinct compatible strike/expiry groups to isolate final-subtraction overflow. Keep the original scalar evidence; do not silently promote it to a complete request proof.

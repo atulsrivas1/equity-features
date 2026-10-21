@@ -1,0 +1,9 @@
+# Selected prior-slot error pointer clarification
+
+2026-10-21. Coordinator-authored narrow proposal for fresh independent review. This clarifies an existing stage6 `identity_mismatch` without changing the mathematics, record shape, valid date domain or readiness policy. All earlier sealed R26 documents remain unchanged. No freeze, implementation or runtime approval follows.
+
+For a selected `BaselineSlot` whose `session_day >= BaselineOp.asof_day`, report `VariantValidationError('identity_mismatch','/request/operations/{o}/slot_ids/{s}')` at stage6. Here `{o}` and `{s}` are the actual operation and selector indexes in the canonical request arrays. Use the first offending selector in that order; do not reorder selectors for reporting. A valid retained same-date/future slot is not invalid merely because it is unselected. The error concerns selecting it as prior history against this operation's exclusive asof.
+
+A slot whose own `session_day` disagrees with its referenced historical Scope's session day has the distinct identity error at `/snapshot/baseline_slots/{b}/session_day`, where `{b}` is its actual snapshot index. Existing earlier shape/scalar/reference stages and declaration/index order apply before either stage6 constraint. Selected future knowledge/cursor facts remain stage7 temporal errors where no earlier identity violation exists. Known valid selected missing slots/components retain their existing typed readiness outcomes; this clarification never turns absence into zero or unselected history into a required sample.
+
+Existing explicit `minimum_samples` scalar bounds and daily ActivityBasis mismatch pointers remain unchanged. Independently complete valid-parent/date-selector and compound-error literals plus independent review are required before this proposed pointer becomes part of a frozen implementation handoff.
