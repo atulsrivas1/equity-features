@@ -15,6 +15,26 @@ PACKAGES = ('agent-evidence', 'agent-ledger', 'conformance', 'continuous', 'diag
             'provenance', 'quickstart', 'r9', 'r10', 'research', 'transport')
 ROOTS = ('scope', 'docs', *PACKAGES)
 
+
+def normalize_ef1_companion_pins(path: str, text: str) -> str:
+    """Restore only the two exact reviewed refs for immutable job comparison.
+
+    Keep every original command, permission, runner, artifact and guard covered
+    by the unchanged CI002 baseline hashes. Other workflow paths are untouched.
+    """
+    if path not in {'.github/workflows/'+name+'.yml'
+                    for name in ('provenance', 'conformance', 'r10')}:
+        return text
+    for current, historical in (
+        ('839e7fb5405b47dff51d00c3f0ef04f31a7c21fe', '6538f21b441c8527b465899b98cfd0476e7af08a'),
+        ('f20abd5acd74a4917fdaf087e9c92757746e7ea4', '18d86761aa3eebb7414e51e8fa2aba089717b5eb'),
+    ):
+        marker = '          ref: '+current+'\n'
+        if text.count(marker) != 1:
+            raise ValueError('exact single reviewed EF1 companion ref required')
+        text = text.replace(marker, '          ref: '+historical+'\n')
+    return text
+
 # EQ136 adds one exact mathematical-reference operation. Remove only this
 # literal step for the historical CI002 equivalence comparison; retain the
 # immutable baseline hash and every original operation/routing check.
@@ -146,6 +166,7 @@ class WorkflowTests(unittest.TestCase):
         for path, expected in hashes.items():
             text = (self.root/path).read_text(encoding='utf-8')
             text = text[text.index('permissions:\n'):]
+            text = normalize_ef1_companion_pins(path, text)
             if path.endswith('/docs.yml'):
                 self.assertEqual(text.count(INTRADAY_DOC_TEST), 1)
                 text = text.replace(INTRADAY_DOC_TEST, '')
@@ -172,6 +193,20 @@ class WorkflowTests(unittest.TestCase):
                     text = normalize_intraday_package_block(text)
                 text = text.replace('-attempt-${{ github.run_attempt }}', '')
             self.assertEqual(hashlib.sha256(text.encode()).hexdigest(), expected, path)
+
+    def test_ef1_pin_migration_preserves_every_other_leaf_operation(self):
+        path = '.github/workflows/provenance.yml'
+        original = (self.root/path).read_text(encoding='utf-8')
+        restored = normalize_ef1_companion_pins(path, original)
+        self.assertIn('ref: 6538f21b441c8527b465899b98cfd0476e7af08a', restored)
+        for altered in (original.replace('839e7fb5405b47dff51d00c3f0ef04f31a7c21fe', '0'*40),
+                        original+"          ref: f20abd5acd74a4917fdaf087e9c92757746e7ea4\n"):
+            with self.assertRaises(ValueError):
+                normalize_ef1_companion_pins(path, altered)
+        for altered in (original.replace('contents: read', 'contents: write'),
+                        original.replace('python tools/check_boundary.py', 'python tools/skip_boundary.py')):
+            self.assertNotEqual(normalize_ef1_companion_pins(path, altered), restored)
+        self.assertEqual(normalize_ef1_companion_pins('.github/workflows/packages.yml', original), original)
 
     def test_intraday_addition_is_exact_single_final_block(self):
         original=(self.root/'.github/workflows/packages.yml').read_text(encoding='utf-8')
