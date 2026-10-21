@@ -20,6 +20,10 @@ The independently authored portable full-row artifact SHA256 e0ab2065eaa62f3ac1b
 
 Actual complete-row consumption passes all424 original rows/19 errors and three new controls, but two mixed known-null/incomplete plus future-baseline controls expose a producer primary-reason bug. Independent normative reviews confirm missing-before-future; expectations stay immutable. [EQ215 rework](https://github.com/atulsrivas1/equity-features/issues/574#issuecomment-6309914738) returns Code review -> In progress. The first consumer attempt's missing operation setup and the later real priority failure remain separate receipts. Next: finish source correction, independent recheck, local regression/full433-row comparison, then build exact commits and qualify both artifact forms/platforms, actual worker/storage/replay/restore/fault/resource/browser evidence. Actual EQ153/EQ158 remain Backlog in the latest live Project readback; EQ190 and full EQ193 remain gated. No publication approval is inferred.
 
+## Daily three-layer source cohort prepared for installed qualification — October 21, 2026
+
+All daily source review findings are resolved at explicit reviewed commits. Library source2ae7331 and accepted-main integrationccd7a46 retain independent reviews4fe8139a/28a907d5; exact integration local CI-gate16 and option-plan accounting checks passed. The core EF1 workflow now selects workeraf7eec545deb17d3eacb168755e5f48942f246fd and I/Oa729d84f8f154fa8bfbd426765da88c2828be3f8. Worker qualifier70946c4 preserves all earlier checks and adds four daily suites/four demos: actual loader census26suites/700methods and29demos per installed form. Independent qualifierd6ae653f and dependency-pinf750afb9 reviews passed. Worker bootstrap coreccd7a46 has exactly the same package/test/example source as this pin-only update. Current installed four-form Windows/Linux builds and executions are pending; historical successful cohorts below retain their original identities. No browser, original source/profile binding, full EQ164 or EF1 release gate is closed by these source commits, and no package publication is authorized.
+
 ## R26 native implementation review checkpoint — October 21, 2026
 
 [Draft option PR9](https://github.com/atulsrivas1/option-features/pull/9) currently publishes reviewed contract clarifications only. [External freeze](https://github.com/atulsrivas1/equity-features/issues/534#issuecomment-6309371353) binds exact d19d84bbc6f9afbb2deb03b5aad768cb4cacf51f/tree1b982b8004062ff6198ed461beccaffc5b508604 with44independent scenario definitions. The merged initial packet/F41/F42 and newer F43 minimal-context/dimensional-operand/F44 bounded-scratch amendments retain chronology below. Native calculation/I-O/worker source exists locally in new optional flow packages; implementation has not yet been pushed or merged.
@@ -51,6 +55,43 @@ The checker now validates the owner-approved R26-only admission amendment, EQ188
 The exact frozen core `ca6340c050c035cb97ad270bfeee5d6dea1264c8`, I/O `55161a551d6c379a8ab5326957fed1386d049151` and worker `16812700bcab74ba8ff2364518a51364e933331a` cohort passed all four installed forms on Windows and Linux: 22 suites/665 methods per form, 2,660 method executions per platform, zero skips and 200 verified-readback demo executions across both. Coordinator artifact audit and fresh independent final review passed. [Current evidence and limits](EF1_CUMULATIVE_QUALIFICATION.md) preserves exact source/runtime/receipt identities. Later documentation integration commits are not relabeled as executed runtime sources.
 
 Next: review the bounded current documentation delta, verify source-payload equivalence and exact integration-head checks, then complete authorized source integration. Actual browser inspection, full original audit/source-version/consumer bindings, residual variants, suitable N-drive input qualification and release gates remain open. No whole story completion, EF1 release or package publication is claimed. Preserve current R26/R25/R18 ownership and original interrupted EQ142 evidence. Every earlier section below is retained byte-for-byte as its historical checkpoint; older running/pending-source snapshots do not override this later evidence.
+
+## EF1 daily observations author correction checkpoint — October 21, 2026
+
+EQ166's optional daily_observations library candidate is awaiting fresh bounded
+independent recheck. [Contract/API](ef1/DAILY_OBSERVATIONS.md) and
+[author evidence](ef1/DAILY_OBSERVATIONS_VALIDATION.md) accompany the source.
+The unchanged V3A1 synthetic fixture contains 91 complete results and 28 direct
+pure refusals. All match actual computation. Ten daily methods, including the
+known minimum/common gap and distinguishing identity/date controls, plus the
+retained EF1/registry regression passed 427 methods. Strict typing passed all
+14 EF1 source files. Three purity audits passed with actual discovered counts
+1040 complete/1014 strict nested methods and 57 module identities.
+
+First review found missing cross-role identity/absence checks and duplicate-date
+stage handling. A second recheck found a remaining orphan basis with actual
+empty raw/common parents and missing coverage. Its independent control failed
+before the symmetric actual-raw-parent guard, then passed after the fix.
+Legitimate raw=None and common missing/empty capability cases remain covered.
+Current daily source SHA256 is 84e0d2a939e04bbf2457e0b43e11656c3767fea430647359c42493d4eb3d8450;
+the previous builds and cross-layer runs bind earlier sources and are retained.
+A build of this final correction remains pending source recheck.
+
+V3A2 clarifies civil syntax versus actual instants: valid date/config parsing
+proves no authentic calendar interval or source representability. Actual int64,
+positive/completed/causal interval checks remain mandatory; source adapters
+supply factual timezone/date mapping, with no pure-library timezone inference.
+
+Failures remain explicit: original one-oracle inconsistency resolved through
+independent V3A1 clarification; initial author counts 1135/1109 overstated their
+actual 1035/1009 by 100; global current-count replacement corrupted unrelated
+historical handoff receipts. Failed copies and receipts are preserved privately.
+All three historical continuity bodies were restored directly from immutable
+base 877f8aea0489da4e3d41e7f04bf551a2e8e4a470 and exact raw-Git suffix equality
+is verified after this owned-prefix edit. No historical facts are corrected by
+new current counts. Coordinator/fresh review, exact-commit checks, final
+cross-layer/installed Windows/Linux forms, full EQ164 audit and browser/release
+gates remain; no original binary64/inferred source parity or publication claim.
 
 ## R26 selected; source-only preparation active — October 21, 2026
 

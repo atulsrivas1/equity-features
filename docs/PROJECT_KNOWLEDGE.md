@@ -40,6 +40,37 @@ After reviewed admission amendment [PR593](https://github.com/atulsrivas1/equity
 
 The checker now validates the owner-approved R26-only admission amendment, EQ188/EQ192 dependencies, retained EQ190 equity producers and full EQ193 acceptance. EQ199/EQ205 retain their existing EQ144/EQ145 guards; later releases and numerical gates remain unchanged. The corrected local planning check passes, and sixteen adverse plan mutations are rejected, covering approval, scope/publication boundaries, both equity producers, the worker integration dependency and later-release guards. This is static planning evidence only. Next: independent exact-commit review and merge, then notify the active Equity Features coordinator and continue R26 contract freeze. Historical checkpoints below preserve their original status.
 
+## EF1 daily observation correction checkpoint — October 21, 2026
+
+EQ166's optional [daily observation contract/API](ef1/DAILY_OBSERVATIONS.md)
+retains pure supplied integer admission, explicit common-factor equality, true
+raw cap before selection, strict original knowledge in both modes and count
+readiness independent of common prices. Existing APIs/default registry,
+DAILY guards, prior period/context bounds and publication math/schema remain.
+The unchanged frozen corpus's 91 full results and 28 pure refusals pass.
+After independent findings and the remaining actual-empty-raw orphan correction,
+427 conformance/regression methods, strict typing of 14 source files and all
+three purity audits pass. Actual discovery is 1040 complete/1014 strict nested
+methods, 57 modules and ten daily methods. [Evidence](ef1/DAILY_OBSERVATIONS_VALIDATION.md)
+distinguishes these author checks from independent approval and release.
+
+Preserve the full failure record. First claimed nested counts 1135/1109 were
+100 above actual 1035/1009. A global current-count edit also corrupted unrelated
+historical handoff evidence. Failed bytes are retained privately; all three
+continuity histories are restored from immutable base Git bytes with exact
+suffix verification, retaining only the new owned daily prefixes. Missing
+physical inputs must not hide contradictory retained declarations, while
+legitimate common capability gaps remain available to independent count.
+V3A2 date parsing validates canonical Gregorian labels; actual int64 instants,
+factual source timezone/date mapping and authenticity remain separate duties.
+No decoder-only date test establishes represented calendar truth.
+
+Fresh bounded source/doc recheck and current-source builds/integration remain.
+Earlier built/cross-layer sources are retained without transferring their
+validation to the final guard. Full EQ164/source bindings, installed four-form
+Windows/Linux, browser/release gates remain. No author commit/push or package
+publication precedes the coordinator's actual diff review and applicable gates.
+
 ## R26 selected; source-only preparation active — October 21, 2026
 
 [GOV038#592](https://github.com/atulsrivas1/equity-features/issues/592) is In progress for source-only release preparation after completed R25. [R26 preparation](r26/PREPARATION.md) retains all seven E34/EQ188-193/EQ215 stories in the existing three option repositories. Live dependency checks show EQ144/145/146/153/158/159 still Backlog. R25's independent gate amendment does not extend to R26. The owner approved independent R26 option-native admission, retaining actual EQ153/EQ158 producer integration and full R26 scope. The scoped coordinator amendment records exact supersession; later releases and active ownership are unchanged.

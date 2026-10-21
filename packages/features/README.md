@@ -58,3 +58,9 @@ Optional `equity_features.ef1` now includes source-authored sampled `path_gap` a
 [path API](../../docs/api/EF1_PATHS.md) and
 [mathematics](../../docs/features/EF1_PATHS.md). Independent fixture tests are
 authored; runtime, installed integration and release acceptance are pending.
+
+Optional EF1 `daily_observations` adds exact integer raw admission, bounded
+observation selectors and supplied common-basis OHLC reductions. See the
+[daily observations contract and API](../../docs/ef1/DAILY_OBSERVATIONS.md).
+Its selected count has independent readiness from common prices. The default
+registry and existing DAILY input guards retain their behavior.

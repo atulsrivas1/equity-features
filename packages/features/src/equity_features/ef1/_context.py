@@ -339,6 +339,9 @@ def _components(config: ConfigSpec) -> None:
 
 def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
     """Validate a canonical config and return a recursively immutable detached selection."""
+    if type(config) is ConfigSpec and config.algorithm_version == "daily-observations-v2":
+        from ._daily_context import decode_daily
+        return decode_daily(config)
     if type(config) is ConfigSpec and config.algorithm_version == "observable-v2":
         from ._observable_context import decode_observable
         return decode_observable(config)
@@ -446,6 +449,11 @@ def build_ef1_config(selection: dict[str, Any], *, session: SessionSpec,
         fail(ErrorCode.INVALID_CONFIG, "concrete mathematical context dictionary required")
     _tree(selection)
     text = canonical_json(selection)
+    if selection.get("version") == "ef1-daily-context2":
+        config = ConfigSpec("ef1.daily_observations", "daily-observations-v2",
+            (Parameter("ef1_context", text),), session, window, availability, adjustment, price_unit)
+        decode_ef1_context(config)
+        return config
     observable = selection.get("version") == "ef1-observable-context2"
     if observable:
         from ._observable_context import parse_observable
