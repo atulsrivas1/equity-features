@@ -27,3 +27,9 @@
 docs/ef1/OBSERVABLE_CONTRACT_PROPOSAL.md text eol=lf
 docs/ef1/OBSERVABLE_CONTRACT_PROPOSAL.json text eol=lf
 docs/ef1/OBSERVABLE_SOURCE_AUTHORING_FREEZE.json text eol=lf
+
+# Reviewed observable publication metadata amendment.
+docs/ef1/OBSERVABLE_PUBLICATION_AMENDMENT.md text eol=lf
+docs/ef1/OBSERVABLE_PUBLICATION_AMENDMENT.json text eol=lf
+docs/ef1/OBSERVABLE_PUBLICATION_FIXTURES.json text eol=lf
+docs/ef1/OBSERVABLE_PUBLICATION_FREEZE.json text eol=lf

@@ -1,0 +1,24 @@
+{
+  "version": "ef1-observable-publication-freeze1",
+  "status": "independently_reviewed_for_source_adoption_only",
+  "coordinator": "/root",
+  "independent_reviewer": "/root/ef1_observable_publication_amendment_review",
+  "review_sha256": "7a8622d59ee5b49b6a73282b936b80f159a3d60c0b724cf68ca16bbb88d55e4d",
+  "original_fixture_sha256": "d0fb7b4fafc2b824e8998dbf10c7f27d8443fdb1218be7588c674002a2dcfc3c",
+  "publication_fixture_sha256": "646e402e321eb97a171a2f8f64ce3c1ee399f7bcb81906fd929be4e6477170a6",
+  "amendment_markdown_sha256": "f5a7f27cc9620ea65af826247af41835edf02d97c533fdfb67ae7d761a5e85df",
+  "amendment_json_sha256": "cb933165a8f3ec34f4da817fcfcae12adaccb694b0887f2acd7ea70a71a5ed1e",
+  "actual_literal_probe": {
+    "helper_sha256": "3dc1d6e7770004b5cd6140871c25b78a1fe29f94908daa93fa57a562b2a9ddf4",
+    "receipt_sha256": "aa45e0b023cdb335baf660891ac8b66348edfbfb75ff255e8b524317a69b7117",
+    "constructed_and_prepared": 58,
+    "unsupported_policy_refusals": 58,
+    "failed": 0,
+    "intentional_packet_errors_skipped": 31,
+    "producer_called": false,
+    "database_called": false,
+    "numerical_qualification": false
+  },
+  "supersession": "This approval supersedes proposed-stage status in the additive amendment manifest only. Read preserved original V4 design with the publication metadata amendment. Only successful result and task global policy changes to v1; feature algorithms remain observable-v2.",
+  "required_next": "Actual computed results, complete fresh layer reviews, unchanged sink/wire/spawn and immutable installed artifact/platform qualification; full original audit, browser and release gates remain open."
+}
