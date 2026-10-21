@@ -1,3 +1,9 @@
+## Preserve proposal history beside actual numbered allocations - October 21, 2026
+
+Keep historical task records intact and add an explicitly dated current allocation map. [Actual numbered owners](../ef1/NUMBERED_LAYER_OWNERS.md) now bind the 18 planned tasks; sixteen new issues have independently reviewed bodies and verified native parents, milestones, Project Backlog status and complete corrected-body hashes. Recheck identifiers immediately before creation, distinguish the acceptance owner from its prerequisites, and reconcile reciprocal links after actual allocation.
+
+Numbering closes a tracker gap. It does not accept mathematics, source or consumer equivalence, readiness or the full EQ164 audit. EQ180 #522 retains integration scope separately from numerical producer ownership. Preserve failed predecessor checks, actual mutation/readback evidence and unresolved per-output/command routes; current GitHub Project status remains execution authority.
+
 ## Bind corrected queues to corrected provenance and separate proof counts — October 21, 2026
 
 Independent review found a remaining R26 queue still referencing historical provenance after the actual corrected base run had bound a successor file. The queue was not dispatched. A narrowly changed successor pinned corrected provenance consistently in its inputs, command and receipt checks; final dispatch additionally required actual completed supplemental receipt hashes. Preserve rejected source/plans and never infer a pending prerequisite passed.
