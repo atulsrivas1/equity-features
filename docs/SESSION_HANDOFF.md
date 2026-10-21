@@ -1,3 +1,9 @@
+## R26 selected; source-only preparation active — October 21, 2026
+
+[GOV038#592](https://github.com/atulsrivas1/equity-features/issues/592) is In progress for source-only release preparation after completed R25. [R26 preparation](r26/PREPARATION.md) retains all seven E34/EQ188-193/EQ215 stories in the existing three option repositories. Live dependency checks show EQ144/145/146/153/158/159 still Backlog. R25's independent gate amendment does not extend to R26. The owner approved independent R26 option-native admission, retaining actual EQ153/EQ158 producer integration and full R26 scope. The scoped coordinator amendment records exact supersession; later releases and active ownership are unchanged.
+
+Three fresh R26 preparation analysts reviewed dependency/matrix, original mathematics and existing boundary code. Private source-derived reports remain local; planning/formula proposals are not frozen contracts or numerical execution. Existing R25 interfaces/artifacts and EF1/R18 ownership are preserved. Next: publish the independently reviewed scoped amendment, freeze exact contracts/independent fixtures, then admit applicable option-native stories and fresh implementation workers. No build/kernel test/data/benchmark or package publication is currently admitted. Hosted CI remains optional under owner local-build/test policy.
+
 ## EF1 main refresh and current R25 history - October 21, 2026
 
 This isolated cumulative EF1 candidate now incorporates actual main `84be03f2989409435fc74ad4c65b424b69ba8db4`. Current R25 completion and publication evidence is recorded in [R25 release acceptance](R25_RELEASE_ACCEPTANCE.md) and [current R25 checkpoint](R25_CURRENT_CHECKPOINT.md); earlier pending-publication entries below remain historical. The final EF1 665-method qualification is still running; no completed final-cohort proof or whole EF1 release acceptance is inferred. Only documentation changes from this main refresh are admitted. Preserve independent R25/R18 ownership and the original interrupted EQ142 evidence.
@@ -5127,6 +5133,17 @@ Core source18d81b1 actual native push37557964807 and PR37557967299/docs375579647
 
 EQ081 preparation harness: the initial outside plan generator unpacked two-field requirements as three and stopped before branch/file mutation. A first PowerShell inline repair also failed before mutation. The corrected generator produced matching32-requirement plans; neither failed invocation is implementation or validation evidence. Public feasibility, independent fixtures and planning review remain pending.
 
+## EQ114 preparation-tool correction record
+
+The initial working-freeze count assertion applied blanket CRLF normalization to
+the whole repository and falsely classified the preserved raw EQ088 measurement
+file. It wrote no freeze receipt. Changed-path selection now respects Git path
+attributes;30owned paths/104effective inputs are frozen, and exact published
+Gitblob/whole-tree verification remains required. No EQ088 bytes changed.
+An external proof-tool preparer wrote the intended capture file, then stopped at
+two literal-match guards before writing the artifact verifier. Exact capture bytes
+were retained; narrow source-expression matches were corrected before either
+proof tool executed. These are tooling failures, not kernel/CI qualification.
 ## EQ114 preparation-tool correction record
 
 The initial working-freeze count assertion applied blanket CRLF normalization to

@@ -306,7 +306,7 @@
       },
       "acceptance_gate": "EQ-193",
       "integration_story": "EQ-193",
-      "parallel_after": "Published reviewed release contracts, independent conformance fixtures and accepted implementation prerequisites; integration follows actual producer readiness.",
+      "parallel_after": "Owner-approved scoped option-native admission, then published independently reviewed frozen contracts/fixtures and explicit track grants. Actual producer runtime/integration gates remain; EQ190/full acceptance waits for EQ153/EQ158.",
       "demo": "Ordered synthetic prints/quotes with ties, baseline gaps, short-DTE/OTM shares and an independent equity-option alignment example.",
       "api_required": false,
       "product_ui_required": false,
@@ -579,9 +579,7 @@
       "release": "R26",
       "epic": "E34",
       "dependencies": [
-        "EQ-182",
-        "EQ-158",
-        "EQ-159"
+        "EQ-182"
       ],
       "layer": "contracts/design",
       "scope": "Freeze supported execution/quote alignment, sign proxies/unknowns, event ordering/ties, cancellations/corrections, eligibility, windows and multiplier/price precision. Reuse equity tape/quote kernels only where mathematics and evidence match; retain explicit asset conventions and source-specific inference limits.",
@@ -653,8 +651,6 @@
         "EQ-189",
         "EQ-190",
         "EQ-191",
-        "EQ-144",
-        "EQ-145",
         "EQ-215"
       ],
       "layer": "workers",
@@ -1632,5 +1628,35 @@
     "integration_gate": "actual compatible producers and independent exact-head local tests/builds; mocks and hosted CI are not substitute proof",
     "release_gate": "EQ-187 complete artifact/platform/numerical/direct-worker-stored/browser acceptance",
     "scope": "R25 only; does not change later release dependencies or mark any producer Done"
+  },
+  "r26_owner_gate_amendment": {
+    "governance_issue": 592,
+    "owner_approved": true,
+    "scope": "R26 option-native admission only; retain actual equity integration gates",
+    "removed_blanket_delivery": [
+      "EQ-146"
+    ],
+    "eq188_dependencies": [
+      "EQ-182"
+    ],
+    "eq192_dependencies": [
+      "EQ-189",
+      "EQ-190",
+      "EQ-191",
+      "EQ-215"
+    ],
+    "retained_eq190_integration": [
+      "EQ-153",
+      "EQ-158"
+    ],
+    "retained_full_release_acceptance": true,
+    "r27_r29_unchanged": true,
+    "replacement_gates": [
+      "frozen independently reviewed native contracts and conformance fixtures",
+      "R26-owned exact package/schema compatibility",
+      "R26-owned bounded execution/resource qualification",
+      "actual numerical/platform/state/storage/browser acceptance"
+    ],
+    "publication_approval_separate": true
   }
 }

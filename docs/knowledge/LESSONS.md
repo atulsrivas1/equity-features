@@ -1,3 +1,7 @@
+## R26 admission needs its own dependency evidence — October 21, 2026
+
+[Preparation](../r26/PREPARATION.md) first verified that R25's scoped independent-admission amendment left later releases unchanged. The owner then explicitly extended independent admission to R26 native tracks, retaining EQ153/EQ158 integration and full R26 scope; record this distinct decision rather than infer a global waiver. Distinguish scalar operands, qualified shared mathematical producers and scheduler delivery gates. Supplied fixtures do not deliver missing equity producers; do not duplicate equity mathematics or silently drop cross-market scope to claim independence. Ordered execution/revisions, exact premium representation and carried checkpoint state require new explicit flow contracts; an identity-sorted R25 snapshot cannot stand in for a tape. Reconcile conflicting source behaviors under named original policies and independent fixtures before freeze.
+
 ## EF1 main refresh preserves completed R25 evidence - October 21, 2026
 
 The cumulative EF1 source candidate retains current [R25 release acceptance](../R25_RELEASE_ACCEPTANCE.md), owner policy and both original byte-line histories. Historical pending/unreleased snapshots remain dated history; EF1 qualification remains separately pending. Direct raw Git byte comparisons are required after every documentation edit, including identity-only text edits.
@@ -2145,6 +2149,9 @@ The first guide fix covered five pages but missed current EQ109 headers in READM
 
 The qualification interpreter generated sibling bytecode caches before the study driver disabled bytecode. All320 scheduled rows and installed-map parity completed, but the outer final flat-file hash check raised on `__pycache__`; final Git/IO closure never ran. Prior green qualification and source review therefore did not establish complete poststudy closure. Preserve the failed run and independent reviewer miss. Disable bytecode before every owned harness import, enforce an exact before/after harness inventory in qualification too, and keep unknown files/directories as failures. Do not adopt the failed study by waiving closure or repeat measurements to obtain a favorable outcome. [Actual diagnostic failure and findings](../stories/EQ117_DIAGNOSTIC_RESULTS.md).
 
+## EQ117: explicit deferral changes the assignment schema, not active story coverage
+
+Owner-approved Future Backlog rows must remain in the complete134-story inventory. The old release-only CI regex counted132 after deferring EQ118/EQ119. Extend the finite assignment domain, preserve all unique IDs and original release mappings, and assert the exact deferred/selected sets. Author and documentation review missed the parser dependency; preserve both actual failed jobs and the local old-fail/new-pass documentation checks. [Validation](../stories/EQ117_VALIDATION.json).
 ## EQ117: explicit deferral changes the assignment schema, not active story coverage
 
 Owner-approved Future Backlog rows must remain in the complete134-story inventory. The old release-only CI regex counted132 after deferring EQ118/EQ119. Extend the finite assignment domain, preserve all unique IDs and original release mappings, and assert the exact deferred/selected sets. Author and documentation review missed the parser dependency; preserve both actual failed jobs and the local old-fail/new-pass documentation checks. [Validation](../stories/EQ117_VALIDATION.json).
