@@ -1,12 +1,12 @@
 {
-  "version": "ef1-reference-source-freeze1",
+  "version": "ef1-reference-source-freeze2",
   "status": "reviewed_frozen_for_subset_source_authoring_only",
   "coordinator": "/root",
   "author": "/root/ef1_reference_contracts",
   "independent_reviewer": "/root/ef1_reference_contract_review",
   "original_contract_sha256": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
-  "markdown_sha256": "4b3b36e0d65ad9333f2beccde8eb536e77f7729925bf825fa25f9b11cf570782",
-  "fixtures_sha256": "d4c9345c5b8af69a3ea24a26c0bc4dcd0586bf7703134ad959d9f54b6a4f46ad",
+  "markdown_sha256": "30ff6deaefee6edef3bca10f79684074edee3b63f80bf8397af32e1d137e28d5",
+  "fixtures_sha256": "5160d91fc966137a1728c6c26dde15d6772ea35811efc4ea9832b2f7460a28f0",
   "independent_review_sha256": "2c424b5cc8dc1463e2a495999b44125c6b7c7a38eec9c4284125a63036d475fa",
   "story": 508,
   "supporting_stories": [
@@ -39,5 +39,6 @@
     "no package publication"
   ],
   "admission": "Source handoff requires current ownership/dependency readback; this receipt alone does not change Project status",
-  "source_document_normalization": "Coordinator removed one trailing blank line at EOF after staged whitespace check; semantic text unchanged. Original reviewed proposal MD bfe8e83a140cb41ade3daa249ff36052abbcccef338b975014d8cf27ed2e0b76 retained privately; public normalized bytes independently rechecked."
+  "source_document_normalization": "Public Markdown and fixture JSON use LF line endings matching committed Git blobs; Markdown removes only final blank line. Private approved CRLF originals bfe8e83a140cb41ade3daa249ff36052abbcccef338b975014d8cf27ed2e0b76 and d4c9345c5b8af69a3ea24a26c0bc4dcd0586bf7703134ad959d9f54b6a4f46ad retained. No semantic or parsed fixture-object change; exact line-ending normalization requires independent recheck.",
+  "original_contract_identity_scope": "original_contract_sha256 identifies the unchanged reviewed working-copy ledger bytes; historical Git text normalization gives a different original-contract blob identity. This receipt does not rewrite that historical file or claim its SHA is a portable Git-blob SHA."
 }
