@@ -41,3 +41,11 @@ docs/ef1/OBSERVABLE_PUBLICATION_FREEZE.json text eol=lf
 # Exact portable regular-BAR contract and independent literal packet bytes.
 /docs/ef1/regular_bar_prices/*.json text eol=lf
 /docs/ef1/regular_bar_prices/*.md text eol=lf
+
+# Portable bytes for the reviewed regular-BAR implementation cohort.
+/examples/ef1_regular_bar_prices.py text eol=lf
+/packages/features/src/equity_features/ef1/_context.py text eol=lf
+/packages/features/src/equity_features/ef1/_definitions.py text eol=lf
+/packages/features/src/equity_features/ef1/_dispatch.py text eol=lf
+/packages/features/src/equity_features/ef1/_regular_bar_prices.py text eol=lf
+/tests/unit/test_ef1_regular_bar_prices.py text eol=lf

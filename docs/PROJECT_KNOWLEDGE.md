@@ -1,3 +1,7 @@
+## EF1 regular completed-BAR source authored - October 21, 2026
+
+The isolated EQ166 library slice now implements the two frozen `regular_bar_prices` outputs through additive config/discovery/dispatch. All 46 complete independent results and 54 actual staged refusals pass author source checks; frozen contracts/oracle/versions are unchanged. [Implementation/API/readiness and remaining gates](ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md) distinguish this source result from independent review, installed artifacts, compatible layer integration, browser inspection and release acceptance. Root owns actual diff review, source integration and public status changes; no layer-author commit/push is granted.
+
 ## EF1 next regular-BAR contract frozen for parallel implementation — October 21, 2026
 
 Current-gap endpoint source is merged: core PR602 d30f557762d4f16231cbcf0fcdc1802799d0d033, I/O PR26 63a4a2402a0726305c7dec9a6e61e50e4678a1ab and worker PR67 288d4f807babc044223dd243398cb9dc832f244c. Actual merged trees match reviewed trees. Its bounded Windows/Linux installed cohort passed 5,792 method executions and 248 demos; full stories and EF1 remain open.
