@@ -1,3 +1,7 @@
+## Current bounded local artifact evidence - October21,2026
+
+[Native Windows/Linux qualification and independent review](REGULAR_BAR_PRICES_LOCAL_QUALIFICATION.md) supersedes the pending installed statements below within its exact frozen source cohort. Normal source delivery remains under recheck; fullEF1/browser/source admission/release/publication gates remain open.
+
 # Supplied regular completed-BAR price implementation
 
 [EQ166 #506](https://github.com/atulsrivas1/equity-features/issues/506) adds `regular_bar_prices` through the existing EF1 builder, decoder, discovery and dispatcher. The [frozen V3 contract](regular_bar_prices/REGULAR_BAR_PRICES_CONTRACT_V3.md) and [source-authoring precedence](regular_bar_prices/ACTIVE_STATUS.md) govern this bounded slice. Full EQ164 and the other EQ166 obligations remain open.
