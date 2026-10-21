@@ -76,9 +76,302 @@ POSITIVE_FIXTURES=(
     'import numpy as np\nnp.ndarray[int,int]\nnp.dtype(np.int64)',
 )
 
+def _civil_import(node):
+    return (isinstance(node, ast.ImportFrom) and node.level == 0
+            and node.module == 'datetime' and bool(node.names)
+            and all(item.name in {'date', 'timedelta'} for item in node.names))
+
+
+def civil_date_violations(source, *, timestamp_resolver=None):
+    """Closed civil constructors; advisory AST lint, not a Python sandbox.
+
+    Import aliases are supported. Extraction through imported class bindings is
+    refused. Constructed instance method/value flow is not tracked completely.
+    """
+    tree = ast.parse(source)
+    nodes = list(ast.walk(tree))
+    parents = {child: node for node in nodes for child in ast.iter_child_nodes(node)}
+    imported = {}
+    rebound = set()
+    annotations = set()
+    found = []
+    ambient = {'today', 'now', 'utcnow', 'fromtimestamp', 'utcfromtimestamp', 'timestamp',
+               'astimezone', 'strftime', 'strptime', 'localtime', 'gmtime', 'mktime', 'tzset',
+               '__dict__', '__class__', '__getattribute__', '__mro__', '__subclasses__',
+               '__reduce__', '__reduce_ex__'}
+    for node in nodes:
+        if isinstance(node, ast.Import):
+            for item in node.names:
+                name = item.asname or item.name.split('.')[0]
+                rebound.add(name)
+        elif isinstance(node, ast.ImportFrom) and not _civil_import(node):
+            rebound.update(item.asname or item.name for item in node.names)
+        elif isinstance(node, ast.Name) and isinstance(node.ctx, (ast.Store, ast.Del)):
+            rebound.add(node.id)
+        elif isinstance(node, ast.arg):
+            rebound.add(node.arg)
+        elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            rebound.add(node.name)
+        elif isinstance(node, ast.ExceptHandler) and node.name:
+            rebound.add(node.name)
+        elif isinstance(node, (ast.Global, ast.Nonlocal)):
+            rebound.update(node.names)
+        elif isinstance(node, (ast.MatchAs, ast.MatchStar)) and node.name:
+            rebound.add(node.name)
+        elif isinstance(node, ast.MatchMapping) and node.rest:
+            rebound.add(node.rest)
+        if isinstance(node, ast.Import) and any(item.name.split('.')[0] == 'datetime' for item in node.names):
+            found.append('civil date namespace import')
+        if isinstance(node, ast.ImportFrom) and (node.module or '').split('.')[0] == 'datetime' and not node.level:
+            if not _civil_import(node):
+                found.append('unreviewed civil date import')
+            else:
+                for item in node.names:
+                    imported.setdefault(item.asname or item.name, set()).add(item.name)
+        annotation = (node.annotation if isinstance(node, (ast.arg, ast.AnnAssign))
+                      else node.returns if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) else None)
+        if annotation is not None:
+            annotations.update(ast.walk(annotation))
+    if set(imported) & rebound or any(len(kinds) != 1 for kinds in imported.values()):
+        found.append('ambiguous civil date binding')
+    for node in nodes:
+        parent = parents.get(node)
+        columnar_timestamp = (isinstance(node, ast.Attribute) and node.attr == 'timestamp'
+                              and timestamp_resolver is not None
+                              and timestamp_resolver(node) == {'pyarrow.timestamp'})
+        if (isinstance(node, ast.Attribute) and node.attr in ambient
+                and (not node.attr.startswith('__') or imported) and not columnar_timestamp):
+            # Also covers methods exposed by date instances/helper returns.
+            found.append('ambient civil date access ' + node.attr)
+        if not isinstance(node, ast.Name) or not isinstance(node.ctx, ast.Load) or node.id not in imported:
+            continue
+        if node.id in rebound:
+            found.append('ambiguous civil date binding')
+            continue
+        constructor = isinstance(parent, ast.Call) and parent.func is node
+        parsedate = (imported[node.id] == {'date'} and isinstance(parent, ast.Attribute)
+                     and parent.value is node and parent.attr == 'fromisoformat'
+                     and isinstance(parents.get(parent), ast.Call) and parents[parent].func is parent)
+        annotation = node in annotations
+        ancestor = parents.get(node)
+        while annotation and ancestor in annotations:
+            if not isinstance(ancestor, (ast.Subscript, ast.Tuple, ast.List, ast.BinOp)):
+                annotation = False
+            ancestor = parents.get(ancestor)
+        if not (constructor or parsedate or annotation):
+            found.append('civil date class or method escapes closed access')
+    return sorted(set(found))
+
+
+CIVIL_DATE_POSITIVE_FIXTURES = (
+    'from datetime import date\nx=date(2026,10,21)',
+    'from datetime import date\nx=date.fromisoformat("2026-10-21").isoformat()',
+    'from datetime import date as D, timedelta as T\ndef shift(d:D)->D:\n return d+T(days=1)',
+    'from datetime import timedelta, date\ndef start(d:date)->date:\n return d-timedelta(days=d.weekday())',
+    'from datetime import date\ndef month(d:date)->date:\n return d.replace(day=1,month=1)',
+    'from datetime import date\ndef parts(d:date)->tuple[int,int,int]:\n return d.year,d.month,d.day',
+    'from datetime import date as D\nfrom datetime import date as D\nx=D(2026,1,1)',
+)
+CIVIL_DATE_NEGATIVE_FIXTURES = (
+    'import datetime', 'import datetime as dt', 'from datetime import *',
+    'from datetime.extra import date', 'from datetime import datetime',
+    'from datetime import time as T', 'from datetime import date, timezone',
+    'from datetime import date as D, datetime as X',
+    'from datetime import date as D\nD.today()',
+    'from datetime import date as D\nD.fromtimestamp(0)',
+    'from datetime import date as D\nd=D(2026,1,1)\nd.today()',
+    'from datetime import date as D\nd=D(2026,1,1)\nd.fromtimestamp(0)',
+    'from datetime import date as D\nD.fromisoformat(s).fromtimestamp(0)',
+    'def consume(d):\n return d.fromtimestamp(0)',
+    'from datetime import date as D\nf=D.fromisoformat',
+    'from datetime import date as D\nuse(D.fromisoformat)',
+    'from datetime import date as D\nuse(D)',
+    'from datetime import date as D\ndef leak():\n return D',
+    'from datetime import date as D\nx=[D]',
+    'from datetime import date as D\nx={"d":D}',
+    'from datetime import date as D\nholder.value=D',
+    'from datetime import date as D\ndef f(factory=D):\n pass',
+    'from datetime import date as D\nalias=D\nalias(2026,1,1)',
+    'from datetime import date as D\nalias:object=D\nalias.today()',
+    'from datetime import date as D\n(alias:=D).fromtimestamp(0)',
+    'from datetime import date as D\nx=D.__dict__',
+    'from datetime import date as D\nx=D.__mro__',
+    'from datetime import date as D\nx=D.__getattribute__',
+    'from datetime import date as D\nD(2026,1,1).__class__.today()',
+    'from datetime import date as D\nD(2026,1,1).strftime("%c")',
+    'from datetime import timedelta as T\nx=T.max',
+    'from datetime import date as D\nx: D.__mro__',
+    'from datetime import date as D\nx: use(D)',
+    'from datetime import date as D\nuse(D(2026,1,1).__class__)',
+    'from datetime import date as D\nD(2026,1,1).__reduce__()',
+    'from datetime import date as D\nD=supplied\nD.fromisoformat(s)',
+    'from datetime import date as D\ndef f(D):\n return D.fromisoformat(s)',
+    'from datetime import date as D\ndef D(): pass\nD.fromisoformat(s)',
+    'from datetime import date as D\nclass D: pass\nD.fromisoformat(s)',
+    'from datetime import date as D\nfrom other import D\nD.fromisoformat(s)',
+    'from datetime import date as D\n(D:=supplied).fromisoformat(s)',
+    'from datetime import date as D\ntry: pass\nexcept Error as D: pass\nD.fromisoformat(s)',
+    'from datetime import date as D\ndef f():\n global D\n return D.fromisoformat(s)',
+    'from datetime import date as D\nd=D(2026,1,1)\nd.timestamp()',
+    'from datetime import date as D, timedelta as D\nx=D(1)',
+)
+
+TIMESTAMP_POSITIVE_FIXTURES = (
+    'import pyarrow as pa\npa.timestamp("ns")',
+    'from pyarrow import timestamp as TS\nTS("ns")',
+    'import pyarrow as pa\nother=pa\nother.timestamp("ns")',
+    'import pyarrow as pa\nmake=pa.timestamp\nmake("ns")',
+    'import pyarrow as pa\nother=pa\nmake=other.timestamp\nagain=make\nagain("ns")',
+)
+TIMESTAMP_NEGATIVE_FIXTURES = (
+    'obj.timestamp()',
+    'import pyarrow as pa\npa=supplied\npa.timestamp("ns")',
+    'import pyarrow as pa\nother=pa\nother=supplied\nother.timestamp("ns")',
+    'import pyarrow as pa\ndef f(pa):\n return pa.timestamp("ns")',
+    'import pyarrow as pa\nmake=pa.timestamp\nmake=supplied\nmake("ns")',
+)
+
+REGEX_COMPILE_POSITIVE_FIXTURES = (
+    'import re\nx=re.compile("synthetic",re.ASCII)',
+    'import re as regex\nx=regex.compile("synthetic")',
+)
+REGEX_COMPILE_NEGATIVE_FIXTURES = (
+    'compile("x","synthetic","exec")', 'obj.compile("x")',
+    'f=compile\nf("x","synthetic","exec")',
+    'import re\nf=re.compile',
+    'from re import compile as f\nf("x")',
+    'import re\nre=obj\nre.compile("x")',
+    'import re\ndef f(re):\n return re.compile("x")',
+    'import re\nre:object=obj\nre.compile("x")',
+    'import re\n(re:=obj).compile("x")',
+    'import re\nre.compile=obj\nre.compile("x")',
+    'import re\nuse(re)\nre.compile("x")',
+    'import re\nre.__dict__["compile"]=obj\nre.compile("x")',
+    'import re\nimport other as re\nre.compile("x")',
+    'import re\nmatch value:\n case re: pass\nre.compile("x")',
+)
+
+SCALAR_TIME_POSITIVE_FIXTURES = (
+    'def f(columns,i):\n time=columns["event_ns"][i]\n return time<10',
+    'def f(columns):\n return all(time<10 for time in columns["market"]["event_ns"])',
+    'def f(columns,role):\n for i,time in enumerate(columns[role]["effective_start_ns"]):\n  if 0<time<10: pass',
+)
+SCALAR_TIME_NEGATIVE_FIXTURES = (
+    'import time', 'from time import time', 'obj.time()', 'time()',
+    'def f(columns,i):\n time=columns["event_ns"][i]\n return time()',
+    'def f(columns,i):\n time=columns["event_ns"][i]\n return time.now()',
+    'def f(columns,i):\n time=columns["event_ns"][i]\n alias=time',
+    'def f(time):\n return time<10',
+    'def f(columns,i,supplied):\n time=columns["event_ns"][i]\n time=supplied\n return time<10',
+    'def f(supplied):\n for time in supplied:\n  if time<10: pass',
+    'def f(columns,i):\n time=columns["event_ns"][i]\n return use(time)',
+    'def f(columns,i):\n time=columns["event_ns"][i]\n def time(): pass\n return time<10',
+    'def f(columns,i):\n time=columns["event_ns"][i]\n from math import gcd as time\n return time<10',
+)
+
+
+def _scalar_time_name(node, parents, nodes):
+    """Admit only bounded column-scalar bindings used directly in comparisons."""
+    if not isinstance(node, ast.Name) or node.id != 'time':
+        return False
+    def scope(item):
+        parent = parents.get(item)
+        while parent is not None and not isinstance(parent, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            parent = parents.get(parent)
+        return parent
+    owner = scope(node)
+    if owner is None or (isinstance(node.ctx, ast.Load) and not isinstance(parents.get(node), ast.Compare)):
+        return False
+    def column_values(value):
+        fields = []
+        while isinstance(value, ast.Subscript):
+            if isinstance(value.slice, ast.Constant):
+                fields.append(value.slice.value)
+            value = value.value
+        return (isinstance(value, ast.Name) and value.id == 'columns'
+                and any(field in ('event_ns', 'effective_start_ns') for field in fields))
+    bound = False
+    for item in nodes:
+        if scope(item) is not owner:
+            continue
+        if isinstance(item, ast.arg) and item.arg == 'time':
+            return False
+        if isinstance(item, (ast.Global, ast.Nonlocal)) and 'time' in item.names:
+            return False
+        if isinstance(item, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)) and item.name == 'time':
+            return False
+        if isinstance(item, ast.ExceptHandler) and item.name == 'time':
+            return False
+        if isinstance(item, (ast.Import, ast.ImportFrom)) and any(
+                (part.asname or part.name.split('.')[0]) == 'time' for part in item.names):
+            return False
+        if isinstance(item, (ast.MatchAs, ast.MatchStar)) and item.name == 'time':
+            return False
+        if isinstance(item, ast.MatchMapping) and item.rest == 'time':
+            return False
+        if not isinstance(item, ast.Name) or item.id != 'time' or isinstance(item.ctx, ast.Load):
+            continue
+        parent = parents.get(item)
+        assignment = (isinstance(parent, (ast.Assign, ast.AnnAssign)) and column_values(parent.value)
+                      and (parent.target is item if isinstance(parent, ast.AnnAssign)
+                           else len(parent.targets) == 1 and parent.targets[0] is item))
+        comprehension = (isinstance(parent, ast.comprehension) and parent.target is item
+                         and column_values(parent.iter))
+        loop = parents.get(parent) if isinstance(parent, ast.Tuple) else None
+        enumerated = (isinstance(loop, ast.For) and loop.target is parent
+                      and len(parent.elts) == 2 and parent.elts[1] is item
+                      and isinstance(loop.iter, ast.Call) and isinstance(loop.iter.func, ast.Name)
+                      and loop.iter.func.id == 'enumerate' and len(loop.iter.args) == 1
+                      and not loop.iter.keywords and column_values(loop.iter.args[0]))
+        if not isinstance(item.ctx, ast.Store) or not (assignment or comprehension or enumerated):
+            return False
+        bound = True
+    return bound
+
+
 def violations(source):
     tree=ast.parse(source);nodes=list(ast.walk(tree));found=[]
     parents={child:parent for parent in nodes for child in ast.iter_child_nodes(parent)}
+    # Only an unambiguously imported re namespace may compile a regex directly.
+    # Python's compile and arbitrary .compile capabilities remain denied.
+    regex_names = set()
+    rebound = set()
+    for node in nodes:
+        if isinstance(node, ast.Import):
+            for item in node.names:
+                name = item.asname or item.name.split('.')[0]
+                if item.name == 're':
+                    regex_names.add(name)
+                else:
+                    rebound.add(name)
+        elif isinstance(node, ast.ImportFrom):
+            rebound.update(item.asname or item.name for item in node.names)
+        elif isinstance(node, ast.Name) and isinstance(node.ctx, (ast.Store, ast.Del)):
+            rebound.add(node.id)
+        elif isinstance(node, ast.arg):
+            rebound.add(node.arg)
+        elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            rebound.add(node.name)
+        elif isinstance(node, ast.ExceptHandler) and node.name:
+            rebound.add(node.name)
+        elif isinstance(node, (ast.Global, ast.Nonlocal)):
+            rebound.update(node.names)
+        elif isinstance(node, (ast.MatchAs, ast.MatchStar)) and node.name:
+            rebound.add(node.name)
+        elif isinstance(node, ast.MatchMapping) and node.rest:
+            rebound.add(node.rest)
+    for node in nodes:
+        if isinstance(node, ast.Name) and node.id in regex_names and isinstance(node.ctx, ast.Load):
+            parent = parents.get(node)
+            if (not isinstance(parent, ast.Attribute) or parent.value is not node
+                    or parent.attr.startswith('__')):
+                rebound.add(node.id)
+    regex_names -= rebound
+    def regex_compile(node):
+        parent = parents.get(node)
+        return (isinstance(node, ast.Attribute) and node.attr == 'compile'
+                and isinstance(node.value, ast.Name) and node.value.id in regex_names
+                and isinstance(parent, ast.Call) and parent.func is node)
     imported={};aliases={}
     for node in nodes:
         if isinstance(node,ast.Import):
@@ -101,7 +394,7 @@ def violations(source):
             # base64's namespace and file-oriented encode/decode APIs stay denied.
             pure_base64 = module == 'base64' and bool(node.names) and all(
                 item.name in {'urlsafe_b64decode', 'urlsafe_b64encode'} for item in node.names)
-            if (module.split('.')[0] not in ALLOWED and not (pure_mapping or pure_base64)) or (module.split('.')[0] in BACKENDS and module not in BACKENDS):
+            if (module.split('.')[0] not in ALLOWED and not (pure_mapping or pure_base64 or _civil_import(node))) or (module.split('.')[0] in BACKENDS and module not in BACKENDS):
                 found.append(f'{node.lineno}: forbidden import {module}')
             for item in node.names:
                 imported.setdefault(item.asname or item.name,set()).add(module+'.'+item.name)
@@ -114,22 +407,47 @@ def violations(source):
             if isinstance(node.value,(ast.Name,ast.Attribute)):
                 for target in targets:
                     if isinstance(target,ast.Name):aliases.setdefault(target.id,[]).append(node.value)
-    def resolve(node,seen=frozenset()):
+    stores = {}
+    ambiguous = set()
+    for node in nodes:
+        if isinstance(node, ast.Name) and isinstance(node.ctx, (ast.Store, ast.Del)):
+            stores[node.id] = stores.get(node.id, 0) + 1
+        elif isinstance(node, ast.arg):
+            ambiguous.add(node.arg)
+        elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            ambiguous.add(node.name)
+        elif isinstance(node, ast.ExceptHandler) and node.name:
+            ambiguous.add(node.name)
+        elif isinstance(node, (ast.Global, ast.Nonlocal)):
+            ambiguous.update(node.names)
+        elif isinstance(node, (ast.MatchAs, ast.MatchStar)) and node.name:
+            ambiguous.add(node.name)
+        elif isinstance(node, ast.MatchMapping) and node.rest:
+            ambiguous.add(node.rest)
+    def resolve(node,seen=frozenset(), *, strict=False):
         if isinstance(node,ast.Name):
+            if strict and (node.id in seen or node.id in ambiguous or stores.get(node.id, 0) > 1
+                           or (node.id in imported and stores.get(node.id, 0))
+                           or (stores.get(node.id, 0) and len(aliases.get(node.id, ())) != 1)):
+                return set()
             paths=set(imported.get(node.id,()))
             if node.id not in seen:
-                for value in aliases.get(node.id,()):paths.update(resolve(value,seen|{node.id}))
+                for value in aliases.get(node.id,()):paths.update(resolve(value,seen|{node.id},strict=strict))
             return paths
-        if isinstance(node,ast.Attribute):return {path+'.'+node.attr for path in resolve(node.value,seen)}
-        if isinstance(node,ast.NamedExpr):return resolve(node.value,seen)
+        if isinstance(node,ast.Attribute):return {path+'.'+node.attr for path in resolve(node.value,seen,strict=strict)}
+        if isinstance(node,ast.NamedExpr):return resolve(node.value,seen,strict=strict)
         return set()
+    found.extend(civil_date_violations(source, timestamp_resolver=lambda node: resolve(node, strict=True)))
     for node in nodes:
         if isinstance(node,(ast.Name,ast.Attribute)):
             name=node.id if isinstance(node,ast.Name) else node.attr
-            if name in DENIED or name.startswith(('read_','write_','__builtins__')):
+            if ((name in DENIED or name.startswith(('read_','write_','__builtins__')))
+                    and not regex_compile(node) and not _scalar_time_name(node, parents, nodes)):
                 found.append(f'{node.lineno}: forbidden access {name}')
             if not isinstance(node.ctx,ast.Load):continue
             paths=resolve(node)
+            if 'pyarrow.timestamp' in paths and resolve(node, strict=True) != {'pyarrow.timestamp'}:
+                found.append(f'{node.lineno}: ambiguous backend timestamp binding')
             for path in sorted(paths):
                 if path.split('.')[0] in BACKENDS and path not in BACKENDS and path not in BACKEND_APIS:
                     found.append(f'{node.lineno}: unreviewed backend access {path}')
@@ -185,8 +503,8 @@ def research_violations(source, *, codec=False, explanation=False, diagnostics=F
 
 def provenance_violations(source):
     """Explicit outer profile; never added to the pure calculation allowlist."""
-    tree=ast.parse(source);found=[]
-    allowed={'__future__','dataclasses','typing','datetime','math','json',
+    tree=ast.parse(source);found=civil_date_violations(source)
+    allowed={'__future__','dataclasses','typing','math','json',
         'equity_feature_contracts','equity_feature_evidence','equity_feature_io_contracts',
         'equity_feature_io_sdk','equity_feature_duckdb','equity_feature_duckdb_sink','equity_feature_workers'}
     parents={child:node for node in ast.walk(tree) for child in ast.iter_child_nodes(node)}
@@ -196,7 +514,7 @@ def provenance_violations(source):
         if isinstance(node,ast.ImportFrom):
             if node.level:
                 if node.level!=1 or node.module not in ('_model','_bind','_preflight'):found.append('unsupported outer relative')
-            elif (node.module or '').split('.')[0] not in allowed:found.append('unsupported outer import')
+            elif (node.module or '').split('.')[0] not in allowed and not _civil_import(node):found.append('unsupported outer import')
             if any(a.name=='*' or a.name.startswith(('compute_','__builtins__')) for a in node.names):found.append('unsupported outer import access')
         if isinstance(node,(ast.Name,ast.Attribute)):
             name=node.id if isinstance(node,ast.Name) else node.attr
@@ -344,6 +662,34 @@ def check_continuous():
 
 
 def check():
+    # Apply the same civil-only exception to calculations and outer preflight.
+    # These are source fixtures: no date/clock or numerical code is executed.
+    for source in CIVIL_DATE_NEGATIVE_FIXTURES:
+        assert violations(source), source
+        assert provenance_violations(source), source
+    for source in CIVIL_DATE_POSITIVE_FIXTURES:
+        assert not violations(source), (source, violations(source))
+        assert not provenance_violations(source), (source, provenance_violations(source))
+    for source in REGEX_COMPILE_NEGATIVE_FIXTURES:
+        assert violations(source), source
+    for source in REGEX_COMPILE_POSITIVE_FIXTURES:
+        assert not violations(source), (source, violations(source))
+    for source in SCALAR_TIME_NEGATIVE_FIXTURES:
+        assert violations(source), source
+    for source in SCALAR_TIME_POSITIVE_FIXTURES:
+        assert not violations(source), (source, violations(source))
+    for source in TIMESTAMP_NEGATIVE_FIXTURES:
+        assert violations(source), source
+    for source in TIMESTAMP_POSITIVE_FIXTURES:
+        assert not violations(source), (source, violations(source))
+    print(f'Civil date static policy: {len(CIVIL_DATE_NEGATIVE_FIXTURES)} negative/'
+          f'{len(CIVIL_DATE_POSITIVE_FIXTURES)} positive controls; not a Python sandbox.')
+    print(f'Regex compile static policy: {len(REGEX_COMPILE_NEGATIVE_FIXTURES)} negative/'
+          f'{len(REGEX_COMPILE_POSITIVE_FIXTURES)} positive controls.')
+    print(f'Scalar time static policy: {len(SCALAR_TIME_NEGATIVE_FIXTURES)} negative/'
+          f'{len(SCALAR_TIME_POSITIVE_FIXTURES)} positive controls.')
+    print(f'Timestamp compatibility policy: {len(TIMESTAMP_NEGATIVE_FIXTURES)} negative/'
+          f'{len(TIMESTAMP_POSITIVE_FIXTURES)} positive controls.')
     allowed_dependencies={'equity-feature-contracts','numpy','pyarrow'}
     pure_packages=(ROOT/'packages/contracts',ROOT/'packages/features')
     research_packages=(ROOT/'packages/strategies',ROOT/'packages/labels')
