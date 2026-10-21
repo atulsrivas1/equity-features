@@ -6,7 +6,7 @@
 - Known gap: required CI job `check` (tools/ci_provenance.py) failed on #628 with no visible reason; cause not found. Windows hash failure was fixed by 4f16605 (.gitattributes -text on the oracle). Workers CI failures were from workflows pinned to older core commits; not re-verified after merge.
 - Still open: full EQ164, installed qualification, source rights/original parity, release/publication, other open drafts (#630, #631, ...).
 
-## 2026-10-21 — EF1 state (from GitHub, checked today)
+## 2026-10-21 - EF1 state (from GitHub, checked today)
 - Merged on main: EF1 regular completed-bar prices (core #607 747bae0, io #27 ae8bb17, workers #68 8d00d33).
 - First-trade prices, all open drafts, not merged: core #628 (BLOCKED), io #28 (CLEAN), workers #69 (UNSTABLE). Heads are the "bridge" commits ede86152, 5145157f, 1ff1f2b7. Per the old handoff they passed independent source review; installed Windows/Linux qualification was never completed or reaped, so no installed result is claimed.
 - Other open drafts: #630 (route docs), #631 (R26 quote boundaries), #566, #524 and older planning PRs.
