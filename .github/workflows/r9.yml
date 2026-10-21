@@ -12,6 +12,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: 07cfa3bf5c9a268ed73aed99c067030606b5493d
       - uses: actions/checkout@v4
         with:
           repository: atulsrivas1/equity-feature-io
