@@ -72,6 +72,8 @@ Strategies/profiles, context scores, component weights/gates, watchlists, scanne
 
 ### R26 native evidence checkpoint — October 21, 2026
 
+Subsequent fresh source review found uncovered cluster-partition, causal selection-clock and reserved-output boundary defects. The passing results below remain evidence for the earlier candidate; they do not qualify the corrective implementation. EQ188/EQ215 are back in rework and native acceptance is blocked pending new exact-source/artifact qualification. See [current rework and resume steps](SESSION_HANDOFF.md#r26-fresh-review-requires-native-correction--october-21-2026); frozen profiles, residuals and equity gates remain unchanged.
+
 The six named R26 declarations below bind to the public [feature profiles](https://github.com/atulsrivas1/option-features/blob/48ec370182afd0a057fc597e2c4cfd40b163af45/docs/r26/FEATURE_BINDINGS.json), [mathematics](https://github.com/atulsrivas1/option-features/blob/48ec370182afd0a057fc597e2c4cfd40b163af45/docs/r26/MATHEMATICS.md) and [typed API](https://github.com/atulsrivas1/option-features/blob/48ec370182afd0a057fc597e2c4cfd40b163af45/docs/r26/FLOW_CONTRACT.md). All use the new `option-flow-features` producer and `option-flow-contracts` records. These are source-independent supplied-fact calculations; source/provider variants and policy presets are not silently qualified by native arithmetic.
 
 | Named declaration | Story | Frozen profile | Independent scenario evidence |
