@@ -1,4 +1,55 @@
 {
+  "ownership_reconciliation": {
+    "governance_issue": 504,
+    "status": "accepted_planned_ownership_math_unaccepted",
+    "document": "docs/ef1/OWNERSHIP_RECONCILIATION.md",
+    "output_manifest": "docs/plans/equity-output-ownership.json",
+    "planned_output_count": 47,
+    "math_api_accepted": false,
+    "original_35_story_allocation_preserved": true,
+    "original_18_proposed_tasks_preserved": true,
+    "full_EQ164_complete": false
+  },
+  "supplemental_stories": [
+    {
+      "story": "EQ-220",
+      "issue": 598,
+      "title": "[EQ-220] Implement declared-universe session breadth extensions",
+      "url": "https://github.com/atulsrivas1/equity-features/issues/598",
+      "planned_release": "EF3",
+      "ownership_status": "accepted_planned_ownership",
+      "actual_readback_date": "2026-10-21",
+      "observed_issue_state": "OPEN",
+      "observed_project_status": "Backlog",
+      "native_parent_issue": 468,
+      "actual_milestone_number": 24,
+      "actual_milestone_title": "R20 — Relative statistics, realized volatility and robust anomalies",
+      "tracker_release_migration": "pending; existing R20 milestone retained",
+      "assignees": [],
+      "due_date": null,
+      "required_dependencies": [
+        "EQ-164",
+        "EQ-169"
+      ],
+      "selected_operand_dependencies": "Name actual session/return/VWAP/volume/momentum producers per output before Ready; no blanket operand barrier.",
+      "layer_tasks_before_ready": [
+        "EF3-IO",
+        "EF3-W"
+      ],
+      "release_acceptance_gate": "EQ-157",
+      "planned_release_gate_additional_dependencies": [
+        "EQ-220"
+      ],
+      "dependency_status": "planned; issue/release-gate reconciliation and actual producer readiness required before Ready",
+      "tracks": {
+        "libraries": "Pure declared-universe population, per-member eligibility, counts, direction-grouped cumulative volume, ratios and supplied-predicate fractions; independent complete-result fixtures.",
+        "io": "Existing EF3-IO planning task maps supplied versioned membership and actual per-member operands, retaining identities/clocks/basis/unknown and canonical output evidence; no numerical derivation hidden in adapters.",
+        "workers": "Existing EF3-W planning task binds per-output dependencies, bounded execution and direct/worker/stored result parity; no new planning-task number."
+      },
+      "math_api_accepted": false,
+      "implementation_admitted": false
+    }
+  ],
   "schema_version": 2,
   "governance_issue": 567,
   "date_eastern": "2026-10-20",
