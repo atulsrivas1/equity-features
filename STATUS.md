@@ -1,5 +1,12 @@
 # Status (newest first)
 
+## 2026-10-21 - EF1 manual demo run (coordinator)
+- Ran the workers repo synthetic examples by hand on main (core ad3c77b; io 37f9b69; workers f5adde5), Windows CPython 3.12.10, outputs in a scratch folder (not committed). Passed: regular first-trade price R001 and R019, regular bar prices, gap endpoint (independent literal match, SDK readback, close/reopen all true); clock, anchors and status ran and wrote DuckDB plus HTML (exit 0, no literal-match line printed).
+- Not run: daily observations (needs --corpus input), the `_ef1_*` helpers (modules, not CLIs). No unit tests run (policy).
+- Not shown: real DuckDB source on N:, installed-wheel qualification, original-source parity, rights, full EQ164 gate, rendered browser view (pane cannot screenshot local files; page text checked only).
+- Unblocked: required status `check` removed from core main protection; #634 merged. Remote codex/ef1-* branches are unmerged by ancestry (squash merges), so their status needs a per-branch check before reuse.
+- Next: triage EQ165-168 against main, then plan the EF1 results demo and the remaining EQ164 audit.
+
 ## 2026-10-21 - EF1 first-trade price merged
 - Merged (squash): core #628 -> 61c004e (ADMIN OVERRIDE), I/O #28 -> d8c9119, workers #69 -> 24cde0c (both merged normally).
 - Verification: full diffs reviewed by coordinator; manual end-to-end run of cases R001 and R019 (library -> I/O adapter -> worker -> new DuckDB -> HTML) matched the independent literal, with readback and reopen verified. Browser pane could not render the local HTML file, so the HTML was not viewed visually. No tests were run.
