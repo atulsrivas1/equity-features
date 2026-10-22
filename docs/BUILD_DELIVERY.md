@@ -1,6 +1,6 @@
 ## R17 actual source and package channel
 
-[Qualification](R17_ACCEPTANCE.md) and [machine inventory](R17_ACCEPTANCE_INPUTS.json) bind canonicalc701/worker231/I/O18d delivered components and exact actual build pins (coreb1f/I/O18d/workers231). Actual worker main run39301445653 produced Linux12212142183/Windows12211898603,12repeat-equal wheel/SDist archives per OS for six distributions and fourfreshbase/combined installed forms per OS. Exact ZIP/archive/source/report/typing/core/skip/expiry proofs are in [public main artifact review](stories/r17-delivery/EQ140_MAIN_HOSTED_ARTIFACT_PUBLIC_REVIEW.md). Canonical documents and this audit leave all calculation package/build/workflow/runtime inputs unchanged; no new build/timing is inferred from a documentation hash. Current EQ141 source review/CI and actual main/channel/final acceptance still apply.
+[Qualification](R17_ACCEPTANCE.md) and [machine inventory](releases/R17/R17_ACCEPTANCE_INPUTS.json) bind canonicalc701/worker231/I/O18d delivered components and exact actual build pins (coreb1f/I/O18d/workers231). Actual worker main run39301445653 produced Linux12212142183/Windows12211898603,12repeat-equal wheel/SDist archives per OS for six distributions and fourfreshbase/combined installed forms per OS. Exact ZIP/archive/source/report/typing/core/skip/expiry proofs are in [public main artifact review](stories/r17-delivery/EQ140_MAIN_HOSTED_ARTIFACT_PUBLIC_REVIEW.md). Canonical documents and this audit leave all calculation package/build/workflow/runtime inputs unchanged; no new build/timing is inferred from a documentation hash. Current EQ141 source review/CI and actual main/channel/final acceptance still apply.
 
 Reproduce the existing worker `tools/build_supplied_inputs.py --core-root <core-checkout> --io-root <io-checkout>` at exact worker231 with coreb1f/I/O18d available as Git sources; use the tool's fresh output and fixed qualification process. The tool owns its build/install fixtures outside pure calculations. See [installation](INSTALLING.md); do not relabel a local reconstruction or expired/missing artifact as an actual hosted channel. No stable registry/tag or physical durability promise is added.
 
@@ -46,7 +46,7 @@ The [newcomer quickstart](QUICKSTART.md) selects the existing core0.0.4a4/consum
 at main4ae1643b2c70892038cb1e76e9adfe5b4c97d5b4 passed actual54candidate/27main,
 both current OS artifacts and independent final delivery review.
 [EQ115/PR420](https://github.com/atulsrivas1/equity-features/pull/420) adds the
-[external supplied-week guide](CONTINUOUS_SUPPLIED_WEEK.md) and [R12 acceptance allocation](R12_ACCEPTANCE.md).
+[external supplied-week guide](CONTINUOUS_SUPPLIED_WEEK.md) and [R12 acceptance allocation](releases/R12/R12_ACCEPTANCE.md).
 Its live issue and [E16](https://github.com/atulsrivas1/equity-features/issues/212)
 record actual current qualification/acceptance; the source-freeze snapshot does
 not claim future installed CI or release completion.
@@ -129,11 +129,11 @@ Reproduce from a clean committed checkout with pinned requirements-dev.txt: `pyt
 
 ## R9 corrected-source final composition qualified — October15,2026
 
-[Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.
+[Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](releases/R9/R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.
 
 ## R9 final composition candidate
 
-[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
+[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](releases/R9/R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
 
 ## EQ099 explanations delivery gate
 
@@ -143,7 +143,7 @@ New tools/build_explanations.py prepares two repeat builds/eight archives and fo
 
 Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.
 
-Final EQ092 source/docs/current-candidate/current-main release evidence and aggregate acceptance are recorded on [story104](https://github.com/atulsrivas1/equity-features/issues/104) and the [R8 evidence index](R8_ACCEPTANCE.md). GitHub reviewed source/finite-retention experimental CI artifacts are the channel. No new numerical API/schema/default, stable registry, provider or trading-profitability claim. Earlier candidate/preparation snapshots below are historical.
+Final EQ092 source/docs/current-candidate/current-main release evidence and aggregate acceptance are recorded on [story104](https://github.com/atulsrivas1/equity-features/issues/104) and the [R8 evidence index](releases/R8/R8_ACCEPTANCE.md). GitHub reviewed source/finite-retention experimental CI artifacts are the channel. No new numerical API/schema/default, stable registry, provider or trading-profitability claim. Earlier candidate/preparation snapshots below are historical.
 
 ## EQ092 chronological consumer candidate — October 14
 
@@ -159,7 +159,7 @@ tools/build_research.py schema2 extends the dedicated research gate to eight con
 
 ## EQ130 release audit under qualification
 
-EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
+EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](releases/R4_1/R4_1_ACCEPTANCE.md) and [exact R5 resume](releases/R5/R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
 
 ## EQ129 corrected source qualification / final metadata
 
@@ -211,7 +211,7 @@ registry publication. Public repository readers with appropriate GitHub access
 can download authorized code/synthetic artifacts; no private data is included.
 The current bundle pins matching experimental corepair0.0.4a4 and independently packaged consumer0.4.0; installation is documented in [INSTALLING](INSTALLING.md). All39builtin batch/23sessionupdate-restore/22conditionalmerge modes remain experimental. Historical channel revisions:
 EQ-009 began at0.0.1a0 and EQ-011 adds canonical inputs at0.0.1a1. Current session/history calculations and public extension/SDK APIs retain their documented source-independent inputs and qualification limits. EQ-012 specifications use0.0.1a2.
-R0 review repair is0.0.1a6.post1; original verified foundation is0.0.1a6; [acceptance evidence and actual bundles](R0_ACCEPTANCE.md).
+R0 review repair is0.0.1a6.post1; original verified foundation is0.0.1a6; [acceptance evidence and actual bundles](releases/R0/R0_ACCEPTANCE.md).
 30-day retention is requested, subject to repository limits; record actual expiry
 on each issue. After expiry, rebuild from the recorded commit with the pinned
 requirements; retained artifacts are a delivery channel, not permanent archival.
@@ -325,7 +325,7 @@ EQ047 [integrity review](RELEASE_INTEGRITY.md) and [inventory](DEPENDENCY_INVENT
 EQ095 adds consumer0.4.0 [combined installed qualification](EXTERNAL_QUALIFICATION.md):43 actual synthetic outcomes with independent goldens, actual adapter conformance, typed negatives and unchanged core/catalog. Builder retains this report inside each consumer-installation JSON. Customalgorithmv2/corepaira4 remain unchanged; historical consumer0.3.0 measurements and integrity inventory remain dated evidence. Actual release acceptance requires linked current issue/receipt gates.
 
 
-EQ048 [finalR0–R3 acceptance](R3_ACCEPTANCE.md) maps original receipts, current633unit/strict49/reference/purity/installedconsumer evidence and actualqualified corepaira4/consumer0.4.0 bundles. Its docs-only sources equal095 FOURqualifiedpairs; one reviewedPR/currentbothOSCI/actualfinalarchiveequality/currentreportprovenance/Releasedreadback suffice under PUBLIC_DEVELOPMENT, no newpublicationchannel. Final issue54 records actualSHA/runs/digests/expiry; finiteActionsretention remains explicit.
+EQ048 [finalR0–R3 acceptance](releases/R3/R3_ACCEPTANCE.md) maps original receipts, current633unit/strict49/reference/purity/installedconsumer evidence and actualqualified corepaira4/consumer0.4.0 bundles. Its docs-only sources equal095 FOURqualifiedpairs; one reviewedPR/currentbothOSCI/actualfinalarchiveequality/currentreportprovenance/Releasedreadback suffice under PUBLIC_DEVELOPMENT, no newpublicationchannel. Final issue54 records actualSHA/runs/digests/expiry; finiteActionsretention remains explicit.
 
 
 ## Optional DuckDB artifact channel
@@ -383,4 +383,4 @@ EQ055 optional0.1.0a7 moves strict UTCns SQL parsing into a connection-local nat
 
 EQ055 [receipt](stories/EQ-055_DELIVERY.md) binds optionala7/source9a82f1d/94tests/current24archives24reports/four delivered synthetic forms and four private forms each68numerical9acquisitions3blocked/core isolation. Final reviewed receipt/publication/Released readback remain.
 
-EQ056 [R4 audit](R4_ACCEPTANCE.md) reconciles all eight numbered stories, both actual layers and optionala7/corea4/current24archives24reports. Documentation only; acceptedEQ055 forms may be reused only with actual final archive equality/currentreport+harness/privatehash/livechannel/publication/Released readback. Exact finalhead/workflows/channels remain on issue63.
+EQ056 [R4 audit](releases/R4/R4_ACCEPTANCE.md) reconciles all eight numbered stories, both actual layers and optionala7/corea4/current24archives24reports. Documentation only; acceptedEQ055 forms may be reused only with actual final archive equality/currentreport+harness/privatehash/livechannel/publication/Released readback. Exact finalhead/workflows/channels remain on issue63.

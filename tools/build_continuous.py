@@ -32,7 +32,7 @@ SCOPES=['packages/'+name for name in PACKAGES]+[
     'docs/stories/EQ115_SYNTHETIC_ORACLES.json','docs/stories/EQ115_READINESS.json',
     'docs/stories/EQ115_PREPARED_REVIEW.json','docs/stories/EQ115_VALIDATION.json',
     'docs/stories/EQ115_RELEASE_EVIDENCE.json','docs/CONTINUOUS_SUPPLIED_WEEK.md',
-    'docs/R12_ACCEPTANCE.md','examples/continuous_supplied_week.py',
+    'docs/releases/R12/R12_ACCEPTANCE.md','examples/continuous_supplied_week.py',
     'docs/contracts/REGISTRY.md',
     'docs/CONTINUOUS_API.md',
     'docs/api/CONTINUOUS_RESEARCH.md','docs/features/CROSS_VENUE_FORMULAS.md',

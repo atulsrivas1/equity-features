@@ -1,6 +1,6 @@
 # EQ141: qualify and deliver R17 — pre-code plan
 
-[EQ141 #475](https://github.com/atulsrivas1/equity-features/issues/475), E25/R17 milestone21;5provisional complexity points. The frozen6b81715 public pre-code plan passed separate conditional review489430fa; the [actual accepted-input supplement](https://github.com/atulsrivas1/equity-features/issues/475#issuecomment-6274659450) superseded its planning-time pending140 snapshot. Actual51-assertion Ready-input review8c653497 accepted all five predecessor Done/current source/receipt/package/channel inputs. Actual Ready was read back, then Atul assigned/In progress read back. This implementation audits documentation/evidence only; final head/CI/publication/actual main/acceptance/Released/Done remain required. [Qualification](../R17_ACCEPTANCE.md), [inventory](../R17_ACCEPTANCE_INPUTS.json) and [Ready review](r17-delivery/EQ141_READY_INPUT_PUBLIC_REVIEW.md).
+[EQ141 #475](https://github.com/atulsrivas1/equity-features/issues/475), E25/R17 milestone21;5provisional complexity points. The frozen6b81715 public pre-code plan passed separate conditional review489430fa; the [actual accepted-input supplement](https://github.com/atulsrivas1/equity-features/issues/475#issuecomment-6274659450) superseded its planning-time pending140 snapshot. Actual51-assertion Ready-input review8c653497 accepted all five predecessor Done/current source/receipt/package/channel inputs. Actual Ready was read back, then Atul assigned/In progress read back. This implementation audits documentation/evidence only; final head/CI/publication/actual main/acceptance/Released/Done remain required. [Qualification](../R17_ACCEPTANCE.md), [inventory](../releases/R17/R17_ACCEPTANCE_INPUTS.json) and [Ready review](r17-delivery/EQ141_READY_INPUT_PUBLIC_REVIEW.md).
 
 ## Outcome and boundaries
 
@@ -38,7 +38,7 @@ Preserve recorded numerical-fixture corrections, generated-source closure failur
 
 ## Documentation and release work
 
-Planned files: docs/stories/EQ-141_PLAN.md, docs/R17_ACCEPTANCE.md, docs/R17_ACCEPTANCE_INPUTS.json, R17 release/test/handoff/input documents, README, CHANGELOG, installation/compatibility/intraday API/example guidance as relevant, evidence-linked lessons/project knowledge/session handoff and public issue/epic/milestone records. Record no-impact decisions for formulas/schema/core39/default dispatch/executors/service integration/versioning. Keep historical checkpoints marked as historical; actual status comes from GitHub.
+Planned files: docs/stories/EQ-141_PLAN.md, docs/R17_ACCEPTANCE.md, docs/releases/R17/R17_ACCEPTANCE_INPUTS.json, R17 release/test/handoff/input documents, README, CHANGELOG, installation/compatibility/intraday API/example guidance as relevant, evidence-linked lessons/project knowledge/session handoff and public issue/epic/milestone records. Record no-impact decisions for formulas/schema/core39/default dispatch/executors/service integration/versioning. Keep historical checkpoints marked as historical; actual status comes from GitHub.
 
 ## Entry, exit and exact resume
 

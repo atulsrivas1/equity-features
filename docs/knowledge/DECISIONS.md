@@ -16,7 +16,7 @@ Owner requests R13 implementation after [GOV025 accepted](https://github.com/atu
 
 ## October16,2026 — prepare R13 after R12 review
 
-Owner requests R12 review and R13 handoff under [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421). Preparation only preserves original116–120/24points and conditional witnesses; adds3governance points. No execution, threshold acceptance, outreach or remote witness inferred. [R13 gates](../R13_RELEASE_PLAN.md). Owner separately authorizes local review of concrete PR422/GOV025 planning and publication only; no R13 implementation grant or execution selection follows. Prior accepted receipts and scope decisions remain.
+Owner requests R12 review and R13 handoff under [GOV025#421](https://github.com/atulsrivas1/equity-features/issues/421). Preparation only preserves original116–120/24points and conditional witnesses; adds3governance points. No execution, threshold acceptance, outreach or remote witness inferred. [R13 gates](../releases/R13/R13_RELEASE_PLAN.md). Owner separately authorizes local review of concrete PR422/GOV025 planning and publication only; no R13 implementation grant or execution selection follows. Prior accepted receipts and scope decisions remain.
 
 ## EQ112 changing-ratios coverage correction
 
@@ -32,7 +32,7 @@ Adjusted-snapshot availability lacks the required original proof in reused Adjus
 
 ## Owner selects original R12 after R11 delivery — October16,2026
 
-R12 preparation/execution is selected via [GOV024#414](https://github.com/atulsrivas1/equity-features/issues/414), preserving original EQ111–115/31points and accepted releases. Reuse finite SessionSpec where probes demonstrate sufficiency; EQ111gap evidence and EQ112frozen mathematics precede any new contract/kernel. [Release](../R12_RELEASE_PLAN.md), [handoff](../R12_AUTONOMOUS_HANDOFF.md). Fresh R11 review found no new actionable issue. The owner explicitly authorized separate local review throughout R12, concretePR415/EQ111–115/necessary companion changes/final delivery. Completed exact review and all other gates remain preparation/acceptance requirements. No new runtime, market/provider/operational or later-release scope is inferred. Earlier unselected-R12 notes remain history.
+R12 preparation/execution is selected via [GOV024#414](https://github.com/atulsrivas1/equity-features/issues/414), preserving original EQ111–115/31points and accepted releases. Reuse finite SessionSpec where probes demonstrate sufficiency; EQ111gap evidence and EQ112frozen mathematics precede any new contract/kernel. [Release](../releases/R12/R12_RELEASE_PLAN.md), [handoff](../releases/R12/R12_AUTONOMOUS_HANDOFF.md). Fresh R11 review found no new actionable issue. The owner explicitly authorized separate local review throughout R12, concretePR415/EQ111–115/necessary companion changes/final delivery. Completed exact review and all other gates remain preparation/acceptance requirements. No new runtime, market/provider/operational or later-release scope is inferred. Earlier unselected-R12 notes remain history.
 
 ## EQ107 validate requests before classifying history — October15,2026
 
@@ -52,7 +52,7 @@ Freeze exact event domain/schema/canonicalization, explicit declaration/missing 
 
 ## Owner selection of R11 after fresh R10 review — October15,2026
 
-The owner requests R10 review, an R11 handoff and work on R11 in the current conversation. [Fresh review](../reviews/R10_POST_DELIVERY_REVIEW.md) found no blocking issue. [GOV023#406](https://github.com/atulsrivas1/equity-features/issues/406) prepares existing E15/EQ106–110 with original dependencies/31provisional runtime points plus3governance points. No new runtime scope, session or automation is created. [Handoff](../R11_AUTONOMOUS_HANDOFF.md) selects one-story pull and local stdio/private synthetic loopback qualification; actual new hosted deployment remains conditional on concrete permission/proof. The owner subsequently explicitly authorized separate local review throughout R11 for the concrete PR407 handoff, all stories/necessary worker-MCP changes and final delivery; CODE_REVIEW.md records this actual decision without claiming completed review. Preserve corrected agent-evidence design and accepted numerical/receipt/service ownership. R12+ remains unselected.
+The owner requests R10 review, an R11 handoff and work on R11 in the current conversation. [Fresh review](../reviews/R10_POST_DELIVERY_REVIEW.md) found no blocking issue. [GOV023#406](https://github.com/atulsrivas1/equity-features/issues/406) prepares existing E15/EQ106–110 with original dependencies/31provisional runtime points plus3governance points. No new runtime scope, session or automation is created. [Handoff](../releases/R11/R11_AUTONOMOUS_HANDOFF.md) selects one-story pull and local stdio/private synthetic loopback qualification; actual new hosted deployment remains conditional on concrete permission/proof. The owner subsequently explicitly authorized separate local review throughout R11 for the concrete PR407 handoff, all stories/necessary worker-MCP changes and final delivery; CODE_REVIEW.md records this actual decision without claiming completed review. Preserve corrected agent-evidence design and accepted numerical/receipt/service ownership. R12+ remains unselected.
 
 ## R8 execution and conditional acceleration — October14
 
@@ -60,7 +60,7 @@ Owner requests remaining original R8 delivery and explicitly authorizes local se
 
 ## R6 scope closure selected by owner — October 8, 2026
 
-Owner explicitly moves Databento/Massive to Backlog and requests R6 closure. [GOV019](https://github.com/atulsrivas1/equity-features/issues/354)/[decision](../decisions/R6_SCOPE_CLOSURE.md)/[revised acceptance](../R6_ACCEPTANCE.md) retain four accepted runtime stories and defer dependent composition/provider-aggregate qualification. All four deferred issues stay open without R6 milestone/future release assignment; original criteria/source/tests/draft PRs remain preserved. This supersedes the all-eight R6 mission, not its unmet provider criteria. Actual closure follows reviewed publication/readback; R7 provider dependencies and private rights/admission remain separate. No R7 implementation is started by this decision.
+Owner explicitly moves Databento/Massive to Backlog and requests R6 closure. [GOV019](https://github.com/atulsrivas1/equity-features/issues/354)/[decision](../decisions/R6_SCOPE_CLOSURE.md)/[revised acceptance](../releases/R6/R6_ACCEPTANCE.md) retain four accepted runtime stories and defer dependent composition/provider-aggregate qualification. All four deferred issues stay open without R6 milestone/future release assignment; original criteria/source/tests/draft PRs remain preserved. This supersedes the all-eight R6 mission, not its unmet provider criteria. Actual closure follows reviewed publication/readback; R7 provider dependencies and private rights/admission remain separate. No R7 implementation is started by this decision.
 
 # Decision history
 

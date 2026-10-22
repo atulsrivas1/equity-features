@@ -1,6 +1,6 @@
 ## R17 current component compatibility
 
-The [six qualified distributions](R17_ACCEPTANCE_INPUTS.json) preserve core/contracts0.0.4a4/core39, I/O contracts/SDK0.1.0a2, intraday0.1.0a3 and workers0.1.0a14. Own intraday discovery has eight batch IDs; update/restore/merge remain false, replay is full supplied-history recalculation. Original daily APIs/config/discovery and worker default dispatch are unchanged. Explicit supplied callbacks add no a14 service/client/MCP migration. No public schema/algorithm/math policy or package version changes in the EQ141 audit. [Qualified installation forms/skip ledgers](R17_ACCEPTANCE.md), [installation/migration](INSTALLING.md), [API](api/INTRADAY.md). Historical version/source snapshots below retain their exact original evidence; direct-study percentages are not whole-worker performance.
+The [six qualified distributions](releases/R17/R17_ACCEPTANCE_INPUTS.json) preserve core/contracts0.0.4a4/core39, I/O contracts/SDK0.1.0a2, intraday0.1.0a3 and workers0.1.0a14. Own intraday discovery has eight batch IDs; update/restore/merge remain false, replay is full supplied-history recalculation. Original daily APIs/config/discovery and worker default dispatch are unchanged. Explicit supplied callbacks add no a14 service/client/MCP migration. No public schema/algorithm/math policy or package version changes in the EQ141 audit. [Qualified installation forms/skip ledgers](R17_ACCEPTANCE.md), [installation/migration](INSTALLING.md), [API](api/INTRADAY.md). Historical version/source snapshots below retain their exact original evidence; direct-study percentages are not whole-worker performance.
 
 ## Earlier checkpoints retained as history
 
@@ -44,7 +44,7 @@ At the October16,2026 implementation source freeze, EQ116 was In progress with a
 at main4ae1643b2c70892038cb1e76e9adfe5b4c97d5b4 passed actual54candidate/27main,
 both current OS artifacts and independent final delivery review.
 [EQ115/PR420](https://github.com/atulsrivas1/equity-features/pull/420) adds the
-[external supplied-week guide](CONTINUOUS_SUPPLIED_WEEK.md) and [R12 acceptance allocation](R12_ACCEPTANCE.md).
+[external supplied-week guide](CONTINUOUS_SUPPLIED_WEEK.md) and [R12 acceptance allocation](releases/R12/R12_ACCEPTANCE.md).
 Its live issue and [E16](https://github.com/atulsrivas1/equity-features/issues/212)
 record actual current qualification/acceptance; the source-freeze snapshot does
 not claim future installed CI or release completion.
@@ -118,7 +118,7 @@ Author qualification at5a154567562e7806ed00876f5f1ef45df1238c5e completed on Win
 
 ## R11 compatibility and migration
 
-[Aggregate receipt](R11_ACCEPTANCE.md) connects the accepted event/ledger/MCP/consumer APIs, exact supported experimental versions and current delivery evidence. EQ110 changes documentation only: accepted package versions, numerical algorithms, result/receipt/content/event codecs, fixed replay registry, dependencies, examples and qualification inputs stay unchanged. No migration or new handler is introduced. Optional declaration/light installations remain distinct from native integration forms. Retain complete original producer/quality/context bytes and explicit unavailable/unknown states. The reference-only MCP explanation does not become input-content verification when the external consumer separately verifies its supplied batch.
+[Aggregate receipt](releases/R11/R11_ACCEPTANCE.md) connects the accepted event/ledger/MCP/consumer APIs, exact supported experimental versions and current delivery evidence. EQ110 changes documentation only: accepted package versions, numerical algorithms, result/receipt/content/event codecs, fixed replay registry, dependencies, examples and qualification inputs stay unchanged. No migration or new handler is introduced. Optional declaration/light installations remain distinct from native integration forms. Retain complete original producer/quality/context bytes and explicit unavailable/unknown states. The reference-only MCP explanation does not become input-content verification when the external consumer separately verifies its supplied batch.
 
 ## Historical scoped notes
 
@@ -150,7 +150,7 @@ New optional agent-evidence0.1.0a1 source candidate depends inward only on exact
 
 ## EQ105 source qualification boundary
 
-EQ105 changes no accepted package/version/math/schema/codec/receipt or replay profile. New private r10-measurement:1 JSON is outer qualification data, never a library decoder/input or source authentication. Fourpure/fullwheel-sdistforms/currentbothOS qualification pending. [Guide](R10_CONSUMER_GUIDE.md).
+EQ105 changes no accepted package/version/math/schema/codec/receipt or replay profile. New private r10-measurement:1 JSON is outer qualification data, never a library decoder/input or source authentication. Fourpure/fullwheel-sdistforms/currentbothOS qualification pending. [Guide](releases/R10/R10_CONSUMER_GUIDE.md).
 
 ## EQ104 candidate compatibility
 
@@ -170,11 +170,11 @@ Diagnostics0.1.0a1 is an optional inward consumer of unchanged contracts0.0.4a4/
 
 ## R9 corrected-source final composition qualified — October15,2026
 
-[Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.
+[Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](releases/R9/R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.
 
 ## R9 final composition candidate
 
-[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
+[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](releases/R9/R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
 
 ## EQ099 standalone explanations candidate
 
@@ -200,7 +200,7 @@ New optional evidence0.1.0a1 targets CPython3.12/unchanged contracts0.0.4a4 and 
 
 Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.
 
-Final EQ092 source/docs/current-candidate/current-main release evidence and aggregate acceptance are recorded on [story104](https://github.com/atulsrivas1/equity-features/issues/104) and the [R8 evidence index](R8_ACCEPTANCE.md). GitHub reviewed source/finite-retention experimental CI artifacts are the channel. No new numerical API/schema/default, stable registry, provider or trading-profitability claim. Earlier candidate/preparation snapshots below are historical.
+Final EQ092 source/docs/current-candidate/current-main release evidence and aggregate acceptance are recorded on [story104](https://github.com/atulsrivas1/equity-features/issues/104) and the [R8 evidence index](releases/R8/R8_ACCEPTANCE.md). GitHub reviewed source/finite-retention experimental CI artifacts are the channel. No new numerical API/schema/default, stable registry, provider or trading-profitability claim. Earlier candidate/preparation snapshots below are historical.
 
 ## EQ092 chronological consumer candidate — October 14
 
@@ -232,7 +232,7 @@ Optional strategies0.1.0a1 binds contracts0.0.4a4/Python3.12 and accepts only th
 
 ## EQ130 release audit under qualification
 
-EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
+EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](releases/R4_1/R4_1_ACCEPTANCE.md) and [exact R5 resume](releases/R5/R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
 
 ## EQ129 corrected source qualification / final metadata
 
@@ -377,4 +377,4 @@ EQ054 optional0.1.0a6 adds [actual installed SDK conformance](api/DUCKDB_CONFORM
 
 EQ055 optional0.1.0a7 moves strict UTCns SQL parsing into a connection-local native exact-integer macro after real-source callback diagnostics. ASCII ISO guards/null/calendar/clock/fraction/int64bounds match Python mapping, including both int64 endpoints; Unicode-digit clock/fraction permissiveness is narrowed. [Methodology](api/DUCKDB_REAL_QUALIFICATION.md) records94source cases/strict7 and frozen private independent goldens; no current installed/private numerical acceptance yet. Core/math/schema/canonical identity/runtimepins remain unchanged; receipt binds actual adaptera7. Current installed SDK/CI/actualmain/fourfreshrealforms/review/publication/readback remain required.
 
-Current R4 qualification supersedes earlier preparation-only gate statements above: optional0.1.0a7 actual delivered forms pass94synthetic tests/30SDK16numerical and four additional private68/9/3forms, core invariance, native Windows/Linux synthetic CI. [Audit](R4_ACCEPTANCE.md) preserves a7 ASCII narrowing/source limits and localWindows private provenance. Runtime/core/schema/math/modes unchanged; final EQ056 publication/readback precedes closure.
+Current R4 qualification supersedes earlier preparation-only gate statements above: optional0.1.0a7 actual delivered forms pass94synthetic tests/30SDK16numerical and four additional private68/9/3forms, core invariance, native Windows/Linux synthetic CI. [Audit](releases/R4/R4_ACCEPTANCE.md) preserves a7 ASCII narrowing/source limits and localWindows private provenance. Runtime/core/schema/math/modes unchanged; final EQ056 publication/readback precedes closure.
