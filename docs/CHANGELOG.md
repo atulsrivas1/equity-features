@@ -1,3 +1,7 @@
+## EF1 supplied close reconciliation - library source, October 22, 2026
+
+Adds opt-in `reference_close` (EQ168 #508 library layer), comparing the exact EQ166 calculated close coefficient with a distinct supplied same-session close as exact-rational BPS, an inclusive exact tolerance verdict, the supplied decimal128 coefficient and a six-value state. EQ166 gains an internal shared selection helper with byte-identical published results. [Implementation and open points](ef1/CLOSE_RECONCILIATION_IMPLEMENTATION.md) and [API](api/EF1_REFERENCE_CLOSE.md) accompany this bounded source slice. Versions/default registry/shared contracts are unchanged; no whole-story, installed or release acceptance is claimed.
+
 ## EF1 regular first-trade price - source development, October 21, 2026
 
 Adds opt-in `regular_first_trade_price`, selecting the first original eligible ordinary regular trade before numerical availability, with an independent causal membership proof and one final exact-ratio float conversion. All122 full frozen results and159 input refusals pass author source checks; the17 worker/result controls remain separate. [Implementation and pending gates](ef1/REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md), [API](api/EF1_REGULAR_FIRST_TRADE_PRICE.md) and [synthetic example](../examples/ef1_regular_first_trade_price.py) accompany this bounded source slice. Versions/default registry/shared contracts are unchanged; no whole-story, installed or release acceptance is claimed.

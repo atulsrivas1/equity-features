@@ -44,6 +44,20 @@ def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
                                ("population_proof", DataKind.REFERENCE)))
         return (EF1Definition("session.regular.first_trade_price", ValueType.FLOAT64, "currency/share",
             requirements, "float(Fraction(first_eligible.price,10**scale)); original order before numeric availability"),)
+    if context["producer"] == "reference_close":
+        requirements = tuple(InputRequirement(role, "canonical:1", fields, kind, rule=rule) for role, fields, kind, rule in (
+            ("calendar_provenance", ("known_at_ns",), DataKind.REFERENCE, "fixed nullable role; causal supplied calendar"),
+            ("bars", ("known_at_ns",), DataKind.BAR, "fixed nullable role; independent causal regular completed-bar membership"),
+            ("population_proof", ("known_at_ns",), DataKind.REFERENCE, "fixed nullable role; independent causal regular completed-bar membership"),
+            ("authoritative_close", ("reference_id", "fact_kind", "effective_start_ns", "text", "price", "known_at_ns"), DataKind.REFERENCE,
+             "fixed nullable role; one supplied same-session close, never calculated or authenticated here")))
+        return tuple(EF1Definition("reference.close." + name, dtype, unit, requirements, formula) for name, dtype, unit, formula in (
+            ("absolute_difference_bps", ValueType.FLOAT64, "bps",
+             "float(Fraction(10000*|Pc-Ps|,Ps)); Ps supplied close denominator, Pc exact EQ166 close coefficient; one final conversion"),
+            ("comparison_state", ValueType.STRING, "state",
+             "closed vocabulary; reference_future > reference_invalid > reference_unavailable > calculated_unavailable > tolerance verdict"),
+            ("supplied_price", ValueType.DECIMAL128, "currency/share", "supplied same-session close coefficient at PriceUnit.scale"),
+            ("within_tolerance", ValueType.BOOL, "boolean", "10000*|Pc-Ps|*den <= num*Ps exact inclusive integer test")))
     if context["producer"] == "regular_bar_prices":
         requirements = tuple(InputRequirement(role, "canonical:1", ("known_at_ns",), kind,
             rule="fixed nullable role; independent causal regular completed-bar membership")

@@ -6,6 +6,7 @@ from dataclasses import replace
 from datetime import date, timedelta
 import hashlib
 import json
+from math import gcd
 from types import MappingProxyType
 from typing import Any, NoReturn, cast
 
@@ -154,6 +155,29 @@ def _clock_calendar(value: Any) -> None:
         fail(ErrorCode.INVALID_CONFIG, "actual regular phase required")
 
 
+CLOSE_POLICY = "ef1-close-compare1"
+
+
+def _close_selection(selection: Any) -> None:
+    """Closed close-reconciliation selection; the tolerance is an exact reduced non-negative rational."""
+    if type(selection) is not dict or set(selection) != {
+            "phase_profile", "sampling", "policy_version", "scope_id", "tolerance_bps_num", "tolerance_bps_den"}:
+        fail(ErrorCode.INVALID_CONFIG, "exact close-reconciliation selection required")
+    if selection["phase_profile"] != "regular_no_auctions1" or selection["sampling"] != "completed_bar_close":
+        fail(ErrorCode.INVALID_CONFIG, "exact regular completed-bar profile required")
+    if type(selection["policy_version"]) is not str:
+        fail(ErrorCode.INVALID_CONFIG, "exact comparison policy label required")
+    if selection["policy_version"] != CLOSE_POLICY:
+        fail(ErrorCode.INCOMPATIBLE_VERSION, "unsupported close comparison policy")
+    label(selection["scope_id"])
+    num, den = selection["tolerance_bps_num"], selection["tolerance_bps_den"]
+    # type() rejects bool and any non-integer scalar; there is no default tolerance.
+    if type(num) is not int or type(den) is not int or not 0 <= num <= _I64_MAX or not 1 <= den <= _I64_MAX:
+        fail(ErrorCode.INVALID_CONFIG, "exact bounded integer tolerance pair required")
+    if gcd(num, den) != 1 or (num == 0 and den != 1):
+        fail(ErrorCode.INVALID_CONFIG, "reduced tolerance fraction required")
+
+
 def _parse(text: object) -> dict[str, Any]:
     if type(text) is not str:
         fail(ErrorCode.INVALID_CONFIG, "context must be an ASCII string")
@@ -221,6 +245,9 @@ def _parse(text: object) -> dict[str, Any]:
         if type(raw["selection"]) is not dict or raw["selection"] != {
                 "phase_profile": "regular_no_auctions1", "sampling": ("eligible_trade" if raw["producer"] == "regular_first_trade_price" else "completed_bar_close")}:
             fail(ErrorCode.INVALID_CONFIG, "exact regular completed-bar profile required")
+        _clock_calendar(raw["calendar"])
+    elif raw["producer"] == "reference_close":
+        _close_selection(raw["selection"])
         _clock_calendar(raw["calendar"])
     elif raw["producer"] in ("path_gap", "path_drive", "path_gap_endpoint"):
         selection = raw["selection"]
@@ -443,7 +470,7 @@ def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
                 fail(ErrorCode.OVERFLOW, "drive endpoint exceeds int64")
             if end > config.session.close_ns:
                 fail(ErrorCode.BOUNDS, "drive exceeds actual regular close")
-    if raw["producer"] in ("regular_bar_prices", "regular_first_trade_price"):
+    if raw["producer"] in ("regular_bar_prices", "regular_first_trade_price", "reference_close"):
         if type(config.price_unit) is not PriceUnit:
             fail(ErrorCode.INVALID_UNIT, "regular prices require explicit PriceUnit")
         if len(raw["calendar"]["sessions"]) != 1:
