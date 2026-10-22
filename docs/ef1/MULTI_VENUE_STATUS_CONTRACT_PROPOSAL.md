@@ -33,12 +33,12 @@ Instrument/session binding is the actual target entity and namespace, as for exi
 
 All rows of all present slots are validated even if irrelevant to C.
 
-- Population: id parses and its population_id and population_revision equal the context, else INCONSISTENT_IDENTITY (this is the conflicting-revision rule); interval end > start else BOUNDS; a publisher repeated within the batch is DUPLICATE (D14).
-- States, seeds, prefix, validity: epoch equals the context, else INCONSISTENT_IDENTITY (a reset is a new epoch; epochs never mix). Publisher must be a declared population member of any interval, else INCONSISTENT_IDENTITY (an unexpected publisher is never silently dropped; it is skipped only when the population slot is missing). Fact_kind/text/vocabulary closed, else INVALID_SCHEMA. Certificates and seeds need a finite interval with end > start, else BOUNDS; a state's optional end must exceed its start, else BOUNDS. Certificates bind P to the actual states input_id, else INCONSISTENT_IDENTITY.
-- Per (publisher, dimension) stream: semantic sequence strictly increasing (equal DUPLICATE, smaller INVALID_ORDER) and effective time nondecreasing (INVALID_ORDER). Sequence gaps alone prove nothing.
-- states, seed, prefix and validity batches must share one source_id and snapshot_id (the publisher-stream revision), else INCONSISTENT_IDENTITY. The population batch is a separate declaration and carries its revision in its ids.
-- More than one applicable seed, prefix certificate or validity certificate for a (publisher, dimension) is DUPLICATE regardless of knowledge, text agreement or ordering; no stitching or arbitration.
-- Slot count other than five is INVALID_SCHEMA; a precedence that is not a permutation of the closed trading vocabulary, or any malformed context, is INVALID_CONFIG (D15).
+- Population: id parses and its population_id and population_revision equal the context, else inconsistent_identity (this is the conflicting-revision rule); interval end > start else bounds; a publisher repeated within the batch is duplicate (D14).
+- States, seeds, prefix, validity: epoch equals the context, else inconsistent_identity (a reset is a new epoch; epochs never mix). Publisher must be a declared population member of any interval, else inconsistent_identity (an unexpected publisher is never silently dropped; it is skipped only when the population slot is missing). Fact_kind/text/vocabulary closed, else invalid_schema. Certificates and seeds need a finite interval with end > start, else bounds; a state's optional end must exceed its start, else bounds. Certificates bind P to the actual states input_id, else inconsistent_identity.
+- Per (publisher, dimension) stream: semantic sequence strictly increasing (equal duplicate, smaller invalid_order) and effective time nondecreasing (invalid_order). Sequence gaps alone prove nothing.
+- states, seed, prefix and validity batches must share one source_id and snapshot_id (the publisher-stream revision), else inconsistent_identity. The population batch is a separate declaration and carries its revision in its ids.
+- More than one applicable seed, prefix certificate or validity certificate for a (publisher, dimension) is duplicate regardless of knowledge, text agreement or ordering; no stitching or arbitration.
+- Slot count other than five is invalid_schema; a precedence that is not a permutation of the closed trading vocabulary, or any malformed context, is invalid_config (D15).
 
 ## Population and per-fact semantics
 
@@ -48,7 +48,7 @@ All rows of all present slots are validated even if irrelevant to C.
 
 1. The applicable seed row selects semantic sequence s0. If none is applicable the initialization is absent: finding `absent_input`. The first delivered row is never inferred. The seed row's own known_at is checked: null -> unknown_availability, > K -> future_knowledge.
 2. The seed's state row must exist with effective time < C, else absent_input. Transitions are the stream's rows from s0 with effective time t < C (events at C or later are excluded; irrelevant future-effective rows, even with large known_at, create no failure). Each transition needs known_at nonnull and <= K (null -> unknown_availability; > K -> future_knowledge) in both known_at and reconstruction modes; reconstruction never makes unknown or future knowledge eligible. Rows before s0 are not consulted for state or knowledge.
-3. A states batch whose coverage is incomplete gives `incomplete_status_prefix` for every fact. A (p, d) with no prefix rows, or no validity rows, gives absent_input. The prefix certificate must satisfy start <= seed effective time and C <= end, else `incomplete_status_prefix`; its known_at is checked. A prefix batch or validity batch with incomplete coverage gives `incomplete_status_prefix`. The validity certificate must satisfy start <= C < end; its known_at is checked independently of everything else.
+3. A states batch whose coverage is incomplete gives `incomplete_status_prefix` for every fact. A (p, d) with no prefix rows, or no validity rows, gives absent_input. The prefix certificate must satisfy start <= the effective_start_ns of the applicable seed REFERENCE row (the seed state row's own time is not used; equality qualifies) and C <= end, else `incomplete_status_prefix`; its known_at is checked. If the prefix batch or the validity batch itself declares incomplete coverage, every fact gets `incomplete_status_prefix`. The validity certificate must satisfy start <= C < end; its known_at is checked independently of everything else.
 4. Only when no earlier finding exists for the fact (prefix and transitions prove the current event) is expiry evaluated: validity rows exist but none applicable, or the selected state's own end <= C -> `outside_effective_interval`.
 5. The current event is the last transition strictly before C. Its state is the closed text; its original clock is its effective_start_ns t; age = C - t. If max_age_ns is not null and age > max_age_ns the fact is **stale**: its clock t remains proved, its state is withheld (finding `stale_state`).
 
@@ -60,8 +60,8 @@ Let T = trading facts, Q = quoting facts, R = ssr facts over P; "all known" mean
 
 - `known_trading_count` (int64, publishers): if T is all known, the number with state `active`. Otherwise null.
 - `known_nontrading_count` (int64, publishers): if T is all known, the number with state `halted` or `closed` (so the two counts sum to N). Otherwise null. The mapping is D02.
-- `quoting_any` (bool): true if at least one known Q fact is `enabled`, even if others are unknown or stale (one positive determines an OR). Else false only if Q is all known (all `disabled`). Else null. An unknown publisher is never counted as a negative.
-- `restriction_any` (bool): same over R with positive `on`.
+- `quoting_any` (bool, unit boolean): true if at least one known Q fact is `enabled`, even if others are unknown or stale (one positive determines an OR). Else false only if Q is all known (all `disabled`). Else null. An unknown publisher is never counted as a negative.
+- `restriction_any` (bool, unit boolean): same over R with positive `on`.
 - `aggregate_state` (string, state): the policy rank of a state is its index in `precedence` (0 is highest). Let best be the highest-ranked state among known T. If T is all known, the value is best. Otherwise, if best exists and its rank is 0, the value is best (nothing can outrank it; **dominance**). Otherwise null. Ties between different states do not exist because the policy is a strict total order; ties between publishers with the same state are the same value.
 - `aggregate_reason` (string, reason), always available with quality 1/1: when `aggregate_state` is available it is `unanimous` (all known, one distinct state), `precedence_resolved` (all known, at least two distinct states) or `precedence_saturated` (dominance with unknown/stale others). When unavailable it is the first applicable item of the precedence `absent_population, incomplete_population, empty_population, absent_input, incomplete_status_prefix, unknown_availability, future_knowledge, outside_effective_interval, stale_state` over the population outcome or over the scalar findings of the non-known T facts (D11).
 - `latest_event_ns` (int64, utc_ns): over the declared clock population {(p, d): p in P, d in clock_dimensions} (M = N x number of dimensions), eligible = known or stale facts. If all M are eligible the value is the maximum original t. Otherwise, if the maximum eligible t equals C - 1, the value is that maximum (no current event can be at or after C). Otherwise null. C and K are only used for eligibility; query time is never a value. See D08.
@@ -76,11 +76,11 @@ Per output, quality status and reasons:
 - Population unavailable: absent_population -> missing_input [absent_input]; incomplete_population -> incomplete_coverage [governed_gap]; member known_at null/future -> missing_input [unknown_availability] and/or [future_knowledge]; expected null, observed 0.
 - A positive observed flag never creates a negative for other publishers; unknown, future and stale facts never become eligible by mode or by reconstruction. Missing publishers never reduce N.
 
-Evidence: bounded witnesses, `evidence_limit` 4, use `consumed`, event_ns = original effective_start_ns, original known_at and effective bounds, never C or query time: `aggregate_state` the first publisher in population order whose known T state equals the value; `quoting_any`/`restriction_any` (only when true) the first publisher with a known positive state; `latest_event_ns` the first (population order, then dimension lexical) fact whose t equals the value. Counts, false and unanimous bulk facts carry none; all inputs remain bound in full metadata (D12). Result inputs sort lexically by role; manifest order is the slot order.
+Evidence rows are emitted in exactly this order, omitting absent witnesses: aggregate_state, quoting_any, restriction_any, latest_event_ns. Bounded witnesses, `evidence_limit` 4, use `consumed`, event_ns = original effective_start_ns, original known_at and effective bounds, never C or query time: `aggregate_state` the first publisher in population order whose known T state equals the value; `quoting_any`/`restriction_any` (only when true) the first publisher with a known positive state; `latest_event_ns` the first (population order, then dimension lexical) fact whose t equals the value. Counts, false and unanimous bulk facts carry none; all inputs remain bound in full metadata (D12). Result inputs sort lexically by role; manifest order is the slot order.
 
 ## Units and timing
 
-All clocks are UTC integer nanoseconds (int64, utc_ns). Counts are int64 in `publishers`. Intervals are half-open [start, end); events at C are excluded; age = C - t via checked int64 subtraction (overflow is typed OVERFLOW). Exact integer arithmetic only; there is no rounding, no float and no private threshold. Unit strings are D10.
+All clocks are UTC integer nanoseconds (int64, utc_ns). Counts are int64 in `publishers`. Age equal to max_age_ns is not stale; stale only when age > max_age_ns. Intervals are half-open [start, end); events at C are excluded; age = C - t via checked int64 subtraction (overflow is typed overflow). Exact integer arithmetic only; there is no rounding, no float and no private threshold. Unit strings are D10.
 
 ## Layer responsibilities
 
@@ -94,7 +94,7 @@ No provider or venue acquisition; no inferred venue arbitration; no derivation o
 
 ## Independent fixtures
 
-The JSON holds 50 fixtures with full expanded rows, expected values, quality, evidence and 13 expected refusals. Expected results were typed by hand as literals; a throwaway stdlib-only evaluator of the mathematics above (importing nothing from the equity packages, library not used) agreed on every output, quality tuple and witness. Fixtures use policy_id `venue_precedence_v1` with synthetic precedence orders that are test data, not recommended orders. Default world: publishers A, B, C; entity SYN/X/S; epoch `e`; C = K = 20; every stream seeded at its first event with certificates covering [0,100).
+The JSON holds 55 fixtures with full expanded rows, expected values, quality, evidence and 13 expected refusals. Expected results were typed by hand as literals; a throwaway stdlib-only evaluator of the mathematics above (importing nothing from the equity packages, library not used) agreed on every output, quality tuple and witness. Fixtures use policy_id `venue_precedence_v1` with synthetic precedence orders that are test data, not recommended orders. Default world: publishers A, B, C; entity SYN/X/S; epoch `e`; C = K = 20; every stream seeded at its first event with certificates covering [0,100).
 
 | ID | Case | Expected |
 | --- | --- | --- |
@@ -135,20 +135,24 @@ The JSON holds 50 fixtures with full expanded rows, expected values, quality, ev
 | MV35 | clock_dimensions [trading,quoting]: max over 6 (publisher,dimension) clocks is 11 | state active / reason unanimous / trading 3 / latest 11 |
 | MV36 | C=K=50 with validity to 100: latest stays the original clock 9, never the query time | state active / reason unanimous / trading 3 / latest 9 |
 | MV37 | latest tie: B and C both at 9, witness is first in population order | state active / reason unanimous / trading 3 / latest 9 |
-| RF01 | duplicate semantic sequence in A trading stream | refusal DUPLICATE |
-| RF02 | publisher A declared twice in the population | refusal DUPLICATE |
-| RF03 | population row carries revision 2 while context selects revision 1 | refusal INCONSISTENT_IDENTITY |
-| RF04 | validity batch snapshot R2 conflicts with states snapshot R1 | refusal INCONSISTENT_IDENTITY |
-| RF05 | state rows for publisher Z, not in the declared population | refusal INCONSISTENT_IDENTITY |
-| RF06 | two applicable prefix certificates for (A,trading); knowledge never arbitrates | refusal DUPLICATE |
-| RF07 | A state row under epoch e0 while context epoch is e | refusal INCONSISTENT_IDENTITY |
-| RF08 | A semantic sequence decreases while time increases | refusal INVALID_ORDER |
-| RF09 | A state interval end 5 <= start 5 | refusal BOUNDS |
-| RF10 | policy precedence is not a permutation of the closed trading vocabulary | refusal INVALID_CONFIG |
-| RF11 | four slots supplied instead of exactly five | refusal INVALID_SCHEMA |
-| RF12 | population member interval end 0 <= start 0 | refusal BOUNDS |
-| RF13 | A trading state text 'enabled' outside the closed trading vocabulary | refusal INVALID_SCHEMA |
-
+| MV40 | equal-time seed: seed row start 3 equals prefix start 3 (state t=5 unused); certificate known_at 7 and 9 differ, both <=K | state active / reason unanimous / trading 3 / latest 5 |
+| MV41 | boundary: age 15 == max_age_ns 15 is not stale | state active / reason unanimous / trading 3 / latest 5 |
+| MV42 | boundary: age 15 > max_age_ns 14 is stale for every fact; stale clocks stay eligible | state None / reason stale_state / trading None / latest 5 |
+| MV43 | prefix start compares with the seed REFERENCE row start: seed row 3 < prefix start 4 although state t=5 >= 4 | state None / reason incomplete_status_prefix / trading None / latest None |
+| MV44 | K=8: B trading validity certificate known_at 9 > K is future knowledge; other facts known by 8 | state None / reason future_knowledge / trading None / latest None |
+| RF01 | duplicate semantic sequence in A trading stream | refusal duplicate |
+| RF02 | publisher A declared twice in the population | refusal duplicate |
+| RF03 | population row carries revision 2 while context selects revision 1 | refusal inconsistent_identity |
+| RF04 | validity batch snapshot R2 conflicts with states snapshot R1 | refusal inconsistent_identity |
+| RF05 | state rows for publisher Z, not in the declared population | refusal inconsistent_identity |
+| RF06 | two applicable prefix certificates for (A,trading); knowledge never arbitrates | refusal duplicate |
+| RF07 | A state row under epoch e0 while context epoch is e | refusal inconsistent_identity |
+| RF08 | A semantic sequence decreases while time increases | refusal invalid_order |
+| RF09 | A state interval end 5 <= start 5 | refusal bounds |
+| RF10 | policy precedence is not a permutation of the closed trading vocabulary | refusal invalid_config |
+| RF11 | four slots supplied instead of exactly five | refusal invalid_schema |
+| RF12 | population member interval end 0 <= start 0 | refusal bounds |
+| RF13 | A trading state text 'enabled' outside the closed trading vocabulary | refusal invalid_schema |
 
 ## Coordinator decisions
 
@@ -163,19 +167,19 @@ Former questions D01 to D16 are decided (pending owner review); the references D
 - **D07**: Accepted: empty complete population gives not_applicable/empty_universe with null values.
 - **D08**: Accepted: latest_event_ns is included, with the clock population, stale-clock, expired-validity and C-1 saturation rules above.
 - **D09**: Accepted: seeds are REFERENCE rows (slot venue_seed); new mapping version ef1-venue-map1 and the new reference_id and fact_kind grammars.
-- **D10**: Accepted: unit strings publishers, bool and utc_ns, and the enlarged header ledger (45 plus 7 headers), are introduced by an additive EF1-only amendment with matching worker admission and version handling. The frozen CONTRACT.json bytes do not change.
+- **D10**: Accepted: unit strings publishers and utc_ns are new to the frozen header ledger (frozen units are boolean, ns, state, reason and others); bool headers use the frozen unit boolean. The enlarged header ledger (45 plus 7 headers) is introduced by an additive EF1-only amendment with matching worker admission and version handling. The frozen CONTRACT.json bytes do not change.
 - **D11**: Accepted: aggregate_reason labels and precedence form a closed new vocabulary.
 - **D12**: Accepted: evidence_limit 4.
 - **D13**: Accepted: a single max_age_ns for all dimensions.
-- **D14**: Accepted: a repeated publisher id within one population revision is rejected DUPLICATE; membership history needs distinct revisions.
+- **D14**: Accepted: a repeated publisher id within one population revision is rejected duplicate; membership history needs distinct revisions.
 - **D15**: Finalized as proposed: invalid_config for context and policy violations, invalid_schema for slot shape and closed vocabularies.
 - **D16**: Accepted: instrument/session binding is the target entity only.
-- **R01**: Explicit item for the independent reviewer: validate against the QualityRow rules that not_applicable with expected = observed = 0 (empty population) and expected = null with observed = 0 (unavailable population) are admissible. Not verified here.
+- **R01**: Closed by independent review: the quality tuples for empty and unavailable populations are admissible under the QualityRow rules.
 
 ## Coordinator freeze
 
-Per the coordinator, the contract is frozen as `ef1-multivenue-status1` v1 for implementation once this PR merges. This statement is the coordinator's; the author makes no acceptance claim, and numerical, artifact and release gates remain.
+Per the coordinator, the contract is frozen as `ef1-multivenue-status1` v1 for implementation once this PR merges, covering the 55 fixtures (42 results and 13 refusals). This statement is the coordinator's; the author makes no acceptance claim, and numerical, artifact and release gates remain.
 
 ## Verification status
 
-Not verified: no canonical dataclass construction, no config digest, no worker admission and no wire encoding were run; QualityRow behavior for empty and unavailable populations is unverified (R01). No library or test code was written or executed. Original EQ165 scope, the full EQ164 audit and all release gates remain.
+Not verified: no canonical dataclass construction, no config digest, no worker admission and no wire encoding were run; QualityRow behavior for empty and unavailable populations was cleared by independent review (R01). No library or test code was written or executed. Original EQ165 scope, the full EQ164 audit and all release gates remain.

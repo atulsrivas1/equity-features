@@ -63,14 +63,14 @@
   {
    "id": "session.venue_status.quoting_any",
    "dtype": "bool",
-   "unit": "bool",
+   "unit": "boolean",
    "scale": "none",
    "producer": "multivenue_status"
   },
   {
    "id": "session.venue_status.restriction_any",
    "dtype": "bool",
-   "unit": "bool",
+   "unit": "boolean",
    "scale": "none",
    "producer": "multivenue_status"
   }
@@ -78,7 +78,8 @@
  "header_rules": {
   "order": "lexicographic by feature_id",
   "complete_set": "all seven for the homogeneous producer; no subset, no combination",
-  "evidence_limit": 4
+  "evidence_limit": 4,
+  "evidence_order": "exactly: aggregate_state, quoting_any, restriction_any, latest_event_ns (omit absent witnesses)"
  },
  "selection_schema": {
   "exact_keys": [
@@ -155,7 +156,7 @@
    "reference_id": "vc1:D:B(epoch):B(publisher_id):B(P):B(certificate_id)",
    "fact_kind": "ef1.venue.prefix_complete",
    "text": "D",
-   "interval": "finite [start,end); applicable iff start<=seed original effective time and C<=end"
+   "interval": "finite [start,end); applicable iff start <= the applicable seed REFERENCE row's effective_start_ns and C <= end (the seed state row's own time is not used)"
   },
   {
    "slot": 5,
@@ -200,12 +201,12 @@
  },
  "quality_status_rule": "missing_input if any legacy reason in {absent_input, unknown_availability, future_knowledge, ineligible}; else incomplete_coverage if governed_gap; empty population: not_applicable/empty_universe",
  "refusal_codes": {
-  "duplicate": "DUPLICATE",
-  "conflicting revision, snapshot, epoch, unexpected publisher or population id": "INCONSISTENT_IDENTITY",
-  "order": "INVALID_ORDER",
-  "impossible interval": "BOUNDS",
-  "closed vocabulary or slot shape": "INVALID_SCHEMA",
-  "context or policy": "INVALID_CONFIG"
+  "duplicate": "duplicate",
+  "conflicting revision, snapshot, epoch, unexpected publisher or population id": "inconsistent_identity",
+  "order": "invalid_order",
+  "impossible interval": "bounds",
+  "closed vocabulary or slot shape": "invalid_schema",
+  "context or policy": "invalid_config"
  },
  "fixture_notation": {
   "slots": "expanded literal rows [reference_id, fact_kind, effective_start_ns, effective_end_ns, text, known_at_ns]; B() is unpadded base64url",
@@ -237,7 +238,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -433,7 +434,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -610,7 +611,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -1027,7 +1028,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -1482,7 +1483,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -1999,7 +2000,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -2516,7 +2517,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -2969,7 +2970,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -3486,7 +3487,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -4000,7 +4001,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -4221,7 +4222,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -4746,7 +4747,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -5263,7 +5264,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "closed",
@@ -5780,7 +5781,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "active",
@@ -6297,7 +6298,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "closed",
@@ -6558,7 +6559,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "closed",
@@ -6815,7 +6816,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -7333,7 +7334,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -7848,7 +7849,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -8363,7 +8364,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -8883,7 +8884,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -9408,7 +9409,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -9923,7 +9924,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -10438,7 +10439,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -10951,7 +10952,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -11464,7 +11465,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -11977,7 +11978,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -12510,7 +12511,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -13051,7 +13052,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -13592,7 +13593,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -14099,7 +14100,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -14622,7 +14623,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -15139,7 +15140,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -15400,7 +15401,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -15658,7 +15659,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -16175,7 +16176,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -16692,7 +16693,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -17193,6 +17194,2587 @@
    }
   },
   {
+   "id": "MV40",
+   "description": "equal-time seed: seed row start 3 equals prefix start 3 (state t=5 unused); certificate known_at 7 and 9 differ, both <=K",
+   "availability": {
+    "market_cutoff_ns": 20,
+    "knowledge_cutoff_ns": 20,
+    "mode": "known_at"
+   },
+   "context_selection": {
+    "clock_dimensions": [
+     "trading"
+    ],
+    "epoch": "e",
+    "max_age_ns": null,
+    "population_id": "P",
+    "population_revision": "1",
+    "state_policy": {
+     "policy_id": "FP",
+     "policy_version": "1",
+     "precedence": [
+      "halted",
+      "active",
+      "closed"
+     ]
+    }
+   },
+   "slots": {
+    "venue_population": {
+     "input_id": "vpop",
+     "source_id": "POPSRC",
+     "snapshot_id": "PR1",
+     "rows": 3,
+     "coverage": {
+      "expected": 3,
+      "observed": 3,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vp1:UA:MQ:QQ",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qg",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qw",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ]
+     ]
+    },
+    "venue_seed": {
+     "input_id": "vsd",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vs1:q:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:s:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       3,
+       100,
+       "t",
+       0
+      ]
+     ]
+    },
+    "venue_states": {
+     "input_id": "vst",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "v1:q:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:s:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:t:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ]
+     ]
+    },
+    "venue_prefix": {
+     "input_id": "vpf",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       3,
+       100,
+       "t",
+       7
+      ]
+     ]
+    },
+    "venue_validity": {
+     "input_id": "vvl",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       9
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    }
+   },
+   "slot_count": 5,
+   "expected": {
+    "outputs": {
+     "aggregate_reason": {
+      "value": "unanimous",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "aggregate_state": {
+      "value": "active",
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     },
+     "known_nontrading_count": {
+      "value": 0,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     },
+     "known_trading_count": {
+      "value": 3,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     },
+     "latest_event_ns": {
+      "value": 5,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     },
+     "quoting_any": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "restriction_any": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     }
+    },
+    "evidence": [
+     {
+      "output": "aggregate_state",
+      "publisher": "A",
+      "dimension": "trading"
+     },
+     {
+      "output": "quoting_any",
+      "publisher": "A",
+      "dimension": "quoting"
+     },
+     {
+      "output": "latest_event_ns",
+      "publisher": "A",
+      "dimension": "trading"
+     }
+    ]
+   }
+  },
+  {
+   "id": "MV41",
+   "description": "boundary: age 15 == max_age_ns 15 is not stale",
+   "availability": {
+    "market_cutoff_ns": 20,
+    "knowledge_cutoff_ns": 20,
+    "mode": "known_at"
+   },
+   "context_selection": {
+    "clock_dimensions": [
+     "trading"
+    ],
+    "epoch": "e",
+    "max_age_ns": 15,
+    "population_id": "P",
+    "population_revision": "1",
+    "state_policy": {
+     "policy_id": "FP",
+     "policy_version": "1",
+     "precedence": [
+      "halted",
+      "active",
+      "closed"
+     ]
+    }
+   },
+   "slots": {
+    "venue_population": {
+     "input_id": "vpop",
+     "source_id": "POPSRC",
+     "snapshot_id": "PR1",
+     "rows": 3,
+     "coverage": {
+      "expected": 3,
+      "observed": 3,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vp1:UA:MQ:QQ",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qg",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qw",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ]
+     ]
+    },
+    "venue_seed": {
+     "input_id": "vsd",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vs1:q:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:s:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:t:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    },
+    "venue_states": {
+     "input_id": "vst",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "v1:q:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:s:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:t:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ]
+     ]
+    },
+    "venue_prefix": {
+     "input_id": "vpf",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    },
+    "venue_validity": {
+     "input_id": "vvl",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    }
+   },
+   "slot_count": 5,
+   "expected": {
+    "outputs": {
+     "aggregate_reason": {
+      "value": "unanimous",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "aggregate_state": {
+      "value": "active",
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     },
+     "known_nontrading_count": {
+      "value": 0,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     },
+     "known_trading_count": {
+      "value": 3,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     },
+     "latest_event_ns": {
+      "value": 5,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     },
+     "quoting_any": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "restriction_any": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     }
+    },
+    "evidence": [
+     {
+      "output": "aggregate_state",
+      "publisher": "A",
+      "dimension": "trading"
+     },
+     {
+      "output": "quoting_any",
+      "publisher": "A",
+      "dimension": "quoting"
+     },
+     {
+      "output": "latest_event_ns",
+      "publisher": "A",
+      "dimension": "trading"
+     }
+    ]
+   }
+  },
+  {
+   "id": "MV42",
+   "description": "boundary: age 15 > max_age_ns 14 is stale for every fact; stale clocks stay eligible",
+   "availability": {
+    "market_cutoff_ns": 20,
+    "knowledge_cutoff_ns": 20,
+    "mode": "known_at"
+   },
+   "context_selection": {
+    "clock_dimensions": [
+     "trading"
+    ],
+    "epoch": "e",
+    "max_age_ns": 14,
+    "population_id": "P",
+    "population_revision": "1",
+    "state_policy": {
+     "policy_id": "FP",
+     "policy_version": "1",
+     "precedence": [
+      "halted",
+      "active",
+      "closed"
+     ]
+    }
+   },
+   "slots": {
+    "venue_population": {
+     "input_id": "vpop",
+     "source_id": "POPSRC",
+     "snapshot_id": "PR1",
+     "rows": 3,
+     "coverage": {
+      "expected": 3,
+      "observed": 3,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vp1:UA:MQ:QQ",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qg",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qw",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ]
+     ]
+    },
+    "venue_seed": {
+     "input_id": "vsd",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vs1:q:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:s:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:t:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    },
+    "venue_states": {
+     "input_id": "vst",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "v1:q:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:s:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:t:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ]
+     ]
+    },
+    "venue_prefix": {
+     "input_id": "vpf",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    },
+    "venue_validity": {
+     "input_id": "vvl",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    }
+   },
+   "slot_count": 5,
+   "expected": {
+    "outputs": {
+     "aggregate_reason": {
+      "value": "stale_state",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "aggregate_state": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 3,
+      "observed": 0
+     },
+     "known_nontrading_count": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 3,
+      "observed": 0
+     },
+     "known_trading_count": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 3,
+      "observed": 0
+     },
+     "latest_event_ns": {
+      "value": 5,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     },
+     "quoting_any": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 3,
+      "observed": 0
+     },
+     "restriction_any": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 3,
+      "observed": 0
+     }
+    },
+    "evidence": [
+     {
+      "output": "latest_event_ns",
+      "publisher": "A",
+      "dimension": "trading"
+     }
+    ]
+   }
+  },
+  {
+   "id": "MV43",
+   "description": "prefix start compares with the seed REFERENCE row start: seed row 3 < prefix start 4 although state t=5 >= 4",
+   "availability": {
+    "market_cutoff_ns": 20,
+    "knowledge_cutoff_ns": 20,
+    "mode": "known_at"
+   },
+   "context_selection": {
+    "clock_dimensions": [
+     "trading"
+    ],
+    "epoch": "e",
+    "max_age_ns": null,
+    "population_id": "P",
+    "population_revision": "1",
+    "state_policy": {
+     "policy_id": "FP",
+     "policy_version": "1",
+     "precedence": [
+      "halted",
+      "active",
+      "closed"
+     ]
+    }
+   },
+   "slots": {
+    "venue_population": {
+     "input_id": "vpop",
+     "source_id": "POPSRC",
+     "snapshot_id": "PR1",
+     "rows": 3,
+     "coverage": {
+      "expected": 3,
+      "observed": 3,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vp1:UA:MQ:QQ",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qg",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qw",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ]
+     ]
+    },
+    "venue_seed": {
+     "input_id": "vsd",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vs1:q:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:s:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       3,
+       100,
+       "t",
+       0
+      ]
+     ]
+    },
+    "venue_states": {
+     "input_id": "vst",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "v1:q:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:s:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:t:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ]
+     ]
+    },
+    "venue_prefix": {
+     "input_id": "vpf",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       4,
+       100,
+       "t",
+       0
+      ]
+     ]
+    },
+    "venue_validity": {
+     "input_id": "vvl",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    }
+   },
+   "slot_count": 5,
+   "expected": {
+    "outputs": {
+     "aggregate_reason": {
+      "value": "incomplete_status_prefix",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "aggregate_state": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 3,
+      "observed": 2
+     },
+     "known_nontrading_count": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 3,
+      "observed": 2
+     },
+     "known_trading_count": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 3,
+      "observed": 2
+     },
+     "latest_event_ns": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 3,
+      "observed": 2
+     },
+     "quoting_any": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "restriction_any": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     }
+    },
+    "evidence": [
+     {
+      "output": "quoting_any",
+      "publisher": "A",
+      "dimension": "quoting"
+     }
+    ]
+   }
+  },
+  {
+   "id": "MV44",
+   "description": "K=8: B trading validity certificate known_at 9 > K is future knowledge; other facts known by 8",
+   "availability": {
+    "market_cutoff_ns": 20,
+    "knowledge_cutoff_ns": 8,
+    "mode": "known_at"
+   },
+   "context_selection": {
+    "clock_dimensions": [
+     "trading"
+    ],
+    "epoch": "e",
+    "max_age_ns": null,
+    "population_id": "P",
+    "population_revision": "1",
+    "state_policy": {
+     "policy_id": "FP",
+     "policy_version": "1",
+     "precedence": [
+      "halted",
+      "active",
+      "closed"
+     ]
+    }
+   },
+   "slots": {
+    "venue_population": {
+     "input_id": "vpop",
+     "source_id": "POPSRC",
+     "snapshot_id": "PR1",
+     "rows": 3,
+     "coverage": {
+      "expected": 3,
+      "observed": 3,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vp1:UA:MQ:QQ",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qg",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ],
+      [
+       "vp1:UA:MQ:Qw",
+       "ef1.venue.population_member",
+       0,
+       100,
+       "member",
+       0
+      ]
+     ]
+    },
+    "venue_seed": {
+     "input_id": "vsd",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vs1:q:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:q:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vs1:s:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:s:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vs1:t:ZQ:QQ:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qg:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vs1:t:ZQ:Qw:0000000000000000000",
+       "ef1.venue.seed",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    },
+    "venue_states": {
+     "input_id": "vst",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "v1:q:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:q:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.quoting",
+       5,
+       null,
+       "enabled",
+       5
+      ],
+      [
+       "v1:s:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:s:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.ssr",
+       5,
+       null,
+       "off",
+       5
+      ],
+      [
+       "v1:t:ZQ:QQ:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qg:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ],
+      [
+       "v1:t:ZQ:Qw:0000000000000000000:ZXYw",
+       "ef1.venue.state.trading",
+       5,
+       null,
+       "active",
+       5
+      ]
+     ]
+    },
+    "venue_prefix": {
+     "input_id": "vpf",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:cHJlZjA",
+       "ef1.venue.prefix_complete",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    },
+    "venue_validity": {
+     "input_id": "vvl",
+     "source_id": "F",
+     "snapshot_id": "R1",
+     "rows": 9,
+     "coverage": {
+      "expected": 9,
+      "observed": 9,
+      "complete": true
+     },
+     "columns": [
+      "reference_id",
+      "fact_kind",
+      "effective_start_ns",
+      "effective_end_ns",
+      "text",
+      "known_at_ns"
+     ],
+     "rows_data": [
+      [
+       "vc1:q:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:q:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "q",
+       0
+      ],
+      [
+       "vc1:s:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:s:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "s",
+       0
+      ],
+      [
+       "vc1:t:ZQ:QQ:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ],
+      [
+       "vc1:t:ZQ:Qg:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       9
+      ],
+      [
+       "vc1:t:ZQ:Qw:dnN0:dmFsaWQw",
+       "ef1.venue.validity",
+       0,
+       100,
+       "t",
+       0
+      ]
+     ]
+    }
+   },
+   "slot_count": 5,
+   "expected": {
+    "outputs": {
+     "aggregate_reason": {
+      "value": "future_knowledge",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "aggregate_state": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 3,
+      "observed": 2
+     },
+     "known_nontrading_count": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 3,
+      "observed": 2
+     },
+     "known_trading_count": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 3,
+      "observed": 2
+     },
+     "latest_event_ns": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 3,
+      "observed": 2
+     },
+     "quoting_any": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "restriction_any": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3
+     }
+    },
+    "evidence": [
+     {
+      "output": "quoting_any",
+      "publisher": "A",
+      "dimension": "quoting"
+     }
+    ]
+   }
+  },
+  {
    "id": "RF01",
    "description": "duplicate semantic sequence in A trading stream",
    "availability": {
@@ -17209,7 +19791,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -17675,7 +20257,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -18133,7 +20715,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -18583,7 +21165,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -19033,7 +21615,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -19499,7 +22081,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -19816,6 +22398,14 @@
        0
       ],
       [
+       "vc1:t:ZQ:QQ:dnN0:cHJlZjE",
+       "ef1.venue.prefix_complete",
+       0,
+       90,
+       "t",
+       99
+      ],
+      [
        "vc1:t:ZQ:Qg:dnN0:cHJlZjA",
        "ef1.venue.prefix_complete",
        0,
@@ -19830,14 +22420,6 @@
        100,
        "t",
        0
-      ],
-      [
-       "vc1:t:ZQ:QQ:dnN0:cHJlZjE",
-       "ef1.venue.prefix_complete",
-       2,
-       90,
-       "t",
-       99
       ]
      ]
     },
@@ -19957,7 +22539,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -20407,7 +22989,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -20865,7 +23447,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -21315,7 +23897,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -21765,7 +24347,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -22215,7 +24797,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -22665,7 +25247,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "venue_precedence_v1",
+     "policy_id": "FP",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -23138,7 +25720,7 @@
   },
   {
    "id": "D10",
-   "text": "Accepted: unit strings publishers, bool and utc_ns, and the enlarged header ledger (45 plus 7 headers), are introduced by an additive EF1-only amendment with matching worker admission and version handling. The frozen CONTRACT.json bytes do not change."
+   "text": "Accepted: unit strings publishers and utc_ns are new to the frozen header ledger (frozen units are boolean, ns, state, reason and others); bool headers use the frozen unit boolean. The enlarged header ledger (45 plus 7 headers) is introduced by an additive EF1-only amendment with matching worker admission and version handling. The frozen CONTRACT.json bytes do not change."
   },
   {
    "id": "D11",
@@ -23166,7 +25748,7 @@
   },
   {
    "id": "R01",
-   "text": "Explicit item for the independent reviewer: validate against the QualityRow rules that not_applicable with expected = observed = 0 (empty population) and expected = null with observed = 0 (unavailable population) are admissible. Not verified here."
+   "text": "Closed by independent review: the quality tuples for empty and unavailable populations are admissible under the QualityRow rules."
   }
  ],
  "policy_vocabulary": {
