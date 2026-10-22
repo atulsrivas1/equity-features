@@ -1,0 +1,4209 @@
+{
+ "proposal_version": "ef1-close-reconcile-proposal1",
+ "status": "PROPOSAL ONLY: not reviewed, not frozen, not accepted; no implementation admitted",
+ "story": "EQ-168 #508 (EF1) supporting EQ-212 #570 and EQ-213 #571",
+ "evidence_kind": "documentation and hand-derived expected values; nothing executed against the library",
+ "frozen_contract_ref": "docs/ef1/CONTRACT.json ef1-contract1 is read-only and unchanged; this packet is an additive proposal",
+ "producer": {
+  "name": "reference_close",
+  "config_identity": "ef1.reference_close",
+  "algorithm_version": "v1",
+  "schema_version": "1",
+  "status": "OPEN O5: producer name and additive amendment to the ef1-contract1 producer set"
+ },
+ "headers": [
+  {
+   "id": "reference.close.absolute_difference_bps",
+   "dtype": "float64",
+   "unit": "bps",
+   "scale": "none",
+   "producer": "reference_close"
+  },
+  {
+   "id": "reference.close.comparison_state",
+   "dtype": "string",
+   "unit": "state",
+   "scale": "none",
+   "producer": "reference_close"
+  },
+  {
+   "id": "reference.close.supplied_price",
+   "dtype": "decimal128",
+   "unit": "currency/share",
+   "scale": "retained integer coefficient at ConfigSpec.price_unit.scale (OPEN O2: decimal128 vs float64)",
+   "producer": "reference_close"
+  },
+  {
+   "id": "reference.close.within_tolerance",
+   "dtype": "bool",
+   "unit": "boolean",
+   "scale": "none",
+   "producer": "reference_close"
+  }
+ ],
+ "header_order": "lexicographic by feature_id; complete fixed set per result; version v1",
+ "comparison_state_vocabulary": [
+  "calculated_unavailable",
+  "outside_tolerance",
+  "reference_future",
+  "reference_invalid",
+  "reference_unavailable",
+  "within_tolerance"
+ ],
+ "comparison_state_precedence": [
+  "reference_future",
+  "reference_invalid",
+  "reference_unavailable",
+  "calculated_unavailable",
+  "outside_tolerance|within_tolerance"
+ ],
+ "context": {
+  "parameter": "ef1_context_json",
+  "top_level_exact_keys": [
+   "version",
+   "producer",
+   "calendar",
+   "selection"
+  ],
+  "version": "ef1-context1",
+  "producer": "reference_close",
+  "calendar": "required, target-only, identical schema and proof as regular_bar_prices",
+  "selection_exact_keys": [
+   "phase_profile",
+   "sampling",
+   "policy_version",
+   "scope_id",
+   "tolerance_bps_num",
+   "tolerance_bps_den"
+  ],
+  "selection_values": {
+   "phase_profile": "regular_no_auctions1",
+   "sampling": "completed_bar_close",
+   "policy_version": "ef1-close-compare1",
+   "scope_id": "nonblank label <=128 codepoints, ASCII-safe",
+   "tolerance_bps_num": "exact JSON integer 0..2^63-1",
+   "tolerance_bps_den": "exact JSON integer 1..2^63-1",
+   "tolerance_reduced_form": "gcd(num,den)=1; num=0 requires den=1"
+  },
+  "no_default": "tolerance_bps_num/den and policy_version are required; no private, symbol-specific or default threshold"
+ },
+ "roles": [
+  {
+   "role": "calendar_provenance",
+   "kind": "reference",
+   "nullable": true,
+   "contract": "unchanged regular_bar_prices role"
+  },
+  {
+   "role": "bars",
+   "kind": "bar",
+   "nullable": true,
+   "contract": "unchanged regular_bar_prices role"
+  },
+  {
+   "role": "population_proof",
+   "kind": "reference",
+   "nullable": true,
+   "contract": "unchanged regular_bar_prices role (ef1.regular_bar.population.v1)"
+  },
+  {
+   "role": "authoritative_close",
+   "kind": "reference",
+   "nullable": true,
+   "contract": "new: see authoritative_close_schema"
+  }
+ ],
+ "slot_order": [
+  "calendar_provenance",
+  "bars",
+  "population_proof",
+  "authoritative_close"
+ ],
+ "authoritative_close_schema": {
+  "columns": [
+   {
+    "name": "instrument_id",
+    "dtype": "string",
+    "rule": "equals target entity.instrument_id"
+   },
+   {
+    "name": "session_id",
+    "dtype": "string",
+    "rule": "equals target entity.session_id"
+   },
+   {
+    "name": "reference_id",
+    "dtype": "string",
+    "rule": "k1:B(scope_id):B(source_close_id); B is unpadded base64url of UTF8; total <=128 codepoints and <=512 UTF8 bytes; decoded scope equals selection scope_id"
+   },
+   {
+    "name": "fact_kind",
+    "dtype": "string",
+    "rule": "exactly ef1.close.authoritative"
+   },
+   {
+    "name": "effective_start_ns",
+    "dtype": "utc_ns",
+    "rule": "exactly ConfigSpec.session.close_ns"
+   },
+   {
+    "name": "effective_end_ns",
+    "dtype": "utc_ns",
+    "nullable": true,
+    "rule": "null or strictly greater than effective_start_ns"
+   },
+   {
+    "name": "text",
+    "dtype": "string",
+    "rule": "exactly equals batch metadata source.snapshot_id (revision binding)"
+   },
+   {
+    "name": "price",
+    "dtype": "int64",
+    "nullable": true,
+    "rule": "supplied close coefficient at ConfigSpec.price_unit.scale; must be >0 to be admitted"
+   },
+   {
+    "name": "factor_num",
+    "dtype": "int64",
+    "rule": "absent or all null"
+   },
+   {
+    "name": "factor_den",
+    "dtype": "int64",
+    "rule": "absent or all null"
+   },
+   {
+    "name": "known_at_ns",
+    "dtype": "utc_ns",
+    "nullable": true,
+    "rule": "original publication knowledge; required causal in both availability modes"
+   }
+  ],
+  "metadata": {
+   "price_unit": "equals ConfigSpec.price_unit",
+   "adjustment": "equals ConfigSpec.adjustment (also the bars adjustment)",
+   "source.mapping_version": "ef1-reference-map1",
+   "source.snapshot_id": "revision label",
+   "coverage": "actual Coverage; admission requires complete expected=observed=row_count",
+   "ordering": "declared",
+   "duplicate_policy": "reject",
+   "row_cardinality": "0 or 1 rows admitted; >1 is DUPLICATE"
+  }
+ },
+ "mathematics": {
+  "operands": {
+   "p_c": "exact integer close coefficient of the EQ166 last structurally positive-volume completed regular BAR (OPEN O1)",
+   "p_s": "exact integer supplied authoritative close coefficient; same scale; no rescaling"
+  },
+  "bps": "bps = 10000 * |p_c - p_s| / p_s as an exact rational; denominator is the supplied close only",
+  "published_value": "float64 = float(Fraction(10000*|p_c-p_s|, p_s)); single final correctly rounded (IEEE binary64 round-half-even) conversion; D=0 gives +0.0",
+  "within_tolerance": "exact integer test 10000*|p_c-p_s|*tolerance_bps_den <= tolerance_bps_num*p_s ; inclusive; never evaluated on the rounded float",
+  "overflow": "no int64/float64 overflow possible: numerator <=10000*(2^63-1) ~ 9.2e22, result <= 9.223372036854776e22; implementations need arbitrary or >=128-bit integers",
+  "zero_negative_denominator": "p_s=0: state reference_invalid; bps/within not_applicable/zero_denominator; supplied_price missing_input/ineligible. p_s<0: all three missing_input/ineligible",
+  "uninspected_values": "a price on a row whose known_at is null or >K is not inspected and cannot influence any output"
+ },
+ "quality": {
+  "status_priority": "missing_input (absent_input,null_field,unknown_availability,future_knowledge,ineligible) > incomplete_coverage (governed_gap only) > not_applicable (zero_denominator) > available",
+  "reasons": "all independently applicable Reason values in lexical order",
+  "supplied_price_counts": "expected=authoritative_close Coverage.expected (null when slot missing or unknown), observed=row count (0 when slot missing)",
+  "bps_and_within_counts": "expected=2, observed=number of independently ready operands (calculated close ready; supplied close admitted)",
+  "comparison_state_counts": "assessment: available, expected=observed=1, no reasons",
+  "evidence_limit": 7,
+  "witnesses": "bars: EQ166 selected last positive-volume completed BAR witness (boundary completed_interval); authoritative_close: row_id=reference_id, event_ns=effective_start_ns, known_at original, effective bounds original, use consumed. bps/within/supplied_price cite witnesses only when their value is available; comparison_state cites every causal applicable witness"
+ },
+ "mode_rule": "known_at and reconstruction availability modes give identical results; original known_at is required in both",
+ "fixture_notation": "compact, NOT canonical wire. p_c and reasons stand for the independent EQ166 oracle result on valid calendar/bars/population packets (to be expanded). auth.rows list every supplied row. C/K/E: market_cutoff, knowledge_cutoff and evaluation ns; session open=10 close=30; entity X/S; namespace fixture; PriceUnit(scale, USD).",
+ "fixtures": [
+  {
+   "id": "N01",
+   "group": "boundary",
+   "description": "equal operands",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 1000000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 10000.0,
+    "eq166_hex": "0x1.3880000000000p+13"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 1000000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 1000000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 0.0,
+      "value_hex": "0x0.0p+0",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N02",
+   "group": "boundary",
+   "description": "exactly at tolerance 10 bps, calculated above supplied (equal -> inclusive within)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 1001000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 10010.0,
+    "eq166_hex": "0x1.38d0000000000p+13"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 1000000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 1000000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 10.0,
+      "value_hex": "0x1.4000000000000p+3",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N03",
+   "group": "boundary",
+   "description": "just above tolerance (10.01 bps)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 1001001,
+    "reasons": [],
+    "eq166_calculated_price_float64": 10010.01,
+    "eq166_hex": "0x1.38d0147ae147bp+13"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 1000000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "outside_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 1000000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 10.01,
+      "value_hex": "0x1.4051eb851eb85p+3",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "outside_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N04",
+   "group": "boundary",
+   "description": "just below tolerance (9.99 bps)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 1000999,
+    "reasons": [],
+    "eq166_calculated_price_float64": 10009.99,
+    "eq166_hex": "0x1.38cfeb851eb85p+13"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 1000000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 1000000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 9.99,
+      "value_hex": "0x1.3fae147ae147bp+3",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N05",
+   "group": "boundary",
+   "description": "exactly at tolerance, calculated BELOW supplied (absolute value)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 999000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 9990.0,
+    "eq166_hex": "0x1.3830000000000p+13"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 1000000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 1000000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 10.0,
+      "value_hex": "0x1.4000000000000p+3",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N06",
+   "group": "boundary",
+   "description": "zero tolerance, equal operands -> within (<=)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    0,
+    1
+   ],
+   "calc": {
+    "p_c": 1000000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 10000.0,
+    "eq166_hex": "0x1.3880000000000p+13"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 1000000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 1000000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 0.0,
+      "value_hex": "0x0.0p+0",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N07",
+   "group": "boundary",
+   "description": "zero tolerance, one tick apart -> outside",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    0,
+    1
+   ],
+   "calc": {
+    "p_c": 1000001,
+    "reasons": [],
+    "eq166_calculated_price_float64": 10000.01,
+    "eq166_hex": "0x1.3880147ae147bp+13"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 1000000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "outside_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 1000000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 0.01,
+      "value_hex": "0x1.47ae147ae147bp-7",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "outside_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N08",
+   "group": "boundary",
+   "description": "rational tolerance 10000/3 equals exact bps 10000/3 -> within",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10000,
+    3
+   ],
+   "calc": {
+    "p_c": 4,
+    "reasons": [],
+    "eq166_calculated_price_float64": 0.04,
+    "eq166_hex": "0x1.47ae147ae147bp-5"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 3,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 3,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 3333.3333333333335,
+      "value_hex": "0x1.a0aaaaaaaaaabp+11",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N09",
+   "group": "precision",
+   "description": "published float64 bps equals tolerance float64 yet exact bps is above tolerance -> exact rule: outside",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    33333333333333333,
+    10000000000000
+   ],
+   "calc": {
+    "p_c": 4,
+    "reasons": [],
+    "eq166_calculated_price_float64": 0.04,
+    "eq166_hex": "0x1.47ae147ae147bp-5"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 3,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "outside_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 3,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 3333.3333333333335,
+      "value_hex": "0x1.a0aaaaaaaaaabp+11",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "outside_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N10",
+   "group": "precision",
+   "description": "operand order: denominator is the supplied close (calculated 101.00, supplied 100.00)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    50,
+    1
+   ],
+   "calc": {
+    "p_c": 10100,
+    "reasons": [],
+    "eq166_calculated_price_float64": 101.0,
+    "eq166_hex": "0x1.9400000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "outside_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 100.0,
+      "value_hex": "0x1.9000000000000p+6",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "outside_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N11",
+   "group": "precision",
+   "description": "swapped operands: calculated 100.00, supplied 101.00 (different bps)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    50,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10100,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "outside_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 10100,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 99.00990099009901,
+      "value_hex": "0x1.8c0a237c32b17p+6",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "outside_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N12",
+   "group": "precision",
+   "description": "scale 0, exact 100 bps",
+   "scale": 0,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    100,
+    1
+   ],
+   "calc": {
+    "p_c": 101,
+    "reasons": [],
+    "eq166_calculated_price_float64": 101.0,
+    "eq166_hex": "0x1.9400000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 100,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 100,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 100.0,
+      "value_hex": "0x1.9000000000000p+6",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N13",
+   "group": "precision",
+   "description": "scale 6, same ratio gives identical bps",
+   "scale": 6,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    100,
+    1
+   ],
+   "calc": {
+    "p_c": 101000000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 101.0,
+    "eq166_hex": "0x1.9400000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 100000000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 100000000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 100.0,
+      "value_hex": "0x1.9000000000000p+6",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N14",
+   "group": "overflow",
+   "description": "largest int64 calculated vs smallest positive supplied: exact wide intermediate, finite float64",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    9223372036854775807,
+    1
+   ],
+   "calc": {
+    "p_c": 9223372036854775807,
+    "reasons": [],
+    "eq166_calculated_price_float64": 9.223372036854776e+16,
+    "eq166_hex": "0x1.47ae147ae147bp+56"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 1,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "outside_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 1,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 9.223372036854776e+22,
+      "value_hex": "0x1.3880000000000p+76",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "outside_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N15",
+   "group": "overflow",
+   "description": "largest int64 supplied, calculated one tick below: tiny normal float64",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    1,
+    1
+   ],
+   "calc": {
+    "p_c": 9223372036854775806,
+    "reasons": [],
+    "eq166_calculated_price_float64": 9.223372036854776e+16,
+    "eq166_hex": "0x1.47ae147ae147bp+56"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 9223372036854775807,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 9223372036854775807,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 1.0842021724855044e-15,
+      "value_hex": "0x1.3880000000000p-50",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N16",
+   "group": "rounding",
+   "description": "exact bps is midway between two adjacent float64 values -> round-half-even",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    9223372036854775807,
+    1
+   ],
+   "calc": {
+    "p_c": 15511030435363,
+    "reasons": [],
+    "eq166_calculated_price_float64": 155110304353.63,
+    "eq166_hex": "0x1.20ea5b530d0a4p+37"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 1099511627776,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 1099511627776,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 131072.00000001286,
+      "value_hex": "0x1.00000000001bap+17",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "N17",
+   "group": "precision",
+   "description": "D=0 yields +0.0 never -0.0",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    0,
+    1
+   ],
+   "calc": {
+    "p_c": 12345,
+    "reasons": [],
+    "eq166_calculated_price_float64": 123.45,
+    "eq166_hex": "0x1.edccccccccccdp+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 12345,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 12345,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 0.0,
+      "value_hex": "0x0.0p+0",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "Z01",
+   "group": "denominator",
+   "description": "supplied zero",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 0,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_invalid",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_invalid",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "Z02",
+   "group": "denominator",
+   "description": "supplied negative",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": -10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_invalid",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_invalid",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "Z03",
+   "group": "denominator",
+   "description": "supplied zero and calculated absent",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "absent_input"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 0,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_invalid",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "zero_denominator"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "zero_denominator"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "comparison_state": {
+      "value": "reference_invalid",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "Z04",
+   "group": "denominator",
+   "description": "supplied negative with calculated close not ready (unknown volume)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "null_field"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": -1,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_invalid",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible",
+       "null_field"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible",
+       "null_field"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "comparison_state": {
+      "value": "reference_invalid",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R01",
+   "group": "reference",
+   "description": "authoritative close batch missing (slot None)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": null,
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": null,
+      "observed": 0
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R02",
+   "group": "reference",
+   "description": "authoritative close complete empty population 0/0",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [],
+    "coverage": {
+     "expected": 0,
+     "observed": 0,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 0,
+      "observed": 0
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R03",
+   "group": "reference",
+   "description": "empty incomplete population (expected unknown)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [],
+    "coverage": {
+     "expected": null,
+     "observed": 0,
+     "complete": false
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "governed_gap"
+      ],
+      "expected": null,
+      "observed": 0
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R04",
+   "group": "reference",
+   "description": "present row but null price",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": null,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R05",
+   "group": "reference",
+   "description": "partial coverage expected 2 observed 1 with one valid row",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 2,
+     "observed": 1,
+     "complete": false
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R06",
+   "group": "reference",
+   "description": "unknown expected coverage with one valid row",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": null,
+     "observed": 1,
+     "complete": false
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": null,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R07",
+   "group": "reference",
+   "description": "known_at null (unknown availability)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": null,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R08",
+   "group": "reference",
+   "description": "known_at 31 > K 30 (future knowledge); zero price not inspected",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 0,
+      "known_at": 31,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_future",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_future",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R09",
+   "group": "reference",
+   "description": "known_at 30 == K 30 (causal, inclusive)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 0.0,
+      "value_hex": "0x0.0p+0",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "R10",
+   "group": "reference",
+   "description": "known_at 29 < K 30",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10005,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.05,
+    "eq166_hex": "0x1.9033333333333p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 29,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 5.0,
+      "value_hex": "0x1.4000000000000p+2",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "R11",
+   "group": "reference",
+   "description": "future-known row with negative price: future wins, value uninspected",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": -5,
+      "known_at": 99,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_future",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_future",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R12",
+   "group": "reference",
+   "description": "null known_at with zero price: unknown availability only, value uninspected",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 0,
+      "known_at": null,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "C01",
+   "group": "calculated",
+   "description": "bars slot missing: supplied_price independent and available",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "absent_input"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "calculated_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "calculated_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "C02",
+   "group": "calculated",
+   "description": "provisional prefix C=20 < close 30 with K=E=40: calculated close not comparable",
+   "scale": 2,
+   "C": 20,
+   "K": 40,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "governed_gap"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "calculated_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "calculated_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "C03",
+   "group": "calculated",
+   "description": "unknown volume after the final positive bar",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "null_field"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "calculated_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "calculated_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "C04",
+   "group": "calculated",
+   "description": "population proof missing",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "absent_input"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "calculated_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "calculated_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "C05",
+   "group": "calculated",
+   "description": "selected bar known_at beyond K",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "future_knowledge"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "calculated_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "calculated_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "C06",
+   "group": "calculated",
+   "description": "bars incomplete coverage and unknown availability together",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "governed_gap",
+     "unknown_availability"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "calculated_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "governed_gap",
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "governed_gap",
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "calculated_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "X01",
+   "group": "combined",
+   "description": "reference future and calculated absent: state follows reference precedence",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "absent_input"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 31,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_future",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "comparison_state": {
+      "value": "reference_future",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "X02",
+   "group": "combined",
+   "description": "reference partial coverage and calculated absent",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "absent_input"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 2,
+     "observed": 1,
+     "complete": false
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "governed_gap"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "X03",
+   "group": "combined",
+   "description": "reference unknown availability and calculated governed gap",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "governed_gap"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": null,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "governed_gap",
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "governed_gap",
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "D01",
+   "group": "distinct",
+   "description": "values differ: supplied_price stays the 100.00 coefficient; calculated 101.00 exists only in the EQ166 result",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    50,
+    1
+   ],
+   "calc": {
+    "p_c": 10100,
+    "reasons": [],
+    "eq166_calculated_price_float64": 101.0,
+    "eq166_hex": "0x1.9400000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "outside_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 100.0,
+      "value_hex": "0x1.9000000000000p+6",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": false,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "outside_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  },
+  {
+   "id": "D02",
+   "group": "distinct",
+   "description": "values identical but stored under separate keys",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "within_tolerance",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": 0.0,
+      "value_hex": "0x0.0p+0",
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "within_tolerance": {
+      "value": true,
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2
+     },
+     "comparison_state": {
+      "value": "within_tolerance",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ]
+    }
+   }
+  }
+ ],
+ "refusal_fixtures": [
+  {
+   "id": "E01",
+   "group": "duplicate",
+   "description": "two rows for the same session close, one known_at beyond K (counted before knowledge arbitration)",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "DUPLICATE"
+   }
+  },
+  {
+   "id": "E02",
+   "group": "duplicate",
+   "description": "two rows with identical reference_id (canonical duplicate identity)",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "DUPLICATE"
+   }
+  },
+  {
+   "id": "E03",
+   "group": "duplicate",
+   "description": "two rows with different reference_id, identical price and known_at",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "DUPLICATE"
+   }
+  },
+  {
+   "id": "E04",
+   "group": "duplicate",
+   "description": "bars and authoritative_close slots share one actual input_id",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "DUPLICATE"
+   }
+  },
+  {
+   "id": "E05",
+   "group": "session",
+   "description": "row session_id differs from target entity session",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INCONSISTENT_IDENTITY"
+   }
+  },
+  {
+   "id": "E06",
+   "group": "session",
+   "description": "row instrument_id differs from target entity",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INCONSISTENT_IDENTITY"
+   }
+  },
+  {
+   "id": "E07",
+   "group": "session",
+   "description": "row effective_start_ns differs from actual session close_ns (for example previous-session close)",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INCONSISTENT_IDENTITY"
+   }
+  },
+  {
+   "id": "E08",
+   "group": "unit",
+   "description": "batch PriceUnit scale 3 differs from config scale 2",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_UNIT"
+   }
+  },
+  {
+   "id": "E09",
+   "group": "unit",
+   "description": "batch PriceUnit currency EUR differs from config USD",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_UNIT"
+   }
+  },
+  {
+   "id": "E10",
+   "group": "basis",
+   "description": "batch adjustment basis split differs from config raw",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "UNSUPPORTED_ADJUSTMENT"
+   }
+  },
+  {
+   "id": "E11",
+   "group": "revision",
+   "description": "row text revision label differs from source.snapshot_id",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INCONSISTENT_IDENTITY"
+   }
+  },
+  {
+   "id": "E12",
+   "group": "revision",
+   "description": "row text null (revision label absent)",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INCONSISTENT_IDENTITY"
+   }
+  },
+  {
+   "id": "E13",
+   "group": "scope",
+   "description": "reference_id scope differs from selection scope_id",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INCONSISTENT_IDENTITY"
+   }
+  },
+  {
+   "id": "E14",
+   "group": "schema",
+   "description": "fact_kind is not ef1.close.authoritative",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_SCHEMA"
+   }
+  },
+  {
+   "id": "E15",
+   "group": "schema",
+   "description": "factor_num/factor_den populated on a close row",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_SCHEMA"
+   }
+  },
+  {
+   "id": "E16",
+   "group": "schema",
+   "description": "authoritative_close slot holds a BAR batch",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_SCHEMA"
+   }
+  },
+  {
+   "id": "E17",
+   "group": "schema",
+   "description": "reference_id not matching closed k1 grammar or exceeding 128 codepoints/512 UTF8 bytes",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_SCHEMA"
+   }
+  },
+  {
+   "id": "E18",
+   "group": "version",
+   "description": "mapping_version differs from ef1-reference-map1",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INCOMPATIBLE_VERSION"
+   }
+  },
+  {
+   "id": "E19",
+   "group": "bounds",
+   "description": "effective_end_ns not greater than effective_start_ns",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "BOUNDS"
+   }
+  },
+  {
+   "id": "E20",
+   "group": "config",
+   "description": "tolerance_bps_num negative",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_CONFIG"
+   }
+  },
+  {
+   "id": "E21",
+   "group": "config",
+   "description": "tolerance_bps_den zero",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_CONFIG"
+   }
+  },
+  {
+   "id": "E22",
+   "group": "config",
+   "description": "tolerance fraction not reduced (20/2)",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_CONFIG"
+   }
+  },
+  {
+   "id": "E23",
+   "group": "config",
+   "description": "tolerance_bps_num 0 with den other than 1",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_CONFIG"
+   }
+  },
+  {
+   "id": "E24",
+   "group": "config",
+   "description": "tolerance as JSON float, bool, or decimal text instead of exact integer pair",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_CONFIG"
+   }
+  },
+  {
+   "id": "E25",
+   "group": "config",
+   "description": "tolerance key omitted (no default tolerance)",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_CONFIG"
+   }
+  },
+  {
+   "id": "E26",
+   "group": "config",
+   "description": "unsupported policy_version label",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INCOMPATIBLE_VERSION"
+   }
+  },
+  {
+   "id": "E27",
+   "group": "config",
+   "description": "price_unit absent from ConfigSpec",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_UNIT"
+   }
+  },
+  {
+   "id": "E28",
+   "group": "config",
+   "description": "market_cutoff_ns not within (open_ns, close_ns]",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "BOUNDS"
+   }
+  }
+ ],
+ "fixture_counts": {
+  "result_fixtures": 44,
+  "refusal_fixtures": 28
+ },
+ "coverage_map": {
+  "missing authoritative close": [
+   "R01",
+   "R02",
+   "R03",
+   "C01"
+  ],
+  "invalid authoritative close": [
+   "Z01",
+   "Z02",
+   "Z03",
+   "Z04",
+   "R04",
+   "E14",
+   "E15",
+   "E17"
+  ],
+  "duplicate authoritative close": [
+   "E01",
+   "E02",
+   "E03",
+   "E04"
+  ],
+  "inconsistent session": [
+   "E05",
+   "E06",
+   "E07"
+  ],
+  "inconsistent unit": [
+   "E08",
+   "E09"
+  ],
+  "inconsistent basis": [
+   "E10"
+  ],
+  "inconsistent revision": [
+   "E11",
+   "E12",
+   "E13"
+  ],
+  "unknown or future knowledge": [
+   "R07",
+   "R08",
+   "R11",
+   "R12",
+   "X01",
+   "X03",
+   "C05"
+  ],
+  "boundary tolerance equal / just above / just below": [
+   "N02",
+   "N05",
+   "N08",
+   "N06",
+   "N03",
+   "N07",
+   "N04",
+   "N09"
+  ],
+  "zero and negative denominator": [
+   "Z01",
+   "Z02",
+   "Z03",
+   "Z04"
+  ],
+  "distinct value and readback": [
+   "D01",
+   "D02",
+   "N10",
+   "N11",
+   "C01"
+  ],
+  "precision overflow rounding": [
+   "N14",
+   "N15",
+   "N16",
+   "N17",
+   "N09",
+   "N12",
+   "N13"
+  ],
+  "independent operand readiness": [
+   "C01",
+   "C02",
+   "C03",
+   "C04",
+   "C05",
+   "C06",
+   "X01",
+   "X02",
+   "X03"
+  ]
+ },
+ "open_questions": [
+  "O1 calculated-close operand transport",
+  "O2 supplied_price dtype",
+  "O3 boundary inclusivity confirmation",
+  "O4 provisional (C<close_ns) comparison",
+  "O5 producer name and additive amendment to ef1-contract1",
+  "O6 completeness proof role for the authoritative close",
+  "O7 typed refusal vs state for duplicate/inconsistent facts and the comparison_state vocabulary without a reason header",
+  "O8 quality counts and witness set",
+  "O9 tolerance encoding and bounds",
+  "O10 revision, effective-time and basis binding of the supplied fact",
+  "O11 no rescaling between operands and supplied scale policy"
+ ],
+ "non_goals": [
+  "no official-close acquisition, fetching or inference",
+  "no source-rights or authenticity certification",
+  "no calculation or replacement of the calculated close",
+  "no hidden threshold, symbol policy or default tolerance",
+  "no cross-basis, cross-currency or cross-scale conversion",
+  "no auction/closing-print construction",
+  "no new DataKind, DTO, codec, scheduler or default; no combined result with EQ166",
+  "no performance claim; no release, publication or acceptance claim"
+ ]
+}
