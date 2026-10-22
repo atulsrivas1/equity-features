@@ -69,3 +69,7 @@ Snapshots only cover consumed events and declared coverage at the requested cuto
 ## Acceptance evidence and ownership boundaries
 
 The example checker validates exact golden arithmetic, feature-ID coverage, boundary scenarios and predicate policies using synthetic inputs. It is a reference verifier, not the production API or evidence that package kernels, performance or provider data are correct. Fixture coverage and command are documented alongside fixtures. EQ-006 must provide trustworthy compatible prior-close/action/availability inputs; until then these two formulas are mathematically defined but reference readiness may remain unavailable. EQ-011–016 implement contract encodings without changing this mathematics silently.
+
+## EF1 supplied regular first eligible trade price
+
+The opt-in `session.regular.first_trade_price` is `float(Fraction(p_j,10**scale))`, where j is the first original eligible trade in strict `(event_ns,order_key)` order within [regular_open,C), with regular_open<C<=regular_end and no auctions. Independent causal complete calendar/population proofs establish firstness before the selected original numerical clock is checked against K in both modes. Optional size absence does not change membership. Complete empty/all-false membership becomes not_applicable only after population readiness. [Detailed behavior and validation](../ef1/REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md) and [API](../api/EF1_REGULAR_FIRST_TRADE_PRICE.md) govern this separate EF1 producer; shared session trade reductions are unchanged.

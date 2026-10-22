@@ -37,6 +37,13 @@ def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
     requirements: tuple[InputRequirement, ...]
     fields: tuple[tuple[str, ValueType, str, str], ...]
     context = decode_ef1_context(config)
+    if context["producer"] == "regular_first_trade_price":
+        requirements = tuple(InputRequirement(role, "canonical:1", ("known_at_ns",), kind,
+            rule="fixed nullable role; independent causal regular trade membership; selected original numeric clock")
+            for role, kind in (("calendar_provenance", DataKind.REFERENCE), ("trades", DataKind.TRADE),
+                               ("population_proof", DataKind.REFERENCE)))
+        return (EF1Definition("session.regular.first_trade_price", ValueType.FLOAT64, "currency/share",
+            requirements, "float(Fraction(first_eligible.price,10**scale)); original order before numeric availability"),)
     if context["producer"] == "regular_bar_prices":
         requirements = tuple(InputRequirement(role, "canonical:1", ("known_at_ns",), kind,
             rule="fixed nullable role; independent causal regular completed-bar membership")

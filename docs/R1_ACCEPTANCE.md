@@ -49,7 +49,7 @@ Formulas remain frozen in [session](features/SESSION_FORMULAS.md) and [quote](fe
 | EQ-025 | [PR159](https://github.com/atulsrivas1/equity-features/pull/159) | 0.0.2a8 | `1d360f8975ff186fdaf3cdda27705472c3132e74` | 363 | [delivery](stories/EQ-025_DELIVERY.md) |
 | EQ-026 | [PR160](https://github.com/atulsrivas1/equity-features/pull/160) | 0.0.2a9 | `f0343a968aa54322c6d72bfcffd9db6aacedb0c9` | 370 | [delivery](stories/EQ-026_DELIVERY.md) |
 
-[BUG001](https://github.com/atulsrivas1/equity-features/issues/144) exact-cutoff evidence and [BUG002](https://github.com/atulsrivas1/equity-features/issues/145) fail-closed backend I/O gate were reused from accepted [R0 repaired delivery](R0_ACCEPTANCE.md); no duplicate defect work. Author self-review plus agreed CI is the review identity throughout; no independent reviewer claimed. Earlier review findings and failed attempts/recoveries are recorded in each receipt and [continuity](SESSION_HANDOFF.md).
+[BUG001](https://github.com/atulsrivas1/equity-features/issues/144) exact-cutoff evidence and [BUG002](https://github.com/atulsrivas1/equity-features/issues/145) fail-closed backend I/O gate were reused from accepted [R0 repaired delivery](releases/R0/R0_ACCEPTANCE.md); no duplicate defect work. Author self-review plus agreed CI is the review identity throughout; no independent reviewer claimed. Earlier review findings and failed attempts/recoveries are recorded in each receipt and [continuity](SESSION_HANDOFF.md).
 
 ## Independent verification and arithmetic limits
 

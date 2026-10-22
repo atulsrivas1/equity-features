@@ -1,6 +1,6 @@
 # Manual onboarding learning sheet
 
-This sheet is a prepared baseline, not a human-usage study. The external pilot is **DEFERRED**. No cohort, invitations, participant collection, observation window, scheduler or outreach has started in this execution. The [frozen metric definitions](stories/EQ-135_INPUTS.json) and [machine-readable receipt](R14_LIBRARY_RECEIPT.json) retain every value and evidence boundary.
+This sheet is a prepared baseline, not a human-usage study. The external pilot is **DEFERRED**. No cohort, invitations, participant collection, observation window, scheduler or outreach has started in this execution. The [frozen metric definitions](stories/EQ-135_INPUTS.json) and [machine-readable receipt](releases/R14/R14_LIBRARY_RECEIPT.json) retain every value and evidence boundary.
 
 | Baseline field | Frozen value |
 | --- | --- |

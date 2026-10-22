@@ -6,7 +6,7 @@ October14,2026, America/New_York. [GOV021#391](https://github.com/atulsrivas1/eq
 
 No actionable product finding was identified in the inspected scope. R8's declared experimental source/artifact delivery and aggregate closure are supported by the checks below. This is a scoped engineering review, not an all-code/security/production certification.
 
-Reviewed canonical main `43f3f39215e68a7133b2ac0e3f9910debd1dbf33`; worker main `6538f21b441c8527b465899b98cfd0476e7af08a`. Fresh remote default refs matched. Both final commit records identify Atul as author and GitHub as committer with no Coauthors. Existing [acceptance/index](../R8_ACCEPTANCE.md) and [final aggregate acceptance](https://github.com/atulsrivas1/equity-features/issues/104#issuecomment-6183187901) remain their original authority and were not regenerated.
+Reviewed canonical main `43f3f39215e68a7133b2ac0e3f9910debd1dbf33`; worker main `6538f21b441c8527b465899b98cfd0476e7af08a`. Fresh remote default refs matched. Both final commit records identify Atul as author and GitHub as committer with no Coauthors. Existing [acceptance/index](../releases/R8/R8_ACCEPTANCE.md) and [final aggregate acceptance](https://github.com/atulsrivas1/equity-features/issues/104#issuecomment-6183187901) remain their original authority and were not regenerated.
 
 All original EQ085–092 plus separate GOV020#381 were freshly read Closed/ProjectDone; both epics95/100 were Closed/Done. Milestone9 was actually closed with zero open/nine closed assigned issues, correctly including its governance handoff rather than claiming nine original runtime stories. R9 EQ096–100 and epic193 remain Backlog; no implementation or readiness follows from this review.
 
@@ -44,4 +44,4 @@ The planning packet's applicable documentation checks passed: existing workflow 
 
 No new Linux execution/fresh installs/full core-suite/native stress/production/private-provider/R7-staging replay was performed. No source-authenticity, economic-adjustment correctness, profitability, fills/costs/portfolio or all-platform guarantee follows. Current checks establish the specific source/contracts/tests/records/artifact closure described above.
 
-Next: [R9 release plan](../R9_RELEASE_PLAN.md) and [verification strategy](../R9_TEST_STRATEGY.md). The original R8 receipts and closed lifecycle remain intact. R9 is planning only and needs its own required review/readiness/publication gates.
+Next: [R9 release plan](../releases/R9/R9_RELEASE_PLAN.md) and [verification strategy](../releases/R9/R9_TEST_STRATEGY.md). The original R8 receipts and closed lifecycle remain intact. R9 is planning only and needs its own required review/readiness/publication gates.

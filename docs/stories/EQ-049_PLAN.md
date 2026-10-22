@@ -15,7 +15,7 @@ and bounded requested sessions. No autodiscovery of drives, latest-generation
 fallback, provider access, output publication or historical job launch.
 
 This story resolves source populations and evidence; canonical row mapping belongs
-to EQ050 and batch acquisition to EQ051. Follow [R4 test strategy](../R4_TEST_STRATEGY.md).
+to EQ050 and batch acquisition to EQ051. Follow [R4 test strategy](../releases/R4/R4_TEST_STRATEGY.md).
 No change to feature mathematics or existing canonical schema is planned.
 
 ## Proposed design to freeze before implementation

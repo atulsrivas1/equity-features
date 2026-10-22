@@ -32,11 +32,11 @@ Follow Backlog -> Ready -> In progress -> Code review -> Test -> Ready to releas
 
 ## Immediate work and remaining decisions
 
-R0 foundation is delivered; [acceptance](R0_ACCEPTANCE.md) retains its evidence.
-The next bounded execution package is [R1_AUTONOMOUS_HANDOFF.md](R1_AUTONOMOUS_HANDOFF.md):
+R0 foundation is delivered; [acceptance](releases/R0/R0_ACCEPTANCE.md) retains its evidence.
+The next bounded execution package is [R1_AUTONOMOUS_HANDOFF.md](releases/R1/R1_AUTONOMOUS_HANDOFF.md):
 first BUG-001 #144 and BUG-002 #145, then EQ-017–026 according to dependencies.
 Consult live Project/issue evidence for current status. The earlier
-[R0 handoff](R0_AUTONOMOUS_HANDOFF.md) remains historical. Do not require another
+[R0 handoff](releases/R0/R0_AUTONOMOUS_HANDOFF.md) remains historical. Do not require another
 architecture meeting to resolve decisions already assigned to stories.
 
 | R0 decision ownership (resolved; consult accepted documentation) | Owning story |
@@ -55,11 +55,11 @@ Provider access, remote hosting and workers remain later releases. No separate u
 
 ## Owner-directed R3 priority — 2026-10-05
 
-The owner requested the [R3 execution package](R3_AUTONOMOUS_HANDOFF.md) and a new chat after R1 review. Prioritize its two R1 defect repairs and dependency-ready R3 stories as an explicit exception to earliest-release pulling. R2 remains separately scoped and unstarted; this decision does not authorize R2 implementation or waive its prerequisite/acceptance gates. Full R3 closure must wait for verified R2.
+The owner requested the [R3 execution package](releases/R3/R3_AUTONOMOUS_HANDOFF.md) and a new chat after R1 review. Prioritize its two R1 defect repairs and dependency-ready R3 stories as an explicit exception to earliest-release pulling. R2 remains separately scoped and unstarted; this decision does not authorize R2 implementation or waive its prerequisite/acceptance gates. Full R3 closure must wait for verified R2.
 
 ## Owner restores release order —2026-10-05
 
-The owner superseded the earlier R3 feature-priority exception: existing R3 session finishes only BUG003#162/BUG004#163, then stops; the [R2 session](R2_AUTONOMOUS_HANDOFF.md) verifies their Done delivery and completes R2 before R3 resumes. All numerical/documentation/publication gates remain required. No automatic R3 restart.
+The owner superseded the earlier R3 feature-priority exception: existing R3 session finishes only BUG003#162/BUG004#163, then stops; the [R2 session](releases/R2/R2_AUTONOMOUS_HANDOFF.md) verifies their Done delivery and completes R2 before R3 resumes. All numerical/documentation/publication gates remain required. No automatic R3 restart.
 
 
 ## Owner resumes R3 — October6

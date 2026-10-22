@@ -7,8 +7,8 @@ no implementation, executed tests or delivery claimed.
 ## Start and dependencies
 
 EQ043 plus EQ049–053. Reinspect live acceptance and accepted public contracts before pulling.
-One active implementation story. Follow [execution package](../R4_AUTONOMOUS_HANDOFF.md)
-and [test strategy](../R4_TEST_STRATEGY.md); define concrete interfaces and independently
+One active implementation story. Follow [execution package](../releases/R4/R4_AUTONOMOUS_HANDOFF.md)
+and [test strategy](../releases/R4/R4_TEST_STRATEGY.md); define concrete interfaces and independently
 expected fixtures before source implementation.
 
 ## Design
@@ -82,7 +82,7 @@ selected from inspected source support, not invented in this preparation.
 
 ## Required tests
 
-[Test matrix](../R4_TEST_STRATEGY.md), bothOS clean wheel/sdist conformance, limits/cancellation, core isolation; executable fixture guide.
+[Test matrix](../releases/R4/R4_TEST_STRATEGY.md), bothOS clean wheel/sdist conformance, limits/cancellation, core isolation; executable fixture guide.
 
 Apply relevant accepted SDK, mathematical/time/action and package-isolation checks.
 Keep synthetic DuckDB conformance and private real-data acceptance separate; record

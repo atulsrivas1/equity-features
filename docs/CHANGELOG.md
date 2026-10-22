@@ -1,3 +1,7 @@
+## EF1 regular first-trade price - source development, October 21, 2026
+
+Adds opt-in `regular_first_trade_price`, selecting the first original eligible ordinary regular trade before numerical availability, with an independent causal membership proof and one final exact-ratio float conversion. All122 full frozen results and159 input refusals pass author source checks; the17 worker/result controls remain separate. [Implementation and pending gates](ef1/REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md), [API](api/EF1_REGULAR_FIRST_TRADE_PRICE.md) and [synthetic example](../examples/ef1_regular_first_trade_price.py) accompany this bounded source slice. Versions/default registry/shared contracts are unchanged; no whole-story, installed or release acceptance is claimed.
+
 ## EF1 regular completed-BAR prices - source development, October 21, 2026
 
 Adds the opt-in `regular_bar_prices` producer with first positive-volume completed regular BAR open and independently selected final close. Causal population proof and per-endpoint numerical availability preserve field independence; calculated close is a provisional prefix price. Existing versions/default registry/producers stay unchanged. [Implementation and open gates](ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md), [API](api/EF1_REGULAR_BAR_PRICES.md) and [synthetic example](../examples/ef1_regular_bar_prices.py) accompany all 100 frozen requests. Author source evidence is not released or installed cross-layer acceptance.
@@ -80,11 +84,11 @@ Owner selects existing432/434/433 and GOV027, E22#439/milestone18, with separate
 
 ## Unreleased: R15 handoff proposal
 
-GOV027 proposes a bounded documentation usability release from existing starters432/434/433. Scope/review decisions and actual planning publication remain pending; no implementation or package behavior/version change. R14 selected library scope is accepted separately; research/combined C1 and deferred work remain open. See [plan](R15_RELEASE_PLAN.md).
+GOV027 proposes a bounded documentation usability release from existing starters432/434/433. Scope/review decisions and actual planning publication remain pending; no implementation or package behavior/version change. R14 selected library scope is accepted separately; research/combined C1 and deferred work remain open. See [plan](releases/R15/R15_RELEASE_PLAN.md).
 
 ## EQ135 manual learning and library receipt implemented; delivery pending
 
-[Manual metrics](COMMUNITY_METRICS.md) and the [library receipt](R14_LIBRARY_RECEIPT.md) materialize the reviewed definitions, empty scoped baseline and explicit external-pilot DEFER. Zero recorded events remain distinct from UNKNOWN worldwide activity; empty rates/response intervals are N/A and the 5/3/1 learning goals are not release gates. Maintainer demo/CI are not human participation. No pilot, outreach, participant collection, new local product replay or automatic growth work started.
+[Manual metrics](COMMUNITY_METRICS.md) and the [library receipt](releases/R14/R14_LIBRARY_RECEIPT.md) materialize the reviewed definitions, empty scoped baseline and explicit external-pilot DEFER. Zero recorded events remain distinct from UNKNOWN worldwide activity; empty rates/response intervals are N/A and the 5/3/1 learning goals are not release gates. Maintainer demo/CI are not human participation. No pilot, outreach, participant collection, new local product replay or automatic growth work started.
 
 GOV026/EQ131-134 are independently accepted Closed/Done; EQ134 main143f25 acceptance315#6247172309 and fresh closure reviewd8e6 are retained in the exact JSON receipt. EQ135's own current final source/CI/artifacts/main acceptance and E21/milestone closure remain PENDING until actual numbered comments and independent fresh readback. Complete all normal lifecycle gates, then separate aggregate review and closure of only the seven selected members. No circular receipt commit is required. Research/combined C1 stay open, R13 negative DEFER/witness deferral and paused R7 persist; three starter issues remain future Backlog/unassigned outside the milestone.
 
@@ -166,7 +170,7 @@ Documentation only: no package, API, mathematics, example, dependency, version, 
 
 ## EQ120 R13 acceptance documentation source
 
-Add the selected R13 acceptance matrix and navigation/installation/verification limits after accepted EQ116/EQ117 negative delivery. Record owner DEFER, original failed/nonadoptable320-row comparison, corrected qualification and actual future delivery gates. EQ118/EQ119 remain unimplemented future Backlog outside milestone14. No package/API/version/math/workflow/worker/MCP/dependency/install-command change or new positive benchmark. Final source/current CI/artifact/main/acceptance verification remains required; see [R13 allocation](R13_ACCEPTANCE.md) and [live EQ120](https://github.com/atulsrivas1/equity-features/issues/226).
+Add the selected R13 acceptance matrix and navigation/installation/verification limits after accepted EQ116/EQ117 negative delivery. Record owner DEFER, original failed/nonadoptable320-row comparison, corrected qualification and actual future delivery gates. EQ118/EQ119 remain unimplemented future Backlog outside milestone14. No package/API/version/math/workflow/worker/MCP/dependency/install-command change or new positive benchmark. Final source/current CI/artifact/main/acceptance verification remains required; see [R13 allocation](releases/R13/R13_ACCEPTANCE.md) and [live EQ120](https://github.com/atulsrivas1/equity-features/issues/226).
 
 ## Earlier checkpoints retained as history
 
@@ -200,7 +204,7 @@ At the October16,2026 implementation source freeze, EQ116 was In progress with a
 at main4ae1643b2c70892038cb1e76e9adfe5b4c97d5b4 passed actual54candidate/27main,
 both current OS artifacts and independent final delivery review.
 [EQ115/PR420](https://github.com/atulsrivas1/equity-features/pull/420) adds the
-[external supplied-week guide](CONTINUOUS_SUPPLIED_WEEK.md) and [R12 acceptance allocation](R12_ACCEPTANCE.md).
+[external supplied-week guide](CONTINUOUS_SUPPLIED_WEEK.md) and [R12 acceptance allocation](releases/R12/R12_ACCEPTANCE.md).
 Its live issue and [E16](https://github.com/atulsrivas1/equity-features/issues/212)
 record actual current qualification/acceptance; the source-freeze snapshot does
 not claim future installed CI or release completion.
@@ -274,7 +278,7 @@ Author qualification at5a154567562e7806ed00876f5f1ef45df1238c5e completed on Win
 
 ## R11 experimental local integration and positioning
 
-The [R11 receipt](R11_ACCEPTANCE.md) documents immutable declared events, caller-owned local ledger/anchors, existing-server evidence tools and synthetic external research/replay. [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) records actual aggregate publication and acceptance. The integrated change is documentation only; accepted numerical/package/protocol identities remain unchanged. All original failed runs, corrected review findings and scoped qualification evidence are preserved. This is not stable registry publication, a new hosted service, trading authority or compliance certification.
+The [R11 receipt](releases/R11/R11_ACCEPTANCE.md) documents immutable declared events, caller-owned local ledger/anchors, existing-server evidence tools and synthetic external research/replay. [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) records actual aggregate publication and acceptance. The integrated change is documentation only; accepted numerical/package/protocol identities remain unchanged. All original failed runs, corrected review findings and scoped qualification evidence are preserved. This is not stable registry publication, a new hosted service, trading authority or compliance certification.
 
 ## Historical scoped notes
 
@@ -382,15 +386,15 @@ Owner-authorized separate local automated review covers the handoff/GOV022, EQ10
 
 ## R10 handoff and preparation — October15,2026
 
-Prepared [execution handoff](R10_AUTONOMOUS_HANDOFF.md), [release plan](R10_RELEASE_PLAN.md), [test strategy](R10_TEST_STRATEGY.md) and first EQ101 decision/fixture packet under GOV022#398. Owner selected bounded R10 work; separate review route/final documentation publication remain pending. R9 acceptance/post-delivery review now linked from current continuity. No runtime/package/formula/dependency/version/build/workflow or existing acceptance evidence changes; no diagnostic implementation or release yet.
+Prepared [execution handoff](releases/R10/R10_AUTONOMOUS_HANDOFF.md), [release plan](releases/R10/R10_RELEASE_PLAN.md), [test strategy](releases/R10/R10_TEST_STRATEGY.md) and first EQ101 decision/fixture packet under GOV022#398. Owner selected bounded R10 work; separate review route/final documentation publication remain pending. R9 acceptance/post-delivery review now linked from current continuity. No runtime/package/formula/dependency/version/build/workflow or existing acceptance evidence changes; no diagnostic implementation or release yet.
 
 ## R9 corrected-source final composition qualified — October15,2026
 
-[Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.
+[Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](releases/R9/R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.
 
 ## R9 final composition candidate
 
-[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
+[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](releases/R9/R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
 
 ## EQ099 corrected candidate qualification
 
@@ -438,7 +442,7 @@ Added an independently executed scoped R8 post-delivery review and evidence, plu
 
 ## EQ092 qualified chronological consumer and final delivery contract — October 14
 
-Actual9896 Windows/Linux wheel/sdist qualification and separate artifact review passed: eight isolated component forms plus four combined forms across bothOS, including actual core-only checkpoints, fixed chronological watchlist/return/revision/as-of and signal-byte invariance assertions. Accepted EQ088 complete measurements are integrated; sequential1/current production layout remain. [R8 evidence index](R8_ACCEPTANCE.md) links original-eight-story acceptance and final aggregate authority. No package source/version/required-dependency/math changes. Exact final candidate/current-main release and aggregate evidence is recorded on issue104; earlier candidate snapshots below are preserved history.
+Actual9896 Windows/Linux wheel/sdist qualification and separate artifact review passed: eight isolated component forms plus four combined forms across bothOS, including actual core-only checkpoints, fixed chronological watchlist/return/revision/as-of and signal-byte invariance assertions. Accepted EQ088 complete measurements are integrated; sequential1/current production layout remain. [R8 evidence index](releases/R8/R8_ACCEPTANCE.md) links original-eight-story acceptance and final aggregate authority. No package source/version/required-dependency/math changes. Exact final candidate/current-main release and aggregate evidence is recorded on issue104; earlier candidate snapshots below are preserved history.
 
 ## EQ092 chronological consumer candidate — October 14
 
@@ -719,7 +723,7 @@ Renew committed repeat wheel/sdist fresh light/full installed tests with pinned 
 
 ## EQ130 release audit under qualification
 
-EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](R4_1_ACCEPTANCE.md) and [exact R5 resume](R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
+EQ121–129 are accepted; EQ130 is the sole active docs/audit story. [R4.1 audit](releases/R4_1/R4_1_ACCEPTANCE.md) and [exact R5 resume](releases/R5/R5_AUTONOMOUS_HANDOFF.md) bind actual accepted versions/heads/receipts, separate automated reviews, source/backend/composed evidence and preserved rights/limits. Final current head review/CI/artifact/publication/readback and canonical287Done precede epic/milestone closure and EQ057#65 Ready. R5 is prepared only; this chat stops before its implementation. No runtime/test/workflow/package/math/private execution change. Live Project/issue evidence is authority; earlier snapshots below preserve history.
 
 ## EQ129 implementation under qualification
 
@@ -789,7 +793,7 @@ No row mapping/acquisition or R4 conformance/real-data acceptance yet. [API](api
 
 ## EQ048 bounded package acceptance record — versions unchanged
 
-[R3 evidence](R3_ACCEPTANCE.md) maps all50R0–R3stories, acceptedrepairs/priorrelease receipts, current633units/strict49/math123, installeda4/consumer0.4qualification/43outcomes and measuredbenchmark/resource/integrity limits. No runtime/math/schema/mode/dependency/channel change. Exactfinalreview/publication/Releasedverification and54/E06/milestone4closure recorded in liveGitHub.
+[R3 evidence](releases/R3/R3_ACCEPTANCE.md) maps all50R0–R3stories, acceptedrepairs/priorrelease receipts, current633units/strict49/math123, installeda4/consumer0.4qualification/43outcomes and measuredbenchmark/resource/integrity limits. No runtime/math/schema/mode/dependency/channel change. Exactfinalreview/publication/Releasedverification and54/E06/milestone4closure recorded in liveGitHub.
 
 ## Consumer0.4.0 — EQ095 installed external qualification
 
@@ -847,7 +851,7 @@ Independent review reproduced contradictory supplied source-row timing admission
 
 ## 0.0.3a12 — EQ037 final integration qualification
 
-Correct four builtin discovery descriptors to actual Float64 extrema and members/fraction breadth units; composition uses registry descriptors directly. Producer formulas, schemas and capability flags are unchanged. Three actual-API integration fixtures cover all eight history goldens, future invariance, missing recursive prefixes, discovery parity and batch-only R2 capabilities. Cached registry rebuilding and exact-version replay apply. [Plan](stories/EQ-037_PLAN.md), [acceptance qualification](R2_ACCEPTANCE.md). Independent final-head review and actual delivery gates remain pending.
+Correct four builtin discovery descriptors to actual Float64 extrema and members/fraction breadth units; composition uses registry descriptors directly. Producer formulas, schemas and capability flags are unchanged. Three actual-API integration fixtures cover all eight history goldens, future invariance, missing recursive prefixes, discovery parity and batch-only R2 capabilities. Cached registry rebuilding and exact-version replay apply. [Plan](stories/EQ-037_PLAN.md), [acceptance qualification](releases/R2/R2_ACCEPTANCE.md). Independent final-head review and actual delivery gates remain pending.
 
 ## 0.0.3a11 — EQ036 direct market frame ownership correction
 

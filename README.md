@@ -1,12 +1,15 @@
 # Equity Features
 
-Experimental Python calculations for developers and researchers working with supplied equity data. Compute typed features and inspect their availability and quality evidence while keeping data acquisition, scheduling and publication outside calculations.
+Experimental Python library of equity feature calculations over supplied data. Calculations are pure: no fetching, storage, credentials or scheduling.
 
-[Start here](docs/START_HERE.md) · [Minimal quickstart](docs/QUICKSTART.md) · [More synthetic examples](docs/EXAMPLES.md) · [Public API](docs/api/PUBLIC_API.md) · [Roadmap and delivery status](docs/BACKLOG.md)
+Layers (separate repos):
+- `equity-features` (this repo): pure calculation packages in `packages/` (features, contracts, intraday, evidence, labels, strategies, and others).
+- `equity-feature-io`: source adapters and output sinks (DuckDB, Parquet).
+- `equity-feature-workers`: task planning, execution and publication coordination.
 
-The supported experimental platform is CPython 3.12 x64 on Windows and Linux. Use matching versions from the reviewed GitHub source and finite-retention CI artifact channel described in the [build and delivery guide](docs/BUILD_DELIVERY.md); a stable package-registry release is not offered. Core calculations consume supplied facts and do not fetch market data or schedule jobs. Optional I/O and worker components have separate dependencies and responsibilities.
+Platform: CPython 3.12 on Windows and Linux. Experimental; no stable registry release.
 
-The [repository map](docs/START_HERE.md#choose-a-repository) distinguishes the calculation library, optional companions and independent strategy research. Accepted engineering releases do not establish a profitable strategy or production service. The [R13 receipt](docs/R13_ACCEPTANCE.md) preserves the negative, diagnostic-only evaluation and the decision to defer witness expansion.
+The [repository map](docs/START_HERE.md#choose-a-repository) distinguishes the calculation library, optional companions and independent strategy research. Accepted engineering releases do not establish a profitable strategy or production service. The [R13 receipt](docs/releases/R13/R13_ACCEPTANCE.md) preserves the negative, diagnostic-only evaluation and the decision to defer witness expansion.
 
 ## Intraday foundation and supplied workers
 
@@ -16,7 +19,7 @@ The optional intraday0.1.0a3 package provides eight batch outputs: EMA, RSI, ATR
 
 ## R13 local evidence pilot: DEFER expansion
 
-[Acceptance and limits](docs/R13_ACCEPTANCE.md) records the supported synthetic local pilot, accepted negative EQ117 findings and owner DEFER. Correct local replay does not establish useful debugging, source authenticity, independent trust or production readiness. The sole study failed postflight; all32 recorded export medians exceeded the accepted limit. It remains diagnostic-only.
+[Acceptance and limits](docs/releases/R13/R13_ACCEPTANCE.md) records the supported synthetic local pilot, accepted negative EQ117 findings and owner DEFER. Correct local replay does not establish useful debugging, source authenticity, independent trust or production readiness. The sole study failed postflight; all32 recorded export medians exceeded the accepted limit. It remains diagnostic-only.
 
 [Run the local pilot](docs/EVIDENCE_PILOT_GUIDE.md) using the unchanged installation/API examples. EQ116/EQ117/governance are accepted; [EQ120](https://github.com/atulsrivas1/equity-features/issues/226) owns current final delivery and [E17](https://github.com/atulsrivas1/equity-features/issues/221) owns actual aggregate closure. Owner DEFER selects EQ116/EQ117/EQ120. EQ118/EQ119 remain OPEN, unimplemented future Backlog outside milestone14. No witness, standalone service, new repository, R14 or R7 automation is selected.
 
@@ -38,7 +41,7 @@ At the October16,2026 implementation source freeze, EQ116 was In progress with a
 at main4ae1643b2c70892038cb1e76e9adfe5b4c97d5b4 passed actual54candidate/27main,
 both current OS artifacts and independent final delivery review.
 [EQ115/PR420](https://github.com/atulsrivas1/equity-features/pull/420) adds the
-[external supplied-week guide](docs/CONTINUOUS_SUPPLIED_WEEK.md) and [R12 acceptance allocation](docs/R12_ACCEPTANCE.md).
+[external supplied-week guide](docs/CONTINUOUS_SUPPLIED_WEEK.md) and [R12 acceptance allocation](docs/releases/R12/R12_ACCEPTANCE.md).
 Its live issue and [E16](https://github.com/atulsrivas1/equity-features/issues/212)
 record actual current qualification/acceptance; the source-freeze snapshot does
 not claim future installed CI or release completion.
@@ -112,7 +115,7 @@ Author qualification at5a154567562e7806ed00876f5f1ef45df1238c5e completed on Win
 
 ## Experimental local agent research evidence
 
-R11 combines immutable declared event evidence, a caller-owned SQLite ledger, owner-prepared evidence tools on the existing local MCP server, and synthetic external research with explicit supported replay. [Supported surface, evidence and limits](docs/R11_ACCEPTANCE.md); [aggregate delivery authority](https://github.com/atulsrivas1/equity-features/issues/210). Child-story acceptance and current release status are linked there. No model framework, trading execution, authenticated source history, hosted deployment or compliance certification is implied.
+R11 combines immutable declared event evidence, a caller-owned SQLite ledger, owner-prepared evidence tools on the existing local MCP server, and synthetic external research with explicit supported replay. [Supported surface, evidence and limits](docs/releases/R11/R11_ACCEPTANCE.md); [aggregate delivery authority](https://github.com/atulsrivas1/equity-features/issues/210). Child-story acceptance and current release status are linked there. No model framework, trading execution, authenticated source history, hosted deployment or compliance certification is implied.
 
 ## Historical scoped notes
 
@@ -140,7 +143,7 @@ This qualifies local process-death/reopen behavior on the observed runtimes, not
 
 ## EQ105 source qualification boundary
 
-R10 consumer qualification source now includes [the minimum-evidence guide](docs/R10_CONSUMER_GUIDE.md) and `examples/r10_point_in_time.py`. It preserves failure/unknown/not_requested; optional conformance matching is not safety. Fresh installed measurement/release qualification remains pending.
+R10 consumer qualification source now includes [the minimum-evidence guide](docs/releases/R10/R10_CONSUMER_GUIDE.md) and `examples/r10_point_in_time.py`. It preserves failure/unknown/not_requested; optional conformance matching is not safety. Fresh installed measurement/release qualification remains pending.
 
 ## External conformance implementation candidate
 
@@ -156,11 +159,11 @@ R10 consumer qualification source now includes [the minimum-evidence guide](docs
 
 ## R9 qualified reproducible-evidence composition
 
-[Installed public synthetic reproduction and measured costs](docs/api/R9_REPRODUCTION.md) compose accepted receipts/content/bundles/explanations with unchanged calculations. [Full qualification/evidence/limits](docs/R9_ACCEPTANCE.md); final main/lifecycle receipts on issues200/193 govern release completion. No source/original-execution/rights authentication.
+[Installed public synthetic reproduction and measured costs](docs/api/R9_REPRODUCTION.md) compose accepted receipts/content/bundles/explanations with unchanged calculations. [Full qualification/evidence/limits](docs/releases/R9/R9_ACCEPTANCE.md); final main/lifecycle receipts on issues200/193 govern release completion. No source/original-execution/rights authentication.
 
 ## R9 final qualification candidate
 
-[Public synthetic reproduction](docs/api/R9_REPRODUCTION.md) and [acceptance gates](docs/R9_ACCEPTANCE.md) compose accepted receipts/content/bundles/explanations with unchanged calculations. Final bothOS qualification and R9acceptance remain pending.
+[Public synthetic reproduction](docs/api/R9_REPRODUCTION.md) and [acceptance gates](docs/releases/R9/R9_ACCEPTANCE.md) compose accepted receipts/content/bundles/explanations with unchanged calculations. Final bothOS qualification and R9acceptance remain pending.
 
 ## Experimental bounded calculation explanations
 
@@ -170,7 +173,7 @@ Optional pure explanations0.1.0a1 extends supplied receipt/content verification 
 
 Optional `equity-feature-strategies` and `equity-feature-labels` version0.1.0a1 consume supplied facts and depend only on core contracts0.0.4a4. Core contracts/features0.0.4a4 keep their source-independent calculations and required dependencies. See the [scanner guide](docs/research/SCANNERS.md), [forward-label guide](docs/research/FORWARD_LABELS.md), [chronological consumer guide](docs/research/CHRONOLOGICAL_CONSUMER.md) and [synthetic backtest example](examples/research_backtest.py).
 
-[Installation and tested compatibility](docs/INSTALLING.md) uses reviewed GitHub source and finite-retention experimental wheel/sdist artifacts. [R8 evidence and acceptance authority](docs/R8_ACCEPTANCE.md) records measured decisions, supported qualification and final delivery links. The measured result retains sequential1/current production layout; no new native accelerator or production-layout change is implied. Supplied research facts and examples do not model trading fills/costs/portfolios or establish alpha/provider rights. Earlier preparation and release snapshots below preserve history; the live Project and closing story acceptance own current status.
+[Installation and tested compatibility](docs/INSTALLING.md) uses reviewed GitHub source and finite-retention experimental wheel/sdist artifacts. [R8 evidence and acceptance authority](docs/releases/R8/R8_ACCEPTANCE.md) records measured decisions, supported qualification and final delivery links. The measured result retains sequential1/current production layout; no new native accelerator or production-layout change is implied. Supplied research facts and examples do not model trading fills/costs/portfolios or establish alpha/provider rights. Earlier preparation and release snapshots below preserve history; the live Project and closing story acceptance own current status.
 
 ## EQ085 synthetic profiling evidence
 
@@ -188,7 +191,7 @@ This same-story update replaces time-sensitive candidate wording in packaged cli
 
 Captured October 7, 2026, America/New_York, under [GOV-016 #331](https://github.com/atulsrivas1/equity-features/issues/331). [Synchronization audit](docs/knowledge/SYNCHRONIZATION_AUDIT.md) records inspected source heads, checks and limitations. R0–R4.1 are accepted; EQ057–063 are Done, EQ064 is Released with final acceptance pending, and EQ065–066 remain Backlog. The dedicated R5 owner retains delivery. Recheck the [live Project](https://github.com/users/atulsrivas1/projects/2) before acting; these facts are a dated capture, not an execution override.
 
-Pure calculations remain here; sources/sinks live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io), and implemented experimental workers live in [equity-feature-workers](https://github.com/atulsrivas1/equity-feature-workers). [R5 handoff](docs/R5_AUTONOMOUS_HANDOFF.md) preserves detailed delivery evidence and boundaries.
+Pure calculations remain here; sources/sinks live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io), and implemented experimental workers live in [equity-feature-workers](https://github.com/atulsrivas1/equity-feature-workers). [R5 handoff](docs/releases/R5/R5_AUTONOMOUS_HANDOFF.md) preserves detailed delivery evidence and boundaries.
 
 
 Source-independent equity feature calculations for reproducible research, backtesting and LLM-driven analysis.
@@ -197,11 +200,11 @@ Source-independent equity feature calculations for reproducible research, backte
 R2 remains accepted under its original0.0.3a13 receipt.
 All 39 IDs support batch; the 23 session IDs support update/restore and 22 support
 conditional merge. The 16 R2 history/context/breadth IDs remain batch-only.
-R2/R3 and [R4](docs/R4_ACCEPTANCE.md) are accepted. Current optional DuckDB implementation/API/tests/artifact channel live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io); [migration](docs/DUCKDB_MIGRATION.md) preserves imports and accepted R4 semantics. This repository retains pure contracts/features, historical R4 plans/receipts and explicit API redirects. [R4.1 acceptance](docs/R4_1_ACCEPTANCE.md) and canonical issues retain the qualified versions and migration evidence.
+R2/R3 and [R4](docs/releases/R4/R4_ACCEPTANCE.md) are accepted. Current optional DuckDB implementation/API/tests/artifact channel live in [equity-feature-io](https://github.com/atulsrivas1/equity-feature-io); [migration](docs/DUCKDB_MIGRATION.md) preserves imports and accepted R4 semantics. This repository retains pure contracts/features, historical R4 plans/receipts and explicit API redirects. [R4.1 acceptance](docs/releases/R4_1/R4_1_ACCEPTANCE.md) and canonical issues retain the qualified versions and migration evidence.
 [Adapter SDK](docs/contracts/ADAPTER_KIT.md) and [delivery evidence](docs/stories/EQ-043_DELIVERY.md) record its supported synthetic adapter and supplied-case checks.
 [Custom API](docs/api/CUSTOM_FEATURES.md) and [delivery evidence](docs/stories/EQ-093_DELIVERY.md)
 record supported modes and review/installation limits.
-[R2 acceptance evidence](docs/R2_ACCEPTANCE.md), [R1 acceptance and limits](docs/R1_ACCEPTANCE.md),
+[R2 acceptance evidence](docs/releases/R2/R2_ACCEPTANCE.md), [R1 acceptance and limits](docs/R1_ACCEPTANCE.md),
 and [experimental CI distribution](docs/BUILD_DELIVERY.md) describe the declared
 channel. No stable API, public registry publication or universal throughput guarantee.**
 
@@ -237,7 +240,7 @@ round trip. Final-head/main artifacts are verified before each story is Done.
 
 - [Project knowledge and session startup](docs/PROJECT_KNOWLEDGE.md)
 - [Dashboard](docs/DASHBOARD.md)
-- [R1 execution handoff](docs/R1_AUTONOMOUS_HANDOFF.md)
+- [R1 execution handoff](docs/releases/R1/R1_AUTONOMOUS_HANDOFF.md)
 - [Package design](docs/PACKAGE_DESIGN.md)
 - [V1 feature scope](docs/features/V1_SCOPE.md)
 - [Session formula specification](docs/features/SESSION_FORMULAS.md)
@@ -306,7 +309,7 @@ EQ038 [Go comparison](docs/stories/EQ-038_COMPARISON.md) records five actual syn
 EQ095 adds consumer0.4.0 [combined installed qualification](docs/EXTERNAL_QUALIFICATION.md):43 actual synthetic outcomes with independent goldens, actual adapter conformance, typed negatives and unchanged core/catalog. Builder retains this report inside each consumer-installation JSON. Customalgorithmv2/corepaira4 remain unchanged; historical consumer0.3.0 measurements and integrity inventory remain dated evidence. Actual release acceptance requires linked current issue/receipt gates.
 
 
-[R3 package acceptance evidence](docs/R3_ACCEPTANCE.md) maps all50boundedR0–R3stories, corepair0.0.4a4/consumer0.4.0, all39built-ins and installed externalqualification/benchmark/resource/integrity evidence. Exactfinal release status and actualartifact SHA/runs/expiry are recorded on issue54 and milestone4. The channel remains experimentalmain Actions artifacts; provider/data readiness is later scope.
+[R3 package acceptance evidence](docs/releases/R3/R3_ACCEPTANCE.md) maps all50boundedR0–R3stories, corepair0.0.4a4/consumer0.4.0, all39built-ins and installed externalqualification/benchmark/resource/integrity evidence. Exactfinal release status and actualartifact SHA/runs/expiry are recorded on issue54 and milestone4. The channel remains experimentalmain Actions artifacts; provider/data readiness is later scope.
 
 
 Optional DuckDB0.1.0a2 adds [explicit retained mapping](docs/api/DUCKDB_MAPPING.md)
@@ -319,4 +322,4 @@ candidate](docs/api/EF1_PATHS.md), with supplied causal inputs, independent froz
 fixtures and bounded original witnesses. Runtime checks, integration and release
 acceptance remain pending; no legacy numerical equivalence is claimed.
 
-R4 optional DuckDB adapter0.1.0a7 has accepted actual synthetic conformance and representative private numerical qualifications. [R4 acceptance audit](docs/R4_ACCEPTANCE.md) maps all eight stories, current installs/source limits and final publication gates. Purecorepair0.0.4a4/consumer0.4.0 remain unchanged; existing experimental Actions channel only.
+R4 optional DuckDB adapter0.1.0a7 has accepted actual synthetic conformance and representative private numerical qualifications. [R4 acceptance audit](docs/releases/R4/R4_ACCEPTANCE.md) maps all eight stories, current installs/source limits and final publication gates. Purecorepair0.0.4a4/consumer0.4.0 remain unchanged; existing experimental Actions channel only.

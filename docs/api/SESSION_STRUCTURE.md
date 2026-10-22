@@ -50,4 +50,4 @@ and [delivery procedure](../BUILD_DELIVERY.md).
 
 BUG003/0.0.2a10 preserves known closed-window omissions in incremental state,
 rejects contradictory complete re-certification atomically and retains unaffected
-window readiness. See [coverage/state policy](../api/INCREMENTAL.md).
+window readiness. See [coverage/state policy](INCREMENTAL.md).
