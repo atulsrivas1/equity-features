@@ -1,0 +1,31 @@
+# Supplied close reconciliation implementation
+
+[EQ168 #508](https://github.com/atulsrivas1/equity-features/issues/508) library layer: the opt-in `reference_close` producer through the existing EF1 builder, decoder, discovery and dispatcher. The frozen [close-reconciliation contract](CLOSE_RECONCILIATION_CONTRACT_PROPOSAL.md) (`ef1-close-compare1`, decisions O1 to O11 and its coordinator freeze) governs; this slice implements it and redefines nothing. The I/O mapping (EQ212) and worker (EQ213) layers, full EQ164 and release gates remain separate.
+
+The four outputs, in lexical header order, are `reference.close.absolute_difference_bps` (FLOAT64, `bps`), `reference.close.comparison_state` (STRING, `state`), `reference.close.supplied_price` (DECIMAL128, `currency/share`, the integer coefficient at `PriceUnit.scale`) and `reference.close.within_tolerance` (BOOL, `boolean`). The calculated close is not emitted here; `session.close.calculated_price` stays solely an EQ166 output under its own feature id.
+
+## Mathematics
+
+With `p_c` the exact integer close coefficient of the EQ166 last structurally positive-volume completed regular BAR and `p_s` the supplied close coefficient, both at one scale, currency and basis, `D = |p_c - p_s|`:
+
+- published BPS is `float(Fraction(10000*D, p_s))`, one correctly rounded binary64 conversion of the exact rational (round-half-even; `D = 0` is `+0.0`); the supplied close is the only denominator;
+- the verdict is the exact integer test `10000*D*den <= num*p_s`, inclusive, never evaluated on the rounded float; the tolerance `num/den` is the reduced non-negative integer pair from the config;
+- Python integers are unbounded, so no int64 or float64 overflow can occur (largest publication `9.223372036854776e22`).
+
+Per decision O1 the selection is the EQ166 implementation, not a copy: `_select_regular_bars` in the regular-BAR module now holds the selection and readiness and returns the exact selected coefficient; `compute_regular_bar_prices` converts it with the unchanged `float(Fraction(p, 10**scale))`. A helper argument lets a caller add a pre-selection governed reason; EQ166 passes none. A before/after snapshot of all EQ166 and first-trade oracle outcomes (381 requests, results and refusals) was byte-identical.
+
+## Inputs, admission and assessment
+
+Four nullable fixed slots: `calendar_provenance`, `bars`, `population_proof` (all three identical to EQ166, so the same physical batches feed both producers; the population payload keeps producer `regular_bar_prices`) and `authoritative_close` (a REFERENCE batch of at most one `ef1.close.authoritative` row). Admission refuses with typed errors before any assessment: more than one row (counted before knowledge arbitration), duplicate input IDs, wrong entity, effective start not equal to the actual `close_ns`, `text` not equal to `source.snapshot_id`, `reference_id` scope differing from `scope_id`, unit/currency/basis differing from the config, populated factor columns, wrong fact kind, malformed or oversize `reference_id` (checked before generic label bounds), wrong mapping version, invalid effective interval. Tolerance, policy label and calendar are config errors (`INVALID_CONFIG`, `INCOMPATIBLE_VERSION`, unit and cutoff errors from the shared decoder).
+
+Reasons use one reported reason per output, first applicable in the order `absent_input`, `unknown_availability`, `future_knowledge`, `null_field`, `ineligible`, `governed_gap`, `zero_denominator`; status follows it. Incomplete batch coverage takes precedence over price validity, so the price of a non-causal or incompletely covered row is never inspected. `supplied_price` is independent of the calculated close. A cutoff before the actual regular close makes the calculated side `governed_gap` (decision O4: a provisional prefix is never comparable). `comparison_state` is always available and follows `reference_future`, `reference_invalid`, `reference_unavailable`, `calculated_unavailable`, then the verdict. Numerical outputs cite witnesses only when available; the state cites every causal operand; the evidence limit is 7.
+
+## Author source validation and open points
+
+A standalone manual script (not committed, no test files added) built canonical calendar, bars, population and close packets for the 47 result fixtures and 28 refusal fixtures, compared every value (including `float.hex`), status, reason, expected/observed count and witness list with the contract's literals, and compared refusal codes. Result: 46 of 47 results and 28 of 28 refusals matched; no expected value was altered. Existing EQ166, first-trade and observable test modules (126 tests) also passed. Strict typing and the aggregate purity audit were not run in this environment.
+
+- **C02 contract defect (unresolved).** The fixture expects an available `supplied_price` whose witness has `event_ns = effective_start_ns = close_ns` while the market cutoff is `C = 20 < close_ns = 30`. The shared `FeatureResult` validation rejects consumed evidence beyond the market cutoff (`BOUNDS`), so every request with `C < close_ns` and a causal supplied close raises that error instead of producing the fixtured result. The contract must say how a provisional-prefix request is evidenced, or refuse it at the config; this slice does not choose.
+- Unspecified edges chosen conservatively and open to the contract owner: a missing whole `price` column reads as a null price (`null_field`); a complete calculated side with no positive-volume bar (`no_eligible_observations`) ranks just before `zero_denominator`; knowledge reasons still apply to a row under incomplete coverage.
+- `CONTRACT.json` is not amended here; the additive producer/unit amendment that decision O5 requires remains owed.
+
+See the [API](../api/EF1_REFERENCE_CLOSE.md). No acquisition, source rights, official-price authentication, installed, cross-layer, performance or release claim follows from this source result.

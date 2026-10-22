@@ -1,12 +1,13 @@
 """Pure ordinary regular completed-BAR prices; no acquisition or publication."""
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import asdict
 from fractions import Fraction
 import hashlib
 import json
 import re
-from typing import Any
+from typing import Any, NamedTuple
 
 from equity_feature_contracts import (
     CanonicalBatch, ConfigSpec, ContractError, DataKind, EntityKey, ErrorCode,
@@ -14,7 +15,7 @@ from equity_feature_contracts import (
     Status, checked_int64, validate_batch,
 )
 from equity_features import __version__
-from ._anchor import _columns, _ready, _reasons
+from ._anchor import Readiness, _columns, _ready, _reasons
 from ._clock import _calendar_ready
 from ._context import decode_ef1_context, fail, label
 from ._definitions import ef1_definitions
@@ -155,25 +156,24 @@ def _population(proof: CanonicalBatch | None, path: CanonicalBatch | None, confi
     return _reasons(() if meta.coverage.complete else (Reason.GOVERNED_GAP,), _causal(cols["known_at_ns"][0], config))
 
 
-def compute_regular_bar_prices(batches: tuple[CanonicalBatch | None, ...] | list[CanonicalBatch | None] | list[CanonicalBatch],
-                               config: ConfigSpec, *, entity: EntityKey) -> FeatureResult:
-    """Select independent first-open/last-close operands from proven BAR membership."""
-    context = decode_ef1_context(config)
-    if context["producer"] != "regular_bar_prices":
-        fail(ErrorCode.INVALID_CONFIG, "wrong regular price producer")
-    if type(entity) is not EntityKey or entity.session_id != config.session.session_id:
-        fail(ErrorCode.INCONSISTENT_IDENTITY, "exact target entity required")
-    label(entity.instrument_id)
-    label(entity.session_id)
-    if type(batches) not in (tuple, list) or len(batches) != 3:
-        fail(ErrorCode.INVALID_SCHEMA, "three fixed nullable regular price slots required")
-    for batch, kind in zip(batches, (DataKind.REFERENCE, DataKind.BAR, DataKind.REFERENCE)):
-        if batch is not None and (type(batch) is not CanonicalBatch or batch.kind != kind):
-            fail(ErrorCode.INVALID_SCHEMA, "wrong regular price slot kind")
-    present = [b for b in batches if b is not None]
-    if len({b.metadata.source.input_id for b in present}) != len(present):
-        fail(ErrorCode.DUPLICATE, "distinct actual regular price input IDs required")
-    calendar, bars, proof = batches
+class _Selection(NamedTuple):
+    """Exact regular-prefix operands: index 0 is the last close, index 1 the first open."""
+
+    columns: dict[str, tuple[Any, ...]]
+    statuses: tuple[Readiness, Readiness]
+    rows: tuple[int | None, int | None]
+    coefficients: tuple[int | None, int | None]
+
+
+def _select_regular_bars(calendar: CanonicalBatch | None, bars: CanonicalBatch | None, proof: CanonicalBatch | None,
+                         config: ConfigSpec, context: Mapping[str, Any], entity: EntityKey,
+                         extra_reasons: tuple[Reason, ...] = ()) -> _Selection:
+    """Shared EQ166 selection and readiness; exposes exact integer coefficients, never a float.
+
+    extra_reasons join the pre-selection reasons exactly as incomplete coverage does, so a
+    caller can add a governed condition without a second selection implementation. The EQ166
+    producer passes none, which leaves every published result unchanged.
+    """
     # Check reference families before the legacy calendar's bounded text labels.
     for reference, family in ((calendar, "ef1.calendar.provenance"), (proof, "ef1.regular_bar.population.v1")):
         if reference is not None and any(value != family for value in _columns(reference).get("fact_kind", ())):
@@ -191,8 +191,8 @@ def compute_regular_bar_prices(batches: tuple[CanonicalBatch | None, ...] | list
                 fail(ErrorCode.BOUNDS, "BAR outside exact regular completed prefix")
         if not bars.metadata.coverage.complete:
             reasons = _reasons(reasons, (Reason.GOVERNED_GAP,))
-    reasons = _reasons(reasons, _population(proof, bars, config, entity, "completed_bar_close"))
-    values: list[float | None] = [None, None]
+    reasons = _reasons(reasons, _population(proof, bars, config, entity, "completed_bar_close"), extra_reasons)
+    coefficients: list[int | None] = [None, None]
     statuses = [_ready(reasons), _ready(reasons)]
     selected_rows: list[int | None] = [None, None]
     if not reasons:
@@ -217,8 +217,37 @@ def compute_regular_bar_prices(batches: tuple[CanonicalBatch | None, ...] | list
                     endpoint_reasons = _causal(cols.get("known_at_ns", (None,) * bars.row_count)[index], config)
                 statuses[output] = _ready(endpoint_reasons)
                 if not endpoint_reasons:
-                    values[output] = float(Fraction(cols[field][index], 10 ** config.price_unit.scale))
+                    coefficients[output] = cols[field][index]
                     selected_rows[output] = index
+    return _Selection(cols, (statuses[0], statuses[1]), (selected_rows[0], selected_rows[1]),
+                      (coefficients[0], coefficients[1]))
+
+
+def compute_regular_bar_prices(batches: tuple[CanonicalBatch | None, ...] | list[CanonicalBatch | None] | list[CanonicalBatch],
+                               config: ConfigSpec, *, entity: EntityKey) -> FeatureResult:
+    """Select independent first-open/last-close operands from proven BAR membership."""
+    context = decode_ef1_context(config)
+    if context["producer"] != "regular_bar_prices":
+        fail(ErrorCode.INVALID_CONFIG, "wrong regular price producer")
+    if type(entity) is not EntityKey or entity.session_id != config.session.session_id:
+        fail(ErrorCode.INCONSISTENT_IDENTITY, "exact target entity required")
+    label(entity.instrument_id)
+    label(entity.session_id)
+    if type(batches) not in (tuple, list) or len(batches) != 3:
+        fail(ErrorCode.INVALID_SCHEMA, "three fixed nullable regular price slots required")
+    for batch, kind in zip(batches, (DataKind.REFERENCE, DataKind.BAR, DataKind.REFERENCE)):
+        if batch is not None and (type(batch) is not CanonicalBatch or batch.kind != kind):
+            fail(ErrorCode.INVALID_SCHEMA, "wrong regular price slot kind")
+    present = [b for b in batches if b is not None]
+    if len({b.metadata.source.input_id for b in present}) != len(present):
+        fail(ErrorCode.DUPLICATE, "distinct actual regular price input IDs required")
+    calendar, bars, proof = batches
+    selection = _select_regular_bars(calendar, bars, proof, config, context, entity)
+    cols, statuses, selected_rows = selection.columns, selection.statuses, selection.rows
+    assert config.price_unit is not None
+    # One final conversion of the exact selected coefficient, as before the helper was shared.
+    values: list[float | None] = [None if p is None else float(Fraction(p, 10 ** config.price_unit.scale))
+                                  for p in selection.coefficients]
     bindings = tuple(sorted((InputBinding(role, batch.kind, batch.metadata)
         for role, batch in zip(ROLES, batches) if batch is not None), key=lambda binding: binding.role))
     metadata = ResultMetadata(config.session.namespace, entity.session_id, config.availability, config.digest,

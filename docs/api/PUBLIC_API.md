@@ -263,3 +263,7 @@ Each fresh wheel/sdist pair in [build delivery](../BUILD_DELIVERY.md) runs these
 ## Selected EF1 regular first-trade producer
 
 The existing EF1 builder/decoder/discovery/compute API also accepts `regular_first_trade_price` with exactly three nullable calendar/trades/population-proof roles. [API](EF1_REGULAR_FIRST_TRADE_PRICE.md) and [source implementation limits](../ef1/REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md) describe the single original first eligible trade price, causal population readiness and selected numerical availability. This remains a bounded source slice with compatible installed/integration/release gates pending.
+
+## Selected EF1 supplied close reconciliation producer
+
+The existing EF1 builder/decoder/discovery/compute API also accepts `reference_close` with exactly four nullable calendar/bars/population-proof/authoritative-close roles. [API](EF1_REFERENCE_CLOSE.md) and [source implementation limits](../ef1/CLOSE_RECONCILIATION_IMPLEMENTATION.md) describe the exact BPS comparison against the supplied close under an explicit caller tolerance. This remains a bounded source slice with I/O mapping, worker, installed/integration and release gates pending.
