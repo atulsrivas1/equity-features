@@ -193,7 +193,7 @@
  },
  "mathematics": {
   "operands": {
-   "p_c": "exact integer close coefficient of the EQ166 last structurally positive-volume completed regular BAR (decided O1)",
+   "p_c": "exact integer close coefficient of the EQ166 last structurally positive-volume completed regular BAR (OPEN O1)",
    "p_s": "exact integer supplied authoritative close coefficient; same scale; no rescaling"
   },
   "bps": "bps = 10000 * |p_c - p_s| / p_s as an exact rational; denominator is the supplied close only",
@@ -205,7 +205,7 @@
  },
  "quality": {
   "status_priority": "missing_input (absent_input,unknown_availability,future_knowledge,null_field,ineligible) > incomplete_coverage (governed_gap) > not_applicable (zero_denominator) > available",
-  "reasons": "single reported reason: when several apply, the first applicable in this order wins: absent_input, unknown_availability, future_knowledge, null_field, ineligible, governed_gap, zero_denominator; status follows that reason",
+  "reasons": "single reported reason: when several apply, the first applicable in this order wins: absent_input, unknown_availability, future_knowledge, null_field, ineligible, governed_gap, no_eligible_observations, zero_denominator; status follows that reason",
   "admission_precedence": "incomplete batch coverage takes precedence over price validity: the row is not admitted and its price is not inspected",
   "supplied_price_counts": "expected=authoritative_close Coverage.expected (null when slot missing or unknown), observed=row count (0 when slot missing)",
   "bps_and_within_counts": "expected=2, observed=number of independently ready operands (calculated close ready; supplied close admitted)",
@@ -3170,6 +3170,251 @@
    }
   },
   {
+   "id": "R16",
+   "group": "reference",
+   "description": "price column wholly absent from the batch reads as null_field",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": null,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    },
+    "price_column": "absent"
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar",
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R17",
+   "group": "reference",
+   "description": "incomplete coverage with null known_at: knowledge reason is reported (ranks before governed_gap)",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": null,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 2,
+     "observed": 1,
+     "complete": false
+    }
+   },
+   "expected": {
+    "state": "reference_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "R18",
+   "group": "reference",
+   "description": "incomplete coverage with known_at 31 > K: future knowledge reported, state reference_future",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": 10000,
+    "reasons": [],
+    "eq166_calculated_price_float64": 100.0,
+    "eq166_hex": "0x1.9000000000000p+6"
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 31,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 2,
+     "observed": 1,
+     "complete": false
+    }
+   },
+   "expected": {
+    "state": "reference_future",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "reference_future",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "bars:last_positive_completed_bar"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
    "id": "C01",
    "group": "calculated",
    "description": "bars slot missing: supplied_price independent and available",
@@ -3286,9 +3531,11 @@
     "state": "calculated_unavailable",
     "outputs": {
      "supplied_price": {
-      "value": 10000,
-      "status": "available",
-      "reasons": [],
+      "value": null,
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
       "expected": 1,
       "observed": 1
      },
@@ -3300,7 +3547,7 @@
        "governed_gap"
       ],
       "expected": 2,
-      "observed": 1
+      "observed": 0
      },
      "within_tolerance": {
       "value": null,
@@ -3309,7 +3556,7 @@
        "governed_gap"
       ],
       "expected": 2,
-      "observed": 1
+      "observed": 0
      },
      "comparison_state": {
       "value": "calculated_unavailable",
@@ -3321,12 +3568,8 @@
     },
     "evidence": {
      "absolute_difference_bps": [],
-     "comparison_state": [
-      "authoritative_close:k1:Uw:Y2wx"
-     ],
-     "supplied_price": [
-      "authoritative_close:k1:Uw:Y2wx"
-     ],
+     "comparison_state": [],
+     "supplied_price": [],
      "within_tolerance": []
     }
    }
@@ -3652,6 +3895,247 @@
      "supplied_price": [
       "authoritative_close:k1:Uw:Y2wx"
      ],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "C07",
+   "group": "calculated",
+   "description": "complete calculated side with no positive-volume bar (no_eligible_observations): not_applicable",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "no_eligible_observations"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "calculated_unavailable",
+    "outputs": {
+     "supplied_price": {
+      "value": 10000,
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "not_applicable",
+      "reasons": [
+       "no_eligible_observations"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "not_applicable",
+      "reasons": [
+       "no_eligible_observations"
+      ],
+      "expected": 2,
+      "observed": 1
+     },
+     "comparison_state": {
+      "value": "calculated_unavailable",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "Z05",
+   "group": "denominator",
+   "description": "supplied zero with calculated no_eligible_observations: no_eligible_observations ranks before zero_denominator",
+   "scale": 2,
+   "C": 30,
+   "K": 30,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "no_eligible_observations"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 0,
+      "known_at": 30,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_invalid",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "ineligible"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "not_applicable",
+      "reasons": [
+       "no_eligible_observations"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "not_applicable",
+      "reasons": [
+       "no_eligible_observations"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "comparison_state": {
+      "value": "reference_invalid",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [
+      "authoritative_close:k1:Uw:Y2wx"
+     ],
+     "supplied_price": [],
+     "within_tolerance": []
+    }
+   }
+  },
+  {
+   "id": "C08",
+   "group": "calculated",
+   "description": "provisional prefix with future-known supplied close: future_knowledge reported for supplied_price",
+   "scale": 2,
+   "C": 20,
+   "K": 40,
+   "tol": [
+    10,
+    1
+   ],
+   "calc": {
+    "p_c": null,
+    "reasons": [
+     "governed_gap"
+    ]
+   },
+   "auth": {
+    "rows": [
+     {
+      "id": "k1:Uw:Y2wx",
+      "price": 10000,
+      "known_at": 45,
+      "effective_start_ns": 30
+     }
+    ],
+    "coverage": {
+     "expected": 1,
+     "observed": 1,
+     "complete": true
+    }
+   },
+   "expected": {
+    "state": "reference_future",
+    "outputs": {
+     "supplied_price": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 1,
+      "observed": 1
+     },
+     "absolute_difference_bps": {
+      "value": null,
+      "value_hex": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "within_tolerance": {
+      "value": null,
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 2,
+      "observed": 0
+     },
+     "comparison_state": {
+      "value": "reference_future",
+      "status": "available",
+      "reasons": [],
+      "expected": 1,
+      "observed": 1
+     }
+    },
+    "evidence": {
+     "absolute_difference_bps": [],
+     "comparison_state": [],
+     "supplied_price": [],
      "within_tolerance": []
     }
    }
@@ -4319,7 +4803,7 @@
   }
  ],
  "fixture_counts": {
-  "result_fixtures": 47,
+  "result_fixtures": 53,
   "refusal_fixtures": 28
  },
  "coverage_map": {
@@ -4330,6 +4814,7 @@
    "C01"
   ],
   "invalid authoritative close": [
+   "R16",
    "R13",
    "R14",
    "R15",
@@ -4366,6 +4851,9 @@
    "E13"
   ],
   "unknown or future knowledge": [
+   "R17",
+   "R18",
+   "C08",
    "R07",
    "R08",
    "R11",
@@ -4406,8 +4894,17 @@
    "N12",
    "N13"
   ],
+  "provisional prefix (cutoff < close) suppresses supplied_price": [
+   "C02",
+   "C08"
+  ],
+  "no eligible observations ordering": [
+   "C07",
+   "Z05"
+  ],
   "independent operand readiness": [
    "C01",
+   "C07",
    "C02",
    "C03",
    "C04",
@@ -4431,6 +4928,27 @@
   "O9": "tolerance reduced integer pair num/den; policy label ef1-close-compare1",
   "O10": "revision text == snapshot_id; effective time equals actual close; basis by metadata equality",
   "O11": "operands share scale and currency; no rescale"
+ },
+ "amendment_1": {
+  "state": "decided by coordinator, pending owner review; written clarifications, freeze otherwise not reopened",
+  "defect": "C02 (market cutoff 20 < close 30) expected an available supplied_price with a witness at event_ns = close_ns; FeatureResult rejects consumed evidence past the market cutoff, so it was unproducible",
+  "provisional_rule": "when market_cutoff_ns < session.close_ns the supplied close lies beyond the market bound and is not projected: supplied_price status incomplete_coverage, value null, reason governed_gap, no witness; the other three outputs are not comparable per O4; the authoritative_close witness is never cited (comparison_state included); bps/within observed count excludes the unprojectable supplied operand",
+  "clarifications": [
+   "1 a wholly missing price column reads as null_field",
+   "2 no_eligible_observations on a complete calculated side ranks immediately before zero_denominator; status not_applicable",
+   "3 coverage precedence concerns price inspection only: null_field, ineligible and zero_denominator are not applied when batch coverage is incomplete; unknown_availability and future_knowledge come from known_at, not price inspection, still apply and rank before governed_gap (R17, R18)",
+   "4 the provisional governed_gap is added by this producer on top of EQ166's available prefix close"
+  ],
+  "fixtures_changed_or_added": [
+   "C02 recomputed",
+   "C08",
+   "C07",
+   "Z05",
+   "R16",
+   "R17",
+   "R18"
+  ],
+  "contract_json_note": "TO BE APPLIED, not applied here: additive amendment (O5) to docs/ef1/CONTRACT.json producer set adding reference_close (ef1.reference_close, four headers, roles calendar_provenance/bars/population_proof/authoritative_close) and the new unit string bps; the frozen file is not edited by this PR"
  },
  "coordinator_freeze": "frozen as ef1-close-compare1 v1 for implementation once PR merges (coordinator statement; no review or acceptance claim by the author)",
  "non_goals": [

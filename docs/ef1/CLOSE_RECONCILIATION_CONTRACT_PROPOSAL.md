@@ -2,7 +2,7 @@
 
 Prepared for EQ168 [#508](https://github.com/atulsrivas1/equity-features/issues/508), supporting EQ212 [#570](https://github.com/atulsrivas1/equity-features/issues/570) and EQ213 [#571](https://github.com/atulsrivas1/equity-features/issues/571). This is contract preparation only. Independent review approved it (all fixtures recomputed); coordinator decisions are recorded below, pending owner review. It admits no Ready state, implementation, numerical acceptance, source rights, official price or release claim. Former open questions O1 to O11 are now coordinator decisions (final section) and the contract carries a coordinator freeze statement.
 
-Companion data: [CLOSE_RECONCILIATION_CONTRACT_PROPOSAL.json](CLOSE_RECONCILIATION_CONTRACT_PROPOSAL.json) holds the machine-readable headers, roles, authoritative-close schema, mathematics, 47 result fixtures and 28 typed-refusal fixtures. Expected values were derived with plain `fractions` arithmetic in a scratch script that imports nothing from the equity packages; the library was not imported, run or tested. Fixtures use compact notation (not canonical wire) and still need expansion into canonical packets.
+Companion data: [CLOSE_RECONCILIATION_CONTRACT_PROPOSAL.json](CLOSE_RECONCILIATION_CONTRACT_PROPOSAL.json) holds the machine-readable headers, roles, authoritative-close schema, mathematics, 53 result fixtures and 28 typed-refusal fixtures. Expected values were derived with plain `fractions` arithmetic in a scratch script that imports nothing from the equity packages; the library was not imported, run or tested. Fixtures use compact notation (not canonical wire) and still need expansion into canonical packets.
 
 ## Authority and inspected sources
 
@@ -118,7 +118,7 @@ Assessment after admission. Reference side (independent of the calculated close)
 
 Calculated side: exactly the EQ166 readiness for `session.close.calculated_price` (missing bars `absent_input`, incomplete coverage or `C < close_ns` provisional prefix `governed_gap`, unknown trailing volume `null_field`, missing proof `absent_input`, selected bar future or unknown knowledge). Provisional comparison before the regular close is not allowed in this proposal: decided O4 (not comparable, because EQ166 states the prefix close is provisional and never an official close; the alternative allows comparison of a provisional prefix with a later-known official close, rejected).
 
-Single reported reason (mixed-reason rule): when several reasons apply, the one reported follows the status-priority order and the first applicable wins: `absent_input`, `unknown_availability`, `future_knowledge`, `null_field`, `ineligible` (all `missing_input`), then `governed_gap` (`incomplete_coverage`), then `zero_denominator` (`not_applicable`); no applicable reason means `available`. Status follows the reported reason. Combined cases are consistent with it: Z03 reports `absent_input`, Z04 `null_field`, X02 `absent_input`, C06 `unknown_availability`.
+Single reported reason (mixed-reason rule): when several reasons apply, the one reported follows the status-priority order and the first applicable wins: `absent_input`, `unknown_availability`, `future_knowledge`, `null_field`, `ineligible` (all `missing_input`), then `governed_gap` (`incomplete_coverage`), then `no_eligible_observations`, then `zero_denominator` (both `not_applicable`); no applicable reason means `available`. Status follows the reported reason. Combined cases are consistent with it: Z03 reports `absent_input`, Z04 `null_field`, X02 `absent_input`, C06 `unknown_availability`.
 
 Incomplete-coverage precedence (decided): incomplete batch coverage takes precedence over price validity. The row is then not admitted, its price is not inspected (as with a non-causal row), the state is `reference_unavailable` and the reason `governed_gap`, even if `p_s <= 0` or null. Fixtures R13 (`p_s = 0`), R14 (`p_s < 0`, unknown expected) and R15 (null price) have literal expected results: `supplied_price` null, `incomplete_coverage`/`governed_gap`, BPS and tolerance null with the same status and reason, state `reference_unavailable`. Knowledge applies identically in `known_at` and `reconstruction` modes.
 
@@ -128,7 +128,7 @@ Incomplete-coverage precedence (decided): incomplete batch coverage takes preced
 | --- | --- | --- | --- |
 | `reference.close.absolute_difference_bps` | float64 / bps | published BPS | both operands ready and `p_s > 0` |
 | `reference.close.comparison_state` | string / state | vocabulary below | always available (assessment) |
-| `reference.close.supplied_price` | decimal128 / currency/share | `p_s` as the integer coefficient at PriceUnit.scale | reference side only; independent of the calculated close (C01 to C06 keep it available) |
+| `reference.close.supplied_price` | decimal128 / currency/share | `p_s` as the integer coefficient at PriceUnit.scale | reference side only; independent of the calculated close (C01, C03 to C07 keep it available; the provisional C02 and C08 suppress it, see Amendment 1) |
 | `reference.close.within_tolerance` | bool / boolean | exact `<=` verdict | same as BPS |
 
 `supplied_price` is decimal128 so the supplied fact is projected exactly with no float conversion and cannot be confused with EQ166's float64 `session.close.calculated_price` (decided O2; float64 would lose digits above 2^53). The calculated close is not emitted by this producer, so there is no duplicate feature id and no overwrite: the two values are stored under different feature ids by two homogeneous results and joined by config/entity (decided O1: no echo of the calculated close here).
@@ -145,7 +145,7 @@ Coverage counts (decided O8): `supplied_price` expected = authoritative batch `C
 
 ## Fixtures
 
-47 result fixtures and 28 refusal fixtures in the JSON (counts: boundary 8, precision 6, overflow 2, rounding 1, denominator 4, reference 15, calculated 6, combined 3, distinct 2). Each result fixture lists operands, tolerance, C/K/E, and literal expected state, four outputs with value (with `float.hex` for float64), status, reasons, expected/observed counts and witness ids. Required coverage is mapped in `coverage_map`: missing, invalid and duplicate close; inconsistent session, unit, basis and revision; unknown and future knowledge; tolerance equal, just above, just below; zero and negative denominator; distinct-value and readback; precision, overflow and rounding; independent operand readiness. Highlights: N02 (10.0, within), N03 (10.01, outside), N04 (9.99, within), N09 (float equality but exact outside), N10/N11 (operand order), N14/N15 (extremes), N16 (half-even tie), Z01/Z02 (invalid denominator), R13 to R15 (coverage before price), C01 (supplied price survives a missing calculated close), D01/D02 (separate values).
+53 result fixtures and 28 refusal fixtures in the JSON (counts: boundary 8, precision 6, overflow 2, rounding 1, denominator 5, reference 18, calculated 8, combined 3, distinct 2). Each result fixture lists operands, tolerance, C/K/E, and literal expected state, four outputs with value (with `float.hex` for float64), status, reasons, expected/observed counts and witness ids. Required coverage is mapped in `coverage_map`: missing, invalid and duplicate close; inconsistent session, unit, basis and revision; unknown and future knowledge; tolerance equal, just above, just below; zero and negative denominator; distinct-value and readback; precision, overflow and rounding; independent operand readiness. Highlights: N02 (10.0, within), N03 (10.01, outside), N04 (9.99, within), N09 (float equality but exact outside), N10/N11 (operand order), N14/N15 (extremes), N16 (half-even tie), Z01/Z02 (invalid denominator), R13 to R15 (coverage before price), C01 (supplied price survives a missing calculated close), D01/D02 (separate values).
 
 Readback requirement: for D01 the stored supplied coefficient is 10000 and the independently stored EQ166 value is `float.hex(101.0)`; the comparator result must never contain 10100, and EQ166 must never contain 10000. Cross-layer fixtures must preserve every field through adapter, library, worker and serialized sink. No database execution was performed or authorized here.
 
@@ -166,6 +166,24 @@ No acquisition, fetching or inference of an official close; no authentication of
 - **O9** Tolerance as a reduced integer pair num/den with policy label `ef1-close-compare1`.
 - **O10** Revision `text == snapshot_id`, effective time equals the actual close, basis by metadata equality.
 - **O11** Operands share scale and currency; no rescale.
+
+## Amendment 1 (decided by coordinator, pending owner review)
+
+Written clarifications; the freeze is not otherwise reopened.
+
+**Defect.** Fixture C02 (market cutoff 20 below close 30) expected an available `supplied_price` with a witness at `event_ns = close_ns`. `FeatureResult` rejects consumed evidence past the market cutoff (BOUNDS), so that result could never be produced.
+
+**Provisional rule.** When `market_cutoff_ns < close_ns` the supplied close lies beyond the market bound and is not projected. `reference.close.supplied_price` is `incomplete_coverage`, value null, reason `governed_gap`, with no witness. The other three outputs remain not comparable per O4. The `authoritative_close` witness is never cited in this case, `comparison_state` included. Their observed count excludes the unprojectable supplied operand. Recomputed C02: state `calculated_unavailable`, `supplied_price` null/`incomplete_coverage`/`governed_gap` (1 expected, 1 observed), BPS and tolerance null/`incomplete_coverage`/`governed_gap` (2 expected, 0 observed), no evidence. Every fixture with cutoff below close was checked: only C02 and the new C08 (provisional with a future-known close: `future_knowledge` ranks first, state `reference_future`) are affected; all others use cutoff equal to close.
+
+**Clarifications.**
+1. A wholly missing `price` column reads as `null_field` (R16, same result as R04).
+2. A complete calculated side with no positive-volume bar (`no_eligible_observations`, `not_applicable`) ranks immediately before `zero_denominator` in the reason order (C07, Z05).
+3. Coverage precedence concerns price inspection only. With incomplete batch coverage the price is not inspected, so `null_field`, `ineligible` and `zero_denominator` are not applied. `unknown_availability` and `future_knowledge` derive from `known_at`, not from price inspection, so they still apply and, ranking before `governed_gap`, are the reported reason (R17, R18).
+4. The provisional-prefix `governed_gap` is added by this producer on top of EQ166's available prefix close, as the contract already requires; EQ166 itself is unchanged.
+
+**To be applied, not applied here.** The additive amendment (O5) to `docs/ef1/CONTRACT.json` adding the `reference_close` producer (`ef1.reference_close`, its four headers, roles `calendar_provenance`, `bars`, `population_proof`, `authoritative_close`) and the new unit string `bps` is still to be applied by the coordinator; the frozen file is not edited by this PR.
+
+Fixtures added or changed: C02 (recomputed), C07, C08, Z05, R16, R17, R18 (53 result fixtures, 28 refusals). Hand-derived with stdlib `fractions` only; nothing was run against the library.
 
 ## Coordinator freeze
 
