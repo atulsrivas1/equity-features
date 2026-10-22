@@ -1,5 +1,12 @@
 # Status (newest first)
 
+## 2026-10-22 - EF1 missing producers delivered (EQ168 close reconciliation, EQ165 multi-venue status)
+- Merged: contracts core #637/#640 (close, ef1-close-compare1 + Amendment 1), #638/#641 (multi-venue, ef1-multivenue-status1); close producer core #639, io #30, workers #72; multi-venue producer core #642, io #31, workers #73. Each contract had a fresh independent reviewer who recomputed fixtures with an independent stdlib harness; each library PR had a second independent code review that rebuilt inputs and compared all fixtures (close 53 result + 28 refusal; multi-venue 42 result + 13 refusal), no mismatches.
+- Manual runs: worker examples for close (C01-C03) and multi-venue (all 42 MV cases) passed with contract-literal match, SDK readback, replay and close/reopen; results demo ran 62 cases without failure. I/O sink round-trips new units (bps, publishers, boolean). Coordinator spot-ran C01-C03 and MV05/MV24/MV43.
+- Not done: additive CONTRACT.json producer-set/unit amendment (O5, D10); installed-wheel qualification; mypy; browser demo of the new pages; real N: source; original-source parity and rights; full EQ164 gate; EQ169 acceptance.
+- Known: tests/unit/test_purity_audit.py already failed on main (61 modules vs 60 expected) and now lists two more modules; left as is under the no-unit-tests policy (owner to decide). Library refactor nits (340-line function, noqa lambdas) and a doc note on RF11 (5 slot dicts, slot_count 4) are on the cleanup list.
+- Process lessons: (1) a worktree agent inherits the session's current repo, so confirm the working directory first; (2) hand-authored fixtures can contradict their own contract text (policy id FP vs venue_precedence_v1, C02 cutoff before close), so run an independent harness before freeze; (3) expose synthetic I/O fixtures under the contract's own ids.
+
 ## 2026-10-21 - EF1 manual demo run (coordinator)
 - Ran the workers repo synthetic examples by hand on main (core ad3c77b; io 37f9b69; workers f5adde5), Windows CPython 3.12.10, outputs in a scratch folder (not committed). Passed: regular first-trade price R001 and R019, regular bar prices, gap endpoint (independent literal match, SDK readback, close/reopen all true); clock, anchors and status ran and wrote DuckDB plus HTML (exit 0, no literal-match line printed).
 - Not run: daily observations (needs --corpus input), the `_ef1_*` helpers (modules, not CLIs). No unit tests run (policy).
