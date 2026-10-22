@@ -267,3 +267,7 @@ The existing EF1 builder/decoder/discovery/compute API also accepts `regular_fir
 ## Selected EF1 supplied close reconciliation producer
 
 The existing EF1 builder/decoder/discovery/compute API also accepts `reference_close` with exactly four nullable calendar/bars/population-proof/authoritative-close roles. [API](EF1_REFERENCE_CLOSE.md) and [source implementation limits](../ef1/CLOSE_RECONCILIATION_IMPLEMENTATION.md) describe the exact BPS comparison against the supplied close under an explicit caller tolerance. This remains a bounded source slice with I/O mapping, worker, installed/integration and release gates pending.
+
+## Selected EF1 multi-venue status producer
+
+The existing EF1 builder/decoder/discovery/compute API also accepts `multivenue_status` with exactly five nullable venue population/seed/states/prefix/validity roles. [API](EF1_MULTI_VENUE_STATUS.md) and [source implementation limits](../ef1/MULTI_VENUE_STATUS_IMPLEMENTATION.md) describe the seven reductions over the caller-declared expected publisher population. This remains a bounded source slice with I/O mapping, worker, header-ledger amendment, installed/integration and release gates pending.

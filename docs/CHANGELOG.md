@@ -1,3 +1,7 @@
+## EF1 multi-venue status - library source, October 22, 2026
+
+Adds opt-in `multivenue_status` (EQ165 #505 library layer): a pure reduction of per-publisher trading, quoting and SSR streams over a versioned expected population into seven outputs (null-unless-complete counts, dominance-aware aggregate state and reason, OR flags, latest original clock). [Implementation](ef1/MULTI_VENUE_STATUS_IMPLEMENTATION.md) and [API](api/EF1_MULTI_VENUE_STATUS.md) accompany this bounded source slice. Versions, the default registry, shared contracts and existing producer results are unchanged; no whole-story, installed or release acceptance is claimed.
+
 ## EF1 supplied close reconciliation - library source, October 22, 2026
 
 Adds opt-in `reference_close` (EQ168 #508 library layer), comparing the exact EQ166 calculated close coefficient with a distinct supplied same-session close as exact-rational BPS, an inclusive exact tolerance verdict, the supplied decimal128 coefficient and a six-value state. EQ166 gains an internal shared selection helper with byte-identical published results. [Implementation and open points](ef1/CLOSE_RECONCILIATION_IMPLEMENTATION.md) and [API](api/EF1_REFERENCE_CLOSE.md) accompany this bounded source slice. Versions/default registry/shared contracts are unchanged; no whole-story, installed or release acceptance is claimed.

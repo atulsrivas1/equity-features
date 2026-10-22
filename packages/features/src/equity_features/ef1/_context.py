@@ -178,6 +178,31 @@ def _close_selection(selection: Any) -> None:
         fail(ErrorCode.INVALID_CONFIG, "reduced tolerance fraction required")
 
 
+VENUE_POLICY = ("venue_precedence_v1", "1")
+
+
+def _venue_selection(selection: Any) -> None:
+    """Closed multi-venue selection; the precedence order is caller supplied and has no default."""
+    if type(selection) is not dict or set(selection) != {
+            "clock_dimensions", "epoch", "max_age_ns", "population_id", "population_revision", "state_policy"}:
+        fail(ErrorCode.INVALID_CONFIG, "exact multi-venue selection required")
+    dims = selection["clock_dimensions"]
+    if (type(dims) is not list or not dims or any(type(d) is not str or d not in ("quoting", "ssr", "trading") for d in dims)
+            or any(a >= b for a, b in zip(dims, dims[1:]))):
+        fail(ErrorCode.INVALID_CONFIG, "nonempty strictly ascending clock dimensions required")
+    for key in ("epoch", "population_id", "population_revision"):
+        label(selection[key])
+    if selection["max_age_ns"] is not None and _integer(selection["max_age_ns"]) < 0:
+        fail(ErrorCode.BOUNDS, "explicit maximum state age must be nonnegative")
+    policy = selection["state_policy"]
+    if type(policy) is not dict or set(policy) != {"policy_id", "policy_version", "precedence"}:
+        fail(ErrorCode.INVALID_CONFIG, "exact venue state policy required")
+    order = policy["precedence"]
+    if (policy["policy_id"], policy["policy_version"]) != VENUE_POLICY or type(order) is not list or (
+            sorted(order) if all(type(x) is str for x in order) else None) != ["active", "closed", "halted"]:
+        fail(ErrorCode.INVALID_CONFIG, "closed venue policy with a permutation of the trading vocabulary required")
+
+
 def _parse(text: object) -> dict[str, Any]:
     if type(text) is not str:
         fail(ErrorCode.INVALID_CONFIG, "context must be an ASCII string")
@@ -249,6 +274,10 @@ def _parse(text: object) -> dict[str, Any]:
     elif raw["producer"] == "reference_close":
         _close_selection(raw["selection"])
         _clock_calendar(raw["calendar"])
+    elif raw["producer"] == "multivenue_status":
+        if raw["calendar"] is not None:
+            fail(ErrorCode.INVALID_CONFIG, "multi-venue producer has no calendar context")
+        _venue_selection(raw["selection"])
     elif raw["producer"] in ("path_gap", "path_drive", "path_gap_endpoint"):
         selection = raw["selection"]
         keys = {"sampling"} if raw["producer"] != "path_drive" else {"sampling", "duration_ns"}
@@ -400,6 +429,11 @@ def decode_ef1_context(config: ConfigSpec) -> Mapping[str, Any]:
                 fail(ErrorCode.BOUNDS, "action anchor exceeds market cutoff")
             if type(config.price_unit) is not PriceUnit:
                 fail(ErrorCode.INVALID_UNIT, "action market requires explicit PriceUnit")
+    elif raw["producer"] == "multivenue_status":
+        if config.price_unit is not None:
+            fail(ErrorCode.INVALID_UNIT, "multi-venue status carries no price unit")
+        if config.window != WindowSpec(1, config.session.session_id, (config.session.session_id,), "completed_eod"):
+            fail(ErrorCode.INCONSISTENT_IDENTITY, "multi-venue window must be target-only")
     elif raw["producer"] == "anchor":
         if type(config.price_unit) is not PriceUnit:
             fail(ErrorCode.INVALID_UNIT, "anchor prices require an explicit PriceUnit")

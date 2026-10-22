@@ -44,6 +44,13 @@ def ef1_definitions(config: ConfigSpec) -> tuple[EF1Definition, ...]:
                                ("population_proof", DataKind.REFERENCE)))
         return (EF1Definition("session.regular.first_trade_price", ValueType.FLOAT64, "currency/share",
             requirements, "float(Fraction(first_eligible.price,10**scale)); original order before numeric availability"),)
+    if context["producer"] == "multivenue_status":
+        from ._venue_status import ROLES, VENUE_FIELDS
+        requirements = tuple(InputRequirement(role, "canonical:1", ("reference_id", "fact_kind", "effective_start_ns", "text", "known_at_ns"),
+            DataKind.REFERENCE, rule="fixed nullable role; ef1-venue-map1 grammar; original publisher identity, sequence and order")
+            for role in ROLES)
+        return tuple(EF1Definition("session.venue_status." + name, dtype, unit, requirements, formula)
+            for name, dtype, unit, formula in VENUE_FIELDS)
     if context["producer"] == "reference_close":
         requirements = tuple(InputRequirement(role, "canonical:1", fields, kind, rule=rule) for role, fields, kind, rule in (
             ("calendar_provenance", ("known_at_ns",), DataKind.REFERENCE, "fixed nullable role; causal supplied calendar"),
