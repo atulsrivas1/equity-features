@@ -1,6 +1,6 @@
 # EQ116 installed qualification plan
 
-Pre-code only. Read [implementation plan](EQ116_IMPLEMENTATION_PLAN.md), [full expected data](EQ116_ORACLES.json), [source inputs](EQ116_INPUTS.json) and [R13 gates](../R13_TEST_STRATEGY.md). No new source test, native operation, SQLite run, archive build, installation or performance evaluation has executed under EQ116.
+Pre-code only. Read [implementation plan](EQ116_IMPLEMENTATION_PLAN.md), [full expected data](EQ116_ORACLES.json), [source inputs](EQ116_INPUTS.json) and [R13 gates](../releases/R13/R13_TEST_STRATEGY.md). No new source test, native operation, SQLite run, archive build, installation or performance evaluation has executed under EQ116.
 
 ## Source and artifact topology
 

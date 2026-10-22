@@ -72,5 +72,5 @@ authentic corporate actions. No new calculation or calendar convention is added.
 See [scanners](SCANNERS.md), [labels](FORWARD_LABELS.md) and the
 [validation ledger](../stories/EQ-092_VALIDATION.json). EQ088 complete measurement/delivery is separately accepted through story99. Final
 EQ092 candidate/main acceptance and all-eight-story/epic/milestone reconciliation
-follow the [evidence index](../R8_ACCEPTANCE.md) and live story104. A qualified
+follow the [evidence index](../releases/R8/R8_ACCEPTANCE.md) and live story104. A qualified
 consumer example alone cannot close those aggregate gates.

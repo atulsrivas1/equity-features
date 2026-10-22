@@ -1,6 +1,6 @@
 # R17 intraday foundation qualification
 
-[EQ141](https://github.com/atulsrivas1/equity-features/issues/475) audits the five accepted predecessors and prepares final R17 delivery. This source is the reviewed-audit candidate; actual EQ141 final review/current CI/publication/main/channel/acceptance/Released/Done and E25/milestone closure remain mandatory. [Live Project](https://github.com/users/atulsrivas1/projects/2) owns execution status. [Machine-readable inputs](R17_ACCEPTANCE_INPUTS.json) records exact sources, package/archive hashes, installed method/skip ledgers and review identities.
+[EQ141](https://github.com/atulsrivas1/equity-features/issues/475) audits the five accepted predecessors and prepares final R17 delivery. This source is the reviewed-audit candidate; actual EQ141 final review/current CI/publication/main/channel/acceptance/Released/Done and E25/milestone closure remain mandatory. [Live Project](https://github.com/users/atulsrivas1/projects/2) owns execution status. [Machine-readable inputs](releases/R17/R17_ACCEPTANCE_INPUTS.json) records exact sources, package/archive hashes, installed method/skip ledgers and review identities.
 
 ## Accepted predecessor evidence
 

@@ -8,7 +8,7 @@ The proposed-scope/pending-review language below is retained as the initial prep
 
 # GOV027: R15 handoff preparation
 
-Issue [437](https://github.com/atulsrivas1/equity-features/issues/437); provisional2points; actual planning underway. [Release plan](../R15_RELEASE_PLAN.md), [handoff](../R15_AUTONOMOUS_HANDOFF.md), [inputs](../R15_INPUTS.json).
+Issue [437](https://github.com/atulsrivas1/equity-features/issues/437); provisional2points; actual planning underway. [Release plan](../releases/R15/R15_RELEASE_PLAN.md), [handoff](../releases/R15/R15_AUTONOMOUS_HANDOFF.md), [inputs](../releases/R15/R15_INPUTS.json).
 
 Deliver a concrete proposed allocation of existing432/434/433, exact preserved source identities, first actions and validation/review/publication gates. No new formula/API/package or runtime execution. The original stories remain Backlog/unassigned with no milestone until the owner scope decision. Separate R15 review authority is pending; existing alternative ends at R14.
 

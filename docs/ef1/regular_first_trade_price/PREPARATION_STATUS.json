@@ -1,0 +1,42 @@
+{
+  "status": "PROPOSED_UNFROZEN_NOT_IMPLEMENTED",
+  "math_review": "Independent V2 mathematics/DTO review approved for full fixture authorship only.",
+  "full_literal_review": "Original independent review withheld approval for five eligible-size masking cases; corrected V2 independently approved. V3 changes only N154 expected error from actual constructor evidence; bounded independent V3/probe correction recheck approved.",
+  "actual_generic_probe": "Historical authorized Linux run1 FAILED and remains preserved. N154 actual deepest BatchMetadata BOUNDS corrected in V3. New run2 and whole generic evidence acceptance are PENDING; no producer implementation or qualification is claimed.",
+  "runtime_source_implementation": false,
+  "public_packet_review": "PENDING",
+  "freeze": false,
+  "source_authoring_grant": false,
+  "input_outcome_cases": 122,
+  "input_refusal_cases": 159,
+  "total_input_requests": 281,
+  "worker_result_controls": 17,
+  "stage_status": "N154 BatchMetadata BOUNDS is an actual historical observation. Every other earliest-stage record retains its prior provisional/future label until separately reviewed generic evidence addendum; the failed whole run is not relabeled passing.",
+  "SDK_example_status": "AUTHORED_UNEXECUTED; independently expected literal carriage only, no producer call.",
+  "platform_qualification": "NONE_CLAIMED_FOR_THIS_NEW_PRODUCER",
+  "original_source_qualification": "NOT_ADMITTED; rights, factual identities/order/eligibility/phase/completeness/original-known-at and numerical/consumer parity remain open.",
+  "remaining_gates": [
+    "Actual generic probes and independent evidence review",
+    "Independent public packet review and explicit hashed freeze/source grant",
+    "Layer implementations, coordinator source review and distinct actual PR review",
+    "Appropriate exact-commit local tests and compatible build/install evidence",
+    "Integrated direct/worker/SDK/newDuckDB/retry/reopen parity and actual browser inspection",
+    "Full EQ164, remaining EF1 outputs, original-source qualification and whole-release gates",
+    "Separate package/tag/release publication authority"
+  ],
+  "actual_preparation_scope": "Only stdlib packet copying, JSON serialization, AST syntax reading and static link/privacy/hash checks; no project imports, constructors, probes, tests, builds, installs or databases.",
+  "full_literal_oracle_version": "V3; mathematics remain V2",
+  "literal_refusal_stage_census": {
+    "BatchMetadata_constructor": 1,
+    "CanonicalBatch_constructor": 23,
+    "ConfigSpec_constructor": 1,
+    "Coverage_constructor": 4,
+    "PriceUnit_constructor": 3,
+    "canonical_validate_batch": 20,
+    "future_new_config_decode": 11,
+    "future_new_pure_semantic": 95,
+    "transport_schema_admission": 1
+  },
+  "literal_refusal_stage_census_is_runtime_census": false,
+  "actual_generic_addendum": "Template only; actual counts, case IDs, source observations, payload identities and exit/evidence receipts remain null until supplied and verified."
+}

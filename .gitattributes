@@ -54,3 +54,6 @@ docs/ef1/OBSERVABLE_PUBLICATION_FREEZE.json text eol=lf
 /packages/features/src/equity_features/ef1/_dispatch.py text eol=lf
 /packages/features/src/equity_features/ef1/_regular_bar_prices.py text eol=lf
 /tests/unit/test_ef1_regular_bar_prices.py text eol=lf
+
+# Preserve the frozen first-trade oracle bytes and recorded SHA256 on every platform.
+/docs/ef1/regular_first_trade_price/REGULAR_FIRST_TRADE_PRICE_ORACLE.json -text -diff

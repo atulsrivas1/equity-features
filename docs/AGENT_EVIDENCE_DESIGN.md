@@ -1,6 +1,6 @@
 ## Implemented local contracts and release evidence
 
-Accepted [EQ106](https://github.com/atulsrivas1/equity-features/issues/206), [EQ107](https://github.com/atulsrivas1/equity-features/issues/207), [EQ108](https://github.com/atulsrivas1/equity-features/issues/208) and [EQ109](https://github.com/atulsrivas1/equity-features/issues/209) implement the experimental declared-event/local-ledger/existing-MCP/synthetic-consumer surface. [R11 receipt](R11_ACCEPTANCE.md) records their exact evidence and authority/retention/replay limits; [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) is aggregate delivery authority. The earlier proposal/status snapshots below are historical. No new event, hashing, result, receipt, diagnostic or replay semantics are introduced by EQ110.
+Accepted [EQ106](https://github.com/atulsrivas1/equity-features/issues/206), [EQ107](https://github.com/atulsrivas1/equity-features/issues/207), [EQ108](https://github.com/atulsrivas1/equity-features/issues/208) and [EQ109](https://github.com/atulsrivas1/equity-features/issues/209) implement the experimental declared-event/local-ledger/existing-MCP/synthetic-consumer surface. [R11 receipt](releases/R11/R11_ACCEPTANCE.md) records their exact evidence and authority/retention/replay limits; [EQ110](https://github.com/atulsrivas1/equity-features/issues/210) is aggregate delivery authority. The earlier proposal/status snapshots below are historical. No new event, hashing, result, receipt, diagnostic or replay semantics are introduced by EQ110.
 
 ## Historical scoped notes
 
@@ -18,7 +18,7 @@ The exact [EQ106 contract](stories/EQ-106_CONTRACT.md) now has source implementa
 
 ## R11 execution selection — October15,2026
 
-The owner now selects the existing R11 work. [Concrete handoff](R11_AUTONOMOUS_HANDOFF.md), [release plan](R11_RELEASE_PLAN.md) and [EQ106 plan](stories/EQ-106_PLAN.md) refine preparation under [GOV023#406](https://github.com/atulsrivas1/equity-features/issues/406). The corrected contracts and limitations below remain design inputs; old planning-only status is historical. Runtime stories are still Backlog until separate readiness; the owner has authorized separate local R11 review, but no completed readiness review or implementation is claimed.
+The owner now selects the existing R11 work. [Concrete handoff](releases/R11/R11_AUTONOMOUS_HANDOFF.md), [release plan](releases/R11/R11_RELEASE_PLAN.md) and [EQ106 plan](stories/EQ-106_PLAN.md) refine preparation under [GOV023#406](https://github.com/atulsrivas1/equity-features/issues/406). The corrected contracts and limitations below remain design inputs; old planning-only status is historical. Runtime stories are still Backlog until separate readiness; the owner has authorized separate local R11 review, but no completed readiness review or implementation is claimed.
 
 # Agent evidence ledger — corrected design proposal
 

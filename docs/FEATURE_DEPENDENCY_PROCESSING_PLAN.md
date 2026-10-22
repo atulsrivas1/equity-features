@@ -14,7 +14,7 @@ The owner requested inspection of a local comparison implementation and the thre
 | equity-feature-io | `18d86761aa3eebb7414e51e8fa2aba089717b5eb` |
 | equity-feature-workers | `a69ae9cfeb62730fc78705b4752b94c6f9438275` |
 
-See the [accepted overall architecture audit](reviews/OVERALL_ARCHITECTURE_REVIEW_2026-10-18.md), [existing parallel execution plan](R5_PARALLEL_EXECUTION_PLAN.md), [feature scope](features/V1_SCOPE.md), [live architecture direction](decisions/LIVE_INTRADAY_ARCHITECTURE_DIRECTION.md) and [deferred live release](FUTURE_LIVE_INTRADAY_RELEASE.md). Static source inspection is not a new numerical/parity/installed/operational acceptance run. Historical measurements remain historical.
+See the [accepted overall architecture audit](reviews/OVERALL_ARCHITECTURE_REVIEW_2026-10-18.md), [existing parallel execution plan](releases/R5/R5_PARALLEL_EXECUTION_PLAN.md), [feature scope](features/V1_SCOPE.md), [live architecture direction](decisions/LIVE_INTRADAY_ARCHITECTURE_DIRECTION.md) and [deferred live release](FUTURE_LIVE_INTRADAY_RELEASE.md). Static source inspection is not a new numerical/parity/installed/operational acceptance run. Historical measurements remain historical.
 
 ## Repository-wide inventory and equity projection
 

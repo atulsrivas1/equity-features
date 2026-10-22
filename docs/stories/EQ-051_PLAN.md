@@ -7,8 +7,8 @@ no implementation, executed tests or delivery claimed.
 ## Start and dependencies
 
 EQ049/050. Reinspect live acceptance and accepted public contracts before pulling.
-One active implementation story. Follow [execution package](../R4_AUTONOMOUS_HANDOFF.md)
-and [test strategy](../R4_TEST_STRATEGY.md); define concrete interfaces and independently
+One active implementation story. Follow [execution package](../releases/R4/R4_AUTONOMOUS_HANDOFF.md)
+and [test strategy](../releases/R4/R4_TEST_STRATEGY.md); define concrete interfaces and independently
 expected fixtures before source implementation.
 
 ## Design

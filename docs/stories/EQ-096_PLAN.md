@@ -1,6 +1,6 @@
 # EQ096 — receipt contracts and evidence boundaries
 
-Pre-code packet, October15,2026. [Story196](https://github.com/atulsrivas1/equity-features/issues/196), [R9 plan](../R9_RELEASE_PLAN.md), [verification strategy](../R9_TEST_STRATEGY.md). Five provisional complexity points. The owner requested R9 execution and explicitly authorized local review throughout EQ096–100, including final delivery. This packet is a design proposal, not implemented API or acceptance.
+Pre-code packet, October15,2026. [Story196](https://github.com/atulsrivas1/equity-features/issues/196), [R9 plan](../releases/R9/R9_RELEASE_PLAN.md), [verification strategy](../releases/R9/R9_TEST_STRATEGY.md). Five provisional complexity points. The owner requested R9 execution and explicitly authorized local review throughout EQ096–100, including final delivery. This packet is a design proposal, not implemented API or acceptance.
 
 ## Scope and ownership
 
