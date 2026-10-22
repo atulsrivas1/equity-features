@@ -6,7 +6,7 @@ After accepted GOV024 and separate public-readiness review, EQ111 actually moved
 
 # EQ111 — continuous-market capability and gap assessment
 
-[Story213](https://github.com/atulsrivas1/equity-features/issues/213), [E16#212](https://github.com/atulsrivas1/equity-features/issues/212), R12;5provisional complexity points. Prepared, not Ready/executed. Prerequisites: accepted012#15/013#16/014#17/033#38/039#45/044#50/048#54 plus GOV024/required review route. [Release/test gates](../R12_RELEASE_PLAN.md).
+[Story213](https://github.com/atulsrivas1/equity-features/issues/213), [E16#212](https://github.com/atulsrivas1/equity-features/issues/212), R12;5provisional complexity points. Prepared, not Ready/executed. Prerequisites: accepted012#15/013#16/014#17/033#38/039#45/044#50/048#54 plus GOV024/required review route. [Release/test gates](../releases/R12/R12_RELEASE_PLAN.md).
 
 ## First actions and supported question
 

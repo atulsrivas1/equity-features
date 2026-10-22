@@ -4,7 +4,7 @@ Owner-directed bounded R6, October 8, 2026. Canonical [issue76](https://github.c
 
 Owner correction during execution: no further downloads unless explicitly approved by users. Public documentation reading and local work may continue; provider data, SDK/dependency packages and CI artifact downloads require explicit approval. The clean canonical clone was created before this correction. Do not infer download approval from bounded R6 implementation authority. Installed/native artifact and actual-provider gates remain required and may be blocked pending approval; they are not waived.
 
-Subsequent explicit answer: approve free qualification downloads only. Free SDK/build dependencies and build artifacts/qualification CI may proceed without any billable operation. Provider market-data downloads, paid requests, subscriptions and charges remain blocked until the user explicitly approves them. Product acquisition also requires explicit per-scope user consent; credentials and feature selection are insufficient. [Research matrix](../R6_PROVIDER_CAPABILITIES.md) records this decision and remaining gates.
+Subsequent explicit answer: approve free qualification downloads only. Free SDK/build dependencies and build artifacts/qualification CI may proceed without any billable operation. Provider market-data downloads, paid requests, subscriptions and charges remain blocked until the user explicitly approves them. Product acquisition also requires explicit per-scope user consent; credentials and feature selection are insufficient. [Research matrix](../releases/R6/R6_PROVIDER_CAPABILITIES.md) records this decision and remaining gates.
 
 ## Admission and first actions
 

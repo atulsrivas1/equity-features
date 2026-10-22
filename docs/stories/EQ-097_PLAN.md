@@ -1,6 +1,6 @@
 # EQ097 — deterministic full typed content fingerprints
 
-Pre-code packet, October15,2026; [story197](https://github.com/atulsrivas1/equity-features/issues/197), eight provisional complexity points, [R9 plan](../R9_RELEASE_PLAN.md). Dependency EQ096 is accepted Closed/Done at mainb307dde285b4541714dd69555f9976af878a05ca, [acceptance](https://github.com/atulsrivas1/equity-features/issues/196#issuecomment-6192835359). R9 owner execution/local-review grant continues. This is a design packet, not implementation, Ready or qualification evidence.
+Pre-code packet, October15,2026; [story197](https://github.com/atulsrivas1/equity-features/issues/197), eight provisional complexity points, [R9 plan](../releases/R9/R9_RELEASE_PLAN.md). Dependency EQ096 is accepted Closed/Done at mainb307dde285b4541714dd69555f9976af878a05ca, [acceptance](https://github.com/atulsrivas1/equity-features/issues/196#issuecomment-6192835359). R9 owner execution/local-review grant continues. This is a design packet, not implementation, Ready or qualification evidence.
 
 ## Ownership, supported records and public behavior
 

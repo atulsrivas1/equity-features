@@ -129,7 +129,7 @@ Coordinator freezes canonical input/result semantics and boundary versions befor
 | R17 intraday | Eight batch outputs: EMA/RSI/ATR and five band outputs; supplied-history replay and accepted worker bindings | No inferred incremental/update/restore/merge capability; prior measured alternatives were nonwins and sequential remains the baseline |
 | Existing generic consumers | Configurable scanners/rankings/watchlists and endpoint labels | Reuse their APIs; do not claim complete source-specific policy catalogues or observed-path labels |
 
-Evidence: [R17 accepted aggregate #465](https://github.com/atulsrivas1/equity-features/issues/465), [R4.1 acceptance](R4_1_ACCEPTANCE.md), [R5 acceptance](R5_ACCEPTANCE.md), [BUG006 #337](https://github.com/atulsrivas1/equity-features/issues/337). This readback is not a new source audit or numerical rerun. Freeze actual compatible core/I/O/worker package versions and artifacts in each EF contract before implementation.
+Evidence: [R17 accepted aggregate #465](https://github.com/atulsrivas1/equity-features/issues/465), [R4.1 acceptance](releases/R4_1/R4_1_ACCEPTANCE.md), [R5 acceptance](releases/R5/R5_ACCEPTANCE.md), [BUG006 #337](https://github.com/atulsrivas1/equity-features/issues/337). This readback is not a new source audit or numerical rerun. Freeze actual compatible core/I/O/worker package versions and artifacts in each EF contract before implementation.
 
 ## Primary matrix and processing-plan reconciliation
 

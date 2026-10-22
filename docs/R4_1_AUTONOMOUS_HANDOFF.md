@@ -50,7 +50,7 @@ Read AGENTS.md, [project knowledge](PROJECT_KNOWLEDGE.md),
 [decision](decisions/IO_REPOSITORY_SEPARATION.md),
 [all ten story plans](R4_1_DELIVERY_PLAN.md), [review policy](CODE_REVIEW.md),
 [knowledge workflow](knowledge/BACKLOG_WORKFLOW.md),
-[lessons](knowledge/LESSONS.md), [R4 acceptance](R4_ACCEPTANCE.md),
+[lessons](knowledge/LESSONS.md), [R4 acceptance](releases/R4/R4_ACCEPTANCE.md),
 [build delivery](BUILD_DELIVERY.md), [compatibility](COMPATIBILITY.md),
 [package layout](PACKAGE_LAYOUT.md), and the relevant API/formula/timing contracts.
 The live [Project](https://github.com/users/atulsrivas1/projects/2) is status authority.

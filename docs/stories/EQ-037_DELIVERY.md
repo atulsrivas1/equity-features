@@ -1,7 +1,7 @@
 # EQ037 verified experimental R2 integration delivery
 
 Issue[42](https://github.com/atulsrivas1/equity-features/issues/42), E05/R2;
-[pre-code plan](EQ-037_PLAN.md), [acceptance matrix](../R2_ACCEPTANCE.md),
+[pre-code plan](EQ-037_PLAN.md), [acceptance matrix](../releases/R2/R2_ACCEPTANCE.md),
 [PR234](https://github.com/atulsrivas1/equity-features/pull/234).
 Public plan71b1441 and prerequisite addendum885ec21 precede source.
 Final source/docs `ea1a375d95c8a3f8e0693469c111333508e59184` completed separate local final-head review,

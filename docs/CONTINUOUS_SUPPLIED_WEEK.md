@@ -5,7 +5,7 @@ caller-supplied facts. [EQ115/PR420](https://github.com/atulsrivas1/equity-featu
 records actual current review and delivery. [Frozen twelve full expectations](stories/EQ115_SYNTHETIC_ORACLES.json)
 were hand checked before consumer code; they are distinct from the99 kernel
 allocations and219 codec vectors. [Plan](stories/EQ115_PLAN.md),
-[API](CONTINUOUS_API.md), [R12 receipt](R12_ACCEPTANCE.md).
+[API](CONTINUOUS_API.md), [R12 receipt](releases/R12/R12_ACCEPTANCE.md).
 
 ## Run with selected experimental artifacts
 

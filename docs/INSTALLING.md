@@ -1,6 +1,6 @@
 ## R17 supplied intraday installation
 
-Use the matching six-package experimental set listed in [R17 inputs](R17_ACCEPTANCE_INPUTS.json): contracts/core0.0.4a4, intraday0.1.0a3, I/O contracts/SDK0.1.0a2 and workers0.1.0a14. Actual reviewed [worker run39301445653 artifacts](https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445653) contain wheel and SDist archives for each. Choose Linux12212142183 or Windows12211898603; GitHub artifact download may require authentication. Expiry is2026-11-18T18:20:09Z/Linux and18:21:33Z/Windows; verify access and the ZIP/archive SHA256 inventory before use. This is finite-retention source/Actions delivery, not a stable registry release. Supported qualified runtimes are CPython3.12 x64 Windows/Linux (actual producers3.12.10/3.12.15).
+Use the matching six-package experimental set listed in [R17 inputs](releases/R17/R17_ACCEPTANCE_INPUTS.json): contracts/core0.0.4a4, intraday0.1.0a3, I/O contracts/SDK0.1.0a2 and workers0.1.0a14. Actual reviewed [worker run39301445653 artifacts](https://github.com/atulsrivas1/equity-feature-workers/actions/runs/39301445653) contain wheel and SDist archives for each. Choose Linux12212142183 or Windows12211898603; GitHub artifact download may require authentication. Expiry is2026-11-18T18:20:09Z/Linux and18:21:33Z/Windows; verify access and the ZIP/archive SHA256 inventory before use. This is finite-retention source/Actions delivery, not a stable registry release. Supported qualified runtimes are CPython3.12 x64 Windows/Linux (actual producers3.12.10/3.12.15).
 
 Extract the chosen artifact into a caller-owned directory, then create a clean CPython3.12 virtual environment. Install the six matching wheels together from its qualification directory, for example with that environment's Python:
 
@@ -25,7 +25,7 @@ This qualifies local process-death/reopen behavior on the observed runtimes, not
 
 ## EQ105 source qualification boundary
 
-EQ105 adds an outer consumer/measurement example, no new package or dependency/version. The minimal pure set remains contracts/evidence/diagnostics/conformance; full optional native costs remain explicit. [Guide](R10_CONSUMER_GUIDE.md). New sibling build_r10.py executes current installed examples/measurements in each fresh form before owned cleanup; not executed at this source checkpoint.
+EQ105 adds an outer consumer/measurement example, no new package or dependency/version. The minimal pure set remains contracts/evidence/diagnostics/conformance; full optional native costs remain explicit. [Guide](releases/R10/R10_CONSUMER_GUIDE.md). New sibling build_r10.py executes current installed examples/measurements in each fresh form before owned cleanup; not executed at this source checkpoint.
 
 ## EQ104 candidate installation boundary
 
@@ -41,11 +41,11 @@ New experimental equity-feature-diagnostics0.1.0a1 requires exact contracts0.0.4
 
 ## R9 corrected-source final composition qualified — October15,2026
 
-[Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.
+[Public reproduction/actual measured overhead](api/R9_REPRODUCTION.md), [qualified acceptance packet](releases/R9/R9_ACCEPTANCE.md) and [complete source/form/sample maps](stories/EQ-100_VALIDATION.json) bind unchanged five accepted packages. BothOS tenrepeatarchives/fourfreshforms/30raw samples passed separate audit79a53a3b, findings[]. Exact full-result replay and unavailable-quality/refusal states preserve source/original-execution/rights limits. Final documentation-head/main/publication and actual story/epic/milestone lifecycle acceptance remain on issues200/193. Caller retention/30day experimental channel, no stable registry or physical-memory/deadline promise.
 
 ## R9 final composition candidate
 
-[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
+[Installed public reproduction](api/R9_REPRODUCTION.md) and [acceptance gates](releases/R9/R9_ACCEPTANCE.md) compose unchanged contracts/features0.0.4a4,evidence0.1.0a2,explanations/bundles0.1.0a1. Exact synthetic replay/refusals and unavailable-quality fidelity do not authenticate source/original execution. New tenarchive/fourfresh-form bothOS/30sample overhead qualification prepared, not passed. Caller owns permitted retention/cleanup; experimental CI artifacts30days, no stable registry promise.
 
 ## Optional explanations candidate
 
@@ -55,7 +55,7 @@ Install the matching experimental explanations0.1.0a1 plus contracts0.0.4a4/evid
 
 Contracts/features0.0.4a4 and independently optional strategies/labels0.1.0a1 retain their accepted sources, versions and required dependencies. Research distributions depend only inward on contracts. The chronological actual-core consumer and fresh core-only absence/origin checkpoints were qualified at9896 on CPython3.12 Windows/Linux in four isolated component forms plus two combined forms perOS. Both wheel and sdist, independent fixtures, installed typing, complete source/archive/RECORD maps, causal revision/as-of assertions and unchanged core parity passed separate reviewa18dc52b. A core-only checkpoint occurs inside each combined form; it is not an additional environment.
 
-Final EQ092 source/docs/current-candidate/current-main release evidence and aggregate acceptance are recorded on [story104](https://github.com/atulsrivas1/equity-features/issues/104) and the [R8 evidence index](R8_ACCEPTANCE.md). GitHub reviewed source/finite-retention experimental CI artifacts are the channel. No new numerical API/schema/default, stable registry, provider or trading-profitability claim. Earlier candidate/preparation snapshots below are historical.
+Final EQ092 source/docs/current-candidate/current-main release evidence and aggregate acceptance are recorded on [story104](https://github.com/atulsrivas1/equity-features/issues/104) and the [R8 evidence index](releases/R8/R8_ACCEPTANCE.md). GitHub reviewed source/finite-retention experimental CI artifacts are the channel. No new numerical API/schema/default, stable registry, provider or trading-profitability claim. Earlier candidate/preparation snapshots below are historical.
 
 ## EQ092 chronological consumer candidate — October 14
 
@@ -220,7 +220,7 @@ EQ054 optional0.1.0a6 adds [actual installed SDK conformance](api/DUCKDB_CONFORM
 
 EQ055 optional0.1.0a7 moves strict UTCns SQL parsing into a connection-local native exact-integer macro after real-source callback diagnostics. ASCII ISO guards/null/calendar/clock/fraction/int64bounds match Python mapping, including both int64 endpoints; Unicode-digit clock/fraction permissiveness is narrowed. [Methodology](api/DUCKDB_REAL_QUALIFICATION.md) records94source cases/strict7 and frozen private independent goldens; no current installed/private numerical acceptance yet. Core/math/schema/canonical identity/runtimepins remain unchanged; receipt binds actual adaptera7. Current installed SDK/CI/actualmain/fourfreshrealforms/review/publication/readback remain required.
 
-Current R4 qualified optional version is0.1.0a7 with matching corepair0.0.4a4, DuckDB1.5.6 and NumPy2.2.6. [Acceptance audit](R4_ACCEPTANCE.md) binds actual bothOS archives and four fresh producer/form synthetic plus private qualifications. Follow the existing pinned archive install procedure; historical a1–a6 receipts preserve their versions. Final EQ056 delivery/readback remains before release closure.
+Current R4 qualified optional version is0.1.0a7 with matching corepair0.0.4a4, DuckDB1.5.6 and NumPy2.2.6. [Acceptance audit](releases/R4/R4_ACCEPTANCE.md) binds actual bothOS archives and four fresh producer/form synthetic plus private qualifications. Follow the existing pinned archive install procedure; historical a1–a6 receipts preserve their versions. Final EQ056 delivery/readback remains before release closure.
 
 
 For combined reproduction, download the reviewed current R9 artifact matching OS/head and preserve it before30day expiry. In a fresh CPython3.12 environment, install from that owned directory with `python -m pip install --no-index --find-links ARTIFACT_DIR equity-feature-contracts==0.0.4a4 equity-features==0.0.4a4 equity-feature-evidence==0.1.0a2 equity-feature-explanations==0.1.0a1 equity-feature-bundles==0.1.0a1`. The light form omits equity-features; root parsing/explanation remains available but complete replay is incompatible. Use matching reviewed source example with `python -I examples/r9_reproduction.py`; do not download/install dependencies on archive instructions. GitHub/current CI is the experimental channel, not registry availability.

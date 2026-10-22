@@ -1,6 +1,6 @@
 # EQ098 — data-only reproduction bundles and explicit trusted replay
 
-Pre-code packet, October15,2026; [story198](https://github.com/atulsrivas1/equity-features/issues/198), eight provisional complexity points, [R9 plan](../R9_RELEASE_PLAN.md). Dependencies EQ096/097/045 freshly Closed/ProjectDone. Latest [EQ097 acceptance](https://github.com/atulsrivas1/equity-features/issues/197#issuecomment-6193790651) at canonicalec1e3b1b55a2c3e7e8a7c2ecddc43f11a99c72ca; independent closurea9dd1e4e. Companion acceptedmain19aa266b9debb92a6c5eb707baafeb9ae7a82942. Owner R9 execution/local-review grant covers this paired story. This packet is not implementation, Ready or qualification evidence.
+Pre-code packet, October15,2026; [story198](https://github.com/atulsrivas1/equity-features/issues/198), eight provisional complexity points, [R9 plan](../releases/R9/R9_RELEASE_PLAN.md). Dependencies EQ096/097/045 freshly Closed/ProjectDone. Latest [EQ097 acceptance](https://github.com/atulsrivas1/equity-features/issues/197#issuecomment-6193790651) at canonicalec1e3b1b55a2c3e7e8a7c2ecddc43f11a99c72ca; independent closurea9dd1e4e. Companion acceptedmain19aa266b9debb92a6c5eb707baafeb9ae7a82942. Owner R9 execution/local-review grant covers this paired story. This packet is not implementation, Ready or qualification evidence.
 
 ## Allocation and public API
 

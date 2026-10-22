@@ -45,7 +45,7 @@ The final release receipt must connect accepted child evidence, whole-input inva
 The exact canonical changed-file allowlist is:
 
 - `docs/stories/EQ-110_PLAN.md`
-- `docs/R11_ACCEPTANCE.md`
+- `docs/releases/R11/R11_ACCEPTANCE.md`
 - `README.md`
 - `SECURITY.md`
 - `docs/MCP_EVIDENCE_API.md`
@@ -53,9 +53,9 @@ The exact canonical changed-file allowlist is:
 - `docs/CHANGELOG.md`
 - `docs/EVIDENCE_ROADMAP.md`
 - `docs/AGENT_EVIDENCE_DESIGN.md`
-- `docs/R11_RELEASE_PLAN.md`
-- `docs/R11_TEST_STRATEGY.md`
-- `docs/R11_AUTONOMOUS_HANDOFF.md`
+- `docs/releases/R11/R11_RELEASE_PLAN.md`
+- `docs/releases/R11/R11_TEST_STRATEGY.md`
+- `docs/releases/R11/R11_AUTONOMOUS_HANDOFF.md`
 - `docs/PROJECT_KNOWLEDGE.md`
 - `docs/SESSION_HANDOFF.md`
 - `docs/stories/EQ-110_EVIDENCE.json`
