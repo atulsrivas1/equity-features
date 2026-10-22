@@ -1,6 +1,6 @@
 {
  "proposal_version": "ef1-multivenue-proposal1",
- "status": "proposed_not_frozen_not_ready_not_executed",
+ "status": "proposed_coordinator_decisions_recorded_freeze_on_merge",
  "story": "EQ165 #505",
  "supporting": [
   "EQ212 #570",
@@ -100,7 +100,9 @@
     "policy_version",
     "precedence"
    ],
-   "precedence": "permutation of [active, halted, closed], highest precedence first; no default"
+   "precedence": "permutation of [active, halted, closed], highest precedence first; no default",
+   "policy_id": "exactly venue_precedence_v1",
+   "policy_version": "exactly 1"
   }
  },
  "roles": [
@@ -170,7 +172,7 @@
   "quoting": "q",
   "ssr": "s"
  },
- "mapping_version": "ef1-venue-map1 (OPEN-09)",
+ "mapping_version": "ef1-venue-map1",
  "slot_rule": "exactly five slots in this order, each a CanonicalBatch or None; None is missing delivery, a present zero-row batch is present-empty",
  "reason_precedence": [
   "absent_population",
@@ -213,7 +215,7 @@
    "session_id": "S"
   },
   "availability": "market_cutoff_ns=C, knowledge_cutoff_ns=K, mode known_at unless stated",
-  "policy": "fixture policy FP/1 is synthetic test data, not a recommended order",
+  "policy": "fixture precedence orders is synthetic test data, not a recommended order",
   "quality_tuple": "value,status,reasons,expected,observed; aggregate_reason is always available 1/1",
   "evidence": "expected witness (output, publisher, dimension) hand-asserted per fixture and cross-checked by the scratch evaluator"
  },
@@ -235,7 +237,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -431,7 +433,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -608,7 +610,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -1025,7 +1027,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -1480,7 +1482,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -1997,7 +1999,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -2514,7 +2516,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -2967,7 +2969,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -3484,7 +3486,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -3998,7 +4000,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -4219,7 +4221,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -4744,7 +4746,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -5261,7 +5263,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "closed",
@@ -5778,7 +5780,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "active",
@@ -6295,7 +6297,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "closed",
@@ -6556,7 +6558,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "closed",
@@ -6813,7 +6815,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -7331,7 +7333,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -7846,7 +7848,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -8361,7 +8363,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -8881,7 +8883,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -9406,7 +9408,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -9921,7 +9923,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -10436,7 +10438,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -10949,7 +10951,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -11462,7 +11464,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -11975,7 +11977,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -12508,7 +12510,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -13049,7 +13051,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -13590,7 +13592,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -14097,7 +14099,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -14620,7 +14622,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -15137,7 +15139,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -15398,7 +15400,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -15656,7 +15658,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -16173,7 +16175,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -16690,7 +16692,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -17207,7 +17209,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -17673,7 +17675,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -18131,7 +18133,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -18581,7 +18583,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -19031,7 +19033,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -19497,7 +19499,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -19955,7 +19957,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -20405,7 +20407,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -20863,7 +20865,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -21313,7 +21315,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -21763,7 +21765,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -22213,7 +22215,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -22663,7 +22665,7 @@
     "population_id": "P",
     "population_revision": "1",
     "state_policy": {
-     "policy_id": "FP",
+     "policy_id": "venue_precedence_v1",
      "policy_version": "1",
      "precedence": [
       "halted",
@@ -23097,74 +23099,88 @@
    }
   }
  ],
- "open_questions": [
+ "coordinator_decisions": [
   {
-   "id": "OPEN-01",
-   "text": "Partial-knowledge counts. Scalar FeatureResult rules require a null value whenever quality is not available, so known_*_count is null unless every expected publisher is known; no lower-bound value exists. Decide: accept, or add reviewed additive outputs (known, unknown and stale publisher counts), or a canonical change."
+   "id": "D01",
+   "text": "Accepted: counts are null unless every expected publisher is known. Partial information is carried by aggregate_state/aggregate_reason and by quality coverage (expected = N, observed = number of known publishers). Partial-count outputs may be added only by a later reviewed amendment."
   },
   {
-   "id": "OPEN-02",
-   "text": "Mapping of the existing closed vocabularies: trading=active; non-trading=halted,closed; quoting_any positive=quoting enabled; restriction_any positive=ssr on. Confirm that restriction means the ssr dimension only."
+   "id": "D02",
+   "text": "Accepted: trading = active; non-trading = halted, closed; quoting_any positive = quoting enabled; restriction_any positive = ssr on."
   },
   {
-   "id": "OPEN-03",
-   "text": "Precedence policy source: a caller-supplied strict total order over active/halted/closed with policy_id and policy_version bound into the config digest; no default order is invented. Decide who reviews and publishes policy ids, and whether a policy may map to a non-raw aggregate label such as mixed."
+   "id": "D03",
+   "text": "Accepted: the policy is caller-supplied with no default order. policy_id comes from a closed reviewed vocabulary declared in this contract: exactly [venue_precedence_v1]; policy_version exactly [1]. A policy may map to a distinct aggregate label (for example mixed) only if that label is added to this closed vocabulary by amendment; v1 declares none, so aggregate_state is one of active, halted, closed."
   },
   {
-   "id": "OPEN-04",
-   "text": "No calendar_provenance slot or calendar context is proposed (calendar null). Decide whether session binding needs the frozen calendar proof as in the single-publisher status producer."
+   "id": "D04",
+   "text": "Accepted: no calendar slot or calendar context (calendar null)."
   },
   {
-   "id": "OPEN-05",
-   "text": "One shared epoch for all publishers (context epoch) versus per-publisher epochs, which would need an epoch field in population rows."
+   "id": "D05",
+   "text": "Accepted: one epoch shared by all publishers."
   },
   {
-   "id": "OPEN-06",
-   "text": "Outputs determined by a dominating witness (true OR, top-precedence state, saturated latest clock) report expected=observed=1, so the number of unknown publishers is not visible on that output. Decide whether to expose it separately (see OPEN-01)."
+   "id": "D06",
+   "text": "Accepted for v1: outputs decided by one witness report coverage 1/1. Observable elsewhere: the expected-population size N is the row count and coverage of the bound venue_population input in result metadata, and equals expected on every counts, aggregate_state and non-witness quality row; the unknown-publisher count is observable as expected minus observed on known_trading_count and known_nontrading_count (trading dimension) when they are unavailable. For quoting_any, restriction_any and latest_event_ns decided by one witness, and for aggregate_state decided by dominance, the unknown count is not on the output: the canonical EvidenceRow has fixed fields that cannot carry counts, and no canonical change is proposed. This is a stated v1 limitation; a reviewed amendment may add outputs. The independent reviewer should confirm."
   },
   {
-   "id": "OPEN-07",
-   "text": "Empty complete population (0/0): proposed not_applicable/empty_universe with null values, never a vacuous false or zero. Confirm."
+   "id": "D07",
+   "text": "Accepted: empty complete population gives not_applicable/empty_universe with null values."
   },
   {
-   "id": "OPEN-08",
-   "text": "latest_event_ns: included because the ownership manifest lists it as the seventh EQ165 output. Clock population is publishers x context clock_dimensions; stale facts remain eligible clocks; facts whose validity expired are ineligible; value is determined when all clocks are eligible or when the maximum equals C-1 (no current event can be later). Confirm each rule and the dimension choice."
+   "id": "D08",
+   "text": "Accepted: latest_event_ns is included, with the clock population, stale-clock, expired-validity and C-1 saturation rules above."
   },
   {
-   "id": "OPEN-09",
-   "text": "Seeds are REFERENCE rows (slot venue_seed) rather than context, because context is limited to 4096 characters. Confirm this, a new mapping_version ef1-venue-map1 versus reuse of ef1-reference-map1, and the new fact_kind and reference_id grammars."
+   "id": "D09",
+   "text": "Accepted: seeds are REFERENCE rows (slot venue_seed); new mapping version ef1-venue-map1 and the new reference_id and fact_kind grammars."
   },
   {
-   "id": "OPEN-10",
-   "text": "Unit strings publishers, bool and utc_ns must be admitted by the unit vocabulary; publishers does not appear in the repository today (bool and utc_ns do). Adding producer multivenue_status changes the frozen 45-header count and needs an additive contract amendment, EF1-only worker admission and version handling; only amendment text is proposed here."
+   "id": "D10",
+   "text": "Accepted: unit strings publishers, bool and utc_ns, and the enlarged header ledger (45 plus 7 headers), are introduced by an additive EF1-only amendment with matching worker admission and version handling. The frozen CONTRACT.json bytes do not change."
   },
   {
-   "id": "OPEN-11",
-   "text": "aggregate_reason vocabulary and precedence (absent_population, incomplete_population, empty_population, absent_input, incomplete_status_prefix, unknown_availability, future_knowledge, outside_effective_interval, stale_state, unanimous, precedence_resolved, precedence_saturated) are new labels. Confirm or replace."
+   "id": "D11",
+   "text": "Accepted: aggregate_reason labels and precedence form a closed new vocabulary."
   },
   {
-   "id": "OPEN-12",
-   "text": "Evidence: at most 4 bounded witnesses (one each for aggregate_state, quoting_any true, restriction_any true, latest_event_ns); counts and false or unanimous bulk facts carry none, so evidence_limit is 4. Confirm, or require per-publisher witnesses inside the 128-row result limit."
+   "id": "D12",
+   "text": "Accepted: evidence_limit 4."
   },
   {
-   "id": "OPEN-13",
-   "text": "A single max_age_ns applies to all three dimensions. Per-dimension limits would change the context shape."
+   "id": "D13",
+   "text": "Accepted: a single max_age_ns for all dimensions."
   },
   {
-   "id": "OPEN-14",
-   "text": "Population membership rows are applicable when start<=C<end; non-applicable members are validated and ignored. A repeated publisher id within one population revision is rejected DUPLICATE even with different intervals, so membership history needs distinct revisions. Confirm."
+   "id": "D14",
+   "text": "Accepted: a repeated publisher id within one population revision is rejected DUPLICATE; membership history needs distinct revisions."
   },
   {
-   "id": "OPEN-15",
-   "text": "Typed codes for context and slot-shape violations (invalid_config, invalid_schema) must be aligned with the existing decoder codes when the library is authored."
+   "id": "D15",
+   "text": "Finalized as proposed: invalid_config for context and policy violations, invalid_schema for slot shape and closed vocabularies."
   },
   {
-   "id": "OPEN-16",
-   "text": "Instrument/session binding is the actual target entity plus batch namespace, as for existing status roles; population rows carry no instrument field. Confirm a population is delivered per instrument/session."
+   "id": "D16",
+   "text": "Accepted: instrument/session binding is the target entity only."
   },
   {
-   "id": "OPEN-17",
-   "text": "Not verified against the canonical validator: QualityRow with not_applicable and expected=0 observed=0 (empty population), and expected=null observed=0 (unavailable population). Only the available-status rule and the scalar null-value rule were read."
+   "id": "R01",
+   "text": "Explicit item for the independent reviewer: validate against the QualityRow rules that not_applicable with expected = observed = 0 (empty population) and expected = null with observed = 0 (unavailable population) are admissible. Not verified here."
   }
- ]
+ ],
+ "policy_vocabulary": {
+  "policy_id": [
+   "venue_precedence_v1"
+  ],
+  "policy_version": [
+   "1"
+  ],
+  "aggregate_labels": [
+   "active",
+   "halted",
+   "closed"
+  ]
+ },
+ "coordinator_freeze": "Frozen as the multi-venue status contract v1 (ef1-multivenue-status1) for implementation once the PR merges; the statement is the coordinator's, pending owner review. Numerical, artifact and release gates remain."
 }

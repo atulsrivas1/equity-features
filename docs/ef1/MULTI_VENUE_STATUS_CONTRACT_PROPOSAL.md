@@ -1,6 +1,6 @@
 # EF1 multi-venue status reducer contract — proposal
 
-Proposed for EQ165 #505 (EF1), supporting EQ212 #570 (I/O mapping) and EQ213 #571 (worker execution). This is contract preparation only. It is not frozen, not accepted, not Ready, and nothing in it was executed. Independent review and coordinator freeze remain required. Every unresolved decision is marked **OPEN-nn** and collected at the end; none was guessed. The machine-readable companion is [MULTI_VENUE_STATUS_CONTRACT_PROPOSAL.json](MULTI_VENUE_STATUS_CONTRACT_PROPOSAL.json).
+Prepared for EQ165 #505 (EF1), supporting EQ212 #570 (I/O mapping) and EQ213 #571 (worker execution). This is contract preparation only. It is not accepted or Ready, and nothing in it was executed. Independent review remains required; the coordinator freeze applies on merge. Coordinator decisions are recorded in the final sections (D01 to D16, R01). The machine-readable companion is [MULTI_VENUE_STATUS_CONTRACT_PROPOSAL.json](MULTI_VENUE_STATUS_CONTRACT_PROPOSAL.json).
 
 ## Authority and sources
 
@@ -12,14 +12,14 @@ Existing `equity_features.ef1`, `CanonicalBatch`, `ConfigSpec`, `FeatureResult`,
 
 ## Producer and config identity
 
-- Producer `multivenue_status`; config identity `ef1.multivenue_status`; algorithm `v1`; schema `1`; exactly one parameter `ef1_context_json`. Calendar is null (OPEN-04).
-- Context selection exact keys: `clock_dimensions`, `epoch`, `max_age_ns`, `population_id`, `population_revision`, `state_policy`. `state_policy` exact keys `policy_id`, `policy_version`, `precedence`. `precedence` is a permutation of `[active, halted, closed]`, highest precedence first, supplied by the caller; no default order exists (OPEN-03). `clock_dimensions` is a nonempty strictly ascending subset of `[quoting, ssr, trading]`. `max_age_ns` is null (no expiry) or a nonnegative int64 and applies to every dimension (OPEN-13). The policy id and version therefore enter the config digest. Context holds no acquired state, time, sequence, seed or knowledge value.
+- Producer `multivenue_status`; config identity `ef1.multivenue_status`; algorithm `v1`; schema `1`; exactly one parameter `ef1_context_json`. Calendar is null (D04).
+- Context selection exact keys: `clock_dimensions`, `epoch`, `max_age_ns`, `population_id`, `population_revision`, `state_policy`. `state_policy` exact keys `policy_id`, `policy_version`, `precedence`. `precedence` is a permutation of `[active, halted, closed]`, highest precedence first, supplied by the caller; no default order exists; `policy_id` is exactly `venue_precedence_v1` and `policy_version` exactly `1` (D03). `clock_dimensions` is a nonempty strictly ascending subset of `[quoting, ssr, trading]`. `max_age_ns` is null (no expiry) or a nonnegative int64 and applies to every dimension (D13). The policy id and version therefore enter the config digest. Context holds no acquired state, time, sequence, seed or knowledge value.
 - Session, window, availability (market cutoff C, knowledge cutoff K, effective cutoff E, mode, reconstruction reason) and price unit/adjustment follow the frozen reconstruction rule; price unit and adjustment are null. The worker reconstructs the full ConfigSpec and compares the digest.
-- Adding this producer enlarges the frozen 45-header ledger and needs an additive, EF1-only amendment and worker admission (OPEN-10). No frozen byte changes.
+- Adding this producer enlarges the frozen 45-header ledger and needs an additive, EF1-only amendment and worker admission (D10). No frozen byte changes.
 
 ## Inputs and roles
 
-Exactly five slots in fixed order, each an actual REFERENCE `CanonicalBatch` or `None`. `None` is missing delivery; a present zero-row batch with its own coverage is present-empty. Never infer a role from vocabulary or count. B(x) is canonical unpadded UTF8 base64url; D is `t`, `q` or `s` (trading, quoting, ssr). Every full reference_id is at most 128 codepoints and 512 UTF8 bytes. Rows arrive already ordered by effective_start_ns then reference_id; no layer sorts. Mapping version and grammars are new (OPEN-09).
+Exactly five slots in fixed order, each an actual REFERENCE `CanonicalBatch` or `None`. `None` is missing delivery; a present zero-row batch with its own coverage is present-empty. Never infer a role from vocabulary or count. B(x) is canonical unpadded UTF8 base64url; D is `t`, `q` or `s` (trading, quoting, ssr). Every full reference_id is at most 128 codepoints and 512 UTF8 bytes. Rows arrive already ordered by effective_start_ns then reference_id; no layer sorts. Mapping version and grammars are new (D09).
 
 1. `venue_population`: `vp1:B(population_id):B(population_revision):B(publisher_id)`, fact_kind `ef1.venue.population_member`, text `member`. Finite interval; a member is expected at C iff start <= C < end. known_at required at most K for expected members. This is the versioned expected population. Coverage must be complete with expected = observed = row count.
 2. `venue_seed`: `vs1:D:B(epoch):B(publisher_id):seq19`, fact_kind `ef1.venue.seed`, text D. Names the original semantic sequence at which the (publisher, dimension) stream restarts. Finite interval; applicable iff start <= C < end; known_at at most K.
@@ -27,18 +27,18 @@ Exactly five slots in fixed order, each an actual REFERENCE `CanonicalBatch` or 
 4. `venue_prefix`: `vc1:D:B(epoch):B(publisher_id):B(P):B(certificate_id)`, fact_kind `ef1.venue.prefix_complete`, text D. P is the actual `venue_states` input_id.
 5. `venue_validity`: same grammar, fact_kind `ef1.venue.validity`.
 
-Instrument/session binding is the actual target entity and namespace, as for existing status roles (OPEN-16). Epoch is one shared context value (OPEN-05). Fact semantics for slots 3-5 are the existing single-publisher status mathematics applied independently per (publisher, dimension) stream.
+Instrument/session binding is the actual target entity and namespace, as for existing status roles (D16). Epoch is one shared context value (D05). Fact semantics for slots 3-5 are the existing single-publisher status mathematics applied independently per (publisher, dimension) stream.
 
 ## Structural validation (before any semantics; typed refusal)
 
 All rows of all present slots are validated even if irrelevant to C.
 
-- Population: id parses and its population_id and population_revision equal the context, else INCONSISTENT_IDENTITY (this is the conflicting-revision rule); interval end > start else BOUNDS; a publisher repeated within the batch is DUPLICATE (OPEN-14).
+- Population: id parses and its population_id and population_revision equal the context, else INCONSISTENT_IDENTITY (this is the conflicting-revision rule); interval end > start else BOUNDS; a publisher repeated within the batch is DUPLICATE (D14).
 - States, seeds, prefix, validity: epoch equals the context, else INCONSISTENT_IDENTITY (a reset is a new epoch; epochs never mix). Publisher must be a declared population member of any interval, else INCONSISTENT_IDENTITY (an unexpected publisher is never silently dropped; it is skipped only when the population slot is missing). Fact_kind/text/vocabulary closed, else INVALID_SCHEMA. Certificates and seeds need a finite interval with end > start, else BOUNDS; a state's optional end must exceed its start, else BOUNDS. Certificates bind P to the actual states input_id, else INCONSISTENT_IDENTITY.
 - Per (publisher, dimension) stream: semantic sequence strictly increasing (equal DUPLICATE, smaller INVALID_ORDER) and effective time nondecreasing (INVALID_ORDER). Sequence gaps alone prove nothing.
 - states, seed, prefix and validity batches must share one source_id and snapshot_id (the publisher-stream revision), else INCONSISTENT_IDENTITY. The population batch is a separate declaration and carries its revision in its ids.
 - More than one applicable seed, prefix certificate or validity certificate for a (publisher, dimension) is DUPLICATE regardless of knowledge, text agreement or ordering; no stitching or arbitration.
-- Slot count other than five is INVALID_SCHEMA; a precedence that is not a permutation of the closed trading vocabulary, or any malformed context, is INVALID_CONFIG (OPEN-15).
+- Slot count other than five is INVALID_SCHEMA; a precedence that is not a permutation of the closed trading vocabulary, or any malformed context, is INVALID_CONFIG (D15).
 
 ## Population and per-fact semantics
 
@@ -59,28 +59,28 @@ A fact is **known** (state and clock proved), **stale** (clock proved, state wit
 Let T = trading facts, Q = quoting facts, R = ssr facts over P; "all known" means every one of N facts is known.
 
 - `known_trading_count` (int64, publishers): if T is all known, the number with state `active`. Otherwise null.
-- `known_nontrading_count` (int64, publishers): if T is all known, the number with state `halted` or `closed` (so the two counts sum to N). Otherwise null. The mapping is OPEN-02.
+- `known_nontrading_count` (int64, publishers): if T is all known, the number with state `halted` or `closed` (so the two counts sum to N). Otherwise null. The mapping is D02.
 - `quoting_any` (bool): true if at least one known Q fact is `enabled`, even if others are unknown or stale (one positive determines an OR). Else false only if Q is all known (all `disabled`). Else null. An unknown publisher is never counted as a negative.
 - `restriction_any` (bool): same over R with positive `on`.
 - `aggregate_state` (string, state): the policy rank of a state is its index in `precedence` (0 is highest). Let best be the highest-ranked state among known T. If T is all known, the value is best. Otherwise, if best exists and its rank is 0, the value is best (nothing can outrank it; **dominance**). Otherwise null. Ties between different states do not exist because the policy is a strict total order; ties between publishers with the same state are the same value.
-- `aggregate_reason` (string, reason), always available with quality 1/1: when `aggregate_state` is available it is `unanimous` (all known, one distinct state), `precedence_resolved` (all known, at least two distinct states) or `precedence_saturated` (dominance with unknown/stale others). When unavailable it is the first applicable item of the precedence `absent_population, incomplete_population, empty_population, absent_input, incomplete_status_prefix, unknown_availability, future_knowledge, outside_effective_interval, stale_state` over the population outcome or over the scalar findings of the non-known T facts (OPEN-11).
-- `latest_event_ns` (int64, utc_ns): over the declared clock population {(p, d): p in P, d in clock_dimensions} (M = N x number of dimensions), eligible = known or stale facts. If all M are eligible the value is the maximum original t. Otherwise, if the maximum eligible t equals C - 1, the value is that maximum (no current event can be at or after C). Otherwise null. C and K are only used for eligibility; query time is never a value. See OPEN-08.
+- `aggregate_reason` (string, reason), always available with quality 1/1: when `aggregate_state` is available it is `unanimous` (all known, one distinct state), `precedence_resolved` (all known, at least two distinct states) or `precedence_saturated` (dominance with unknown/stale others). When unavailable it is the first applicable item of the precedence `absent_population, incomplete_population, empty_population, absent_input, incomplete_status_prefix, unknown_availability, future_knowledge, outside_effective_interval, stale_state` over the population outcome or over the scalar findings of the non-known T facts (D11).
+- `latest_event_ns` (int64, utc_ns): over the declared clock population {(p, d): p in P, d in clock_dimensions} (M = N x number of dimensions), eligible = known or stale facts. If all M are eligible the value is the maximum original t. Otherwise, if the maximum eligible t equals C - 1, the value is that maximum (no current event can be at or after C). Otherwise null. C and K are only used for eligibility; query time is never a value. See D08.
 
 ## Availability, coverage, quality
 
 Per output, quality status and reasons:
 
-- Value present: status `available`, reasons empty. expected = observed = N (or M) when all facts were required and known; expected = observed = 1 when the value was determined by a single dominating or positive witness (OPEN-06).
+- Value present: status `available`, reasons empty. expected = observed = N (or M) when all facts were required and known; expected = observed = 1 when the value was determined by a single dominating or positive witness (D06).
 - Value null from fact findings: status `missing_input` if any legacy reason is in {absent_input, unknown_availability, future_knowledge, ineligible}, else `incomplete_coverage` (only governed_gap). Reasons are the lexically sorted union of legacy reasons over exactly the non-eligible facts that output requires. expected = N (or M); observed = number of eligible facts. This keeps known/unknown/stale and coverage visible even when the scalar is null.
-- Empty population: `not_applicable`, reasons [empty_universe], expected = observed = 0, value null (OPEN-07).
+- Empty population: `not_applicable`, reasons [empty_universe], expected = observed = 0, value null (D07).
 - Population unavailable: absent_population -> missing_input [absent_input]; incomplete_population -> incomplete_coverage [governed_gap]; member known_at null/future -> missing_input [unknown_availability] and/or [future_knowledge]; expected null, observed 0.
 - A positive observed flag never creates a negative for other publishers; unknown, future and stale facts never become eligible by mode or by reconstruction. Missing publishers never reduce N.
 
-Evidence: bounded witnesses, `evidence_limit` 4, use `consumed`, event_ns = original effective_start_ns, original known_at and effective bounds, never C or query time: `aggregate_state` the first publisher in population order whose known T state equals the value; `quoting_any`/`restriction_any` (only when true) the first publisher with a known positive state; `latest_event_ns` the first (population order, then dimension lexical) fact whose t equals the value. Counts, false and unanimous bulk facts carry none; all inputs remain bound in full metadata (OPEN-12). Result inputs sort lexically by role; manifest order is the slot order.
+Evidence: bounded witnesses, `evidence_limit` 4, use `consumed`, event_ns = original effective_start_ns, original known_at and effective bounds, never C or query time: `aggregate_state` the first publisher in population order whose known T state equals the value; `quoting_any`/`restriction_any` (only when true) the first publisher with a known positive state; `latest_event_ns` the first (population order, then dimension lexical) fact whose t equals the value. Counts, false and unanimous bulk facts carry none; all inputs remain bound in full metadata (D12). Result inputs sort lexically by role; manifest order is the slot order.
 
 ## Units and timing
 
-All clocks are UTC integer nanoseconds (int64, utc_ns). Counts are int64 in `publishers`. Intervals are half-open [start, end); events at C are excluded; age = C - t via checked int64 subtraction (overflow is typed OVERFLOW). Exact integer arithmetic only; there is no rounding, no float and no private threshold. Unit strings are OPEN-10.
+All clocks are UTC integer nanoseconds (int64, utc_ns). Counts are int64 in `publishers`. Intervals are half-open [start, end); events at C are excluded; age = C - t via checked int64 subtraction (overflow is typed OVERFLOW). Exact integer arithmetic only; there is no rounding, no float and no private threshold. Unit strings are D10.
 
 ## Layer responsibilities
 
@@ -90,11 +90,11 @@ All clocks are UTC integer nanoseconds (int64, utc_ns). Counts are int64 in `pub
 
 ## Explicit non-goals
 
-No provider or venue acquisition; no inferred venue arbitration; no derivation of state from prices, volume, quotes or calendar phase; no new live provider; no private source thresholds or formulas; no default precedence order; no opening-delay or episode diagnostics (#518, #520); no first-trade/bar prices (#506); no change to single-publisher status; no lower-bound or partial counts (OPEN-01); no numerical, source or release acceptance; no version bump or package publication.
+No provider or venue acquisition; no inferred venue arbitration; no derivation of state from prices, volume, quotes or calendar phase; no new live provider; no private source thresholds or formulas; no default precedence order; no opening-delay or episode diagnostics (#518, #520); no first-trade/bar prices (#506); no change to single-publisher status; no lower-bound or partial counts (D01); no numerical, source or release acceptance; no version bump or package publication.
 
 ## Independent fixtures
 
-The JSON holds 50 fixtures with full expanded rows, expected values, quality, evidence and 13 expected refusals. Expected results were typed by hand as literals; a throwaway stdlib-only evaluator of the mathematics above (importing nothing from the equity packages, library not used) agreed on every output, quality tuple and witness. Fixture policy `FP/1` is synthetic test data, not a recommended order. Default world: publishers A, B, C; entity SYN/X/S; epoch `e`; C = K = 20; every stream seeded at its first event with certificates covering [0,100).
+The JSON holds 50 fixtures with full expanded rows, expected values, quality, evidence and 13 expected refusals. Expected results were typed by hand as literals; a throwaway stdlib-only evaluator of the mathematics above (importing nothing from the equity packages, library not used) agreed on every output, quality tuple and witness. Fixtures use policy_id `venue_precedence_v1` with synthetic precedence orders that are test data, not recommended orders. Default world: publishers A, B, C; entity SYN/X/S; epoch `e`; C = K = 20; every stream seeded at its first event with certificates covering [0,100).
 
 | ID | Case | Expected |
 | --- | --- | --- |
@@ -150,26 +150,32 @@ The JSON holds 50 fixtures with full expanded rows, expected values, quality, ev
 | RF13 | A trading state text 'enabled' outside the closed trading vocabulary | refusal INVALID_SCHEMA |
 
 
-## OPEN questions for the coordinator
+## Coordinator decisions
 
-- **OPEN-01**: Partial-knowledge counts. Scalar FeatureResult rules require a null value whenever quality is not available, so known_*_count is null unless every expected publisher is known; no lower-bound value exists. Decide: accept, or add reviewed additive outputs (known, unknown and stale publisher counts), or a canonical change.
-- **OPEN-02**: Mapping of the existing closed vocabularies: trading=active; non-trading=halted,closed; quoting_any positive=quoting enabled; restriction_any positive=ssr on. Confirm that restriction means the ssr dimension only.
-- **OPEN-03**: Precedence policy source: a caller-supplied strict total order over active/halted/closed with policy_id and policy_version bound into the config digest; no default order is invented. Decide who reviews and publishes policy ids, and whether a policy may map to a non-raw aggregate label such as mixed.
-- **OPEN-04**: No calendar_provenance slot or calendar context is proposed (calendar null). Decide whether session binding needs the frozen calendar proof as in the single-publisher status producer.
-- **OPEN-05**: One shared epoch for all publishers (context epoch) versus per-publisher epochs, which would need an epoch field in population rows.
-- **OPEN-06**: Outputs determined by a dominating witness (true OR, top-precedence state, saturated latest clock) report expected=observed=1, so the number of unknown publishers is not visible on that output. Decide whether to expose it separately (see OPEN-01).
-- **OPEN-07**: Empty complete population (0/0): proposed not_applicable/empty_universe with null values, never a vacuous false or zero. Confirm.
-- **OPEN-08**: latest_event_ns: included because the ownership manifest lists it as the seventh EQ165 output. Clock population is publishers x context clock_dimensions; stale facts remain eligible clocks; facts whose validity expired are ineligible; value is determined when all clocks are eligible or when the maximum equals C-1 (no current event can be later). Confirm each rule and the dimension choice.
-- **OPEN-09**: Seeds are REFERENCE rows (slot venue_seed) rather than context, because context is limited to 4096 characters. Confirm this, a new mapping_version ef1-venue-map1 versus reuse of ef1-reference-map1, and the new fact_kind and reference_id grammars.
-- **OPEN-10**: Unit strings publishers, bool and utc_ns must be admitted by the unit vocabulary; publishers does not appear in the repository today (bool and utc_ns do). Adding producer multivenue_status changes the frozen 45-header count and needs an additive contract amendment, EF1-only worker admission and version handling; only amendment text is proposed here.
-- **OPEN-11**: aggregate_reason vocabulary and precedence (absent_population, incomplete_population, empty_population, absent_input, incomplete_status_prefix, unknown_availability, future_knowledge, outside_effective_interval, stale_state, unanimous, precedence_resolved, precedence_saturated) are new labels. Confirm or replace.
-- **OPEN-12**: Evidence: at most 4 bounded witnesses (one each for aggregate_state, quoting_any true, restriction_any true, latest_event_ns); counts and false or unanimous bulk facts carry none, so evidence_limit is 4. Confirm, or require per-publisher witnesses inside the 128-row result limit.
-- **OPEN-13**: A single max_age_ns applies to all three dimensions. Per-dimension limits would change the context shape.
-- **OPEN-14**: Population membership rows are applicable when start<=C<end; non-applicable members are validated and ignored. A repeated publisher id within one population revision is rejected DUPLICATE even with different intervals, so membership history needs distinct revisions. Confirm.
-- **OPEN-15**: Typed codes for context and slot-shape violations (invalid_config, invalid_schema) must be aligned with the existing decoder codes when the library is authored.
-- **OPEN-16**: Instrument/session binding is the actual target entity plus batch namespace, as for existing status roles; population rows carry no instrument field. Confirm a population is delivered per instrument/session.
-- **OPEN-17**: Not verified against the canonical validator: QualityRow with not_applicable and expected=0 observed=0 (empty population), and expected=null observed=0 (unavailable population). Only the available-status rule and the scalar null-value rule were read.
+Former questions D01 to D16 are decided (pending owner review); the references D01 to D16 above point here.
+
+- **D01**: Accepted: counts are null unless every expected publisher is known. Partial information is carried by aggregate_state/aggregate_reason and by quality coverage (expected = N, observed = number of known publishers). Partial-count outputs may be added only by a later reviewed amendment.
+- **D02**: Accepted: trading = active; non-trading = halted, closed; quoting_any positive = quoting enabled; restriction_any positive = ssr on.
+- **D03**: Accepted: the policy is caller-supplied with no default order. policy_id comes from a closed reviewed vocabulary declared in this contract: exactly [venue_precedence_v1]; policy_version exactly [1]. A policy may map to a distinct aggregate label (for example mixed) only if that label is added to this closed vocabulary by amendment; v1 declares none, so aggregate_state is one of active, halted, closed.
+- **D04**: Accepted: no calendar slot or calendar context (calendar null).
+- **D05**: Accepted: one epoch shared by all publishers.
+- **D06**: Accepted for v1: outputs decided by one witness report coverage 1/1. Observable elsewhere: the expected-population size N is the row count and coverage of the bound venue_population input in result metadata, and equals expected on every counts, aggregate_state and non-witness quality row; the unknown-publisher count is observable as expected minus observed on known_trading_count and known_nontrading_count (trading dimension) when they are unavailable. For quoting_any, restriction_any and latest_event_ns decided by one witness, and for aggregate_state decided by dominance, the unknown count is not on the output: the canonical EvidenceRow has fixed fields that cannot carry counts, and no canonical change is proposed. This is a stated v1 limitation; a reviewed amendment may add outputs. The independent reviewer should confirm.
+- **D07**: Accepted: empty complete population gives not_applicable/empty_universe with null values.
+- **D08**: Accepted: latest_event_ns is included, with the clock population, stale-clock, expired-validity and C-1 saturation rules above.
+- **D09**: Accepted: seeds are REFERENCE rows (slot venue_seed); new mapping version ef1-venue-map1 and the new reference_id and fact_kind grammars.
+- **D10**: Accepted: unit strings publishers, bool and utc_ns, and the enlarged header ledger (45 plus 7 headers), are introduced by an additive EF1-only amendment with matching worker admission and version handling. The frozen CONTRACT.json bytes do not change.
+- **D11**: Accepted: aggregate_reason labels and precedence form a closed new vocabulary.
+- **D12**: Accepted: evidence_limit 4.
+- **D13**: Accepted: a single max_age_ns for all dimensions.
+- **D14**: Accepted: a repeated publisher id within one population revision is rejected DUPLICATE; membership history needs distinct revisions.
+- **D15**: Finalized as proposed: invalid_config for context and policy violations, invalid_schema for slot shape and closed vocabularies.
+- **D16**: Accepted: instrument/session binding is the target entity only.
+- **R01**: Explicit item for the independent reviewer: validate against the QualityRow rules that not_applicable with expected = observed = 0 (empty population) and expected = null with observed = 0 (unavailable population) are admissible. Not verified here.
+
+## Coordinator freeze
+
+Per the coordinator, the contract is frozen as `ef1-multivenue-status1` v1 for implementation once this PR merges. This statement is the coordinator's; the author makes no acceptance claim, and numerical, artifact and release gates remain.
 
 ## Verification status
 
-Not verified: no canonical dataclass construction, no config digest, no worker admission and no wire encoding were run; QualityRow behavior for empty and unavailable populations is unverified (OPEN-17). No library or test code was written or executed. Original EQ165 scope, the full EQ164 audit and all release gates remain.
+Not verified: no canonical dataclass construction, no config digest, no worker admission and no wire encoding were run; QualityRow behavior for empty and unavailable populations is unverified (R01). No library or test code was written or executed. Original EQ165 scope, the full EQ164 audit and all release gates remain.
