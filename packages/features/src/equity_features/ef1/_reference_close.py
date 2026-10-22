@@ -136,7 +136,8 @@ def compute_reference_close(batches: tuple[CanonicalBatch | None, ...] | list[Ca
     assert config.price_unit is not None
     selection_context = context["selection"]
     # A prefix before the actual regular close is provisional and never comparable (it joins as a governed gap).
-    provisional = (Reason.GOVERNED_GAP,) if config.availability.market_cutoff_ns < config.session.close_ns else ()
+    early = config.availability.market_cutoff_ns < config.session.close_ns
+    provisional = (Reason.GOVERNED_GAP,) if early else ()
     calculated = _select_regular_bars(calendar, bars, proof, config, context, entity, provisional)
     cols = {} if close is None else _admit(close, config, entity, selection_context["scope_id"])
     num, den = selection_context["tolerance_bps_num"], selection_context["tolerance_bps_den"]
@@ -154,15 +155,19 @@ def compute_reference_close(batches: tuple[CanonicalBatch | None, ...] | list[Ca
         reference.add(Reason.ABSENT_INPUT)
     else:
         reference.update(_causal(known, config))
+    # Amendment 1: a close effective after the market cutoff lies beyond the market bound and is not projected.
     if close is not None and not complete:
         reference.add(Reason.GOVERNED_GAP)
     invalid = False
-    if row and causal and complete:
+    if row and causal and complete and not early:
         if price is None:
             reference.add(Reason.NULL_FIELD)
         elif price <= 0:
             invalid = True
             reference.add(Reason.INELIGIBLE)
+    state_reasons = set(reference)  # the provisional gap below is the calculated side's condition, not the reference's
+    if close is not None and early:
+        reference.add(Reason.GOVERNED_GAP)
     supplied_reasons = _first(reference)
     # A zero supplied close is a zero denominator for the arithmetic outputs, not merely an ineligible price.
     reference_arithmetic = set(reference)
@@ -186,7 +191,7 @@ def compute_reference_close(batches: tuple[CanonicalBatch | None, ...] | list[Ca
         state = "reference_future"
     elif invalid:
         state = "reference_invalid"
-    elif reference:
+    elif state_reasons:
         state = "reference_unavailable"
     elif not calc_ready:
         state = "calculated_unavailable"
@@ -230,7 +235,7 @@ def compute_reference_close(batches: tuple[CanonicalBatch | None, ...] | list[Ca
         quality.append(QualityRow(entity, name, _status(reasons), expected, observed, reasons))
         # Numerical outputs cite witnesses only when their value is available; the state cites every causal operand.
         if name == "reference.close.comparison_state":
-            cite_bars, cite_close = calc_ready, causal
+            cite_bars, cite_close = calc_ready, causal and not early
         else:
             cite_bars = cite_close = value_for[name] is not None
             if name == "reference.close.supplied_price":
