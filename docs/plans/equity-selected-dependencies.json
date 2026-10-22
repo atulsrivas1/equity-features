@@ -1,0 +1,163 @@
+{
+  "kind": "source_safe_proposed_edges_not_mutated",
+  "records": [
+    {
+      "target_issue": 491,
+      "edge_type": "release_acceptance",
+      "why": "Selected EF3 adaptive outcome must have its real numbered producer in release acceptance; not a prerequisite for all robust calculations.",
+      "actual_numbered_dependency": [
+        626
+      ],
+      "publication_status": "draft_dependency_append_not_applied"
+    },
+    {
+      "target_issue": 611,
+      "edge_type": "selected_contract_support",
+      "existing_selected_owners": [
+        490,
+        598
+      ],
+      "why": "Map separately named adaptive, robust/mean-ratio and declared/observed population profiles with actual independently selected contracts.",
+      "actual_numbered_dependency": [
+        626
+      ],
+      "publication_status": "draft_dependency_append_not_applied"
+    },
+    {
+      "target_issue": 612,
+      "edge_type": "selected_execution_support",
+      "existing_selected_owners": [
+        490,
+        598
+      ],
+      "why": "Invoke exact selected producer only; complete compatible result/storage parity. No fabricated generic dispatch.",
+      "actual_numbered_dependency": [
+        626
+      ],
+      "publication_status": "draft_dependency_append_not_applied"
+    },
+    {
+      "target_issue": 490,
+      "edge_type": "conditional_exact_reuse",
+      "conditional_issue": 36,
+      "not_required_to_reopen_accepted_story": true,
+      "why": "Only exact historical mean-proxy/window/target-inclusion compatibility permits #36 control reuse; otherwise separately named #490 companion. Median and time-of-day profiles remain distinct; no #37 claim."
+    },
+    {
+      "target_issue": 506,
+      "edge_type": "selected_profile_companion",
+      "selected_new_outcome": "rejected_path_count_and_volume",
+      "actual_layers": [
+        570,
+        571
+      ],
+      "release_acceptance": 509,
+      "why": "Existing #506 release ownership remains; precise diagnostic outcome is explicit rather than hidden in conversion."
+    },
+    {
+      "target_issue": 511,
+      "edge_type": "selected_operand_only",
+      "conditional_issues": [
+        32,
+        506
+      ],
+      "actual_layers": [
+        609,
+        610
+      ],
+      "release_acceptance": 486,
+      "preserve_existing_dependencies": [
+        504,
+        473,
+        483
+      ],
+      "why": "Only actually consumed selected extrema/period profile; no blanket history/calendar barrier."
+    },
+    {
+      "target_issue": 513,
+      "edge_type": "selected_operand_only",
+      "conditional_issues": [
+        492,
+        505,
+        506,
+        507
+      ],
+      "actual_layers": [
+        613,
+        614
+      ],
+      "release_acceptance": 497,
+      "preserve_existing_dependencies": [
+        504,
+        489,
+        492
+      ],
+      "why": "Name actual clock/window/endpoint/reference operands for each raw-return/rate output; preserve earlier relative-comparison selection."
+    },
+    {
+      "target_issue": 518,
+      "edge_type": "conditional_exact_reuse",
+      "conditional_issue": 102,
+      "actual_layers": [
+        621,
+        622
+      ],
+      "why": "Current-cohort policy may reuse generic ranking only on exact cohort/tie/rank/unknown proof. #489 prior-history rank is not this dependency."
+    },
+    {
+      "target_issue": 520,
+      "edge_type": "selected_operand_only",
+      "conditional_issues": [
+        505,
+        506,
+        507
+      ],
+      "actual_layers": [
+        621,
+        622
+      ],
+      "preserve_existing_dependencies": [
+        504,
+        518,
+        519
+      ],
+      "why": "Latched policy consumes only actual supplied observable/level/anchor operands. Do not create a reverse EF8 implementation dependency for earlier arithmetic.",
+      "selected_opaque_component_routes": [
+        {
+          "opaque_id": "F0720",
+          "operand_issue": 519,
+          "ordered_component_issue": 520,
+          "io_issue": 621,
+          "worker_issue": 622,
+          "adds_new_story_dependency": false,
+          "mathematics_or_equivalence_accepted": false
+        }
+      ]
+    },
+    {
+      "target_issue": 598,
+      "edge_type": "selected_operand_only",
+      "retain_composition_issue": 509,
+      "actual_layers": [
+        611,
+        612
+      ],
+      "release_acceptance": 491,
+      "why": "Declared and observed profiles require independent member/input/population contracts, with actual per-output producer prerequisites only."
+    },
+    {
+      "target_issue": 519,
+      "edge_type": "selected_optional_operand",
+      "why": "Only policy outputs that actually consume adaptive diagnostics acquire this dependency; no all-output barrier and no wholesale policy ownership for raw diagnostics.",
+      "actual_numbered_dependency": [
+        626
+      ],
+      "publication_status": "draft_dependency_append_not_applied"
+    }
+  ],
+  "all_edges_require_exact_selected_profile_before_ready": true,
+  "new_producer_placeholder_must_be_replaced_by_actual_number_before_public_tracker_application": false,
+  "no_blanket_future_implementation_gate_for_EF1": true,
+  "no_source_or_numerical_equivalence_acceptance": true,
+  "actual_adaptive_issue": 626
+}

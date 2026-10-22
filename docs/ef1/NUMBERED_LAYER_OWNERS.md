@@ -53,3 +53,10 @@ Numbered planned ownership does not accept mathematics, APIs, source equivalence
 Full EQ164 remains open. The 296 command routes, 245 consumer operand gaps and selected routes for 216 representation slots/33 variants remain unresolved acceptance work; source-backed routing proposals are preparation only. There are zero accepted private mathematical/source/consumer bindings. The conditional diagnostic follow-up has not been created and cannot be counted as an owner. The [numerical ownership reconciliation](OWNERSHIP_RECONCILIATION.md) remains bounded to its explicitly accepted planned ownership.
 
 Adapters convert supplied facts; pure libraries own mathematics; workers orchestrate selected dependencies and the existing output sink writes a new separate DuckDB. All original source/rights, numerical, installed/artifact, integrated direct/worker/stored, browser-demo and release/publication gates remain. This documentation changes no runtime, status, dates, resource reservation or release completion. Applicable local document checks and fresh independent PR review are still required before merge.
+
+
+## Additional selected EF3 library owner — October 21, 2026
+
+Actual [EQ-237 #626](https://github.com/atulsrivas1/equity-features/issues/626) adds the separately versioned adaptive diagnostic producer to the selected EF3 library scope. It uses I/O #611, workers #612 and acceptance #491, preserving native parent468/R20 milestone24. Original35 story and18 task records above remain unchanged; this is an additional library producer, separate from the16 numbered layer/acceptance allocations and supplemental EQ220 #598. Full old issue bodies and current tracker metadata remain preserved.
+
+The [scope publication plan](AUDIT_ROUTE_PUBLICATION.md), [selected components](../plans/equity-selected-scope-components.json) and additive main plan field record actual numbering and proposed selected dependencies. The component manifest retains F0720 #519 current-policy and #520 ordered components. No blanket robust/EF8 prerequisite, Ready admission or full EQ164 acceptance follows. Every original audit criterion and EF1 release gate remains.

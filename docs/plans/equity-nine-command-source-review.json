@@ -1,0 +1,78 @@
+{
+  "status": "source_safe_coordinator_reviewed_proposals_actual_PR_review_pending",
+  "rows": [
+    {
+      "opaque_id": "C0041",
+      "proposed_disposition": "RETAIN_EQUITY_CALCULATION_COMPONENTS_EXCLUSION_REJECTED",
+      "standalone_exclusion_rejected": true,
+      "coordinator_disposition_required": true,
+      "scope_ownership_or_dynamic_route_open": true,
+      "numerical_or_source_acceptance": false
+    },
+    {
+      "opaque_id": "C0051",
+      "proposed_disposition": "RETAIN_CALENDAR_PREDECESSOR_COMPONENT_OWNER_CHOICE_OPEN",
+      "standalone_exclusion_rejected": true,
+      "coordinator_disposition_required": true,
+      "scope_ownership_or_dynamic_route_open": true,
+      "numerical_or_source_acceptance": false
+    },
+    {
+      "opaque_id": "C0055",
+      "proposed_disposition": "RETAIN_SESSION_READINESS_SELECTION_COMPONENT_POLICY_CHOICE_OPEN",
+      "standalone_exclusion_rejected": true,
+      "coordinator_disposition_required": true,
+      "scope_ownership_or_dynamic_route_open": true,
+      "numerical_or_source_acceptance": false
+    },
+    {
+      "opaque_id": "C0139",
+      "proposed_disposition": "EXCLUDE_STANDALONE_NUMERICAL_FEATURE_KEEP_SCHEMA_CONSUMER_LINKS",
+      "standalone_exclusion_rejected": false,
+      "coordinator_disposition_required": true,
+      "scope_ownership_or_dynamic_route_open": false,
+      "numerical_or_source_acceptance": false
+    },
+    {
+      "opaque_id": "C0153",
+      "proposed_disposition": "EXCLUDE_STANDALONE_MATH_DYNAMIC_CHILD_GRAPH_REMAINS_OPEN",
+      "standalone_exclusion_rejected": false,
+      "coordinator_disposition_required": true,
+      "scope_ownership_or_dynamic_route_open": true,
+      "numerical_or_source_acceptance": false
+    },
+    {
+      "opaque_id": "C0156",
+      "proposed_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_MEASUREMENT_ONLY",
+      "standalone_exclusion_rejected": false,
+      "coordinator_disposition_required": true,
+      "scope_ownership_or_dynamic_route_open": false,
+      "numerical_or_source_acceptance": false
+    },
+    {
+      "opaque_id": "C0215",
+      "proposed_disposition": "EXCLUDE_STANDALONE_PRICE_FEATURE_RETAIN_UNIVERSE_ADMISSION",
+      "standalone_exclusion_rejected": false,
+      "coordinator_disposition_required": true,
+      "scope_ownership_or_dynamic_route_open": true,
+      "numerical_or_source_acceptance": false
+    },
+    {
+      "opaque_id": "C0247",
+      "proposed_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_STORAGE_RETENTION_ONLY",
+      "standalone_exclusion_rejected": false,
+      "coordinator_disposition_required": true,
+      "scope_ownership_or_dynamic_route_open": false,
+      "numerical_or_source_acceptance": false
+    },
+    {
+      "opaque_id": "C0267",
+      "proposed_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_FILESYSTEM_PROVENANCE_ONLY",
+      "standalone_exclusion_rejected": false,
+      "coordinator_disposition_required": true,
+      "scope_ownership_or_dynamic_route_open": false,
+      "numerical_or_source_acceptance": false
+    }
+  ],
+  "limits": "Nine reviewed identities only; precise scope/owner decisions, complete route review and original acceptance gates remain open."
+}

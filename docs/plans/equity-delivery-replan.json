@@ -2215,5 +2215,47 @@
     "worker commands/configuration",
     "verified generated feature data in output DuckDB",
     "local demonstration viewer and evidence"
-  ]
+  ],
+  "current_selected_scope_publication": {
+  "as_of": "2026-10-21",
+  "state": "selected_dependencies_published_full_audit_unaccepted",
+  "actual_adaptive_owner": {
+    "story": "EQ-237",
+    "issue": 626,
+    "planned_release": "EF3",
+    "native_parent": 468,
+    "native_milestone": 24,
+    "io_issue": 611,
+    "worker_issue": 612,
+    "release_acceptance_issue": 491
+  },
+  "actual_scope_append_issues": [
+    490,
+    505,
+    506,
+    511,
+    513,
+    518,
+    520,
+    598
+  ],
+  "actual_publication_report_sha256": "061bdf035d4cc1ebc282be4e22857a43f3ef516e45625cbeb6b7adcb9e148d61",
+  "selected_dependency_append_targets": [
+    491,
+    611,
+    612,
+    519
+  ],
+  "dependency_appends_published": true,
+  "actual_dependency_publication_report_sha256": "1e15228acab391b3700ab530ba46669569f6c549f935b29451deda7b2bd0181c",
+  "conditional_mean_fallback_created": false,
+  "component_manifest": "equity-selected-scope-components.json",
+  "complete_identity_route_review_index": "equity-audit-route-coverage.json",
+  "selected_dependency_manifest": "equity-selected-dependencies.json",
+  "full_EQ164_accepted": false,
+  "mandatory_before_EF1_release": true,
+  "existing_scope_and_acceptance_preserved": true,
+  "future_contract_and_semantic_acceptance_unchanged": true,
+  "tracker_metadata_or_status_change": false
+}
 }
