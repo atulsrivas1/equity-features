@@ -1,10 +1,13 @@
 # Equity Features
 
-Experimental Python calculations for developers and researchers working with supplied equity data. Compute typed features and inspect their availability and quality evidence while keeping data acquisition, scheduling and publication outside calculations.
+Experimental Python library of equity feature calculations over supplied data. Calculations are pure: no fetching, storage, credentials or scheduling.
 
-[Start here](docs/START_HERE.md) · [Minimal quickstart](docs/QUICKSTART.md) · [More synthetic examples](docs/EXAMPLES.md) · [Public API](docs/api/PUBLIC_API.md) · [Roadmap and delivery status](docs/BACKLOG.md)
+Layers (separate repos):
+- `equity-features` (this repo): pure calculation packages in `packages/` (features, contracts, intraday, evidence, labels, strategies, and others).
+- `equity-feature-io`: source adapters and output sinks (DuckDB, Parquet).
+- `equity-feature-workers`: task planning, execution and publication coordination.
 
-The supported experimental platform is CPython 3.12 x64 on Windows and Linux. Use matching versions from the reviewed GitHub source and finite-retention CI artifact channel described in the [build and delivery guide](docs/BUILD_DELIVERY.md); a stable package-registry release is not offered. Core calculations consume supplied facts and do not fetch market data or schedule jobs. Optional I/O and worker components have separate dependencies and responsibilities.
+Platform: CPython 3.12 on Windows and Linux. Experimental; no stable registry release.
 
 The [repository map](docs/START_HERE.md#choose-a-repository) distinguishes the calculation library, optional companions and independent strategy research. Accepted engineering releases do not establish a profitable strategy or production service. The [R13 receipt](docs/releases/R13/R13_ACCEPTANCE.md) preserves the negative, diagnostic-only evaluation and the decision to defer witness expansion.
 
