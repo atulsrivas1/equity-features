@@ -55,7 +55,7 @@ Canonical `content_sha256` printed by each demo was identical across all four fo
 ## Observations
 
 - Published `equity-feature-duckdb` pins `numpy==2.2.6` while the base interpreter has numpy 2.5.3; the venvs therefore needed the local numpy 2.2.6 wheel. Not an error, but offline installs need that exact wheel.
-- `ef1_venue_status` defaults to finding its contract JSON by walking up from the installed `equity_features` package, which cannot work from an installed copy; `--contract` pointing at the core repository file was required.
+- `ef1_venue_status` defaults to finding its contract JSON by walking up from the installed `equity_features` package, which is not expected to resolve from an installed copy (not tried without the flag); `--contract` pointing at the core repository file was required.
 - The gap, bar-price and first-trade examples read oracle JSON from `../tests` relative to the example script, so they depend on the worker source tree being present beside the examples.
 
 ## Not run
