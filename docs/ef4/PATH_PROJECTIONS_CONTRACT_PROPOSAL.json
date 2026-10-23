@@ -386,6 +386,7 @@
  },
  "reference_fact_schemas": {
   "ef4.leg.start": {
+   "fact_kind": "ef4.leg.start",
    "instrument_id": "leg owner (target, a benchmark or a core benchmark)",
    "session_id": "the session whose price the witness is (the prior session for profile prior_close, the target session otherwise)",
    "reference_id": "x1:B(leg_id#start#profile#slot), unique",
@@ -394,9 +395,12 @@
    "price": "positive int64 coefficient at ConfigSpec.price_unit.scale",
    "text": "profile=<prior_close|window_start|regular_open>;slot=<A|B>;rev=<nonempty>;act=<nonempty>  (slot omitted means A; rev is the original record revision and is retained as evidence only; act is the instrument's independently retained corporate-action snapshot id)",
    "factor_num_den": "null",
-   "known_at_ns": "original knowledge, nullable"
+   "known_at_ns": "original knowledge, nullable",
+   "price_unit": "the legs batch declares price_unit and adjustment (compared with the config)",
+   "text_validation": "text fields are validated on the wire before any readiness: empty profile, slot, rev, act or benchmark id and a non-canonical decimal are INVALID_SCHEMA; the grammar tokens are case-sensitive"
   },
   "ef4.leg.end": {
+   "fact_kind": "ef4.leg.end",
    "instrument_id": "leg owner",
    "session_id": "target session",
    "reference_id": "x1:B(leg_id#end#slot), unique",
@@ -405,53 +409,92 @@
    "price": "positive int64 coefficient at the PriceUnit scale",
    "text": "slot=<A|B>;rev=<nonempty>;act=<nonempty>",
    "factor_num_den": "null",
-   "known_at_ns": "original knowledge, nullable"
+   "known_at_ns": "original knowledge, nullable",
+   "price_unit": "as ef4.leg.start",
+   "text_validation": "text fields are validated on the wire before any readiness: empty profile, slot, rev, act or benchmark id and a non-canonical decimal are INVALID_SCHEMA; the grammar tokens are case-sensitive"
   },
   "ef4.sector.membership": {
+   "fact_kind": "ef4.sector.membership",
    "instrument_id": "the target instrument",
    "session_id": "target session",
    "reference_id": "x1:B(membership_id)",
    "effective_start_ns": "effective-from time of the membership",
-   "effective_end_ns": "null or the effective-to time",
+   "effective_end_ns": "must be null in v1 (open-ended); a non-null value is INVALID_SCHEMA. Expiry is expressed by the producer not supplying the fact, never by a field the engine would have to compare with a knowledge time",
    "price": "null",
    "text": "the sector benchmark instrument id explicitly bound by the causal membership/projection producer (EQ-168 #508 mapping); never derived from a sector name",
    "factor_num_den": "null",
-   "known_at_ns": "original knowledge, nullable"
+   "known_at_ns": "original knowledge of the whole fact, nullable; null is unknown_availability and > K is future_knowledge for the membership as a whole (no field-level knowledge exists)",
+   "price_unit": "None (no price)",
+   "text_validation": "text fields are validated on the wire before any readiness: empty profile, slot, rev, act or benchmark id and a non-canonical decimal are INVALID_SCHEMA; the grammar tokens are case-sensitive"
   },
   "ef4.tape.count": {
+   "fact_kind": "ef4.tape.count",
    "instrument_id": "target",
    "session_id": "target session",
    "reference_id": "x1:B(window_id#count)",
    "effective_start_ns": "window start (utc_ns)",
-   "effective_end_ns": "window end (utc_ns), > start",
+   "effective_end_ns": "window end (utc_ns) must be non-null and > effective_start_ns (BOUNDS otherwise, shared REFERENCE rule); the window end is known with the fact, so a null or later known_at_ns makes the whole operand unknown_availability or future_knowledge",
    "price": "null",
    "text": "canonical non-negative decimal integer (no sign, no leading zeros except 0), <= 2^63-1: the number of eligible trades in [start,end)",
    "factor_num_den": "null (the shared validator rejects factor <= 0, so a zero count must not be carried there)",
-   "known_at_ns": "nullable"
+   "known_at_ns": "nullable",
+   "text_validation": "text fields are validated on the wire before any readiness: empty profile, slot, rev, act or benchmark id and a non-canonical decimal are INVALID_SCHEMA; the grammar tokens are case-sensitive"
   },
   "ef4.tape.volume": {
+   "fact_kind": "ef4.tape.volume",
    "instrument_id": "target",
    "session_id": "target session",
    "reference_id": "x1:B(window_id#volume)",
    "effective_start_ns": "window start",
-   "effective_end_ns": "window end",
+   "effective_end_ns": "window end (utc_ns) must be non-null and > effective_start_ns (BOUNDS otherwise, shared REFERENCE rule); the window end is known with the fact, so a null or later known_at_ns makes the whole operand unknown_availability or future_knowledge",
    "price": "null",
    "text": "canonical non-negative decimal integer <= 2^63-1: shares",
    "factor_num_den": "null",
-   "known_at_ns": "nullable"
+   "known_at_ns": "nullable",
+   "text_validation": "text fields are validated on the wire before any readiness: empty profile, slot, rev, act or benchmark id and a non-canonical decimal are INVALID_SCHEMA; the grammar tokens are case-sensitive"
   },
   "ef4.tape.notional": {
+   "fact_kind": "ef4.tape.notional",
    "instrument_id": "target",
    "session_id": "target session",
    "reference_id": "x1:B(window_id#notional)",
    "effective_start_ns": "window start",
-   "effective_end_ns": "window end",
+   "effective_end_ns": "window end (utc_ns) must be non-null and > effective_start_ns (BOUNDS otherwise, shared REFERENCE rule); the window end is known with the fact, so a null or later known_at_ns makes the whole operand unknown_availability or future_knowledge",
    "price": "null",
    "text": "canonical non-negative decimal integer < 10^38: actual traded notional coefficient at the PriceUnit scale (sum of price coefficient times size)",
    "factor_num_den": "null",
-   "known_at_ns": "nullable"
+   "known_at_ns": "nullable",
+   "price_unit": "the REFERENCE batch that carries ef4.tape.notional declares price_unit (the notional coefficient is at that scale) and is compared with the config unit (INVALID_UNIT); a tape batch carrying only count and volume facts has price_unit None and is not compared",
+   "text_validation": "text fields are validated on the wire before any readiness: empty profile, slot, rev, act or benchmark id and a non-canonical decimal are INVALID_SCHEMA; the grammar tokens are case-sensitive"
   },
   "note": "price_unit None REFERENCE roles are not compared by require_compatible_inputs; market roles (daily, bars) are. Rows inside one (instrument, session) group must be ordered by (effective_start_ns, reference_id) as the shared validator requires. The tape facts are the transport of operands whose identity belongs to contract G (EQ-158 #492); if G publishes a different carrier, a mapping amendment replaces the carrier only and the mathematics here is unchanged."
+ },
+ "knowledge_readiness": {
+  "K": "K is the knowledge cutoff (the instant up to which facts may be known). It is distinct from the market cutoff C (the instant up to which bars and endpoints may have completed); K may be later than C. A bar or fact is KNOWN iff its original known_at_ns is non-null and <= K (== K is known).",
+  "enforcement": "The shared AvailabilitySpec.knowledge_reason returns None in reconstruction mode, so a shared validator never excludes a late row in that mode. The producer therefore enforces knowledge itself, identically in known_at and reconstruction modes, from the original known_at_ns of every consumed row or fact: null is unknown_availability, > K is future_knowledge. No result depends on the mode.",
+  "compact": "In fixtures the compact token ka maps to known_at_ns = K_ns - (100 - ka) seconds with K_ns = C_ns + 100 s, so ka 100 is exactly K, 150 is 50 s after it and 50 is 50 s before it."
+ },
+ "wire_expansion": {
+  "clock": "Result fixtures use compact slot indices; the canonical expansion places slot i of bar fixtures at start_ns = 1700000000000000000 + i*60e9 (epoch scale, about 1.7e18 ns, beyond 2^53) with end_ns = start_ns + 60e9, session S1, instrument X; daily slots (session projection, governed_history) use 86400e9 spacing and session D<i>. The market cutoff C is the end of the last delivered slot; the target slot is explicit (the last slot unless `target` says otherwise).",
+  "wire_slot": "{wire: {inst, ss, start, end, row}} replaces a compact slot by a fully explicit row: omitted fields take the default expansion of that slot index. Refusal recipes use it so that DUPLICATE, INVALID_ORDER, BOUNDS and INCONSISTENT_IDENTITY come from real instrument, session, start and end values that the independent harness feeds to its emulation of validate_batch (identity key, order group, interval, cutoff) and to the producer identity checks (instrument, session, membership of the interval in the governed grid).",
+  "reference_rows": "REFERENCE facts are expanded with reference_id derived from (kind, profile, slot) (or window id and kind for tape facts) and sorted by (effective_start_ns, reference_id) before delivery, so listing order in a compact fixture never causes INVALID_ORDER; a second fact with the same key therefore has the same reference_id and is the shared-validator DUPLICATE."
+ },
+ "refusal_precedence": {
+  "order": [
+   "wire",
+   "shared",
+   "config",
+   "version",
+   "identity",
+   "data"
+  ],
+  "wire": "cell types and ranges and text grammar of the canonical wire: non-integer or bool/float cells, row width, empty ids, unknown labels, non-canonical decimal text (INVALID_SCHEMA); int64/decimal128 range (OVERFLOW)",
+  "shared": "the shared validators (validate_batch, require_compatible_inputs): DUPLICATE, INVALID_ORDER, BOUNDS (start >= end, bar after the market cutoff, negative quantity, reference bounds), OHLC and notional INVALID_SCHEMA",
+  "config": "ConfigSpec: parameter set, ranges and vocabularies (INVALID_CONFIG), capability (UNSUPPORTED_CAPABILITY), feature ids (UNKNOWN_FEATURE), price unit and currency (INVALID_UNIT), adjustment (UNSUPPORTED_ADJUSTMENT)",
+  "version": "policy label (INCOMPATIBLE_VERSION)",
+  "identity": "INCONSISTENT_IDENTITY (instrument, session, governed grid, benchmark roles, undeclared instruments) and library-detected duplicates with distinct reference ids",
+  "data": "producer rules over otherwise valid data: cross-fact BOUNDS (leg start not before end) and checked-sum OVERFLOW of a published int64",
+  "rule": "A refusal raises the code of the first stage, in this order, that has a fault; a later stage is not evaluated for a row that failed an earlier one (so a row rejected by the shared validator is not also reported as a grid mismatch). Every refusal fixture is a single-fault recipe: exactly one defect, in the stage recorded in `stage`, and no other check fires on the mutated input (an independent reviewer audit collects every trigger, not only the first). A row that carries two defects is not a refusal fixture."
  },
  "mathematics": {
   "value_basis": "Closes, opens, highs, lows and leg prices are positive int64 coefficients at ConfigSpec.price_unit.scale; volumes and counts are int64; notional is a decimal128 coefficient at the same scale. All arithmetic is exact integer/rational; ratios and rates are rational, divided by 10^scale or by seconds only at publication, with one correctly rounded float64. Share-volume sums are checked int64 (OVERFLOW if a published int64 sum exceeds 2^63-1); total volume, total notional and window sums used only as denominators are exact wide integers.",
@@ -526,19 +569,19 @@
  "acceptance_rules": {
   "exact_float64": "reference is a dyadic rational with numerator below 2^53 reached by exact integer/rational arithmetic, so any exact-rational or Decimal120 path produces it without rounding; the published float64 must equal the hex bit for bit",
   "exact_plus_zero": "reference exactly 0 from exact arithmetic (equal integers subtract to zero, an exact count of zero, ln of an exact ratio 1): bit-exact +0.0, never -0.0",
-  "tolerance": "abs(y - r) <= max(8*ulp(r), 1e-12*abs(r)) with r the fixture float64 (the R17 numeric error contract, docs/api/INTRADAY.md, Numeric error contract and capabilities); also used for every value whose computation passes through a logarithm, even when the reference is dyadic, so implementations need not special-case it",
+  "tolerance": "abs(y - r) <= max(8*ulp(r), 1e-12*abs(r)) with r the fixture float64 (the R17 numeric error contract, docs/api/INTRADAY.md, Numeric error contract and capabilities); also used for every value whose computation passes through a logarithm, even when the reference is dyadic, so implementations need not special-case it. Reconciliation with the single-rounding publication rule: the published value is defined as the exact rational (or 120-digit logarithm value) rounded once, so an exact-rational implementation returns the correctly rounded float64 (within 0.5 ulp) and the fixture float64 is that value; the envelope above is the R17 pass/fail rule inherited for Decimal120 and other conforming backends, not a licence for a looser exact path",
   "exact_integer": "int64 and decimal128 outputs are exact (decimal128 as the integer coefficient at the PriceUnit scale)",
   "exact_bool": "bool outputs are exact",
   "documented_exceptions": "none",
   "counts_in_this_packet": {
-   "exact_bool": 14,
-   "tolerance": 72,
-   "exact_float64": 35,
+   "exact_bool": 15,
+   "tolerance": 78,
+   "exact_float64": 36,
    "exact_plus_zero": 47,
    "exact_integer": 44
   }
  },
- "fixture_notation": "compact, NOT canonical wire. K = 100 knowledge cutoff, default known_at 50. Session projection (SP): `closes` lists the governed daily closes 0..t, the target is the last unless `target` names an earlier index; an integer is a close, 'absent', 'gap', 'null' as in the sibling contract, {row, ka} an explicit known_at. Bar projection (BP): `bars` lists epoch bars [O,H,L,C,V,N] (N the actual notional or null), 'empty' a proven-empty zero-volume bar (READY with 0, unlike the path contract), 'absent', 'gap', 'null' a null-volume row, {row, ka}; notional_column=false means the actual_notional column is not delivered. Relative excess (RX/CB): C is the cutoff; times are small integer nanoseconds; `facts` are leg facts {inst, kind start|end, t witness time, p price coefficient, ss session id, pf profile (start only), act action snapshot, rev revision, ka known_at}; `membership` facts {inst, bound benchmark id, eff effective-from, ka}; instrument is the target X; the benchmark ids are in params. Rate projection (RP): times are integer nanoseconds (written as seconds times 10^9); `tape` facts {kind count|volume|notional, s, e, v canonical integer, ka}; `legs` facts {inst, kind, slot A|B, t, p, ss, act, rev, ka}. `unit.scale` is the price scale; `outputs` lists the selected feature ids and a fixture evaluates every listed output. Float results carry the exact rational, the float64, float.hex and the acceptance rule; int64 and decimal128 results carry the exact integer (decimal128 with its scale). Refusal fixtures are mutations of a named result fixture: `mutation` is the list of set/delete operations on `fixture.*` (the base fixture) and `ctx.*` (config unit, batch unit and adjustment, features, capability); a slot or row marker {mk: ...} stands for a canonical-wire defect named in the description.",
+ "fixture_notation": "compact, NOT canonical wire. K = 100 knowledge cutoff, default known_at 50. Session projection (SP): `closes` lists the governed daily closes 0..t, the target is the last unless `target` names an earlier index; an integer is a close, 'absent', 'gap', 'null' as in the sibling contract, {row, ka} an explicit known_at. Bar projection (BP): `bars` lists epoch bars [O,H,L,C,V,N] (N the actual notional or null), 'empty' a proven-empty zero-volume bar (READY with 0, unlike the path contract), 'absent', 'gap', 'null' a null-volume row, {row, ka}; notional_column=false means the actual_notional column is not delivered. Relative excess (RX/CB): C is the cutoff; times are small integer nanoseconds; `facts` are leg facts {inst, kind start|end, t witness time, p price coefficient, ss session id, pf profile (start only), act action snapshot, rev revision, ka known_at}; `membership` facts {inst, bound benchmark id, eff effective-from, ka}; instrument is the target X; the benchmark ids are in params. Rate projection (RP): times are integer nanoseconds (written as seconds times 10^9); `tape` facts {kind count|volume|notional, s, e, v canonical integer, ka}; `legs` facts {inst, kind, slot A|B, t, p, ss, act, rev, ka}. `unit.scale` is the price scale; `outputs` lists the selected feature ids and a fixture evaluates every listed output. Float results carry the exact rational, the float64, float.hex and the acceptance rule; int64 and decimal128 results carry the exact integer (decimal128 with its scale). Refusal fixtures are mutations of a named result fixture: `mutation` is the list of set/delete operations on `fixture.*` (the base fixture) and `ctx.*` (config unit, batch unit and adjustment, features, capability); a {wire: {inst, ss, start, end, row}} slot is a fully explicit canonical row (see `wire_expansion`), so duplicate, order, cutoff and identity defects are real values. Compact fact lists need not be time-sorted: the expansion sorts REFERENCE facts by (effective_start_ns, reference_id) (RP20 lists A before B for readability). Every refusal records its `stage` (see `refusal_precedence`) and, for unit and adjustment recipes, the `role` whose batch it mutates (daily, bars, legs, tape). Times in RX/RP use small integers or epoch-scale values (RX28, RX29, RP31 are about 1.7e18 ns); the market cutoff C is explicit in RX/RP and is the end of the last delivered slot in SP/BP; K versus C and the known_at token mapping are in `knowledge_readiness`.",
  "session_fixtures": [
   {
    "id": "SP01",
@@ -2965,7 +3008,6 @@
     13
    ],
    "outputs": [
-    "projection.drawdown_fraction",
     "projection.up_session_fraction"
    ],
    "tags": [
@@ -2973,21 +3015,6 @@
     "truncation"
    ],
    "expected": {
-    "projection.drawdown_fraction": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": {
-      "exact": "0/1",
-      "float64": 0.0,
-      "hex": "0x0.0p+0",
-      "acceptance": "exact_plus_zero"
-     },
-     "witnesses": [
-      "slot:3"
-     ]
-    },
     "projection.up_session_fraction": {
      "status": "available",
      "reasons": [],
@@ -3027,7 +3054,6 @@
     13
    ],
    "outputs": [
-    "projection.drawdown_fraction",
     "projection.up_session_fraction"
    ],
    "tags": [
@@ -3035,19 +3061,6 @@
     "truncation"
    ],
    "expected": {
-    "projection.drawdown_fraction": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": {
-      "exact": "0/1",
-      "float64": 0.0,
-      "hex": "0x0.0p+0",
-      "acceptance": "exact_plus_zero"
-     },
-     "witnesses": []
-    },
     "projection.up_session_fraction": {
      "status": "available",
      "reasons": [],
@@ -3358,6 +3371,137 @@
       "slot:4",
       "slot:2",
       "slot:3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "SP22",
+   "group": "near_cancellation",
+   "description": "closes 1e15, 1e15+1, 1e15+2, N=2: distance from low 1/(1e15+1) and close/SMA-1 = 1/(2e15+3) (a float64 mean of the closes loses both); window sum 2e15+3",
+   "producer": "session_projection",
+   "params": {
+    "policy_version": "ef4-proj1",
+    "window": 2,
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "closes": [
+    1000000000000000,
+    1000000000000001,
+    1000000000000002
+   ],
+   "outputs": [
+    "projection.close_above_sma",
+    "projection.close_vs_sma_fraction",
+    "projection.distance_from_low_fraction",
+    "projection.down_session_fraction",
+    "projection.drawdown_fraction",
+    "projection.up_session_fraction"
+   ],
+   "tags": [
+    "near_cancellation",
+    "accuracy"
+   ],
+   "expected": {
+    "projection.close_above_sma": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": true,
+      "acceptance": "exact_bool"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:1"
+     ]
+    },
+    "projection.close_vs_sma_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1/2000000000000003",
+      "float64": 4.9999999999999925e-16,
+      "hex": "0x1.203af9ee7560ep-51",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:1"
+     ]
+    },
+    "projection.distance_from_low_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1/1000000000000001",
+      "float64": 9.99999999999999e-16,
+      "hex": "0x1.203af9ee75611p-50",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:1"
+     ]
+    },
+    "projection.down_session_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "projection.drawdown_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:1"
+     ]
+    },
+    "projection.up_session_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
      ]
     }
    }
@@ -5467,7 +5611,6 @@
     ]
    ],
    "outputs": [
-    "projection.up_dollar_volume_fraction",
     "projection.up_volume"
    ],
    "tags": [
@@ -5475,22 +5618,6 @@
     "truncation"
    ],
    "expected": {
-    "projection.up_dollar_volume_fraction": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": {
-      "exact": "7/22",
-      "float64": 0.3181818181818182,
-      "hex": "0x1.45d1745d1745dp-2",
-      "acceptance": "tolerance"
-     },
-     "witnesses": [
-      "bar:2",
-      "bar:0"
-     ]
-    },
     "projection.up_volume": {
      "status": "available",
      "reasons": [],
@@ -9639,6 +9766,236 @@
      "witnesses": []
     }
    }
+  },
+  {
+   "id": "RX28",
+   "group": "epoch_scale",
+   "description": "epoch-scale times (about 1.7e18 ns): prior-close and window facts for X and the primary benchmark shifted by 1.7e18; tolerance and age compare small differences of 19-digit integers",
+   "producer": "relative_excess",
+   "params": {
+    "policy_version": "ef4-rel1",
+    "alignment_tolerance_ns": 5,
+    "max_endpoint_age_ns": 50,
+    "evidence_limit": 10000,
+    "primary_benchmark_id": "P",
+    "window_ns": 300
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "C": 1700000000000001000,
+   "instrument": "X",
+   "facts": [
+    {
+     "inst": "X",
+     "kind": "start",
+     "t": 1699999999999999900,
+     "p": 100,
+     "ss": "S0",
+     "pf": "prior_close",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "X",
+     "kind": "start",
+     "t": 1700000000000000690,
+     "p": 102,
+     "ss": "S1",
+     "pf": "window_start",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "X",
+     "kind": "end",
+     "t": 1700000000000000990,
+     "p": 110,
+     "ss": "S1",
+     "pf": null,
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "P",
+     "kind": "start",
+     "t": 1699999999999999900,
+     "p": 200,
+     "ss": "S0",
+     "pf": "prior_close",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "P",
+     "kind": "start",
+     "t": 1700000000000000690,
+     "p": 208,
+     "ss": "S1",
+     "pf": "window_start",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "P",
+     "kind": "end",
+     "t": 1700000000000000990,
+     "p": 210,
+     "ss": "S1",
+     "pf": null,
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    }
+   ],
+   "membership": [],
+   "outputs": [
+    "relative.session.primary.prior_close_excess_fraction",
+    "relative.session.primary.window_excess_fraction"
+   ],
+   "tags": [
+    "epoch_scale"
+   ],
+   "expected": {
+    "relative.session.primary.prior_close_excess_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/20",
+      "float64": 0.05,
+      "hex": "0x1.999999999999ap-5",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "leg:X:start",
+      "leg:X:end",
+      "leg:P:start",
+      "leg:P:end"
+     ]
+    },
+    "relative.session.primary.window_excess_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "365/5304",
+      "float64": 0.068815987933635,
+      "hex": "0x1.19decb19decb2p-4",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "leg:X:start",
+      "leg:X:end",
+      "leg:P:start",
+      "leg:P:end"
+     ]
+    }
+   }
+  },
+  {
+   "id": "RX29",
+   "group": "near_cancellation",
+   "description": "X 1e15 -> 1100000000000001 (r = 0.1 + 1e-15) against primary 2e15 -> 2.2e15 (r = 0.1): the excess 1e-15 is the exact rational 1/1e15; a float64 difference of the two returns has about 1% error",
+   "producer": "relative_excess",
+   "params": {
+    "policy_version": "ef4-rel1",
+    "alignment_tolerance_ns": 5,
+    "max_endpoint_age_ns": 50,
+    "evidence_limit": 10000,
+    "primary_benchmark_id": "P"
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "C": 1700000000000001000,
+   "instrument": "X",
+   "facts": [
+    {
+     "inst": "X",
+     "kind": "start",
+     "t": 1699999999999999900,
+     "p": 1000000000000000,
+     "ss": "S0",
+     "pf": "prior_close",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "X",
+     "kind": "end",
+     "t": 1700000000000000990,
+     "p": 1100000000000001,
+     "ss": "S1",
+     "pf": null,
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "P",
+     "kind": "start",
+     "t": 1699999999999999900,
+     "p": 2000000000000000,
+     "ss": "S0",
+     "pf": "prior_close",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "P",
+     "kind": "end",
+     "t": 1700000000000000990,
+     "p": 2200000000000000,
+     "ss": "S1",
+     "pf": null,
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    }
+   ],
+   "membership": [],
+   "outputs": [
+    "relative.session.primary.prior_close_excess_fraction"
+   ],
+   "tags": [
+    "near_cancellation",
+    "epoch_scale",
+    "accuracy"
+   ],
+   "expected": {
+    "relative.session.primary.prior_close_excess_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1000000000000000",
+      "float64": 1e-15,
+      "hex": "0x1.203af9ee75616p-50",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "leg:X:start",
+      "leg:X:end",
+      "leg:P:start",
+      "leg:P:end"
+     ]
+    }
+   }
   }
  ],
  "rate_fixtures": [
@@ -11786,6 +12143,122 @@
      ]
     }
    }
+  },
+  {
+   "id": "RP31",
+   "group": "near_cancellation",
+   "description": "epoch-scale windows, A: 1e15 -> 1100000000000001 (r = 0.1 + 1e-15), B: 1e15 -> 1.1e15 (r = 0.1): raw return 100000000000001/1e15 and rate difference (1e-15)/60 s exactly",
+   "producer": "rate_projection",
+   "params": {
+    "policy_version": "ef4-rate1",
+    "window_ns": 60000000000,
+    "max_endpoint_age_ns": 10000000000,
+    "evidence_limit": 10000,
+    "alignment_tolerance_ns": 1000000000,
+    "adjacency": "adjacent"
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "C": 1700001000000000000,
+   "instrument": "X",
+   "tape": [],
+   "legs": [
+    {
+     "inst": "X",
+     "kind": "start",
+     "slot": "A",
+     "t": 1700000940000000000,
+     "p": 1000000000000000,
+     "ss": "S1",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50,
+     "pf": "window_start"
+    },
+    {
+     "inst": "X",
+     "kind": "end",
+     "slot": "A",
+     "t": 1700001000000000000,
+     "p": 1100000000000001,
+     "ss": "S1",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    },
+    {
+     "inst": "X",
+     "kind": "start",
+     "slot": "B",
+     "t": 1700000880000000000,
+     "p": 1000000000000000,
+     "ss": "S1",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50,
+     "pf": "window_start"
+    },
+    {
+     "inst": "X",
+     "kind": "end",
+     "slot": "B",
+     "t": 1700000940000000000,
+     "p": 1100000000000000,
+     "ss": "S1",
+     "act": "a1",
+     "rev": "r1",
+     "ka": 50
+    }
+   ],
+   "outputs": [
+    "rate.window.raw_return_fraction",
+    "rate.window.return_rate_difference"
+   ],
+   "tags": [
+    "near_cancellation",
+    "epoch_scale",
+    "accuracy",
+    "rate_difference"
+   ],
+   "expected": {
+    "rate.window.raw_return_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "100000000000001/1000000000000000",
+      "float64": 0.100000000000001,
+      "hex": "0x1.99999999999e2p-4",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "leg:X:start:A",
+      "leg:X:end:A"
+     ]
+    },
+    "rate.window.return_rate_difference": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/60000000000000000",
+      "float64": 1.6666666666666667e-17,
+      "hex": "0x1.33721ba905bd3p-56",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "leg:X:start:A",
+      "leg:X:end:A",
+      "leg:X:start:B",
+      "leg:X:end:B"
+     ]
+    }
+   }
   }
  ],
  "refusal_fixtures": [
@@ -11793,6 +12266,7 @@
    "id": "SPR01",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window missing",
    "producer": "session_projection",
    "base": "SP01",
@@ -11801,12 +12275,13 @@
      "del": "fixture.params.window"
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then delete fixture.params.window."
+   "construction": "Take result fixture SP01 unchanged, then delete fixture.params.window. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR02",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window 0",
    "producer": "session_projection",
    "base": "SP01",
@@ -11816,12 +12291,13 @@
      "value": 0
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.params.window = 0."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.params.window = 0. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR03",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window 4097",
    "producer": "session_projection",
    "base": "SP01",
@@ -11831,12 +12307,13 @@
      "value": 4097
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.params.window = 4097."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.params.window = 4097. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR04",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window is a bool",
    "producer": "session_projection",
    "base": "SP01",
@@ -11846,12 +12323,13 @@
      "value": true
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.params.window = True."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.params.window = True. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR05",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "unknown parameter min_history",
    "producer": "session_projection",
    "base": "SP01",
@@ -11861,12 +12339,13 @@
      "value": 2
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.params.min_history = 2."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.params.min_history = 2. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR06",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "evidence_limit 10001",
    "producer": "session_projection",
    "base": "SP01",
@@ -11876,12 +12355,13 @@
      "value": 10001
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.params.evidence_limit = 10001."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.params.evidence_limit = 10001. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR07",
    "error_code": "INCOMPATIBLE_VERSION",
    "raised_by": "library",
+   "stage": "version",
    "description": "unsupported policy label",
    "producer": "session_projection",
    "base": "SP01",
@@ -11891,12 +12371,13 @@
      "value": "ef4-proj2"
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.params.policy_version = ef4-proj2."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.params.policy_version = ef4-proj2. Single fault: only the version stage is violated."
   },
   {
    "id": "SPR08",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "zero close",
    "producer": "session_projection",
    "base": "SP01",
@@ -11906,12 +12387,13 @@
      "value": 0
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = 0."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = 0. Single fault: only the shared stage is violated."
   },
   {
    "id": "SPR09",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "negative close",
    "producer": "session_projection",
    "base": "SP01",
@@ -11921,12 +12403,13 @@
      "value": -5
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = -5."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = -5. Single fault: only the shared stage is violated."
   },
   {
    "id": "SPR10",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "float close",
    "producer": "session_projection",
    "base": "SP01",
@@ -11936,12 +12419,13 @@
      "value": 101.0
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = 101.0."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = 101.0. Single fault: only the wire stage is violated."
   },
   {
    "id": "SPR11",
    "error_code": "OVERFLOW",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "close 2^63 exceeds int64",
    "producer": "session_projection",
    "base": "SP01",
@@ -11951,64 +12435,98 @@
      "value": 9223372036854775808
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = 9223372036854775808."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = 9223372036854775808. Single fault: only the wire stage is violated."
   },
   {
    "id": "SPR12",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
-   "description": "duplicate session identity (DAILY rows are unique per instrument and session)",
+   "stage": "shared",
+   "description": "daily row 2 delivered with the (instrument, session) identity of row 1 (DAILY rows are unique per instrument and session)",
    "producer": "session_projection",
    "base": "SP01",
    "mutation": [
     {
      "set": "fixture.closes.2",
      "value": {
-      "mk": "dup"
+      "wire": {
+       "inst": "X",
+       "ss": "D1",
+       "start": 1700172800000000000,
+       "end": 1700259200000000000,
+       "row": 101
+      }
      }
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = {'mk': 'dup'}."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = wire row {'inst': 'X', 'ss': 'D1', 'start': 1700172800000000000, 'end': 1700259200000000000}. Single fault: only the shared stage is violated."
   },
   {
    "id": "SPR13",
    "error_code": "INVALID_ORDER",
    "raised_by": "shared validator",
-   "description": "DAILY rows out of governed order",
-   "producer": "session_projection",
-   "base": "SP01",
-   "mutation": [
-    {
-     "set": "fixture.closes.3",
-     "value": {
-      "mk": "unordered"
-     }
-    }
-   ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.3 = {'mk': 'unordered'}."
-  },
-  {
-   "id": "SPR14",
-   "error_code": "INCONSISTENT_IDENTITY",
-   "raised_by": "producer admission",
-   "description": "a second instrument in the daily role",
+   "stage": "shared",
+   "description": "daily rows 2 and 3 delivered in swapped order (distinct sessions, the second starts before the first ends)",
    "producer": "session_projection",
    "base": "SP01",
    "mutation": [
     {
      "set": "fixture.closes.2",
      "value": {
-      "mk": "second_instrument"
+      "wire": {
+       "inst": "X",
+       "ss": "D3",
+       "start": 1700259200000000000,
+       "end": 1700345600000000000,
+       "row": 101
+      }
+     }
+    },
+    {
+     "set": "fixture.closes.3",
+     "value": {
+      "wire": {
+       "inst": "X",
+       "ss": "D2",
+       "start": 1700172800000000000,
+       "end": 1700259200000000000,
+       "row": 101
+      }
      }
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = {'mk': 'second_instrument'}."
+   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = wire row {'inst': 'X', 'ss': 'D3', 'start': 1700259200000000000, 'end': 1700345600000000000}; set fixture.closes.3 = wire row {'inst': 'X', 'ss': 'D2', 'start': 1700172800000000000, 'end': 1700259200000000000}. Single fault: only the shared stage is violated."
+  },
+  {
+   "id": "SPR14",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "raised_by": "producer admission",
+   "stage": "identity",
+   "description": "daily row 2 carries instrument Y in the single-instrument daily role",
+   "producer": "session_projection",
+   "base": "SP01",
+   "mutation": [
+    {
+     "set": "fixture.closes.2",
+     "value": {
+      "wire": {
+       "inst": "Y",
+       "ss": "D2",
+       "start": 1700172800000000000,
+       "end": 1700259200000000000,
+       "row": 101
+      }
+     }
+    }
+   ],
+   "construction": "Take result fixture SP01 unchanged, then set fixture.closes.2 = wire row {'inst': 'Y', 'ss': 'D2', 'start': 1700172800000000000, 'end': 1700259200000000000}. Single fault: only the identity stage is violated."
   },
   {
    "id": "SPR15",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch price scale differs from the config price unit scale",
+   "stage": "config",
+   "description": "batch price scale differs from the config price unit scale (role daily)",
    "producer": "session_projection",
    "base": "SP01",
    "mutation": [
@@ -12017,13 +12535,15 @@
      "value": 3
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set ctx.batch.unit.scale = 3."
+   "construction": "Take result fixture SP01 unchanged, then set ctx.batch.unit.scale = 3. Single fault: only the config stage is violated.",
+   "role": "daily"
   },
   {
    "id": "SPR16",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch currency differs from the config price unit currency",
+   "stage": "config",
+   "description": "batch currency differs from the config price unit currency (role daily)",
    "producer": "session_projection",
    "base": "SP01",
    "mutation": [
@@ -12032,12 +12552,14 @@
      "value": "EUR"
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set ctx.batch.unit.currency = EUR."
+   "construction": "Take result fixture SP01 unchanged, then set ctx.batch.unit.currency = EUR. Single fault: only the config stage is violated.",
+   "role": "daily"
   },
   {
    "id": "SPR17",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
+   "stage": "config",
    "description": "config declares no price unit (PriceUnit is mandatory)",
    "producer": "session_projection",
    "base": "SP01",
@@ -12047,13 +12569,14 @@
      "value": null
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set ctx.config_unit = None."
+   "construction": "Take result fixture SP01 unchanged, then set ctx.config_unit = None. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR18",
    "error_code": "UNSUPPORTED_ADJUSTMENT",
    "raised_by": "producer admission",
-   "description": "batch adjustment basis differs from the config adjustment",
+   "stage": "config",
+   "description": "batch adjustment basis differs from the config adjustment (role daily)",
    "producer": "session_projection",
    "base": "SP01",
    "mutation": [
@@ -12062,29 +12585,39 @@
      "value": "split_adjusted"
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set ctx.batch.adjustment = split_adjusted."
+   "construction": "Take result fixture SP01 unchanged, then set ctx.batch.adjustment = split_adjusted. Single fault: only the config stage is violated.",
+   "role": "daily"
   },
   {
    "id": "SPR19",
    "error_code": "UNKNOWN_FEATURE",
    "raised_by": "library",
-   "description": "a requested feature id outside this producer's header set",
+   "stage": "config",
+   "description": "an extra requested feature id outside this producer's header set (the selected outputs stay requested)",
    "producer": "session_projection",
    "base": "SP01",
    "mutation": [
     {
      "set": "ctx.features",
      "value": [
+      "projection.close_above_sma",
+      "projection.close_vs_sma_fraction",
+      "projection.distance_from_low_fraction",
+      "projection.down_session_fraction",
+      "projection.drawdown_fraction",
+      "projection.max_drawdown_fraction",
+      "projection.up_session_fraction",
       "not.a.feature"
      ]
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set ctx.features = ['not.a.feature']."
+   "construction": "Take result fixture SP01 unchanged, then set ctx.features = ['projection.close_above_sma', 'projection.close_vs_sma_fraction', 'projection.distance_from_low_fraction', 'projection.down_session_fraction', 'projection.drawdown_fraction', 'projection.max_drawdown_fraction', 'projection.up_session_fraction', 'not.a.feature']. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR20",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "update is not a supported capability (batch and full replay only)",
    "producer": "session_projection",
    "base": "SP01",
@@ -12094,12 +12627,13 @@
      "value": "update"
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set ctx.capability = update."
+   "construction": "Take result fixture SP01 unchanged, then set ctx.capability = update. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR21",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "restore is not a supported capability (batch and full replay only)",
    "producer": "session_projection",
    "base": "SP01",
@@ -12109,12 +12643,13 @@
      "value": "restore"
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set ctx.capability = restore."
+   "construction": "Take result fixture SP01 unchanged, then set ctx.capability = restore. Single fault: only the config stage is violated."
   },
   {
    "id": "SPR22",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "merge is not a supported capability (batch and full replay only)",
    "producer": "session_projection",
    "base": "SP01",
@@ -12124,12 +12659,13 @@
      "value": "merge"
     }
    ],
-   "construction": "Take result fixture SP01 unchanged, then set ctx.capability = merge."
+   "construction": "Take result fixture SP01 unchanged, then set ctx.capability = merge. Single fault: only the config stage is violated."
   },
   {
    "id": "BPR01",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "an unknown parameter (window) is supplied: the epoch-to-date projection has no window",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12139,12 +12675,13 @@
      "value": 3
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.params.window = 3."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.params.window = 3. Single fault: only the config stage is violated."
   },
   {
    "id": "BPR02",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "evidence_limit missing",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12153,12 +12690,13 @@
      "del": "fixture.params.evidence_limit"
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then delete fixture.params.evidence_limit."
+   "construction": "Take result fixture BP01 unchanged, then delete fixture.params.evidence_limit. Single fault: only the config stage is violated."
   },
   {
    "id": "BPR03",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "policy_version missing",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12167,12 +12705,13 @@
      "del": "fixture.params.policy_version"
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then delete fixture.params.policy_version."
+   "construction": "Take result fixture BP01 unchanged, then delete fixture.params.policy_version. Single fault: only the config stage is violated."
   },
   {
    "id": "BPR04",
    "error_code": "INCOMPATIBLE_VERSION",
    "raised_by": "library",
+   "stage": "version",
    "description": "unsupported policy label",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12182,12 +12721,13 @@
      "value": "ef4-proj2"
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.params.policy_version = ef4-proj2."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.params.policy_version = ef4-proj2. Single fault: only the version stage is violated."
   },
   {
    "id": "BPR05",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "high below low",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12204,12 +12744,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 9, 11, 10, 100, 1050]."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 9, 11, 10, 100, 1050]. Single fault: only the shared stage is violated."
   },
   {
    "id": "BPR06",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "actual notional 800 below low*volume = 900",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12226,12 +12767,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 100, 800]."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 100, 800]. Single fault: only the shared stage is violated."
   },
   {
    "id": "BPR07",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "actual notional 1300 above high*volume = 1200",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12248,12 +12790,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 100, 1300]."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 100, 1300]. Single fault: only the shared stage is violated."
   },
   {
    "id": "BPR08",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "zero-volume bar carrying prices",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12270,12 +12813,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 0, 0]."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 0, 0]. Single fault: only the shared stage is violated."
   },
   {
    "id": "BPR09",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "zero-volume bar with positive notional",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12292,12 +12836,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [None, None, None, None, 0, 5]."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [None, None, None, None, 0, 5]. Single fault: only the shared stage is violated."
   },
   {
    "id": "BPR10",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "float volume",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12314,12 +12859,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 100.0, 1050]."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 100.0, 1050]. Single fault: only the wire stage is violated."
   },
   {
    "id": "BPR11",
    "error_code": "BOUNDS",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "negative volume",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12336,13 +12882,14 @@
      ]
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, -100, 1050]."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, -100, 1050]. Single fault: only the shared stage is violated."
   },
   {
    "id": "BPR12",
    "error_code": "OVERFLOW",
    "raised_by": "producer admission",
-   "description": "two up bars of 2^62 shares each: up_volume 2^63 exceeds int64 when up_volume is selected",
+   "stage": "data",
+   "description": "two up bars of 2^62 shares each: up_volume 2^63 exceeds int64 when up_volume is the selected output",
    "producer": "bar_projection",
    "base": "BP01",
    "mutation": [
@@ -12377,83 +12924,165 @@
      "value": [
       "projection.up_volume"
      ]
+    },
+    {
+     "set": "ctx.features",
+     "value": [
+      "projection.up_volume"
+     ]
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 4611686018427387904, 50728546202701266944]; set fixture.bars.1 = [10, 12, 9, 11, 4611686018427387904, 50728546202701266944]; set fixture.bars.2 = empty; set fixture.outputs = ['projection.up_volume']."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = [10, 12, 9, 11, 4611686018427387904, 50728546202701266944]; set fixture.bars.1 = [10, 12, 9, 11, 4611686018427387904, 50728546202701266944]; set fixture.bars.2 = empty; set fixture.outputs = ['projection.up_volume']; set ctx.features = ['projection.up_volume']. Single fault: only the data stage is violated."
   },
   {
    "id": "BPR13",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
-   "description": "two bars with the same interval identity",
+   "stage": "shared",
+   "description": "bar 1 delivered with the (instrument, session, start, end) identity of bar 0",
    "producer": "bar_projection",
    "base": "BP01",
    "mutation": [
     {
      "set": "fixture.bars.1",
      "value": {
-      "mk": "dup"
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000000000000000,
+       "end": 1700000060000000000,
+       "row": [
+        11,
+        11,
+        8,
+        9,
+        200,
+        1800
+       ]
+      }
      }
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.1 = {'mk': 'dup'}."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.1 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000000000000000, 'end': 1700000060000000000}. Single fault: only the shared stage is violated."
   },
   {
    "id": "BPR14",
    "error_code": "INVALID_ORDER",
    "raised_by": "shared validator",
-   "description": "overlapping bars",
+   "stage": "shared",
+   "description": "bars 1 and 2 delivered in swapped order (each interval is a governed slot)",
    "producer": "bar_projection",
    "base": "BP01",
    "mutation": [
     {
+     "set": "fixture.bars.1",
+     "value": {
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000120000000000,
+       "end": 1700000180000000000,
+       "row": [
+        9,
+        10,
+        9,
+        9,
+        50,
+        450
+       ]
+      }
+     }
+    },
+    {
      "set": "fixture.bars.2",
      "value": {
-      "mk": "unordered"
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000060000000000,
+       "end": 1700000120000000000,
+       "row": [
+        11,
+        11,
+        8,
+        9,
+        200,
+        1800
+       ]
+      }
      }
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.2 = {'mk': 'unordered'}."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.1 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000120000000000, 'end': 1700000180000000000}; set fixture.bars.2 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000060000000000, 'end': 1700000120000000000}. Single fault: only the shared stage is violated."
   },
   {
    "id": "BPR15",
    "error_code": "BOUNDS",
    "raised_by": "shared validator",
-   "description": "bar ending after the market cutoff",
+   "stage": "shared",
+   "description": "bar 2 ending one bar length after the market cutoff",
    "producer": "bar_projection",
    "base": "BP01",
    "mutation": [
     {
      "set": "fixture.bars.2",
      "value": {
-      "mk": "beyond_cutoff"
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000120000000000,
+       "end": 1700000240000000000,
+       "row": [
+        9,
+        10,
+        9,
+        9,
+        50,
+        450
+       ]
+      }
      }
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.2 = {'mk': 'beyond_cutoff'}."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.2 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000120000000000, 'end': 1700000240000000000}. Single fault: only the shared stage is violated."
   },
   {
    "id": "BPR16",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "producer admission",
-   "description": "a bar of a previous session inside the reset epoch",
+   "stage": "identity",
+   "description": "bar 0 carries session S0 inside the S1 reset epoch",
    "producer": "bar_projection",
    "base": "BP01",
    "mutation": [
     {
      "set": "fixture.bars.0",
      "value": {
-      "mk": "other_session"
+      "wire": {
+       "inst": "X",
+       "ss": "S0",
+       "start": 1700000000000000000,
+       "end": 1700000060000000000,
+       "row": [
+        10,
+        12,
+        9,
+        11,
+        100,
+        1050
+       ]
+      }
      }
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = {'mk': 'other_session'}."
+   "construction": "Take result fixture BP01 unchanged, then set fixture.bars.0 = wire row {'inst': 'X', 'ss': 'S0', 'start': 1700000000000000000, 'end': 1700000060000000000}. Single fault: only the identity stage is violated."
   },
   {
    "id": "BPR17",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch price scale differs from the config price unit scale",
+   "stage": "config",
+   "description": "batch price scale differs from the config price unit scale (role bars)",
    "producer": "bar_projection",
    "base": "BP01",
    "mutation": [
@@ -12462,13 +13091,15 @@
      "value": 3
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set ctx.batch.unit.scale = 3."
+   "construction": "Take result fixture BP01 unchanged, then set ctx.batch.unit.scale = 3. Single fault: only the config stage is violated.",
+   "role": "bars"
   },
   {
    "id": "BPR18",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch currency differs from the config price unit currency",
+   "stage": "config",
+   "description": "batch currency differs from the config price unit currency (role bars)",
    "producer": "bar_projection",
    "base": "BP01",
    "mutation": [
@@ -12477,12 +13108,14 @@
      "value": "EUR"
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set ctx.batch.unit.currency = EUR."
+   "construction": "Take result fixture BP01 unchanged, then set ctx.batch.unit.currency = EUR. Single fault: only the config stage is violated.",
+   "role": "bars"
   },
   {
    "id": "BPR19",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
+   "stage": "config",
    "description": "config declares no price unit (PriceUnit is mandatory)",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12492,13 +13125,14 @@
      "value": null
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set ctx.config_unit = None."
+   "construction": "Take result fixture BP01 unchanged, then set ctx.config_unit = None. Single fault: only the config stage is violated."
   },
   {
    "id": "BPR20",
    "error_code": "UNSUPPORTED_ADJUSTMENT",
    "raised_by": "producer admission",
-   "description": "batch adjustment basis differs from the config adjustment",
+   "stage": "config",
+   "description": "batch adjustment basis differs from the config adjustment (role bars)",
    "producer": "bar_projection",
    "base": "BP01",
    "mutation": [
@@ -12507,29 +13141,38 @@
      "value": "split_adjusted"
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set ctx.batch.adjustment = split_adjusted."
+   "construction": "Take result fixture BP01 unchanged, then set ctx.batch.adjustment = split_adjusted. Single fault: only the config stage is violated.",
+   "role": "bars"
   },
   {
    "id": "BPR21",
    "error_code": "UNKNOWN_FEATURE",
    "raised_by": "library",
-   "description": "a requested feature id outside this producer's header set",
+   "stage": "config",
+   "description": "an extra requested feature id outside this producer's header set (the selected outputs stay requested)",
    "producer": "bar_projection",
    "base": "BP01",
    "mutation": [
     {
      "set": "ctx.features",
      "value": [
+      "projection.down_dollar_volume",
+      "projection.down_volume",
+      "projection.up_dollar_volume",
+      "projection.up_dollar_volume_fraction",
+      "projection.up_volume",
+      "projection.up_volume_fraction",
       "not.a.feature"
      ]
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set ctx.features = ['not.a.feature']."
+   "construction": "Take result fixture BP01 unchanged, then set ctx.features = ['projection.down_dollar_volume', 'projection.down_volume', 'projection.up_dollar_volume', 'projection.up_dollar_volume_fraction', 'projection.up_volume', 'projection.up_volume_fraction', 'not.a.feature']. Single fault: only the config stage is violated."
   },
   {
    "id": "BPR22",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "update is not a supported capability (batch and full replay only)",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12539,12 +13182,13 @@
      "value": "update"
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set ctx.capability = update."
+   "construction": "Take result fixture BP01 unchanged, then set ctx.capability = update. Single fault: only the config stage is violated."
   },
   {
    "id": "BPR23",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "restore is not a supported capability (batch and full replay only)",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12554,12 +13198,13 @@
      "value": "restore"
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set ctx.capability = restore."
+   "construction": "Take result fixture BP01 unchanged, then set ctx.capability = restore. Single fault: only the config stage is violated."
   },
   {
    "id": "BPR24",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "merge is not a supported capability (batch and full replay only)",
    "producer": "bar_projection",
    "base": "BP01",
@@ -12569,41 +13214,56 @@
      "value": "merge"
     }
    ],
-   "construction": "Take result fixture BP01 unchanged, then set ctx.capability = merge."
+   "construction": "Take result fixture BP01 unchanged, then set ctx.capability = merge. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR01",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
-   "description": "primary_benchmark_id missing while a primary output is selected",
+   "stage": "config",
+   "description": "primary_benchmark_id missing while a primary output is selected (the primary benchmark facts are removed so the config is the only fault)",
    "producer": "relative_excess",
    "base": "RX01",
    "mutation": [
     {
      "del": "fixture.params.primary_benchmark_id"
+    },
+    {
+     "del": "fixture.facts.3"
+    },
+    {
+     "del": "fixture.facts.2"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then delete fixture.params.primary_benchmark_id."
+   "construction": "Take result fixture RX01 unchanged, then delete fixture.params.primary_benchmark_id; delete fixture.facts.3; delete fixture.facts.2. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR02",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
-   "description": "primary_benchmark_id empty",
+   "stage": "config",
+   "description": "primary_benchmark_id empty (primary benchmark facts removed)",
    "producer": "relative_excess",
    "base": "RX01",
    "mutation": [
     {
      "set": "fixture.params.primary_benchmark_id",
      "value": ""
+    },
+    {
+     "del": "fixture.facts.3"
+    },
+    {
+     "del": "fixture.facts.2"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.params.primary_benchmark_id = ."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.params.primary_benchmark_id = ; delete fixture.facts.3; delete fixture.facts.2. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR03",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "alignment_tolerance_ns -1",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12613,12 +13273,13 @@
      "value": -1
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.params.alignment_tolerance_ns = -1."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.params.alignment_tolerance_ns = -1. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR04",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "alignment_tolerance_ns missing",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12627,12 +13288,13 @@
      "del": "fixture.params.alignment_tolerance_ns"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then delete fixture.params.alignment_tolerance_ns."
+   "construction": "Take result fixture RX01 unchanged, then delete fixture.params.alignment_tolerance_ns. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR05",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "max_endpoint_age_ns missing (no fabricated default age)",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12641,12 +13303,13 @@
      "del": "fixture.params.max_endpoint_age_ns"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then delete fixture.params.max_endpoint_age_ns."
+   "construction": "Take result fixture RX01 unchanged, then delete fixture.params.max_endpoint_age_ns. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR06",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window_ns supplied although no window output is selected",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12656,12 +13319,13 @@
      "value": 300
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.params.window_ns = 300."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.params.window_ns = 300. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR07",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "secondary_benchmark_id supplied although no secondary output is selected",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12671,12 +13335,13 @@
      "value": "Q"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.params.secondary_benchmark_id = Q."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.params.secondary_benchmark_id = Q. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR08",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window_ns missing while a window output is selected",
    "producer": "relative_excess",
    "base": "RX02",
@@ -12685,12 +13350,13 @@
      "del": "fixture.params.window_ns"
     }
    ],
-   "construction": "Take result fixture RX02 unchanged, then delete fixture.params.window_ns."
+   "construction": "Take result fixture RX02 unchanged, then delete fixture.params.window_ns. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR09",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window_ns 0",
    "producer": "relative_excess",
    "base": "RX02",
@@ -12700,13 +13366,14 @@
      "value": 0
     }
    ],
-   "construction": "Take result fixture RX02 unchanged, then set fixture.params.window_ns = 0."
+   "construction": "Take result fixture RX02 unchanged, then set fixture.params.window_ns = 0. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR10",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
-   "description": "core_benchmark_ids has a single member",
+   "stage": "config",
+   "description": "core_benchmark_ids has a single member (facts of B2 and B3 removed)",
    "producer": "relative_excess",
    "base": "CB01",
    "mutation": [
@@ -12715,15 +13382,28 @@
      "value": [
       "B1"
      ]
+    },
+    {
+     "del": "fixture.facts.5"
+    },
+    {
+     "del": "fixture.facts.4"
+    },
+    {
+     "del": "fixture.facts.3"
+    },
+    {
+     "del": "fixture.facts.2"
     }
    ],
-   "construction": "Take result fixture CB01 unchanged, then set fixture.params.core_benchmark_ids = ['B1']."
+   "construction": "Take result fixture CB01 unchanged, then set fixture.params.core_benchmark_ids = ['B1']; delete fixture.facts.5; delete fixture.facts.4; delete fixture.facts.3; delete fixture.facts.2. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR11",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
-   "description": "core_benchmark_ids repeats B1",
+   "stage": "config",
+   "description": "core_benchmark_ids repeats B1 (facts of B2 removed)",
    "producer": "relative_excess",
    "base": "CB01",
    "mutation": [
@@ -12734,14 +13414,21 @@
       "B1",
       "B3"
      ]
+    },
+    {
+     "del": "fixture.facts.3"
+    },
+    {
+     "del": "fixture.facts.2"
     }
    ],
-   "construction": "Take result fixture CB01 unchanged, then set fixture.params.core_benchmark_ids = ['B1', 'B1', 'B3']."
+   "construction": "Take result fixture CB01 unchanged, then set fixture.params.core_benchmark_ids = ['B1', 'B1', 'B3']; delete fixture.facts.3; delete fixture.facts.2. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR12",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "core_profile regular_open (no output consumes it)",
    "producer": "relative_excess",
    "base": "CB01",
@@ -12751,13 +13438,14 @@
      "value": "regular_open"
     }
    ],
-   "construction": "Take result fixture CB01 unchanged, then set fixture.params.core_profile = regular_open."
+   "construction": "Take result fixture CB01 unchanged, then set fixture.params.core_profile = regular_open. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR13",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
-   "description": "core_benchmark_ids has 17 members (bound 16)",
+   "stage": "config",
+   "description": "core_benchmark_ids has 17 members (bound 16); declared ids B1..B17 with facts for B1..B3",
    "producer": "relative_excess",
    "base": "CB01",
    "mutation": [
@@ -12784,12 +13472,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture CB01 unchanged, then set fixture.params.core_benchmark_ids = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10', 'B11', 'B12', 'B13', 'B14', 'B15', 'B16', 'B17']."
+   "construction": "Take result fixture CB01 unchanged, then set fixture.params.core_benchmark_ids = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10', 'B11', 'B12', 'B13', 'B14', 'B15', 'B16', 'B17']. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR14",
    "error_code": "INCOMPATIBLE_VERSION",
    "raised_by": "library",
+   "stage": "version",
    "description": "unsupported policy label",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12799,27 +13488,35 @@
      "value": "ef4-rel2"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.params.policy_version = ef4-rel2."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.params.policy_version = ef4-rel2. Single fault: only the version stage is violated."
   },
   {
    "id": "RXR15",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
-   "description": "self-benchmark: primary_benchmark_id equals the instrument X",
+   "stage": "identity",
+   "description": "self-benchmark: primary_benchmark_id equals the instrument X (X start and end facts already exist)",
    "producer": "relative_excess",
    "base": "RX01",
    "mutation": [
     {
      "set": "fixture.params.primary_benchmark_id",
      "value": "X"
+    },
+    {
+     "del": "fixture.facts.3"
+    },
+    {
+     "del": "fixture.facts.2"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.params.primary_benchmark_id = X."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.params.primary_benchmark_id = X; delete fixture.facts.3; delete fixture.facts.2. Single fault: only the identity stage is violated."
   },
   {
    "id": "RXR16",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "stage": "identity",
    "description": "primary and secondary roles bound to the same instrument",
    "producer": "relative_excess",
    "base": "RX06",
@@ -12829,12 +13526,13 @@
      "value": "P"
     }
    ],
-   "construction": "Take result fixture RX06 unchanged, then set fixture.params.secondary_benchmark_id = P."
+   "construction": "Take result fixture RX06 unchanged, then set fixture.params.secondary_benchmark_id = P. Single fault: only the identity stage is violated."
   },
   {
    "id": "RXR17",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "stage": "identity",
    "description": "sector benchmark bound to the primary instrument (each role binds its own instrument)",
    "producer": "relative_excess",
    "base": "RX06",
@@ -12844,12 +13542,13 @@
      "value": "P"
     }
    ],
-   "construction": "Take result fixture RX06 unchanged, then set fixture.params.sector_benchmark_id = P."
+   "construction": "Take result fixture RX06 unchanged, then set fixture.params.sector_benchmark_id = P. Single fault: only the identity stage is violated."
   },
   {
    "id": "RXR18",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "producer admission",
+   "stage": "identity",
    "description": "a leg fact for an instrument that is neither the target nor a declared benchmark",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12869,13 +13568,14 @@
      }
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.4 = {'inst': 'Z', 'kind': 'end', 't': 990, 'p': 5, 'ss': 'S1', 'pf': None, 'act': 'a1', 'rev': 'r1', 'ka': 50}."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.4 = {'inst': 'Z', 'kind': 'end', 't': 990, 'p': 5, 'ss': 'S1', 'pf': None, 'act': 'a1', 'rev': 'r1', 'ka': 50}. Single fault: only the identity stage is violated."
   },
   {
    "id": "RXR19",
    "error_code": "BOUNDS",
    "raised_by": "producer admission",
-   "description": "start witness time not before the end witness time",
+   "stage": "data",
+   "description": "start witness time not before the end witness time (cross-fact check of one leg)",
    "producer": "relative_excess",
    "base": "RX01",
    "mutation": [
@@ -12884,13 +13584,14 @@
      "value": 990
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.0.t = 990."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.0.t = 990. Single fault: only the data stage is violated."
   },
   {
    "id": "RXR20",
    "error_code": "DUPLICATE",
-   "raised_by": "producer admission",
-   "description": "two prior_close start facts for the same instrument",
+   "raised_by": "shared validator",
+   "stage": "shared",
+   "description": "two prior_close start facts for X: the expansion derives reference_id from (kind, profile, slot), so both carry the same reference_id",
    "producer": "relative_excess",
    "base": "RX01",
    "mutation": [
@@ -12909,12 +13610,13 @@
      }
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.4 = {'inst': 'X', 'kind': 'start', 't': -90, 'p': 99, 'ss': 'S0', 'pf': 'prior_close', 'act': 'a1', 'rev': 'r1', 'ka': 50}."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.4 = {'inst': 'X', 'kind': 'start', 't': -90, 'p': 99, 'ss': 'S0', 'pf': 'prior_close', 'act': 'a1', 'rev': 'r1', 'ka': 50}. Single fault: only the shared stage is violated."
   },
   {
    "id": "RXR21",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "zero start price",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12924,12 +13626,13 @@
      "value": 0
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.0.p = 0."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.0.p = 0. Single fault: only the wire stage is violated."
   },
   {
    "id": "RXR22",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "float end price",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12939,12 +13642,13 @@
      "value": 110.0
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.1.p = 110.0."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.1.p = 110.0. Single fault: only the wire stage is violated."
   },
   {
    "id": "RXR23",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "empty action snapshot id",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12954,12 +13658,13 @@
      "value": ""
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.1.act = ."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.1.act = . Single fault: only the wire stage is violated."
   },
   {
    "id": "RXR24",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "empty revision id",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12969,12 +13674,13 @@
      "value": ""
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.1.rev = ."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.1.rev = . Single fault: only the wire stage is violated."
   },
   {
    "id": "RXR25",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "unknown start profile label",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12984,12 +13690,13 @@
      "value": "intraday_low"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.0.pf = intraday_low."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.0.pf = intraday_low. Single fault: only the wire stage is violated."
   },
   {
    "id": "RXR26",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "empty session id",
    "producer": "relative_excess",
    "base": "RX01",
@@ -12999,12 +13706,13 @@
      "value": ""
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.0.ss = ."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.0.ss = . Single fault: only the wire stage is violated."
   },
   {
    "id": "RXR27",
    "error_code": "OVERFLOW",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "end price 2^63 exceeds int64",
    "producer": "relative_excess",
    "base": "RX01",
@@ -13014,13 +13722,14 @@
      "value": 9223372036854775808
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.1.p = 9223372036854775808."
+   "construction": "Take result fixture RX01 unchanged, then set fixture.facts.1.p = 9223372036854775808. Single fault: only the wire stage is violated."
   },
   {
    "id": "RXR28",
    "error_code": "DUPLICATE",
    "raised_by": "producer admission",
-   "description": "two membership facts for the same instrument",
+   "stage": "identity",
+   "description": "two membership facts for the same instrument (distinct caller reference_ids, so the library detects it)",
    "producer": "relative_excess",
    "base": "RX04",
    "mutation": [
@@ -13042,12 +13751,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture RX04 unchanged, then set fixture.membership = [{'inst': 'X', 'bound': 'XLK', 'eff': 0, 'ka': 50}, {'inst': 'X', 'bound': 'XLK', 'eff': 10, 'ka': 50}]."
+   "construction": "Take result fixture RX04 unchanged, then set fixture.membership = [{'inst': 'X', 'bound': 'XLK', 'eff': 0, 'ka': 50}, {'inst': 'X', 'bound': 'XLK', 'eff': 10, 'ka': 50}]. Single fault: only the identity stage is violated."
   },
   {
    "id": "RXR29",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "membership bound benchmark id empty",
    "producer": "relative_excess",
    "base": "RX04",
@@ -13057,13 +13767,14 @@
      "value": ""
     }
    ],
-   "construction": "Take result fixture RX04 unchanged, then set fixture.membership.0.bound = ."
+   "construction": "Take result fixture RX04 unchanged, then set fixture.membership.0.bound = . Single fault: only the wire stage is violated."
   },
   {
    "id": "RXR30",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch price scale differs from the config price unit scale",
+   "stage": "config",
+   "description": "batch price scale differs from the config price unit scale (role legs)",
    "producer": "relative_excess",
    "base": "RX01",
    "mutation": [
@@ -13072,13 +13783,15 @@
      "value": 3
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set ctx.batch.unit.scale = 3."
+   "construction": "Take result fixture RX01 unchanged, then set ctx.batch.unit.scale = 3. Single fault: only the config stage is violated.",
+   "role": "legs"
   },
   {
    "id": "RXR31",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch currency differs from the config price unit currency",
+   "stage": "config",
+   "description": "batch currency differs from the config price unit currency (role legs)",
    "producer": "relative_excess",
    "base": "RX01",
    "mutation": [
@@ -13087,12 +13800,14 @@
      "value": "EUR"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set ctx.batch.unit.currency = EUR."
+   "construction": "Take result fixture RX01 unchanged, then set ctx.batch.unit.currency = EUR. Single fault: only the config stage is violated.",
+   "role": "legs"
   },
   {
    "id": "RXR32",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
+   "stage": "config",
    "description": "config declares no price unit (PriceUnit is mandatory)",
    "producer": "relative_excess",
    "base": "RX01",
@@ -13102,13 +13817,14 @@
      "value": null
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set ctx.config_unit = None."
+   "construction": "Take result fixture RX01 unchanged, then set ctx.config_unit = None. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR33",
    "error_code": "UNSUPPORTED_ADJUSTMENT",
    "raised_by": "producer admission",
-   "description": "batch adjustment basis differs from the config adjustment",
+   "stage": "config",
+   "description": "batch adjustment basis differs from the config adjustment (role legs)",
    "producer": "relative_excess",
    "base": "RX01",
    "mutation": [
@@ -13117,29 +13833,33 @@
      "value": "split_adjusted"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set ctx.batch.adjustment = split_adjusted."
+   "construction": "Take result fixture RX01 unchanged, then set ctx.batch.adjustment = split_adjusted. Single fault: only the config stage is violated.",
+   "role": "legs"
   },
   {
    "id": "RXR34",
    "error_code": "UNKNOWN_FEATURE",
    "raised_by": "library",
-   "description": "a requested feature id outside this producer's header set",
+   "stage": "config",
+   "description": "an extra requested feature id outside this producer's header set (the selected outputs stay requested)",
    "producer": "relative_excess",
    "base": "RX01",
    "mutation": [
     {
      "set": "ctx.features",
      "value": [
+      "relative.session.primary.prior_close_excess_fraction",
       "not.a.feature"
      ]
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set ctx.features = ['not.a.feature']."
+   "construction": "Take result fixture RX01 unchanged, then set ctx.features = ['relative.session.primary.prior_close_excess_fraction', 'not.a.feature']. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR35",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "update is not a supported capability (batch and full replay only)",
    "producer": "relative_excess",
    "base": "RX01",
@@ -13149,12 +13869,13 @@
      "value": "update"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set ctx.capability = update."
+   "construction": "Take result fixture RX01 unchanged, then set ctx.capability = update. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR36",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "restore is not a supported capability (batch and full replay only)",
    "producer": "relative_excess",
    "base": "RX01",
@@ -13164,12 +13885,13 @@
      "value": "restore"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set ctx.capability = restore."
+   "construction": "Take result fixture RX01 unchanged, then set ctx.capability = restore. Single fault: only the config stage is violated."
   },
   {
    "id": "RXR37",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "merge is not a supported capability (batch and full replay only)",
    "producer": "relative_excess",
    "base": "RX01",
@@ -13179,12 +13901,13 @@
      "value": "merge"
     }
    ],
-   "construction": "Take result fixture RX01 unchanged, then set ctx.capability = merge."
+   "construction": "Take result fixture RX01 unchanged, then set ctx.capability = merge. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR01",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window_ns 0",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13194,12 +13917,13 @@
      "value": 0
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.params.window_ns = 0."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.params.window_ns = 0. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR02",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window_ns missing",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13208,12 +13932,13 @@
      "del": "fixture.params.window_ns"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then delete fixture.params.window_ns."
+   "construction": "Take result fixture RP06 unchanged, then delete fixture.params.window_ns. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR03",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "max_endpoint_age_ns missing",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13222,13 +13947,14 @@
      "del": "fixture.params.max_endpoint_age_ns"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then delete fixture.params.max_endpoint_age_ns."
+   "construction": "Take result fixture RP06 unchanged, then delete fixture.params.max_endpoint_age_ns. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR04",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
-   "description": "price_scale-free tape outputs: alignment_tolerance_ns supplied although no return output is selected",
+   "stage": "config",
+   "description": "alignment_tolerance_ns supplied although no return output is selected",
    "producer": "rate_projection",
    "base": "RP06",
    "mutation": [
@@ -13237,12 +13963,13 @@
      "value": 1000000000
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.params.alignment_tolerance_ns = 1000000000."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.params.alignment_tolerance_ns = 1000000000. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR05",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "adjacency supplied although rate_difference is not selected",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13252,12 +13979,13 @@
      "value": "adjacent"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.params.adjacency = adjacent."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.params.adjacency = adjacent. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR06",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "adjacency missing while rate_difference is selected",
    "producer": "rate_projection",
    "base": "RP20",
@@ -13266,12 +13994,13 @@
      "del": "fixture.params.adjacency"
     }
    ],
-   "construction": "Take result fixture RP20 unchanged, then delete fixture.params.adjacency."
+   "construction": "Take result fixture RP20 unchanged, then delete fixture.params.adjacency. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR07",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "adjacency value overlapping (closed vocabulary adjacent|disjoint)",
    "producer": "rate_projection",
    "base": "RP20",
@@ -13281,12 +14010,13 @@
      "value": "overlapping"
     }
    ],
-   "construction": "Take result fixture RP20 unchanged, then set fixture.params.adjacency = overlapping."
+   "construction": "Take result fixture RP20 unchanged, then set fixture.params.adjacency = overlapping. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR08",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "alignment_tolerance_ns missing while a return output is selected",
    "producer": "rate_projection",
    "base": "RP13",
@@ -13295,12 +14025,13 @@
      "del": "fixture.params.alignment_tolerance_ns"
     }
    ],
-   "construction": "Take result fixture RP13 unchanged, then delete fixture.params.alignment_tolerance_ns."
+   "construction": "Take result fixture RP13 unchanged, then delete fixture.params.alignment_tolerance_ns. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR09",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "alignment_tolerance_ns negative",
    "producer": "rate_projection",
    "base": "RP13",
@@ -13310,12 +14041,13 @@
      "value": -1
     }
    ],
-   "construction": "Take result fixture RP13 unchanged, then set fixture.params.alignment_tolerance_ns = -1."
+   "construction": "Take result fixture RP13 unchanged, then set fixture.params.alignment_tolerance_ns = -1. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR10",
    "error_code": "INCOMPATIBLE_VERSION",
    "raised_by": "library",
+   "stage": "version",
    "description": "unsupported policy label",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13325,12 +14057,13 @@
      "value": "ef4-rate2"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.params.policy_version = ef4-rate2."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.params.policy_version = ef4-rate2. Single fault: only the version stage is violated."
   },
   {
    "id": "RPR11",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "count operand text with a leading zero (canonical decimal required)",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13340,12 +14073,13 @@
      "value": "007"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.v = 007."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.v = 007. Single fault: only the wire stage is violated."
   },
   {
    "id": "RPR12",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "count operand negative",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13355,12 +14089,13 @@
      "value": -1
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.v = -1."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.v = -1. Single fault: only the wire stage is violated."
   },
   {
    "id": "RPR13",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "count operand is a float",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13370,12 +14105,13 @@
      "value": 120.0
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.v = 120.0."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.v = 120.0. Single fault: only the wire stage is violated."
   },
   {
    "id": "RPR14",
    "error_code": "OVERFLOW",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "count operand 2^63 exceeds int64",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13385,12 +14121,13 @@
      "value": 9223372036854775808
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.v = 9223372036854775808."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.v = 9223372036854775808. Single fault: only the wire stage is violated."
   },
   {
    "id": "RPR15",
    "error_code": "OVERFLOW",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "notional operand 10^38 exceeds decimal128",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13400,13 +14137,14 @@
      "value": 100000000000000000000000000000000000000
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.1.v = 100000000000000000000000000000000000000."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.1.v = 100000000000000000000000000000000000000. Single fault: only the wire stage is violated."
   },
   {
    "id": "RPR16",
    "error_code": "BOUNDS",
-   "raised_by": "producer admission",
-   "description": "operand window with start equal to end",
+   "raised_by": "shared validator",
+   "stage": "shared",
+   "description": "operand window with effective_start_ns equal to effective_end_ns (REFERENCE bounds)",
    "producer": "rate_projection",
    "base": "RP06",
    "mutation": [
@@ -13415,13 +14153,14 @@
      "value": 1000000000000
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.s = 1000000000000."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.s = 1000000000000. Single fault: only the shared stage is violated."
   },
   {
    "id": "RPR17",
    "error_code": "DUPLICATE",
-   "raised_by": "producer admission",
-   "description": "two count operands for the same window",
+   "raised_by": "shared validator",
+   "stage": "shared",
+   "description": "two count operands for the same window: reference_id x1:B(window_id#count) is identical",
    "producer": "rate_projection",
    "base": "RP06",
    "mutation": [
@@ -13436,12 +14175,13 @@
      }
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.3 = {'kind': 'count', 's': 940000000000, 'e': 1000000000000, 'v': 5, 'ka': 50}."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.3 = {'kind': 'count', 's': 940000000000, 'e': 1000000000000, 'v': 5, 'ka': 50}. Single fault: only the shared stage is violated."
   },
   {
    "id": "RPR18",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "unknown operand kind",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13451,13 +14191,14 @@
      "value": "trades"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.kind = trades."
+   "construction": "Take result fixture RP06 unchanged, then set fixture.tape.0.kind = trades. Single fault: only the wire stage is violated."
   },
   {
    "id": "RPR19",
    "error_code": "BOUNDS",
    "raised_by": "producer admission",
-   "description": "leg start witness not before its end witness",
+   "stage": "data",
+   "description": "leg start witness time not before its end witness time (cross-fact check)",
    "producer": "rate_projection",
    "base": "RP13",
    "mutation": [
@@ -13466,12 +14207,13 @@
      "value": 1000000000000
     }
    ],
-   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.0.t = 1000000000000."
+   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.0.t = 1000000000000. Single fault: only the data stage is violated."
   },
   {
    "id": "RPR20",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "zero start price",
    "producer": "rate_projection",
    "base": "RP13",
@@ -13481,12 +14223,13 @@
      "value": 0
     }
    ],
-   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.0.p = 0."
+   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.0.p = 0. Single fault: only the wire stage is violated."
   },
   {
    "id": "RPR21",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "unknown window slot label C",
    "producer": "rate_projection",
    "base": "RP13",
@@ -13496,12 +14239,13 @@
      "value": "C"
     }
    ],
-   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.0.slot = C."
+   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.0.slot = C. Single fault: only the wire stage is violated."
   },
   {
    "id": "RPR22",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "producer admission",
+   "stage": "identity",
    "description": "leg fact for another instrument",
    "producer": "rate_projection",
    "base": "RP13",
@@ -13511,13 +14255,14 @@
      "value": "Y"
     }
    ],
-   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.0.inst = Y."
+   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.0.inst = Y. Single fault: only the identity stage is violated."
   },
   {
    "id": "RPR23",
    "error_code": "DUPLICATE",
-   "raised_by": "producer admission",
-   "description": "two start facts for slot A",
+   "raised_by": "shared validator",
+   "stage": "shared",
+   "description": "two start facts for slot A: reference_id is derived from (kind, profile, slot) so both carry the same reference_id (the expansion sorts facts by (effective_start_ns, reference_id) first, so no ordering fault fires)",
    "producer": "rate_projection",
    "base": "RP13",
    "mutation": [
@@ -13537,13 +14282,14 @@
      }
     }
    ],
-   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.2 = {'inst': 'X', 'kind': 'start', 'slot': 'A', 'pf': 'window_start', 't': 941000000000, 'p': 99, 'ss': 'S1', 'act': 'a1', 'rev': 'r1', 'ka': 50}."
+   "construction": "Take result fixture RP13 unchanged, then set fixture.legs.2 = {'inst': 'X', 'kind': 'start', 'slot': 'A', 'pf': 'window_start', 't': 941000000000, 'p': 99, 'ss': 'S1', 'act': 'a1', 'rev': 'r1', 'ka': 50}. Single fault: only the shared stage is violated."
   },
   {
    "id": "RPR24",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch price scale differs from the config price unit scale",
+   "stage": "config",
+   "description": "batch price scale differs from the config price unit scale (role tape)",
    "producer": "rate_projection",
    "base": "RP06",
    "mutation": [
@@ -13552,13 +14298,15 @@
      "value": 3
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set ctx.batch.unit.scale = 3."
+   "construction": "Take result fixture RP06 unchanged, then set ctx.batch.unit.scale = 3. Single fault: only the config stage is violated.",
+   "role": "tape"
   },
   {
    "id": "RPR25",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch currency differs from the config price unit currency",
+   "stage": "config",
+   "description": "batch currency differs from the config price unit currency (role tape)",
    "producer": "rate_projection",
    "base": "RP06",
    "mutation": [
@@ -13567,12 +14315,14 @@
      "value": "EUR"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set ctx.batch.unit.currency = EUR."
+   "construction": "Take result fixture RP06 unchanged, then set ctx.batch.unit.currency = EUR. Single fault: only the config stage is violated.",
+   "role": "tape"
   },
   {
    "id": "RPR26",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
+   "stage": "config",
    "description": "config declares no price unit (PriceUnit is mandatory)",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13582,13 +14332,14 @@
      "value": null
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set ctx.config_unit = None."
+   "construction": "Take result fixture RP06 unchanged, then set ctx.config_unit = None. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR27",
    "error_code": "UNSUPPORTED_ADJUSTMENT",
    "raised_by": "producer admission",
-   "description": "batch adjustment basis differs from the config adjustment",
+   "stage": "config",
+   "description": "batch adjustment basis differs from the config adjustment (role tape)",
    "producer": "rate_projection",
    "base": "RP06",
    "mutation": [
@@ -13597,29 +14348,35 @@
      "value": "split_adjusted"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set ctx.batch.adjustment = split_adjusted."
+   "construction": "Take result fixture RP06 unchanged, then set ctx.batch.adjustment = split_adjusted. Single fault: only the config stage is violated.",
+   "role": "tape"
   },
   {
    "id": "RPR28",
    "error_code": "UNKNOWN_FEATURE",
    "raised_by": "library",
-   "description": "a requested feature id outside this producer's header set",
+   "stage": "config",
+   "description": "an extra requested feature id outside this producer's header set (the selected outputs stay requested)",
    "producer": "rate_projection",
    "base": "RP06",
    "mutation": [
     {
      "set": "ctx.features",
      "value": [
+      "rate.window.notional_rate",
+      "rate.window.share_volume_rate",
+      "rate.window.trade_rate",
       "not.a.feature"
      ]
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set ctx.features = ['not.a.feature']."
+   "construction": "Take result fixture RP06 unchanged, then set ctx.features = ['rate.window.notional_rate', 'rate.window.share_volume_rate', 'rate.window.trade_rate', 'not.a.feature']. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR29",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "update is not a supported capability (batch and full replay only)",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13629,12 +14386,13 @@
      "value": "update"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set ctx.capability = update."
+   "construction": "Take result fixture RP06 unchanged, then set ctx.capability = update. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR30",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "restore is not a supported capability (batch and full replay only)",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13644,12 +14402,13 @@
      "value": "restore"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set ctx.capability = restore."
+   "construction": "Take result fixture RP06 unchanged, then set ctx.capability = restore. Single fault: only the config stage is violated."
   },
   {
    "id": "RPR31",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "merge is not a supported capability (batch and full replay only)",
    "producer": "rate_projection",
    "base": "RP06",
@@ -13659,15 +14418,15 @@
      "value": "merge"
     }
    ],
-   "construction": "Take result fixture RP06 unchanged, then set ctx.capability = merge."
+   "construction": "Take result fixture RP06 unchanged, then set ctx.capability = merge. Single fault: only the config stage is violated."
   }
  ],
  "fixture_counts": {
-  "session_result": 21,
+  "session_result": 22,
   "bar_result": 19,
-  "relative_result": 27,
+  "relative_result": 29,
   "core_result": 10,
-  "rate_result": 30,
+  "rate_result": 31,
   "refusal": 114
  },
  "prefix_equivalences": [
@@ -13829,6 +14588,16 @@
    "SP20",
    "SP21"
   ],
+  "near_cancellation": [
+   "SP22",
+   "RX29",
+   "RP31"
+  ],
+  "accuracy": [
+   "SP22",
+   "RX29",
+   "RP31"
+  ],
   "dollar_volume": [
    "BP01"
   ],
@@ -13986,6 +14755,11 @@
    "CB09",
    "CB10"
   ],
+  "epoch_scale": [
+   "RX28",
+   "RX29",
+   "RP31"
+  ],
   "trade_rate": [
    "RP01",
    "RP02",
@@ -14022,7 +14796,8 @@
    "RP25",
    "RP26",
    "RP27",
-   "RP28"
+   "RP28",
+   "RP31"
   ],
   "adjacent": [
    "RP20"
@@ -14292,7 +15067,7 @@
   {
    "id": "OQ-J3",
    "topic": "EQ-155 operand",
-   "text": "RULING (conservative): no I2 output consumes a robust-history result in v1; the EQ-155 dependency is kept as allocated and any rank or median of a projection over history is composed by ef3.robust_history with a supplied series. The owner may drop or re-route the edge.",
+   "text": "RULING (decided by the coordinator, logged pending owner review): the EQ-155 edge is kept and documented as reserved - no I2 output consumes it in v1; any rank or median of a projection over history is composed by ef3.robust_history with a supplied series.",
    "state": "coordinator-decided, pending owner review"
   },
   {

@@ -166,7 +166,7 @@
    "required column not delivered (high or low in a close-only delivery)": "absent_input"
   },
   "counts": {
-   "all_outputs": "expected = N + 1 slots; observed = READY slots among max(a, t-N)..t for the output's own fields; the reasons are the causes of the lost slots only; insufficient_history is added only when t - N < a (the epoch holds fewer than N+1 slots); an available row has observed = expected"
+   "all_outputs": "expected = N + 1 slots; observed = READY slots among max(a, t-N)..t for the output's own fields; the reasons are the causes of the lost slots only; insufficient_history is added only when t - N < a (the epoch holds fewer than N+1 slots); an available row has observed = expected. Range outputs of a close-only delivery: the high and low of slots t-N+1..t are not delivered (absent_input) but the base slot needs only its close, so observed is 1 when the base close is READY (PE20)"
   },
   "unreachable_reasons": [
    "ineligible",
@@ -182,20 +182,47 @@
   }
  },
  "mode_rule": "known_at and reconstruction availability give identical results with original known_at; batch and full replay only; update, restore and merge unsupported (UNSUPPORTED_CAPABILITY)",
+ "knowledge_readiness": {
+  "K": "K is the knowledge cutoff (the instant up to which facts may be known). It is distinct from the market cutoff C (the instant up to which bars and endpoints may have completed); K may be later than C. A bar or fact is KNOWN iff its original known_at_ns is non-null and <= K (== K is known).",
+  "enforcement": "The shared AvailabilitySpec.knowledge_reason returns None in reconstruction mode, so a shared validator never excludes a late row in that mode. The producer therefore enforces knowledge itself, identically in known_at and reconstruction modes, from the original known_at_ns of every consumed row or fact: null is unknown_availability, > K is future_knowledge. No result depends on the mode.",
+  "compact": "In fixtures the compact token ka maps to known_at_ns = K_ns - (100 - ka) seconds with K_ns = C_ns + 100 s, so ka 100 is exactly K, 150 is 50 s after it and 50 is 50 s before it."
+ },
+ "wire_expansion": {
+  "clock": "Result fixtures use compact slot indices; the canonical expansion places slot i of bar fixtures at start_ns = 1700000000000000000 + i*60e9 (epoch scale, about 1.7e18 ns, beyond 2^53) with end_ns = start_ns + 60e9, session S1, instrument X; daily slots (session projection, governed_history) use 86400e9 spacing and session D<i>. The market cutoff C is the end of the last delivered slot; the target slot is explicit (the last slot unless `target` says otherwise).",
+  "wire_slot": "{wire: {inst, ss, start, end, row}} replaces a compact slot by a fully explicit row: omitted fields take the default expansion of that slot index. Refusal recipes use it so that DUPLICATE, INVALID_ORDER, BOUNDS and INCONSISTENT_IDENTITY come from real instrument, session, start and end values that the independent harness feeds to its emulation of validate_batch (identity key, order group, interval, cutoff) and to the producer identity checks (instrument, session, membership of the interval in the governed grid).",
+  "reference_rows": "REFERENCE facts are expanded with reference_id derived from (kind, profile, slot) (or window id and kind for tape facts) and sorted by (effective_start_ns, reference_id) before delivery, so listing order in a compact fixture never causes INVALID_ORDER; a second fact with the same key therefore has the same reference_id and is the shared-validator DUPLICATE."
+ },
+ "refusal_precedence": {
+  "order": [
+   "wire",
+   "shared",
+   "config",
+   "version",
+   "identity",
+   "data"
+  ],
+  "wire": "cell types and ranges and text grammar of the canonical wire: non-integer or bool/float cells, row width, empty ids, unknown labels, non-canonical decimal text (INVALID_SCHEMA); int64/decimal128 range (OVERFLOW)",
+  "shared": "the shared validators (validate_batch, require_compatible_inputs): DUPLICATE, INVALID_ORDER, BOUNDS (start >= end, bar after the market cutoff, negative quantity, reference bounds), OHLC and notional INVALID_SCHEMA",
+  "config": "ConfigSpec: parameter set, ranges and vocabularies (INVALID_CONFIG), capability (UNSUPPORTED_CAPABILITY), feature ids (UNKNOWN_FEATURE), price unit and currency (INVALID_UNIT), adjustment (UNSUPPORTED_ADJUSTMENT)",
+  "version": "policy label (INCOMPATIBLE_VERSION)",
+  "identity": "INCONSISTENT_IDENTITY (instrument, session, governed grid, benchmark roles, undeclared instruments) and library-detected duplicates with distinct reference ids",
+  "data": "producer rules over otherwise valid data: cross-fact BOUNDS (leg start not before end) and checked-sum OVERFLOW of a published int64",
+  "rule": "A refusal raises the code of the first stage, in this order, that has a fault; a later stage is not evaluated for a row that failed an earlier one (so a row rejected by the shared validator is not also reported as a grid mismatch). Every refusal fixture is a single-fault recipe: exactly one defect, in the stage recorded in `stage`, and no other check fires on the mutated input (an independent reviewer audit collects every trigger, not only the first). A row that carries two defects is not a refusal fixture."
+ },
  "acceptance_rules": {
   "exact_float64": "reference is a dyadic rational with numerator below 2^53 reached by exact integer/rational arithmetic, so any exact-rational or Decimal120 path produces it without rounding; the published float64 must equal the hex bit for bit",
   "exact_plus_zero": "reference exactly 0 from exact arithmetic (equal integers subtract to zero, an exact count of zero, ln of an exact ratio 1): bit-exact +0.0, never -0.0",
-  "tolerance": "abs(y - r) <= max(8*ulp(r), 1e-12*abs(r)) with r the fixture float64 (the R17 numeric error contract, docs/api/INTRADAY.md, Numeric error contract and capabilities); also used for every value whose computation passes through a logarithm, even when the reference is dyadic, so implementations need not special-case it",
+  "tolerance": "abs(y - r) <= max(8*ulp(r), 1e-12*abs(r)) with r the fixture float64 (the R17 numeric error contract, docs/api/INTRADAY.md, Numeric error contract and capabilities); also used for every value whose computation passes through a logarithm, even when the reference is dyadic, so implementations need not special-case it. Reconciliation with the single-rounding publication rule: the published value is defined as the exact rational (or 120-digit logarithm value) rounded once, so an exact-rational implementation returns the correctly rounded float64 (within 0.5 ulp) and the fixture float64 is that value; the envelope above is the R17 pass/fail rule inherited for Decimal120 and other conforming backends, not a licence for a looser exact path",
   "exact_integer": "int64 and decimal128 outputs are exact (decimal128 as the integer coefficient at the PriceUnit scale)",
   "exact_bool": "bool outputs are exact",
   "documented_exceptions": "none",
   "counts_in_this_packet": {
    "exact_plus_zero": 23,
-   "exact_float64": 69,
-   "tolerance": 35
+   "exact_float64": 71,
+   "tolerance": 37
   }
  },
- "fixture_notation": "compact, NOT canonical wire. K = 100 knowledge cutoff, default known_at 50. A fixture lists slots 0..t in epoch order; the target is the last slot unless `target` names an earlier index (slots after the target are delivered but must not matter). A slot is a list [O,H,L,C,V] (ohlcv) or [C] (close-only delivery, columns=close), or the string 'absent' (no row and no coverage), 'gap' (no row, declared incomplete IntervalCoverage), 'null' (row present with null volume and null OHLC, or null close in a close-only delivery), 'empty' (zero volume with null OHLC, coverage complete with expected 0), or {row, ka} with ka an explicit known_at (150 > K, null unknown, 100 == K known). Bars are built from a close list by the rule O = previous close, H = max(O,C), L = min(O,C) except where the fixture lists explicit rows (PE05, PE06), so TR_i = |C_i - C_(i-1)| for those. params.window is N; params.epoch_profile is session_reset or governed_history; the price scale is in `unit.scale`. `outputs` lists the selected feature ids: a fixture evaluates every listed output unless it lists only some. Float results carry the exact rational (or, for an irrational log value, the closed form and a 60-digit decimal), the float64, float.hex and the per-output acceptance rule; counts are expected/observed; witnesses are row ids. Fixture ids are PE01 to PE30, PR01 onward for refusals.",
+ "fixture_notation": "compact, NOT canonical wire. K = 100 knowledge cutoff, default known_at 50. A fixture lists slots 0..t in epoch order; the target is the last slot unless `target` names an earlier index (slots after the target are delivered but must not matter). A slot is a list [O,H,L,C,V] (ohlcv) or [C] (close-only delivery, columns=close), or the string 'absent' (no row and no coverage), 'gap' (no row, declared incomplete IntervalCoverage), 'null' (row present with null volume and null OHLC, or null close in a close-only delivery), 'empty' (zero volume with null OHLC, coverage complete with expected 0), or {row, ka} with ka an explicit known_at (150 > K, null unknown, 100 == K known). Bars are built from a close list by the rule O = previous close, H = max(O,C), L = min(O,C) except where the fixture lists explicit rows (PE05, PE06), so TR_i = |C_i - C_(i-1)| for those. params.window is N; params.epoch_profile is session_reset or governed_history; the price scale is in `unit.scale`. `outputs` lists the selected feature ids: a fixture evaluates every listed output unless it lists only some. Float results carry the exact rational (or, for an irrational log value, the closed form and a 60-digit decimal), the float64, float.hex and the per-output acceptance rule; counts are expected/observed; witnesses are row ids. Fixture ids are PE01 to PE31, PR01 onward for refusals. The market cutoff C is the end of the last delivered slot and the target slot is explicit, so slots after the target are completed bars before C (prefix fixtures); a bar ending after C is BOUNDS. Canonical expansion (epoch-scale times, session and instrument ids, wire_slot rows) is in `wire_expansion`; K versus C and the known_at token mapping are in `knowledge_readiness`.",
  "path_fixtures": [
   {
    "id": "PE01",
@@ -2124,7 +2151,7 @@
   {
    "id": "PE11",
    "group": "insufficient",
-   "description": "3 slots with N=3 needs 4 closes: insufficient_history for every output whatever the contents",
+   "description": "3 slots with N=3 needs 4 closes and the slots present have no hole: insufficient_history for every output (a hole adds its own reason and leads the status, PE30)",
    "producer": "path_efficiency",
    "params": {
     "policy_version": "ef4-path1",
@@ -3401,7 +3428,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 1,
      "value": null,
      "witnesses": []
     },
@@ -3483,7 +3510,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 1,
      "value": null,
      "witnesses": []
     },
@@ -3493,7 +3520,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 1,
      "value": null,
      "witnesses": []
     }
@@ -3676,7 +3703,7 @@
   {
    "id": "PE22",
    "group": "evidence",
-   "description": "evidence_limit 2 keeps the target then the base: slot:3, slot:0",
+   "description": "evidence_limit 2 with ND selected alone keeps the target then the base: slot:3, slot:0 (a joint selection shares the limit result-wide)",
    "producer": "path_efficiency",
    "params": {
     "policy_version": "ef4-path1",
@@ -3721,7 +3748,6 @@
     ]
    ],
    "outputs": [
-    "path.efficiency_ratio",
     "path.net_displacement"
    ],
    "tags": [
@@ -3729,22 +3755,6 @@
     "truncation"
    ],
    "expected": {
-    "path.efficiency_ratio": {
-     "status": "available",
-     "reasons": [],
-     "expected": 4,
-     "observed": 4,
-     "value": {
-      "exact": "1/1",
-      "float64": 1.0,
-      "hex": "0x1.0000000000000p+0",
-      "acceptance": "exact_float64"
-     },
-     "witnesses": [
-      "slot:3",
-      "slot:0"
-     ]
-    },
     "path.net_displacement": {
      "status": "available",
      "reasons": [],
@@ -3811,7 +3821,6 @@
     ]
    ],
    "outputs": [
-    "path.efficiency_ratio",
     "path.net_displacement"
    ],
    "tags": [
@@ -3819,19 +3828,6 @@
     "truncation"
    ],
    "expected": {
-    "path.efficiency_ratio": {
-     "status": "available",
-     "reasons": [],
-     "expected": 4,
-     "observed": 4,
-     "value": {
-      "exact": "1/1",
-      "float64": 1.0,
-      "hex": "0x1.0000000000000p+0",
-      "acceptance": "exact_float64"
-     },
-     "witnesses": []
-    },
     "path.net_displacement": {
      "status": "available",
      "reasons": [],
@@ -5097,6 +5093,192 @@
      "witnesses": []
     }
    }
+  },
+  {
+   "id": "PE31",
+   "group": "near_cancellation",
+   "description": "closes 1e14 then +1000, +1000, +1000, -1 ticks, N=4: sum TR 3001 against range 3000, q = 1 + 1/3000 so choppiness ln(3001/3000)/ln4 ~ 2.4e-4 (an ln of a ratio rounded to float64 would lose it; log1p-grade required); ER 2999/3001",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 4,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     100000000000000,
+     100000000000000,
+     100000000000000,
+     100000000000000,
+     5
+    ],
+    [
+     100000000000000,
+     100000000001000,
+     100000000000000,
+     100000000001000,
+     5
+    ],
+    [
+     100000000001000,
+     100000000002000,
+     100000000001000,
+     100000000002000,
+     5
+    ],
+    [
+     100000000002000,
+     100000000003000,
+     100000000002000,
+     100000000003000,
+     5
+    ],
+    [
+     100000000003000,
+     100000000003000,
+     100000000002999,
+     100000000002999,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "near_cancellation",
+    "accuracy",
+    "log_domain"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": null,
+      "closed_form": "ln(3001/3000)/ln(4)",
+      "decimal": "0.000240409107522546141636336185689676264734095939937223457778",
+      "float64": 0.00024040910752254615,
+      "hex": "0x1.f82ca8249e065p-13",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "2999/3001",
+      "float64": 0.9993335554815062,
+      "hex": "0x1.ffa8a5d52d4c0p-1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "2999/1",
+      "float64": 2999.0,
+      "hex": "0x1.76e0000000000p+11",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "3001/1",
+      "float64": 3001.0,
+      "hex": "0x1.7720000000000p+11",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "3001/1",
+      "float64": 3001.0,
+      "hex": "0x1.7720000000000p+11",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "3000/1",
+      "float64": 3000.0,
+      "hex": "0x1.7700000000000p+11",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    }
+   }
   }
  ],
  "refusal_fixtures": [
@@ -5104,91 +5286,175 @@
    "id": "PR01",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
-   "description": "two bars with the same (instrument, session, start, end) identity",
+   "stage": "shared",
+   "description": "bar 2 delivered with the (instrument, session, start, end) identity of bar 1",
    "producer": "path_efficiency",
    "base": "PE04",
    "mutation": [
     {
      "set": "fixture.slots.2",
      "value": {
-      "mk": "dup"
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000060000000000,
+       "end": 1700000120000000000,
+       "row": [
+        20,
+        20,
+        10,
+        10,
+        5
+       ]
+      }
      }
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = {'mk': 'dup'}."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000060000000000, 'end': 1700000120000000000}. Single fault: only the shared stage is violated."
   },
   {
    "id": "PR02",
    "error_code": "INVALID_ORDER",
    "raised_by": "shared validator",
-   "description": "a bar overlapping or earlier than the previous bar of the same session",
-   "producer": "path_efficiency",
-   "base": "PE04",
-   "mutation": [
-    {
-     "set": "fixture.slots.3",
-     "value": {
-      "mk": "unordered"
-     }
-    }
-   ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.3 = {'mk': 'unordered'}."
-  },
-  {
-   "id": "PR03",
-   "error_code": "INVALID_ORDER",
-   "raised_by": "producer admission",
-   "description": "bars delivered out of governed grid order against the context (the shared order group is per session)",
-   "producer": "path_efficiency",
-   "base": "PE04",
-   "mutation": [
-    {
-     "set": "fixture.slots.1",
-     "value": {
-      "mk": "grid_order"
-     }
-    }
-   ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.1 = {'mk': 'grid_order'}."
-  },
-  {
-   "id": "PR04",
-   "error_code": "BOUNDS",
-   "raised_by": "shared validator",
-   "description": "bar with start >= end",
+   "stage": "shared",
+   "description": "bars 2 and 3 delivered in swapped order (each interval is a governed slot, the second starts before the first ends)",
    "producer": "path_efficiency",
    "base": "PE04",
    "mutation": [
     {
      "set": "fixture.slots.2",
      "value": {
-      "mk": "nonpositive_interval"
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000180000000000,
+       "end": 1700000240000000000,
+       "row": [
+        10,
+        20,
+        10,
+        20,
+        5
+       ]
+      }
+     }
+    },
+    {
+     "set": "fixture.slots.3",
+     "value": {
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000120000000000,
+       "end": 1700000180000000000,
+       "row": [
+        20,
+        20,
+        10,
+        10,
+        5
+       ]
+      }
      }
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = {'mk': 'nonpositive_interval'}."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000180000000000, 'end': 1700000240000000000}; set fixture.slots.3 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000120000000000, 'end': 1700000180000000000}. Single fault: only the shared stage is violated."
+  },
+  {
+   "id": "PR03",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "raised_by": "producer admission",
+   "stage": "identity",
+   "description": "bar 2 starts one second late: not a governed slot bound of the R17 context (a distinct grid mismatch; it overlaps nothing)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": {
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000121000000000,
+       "end": 1700000180000000000,
+       "row": [
+        20,
+        20,
+        10,
+        10,
+        5
+       ]
+      }
+     }
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000121000000000, 'end': 1700000180000000000}. Single fault: only the identity stage is violated."
+  },
+  {
+   "id": "PR04",
+   "error_code": "BOUNDS",
+   "raised_by": "shared validator",
+   "stage": "shared",
+   "description": "bar 2 with start_ns equal to end_ns",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": {
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000180000000000,
+       "end": 1700000180000000000,
+       "row": [
+        20,
+        20,
+        10,
+        10,
+        5
+       ]
+      }
+     }
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000180000000000, 'end': 1700000180000000000}. Single fault: only the shared stage is violated."
   },
   {
    "id": "PR05",
    "error_code": "BOUNDS",
    "raised_by": "shared validator",
-   "description": "bar ending after the market cutoff (a forming bar)",
+   "stage": "shared",
+   "description": "bar 4 ending one bar length after the market cutoff (a forming bar)",
    "producer": "path_efficiency",
    "base": "PE04",
    "mutation": [
     {
      "set": "fixture.slots.4",
      "value": {
-      "mk": "beyond_cutoff"
+      "wire": {
+       "inst": "X",
+       "ss": "S1",
+       "start": 1700000240000000000,
+       "end": 1700000360000000000,
+       "row": [
+        20,
+        30,
+        20,
+        30,
+        5
+       ]
+      }
      }
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.4 = {'mk': 'beyond_cutoff'}."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.4 = wire row {'inst': 'X', 'ss': 'S1', 'start': 1700000240000000000, 'end': 1700000360000000000}. Single fault: only the shared stage is violated."
   },
   {
    "id": "PR06",
    "error_code": "BOUNDS",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "negative volume",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5204,12 +5470,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20, -5]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20, -5]. Single fault: only the shared stage is violated."
   },
   {
    "id": "PR07",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "high below low",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5225,12 +5492,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 9, 11, 10, 5]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 9, 11, 10, 5]. Single fault: only the shared stage is violated."
   },
   {
    "id": "PR08",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "close outside the supplied high/low range",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5246,12 +5514,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 15, 10, 20, 5]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 15, 10, 20, 5]. Single fault: only the shared stage is violated."
   },
   {
    "id": "PR09",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "zero price in a positive-volume bar",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5267,12 +5536,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 12, 0, 0, 5]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 12, 0, 0, 5]. Single fault: only the shared stage is violated."
   },
   {
    "id": "PR10",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "zero-volume bar carrying prices (must be null OHLC)",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5288,12 +5558,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20, 0]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20, 0]. Single fault: only the shared stage is violated."
   },
   {
    "id": "PR11",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared validator",
+   "stage": "shared",
    "description": "positive-volume bar with a null low",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5309,12 +5580,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, None, 20, 5]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, None, 20, 5]. Single fault: only the shared stage is violated."
   },
   {
    "id": "PR12",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "non-integer (float) price coefficient",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5330,12 +5602,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20.0, 5]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20.0, 5]. Single fault: only the wire stage is violated."
   },
   {
    "id": "PR13",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "non-integer (float) volume",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5351,12 +5624,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20, 5.0]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20, 5.0]. Single fault: only the wire stage is violated."
   },
   {
    "id": "PR14",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "row with four values instead of five in an OHLCV delivery",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5371,12 +5645,13 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20]. Single fault: only the wire stage is violated."
   },
   {
    "id": "PR15",
    "error_code": "OVERFLOW",
    "raised_by": "producer admission",
+   "stage": "wire",
    "description": "close coefficient 2^63 exceeds int64",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5392,46 +5667,73 @@
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 9223372036854775808, 10, 9223372036854775808, 5]."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 9223372036854775808, 10, 9223372036854775808, 5]. Single fault: only the wire stage is violated."
   },
   {
    "id": "PR16",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "producer admission",
-   "description": "a bar of a different session inside a session_reset epoch (no overnight return is ever formed)",
+   "stage": "identity",
+   "description": "bar 1 carries session S0 inside a session_reset epoch of S1 (no overnight return is ever formed)",
    "producer": "path_efficiency",
    "base": "PE04",
    "mutation": [
     {
      "set": "fixture.slots.1",
      "value": {
-      "mk": "other_session"
+      "wire": {
+       "inst": "X",
+       "ss": "S0",
+       "start": 1700000060000000000,
+       "end": 1700000120000000000,
+       "row": [
+        10,
+        20,
+        10,
+        20,
+        5
+       ]
+      }
      }
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.1 = {'mk': 'other_session'}."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.1 = wire row {'inst': 'X', 'ss': 'S0', 'start': 1700000060000000000, 'end': 1700000120000000000}. Single fault: only the identity stage is violated."
   },
   {
    "id": "PR17",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "producer admission",
-   "description": "a second instrument id inside the single bars role",
+   "stage": "identity",
+   "description": "bar 2 carries instrument Y inside the single-instrument bars role (validate_batch does not raise: the producer does)",
    "producer": "path_efficiency",
    "base": "PE04",
    "mutation": [
     {
      "set": "fixture.slots.2",
      "value": {
-      "mk": "second_instrument"
+      "wire": {
+       "inst": "Y",
+       "ss": "S1",
+       "start": 1700000120000000000,
+       "end": 1700000180000000000,
+       "row": [
+        20,
+        20,
+        10,
+        10,
+        5
+       ]
+      }
      }
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = {'mk': 'second_instrument'}."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = wire row {'inst': 'Y', 'ss': 'S1', 'start': 1700000120000000000, 'end': 1700000180000000000}. Single fault: only the identity stage is violated."
   },
   {
    "id": "PR18",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window missing",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5440,12 +5742,13 @@
      "del": "fixture.params.window"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.window."
+   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.window. Single fault: only the config stage is violated."
   },
   {
    "id": "PR19",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window 1 (below the lower bound 2: log of N is zero)",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5455,12 +5758,13 @@
      "value": 1
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 1."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 1. Single fault: only the config stage is violated."
   },
   {
    "id": "PR20",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window 4097 (above the R17 bound 4096)",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5470,12 +5774,13 @@
      "value": 4097
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 4097."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 4097. Single fault: only the config stage is violated."
   },
   {
    "id": "PR21",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window is a bool",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5485,12 +5790,13 @@
      "value": true
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = True."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = True. Single fault: only the config stage is violated."
   },
   {
    "id": "PR22",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window is a float",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5500,12 +5806,13 @@
      "value": 4.0
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 4.0."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 4.0. Single fault: only the config stage is violated."
   },
   {
    "id": "PR23",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "window is text",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5515,12 +5822,13 @@
      "value": "4"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 4."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 4. Single fault: only the config stage is violated."
   },
   {
    "id": "PR24",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "epoch_profile carry (carry across sessions is not supported)",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5530,12 +5838,13 @@
      "value": "carry"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.epoch_profile = carry."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.epoch_profile = carry. Single fault: only the config stage is violated."
   },
   {
    "id": "PR25",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "epoch_profile missing",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5544,12 +5853,13 @@
      "del": "fixture.params.epoch_profile"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.epoch_profile."
+   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.epoch_profile. Single fault: only the config stage is violated."
   },
   {
    "id": "PR26",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "evidence_limit -1",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5559,12 +5869,13 @@
      "value": -1
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.evidence_limit = -1."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.evidence_limit = -1. Single fault: only the config stage is violated."
   },
   {
    "id": "PR27",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "evidence_limit 10001",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5574,12 +5885,13 @@
      "value": 10001
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.evidence_limit = 10001."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.evidence_limit = 10001. Single fault: only the config stage is violated."
   },
   {
    "id": "PR28",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "evidence_limit missing",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5588,12 +5900,13 @@
      "del": "fixture.params.evidence_limit"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.evidence_limit."
+   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.evidence_limit. Single fault: only the config stage is violated."
   },
   {
    "id": "PR29",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "an unknown parameter (min_history) is supplied",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5603,12 +5916,13 @@
      "value": 3
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.min_history = 3."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.min_history = 3. Single fault: only the config stage is violated."
   },
   {
    "id": "PR30",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "stage": "config",
    "description": "policy_version missing",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5617,12 +5931,13 @@
      "del": "fixture.params.policy_version"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.policy_version."
+   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.policy_version. Single fault: only the config stage is violated."
   },
   {
    "id": "PR31",
    "error_code": "INCOMPATIBLE_VERSION",
    "raised_by": "library",
+   "stage": "version",
    "description": "unsupported policy label ef4-path2",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5632,13 +5947,14 @@
      "value": "ef4-path2"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set fixture.params.policy_version = ef4-path2."
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.policy_version = ef4-path2. Single fault: only the version stage is violated."
   },
   {
    "id": "PR32",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch price scale differs from the config price unit scale",
+   "stage": "config",
+   "description": "batch price scale differs from the config price unit scale (role bars)",
    "producer": "path_efficiency",
    "base": "PE04",
    "mutation": [
@@ -5647,13 +5963,15 @@
      "value": 3
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set ctx.batch.unit.scale = 3."
+   "construction": "Take result fixture PE04 unchanged, then set ctx.batch.unit.scale = 3. Single fault: only the config stage is violated.",
+   "role": "bars"
   },
   {
    "id": "PR33",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
-   "description": "batch currency differs from the config price unit currency",
+   "stage": "config",
+   "description": "batch currency differs from the config price unit currency (role bars)",
    "producer": "path_efficiency",
    "base": "PE04",
    "mutation": [
@@ -5662,12 +5980,14 @@
      "value": "EUR"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set ctx.batch.unit.currency = EUR."
+   "construction": "Take result fixture PE04 unchanged, then set ctx.batch.unit.currency = EUR. Single fault: only the config stage is violated.",
+   "role": "bars"
   },
   {
    "id": "PR34",
    "error_code": "INVALID_UNIT",
    "raised_by": "producer admission",
+   "stage": "config",
    "description": "config declares no price unit (PriceUnit is mandatory)",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5677,13 +5997,14 @@
      "value": null
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set ctx.config_unit = None."
+   "construction": "Take result fixture PE04 unchanged, then set ctx.config_unit = None. Single fault: only the config stage is violated."
   },
   {
    "id": "PR35",
    "error_code": "UNSUPPORTED_ADJUSTMENT",
    "raised_by": "producer admission",
-   "description": "batch adjustment basis differs from the config adjustment",
+   "stage": "config",
+   "description": "batch adjustment basis differs from the config adjustment (role bars)",
    "producer": "path_efficiency",
    "base": "PE04",
    "mutation": [
@@ -5692,29 +6013,39 @@
      "value": "split_adjusted"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set ctx.batch.adjustment = split_adjusted."
+   "construction": "Take result fixture PE04 unchanged, then set ctx.batch.adjustment = split_adjusted. Single fault: only the config stage is violated.",
+   "role": "bars"
   },
   {
    "id": "PR36",
    "error_code": "UNKNOWN_FEATURE",
    "raised_by": "library",
-   "description": "a requested feature id outside this producer's header set",
+   "stage": "config",
+   "description": "an extra requested feature id outside this producer's header set (the selected outputs stay requested)",
    "producer": "path_efficiency",
    "base": "PE04",
    "mutation": [
     {
      "set": "ctx.features",
      "value": [
+      "path.choppiness_fraction",
+      "path.efficiency_ratio",
+      "path.log_efficiency_ratio",
+      "path.net_displacement",
+      "path.path_length",
+      "path.true_range_sum",
+      "path.window_range",
       "not.a.feature"
      ]
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set ctx.features = ['not.a.feature']."
+   "construction": "Take result fixture PE04 unchanged, then set ctx.features = ['path.choppiness_fraction', 'path.efficiency_ratio', 'path.log_efficiency_ratio', 'path.net_displacement', 'path.path_length', 'path.true_range_sum', 'path.window_range', 'not.a.feature']. Single fault: only the config stage is violated."
   },
   {
    "id": "PR37",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "update is not a supported capability (batch and full replay only)",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5724,12 +6055,13 @@
      "value": "update"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set ctx.capability = update."
+   "construction": "Take result fixture PE04 unchanged, then set ctx.capability = update. Single fault: only the config stage is violated."
   },
   {
    "id": "PR38",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "restore is not a supported capability (batch and full replay only)",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5739,12 +6071,13 @@
      "value": "restore"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set ctx.capability = restore."
+   "construction": "Take result fixture PE04 unchanged, then set ctx.capability = restore. Single fault: only the config stage is violated."
   },
   {
    "id": "PR39",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "stage": "config",
    "description": "merge is not a supported capability (batch and full replay only)",
    "producer": "path_efficiency",
    "base": "PE04",
@@ -5754,11 +6087,11 @@
      "value": "merge"
     }
    ],
-   "construction": "Take result fixture PE04 unchanged, then set ctx.capability = merge."
+   "construction": "Take result fixture PE04 unchanged, then set ctx.capability = merge. Single fault: only the config stage is violated."
   }
  ],
  "fixture_counts": {
-  "path_result": 30,
+  "path_result": 31,
   "refusal": 39
  },
  "prefix_equivalences": [
@@ -5779,7 +6112,8 @@
    "PE01"
   ],
   "log_domain": [
-   "PE01"
+   "PE01",
+   "PE31"
   ],
   "flat": [
    "PE02",
@@ -5914,13 +6248,17 @@
    "PE27"
   ],
   "accuracy": [
-   "PE27"
+   "PE27",
+   "PE31"
   ],
   "daily_grid": [
    "PE28"
   ],
   "governed_history": [
    "PE28"
+  ],
+  "near_cancellation": [
+   "PE31"
   ]
  },
  "reasons_reached": {
