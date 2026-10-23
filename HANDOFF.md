@@ -6,8 +6,8 @@ Updated 2026-10-23. Owner: Atul Srivastava (atulsrivas1). Repos under C:\Atul\Cl
 - EF1 gaps, EF2 (retracement, momentum, channels: contracts + library + I/O + workers + qualification + demo): done and merged.
 - EF3 contracts D (relative RV, docs/ef3/RELATIVE_RV_CONTRACT_PROPOSAL.*), E (robust pace), F (breadth adaptive): frozen.
 - EF3 merged: libraries core #692 (D), #694 (E), #695 (F); I/O io #36, #37, #38; workers #80 (D), #81 (F); shared amendment core #696 (rulings R1-R9, pending owner review). Reconstruction-mode exception kept (no shared-validator change).
-- EF3 in flight: E worker (workers branch ef3e-workers, worktree C:\Atul\Claude\wt-ef3e-workers; Haiku run failed 26/124, Sonnet rework running; must rebase onto workers main 1317428, expect additive conflicts in ef1_runner.py, tools/ef1_results_demo.py, CHANGELOG.md). Docs PR ef3-retro (retrospective draft docs/knowledge/RETRO_EF2_EF3.md, skill checklist, HANDOFF/STATUS/DECISIONS) in review.
-- NEXT: review+merge E worker; EF3 evidence doc (docs/ef3/EF3_DELIVERY_EVIDENCE.md); installed Windows qualification; browser demo for owner; finalize retrospective; then EF4-EF8. Skill: .claude/skills/equity-features-release-coordinator/SKILL.md.
+- EF3 delivered (not accepted): also workers #82 (f92fd6a), tools #699 (contract_pack, run_batch), qualification run #700, evidence #701, retrospective with EF3 close update. Browser walkthrough done; demo server (PID 46940, port 18000) to stop; leftover wt-* worktrees to clean.
+- NEXT: start EF4 in a FRESH coordinator session (read this file, STATUS, DECISIONS, the skill, docs/knowledge/RETRO_EF2_EF3.md section 9). Owner items first: acceptance decisions, WSL venv, issues #663-#669, line-ending rule, review of R1-R9 and coordinator decisions. Apply the section 9 changes.
 
 ## Open items
 - Contract follow-ups: evidence id `slot:<i>` for E/F; contract F nits (DB11 derived-output counting, RB28 factor_den); `retracement` consumer rows still name #511/#518 (link #663); apply new unit strings to frozen shared contract; EF2 release gates (version bump, exact-zero residual limits, squeeze flag flip, O(n) memory).

@@ -1,6 +1,6 @@
 # Retrospective: EF2 and EF3 (draft, October 23, 2026)
 
-Status: draft written while EF3 is open. Finalize at EF3 close with the E worker, installed Windows qualification, browser demo and owner demo. EF2 had no retrospective when it merged; this covers it from its evidence doc and from the EF3 record only, with no per-agent EF2 numbers (the EF2 coordinator session is not available). Nothing here is an acceptance claim.
+Status: EF3 close update added as section 9 (EF3 built, qualification run and evidence merged; owner demo and acceptance pending). EF2 had no retrospective when it merged; this covers it from its evidence doc and from the EF3 record only, with no per-agent EF2 numbers (the EF2 coordinator session is not available). Nothing here is an acceptance claim.
 
 ## 1. Quality
 
@@ -111,3 +111,39 @@ Verdict: partly efficient. Verification quality was high and every defect was ca
 | 9 | Coordinator spot-runs duplicated reviewer runs | this session | coordinator reads the diff and the reviewer's report; spot-runs only when the reviewer could not run something | in skill |
 
 Measures for the next retrospective: subagent tokens per unit (target: at least 20% below the EF3 median of about 429k per build-plus-review unit), notifications per agent (target: at most 3), review fix rounds per PR, defects found by review versus defects found after merge, wall minutes per worker layer.
+
+
+## 9. EF3 close update (October 23, 2026)
+
+Delivered: all three contracts in library, I/O and workers; shared amendment #696; installed Windows qualification run #700 (346 of 346 demos in each of 4 forms, hashes identical); evidence package #701; browser walkthrough of 24 runs, 0 failed. Not accepted; Linux, real-source demo, owner demo and acceptance are open.
+
+Did the changes from sections 6-8 work? (applied, and evidence)
+
+| # | Change | Applied | Effect seen |
+|---|---|---|---|
+| 1 | no hardcoded ids, vary ids, run refusals | yes, from F I/O on | F I/O reviewer found no id defect (E I/O had one); refusals driven: E workers 48 of 48, F workers 59 of 62 by the reviewer, D 24 of 48 |
+| 2 | hash gate from committed blobs | partly | the F I/O stale-hash block happened before the rule; qualification explained CRLF vs LF differences and normalised them |
+| 3 | no progress polls, no "continue?" stops | yes for the Sonnet E workers rework, the qualification, evidence and demo agents | notifications per agent 0-2 after the change, against about 90 before |
+| 4 | Sonnet for workers layers with new registration | yes (E workers rework) | the 26 failures were example bugs, found and fixed in one pass; Sonnet total for E workers was about 145k after the failed Haiku 276k |
+| 5 | reviewer sample budget | yes from E workers on | reviews 133k (E workers), 109k (qualification), 90k (evidence) against 113-259k for earlier layer reviews |
+| 6 | contract pack and quiet batch | merged late (#699), used by later reviewers and the qualification | the tool review itself cost 201k (two rounds) and found the first pack dropped role text; token savings from the pack are not yet proven |
+| 7 | token ledger | created, extended | works; still reconstructed by hand |
+
+New findings at EF3 close:
+- Per-case worker time: the reviewer measured about 10 s per case alone; the author's 4-shard run took about 1.5 min per case under load. The "30-60 s" estimate in section 4 is superseded: do not size runs from it; profile first.
+- The D readable-view labels still call ordinary relative-stats runs "prefix length N, series ..." (RS01, RS02): a D worker display defect found only at the browser demo, values correct. Display review needs generated pages for non-prefix cases, not only prefix ones.
+- Merge friction: "Base branch was modified" on two squash merges because parallel PRs landed; retry after fetch works.
+- Doc line endings are mixed in the repo (STATUS, HANDOFF, EF2 and EF3 docs are CRLF in the index while reviews reported both). Pick one rule.
+- Leftover worktrees and a demo server need cleanup at release close.
+
+Token ledger additions since the first draft (k): E workers Sonnet rework 145 (reviewer 133); tools builder 172 (reviewers 96 + 105, re-check 105); qualification 131 (reviewer 109); evidence 110 (reviewer 90); demo preparation 90; docs reviewers 74 + 71. Coordinator turns are not measured.
+
+Changes for EF4 (decided, pending owner review; each is checked at the EF4 retrospective):
+1. Reviewer scope and harness reuse: authors save fixture-expansion code to the shared notes folder; reviewers write only the independent comparator and a sample.
+2. Run the full worker demo once at qualification, not per layer; per-layer runs use a sample plus all refusals.
+3. Display check: generate readable pages for at least one non-prefix case per example and text-check labels before approval.
+4. Profile one worker case before any run over 50 cases; size by the measured time.
+5. Pick a line-ending rule (.gitattributes) for docs; owner decision.
+6. Trial generating adapter and worker skeletons from the contract pack on one EF4 layer; compare tokens with the template-copy approach.
+7. Start EF4 in a fresh coordinator session from HANDOFF.md (this session is long).
+8. Release close cleans leftover worktrees, servers and scratch.
