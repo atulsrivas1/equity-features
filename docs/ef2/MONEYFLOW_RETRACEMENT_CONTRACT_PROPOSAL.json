@@ -1,0 +1,4973 @@
+{
+ "proposal_version": "ef2-moneyflow-retracement-proposal1",
+ "status": "PROPOSAL ONLY: not reviewed, not frozen, not accepted; no implementation admitted",
+ "story": "EQ-150 #484 (money flow) and EQ-238 #663 (retracement level) in EF2; consumed by #609, #610, acceptance #486",
+ "evidence_kind": "documentation and hand-derived expected values from a scratch script using only exact Fraction arithmetic; nothing executed against the library",
+ "frozen_contract_ref": "docs/ef1/CONTRACT.json ef1-contract1 and the accepted R17 intraday foundations are read-only and unchanged; this packet is additive",
+ "money_flow_producer": {
+  "config_identity": "ef2.money_flow",
+  "algorithm_version": "ef2-money-flow-v1",
+  "schema_version": "1",
+  "package": "optional intraday package (additive catalog entries; catalog digest changes; R17 entries unchanged)",
+  "policy_version": "ef2-mf1",
+  "policy": {
+   "obv_seed": "zero_at_anchor",
+   "obv_tie": "zero",
+   "mfm_zero_range": "zero",
+   "empty_slot": "zero_volume_flow",
+   "cmf_window": "last_n_governed_slots_within_epoch",
+   "cmf_zero_volume": "zero_denominator"
+  }
+ },
+ "retracement_producer": {
+  "config_identity": "ef2.retracement_level",
+  "algorithm_version": "ef2-retracement-level-v1",
+  "schema_version": "1",
+  "policy_version": "ef2-retrace1",
+  "parameters": [
+   "policy_version",
+   "direction",
+   "ratio_num",
+   "ratio_den"
+  ],
+  "direction_values": [
+   "from_high",
+   "from_low"
+  ],
+  "ratio_domain": "0 <= ratio_num/ratio_den <= 1, reduced, den in 1..2^63-1; no default"
+ },
+ "headers": [
+  {
+   "id": "intraday.ad_line",
+   "dtype": "float64",
+   "unit": "shares",
+   "scale": "none",
+   "producer": "money_flow",
+   "minimum_period": 1,
+   "operand_family": "anchored_money_flow"
+  },
+  {
+   "id": "intraday.cmf",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "money_flow",
+   "minimum_period": "cmf_period",
+   "operand_family": "windowed_money_flow"
+  },
+  {
+   "id": "intraday.obv",
+   "dtype": "int64",
+   "unit": "shares",
+   "scale": "none",
+   "producer": "money_flow",
+   "minimum_period": 1,
+   "operand_family": "anchored_signed_volume"
+  },
+  {
+   "id": "retracement.level",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none (single rounding from the exact rational of retained integer coefficients)",
+   "producer": "retracement_level",
+   "minimum_period": "not_applicable",
+   "operand_family": "prior_extrema_pair"
+  }
+ ],
+ "header_order": "lexicographic by feature_id within a producer; money_flow selections follow R17 per-feature selection with independent readiness",
+ "money_flow_roles": [
+  {
+   "role": "bars",
+   "kind": "bar",
+   "nullable": true,
+   "contract": "R17 chunked BAR delivery on the governed grid; adds mandatory volume (int64 shares, >=0); obv needs close and volume; ad_line and cmf need high, low, close and volume"
+  }
+ ],
+ "retracement_roles": [
+  {
+   "role": "prior_high",
+   "kind": "reference",
+   "nullable": true,
+   "contract": "single extremum row, fact_kind ef2.extremum.high"
+  },
+  {
+   "role": "prior_low",
+   "kind": "reference",
+   "nullable": true,
+   "contract": "single extremum row, fact_kind ef2.extremum.low"
+  }
+ ],
+ "retracement_slot_order": [
+  "prior_high",
+  "prior_low"
+ ],
+ "extremum_reference_schema": {
+  "columns": [
+   {
+    "name": "instrument_id",
+    "dtype": "string",
+    "rule": "equals target entity"
+   },
+   {
+    "name": "session_id",
+    "dtype": "string",
+    "rule": "equals target session"
+   },
+   {
+    "name": "reference_id",
+    "dtype": "string",
+    "rule": "x1:B(window_set_id); B is unpadded base64url of UTF8; identical on both roles; <=128 codepoints"
+   },
+   {
+    "name": "fact_kind",
+    "dtype": "string",
+    "rule": "ef2.extremum.high or ef2.extremum.low per role"
+   },
+   {
+    "name": "effective_start_ns",
+    "dtype": "utc_ns",
+    "rule": "end boundary of the upstream window as supplied by the extrema owner; evidence only"
+   },
+   {
+    "name": "effective_end_ns",
+    "dtype": "utc_ns",
+    "nullable": true,
+    "rule": "null or greater than start"
+   },
+   {
+    "name": "text",
+    "dtype": "string",
+    "rule": "equals batch source.snapshot_id (revision binding)"
+   },
+   {
+    "name": "price",
+    "dtype": "int64",
+    "nullable": true,
+    "rule": "exact extremum coefficient at ConfigSpec.price_unit.scale; null when the upstream owner reported not available"
+   },
+   {
+    "name": "factor_num",
+    "dtype": "int64",
+    "nullable": true,
+    "rule": "observed governed slots in the upstream window; all-or-none with factor_den"
+   },
+   {
+    "name": "factor_den",
+    "dtype": "int64",
+    "nullable": true,
+    "rule": "required upstream window length N; equal on both roles"
+   },
+   {
+    "name": "known_at_ns",
+    "dtype": "utc_ns",
+    "nullable": true,
+    "rule": "original knowledge of the extremum; causal in both availability modes"
+   }
+  ],
+  "note": "float64 upstream outputs (history.prior_high/low, daily_observations.high/low) are rounded and are NOT accepted as inputs; the I/O layer maps the exact integer coefficients (decision DP-R6)."
+ },
+ "mathematics": {
+  "notation": "closes C, highs H, lows L are positive integer coefficients at one scale s; V is int64 shares >= 0; epoch bars a..t (a anchor, t target); empty = proven zero-volume slot",
+  "mfm": "MFM_i = (2C_i - H_i - L_i) / (H_i - L_i) in [-1, 1]; 0 when H_i == L_i",
+  "obv": "OBV[a] = 0; base = last priced close at or before i-1 (none -> increment 0 and this bar becomes the base); OBV[i] = OBV[i-1] + sign(C_i - base) * V_i; empty slots add 0 and never become the base; ties add 0; published int64, OVERFLOW refusal if outside int64",
+  "ad_line": "AD[t] = sum_{i=a..t} MFM_i * V_i as an exact rational, published float(Fraction) once, +0.0 for zero",
+  "cmf": "CMF[t] = sum_{i=t-N+1..t} MFM_i * V_i / sum V_i; N governed slots wholly inside the epoch (t-N+1 >= a else insufficient_history); sum V == 0 -> null, not_applicable/zero_denominator",
+  "retracement": "R = H - L; from_high: level = (H - r*R)/10^s; from_low: level = (L + r*R)/10^s; r = ratio_num/ratio_den exact; published float(Fraction) once; H == L -> zero_denominator; H < L -> ineligible",
+  "overflow": "OBV int64 bound only; |AD| < 2^76, CMF in [-1,1] and retracement level in [L,H]/10^s are always finite float64"
+ },
+ "quality": {
+  "precedence": [
+   "absent_input",
+   "unknown_availability",
+   "future_knowledge",
+   "null_field",
+   "ineligible",
+   "governed_gap",
+   "insufficient_history",
+   "no_eligible_observations",
+   "zero_denominator"
+  ],
+  "status_of_reason": {
+   "absent_input": "missing_input",
+   "unknown_availability": "missing_input",
+   "future_knowledge": "missing_input",
+   "null_field": "missing_input",
+   "ineligible": "missing_input",
+   "governed_gap": "incomplete_coverage",
+   "insufficient_history": "insufficient_history",
+   "no_eligible_observations": "not_applicable",
+   "zero_denominator": "not_applicable"
+  },
+  "rule": "all applicable reasons retained in lexical order; status follows the first applicable reason in precedence",
+  "counts": {
+   "obv_ad_line": "expected = t-a+1, observed = ready (priced or proven-empty) slots",
+   "cmf": "expected = N, observed = ready slots inside max(a, t-N+1)..t",
+   "retracement": "expected 2, observed = sides admitted causal with a non-null positive price"
+  },
+  "evidence": {
+   "obv_ad_line": "anchor slot and target slot (limit 2)",
+   "cmf": "first and last window slot (limit 2)",
+   "retracement": "the prior_high and prior_low rows (limit 2)",
+   "unavailable": "no evidence"
+  }
+ },
+ "mode_rule": "known_at and reconstruction availability modes give identical results; update, restore and merge unsupported; batch and full replay only",
+ "fixture_notation": "compact, NOT canonical wire. Money flow: scale 2 coefficients; slots a..t with state priced (c,h,l,v,known_at), empty (proven zero volume), absent (no row, no coverage), gap (declared incomplete coverage), unknown (known_at null), future (known_at 150 > K 100). K=100, known_at 50 when not stated. Float results list exact rational, float64 and float.hex. Retracement: price coefficients at the stated scale; side states priced, absent, empty_batch, null_price, insufficient (factor [observed, required]), unknown, future, gap.",
+ "money_flow_fixtures": [
+  {
+   "id": "M01",
+   "group": "initial",
+   "description": "anchor only (t=a): OBV exact initial 0; AD = MFV of the anchor; CMF N=1 equals the anchor multiplier",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 0,
+   "N": 1,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1050,
+     "h": 1100,
+     "l": 1000,
+     "v": 200,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "exact_initial"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": 0,
+     "witness_slots": [
+      0
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "witness_slots": [
+      0
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "sum_money_flow_volume": "0/1",
+     "sum_volume": 200,
+     "witness_slots": [
+      0
+     ]
+    }
+   }
+  },
+  {
+   "id": "M02",
+   "group": "initial",
+   "description": "anchor only, CMF N=3 -> insufficient history (expected 3, observed 1); OBV and AD still available",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 0,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1050,
+     "h": 1100,
+     "l": 1000,
+     "v": 200,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "insufficient_history",
+    "exact_initial"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": 0,
+     "witness_slots": [
+      0
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "witness_slots": [
+      0
+     ]
+    },
+    "intraday.cmf": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 3,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M03",
+   "group": "initial",
+   "description": "two bars, N=3: CMF still insufficient (observed 2)",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 1,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1100,
+     "l": 900,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1010,
+     "h": 1050,
+     "l": 1000,
+     "v": 50,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "insufficient_history"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": 50,
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "-30/1",
+      "float64": -30.0,
+      "hex": "-0x1.e000000000000p+4"
+     },
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.cmf": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M04",
+   "group": "boundary",
+   "description": "t-a+1 == N exactly: CMF becomes available at the first possible bar (boundary equality)",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1100,
+     "l": 900,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1010,
+     "h": 1050,
+     "l": 1000,
+     "v": 50,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1020,
+     "h": 1080,
+     "l": 1010,
+     "v": 70,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "boundary",
+    "warm_up"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 120,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-80/1",
+      "float64": -80.0,
+      "hex": "-0x1.4000000000000p+6"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-4/11",
+      "float64": -0.36363636363636365,
+      "hex": "-0x1.745d1745d1746p-2"
+     },
+     "sum_money_flow_volume": "-80/1",
+     "sum_volume": 220,
+     "witness_slots": [
+      0,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M05",
+   "group": "obv",
+   "description": "up, down, tie, up: signed volume, tie adds 0, first bar contributes 0",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 4,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1010,
+     "h": 1020,
+     "l": 1000,
+     "v": 20,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1005,
+     "h": 1015,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "priced",
+     "c": 1005,
+     "h": 1010,
+     "l": 1000,
+     "v": 40,
+     "known_at": 50
+    },
+    {
+     "i": 4,
+     "state": "priced",
+     "c": 1007,
+     "h": 1012,
+     "l": 1003,
+     "v": 50,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "ties"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": 40,
+     "witness_slots": [
+      0,
+      4
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "-140/9",
+      "float64": -15.555555555555555,
+      "hex": "-0x1.f1c71c71c71c7p+3"
+     },
+     "witness_slots": [
+      0,
+      4
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-7/54",
+      "float64": -0.12962962962962962,
+      "hex": "-0x1.097b425ed097bp-3"
+     },
+     "sum_money_flow_volume": "-140/9",
+     "sum_volume": 120,
+     "witness_slots": [
+      2,
+      4
+     ]
+    }
+   }
+  },
+  {
+   "id": "M06",
+   "group": "obv",
+   "description": "constant series (all closes equal, ranges nonzero): OBV exactly 0, AD/CMF from multiplier 0",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 3,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 100,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "constant",
+    "ties"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 0,
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "sum_money_flow_volume": "0/1",
+     "sum_volume": 300,
+     "witness_slots": [
+      1,
+      3
+     ]
+    }
+   }
+  },
+  {
+   "id": "M07",
+   "group": "obv",
+   "description": "strictly rising closes: OBV = sum of volumes from a+1",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 3,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1005,
+     "l": 985,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1001,
+     "h": 1006,
+     "l": 986,
+     "v": 200,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1002,
+     "h": 1007,
+     "l": 987,
+     "v": 300,
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "priced",
+     "c": 1003,
+     "h": 1008,
+     "l": 988,
+     "v": 400,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "monotone"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 900,
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "500/1",
+      "float64": 500.0,
+      "hex": "0x1.f400000000000p+8"
+     },
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1"
+     },
+     "sum_money_flow_volume": "350/1",
+     "sum_volume": 700,
+     "witness_slots": [
+      2,
+      3
+     ]
+    }
+   }
+  },
+  {
+   "id": "M08",
+   "group": "obv",
+   "description": "strictly falling closes: OBV negative",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 3,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1015,
+     "l": 995,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 999,
+     "h": 1014,
+     "l": 994,
+     "v": 200,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 998,
+     "h": 1013,
+     "l": 993,
+     "v": 300,
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "priced",
+     "c": 997,
+     "h": 1012,
+     "l": 992,
+     "v": 400,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "monotone"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": -900,
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "-500/1",
+      "float64": -500.0,
+      "hex": "-0x1.f400000000000p+8"
+     },
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "-1/2",
+      "float64": -0.5,
+      "hex": "-0x1.0000000000000p-1"
+     },
+     "sum_money_flow_volume": "-350/1",
+     "sum_volume": 700,
+     "witness_slots": [
+      2,
+      3
+     ]
+    }
+   }
+  },
+  {
+   "id": "M09",
+   "group": "obv",
+   "description": "tie after a move then move back: tie compares against the immediately preceding priced close, not an extremum",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 3,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 1,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1010,
+     "h": 1020,
+     "l": 1000,
+     "v": 2,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1030,
+     "l": 1000,
+     "v": 4,
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 8,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "ties"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": -6,
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "-4/3",
+      "float64": -1.3333333333333333,
+      "hex": "-0x1.5555555555555p+0"
+     },
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-2/21",
+      "float64": -0.09523809523809523,
+      "hex": "-0x1.8618618618618p-4"
+     },
+     "sum_money_flow_volume": "-4/3",
+     "sum_volume": 14,
+     "witness_slots": [
+      1,
+      3
+     ]
+    }
+   }
+  },
+  {
+   "id": "M10",
+   "group": "mfm",
+   "description": "close at high (multiplier +1) then close at low (-1): CMF exactly 0 over equal volumes; AD 0",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 1,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1100,
+     "h": 1100,
+     "l": 1000,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1000,
+     "h": 1100,
+     "l": 1000,
+     "v": 100,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "boundary"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": -100,
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "sum_money_flow_volume": "0/1",
+     "sum_volume": 200,
+     "witness_slots": [
+      0,
+      1
+     ]
+    }
+   }
+  },
+  {
+   "id": "M11",
+   "group": "mfm",
+   "description": "close at high on all bars: CMF exactly +1.0",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 1,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1100,
+     "h": 1100,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1100,
+     "h": 1100,
+     "l": 1000,
+     "v": 70,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "boundary"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": 0,
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "100/1",
+      "float64": 100.0,
+      "hex": "0x1.9000000000000p+6"
+     },
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0"
+     },
+     "sum_money_flow_volume": "100/1",
+     "sum_volume": 100,
+     "witness_slots": [
+      0,
+      1
+     ]
+    }
+   }
+  },
+  {
+   "id": "M12",
+   "group": "mfm",
+   "description": "close at low on all bars: CMF exactly -1.0",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 1,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1100,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1000,
+     "h": 1100,
+     "l": 1000,
+     "v": 70,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "boundary"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": 0,
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "-100/1",
+      "float64": -100.0,
+      "hex": "-0x1.9000000000000p+6"
+     },
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "-1/1",
+      "float64": -1.0,
+      "hex": "-0x1.0000000000000p+0"
+     },
+     "sum_money_flow_volume": "-100/1",
+     "sum_volume": 100,
+     "witness_slots": [
+      0,
+      1
+     ]
+    }
+   }
+  },
+  {
+   "id": "M13",
+   "group": "zero_range",
+   "description": "zero-range bar (H==L==C) inside the window: multiplier 0 by convention, volume still in the denominator",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1100,
+     "h": 1100,
+     "l": 1000,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1050,
+     "h": 1050,
+     "l": 1050,
+     "v": 100,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1100,
+     "h": 1100,
+     "l": 1000,
+     "v": 100,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "zero_range"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 0,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "200/1",
+      "float64": 200.0,
+      "hex": "0x1.9000000000000p+7"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2/3",
+      "float64": 0.6666666666666666,
+      "hex": "0x1.5555555555555p-1"
+     },
+     "sum_money_flow_volume": "200/1",
+     "sum_volume": 300,
+     "witness_slots": [
+      0,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M14",
+   "group": "zero_range",
+   "description": "every bar zero range: AD = +0.0 and CMF = +0.0 (positive volume, numerator zero), OBV from closes",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1000,
+     "l": 1000,
+     "v": 5,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1001,
+     "h": 1001,
+     "l": 1001,
+     "v": 6,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1001,
+     "h": 1001,
+     "l": 1001,
+     "v": 7,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "zero_range",
+    "constant"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 6,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "sum_money_flow_volume": "0/1",
+     "sum_volume": 18,
+     "witness_slots": [
+      0,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M15",
+   "group": "float",
+   "description": "non-representable multipliers: AD and CMF single correctly rounded float64",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1010,
+     "h": 1030,
+     "l": 1000,
+     "v": 7,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1010,
+     "h": 1030,
+     "l": 1000,
+     "v": 11,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1020,
+     "h": 1030,
+     "l": 1000,
+     "v": 13,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "rounding"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 13,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-5/3",
+      "float64": -1.6666666666666667,
+      "hex": "-0x1.aaaaaaaaaaaabp+0"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-5/93",
+      "float64": -0.053763440860215055,
+      "hex": "-0x1.b86e1b86e1b87p-5"
+     },
+     "sum_money_flow_volume": "-5/3",
+     "sum_volume": 31,
+     "witness_slots": [
+      0,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M16",
+   "group": "float",
+   "description": "large int64 volumes: exact rational sums, one rounding",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1010,
+     "h": 1030,
+     "l": 1000,
+     "v": 9223372036854775807,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1020,
+     "h": 1030,
+     "l": 1000,
+     "v": 9223372036854775803,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1030,
+     "l": 1000,
+     "v": 999999999999999989,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "rounding",
+    "overflow"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 8223372036854775814,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-333333333333333331/1",
+      "float64": -3.333333333333333e+17,
+      "hex": "-0x1.280f39a348555p+58"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-333333333333333331/19446744073709551599",
+      "float64": -0.01714082995435588,
+      "hex": "-0x1.18d5da0522e8bp-6"
+     },
+     "sum_money_flow_volume": "-333333333333333331/1",
+     "sum_volume": 19446744073709551599,
+     "witness_slots": [
+      0,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M17",
+   "group": "zero_volume",
+   "description": "proven-empty (zero-volume) slot mid-epoch: contributes 0 flow; OBV base stays the last priced close",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "empty",
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1030,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "zero_volume"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 30,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-10/1",
+      "float64": -10.0,
+      "hex": "-0x1.4000000000000p+3"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-1/4",
+      "float64": -0.25,
+      "hex": "-0x1.0000000000000p-2"
+     },
+     "sum_money_flow_volume": "-10/1",
+     "sum_volume": 40,
+     "witness_slots": [
+      0,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M18",
+   "group": "zero_volume",
+   "description": "empty anchor slot: the first priced bar is the OBV base and contributes 0",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "empty",
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1030,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "zero_volume",
+    "exact_initial"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 30,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-10/1",
+      "float64": -10.0,
+      "hex": "-0x1.4000000000000p+3"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-1/4",
+      "float64": -0.25,
+      "hex": "-0x1.0000000000000p-2"
+     },
+     "sum_money_flow_volume": "-10/1",
+     "sum_volume": 40,
+     "witness_slots": [
+      0,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M19",
+   "group": "zero_volume",
+   "description": "CMF window entirely empty: denominator zero -> null, not_applicable/zero_denominator; OBV and AD stay available",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 3,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "empty",
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "empty",
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "empty",
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "zero_volume",
+    "zero_denominator"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 0,
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.cmf": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M20",
+   "group": "zero_volume",
+   "description": "every slot empty: OBV 0, AD +0.0, CMF zero_denominator",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "empty",
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "empty",
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "empty",
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "zero_volume",
+    "zero_denominator",
+    "exact_initial"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 0,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 2,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M21",
+   "group": "zero_volume",
+   "description": "partly empty window: empty slot counts in the window length but adds 0 to both sums",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 3,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1050,
+     "h": 1100,
+     "l": 900,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "empty",
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1050,
+     "h": 1100,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "empty",
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "zero_volume"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 0,
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "5/1",
+      "float64": 5.0,
+      "hex": "0x1.4000000000000p+2"
+     },
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "sum_money_flow_volume": "0/1",
+     "sum_volume": 30,
+     "witness_slots": [
+      1,
+      3
+     ]
+    }
+   }
+  },
+  {
+   "id": "M22",
+   "group": "window",
+   "description": "window rolls past the anchor: CMF uses only the last N bars while AD/OBV use the whole epoch",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 3,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1100,
+     "l": 900,
+     "v": 1000,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1100,
+     "h": 1100,
+     "l": 1000,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1000,
+     "h": 1100,
+     "l": 1000,
+     "v": 20,
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "priced",
+     "c": 1050,
+     "h": 1100,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "warm_up"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 20,
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "-10/1",
+      "float64": -10.0,
+      "hex": "-0x1.4000000000000p+3"
+     },
+     "witness_slots": [
+      0,
+      3
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-1/6",
+      "float64": -0.16666666666666666,
+      "hex": "-0x1.5555555555555p-3"
+     },
+     "sum_money_flow_volume": "-10/1",
+     "sum_volume": 60,
+     "witness_slots": [
+      1,
+      3
+     ]
+    }
+   }
+  },
+  {
+   "id": "M23",
+   "group": "window",
+   "description": "carry mode: anchor is an earlier supplied close; OBV excludes the anchor volume, AD includes it",
+   "scale": 2,
+   "mode": "carry",
+   "a": 0,
+   "t": 2,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 500,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1010,
+     "h": 1020,
+     "l": 1000,
+     "v": 20,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1005,
+     "h": 1015,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "carry"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": -10,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-10/1",
+      "float64": -10.0,
+      "hex": "-0x1.4000000000000p+3"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "-1/5",
+      "float64": -0.2,
+      "hex": "-0x1.999999999999ap-3"
+     },
+     "sum_money_flow_volume": "-10/1",
+     "sum_volume": 50,
+     "witness_slots": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M24",
+   "group": "availability",
+   "description": "absent slot inside the epoch: OBV and AD missing_input/absent_input; CMF window after it independent and available",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 3,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "absent",
+     "known_at": null
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1020,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "priced",
+     "c": 1012,
+     "h": 1030,
+     "l": 1002,
+     "v": 40,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "missing_history",
+    "independent_readiness"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null
+    },
+    "intraday.ad_line": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "-8/49",
+      "float64": -0.16326530612244897,
+      "hex": "-0x1.4e5e0a72f0539p-3"
+     },
+     "sum_money_flow_volume": "-80/7",
+     "sum_volume": 70,
+     "witness_slots": [
+      2,
+      3
+     ]
+    }
+   }
+  },
+  {
+   "id": "M25",
+   "group": "availability",
+   "description": "absent slot inside the CMF window: CMF missing_input/absent_input with observed < expected",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "absent",
+     "known_at": null
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1020,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "missing_history"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.ad_line": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.cmf": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M26",
+   "group": "availability",
+   "description": "declared incomplete coverage slot: incomplete_coverage/governed_gap, no auto recovery",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "gap",
+     "known_at": null
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1020,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "gap"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.ad_line": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.cmf": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M27",
+   "group": "availability",
+   "description": "unknown known_at slot: missing_input/unknown_availability",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "unknown",
+     "known_at": null
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1020,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "unknown_availability"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.ad_line": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.cmf": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M28",
+   "group": "availability",
+   "description": "future-known slot (known_at > K): missing_input/future_knowledge, its values cannot influence any output",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "future",
+     "known_at": 150
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1020,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "future_knowledge"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.ad_line": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.cmf": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M29",
+   "group": "availability",
+   "description": "mixed absent + future + gap: all reasons retained in lexical order, status follows precedence (missing_input)",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 3,
+   "N": 4,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "absent",
+     "known_at": null
+    },
+    {
+     "i": 2,
+     "state": "future",
+     "known_at": 150
+    },
+    {
+     "i": 3,
+     "state": "gap",
+     "known_at": null
+    }
+   ],
+   "tags": [
+    "precedence",
+    "missing_history"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null
+    },
+    "intraday.ad_line": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null
+    },
+    "intraday.cmf": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M30",
+   "group": "availability",
+   "description": "gap and insufficient history together (CMF): governed_gap outranks insufficient_history",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 1,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "gap",
+     "known_at": null
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "precedence",
+    "insufficient_history",
+    "gap"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    },
+    "intraday.ad_line": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    },
+    "intraday.cmf": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap",
+      "insufficient_history"
+     ],
+     "expected": 3,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "M31",
+   "group": "availability",
+   "description": "future slot older than the CMF window does not affect CMF",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "future",
+     "known_at": 150
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1015,
+     "h": 1020,
+     "l": 1000,
+     "v": 20,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "future_knowledge",
+    "independent_readiness"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.ad_line": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1/3",
+      "float64": 0.3333333333333333,
+      "hex": "0x1.5555555555555p-2"
+     },
+     "sum_money_flow_volume": "10/1",
+     "sum_volume": 30,
+     "witness_slots": [
+      1,
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M32",
+   "group": "overflow",
+   "description": "OBV exactly int64 max (2^63-1): available",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 1,
+   "N": 1,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 1,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1001,
+     "h": 1021,
+     "l": 991,
+     "v": 9223372036854775807,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "overflow",
+    "boundary"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": 9223372036854775807,
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "-9223372036854775807/3",
+      "float64": -3.0744573456182584e+18,
+      "hex": "-0x1.5555555555555p+61"
+     },
+     "witness_slots": [
+      0,
+      1
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "-1/3",
+      "float64": -0.3333333333333333,
+      "hex": "-0x1.5555555555555p-2"
+     },
+     "sum_money_flow_volume": "-9223372036854775807/3",
+     "sum_volume": 9223372036854775807,
+     "witness_slots": [
+      1
+     ]
+    }
+   }
+  },
+  {
+   "id": "M33",
+   "group": "overflow",
+   "description": "OBV exactly int64 min (-2^63): available",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 1,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 1,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 999,
+     "h": 1019,
+     "l": 989,
+     "v": 9223372036854775807,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 998,
+     "h": 1018,
+     "l": 988,
+     "v": 1,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "overflow",
+    "boundary"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": -9223372036854775808,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-9223372036854775808/3",
+      "float64": -3.0744573456182584e+18,
+      "hex": "-0x1.5555555555555p+61"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "-1/3",
+      "float64": -0.3333333333333333,
+      "hex": "-0x1.5555555555555p-2"
+     },
+     "sum_money_flow_volume": "-1/3",
+     "sum_volume": 1,
+     "witness_slots": [
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M34",
+   "group": "overflow",
+   "description": "published OBV above int64 max: typed OVERFLOW refusal for intraday.obv, no result for that output",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 1,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 1,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1001,
+     "h": 1021,
+     "l": 991,
+     "v": 9223372036854775807,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1002,
+     "h": 1022,
+     "l": 992,
+     "v": 1,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "overflow"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "refusal": "OVERFLOW",
+     "exact": "9223372036854775808"
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-9223372036854775808/3",
+      "float64": -3.0744573456182584e+18,
+      "hex": "-0x1.5555555555555p+61"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": {
+      "exact": "-1/3",
+      "float64": -0.3333333333333333,
+      "hex": "-0x1.5555555555555p-2"
+     },
+     "sum_money_flow_volume": "-1/3",
+     "sum_volume": 1,
+     "witness_slots": [
+      2
+     ]
+    }
+   }
+  },
+  {
+   "id": "M35",
+   "group": "overflow",
+   "description": "intermediate excursion beyond int64 that returns in range: only the published value is bounded; AD stays within float64",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 4,
+   "N": 2,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 1,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "priced",
+     "c": 1001,
+     "h": 1011,
+     "l": 991,
+     "v": 9223372036854775807,
+     "known_at": 50
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1002,
+     "h": 1012,
+     "l": 992,
+     "v": 9223372036854775807,
+     "known_at": 50
+    },
+    {
+     "i": 3,
+     "state": "priced",
+     "c": 1001,
+     "h": 1011,
+     "l": 991,
+     "v": 9223372036854775807,
+     "known_at": 50
+    },
+    {
+     "i": 4,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 9223372036854775807,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "overflow"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": 0,
+     "witness_slots": [
+      0,
+      4
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "witness_slots": [
+      0,
+      4
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0"
+     },
+     "sum_money_flow_volume": "0/1",
+     "sum_volume": 18446744073709551614,
+     "witness_slots": [
+      3,
+      4
+     ]
+    }
+   }
+  }
+ ],
+ "money_flow_refusal_fixtures": [
+  {
+   "id": "MR01",
+   "error_code": "INVALID_ORDER",
+   "description": "slots delivered out of grid order"
+  },
+  {
+   "id": "MR02",
+   "error_code": "DUPLICATE",
+   "description": "two rows for the same governed slot"
+  },
+  {
+   "id": "MR03",
+   "error_code": "INVALID_SCHEMA",
+   "description": "positive-volume row with null close/high/low (malformed per the existing BAR contract)"
+  },
+  {
+   "id": "MR04",
+   "error_code": "BOUNDS",
+   "description": "close outside [low, high] or low > high on a supplied row (contradictory OHLC is never ignored)"
+  },
+  {
+   "id": "MR05",
+   "error_code": "BOUNDS",
+   "description": "negative volume"
+  },
+  {
+   "id": "MR06",
+   "error_code": "BOUNDS",
+   "description": "forming or future bar: end_ns after the market cutoff"
+  },
+  {
+   "id": "MR07",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "description": "row instrument/session differs from the target, or row not on the governed grid"
+  },
+  {
+   "id": "MR08",
+   "error_code": "INVALID_UNIT",
+   "description": "price unit scale or currency differs from the config"
+  },
+  {
+   "id": "MR09",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "description": "adjustment basis differs from the config"
+  },
+  {
+   "id": "MR10",
+   "error_code": "INVALID_CONFIG",
+   "description": "cmf_period 0, negative, bool, float or above the grid bound"
+  },
+  {
+   "id": "MR11",
+   "error_code": "INVALID_CONFIG",
+   "description": "missing cmf_period for a cmf selection, or unknown selection keys"
+  },
+  {
+   "id": "MR12",
+   "error_code": "INCOMPATIBLE_VERSION",
+   "description": "unsupported money-flow policy label"
+  },
+  {
+   "id": "MR13",
+   "error_code": "UNSUPPORTED_CAPABILITY",
+   "description": "update, restore or merge requested"
+  },
+  {
+   "id": "MR14",
+   "error_code": "OVERFLOW",
+   "description": "published OBV outside int64 (fixture M34)"
+  },
+  {
+   "id": "MR15",
+   "error_code": "INVALID_CONFIG",
+   "description": "mode other than reset or carry, or target not the final governed slot"
+  },
+  {
+   "id": "MR16",
+   "error_code": "UNKNOWN_FEATURE",
+   "description": "feature id outside intraday.obv, intraday.ad_line, intraday.cmf"
+  }
+ ],
+ "retracement_fixtures": [
+  {
+   "id": "T01",
+   "group": "level",
+   "description": "from_high r=1/2: H - r(H-L)",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "110/1",
+      "float64": 110.0,
+      "hex": "0x1.b800000000000p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T02",
+   "group": "level",
+   "description": "from_low r=1/2: L + r(H-L) (equal to T01 at one half)",
+   "scale": 2,
+   "direction": "from_low",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "110/1",
+      "float64": 110.0,
+      "hex": "0x1.b800000000000p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T03",
+   "group": "level",
+   "description": "from_high r=0 -> the high exactly",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    0,
+    1
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "boundary"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "120/1",
+      "float64": 120.0,
+      "hex": "0x1.e000000000000p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T04",
+   "group": "level",
+   "description": "from_high r=1 -> the low exactly",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    1
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "boundary"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "100/1",
+      "float64": 100.0,
+      "hex": "0x1.9000000000000p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T05",
+   "group": "level",
+   "description": "from_low r=0 -> the low exactly",
+   "scale": 2,
+   "direction": "from_low",
+   "ratio": [
+    0,
+    1
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "boundary"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "100/1",
+      "float64": 100.0,
+      "hex": "0x1.9000000000000p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T06",
+   "group": "level",
+   "description": "from_low r=1 -> the high exactly",
+   "scale": 2,
+   "direction": "from_low",
+   "ratio": [
+    1,
+    1
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "boundary"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "120/1",
+      "float64": 120.0,
+      "hex": "0x1.e000000000000p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T07",
+   "group": "level",
+   "description": "from_high r=1/3: non-representable level, one correctly rounded float64",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    3
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "rounding"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "340/3",
+      "float64": 113.33333333333333,
+      "hex": "0x1.c555555555555p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T08",
+   "group": "level",
+   "description": "from_low r=2/3 equals from_high r=1/3 mathematically (identity from_high(r)=from_low(1-r)); same float64 as T07",
+   "scale": 2,
+   "direction": "from_low",
+   "ratio": [
+    2,
+    3
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "rounding",
+    "identity"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "340/3",
+      "float64": 113.33333333333333,
+      "hex": "0x1.c555555555555p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T09",
+   "group": "level",
+   "description": "ratio 309/500 (0.618) from_high on a 1.00 wide range at scale 2",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    309,
+    500
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 10100,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "rounding"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "50191/500",
+      "float64": 100.382,
+      "hex": "0x1.91872b020c49cp+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T10",
+   "group": "level",
+   "description": "scale 0 coefficients",
+   "scale": 0,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    4
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 120,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 100,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "115/1",
+      "float64": 115.0,
+      "hex": "0x1.cc00000000000p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T11",
+   "group": "level",
+   "description": "scale 6: sub-cent range",
+   "scale": 6,
+   "direction": "from_low",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 100001000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 100000000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "200001/2000",
+      "float64": 100.0005,
+      "hex": "0x1.900083126e979p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T12",
+   "group": "level",
+   "description": "extreme coefficients (2^63-1 and 1) r=1/2: exact rational then one rounding",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 9223372036854775807,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 1,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "overflow",
+    "rounding"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "1152921504606846976/25",
+      "float64": 4.611686018427388e+16,
+      "hex": "0x1.47ae147ae147bp+55"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T13",
+   "group": "level",
+   "description": "minimum nonzero range: H-L = 1 coefficient unit",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 10001,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "boundary"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "20001/200",
+      "float64": 100.005,
+      "hex": "0x1.90051eb851eb8p+6"
+     },
+     "witness_rows": [
+      "prior_high",
+      "prior_low"
+     ]
+    }
+   }
+  },
+  {
+   "id": "T14",
+   "group": "degenerate",
+   "description": "H == L: zero range -> null, not_applicable/zero_denominator",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "zero_range"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 2,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T15",
+   "group": "degenerate",
+   "description": "H == L with r=0: still zero_denominator (no special case for a zero ratio)",
+   "scale": 2,
+   "direction": "from_low",
+   "ratio": [
+    0,
+    1
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "zero_range",
+    "boundary"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 2,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T16",
+   "group": "degenerate",
+   "description": "inverted range H < L: null, missing_input/ineligible",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "inverted"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "ineligible"
+     ],
+     "expected": 2,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T17",
+   "group": "degenerate",
+   "description": "inverted by one coefficient unit",
+   "scale": 2,
+   "direction": "from_low",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 9999,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "inverted",
+    "boundary"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "ineligible"
+     ],
+     "expected": 2,
+     "observed": 2,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T18",
+   "group": "degenerate",
+   "description": "non-positive low coefficient 0: ineligible (prices are positive), observed 1",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 0,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "ineligible"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "ineligible"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T19",
+   "group": "degenerate",
+   "description": "negative high coefficient: ineligible",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": -5,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "ineligible"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "ineligible"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T20",
+   "group": "missing",
+   "description": "high row absent",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "absent",
+    "price": null,
+    "known_at": 50,
+    "factor": null
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "missing_history"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T21",
+   "group": "missing",
+   "description": "low row absent",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "absent",
+    "price": null,
+    "known_at": 50,
+    "factor": null
+   },
+   "tags": [
+    "missing_history"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T22",
+   "group": "missing",
+   "description": "both rows absent",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "absent",
+    "price": null,
+    "known_at": 50,
+    "factor": null
+   },
+   "low": {
+    "state": "absent",
+    "price": null,
+    "known_at": 50,
+    "factor": null
+   },
+   "tags": [
+    "missing_history"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 0,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T23",
+   "group": "missing",
+   "description": "complete-empty batch for the high role (zero rows) -> absent_input",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "empty_batch",
+    "price": null,
+    "known_at": 50,
+    "factor": null
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "missing_history"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T24",
+   "group": "missing",
+   "description": "upstream insufficient history: row with null price and factor 7 of 20 -> insufficient_history",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "insufficient",
+    "price": null,
+    "known_at": 50,
+    "factor": [
+     7,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "insufficient_history",
+    "missing_history"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T25",
+   "group": "missing",
+   "description": "null price with a complete window (factor 20/20) -> null_field",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "null_price",
+    "price": null,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "null"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T26",
+   "group": "missing",
+   "description": "unknown known_at on the low row",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "priced",
+    "price": 12000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "low": {
+    "state": "unknown",
+    "price": 10000,
+    "known_at": null,
+    "factor": null
+   },
+   "tags": [
+    "unknown_availability"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T27",
+   "group": "missing",
+   "description": "future-known high row (known_at > K): price cannot influence anything",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "future",
+    "price": 12000,
+    "known_at": 150,
+    "factor": null
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "future_knowledge"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T28",
+   "group": "missing",
+   "description": "incomplete batch coverage on the high role",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "gap",
+    "price": 12000,
+    "known_at": 50,
+    "factor": null
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "gap"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T29",
+   "group": "precedence",
+   "description": "absent high + insufficient low: both reasons retained, missing_input outranks",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "absent",
+    "price": null,
+    "known_at": 50,
+    "factor": null
+   },
+   "low": {
+    "state": "insufficient",
+    "price": null,
+    "known_at": 50,
+    "factor": [
+     3,
+     20
+    ]
+   },
+   "tags": [
+    "precedence"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "insufficient_history"
+     ],
+     "expected": 2,
+     "observed": 0,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T30",
+   "group": "precedence",
+   "description": "gap high + insufficient low: incomplete_coverage outranks insufficient_history",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "gap",
+    "price": 12000,
+    "known_at": 50,
+    "factor": null
+   },
+   "low": {
+    "state": "insufficient",
+    "price": null,
+    "known_at": 50,
+    "factor": [
+     3,
+     20
+    ]
+   },
+   "tags": [
+    "precedence"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap",
+      "insufficient_history"
+     ],
+     "expected": 2,
+     "observed": 0,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "T31",
+   "group": "precedence",
+   "description": "future high whose price would be inverted against the low: the future price is not inspected, so only future_knowledge is reported",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "future",
+    "price": 5000,
+    "known_at": 150,
+    "factor": null
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "precedence",
+    "future_knowledge"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  }
+ ],
+ "retracement_refusal_fixtures": [
+  {
+   "id": "TR01",
+   "error_code": "INVALID_CONFIG",
+   "description": "ratio above 1 (extension ratio) under ef2-retrace1"
+  },
+  {
+   "id": "TR02",
+   "error_code": "INVALID_CONFIG",
+   "description": "negative ratio numerator"
+  },
+  {
+   "id": "TR03",
+   "error_code": "INVALID_CONFIG",
+   "description": "ratio denominator 0"
+  },
+  {
+   "id": "TR04",
+   "error_code": "INVALID_CONFIG",
+   "description": "non-reduced ratio such as 2/4, or zero as 0/2, or one as 2/2"
+  },
+  {
+   "id": "TR05",
+   "error_code": "INVALID_CONFIG",
+   "description": "float, decimal-text or bool ratio"
+  },
+  {
+   "id": "TR06",
+   "error_code": "INVALID_CONFIG",
+   "description": "missing ratio keys or no ratio at all (there is no default ratio)"
+  },
+  {
+   "id": "TR07",
+   "error_code": "INVALID_CONFIG",
+   "description": "direction outside from_high, from_low"
+  },
+  {
+   "id": "TR08",
+   "error_code": "INCOMPATIBLE_VERSION",
+   "description": "unsupported policy label"
+  },
+  {
+   "id": "TR09",
+   "error_code": "DUPLICATE",
+   "description": "two prior_high rows, or shared actual input_id between the two roles"
+  },
+  {
+   "id": "TR10",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "description": "row instrument or session differs from the target"
+  },
+  {
+   "id": "TR11",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "description": "high and low rows carry different window set ids or different factor_den"
+  },
+  {
+   "id": "TR12",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "description": "priced row whose factor_num differs from factor_den (partial window presented as complete)"
+  },
+  {
+   "id": "TR13",
+   "error_code": "INVALID_SCHEMA",
+   "description": "wrong fact_kind, only one of factor_num/factor_den populated, or wrong slot kind"
+  },
+  {
+   "id": "TR14",
+   "error_code": "INVALID_UNIT",
+   "description": "price unit scale or currency differs from the config"
+  },
+  {
+   "id": "TR15",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "description": "adjustment basis differs from the config"
+  },
+  {
+   "id": "TR16",
+   "error_code": "UNSUPPORTED_CAPABILITY",
+   "description": "update, restore or merge requested"
+  }
+ ],
+ "fixture_counts": {
+  "money_flow_result": 35,
+  "money_flow_refusal": 16,
+  "retracement_result": 31,
+  "retracement_refusal": 16
+ },
+ "coverage_map": {
+  "exact_initial": [
+   "M01",
+   "M02",
+   "M18",
+   "M20"
+  ],
+  "insufficient_history": [
+   "M02",
+   "M03",
+   "M30",
+   "T24"
+  ],
+  "boundary": [
+   "M04",
+   "M10",
+   "M11",
+   "M12",
+   "M32",
+   "M33",
+   "T03",
+   "T04",
+   "T05",
+   "T06",
+   "T13",
+   "T15",
+   "T17"
+  ],
+  "warm_up": [
+   "M04",
+   "M22"
+  ],
+  "ties": [
+   "M05",
+   "M06",
+   "M09"
+  ],
+  "constant": [
+   "M06",
+   "M14"
+  ],
+  "monotone": [
+   "M07",
+   "M08"
+  ],
+  "zero_range": [
+   "M13",
+   "M14",
+   "T14",
+   "T15"
+  ],
+  "rounding": [
+   "M15",
+   "M16",
+   "T07",
+   "T08",
+   "T09",
+   "T12"
+  ],
+  "overflow": [
+   "M16",
+   "M32",
+   "M33",
+   "M34",
+   "M35",
+   "T12"
+  ],
+  "zero_volume": [
+   "M17",
+   "M18",
+   "M19",
+   "M20",
+   "M21"
+  ],
+  "zero_denominator": [
+   "M19",
+   "M20"
+  ],
+  "carry": [
+   "M23"
+  ],
+  "missing_history": [
+   "M24",
+   "M25",
+   "M29",
+   "T20",
+   "T21",
+   "T22",
+   "T23",
+   "T24"
+  ],
+  "independent_readiness": [
+   "M24",
+   "M31"
+  ],
+  "gap": [
+   "M26",
+   "M30",
+   "T28"
+  ],
+  "unknown_availability": [
+   "M27",
+   "T26"
+  ],
+  "future_knowledge": [
+   "M28",
+   "M31",
+   "T27",
+   "T31"
+  ],
+  "precedence": [
+   "M29",
+   "M30",
+   "T29",
+   "T30",
+   "T31"
+  ],
+  "identity": [
+   "T08"
+  ],
+  "inverted": [
+   "T16",
+   "T17"
+  ],
+  "ineligible": [
+   "T18",
+   "T19"
+  ],
+  "null": [
+   "T25"
+  ]
+ },
+ "decisions_proposed": {
+  "DP-M1": {
+   "choice": "OBV seed 0 at the anchor",
+   "alternatives": "`V_a`; caller seed",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-M2": {
+   "choice": "OBV tie adds 0",
+   "alternatives": "add `V`; carry previous direction",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-M3": {
+   "choice": "OBV base is the last priced close; empties never become the base",
+   "alternatives": "empty blocks the output (R17 style)",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-M4": {
+   "choice": "zero-range multiplier 0",
+   "alternatives": "null/zero_denominator; carry previous; close-direction sign",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-M5": {
+   "choice": "proven-empty slot is zero-volume flow",
+   "alternatives": "R17 `observed_empty` blocking",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-M6": {
+   "choice": "CMF is the plain ratio of window sums over N governed slots within the epoch, N caller-given",
+   "alternatives": "shorter initial window; calendar-time window",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-M7": {
+   "choice": "CMF with zero window volume is null, `zero_denominator`",
+   "alternatives": "publish 0.0",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-M8": {
+   "choice": "AD includes the anchor bar flow, OBV excludes anchor volume",
+   "alternatives": "OBV includes anchor volume (needs DP-M1 alternative)",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-M9": {
+   "choice": "exact rationals, one float64 rounding; OBV exact int64 with `OVERFLOW`",
+   "alternatives": "decimal128 for AD",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-M10": {
+   "choice": "ids `intraday.obv`, `intraday.ad_line`, `intraday.cmf` in the optional package",
+   "alternatives": "an `ef2.` or `momentum.` namespace",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-R1": {
+   "choice": "single output, direction in config",
+   "alternatives": "two outputs or a direction column",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-R2": {
+   "choice": "`from_high = H - rR`, `from_low = L + rR`",
+   "alternatives": "other labelling of directions",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-R3": {
+   "choice": "free reduced-rational ratio in `[0,1]`, no default",
+   "alternatives": "fixed ratio set; extension domain",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-R4": {
+   "choice": "`H = L` is `zero_denominator`",
+   "alternatives": "available level = H; refusal",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-R5": {
+   "choice": "`H < L` or non-positive coefficient is `ineligible`",
+   "alternatives": "`BOUNDS` refusal",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-R6": {
+   "choice": "extrema supplied as exact integer coefficients; rounded float64 not accepted",
+   "alternatives": "exact binary rational of the float64",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-R7": {
+   "choice": "window length is the extrema owner's, carried as `factor_den`, must agree across roles",
+   "alternatives": "window length in this config",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-R8": {
+   "choice": "the level uses no close; close variant and side comparison belong to #518",
+   "alternatives": "a close operand here",
+   "state": "DECISION-PROPOSED"
+  },
+  "DP-R9": {
+   "choice": "upstream insufficient history transported as null price with `factor_num < factor_den`",
+   "alternatives": "absent row (loses the reason)",
+   "state": "DECISION-PROPOSED"
+  }
+ },
+ "open_questions": {
+  "OPEN-1": {
+   "text": "naming and package home of the three ids (`intraday.*` optional package versus an EF2 namespace) and the exact catalog-digest amendment.",
+   "state": "OPEN"
+  },
+  "OPEN-2": {
+   "text": "how the existing BAR contract treats a zero-volume row with non-null OHLC (this proposal ignores its prices; confirm or refuse).",
+   "state": "OPEN"
+  },
+  "OPEN-3": {
+   "text": "volume basis when prices are split-adjusted; this proposal accepts supplied shares as given and adjusts nothing.",
+   "state": "OPEN"
+  },
+  "OPEN-4": {
+   "text": "whether OBV in carry mode should include a cross-session overnight change (currently yes, via the declared carry epoch) and the exact anchor-bar semantics for AD there.",
+   "state": "OPEN"
+  },
+  "OPEN-5": {
+   "text": "the exact `ErrorCode` for contradictory supplied OHLC (`BOUNDS` proposed) and for a non-positive price on a BAR row.",
+   "state": "OPEN"
+  },
+  "OPEN-6": {
+   "text": "whether the extrema owners (#473, #483 or history/daily carriers) can expose the exact integer coefficient and window shortfall; reuse of closed #32 remains unproved, and the extremum REFERENCE route versus a prepared-operand route is unratified.",
+   "state": "OPEN"
+  },
+  "OPEN-7": {
+   "text": "add `retracement.level` as a proposal-only entry to the 47-output manifest (decision A2) before or after this contract is accepted.",
+   "state": "OPEN"
+  },
+  "OPEN-8": {
+   "text": "evidence limits (2 per output proposed) and the CMF maximum N (4096 proposed from the grid bound).",
+   "state": "OPEN"
+  },
+  "OPEN-9": {
+   "text": "whether `intraday.ad_line` should be float64 shares or a decimal128 type, and a named unit for an unnormalized origin-dependent cumulative value.",
+   "state": "OPEN"
+  },
+  "OPEN-10": {
+   "text": "whether consumers need the extension domain above 1 later (new policy label) and whether the range itself should be emitted by this producer.",
+   "state": "OPEN"
+  }
+ },
+ "non_goals": [
+  "no acquisition of bars, volumes or extrema",
+  "no re-derivation of prior-window extrema",
+  "no proximity, crossing or score policy",
+  "no default ratio, period, tolerance or threshold",
+  "no extension ratios",
+  "no smoothing, signal lines, oscillators or variants",
+  "no volume/price adjustment or currency conversion",
+  "no update/restore/merge",
+  "no new DataKind, DTO, codec, scheduler or default",
+  "no performance, release, publication or acceptance claim"
+ ]
+}
