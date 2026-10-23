@@ -107,7 +107,7 @@ Let `S` be the governed session immediately preceding the target session in the 
 
 Headers (prefix `channel.pivot.`): `point`, `resistance_1`, `support_1`, `resistance_2`, `support_2`. Levels are published unclamped; supports may be negative (PIV-05).
 
-RULED D9: classic floor-trader pivots from the immediately preceding governed session's exact bar high/low/close. Alternatives: Woodie, Camarilla, Fibonacci or DeMark variants; R3/S3 (non-goal); sourcing from EF1 `calendar.period.*` (float64, lossy) or a #506 calendar period (rejected by ruling O4). Target exclusion: no target-session bar contributes (PIV-02); anchor and mode are irrelevant (PIV-07); only the immediately preceding session counts (PIV-06).
+RULED D9: classic floor-trader pivots from the immediately preceding governed session's exact bar high/low/close. Alternatives: Woodie, Camarilla, Fibonacci or DeMark variants; R3/S3 (non-goal); sourcing from EF1 `calendar.period.*` (float64, lossy) or a #506 calendar period (rejected by ruling O4). Target exclusion: no target-session bar contributes (PIV-02); the anchor is irrelevant to the prior-session read (PIV-01, PIV-10); only the immediately preceding session counts (PIV-06).
 
 ### Price-band width percentile (`band_width_percentile`)
 
