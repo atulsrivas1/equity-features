@@ -13,7 +13,7 @@ October 22, 2026. Working decisions on the questions raised by the merged wave 3
 | W3A-1 | Yes: the common 33-field set is the authoritative admission profile for all 25; per-watchlist predicate subsets are informational. |
 | W3A-2 | Retire the "six with extra joins" statement in favour of the finding that no watchlist reads outside the common 33, unless the owner supplies the six. |
 | W3A-3 | Yes: record W0014 (7 members) and W0015 (6 members) as consumer-to-consumer edges in a later plan hygiene change. |
-| W3A-4 | Provisional: the three shared policy inputs (eligibility configuration, classification, pinned override revision) are policy-input facts under the catalogue and policy owner #518, mapped by I/O #621; a contract confirms. |
+| W3A-4 | Proposed owner, unconfirmed: #518 (catalogue and policy owner in the route coverage) with I/O #621 for the three shared policy inputs (eligibility configuration, classification, pinned override revision). The report assumed no owner; no story is mapped to them yet and a contract must confirm. |
 | W3A-5 | Conservative: F0455 (#489 baseline) is treated as a required supplied validation input, so the #489 edge blocks all 25, until a contract shows it may be optional. |
 | W3A-6 | Owner item: the opaque W-id to watchlist mapping cannot be checked publicly; the owner confirms it. |
 
@@ -25,11 +25,11 @@ October 22, 2026. Working decisions on the questions raised by the merged wave 3
 | D3 | Contract author decides whether #473 exposes the trailing-window dispersion or a fixed band multiple; open contract item. |
 | D4 | #493 is authoritative for F0153 and F0155 as the field routes say; reuse of closed #25 is unproved. |
 | D5 | The predicate flags F0287 to F0291 are recomputed by policy (#518, #520) from numeric levels and price; supplied flags are not authority. Touch, close-beyond and strictness semantics are policy contract items. |
-| D6 | Declarations with no selected emitter (S0172, S0189) stay recorded as dormant declarations, not consumers, consistent with the plan's preserved dormant declarations. |
+| D6 | Declarations with no selected emitter (S0172, S0189) stay recorded as dormant declarations (no selected emitter), not consumers, pending the owner's view on retiring them. |
 | D7 | The #21 primitive proposal is withdrawn in favour of #506 session extrema plus the #34 baseline. |
-| D8 | The gap measure contract is a fraction (matching the delivered capability); a percent-style field is a presentation conversion; #506 owns the regular-open price (F0271). |
+| D8 | Working choice: the gap measure contract is a fraction (matching the delivered capability) with a percent-style field as a presentation conversion; #506 is proposed as the owner of the regular-open price (F0271), though the field has both an #505 and an #506 route and the contract author confirms. |
 | D9 | Level windows bind to the delivered period and daily-observation outputs under #506; the current-session inclusion rule and the distance-versus-level choice for F0212 to F0217 are contract items for the EF1 contract author. |
-| D9H | The daily-history profile guaranteed by the supplied slot F0338 under #570 is a contract item (length, adjustment, completed-only or current-inclusive); default is completed-only until a contract says otherwise. |
+| D9H | The daily-history profile guaranteed by the supplied slot F0338 under #570 is a contract item (length, adjustment, completed-only or current-inclusive); completed-only is the coordinator's working assumption, not a finding, until a contract says otherwise. |
 
 ## Scanners, part 2
 | Id | Decision |
