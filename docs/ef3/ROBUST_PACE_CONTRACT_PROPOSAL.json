@@ -179,7 +179,14 @@
   {
    "id": "robust.mad",
    "dtype": "float64",
-   "unit": "unit of the operand field (shares or currency/share)",
+   "unit": "operand-defined",
+   "unit_by_field": {
+    "volume": "shares",
+    "open": "currency/share",
+    "high": "currency/share",
+    "low": "currency/share",
+    "close": "currency/share"
+   },
    "scale": "none",
    "producer": "robust_history",
    "operand_family": "history",
@@ -188,7 +195,14 @@
   {
    "id": "robust.median",
    "dtype": "float64",
-   "unit": "unit of the operand field (shares or currency/share)",
+   "unit": "operand-defined",
+   "unit_by_field": {
+    "volume": "shares",
+    "open": "currency/share",
+    "high": "currency/share",
+    "low": "currency/share",
+    "close": "currency/share"
+   },
    "scale": "none",
    "producer": "robust_history",
    "operand_family": "history",
@@ -206,7 +220,14 @@
   {
    "id": "robust.quantile",
    "dtype": "float64",
-   "unit": "unit of the operand field (shares or currency/share)",
+   "unit": "operand-defined",
+   "unit_by_field": {
+    "volume": "shares",
+    "open": "currency/share",
+    "high": "currency/share",
+    "low": "currency/share",
+    "close": "currency/share"
+   },
    "scale": "none",
    "producer": "robust_history",
    "operand_family": "history",
@@ -312,7 +333,7 @@
    "text": "grid_version",
    "known_at_ns": "nullable"
   },
-  "note": "price, factor_num and factor_den are null for every EF3 fact; no price_unit is needed on a REFERENCE batch without a price column. Rows inside one (instrument, session) group must be ordered by (effective_start_ns, reference_id) as the shared validator requires."
+  "note": "require_compatible_inputs applies only among the market roles (series, cohort_values, bars); REFERENCE roles with price_unit None are not compared. price, factor_num and factor_den are null for every EF3 fact; no price_unit is needed on a REFERENCE batch without a price column. Rows inside one (instrument, session) group must be ordered by (effective_start_ns, reference_id) as the shared validator requires."
  },
  "mathematics": {
   "value_basis": "Volume: int64 shares, 0 <= v <= 2^63-1 (negative is BOUNDS). Price fields: positive int64 coefficients at ConfigSpec.price_unit.scale (0..18), one currency and one adjustment basis; the statistic is computed on the integer coefficients and divided by 10^scale only at publication, so no float ever enters a comparison or a sort. Cumulative pace operands and window sums are exact wide integers (at most 4096 terms of at most 2^63-1); only published values are float64, so no OVERFLOW path exists for them.",
@@ -374,7 +395,7 @@
   ],
   "evidence": {
    "limit": "config evidence_limit 0..10000; witnesses never exceed it; unavailable outputs emit none",
-   "order": "target row first (outputs that consume it), then retained sample rows ascending by session, then excluded then ineligible session facts",
+   "order": "history, rank and pace outputs: the target row first (outputs that consume it), then retained sample rows ascending by session, then excluded then ineligible session facts; cohort outputs: eligible members in declaration order (the order of the population role); mean outputs: mean-companion-specific rule that supersedes DP-E1: mean.numerator and mean.baseline list their own window sessions ascending; mean.ratio lists the numerator-window sessions ascending, then the baseline-window sessions ascending, each session once (a session shared by both windows is listed at its first position), so R03 gives sessions 3,4,1,2 and R04 gives 2,3,1,4",
    "row_id": "session:<session_id> for daily and bucket-aggregated sessions, member:<instrument_id> for cohort, excluded:<session_id>, ineligible:<session_id>, target:<session_id>",
    "boundary": "completed_interval; event_ns = end of the evaluation bucket (pace) or session end"
   }
@@ -383,11 +404,11 @@
  "acceptance_rules": {
   "exact_float64": "reference is a dyadic rational with numerator < 2^53: every exact-rational or Decimal120 path produces it without rounding, so the published float64 must equal the hex bit for bit",
   "exact_plus_zero": "reference exactly 0 from exact integer arithmetic (equal integers subtract to zero): bit-exact +0.0, never -0.0",
-  "tolerance": "abs(y - r) <= max(8*ulp(r), 1e-12*abs(r)) with r the fixture float64 (the R17 numeric error contract)",
+  "tolerance": "abs(y - r) <= max(8*ulp(r), 1e-12*abs(r)) with r the fixture float64 (the R17 numeric error contract, docs/api/INTRADAY.md, Numeric error contract and capabilities)",
   "exact_integer": "int64 outputs (cohort.rank) are exact",
   "documented_exceptions": "none"
  },
- "fixture_notation": "compact, NOT canonical wire. K = 100 knowledge cutoff, default known_at 50. History slots list the governed sessions 0..t-1 in order, then the target: an integer is a priced row (field value, volume or price coefficient); ('x', v) a session with a declared exclusion fact (its own value is ignored); ('xu',) and ('xf',) an exclusion fact with known_at null or 150; ('f', v) a row with known_at 150 > K; ('u', v) known_at null; ('p', v, ka) explicit known_at; 'null' a row present with a null field (volume column null, or the price column null); 'gap' no row and a declared incomplete IntervalCoverage for that session; 'absent' no row and no coverage. Cohort members map instrument -> the same notation; 'absent' is a declared member with no DAILY row. Pace prior_sessions list sessions 0..t-1 with close = actual close offset (default 300 = full session), cells = per-bucket volumes for the 3 buckets of the grid (the same cell notation; None is null volume) and ex = declared exclusion; target_session has C = market cutoff offset, close = actual close offset, cells (None = no current rows). Offsets are relative to the actual session open; session opens are j*1000 nominal in canonical expansion. Construction rules: prices positive; volume 0 rows carry null OHLC when any price column is delivered (shared BAR/DAILY rule); a row with positive volume and a null supplied price is malformed (INVALID_SCHEMA), so null_field is reached only through a null volume column or a null price column on a series whose field is that price; no recursion, epoch or anchor exists in these producers (the pace profile resets at every session open, carry across sessions is not supported); float results carry the exact rational, float64, float.hex and the per-output acceptance rule; rank outputs are listed per fixture; a fixture evaluates every listed output unless it lists only some.",
+ "fixture_notation": "compact, NOT canonical wire. K = 100 knowledge cutoff, default known_at 50. History slots list the governed sessions 0..t-1 in order, then the target: an integer is a priced row (field value, volume or price coefficient); ('x', v) a session with a declared exclusion fact (its own value is ignored); ('xu',) and ('xf',) an exclusion fact with known_at null or 150; ('f', v) a row with known_at 150 > K; ('u', v) known_at null; ('p', v, ka) explicit known_at; 'null' a row present with a null field (volume column null, or the price column null); 'gap' no row and a declared incomplete IntervalCoverage for that session; 'absent' no row and no coverage. Cohort members map instrument -> the same notation; 'absent' is a declared member with no DAILY row. Pace prior_sessions list sessions 0..t-1 with close = actual close offset (default 300 = full session), cells = per-bucket volumes for the 3 buckets of the grid (the same cell notation; None is null volume) and ex = declared exclusion; target_session has C = market cutoff offset, close = actual close offset, cells (None = no current rows). Offsets are relative to the actual session open; session opens are j*1000 nominal in canonical expansion. Construction rules: prices positive; volume 0 rows carry null OHLC when any price column is delivered (shared BAR/DAILY rule); a row with positive volume and a null supplied price is malformed (INVALID_SCHEMA), so null_field is reached only through a null volume column or a null price column on a series whose field is that price; IMPORTANT: a pace target_session with cells None means NO current rows were delivered (absent_input), whereas a None cell inside cells means a row IS present with null volume (null_field); these are different states. Fixture ids H32 (removed by ruling OQ-13), H34, H38 and P26 were never issued or were withdrawn during drafting and are not reused, so ids are not contiguous. No recursion, epoch or anchor exists in these producers (the pace profile resets at every session open, carry across sessions is not supported); float results carry the exact rational, float64, float.hex and the per-output acceptance rule; rank outputs are listed per fixture; a fixture evaluates every listed output unless it lists only some.",
  "history_fixtures": [
   {
    "id": "H01",
@@ -3920,6 +3941,62 @@
      ]
     }
    }
+  },
+  {
+   "id": "H40",
+   "group": "excluded_short_grid",
+   "description": "exclusion combined with a short grid: t=3 prior sessions, N=5, one declared exclusion: expected 5-1=4, observed 2, insufficient_history (the span N governs)",
+   "field": "volume",
+   "scale": null,
+   "params": {
+    "window": 5,
+    "min_history": 1,
+    "evidence_limit": 10000
+   },
+   "K": 100,
+   "slots": [
+    10,
+    [
+     "x",
+     9
+    ],
+    30
+   ],
+   "target": 15,
+   "tags": [
+    "excluded",
+    "insufficient_history",
+    "short_grid"
+   ],
+   "expected": {
+    "robust.median": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null
+    },
+    "robust.mad": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null
+    },
+    "robust.percentile_rank": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 5,
+     "observed": 3,
+     "value": null
+    }
+   }
   }
  ],
  "cohort_fixtures": [
@@ -3957,9 +4034,9 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
-      "member:C",
       "member:A",
       "member:B",
+      "member:C",
       "member:D",
       "member:E"
      ]
@@ -3975,9 +4052,9 @@
       "acceptance": "exact_integer"
      },
      "witnesses": [
-      "member:C",
       "member:A",
       "member:B",
+      "member:C",
       "member:D",
       "member:E"
      ]
@@ -4019,8 +4096,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
-      "member:B",
       "member:A",
+      "member:B",
       "member:C",
       "member:D",
       "member:E"
@@ -4037,8 +4114,8 @@
       "acceptance": "exact_integer"
      },
      "witnesses": [
-      "member:B",
       "member:A",
+      "member:B",
       "member:C",
       "member:D",
       "member:E"
@@ -4186,8 +4263,8 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
-      "member:B",
-      "member:A"
+      "member:A",
+      "member:B"
      ]
     },
     "cohort.rank": {
@@ -4201,8 +4278,8 @@
       "acceptance": "exact_integer"
      },
      "witnesses": [
-      "member:B",
-      "member:A"
+      "member:A",
+      "member:B"
      ]
     }
    }
@@ -4291,8 +4368,8 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
-      "member:B",
       "member:A",
+      "member:B",
       "member:C"
      ]
     },
@@ -4307,8 +4384,8 @@
       "acceptance": "exact_integer"
      },
      "witnesses": [
-      "member:B",
       "member:A",
+      "member:B",
       "member:C"
      ]
     }
@@ -4732,10 +4809,10 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
-      "member:D",
       "member:A",
       "member:B",
       "member:C",
+      "member:D",
       "member:E",
       "member:F",
       "member:G"
@@ -4752,10 +4829,10 @@
       "acceptance": "exact_integer"
      },
      "witnesses": [
-      "member:D",
       "member:A",
       "member:B",
       "member:C",
+      "member:D",
       "member:E",
       "member:F",
       "member:G"
@@ -4858,9 +4935,9 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
-      "member:C",
       "member:A",
-      "member:B"
+      "member:B",
+      "member:C"
      ]
     },
     "cohort.rank": {
@@ -4874,9 +4951,9 @@
       "acceptance": "exact_integer"
      },
      "witnesses": [
-      "member:C",
       "member:A",
-      "member:B"
+      "member:B",
+      "member:C"
      ]
     }
    }
@@ -5039,7 +5116,7 @@
   {
    "id": "C19",
    "group": "evidence",
-   "description": "evidence_limit 2 on C01: witnesses the target then the first other member",
+   "description": "evidence_limit 2 on C01: witnesses in declaration order, members A and B",
    "K": 100,
    "members": {
     "A": 10,
@@ -5070,8 +5147,8 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
-      "member:C",
-      "member:A"
+      "member:A",
+      "member:B"
      ]
     },
     "cohort.rank": {
@@ -5085,9 +5162,52 @@
       "acceptance": "exact_integer"
      },
      "witnesses": [
-      "member:C",
-      "member:A"
+      "member:A",
+      "member:B"
      ]
+    }
+   }
+  },
+  {
+   "id": "C20",
+   "group": "precedence",
+   "description": "partial AND below min_population: declared 2 < 3 and member B absent: reasons insufficient_history and partial_universe are both published (lexical order); status incomplete_coverage because partial_universe precedes insufficient_history; expected 2 observed 1",
+   "K": 100,
+   "members": {
+    "A": 1,
+    "B": "absent"
+   },
+   "target_member": "A",
+   "scale": null,
+   "params": {
+    "min_population": 3,
+    "evidence_limit": 10000
+   },
+   "tags": [
+    "precedence",
+    "partial_population",
+    "insufficient_history"
+   ],
+   "expected": {
+    "cohort.percentile_rank": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "insufficient_history",
+      "partial_universe"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    },
+    "cohort.rank": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "insufficient_history",
+      "partial_universe"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
     }
    }
   }
@@ -10054,6 +10174,378 @@
      ]
     }
    }
+  },
+  {
+   "id": "P30",
+   "group": "short_window",
+   "description": "pace window with fewer than N prior sessions: 3 prior sessions, N=5, m=2: insufficient_history, baseline expected 5 observed 3, ratio/z expected 2 observed 1",
+   "params": {
+    "window": 5,
+    "min_history": 2,
+    "profile": "bucket",
+    "grid_offsets_ns": [
+     0,
+     100,
+     200,
+     300
+    ],
+    "scale": [
+     1,
+     1
+    ],
+    "evidence_limit": 10000
+   },
+   "K": 100,
+   "prior_sessions": [
+    {
+     "close": 300,
+     "cells": [
+      10,
+      100,
+      5
+     ]
+    },
+    {
+     "close": 300,
+     "cells": [
+      20,
+      200,
+      5
+     ]
+    },
+    {
+     "close": 300,
+     "cells": [
+      30,
+      300,
+      5
+     ]
+    }
+   ],
+   "target_session": {
+    "C": 200,
+    "close": 300,
+    "cells": [
+     1,
+     450,
+     "absent"
+    ]
+   },
+   "evaluation_bucket": 1,
+   "excluded_sessions": [],
+   "ineligible_sessions": [],
+   "tags": [
+    "insufficient_history",
+    "short_grid"
+   ],
+   "expected": {
+    "pace.baseline_median": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 5,
+     "observed": 3,
+     "value": null
+    },
+    "pace.baseline_mad": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 5,
+     "observed": 3,
+     "value": null
+    },
+    "pace.ratio": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    },
+    "pace.robust_z": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
+   "id": "P31",
+   "group": "excluded_and_early_close",
+   "description": "session 0 is both declared excluded and an early close: it is removed ONCE, recorded as excluded (exclusion takes precedence over ineligibility) and not listed as ineligible; sample 100,200,300,500 -> median 250, MAD 100; current 600: ratio 12/5, z 7/2; expected 4 observed 4",
+   "params": {
+    "window": 5,
+    "min_history": 3,
+    "profile": "bucket",
+    "grid_offsets_ns": [
+     0,
+     100,
+     200,
+     300
+    ],
+    "scale": [
+     1,
+     1
+    ],
+    "evidence_limit": 10000
+   },
+   "K": 100,
+   "prior_sessions": [
+    {
+     "close": 200,
+     "cells": [
+      1,
+      1,
+      "absent"
+     ],
+     "ex": true
+    },
+    {
+     "close": 300,
+     "cells": [
+      1,
+      1,
+      100
+     ]
+    },
+    {
+     "close": 300,
+     "cells": [
+      1,
+      1,
+      200
+     ]
+    },
+    {
+     "close": 300,
+     "cells": [
+      1,
+      1,
+      300
+     ]
+    },
+    {
+     "close": 300,
+     "cells": [
+      1,
+      1,
+      500
+     ]
+    }
+   ],
+   "target_session": {
+    "C": 300,
+    "close": 300,
+    "cells": [
+     1,
+     1,
+     600
+    ]
+   },
+   "evaluation_bucket": 2,
+   "excluded_sessions": [
+    0
+   ],
+   "ineligible_sessions": [],
+   "tags": [
+    "excluded",
+    "early_close",
+    "ineligible_session"
+   ],
+   "expected": {
+    "pace.baseline_median": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "250/1",
+      "float64": 250.0,
+      "hex": "0x1.f400000000000p+7",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "session:1",
+      "session:2",
+      "session:3",
+      "session:4",
+      "excluded:0"
+     ]
+    },
+    "pace.baseline_mad": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "100/1",
+      "float64": 100.0,
+      "hex": "0x1.9000000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "session:1",
+      "session:2",
+      "session:3",
+      "session:4",
+      "excluded:0"
+     ]
+    },
+    "pace.ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "12/5",
+      "float64": 2.4,
+      "hex": "0x1.3333333333333p+1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "target:5",
+      "session:1",
+      "session:2",
+      "session:3",
+      "session:4",
+      "excluded:0"
+     ]
+    },
+    "pace.robust_z": {
+     "status": "available",
+     "reasons": [],
+     "expected": 2,
+     "observed": 2,
+     "value": {
+      "exact": "7/2",
+      "float64": 3.5,
+      "hex": "0x1.c000000000000p+1",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "target:5",
+      "session:1",
+      "session:2",
+      "session:3",
+      "session:4",
+      "excluded:0"
+     ]
+    }
+   }
+  },
+  {
+   "id": "P32",
+   "group": "excluded_short_grid",
+   "description": "exclusion combined with a short grid: 3 prior sessions, N=5, session 0 excluded: expected 5-1=4, observed 2, insufficient_history",
+   "params": {
+    "window": 5,
+    "min_history": 1,
+    "profile": "bucket",
+    "grid_offsets_ns": [
+     0,
+     100,
+     200,
+     300
+    ],
+    "scale": [
+     1,
+     1
+    ],
+    "evidence_limit": 10000
+   },
+   "K": 100,
+   "prior_sessions": [
+    {
+     "close": 300,
+     "cells": [
+      1,
+      99999,
+      1
+     ],
+     "ex": true
+    },
+    {
+     "close": 300,
+     "cells": [
+      1,
+      100,
+      1
+     ]
+    },
+    {
+     "close": 300,
+     "cells": [
+      1,
+      300,
+      1
+     ]
+    }
+   ],
+   "target_session": {
+    "C": 200,
+    "close": 300,
+    "cells": [
+     1,
+     450,
+     "absent"
+    ]
+   },
+   "evaluation_bucket": 1,
+   "excluded_sessions": [
+    0
+   ],
+   "ineligible_sessions": [],
+   "tags": [
+    "excluded",
+    "insufficient_history",
+    "short_grid"
+   ],
+   "expected": {
+    "pace.baseline_median": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null
+    },
+    "pace.baseline_mad": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null
+    },
+    "pace.ratio": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    },
+    "pace.robust_z": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
   }
  ],
  "mean_fixtures": [
@@ -11723,6 +12215,24 @@
    "description": "ef3.session.excluded fact on the target session (refused, coordinator ruling on OQ-13)"
   },
   {
+   "id": "RF46",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "library",
+   "description": "ef3.session.excluded fact with an empty reason label (text)"
+  },
+  {
+   "id": "RF47",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "negative quantile numerator"
+  },
+  {
+   "id": "RF48",
+   "error_code": "DUPLICATE",
+   "raised_by": "library",
+   "description": "two ef3.session.excluded facts on one session (distinct reference_id, so not caught by the shared identity check)"
+  },
+  {
    "id": "RF44",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
@@ -11730,11 +12240,11 @@
   }
  ],
  "fixture_counts": {
-  "history_result": 43,
-  "cohort_result": 23,
-  "pace_result": 34,
+  "history_result": 44,
+  "cohort_result": 24,
+  "pace_result": 37,
   "mean_result": 19,
-  "refusal": 45
+  "refusal": 48
  },
  "prefix_equivalences": [
   [
@@ -11802,7 +12312,8 @@
    "P07",
    "P08",
    "P19",
-   "P25"
+   "P25",
+   "P31"
   ],
   "elapsed_coverage": [
    "P08",
@@ -11839,8 +12350,11 @@
    "H11",
    "H30",
    "H31",
+   "H40",
    "P06",
-   "P16a"
+   "P16a",
+   "P31",
+   "P32"
   ],
   "finite_recovery": [
    "H17",
@@ -11890,14 +12404,19 @@
   "ineligible_session": [
    "P07",
    "P16a",
-   "P20"
+   "P20",
+   "P31"
   ],
   "insufficient_history": [
    "H08",
    "H09",
    "H19",
    "H33",
+   "H40",
    "C06b",
+   "C20",
+   "P30",
+   "P32",
    "R06"
   ],
   "int64_limits": [
@@ -11971,7 +12490,8 @@
    "C10",
    "C10b",
    "C13",
-   "C16b"
+   "C16b",
+   "C20"
   ],
   "population_edge": [
    "C03",
@@ -11984,7 +12504,8 @@
   "precedence": [
    "H18",
    "H19",
-   "C13"
+   "C13",
+   "C20"
   ],
   "prefix": [
    "H25",
@@ -12029,6 +12550,11 @@
    "P01",
    "P01b",
    "P01c"
+  ],
+  "short_grid": [
+   "H40",
+   "P30",
+   "P32"
   ],
   "target_readiness": [
    "C11",
@@ -12115,11 +12641,15 @@
   ],
   "insufficient_history": [
    "C06b",
+   "C20",
    "H08",
    "H09",
    "H19",
    "H33",
+   "H40",
    "P16a",
+   "P30",
+   "P32",
    "R06"
   ],
   "null_field": [
@@ -12135,7 +12665,8 @@
    "C10",
    "C10b",
    "C13",
-   "C16b"
+   "C16b",
+   "C20"
   ],
   "unknown_availability": [
    "H15",
