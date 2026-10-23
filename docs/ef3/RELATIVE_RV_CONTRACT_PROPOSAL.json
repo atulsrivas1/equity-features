@@ -182,11 +182,11 @@
   "reference": "exact fractions.Fraction where the value is rational (all relative_stats outputs except correlation of non-square ratios), otherwise Decimal at 120 digits (ln, sqrt); no recurrence exists in these families (windowed sums), so no Decimal120 recurrence fixture is needed",
   "float_hex": "every float64 expectation carries float.hex",
   "acceptance_rules": {
-   "bits": "bit-identical float64; used ONLY where exactness is argued per fixture: the exact value is representable or zero; +0.0 is REQUIRED for zero (never -0.0)",
-   "r17_tol": "|x - ref| <= max(8 ulp(ref), 1e-12 * |ref|), the R17 tolerance; abs_tolerance is listed per fixture",
-   "r17_tol_abs_floor": "as r17_tol and in addition absolute tolerance 1e-12, used only where the reference is exactly 0 in exact arithmetic but arises from equal non-trivial log returns (DV07)"
+   "bits": "bit-identical float64; used ONLY where exactness is argued per fixture: the exact value is representable or zero; +0.0 is REQUIRED for zero (never -0.0); there is no absolute floor in this contract (R17 INTRADAY.md)",
+   "r17_tol": "|x - ref| <= max(8 ulp(ref), 1e-12 * |ref|), the R17 tolerance; abs_tolerance is listed per fixture"
   },
-  "exact_zero_arguments": "log returns are exactly 0 iff the close ratio is exactly 1 (decided on integers); rational relative_stats zeros are exact by Fraction arithmetic"
+  "exact_zero_arguments": "log returns are exactly 0 iff the close ratio is exactly 1 (decided on integers); rational relative_stats zeros are exact by Fraction arithmetic; equal exact ratios give identical logs so the centered sum is exactly 0 (DV07) and implementations must return +0.0",
+  "correlation_pm1": "reference-implementation statement: correlation exactly +1 or -1 is bit-required only through the exact-rational perfect-square path; all other correlations are irrational and use r17_tol"
  },
  "quality": {
   "precedence": [
@@ -232,7 +232,8 @@
    "daily_log_volatility_order": "slot t-N then slot t",
    "intraday_order": "anchor slot a then target slot t",
    "boundary": "completed_interval"
-  }
+  },
+  "lost_slot_reasons": "for n < min_pairs, and for daily or intraday windows with holes, reasons are the causes of the lost pairs or slots only; insufficient_history is added ONLY when the window is not wholly inside the grid (RS01, DV01, RV01)"
  },
  "mode_rule": "batch and full replay only; known_at and reconstruction availability modes give identical results; update, restore and merge are unsupported (UNSUPPORTED_CAPABILITY); output at target t is independent of every slot after t (prefix property, PX01 to PX03)",
  "fixture_notation": "compact, NOT canonical wire. scale 2 coefficients; K=100; known_at 50 unless stated. Slot states: priced (c, known_at), absent (no row, no coverage), gap (declared incomplete coverage), unknown (known_at null), future (known_at 150 > K), null (row with null close; for BAR volume null and OHLC null), empty (BAR only: volume 0, OHLC null, coverage complete expected 0). relative_stats fixtures: W=window, minp=min_pairs, t target, inst and bench slot lists indexed from 0. daily: N=period, A=annualization_factor. intraday: slot 0 is the session anchor a, A may be null when only the variance is selected, prior_close is the last close of the previous session (informational), grid_slots_declared is the number of governed slots of the session. alternatives_not_published lists counterexample values of rejected conventions; they are NOT contract outputs.",
@@ -543,7 +544,7 @@
       "expected": 3,
       "observed": 3,
       "value": {
-       "exact": "1/1",
+       "exact": "1",
        "float64": 1.0,
        "hex": "0x1.0000000000000p+0",
        "acceptance": "bits",
@@ -563,7 +564,7 @@
       "expected": 3,
       "observed": 3,
       "value": {
-       "exact": "2/1",
+       "exact": "2",
        "float64": 2.0,
        "hex": "0x1.0000000000000p+1",
        "acceptance": "bits",
@@ -671,7 +672,7 @@
       "expected": 3,
       "observed": 3,
       "value": {
-       "exact": "-1/1",
+       "exact": "-1",
        "float64": -1.0,
        "hex": "-0x1.0000000000000p+0",
        "acceptance": "bits",
@@ -691,7 +692,7 @@
       "expected": 3,
       "observed": 3,
       "value": {
-       "exact": "-1/1",
+       "exact": "-1",
        "float64": -1.0,
        "hex": "-0x1.0000000000000p+0",
        "acceptance": "bits",
@@ -710,7 +711,7 @@
       "expected": 3,
       "observed": 3,
       "value": {
-       "exact": "0/1",
+       "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0",
        "acceptance": "bits",
@@ -810,7 +811,7 @@
       "expected": 4,
       "observed": 4,
       "value": {
-       "exact": "0/1",
+       "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0",
        "acceptance": "bits",
@@ -830,7 +831,7 @@
       "expected": 4,
       "observed": 4,
       "value": {
-       "exact": "0/1",
+       "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0",
        "acceptance": "bits",
@@ -1044,7 +1045,7 @@
       "expected": 3,
       "observed": 3,
       "value": {
-       "exact": "0/1",
+       "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0",
        "acceptance": "bits",
@@ -1063,7 +1064,7 @@
       "expected": 3,
       "observed": 3,
       "value": {
-       "exact": "0/1",
+       "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0",
        "acceptance": "bits",
@@ -3025,7 +3026,7 @@
       "expected": 2,
       "observed": 2,
       "value": {
-       "exact": "1/1",
+       "exact": "1",
        "float64": 1.0,
        "hex": "0x1.0000000000000p+0",
        "acceptance": "bits",
@@ -3573,7 +3574,7 @@
    {
     "id": "DV07",
     "group": "constant",
-    "description": "constant growth (ratio 11/10 each step): log returns equal, centered variance is 0 in exact arithmetic; zero reference with absolute floor",
+    "description": "constant growth (ratio 11/10 each step): log returns identical, centered sum exactly 0, volatility exactly +0.0 (bits)",
     "scale": 2,
     "N": 3,
     "A": 1,
@@ -3608,7 +3609,7 @@
     "evidence_limit": 10,
     "tags": [
      "constant",
-     "zero_floor"
+     "exact_zero"
     ],
     "expected": {
      "history.log_return_volatility": {
@@ -3617,12 +3618,11 @@
       "expected": 4,
       "observed": 4,
       "value": {
-       "exact": "decimal120:0.000000000000000000000000000000000000000000000000000000000000e+60",
+       "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0",
-       "acceptance": "r17_tol_abs_floor",
-       "acceptance_reason": "zero reference from equal nonzero log returns; absolute floor 1e-12",
-       "abs_tolerance": 1e-12
+       "acceptance": "bits",
+       "acceptance_reason": "exact zero by argument: three equal close ratios (11/10 by integer cross-multiplication) give identical logs (Decimal120 ln of identical inputs is identical), so the centered sum of squares is exactly 0; +0.0 REQUIRED"
       },
       "witnesses": [
        "slot:0",
@@ -5990,25 +5990,25 @@
     "id": "RF15",
     "producer": "relative_stats",
     "error_code": "INVALID_UNIT",
-    "description": "instrument and benchmark price scale, currency or unit differ (require_compatible_inputs raises INVALID_UNIT; no conversion, ruling O4)"
+    "description": "instrument and benchmark price scale, currency or unit differ (require_compatible_inputs raises INVALID_UNIT; no conversion, ruling O4) (batch versus batch, require_compatible_inputs)"
    },
    {
     "id": "RF16",
     "producer": "relative_stats",
     "error_code": "UNSUPPORTED_ADJUSTMENT",
-    "description": "instrument and benchmark declare different adjustment basis, policy or anchor"
+    "description": "instrument and benchmark declare different adjustment basis, policy or anchor (batch versus batch, require_compatible_inputs)"
    },
    {
     "id": "RF17",
     "producer": "relative_stats",
     "error_code": "INVALID_ORDER",
-    "description": "rows of a role not in governed grid order"
+    "description": "rows not in governed grid order across sessions: a producer-admission check against the context grid order, NOT validate_batch (the shared BAR order_group is (instrument, session))"
    },
    {
     "id": "RF18",
     "producer": "relative_stats",
     "error_code": "DUPLICATE",
-    "description": "two rows for the same instrument and session in a role"
+    "description": "two rows for the same interval (duplicate identity is instrument, session, start, end)"
    },
    {
     "id": "RF19",
@@ -6062,25 +6062,25 @@
     "id": "RF27",
     "producer": "daily_log_volatility",
     "error_code": "INVALID_ORDER",
-    "description": "rows not in governed grid order"
+    "description": "rows not in governed grid order across sessions: a producer-admission check against the context grid order, NOT validate_batch (the shared BAR order_group is (instrument, session))"
    },
    {
     "id": "RF28",
     "producer": "daily_log_volatility",
     "error_code": "DUPLICATE",
-    "description": "two rows for the same session"
+    "description": "two rows for the same interval (duplicate identity is instrument, session, start, end)"
    },
    {
     "id": "RF29",
     "producer": "daily_log_volatility",
     "error_code": "INVALID_UNIT",
-    "description": "batch price unit differs from the config PriceUnit"
+    "description": "producer admission: batch price unit (scale or currency) differs from the config PriceUnit (as R17 _admission.py: meta.price_unit != config.price_unit raises INVALID_UNIT)"
    },
    {
     "id": "RF30",
     "producer": "daily_log_volatility",
     "error_code": "UNSUPPORTED_ADJUSTMENT",
-    "description": "batch adjustment basis differs from the config declaration"
+    "description": "producer admission: batch adjustment declaration differs from the config adjustment (as R17 _admission.py: meta.adjustment != config.adjustment raises UNSUPPORTED_ADJUSTMENT)"
    },
    {
     "id": "RF31",
@@ -6164,25 +6164,25 @@
     "id": "RF44",
     "producer": "intraday_realized_variance",
     "error_code": "INVALID_ORDER",
-    "description": "bars not in grid order"
+    "description": "rows not in governed grid order across sessions: a producer-admission check against the context grid order, NOT validate_batch (the shared BAR order_group is (instrument, session))"
    },
    {
     "id": "RF45",
     "producer": "intraday_realized_variance",
     "error_code": "DUPLICATE",
-    "description": "two bars for the same governed slot"
+    "description": "two rows for the same interval (duplicate identity is instrument, session, start, end)"
    },
    {
     "id": "RF46",
     "producer": "intraday_realized_variance",
     "error_code": "INVALID_UNIT",
-    "description": "batch price unit differs from the config PriceUnit"
+    "description": "producer admission: batch price unit (scale or currency) differs from the config PriceUnit (as R17 _admission.py: meta.price_unit != config.price_unit raises INVALID_UNIT)"
    },
    {
     "id": "RF47",
     "producer": "intraday_realized_variance",
     "error_code": "UNSUPPORTED_ADJUSTMENT",
-    "description": "batch adjustment basis differs from the config declaration"
+    "description": "producer admission: batch adjustment declaration differs from the config adjustment (as R17 _admission.py: meta.adjustment != config.adjustment raises UNSUPPORTED_ADJUSTMENT)"
    },
    {
     "id": "RF48",
@@ -6241,10 +6241,11 @@
     "RV03"
    ],
    "exact_zero": [
+    "DV06",
+    "DV07",
     "RS04",
     "RS05",
     "RS07",
-    "DV06",
     "RV04"
    ],
    "exact_zero_test": [
@@ -6350,9 +6351,6 @@
    ],
    "zero_correlation": [
     "RS05"
-   ],
-   "zero_floor": [
-    "DV07"
    ],
    "zero_instrument_variance": [
     "RS07"
@@ -6499,7 +6497,7 @@
   "O8": "evidence row ids follow the EF2 convention bar:<start_ns>:<end_ns>; fixtures use compact instrument:slot:i, benchmark:slot:i and slot:i for those bars",
   "O9": "window/period bound 4096 = R17 period bound (packages/intraday/src/equity_features_intraday/_context.py integer(...,1,4096)) for all producers",
   "O10": "min_pairs lower bound 2",
-  "O11": "ln and sqrt Decimal120 correctly rounded; acceptance is the R17 tolerance; absolute floor 1e-12 on DV07 only (exact reference 0 from equal nonzero logs)",
+  "O11": "ln and sqrt Decimal120 correctly rounded; acceptance is the R17 tolerance max(8 ulp, 1e-12*|ref|); the earlier absolute-floor allowance is withdrawn (R17 INTRADAY.md: no universal absolute floor; exact zeros return +0.0); DV07 is a bits fixture",
   "O12": "no interplay with ReturnReference or existing relative returns; distinct producers (non-goal)"
  }
 }
