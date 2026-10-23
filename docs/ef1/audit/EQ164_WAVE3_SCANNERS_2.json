@@ -1,0 +1,6671 @@
+{
+ "schema_version": 1,
+ "kind": "EQ164 wave 3 story W3-B2: second half of ambiguous scanner consumers",
+ "status": "FINDINGS ONLY; adjudicated finding / proposed resolution; nothing accepted; no tracker edited",
+ "selection": {
+  "source": "docs/ef1/audit/EQ164_WAVE2_X4.json",
+  "rule": "consumers with primary gap class AMBIGUOUS and id S####, sorted ascending; this record is the 53 ambiguous scanner ids after S0197, which the sibling PR covers",
+  "total_ambiguous_scanners": 107,
+  "first_half_count": 54,
+  "second_half_count": 53,
+  "id_range": "S0198-S0357",
+  "first_id": "S0198",
+  "last_id": "S0357",
+  "first_half_range_expected": "S0106-S0197 (54 ids), covered by the sibling PR"
+ },
+ "counts": {
+  "consumers": 53,
+  "by_resolution_class": {
+   "RESOLVED_WITH_GAPS": 43,
+   "RESOLVED_ALL_OPERANDS_COVERED": 6,
+   "STILL_AMBIGUOUS": 4
+  },
+  "by_confidence": {
+   "medium": 18,
+   "low": 35
+  },
+  "operand_items": 255,
+  "operand_status": {
+   "PLANNED_NUMBERED": 247,
+   "UNCOVERED_GAP": 8
+  },
+  "operand_kind": {
+   "field": 170,
+   "derived_value_owner": 21,
+   "indicator_family": 26,
+   "ordered_bar_series_input": 26,
+   "context_scalar": 12
+  }
+ },
+ "per_story_demand": [
+  {
+   "story": 23,
+   "state": "CLOSED",
+   "consumers": 6,
+   "operands_routed": 6,
+   "gap_items": 8,
+   "gap_codes": {
+    "GAP-BASELINE-REUSE-UNPROVED": 6,
+    "GAP-AGGREGATE-PROFILE-SELECTION": 2
+   }
+  },
+  {
+   "story": 33,
+   "state": "CLOSED",
+   "consumers": 11,
+   "operands_routed": 17,
+   "gap_items": 25,
+   "gap_codes": {
+    "GAP-BASELINE-REUSE-UNPROVED": 17,
+    "GAP-PERIOD-INIT-SELECTION": 8
+   }
+  },
+  {
+   "story": 34,
+   "state": "CLOSED",
+   "consumers": 14,
+   "operands_routed": 22,
+   "gap_items": 34,
+   "gap_codes": {
+    "GAP-BASELINE-REUSE-UNPROVED": 18,
+    "GAP-EXACT-PROFILE-SELECTION": 4,
+    "GAP-OPERAND-NOT-IN-FIELD-CATALOGUE": 12
+   }
+  },
+  {
+   "story": 472,
+   "state": "CLOSED",
+   "consumers": 18,
+   "operands_routed": 36,
+   "gap_items": 36,
+   "gap_codes": {
+    "GAP-BASELINE-REUSE-UNPROVED": 18,
+    "GAP-EXACT-PROFILE-SELECTION": 18
+   }
+  },
+  {
+   "story": 473,
+   "state": "CLOSED",
+   "consumers": 4,
+   "operands_routed": 8,
+   "gap_items": 8,
+   "gap_codes": {
+    "GAP-BASELINE-REUSE-UNPROVED": 4,
+    "GAP-EXACT-PROFILE-SELECTION": 4
+   }
+  },
+  {
+   "story": 489,
+   "state": "OPEN",
+   "consumers": 4,
+   "operands_routed": 4,
+   "gap_items": 4,
+   "gap_codes": {
+    "GAP-COHORT-FREEZE": 4
+   }
+  },
+  {
+   "story": 490,
+   "state": "OPEN",
+   "consumers": 7,
+   "operands_routed": 44,
+   "gap_items": 0,
+   "gap_codes": {}
+  },
+  {
+   "story": 492,
+   "state": "OPEN",
+   "consumers": 3,
+   "operands_routed": 0,
+   "gap_items": 3,
+   "gap_codes": {
+    "GAP-UPSTREAM-PROFILE-UNSELECTED": 3
+   }
+  },
+  {
+   "story": 505,
+   "state": "OPEN",
+   "consumers": 5,
+   "operands_routed": 8,
+   "gap_items": 0,
+   "gap_codes": {}
+  },
+  {
+   "story": 506,
+   "state": "OPEN",
+   "consumers": 18,
+   "operands_routed": 47,
+   "gap_items": 0,
+   "gap_codes": {}
+  },
+  {
+   "story": 507,
+   "state": "OPEN",
+   "consumers": 21,
+   "operands_routed": 25,
+   "gap_items": 0,
+   "gap_codes": {}
+  },
+  {
+   "story": 508,
+   "state": "OPEN",
+   "consumers": 13,
+   "operands_routed": 13,
+   "gap_items": 0,
+   "gap_codes": {}
+  },
+  {
+   "story": 513,
+   "state": "OPEN",
+   "consumers": 6,
+   "operands_routed": 6,
+   "gap_items": 0,
+   "gap_codes": {}
+  },
+  {
+   "story": 570,
+   "state": "OPEN",
+   "consumers": 3,
+   "operands_routed": 6,
+   "gap_items": 0,
+   "gap_codes": {}
+  },
+  {
+   "story": 611,
+   "state": "OPEN",
+   "consumers": 3,
+   "operands_routed": 3,
+   "gap_items": 3,
+   "gap_codes": {
+    "GAP-ENVELOPE-PROVISIONAL": 3
+   }
+  },
+  {
+   "story": 626,
+   "state": "OPEN",
+   "consumers": 3,
+   "operands_routed": 10,
+   "gap_items": 10,
+   "gap_codes": {
+    "GAP-ADAPTIVE-CONTRACT-ABSENT": 10
+   }
+  }
+ ],
+ "patterns": [
+  {
+   "id": "P1",
+   "text": "22 rules read only an ordered daily bar series through one indicator family each; three families under closed baseline #472 (18 rules) and one under #473 (4 rules). All carry the same two gaps: reuse proof and exact profile. The public baseline dispositions record zero accepted canonical reuses."
+  },
+  {
+   "id": "P2",
+   "text": "12 rules compare a price against level or range operands: 8 with per-period initialization under closed #33 plus #508/#506 fields, and 4 (S0198, S0208, S0209, S0218) with direct level and range operands under #33/#34. The level fields F0347-F0350 and F0351 route to closed baselines (reuse unproved)."
+  },
+  {
+   "id": "P3",
+   "text": "6 rules (S0199, S0200, S0201, S0205, S0206, S0207) have every named field operand routed to open EF1 owners #506/#507/#508 (F0271 and F0284 carry the note capability present on main; per-field binding unproven); only contract-time profile selection and per-field delivery mapping remain."
+  },
+  {
+   "id": "P4",
+   "text": "4 category rules (S0329-S0332) use two context scalars that have no F id in the field catalogue plus a third whose supplied-versus-computed origin is unresolved: STILL_AMBIGUOUS."
+  },
+  {
+   "id": "P5",
+   "text": "3 adaptive rules (S0336, S0337, S0357) are named at output level only through the provisional public answer X3-4; all depend on one supplied rate operand F0702 whose upstream ordered profile under #492 is unselected and on a #626 contract that does not exist."
+  },
+  {
+   "id": "P6",
+   "text": "4 rules (S0338, S0339, S0353, S0354) share an identical 9-field operand set owned by #490 plus #489 cohort freeze and a closed #23 baseline; they are one gap for producer-demand purposes, not four."
+  },
+  {
+   "id": "P7",
+   "text": "2 rules (S0334, S0335) read one per-symbol aggregate volume row value (inferred F0098 or F0097, #23 closed) and a direction field F0206 (#507); the aggregate profile choice is unselected."
+  },
+  {
+   "id": "P8",
+   "text": "No rule needed a PROPOSED_NEW_STORY from the wave 2 decisions; the only possible new stories are conditional (a narrow variant story if baseline reuse proof fails; a cohort-normalization producer if decision Q3 is yes)."
+  }
+ ],
+ "decisions_needed": [
+  {
+   "id": "Q1",
+   "stories": [
+    472,
+    473,
+    34,
+    33,
+    23
+   ],
+   "text": "For the 26+ rules whose series operand routes to a closed baseline story (22 under #472/#473, 4 under #34, plus level fields under #33/#34 and aggregate fields under #23): what proof standard and which author accepts reuse of the closed baseline for a given source profile, and if the proof fails, may one narrow variant story per indicator family (FAM-A to FAM-F) be proposed?"
+  },
+  {
+   "id": "Q2",
+   "stories": [
+    34,
+    609
+   ],
+   "text": "For S0329-S0332: are the three context scalars that have no F id added to the field catalogue as supplied facts under the EF2 I/O layer (#609), or are they computed from the bar series inside #34? Which catalogue ids, if any, do they correspond to (candidates F0096, F0151, F0189, F0671 and F0087, F0141 exist only in other contexts)?"
+  },
+  {
+   "id": "Q3",
+   "stories": [
+    489,
+    "proposed cohort-normalization"
+   ],
+   "text": "For S0338, S0339, S0353, S0354: are the cross-sectional rank operands produced by the #489 cohort freeze alone, or do they require the proposed EF8 cohort-normalization producer (wave 1 C1), which today is demanded only by the ten current-cohort rank rows?"
+  },
+  {
+   "id": "Q4",
+   "stories": [
+    505,
+    506,
+    507,
+    508
+   ],
+   "text": "Which EF1 modules on main produce F0188, F0190, F0191, F0206, F0218, F0272, F0273, F0275, F0276 (delivery ledger section 1 lists capabilities, not field mappings)? This decides whether S0199, S0200, S0201, S0205-S0207 move from planned to delivered operands."
+  },
+  {
+   "id": "Q5",
+   "stories": [
+    626,
+    611,
+    513,
+    492
+   ],
+   "text": "Confirm or overturn X3-4: F0721 computed by #626, F0700 supplied identity under #611, F0702 a value copy of F0193 under #513. Which story names the raw operand producers of #626, and which source profile under #492 feeds F0702?"
+  },
+  {
+   "id": "Q6",
+   "stories": [
+    23
+   ],
+   "text": "For S0334, S0335: is the per-symbol aggregate volume value a supplied I/O fact or computed from bars under #23, and which exact source profile and eligibility apply?"
+  },
+  {
+   "id": "Q7",
+   "stories": [
+    33
+   ],
+   "text": "For S0210-S0217: which level periods and initialization rules are admitted by #33, and may an unsupported period be refused rather than given a variant story?"
+  },
+  {
+   "id": "Q8",
+   "stories": [
+    506,
+    507,
+    508
+   ],
+   "text": "For rules whose derived values name two or three EF1 owners (S0198, S0205, S0206): is the owner of each derived value fixed per output (one owner each) or chosen per rule at contract time?"
+  }
+ ],
+ "definitions": {
+  "DELIVERED_ON_MAIN": "not used: nothing is delivered until per-field binding is proven; F0271 and F0284 are PLANNED_NUMBERED with the note capability present on main; per-field binding unproven",
+  "PLANNED_NUMBERED": "operand routed to a numbered story in the public route coverage index; for EF1 owners (#505-#508) per-field delivery is not provable from opaque ids; closed baseline stories count as planned with reuse unproved",
+  "PROPOSED_NEW_STORY": "operand needs a story proposed in EQ164_WAVE2_DECISIONS.md (none in this half)",
+  "UNCOVERED_GAP": "no catalogue identity or numbered owner can be named for the operand",
+  "RESOLVED_ALL_OPERANDS_COVERED": "every operand is named and routed to a numbered owner; only contract-time selection remains",
+  "RESOLVED_WITH_GAPS": "every operand is named but at least one gap is listed (closed-baseline reuse unproved, absent contract, unselected profile, cohort freeze)",
+  "STILL_AMBIGUOUS": "an operand cannot be named or routed; the missing evidence is stated"
+ },
+ "method": "Operand names come from three sources: the X4 record, the private exact field bridges (opaque ids only) and a lexical trace of the private source requirement records mapped to field catalogue ids; indicator families are labelled FAM-A to FAM-F by order of first appearance. Producer status uses the public route coverage index, the selected packets A, B, C and the delivery ledger. The three adaptive rules use the public X3 answer.",
+ "limits": [
+  "lexical field extraction is a proposal, not a certified operand contract",
+  "per-field delivery of EF1 owned fields is undetermined",
+  "no accepted mathematics, API, source, rights or consumer parity is implied"
+ ],
+ "records": [
+  {
+   "consumer_id": "S0198",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 7,
+   "operands": [
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0218",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0271",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "capability present on main; per-field binding unproven",
+      "packet_A"
+     ]
+    },
+    {
+     "operand": "F0272",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0273",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0284",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "capability present on main; per-field binding unproven",
+      "packet_A"
+     ]
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #507, #506 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    34,
+    505,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0199",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 5,
+   "operands": [
+    {
+     "operand": "F0218",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0271",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "capability present on main; per-field binding unproven",
+      "packet_A"
+     ]
+    },
+    {
+     "operand": "F0272",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0273",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0284",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "capability present on main; per-field binding unproven",
+      "packet_A"
+     ]
+    }
+   ],
+   "gaps": [],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    505,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0200",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 5,
+   "operands": [
+    {
+     "operand": "F0218",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0271",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "capability present on main; per-field binding unproven",
+      "packet_A"
+     ]
+    },
+    {
+     "operand": "F0272",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0273",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0284",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "capability present on main; per-field binding unproven",
+      "packet_A"
+     ]
+    }
+   ],
+   "gaps": [],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    505,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0201",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 4,
+   "operands": [
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0275",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0276",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    }
+   ],
+   "gaps": [],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    506
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0205",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 4,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0271",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "capability present on main; per-field binding unproven",
+      "packet_A"
+     ]
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value; selection pending"
+     ]
+    }
+   ],
+   "gaps": [],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #506, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    505,
+    506,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0206",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 4,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0271",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "capability present on main; per-field binding unproven",
+      "packet_A"
+     ]
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value; selection pending"
+     ]
+    }
+   ],
+   "gaps": [],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #506, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    505,
+    506,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0207",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 5,
+   "operands": [
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0275",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0276",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    }
+   ],
+   "gaps": [],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    506,
+    507
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0208",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 6,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0347",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0348",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0349",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0350",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value; selection pending"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "4 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 4
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #513 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    506,
+    513
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0209",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 6,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0347",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0348",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0349",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0350",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value; selection pending"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "4 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 4
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #513 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    506,
+    513
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0210",
+   "profile_class": "PC08",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 7,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0349",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "1 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-PERIOD-INIT-SELECTION",
+     "story": 33,
+     "detail": "per-period source and initialization selection for the level operand is not recorded",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    34,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0211",
+   "profile_class": "PC08",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 7,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0350",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "1 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-PERIOD-INIT-SELECTION",
+     "story": 33,
+     "detail": "per-period source and initialization selection for the level operand is not recorded",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    34,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0212",
+   "profile_class": "PC08",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 7,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0347",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "1 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-PERIOD-INIT-SELECTION",
+     "story": 33,
+     "detail": "per-period source and initialization selection for the level operand is not recorded",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    34,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0213",
+   "profile_class": "PC08",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 7,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0348",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "1 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-PERIOD-INIT-SELECTION",
+     "story": 33,
+     "detail": "per-period source and initialization selection for the level operand is not recorded",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    34,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0214",
+   "profile_class": "PC08",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 7,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0349",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "1 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-PERIOD-INIT-SELECTION",
+     "story": 33,
+     "detail": "per-period source and initialization selection for the level operand is not recorded",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    34,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0215",
+   "profile_class": "PC08",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 7,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0350",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "1 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-PERIOD-INIT-SELECTION",
+     "story": 33,
+     "detail": "per-period source and initialization selection for the level operand is not recorded",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    34,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0216",
+   "profile_class": "PC08",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 7,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0347",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "1 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-PERIOD-INIT-SELECTION",
+     "story": 33,
+     "detail": "per-period source and initialization selection for the level operand is not recorded",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    34,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0217",
+   "profile_class": "PC08",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 7,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0190",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0191",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0348",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "1 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-PERIOD-INIT-SELECTION",
+     "story": 33,
+     "detail": "per-period source and initialization selection for the level operand is not recorded",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #508 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    34,
+    506,
+    507,
+    508
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0218",
+   "profile_class": "PC07",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "medium",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 4,
+   "operands": [
+    {
+     "operand": "F0188",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0347",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0351",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "lexical",
+      "private_bridge",
+      "x4"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-3",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value; selection pending"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 33,
+     "detail": "1 operand(s) routed to closed baseline story 33; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "1 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)",
+    "exact history, reference, phase and population profile selection at contract time",
+    "producer choice among owners #33, #34, #513 for derived values (profile selection at contract time)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    33,
+    34,
+    506,
+    513
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0256",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-D",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-D",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0257",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-D",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-D",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0259",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-C",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 473,
+     "detail": "1 operand(s) routed to closed baseline story 473; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 473,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-C",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    473
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0260",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-C",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 473,
+     "detail": "1 operand(s) routed to closed baseline story 473; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 473,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-C",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    473
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0262",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-C",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 473,
+     "detail": "1 operand(s) routed to closed baseline story 473; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 473,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-C",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    473
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0263",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-C",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 473,
+     "detail": "1 operand(s) routed to closed baseline story 473; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 473,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-C",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    473
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0268",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-A",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-A",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0269",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-A",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-A",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0270",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-A",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-A",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0271",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-A",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-A",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0272",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-A",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-A",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0273",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-A",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-A",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0274",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-A",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-A",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0275",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-A",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-A",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0311",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-B",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-B",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0312",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-B",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-B",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0313",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-B",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-B",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0314",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-B",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-B",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0315",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-B",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-B",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0316",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-B",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-B",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0317",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-B",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-B",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0318",
+   "profile_class": "PC10",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-B",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      472
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id in the field catalogue; input contract belongs to the baseline story and EF2 I/O 609"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 472,
+     "detail": "1 operand(s) routed to closed baseline story 472; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 472,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-B",
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    472
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0329",
+   "profile_class": "PC01",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "STILL_AMBIGUOUS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 5,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-E",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id"
+     ]
+    },
+    {
+     "operand": "CTX-1",
+     "kind": "context_scalar",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar with an in-source fallback to a series computation; not in the field catalogue; supplied-versus-computed unresolved"
+     ]
+    },
+    {
+     "operand": "CTX-2",
+     "kind": "context_scalar",
+     "status": "UNCOVERED_GAP",
+     "owner_stories": [],
+     "planned_releases": [],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar not in the field catalogue; same-named catalogue fields F0096, F0151, F0189, F0671 exist in other contexts; none confirmed"
+     ]
+    },
+    {
+     "operand": "CTX-3",
+     "kind": "context_scalar",
+     "status": "UNCOVERED_GAP",
+     "owner_stories": [],
+     "planned_releases": [],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar not in the field catalogue; same-named catalogue fields F0087, F0141 exist in other contexts; none confirmed"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "2 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 2
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 34,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    },
+    {
+     "code": "GAP-OPERAND-NOT-IN-FIELD-CATALOGUE",
+     "story": 34,
+     "detail": "three context scalars have no F id; two have no confirmed catalogue match",
+     "items": 3
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-E",
+   "missing_evidence": "catalogue identity of two context scalars (no F id; candidates unconfirmed) and whether the first context scalar is supplied or computed from the series; needs the category-scanner context contract or the selected-profile operand list",
+   "numbered_stories_touched": [
+    34
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0330",
+   "profile_class": "PC01",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "STILL_AMBIGUOUS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 5,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-E",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id"
+     ]
+    },
+    {
+     "operand": "CTX-1",
+     "kind": "context_scalar",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar with an in-source fallback to a series computation; not in the field catalogue; supplied-versus-computed unresolved"
+     ]
+    },
+    {
+     "operand": "CTX-2",
+     "kind": "context_scalar",
+     "status": "UNCOVERED_GAP",
+     "owner_stories": [],
+     "planned_releases": [],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar not in the field catalogue; same-named catalogue fields F0096, F0151, F0189, F0671 exist in other contexts; none confirmed"
+     ]
+    },
+    {
+     "operand": "CTX-3",
+     "kind": "context_scalar",
+     "status": "UNCOVERED_GAP",
+     "owner_stories": [],
+     "planned_releases": [],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar not in the field catalogue; same-named catalogue fields F0087, F0141 exist in other contexts; none confirmed"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "2 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 2
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 34,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    },
+    {
+     "code": "GAP-OPERAND-NOT-IN-FIELD-CATALOGUE",
+     "story": 34,
+     "detail": "three context scalars have no F id; two have no confirmed catalogue match",
+     "items": 3
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-E",
+   "missing_evidence": "catalogue identity of two context scalars (no F id; candidates unconfirmed) and whether the first context scalar is supplied or computed from the series; needs the category-scanner context contract or the selected-profile operand list",
+   "numbered_stories_touched": [
+    34
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0331",
+   "profile_class": "PC01",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "STILL_AMBIGUOUS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 5,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-F",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id"
+     ]
+    },
+    {
+     "operand": "CTX-1",
+     "kind": "context_scalar",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar with an in-source fallback to a series computation; not in the field catalogue; supplied-versus-computed unresolved"
+     ]
+    },
+    {
+     "operand": "CTX-2",
+     "kind": "context_scalar",
+     "status": "UNCOVERED_GAP",
+     "owner_stories": [],
+     "planned_releases": [],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar not in the field catalogue; same-named catalogue fields F0096, F0151, F0189, F0671 exist in other contexts; none confirmed"
+     ]
+    },
+    {
+     "operand": "CTX-3",
+     "kind": "context_scalar",
+     "status": "UNCOVERED_GAP",
+     "owner_stories": [],
+     "planned_releases": [],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar not in the field catalogue; same-named catalogue fields F0087, F0141 exist in other contexts; none confirmed"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "2 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 2
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 34,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    },
+    {
+     "code": "GAP-OPERAND-NOT-IN-FIELD-CATALOGUE",
+     "story": 34,
+     "detail": "three context scalars have no F id; two have no confirmed catalogue match",
+     "items": 3
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-F",
+   "missing_evidence": "catalogue identity of two context scalars (no F id; candidates unconfirmed) and whether the first context scalar is supplied or computed from the series; needs the category-scanner context contract or the selected-profile operand list",
+   "numbered_stories_touched": [
+    34
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0332",
+   "profile_class": "PC01",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "STILL_AMBIGUOUS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 5,
+   "operands": [
+    {
+     "operand": "SERIES-FAM-F",
+     "kind": "indicator_family",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "closed baseline story; reuse unproved"
+     ]
+    },
+    {
+     "operand": "SERIES-IN",
+     "kind": "ordered_bar_series_input",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "supplied ordered daily history; no F id"
+     ]
+    },
+    {
+     "operand": "CTX-1",
+     "kind": "context_scalar",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF2"
+     ],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar with an in-source fallback to a series computation; not in the field catalogue; supplied-versus-computed unresolved"
+     ]
+    },
+    {
+     "operand": "CTX-2",
+     "kind": "context_scalar",
+     "status": "UNCOVERED_GAP",
+     "owner_stories": [],
+     "planned_releases": [],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar not in the field catalogue; same-named catalogue fields F0096, F0151, F0189, F0671 exist in other contexts; none confirmed"
+     ]
+    },
+    {
+     "operand": "CTX-3",
+     "kind": "context_scalar",
+     "status": "UNCOVERED_GAP",
+     "owner_stories": [],
+     "planned_releases": [],
+     "evidence": [
+      "private_source_trace"
+     ],
+     "notes": [
+      "context scalar not in the field catalogue; same-named catalogue fields F0087, F0141 exist in other contexts; none confirmed"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 34,
+     "detail": "2 operand(s) routed to closed baseline story 34; public baseline dispositions record zero accepted canonical reuses",
+     "items": 2
+    },
+    {
+     "code": "GAP-EXACT-PROFILE-SELECTION",
+     "story": 34,
+     "detail": "exact window, seed, smoothing and precision of the series operand must be matched to an accepted baseline contract, or a narrow variant allocated",
+     "items": 1
+    },
+    {
+     "code": "GAP-OPERAND-NOT-IN-FIELD-CATALOGUE",
+     "story": 34,
+     "detail": "three context scalars have no F id; two have no confirmed catalogue match",
+     "items": 3
+    }
+   ],
+   "contract_prerequisites": [],
+   "indicator_family": "FAM-F",
+   "missing_evidence": "catalogue identity of two context scalars (no F id; candidates unconfirmed) and whether the first context scalar is supplied or computed from the series; needs the category-scanner context contract or the selected-profile operand list",
+   "numbered_stories_touched": [
+    34
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0334",
+   "profile_class": "PC11",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "F0098",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "row_type_inferred"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 23,
+     "detail": "1 operand(s) routed to closed baseline story 23; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-AGGREGATE-PROFILE-SELECTION",
+     "story": 23,
+     "detail": "exact source profile and eligibility of the aggregate volume operand is not selected",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    23,
+    507
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0335",
+   "profile_class": "PC11",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 2,
+   "operands": [
+    {
+     "operand": "F0097",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "row_type_inferred"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 23,
+     "detail": "1 operand(s) routed to closed baseline story 23; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-AGGREGATE-PROFILE-SELECTION",
+     "story": 23,
+     "detail": "exact source profile and eligibility of the aggregate volume operand is not selected",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    23,
+    507
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0336",
+   "profile_class": "PC11",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8",
+    "secondary_story": 519
+   },
+   "operand_count": 12,
+   "operands": [
+    {
+     "operand": "F0179",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0186",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0208",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0209",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0210",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0211",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0695",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "packet_B"
+     ]
+    },
+    {
+     "operand": "F0696",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "packet_B"
+     ]
+    },
+    {
+     "operand": "F0700",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      611
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": [
+      "packet_B",
+      "packet_ambiguous",
+      "provisional: supplied identity under 611 per X3-4"
+     ]
+    },
+    {
+     "operand": "F0702",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": [
+      "packet_A",
+      "provisional: value copy of F0193 under 513 per X3-4; upstream profile under 492 unselected"
+     ]
+    },
+    {
+     "operand": "F0721",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "owner 626 (computed) per wave 2 decision X3-4; route index shows 611 as the enveloping I/O",
+      "packet_B",
+      "packet_ambiguous",
+      "provisional: computed by 626 per X3-4; packet B ambiguous"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-ADAPTIVE-CONTRACT-ABSENT",
+     "story": 626,
+     "detail": "no EF3 contract, units, warm-up or fixtures for the consumed adaptive outputs; raw operand producers unnamed in the owner",
+     "items": 3
+    },
+    {
+     "code": "GAP-UPSTREAM-PROFILE-UNSELECTED",
+     "story": 492,
+     "detail": "supplied rate operand F0702 depends on an ordered source profile under 492 that is not selected",
+     "items": 1
+    },
+    {
+     "code": "GAP-ENVELOPE-PROVISIONAL",
+     "story": 611,
+     "detail": "resolution of F0721 and F0700 is a provisional working answer (X3-4), not owner reviewed",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    490,
+    507,
+    513,
+    570,
+    611,
+    626
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0337",
+   "profile_class": "PC11",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8",
+    "secondary_story": 519
+   },
+   "operand_count": 13,
+   "operands": [
+    {
+     "operand": "F0179",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0186",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0208",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0209",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0210",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0211",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0690",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "packet_B"
+     ]
+    },
+    {
+     "operand": "F0694",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "packet_B"
+     ]
+    },
+    {
+     "operand": "F0699",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "packet_B"
+     ]
+    },
+    {
+     "operand": "F0700",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      611
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": [
+      "packet_B",
+      "packet_ambiguous",
+      "provisional: supplied identity under 611 per X3-4"
+     ]
+    },
+    {
+     "operand": "F0702",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": [
+      "packet_A",
+      "provisional: value copy of F0193 under 513 per X3-4; upstream profile under 492 unselected"
+     ]
+    },
+    {
+     "operand": "F0721",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "owner 626 (computed) per wave 2 decision X3-4; route index shows 611 as the enveloping I/O",
+      "packet_B",
+      "packet_ambiguous",
+      "provisional: computed by 626 per X3-4; packet B ambiguous"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-ADAPTIVE-CONTRACT-ABSENT",
+     "story": 626,
+     "detail": "no EF3 contract, units, warm-up or fixtures for the consumed adaptive outputs; raw operand producers unnamed in the owner",
+     "items": 4
+    },
+    {
+     "code": "GAP-UPSTREAM-PROFILE-UNSELECTED",
+     "story": 492,
+     "detail": "supplied rate operand F0702 depends on an ordered source profile under 492 that is not selected",
+     "items": 1
+    },
+    {
+     "code": "GAP-ENVELOPE-PROVISIONAL",
+     "story": 611,
+     "detail": "resolution of F0721 and F0700 is a provisional working answer (X3-4), not owner reviewed",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    490,
+    507,
+    513,
+    570,
+    611,
+    626
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0338",
+   "profile_class": "PC11",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 11,
+   "operands": [
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0207",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0219",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0225",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0226",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0227",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0228",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0229",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0233",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-1",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      489
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value; selection pending"
+     ]
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 23,
+     "detail": "1 operand(s) routed to closed baseline story 23; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-COHORT-FREEZE",
+     "story": 489,
+     "detail": "per-metric observed cohort, ties, cutoff and availability must be frozen for the cross-sectional rank operands; whether a separate cohort-normalization producer is needed is open (decision Q3)",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    23,
+    489,
+    490,
+    507
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0339",
+   "profile_class": "PC11",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 11,
+   "operands": [
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0207",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0219",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0225",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0226",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0227",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0228",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0229",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0233",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-1",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      489
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value; selection pending"
+     ]
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 23,
+     "detail": "1 operand(s) routed to closed baseline story 23; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-COHORT-FREEZE",
+     "story": 489,
+     "detail": "per-metric observed cohort, ties, cutoff and availability must be frozen for the cross-sectional rank operands; whether a separate cohort-normalization producer is needed is open (decision Q3)",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    23,
+    489,
+    490,
+    507
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0353",
+   "profile_class": "PC11",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 11,
+   "operands": [
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0207",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0219",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0225",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0226",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0227",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0228",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0229",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0233",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-1",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      489
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value; selection pending"
+     ]
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 23,
+     "detail": "1 operand(s) routed to closed baseline story 23; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-COHORT-FREEZE",
+     "story": 489,
+     "detail": "per-metric observed cohort, ties, cutoff and availability must be frozen for the cross-sectional rank operands; whether a separate cohort-normalization producer is needed is open (decision Q3)",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    23,
+    489,
+    490,
+    507
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0354",
+   "profile_class": "PC11",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_count": 11,
+   "operands": [
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0207",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0219",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0225",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0226",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0227",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0228",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0229",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0233",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "lexical"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "DERIVED-1",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      489
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value; selection pending"
+     ]
+    },
+    {
+     "operand": "DERIVED-2",
+     "kind": "derived_value_owner",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "private_route_proposal"
+     ],
+     "notes": [
+      "no lexical operand identified for this owner; derived or aggregated value"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-BASELINE-REUSE-UNPROVED",
+     "story": 23,
+     "detail": "1 operand(s) routed to closed baseline story 23; public baseline dispositions record zero accepted canonical reuses",
+     "items": 1
+    },
+    {
+     "code": "GAP-COHORT-FREEZE",
+     "story": 489,
+     "detail": "per-metric observed cohort, ties, cutoff and availability must be frozen for the cross-sectional rank operands; whether a separate cohort-normalization producer is needed is open (decision Q3)",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    23,
+    489,
+    490,
+    507
+   ],
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0357",
+   "profile_class": "PC11",
+   "x4_primary_class": "AMBIGUOUS",
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "confidence": "low",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8",
+    "secondary_story": 519
+   },
+   "operand_count": 12,
+   "operands": [
+    {
+     "operand": "F0179",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0186",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0206",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "EF1_owner_field_to_module_delivery_undetermined"
+     ]
+    },
+    {
+     "operand": "F0208",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0209",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0210",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0211",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": []
+    },
+    {
+     "operand": "F0692",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "packet_B"
+     ]
+    },
+    {
+     "operand": "F0699",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "packet_B"
+     ]
+    },
+    {
+     "operand": "F0700",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      611
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": [
+      "packet_B",
+      "packet_ambiguous",
+      "provisional: supplied identity under 611 per X3-4"
+     ]
+    },
+    {
+     "operand": "F0702",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "evidence": [
+      "public_X3_transitive"
+     ],
+     "notes": [
+      "packet_A",
+      "provisional: value copy of F0193 under 513 per X3-4; upstream profile under 492 unselected"
+     ]
+    },
+    {
+     "operand": "F0721",
+     "kind": "field",
+     "status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      626
+     ],
+     "planned_releases": [
+      "EF3"
+     ],
+     "evidence": [
+      "public_X3"
+     ],
+     "notes": [
+      "owner 626 (computed) per wave 2 decision X3-4; route index shows 611 as the enveloping I/O",
+      "packet_B",
+      "packet_ambiguous",
+      "provisional: computed by 626 per X3-4; packet B ambiguous"
+     ]
+    }
+   ],
+   "gaps": [
+    {
+     "code": "GAP-ADAPTIVE-CONTRACT-ABSENT",
+     "story": 626,
+     "detail": "no EF3 contract, units, warm-up or fixtures for the consumed adaptive outputs; raw operand producers unnamed in the owner",
+     "items": 3
+    },
+    {
+     "code": "GAP-UPSTREAM-PROFILE-UNSELECTED",
+     "story": 492,
+     "detail": "supplied rate operand F0702 depends on an ordered source profile under 492 that is not selected",
+     "items": 1
+    },
+    {
+     "code": "GAP-ENVELOPE-PROVISIONAL",
+     "story": 611,
+     "detail": "resolution of F0721 and F0700 is a provisional working answer (X3-4), not owner reviewed",
+     "items": 1
+    }
+   ],
+   "contract_prerequisites": [
+    "EF1 per-field delivery status not provable from opaque ids (informational)"
+   ],
+   "indicator_family": null,
+   "missing_evidence": null,
+   "numbered_stories_touched": [
+    490,
+    507,
+    513,
+    570,
+    611,
+    626
+   ],
+   "accepted": false
+  }
+ ]
+}
