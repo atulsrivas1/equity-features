@@ -124,8 +124,7 @@ def compute_channels(batches: tuple[CanonicalBatch, ...] | None, context: Intrad
     if (type(features) is not tuple or not 1 <= len(features) <= len(owned)
             or any(type(feature) is not str for feature in features) or len(set(features)) != len(features)):
         fail("nonempty unique selected feature IDs required")
-    known = {entry.feature_id for entry in describe_channels()}
-    if any(feature not in known or feature not in owned for feature in features):
+    if any(feature not in owned for feature in features):
         fail("selected feature is unknown or belongs to another channels producer", ErrorCode.UNKNOWN_FEATURE)
     selected = tuple(sorted(features))
     for feature in selected:
