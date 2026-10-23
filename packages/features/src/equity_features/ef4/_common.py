@@ -99,18 +99,25 @@ def check_limit(value: object) -> int:
 
 
 # ----------------------------------------------------------------------------------------------- batch admission
-def check_roles(batches: object, kinds: tuple[DataKind, ...]) -> list[CanonicalBatch | None]:
-    """The fixed nullable role slots; distinct actual input ids."""
-    if type(batches) not in (tuple, list) or len(batches) != len(kinds):
+def check_roles(batches: object, count: int) -> list[CanonicalBatch | None]:
+    """The fixed nullable role slots (types and distinct actual input ids); slot kinds follow the shared validator."""
+    if type(batches) not in (tuple, list) or len(batches) != count:
         fail(ErrorCode.INVALID_SCHEMA, "the fixed nullable role slots are required")
     slots: list[CanonicalBatch | None] = list(batches)  # type: ignore[arg-type]
-    for batch, kind in zip(slots, kinds):
-        if batch is not None and (type(batch) is not CanonicalBatch or batch.kind != kind):
+    for batch in slots:
+        if batch is not None and type(batch) is not CanonicalBatch:
             fail(ErrorCode.INVALID_SCHEMA, "wrong slot kind")
     present = [b for b in slots if b is not None]
     if len({b.metadata.source.input_id for b in present}) != len(present):
         fail(ErrorCode.DUPLICATE, "distinct actual role input IDs required")
     return slots
+
+
+def check_kinds(slots: list[CanonicalBatch | None], kinds: tuple[DataKind, ...]) -> None:
+    """Tier four: a batch of another kind in a role (after the shared validator, which accepts every kind)."""
+    for batch, kind in zip(slots, kinds):
+        if batch is not None and batch.kind != kind:
+            fail(ErrorCode.INVALID_SCHEMA, "wrong slot kind")
 
 
 def shared_validation(batches: list[CanonicalBatch | None], order: tuple[int, ...], config: ConfigSpec) -> None:

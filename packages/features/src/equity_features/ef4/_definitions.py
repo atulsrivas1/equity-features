@@ -39,7 +39,7 @@ _FORMULAS = {
 
 
 @dataclass(frozen=True)
-class EF4Definition:
+class QuoteVwapDefinition:
     """Own discovery metadata for one selected EF4 output; batch capability only."""
 
     feature_id: str
@@ -60,7 +60,7 @@ def _facts(role: str, rule: str) -> InputRequirement:
     return InputRequirement(role, "canonical:1", _REFERENCE, DataKind.REFERENCE, rule=rule)
 
 
-def ef4_definitions(config: ConfigSpec) -> tuple[EF4Definition, ...]:
+def quote_vwap_definitions(config: ConfigSpec) -> tuple[QuoteVwapDefinition, ...]:
     """Describe the complete executable output set of one configured EF4 producer (lexical order)."""
     if type(config) is not ConfigSpec:
         fail(ErrorCode.INVALID_CONFIG, "concrete ConfigSpec required")
@@ -73,7 +73,7 @@ def ef4_definitions(config: ConfigSpec) -> tuple[EF4Definition, ...]:
                              "nullable full bid/ask states in [S, E) before the market cutoff, with the declared "
                              "interval coverage; batch sampling equals the config sampling"))
         names = [f for f in qd.QUOTE_FEATURES if s.sampling == "continuous" or f not in qd.CONTINUOUS_ONLY]
-        return tuple(EF4Definition(f, qd.FEATURE_META[f][0], qd.FEATURE_META[f][1], requirements, _FORMULAS[f],
+        return tuple(QuoteVwapDefinition(f, qd.FEATURE_META[f][0], qd.FEATURE_META[f][1], requirements, _FORMULAS[f],
                                    qd.QUOTE_ALGORITHM) for f in names)
     if config.identity == vw.VWAP_IDENTITY:
         v = vw.decode_vwap_path_config(config)
@@ -88,12 +88,12 @@ def ef4_definitions(config: ConfigSpec) -> tuple[EF4Definition, ...]:
                                           rule="nullable one BAR row per grid slot with volume and actual notional"))
         if v.series_source == "prepared_window":
             roles.append(_facts("proof", f"exactly one ef4.series.proof fact, text {v.series_policy_id}"))
-        return tuple(EF4Definition(f, vw.FEATURE_META[f][0], vw.FEATURE_META[f][1], tuple(roles), _FORMULAS[f],
+        return tuple(QuoteVwapDefinition(f, vw.FEATURE_META[f][0], vw.FEATURE_META[f][1], tuple(roles), _FORMULAS[f],
                                    vw.VWAP_ALGORITHM) for f in vw.VWAP_FEATURES)
     fail(ErrorCode.UNSUPPORTED_CAPABILITY, "EF4 producer is not implemented")
 
 
-def require_ef4_capability(feature_id: str, capability: str) -> None:
+def require_quote_vwap_capability(feature_id: str, capability: str) -> None:
     """Batch only; update, restore and merge are unsupported."""
     if feature_id not in qd.QUOTE_FEATURES + vw.VWAP_FEATURES:
         fail(ErrorCode.UNKNOWN_FEATURE, "unknown EF4 feature")

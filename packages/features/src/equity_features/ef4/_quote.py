@@ -19,7 +19,7 @@ from equity_feature_contracts import (
 from ..ef3._common import fail
 from ..ef3._robust_common import check_entity, columns_of
 from ._common import (
-    SAMPLINGS, Out, Witness, admit_bounds, assemble, bindings_of, check_closed, check_limit, check_meta, check_roles,
+    SAMPLINGS, Out, Witness, admit_bounds, assemble, bindings_of, check_closed, check_kinds, check_limit, check_meta, check_roles,
     declared_coverage, knowledge_reason, make_config, parameter_values, shared_validation, unavailable,
 )
 
@@ -133,8 +133,9 @@ def compute_quote_dynamics(batches: tuple[CanonicalBatch | None, ...] | list[Can
     """Selected ef4-quote1 outputs; `batches` is the fixed slots `(bounds, quotes)`, quotes nullable."""
     settings, selected = _decode(config, features)
     entity = check_entity(entity, config)
-    slots = check_roles(batches, (DataKind.REFERENCE, DataKind.QUOTE))
+    slots = check_roles(batches, 2)
     shared_validation(slots, (0, 1), config)
+    check_kinds(slots, (DataKind.REFERENCE, DataKind.QUOTE))
     interval = admit_bounds(slots[0], config, entity)
     quotes = slots[1]
     if settings.sampling == "trade_snapshot" and any(f in CONTINUOUS_ONLY for f in selected):

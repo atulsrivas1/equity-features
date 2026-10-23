@@ -1,6 +1,6 @@
 # EF4 anchored VWAP path
 
-Use `build_vwap_path_config`, `decode_vwap_path_config`, `compute_vwap_path` (or the closed `compute_ef4`), `ef4_definitions` and `require_ef4_capability` from `equity_features.ef4`. Config identity is `ef4.vwap_path`, algorithm `ef4-vwap-path-v1`, schema `1`, policy `ef4-vwap1`.
+Use `build_vwap_path_config`, `decode_vwap_path_config`, `compute_vwap_path` (or the closed `compute_quote_vwap`), `quote_vwap_definitions` and `require_quote_vwap_capability` from `equity_features.ef4`. Config identity is `ef4.vwap_path`, algorithm `ef4-vwap-path-v1`, schema `1`, policy `ef4-vwap1`.
 
 ```python
 from equity_features.ef4 import VWAP_POLICY, build_vwap_path_config, compute_vwap_path

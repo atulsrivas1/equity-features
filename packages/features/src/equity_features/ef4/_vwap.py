@@ -20,7 +20,7 @@ from ..ef3._common import fail, label
 from ..ef3._robust_common import check_entity, columns_of
 from ._common import (
     EDGE_KIND, PROOF_KIND, SEC, SOURCES, Interval, Out, Witness, admit_bounds, admit_facts, assemble, bindings_of,
-    check_closed, check_limit, check_meta, check_roles, declared_coverage, knowledge_reason, make_config,
+    check_closed, check_kinds, check_limit, check_meta, check_roles, declared_coverage, knowledge_reason, make_config,
     parameter_values, shared_validation, unavailable,
 )
 
@@ -263,10 +263,10 @@ def compute_vwap_path(batches: tuple[CanonicalBatch | None, ...] | list[Canonica
     nullable."""
     settings, selected = _decode(config, features)
     entity = check_entity(entity, config)
-    slots = check_roles(batches, (DataKind.REFERENCE, DataKind.REFERENCE, DataKind.TRADE, DataKind.BAR,
-                                  DataKind.REFERENCE))
+    slots = check_roles(batches, 5)
     bounds_batch, grid, trades, bars, proof = slots
     shared_validation(slots, (0, 1, 4, 2, 3), config)
+    check_kinds(slots, (DataKind.REFERENCE, DataKind.REFERENCE, DataKind.TRADE, DataKind.BAR, DataKind.REFERENCE))
     interval = admit_bounds(bounds_batch, config, entity)
     source = settings.series_source
     wanted = {"trade": (False, True, False, False), "bar": (True, False, True, False),

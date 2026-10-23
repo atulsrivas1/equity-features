@@ -1,6 +1,6 @@
 # EF4 quote dynamics
 
-Use `build_quote_dynamics_config`, `decode_quote_dynamics_config`, `compute_quote_dynamics` (or the closed `compute_ef4`), `ef4_definitions` and `require_ef4_capability` from `equity_features.ef4`. Config identity is `ef4.quote_dynamics`, algorithm `ef4-quote-dynamics-v1`, schema `1`, policy `ef4-quote1`. It is separate from the accepted `session.quote.sampled_spread`, `session.quote.state_counts` and `session.quote.time_weighted_spread`, which are unchanged; it applies no duration weighting and no seed.
+Use `build_quote_dynamics_config`, `decode_quote_dynamics_config`, `compute_quote_dynamics` (or the closed `compute_quote_vwap`), `quote_vwap_definitions` and `require_quote_vwap_capability` from `equity_features.ef4`. Config identity is `ef4.quote_dynamics`, algorithm `ef4-quote-dynamics-v1`, schema `1`, policy `ef4-quote1`. It is separate from the accepted `session.quote.sampled_spread`, `session.quote.state_counts` and `session.quote.time_weighted_spread`, which are unchanged; it applies no duration weighting and no seed.
 
 ```python
 from equity_features.ef4 import QUOTE_POLICY, build_quote_dynamics_config, compute_quote_dynamics

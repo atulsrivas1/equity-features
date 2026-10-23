@@ -4,11 +4,11 @@
 
 ## Structure
 
-`packages/features/src/equity_features/ef4/`: `_common` (closed reference-fact admission, the interval bounds fact, the declared-coverage reading, knowledge reasons, quality, evidence and result assembly), `_quote` (config, observation classification, the 9 outputs), `_vwap` (config, trade and bar series, the cumulative path and the 7 outputs), `_definitions` (own discovery, `ef4_definitions`) and `_dispatch` (`compute_ef4`, routed by config identity). It reuses the EF3 helpers `fail`, `label` and `_robust_common` (`check_entity`, `check_reference_id`, `columns_of`, `first_status`, `ordered`) by import and adds no edit to any EF3, EF2, EF1 or R17 file. The discovery is its own catalog: `describe_intraday` and `intraday_catalog_digest()` are unchanged (digest `e7dcd5fb...ab02d86` on the base commit and on this branch).
+`packages/features/src/equity_features/ef4/`: `_common` (closed reference-fact admission, the interval bounds fact, the declared-coverage reading, knowledge reasons, quality, evidence and result assembly), `_quote` (config, observation classification, the 9 outputs), `_vwap` (config, trade and bar series, the cumulative path and the 7 outputs), `_definitions` (own discovery, `quote_vwap_definitions`) and `_dispatch` (`compute_quote_vwap`, routed by config identity). It reuses the EF3 helpers `fail`, `label` and `_robust_common` (`check_entity`, `check_reference_id`, `columns_of`, `first_status`, `ordered`) by import and adds no edit to any EF3, EF2, EF1 or R17 file. The discovery is its own catalog: `describe_intraday` and `intraday_catalog_digest()` are unchanged (digest `e7dcd5fb...ab02d86` on the base commit and on this branch).
 
 ## Public surface
 
-For each producer: `build_quote_dynamics_config` / `build_vwap_path_config` (explicit keyword parameters, none defaulted, including `evidence_limit`; the target `SessionSpec`, availability, adjustment and a mandatory `PriceUnit`), `decode_*_config` (closed envelope, byte-identical rebuild) and `compute_quote_dynamics(batches, config, *, entity, features)` / `compute_vwap_path(...)`. The role slots are fixed and nullable except `bounds`: quote `(bounds, quotes)`, VWAP `(bounds, grid, trades, bars, proof)`. `compute_ef4` routes by config identity, `ef4_definitions(config)` describes the executable output set of one config and `require_ef4_capability` refuses update, restore and merge. No entity, instrument, session, role, snapshot, grid or series identifier is fixed anywhere: they are call parameters (`entity`, the batches, `grid_version`, `series_policy_id`).
+For each producer: `build_quote_dynamics_config` / `build_vwap_path_config` (explicit keyword parameters, none defaulted, including `evidence_limit`; the target `SessionSpec`, availability, adjustment and a mandatory `PriceUnit`), `decode_*_config` (closed envelope, byte-identical rebuild) and `compute_quote_dynamics(batches, config, *, entity, features)` / `compute_vwap_path(...)`. The role slots are fixed and nullable except `bounds`: quote `(bounds, quotes)`, VWAP `(bounds, grid, trades, bars, proof)`. `compute_quote_vwap` routes by config identity, `quote_vwap_definitions(config)` describes the executable output set of one config and `require_quote_vwap_capability` refuses update, restore and merge. No entity, instrument, session, role, snapshot, grid or series identifier is fixed anywhere: they are call parameters (`entity`, the batches, `grid_version`, `series_policy_id`).
 
 ## Mathematics and numeric policy
 
@@ -40,10 +40,11 @@ Author-observed on one machine, not a performance claim: 4096 trades with all se
 
 See the [quote dynamics](../api/EF4_QUOTE_DYNAMICS.md) and [VWAP path](../api/EF4_VWAP_PATH.md) APIs. No acquisition, source rights, installed, cross-layer, performance or release claim follows from this source result.
 
-## Review notes (contract nits, for the EF4 shared amendment)
+## Rulings to pin in the EF4 shared amendment
 
-1. The coverage declaration form (an `IntervalCoverage` entry for `[S, E)`, per-slot entries for bars, and the aggregate fallback) needs pinning in the amendment and in the EF4 I/O task.
-2. The evidence cap is result-wide and builders have no `evidence_limit` default; limited fixtures were reproduced one output at a time.
-3. The extra refusals in note 4 are implementation additions, not contract text.
-4. RULING NEEDED: undeclared coverage with delivered rows (read as complete) and the unpinned absences of note 3.
-5. The cost figures and the absence of a mypy run were author-observed only; the reviewer has not reproduced them.
+1. **Coverage form.** The declaration is an `IntervalCoverage` entry equal to `[S, E)` on the quote or trade batch, with the aggregate `Coverage` as fallback (complete, incomplete with a known `expected`, or undeclared when `expected` is null), and per-slot entries equal to a grid slot for bars.
+2. **Undeclared coverage with delivered rows is read as complete.** This fails open: the I/O mapper must always declare coverage.
+3. **A missing grid or bars batch** (bar and prepared sources) is `absent_input` with expected 0 and observed 0.
+4. **The evidence cap is result-wide** (contract nit): the shared `FeatureResult` bounds the total rows by `evidence_limit`; builders have no `evidence_limit` default.
+5. **Refusal order.** The wrong-slot-kind check runs after the shared validator (tier four); only a non-batch object in a slot is refused first.
+6. The extra refusals in note 4 are implementation additions, not contract text. The cost figures and the absent mypy run were author-observed only.
