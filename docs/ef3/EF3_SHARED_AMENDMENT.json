@@ -1,0 +1,640 @@
+{
+  "version": "ef3-shared-amendment1",
+  "status": "proposed_additive_amendment_awaiting_review_and_owner_decision_nothing_accepted",
+  "base_main": "ee92759",
+  "frozen_contract": "docs/ef1/CONTRACT.json (ef1-contract1), docs/ef1/PRODUCER_SET_AMENDMENT.*, docs/ef2/PRODUCER_SET_AMENDMENT.* and the three EF3 contracts are not edited",
+  "merged_prs": {
+    "core": [
+      692,
+      694,
+      695
+    ],
+    "io": [
+      36,
+      37,
+      38
+    ],
+    "workers": [
+      80,
+      81
+    ]
+  },
+  "producers": [
+    {
+      "contract": "docs/ef3/RELATIVE_RV_CONTRACT_PROPOSAL",
+      "producer": "relative_stats",
+      "config_identity": "ef3.relative_stats",
+      "algorithm_version": "ef3-relative-stats-v1",
+      "schema_version": "1",
+      "policy_label": "ef3-rel1",
+      "headers": 3
+    },
+    {
+      "contract": "docs/ef3/RELATIVE_RV_CONTRACT_PROPOSAL",
+      "producer": "daily_log_volatility",
+      "config_identity": "ef3.daily_log_volatility",
+      "algorithm_version": "ef3-daily-log-vol-v1",
+      "schema_version": "1",
+      "policy_label": "ef3-dlv1",
+      "headers": 1
+    },
+    {
+      "contract": "docs/ef3/RELATIVE_RV_CONTRACT_PROPOSAL",
+      "producer": "intraday_realized_variance",
+      "config_identity": "ef3.intraday_realized_variance",
+      "algorithm_version": "ef3-realized-variance-v1",
+      "schema_version": "1",
+      "policy_label": "ef3-rv1",
+      "headers": 2
+    },
+    {
+      "contract": "docs/ef3/ROBUST_PACE_CONTRACT_PROPOSAL",
+      "producer": "robust_history",
+      "config_identity": "ef3.robust_history",
+      "algorithm_version": "ef3-robust-history-v1",
+      "schema_version": "1",
+      "policy_label": "ef3-robust1",
+      "headers": 6
+    },
+    {
+      "contract": "docs/ef3/ROBUST_PACE_CONTRACT_PROPOSAL",
+      "producer": "volume_pace_robust",
+      "config_identity": "ef3.volume_pace_robust",
+      "algorithm_version": "ef3-volume-pace-robust-v1",
+      "schema_version": "1",
+      "policy_label": "ef3-pace1",
+      "headers": 4
+    },
+    {
+      "contract": "docs/ef3/ROBUST_PACE_CONTRACT_PROPOSAL",
+      "producer": "volume_ratio_mean",
+      "config_identity": "ef3.volume_ratio_mean",
+      "algorithm_version": "ef3-volume-ratio-mean-v1",
+      "schema_version": "1",
+      "policy_label": "ef3-mean1",
+      "headers": 3
+    },
+    {
+      "contract": "docs/ef3/BREADTH_ADAPTIVE_CONTRACT_PROPOSAL",
+      "producer": "session_breadth",
+      "config_identity": "ef3.session_breadth",
+      "algorithm_version": "ef3-session-breadth-v1",
+      "schema_version": "1",
+      "policy_label": "ef3-breadth1",
+      "headers": 16
+    },
+    {
+      "contract": "docs/ef3/BREADTH_ADAPTIVE_CONTRACT_PROPOSAL",
+      "producer": "observed_breadth",
+      "config_identity": "ef3.observed_breadth",
+      "algorithm_version": "ef3-observed-breadth-v1",
+      "schema_version": "1",
+      "policy_label": "ef3-obsbreadth1",
+      "headers": 7
+    },
+    {
+      "contract": "docs/ef3/BREADTH_ADAPTIVE_CONTRACT_PROPOSAL",
+      "producer": "adaptive_volume",
+      "config_identity": "ef3.adaptive_volume",
+      "algorithm_version": "ef3-adaptive-volume-v1",
+      "schema_version": "1",
+      "policy_label": "ef3-adaptive1",
+      "headers": 10
+    }
+  ],
+  "header_counts": {
+    "ef3_added_total": 52,
+    "by_contract": {
+      "relative_rv_d": 6,
+      "robust_pace_e": 13,
+      "breadth_adaptive_f": 33
+    },
+    "by_dtype_unit": {
+      "bool|boolean": 1,
+      "float64|1/s": 1,
+      "float64|fraction": 18,
+      "float64|operand-defined": 3,
+      "float64|ratio": 3,
+      "float64|shares": 4,
+      "float64|shares/s": 1,
+      "int64|members": 12,
+      "int64|observations": 3,
+      "int64|shares": 2,
+      "int64|utc_ns": 4
+    },
+    "frozen_contract_json_headers": 45,
+    "ef1_amendment_headers": 11,
+    "ef2_amendment_headers": 39,
+    "regenerated_if_ef3_alone_on_frozen": 97,
+    "regenerated_with_ef1_and_ef3": 108,
+    "regenerated_with_ef1_ef2_ef3": 147,
+    "id_collisions_with_frozen_ef1_ef2_ids": 0
+  },
+  "frozen_units": [
+    "boolean",
+    "classification",
+    "currency",
+    "currency/share",
+    "fraction",
+    "ns",
+    "reason",
+    "sessions",
+    "shares",
+    "state"
+  ],
+  "unit_additions_relative_to_frozen_CONTRACT_json": [
+    {
+      "unit": "utc_ns",
+      "dtype": "int64",
+      "headers": 4,
+      "note": "already proposed by the EF1 amendment"
+    },
+    {
+      "unit": "members",
+      "dtype": "int64",
+      "headers": 12
+    },
+    {
+      "unit": "observations",
+      "dtype": "int64",
+      "headers": 3
+    },
+    {
+      "unit": "ratio",
+      "dtype": "float64",
+      "headers": 3
+    },
+    {
+      "unit": "shares/s",
+      "dtype": "float64",
+      "headers": 1
+    },
+    {
+      "unit": "1/s",
+      "dtype": "float64",
+      "headers": 1
+    },
+    {
+      "unit": "operand-defined",
+      "dtype": "float64",
+      "headers": 3,
+      "note": "ledger string only; columns carry the resolved operand unit (shares or currency/share)"
+    }
+  ],
+  "new_dtype_unit_pairs_only": [
+    {
+      "dtype": "float64",
+      "unit": "shares",
+      "headers": 4,
+      "note": "frozen with int64 only; EF2 amendment already proposed it for intraday.ad_line"
+    }
+  ],
+  "units_already_frozen_and_reused": [
+    {
+      "unit": "fraction",
+      "dtype": "float64",
+      "headers": 18
+    },
+    {
+      "unit": "boolean",
+      "dtype": "bool",
+      "headers": 1
+    },
+    {
+      "unit": "shares",
+      "dtype": "int64",
+      "headers": 2
+    }
+  ],
+  "header_ledger_additions": [
+    {
+      "id": "adaptive.volume.acceleration_scored_count",
+      "dtype": "int64",
+      "unit": "observations",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "adaptive.volume.baseline_available",
+      "dtype": "bool",
+      "unit": "boolean",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "adaptive.volume.baseline_rate",
+      "dtype": "float64",
+      "unit": "shares/s",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "adaptive.volume.latest_event_ns",
+      "dtype": "int64",
+      "unit": "utc_ns",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "adaptive.volume.observation_count",
+      "dtype": "int64",
+      "unit": "observations",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "adaptive.volume.peak_relative_acceleration",
+      "dtype": "float64",
+      "unit": "1/s",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "adaptive.volume.peak_relative_acceleration_event_ns",
+      "dtype": "int64",
+      "unit": "utc_ns",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "adaptive.volume.peak_relative_rate",
+      "dtype": "float64",
+      "unit": "ratio",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "adaptive.volume.peak_relative_rate_event_ns",
+      "dtype": "int64",
+      "unit": "utc_ns",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "adaptive.volume.scored_count",
+      "dtype": "int64",
+      "unit": "observations",
+      "scale": "not stated in contract",
+      "producer": "adaptive_volume",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.observed.advance_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "not stated in contract",
+      "producer": "observed_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.observed.advancing_member_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "observed_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.observed.nonadvancing_member_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "observed_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.observed.observed_member_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "observed_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.observed.qualifying_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "not stated in contract",
+      "producer": "observed_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.observed.qualifying_member_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "observed_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.observed.unknown_member_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "observed_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.above_vwap_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.advance_decline_ratio",
+      "dtype": "float64",
+      "unit": "ratio",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.advancing_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.declining_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.direction_net_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.down_volume",
+      "dtype": "int64",
+      "unit": "shares",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.latest_observed_member_event_ns",
+      "dtype": "int64",
+      "unit": "utc_ns",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.near_high_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.near_low_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.positive_momentum_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.prior_reference_coverage_fraction",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.prior_reference_eligible_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.selected_member_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.unchanged_count",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.up_down_volume_ratio",
+      "dtype": "float64",
+      "unit": "ratio",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "breadth.session.up_volume",
+      "dtype": "int64",
+      "unit": "shares",
+      "scale": "not stated in contract",
+      "producer": "session_breadth",
+      "contract": "BREADTH_ADAPTIVE"
+    },
+    {
+      "id": "cohort.percentile_rank",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "robust_history",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "cohort.rank",
+      "dtype": "int64",
+      "unit": "members",
+      "scale": "none",
+      "producer": "robust_history",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "history.log_return_volatility",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "daily_log_volatility",
+      "contract": "RELATIVE_RV"
+    },
+    {
+      "id": "intraday.realized_variance",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none (dimensionless squared log return; unit string OPEN OQ2)",
+      "producer": "intraday_realized_variance",
+      "contract": "RELATIVE_RV"
+    },
+    {
+      "id": "intraday.realized_volatility",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "intraday_realized_variance",
+      "contract": "RELATIVE_RV"
+    },
+    {
+      "id": "mean.baseline",
+      "dtype": "float64",
+      "unit": "shares",
+      "scale": "none",
+      "producer": "volume_ratio_mean",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "mean.numerator",
+      "dtype": "float64",
+      "unit": "shares",
+      "scale": "none",
+      "producer": "volume_ratio_mean",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "mean.ratio",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "volume_ratio_mean",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "pace.baseline_mad",
+      "dtype": "float64",
+      "unit": "shares",
+      "scale": "none",
+      "producer": "volume_pace_robust",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "pace.baseline_median",
+      "dtype": "float64",
+      "unit": "shares",
+      "scale": "none",
+      "producer": "volume_pace_robust",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "pace.ratio",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "volume_pace_robust",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "pace.robust_z",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "volume_pace_robust",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "relative.beta",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none (dimensionless regression coefficient; unit string OPEN OQ2)",
+      "producer": "relative_stats",
+      "contract": "RELATIVE_RV"
+    },
+    {
+      "id": "relative.correlation",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none; range -1..1",
+      "producer": "relative_stats",
+      "contract": "RELATIVE_RV"
+    },
+    {
+      "id": "relative.residual_return",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "relative_stats",
+      "contract": "RELATIVE_RV"
+    },
+    {
+      "id": "robust.mad",
+      "dtype": "float64",
+      "unit": "operand-defined",
+      "scale": "none",
+      "producer": "robust_history",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "robust.median",
+      "dtype": "float64",
+      "unit": "operand-defined",
+      "scale": "none",
+      "producer": "robust_history",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "robust.percentile_rank",
+      "dtype": "float64",
+      "unit": "fraction",
+      "scale": "none",
+      "producer": "robust_history",
+      "contract": "ROBUST_PACE"
+    },
+    {
+      "id": "robust.quantile",
+      "dtype": "float64",
+      "unit": "operand-defined",
+      "scale": "none",
+      "producer": "robust_history",
+      "contract": "ROBUST_PACE"
+    }
+  ],
+  "rulings_decided_pending_owner_review": {
+    "R1": "reconstruction-mode omission of excluded unknown_availability/future_knowledge evidence rows for ef3.relative_stats kept as documented exception; shared FeatureResult validator not amended now",
+    "R2": "evidence_limit is result-wide; fixtures list per-output witnesses; single-output runs reproduce them",
+    "R3": "excluded/ineligible witnesses use boundary ordinary; INELIGIBLE reason reused for declared exclusions",
+    "R4": "proposed for a future contract amendment: observed roster rows of another group never block a group-scoped result; unselected roles not validated; declared snapshot check excludes the population batch. Merged code differs: known divergence for release gates",
+    "R5": "known_at of bounds/population/edge facts carried, not gated; proposed: gate on the knowledge cutoff in a future amendment",
+    "R6": "absent-role behavior and builders evidence_limit=0 default are implementation choices, ruled (decided, pending owner review)",
+    "R7": "RB28 non-positive factor_den clause unreachable behind RB10 (UNSUPPORTED_ADJUSTMENT): contract nit; merged behavior ruled (decided, pending owner review)",
+    "R8": "P18 not buildable literally; alternate construction ruled (decided, pending owner review)",
+    "manifest_result":"16 manifest lines matching EF3 names are exactly the 16 session_breadth headers (name and unit match, planned_delivery EF3); other 36 headers have no exact manifest entry; two EF3 manifest entries have no header: relative.session.primary.beta_residual_fraction, relative.session.secondary.beta_residual_fraction (EQ-153); manifest not edited",
+    "not_reverified_by_reviewer":"R3, R7 and worker-layer claims of R9 (R9 rests on D and F worker docs; E worker not yet merged)",
+    "R9": "refusal codes collapse to INVALID_COMMAND at the worker layer as in EF2 (breadth/adaptive worker also maps INCONSISTENT_IDENTITY to RESULT_IDENTITY_MISMATCH and OVERFLOW to CALCULATION_FAILED)"
+  }
+}
