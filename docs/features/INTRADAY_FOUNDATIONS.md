@@ -72,3 +72,7 @@ MACD, DMI/ADX, stochastic oscillators and Williams %R are specified by the froze
 ## EF2 Ichimoku and price channels
 
 Aligned Ichimoku, Keltner and Donchian channels, selected pivot levels, the price-band width percentile and the Bollinger/Keltner squeeze primitives are specified by the frozen [EF2 contract](../ef2/ICHIMOKU_CHANNELS_CONTRACT_PROPOSAL.md) over this same governed grid and reset epoch and are implemented as the separate `ef2.*` channel producers; R17 mathematics, quality and evidence are unchanged.
+
+## EF3 realized variance
+
+The uncentered sum of squared log returns over the reset epoch (and its annualized square root) is specified by the frozen [EF3 contract](../ef3/RELATIVE_RV_CONTRACT_PROPOSAL.md) over this same governed grid and reset epoch and is implemented as the separate `ef3.intraday_realized_variance` producer; R17 mathematics, quality and evidence are unchanged.

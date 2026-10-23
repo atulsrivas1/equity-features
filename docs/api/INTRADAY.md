@@ -151,3 +151,7 @@ EQ137's internal preparation includes exact rolling price count/sum/mean/populat
 ## EF2 Ichimoku and price channels (separate producers)
 
 The 25 `trend.ichimoku.*` and `channel.*` headers are the own outputs of the six separate `ef2.*` channel producers (config `build_channels_config`, dispatch `compute_channels`, own `describe_channels` catalog) over the same R17 context, BAR admission and governed grid; one config computes one producer's complete header set. The eight R17 IDs, `describe_intraday`, `compute_intraday` and the catalog digest above are unchanged. See [the EF2 channels API](EF2_CHANNELS.md).
+
+## EF3 realized variance (separate producer)
+
+`intraday.realized_variance` and `intraday.realized_volatility` are the own outputs of the separate `ef3.intraday_realized_variance` producer (config `build_realized_variance_config`, dispatch `compute_realized_variance`, own `describe_realized_variance` catalog) over the same R17 context, BAR admission and governed grid in reset mode; the variance is unannualized and the volatility takes a caller annualization factor. The eight R17 IDs, `describe_intraday`, `compute_intraday` and the catalog digest above are unchanged. See [the EF3 realized-variance API](EF3_REALIZED_VARIANCE.md).
