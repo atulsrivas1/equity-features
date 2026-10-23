@@ -15113,7 +15113,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0107",
@@ -15185,7 +15190,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0110",
@@ -15209,7 +15219,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0111",
@@ -15233,7 +15248,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0112",
@@ -15395,7 +15415,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0116",
@@ -15431,7 +15456,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0117",
@@ -15461,7 +15491,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0118",
@@ -15497,7 +15532,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0119",
@@ -15533,7 +15573,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0120",
@@ -15563,7 +15608,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0121",
@@ -15587,7 +15637,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0122",
@@ -15611,7 +15666,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0123",
@@ -15635,7 +15695,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0124",
@@ -15659,7 +15724,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0125",
@@ -16019,7 +16089,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0139",
@@ -16049,7 +16124,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0140",
@@ -16079,7 +16159,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0141",
@@ -16109,7 +16194,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0142",
@@ -16877,7 +16967,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0159",
@@ -16913,7 +17008,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0160",
@@ -16949,7 +17049,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0161",
@@ -16985,7 +17090,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0162",
@@ -17081,7 +17191,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0165",
@@ -17117,7 +17232,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0166",
@@ -17153,7 +17273,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0167",
@@ -17189,7 +17314,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0168",
@@ -17225,7 +17355,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0169",
@@ -17261,7 +17396,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0170",
@@ -17297,7 +17437,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0171",
@@ -17333,7 +17478,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0172",
@@ -17369,7 +17519,17 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": true,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "STILL_AMBIGUOUS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review",
+        "dormant_declaration": {
+          "recorded_as": "dormant declaration, no selected emitter; not a consumer",
+          "decision": "D6",
+          "pending": "owner view on retiring the declaration"
+        }
+      }
     },
     {
       "opaque_id": "S0173",
@@ -17405,7 +17565,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0174",
@@ -17441,7 +17606,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0175",
@@ -17477,7 +17647,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0176",
@@ -17513,7 +17688,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0177",
@@ -17549,7 +17729,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0178",
@@ -17645,7 +17830,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0181",
@@ -17681,7 +17871,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0182",
@@ -17717,7 +17912,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0183",
@@ -17753,7 +17953,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0184",
@@ -17789,7 +17994,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0185",
@@ -17825,7 +18035,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0186",
@@ -17861,7 +18076,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0187",
@@ -17897,7 +18117,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0188",
@@ -17933,7 +18158,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0189",
@@ -17969,7 +18199,17 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": true,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "STILL_AMBIGUOUS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review",
+        "dormant_declaration": {
+          "recorded_as": "dormant declaration, no selected emitter; not a consumer",
+          "decision": "D6",
+          "pending": "owner view on retiring the declaration"
+        }
+      }
     },
     {
       "opaque_id": "S0190",
@@ -18005,7 +18245,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0191",
@@ -18041,7 +18286,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0192",
@@ -18077,7 +18327,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0193",
@@ -18113,7 +18368,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0194",
@@ -18137,7 +18397,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0195",
@@ -18161,7 +18426,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0196",
@@ -18242,7 +18512,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0197",
@@ -18307,7 +18582,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_1.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0198",
@@ -18362,7 +18642,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0199",
@@ -18386,7 +18671,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0200",
@@ -18410,7 +18700,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0201",
@@ -18483,7 +18778,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0202",
@@ -18632,7 +18932,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0206",
@@ -18709,7 +19014,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0207",
@@ -18733,7 +19043,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0208",
@@ -18824,7 +19139,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0209",
@@ -18915,7 +19235,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0210",
@@ -18945,7 +19270,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0211",
@@ -18975,7 +19305,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0212",
@@ -19005,7 +19340,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0213",
@@ -19035,7 +19375,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0214",
@@ -19065,7 +19410,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0215",
@@ -19095,7 +19445,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0216",
@@ -19125,7 +19480,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0217",
@@ -19155,7 +19515,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0218",
@@ -19216,7 +19581,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0219",
@@ -20212,7 +20582,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0257",
@@ -20236,7 +20611,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0258",
@@ -20284,7 +20664,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0260",
@@ -20308,7 +20693,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0261",
@@ -20356,7 +20746,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0263",
@@ -20380,7 +20775,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0264",
@@ -20500,7 +20900,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0269",
@@ -20524,7 +20929,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0270",
@@ -20548,7 +20958,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0271",
@@ -20572,7 +20987,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0272",
@@ -20596,7 +21016,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0273",
@@ -20620,7 +21045,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0274",
@@ -20644,7 +21074,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0275",
@@ -20668,7 +21103,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0276",
@@ -21685,7 +22125,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0312",
@@ -21709,7 +22154,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0313",
@@ -21733,7 +22183,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0314",
@@ -21757,7 +22212,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0315",
@@ -21781,7 +22241,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0316",
@@ -21805,7 +22270,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0317",
@@ -21829,7 +22299,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0318",
@@ -21853,7 +22328,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0319",
@@ -22125,7 +22605,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "STILL_AMBIGUOUS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0330",
@@ -22149,7 +22634,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "STILL_AMBIGUOUS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0331",
@@ -22173,7 +22663,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "STILL_AMBIGUOUS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0332",
@@ -22197,7 +22692,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "STILL_AMBIGUOUS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0333",
@@ -22251,7 +22751,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0335",
@@ -22275,7 +22780,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0336",
@@ -22325,7 +22835,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0337",
@@ -22375,7 +22890,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0338",
@@ -22405,7 +22925,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0339",
@@ -22435,7 +22960,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0340",
@@ -22861,7 +23391,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0354",
@@ -22891,7 +23426,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "S0355",
@@ -23007,7 +23547,12 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_GAPS",
+        "source_doc": "EQ164_WAVE3_SCANNERS_2.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0001",
@@ -23440,7 +23985,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0002",
@@ -23873,7 +24425,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0003",
@@ -24306,7 +24865,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0004",
@@ -24739,7 +25305,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0005",
@@ -25172,7 +25745,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0006",
@@ -25605,7 +26185,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0007",
@@ -26038,7 +26625,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0008",
@@ -26471,7 +27065,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0009",
@@ -26904,7 +27505,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0010",
@@ -27337,7 +27945,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0011",
@@ -27770,7 +28385,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0012",
@@ -28203,7 +28825,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0013",
@@ -28636,7 +29265,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0014",
@@ -29069,7 +29705,24 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_OWN_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review",
+        "watchlist_membership_dependencies": [
+          "W0001",
+          "W0004",
+          "W0007",
+          "W0012",
+          "W0018",
+          "W0022",
+          "W0024"
+        ],
+        "membership_edges_decision": "W3A-3"
+      }
     },
     {
       "opaque_id": "W0015",
@@ -29502,7 +30155,23 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_WITH_OWN_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review",
+        "watchlist_membership_dependencies": [
+          "W0008",
+          "W0009",
+          "W0013",
+          "W0017",
+          "W0023",
+          "W0025"
+        ],
+        "membership_edges_decision": "W3A-3"
+      }
     },
     {
       "opaque_id": "W0016",
@@ -29935,7 +30604,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0017",
@@ -30368,7 +31044,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0018",
@@ -30801,7 +31484,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0019",
@@ -31234,7 +31924,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0020",
@@ -31667,7 +32364,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0021",
@@ -32100,7 +32804,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0022",
@@ -32533,7 +33244,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0023",
@@ -32966,7 +33684,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0024",
@@ -33399,7 +34124,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "W0025",
@@ -33832,7 +34564,14 @@
       "lexical_bridges_are_minimal_runtime_DAG": false,
       "dormant_declaration_retained": false,
       "planned_route_review_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave3_adjudication": {
+        "resolution_class": "RESOLVED_COMMON_OPERANDS",
+        "common_operand_set_id": "common33",
+        "decision": "W3A-1",
+        "source_doc": "EQ164_WAVE3_WATCHLISTS.json",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0001",
