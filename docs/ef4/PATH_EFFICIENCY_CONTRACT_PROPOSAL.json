@@ -1,0 +1,6132 @@
+{
+ "proposal_version": "ef4-path-efficiency-proposal1",
+ "status": "coordinator rulings recorded, pending owner review; frozen on merge; not an implementation or acceptance claim",
+ "stories": "EQ-161 #495 (path efficiency and choppiness measures); consumed by EF4 I/O #613, worker #614 and verified by release acceptance EQ-163 #497; sibling contract PATH_PROJECTIONS_CONTRACT_PROPOSAL (EQ-172 #513) is separate",
+ "evidence_kind": "documentation and hand-derived expected values: each headline value is written by hand in the fixture definition and asserted equal to a plain exact-Fraction reference (and, only where ln is irrational, a 90-digit stdlib Decimal) computed by a scratch script that imports nothing from the equity packages; a second independent stdlib harness recomputes every fixture and every refusal from the JSON inputs alone; nothing was executed against the library",
+ "frozen_contract_ref": "docs/ef1/CONTRACT.json ef1-contract1, the accepted R17 intraday foundations (docs/features/INTRADAY_FOUNDATIONS.md), docs/features/HISTORICAL_FORMULAS.md, docs/features/CONTEXT_FORMULAS.md and the merged EF2 and EF3 contracts are read-only and unchanged; this packet is additive",
+ "producers": {
+  "path_efficiency": {
+   "config_identity": "ef4.path_efficiency",
+   "algorithm_version": "ef4-path-efficiency-v1",
+   "schema_version": "1",
+   "policy_version": "ef4-path1",
+   "ticket": "EQ-161 #495 (prerequisites EQ-137 #471, EQ-138 #472)",
+   "parameters": [
+    "policy_version",
+    "window N (2..4096 returns from N+1 closes)",
+    "epoch_profile (session_reset|governed_history)",
+    "evidence_limit (0..10000)"
+   ],
+   "roles": [
+    "bars"
+   ],
+   "policy": {
+    "window": "the N+1 governed slots t-N..t ending at the target bar inclusive; strict, no shrinking, no bridging; N caller-set, no default",
+    "epoch": "session_reset: the epoch is the target session, the first governed bar supplies only a base close and no return crosses the session boundary; governed_history: the epoch is the supplied governed daily grid; carry across sessions is not supported",
+    "return_basis": "price domain: absolute close-to-close change in currency/share; log domain: natural log of the exact close coefficient ratio",
+    "range_basis": "max(high of bars t-N+1..t, close t-N) - min(low of bars t-N+1..t, close t-N): the window range includes the base close",
+    "atr_basis": "true range TR_i = max(H_i-L_i, |H_i-C_(i-1)|, |L_i-C_(i-1)|) summed over the N bars (a plain sum, not a Wilder recurrence, not history.atr or intraday.atr)",
+    "choppiness": "ln(sum TR / window range) / ln(N), a fraction in [0,1]; the Dreiss index is 100 times this value (presentation only)",
+    "zero_denominator": "exact integer zero test, no epsilon; path length 0 gives ER and log ER, window range 0 gives choppiness zero_denominator",
+    "no_policy": "no default window, no thresholds, no trend or range classification"
+   }
+  }
+ },
+ "headers": [
+  {
+   "id": "path.choppiness_fraction",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "path_efficiency",
+   "operand_family": "range_and_true_range",
+   "available_when": "closes t-N..t and high/low t-N+1..t READY and window range > 0"
+  },
+  {
+   "id": "path.efficiency_ratio",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "path_efficiency",
+   "operand_family": "closes",
+   "available_when": "closes t-N..t READY and path length > 0"
+  },
+  {
+   "id": "path.log_efficiency_ratio",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "path_efficiency",
+   "operand_family": "closes_log",
+   "available_when": "closes t-N..t READY and path length > 0 (all prices positive by the shared validator)"
+  },
+  {
+   "id": "path.net_displacement",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "path_efficiency",
+   "operand_family": "closes",
+   "available_when": "closes t-N..t READY"
+  },
+  {
+   "id": "path.path_length",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "path_efficiency",
+   "operand_family": "closes",
+   "available_when": "closes t-N..t READY"
+  },
+  {
+   "id": "path.true_range_sum",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "path_efficiency",
+   "operand_family": "range_and_true_range",
+   "available_when": "closes t-N..t and high/low t-N+1..t READY"
+  },
+  {
+   "id": "path.window_range",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "path_efficiency",
+   "operand_family": "range_and_true_range",
+   "available_when": "closes t-N..t and high/low t-N+1..t READY"
+  }
+ ],
+ "header_order": "lexicographic by feature id within the producer; each output has its own required operands, expected and observed counts and independent readiness",
+ "roles": {
+  "path_efficiency": [
+   {
+    "role": "bars",
+    "kind": "bar",
+    "nullable": true,
+    "contract": "R17 chunked BAR delivery on the governed grid of the epoch (intraday bars of the target session for session_reset, daily bars for governed_history); one instrument; positive-volume bars carry positive coherent OHLC, zero-volume proven-empty bars carry null OHLC; a close-only BAR delivery (required_fields close) is legal and keeps the close-derived outputs available; completed bars only (end <= market cutoff)"
+   }
+  ]
+ },
+ "reference_fact_schemas": {
+  "note": "none: the producer reads only the bars role and the R17 context (slots, coverage, grid and calendar identity, target slot, knowledge cutoff K, epoch mode and anchor). No new reference fact kind."
+ },
+ "mathematics": {
+  "value_basis": "Prices are positive int64 coefficients at ConfigSpec.price_unit.scale (0..18), one currency and one adjustment basis. Every sum, difference, maximum and ratio is computed on exact integers or rationals; coefficients are divided by 10^scale once, at publication of a currency/share output. Sums of up to 4096 terms below 2^63 are exact wide integers, so no OVERFLOW path exists for sums (PE24 exceeds int64 internally); a single coefficient above int64 is refused.",
+  "notation": "target slot t, window N, base slot b = t-N, closes C_i, highs H_i, lows L_i, i = b..t; all N+1 slots must be READY for a close output, bars b+1..t must also deliver high and low for a range output",
+  "net_displacement": "ND = C_t - C_b (signed, currency/share)",
+  "path_length": "PL = sum over i=b+1..t of |C_i - C_(i-1)| (currency/share, >= |ND|)",
+  "efficiency_ratio": "ER = |ND| / PL in [0,1], exact rational; PL = 0 is zero_denominator (ND = 0 then too)",
+  "log_efficiency_ratio": "LER = |ln(C_t/C_b)| / sum over i of |ln(C_i/C_(i-1))| in [0,1]; each ratio is formed from the exact coefficient ratio so the price scale cancels; equal closes C_t = C_b give exactly +0.0; PL = 0 is zero_denominator; same-direction steps give exactly 1 mathematically",
+  "true_range_sum": "TRS = sum over i=b+1..t of max(H_i-L_i, |H_i-C_(i-1)|, |L_i-C_(i-1)|) (currency/share)",
+  "window_range": "WR = max(max_(i=b+1..t) H_i, C_b) - min(min_(i=b+1..t) L_i, C_b) (currency/share)",
+  "choppiness": "CF = ln(TRS/WR) / ln(N); WR = 0 is zero_denominator; N >= 2 so ln N > 0",
+  "bounds": "Every TR_i lies inside the interval [min(L_i,C_(i-1)), max(H_i,C_(i-1))]; consecutive intervals share the point C_i, so their union is the window range interval and WR <= TRS; each TR_i <= WR because both its endpoints lie in the extended range. Hence 1 <= TRS/WR <= N and 0 <= CF <= 1 for every valid input; no clamp is applied or needed (an out-of-range value would be a defect)",
+  "log_domain": "All prices are positive (shared BAR validator, INVALID_SCHEMA otherwise), so every close ratio is a positive rational and every logarithm is defined. TRS/WR >= 1 by the bound above, so ln(TRS/WR) >= 0; N >= 2 so the divisor is positive. There is therefore no invalid-log status: an invalid-log input is a refused input (zero, negative, non-integer or incoherent price), never a null with a reason",
+  "publication": "price outputs: exact rational divided by 10^scale, one correctly rounded float64; ER: exact rational then one rounding; LER and CF: logarithms evaluated to at least 120 decimal digits from the exact integer ratios, one float64 rounding, tolerance acceptance; exact zeros (equal closes, TRS/WR = 1) are +0.0",
+  "accuracy": "a one-tick step on a 1e14 coefficient makes a log ratio 1e-14 from 1 (PE27); log evaluation must be log1p-grade, never ln of a rounded float ratio"
+ },
+ "quality": {
+  "precedence": [
+   "absent_input",
+   "unknown_availability",
+   "future_knowledge",
+   "null_field",
+   "ineligible",
+   "governed_gap",
+   "future_market",
+   "partial_universe",
+   "insufficient_history",
+   "no_eligible_observations",
+   "empty_universe",
+   "zero_denominator"
+  ],
+  "status_of_reason": {
+   "absent_input": "missing_input",
+   "unknown_availability": "missing_input",
+   "future_knowledge": "missing_input",
+   "null_field": "missing_input",
+   "ineligible": "missing_input",
+   "governed_gap": "incomplete_coverage",
+   "future_market": "incomplete_coverage",
+   "partial_universe": "incomplete_coverage",
+   "insufficient_history": "insufficient_history",
+   "no_eligible_observations": "not_applicable",
+   "empty_universe": "not_applicable",
+   "zero_denominator": "not_applicable"
+  },
+  "rule": "all applicable reasons retained in lexical order; status follows the first applicable reason in precedence; a value is null exactly when the status is not available; available implies observed == expected",
+  "slot_causes": {
+   "no row and no coverage": "absent_input",
+   "known_at null": "unknown_availability",
+   "known_at > K": "future_knowledge",
+   "row present with null volume (null OHLC) or null close in a close-only delivery": "null_field",
+   "declared incomplete coverage": "governed_gap",
+   "coverage-proven empty slot (zero volume, null OHLC)": "no_eligible_observations",
+   "required column not delivered (high or low in a close-only delivery)": "absent_input"
+  },
+  "counts": {
+   "all_outputs": "expected = N + 1 slots; observed = READY slots among max(a, t-N)..t for the output's own fields; the reasons are the causes of the lost slots only; insufficient_history is added only when t - N < a (the epoch holds fewer than N+1 slots); an available row has observed = expected"
+  },
+  "unreachable_reasons": [
+   "ineligible",
+   "future_market",
+   "partial_universe",
+   "empty_universe"
+  ],
+  "evidence": {
+   "limit": "config evidence_limit 0..10000 is result-wide as FeatureResult bounds it; fixtures list the per-output witnesses when the output is selected alone; a joint selection concatenates outputs in lexical feature-id order and truncates",
+   "order": "target slot first, then the base slot t-N, then slots t-N+1..t-1 ascending; unavailable outputs emit none",
+   "row_id": "slot:<i> with i the R17 slot index of the epoch",
+   "boundary": "completed_interval"
+  }
+ },
+ "mode_rule": "known_at and reconstruction availability give identical results with original known_at; batch and full replay only; update, restore and merge unsupported (UNSUPPORTED_CAPABILITY)",
+ "acceptance_rules": {
+  "exact_float64": "reference is a dyadic rational with numerator below 2^53 reached by exact integer/rational arithmetic, so any exact-rational or Decimal120 path produces it without rounding; the published float64 must equal the hex bit for bit",
+  "exact_plus_zero": "reference exactly 0 from exact arithmetic (equal integers subtract to zero, an exact count of zero, ln of an exact ratio 1): bit-exact +0.0, never -0.0",
+  "tolerance": "abs(y - r) <= max(8*ulp(r), 1e-12*abs(r)) with r the fixture float64 (the R17 numeric error contract, docs/api/INTRADAY.md, Numeric error contract and capabilities); also used for every value whose computation passes through a logarithm, even when the reference is dyadic, so implementations need not special-case it",
+  "exact_integer": "int64 and decimal128 outputs are exact (decimal128 as the integer coefficient at the PriceUnit scale)",
+  "exact_bool": "bool outputs are exact",
+  "documented_exceptions": "none",
+  "counts_in_this_packet": {
+   "exact_plus_zero": 23,
+   "exact_float64": 69,
+   "tolerance": 35
+  }
+ },
+ "fixture_notation": "compact, NOT canonical wire. K = 100 knowledge cutoff, default known_at 50. A fixture lists slots 0..t in epoch order; the target is the last slot unless `target` names an earlier index (slots after the target are delivered but must not matter). A slot is a list [O,H,L,C,V] (ohlcv) or [C] (close-only delivery, columns=close), or the string 'absent' (no row and no coverage), 'gap' (no row, declared incomplete IntervalCoverage), 'null' (row present with null volume and null OHLC, or null close in a close-only delivery), 'empty' (zero volume with null OHLC, coverage complete with expected 0), or {row, ka} with ka an explicit known_at (150 > K, null unknown, 100 == K known). Bars are built from a close list by the rule O = previous close, H = max(O,C), L = min(O,C) except where the fixture lists explicit rows (PE05, PE06), so TR_i = |C_i - C_(i-1)| for those. params.window is N; params.epoch_profile is session_reset or governed_history; the price scale is in `unit.scale`. `outputs` lists the selected feature ids: a fixture evaluates every listed output unless it lists only some. Float results carry the exact rational (or, for an irrational log value, the closed form and a 60-digit decimal), the float64, float.hex and the per-output acceptance rule; counts are expected/observed; witnesses are row ids. Fixture ids are PE01 to PE30, PR01 onward for refusals.",
+ "path_fixtures": [
+  {
+   "id": "PE01",
+   "group": "monotone",
+   "description": "monotone doubling closes 10,20,40,80, N=3: net=path=70, ER=1, log ER=1; bars gapless so sum TR=70=window range, q=1, choppiness 0",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ],
+    [
+     40,
+     80,
+     40,
+     80,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "monotone",
+    "trend",
+    "log_domain"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE02",
+   "group": "flat",
+   "description": "flat bars at 50, N=3: net, path, sum TR and range are exact 0; ER, log ER and choppiness are zero_denominator",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     50,
+     50,
+     50,
+     50,
+     5
+    ],
+    [
+     50,
+     50,
+     50,
+     50,
+     5
+    ],
+    [
+     50,
+     50,
+     50,
+     50,
+     5
+    ],
+    [
+     50,
+     50,
+     50,
+     50,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "flat",
+    "zero_range",
+    "zero_denominator"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 4,
+     "observed": 4,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 4,
+     "observed": 4,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 4,
+     "observed": 4,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE03",
+   "group": "oscillating",
+   "description": "closes 10,20,10,20,10 (bars span consecutive closes), N=4: net 0, path 40, range 10, sum TR 40, q=4=N so choppiness 1; log ER is exact +0.0",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 4,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     20,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     20,
+     10,
+     10,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "oscillating",
+    "max_choppy",
+    "exact_zero"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "40/1",
+      "float64": 40.0,
+      "hex": "0x1.4000000000000p+5",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "40/1",
+      "float64": 40.0,
+      "hex": "0x1.4000000000000p+5",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "10/1",
+      "float64": 10.0,
+      "hex": "0x1.4000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE04",
+   "group": "mixed",
+   "description": "closes 10,20,10,20,30, N=4: net 20, path 40, ER 1/2; sum TR 40, range 20, q=2, choppiness ln2/ln4 = 1/2; log ER irrational",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 4,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     20,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     30,
+     20,
+     30,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "mixed",
+    "choppiness_half",
+    "log_vs_price"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": null,
+      "closed_form": "ln(3)/(2*ln(2)+ln(3))",
+      "decimal": "0.442114108697740313617911837924228793790411324807053864054608",
+      "float64": 0.4421141086977403,
+      "hex": "0x1.c4b98f97d3f39p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "20/1",
+      "float64": 20.0,
+      "hex": "0x1.4000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "40/1",
+      "float64": 40.0,
+      "hex": "0x1.4000000000000p+5",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "40/1",
+      "float64": 40.0,
+      "hex": "0x1.4000000000000p+5",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "20/1",
+      "float64": 20.0,
+      "hex": "0x1.4000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE05",
+   "group": "gap_true_range",
+   "description": "gap-up bar: closes 100,110,106, N=2; TR1=12 uses |high-previous close| (H-L would be 4): sum TR 18, extended range 12, q=3/2",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 2,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     100,
+     100,
+     100,
+     100,
+     5
+    ],
+    [
+     110,
+     112,
+     108,
+     110,
+     5
+    ],
+    [
+     110,
+     111,
+     105,
+     106,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "gap",
+    "true_range",
+    "range_basis"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": null,
+      "closed_form": "ln(3/2)/ln(2)",
+      "decimal": "0.584962500721156181453738943947816508759814407692481060455753",
+      "float64": 0.5849625007211562,
+      "hex": "0x1.2b803473f7ad1p-1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/7",
+      "float64": 0.42857142857142855,
+      "hex": "0x1.b6db6db6db6dbp-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": null,
+      "closed_form": "ln(53/50)/(ln(11/10)+ln(55/53))",
+      "decimal": "0.440258927804227430480719270391863928085144602706266028979502",
+      "float64": 0.44025892780422743,
+      "hex": "0x1.c2d33c82c3c53p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "6/1",
+      "float64": 6.0,
+      "hex": "0x1.8000000000000p+2",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "14/1",
+      "float64": 14.0,
+      "hex": "0x1.c000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "18/1",
+      "float64": 18.0,
+      "hex": "0x1.2000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "12/1",
+      "float64": 12.0,
+      "hex": "0x1.8000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE06",
+   "group": "base_close_range",
+   "description": "base close 100 above every window high (96, 93): range extended by the base close is 12 (not 8); sum TR 15; negative net, ER 1",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 2,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     100,
+     100,
+     100,
+     100,
+     5
+    ],
+    [
+     95,
+     96,
+     90,
+     92,
+     5
+    ],
+    [
+     92,
+     93,
+     88,
+     89,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "base_close_range",
+    "negative_net",
+    "boundary_min_history"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": null,
+      "closed_form": "ln(5/4)/ln(2)",
+      "decimal": "0.321928094887362347870319429489390175864831393024580612054756",
+      "float64": 0.32192809488736235,
+      "hex": "0x1.49a784bcd1b8bp-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-11/1",
+      "float64": -11.0,
+      "hex": "-0x1.6000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "11/1",
+      "float64": 11.0,
+      "hex": "0x1.6000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "15/1",
+      "float64": 15.0,
+      "hex": "0x1.e000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "12/1",
+      "float64": 12.0,
+      "hex": "0x1.8000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE07",
+   "group": "oscillating",
+   "description": "N=2 closes 10,20,10: q=2=N gives choppiness 1; net 0",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 2,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     20,
+     10,
+     10,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "oscillating",
+    "n2"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "20/1",
+      "float64": 20.0,
+      "hex": "0x1.4000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "20/1",
+      "float64": 20.0,
+      "hex": "0x1.4000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "10/1",
+      "float64": 10.0,
+      "hex": "0x1.4000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE08",
+   "group": "mixed",
+   "description": "N=3 closes 10,20,10,20: ER 1/3, log ER ln2/(3 ln2) = 1/3, q=3=N choppiness 1",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     20,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "mixed",
+    "log_vs_price"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/3",
+      "float64": 0.3333333333333333,
+      "hex": "0x1.5555555555555p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/3",
+      "float64": 0.3333333333333333,
+      "hex": "0x1.5555555555555p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "10/1",
+      "float64": 10.0,
+      "hex": "0x1.4000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "10/1",
+      "float64": 10.0,
+      "hex": "0x1.4000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE09",
+   "group": "pyramid",
+   "description": "N=8 closes 10..50..10 in steps of 10: net 0, path 80, range 40, q=2, choppiness ln2/ln8 = 1/3",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 8,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     30,
+     20,
+     30,
+     5
+    ],
+    [
+     30,
+     40,
+     30,
+     40,
+     5
+    ],
+    [
+     40,
+     50,
+     40,
+     50,
+     5
+    ],
+    [
+     50,
+     50,
+     40,
+     40,
+     5
+    ],
+    [
+     40,
+     40,
+     30,
+     30,
+     5
+    ],
+    [
+     30,
+     30,
+     20,
+     20,
+     5
+    ],
+    [
+     20,
+     20,
+     10,
+     10,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "pyramid",
+    "choppiness_third",
+    "even_window"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 9,
+     "observed": 9,
+     "value": {
+      "exact": "1/3",
+      "float64": 0.3333333333333333,
+      "hex": "0x1.5555555555555p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:8",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 9,
+     "observed": 9,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:8",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 9,
+     "observed": 9,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:8",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 9,
+     "observed": 9,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:8",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 9,
+     "observed": 9,
+     "value": {
+      "exact": "80/1",
+      "float64": 80.0,
+      "hex": "0x1.4000000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:8",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 9,
+     "observed": 9,
+     "value": {
+      "exact": "80/1",
+      "float64": 80.0,
+      "hex": "0x1.4000000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:8",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 9,
+     "observed": 9,
+     "value": {
+      "exact": "40/1",
+      "float64": 40.0,
+      "hex": "0x1.4000000000000p+5",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:8",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4",
+      "slot:5",
+      "slot:6",
+      "slot:7"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE10",
+   "group": "window_scope",
+   "description": "an older governed gap before the window is irrelevant: slots gap,10,20,40 with N=2 equals the trend of the last three bars",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 2,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    "gap",
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "finite_recovery",
+    "window_scope"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE11",
+   "group": "insufficient",
+   "description": "3 slots with N=3 needs 4 closes: insufficient_history for every output whatever the contents",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "insufficient_history"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.path_length": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.true_range_sum": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE12",
+   "group": "gap",
+   "description": "declared incomplete coverage at slot 2 inside the window",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    "gap",
+    [
+     40,
+     80,
+     40,
+     80,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "gap"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.path_length": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.true_range_sum": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE13",
+   "group": "absent",
+   "description": "no row and no coverage at slot 1 inside the window",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    "absent",
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ],
+    [
+     40,
+     80,
+     40,
+     80,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "absent"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.path_length": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.true_range_sum": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE14",
+   "group": "null",
+   "description": "row present with null volume (null OHLC) at slot 2",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    "null",
+    [
+     40,
+     80,
+     40,
+     80,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "null"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.path_length": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.true_range_sum": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE15",
+   "group": "empty",
+   "description": "coverage-proven empty slot (zero volume, null OHLC) at slot 2: a price is required, so not_applicable",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    "empty",
+    [
+     40,
+     80,
+     40,
+     80,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "empty"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "not_applicable",
+     "reasons": [
+      "no_eligible_observations"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "not_applicable",
+     "reasons": [
+      "no_eligible_observations"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "not_applicable",
+     "reasons": [
+      "no_eligible_observations"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "not_applicable",
+     "reasons": [
+      "no_eligible_observations"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.path_length": {
+     "status": "not_applicable",
+     "reasons": [
+      "no_eligible_observations"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.true_range_sum": {
+     "status": "not_applicable",
+     "reasons": [
+      "no_eligible_observations"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "not_applicable",
+     "reasons": [
+      "no_eligible_observations"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE16",
+   "group": "future",
+   "description": "target bar known_at 150 > K 100",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ],
+    {
+     "row": [
+      40,
+      80,
+      40,
+      80,
+      5
+     ],
+     "ka": 150
+    }
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "future",
+    "knowledge_boundary"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.path_length": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.true_range_sum": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE17",
+   "group": "knowledge_boundary",
+   "description": "target bar known_at 100 == K 100 is known: equals PE01",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ],
+    {
+     "row": [
+      40,
+      80,
+      40,
+      80,
+      5
+     ],
+     "ka": 100
+    }
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "knowledge_boundary"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE18",
+   "group": "unknown",
+   "description": "base bar known_at null: availability unknown",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    {
+     "row": [
+      10,
+      10,
+      10,
+      10,
+      5
+     ],
+     "ka": null
+    },
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ],
+    [
+     40,
+     80,
+     40,
+     80,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "unknown"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.path_length": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.true_range_sum": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 4,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE19",
+   "group": "precedence",
+   "description": "absent slot 1, gap slot 2 and future target together: all three reasons in lexical order, status follows the first in precedence",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    "absent",
+    "gap",
+    {
+     "row": [
+      40,
+      80,
+      40,
+      80,
+      5
+     ],
+     "ka": 150
+    }
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "precedence",
+    "multi_reason"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null,
+     "witnesses": []
+    },
+    "path.path_length": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null,
+     "witnesses": []
+    },
+    "path.true_range_sum": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input",
+      "future_knowledge",
+      "governed_gap"
+     ],
+     "expected": 4,
+     "observed": 1,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE20",
+   "group": "independent_readiness",
+   "description": "close-only delivery: close-derived outputs available, range-derived outputs absent_input (independent readiness)",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "close",
+   "slots": [
+    [
+     10
+    ],
+    [
+     20
+    ],
+    [
+     10
+    ],
+    [
+     20
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "independent_readiness",
+    "close_only"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 0,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/3",
+      "float64": 0.3333333333333333,
+      "hex": "0x1.5555555555555p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/3",
+      "float64": 0.3333333333333333,
+      "hex": "0x1.5555555555555p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "10/1",
+      "float64": 10.0,
+      "hex": "0x1.4000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 0,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "missing_input",
+     "reasons": [
+      "absent_input"
+     ],
+     "expected": 4,
+     "observed": 0,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE21",
+   "group": "scale",
+   "description": "price scale 2 (coefficients are cents): price outputs divide by 100, ratios unchanged",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 2,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 2
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     1000,
+     1000,
+     1000,
+     1000,
+     5
+    ],
+    [
+     1000,
+     1100,
+     1000,
+     1100,
+     5
+    ],
+    [
+     1100,
+     1210,
+     1100,
+     1210,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "price_scale"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "21/10",
+      "float64": 2.1,
+      "hex": "0x1.0cccccccccccdp+1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "21/10",
+      "float64": 2.1,
+      "hex": "0x1.0cccccccccccdp+1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "21/10",
+      "float64": 2.1,
+      "hex": "0x1.0cccccccccccdp+1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "21/10",
+      "float64": 2.1,
+      "hex": "0x1.0cccccccccccdp+1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE22",
+   "group": "evidence",
+   "description": "evidence_limit 2 keeps the target then the base: slot:3, slot:0",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 2
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ],
+    [
+     40,
+     80,
+     40,
+     80,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.efficiency_ratio",
+    "path.net_displacement"
+   ],
+   "tags": [
+    "evidence",
+    "truncation"
+   ],
+   "expected": {
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE23",
+   "group": "evidence",
+   "description": "evidence_limit 0: available values, no witnesses",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 0
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ],
+    [
+     40,
+     80,
+     40,
+     80,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.efficiency_ratio",
+    "path.net_displacement"
+   ],
+   "tags": [
+    "evidence",
+    "truncation"
+   ],
+   "expected": {
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "70/1",
+      "float64": 70.0,
+      "hex": "0x1.1800000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": []
+    }
+   }
+  },
+  {
+   "id": "PE24",
+   "group": "int64_limits",
+   "description": "closes 1 and 2^62 alternating, N=3: path 3(2^62-1) exceeds int64 internally and stays exact; ER 1/3, log ER 1/3, q=3 choppiness 1",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     4611686018427387904,
+     1,
+     4611686018427387904,
+     1
+    ],
+    [
+     4611686018427387904,
+     4611686018427387904,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     4611686018427387904,
+     1,
+     4611686018427387904,
+     1
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "int64_limits",
+    "wide_sum"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/3",
+      "float64": 0.3333333333333333,
+      "hex": "0x1.5555555555555p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/3",
+      "float64": 0.3333333333333333,
+      "hex": "0x1.5555555555555p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "4611686018427387903/1",
+      "float64": 4.611686018427388e+18,
+      "hex": "0x1.0000000000000p+62",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "13835058055282163709/1",
+      "float64": 1.3835058055282164e+19,
+      "hex": "0x1.8000000000000p+63",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "13835058055282163709/1",
+      "float64": 1.3835058055282164e+19,
+      "hex": "0x1.8000000000000p+63",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "4611686018427387903/1",
+      "float64": 4.611686018427388e+18,
+      "hex": "0x1.0000000000000p+62",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:0",
+      "slot:1",
+      "slot:2"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE25",
+   "group": "prefix",
+   "description": "PE04 with a later gap slot and a later future-known slot after the target: result identical to PE04",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 4,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     20,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     30,
+     20,
+     30,
+     5
+    ],
+    "gap",
+    {
+     "row": [
+      20,
+      30,
+      20,
+      30,
+      5
+     ],
+     "ka": 150
+    }
+   ],
+   "target": 4,
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "prefix"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": null,
+      "closed_form": "ln(3)/(2*ln(2)+ln(3))",
+      "decimal": "0.442114108697740313617911837924228793790411324807053864054608",
+      "float64": 0.4421141086977403,
+      "hex": "0x1.c4b98f97d3f39p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "20/1",
+      "float64": 20.0,
+      "hex": "0x1.4000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "40/1",
+      "float64": 40.0,
+      "hex": "0x1.4000000000000p+5",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "40/1",
+      "float64": 40.0,
+      "hex": "0x1.4000000000000p+5",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": {
+      "exact": "20/1",
+      "float64": 20.0,
+      "hex": "0x1.4000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:4",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE26",
+   "group": "flat_window",
+   "description": "flat window inside a moving history (7 then 50,50,50), N=2: path 0, zero_denominator although the history moved",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 2,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     7,
+     7,
+     7,
+     7,
+     5
+    ],
+    [
+     7,
+     50,
+     7,
+     50,
+     5
+    ],
+    [
+     50,
+     50,
+     50,
+     50,
+     5
+    ],
+    [
+     50,
+     50,
+     50,
+     50,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "flat",
+    "window_scope",
+    "zero_denominator"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "not_applicable",
+     "reasons": [
+      "zero_denominator"
+     ],
+     "expected": 3,
+     "observed": 3,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:3",
+      "slot:1",
+      "slot:2"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE27",
+   "group": "near_flat",
+   "description": "closes 1e14, 1e14+1, 1e14+2 (one-tick steps): ER and log ER 1 (log ratios within 2e-14 of 1 need log1p-grade accuracy), q=1",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 2,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     100000000000000,
+     100000000000000,
+     100000000000000,
+     100000000000000,
+     5
+    ],
+    [
+     100000000000000,
+     100000000000001,
+     100000000000000,
+     100000000000001,
+     5
+    ],
+    [
+     100000000000001,
+     100000000000002,
+     100000000000001,
+     100000000000002,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "near_flat",
+    "accuracy"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2/1",
+      "float64": 2.0,
+      "hex": "0x1.0000000000000p+1",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2/1",
+      "float64": 2.0,
+      "hex": "0x1.0000000000000p+1",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2/1",
+      "float64": 2.0,
+      "hex": "0x1.0000000000000p+1",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2/1",
+      "float64": 2.0,
+      "hex": "0x1.0000000000000p+1",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:2",
+      "slot:0",
+      "slot:1"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE28",
+   "group": "governed_history",
+   "description": "epoch_profile governed_history (daily governed grid), N=5: ER 1/2, sum TR 8, range 5",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 5,
+    "epoch_profile": "governed_history",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     100,
+     100,
+     100,
+     100,
+     5
+    ],
+    [
+     100,
+     102,
+     100,
+     102,
+     5
+    ],
+    [
+     102,
+     102,
+     101,
+     101,
+     5
+    ],
+    [
+     101,
+     103,
+     101,
+     103,
+     5
+    ],
+    [
+     103,
+     105,
+     103,
+     105,
+     5
+    ],
+    [
+     105,
+     105,
+     104,
+     104,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "daily_grid",
+    "governed_history"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": null,
+      "closed_form": "ln(8/5)/ln(5)",
+      "decimal": "0.292029674220179152010319706291896896209375796239281347965928",
+      "float64": 0.29202967422017917,
+      "hex": "0x1.2b09d3b0f2e59p-2",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.log_efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": null,
+      "closed_form": "ln(26/25)/(ln(51/50)+ln(102/101)+ln(103/101)+ln(105/103)+ln(105/104))",
+      "decimal": "0.502416076741665087301047761047257378012850338624812466790305",
+      "float64": 0.5024160767416651,
+      "hex": "0x1.013cae152e1ebp-1",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "4/1",
+      "float64": 4.0,
+      "hex": "0x1.0000000000000p+2",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "8/1",
+      "float64": 8.0,
+      "hex": "0x1.0000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "8/1",
+      "float64": 8.0,
+      "hex": "0x1.0000000000000p+3",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": {
+      "exact": "5/1",
+      "float64": 5.0,
+      "hex": "0x1.4000000000000p+2",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:0",
+      "slot:1",
+      "slot:2",
+      "slot:3",
+      "slot:4"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE29",
+   "group": "window_scope",
+   "description": "older empty, null and absent slots before the window are irrelevant",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 2,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    "empty",
+    "null",
+    "absent",
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    [
+     10,
+     20,
+     10,
+     20,
+     5
+    ],
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "finite_recovery",
+    "window_scope"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "0/1",
+      "float64": 0.0,
+      "hex": "0x0.0p+0",
+      "acceptance": "exact_plus_zero"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.efficiency_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.net_displacement": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.path_length": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.true_range_sum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:3",
+      "slot:4"
+     ]
+    },
+    "path.window_range": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "30/1",
+      "float64": 30.0,
+      "hex": "0x1.e000000000000p+4",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "slot:5",
+      "slot:3",
+      "slot:4"
+     ]
+    }
+   }
+  },
+  {
+   "id": "PE30",
+   "group": "multi_reason_short",
+   "description": "short history plus a gap: N=3, slots 10,gap,40 (t=2): reasons governed_gap and insufficient_history, status follows governed_gap",
+   "producer": "path_efficiency",
+   "params": {
+    "policy_version": "ef4-path1",
+    "window": 3,
+    "epoch_profile": "session_reset",
+    "evidence_limit": 10000
+   },
+   "unit": {
+    "currency": "USD",
+    "scale": 0
+   },
+   "K": 100,
+   "columns": "ohlcv",
+   "slots": [
+    [
+     10,
+     10,
+     10,
+     10,
+     5
+    ],
+    "gap",
+    [
+     20,
+     40,
+     20,
+     40,
+     5
+    ]
+   ],
+   "outputs": [
+    "path.choppiness_fraction",
+    "path.efficiency_ratio",
+    "path.log_efficiency_ratio",
+    "path.net_displacement",
+    "path.path_length",
+    "path.true_range_sum",
+    "path.window_range"
+   ],
+   "tags": [
+    "precedence",
+    "insufficient_history",
+    "gap"
+   ],
+   "expected": {
+    "path.choppiness_fraction": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap",
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null,
+     "witnesses": []
+    },
+    "path.efficiency_ratio": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap",
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null,
+     "witnesses": []
+    },
+    "path.log_efficiency_ratio": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap",
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null,
+     "witnesses": []
+    },
+    "path.net_displacement": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap",
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null,
+     "witnesses": []
+    },
+    "path.path_length": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap",
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null,
+     "witnesses": []
+    },
+    "path.true_range_sum": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap",
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null,
+     "witnesses": []
+    },
+    "path.window_range": {
+     "status": "incomplete_coverage",
+     "reasons": [
+      "governed_gap",
+      "insufficient_history"
+     ],
+     "expected": 4,
+     "observed": 2,
+     "value": null,
+     "witnesses": []
+    }
+   }
+  }
+ ],
+ "refusal_fixtures": [
+  {
+   "id": "PR01",
+   "error_code": "DUPLICATE",
+   "raised_by": "shared validator",
+   "description": "two bars with the same (instrument, session, start, end) identity",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": {
+      "mk": "dup"
+     }
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = {'mk': 'dup'}."
+  },
+  {
+   "id": "PR02",
+   "error_code": "INVALID_ORDER",
+   "raised_by": "shared validator",
+   "description": "a bar overlapping or earlier than the previous bar of the same session",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.3",
+     "value": {
+      "mk": "unordered"
+     }
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.3 = {'mk': 'unordered'}."
+  },
+  {
+   "id": "PR03",
+   "error_code": "INVALID_ORDER",
+   "raised_by": "producer admission",
+   "description": "bars delivered out of governed grid order against the context (the shared order group is per session)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.1",
+     "value": {
+      "mk": "grid_order"
+     }
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.1 = {'mk': 'grid_order'}."
+  },
+  {
+   "id": "PR04",
+   "error_code": "BOUNDS",
+   "raised_by": "shared validator",
+   "description": "bar with start >= end",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": {
+      "mk": "nonpositive_interval"
+     }
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = {'mk': 'nonpositive_interval'}."
+  },
+  {
+   "id": "PR05",
+   "error_code": "BOUNDS",
+   "raised_by": "shared validator",
+   "description": "bar ending after the market cutoff (a forming bar)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.4",
+     "value": {
+      "mk": "beyond_cutoff"
+     }
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.4 = {'mk': 'beyond_cutoff'}."
+  },
+  {
+   "id": "PR06",
+   "error_code": "BOUNDS",
+   "raised_by": "shared validator",
+   "description": "negative volume",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      20,
+      10,
+      20,
+      -5
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20, -5]."
+  },
+  {
+   "id": "PR07",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "shared validator",
+   "description": "high below low",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      9,
+      11,
+      10,
+      5
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 9, 11, 10, 5]."
+  },
+  {
+   "id": "PR08",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "shared validator",
+   "description": "close outside the supplied high/low range",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      15,
+      10,
+      20,
+      5
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 15, 10, 20, 5]."
+  },
+  {
+   "id": "PR09",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "shared validator",
+   "description": "zero price in a positive-volume bar",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      12,
+      0,
+      0,
+      5
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 12, 0, 0, 5]."
+  },
+  {
+   "id": "PR10",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "shared validator",
+   "description": "zero-volume bar carrying prices (must be null OHLC)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      20,
+      10,
+      20,
+      0
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20, 0]."
+  },
+  {
+   "id": "PR11",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "shared validator",
+   "description": "positive-volume bar with a null low",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      20,
+      null,
+      20,
+      5
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, None, 20, 5]."
+  },
+  {
+   "id": "PR12",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "producer admission",
+   "description": "non-integer (float) price coefficient",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      20,
+      10,
+      20.0,
+      5
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20.0, 5]."
+  },
+  {
+   "id": "PR13",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "producer admission",
+   "description": "non-integer (float) volume",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      20,
+      10,
+      20,
+      5.0
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20, 5.0]."
+  },
+  {
+   "id": "PR14",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "producer admission",
+   "description": "row with four values instead of five in an OHLCV delivery",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      20,
+      10,
+      20
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 20, 10, 20]."
+  },
+  {
+   "id": "PR15",
+   "error_code": "OVERFLOW",
+   "raised_by": "producer admission",
+   "description": "close coefficient 2^63 exceeds int64",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": [
+      10,
+      9223372036854775808,
+      10,
+      9223372036854775808,
+      5
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = [10, 9223372036854775808, 10, 9223372036854775808, 5]."
+  },
+  {
+   "id": "PR16",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "raised_by": "producer admission",
+   "description": "a bar of a different session inside a session_reset epoch (no overnight return is ever formed)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.1",
+     "value": {
+      "mk": "other_session"
+     }
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.1 = {'mk': 'other_session'}."
+  },
+  {
+   "id": "PR17",
+   "error_code": "INCONSISTENT_IDENTITY",
+   "raised_by": "producer admission",
+   "description": "a second instrument id inside the single bars role",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.slots.2",
+     "value": {
+      "mk": "second_instrument"
+     }
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.slots.2 = {'mk': 'second_instrument'}."
+  },
+  {
+   "id": "PR18",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "window missing",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "del": "fixture.params.window"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.window."
+  },
+  {
+   "id": "PR19",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "window 1 (below the lower bound 2: log of N is zero)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.window",
+     "value": 1
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 1."
+  },
+  {
+   "id": "PR20",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "window 4097 (above the R17 bound 4096)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.window",
+     "value": 4097
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 4097."
+  },
+  {
+   "id": "PR21",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "window is a bool",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.window",
+     "value": true
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = True."
+  },
+  {
+   "id": "PR22",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "window is a float",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.window",
+     "value": 4.0
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 4.0."
+  },
+  {
+   "id": "PR23",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "window is text",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.window",
+     "value": "4"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.window = 4."
+  },
+  {
+   "id": "PR24",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "epoch_profile carry (carry across sessions is not supported)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.epoch_profile",
+     "value": "carry"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.epoch_profile = carry."
+  },
+  {
+   "id": "PR25",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "epoch_profile missing",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "del": "fixture.params.epoch_profile"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.epoch_profile."
+  },
+  {
+   "id": "PR26",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "evidence_limit -1",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.evidence_limit",
+     "value": -1
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.evidence_limit = -1."
+  },
+  {
+   "id": "PR27",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "evidence_limit 10001",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.evidence_limit",
+     "value": 10001
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.evidence_limit = 10001."
+  },
+  {
+   "id": "PR28",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "evidence_limit missing",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "del": "fixture.params.evidence_limit"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.evidence_limit."
+  },
+  {
+   "id": "PR29",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "an unknown parameter (min_history) is supplied",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.min_history",
+     "value": 3
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.min_history = 3."
+  },
+  {
+   "id": "PR30",
+   "error_code": "INVALID_CONFIG",
+   "raised_by": "library",
+   "description": "policy_version missing",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "del": "fixture.params.policy_version"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then delete fixture.params.policy_version."
+  },
+  {
+   "id": "PR31",
+   "error_code": "INCOMPATIBLE_VERSION",
+   "raised_by": "library",
+   "description": "unsupported policy label ef4-path2",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "fixture.params.policy_version",
+     "value": "ef4-path2"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set fixture.params.policy_version = ef4-path2."
+  },
+  {
+   "id": "PR32",
+   "error_code": "INVALID_UNIT",
+   "raised_by": "producer admission",
+   "description": "batch price scale differs from the config price unit scale",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "ctx.batch.unit.scale",
+     "value": 3
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set ctx.batch.unit.scale = 3."
+  },
+  {
+   "id": "PR33",
+   "error_code": "INVALID_UNIT",
+   "raised_by": "producer admission",
+   "description": "batch currency differs from the config price unit currency",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "ctx.batch.unit.currency",
+     "value": "EUR"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set ctx.batch.unit.currency = EUR."
+  },
+  {
+   "id": "PR34",
+   "error_code": "INVALID_UNIT",
+   "raised_by": "producer admission",
+   "description": "config declares no price unit (PriceUnit is mandatory)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "ctx.config_unit",
+     "value": null
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set ctx.config_unit = None."
+  },
+  {
+   "id": "PR35",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "raised_by": "producer admission",
+   "description": "batch adjustment basis differs from the config adjustment",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "ctx.batch.adjustment",
+     "value": "split_adjusted"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set ctx.batch.adjustment = split_adjusted."
+  },
+  {
+   "id": "PR36",
+   "error_code": "UNKNOWN_FEATURE",
+   "raised_by": "library",
+   "description": "a requested feature id outside this producer's header set",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "ctx.features",
+     "value": [
+      "not.a.feature"
+     ]
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set ctx.features = ['not.a.feature']."
+  },
+  {
+   "id": "PR37",
+   "error_code": "UNSUPPORTED_CAPABILITY",
+   "raised_by": "library",
+   "description": "update is not a supported capability (batch and full replay only)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "ctx.capability",
+     "value": "update"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set ctx.capability = update."
+  },
+  {
+   "id": "PR38",
+   "error_code": "UNSUPPORTED_CAPABILITY",
+   "raised_by": "library",
+   "description": "restore is not a supported capability (batch and full replay only)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "ctx.capability",
+     "value": "restore"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set ctx.capability = restore."
+  },
+  {
+   "id": "PR39",
+   "error_code": "UNSUPPORTED_CAPABILITY",
+   "raised_by": "library",
+   "description": "merge is not a supported capability (batch and full replay only)",
+   "producer": "path_efficiency",
+   "base": "PE04",
+   "mutation": [
+    {
+     "set": "ctx.capability",
+     "value": "merge"
+    }
+   ],
+   "construction": "Take result fixture PE04 unchanged, then set ctx.capability = merge."
+  }
+ ],
+ "fixture_counts": {
+  "path_result": 30,
+  "refusal": 39
+ },
+ "prefix_equivalences": [
+  [
+   "PE04",
+   "PE25"
+  ],
+  [
+   "PE01",
+   "PE17"
+  ]
+ ],
+ "coverage_map": {
+  "monotone": [
+   "PE01"
+  ],
+  "trend": [
+   "PE01"
+  ],
+  "log_domain": [
+   "PE01"
+  ],
+  "flat": [
+   "PE02",
+   "PE26"
+  ],
+  "zero_range": [
+   "PE02"
+  ],
+  "zero_denominator": [
+   "PE02",
+   "PE26"
+  ],
+  "oscillating": [
+   "PE03",
+   "PE07"
+  ],
+  "max_choppy": [
+   "PE03"
+  ],
+  "exact_zero": [
+   "PE03"
+  ],
+  "mixed": [
+   "PE04",
+   "PE08"
+  ],
+  "choppiness_half": [
+   "PE04"
+  ],
+  "log_vs_price": [
+   "PE04",
+   "PE08"
+  ],
+  "gap": [
+   "PE05",
+   "PE12",
+   "PE30"
+  ],
+  "true_range": [
+   "PE05"
+  ],
+  "range_basis": [
+   "PE05"
+  ],
+  "base_close_range": [
+   "PE06"
+  ],
+  "negative_net": [
+   "PE06"
+  ],
+  "boundary_min_history": [
+   "PE06"
+  ],
+  "n2": [
+   "PE07"
+  ],
+  "pyramid": [
+   "PE09"
+  ],
+  "choppiness_third": [
+   "PE09"
+  ],
+  "even_window": [
+   "PE09"
+  ],
+  "finite_recovery": [
+   "PE10",
+   "PE29"
+  ],
+  "window_scope": [
+   "PE10",
+   "PE26",
+   "PE29"
+  ],
+  "insufficient_history": [
+   "PE11",
+   "PE30"
+  ],
+  "absent": [
+   "PE13"
+  ],
+  "null": [
+   "PE14"
+  ],
+  "empty": [
+   "PE15"
+  ],
+  "future": [
+   "PE16"
+  ],
+  "knowledge_boundary": [
+   "PE16",
+   "PE17"
+  ],
+  "unknown": [
+   "PE18"
+  ],
+  "precedence": [
+   "PE19",
+   "PE30"
+  ],
+  "multi_reason": [
+   "PE19"
+  ],
+  "independent_readiness": [
+   "PE20"
+  ],
+  "close_only": [
+   "PE20"
+  ],
+  "price_scale": [
+   "PE21"
+  ],
+  "evidence": [
+   "PE22",
+   "PE23"
+  ],
+  "truncation": [
+   "PE22",
+   "PE23"
+  ],
+  "int64_limits": [
+   "PE24"
+  ],
+  "wide_sum": [
+   "PE24"
+  ],
+  "prefix": [
+   "PE25"
+  ],
+  "near_flat": [
+   "PE27"
+  ],
+  "accuracy": [
+   "PE27"
+  ],
+  "daily_grid": [
+   "PE28"
+  ],
+  "governed_history": [
+   "PE28"
+  ]
+ },
+ "reasons_reached": {
+  "zero_denominator": [
+   "PE02",
+   "PE26"
+  ],
+  "insufficient_history": [
+   "PE11",
+   "PE30"
+  ],
+  "governed_gap": [
+   "PE12",
+   "PE19",
+   "PE30"
+  ],
+  "absent_input": [
+   "PE13",
+   "PE19",
+   "PE20"
+  ],
+  "null_field": [
+   "PE14"
+  ],
+  "no_eligible_observations": [
+   "PE15"
+  ],
+  "future_knowledge": [
+   "PE16",
+   "PE19"
+  ],
+  "unknown_availability": [
+   "PE18"
+  ]
+ },
+ "decisions_proposed": [
+  {
+   "id": "DP-E1",
+   "topic": "Scope and outputs",
+   "decision": "One producer ef4.path_efficiency with seven outputs: net displacement, path length, price-domain efficiency ratio, log-domain efficiency ratio, true-range sum, window range and the choppiness fraction. The net, path and range quantities are published as operands so each ratio is auditable and so a consumer can reuse them; each output has its own closure.",
+   "alternatives": "alternatives: efficiency ratio and choppiness only (no operands); one composite score; separate producers for efficiency and choppiness",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E2",
+   "topic": "Window",
+   "decision": "N returns from the N+1 governed slots t-N..t ending at the target bar inclusive (the target bar is the last completed bar at the cutoff). N is a caller integer 2..4096 with no default; Kaufman 10 and Dreiss 14 are literature examples only. The window is strict: no shrinking, no bridging of a hole, no min_history; fewer than N+1 epoch slots is insufficient_history.",
+   "alternatives": "alternatives: min_history like EF3; a default 14; prior-only window excluding the target",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E3",
+   "topic": "Epoch",
+   "decision": "epoch_profile session_reset (intraday: the epoch is the target session, the first governed bar is only a base close, no return or true range crosses the session boundary, so overnight gaps never enter) or governed_history (daily grid: the epoch is the supplied governed daily grid). Carry across sessions is not supported and is INVALID_CONFIG.",
+   "alternatives": "alternatives: carry epoch from an earlier close anchor; automatic restart on gaps; open-to-close first return",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E4",
+   "topic": "Return basis",
+   "decision": "Two distinct efficiency outputs: price-domain ER = |net|/path of absolute close changes (Kaufman) and log-domain LER = |ln(C_t/C_b)| / sum |ln(C_i/C_(i-1))|. They differ whenever the steps have unequal relative size (PE04, PE08). Both use closes only; high and low play no part in efficiency.",
+   "alternatives": "alternatives: price domain only; log domain only; efficiency on typical price or midpoints",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E5",
+   "topic": "Signed net",
+   "decision": "path.net_displacement is signed (C_t - C_b); the ratios use its absolute value so direction is not part of efficiency; direction is the sign of the operand.",
+   "alternatives": "alternatives: absolute net; direction-signed efficiency",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E6",
+   "topic": "Range basis",
+   "decision": "The window range includes the base close: max(highs of bars t-N+1..t, C_b) - min(lows, C_b). The base bar itself contributes only its close, so its high and low are not required.",
+   "alternatives": "alternatives: high/low of the N bars only (then a gap beyond the window can make sum TR exceed N times the range and choppiness exceed 1); high/low of N+1 bars",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E7",
+   "topic": "ATR basis",
+   "decision": "True range with the predecessor close for every one of the N bars, summed (not averaged, not Wilder-recursive): TR_i = max(H-L, |H-C_prev|, |L-C_prev|). It is a finite non-recursive window, so it cannot reuse the anchored recursive history.atr/intraday.atr (anchor dependent, smoothed) and needs no anchor. With DP-E6 it guarantees 1 <= sum TR / range <= N.",
+   "alternatives": "alternatives: H-L only (q can fall below 1 and the index below 0, PE05); Wilder ATR times N; average true range",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E8",
+   "topic": "Choppiness publication",
+   "decision": "CF = ln(sum TR / range) / ln(N), a dimensionless fraction in [0,1] (unit fraction). The conventional Dreiss index is 100 times CF; the factor 100 is presentation and is not published, so no new unit string is introduced. Base-N logarithm (ratio of natural logs) makes CF = 1 exactly at maximal chop (q = N, PE03, PE07, PE08) and 0 at a gapless trend (q = 1, PE01).",
+   "alternatives": "alternatives: 0..100 points with a new unit string; log10 form with a literature constant",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E9",
+   "topic": "Log-domain validity",
+   "decision": "Logs are taken of exact positive rationals only: prices are positive (INVALID_SCHEMA otherwise), q >= 1 (DP-E7) and N >= 2. No value is clamped. An invalid-log input is therefore a typed refusal of the input (zero, negative, non-integer or incoherent price), never a null with a reason; the shared BAR validator and the library already raise these with existing codes (PR07 to PR15).",
+   "alternatives": "alternatives: a not_applicable status for non-positive prices; clamping q to >= 1; floors on prices",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E10",
+   "topic": "Zero denominators",
+   "decision": "Exact integer zero tests, no epsilon. Path length 0 (a flat window, PE02, PE26) makes the efficiency ratio and log efficiency ratio not_applicable/zero_denominator; window range 0 makes the choppiness fraction not_applicable/zero_denominator. The operands (net, path, TRS, range) stay available with value +0.0: zero is a value, not a missing observation.",
+   "alternatives": "alternatives: efficiency 1 or 0 by convention for a flat path; epsilon floors",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E11",
+   "topic": "Gaps and missing slots",
+   "decision": "A slot is READY iff its row exists, its required fields are non-null, its coverage is complete and known_at <= K (== K is known). Causes follow the merged EF3 mapping: no row and no coverage absent_input, known_at null unknown_availability, known_at > K future_knowledge, null volume or null close null_field, declared incomplete coverage governed_gap, a coverage-proven empty slot no_eligible_observations (a price is required, so it is not zero movement). Any unready slot inside t-N..t blocks the outputs that need it; an unready slot older than the window does not (PE10, PE29: finite recovery).",
+   "alternatives": "alternatives: treat empty as a flat bar with the previous close; tolerate holes with a minimum coverage",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E12",
+   "topic": "Independent readiness",
+   "decision": "Two closures. Close group (net displacement, path length, ER, LER): close of slots t-N..t. Range group (true-range sum, window range, choppiness): close of t-N..t and high and low of t-N+1..t. A close-only BAR delivery serves the close group while the range group is absent_input (PE20). An unrelated unready operand never blocks a ready output.",
+   "alternatives": "alternatives: one closure for all outputs",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E13",
+   "topic": "Numeric policy",
+   "decision": "Exact integer/rational arithmetic for every price quantity and the price-domain ratio, one correctly rounded float64; logarithms to at least 120 digits from exact ratios, log1p-grade near 1; acceptance per fixture output: exact_float64, exact_plus_zero, tolerance (always for log-derived values). Exact +0.0 is required when the closes are equal (LER) and when sum TR equals the range (CF) because ln of an exact ratio 1 is exactly 0.",
+   "alternatives": "alternatives: float64 accumulation; Decimal64 logs",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E14",
+   "topic": "Units",
+   "decision": "Price quantities carry the operand price unit (currency/share) converted at publication; ratios and the choppiness fraction are fraction. No new unit string.",
+   "alternatives": "alternatives: points unit for choppiness",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E15",
+   "topic": "Evidence",
+   "decision": "Available outputs only: target slot first, then the base slot, then the interior slots ascending (row ids slot:<i>, boundary completed_interval), truncated to evidence_limit. The order puts the two endpoints that define the net change ahead of the interior path rows.",
+   "alternatives": "alternatives: ascending only; interior only",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E16",
+   "topic": "Reuse and no-change decisions",
+   "decision": "history.return, history.atr, intraday.atr, history.prior_high, history.prior_low, history.log_return_volatility, intraday.realized_variance and the EF2 stochastic and Donchian outputs are unchanged and not reused as operands: they differ by window membership (prior-only extrema), recursion and anchor (ATR), endpoint-only arithmetic (return) or centering (volatility). Efficiency needs every close of the window, which the endpoint-only history.return does not check. The prefix property holds: later slots never change a result.",
+   "alternatives": "alternatives: derive from history.atr; reuse history.return for the net",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  },
+  {
+   "id": "DP-E17",
+   "topic": "Capabilities",
+   "decision": "Batch and full replay only (UNSUPPORTED_CAPABILITY for update, restore, merge). Appending later slots changes nothing at an earlier target (PE25).",
+   "alternatives": "alternatives: incremental update with a rolling window state",
+   "state": "coordinator-decided (accepted as proposed), pending owner review"
+  }
+ ],
+ "open_questions": [
+  {
+   "id": "OQ-E1",
+   "topic": "Choppiness presentation",
+   "text": "RULING: publish the fraction in [0,1]; the 100x Dreiss index is a consumer presentation. A points unit is deferred to an amendment if the owner wants it.",
+   "state": "coordinator-decided, pending owner review"
+  },
+  {
+   "id": "OQ-E2",
+   "topic": "Daily and intraday in one producer",
+   "text": "RULING: one producer with epoch_profile; the arithmetic is identical and only the base-slot rule differs.",
+   "state": "coordinator-decided, pending owner review"
+  },
+  {
+   "id": "OQ-E3",
+   "topic": "Minimum history",
+   "text": "RULING (conservative): none; the window is exactly N+1 slots. An amendment may add min_history if a consumer needs partial windows, as a new policy label.",
+   "state": "coordinator-decided, pending owner review"
+  },
+  {
+   "id": "OQ-E4",
+   "topic": "Efficiency on high-low midpoints or typical price",
+   "text": "RULING: deferred; closes only in v1.",
+   "state": "coordinator-decided, pending owner review"
+  },
+  {
+   "id": "OQ-E5",
+   "topic": "Hosting",
+   "text": "RULING: packages/features EF4 module, config namespace ef4.*, separate catalog; describe_intraday() and its digest unchanged; no package version bump.",
+   "state": "coordinator-decided, pending owner review"
+  }
+ ],
+ "layer_responsibilities": {
+  "library": "admission of the supplied bars and context, window and slot readiness, exact sums and ratios, logarithms with the stated accuracy, quality, evidence and every library refusal; pure and deterministic; one shared window preparation (closes, true ranges, extended range) reused by the seven outputs without coupling their readiness",
+  "io_613": "maps ordered bars and the governed grid and coverage into the BAR role and the R17 context exactly as supplied with their original known_at; maps results (hex-exact float64, status, reasons, counts, witnesses) to the existing sink conversion; never sorts, fills, imputes, drops, resamples, converts scale or currency, chooses a window or epoch, computes a return, range or logarithm",
+  "worker_614": "routes selected outputs with exact window closure, shares one bounded window per symbol and epoch across outputs, keeps independent readiness (a close-only delivery serves the close group), executes one config per complete result, binds inputs and the config digest and persists the library result unchanged; direct, adapter, worker and stored results must be identical, including refusal class"
+ },
+ "non_goals": [
+  "no acquisition of prices, volumes, trades, benchmarks, memberships, calendars or schedules; no clock or I/O",
+  "no default window, minimum history, tolerance, age, adjacency, normalization or threshold; every convention parameter is explicit and part of the config identity and digest",
+  "no scanner, alert, episode, rank-over-history or catalogue policy (EF8 #518-#520 own policy)",
+  "no update, restore or merge; batch and full replay only",
+  "no new DataKind, DTO, codec, scheduler, validator or error code; no change to any shared validator",
+  "no performance, parity, release or publication claim; no private-source equivalence or source formula",
+  "no ADX, Kaufman adaptive moving average, Efficiency-ratio smoothing, Ulcer or other derived indicators; no classification of trending versus choppy",
+  "no carry epoch, overnight return or cross-session window; no resampling or volume/time re-bucketing",
+  "no change to history.atr, intraday.atr, history.prior_high, history.prior_low, history.return, history.log_return_volatility or intraday.realized_variance (explicit no-change reuse decisions)"
+ ],
+ "coordinator_freeze": "Frozen as ef4-path1 (v1) for implementation once this PR merges (coordinator statement; no review or acceptance claim by the author). Any change to a convention, label semantics, header, role or fixture after merge requires a new policy label and an amendment document. No defaults for window, tolerance or any threshold.",
+ "hosting": "packages/features EF4 module, config namespace ef4.*, separate catalog; describe_intraday() and its digest unchanged; no package version bump",
+ "header_ledger_to_be_applied": "the 7 headers above are to be applied by a sibling amendment document after the freeze; units currency/share and fraction already exist; no new unit string",
+ "amendment_note": "Additive producer-set and header-ledger entries needed in the shared contract are recorded here as to-be-applied: one producer, seven headers, no new reference fact kind. A sibling amendment document follows the freeze, as for EF2 and EF3. No change to shared validators is required or proposed."
+}
