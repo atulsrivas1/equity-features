@@ -1,4 +1,4 @@
-## Retrospective: EF1 missing producers and EQ164 audit waves - October 22, 2026
+## Retrospective: EF1 producers (EQ168, EQ165) and EQ164 audit waves - October 22, 2026
 
 Scope: contract-first delivery of the EQ168 close-reconciliation and EQ165 multi-venue producers across core, I/O and workers, the readable results view, and EQ164 audit waves 1 and 2.
 
@@ -12,7 +12,7 @@ What went wrong and what we change
 1. Hand-authored fixtures can contradict their own contract text. Before a freeze, an independent reviewer must check md/json consistency (vocabularies, units, ids), not only the arithmetic.
 2. Merge-time review of very large generated documents was only a file-list and keyword scan. Large findings PRs now get a fresh independent reviewer who recomputes counts and spot-checks rows; the coordinator reads the actual diff for small PRs. Done retroactively for PRs #647-#655; it found a missing row-specific justification on 61 of 82 X2 rows and several decisions worded as settled when the evidence was open.
 3. Decisions must be labelled by evidence: a coordinator decision that turns an open question into a rule is marked provisional.
-4. An isolated worktree agent inherits the session's current repository. Confirm the working directory before launching, and tell the agent to verify its repository first.
+4. A worktree-isolated agent may inherit the session's current repository. Confirm the working directory before launching, and tell the agent to verify its repository first.
 5. Agents sharing one scratch folder overwrote each other's helper scripts. Give every agent a unique scratch subfolder.
 6. A required status check named in branch protection outlived the workflows it needed and blocked every merge. Branch protection must match the agreed verification policy.
 7. Permission safeguards blocked self-reviewed and settings merges. Independent review and explicit owner approval are the way through; do not work around them.
@@ -21,7 +21,7 @@ What went wrong and what we change
 10. tests/unit/test_purity_audit.py already drifted from main (61 modules against 60 expected) and now lists fewer modules than exist; under the no-unit-tests policy it needs an owner decision.
 11. Finished workers were resumed for follow-up work. Prefer a fresh agent per task and retire finished ones; resume only for rework of its own PR.
 
-Open items carried forward: EQ164 wave 3, the X2 row-specific rework, owner review of all coordinator decisions, real N: source demo, installed qualification, source parity and rights, EQ169 acceptance.
+Open items carried forward: EQ164 wave 3, the X2 row-specific rework, owner review of all coordinator decisions, real-source demo, installed qualification, source parity and rights, EQ169 acceptance.
 
 ## A tolerance needs an explicit selector and age clock — October 21, 2026
 
