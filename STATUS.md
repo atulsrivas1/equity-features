@@ -1,5 +1,9 @@
 # Status (newest first)
 
+## 2026-10-23 - EF3 delivered in all three layers (evidence package, not acceptance)
+- Merged: contracts D #689 (+ Amendment 1 #693), E #690, F #691; libraries #692, #694, #695; I/O #36, #37, #38; workers #80, #81, #82; shared amendment #696 (rulings R1-R9 pending owner review); retrospective #697, #698; tools #699. Windows installed qualification #700 is open, not merged. Evidence and limits: docs/ef3/EF3_DELIVERY_EVIDENCE.md. EF3 is not accepted.
+- Known limits: reconstruction-mode exception, R4 roster divergence, manifest mismatches (2 entries without header, 36 headers without entry), refusal codes collapse at workers, version bump owed, O(n) batch memory. Not done: Linux qualification, real-source demo, rights and parity, owner demo, acceptance of EQ-153/154/155/156/157/241.
+
 ## 2026-10-23 - EF3 in progress: D, E, F libraries, I/O and workers (E worker pending), shared amendment merged
 - Merged: libraries #692 (D), #694 (E), #695 (F); I/O io #36, #37, #38; workers #80 (D), #81 (F); shared amendment #696. Each PR had a fresh independent reviewer with its own harness; defects found and fixed before merge (hardcoded instrument id in E I/O, stale CRLF-affected sha in F I/O, readable-view labels and error leak in F worker). Results: D 62, E 124, F 99 result fixtures matched at the I/O layer; refusals 48/48 and 62/62 at I/O; worker refusal coverage partial (reviewer-driven).
 - Not done: E worker (Haiku run failed 26 of 124, Sonnet rework running), EF3 evidence doc, installed Windows qualification, browser demo, owner demo, release acceptance. Retrospective draft: docs/knowledge/RETRO_EF2_EF3.md.
