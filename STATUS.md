@@ -1,5 +1,9 @@
 # Status (newest first)
 
+## 2026-10-22 - EQ164 audit wave 1 (selected rows) done
+- Merged findings PRs core #647 (slice C, 36 EF8-only rows), #648 (slice A, 28 EF1/EF2/EF4 rows), #649 (slice B, 58 EF3 rows): 122 selected rows, opaque ids only. Totals: 3 partly delivered on main, 82 covered by a planned producer, 24 need operand producers, 13 ambiguous, 0 exclusions. All owner/release/I-O/worker issue numbers checked read-only against GitHub: no mismatches. Coordinator decisions on the 17 raised questions are in docs/ef1/audit/EQ164_WAVE1_DECISIONS.md (pending owner review). No tracker issue created or edited.
+- Not done: wave 2 (208 command exclusions, row-level operand lists for consumer gaps, proposed stories, remaining identities), so full EQ164 stays open. Audit confidence is low to medium per row because opaque ids could not be tied to private inventories.
+
 ## 2026-10-22 - EF1 readable results view merged and demoed
 - Merged workers #74 (e030433): tools/ef1_readable_view.py plus runner changes; each of the 62 cases now has view/<stem>.html with a features table (exact values, float repr + hex, decimal coefficient, unit, dtype, status, reasons, quality counts) and an evidence table; index links readable, raw JSON and DuckDB. Values are parsed from the canonical JSON embedded in each example page, never recomputed. Author compared every displayed value on all 62 pages with the typed DuckDB cells/evidence tables (360 cells, 109 evidence rows, 0 mismatches; one enum-display bug caught and fixed). No tests added (policy).
 - Browser re-demo (coordinator): served the regenerated output locally, viewed the index (62 runs, 0 failed, Values column) and the close C02 page at 1200px and 400px in the browser pane; C02 values matched the contract (79.36507936507937 / 0x1.3d75d75d75d76p+6, supplied 1260, outside_tolerance, within_tolerance false). Server stopped afterwards.
