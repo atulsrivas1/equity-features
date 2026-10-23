@@ -1039,5 +1039,103 @@
     },
     "math_api_accepted": false,
     "implementation_admitted": false
+  },
+  "proposed_unaccepted_outputs": {
+    "status": "PROPOSED_UNACCEPTED_hygiene_additions_not_part_of_the_47_outputs",
+    "note": "Hygiene proposal from EQ164 wave 3 (docs only). PROPOSED and UNACCEPTED: no entry is part of the 47-output accepted planned-ownership count, none has a canonical name, unit or contract, and none is accepted or implemented. Only information stated in the merged audit docs is recorded; fields not stated there are null.",
+    "entries": [
+      {
+        "proposal_id": "P-626-ADAPTIVE",
+        "title": "adaptive outputs of the #626 producer",
+        "status": "PROPOSED_UNACCEPTED",
+        "owner_story": "EQ-237",
+        "owner_issue": 626,
+        "planned_delivery": "EF3",
+        "release_acceptance_issue": 491,
+        "io_issue": 611,
+        "worker_issue": 612,
+        "role": "computed adaptive producer outputs (wave 2 working answers X3-4: F0721 computed by #626; named F0690-F0699 outputs read by S0336, S0337, S0357); F0691, F0697, F0698 computed unless the #626 contract shows supplied operands",
+        "opaque_ids_stated": [
+          "F0690",
+          "F0691",
+          "F0692",
+          "F0693",
+          "F0694",
+          "F0695",
+          "F0696",
+          "F0697",
+          "F0698",
+          "F0699",
+          "F0721"
+        ],
+        "canonical_name": null,
+        "unit": null,
+        "operands": null,
+        "count": null,
+        "unknown_note": "Output names, units, operands and the exact output count are not stated in the audit docs; null by design. F0700 and F0701 are supplied identity and clock under #611 (provisional) and are not #626 outputs.",
+        "source_docs": [
+          "EQ164_SELECTED_B.md",
+          "EQ164_WAVE1_DECISIONS.md (B1, B2)",
+          "EQ164_WAVE2_DECISIONS.md (X3-4)"
+        ],
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "planned_ownership_accepted": false
+      },
+      {
+        "proposal_id": "P-490-MEAN-COMPANION",
+        "title": "separately named mean companion output of #490",
+        "status": "PROPOSED_UNACCEPTED",
+        "owner_story": "EQ-156 (current placement); wave 1 decision B3 and wave 2 proposed story 4 call for its own numbered story, not yet created",
+        "owner_issue": 490,
+        "planned_delivery": "EF3",
+        "release_acceptance_issue": 491,
+        "role": "mean-ratio companion beside the median/MAD normalization; serves 13 consumers; opaque id F0452; hidden edge to #489 to be recorded",
+        "opaque_ids_stated": [
+          "F0452"
+        ],
+        "canonical_name": null,
+        "unit": null,
+        "operands": null,
+        "count": null,
+        "unknown_note": "Name, unit and operands are not stated in the audit docs; null by design. The final owner story number does not exist yet.",
+        "source_docs": [
+          "EQ164_SELECTED_B.md",
+          "EQ164_WAVE1_DECISIONS.md (B3)",
+          "EQ164_WAVE2_DECISIONS.md (proposed story 4)"
+        ],
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "planned_ownership_accepted": false
+      },
+      {
+        "proposal_id": "P-598-OBSERVED-POPULATION",
+        "title": "observed-population companion outputs of #598",
+        "status": "PROPOSED_UNACCEPTED",
+        "owner_story": "EQ-220 (retitled extension) or a narrow companion story; placement is an owner decision",
+        "owner_issue": 598,
+        "planned_delivery": "EF3",
+        "release_acceptance_issue": 491,
+        "role": "seven draft observed-population outputs kept under distinct names from declared-universe outputs: qualifying member count, advancing member count, advance fraction, the same three per supplied group with group size, and a coverage record; consumers S0003-S0006",
+        "opaque_ids_stated": [
+          "S0003",
+          "S0004",
+          "S0005",
+          "S0006"
+        ],
+        "canonical_name": null,
+        "unit": null,
+        "operands": null,
+        "count": 7,
+        "unknown_note": "Canonical names and units are not stated in the audit docs; null by design. Duplicate-identity handling must be frozen once; regime classification and cut-offs stay in #518.",
+        "source_docs": [
+          "EQ164_WAVE2_X3.md (B5)",
+          "EQ164_WAVE2_DECISIONS.md (X3-1)"
+        ],
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "planned_ownership_accepted": false
+      }
+    ]
   }
 }

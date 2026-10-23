@@ -8,7 +8,8 @@
       "actual_numbered_dependency": [
         626
       ],
-      "publication_status": "draft_dependency_append_not_applied"
+      "publication_status": "published_and_read_back",
+      "publication_source": "docs/ef1/AUDIT_ROUTE_PUBLICATION.md (Actual selected dependency publication readback, October 21, 2026)"
     },
     {
       "target_issue": 611,
@@ -21,7 +22,8 @@
       "actual_numbered_dependency": [
         626
       ],
-      "publication_status": "draft_dependency_append_not_applied"
+      "publication_status": "published_and_read_back",
+      "publication_source": "docs/ef1/AUDIT_ROUTE_PUBLICATION.md (Actual selected dependency publication readback, October 21, 2026)"
     },
     {
       "target_issue": 612,
@@ -34,7 +36,8 @@
       "actual_numbered_dependency": [
         626
       ],
-      "publication_status": "draft_dependency_append_not_applied"
+      "publication_status": "published_and_read_back",
+      "publication_source": "docs/ef1/AUDIT_ROUTE_PUBLICATION.md (Actual selected dependency publication readback, October 21, 2026)"
     },
     {
       "target_issue": 490,
@@ -152,7 +155,8 @@
       "actual_numbered_dependency": [
         626
       ],
-      "publication_status": "draft_dependency_append_not_applied"
+      "publication_status": "published_and_read_back",
+      "publication_source": "docs/ef1/AUDIT_ROUTE_PUBLICATION.md (Actual selected dependency publication readback, October 21, 2026)"
     }
   ],
   "all_edges_require_exact_selected_profile_before_ready": true,

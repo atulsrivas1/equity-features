@@ -34441,7 +34441,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "supplied fact",
+            "owner_story": "EQ-168 #508"
+          },
+          {
+            "kind": "policy",
+            "owner_story": "EQ-168 #508"
+          },
+          {
+            "kind": "consumer of mapping",
+            "owner_story": "EQ-172 #513"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X1.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0030",
@@ -34532,7 +34551,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "orchestration",
+            "owner_story": "EQ-178 #520"
+          },
+          {
+            "kind": "pure producer / policy",
+            "owner_story": "EQ-178 #520"
+          },
+          {
+            "kind": "operand derivation",
+            "owner_story": "NEEDS_NEW_STORY or explicit #520 contract clause"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X1.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0035",
@@ -36051,7 +36089,22 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "policy",
+            "owner_story": "EQ-176 #518"
+          },
+          {
+            "kind": "representation",
+            "owner_story": "EQ-212 #570"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X1.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0100",
@@ -36548,7 +36601,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "pure producer",
+            "owner_story": "EQ-174 #515 (EF7); I/O #619; worker #620"
+          },
+          {
+            "kind": "supplied fact",
+            "owner_story": "EF1 clocks #505/#506; calendar predecessor C0051 owner choice still open"
+          },
+          {
+            "kind": "source access",
+            "owner_story": "see Q1"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X2.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0133",
@@ -36593,7 +36665,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "pure producer",
+            "owner_story": "EQ-174 #515 (EF7); I/O #619; worker #620"
+          },
+          {
+            "kind": "supplied fact",
+            "owner_story": "EF1 clocks #505/#506; calendar predecessor C0051 owner choice still open"
+          },
+          {
+            "kind": "source access",
+            "owner_story": "see Q1"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X2.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0136",
@@ -36678,7 +36769,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "pure producer",
+            "owner_story": "EQ-174 #515 (EF7); I/O #619; worker #620"
+          },
+          {
+            "kind": "supplied fact",
+            "owner_story": "EF1 clocks #505/#506; calendar predecessor C0051 owner choice still open"
+          },
+          {
+            "kind": "source access",
+            "owner_story": "see Q1"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X2.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0141",
@@ -37447,7 +37557,22 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "pure producer / policy",
+            "owner_story": "EQ-177 #519"
+          },
+          {
+            "kind": "orchestration",
+            "owner_story": "EQ-234 #622"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X1.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0188",
@@ -38877,7 +39002,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "policy",
+            "owner_story": "EQ-176 #518"
+          },
+          {
+            "kind": "orchestration",
+            "owner_story": "EQ-234 #622 (qualified by EQ-180 #522)"
+          },
+          {
+            "kind": "source access / representation",
+            "owner_story": "EQ-212 #570"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X1.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0258",
@@ -39355,7 +39499,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "pure producer",
+            "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612"
+          },
+          {
+            "kind": "supplied fact",
+            "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508"
+          },
+          {
+            "kind": "policy",
+            "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X2.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0281",
@@ -39370,7 +39533,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "pure producer",
+            "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612"
+          },
+          {
+            "kind": "supplied fact",
+            "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508"
+          },
+          {
+            "kind": "policy",
+            "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X2.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0282",
@@ -39415,7 +39597,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "pure producer",
+            "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612"
+          },
+          {
+            "kind": "supplied fact",
+            "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508"
+          },
+          {
+            "kind": "policy",
+            "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X2.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0285",
@@ -39505,7 +39706,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "pure producer",
+            "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612"
+          },
+          {
+            "kind": "supplied fact",
+            "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508"
+          },
+          {
+            "kind": "policy",
+            "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X2.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0291",
@@ -39520,7 +39740,26 @@
       "exclusion_or_component_review_accepted": false,
       "no_retained_component_requires_individual_exclusion_review": true,
       "external_interface_subprocess_closure_accepted": false,
-      "semantics_source_consumer_acceptance": false
+      "semantics_source_consumer_acceptance": false,
+      "audit_wave2_adjudication": {
+        "verdict": "REJECT_EXCLUSION",
+        "retained_components": [
+          {
+            "kind": "pure producer",
+            "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612"
+          },
+          {
+            "kind": "supplied fact",
+            "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508"
+          },
+          {
+            "kind": "policy",
+            "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY"
+          }
+        ],
+        "source_doc": "EQ164_WAVE2_X2.json (see also EQ164_WAVE2_DECISIONS.md)",
+        "status": "coordinator-decided, pending owner review"
+      }
     },
     {
       "opaque_id": "C0292",
