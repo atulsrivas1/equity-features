@@ -1,0 +1,1449 @@
+{
+ "schema_version": 1,
+ "kind": "eq164_selected_slice_a_findings_not_acceptance",
+ "slice": "release sets containing EF1, EF2 or EF4 and no EF3",
+ "row_count": 28,
+ "accepted": false,
+ "cross_cutting_findings": [
+  "All owner, io and worker issue numbers exist, are open and match NUMBERED_LAYER_OWNERS; no numbering mismatch.",
+  "Three selected outcomes are named in issue bodies but absent from the 47-output manifest: rejected-path diagnostic (#506), retracement level (#511), raw return/rate/rate-difference (#513).",
+  "#511 and #505 titles do not name the added scope; #511 body itself defers to a numbered gap if out of scope.",
+  "Closed prerequisites (#32, #473) are referenced as conditional or preserved dependencies; reuse compatibility is unproved.",
+  "No hidden reverse edge from EF1/EF2/EF4 to EF8 was found; EF8 policy rows depend on earlier operands only.",
+  "Multi-venue aggregation (#505) and supplied-close comparison (#508) producers are not on main, which limits any row relying on #505 aggregation."
+ ],
+ "rows": [
+  {
+   "opaque_id": "F0702",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "supplied rate operand mapping under #513 / #613; upstream ordered trade/window profile belongs to EQ-158 #492 (EF4, open, profile not selected)",
+   "gaps": [
+    "exact #492 ordered source profile explicitly 'remains separate' and unresolved",
+    "not in output manifest",
+    "no contract or fixtures"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513/#492 titles read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0088",
+   "kind": "field",
+   "selection": "S02-REJECTION",
+   "owners": [
+    {
+     "owner_issue": 506,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    }
+   ],
+   "numbering_check": "issues #506,#570,#571 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-166 #506 rejected-path companion section (proposal text in issue body); I/O #570 and worker #571 for mapping/execution",
+   "gaps": [
+    "no entry in the 47-output manifest",
+    "no frozen contract, predicates or fixtures",
+    "no merged producer found on main (ledger)",
+    "NUMBERED_LAYER_OWNERS says a conditional diagnostic follow-up was not created and cannot count as an owner; unclear whether that refers to this companion"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #506 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0089",
+   "kind": "field",
+   "selection": "S02-REJECTION",
+   "owners": [
+    {
+     "owner_issue": 506,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    }
+   ],
+   "numbering_check": "issues #506,#570,#571 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-166 #506 rejected-path companion section (proposal text in issue body); I/O #570 and worker #571 for mapping/execution",
+   "gaps": [
+    "no entry in the 47-output manifest",
+    "no frozen contract, predicates or fixtures",
+    "no merged producer found on main (ledger)",
+    "NUMBERED_LAYER_OWNERS says a conditional diagnostic follow-up was not created and cannot count as an owner; unclear whether that refers to this companion"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #506 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0142",
+   "kind": "field",
+   "selection": "S02-REJECTION",
+   "owners": [
+    {
+     "owner_issue": 570,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    }
+   ],
+   "numbering_check": "issues #570,#571 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "supplied-copy mapping under I/O #570 / worker #571; depends on the pure producer routed for F0088/F0089",
+   "gaps": [
+    "primary owner recorded is a layer issue (#570), unlike library-story owners elsewhere; confirm intended",
+    "depends on the unresolved rejected-path producer contract",
+    "no output-manifest entry, contract or fixtures"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #506 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0143",
+   "kind": "field",
+   "selection": "S02-REJECTION",
+   "owners": [
+    {
+     "owner_issue": 570,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    }
+   ],
+   "numbering_check": "issues #570,#571 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "supplied-copy mapping under I/O #570 / worker #571; depends on the pure producer routed for F0088/F0089",
+   "gaps": [
+    "primary owner recorded is a layer issue (#570), unlike library-story owners elsewhere; confirm intended",
+    "depends on the unresolved rejected-path producer contract",
+    "no output-manifest entry, contract or fixtures"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #506 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0276",
+   "kind": "consumer",
+   "selection": "S04-RETRACEMENT",
+   "owners": [
+    {
+     "owner_issue": 511,
+     "release": "EF2",
+     "io": 609,
+     "worker": 610
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #511,#518,#609,#610,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "policy EF8 #518 plus level primitive EF2 #511 (conditional); see operand table",
+   "gaps": [
+    "nine consumers carry identical routes; per-consumer operand differences not recoverable",
+    "retracement-level producer scope contested (see decision Q1)",
+    "extrema operand compatibility unproved",
+    "no output-manifest entry for the level outcome"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #511/#518 bodies read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false,
+   "operands": [
+    {
+     "operand": "caller-parameterized retracement-level arithmetic",
+     "producer": "EQ-170 #511 proposed companion",
+     "status": "numbered_conditional",
+     "detail": "issue #511 body proposes it but its own text says to number a narrow gap if review finds it outside #511 scope; #511 title names channels/squeeze; not in 47-output manifest; no contract"
+    },
+    {
+     "operand": "prior extrema window operand",
+     "producer": "EQ-149 #483 (open) and EQ-139 #473 (closed); conditional reuse of closed EQ-027 #32",
+     "status": "numbered_unproved",
+     "detail": "preserved dependencies exist; exact compatibility of reuse not proved; delivery on main not established by the ledger (EF2 not in EF1 ledger)"
+    },
+    {
+     "operand": "calendar/period operands where actually consumed",
+     "producer": "EQ-166 #506",
+     "status": "delivered_unaccepted",
+     "detail": "calendar-period features are on main per ledger; selection of which operand is consumed is not recorded"
+    },
+    {
+     "operand": "proximity / crossing / score predicates",
+     "producer": "EQ-176 #518 (EF8)",
+     "status": "numbered_planned",
+     "detail": "policy owner; not delivered; no contract in any manifest"
+    },
+    {
+     "operand": "representation and execution of selected level and policy outputs",
+     "producer": "EF2 #609/#610 and EF8 #621/#622",
+     "status": "numbered_planned",
+     "detail": "layer issues exist, Backlog; no mapping contract"
+    },
+    {
+     "operand": "consumer-specific supplied price/endpoint and level-class operands",
+     "producer": "unknown",
+     "status": "uncovered_gap",
+     "detail": "per-consumer operand lists are not recoverable from opaque ids; part of the 245 unresolved consumer operand gaps"
+    }
+   ]
+  },
+  {
+   "opaque_id": "S0277",
+   "kind": "consumer",
+   "selection": "S04-RETRACEMENT",
+   "owners": [
+    {
+     "owner_issue": 511,
+     "release": "EF2",
+     "io": 609,
+     "worker": 610
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #511,#518,#609,#610,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "policy EF8 #518 plus level primitive EF2 #511 (conditional); see operand table",
+   "gaps": [
+    "nine consumers carry identical routes; per-consumer operand differences not recoverable",
+    "retracement-level producer scope contested (see decision Q1)",
+    "extrema operand compatibility unproved",
+    "no output-manifest entry for the level outcome"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #511/#518 bodies read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false,
+   "operands": [
+    {
+     "operand": "caller-parameterized retracement-level arithmetic",
+     "producer": "EQ-170 #511 proposed companion",
+     "status": "numbered_conditional",
+     "detail": "issue #511 body proposes it but its own text says to number a narrow gap if review finds it outside #511 scope; #511 title names channels/squeeze; not in 47-output manifest; no contract"
+    },
+    {
+     "operand": "prior extrema window operand",
+     "producer": "EQ-149 #483 (open) and EQ-139 #473 (closed); conditional reuse of closed EQ-027 #32",
+     "status": "numbered_unproved",
+     "detail": "preserved dependencies exist; exact compatibility of reuse not proved; delivery on main not established by the ledger (EF2 not in EF1 ledger)"
+    },
+    {
+     "operand": "calendar/period operands where actually consumed",
+     "producer": "EQ-166 #506",
+     "status": "delivered_unaccepted",
+     "detail": "calendar-period features are on main per ledger; selection of which operand is consumed is not recorded"
+    },
+    {
+     "operand": "proximity / crossing / score predicates",
+     "producer": "EQ-176 #518 (EF8)",
+     "status": "numbered_planned",
+     "detail": "policy owner; not delivered; no contract in any manifest"
+    },
+    {
+     "operand": "representation and execution of selected level and policy outputs",
+     "producer": "EF2 #609/#610 and EF8 #621/#622",
+     "status": "numbered_planned",
+     "detail": "layer issues exist, Backlog; no mapping contract"
+    },
+    {
+     "operand": "consumer-specific supplied price/endpoint and level-class operands",
+     "producer": "unknown",
+     "status": "uncovered_gap",
+     "detail": "per-consumer operand lists are not recoverable from opaque ids; part of the 245 unresolved consumer operand gaps"
+    }
+   ]
+  },
+  {
+   "opaque_id": "S0278",
+   "kind": "consumer",
+   "selection": "S04-RETRACEMENT",
+   "owners": [
+    {
+     "owner_issue": 511,
+     "release": "EF2",
+     "io": 609,
+     "worker": 610
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #511,#518,#609,#610,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "policy EF8 #518 plus level primitive EF2 #511 (conditional); see operand table",
+   "gaps": [
+    "nine consumers carry identical routes; per-consumer operand differences not recoverable",
+    "retracement-level producer scope contested (see decision Q1)",
+    "extrema operand compatibility unproved",
+    "no output-manifest entry for the level outcome"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #511/#518 bodies read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false,
+   "operands": [
+    {
+     "operand": "caller-parameterized retracement-level arithmetic",
+     "producer": "EQ-170 #511 proposed companion",
+     "status": "numbered_conditional",
+     "detail": "issue #511 body proposes it but its own text says to number a narrow gap if review finds it outside #511 scope; #511 title names channels/squeeze; not in 47-output manifest; no contract"
+    },
+    {
+     "operand": "prior extrema window operand",
+     "producer": "EQ-149 #483 (open) and EQ-139 #473 (closed); conditional reuse of closed EQ-027 #32",
+     "status": "numbered_unproved",
+     "detail": "preserved dependencies exist; exact compatibility of reuse not proved; delivery on main not established by the ledger (EF2 not in EF1 ledger)"
+    },
+    {
+     "operand": "calendar/period operands where actually consumed",
+     "producer": "EQ-166 #506",
+     "status": "delivered_unaccepted",
+     "detail": "calendar-period features are on main per ledger; selection of which operand is consumed is not recorded"
+    },
+    {
+     "operand": "proximity / crossing / score predicates",
+     "producer": "EQ-176 #518 (EF8)",
+     "status": "numbered_planned",
+     "detail": "policy owner; not delivered; no contract in any manifest"
+    },
+    {
+     "operand": "representation and execution of selected level and policy outputs",
+     "producer": "EF2 #609/#610 and EF8 #621/#622",
+     "status": "numbered_planned",
+     "detail": "layer issues exist, Backlog; no mapping contract"
+    },
+    {
+     "operand": "consumer-specific supplied price/endpoint and level-class operands",
+     "producer": "unknown",
+     "status": "uncovered_gap",
+     "detail": "per-consumer operand lists are not recoverable from opaque ids; part of the 245 unresolved consumer operand gaps"
+    }
+   ]
+  },
+  {
+   "opaque_id": "S0279",
+   "kind": "consumer",
+   "selection": "S04-RETRACEMENT",
+   "owners": [
+    {
+     "owner_issue": 511,
+     "release": "EF2",
+     "io": 609,
+     "worker": 610
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #511,#518,#609,#610,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "policy EF8 #518 plus level primitive EF2 #511 (conditional); see operand table",
+   "gaps": [
+    "nine consumers carry identical routes; per-consumer operand differences not recoverable",
+    "retracement-level producer scope contested (see decision Q1)",
+    "extrema operand compatibility unproved",
+    "no output-manifest entry for the level outcome"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #511/#518 bodies read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false,
+   "operands": [
+    {
+     "operand": "caller-parameterized retracement-level arithmetic",
+     "producer": "EQ-170 #511 proposed companion",
+     "status": "numbered_conditional",
+     "detail": "issue #511 body proposes it but its own text says to number a narrow gap if review finds it outside #511 scope; #511 title names channels/squeeze; not in 47-output manifest; no contract"
+    },
+    {
+     "operand": "prior extrema window operand",
+     "producer": "EQ-149 #483 (open) and EQ-139 #473 (closed); conditional reuse of closed EQ-027 #32",
+     "status": "numbered_unproved",
+     "detail": "preserved dependencies exist; exact compatibility of reuse not proved; delivery on main not established by the ledger (EF2 not in EF1 ledger)"
+    },
+    {
+     "operand": "calendar/period operands where actually consumed",
+     "producer": "EQ-166 #506",
+     "status": "delivered_unaccepted",
+     "detail": "calendar-period features are on main per ledger; selection of which operand is consumed is not recorded"
+    },
+    {
+     "operand": "proximity / crossing / score predicates",
+     "producer": "EQ-176 #518 (EF8)",
+     "status": "numbered_planned",
+     "detail": "policy owner; not delivered; no contract in any manifest"
+    },
+    {
+     "operand": "representation and execution of selected level and policy outputs",
+     "producer": "EF2 #609/#610 and EF8 #621/#622",
+     "status": "numbered_planned",
+     "detail": "layer issues exist, Backlog; no mapping contract"
+    },
+    {
+     "operand": "consumer-specific supplied price/endpoint and level-class operands",
+     "producer": "unknown",
+     "status": "uncovered_gap",
+     "detail": "per-consumer operand lists are not recoverable from opaque ids; part of the 245 unresolved consumer operand gaps"
+    }
+   ]
+  },
+  {
+   "opaque_id": "S0280",
+   "kind": "consumer",
+   "selection": "S04-RETRACEMENT",
+   "owners": [
+    {
+     "owner_issue": 511,
+     "release": "EF2",
+     "io": 609,
+     "worker": 610
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #511,#518,#609,#610,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "policy EF8 #518 plus level primitive EF2 #511 (conditional); see operand table",
+   "gaps": [
+    "nine consumers carry identical routes; per-consumer operand differences not recoverable",
+    "retracement-level producer scope contested (see decision Q1)",
+    "extrema operand compatibility unproved",
+    "no output-manifest entry for the level outcome"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #511/#518 bodies read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false,
+   "operands": [
+    {
+     "operand": "caller-parameterized retracement-level arithmetic",
+     "producer": "EQ-170 #511 proposed companion",
+     "status": "numbered_conditional",
+     "detail": "issue #511 body proposes it but its own text says to number a narrow gap if review finds it outside #511 scope; #511 title names channels/squeeze; not in 47-output manifest; no contract"
+    },
+    {
+     "operand": "prior extrema window operand",
+     "producer": "EQ-149 #483 (open) and EQ-139 #473 (closed); conditional reuse of closed EQ-027 #32",
+     "status": "numbered_unproved",
+     "detail": "preserved dependencies exist; exact compatibility of reuse not proved; delivery on main not established by the ledger (EF2 not in EF1 ledger)"
+    },
+    {
+     "operand": "calendar/period operands where actually consumed",
+     "producer": "EQ-166 #506",
+     "status": "delivered_unaccepted",
+     "detail": "calendar-period features are on main per ledger; selection of which operand is consumed is not recorded"
+    },
+    {
+     "operand": "proximity / crossing / score predicates",
+     "producer": "EQ-176 #518 (EF8)",
+     "status": "numbered_planned",
+     "detail": "policy owner; not delivered; no contract in any manifest"
+    },
+    {
+     "operand": "representation and execution of selected level and policy outputs",
+     "producer": "EF2 #609/#610 and EF8 #621/#622",
+     "status": "numbered_planned",
+     "detail": "layer issues exist, Backlog; no mapping contract"
+    },
+    {
+     "operand": "consumer-specific supplied price/endpoint and level-class operands",
+     "producer": "unknown",
+     "status": "uncovered_gap",
+     "detail": "per-consumer operand lists are not recoverable from opaque ids; part of the 245 unresolved consumer operand gaps"
+    }
+   ]
+  },
+  {
+   "opaque_id": "S0281",
+   "kind": "consumer",
+   "selection": "S04-RETRACEMENT",
+   "owners": [
+    {
+     "owner_issue": 511,
+     "release": "EF2",
+     "io": 609,
+     "worker": 610
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #511,#518,#609,#610,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "policy EF8 #518 plus level primitive EF2 #511 (conditional); see operand table",
+   "gaps": [
+    "nine consumers carry identical routes; per-consumer operand differences not recoverable",
+    "retracement-level producer scope contested (see decision Q1)",
+    "extrema operand compatibility unproved",
+    "no output-manifest entry for the level outcome"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #511/#518 bodies read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false,
+   "operands": [
+    {
+     "operand": "caller-parameterized retracement-level arithmetic",
+     "producer": "EQ-170 #511 proposed companion",
+     "status": "numbered_conditional",
+     "detail": "issue #511 body proposes it but its own text says to number a narrow gap if review finds it outside #511 scope; #511 title names channels/squeeze; not in 47-output manifest; no contract"
+    },
+    {
+     "operand": "prior extrema window operand",
+     "producer": "EQ-149 #483 (open) and EQ-139 #473 (closed); conditional reuse of closed EQ-027 #32",
+     "status": "numbered_unproved",
+     "detail": "preserved dependencies exist; exact compatibility of reuse not proved; delivery on main not established by the ledger (EF2 not in EF1 ledger)"
+    },
+    {
+     "operand": "calendar/period operands where actually consumed",
+     "producer": "EQ-166 #506",
+     "status": "delivered_unaccepted",
+     "detail": "calendar-period features are on main per ledger; selection of which operand is consumed is not recorded"
+    },
+    {
+     "operand": "proximity / crossing / score predicates",
+     "producer": "EQ-176 #518 (EF8)",
+     "status": "numbered_planned",
+     "detail": "policy owner; not delivered; no contract in any manifest"
+    },
+    {
+     "operand": "representation and execution of selected level and policy outputs",
+     "producer": "EF2 #609/#610 and EF8 #621/#622",
+     "status": "numbered_planned",
+     "detail": "layer issues exist, Backlog; no mapping contract"
+    },
+    {
+     "operand": "consumer-specific supplied price/endpoint and level-class operands",
+     "producer": "unknown",
+     "status": "uncovered_gap",
+     "detail": "per-consumer operand lists are not recoverable from opaque ids; part of the 245 unresolved consumer operand gaps"
+    }
+   ]
+  },
+  {
+   "opaque_id": "S0282",
+   "kind": "consumer",
+   "selection": "S04-RETRACEMENT",
+   "owners": [
+    {
+     "owner_issue": 511,
+     "release": "EF2",
+     "io": 609,
+     "worker": 610
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #511,#518,#609,#610,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "policy EF8 #518 plus level primitive EF2 #511 (conditional); see operand table",
+   "gaps": [
+    "nine consumers carry identical routes; per-consumer operand differences not recoverable",
+    "retracement-level producer scope contested (see decision Q1)",
+    "extrema operand compatibility unproved",
+    "no output-manifest entry for the level outcome"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #511/#518 bodies read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false,
+   "operands": [
+    {
+     "operand": "caller-parameterized retracement-level arithmetic",
+     "producer": "EQ-170 #511 proposed companion",
+     "status": "numbered_conditional",
+     "detail": "issue #511 body proposes it but its own text says to number a narrow gap if review finds it outside #511 scope; #511 title names channels/squeeze; not in 47-output manifest; no contract"
+    },
+    {
+     "operand": "prior extrema window operand",
+     "producer": "EQ-149 #483 (open) and EQ-139 #473 (closed); conditional reuse of closed EQ-027 #32",
+     "status": "numbered_unproved",
+     "detail": "preserved dependencies exist; exact compatibility of reuse not proved; delivery on main not established by the ledger (EF2 not in EF1 ledger)"
+    },
+    {
+     "operand": "calendar/period operands where actually consumed",
+     "producer": "EQ-166 #506",
+     "status": "delivered_unaccepted",
+     "detail": "calendar-period features are on main per ledger; selection of which operand is consumed is not recorded"
+    },
+    {
+     "operand": "proximity / crossing / score predicates",
+     "producer": "EQ-176 #518 (EF8)",
+     "status": "numbered_planned",
+     "detail": "policy owner; not delivered; no contract in any manifest"
+    },
+    {
+     "operand": "representation and execution of selected level and policy outputs",
+     "producer": "EF2 #609/#610 and EF8 #621/#622",
+     "status": "numbered_planned",
+     "detail": "layer issues exist, Backlog; no mapping contract"
+    },
+    {
+     "operand": "consumer-specific supplied price/endpoint and level-class operands",
+     "producer": "unknown",
+     "status": "uncovered_gap",
+     "detail": "per-consumer operand lists are not recoverable from opaque ids; part of the 245 unresolved consumer operand gaps"
+    }
+   ]
+  },
+  {
+   "opaque_id": "S0283",
+   "kind": "consumer",
+   "selection": "S04-RETRACEMENT",
+   "owners": [
+    {
+     "owner_issue": 511,
+     "release": "EF2",
+     "io": 609,
+     "worker": 610
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #511,#518,#609,#610,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "policy EF8 #518 plus level primitive EF2 #511 (conditional); see operand table",
+   "gaps": [
+    "nine consumers carry identical routes; per-consumer operand differences not recoverable",
+    "retracement-level producer scope contested (see decision Q1)",
+    "extrema operand compatibility unproved",
+    "no output-manifest entry for the level outcome"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #511/#518 bodies read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false,
+   "operands": [
+    {
+     "operand": "caller-parameterized retracement-level arithmetic",
+     "producer": "EQ-170 #511 proposed companion",
+     "status": "numbered_conditional",
+     "detail": "issue #511 body proposes it but its own text says to number a narrow gap if review finds it outside #511 scope; #511 title names channels/squeeze; not in 47-output manifest; no contract"
+    },
+    {
+     "operand": "prior extrema window operand",
+     "producer": "EQ-149 #483 (open) and EQ-139 #473 (closed); conditional reuse of closed EQ-027 #32",
+     "status": "numbered_unproved",
+     "detail": "preserved dependencies exist; exact compatibility of reuse not proved; delivery on main not established by the ledger (EF2 not in EF1 ledger)"
+    },
+    {
+     "operand": "calendar/period operands where actually consumed",
+     "producer": "EQ-166 #506",
+     "status": "delivered_unaccepted",
+     "detail": "calendar-period features are on main per ledger; selection of which operand is consumed is not recorded"
+    },
+    {
+     "operand": "proximity / crossing / score predicates",
+     "producer": "EQ-176 #518 (EF8)",
+     "status": "numbered_planned",
+     "detail": "policy owner; not delivered; no contract in any manifest"
+    },
+    {
+     "operand": "representation and execution of selected level and policy outputs",
+     "producer": "EF2 #609/#610 and EF8 #621/#622",
+     "status": "numbered_planned",
+     "detail": "layer issues exist, Backlog; no mapping contract"
+    },
+    {
+     "operand": "consumer-specific supplied price/endpoint and level-class operands",
+     "producer": "unknown",
+     "status": "uncovered_gap",
+     "detail": "per-consumer operand lists are not recoverable from opaque ids; part of the 245 unresolved consumer operand gaps"
+    }
+   ]
+  },
+  {
+   "opaque_id": "S0284",
+   "kind": "consumer",
+   "selection": "S04-RETRACEMENT",
+   "owners": [
+    {
+     "owner_issue": 511,
+     "release": "EF2",
+     "io": 609,
+     "worker": 610
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #511,#518,#609,#610,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "covering_producer": "policy EF8 #518 plus level primitive EF2 #511 (conditional); see operand table",
+   "gaps": [
+    "nine consumers carry identical routes; per-consumer operand differences not recoverable",
+    "retracement-level producer scope contested (see decision Q1)",
+    "extrema operand compatibility unproved",
+    "no output-manifest entry for the level outcome"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #511/#518 bodies read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false,
+   "operands": [
+    {
+     "operand": "caller-parameterized retracement-level arithmetic",
+     "producer": "EQ-170 #511 proposed companion",
+     "status": "numbered_conditional",
+     "detail": "issue #511 body proposes it but its own text says to number a narrow gap if review finds it outside #511 scope; #511 title names channels/squeeze; not in 47-output manifest; no contract"
+    },
+    {
+     "operand": "prior extrema window operand",
+     "producer": "EQ-149 #483 (open) and EQ-139 #473 (closed); conditional reuse of closed EQ-027 #32",
+     "status": "numbered_unproved",
+     "detail": "preserved dependencies exist; exact compatibility of reuse not proved; delivery on main not established by the ledger (EF2 not in EF1 ledger)"
+    },
+    {
+     "operand": "calendar/period operands where actually consumed",
+     "producer": "EQ-166 #506",
+     "status": "delivered_unaccepted",
+     "detail": "calendar-period features are on main per ledger; selection of which operand is consumed is not recorded"
+    },
+    {
+     "operand": "proximity / crossing / score predicates",
+     "producer": "EQ-176 #518 (EF8)",
+     "status": "numbered_planned",
+     "detail": "policy owner; not delivered; no contract in any manifest"
+    },
+    {
+     "operand": "representation and execution of selected level and policy outputs",
+     "producer": "EF2 #609/#610 and EF8 #621/#622",
+     "status": "numbered_planned",
+     "detail": "layer issues exist, Backlog; no mapping contract"
+    },
+    {
+     "operand": "consumer-specific supplied price/endpoint and level-class operands",
+     "producer": "unknown",
+     "status": "uncovered_gap",
+     "detail": "per-consumer operand lists are not recoverable from opaque ids; part of the 245 unresolved consumer operand gaps"
+    }
+   ]
+  },
+  {
+   "opaque_id": "F0193",
+   "kind": "field",
+   "selection": "S05-RATE-DIFFERENCE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-172 #513 'raw return / share-volume rate / rate-difference' proposal section; I/O #613 / worker #614",
+   "gaps": [
+    "none of these outputs are in the 47-output manifest (only excess-return outputs are)",
+    "role string is a union of three sub-profiles; per-row assignment to return, rate or rate-difference is not recorded",
+    "operands depend on #492 windows and #505/#506/#507 clock/reference/anchor operands, all conditional and not contractually frozen",
+    "no contract or fixtures; nothing delivered"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0593",
+   "kind": "field",
+   "selection": "S05-RATE-DIFFERENCE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-172 #513 'raw return / share-volume rate / rate-difference' proposal section; I/O #613 / worker #614",
+   "gaps": [
+    "none of these outputs are in the 47-output manifest (only excess-return outputs are)",
+    "role string is a union of three sub-profiles; per-row assignment to return, rate or rate-difference is not recorded",
+    "operands depend on #492 windows and #505/#506/#507 clock/reference/anchor operands, all conditional and not contractually frozen",
+    "no contract or fixtures; nothing delivered"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0594",
+   "kind": "field",
+   "selection": "S05-RATE-DIFFERENCE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-172 #513 'raw return / share-volume rate / rate-difference' proposal section; I/O #613 / worker #614",
+   "gaps": [
+    "none of these outputs are in the 47-output manifest (only excess-return outputs are)",
+    "role string is a union of three sub-profiles; per-row assignment to return, rate or rate-difference is not recorded",
+    "operands depend on #492 windows and #505/#506/#507 clock/reference/anchor operands, all conditional and not contractually frozen",
+    "no contract or fixtures; nothing delivered"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0595",
+   "kind": "field",
+   "selection": "S05-RATE-DIFFERENCE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-172 #513 'raw return / share-volume rate / rate-difference' proposal section; I/O #613 / worker #614",
+   "gaps": [
+    "none of these outputs are in the 47-output manifest (only excess-return outputs are)",
+    "role string is a union of three sub-profiles; per-row assignment to return, rate or rate-difference is not recorded",
+    "operands depend on #492 windows and #505/#506/#507 clock/reference/anchor operands, all conditional and not contractually frozen",
+    "no contract or fixtures; nothing delivered"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0596",
+   "kind": "field",
+   "selection": "S05-RATE-DIFFERENCE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-172 #513 'raw return / share-volume rate / rate-difference' proposal section; I/O #613 / worker #614",
+   "gaps": [
+    "none of these outputs are in the 47-output manifest (only excess-return outputs are)",
+    "role string is a union of three sub-profiles; per-row assignment to return, rate or rate-difference is not recorded",
+    "operands depend on #492 windows and #505/#506/#507 clock/reference/anchor operands, all conditional and not contractually frozen",
+    "no contract or fixtures; nothing delivered"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0597",
+   "kind": "field",
+   "selection": "S05-RATE-DIFFERENCE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-172 #513 'raw return / share-volume rate / rate-difference' proposal section; I/O #613 / worker #614",
+   "gaps": [
+    "none of these outputs are in the 47-output manifest (only excess-return outputs are)",
+    "role string is a union of three sub-profiles; per-row assignment to return, rate or rate-difference is not recorded",
+    "operands depend on #492 windows and #505/#506/#507 clock/reference/anchor operands, all conditional and not contractually frozen",
+    "no contract or fixtures; nothing delivered"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0598",
+   "kind": "field",
+   "selection": "S05-RATE-DIFFERENCE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-172 #513 'raw return / share-volume rate / rate-difference' proposal section; I/O #613 / worker #614",
+   "gaps": [
+    "none of these outputs are in the 47-output manifest (only excess-return outputs are)",
+    "role string is a union of three sub-profiles; per-row assignment to return, rate or rate-difference is not recorded",
+    "operands depend on #492 windows and #505/#506/#507 clock/reference/anchor operands, all conditional and not contractually frozen",
+    "no contract or fixtures; nothing delivered"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0599",
+   "kind": "field",
+   "selection": "S05-RATE-DIFFERENCE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-172 #513 'raw return / share-volume rate / rate-difference' proposal section; I/O #613 / worker #614",
+   "gaps": [
+    "none of these outputs are in the 47-output manifest (only excess-return outputs are)",
+    "role string is a union of three sub-profiles; per-row assignment to return, rate or rate-difference is not recorded",
+    "operands depend on #492 windows and #505/#506/#507 clock/reference/anchor operands, all conditional and not contractually frozen",
+    "no contract or fixtures; nothing delivered"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0620",
+   "kind": "field",
+   "selection": "S05-RATE-DIFFERENCE",
+   "owners": [
+    {
+     "owner_issue": 513,
+     "release": "EF4",
+     "io": 613,
+     "worker": 614
+    }
+   ],
+   "numbering_check": "issues #513,#613,#614 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "covering_producer": "planned EQ-172 #513 'raw return / share-volume rate / rate-difference' proposal section; I/O #613 / worker #614",
+   "gaps": [
+    "none of these outputs are in the 47-output manifest (only excess-return outputs are)",
+    "role string is a union of three sub-profiles; per-row assignment to return, rate or rate-difference is not recorded",
+    "operands depend on #492 windows and #505/#506/#507 clock/reference/anchor operands, all conditional and not contractually frozen",
+    "no contract or fixtures; nothing delivered"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #513 body read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0341",
+   "kind": "field",
+   "selection": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "owner_issue": 507,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    },
+    {
+     "owner_issue": 520,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #507,#520,#570,#571,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "covering_producer": "possibly delivered anchor features (anchored VWAP/volume/notional) and/or planned open-to-endpoint return output under EQ-167 #507; ordered anchor discovery is EF8 #520 planned",
+   "gaps": [
+    "cannot determine from ledger whether delivered anchor features equal 'supplied anchor arithmetic'",
+    "manifest output for open-to-endpoint return not matched to any delivered feature id",
+    "two rows with identical routes",
+    "EF8 discovery half is planned only"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #507 title and #520 body excerpts read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0342",
+   "kind": "field",
+   "selection": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "owner_issue": 507,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    },
+    {
+     "owner_issue": 520,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #507,#520,#570,#571,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "covering_producer": "possibly delivered anchor features (anchored VWAP/volume/notional) and/or planned open-to-endpoint return output under EQ-167 #507; ordered anchor discovery is EF8 #520 planned",
+   "gaps": [
+    "cannot determine from ledger whether delivered anchor features equal 'supplied anchor arithmetic'",
+    "manifest output for open-to-endpoint return not matched to any delivered feature id",
+    "two rows with identical routes",
+    "EF8 discovery half is planned only"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "issue #507 title and #520 body excerpts read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0307",
+   "kind": "field",
+   "selection": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "owner_issue": 505,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    },
+    {
+     "owner_issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "numbering_check": "issues #505,#518,#570,#571,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "DELIVERED_ON_MAIN",
+   "covering_producer": "delivered open-observation features (admission, delay, first-trade time, observed) for the observable part; lateness policy part is EF8 #518 (planned, not delivered)",
+   "gaps": [
+    "story attribution of delivered open-observation to #505 is unverified in the ledger",
+    "EF8 lateness-policy half is planned only; row is DELIVERED only for the EF1 observable half",
+    "mixed label observable-vs-policy split needs explicit representation per #505 body"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "targeted body excerpts of #505, #518, #520 read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "low-medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0271",
+   "kind": "field",
+   "selection": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "owner_issue": 506,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    },
+    {
+     "owner_issue": 505,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    }
+   ],
+   "numbering_check": "issues #505,#506,#570,#571 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "DELIVERED_ON_MAIN",
+   "covering_producer": "merged first regular trade price producer (EQ-166 #506) with I/O mapping and worker entry per ledger; observation-clock part maps to delivered open-observation features whose story attribution the ledger marks unverified",
+   "gaps": [
+    "narrow-presence form not confirmed as a delivered output",
+    "separate observation clock claimed for #505 but delivered open-observation attribution is unverified in the ledger",
+    "two rows carry identical routes: duplicate or distinct profiles not determinable from opaque ids",
+    "delivery is not acceptance: numerical parity, rights and consumer join remain open"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md",
+    "issue #506 body and #505 excerpts read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "medium",
+   "accepted": false
+  },
+  {
+   "opaque_id": "F0284",
+   "kind": "field",
+   "selection": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "owner_issue": 506,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    },
+    {
+     "owner_issue": 505,
+     "release": "EF1",
+     "io": 570,
+     "worker": 571
+    }
+   ],
+   "numbering_check": "issues #505,#506,#570,#571 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
+   "classification": "DELIVERED_ON_MAIN",
+   "covering_producer": "merged first regular trade price producer (EQ-166 #506) with I/O mapping and worker entry per ledger; observation-clock part maps to delivered open-observation features whose story attribution the ledger marks unverified",
+   "gaps": [
+    "narrow-presence form not confirmed as a delivered output",
+    "separate observation clock claimed for #505 but delivered open-observation attribution is unverified in the ledger",
+    "two rows carry identical routes: duplicate or distinct profiles not determinable from opaque ids",
+    "delivery is not acceptance: numerical parity, rights and consumer join remain open"
+   ],
+   "evidence_read": [
+    "equity-selected-scope-components.json",
+    "equity-audit-route-coverage.json",
+    "equity-selected-dependencies.json",
+    "equity-output-ownership.json",
+    "NUMBERED_LAYER_OWNERS.md",
+    "DELIVERY_LEDGER.md",
+    "AUDIT_ROUTE_PUBLICATION.md",
+    "OWNERSHIP_RECONCILIATION.md",
+    "REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md",
+    "issue #506 body and #505 excerpts read",
+    "gh read-only title/state for owner, io, worker issues"
+   ],
+   "confidence": "medium",
+   "accepted": false
+  }
+ ]
+}
