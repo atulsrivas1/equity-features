@@ -1,0 +1,1778 @@
+{
+ "schema_version": 1,
+ "kind": "EQ164_WAVE3_WATCHLISTS",
+ "status": "findings_only_proposed_resolutions_not_accepted",
+ "date": "2026-10-22",
+ "counts": {
+  "watchlists": 25,
+  "RESOLVED_COMMON_OPERANDS": 23,
+  "RESOLVED_WITH_OWN_OPERANDS": 2,
+  "STILL_AMBIGUOUS": 0,
+  "common_operand_set_size": 33,
+  "common_validation_fields": 32,
+  "membership_refusal_fields": 1,
+  "eligibility_tag_fields": 2,
+  "eligibility_tag_fields_also_in_validation": 2,
+  "predicate_operand_union": 25,
+  "predicate_operands_outside_common": 0,
+  "distinct_predicate_sets": 17,
+  "predicate_set_size_min": 3,
+  "predicate_set_size_max": 19,
+  "common_fields_read_by_no_predicate": 8,
+  "shared_non_field_policy_inputs": 3,
+  "watchlist_to_watchlist_edges": 13
+ },
+ "producer_status_counts": {
+  "PLANNED_NUMBERED_STORY_NOT_DELIVERED": 15,
+  "PLANNED_IO_REPRESENTATION_SLOT": 1,
+  "CLOSED_BASELINE_REUSE_UNPROVED": 14,
+  "PROPOSED_STORY_MEAN_COMPANION_PLUS_PLANNED_490": 1,
+  "CLOSED_STORY_OPERAND_ROUTE_UNRESOLVED": 2
+ },
+ "delivered_on_main_with_proven_binding": 0,
+ "uncovered_operand_gaps": 0,
+ "common_operand_set": [
+  {
+   "field": "F0431",
+   "owner": 513,
+   "owner_state": "OPEN",
+   "planned_release": "EF4",
+   "public_operand_class": "SUPPLIED_FACT_IO_MAPPING",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 0,
+   "read_by_watchlists": [],
+   "read_by_no_predicate": true
+  },
+  {
+   "field": "F0432",
+   "owner": 508,
+   "owner_state": "OPEN",
+   "planned_release": "EF1",
+   "public_operand_class": "SUPPLIED_FACT_IO_MAPPING",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 0,
+   "read_by_watchlists": [],
+   "read_by_no_predicate": true
+  },
+  {
+   "field": "F0433",
+   "owner": 621,
+   "owner_state": "OPEN",
+   "planned_release": "EF8",
+   "public_operand_class": "REPRESENTATION_SLOT",
+   "producer_status": "PLANNED_IO_REPRESENTATION_SLOT",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 0,
+   "read_by_watchlists": [],
+   "read_by_no_predicate": true
+  },
+  {
+   "field": "F0434",
+   "owner": 508,
+   "owner_state": "OPEN",
+   "planned_release": "EF1",
+   "public_operand_class": "SUPPLIED_FACT_IO_MAPPING",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": true,
+   "read_by_predicate_count": 23,
+   "read_by_watchlists": [
+    "W0002",
+    "W0003",
+    "W0004",
+    "W0005",
+    "W0006",
+    "W0007",
+    "W0009",
+    "W0010",
+    "W0011",
+    "W0012",
+    "W0013",
+    "W0014",
+    "W0015",
+    "W0016",
+    "W0017",
+    "W0018",
+    "W0019",
+    "W0020",
+    "W0021",
+    "W0022",
+    "W0023",
+    "W0024",
+    "W0025"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0435",
+   "owner": 32,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 6,
+   "read_by_watchlists": [
+    "W0002",
+    "W0014",
+    "W0015",
+    "W0017",
+    "W0018",
+    "W0019"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0436",
+   "owner": 32,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 10,
+   "read_by_watchlists": [
+    "W0001",
+    "W0005",
+    "W0006",
+    "W0008",
+    "W0014",
+    "W0015",
+    "W0020",
+    "W0021",
+    "W0022",
+    "W0023"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0437",
+   "owner": 32,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 16,
+   "read_by_watchlists": [
+    "W0002",
+    "W0005",
+    "W0006",
+    "W0012",
+    "W0013",
+    "W0014",
+    "W0015",
+    "W0017",
+    "W0018",
+    "W0019",
+    "W0020",
+    "W0021",
+    "W0022",
+    "W0023",
+    "W0024",
+    "W0025"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0438",
+   "owner": 32,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 10,
+   "read_by_watchlists": [
+    "W0005",
+    "W0006",
+    "W0007",
+    "W0012",
+    "W0013",
+    "W0014",
+    "W0015",
+    "W0019",
+    "W0020",
+    "W0021"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0439",
+   "owner": 32,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 1,
+   "read_by_watchlists": [
+    "W0010"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0440",
+   "owner": 32,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 1,
+   "read_by_watchlists": [
+    "W0010"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0441",
+   "owner": 33,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 6,
+   "read_by_watchlists": [
+    "W0002",
+    "W0014",
+    "W0015",
+    "W0017",
+    "W0018",
+    "W0019"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0442",
+   "owner": 33,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 0,
+   "read_by_watchlists": [],
+   "read_by_no_predicate": true
+  },
+  {
+   "field": "F0443",
+   "owner": 33,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 18,
+   "read_by_watchlists": [
+    "W0002",
+    "W0004",
+    "W0005",
+    "W0006",
+    "W0009",
+    "W0012",
+    "W0013",
+    "W0014",
+    "W0015",
+    "W0017",
+    "W0018",
+    "W0019",
+    "W0020",
+    "W0021",
+    "W0022",
+    "W0023",
+    "W0024",
+    "W0025"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0444",
+   "owner": 33,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 14,
+   "read_by_watchlists": [
+    "W0002",
+    "W0005",
+    "W0006",
+    "W0007",
+    "W0011",
+    "W0012",
+    "W0013",
+    "W0014",
+    "W0015",
+    "W0017",
+    "W0018",
+    "W0019",
+    "W0020",
+    "W0021"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0445",
+   "owner": 33,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 4,
+   "read_by_watchlists": [
+    "W0003",
+    "W0010",
+    "W0011",
+    "W0016"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0446",
+   "owner": 33,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 4,
+   "read_by_watchlists": [
+    "W0003",
+    "W0010",
+    "W0011",
+    "W0016"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0447",
+   "owner": 513,
+   "owner_state": "OPEN",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 12,
+   "read_by_watchlists": [
+    "W0002",
+    "W0005",
+    "W0006",
+    "W0012",
+    "W0013",
+    "W0014",
+    "W0015",
+    "W0017",
+    "W0018",
+    "W0019",
+    "W0020",
+    "W0021"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0448",
+   "owner": 513,
+   "owner_state": "OPEN",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 7,
+   "read_by_watchlists": [
+    "W0002",
+    "W0007",
+    "W0014",
+    "W0015",
+    "W0017",
+    "W0018",
+    "W0019"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0449",
+   "owner": 32,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 4,
+   "read_by_watchlists": [
+    "W0003",
+    "W0010",
+    "W0011",
+    "W0016"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0450",
+   "owner": 32,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_CLOSED_BASELINE_REUSE_UNPROVED",
+   "producer_status": "CLOSED_BASELINE_REUSE_UNPROVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 4,
+   "read_by_watchlists": [
+    "W0003",
+    "W0010",
+    "W0011",
+    "W0016"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0451",
+   "owner": 513,
+   "owner_state": "OPEN",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 0,
+   "read_by_watchlists": [],
+   "read_by_no_predicate": true
+  },
+  {
+   "field": "F0452",
+   "owner": 490,
+   "owner_state": "OPEN",
+   "planned_release": "EF3",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PROPOSED_STORY_MEAN_COMPANION_PLUS_PLANNED_490",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 6,
+   "read_by_watchlists": [
+    "W0001",
+    "W0008",
+    "W0014",
+    "W0015",
+    "W0020",
+    "W0021"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0453",
+   "owner": 513,
+   "owner_state": "OPEN",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 6,
+   "read_by_watchlists": [
+    "W0001",
+    "W0008",
+    "W0014",
+    "W0015",
+    "W0020",
+    "W0021"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0454",
+   "owner": 513,
+   "owner_state": "OPEN",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 4,
+   "read_by_watchlists": [
+    "W0014",
+    "W0015",
+    "W0024",
+    "W0025"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0455",
+   "owner": 489,
+   "owner_state": "OPEN",
+   "planned_release": "EF3",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": true,
+   "read_by_predicate_count": 0,
+   "read_by_watchlists": [],
+   "read_by_no_predicate": true
+  },
+  {
+   "field": "F0456",
+   "owner": 512,
+   "owner_state": "OPEN",
+   "planned_release": "EF5",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 5,
+   "read_by_watchlists": [
+    "W0002",
+    "W0004",
+    "W0009",
+    "W0014",
+    "W0015"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0457",
+   "owner": 512,
+   "owner_state": "OPEN",
+   "planned_release": "EF5",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 5,
+   "read_by_watchlists": [
+    "W0002",
+    "W0004",
+    "W0009",
+    "W0014",
+    "W0015"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0458",
+   "owner": 39,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "SUPPLIED_FACT_IO_MAPPING",
+   "producer_status": "CLOSED_STORY_OPERAND_ROUTE_UNRESOLVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 8,
+   "read_by_watchlists": [
+    "W0005",
+    "W0006",
+    "W0014",
+    "W0015",
+    "W0020",
+    "W0021",
+    "W0022",
+    "W0023"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0459",
+   "owner": 39,
+   "owner_state": "CLOSED",
+   "planned_release": "EF4",
+   "public_operand_class": "SUPPLIED_FACT_IO_MAPPING",
+   "producer_status": "CLOSED_STORY_OPERAND_ROUTE_UNRESOLVED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 8,
+   "read_by_watchlists": [
+    "W0005",
+    "W0006",
+    "W0014",
+    "W0015",
+    "W0020",
+    "W0021",
+    "W0022",
+    "W0023"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0460",
+   "owner": 508,
+   "owner_state": "OPEN",
+   "planned_release": "EF1",
+   "public_operand_class": "SUPPLIED_FACT_IO_MAPPING",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": false,
+   "in_membership_refusal": true,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 0,
+   "read_by_watchlists": [],
+   "read_by_no_predicate": true
+  },
+  {
+   "field": "F0462",
+   "owner": 513,
+   "owner_state": "OPEN",
+   "planned_release": "EF4",
+   "public_operand_class": "COVERED_NUMBERED_PLANNED_NOT_DELIVERED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 9,
+   "read_by_watchlists": [
+    "W0004",
+    "W0005",
+    "W0006",
+    "W0014",
+    "W0015",
+    "W0020",
+    "W0021",
+    "W0022",
+    "W0023"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0463",
+   "owner": 506,
+   "owner_state": "OPEN",
+   "planned_release": "EF1",
+   "public_operand_class": "COVERED_NUMBERED_EF1_DELIVERY_UNDETERMINED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 2,
+   "read_by_watchlists": [
+    "W0004",
+    "W0014"
+   ],
+   "read_by_no_predicate": false
+  },
+  {
+   "field": "F0464",
+   "owner": 506,
+   "owner_state": "OPEN",
+   "planned_release": "EF1",
+   "public_operand_class": "COVERED_NUMBERED_EF1_DELIVERY_UNDETERMINED",
+   "producer_status": "PLANNED_NUMBERED_STORY_NOT_DELIVERED",
+   "delivered_on_main_with_proven_binding": false,
+   "in_common_validation": true,
+   "in_membership_refusal": false,
+   "in_eligibility_tag": false,
+   "read_by_predicate_count": 0,
+   "read_by_watchlists": [],
+   "read_by_no_predicate": true
+  }
+ ],
+ "six_with_extra_direct_joins": {
+  "identified": false,
+  "finding": "Every predicate operand lies inside the common 33; no watchlist has a field join outside it, so no set of six is singled out by the private bridge. Several six-member sets exist.",
+  "candidate_set_A_readers_of_F0452_and_F0453": [
+   "W0001",
+   "W0008",
+   "W0014",
+   "W0015",
+   "W0020",
+   "W0021"
+  ],
+  "candidate_set_B_readers_of_F0435_and_F0441": [
+   "W0002",
+   "W0014",
+   "W0015",
+   "W0017",
+   "W0018",
+   "W0019"
+  ],
+  "other_sets_of_six_exist": true,
+  "confidence_that_A_is_the_published_six": "low"
+ },
+ "id_mapping_basis": "W ids assigned by position in the sorted private consumer key list; F ids by ordinal+1 in the private field inventory (verified: 33 of 33 match the public wave 2 operand set). W mapping cannot be confirmed from public data.",
+ "watchlists": [
+  {
+   "id": "W0001",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0436",
+    "F0452",
+    "F0453"
+   ],
+   "predicate_operand_count": 3,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0008"
+   ],
+   "predicate_owner_set": [
+    32,
+    490,
+    513
+   ],
+   "reads_mean_companion_F0452": true,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": true,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0002",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0435",
+    "F0437",
+    "F0441",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0448",
+    "F0456",
+    "F0457"
+   ],
+   "predicate_operand_count": 10,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [],
+   "predicate_owner_set": [
+    32,
+    33,
+    508,
+    512,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": true,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0003",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0445",
+    "F0446",
+    "F0449",
+    "F0450"
+   ],
+   "predicate_operand_count": 5,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0016"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    508
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0004",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0443",
+    "F0456",
+    "F0457",
+    "F0462",
+    "F0463"
+   ],
+   "predicate_operand_count": 6,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [],
+   "predicate_owner_set": [
+    33,
+    506,
+    508,
+    512,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0005",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0436",
+    "F0437",
+    "F0438",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0458",
+    "F0459",
+    "F0462"
+   ],
+   "predicate_operand_count": 10,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0006"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    39,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0006",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0436",
+    "F0437",
+    "F0438",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0458",
+    "F0459",
+    "F0462"
+   ],
+   "predicate_operand_count": 10,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0005"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    39,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0007",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0438",
+    "F0444",
+    "F0448"
+   ],
+   "predicate_operand_count": 4,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [],
+   "predicate_owner_set": [
+    32,
+    33,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0008",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0436",
+    "F0452",
+    "F0453"
+   ],
+   "predicate_operand_count": 3,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0001"
+   ],
+   "predicate_owner_set": [
+    32,
+    490,
+    513
+   ],
+   "reads_mean_companion_F0452": true,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": true,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0009",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0443",
+    "F0456",
+    "F0457"
+   ],
+   "predicate_operand_count": 4,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [],
+   "predicate_owner_set": [
+    33,
+    508,
+    512
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0010",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0439",
+    "F0440",
+    "F0445",
+    "F0446",
+    "F0449",
+    "F0450"
+   ],
+   "predicate_operand_count": 7,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [],
+   "predicate_owner_set": [
+    32,
+    33,
+    508
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0011",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0444",
+    "F0445",
+    "F0446",
+    "F0449",
+    "F0450"
+   ],
+   "predicate_operand_count": 6,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [],
+   "predicate_owner_set": [
+    32,
+    33,
+    508
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0012",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0437",
+    "F0438",
+    "F0443",
+    "F0444",
+    "F0447"
+   ],
+   "predicate_operand_count": 6,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0013"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0013",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0437",
+    "F0438",
+    "F0443",
+    "F0444",
+    "F0447"
+   ],
+   "predicate_operand_count": 6,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0012"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0014",
+   "resolution_class": "RESOLVED_WITH_OWN_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0435",
+    "F0436",
+    "F0437",
+    "F0438",
+    "F0441",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0448",
+    "F0452",
+    "F0453",
+    "F0454",
+    "F0456",
+    "F0457",
+    "F0458",
+    "F0459",
+    "F0462",
+    "F0463"
+   ],
+   "predicate_operand_count": 19,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [],
+   "predicate_owner_set": [
+    32,
+    33,
+    39,
+    490,
+    506,
+    508,
+    512,
+    513
+   ],
+   "reads_mean_companion_F0452": true,
+   "own_non_field_edges": {
+    "watchlist_membership_dependencies": [
+     "W0001",
+     "W0004",
+     "W0007",
+     "W0012",
+     "W0018",
+     "W0022",
+     "W0024"
+    ]
+   },
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": true,
+   "candidate_six_set_B_ratio_readers": true,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0015",
+   "resolution_class": "RESOLVED_WITH_OWN_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0435",
+    "F0436",
+    "F0437",
+    "F0438",
+    "F0441",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0448",
+    "F0452",
+    "F0453",
+    "F0454",
+    "F0456",
+    "F0457",
+    "F0458",
+    "F0459",
+    "F0462"
+   ],
+   "predicate_operand_count": 18,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [],
+   "predicate_owner_set": [
+    32,
+    33,
+    39,
+    490,
+    508,
+    512,
+    513
+   ],
+   "reads_mean_companion_F0452": true,
+   "own_non_field_edges": {
+    "watchlist_membership_dependencies": [
+     "W0008",
+     "W0009",
+     "W0013",
+     "W0017",
+     "W0023",
+     "W0025"
+    ]
+   },
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": true,
+   "candidate_six_set_B_ratio_readers": true,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0016",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0445",
+    "F0446",
+    "F0449",
+    "F0450"
+   ],
+   "predicate_operand_count": 5,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0003"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    508
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0017",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0435",
+    "F0437",
+    "F0441",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0448"
+   ],
+   "predicate_operand_count": 8,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0018"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": true,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0018",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0435",
+    "F0437",
+    "F0441",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0448"
+   ],
+   "predicate_operand_count": 8,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0017"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": true,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0019",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0435",
+    "F0437",
+    "F0438",
+    "F0441",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0448"
+   ],
+   "predicate_operand_count": 9,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [],
+   "predicate_owner_set": [
+    32,
+    33,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": true,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0020",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0436",
+    "F0437",
+    "F0438",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0452",
+    "F0453",
+    "F0458",
+    "F0459",
+    "F0462"
+   ],
+   "predicate_operand_count": 12,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0021"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    39,
+    490,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": true,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": true,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0021",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0436",
+    "F0437",
+    "F0438",
+    "F0443",
+    "F0444",
+    "F0447",
+    "F0452",
+    "F0453",
+    "F0458",
+    "F0459",
+    "F0462"
+   ],
+   "predicate_operand_count": 12,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0020"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    39,
+    490,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": true,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": true,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0022",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0436",
+    "F0437",
+    "F0443",
+    "F0458",
+    "F0459",
+    "F0462"
+   ],
+   "predicate_operand_count": 7,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0023"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    39,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0023",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0436",
+    "F0437",
+    "F0443",
+    "F0458",
+    "F0459",
+    "F0462"
+   ],
+   "predicate_operand_count": 7,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0022"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    39,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0024",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0437",
+    "F0443",
+    "F0454"
+   ],
+   "predicate_operand_count": 4,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0025"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  },
+  {
+   "id": "W0025",
+   "resolution_class": "RESOLVED_COMMON_OPERANDS",
+   "confidence": "medium",
+   "common_operand_set": "COMMON_33",
+   "field_operand_total": 33,
+   "predicate_operand_fields": [
+    "F0434",
+    "F0437",
+    "F0443",
+    "F0454"
+   ],
+   "predicate_operand_count": 4,
+   "predicate_operands_outside_common": [],
+   "predicate_set_identical_with": [
+    "W0024"
+   ],
+   "predicate_owner_set": [
+    32,
+    33,
+    508,
+    513
+   ],
+   "reads_mean_companion_F0452": false,
+   "own_non_field_edges": {},
+   "shared_non_field_policy_inputs": 3,
+   "candidate_six_set_A_mean_companion_readers": false,
+   "candidate_six_set_B_ratio_readers": false,
+   "baseline_489_edge": {
+    "field": "F0455",
+    "required_by_common_validation": true,
+    "read_by_any_predicate": false,
+    "required_by_this_predicate": false,
+    "eligibility_tag_input": true
+   }
+  }
+ ]
+}
