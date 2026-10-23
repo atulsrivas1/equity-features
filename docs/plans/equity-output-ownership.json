@@ -1135,6 +1135,32 @@
         "accepted": false,
         "implemented_by_this_packet": false,
         "planned_ownership_accepted": false
+      },
+      {
+        "proposal_id": "P-EF2-RETRACEMENT-LEVEL",
+        "title": "retracement level output of the EF2 retracement producer",
+        "status": "PROPOSED_UNACCEPTED",
+        "owner_story": "EQ-238",
+        "owner_issue": 663,
+        "planned_delivery": "EF2",
+        "release_acceptance_issue": 486,
+        "io_issue": 609,
+        "worker_issue": 610,
+        "role": "caller-parameterized retracement level from exact integer-coefficient prior-window extrema (EF2 contract B, ruling O7: add as a proposed, unaccepted entry)",
+        "opaque_ids_stated": [],
+        "consumer_rows_stated": "S0276-S0284",
+        "canonical_name": "retracement.level",
+        "unit": "currency/share",
+        "operands": ["prior_high", "prior_low"],
+        "count": 1,
+        "unknown_note": "The header, unit and operands are stated in the frozen EF2 contract B (merged) and its library implementation (merged); no part of this entry is an accepted canonical binding, and it is not one of the 47 planned outputs.",
+        "source_docs": [
+          "docs/ef2/MONEYFLOW_RETRACEMENT_CONTRACT_PROPOSAL.md (ruling O7)",
+          "docs/ef2/PRODUCER_SET_AMENDMENT.md (finding F12)"
+        ],
+        "accepted": false,
+        "implemented_by_this_packet": false,
+        "planned_ownership_accepted": false
       }
     ]
   }
