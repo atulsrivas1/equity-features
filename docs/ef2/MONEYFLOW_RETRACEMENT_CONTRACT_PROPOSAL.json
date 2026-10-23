@@ -128,7 +128,7 @@
    {
     "name": "effective_start_ns",
     "dtype": "utc_ns",
-    "rule": "end boundary of the upstream window as supplied by the extrema owner; evidence only"
+    "rule": "evidence only: end boundary of the upstream window as supplied by the extrema owner"
    },
    {
     "name": "effective_end_ns",
@@ -151,7 +151,7 @@
     "name": "factor_num",
     "dtype": "int64",
     "nullable": true,
-    "rule": "observed governed slots in the upstream window; all-or-none with factor_den"
+    "rule": "observed governed slots in the upstream window, >= 1 (a zero or negative factor is refused UNSUPPORTED_ADJUSTMENT by the shared validator); all-or-none with factor_den (this contract); populated on every priced row and on a partial-shortfall row; NOT populated on a zero-observed shortfall row"
    },
    {
     "name": "factor_den",
@@ -215,7 +215,7 @@
   }
  },
  "mode_rule": "anchored reset batch only (carry mode out of v1); known_at and reconstruction availability modes give identical results; update, restore and merge unsupported; batch and full replay only",
- "fixture_notation": "compact, NOT canonical wire. Money flow: scale 2 coefficients; slots a..t with state priced (c,h,l,v,known_at), empty (proven zero volume), absent (no row, no coverage), gap (declared incomplete coverage), unknown (known_at null), future (known_at 150 > K 100). K=100, known_at 50 when not stated. Float results list exact rational, float64 and float.hex. Retracement: price coefficients at the stated scale; side states priced, absent, empty_batch, null_price, insufficient (factor [observed, required]), unknown, future, gap.",
+ "fixture_notation": "compact, NOT canonical wire. Money flow: scale 2 coefficients; slots a..t with state priced (c,h,l,v,known_at), empty (proven zero volume), absent (no row, no coverage), gap (declared incomplete coverage), unknown (known_at null), future (known_at 150 > K 100). K=100, known_at 50 when not stated. Float results list exact rational, float64 and float.hex. Retracement: price coefficients at the stated scale; side states priced, absent, empty_batch, null_price, insufficient (factor [observed, required]), unknown, future, gap. Money-flow slot state null_volume: a row whose volume is null. A fixture with a selected list evaluates only those outputs.",
  "money_flow_fixtures": [
   {
    "id": "M01",
@@ -2925,7 +2925,7 @@
   {
    "id": "M34",
    "group": "overflow",
-   "description": "published OBV above int64 max: typed OVERFLOW refusal for intraday.obv, no result for that output",
+   "description": "same input as refusal MR20 (published OBV would be 2^63): with only ad_line and cmf selected there is no OBV overflow and both are available",
    "scale": 2,
    "mode": "reset",
    "a": 0,
@@ -2962,13 +2962,10 @@
     }
    ],
    "tags": [
-    "overflow"
+    "overflow",
+    "independent_readiness"
    ],
    "expected": {
-    "intraday.obv": {
-     "refusal": "OVERFLOW",
-     "exact": "9223372036854775808"
-    },
     "intraday.ad_line": {
      "status": "available",
      "reasons": [],
@@ -2999,6 +2996,79 @@
      "witness_slots": [
       2
      ]
+    }
+   },
+   "selected": [
+    "intraday.ad_line",
+    "intraday.cmf"
+   ]
+  },
+  {
+   "id": "M36",
+   "group": "availability",
+   "description": "null volume (as opposed to 0) on a row: missing input, null_field, the slot is not ready (never assumed empty or zero flow); OBV and AD missing_input/null_field, CMF too when the slot is in its window",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "null_volume",
+     "known_at": null
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1030,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "null",
+    "missing_history"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.ad_line": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
+    },
+    "intraday.cmf": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 3,
+     "observed": 2,
+     "value": null
     }
    }
   },
@@ -3178,7 +3248,7 @@
   {
    "id": "MR14",
    "error_code": "OVERFLOW",
-   "description": "published OBV outside int64 (fixture M34)"
+   "description": "published OBV outside int64 with intraday.obv in the selected subset: typed refusal of the WHOLE request, no FeatureResult for any selected output (see MR20 for the exact input)"
   },
   {
    "id": "MR15",
@@ -3204,6 +3274,11 @@
    "id": "MR19",
    "error_code": "INVALID_CONFIG",
    "description": "evidence_limit outside 0..10000 (R17 bound)"
+  },
+  {
+   "id": "MR20",
+   "error_code": "OVERFLOW",
+   "description": "exact input of fixture M34 (closes 1000, 1001, 1002 rising; volumes 1, 2^63-1, 1; published OBV 2^63-1+1 = 9223372036854775808) with intraday.obv selected (alone or with ad_line/cmf): whole request refused; with only ad_line/cmf selected it is result fixture M34"
   }
  ],
  "retracement_fixtures": [
@@ -3506,7 +3581,7 @@
   {
    "id": "T07",
    "group": "level",
-   "description": "from_high r=1/3: non-representable level, one correctly rounded float64",
+   "description": "from_high r=1/3: non-representable level, one correctly rounded float64 (same value as T08 by the identity from_high(r)=from_low(1-r))",
    "scale": 2,
    "direction": "from_high",
    "ratio": [
@@ -3533,7 +3608,8 @@
     ]
    },
    "tags": [
-    "rounding"
+    "rounding",
+    "identity"
    ],
    "expected": {
     "retracement.level": {
@@ -4368,6 +4444,49 @@
    }
   },
   {
+   "id": "T32",
+   "group": "missing",
+   "description": "zero-observed upstream shortfall: null price with factors NOT populated (a zero factor is refused, TR18) -> null_field, observed 1; the shortfall is visible in the quality observed count, not in a factor",
+   "scale": 2,
+   "direction": "from_high",
+   "ratio": [
+    1,
+    2
+   ],
+   "K": 100,
+   "high": {
+    "state": "null_price",
+    "price": null,
+    "known_at": 50,
+    "factor": null
+   },
+   "low": {
+    "state": "priced",
+    "price": 10000,
+    "known_at": 50,
+    "factor": [
+     20,
+     20
+    ]
+   },
+   "tags": [
+    "null",
+    "insufficient_history",
+    "missing_history"
+   ],
+   "expected": {
+    "retracement.level": {
+     "status": "missing_input",
+     "reasons": [
+      "null_field"
+     ],
+     "expected": 2,
+     "observed": 1,
+     "value": null
+    }
+   }
+  },
+  {
    "id": "T26",
    "group": "missing",
    "description": "unknown known_at on the low row",
@@ -4681,7 +4800,12 @@
   {
    "id": "TR13",
    "error_code": "INVALID_SCHEMA",
-   "description": "wrong fact_kind, only one of factor_num/factor_den populated, or wrong slot kind"
+   "description": "library check of this contract (the shared validator does not enforce it): wrong fact_kind, only one of factor_num/factor_den populated, a priced row without factors, or wrong slot kind"
+  },
+  {
+   "id": "TR18",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "description": "factor_num or factor_den <= 0 on a REFERENCE row: refused by the existing shared validator (validation.py: adjustment rational factors must be positive), including a zero-observed upstream shortfall written as 0/N"
   },
   {
    "id": "TR17",
@@ -4705,10 +4829,10 @@
   }
  ],
  "fixture_counts": {
-  "money_flow_result": 35,
-  "money_flow_refusal": 19,
-  "retracement_result": 31,
-  "retracement_refusal": 17
+  "money_flow_result": 36,
+  "money_flow_refusal": 20,
+  "retracement_result": 32,
+  "retracement_refusal": 18
  },
  "coverage_map": {
   "exact_initial": [
@@ -4721,7 +4845,8 @@
    "M02",
    "M03",
    "M30",
-   "T24"
+   "T24",
+   "T32"
   ],
   "boundary": [
    "M04",
@@ -4795,15 +4920,18 @@
    "M24",
    "M25",
    "M29",
+   "M36",
    "T20",
    "T21",
    "T22",
    "T23",
-   "T24"
+   "T24",
+   "T32"
   ],
   "independent_readiness": [
    "M24",
-   "M31"
+   "M31",
+   "M34"
   ],
   "gap": [
    "M26",
@@ -4827,7 +4955,13 @@
    "T30",
    "T31"
   ],
+  "null": [
+   "M36",
+   "T25",
+   "T32"
+  ],
   "identity": [
+   "T07",
    "T08"
   ],
   "inverted": [
@@ -4837,9 +4971,6 @@
   "ineligible": [
    "T18",
    "T19"
-  ],
-  "null": [
-   "T25"
   ]
  },
  "decisions": {
