@@ -62,8 +62,8 @@ Steps:
 - New lessons go into this checklist (or the top of the retrospective), not only into the long `LESSONS.md` log.
 
 ## Token efficiency rules (retrospective section 8)
-- Point layer agents and reviewers at the contract layer pack (`tools/contract_pack.py`), not the raw contract JSON; read single fixtures with `--fixture ID`.
-- Long fixture batches go through `tools/run_batch.py` (parallel, one summary); agents never end a turn on a progress poll.
+- Once the tools PR is merged: point layer agents and reviewers at the contract layer pack (`tools/contract_pack.py`), not the raw contract JSON; read single fixtures with `--fixture ID`.
+- Long fixture batches go through `tools/run_batch.py` once merged (parallel, one summary); until then agents run batches in parallel and wait once. Agents never end a turn on a progress poll.
 - Reviewer scope is stated in the brief: audit the author's derivation, independently recompute a fixed sample (at least 25 results, all prefix and refusal fixtures), full runs only for pure-library layers.
 - Coordinator spot-runs only what the reviewer could not run; coordinator replies to interim notifications with one line or nothing.
 - Resume the author for review fixes (cheap incremental context); use a fresh agent for each new unit and each reviewer.

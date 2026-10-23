@@ -46,7 +46,7 @@ About 3.84M subagent tokens for EF3 including the failed Haiku E workers run (27
 
 Observations:
 - Haiku was not much cheaper in tokens than Sonnet on the same kind of layer (250-320k vs 360k). Any saving is price per token, not volume, and was not measured.
-- Review cost 40-70% of build cost. It found the defects above, so it earned its place, but reviewers re-derived data the build already had. Giving reviewers the author's input derivation to audit (not repeat) may cut cost without losing the independent recompute.
+- Review cost 42-91% of build cost (median about 60%). It found the defects above, so it earned its place, but reviewers re-derived data the build already had. Giving reviewers the author's input derivation to audit (not repeat) may cut cost without losing the independent recompute.
 - Largest avoidable waste in the coordinator thread: the E workers agent ended its turn on every progress poll, which produced about 90 "run is at N of 124" notifications, each re-reading the context. Cost scales with notification count, not with work done.
 - Idle round trips: two agents stopped to ask "continue?" after finishing setup.
 
@@ -100,14 +100,14 @@ Verdict: partly efficient. Verification quality was high and every defect was ca
 
 | # | Problem | Evidence | Solution (decided, pending owner review) | Status |
 |---|---|---|---|---|
-| 1 | Every agent and reviewer re-read the 6500-line frozen contract JSONs and the long implementation docs | each unit read the contract; review cost 40-70% of build | contract layer pack: `tools/contract_pack.py` makes a compact pack (ids, roles, entity ids, fixture lists, acceptance rule kinds) and `--fixture ID` prints one fixture; briefs point at the pack, not the JSON | tool PR in review |
-| 2 | About 90 "run is at N of 124" notifications from one agent | E workers agent, each re-read the coordinator context | `tools/run_batch.py`: parallel batch, one final summary, heartbeat file for peeking; briefs forbid ending the turn on a poll | tool PR in review |
+| 1 | Every agent and reviewer re-read the 6500-line frozen contract JSONs and the long implementation docs | each unit read the contract; review cost 42-91% of build | contract layer pack: `tools/contract_pack.py` makes a compact pack (ids, roles, entity ids, fixture lists, acceptance rule kinds) and `--fixture ID` prints one fixture; briefs point at the pack, not the JSON | tool PR in preparation |
+| 2 | About 90 "run is at N of 124" notifications from one agent | E workers agent, each re-read the coordinator context | `tools/run_batch.py`: parallel batch, one final summary, heartbeat file for peeking; briefs forbid ending the turn on a poll | tool PR in preparation |
 | 3 | Idle "shall I continue?" stops | E and F workers (Haiku) | brief says finish end to end; coordinator answers once with "proceed" | in skill checklist |
-| 4 | Failed Haiku workers run (276k) before Sonnet took over | E workers | Sonnet by default for workers layers with new runner registration or multi-run cases; Haiku for I/O layers only; one correction round | in skill |
+| 4 | Failed Haiku workers run (276k) before Sonnet took over | E workers | Sonnet by default for workers layers with new runner registration or multi-run cases; Haiku for I/O layers (3 of 3 acceptable); Haiku workers layers passed on D and F after fixes and failed on E, so use Sonnet when the layer adds runner registration or multi-run cases; one correction round | in skill |
 | 5 | Reviewers re-ran the author's input derivation and every fixture, 24 min on workers layers | F workers reviewer | reviewer budget: audit author derivation, independent recompute on a fixed sample (at least 25 results, all refusals, all prefix) plus full run only for pure-library layers; stated in the brief | in skill |
-| 6 | Worker cases take 30-60 s each, unprofiled | 124-case run took about 2 h | profile one case first, parallel batches via `run_batch.py`; fix the dominant cost before the full run | to do at EF4 |
+| 6 | Worker cases take about 30-60 s each (estimate), unprofiled | 124-case run took about 2 h | profile one case first, parallel batches via `run_batch.py`; fix the dominant cost before the full run | to do at EF4 |
 | 7 | No token ledger; cost was reconstructed from completion lines | section 2 | `docs/knowledge/TOKEN_LEDGER.md`: one row per unit (build, review, fix tokens, tool uses, minutes, model, verdict); coordinator appends in the release's docs batch; EF4 sets a per-unit budget from it | created |
 | 8 | Templates re-written by an LLM per contract (I/O and workers differ little between releases) | D, E, F adapters share structure | investigate generating adapter and worker skeletons from the layer pack; decide at EF4 start with a measured trial on one layer | open |
 | 9 | Coordinator spot-runs duplicated reviewer runs | this session | coordinator reads the diff and the reviewer's report; spot-runs only when the reviewer could not run something | in skill |
 
-Measures for the next retrospective: subagent tokens per unit (target: at least 20% below the EF3 median of about 420k per build-plus-review unit), notifications per agent (target: at most 3), review fix rounds per PR, defects found by review versus defects found after merge, wall minutes per worker layer.
+Measures for the next retrospective: subagent tokens per unit (target: at least 20% below the EF3 median of about 429k per build-plus-review unit), notifications per agent (target: at most 3), review fix rounds per PR, defects found by review versus defects found after merge, wall minutes per worker layer.
