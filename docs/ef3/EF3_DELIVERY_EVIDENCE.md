@@ -27,10 +27,10 @@ Other core PRs: shared amendment #696 `82c1c8a`; retrospective #697 `778b608` an
 
 Independent review verdicts are not recorded on the PRs. They come from the sources named here.
 
-- Contracts (#689 to #691, #693): the recomputation is described in the contract documents; reviewer verdicts for the contract PRs were not located in the sources read for this package.
-- Libraries (verdict source: `docs/knowledge/RETRO_EF2_EF3.md` section 1 and the Review notes in `docs/ef3/*_IMPLEMENTATION.md`): D #692 approved earlier, with a documented reconstruction-mode exception; E #694 approve, six contract nits; F #695 approve, one contract ambiguity needing a ruling (roster rows of other groups).
-- I/O (checkpoint docs `EF3_*_IO.md` in equity-feature-io; verdicts from the retrospective): D #36 approve with fixes (return types, doc wording; a stale sha256 later found by the D worker author); E #37 approve with fixes (real defect: instrument id "X" hardcoded in builders); F #38 BLOCK at first review (declared sha256 stale because of a CRLF working copy, overstated doc, silent sort) and merged afterwards. The post-fix re-review is not recorded in detail in the sources read.
-- Workers (worker docs in equity-feature-workers; verdicts from the retrospective): D #80 approve (limits added at review); F #81 approve with fixes (view mislabel, leaked library error). E #82: the retrospective records only the failed Haiku run (98 of 124 passed) and the Sonnet takeover; **no reviewer verdict for E workers #82 was found in the sources read**.
+- Contracts (#689 to #691, #693): reviewer verdicts are not recorded on GitHub and none were found in the docs read; the recomputation is described in the contract documents only.
+- Libraries (verdict source: `docs/knowledge/RETRO_EF2_EF3.md` section 1 and the Review notes in `docs/ef3/*_IMPLEMENTATION.md`): D #692: the retrospective table says only "approved earlier" with a documented reconstruction-mode exception; the date and reviewer of that approval are unrecorded in the sources; E #694 approve, six contract nits (from the retro table); F #695 approve, one contract ambiguity needing a ruling (roster rows of other groups).
+- I/O (checkpoint docs `EF3_*_IO.md` in equity-feature-io; verdicts from the retrospective): D #36 approve with fixes (return types, doc wording); separately, the D worker author found a stale sha256 in the source-evolution file (the D worker doc records the extraction check failing at io `b8e09f4`; the date of discovery is unrecorded); E #37 approve with fixes (from the retro table; real defect: instrument id "X" hardcoded in builders); F #38 BLOCK at first review (declared sha256 stale because of a CRLF working copy, overstated doc, silent sort) and merged afterwards. The post-fix re-review is not recorded in detail in the sources read.
+- Workers (worker docs in equity-feature-workers; verdicts from the retrospective): D #80 approve (limits added at review); F #81 approve with fixes (view mislabel, leaked library error). E #82: the retrospective records only the failed Haiku run (98 of 124 passed) and the Sonnet takeover; **no reviewer verdict for E workers #82 is recorded on GitHub or in the retro; the E worker doc mentions a reviewer run (about 10 s per case alone) but gives no verdict**.
 - Shared amendment #696: approve with fixes (retrospective); its own text says R3, R7 and the worker-layer claims of R9 were not re-verified by the reviewer.
 
 ## What was matched, at which layer
@@ -60,7 +60,7 @@ Core PR #700 (`docs/ef3/EF3_INSTALLED_QUALIFICATION.md`) is **open and not merge
 - Relative statistics, 4096-return window: about 0.2 s (4-digit closes), 2.5 s (10-digit), 10.5 s (16-digit); daily log volatility and realized variance about 0.7 s on 4096 slots (author).
 - Robust history, 4096-session window: about 0.23 s (author), 0.25 s (reviewer).
 - Breadth declared, 4096 members, 16 outputs: about 0.8 s (author and reviewer). Adaptive volume, 4096 random rationals: about 2 s (author), 1.7 s (reviewer); the 13 s float-equal near-tie case was author-observed and not reproduced by the reviewer.
-- Workers: about 25 s per fixture for F (author); roughly 30 to 60 s per case estimated across layers; E reviewer saw about 10 s per case run alone. Not profiled.
+- Workers: about 25 s per fixture for F (author). The retrospective's "roughly 30 to 60 s per case" is an estimate from agent wall times, not measured. The E workers doc gives about 1.5 min per case per shard under 4-shard load versus about 10 s per case for the reviewer running alone. Not profiled.
 
 ## Known limits and release-gate items
 
@@ -70,6 +70,9 @@ Core PR #700 (`docs/ef3/EF3_INSTALLED_QUALIFICATION.md`) is **open and not merge
 - Refusal codes collapse to `INVALID_COMMAND` at the workers (R9). D workers: spawn mode unsupported for the relative and log-volatility routes; the grid registry never evicts.
 - Package versions were not bumped (a bump changes the R17 digest); a version bump and release publication are owed and need the owner.
 - New unit strings (`members`, `observations` and others listed in the amendment) are recorded as additive but not applied to the frozen shared contract file.
+- Shared amendment section (d), items 4 to 9: extra refusals added by the implementation beyond the contract text; edge `reference_id` uniqueness not enforced beyond grammar; pace precedence (`ineligible` outranks `future_market` when no grid bucket fits); coverage cases not fixed by any fixture; `INVALID_ORDER` (RB08, RA14) not triggerable through the breadth adapter because it sorts silently (partly in robust/pace); exact-zero limits and correlation of exactly plus or minus one bit-exact only through the perfect-square path.
+- Item 11 of that section: `tools/check_boundary.py` fails on the base at `ef1/_reference_close.py`; whether the purity audit covers the EF3 modules was not checked in this package or the amendment.
+- I/O extraction check: the D worker doc records it failing at io `b8e09f4` (stale sha256 for `relative_rv.py`); the retrospective says it was fixed later (io #37). A passing run on current io main was not re-run here.
 - Exact zeros: `+0.0` is guaranteed only where fixtures mark it; no snapping.
 - Batch API holds data in memory (O(n)); no incremental state; reset epoch mode only for adaptive volume.
 
