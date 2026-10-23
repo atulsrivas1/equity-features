@@ -21,7 +21,7 @@ Per producer: `build_*_config` (explicit keyword parameters with no default, inc
 7. **Evidence.** Boundary `ordinary` for REFERENCE witnesses (the shared validator admits `completed_interval` only for BAR/DAILY), `completed_interval` for slots and bars. Event times: leg time, membership effective-from, tape window end. Evidence is for available outputs only and the cap is result-wide (a joint selection truncates in lexical output order; the fixtures with a small limit select one output).
 8. **Absent notional column.** When the `actual_notional` column (or the whole role) is absent every dollar output is `absent_input` with observed 0, replacing other causes, as fixture BP07 pins.
 9. **Overflow** of a published int64 or decimal128 sum is raised only when that output would be available.
-10. **Refusal tiers.** For every present batch the shared `validate_batch` runs before the slot-kind check and before config decoding; then config (parameters, ranges, selection, unit, basis, capability, feature ids), version, identity (including self-benchmark, undeclared instrument, duplicates) and data (leg start not before end, checked sums). Unknown feature ids are `UNKNOWN_FEATURE` even when the list is longer than the producer's output set.
+10. **Refusal tiers.** For every present batch the shared `validate_batch` runs before the slot-kind check and before config decoding; then config (parameters, ranges, selection, unit, basis, capability, feature ids), version (checked after those, so a wrong label is reported only when the rest of the config tier passes), identity (including self-benchmark, undeclared instrument, duplicates) and data (leg start not before end, checked sums). Unknown feature ids are `UNKNOWN_FEATURE` even when the list is longer than the producer's output set.
 11. **Self and shared benchmarks.** A benchmark (or core member) equal to the target instrument, and two roles bound to one instrument, are `INCONSISTENT_IDENTITY`; the builder refuses the latter, the compute call the former.
 
 ## Mathematics and numeric policy
@@ -41,3 +41,18 @@ A standalone manual script (not committed, no test files) expanded the compact n
 5. No cost measurement is made or claimed.
 
 No acquisition, source rights, installed, cross-layer, performance or release claim follows from this source result.
+
+## Rulings to pin in the EF4 shared amendment
+
+1. REFERENCE evidence uses boundary `ordinary` (the contract's `completed_interval` is unimplementable for REFERENCE inputs under the shared result validator).
+2. The daily role refuses two rows with one (instrument, session) as `DUPLICATE`, a library check on top of the BAR validator.
+3. Relative excess admits slot A only (slot B is `INVALID_SCHEMA`); rate projection admits only `window_start` starts (a `prior_close` or `regular_open` start is `INVALID_SCHEMA`).
+4. The bar grid is the local `BarGrid` codec with one batch per role: the I/O layer must concatenate R17 chunks and name per-slot coverage `bar:<i>`.
+5. `core_benchmark_ids` is carried as canonical compact JSON text (scalar config parameters).
+
+## Contract nits and review follow-ups
+
+- Per-slot readiness keeps the EF3 `slot_reasons` precedent: a row that is both null and unknown/future reports both `null_field` and the knowledge reason (lexical order, status by precedence). Recorded as a contract nit.
+- REFERENCE text-grammar (wire) faults are checked after the shared duplicate/order check, because the shared validator runs before the slot-kind check; a batch with both faults reports the shared one. Single-fault recipes are unaffected.
+- Distinct input ids are enforced for the two REFERENCE roles of relative excess and rate projection (`DUPLICATE`).
+

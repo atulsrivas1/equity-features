@@ -84,7 +84,8 @@ def _core_ids(value: object) -> tuple[str, ...]:
 
 
 def _check(policy: object, tolerance: object, age: object, limit: object, primary: object, secondary: object,
-           sector: object, window: object, core_ids: object, core_profile: object) -> RelativeExcessSettings:
+           sector: object, window: object, core_ids: object, core_profile: object,
+           defer_version: bool = False) -> RelativeExcessSettings:
     tol = integer(tolerance, 0, MAX_NS)
     max_age = integer(age, 0, MAX_NS)
     evidence_limit = integer(limit, 0, 10000)
@@ -98,7 +99,8 @@ def _check(policy: object, tolerance: object, age: object, limit: object, primar
         profile = core_profile
     if (core is None) != (profile is None):
         fail(ErrorCode.INVALID_CONFIG, "core_benchmark_ids and core_profile come together")
-    check_policy(policy, RELATIVE_POLICY)
+    if not (defer_version and type(policy) is str):
+        check_policy(policy, RELATIVE_POLICY)
     assert type(policy) is str
     return RelativeExcessSettings(policy, tol, max_age, evidence_limit, ids[0], ids[1], ids[2], width, core, profile)
 
@@ -133,12 +135,14 @@ def build_relative_excess_config(*, policy_version: str | None = None, primary_b
                        price_unit)
 
 
-def decode_relative_excess_config(config: ConfigSpec) -> RelativeExcessSettings:
+def decode_relative_excess_config(config: ConfigSpec, *, defer_version: bool = False) -> RelativeExcessSettings:
     """Validate the closed relative-excess envelope and return its settings."""
     v = parameter_map(config, RELATIVE_IDENTITY, RELATIVE_ALGORITHM, _REQUIRED, _OPTIONAL)
     s = _check(v["policy_version"], v["alignment_tolerance_ns"], v["max_endpoint_age_ns"], v["evidence_limit"],
                v.get("primary_benchmark_id"), v.get("secondary_benchmark_id"), v.get("sector_benchmark_id"),
-               v.get("window_ns"), v.get("core_benchmark_ids"), v.get("core_profile"))
+               v.get("window_ns"), v.get("core_benchmark_ids"), v.get("core_profile"), defer_version)
+    if defer_version and s.policy_version != RELATIVE_POLICY:
+        return s
     assert config.price_unit is not None
     expected = build_relative_excess_config(
         policy_version=s.policy_version, primary_benchmark_id=s.primary_benchmark_id,
@@ -235,13 +239,17 @@ def compute_relative_excess(batches: tuple[CanonicalBatch | None, ...] | list[Ca
     for batch, active in ((legs_batch, True), (member_batch, sector_wanted)):
         if batch is not None and active:
             validate_reference(batch)
-    settings = decode_relative_excess_config(config)
+    settings = decode_relative_excess_config(config, defer_version=True)
     selected = check_features(features, RELATIVE_FEATURES)
     check_selection(settings, selected)
     if legs_batch is not None:
         check_meta(legs_batch, config, unit=True, adjustment=True)
     if member_batch is not None and sector_wanted:
         check_meta(member_batch, config, unit=False, adjustment=False)
+    check_policy(settings.policy_version, RELATIVE_POLICY)
+    if legs_batch is not None and member_batch is not None and sector_wanted and (
+            legs_batch.metadata.source.input_id == member_batch.metadata.source.input_id):
+        fail(ErrorCode.DUPLICATE, "distinct actual role input IDs required")
     if type(entity) is not EntityKey or entity.session_id != config.session.session_id:
         fail(ErrorCode.INCONSISTENT_IDENTITY, "exact target entity required")
     label(entity.instrument_id)

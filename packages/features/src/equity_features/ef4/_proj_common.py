@@ -30,7 +30,7 @@ _DECIMAL = re.compile("0|[1-9][0-9]*", re.ASCII)
 _TOKEN = re.compile("[\x21-\x3a\x3c\x3e-\x7e]{1,128}", re.ASCII)
 
 __all__ = ["Cell", "DEC128_LIMIT", "I64_MAX", "MAX_NS", "MAX_ROWS", "RefRow", "canonical_decimal", "check_features",
-           "check_meta", "check_policy", "finish", "first_status", "fraction_float", "integer", "knowledge_reason",
+           "check_meta", "check_policy", "check_unit_basis", "finish", "first_status", "fraction_float", "integer", "knowledge_reason",
            "label", "ordered", "reference_rows", "token", "validate_reference"]
 
 
@@ -141,6 +141,16 @@ def check_meta(batch: CanonicalBatch, config: ConfigSpec, *, unit: bool, adjustm
         fail(ErrorCode.INCONSISTENT_IDENTITY, "aggregate observed coverage differs from actual rows")
     if meta.scope is not None and meta.sampling != "none":
         fail(ErrorCode.INVALID_SCHEMA, "nonquote sampling required")
+
+
+def check_unit_basis(batch: CanonicalBatch | None, config: ConfigSpec) -> None:
+    """Config tier: the market batch declares the config unit and adjustment basis."""
+    if batch is None:
+        return
+    if batch.metadata.price_unit != config.price_unit:
+        fail(ErrorCode.INVALID_UNIT, "input currency/scale differs from the config unit")
+    if batch.metadata.adjustment != config.adjustment:
+        fail(ErrorCode.UNSUPPORTED_ADJUSTMENT, "input action basis differs from the config basis")
 
 
 @dataclass

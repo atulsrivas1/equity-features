@@ -17,7 +17,7 @@ from equity_feature_contracts import (
 from ..ef3._common import (
     DailyGrid, admit_role, envelope, fail, integer, parameter_map, slot_reasons,
 )
-from ._proj_common import Cell, check_features, check_policy, finish, fraction_float
+from ._proj_common import Cell, check_features, check_unit_basis, check_policy, finish, fraction_float
 
 SESSION_IDENTITY = "ef4.session_projection"
 SESSION_ALGORITHM = "ef4-session-projection-v1"
@@ -46,10 +46,12 @@ class SessionProjectionSettings:
     evidence_limit: int
 
 
-def _check(policy: object, window: object, limit: object) -> SessionProjectionSettings:
+def _check(policy: object, window: object, limit: object,
+           defer_version: bool = False) -> SessionProjectionSettings:
     width = integer(window, 1, 4096)
     evidence_limit = integer(limit, 0, 10000)
-    check_policy(policy, SESSION_POLICY)
+    if not (defer_version and type(policy) is str):
+        check_policy(policy, SESSION_POLICY)
     assert type(policy) is str
     return SessionProjectionSettings(policy, width, evidence_limit)
 
@@ -66,10 +68,13 @@ def build_session_projection_config(grid: DailyGrid, *, policy_version: str | No
     return envelope(SESSION_IDENTITY, SESSION_ALGORITHM, params, grid, availability, adjustment, price_unit)
 
 
-def decode_session_projection_config(grid: DailyGrid, config: ConfigSpec) -> SessionProjectionSettings:
+def decode_session_projection_config(grid: DailyGrid, config: ConfigSpec, *,
+                                     defer_version: bool = False) -> SessionProjectionSettings:
     """Validate the closed session-projection envelope against the supplied grid and return its settings."""
     values = parameter_map(config, SESSION_IDENTITY, SESSION_ALGORITHM, _KEYS, grid)
-    settings = _check(values["policy_version"], values["window"], values["evidence_limit"])
+    settings = _check(values["policy_version"], values["window"], values["evidence_limit"], defer_version)
+    if defer_version and settings.policy_version != SESSION_POLICY:
+        return settings
     assert config.price_unit is not None
     expected = build_session_projection_config(
         grid, policy_version=settings.policy_version, window=settings.window, availability=config.availability,
@@ -108,8 +113,10 @@ def compute_session_projection(batches: tuple[CanonicalBatch | None, ...] | list
         pairs = list(zip(owners["instrument_id"], owners["session_id"]))
         if len(set(pairs)) != len(pairs):
             fail(ErrorCode.DUPLICATE, "daily rows are unique per instrument and session")
-    settings = decode_session_projection_config(grid, config)
+    settings = decode_session_projection_config(grid, config, defer_version=True)
     selected = check_features(features, SESSION_FEATURES)
+    check_unit_basis(batch, config)
+    check_policy(settings.policy_version, SESSION_POLICY)
     daily = admit_role("daily", batch, grid.instrument_id, grid, config)
     t, window = grid.target_index, settings.window
     entity = EntityKey(grid.instrument_id, config.session.session_id)

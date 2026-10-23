@@ -23,7 +23,7 @@ from equity_feature_contracts import (
 )
 from ..ef3._common import fail, integer, label
 from ._proj_common import (
-    DEC128_LIMIT, I64_MAX, Cell, check_features, check_meta, check_policy, finish, fraction_float,
+    DEC128_LIMIT, I64_MAX, Cell, check_features, check_meta, check_unit_basis, check_policy, finish, fraction_float,
     knowledge_reason,
 )
 
@@ -108,9 +108,10 @@ class BarProjectionSettings:
     evidence_limit: int
 
 
-def _check(policy: object, limit: object) -> BarProjectionSettings:
+def _check(policy: object, limit: object, defer_version: bool = False) -> BarProjectionSettings:
     evidence_limit = integer(limit, 0, 10000)
-    check_policy(policy, BAR_POLICY)
+    if not (defer_version and type(policy) is str):
+        check_policy(policy, BAR_POLICY)
     assert type(policy) is str
     return BarProjectionSettings(policy, evidence_limit)
 
@@ -141,7 +142,8 @@ def build_bar_projection_config(grid: BarGrid, *, policy_version: str | None = N
                       availability, adjustment, price_unit)
 
 
-def decode_bar_projection_config(grid: BarGrid, config: ConfigSpec) -> BarProjectionSettings:
+def decode_bar_projection_config(grid: BarGrid, config: ConfigSpec, *,
+                                 defer_version: bool = False) -> BarProjectionSettings:
     """Validate the closed bar-projection envelope against the supplied grid and return its settings."""
     if type(grid) is not BarGrid or type(config) is not ConfigSpec:
         fail(ErrorCode.INVALID_CONFIG, "concrete bar grid/config required")
@@ -154,7 +156,9 @@ def decode_bar_projection_config(grid: BarGrid, config: ConfigSpec) -> BarProjec
         fail(ErrorCode.INVALID_CONFIG, "closed producer parameters required (there are no defaults)")
     if config.price_unit is None:
         fail(ErrorCode.INVALID_UNIT, "an explicit PriceUnit is required")
-    settings = _check(values["policy_version"], values["evidence_limit"])
+    settings = _check(values["policy_version"], values["evidence_limit"], defer_version)
+    if defer_version and settings.policy_version != BAR_POLICY:
+        return settings
     if values["grid_schema"] != BAR_GRID_SCHEMA:
         fail(ErrorCode.INCOMPATIBLE_VERSION, "bar grid codec mismatch")
     if values["grid_sha256"] != grid.digest:
@@ -176,7 +180,7 @@ class BarFact:
     columns: frozenset[str] = frozenset()
     input_id: str | None = None
     row_index: int | None = None
-    open: int | None = None
+    open_px: int | None = None
     close: int | None = None
     volume: int | None = None
     notional: int | None = None
@@ -287,7 +291,7 @@ def _bar_reasons(fact: BarFact, knowledge: int, money: bool) -> frozenset[Reason
     elif fact.volume > 0:
         if "open" not in fact.columns or "close" not in fact.columns:
             reasons.add(Reason.ABSENT_INPUT)
-        elif fact.open is None or fact.close is None:
+        elif fact.open_px is None or fact.close is None:
             reasons.add(Reason.NULL_FIELD)
         if money and fact.notional is None:
             reasons.add(Reason.NULL_FIELD)
@@ -308,8 +312,10 @@ def compute_bar_projection(batches: tuple[CanonicalBatch | None, ...] | list[Can
         validate_batch(batch, availability=config.availability, required_fields=())  # shared tier first
         if batch.kind != DataKind.BAR:
             fail(ErrorCode.INVALID_SCHEMA, "an actual BAR batch is required for the bars role")
-    settings = decode_bar_projection_config(grid, config)
+    settings = decode_bar_projection_config(grid, config, defer_version=True)
     selected = check_features(features, BAR_FEATURES)
+    check_unit_basis(batch, config)
+    check_policy(settings.policy_version, BAR_POLICY)
     bars = admit_bars(batch, grid, config)
     t = grid.target_index
     entity = EntityKey(grid.instrument_id, config.session.session_id)
@@ -338,10 +344,10 @@ def compute_bar_projection(batches: tuple[CanonicalBatch | None, ...] | list[Can
             notional = fact.notional or 0
             total_volume += volume
             total_notional += notional
-            if volume > 0 and cast(int, fact.close) > cast(int, fact.open):
+            if volume > 0 and cast(int, fact.close) > cast(int, fact.open_px):
                 up_volume += volume
                 up_notional += notional
-            elif volume > 0 and cast(int, fact.close) < cast(int, fact.open):
+            elif volume > 0 and cast(int, fact.close) < cast(int, fact.open_px):
                 down_volume += volume
                 down_notional += notional
         value: int | float

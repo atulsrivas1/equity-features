@@ -34,7 +34,7 @@ NOTIONAL_RATE = "rate.window.notional_rate"
 SHARE_VOLUME_RATE = "rate.window.share_volume_rate"
 RAW_RETURN = "rate.window.raw_return_fraction"
 RATE_DIFFERENCE = "rate.window.return_rate_difference"
-RATE_FEATURES = (NOTIONAL_RATE, RATE_DIFFERENCE, RAW_RETURN, SHARE_VOLUME_RATE, TRADE_RATE)
+RATE_FEATURES = (NOTIONAL_RATE, RAW_RETURN, RATE_DIFFERENCE, SHARE_VOLUME_RATE, TRADE_RATE)
 RATE_META: dict[str, tuple[ValueType, str]] = {
     TRADE_RATE: (ValueType.FLOAT64, "trades_per_second"), NOTIONAL_RATE: (ValueType.FLOAT64, "currency_per_second"),
     SHARE_VOLUME_RATE: (ValueType.FLOAT64, "shares/s"), RAW_RETURN: (ValueType.FLOAT64, "fraction"),
@@ -58,7 +58,7 @@ class RateProjectionSettings:
 
 
 def _check(policy: object, window: object, age: object, limit: object, tolerance: object,
-           adjacency: object) -> RateProjectionSettings:
+           adjacency: object, defer_version: bool = False) -> RateProjectionSettings:
     width = integer(window, 1, MAX_NS)
     max_age = integer(age, 0, MAX_NS)
     evidence_limit = integer(limit, 0, 10000)
@@ -68,7 +68,8 @@ def _check(policy: object, window: object, age: object, limit: object, tolerance
         if type(adjacency) is not str or adjacency not in ADJACENCIES:
             fail(ErrorCode.INVALID_CONFIG, "adjacency must be adjacent or disjoint")
         side = adjacency
-    check_policy(policy, RATE_POLICY)
+    if not (defer_version and type(policy) is str):
+        check_policy(policy, RATE_POLICY)
     assert type(policy) is str
     return RateProjectionSettings(policy, width, max_age, evidence_limit, tol, side)
 
@@ -89,11 +90,13 @@ def build_rate_projection_config(*, policy_version: str | None = None, window_ns
     return make_config(RATE_IDENTITY, RATE_ALGORITHM, tuple(params), 1, session, availability, adjustment, price_unit)
 
 
-def decode_rate_projection_config(config: ConfigSpec) -> RateProjectionSettings:
+def decode_rate_projection_config(config: ConfigSpec, *, defer_version: bool = False) -> RateProjectionSettings:
     """Validate the closed rate-projection envelope and return its settings."""
     v = parameter_map(config, RATE_IDENTITY, RATE_ALGORITHM, _REQUIRED, _OPTIONAL)
     s = _check(v["policy_version"], v["window_ns"], v["max_endpoint_age_ns"], v["evidence_limit"],
-               v.get("alignment_tolerance_ns"), v.get("adjacency"))
+               v.get("alignment_tolerance_ns"), v.get("adjacency"), defer_version)
+    if defer_version and s.policy_version != RATE_POLICY:
+        return s
     assert config.price_unit is not None
     expected = build_rate_projection_config(
         policy_version=s.policy_version, window_ns=s.window_ns, max_endpoint_age_ns=s.max_endpoint_age_ns,
@@ -150,7 +153,7 @@ def compute_rate_projection(batches: tuple[CanonicalBatch | None, ...] | list[Ca
                 if legs_batch is not None and legs_wanted else [])
     tape = _tape(tape_rows, config)
     legs = parse_legs(leg_rows, frozenset({"window_start"}), frozenset({"A", "B"}))
-    settings = decode_rate_projection_config(config)
+    settings = decode_rate_projection_config(config, defer_version=True)
     selected = check_features(features, RATE_FEATURES)
     check_selection(settings, selected)
     has_notional = any(fact.kind == "notional" for fact, _ in tape)
@@ -160,6 +163,10 @@ def compute_rate_projection(batches: tuple[CanonicalBatch | None, ...] | list[Ca
             fail(ErrorCode.INVALID_UNIT, "a notional operand declares the PriceUnit")
     if legs_batch is not None and legs_wanted:
         check_meta(legs_batch, config, unit=True, adjustment=True)
+    check_policy(settings.policy_version, RATE_POLICY)
+    if (tape_batch is not None and legs_batch is not None and tape_wanted and legs_wanted
+            and tape_batch.metadata.source.input_id == legs_batch.metadata.source.input_id):
+        fail(ErrorCode.DUPLICATE, "distinct actual role input IDs required")
     if type(entity) is not EntityKey or entity.session_id != config.session.session_id:
         fail(ErrorCode.INCONSISTENT_IDENTITY, "exact target entity required")
     label(entity.instrument_id)
