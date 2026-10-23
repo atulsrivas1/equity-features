@@ -72,11 +72,12 @@ def _assess(fact: SlotFacts, knowledge_cutoff_ns: int, fields: tuple[str, ...]) 
         reasons.add(Reason.GOVERNED_GAP)
     if any(name not in fact.columns for name in fields):
         reasons.add(Reason.ABSENT_INPUT)
-    elif fact.volume == 0:
+    if fact.volume == 0:
         reasons.add(Reason.NO_ELIGIBLE_OBSERVATIONS)
     else:
+        # A missing column and a null in another delivered field are independent causes; both are reported.
         values = {"close": fact.close, "high": fact.high, "low": fact.low}
-        if any(values[name] is None for name in fields):
+        if any(values[name] is None for name in fields if name in fact.columns):
             reasons.add(Reason.NULL_FIELD)
     return frozenset(reasons)
 

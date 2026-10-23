@@ -26,9 +26,17 @@ Refusal order follows the contract: shared `validate_batch` first (`DUPLICATE`, 
 
 1. **Prefix fixtures (PE25).** The R17 context requires the target to be the final governed slot, so slots delivered after the target are not expressible; PE25 is run with the slots after its target dropped and is verified identical to PE04 (the contract's prefix equivalences PE04/PE25 and PE01/PE17 both hold).
 2. **Window versus context bound.** The R17 context holds at most 4096 slots, so the largest window with a possible available result is 4095 (N+1 = 4096 slots); `window = 4096` is a valid config whose result is always `insufficient_history`. The 64-session context bound limits `governed_history` to 64 daily slots (N up to 63) per context when each daily slot is its own session as in the contract expansion.
-3. **Close-only reasons beyond PE20.** For the range outputs of a close-only delivery the library reports every cause of every lost slot (for example a governed gap in the window in addition to the undelivered high and low). Status, counts and values equal the contract fixtures and PE20 is exact; the contract text fixes only the PE20 shape, and the author recompute harness reports only `absent_input` (plus the base cause) in the mixed case. The wording could be tightened in an amendment.
+3. **Close-only reasons beyond PE20.** For the range outputs of a close-only delivery the library reports every cause of every lost slot (for example a governed gap in the window in addition to the undelivered high and low). Status, counts and values equal the contract fixtures and PE20 is exact; the contract text fixes only the PE20 shape, and the author recompute harness reports only `absent_input` (plus the base cause) in the mixed case, which is the only difference seen in the random comparison. The wording could be tightened in an amendment.
 4. **`governed_history` context mode.** The contract does not name the R17 mode of a daily epoch; `carry` is used because `reset` would force the anchor to the target session's first bar.
 5. **Exact monotone log efficiency.** A window whose moves all go one way returns exactly 1.0 without evaluating logarithms (an exact identity, not a snap).
+
+## Rulings to pin in the EF4 shared amendment
+
+1. **governed_history cap.** The R17 context holds at most 64 sessions, so `governed_history` is capped at N <= 63 daily returns per context (one governed slot per session, enforced by the builder: a carry context with more slots than sessions is `INVALID_CONFIG`). No code split is made; the cap is a coordinator decision.
+2. **Carry context mode.** `governed_history` requires the R17 `carry` mode context (anchor at the start of the supplied daily grid); `session_reset` requires `reset`.
+3. **Hosting.** The producer lives in `packages/intraday` (OQ-E5 hosting reading), because it consumes the R17 context and admission; the config namespace stays `ef4.path_efficiency`.
+4. **Close-only range outputs.** Every cause of every lost slot is reported (missing column, null in a delivered field, gap, knowledge); status and counts follow the contract.
+5. **Refusal order within config.** Shape, range and unit faults (`INVALID_CONFIG`, `INVALID_UNIT`) precede the policy label (`INCOMPATIBLE_VERSION`); a missing price unit is `INVALID_UNIT` from both builder and decoder.
 
 ## Author source validation
 

@@ -39,9 +39,13 @@ def _check(policy: object, window: object, profile: object, limit: object) -> Pa
     cap = integer(limit, 0, 10000, ErrorCode.INVALID_CONFIG)
     if type(policy) is not str:
         fail("exact path-efficiency policy label required")
-    if policy != PATH_EFFICIENCY_POLICY:
-        fail("unsupported path-efficiency policy label", ErrorCode.INCOMPATIBLE_VERSION)
     return PathEfficiencySettings(policy, n, profile, cap)
+
+
+def _version(settings: PathEfficiencySettings) -> None:
+    """The label is the last config-stage check, after shape, range and unit faults."""
+    if settings.policy_version != PATH_EFFICIENCY_POLICY:
+        fail("unsupported path-efficiency policy label", ErrorCode.INCOMPATIBLE_VERSION)
 
 
 def build_path_efficiency_config(context: IntradayContext, *, policy_version: str | None = None,
@@ -49,12 +53,17 @@ def build_path_efficiency_config(context: IntradayContext, *, policy_version: st
                                  availability: AvailabilitySpec, adjustment: AdjustmentSpec,
                                  price_unit: PriceUnit, evidence_limit: int | None = None) -> ConfigSpec:
     """Final ConfigSpec; policy_version, window, epoch_profile and evidence_limit have no default."""
+    if price_unit is None:
+        fail("explicit price unit required", ErrorCode.INVALID_UNIT)
     if (type(context) is not IntradayContext or type(availability) is not AvailabilitySpec
             or type(adjustment) is not AdjustmentSpec or type(price_unit) is not PriceUnit):
         fail("concrete context/timing/action/unit required")
     settings = _check(policy_version, window, epoch_profile, evidence_limit)
+    _version(settings)
     if context.mode != _MODE[settings.epoch_profile]:
         fail("epoch_profile and R17 context mode disagree (session_reset: reset; governed_history: carry)")
+    if context.mode == "carry" and len(context.slots()) != len(context.sessions):
+        fail("governed_history needs one governed slot per session")
     for value in (adjustment.policy_version, adjustment.action_snapshot, adjustment.anchor, price_unit.currency):
         label(value)
     if availability.reconstruction_reason is not None:
@@ -92,6 +101,9 @@ def decode_path_efficiency_config(context: IntradayContext, config: ConfigSpec) 
     if set(values) != required:
         fail("closed path-efficiency parameters required")
     settings = _check(values["policy_version"], values["window"], values["epoch_profile"], values["evidence_limit"])
+    if config.price_unit is None:
+        fail("explicit price unit required", ErrorCode.INVALID_UNIT)
+    _version(settings)
     if values["context_schema"] != CONTEXT_SCHEMA:
         fail("context codec mismatch", ErrorCode.INCOMPATIBLE_VERSION)
     chunks: list[str] = []
@@ -102,8 +114,6 @@ def decode_path_efficiency_config(context: IntradayContext, config: ConfigSpec) 
         chunks.append(text)
     if IntradayContext.from_json("".join(chunks)) != context or values["context_sha256"] != context.digest:
         fail("context identity differs", ErrorCode.INCONSISTENT_IDENTITY)
-    if config.price_unit is None:
-        fail("explicit price unit required", ErrorCode.INVALID_UNIT)
     expected = build_path_efficiency_config(
         context, policy_version=settings.policy_version, window=settings.window, epoch_profile=settings.epoch_profile,
         availability=config.availability, adjustment=config.adjustment, price_unit=config.price_unit,
