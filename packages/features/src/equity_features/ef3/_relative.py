@@ -18,7 +18,7 @@ from equity_feature_contracts import (
 )
 from equity_features import __version__
 from ._common import (
-    CloseFact, DailyGrid, admit_role, envelope, fail, first_status, integer, label, parameter_map,
+    PRECEDENCE, CloseFact, DailyGrid, admit_role, envelope, fail, first_status, integer, label, parameter_map,
     slot_reasons,
 )
 
@@ -221,27 +221,39 @@ def compute_relative_stats(batches: tuple[CanonicalBatch | None, ...] | list[Can
     evidence: list[EvidenceRow] = []
     for feature in selected:
         status = Status.AVAILABLE if values[feature] is not None else first_status(reasons[feature])
+        count = window
         if values[feature] is not None:
-            status = Status.AVAILABLE
-            if n != window:
-                # The frozen contract publishes `available` with observed < expected when lost pairs stay above
-                # min_pairs, but the shared QualityRow invariant (available => observed == expected) refuses it.
-                fail(ErrorCode.INCONSISTENT_IDENTITY,
-                     "available relative statistic with lost pairs is not representable in the shared quality row "
-                     "(contract RS09/RS11 defect); no value is published")
+            # Amendment 1: an available row publishes expected = observed = n used pairs; the lost-pair causes stay
+            # as reasons and as excluded evidence rows.
+            count = n
+            reasons[feature] = set(reasons_base)
             used = (valid[0] - 1, valid[-1])
             for facts in (inst.facts, bench.facts):
-                for s in used:
-                    fact: CloseFact = facts[s]
+                for s_ in used:
+                    fact: CloseFact = facts[s_]
                     if fact.row_index is None or fact.input_id is None or len(evidence) >= settings.evidence_limit:
                         continue
-                    evidence.append(EvidenceRow(entity, feature, fact.input_id,
-                        f"bar:{fact.slot.start_ns}:{fact.slot.end_ns}", fact.slot.end_ns, fact.known_at_ns,
-                        fact.slot.start_ns, fact.slot.end_ns, "consumed", None, "completed_interval"))
+                    evidence.append(EvidenceRow(entity, feature, fact.input_id, f"slot:{s_}", fact.slot.end_ns,
+                        fact.known_at_ns, fact.slot.start_ns, fact.slot.end_ns, "consumed", None, "completed_interval"))
+            for facts in (inst.facts, bench.facts):
+                for s_ in range(lo, t + 1):
+                    fact = facts[s_]
+                    causes_here = slot_reasons(fact, cutoff)
+                    if not causes_here or fact.row_index is None or fact.input_id is None:
+                        continue
+                    first = next(r for r in PRECEDENCE if r in causes_here)
+                    if (first in (Reason.UNKNOWN_AVAILABILITY, Reason.FUTURE_KNOWLEDGE)
+                            and config.availability.knowledge_reason(fact.known_at_ns) != first.value):
+                        continue
+                    if len(evidence) >= settings.evidence_limit:
+                        continue
+                    evidence.append(EvidenceRow(entity, feature, fact.input_id, f"slot:{s_}", fact.slot.end_ns,
+                        fact.known_at_ns, fact.slot.start_ns, fact.slot.end_ns, "excluded", first,
+                        "completed_interval"))
         ordered = tuple(sorted(reasons[feature], key=lambda reason: reason.value))
         columns.append(FeatureColumn(feature, RELATIVE_ALGORITHM, ValueType.FLOAT64, "fraction", (entity,),
                                      (values[feature],)))
-        quality.append(QualityRow(entity, feature, status, window, n, ordered))
+        quality.append(QualityRow(entity, feature, status, count, n, ordered))
     bindings = tuple(b for b in (inst.binding, bench.binding) if b is not None)
     metadata = ResultMetadata(config.session.namespace, config.session.session_id, config.availability,
                               config.digest, bindings, "python-exact", __version__, settings.evidence_limit)

@@ -163,7 +163,7 @@ def compute_realized_variance(batches: tuple[CanonicalBatch, ...] | None, contex
                 if fact.row_index is None or fact.input_id is None or len(evidence) >= settings.evidence_limit:
                     continue
                 evidence.append(EvidenceRow(entity, feature, fact.input_id,
-                    f"bar:{fact.slot.start_ns}:{fact.slot.end_ns}", fact.slot.end_ns, fact.known_at_ns,
+                    f"slot:{fact.slot.index}", fact.slot.end_ns, fact.known_at_ns,
                     fact.slot.start_ns, fact.slot.end_ns, "consumed", None, "completed_interval"))
         columns.append(FeatureColumn(feature, REALIZED_VARIANCE_ALGORITHM, ValueType.FLOAT64, "fraction",
                                      (entity,), (results[feature],)))

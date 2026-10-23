@@ -137,7 +137,7 @@ def compute_log_volatility(batches: tuple[CanonicalBatch | None, ...] | list[Can
             fact = daily.facts[s]
             if fact.row_index is None or fact.input_id is None or len(evidence) >= settings.evidence_limit:
                 continue
-            evidence.append(EvidenceRow(entity, LOG_VOL, fact.input_id, f"bar:{fact.slot.start_ns}:{fact.slot.end_ns}",
+            evidence.append(EvidenceRow(entity, LOG_VOL, fact.input_id, f"slot:{fact.slot.index}",
                 fact.slot.end_ns, fact.known_at_ns, fact.slot.start_ns, fact.slot.end_ns, "consumed", None,
                 "completed_interval"))
     ordered = tuple(sorted(reasons, key=lambda reason: reason.value))
