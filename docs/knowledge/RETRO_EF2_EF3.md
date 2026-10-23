@@ -93,3 +93,21 @@ Owner items: confirm the changes above (decided, pending owner review), clean up
 ## 7. Standing rule (owner, October 23, 2026)
 
 After every retrospective we improve the working agreement and the way we work. Done here: items 1-5, 7 and 8 of section 6 are written into the release-coordinator skill (layer brief checklist, and step 8 for item 8); items 6 and 9 are added to the checklist below. A new step 8 makes the improvement step part of every release close. Next retrospective (EF3 close) must report, per item 1-9, whether it was applied and whether it helped (token use, defects found at review, rounds per PR, idle notifications), and propose the next set of changes.
+
+## 8. Token efficiency: verdict and solutions (owner request, October 23, 2026)
+
+Verdict: partly efficient. Verification quality was high and every defect was caught before release, but the same facts were read and derived several times, and the coordinator thread paid for avoidable notifications. Waste, ranked by size (evidence in sections 2 and 3):
+
+| # | Problem | Evidence | Solution (decided, pending owner review) | Status |
+|---|---|---|---|---|
+| 1 | Every agent and reviewer re-read the 6500-line frozen contract JSONs and the long implementation docs | each unit read the contract; review cost 40-70% of build | contract layer pack: `tools/contract_pack.py` makes a compact pack (ids, roles, entity ids, fixture lists, acceptance rule kinds) and `--fixture ID` prints one fixture; briefs point at the pack, not the JSON | tool PR in review |
+| 2 | About 90 "run is at N of 124" notifications from one agent | E workers agent, each re-read the coordinator context | `tools/run_batch.py`: parallel batch, one final summary, heartbeat file for peeking; briefs forbid ending the turn on a poll | tool PR in review |
+| 3 | Idle "shall I continue?" stops | E and F workers (Haiku) | brief says finish end to end; coordinator answers once with "proceed" | in skill checklist |
+| 4 | Failed Haiku workers run (276k) before Sonnet took over | E workers | Sonnet by default for workers layers with new runner registration or multi-run cases; Haiku for I/O layers only; one correction round | in skill |
+| 5 | Reviewers re-ran the author's input derivation and every fixture, 24 min on workers layers | F workers reviewer | reviewer budget: audit author derivation, independent recompute on a fixed sample (at least 25 results, all refusals, all prefix) plus full run only for pure-library layers; stated in the brief | in skill |
+| 6 | Worker cases take 30-60 s each, unprofiled | 124-case run took about 2 h | profile one case first, parallel batches via `run_batch.py`; fix the dominant cost before the full run | to do at EF4 |
+| 7 | No token ledger; cost was reconstructed from completion lines | section 2 | `docs/knowledge/TOKEN_LEDGER.md`: one row per unit (build, review, fix tokens, tool uses, minutes, model, verdict); coordinator appends in the release's docs batch; EF4 sets a per-unit budget from it | created |
+| 8 | Templates re-written by an LLM per contract (I/O and workers differ little between releases) | D, E, F adapters share structure | investigate generating adapter and worker skeletons from the layer pack; decide at EF4 start with a measured trial on one layer | open |
+| 9 | Coordinator spot-runs duplicated reviewer runs | this session | coordinator reads the diff and the reviewer's report; spot-runs only when the reviewer could not run something | in skill |
+
+Measures for the next retrospective: subagent tokens per unit (target: at least 20% below the EF3 median of about 420k per build-plus-review unit), notifications per agent (target: at most 3), review fix rounds per PR, defects found by review versus defects found after merge, wall minutes per worker layer.
