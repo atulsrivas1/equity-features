@@ -58,3 +58,5 @@ Steps:
 - Haiku gets one correction round per layer, then Sonnet. Default workers layers with new runner registration plus multi-run cases to Sonnet.
 - Profile one worker case before a 100+ case demo; batch the demo in parallel.
 - Retrospective is a release gate (docs PR with an independent reviewer).
+- Contracts carry refusal inputs or an explicit construction recipe; worker docs state build-time vs compute-time refusal.
+- New lessons go into this checklist (or the top of the retrospective), not only into the long `LESSONS.md` log.

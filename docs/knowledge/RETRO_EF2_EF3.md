@@ -35,14 +35,14 @@ Source: the per-agent usage lines reported on completion (cumulative context tok
 | D I/O | 247 (56 tools, 8 min) | 144 (29 tools, 5 min) | +3 | 394 |
 | D workers | 270 (81 tools, 26 min) | 113 (23 tools, 12 min) | +7 | 390 |
 | E library | 358 (86 tools, 19 min) | 259 (60 tools, 11 min) | +1 | 618 |
-| E I/O | 319 (65 tools, 13 min) | 164 (38 tools, 7 min) | +21 | 503 |
-| F library | 372 (72 tools, 21 min) | 219 (37 tools, 9 min) | +1 | 591 |
+| E I/O | 319 (65 tools, 13 min) | 164 (38 tools, 7 min) | +21 | 504 |
+| F library | 372 (72 tools, 21 min) | 219 (37 tools, 9 min) | +1 | 592 |
 | F I/O | 292 (60 tools, 10 min) | 137 (26 tools, 5 min) | +7 | 436 |
 | F workers | 215 (76 tools, 44 min) | 195 (58 tools, 24 min) | +8 | 418 |
 | Amendment | 123 (25 tools, 3 min) | 86 (9 tools, 1 min) | +2 | 211 |
 | E workers (Haiku, failed) | 276 (67 tools, 42 min) | not reached | | 276 |
 
-About 3.8M subagent tokens for EF3 before the E workers rework, excluding the Sonnet takeover still running. Coordinator tokens are not measurable here (the session counter reset); the coordinator carried a short handoff instead of a 550-turn history, which was the point of the restart.
+About 3.84M subagent tokens for EF3 including the failed Haiku E workers run (276k) and excluding the Sonnet takeover still running. Coordinator tokens are not measurable here (the session counter reset); the coordinator carried a short handoff instead of a 550-turn history, which was the point of the restart.
 
 Observations:
 - Haiku was not much cheaper in tokens than Sonnet on the same kind of layer (250-320k vs 360k). Any saving is price per token, not volume, and was not measured.
@@ -65,8 +65,8 @@ Author-observed timings on one machine, copied from the implementation docs and 
 - Relative statistics (exact rationals), 4096-return window: about 0.2 s with 4-digit closes, 2.5 s with 10-digit, 10.5 s with 16-digit closes. Cost grows with close magnitude.
 - Daily log volatility and realized variance: about 0.7 s on 4096 slots.
 - Robust history/pace/mean (E): a 4096-session window in about 0.25 s (reviewer-measured).
-- Breadth declared (F), 4096 members, all 16 outputs: 0.7 s (reviewer). Adaptive volume, 4096 random rationals: 1.7 s (reviewer); author reported 2 s typical and 13 s for a float-equal near-tie stream, which the reviewer did not reproduce. A Fraction-based baseline took about 29 s for 4096 rows, so the library keeps integer pairs.
-- Worker layer: roughly 30-60 s per fixture case end to end (build task, run, publish to DuckDB, replay, reopen, HTML view). A 124-case run takes about 2 hours sequentially. Time was not profiled; the likely cost is per-case process, database and view setup rather than the maths (library times above are sub-second). Memory is O(window), batch only; the contract's O(1) incremental state is not delivered.
+- Breadth declared (F), 4096 members, all 16 outputs: 0.7-0.8 s (reviewer and author). Adaptive volume, 4096 random rationals: 1.7 s (reviewer); author reported 2 s typical and 13 s for a float-equal near-tie stream, which the reviewer did not reproduce. A Fraction-based baseline took about 29 s for 4096 rows, so the library keeps integer pairs.
+- Worker layer: roughly 30-60 s per fixture case end to end (estimated from agent wall times and monitor progress, not measured per case) (build task, run, publish to DuckDB, replay, reopen, HTML view). A 124-case run takes about 2 hours sequentially. Time was not profiled; the likely cost is per-case process, database and view setup rather than the maths (library times above are sub-second). Memory is O(window), batch only; the contract's O(1) incremental state is not delivered.
 
 ## 5. Other
 
@@ -92,4 +92,4 @@ Owner items: confirm the changes above (decided, pending owner review), clean up
 
 ## 7. Standing rule (owner, October 23, 2026)
 
-After every retrospective we improve the working agreement and the way we work. Done here: items 1-9 above are written into the release-coordinator skill (layer brief checklist) and a new step 8 makes the improvement step part of every release close. Next retrospective (EF3 close) must report, per item 1-9, whether it was applied and whether it helped (token use, defects found at review, rounds per PR, idle notifications), and propose the next set of changes.
+After every retrospective we improve the working agreement and the way we work. Done here: items 1-5, 7 and 8 of section 6 are written into the release-coordinator skill (layer brief checklist, and step 8 for item 8); items 6 and 9 are added to the checklist below. A new step 8 makes the improvement step part of every release close. Next retrospective (EF3 close) must report, per item 1-9, whether it was applied and whether it helped (token use, defects found at review, rounds per PR, idle notifications), and propose the next set of changes.
