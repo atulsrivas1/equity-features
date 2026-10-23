@@ -15,7 +15,8 @@ Per release, one unit = one contract x one layer:
 4. **Library** (Sonnet), then **I/O** and **workers** (Haiku first; Sonnet only if Haiku misses after one correction). One agent per layer, own worktree, own scratch subfolder, verify cwd is the right repo.
 5. **Independent code review** (fresh read-only reviewer, own harness) for every PR including docs; coordinator also reads the real diff. Tiny docs/status PRs may use a Haiku reviewer plus a recompute script.
 6. **Merge** after approval (author merges own PR where permitted). Retire workers after the release; never reuse across releases.
-7. **Close**: evidence doc, Windows qualification, browser demo for the owner, retrospective in `docs/knowledge/LESSONS.md`.
+7. **Close**: evidence doc, Windows qualification, browser demo for the owner, retrospective (quality, token usage, worker and code performance, other) in `docs/knowledge/`.
+8. **Improve the agreement (owner rule)**: every retrospective ends with concrete changes to this skill, the working agreement and the layer-brief checklist, merged in the same docs PR, logged in `DECISIONS.md`, and applied from the next release's first brief. A retrospective with no changes recorded is incomplete. At the next retrospective, check each earlier change: kept, dropped or fixed, with evidence.
 No unit tests; layers are verified by manual runs. Report outcomes faithfully (failures with output, skipped steps stated).
 
 ## 2. Save re-reading the chat
@@ -47,3 +48,15 @@ Steps:
 - Quote Windows paths; use default sibling paths for `tools/ef1_results_demo.py`.
 - Private audit closure material is read-only, never copied; opaque ids only.
 - Separate EF catalogs keep the `describe_intraday()` digest unchanged; check it after library PRs.
+
+## Layer brief checklist (from the EF2/EF3 retrospective, docs/knowledge/RETRO_EF2_EF3.md)
+- Never hardcode entity, instrument, role or grid ids: they are parameters on every builder; harnesses vary them.
+- Run refusal fixtures through each layer, or state which were not run and why.
+- Hashes: compute from the committed blob (`git show HEAD:path | sha256sum`), LF endings, rerun the extraction check after the last edit and record the commit.
+- Agents finish the brief end to end: no "shall I continue?" stops, no ending the turn on progress polls. Run long batches in parallel, wait once, report once.
+- Reviewers audit the author's input derivation, then re-derive from the contract with varied ids; keep reviewer harnesses in the shared notes folder.
+- Haiku gets one correction round per layer, then Sonnet. Default workers layers with new runner registration plus multi-run cases to Sonnet.
+- Profile one worker case before a 100+ case demo; batch the demo in parallel.
+- Retrospective is a release gate (docs PR with an independent reviewer).
+- Contracts carry refusal inputs or an explicit construction recipe; worker docs state build-time vs compute-time refusal.
+- New lessons go into this checklist (or the top of the retrospective), not only into the long `LESSONS.md` log.

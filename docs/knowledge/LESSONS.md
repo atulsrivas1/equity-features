@@ -2365,3 +2365,7 @@ Resume: coordinator reviews four concrete body append candidates (#491/#611/#612
 ## EF1 regular-BAR membership and numerical clocks - October 21, 2026
 
 Independent membership/class causality and selected numerical publication are separate facts. The original gap membership projection can be reused only with a separately closed producer/phase-bound proof family; old gap-family facts must refuse. Interior delayed prices need not block proven endpoints, while unknown outer volume independently blocks the relevant endpoint. Structural OHLC contradictions still refuse with absent peer proofs. Evidence: [frozen mathematics](../ef1/regular_bar_prices/REGULAR_BAR_PRICES_CONTRACT_V3.md), [author implementation checks](../ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md), tests/unit/test_ef1_regular_bar_prices.py. Author checks establish source behavior, not historical source capability or release acceptance.
+
+## Retrospective: EF2 and EF3 (draft) - October 23, 2026
+
+See RETRO_EF2_EF3.md (quality, token usage, worker and code performance, changes). Finalized at EF3 close.
