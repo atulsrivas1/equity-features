@@ -1,12 +1,12 @@
 # EF3 breadth and adaptive volume contract: proposal
 
-Prepared for EQ-220 [#598](https://github.com/atulsrivas1/equity-features/issues/598) (declared-universe session breadth), EQ-242 [#667](https://github.com/atulsrivas1/equity-features/issues/667) (observed-population companion, draft W3D-5) and EQ-237 [#626](https://github.com/atulsrivas1/equity-features/issues/626) (event-time adaptive volume diagnostics), for consumption by EF3 I/O [#611](https://github.com/atulsrivas1/equity-features/issues/611), worker [#612](https://github.com/atulsrivas1/equity-features/issues/612) and release acceptance EQ-157 [#491](https://github.com/atulsrivas1/equity-features/issues/491). **This is a contract proposal, not accepted by any review.** It admits no Ready state, implementation, numerical acceptance, release or performance claim. Every convention below is DECISION-PROPOSED and every unresolved question is OPEN, both pending a coordinator ruling.
+Prepared for EQ-220 [#598](https://github.com/atulsrivas1/equity-features/issues/598) (declared-universe session breadth), EQ-242 [#667](https://github.com/atulsrivas1/equity-features/issues/667) (observed-population companion, draft W3D-5) and EQ-237 [#626](https://github.com/atulsrivas1/equity-features/issues/626) (event-time adaptive volume diagnostics), for consumption by EF3 I/O [#611](https://github.com/atulsrivas1/equity-features/issues/611), worker [#612](https://github.com/atulsrivas1/equity-features/issues/612) and release acceptance EQ-157 [#491](https://github.com/atulsrivas1/equity-features/issues/491). **This is a contract proposal, not accepted by any review.** It admits no Ready state, implementation, numerical acceptance, release or performance claim. Every former DECISION-PROPOSED convention is now a coordinator decision (accepted as proposed) and every former OPEN question has a coordinator ruling; all are decided and pending owner review, and the contract carries a coordinator freeze statement.
 
 Companion data: [BREADTH_ADAPTIVE_CONTRACT_PROPOSAL.json](BREADTH_ADAPTIVE_CONTRACT_PROPOSAL.json) holds the machine-readable producers, headers with per-output role dependencies, fact schemas, 48 declared, 20 observed and 29 adaptive result fixtures and 51 typed-refusal fixtures. Expected values were typed by hand (626 hand-asserted output cells) and checked by a throwaway stdlib-only evaluator (exact `fractions.Fraction` arithmetic, `float.hex`) that imports nothing from the equity packages; the library was not imported, run or tested. Fixtures use compact notation (not canonical wire) and need expansion into canonical packets.
 
 ## Authority and inspected sources
 
-Read-only: the audit drafts (`docs/ef1/audit/PROPOSED_STORIES.md` W3D-5, `EQ164_WAVE1_DECISIONS.md` B1, B2, B5, B7, `EQ164_WAVE2_DECISIONS.md` X3-1 and X3-4, `EQ164_WAVE2_X3.md` B2, B5, B6, `EQ164_WAVE3_DECISIONS.md`), the output manifest `docs/plans/equity-output-ownership.json` (the 16 declared slot names, units and coarse operands), `docs/features/CONTEXT_FORMULAS.md` and `packages/features/src/equity_features/breadth.py` (existing breadth), the merged EF2 contracts and `docs/ef2/PRODUCER_SET_AMENDMENT.md` (template), `docs/ef1/MULTI_VENUE_STATUS_CONTRACT_PROPOSAL.md` (population reductions), the `packages/contracts` validators and errors, and the sibling EF3 contract E (robust statistics and pace, PR 690) for the shared population kind and SD-1. Opaque ids only. No private source, threshold or default is used. The 16 declared names come from the manifest; the seven observed outputs and the ten adaptive outputs are defined here from standard public concepts (counts and fractions over a population; a time-weighted smoothed rate baseline with a relative rate and a relative rate change) and are DECISION-PROPOSED.
+Read-only: the audit drafts (`docs/ef1/audit/PROPOSED_STORIES.md` W3D-5, `EQ164_WAVE1_DECISIONS.md` B1, B2, B5, B7, `EQ164_WAVE2_DECISIONS.md` X3-1 and X3-4, `EQ164_WAVE2_X3.md` B2, B5, B6, `EQ164_WAVE3_DECISIONS.md`), the output manifest `docs/plans/equity-output-ownership.json` (the 16 declared slot names, units and coarse operands), `docs/features/CONTEXT_FORMULAS.md` and `packages/features/src/equity_features/breadth.py` (existing breadth), the merged EF2 contracts and `docs/ef2/PRODUCER_SET_AMENDMENT.md` (template), `docs/ef1/MULTI_VENUE_STATUS_CONTRACT_PROPOSAL.md` (population reductions), the `packages/contracts` validators and errors, and the sibling EF3 contract E (robust statistics and pace, PR 690) for the shared population kind and SD-1. Opaque ids only. No private source, threshold or default is used. The 16 declared names come from the manifest; the seven observed outputs and the ten adaptive outputs are defined here from standard public concepts (counts and fractions over a population; a time-weighted smoothed rate baseline with a relative rate and a relative rate change) and are coordinator-decided. **The adaptive_volume family is defined generically by this contract; it does not claim equivalence with the audit opaque rows.** F0690, F0692 and F0694 to F0698 are recorded as unmapped (an open audit item, not a gate for this contract); F0699 is mapped to `baseline_available`.
 
 ## Unchanged boundary
 
@@ -90,7 +90,7 @@ All roles are fixed nullable slots in the order above; `None` is an absent deliv
 
 ### SD-1: duplicate identity (cited, not redefined)
 
-The duplicate-identity rule is stated once, in contract E (RF12): a duplicate (instrument, session, reference_id) is rejected with `DUPLICATE`; there is no first-wins, last-wins or aggregation. This contract only cites it for the declared population, every fact role, the observed roster and the adaptive observations (RB01, RB02, RO01, RA01). The one extension is that two stints of one member whose intervals overlap are the same identity at the same time and are rejected (RB03). The cohort-normalization contract must cite the same E text (Q11).
+The duplicate-identity rule is stated once, in contract E (RF12): a duplicate (instrument, session, reference_id) is rejected with `DUPLICATE`; there is no first-wins, last-wins or aggregation. This contract only cites it for the declared population, every fact role, the observed roster and the adaptive observations (RB01, RB02, RO01, RA01). The one extension is that two stints of one member whose intervals overlap are the same identity at the same time and are rejected (RB03). The cohort-normalization contract cites the same E section (Q9). E is cited by section name (population kind `ef3.population.member`, duplicate-identity rule), not by line, because E may still receive small edits.
 
 ## Exact mathematics: declared-universe breadth
 
@@ -124,7 +124,7 @@ Scope: observations with t < C, ordered by sequence (strictly increasing within 
 - `peak_relative_rate` = max rho and `peak_relative_acceleration` = max u (signed; the maximum of negatives is the least negative), each with its `..._event_ns` witness: the event time of the earliest observation attaining the exact maximum. No scorable observation: `insufficient_history` (expected W+1, observed n). Scorable but none defined: `not_applicable/zero_denominator`.
 - `latest_event_ns` = t_n; no observation: `not_applicable/no_eligible_observations`.
 - Prefix property: each output is a function of the in-scope prefix only; evaluating the full stream at C = t_j + 1 equals evaluating its first j rows (AD07a to AD07c, plus an exhaustive evaluator check for j = 0..6). Equal-time rows, irregular gaps (a long gap is only a large d, weight near 1; there is no gap marker or interpolation), sequence gaps (they carry no meaning) and observed zeros (not null) are covered. A new epoch is a fresh stream; rows of another epoch are `INCONSISTENT_IDENTITY`. Replay with identical inputs gives identical outputs; a correction is a new snapshot id.
-- Audit mapping (DP-A9, DP-A10): F0699 corresponds to `baseline_available`. F0700 and F0701 are the supplied identity and event clock mapped by #611 (the entity and `effective_start_ns`); F0721 is the #611 grouping of these headers, the summary being as of C and final only for a request whose C is at or after the session end with complete coverage (a request property, not a library output). Every other F0690 to F0698 assignment is OPEN (Q1): composite and trigger/episode outputs need policy owned by #519/#520 or source knowledge, and the supplied relative-volume peak needs the #490 contract (Q2).
+- Audit mapping (DP-A9, DP-A10): F0699 corresponds to `baseline_available`. F0700 and F0701 are the supplied identity and event clock mapped by #611 (the entity and `effective_start_ns`); F0721 is the #611 grouping of these headers, the summary being as of C and final only for a request whose C is at or after the session end with complete coverage (a request property, not a library output). F0690, F0692 and F0694 to F0698 are unmapped (Q1): composite and trigger/episode outputs need policy owned by #519/#520 or source knowledge, and no peak over the #490 relative-volume operand exists in v1 (Q2).
 
 ## Availability, quality, evidence and refusals
 
@@ -189,7 +189,7 @@ Refusals (51, no new code): each is raised by an existing shared validator or by
 ## Layer responsibilities
 
 - **Library (pure).** Structural validation, three-valued predicates, counts, fractions, ratios, volume sums, proximity, the baseline recurrence, relative rate and acceleration, peaks, quality, evidence and every refusal above. No I/O, clocks, defaults, source access or state across calls.
-- **I/O #611.** Maps supplied facts into the fixed roles preserving original identity, snapshot, known_at, event time and coverage; delivers `None` for a missing delivery and a zero-row batch for a covered empty one; maps exact integer coefficients (never a rounded float64, and never rounding a tiny return or momentum to zero); never derives a return, sign, eligibility, VWAP, momentum or rate; never fills a missing member; never uses an `unavailable` fact kind unless the upstream owner declares inapplicability (Q4); never selects a population or default; envelopes the adaptive headers as F0721 and maps F0700/F0701.
+- **I/O #611.** Maps supplied facts into the fixed roles preserving original identity, snapshot, known_at, event time and coverage; delivers `None` for a missing delivery and a zero-row batch for a covered empty one; maps exact integer coefficients (never a rounded float64, and never rounding a tiny return or momentum to zero); never derives a return, sign, eligibility, VWAP, momentum or rate; never fills a missing member; uses an `unavailable` fact kind only when the supplier declares it (explicit missing, never inferred, Q4); never selects a population or default; envelopes the adaptive headers as F0721 and maps F0700/F0701.
 - **Worker #612.** Declares the config (population id and revision, profile, tolerances, floors, scope, tau, W, epoch), enforces the fixed role manifest and digest, runs one pure request per complete result and writes the library result unchanged. No aggregation, predicate, counting or smoothing; direct, worker and stored results must be identical, including refusal class.
 
 ## Explicit non-goals
@@ -312,7 +312,9 @@ Adaptive (29):
 
 The JSON `coverage_map` indexes tags: empty, partial and complete populations, missing members, known-unavailable versus unknown prior, observed versus declared denominators (XB01 to XB03), zero denominators, ties, boundary equalities, direction flips, changing membership, warm-up and insufficient history, prefix property, equal-time and irregular observations, null and unavailable reasons, replay, rounding and int64 limits. Float cells give the exact rational, float64 and `float.hex`. Acceptance: declared and observed floats are bit exact; adaptive floats within max(8 ulp, 1e-12*|r|) of the single rounding, with +0.0 required where exact zero is argued (AD10, AD21, AD26); ties are decided on exact values and the tie fixtures use dyadic quantities so a floating implementation is exact.
 
-## Decisions proposed (DECISION-PROPOSED, pending coordinator ruling)
+## Coordinator decisions (decided, pending owner review)
+
+All former DECISION-PROPOSED conventions are accepted as proposed:
 
 - **DP-P1**: Hosting: an EF3 module in packages/features, config namespace ef3.*, separate catalog, no version bump (coordinator ruling).
 - **DP-P2**: The declared static population reuses fact kind ef3.population.member exactly as defined by contract E (OQ-7). Eligibility is not a per-row flag: a member that is not eligible is not declared. A distinct kind ef3.breadth.membership_interval exists only for the ordered_history profile because the E kind cannot express intervals or re-entry.
@@ -347,28 +349,31 @@ The JSON `coverage_map` indexes tags: empty, partial and complete populations, m
 - **DP-A7**: Scope is observations with t < C; all must be known (known_at <= K) and have a rate; a null rate is null_field for the rate outputs; later rows are ignored whatever their state.
 - **DP-A8**: Per-epoch reset; no state capability in v1 (update, restore and merge unsupported); output is a pure function of the prefix.
 - **DP-A9**: F0721 is the I/O grouping of the produced headers (not a header); the summary is as of C. F0700 and F0701 are the supplied identity and event clock.
-- **DP-A10**: Only F0699 is mapped (baseline_available). All other F0690 to F0698 assignments are OPEN.
+- **DP-A10**: Only F0699 is mapped (baseline_available); F0690, F0692 and F0694 to F0698 are unmapped.
 - **DP-N1**: Numeric policy: integers exact; declared and observed floats are a single correctly rounded division of exact integers (bit exact); adaptive floats are the single rounding of the exact rational with R17 acceptance max(8 ulp, 1e-12*|r|), +0.0 required where exact zero is argued.
 
-## Open questions (OPEN)
+## Rulings on the former open questions
 
-- **Q1** (OPEN): F0690 composite peak score, F0692, F0694, F0695, F0696 and F0691/F0693/F0697/F0698 cannot be defined without source knowledge or trigger/episode policy (#519/#520); no output of this contract is assigned to them. Needs row-level operand lists.
-- **Q2** (OPEN): Does the #490 relative-volume operand (F0208 to F0211) get a generic supplied-series peak/witness here? Needs the #490 contract.
-- **Q3** (OPEN): Can the upstream VWAP and return producers export exact rationals / sign-exact values? session.trade.vwap is float64 today; a float-sourced operand needs a stated rounding rule.
-- **Q4** (OPEN): Is declaring a known-unavailable prior reference or vwap by the supplier acceptable, or must unavailability always be an absent row?
-- **Q5** (OPEN): Is the 4096-row role bound sufficient for declared universes? Is a larger bound needed?
-- **Q6** (OPEN): Carrying non-price quantities in the REFERENCE price column (alternative: a new column, which needs a canonical change not proposed here).
-- **Q7** (OPEN): Adaptive seed: first observation (adopted) versus a supplied prior baseline (#489).
-- **Q8** (OPEN): Window-end convention and empty-window behaviour of the supplied raw rate belong to #513/#492.
-- **Q9** (OPEN): Is the session summary emitted per request (adopted) or per update / at session end; what makes it final?
-- **Q10** (OPEN): Observed profile: group as configuration (adopted, one result per label) versus multi-group headers.
-- **Q11** (OPEN): Cohort normalization (W3D-2) must cite the SD-1 text of contract E identically.
-- **Q12** (OPEN): Hosting of units shares/s, 1/s and observations: observations already emitted by merged code; shares/s and 1/s are new.
+- **Q1**: The adaptive_volume family is defined generically by this contract and claims no equivalence with the audit opaque rows. F0690, F0692 and F0694 to F0698 are recorded as unmapped (open audit item, not a gate for this contract); F0699 is mapped to baseline_available.
+- **Q2**: No generic peak over the #490 relative-volume operand in v1 (a later amendment).
+- **Q3**: VWAP is supplied as an exact notional/volume pair; a float64 VWAP is not accepted.
+- **Q4**: The supplier may declare a prior reference or a VWAP unavailable (explicit missing, coverage stated); it is never inferred.
+- **Q5**: Role row bound 4096, as the R17 bound (integer(count, 1, 4096) in packages/intraday/src/equity_features_intraday/_context.py).
+- **Q6**: Non-price quantities (volume, return, momentum, rate) travel in the REFERENCE price column as the integer-coefficient carrier convention of the EF1/EF2 REFERENCE rows, unit taken from the role declaration. Checked in packages/contracts validation.py and inputs.py: the REFERENCE branch of validate_batch checks only identity uniqueness, (effective_start_ns, reference_id) order, interval bounds and positive rational factors; the negative-quantity check names only the size, bid_size, ask_size, volume and trade_count columns, so the price column accepts signed and zero values (the library adds its own BOUNDS for negative volume); CanonicalBatch requires a price_unit when a price column exists, so all roles share one PriceUnit.
+- **Q7**: Adaptive seed (first observation), window convention (the supplied rate is taken as given; its window belongs to #513/#492) and session summary final when the market cutoff is reached, as proposed.
+- **Q8**: Observed group scope stays a config parameter (one result per group label).
+- **Q9**: Cite contract E sections by name (population kind ef3.population.member and the duplicate-identity rule); cohort normalization cites the same text.
+- **Q10**: New units members (exists in the breadth catalog, new to the header ledger), ratio, shares/s and 1/s are accepted as additive, applied by the sibling amendment; the 33 headers are listed in the contract.
+- **Q11**: Other open items, coordinator-decided as the most conservative option: update, restore, merge unsupported; reset epoch mode only; the summary is a pure function of the prefix; no defaults for tolerances, floors, tau, W or windows; no partial or lower-bound counts.
+
+## Appendix: the 33 headers for the sibling amendment
+
+To be applied additively by a sibling producer-set and header-ledger amendment (new units `members`, `ratio`, `shares/s`, `1/s`): the three tables under Outputs and headers list all 33 (16 + 7 + 10). Reset is epoch mode only; there are no defaults for tolerances, floors, tau, W or windows.
 
 ## Coordinator freeze
 
-Not frozen. If accepted the coordinator may freeze `ef3-breadth1`, `ef3-obsbreadth1` and `ef3-adaptive1` (v1) for implementation on merge; the author makes no review or acceptance claim, and any later change needs a new policy label. A sibling producer-set and header-ledger amendment (33 headers, new units) is owed after the freeze.
+Per the coordinator, this contract is frozen as `ef3-breadth1` (config identity `ef3.session_breadth`), `ef3-obsbreadth1` (`ef3.observed_breadth`) and `ef3-adaptive1` (`ef3.adaptive_volume`), version 1, for implementation once this PR merges. This statement is the coordinator's; the author makes no acceptance claim, and numerical, artifact and release gates remain.
 
-## Verification status
+## What was not verified
 
 Not verified: no canonical packet expansion, config digest, worker admission or wire encoding was run; the library was not executed; shared-validator behavior was read from source, not run. Hand-typed expectations agree with the scratch evaluator on all asserted cells; the remaining output cells are evaluator-derived. Contract E was read from its branch, not merged.
