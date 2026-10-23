@@ -1,0 +1,18 @@
+# EF4 path efficiency and choppiness
+
+Use `build_path_efficiency_config`, `decode_path_efficiency_config`, `compute_path_efficiency`, `describe_path_efficiency`, `path_efficiency_catalog_digest` and `require_path_efficiency_capability` from `equity_features_intraday`. The context is the unchanged R17 `IntradayContext`: mode `reset` for `epoch_profile = session_reset` and `carry` for `governed_history`. Config identity is `ef4.path_efficiency`, algorithm `ef4-path-efficiency-v1`, schema `1`, policy `ef4-path1`.
+
+```python
+from equity_features_intraday import PATH_EFFICIENCY_POLICY, build_path_efficiency_config, compute_path_efficiency
+
+config = build_path_efficiency_config(context, policy_version=PATH_EFFICIENCY_POLICY, window=14,
+                                      epoch_profile="session_reset", availability=availability,
+                                      adjustment=adjustment, price_unit=price_unit, evidence_limit=2)
+result = compute_path_efficiency(batches, context, config, features=("path.efficiency_ratio", "path.choppiness_fraction"))
+```
+
+Parameters are exactly `policy_version` (`ef4-path1`), `window` N (2..4096, no default), `epoch_profile` (`session_reset` or `governed_history`; `carry` is `INVALID_CONFIG`), `evidence_limit` (0..10000) and the R17 context transport; a missing, surplus or ill-typed parameter is `INVALID_CONFIG`, an unsupported label `INCOMPATIBLE_VERSION`. `batches` is `None` or a tuple of R17 BAR chunks with the R17 per-slot coverage, ordering, duplicate and cutoff rules; a close-only delivery (no `open`, `high`, `low`, `volume`) is legal.
+
+Over the N+1 governed slots `t-N..t` ending at the target (strict: no shrinking and no bridging; the first bar of a `session_reset` epoch is only a base close and no value crosses a session boundary): `path.net_displacement = C_t - C_(t-N)` (signed), `path.path_length = sum |C_i - C_(i-1)|`, `path.efficiency_ratio = |net| / path`, `path.log_efficiency_ratio = |ln(C_t / C_(t-N))| / sum |ln(C_i / C_(i-1))|`, `path.true_range_sum = sum max(H-L, |H-C_prev|, |L-C_prev|)` over the N bars (a plain sum), `path.window_range = max(max H, C_(t-N)) - min(min L, C_(t-N))` and `path.choppiness_fraction = ln(TRS / WR) / ln(N)` in [0, 1] (the Dreiss index is 100 times this value). Price outputs are `currency/share` and the rest `fraction`, float64, in lexical feature-id order. Arithmetic is exact (integer sums, integer ratios, Decimal120 logarithms of exact ratios) with one float64 rounding; equal closes, `TRS = WR`, and a zero path or range are decided on the integers (`+0.0`; a zero path or range gives `not_applicable/zero_denominator` for the ratios while the operands stay available).
+
+Each output has its own readiness: the close outputs need closes `t-N..t`; the range outputs additionally need high and low of `t-N+1..t`. Expected is `N + 1`, observed the READY slots among `max(anchor, t-N)..t`; reasons use the contract precedence and `t - N < anchor` adds `insufficient_history`. Knowledge uses the original `known_at` against the knowledge cutoff in every availability mode. Witnesses (available outputs only) are the target, the base, then the interior ascending (`slot:<index>`, `completed_interval`), bounded by the result-wide `evidence_limit`. Discovery lists the seven ids with batch capability only; `describe_intraday` and its digest are unchanged. Refusals: `INVALID_CONFIG`, `INCOMPATIBLE_VERSION`, `INVALID_ORDER`, `DUPLICATE`, `INVALID_SCHEMA`, `BOUNDS`, `OVERFLOW`, `INCONSISTENT_IDENTITY`, `INVALID_UNIT`, `UNSUPPORTED_ADJUSTMENT`, `UNKNOWN_FEATURE`, `UNSUPPORTED_CAPABILITY`. See [implementation and open points](../ef4/PATH_EFFICIENCY_IMPLEMENTATION.md).

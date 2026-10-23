@@ -155,3 +155,7 @@ The 25 `trend.ichimoku.*` and `channel.*` headers are the own outputs of the six
 ## EF3 realized variance (separate producer)
 
 `intraday.realized_variance` and `intraday.realized_volatility` are the own outputs of the separate `ef3.intraday_realized_variance` producer (config `build_realized_variance_config`, dispatch `compute_realized_variance`, own `describe_realized_variance` catalog) over the same R17 context, BAR admission and governed grid in reset mode; the variance is unannualized and the volatility takes a caller annualization factor. The eight R17 IDs, `describe_intraday`, `compute_intraday` and the catalog digest above are unchanged. See [the EF3 realized-variance API](EF3_REALIZED_VARIANCE.md).
+
+## EF4 path efficiency (separate producer)
+
+The seven `path.*` ids are the own outputs of the separate `ef4.path_efficiency` producer (config `build_path_efficiency_config`, dispatch `compute_path_efficiency`, own `describe_path_efficiency` catalog) over the same R17 context, BAR admission and governed grid, in reset mode for a session epoch and carry mode for a supplied daily grid; each output has its own closure and a caller window with no default. The eight R17 IDs, `describe_intraday`, `compute_intraday` and the catalog digest above are unchanged. See [the EF4 path-efficiency API](EF4_PATH_EFFICIENCY.md).

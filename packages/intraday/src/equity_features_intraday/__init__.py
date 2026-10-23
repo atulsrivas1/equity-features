@@ -33,6 +33,14 @@ from ._rv import compute_realized_variance
 from ._rv_registry import (describe_realized_variance, realized_variance_catalog_digest,
                            require_realized_variance_capability)
 
+# EF4 path efficiency and choppiness (ef4-path1): own config identity, discovery and dispatch; the R17 catalog is unchanged.
+from ._path_config import (PATH_EFFICIENCY_ALGORITHM, PATH_EFFICIENCY_IDENTITY, PATH_EFFICIENCY_POLICY,
+                           PATH_EFFICIENCY_PROFILES, PathEfficiencySettings, build_path_efficiency_config,
+                           decode_path_efficiency_config)
+from ._path import compute_path_efficiency
+from ._path_registry import (describe_path_efficiency, path_efficiency_catalog_digest,
+                             require_path_efficiency_capability)
+
 __version__ = "0.1.0a3"
 __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "IntradayPreparation", "OperandEvidence", "PreparedOperand", "prepare_intraday",
@@ -51,4 +59,8 @@ __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "REALIZED_VARIANCE_ALGORITHM", "REALIZED_VARIANCE_IDENTITY", "REALIZED_VARIANCE_POLICY",
            "REALIZED_VARIANCE_SAMPLING", "RealizedVarianceSettings", "build_realized_variance_config",
            "decode_realized_variance_config", "compute_realized_variance", "describe_realized_variance",
-           "realized_variance_catalog_digest", "require_realized_variance_capability"]
+           "realized_variance_catalog_digest", "require_realized_variance_capability",
+           "PATH_EFFICIENCY_ALGORITHM", "PATH_EFFICIENCY_IDENTITY", "PATH_EFFICIENCY_POLICY",
+           "PATH_EFFICIENCY_PROFILES", "PathEfficiencySettings", "build_path_efficiency_config",
+           "decode_path_efficiency_config", "compute_path_efficiency", "describe_path_efficiency",
+           "path_efficiency_catalog_digest", "require_path_efficiency_capability"]
