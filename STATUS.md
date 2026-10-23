@@ -1,5 +1,10 @@
 # Status (newest first)
 
+## 2026-10-22 - EQ164 audit wave 3 done; seven stories filed
+- Merged: watchlists #661 (23 resolved on a common 33-field operand set, 2 composites, 0 ambiguous), scanners #670 and #662 (107 ambiguous scanners: 46 all operands covered, 55 with gaps, 6 still ambiguous; no overlap, union 107), plan hygiene #659 (additive, reviewer round-trip verified, replan checker PASS), story drafts #660. Each findings PR had a fresh independent reviewer; fixes applied before merge. Decisions in docs/ef1/audit/EQ164_WAVE3_DECISIONS.md (pending owner review).
+- Filed from the reviewed drafts: EQ-238 to EQ-244 = issues #663 to #669 (retracement level, cohort normalization, anchor discovery, mean companion, observed-population companion, neutral provider-admission contract, candidate-artifact representation contract); type:story, milestones set, unassigned. Not added to the Project Backlog: the token lacks project scope, owner action. #490 scope note (mean companion moves out) still to post as a comment.
+- Not done: wave 4 (per-field delivery audit of EF1 modules, plan changes implied by the decisions, contracts for the new stories), owner items (W-id mapping, review of all decisions), installed qualification, real-source demo, EQ169 acceptance. Full EQ164 stays open.
+
 ## 2026-10-22 - Independent review of merged audit/decision PRs, fixes applied
 - Three fresh read-only reviewers re-read the merged wave 1 and wave 2 docs PRs (#647-#655) after they had only been scanned at merge. All approved with fixes, no blockers; counts and 122/101/101+6/24 row coverage recomputed correctly; owner issue numbers and cited producers verified. Fixes in this PR: wave 1 item "208" breakdown (101+101+6), provisional labels on rows resting on unproven evidence, softened X4-1 and X1-3 wording, two stale delivery-ledger lines, three source-safety wording nits. Open: X2 confirm rows lacked row-specific findings (61 of 82 empty), being reworked by the X2 author in a separate PR. The 62-case demo outputs are local scratch and not committed.
 
