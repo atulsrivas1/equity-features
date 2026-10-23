@@ -56,7 +56,7 @@ Steps:
 - Agents finish the brief end to end: no "shall I continue?" stops, no ending the turn on progress polls. Run long batches in parallel, wait once, report once.
 - Reviewers audit the author's input derivation, then re-derive from the contract with varied ids; keep reviewer harnesses in the shared notes folder.
 - Haiku gets one correction round per layer, then Sonnet. Default workers layers with new runner registration plus multi-run cases to Sonnet.
-- Profile one worker case before a 100+ case demo; batch the demo in parallel.
+- Profile one worker case before any run over 50 cases; batch the demo in parallel.
 - Retrospective is a release gate (docs PR with an independent reviewer).
 - Contracts carry refusal inputs or an explicit construction recipe; worker docs state build-time vs compute-time refusal.
 - New lessons go into this checklist (or the top of the retrospective), not only into the long `LESSONS.md` log.
@@ -68,3 +68,10 @@ Steps:
 - Coordinator spot-runs only what the reviewer could not run; coordinator replies to interim notifications with one line or nothing.
 - Resume the author for review fixes (cheap incremental context); use a fresh agent for each new unit and each reviewer.
 - Append a row per unit to `docs/knowledge/TOKEN_LEDGER.md` in the release docs batch and compare with the previous release.
+
+## EF4 changes (from RETRO_EF2_EF3.md section 9; check them at the EF4 retrospective)
+- Authors save fixture-expansion code to the shared notes folder; reviewers write only the independent comparator plus a sample.
+- Run the full worker demo once at qualification; per-layer runs use a sample plus all refusals.
+- Display check: generate readable pages for at least one non-prefix case per example and text-check labels before approval.
+- Trial generating adapter and worker skeletons from the contract pack on one layer; compare tokens with the template-copy approach.
+- Release close cleans leftover worktrees, servers and scratch. Docs line-ending rule is an owner decision.
