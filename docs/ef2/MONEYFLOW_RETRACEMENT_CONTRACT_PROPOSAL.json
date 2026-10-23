@@ -3003,96 +3003,6 @@
    }
   },
   {
-   "id": "M36",
-   "group": "zero_volume",
-   "description": "ruling 2: zero-volume row that supplies non-null OHLC (close 1500) is a valid zero-flow bar; its prices are ignored and it never becomes the OBV base. Result equals M17. Reachable only after the shared BAR validator is amended (it currently refuses this row with INVALID_SCHEMA)",
-   "scale": 2,
-   "mode": "reset",
-   "a": 0,
-   "t": 2,
-   "N": 3,
-   "K": 100,
-   "slots": [
-    {
-     "i": 0,
-     "state": "priced",
-     "c": 1000,
-     "h": 1010,
-     "l": 990,
-     "v": 10,
-     "known_at": 50
-    },
-    {
-     "i": 1,
-     "state": "empty",
-     "known_at": 50,
-     "supplied_ohlc_ignored": {
-      "c": 1500,
-      "h": 1600,
-      "l": 1400
-     }
-    },
-    {
-     "i": 2,
-     "state": "priced",
-     "c": 1010,
-     "h": 1030,
-     "l": 1000,
-     "v": 30,
-     "known_at": 50
-    }
-   ],
-   "tags": [
-    "zero_volume",
-    "validator_amendment"
-   ],
-   "expected": {
-    "intraday.obv": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": 30,
-     "witness_slots": [
-      0,
-      2
-     ]
-    },
-    "intraday.ad_line": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": {
-      "exact": "-10/1",
-      "float64": -10.0,
-      "hex": "-0x1.4000000000000p+3"
-     },
-     "witness_slots": [
-      0,
-      2
-     ]
-    },
-    "intraday.cmf": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": {
-      "exact": "-1/4",
-      "float64": -0.25,
-      "hex": "-0x1.0000000000000p-2"
-     },
-     "sum_money_flow_volume": "-10/1",
-     "sum_volume": 40,
-     "witness_slots": [
-      0,
-      2
-     ]
-    }
-   }
-  },
-  {
    "id": "M35",
    "group": "overflow",
    "description": "intermediate excursion beyond int64 that returns in range: only the published value is bounded; AD stays within float64",
@@ -3283,7 +3193,7 @@
   {
    "id": "MR17",
    "error_code": "INVALID_SCHEMA",
-   "description": "CURRENT shared validator behavior (to be amended per ruling 2, see fixture M36): zero-volume row with non-null OHLC"
+   "description": "existing shared BAR validation, unchanged: a zero-volume row with non-null OHLC is refused (zero-volume interval requires null OHLC)"
   },
   {
    "id": "MR18",
@@ -4795,7 +4705,7 @@
   }
  ],
  "fixture_counts": {
-  "money_flow_result": 36,
+  "money_flow_result": 35,
   "money_flow_refusal": 19,
   "retracement_result": 31,
   "retracement_refusal": 17
@@ -4872,8 +4782,7 @@
    "M18",
    "M19",
    "M20",
-   "M21",
-   "M36"
+   "M21"
   ],
   "zero_denominator": [
    "M19",
@@ -4917,9 +4826,6 @@
    "T29",
    "T30",
    "T31"
-  ],
-  "validator_amendment": [
-   "M36"
   ],
   "identity": [
    "T08"
@@ -5012,7 +4918,7 @@
  },
  "rulings": {
   "O1": "money-flow headers in packages/intraday; retracement.level in packages/features as an EF2 module",
-  "O2": "zero-volume row with non-null OHLC is a valid zero-flow bar (prices ignored); contradictory OHLC refused through existing BAR validation codes (INVALID_SCHEMA, BOUNDS, DUPLICATE, INVALID_ORDER); current shared validator still refuses the zero-volume non-null-OHLC row (amendment to be applied)",
+  "O2": "a zero-volume interval requires null OHLC: a zero-volume row with non-null OHLC is refused INVALID_SCHEMA by the EXISTING shared validator (unchanged); a proven-empty slot is a zero-volume slot with null OHLC and coverage-proven emptiness and counts as zero flow; contradictory OHLC is refused through existing BAR codes (INVALID_SCHEMA, BOUNDS, DUPLICATE, INVALID_ORDER)",
   "O3": "volume in the config-declared adjustment basis; no conversion; all bars must match",
   "O4": "carry mode not in v1; anchored batch only",
   "O5": "see O2",
@@ -5022,6 +4928,6 @@
   "O9": "ad_line float64 unit shares",
   "O10": "extension ratios above 1 out of v1"
  },
- "amendment_note": "additive producer-set and header-ledger entries (ef2.money_flow, ef2.retracement_level, four headers, intraday catalog entries and digest, BAR validator change for zero-volume non-null OHLC) are recorded as to-be-applied; a sibling amendment document follows the freeze",
+ "amendment_note": "additive producer-set and header-ledger entries (ef2.money_flow, ef2.retracement_level, four headers, intraday catalog entries and digest) are recorded as to-be-applied; a sibling amendment document follows the freeze. No change to shared validators is required or proposed.",
  "coordinator_freeze": "frozen as ef2-mf1 and ef2-retrace1 (v1) for implementation once the PR merges (coordinator statement; no review or acceptance claim by the author)"
 }
