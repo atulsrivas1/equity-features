@@ -64,3 +64,7 @@ The linked API, [synthetic goldens](../../tests/fixtures/intraday_math/README.md
 ## EF2 money flow
 
 OBV, accumulation/distribution and Chaikin money flow are specified by the frozen [EF2 contract](../ef2/MONEYFLOW_RETRACEMENT_CONTRACT_PROPOSAL.md) over this same governed grid and reset epoch and are implemented as the separate `ef2.money_flow` producer; R17 mathematics, quality and evidence are unchanged.
+
+## EF2 momentum and trend
+
+MACD, DMI/ADX, stochastic oscillators and Williams %R are specified by the frozen [EF2 contract](../ef2/MOMENTUM_TREND_CONTRACT_PROPOSAL.md) over this same governed grid and reset epoch and are implemented as the separate `intraday.momentum` producer; R17 mathematics, quality and evidence are unchanged.
