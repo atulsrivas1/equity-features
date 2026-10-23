@@ -80,3 +80,7 @@ The uncentered sum of squared log returns over the reset epoch (and its annualiz
 ## EF3 robust history, volume pace and mean ratio
 
 Prior-only robust history summaries and ranks, the robust same-bucket volume pace and its mean-ratio companion are specified by the frozen [EF3 contract](../ef3/ROBUST_PACE_CONTRACT_PROPOSAL.md) over caller-supplied governed sessions and bucket grids and are implemented as the separate `ef3.robust_history`, `ef3.volume_pace_robust` and `ef3.volume_ratio_mean` producers; the accepted `baseline.*` means, R17 mathematics, quality and evidence are unchanged.
+
+## EF4 tape windows and notional-ranked largest prints
+
+Rolling trade-window totals with tick-rule signed volume and the exact notional-ranked largest prints are specified by the frozen [EF4 tape contract](../ef4/TAPE_CONTRACT_PROPOSAL.md) over the same governed trade admission, reset epoch and exact arithmetic and are implemented as the separate `ef4.tape_window_sign` and `ef4.trade_top_k_notional` producers; the size-ranked `session.trade.top_k`, R17 mathematics, quality and evidence are unchanged.
