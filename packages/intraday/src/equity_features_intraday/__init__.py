@@ -17,6 +17,14 @@ from ._momentum_config import (MOMENTUM_ALGORITHM, MOMENTUM_CONVENTIONS, MOMENTU
 from ._momentum import compute_momentum
 from ._momentum_registry import describe_momentum, momentum_catalog_digest, require_momentum_capability
 
+# EF2 Ichimoku and price channels (ef2-v1): own config identities, discovery and dispatch; the R17 catalog is unchanged.
+from ._channels_config import (CHANNELS_ALGORITHM, CHANNELS_CONTRACT_VERSION, CHANNELS_CONVENTIONS,
+                               CHANNELS_IDENTITIES, ChannelsSettings, build_channels_config,
+                               decode_channels_config)
+from ._channels import compute_channels
+from ._channels_registry import (CHANNELS_PRODUCER_FEATURES, channels_catalog_digest, describe_channels,
+                                 require_channels_capability)
+
 __version__ = "0.1.0a3"
 __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "IntradayPreparation", "OperandEvidence", "PreparedOperand", "prepare_intraday",
@@ -27,4 +35,8 @@ __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "describe_money_flow", "money_flow_catalog_digest", "require_money_flow_capability",
            "MOMENTUM_ALGORITHM", "MOMENTUM_CONVENTIONS", "MOMENTUM_IDENTITY", "MomentumSettings",
            "build_momentum_config", "decode_momentum_config", "compute_momentum",
-           "describe_momentum", "momentum_catalog_digest", "require_momentum_capability"]
+           "describe_momentum", "momentum_catalog_digest", "require_momentum_capability",
+           "CHANNELS_ALGORITHM", "CHANNELS_CONTRACT_VERSION", "CHANNELS_CONVENTIONS", "CHANNELS_IDENTITIES",
+           "CHANNELS_PRODUCER_FEATURES", "ChannelsSettings", "build_channels_config",
+           "decode_channels_config", "compute_channels", "describe_channels", "channels_catalog_digest",
+           "require_channels_capability"]

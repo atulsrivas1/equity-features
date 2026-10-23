@@ -279,3 +279,7 @@ The existing EF1 builder/decoder/discovery/compute API also accepts `multivenue_
 ## Selected EF2 momentum and trend producer
 
 `equity_features_intraday` also provides `build_momentum_config`, `decode_momentum_config`, `compute_momentum` and own discovery (`describe_momentum`) for the homogeneous `macd`, `dmi` and `stochastic` families (`intraday.macd_line`, `intraday.macd_signal`, `intraday.macd_histogram`, `intraday.plus_di`, `intraday.minus_di`, `intraday.dx`, `intraday.adx`, `intraday.stoch_k`, `intraday.stoch_d`, `intraday.williams_r`). [Momentum API](EF2_MOMENTUM.md) and [source implementation limits](../ef2/MOMENTUM_TREND_IMPLEMENTATION.md) describe the frozen `ef2-conv1` conventions. This remains a bounded source slice with I/O mapping, worker, header-ledger amendment, installed/integration and release gates pending.
+
+## Selected EF2 Ichimoku and price-channel producers
+
+`equity_features_intraday` also provides `build_channels_config`, `decode_channels_config`, `compute_channels` and own discovery (`describe_channels`) for the homogeneous `ichimoku`, `keltner`, `donchian`, `pivot_levels`, `band_width_percentile` and `bollinger_keltner_squeeze` producers (25 headers under `trend.ichimoku.*` and `channel.*`). [Channels API](EF2_CHANNELS.md) and [source implementation limits](../ef2/ICHIMOKU_CHANNELS_IMPLEMENTATION.md) describe the frozen `ef2-v1` conventions. This remains a bounded source slice with I/O mapping, worker, header-ledger amendment, installed/integration and release gates pending.

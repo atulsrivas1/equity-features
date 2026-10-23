@@ -68,3 +68,7 @@ OBV, accumulation/distribution and Chaikin money flow are specified by the froze
 ## EF2 momentum and trend
 
 MACD, DMI/ADX, stochastic oscillators and Williams %R are specified by the frozen [EF2 contract](../ef2/MOMENTUM_TREND_CONTRACT_PROPOSAL.md) over this same governed grid and reset epoch and are implemented as the separate `intraday.momentum` producer; R17 mathematics, quality and evidence are unchanged.
+
+## EF2 Ichimoku and price channels
+
+Aligned Ichimoku, Keltner and Donchian channels, selected pivot levels, the price-band width percentile and the Bollinger/Keltner squeeze primitives are specified by the frozen [EF2 contract](../ef2/ICHIMOKU_CHANNELS_CONTRACT_PROPOSAL.md) over this same governed grid and reset epoch and are implemented as the separate `ef2.*` channel producers; R17 mathematics, quality and evidence are unchanged.

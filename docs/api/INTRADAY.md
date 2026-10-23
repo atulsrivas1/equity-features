@@ -147,3 +147,7 @@ EQ137's internal preparation includes exact rolling price count/sum/mean/populat
 ## EF2 momentum (separate producer)
 
 `intraday.macd_line`, `intraday.macd_signal`, `intraday.macd_histogram`, `intraday.plus_di`, `intraday.minus_di`, `intraday.dx`, `intraday.adx`, `intraday.stoch_k`, `intraday.stoch_d` and `intraday.williams_r` are the own outputs of the separate `intraday.momentum` producer (config `build_momentum_config`, dispatch `compute_momentum`, own `describe_momentum` catalog) over the same R17 context, BAR admission and governed grid; one config computes one family and any subset of its outputs. The eight R17 IDs, `describe_intraday`, `compute_intraday` and the catalog digest above are unchanged. See [the EF2 momentum API](EF2_MOMENTUM.md).
+
+## EF2 Ichimoku and price channels (separate producers)
+
+The 25 `trend.ichimoku.*` and `channel.*` headers are the own outputs of the six separate `ef2.*` channel producers (config `build_channels_config`, dispatch `compute_channels`, own `describe_channels` catalog) over the same R17 context, BAR admission and governed grid; one config computes one producer's complete header set. The eight R17 IDs, `describe_intraday`, `compute_intraday` and the catalog digest above are unchanged. See [the EF2 channels API](EF2_CHANNELS.md).
