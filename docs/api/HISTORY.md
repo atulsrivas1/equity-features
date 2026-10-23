@@ -224,3 +224,7 @@ total memory or throughput claim. Existing schemas/state compatibility remain.
 ## Daily log-return volatility (separate EF3 producer)
 
 `history.log_return_volatility` (centered natural-log returns, sample denominator, caller annualization factor) is the own output of the separate `ef3.daily_log_volatility` producer in `equity_features.ef3`; it is a distinct id and API from `history.return_volatility` (simple returns), whose definition, state and results are unchanged. See [the EF3 daily log volatility API](EF3_DAILY_LOG_VOLATILITY.md).
+
+## Robust history summaries and ranks (separate EF3 producer)
+
+`robust.median`, `robust.mad`, `robust.quantile`, `robust.percentile_rank`, `cohort.percentile_rank` and `cohort.rank` are the own outputs of the separate `ef3.robust_history` producer in `equity_features.ef3`: exact-rational prior-only median, raw MAD, type 7 quantile and mid-rank over a governed session grid with declared exclusions. They do not replace or change `history.*` or `baseline.*`, whose definitions, state and results are unchanged. See [the EF3 robust history API](EF3_ROBUST_HISTORY.md).

@@ -76,3 +76,7 @@ Aligned Ichimoku, Keltner and Donchian channels, selected pivot levels, the pric
 ## EF3 realized variance
 
 The uncentered sum of squared log returns over the reset epoch (and its annualized square root) is specified by the frozen [EF3 contract](../ef3/RELATIVE_RV_CONTRACT_PROPOSAL.md) over this same governed grid and reset epoch and is implemented as the separate `ef3.intraday_realized_variance` producer; R17 mathematics, quality and evidence are unchanged.
+
+## EF3 robust history, volume pace and mean ratio
+
+Prior-only robust history summaries and ranks, the robust same-bucket volume pace and its mean-ratio companion are specified by the frozen [EF3 contract](../ef3/ROBUST_PACE_CONTRACT_PROPOSAL.md) over caller-supplied governed sessions and bucket grids and are implemented as the separate `ef3.robust_history`, `ef3.volume_pace_robust` and `ef3.volume_ratio_mean` producers; the accepted `baseline.*` means, R17 mathematics, quality and evidence are unchanged.
