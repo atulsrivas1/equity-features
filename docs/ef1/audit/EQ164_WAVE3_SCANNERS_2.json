@@ -4,34 +4,33 @@
  "status": "FINDINGS ONLY; adjudicated finding / proposed resolution; nothing accepted; no tracker edited",
  "selection": {
   "source": "docs/ef1/audit/EQ164_WAVE2_X4.json",
-  "rule": "consumers with primary gap class AMBIGUOUS and id S####, sorted ascending; this record is the last floor(n/2)",
+  "rule": "consumers with primary gap class AMBIGUOUS and id S####, sorted ascending; this record is the 53 ambiguous scanner ids after S0197, which the sibling PR covers",
   "total_ambiguous_scanners": 107,
-  "first_half_count": 53,
-  "second_half_count": 54,
-  "id_range": "S0197-S0357",
-  "first_id": "S0197",
+  "first_half_count": 54,
+  "second_half_count": 53,
+  "id_range": "S0198-S0357",
+  "first_id": "S0198",
   "last_id": "S0357",
-  "first_half_range_expected": "S0106-S0196 (53 ids), by another worker"
+  "first_half_range_expected": "S0106-S0197 (54 ids), covered by the sibling PR"
  },
  "counts": {
-  "consumers": 54,
+  "consumers": 53,
   "by_resolution_class": {
-   "RESOLVED_ALL_OPERANDS_COVERED": 7,
    "RESOLVED_WITH_GAPS": 43,
+   "RESOLVED_ALL_OPERANDS_COVERED": 6,
    "STILL_AMBIGUOUS": 4
   },
   "by_confidence": {
-   "medium": 19,
+   "medium": 18,
    "low": 35
   },
-  "operand_items": 260,
+  "operand_items": 255,
   "operand_status": {
-   "PLANNED_NUMBERED": 242,
-   "DELIVERED_ON_MAIN": 10,
+   "PLANNED_NUMBERED": 247,
    "UNCOVERED_GAP": 8
   },
   "operand_kind": {
-   "field": 175,
+   "field": 170,
    "derived_value_owner": 21,
    "indicator_family": 26,
    "ordered_bar_series_input": 26,
@@ -126,32 +125,32 @@
   {
    "story": 505,
    "state": "OPEN",
-   "consumers": 6,
-   "operands_routed": 10,
+   "consumers": 5,
+   "operands_routed": 8,
    "gap_items": 0,
    "gap_codes": {}
   },
   {
    "story": 506,
    "state": "OPEN",
-   "consumers": 19,
-   "operands_routed": 50,
+   "consumers": 18,
+   "operands_routed": 47,
    "gap_items": 0,
    "gap_codes": {}
   },
   {
    "story": 507,
    "state": "OPEN",
-   "consumers": 22,
-   "operands_routed": 26,
+   "consumers": 21,
+   "operands_routed": 25,
    "gap_items": 0,
    "gap_codes": {}
   },
   {
    "story": 508,
    "state": "OPEN",
-   "consumers": 14,
-   "operands_routed": 14,
+   "consumers": 13,
+   "operands_routed": 13,
    "gap_items": 0,
    "gap_codes": {}
   },
@@ -203,7 +202,7 @@
   },
   {
    "id": "P3",
-   "text": "7 rules (S0197, S0199, S0200, S0201, S0205, S0206, S0207) have every named field operand routed to open EF1 owners #506/#507/#508 or delivered (F0271, F0284); only contract-time profile selection and per-field delivery mapping remain."
+   "text": "6 rules (S0199, S0200, S0201, S0205, S0206, S0207) have every named field operand routed to open EF1 owners #506/#507/#508 (F0271 and F0284 carry the note capability present on main; per-field binding unproven); only contract-time profile selection and per-field delivery mapping remain."
   },
   {
    "id": "P4",
@@ -262,7 +261,7 @@
     507,
     508
    ],
-   "text": "Which EF1 modules on main produce F0188, F0190, F0191, F0206, F0218, F0272, F0273, F0275, F0276 (delivery ledger section 1 lists capabilities, not field mappings)? This decides whether S0197, S0199, S0200, S0201, S0205-S0207 move from planned to delivered operands."
+   "text": "Which EF1 modules on main produce F0188, F0190, F0191, F0206, F0218, F0272, F0273, F0275, F0276 (delivery ledger section 1 lists capabilities, not field mappings)? This decides whether S0199, S0200, S0201, S0205-S0207 move from planned to delivered operands."
   },
   {
    "id": "Q5",
@@ -295,15 +294,15 @@
     507,
     508
    ],
-   "text": "For rules whose derived values name two or three EF1 owners (S0197, S0198, S0205, S0206): is the owner of each derived value fixed per output (one owner each) or chosen per rule at contract time?"
+   "text": "For rules whose derived values name two or three EF1 owners (S0198, S0205, S0206): is the owner of each derived value fixed per output (one owner each) or chosen per rule at contract time?"
   }
  ],
  "definitions": {
-  "DELIVERED_ON_MAIN": "operand classified delivered in the wave 1 selected packets (F0271, F0284)",
+  "DELIVERED_ON_MAIN": "not used: nothing is delivered until per-field binding is proven; F0271 and F0284 are PLANNED_NUMBERED with the note capability present on main; per-field binding unproven",
   "PLANNED_NUMBERED": "operand routed to a numbered story in the public route coverage index; for EF1 owners (#505-#508) per-field delivery is not provable from opaque ids; closed baseline stories count as planned with reuse unproved",
   "PROPOSED_NEW_STORY": "operand needs a story proposed in EQ164_WAVE2_DECISIONS.md (none in this half)",
   "UNCOVERED_GAP": "no catalogue identity or numbered owner can be named for the operand",
-  "RESOLVED_ALL_OPERANDS_COVERED": "every operand is named and routed to an open numbered owner or delivered; only contract-time selection remains",
+  "RESOLVED_ALL_OPERANDS_COVERED": "every operand is named and routed to a numbered owner; only contract-time selection remains",
   "RESOLVED_WITH_GAPS": "every operand is named but at least one gap is listed (closed-baseline reuse unproved, absent contract, unselected profile, cohort freeze)",
   "STILL_AMBIGUOUS": "an operand cannot be named or routed; the missing evidence is stated"
  },
@@ -314,128 +313,6 @@
   "no accepted mathematics, API, source, rights or consumer parity is implied"
  ],
  "records": [
-  {
-   "consumer_id": "S0197",
-   "profile_class": "PC07",
-   "x4_primary_class": "AMBIGUOUS",
-   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
-   "confidence": "medium",
-   "policy_owner": {
-    "story": 518,
-    "io": 621,
-    "worker": 622,
-    "release": "EF8"
-   },
-   "operand_count": 5,
-   "operands": [
-    {
-     "operand": "F0188",
-     "kind": "field",
-     "status": "PLANNED_NUMBERED",
-     "owner_stories": [
-      506
-     ],
-     "planned_releases": [
-      "EF1"
-     ],
-     "evidence": [
-      "lexical",
-      "private_bridge",
-      "x4"
-     ],
-     "notes": [
-      "EF1_owner_field_to_module_delivery_undetermined"
-     ]
-    },
-    {
-     "operand": "F0218",
-     "kind": "field",
-     "status": "PLANNED_NUMBERED",
-     "owner_stories": [
-      508
-     ],
-     "planned_releases": [
-      "EF1"
-     ],
-     "evidence": [
-      "lexical"
-     ],
-     "notes": [
-      "EF1_owner_field_to_module_delivery_undetermined"
-     ]
-    },
-    {
-     "operand": "F0271",
-     "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
-     "owner_stories": [
-      505,
-      506
-     ],
-     "planned_releases": [
-      "EF1"
-     ],
-     "evidence": [
-      "lexical",
-      "private_bridge",
-      "x4"
-     ],
-     "notes": [
-      "packet_A"
-     ]
-    },
-    {
-     "operand": "F0272",
-     "kind": "field",
-     "status": "PLANNED_NUMBERED",
-     "owner_stories": [
-      507
-     ],
-     "planned_releases": [
-      "EF1"
-     ],
-     "evidence": [
-      "lexical"
-     ],
-     "notes": [
-      "EF1_owner_field_to_module_delivery_undetermined"
-     ]
-    },
-    {
-     "operand": "F0284",
-     "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
-     "owner_stories": [
-      505,
-      506
-     ],
-     "planned_releases": [
-      "EF1"
-     ],
-     "evidence": [
-      "lexical"
-     ],
-     "notes": [
-      "packet_A"
-     ]
-    }
-   ],
-   "gaps": [],
-   "contract_prerequisites": [
-    "EF1 per-field delivery status not provable from opaque ids (informational)",
-    "exact history, reference, phase and population profile selection at contract time",
-    "producer choice among owners #507, #506 for derived values (profile selection at contract time)"
-   ],
-   "indicator_family": null,
-   "missing_evidence": null,
-   "numbered_stories_touched": [
-    505,
-    506,
-    507,
-    508
-   ],
-   "accepted": false
-  },
   {
    "consumer_id": "S0198",
    "profile_class": "PC07",
@@ -489,7 +366,7 @@
     {
      "operand": "F0271",
      "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
+     "status": "PLANNED_NUMBERED",
      "owner_stories": [
       505,
       506
@@ -501,6 +378,7 @@
       "lexical"
      ],
      "notes": [
+      "capability present on main; per-field binding unproven",
       "packet_A"
      ]
     },
@@ -543,7 +421,7 @@
     {
      "operand": "F0284",
      "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
+     "status": "PLANNED_NUMBERED",
      "owner_stories": [
       505,
       506
@@ -555,6 +433,7 @@
       "lexical"
      ],
      "notes": [
+      "capability present on main; per-field binding unproven",
       "packet_A"
      ]
     },
@@ -632,7 +511,7 @@
     {
      "operand": "F0271",
      "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
+     "status": "PLANNED_NUMBERED",
      "owner_stories": [
       505,
       506
@@ -644,6 +523,7 @@
       "lexical"
      ],
      "notes": [
+      "capability present on main; per-field binding unproven",
       "packet_A"
      ]
     },
@@ -684,7 +564,7 @@
     {
      "operand": "F0284",
      "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
+     "status": "PLANNED_NUMBERED",
      "owner_stories": [
       505,
       506
@@ -696,6 +576,7 @@
       "lexical"
      ],
      "notes": [
+      "capability present on main; per-field binding unproven",
       "packet_A"
      ]
     }
@@ -749,7 +630,7 @@
     {
      "operand": "F0271",
      "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
+     "status": "PLANNED_NUMBERED",
      "owner_stories": [
       505,
       506
@@ -761,6 +642,7 @@
       "lexical"
      ],
      "notes": [
+      "capability present on main; per-field binding unproven",
       "packet_A"
      ]
     },
@@ -801,7 +683,7 @@
     {
      "operand": "F0284",
      "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
+     "status": "PLANNED_NUMBERED",
      "owner_stories": [
       505,
       506
@@ -813,6 +695,7 @@
       "lexical"
      ],
      "notes": [
+      "capability present on main; per-field binding unproven",
       "packet_A"
      ]
     }
@@ -990,7 +873,7 @@
     {
      "operand": "F0271",
      "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
+     "status": "PLANNED_NUMBERED",
      "owner_stories": [
       505,
       506
@@ -1004,6 +887,7 @@
       "x4"
      ],
      "notes": [
+      "capability present on main; per-field binding unproven",
       "packet_A"
      ]
     },
@@ -1095,7 +979,7 @@
     {
      "operand": "F0271",
      "kind": "field",
-     "status": "DELIVERED_ON_MAIN",
+     "status": "PLANNED_NUMBERED",
      "owner_stories": [
       505,
       506
@@ -1109,6 +993,7 @@
       "x4"
      ],
      "notes": [
+      "capability present on main; per-field binding unproven",
       "packet_A"
      ]
     },
@@ -5373,6 +5258,7 @@
       "public_X3"
      ],
      "notes": [
+      "owner 626 (computed) per wave 2 decision X3-4; route index shows 611 as the enveloping I/O",
       "packet_B",
       "packet_ambiguous",
       "provisional: computed by 626 per X3-4; packet B ambiguous"
@@ -5638,6 +5524,7 @@
       "public_X3"
      ],
      "notes": [
+      "owner 626 (computed) per wave 2 decision X3-4; route index shows 611 as the enveloping I/O",
       "packet_B",
       "packet_ambiguous",
       "provisional: computed by 626 per X3-4; packet B ambiguous"
@@ -6738,6 +6625,7 @@
       "public_X3"
      ],
      "notes": [
+      "owner 626 (computed) per wave 2 decision X3-4; route index shows 611 as the enveloping I/O",
       "packet_B",
       "packet_ambiguous",
       "provisional: computed by 626 per X3-4; packet B ambiguous"
