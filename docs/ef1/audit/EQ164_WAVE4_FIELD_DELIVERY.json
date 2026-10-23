@@ -1,0 +1,1418 @@
+{
+ "schema_version": 1,
+ "kind": "eq164-wave4-field-delivery",
+ "base_commit": "597e0c3",
+ "status": "audit findings only; a match is a finding, not numerical or source-parity acceptance; nothing accepted; no tracker edits",
+ "verdict_vocabulary": [
+  "MATCHED_BY_MERGED_HEADER",
+  "PARTIAL_MATCH",
+  "NOT_DELIVERED",
+  "UNDETERMINED"
+ ],
+ "field_count": 47,
+ "verdict_counts": {
+  "MATCHED_BY_MERGED_HEADER": 24,
+  "PARTIAL_MATCH": 11,
+  "NOT_DELIVERED": 12,
+  "UNDETERMINED": 0
+ },
+ "per_primary_owner_story": {
+  "505": {
+   "MATCHED_BY_MERGED_HEADER": 0,
+   "PARTIAL_MATCH": 1,
+   "NOT_DELIVERED": 0,
+   "UNDETERMINED": 0
+  },
+  "506": {
+   "MATCHED_BY_MERGED_HEADER": 21,
+   "PARTIAL_MATCH": 8,
+   "NOT_DELIVERED": 3,
+   "UNDETERMINED": 0
+  },
+  "507": {
+   "MATCHED_BY_MERGED_HEADER": 1,
+   "PARTIAL_MATCH": 2,
+   "NOT_DELIVERED": 0,
+   "UNDETERMINED": 0
+  },
+  "508": {
+   "MATCHED_BY_MERGED_HEADER": 0,
+   "PARTIAL_MATCH": 0,
+   "NOT_DELIVERED": 4,
+   "UNDETERMINED": 0
+  },
+  "570": {
+   "MATCHED_BY_MERGED_HEADER": 2,
+   "PARTIAL_MATCH": 0,
+   "NOT_DELIVERED": 5,
+   "UNDETERMINED": 0
+  }
+ },
+ "records": [
+  {
+   "opaque_id": "F0137",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "instrument identity key of the row",
+   "difference_or_note": "No feature header carries identity; the entity is the explicit EntityKey argument of the compute call and result metadata.",
+   "confidence": "high",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_definitions.py",
+    "docs/ef1/DELIVERY_LEDGER.md",
+    "docs/api/PUBLIC_API.md"
+   ],
+   "primary_owner_story": 570,
+   "owner_stories": [
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0148",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.high"
+   ],
+   "producer_module": "session/_reductions.py",
+   "class_level_meaning": "regular-session high of the observation row",
+   "difference_or_note": "Same unit (currency per share) and session; the header gives a running value at a mid-session cutoff (eligible bars ending at or before the cutoff, scope marked as cutoff). Remaining difference is the sampling basis: bar-interval values versus trade-print values, and which extended-hours or auction prints are admitted, which is a caller input-contract item.",
+   "confidence": "medium-high",
+   "evidence_public_files": [
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3",
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0149",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.low"
+   ],
+   "producer_module": "session/_reductions.py",
+   "class_level_meaning": "regular-session low of the observation row",
+   "difference_or_note": "Same unit (currency per share) and session; the header gives a running value at a mid-session cutoff (eligible bars ending at or before the cutoff, scope marked as cutoff). Remaining difference is the sampling basis: bar-interval values versus trade-print values, and which extended-hours or auction prints are admitted, which is a caller input-contract item.",
+   "confidence": "medium-high",
+   "evidence_public_files": [
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3",
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0150",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.close",
+    "session.close.calculated_price"
+   ],
+   "producer_module": "session/_reductions.py; _regular_bar_prices.py",
+   "class_level_meaning": "current-session close of the observation row",
+   "difference_or_note": "Same unit and session. session.bar.close is the close of the last eligible interval at the cutoff; session.close.calculated_price is the last positive-volume completed-bar close. Remaining difference is the sampling basis: completed-bar close versus trade-print close, and auction-print admission as a caller input-contract item.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py",
+    "packages/features/src/equity_features/ef1/_regular_bar_prices.py",
+    "docs/ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3",
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0162",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.status.trading_state"
+   ],
+   "producer_module": "_status.py",
+   "class_level_meaning": "trading status of the instrument at the row",
+   "difference_or_note": "The header is a closed-vocabulary state (active, halted, closed) selected causally from a proved supplied prefix and validity interval before the cutoff. Open contract questions: mapping of the supplied status vocabulary to the closed states, and which event the row-level status refers to relative to the cutoff.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_status.py",
+    "docs/features/EF1_STATUS.md",
+    "docs/api/EF1_STATUS.md",
+    "docs/ef1/STATUS_INPUT_SLOTS.md"
+   ],
+   "primary_owner_story": 505,
+   "owner_stories": [
+    505,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0173",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "path-feature completeness flag of the row",
+   "difference_or_note": "Availability flags are not feature headers. Readiness of the paired numeric header is reported as per-output status and quality in the result, not as a value; whether such a flag is derived from that readiness or supplied is a contract item.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_definitions.py",
+    "docs/api/PUBLIC_API.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "availability-gate"
+   ]
+  },
+  {
+   "opaque_id": "F0179",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "serialized volume-anomaly summary blob",
+   "difference_or_note": "No header exists; a structured blob is not a scalar feature value.",
+   "confidence": "high",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_definitions.py",
+    "docs/ef1/DELIVERY_LEDGER.md"
+   ],
+   "primary_owner_story": 570,
+   "owner_stories": [
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0186",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "event time of the latest applied observation",
+   "difference_or_note": "No header echoes an event time. session.clock.* are functions of the supplied evaluation cutoff and calendar, not of the latest observation.",
+   "confidence": "high",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_clock.py",
+    "docs/api/EF1_CLOCK.md"
+   ],
+   "primary_owner_story": 570,
+   "owner_stories": [
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3",
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0188",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.close"
+   ],
+   "producer_module": "session/_reductions.py",
+   "class_level_meaning": "latest price at the evaluation time",
+   "difference_or_note": "session.bar.close is the close of the last eligible interval at the cutoff, so it tracks the latest regular-session price at bar granularity. Open contract questions: bar-close versus trade-print basis and whether extended-hours prints are in scope; no trade-print last-price header exists.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0190",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.high"
+   ],
+   "producer_module": "session/_reductions.py",
+   "class_level_meaning": "running regular-session high at the evaluation cutoff",
+   "difference_or_note": "Same unit (currency per share) and session; the header gives a running value at a mid-session cutoff (eligible bars ending at or before the cutoff, scope marked as cutoff). Remaining difference is the sampling basis: bar-interval values versus trade-print values, and which extended-hours or auction prints are admitted, which is a caller input-contract item.",
+   "confidence": "medium-high",
+   "evidence_public_files": [
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0191",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.low"
+   ],
+   "producer_module": "session/_reductions.py",
+   "class_level_meaning": "running regular-session low at the evaluation cutoff",
+   "difference_or_note": "Same unit (currency per share) and session; the header gives a running value at a mid-session cutoff (eligible bars ending at or before the cutoff, scope marked as cutoff). Remaining difference is the sampling basis: bar-interval values versus trade-print values, and which extended-hours or auction prints are admitted, which is a caller input-contract item.",
+   "confidence": "medium-high",
+   "evidence_public_files": [
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0206",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.price.close_close_return",
+    "session.extended.prior_close_return"
+   ],
+   "producer_module": "session/_reductions.py; _period.py",
+   "class_level_meaning": "change of the current price versus the prior regular close",
+   "difference_or_note": "session.price.close_close_return (fraction, C/P-1 with a compatible prior close P) is the regular-session carrier; session.extended.prior_close_return covers premarket and postmarket phases. Remaining differences: price basis (bar close versus latest print), phase scope, and unit (fraction versus percent) as a presentation conversion. Ledger note: prior_close_return exists only as session.extended.prior_close_return; calendar.period.* has none.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py",
+    "packages/features/src/equity_features/ef1/_definitions.py",
+    "packages/features/src/equity_features/ef1/_period.py",
+    "docs/ef1/DELIVERY_LEDGER.md"
+   ],
+   "primary_owner_story": 507,
+   "owner_stories": [
+    507,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3",
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": [
+    "ledger-correction"
+   ]
+  },
+  {
+   "opaque_id": "F0218",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "prior-close availability flag",
+   "difference_or_note": "Availability flags are not feature headers. Readiness of the paired numeric header is reported as per-output status and quality in the result, not as a value; whether such a flag is derived from that readiness or supplied is a contract item.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_definitions.py",
+    "docs/api/PUBLIC_API.md"
+   ],
+   "primary_owner_story": 508,
+   "owner_stories": [
+    508,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": [
+    "availability-gate"
+   ]
+  },
+  {
+   "opaque_id": "F0255",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "reference.classification.value"
+   ],
+   "producer_module": "_reference.py",
+   "class_level_meaning": "supplied sector classification label",
+   "difference_or_note": "The header returns the causal active membership text for the selected membership kind (sector, industry or universe), one producer configuration per kind. The gate state and reason headers carry availability.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_reference.py",
+    "docs/ef1/REFERENCE_IMPLEMENTATION.md",
+    "docs/ef1/REFERENCE_CONTRACT_PROPOSAL.md"
+   ],
+   "primary_owner_story": 570,
+   "owner_stories": [
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3"
+   ],
+   "contract_items_implicated": [
+    "config-selection"
+   ]
+  },
+  {
+   "opaque_id": "F0256",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "reference.classification.value"
+   ],
+   "producer_module": "_reference.py",
+   "class_level_meaning": "supplied industry classification label",
+   "difference_or_note": "The header returns the causal active membership text for the selected membership kind (sector, industry or universe), one producer configuration per kind. The gate state and reason headers carry availability.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_reference.py",
+    "docs/ef1/REFERENCE_IMPLEMENTATION.md",
+    "docs/ef1/REFERENCE_CONTRACT_PROPOSAL.md"
+   ],
+   "primary_owner_story": 570,
+   "owner_stories": [
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3"
+   ],
+   "contract_items_implicated": [
+    "config-selection"
+   ]
+  },
+  {
+   "opaque_id": "F0259",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "as-of date identity of the relative value",
+   "difference_or_note": "No header or metadata echo of a relative-value as-of date exists; the concept belongs to relative-value producers, which are not EF1 headers on main.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_definitions.py",
+    "docs/ef1/DELIVERY_LEDGER.md"
+   ],
+   "primary_owner_story": 570,
+   "owner_stories": [
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0267",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.extended.high"
+   ],
+   "producer_module": "_period.py",
+   "class_level_meaning": "premarket high",
+   "difference_or_note": "The header is the extremum of supplied completed interval highs inside the supplied premarket phase prefix. Caller-contract items: which print basis (interval bars or trade prints) and which admission rule the contract must state; phase bounds are supplied calendar segments in the header.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_period.py",
+    "docs/api/EF1_PERIOD_PHASE.md",
+    "docs/features/EF1_PERIOD_PHASE.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0268",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.extended.low"
+   ],
+   "producer_module": "_period.py",
+   "class_level_meaning": "premarket low",
+   "difference_or_note": "The header is the extremum of supplied completed interval lows inside the supplied premarket phase prefix. Caller-contract items: which print basis (interval bars or trade prints) and which admission rule the contract must state; phase bounds are supplied calendar segments in the header.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_period.py",
+    "docs/api/EF1_PERIOD_PHASE.md",
+    "docs/features/EF1_PERIOD_PHASE.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0271",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "session.regular.first_trade_price"
+   ],
+   "producer_module": "_regular_first_trade_price.py",
+   "class_level_meaning": "price of the first regular-session trade",
+   "difference_or_note": "Same meaning: first eligible regular-session trade price, currency per share. The delivery ledger attributes this producer to #506, which bears on the D8 owner question.",
+   "confidence": "medium-high",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_regular_first_trade_price.py",
+    "docs/api/EF1_REGULAR_FIRST_TRADE_PRICE.md",
+    "docs/ef1/REGULAR_FIRST_TRADE_PRICE_IMPLEMENTATION.md",
+    "docs/ef1/DELIVERY_LEDGER.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    505,
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": [
+    "D8"
+   ]
+  },
+  {
+   "opaque_id": "F0272",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "session.gap_endpoint.opening_gap_fraction"
+   ],
+   "producer_module": "_gap_endpoint.py",
+   "class_level_meaning": "opening gap of the regular open versus the prior close",
+   "difference_or_note": "The header is the fraction (O-P)/P with O the first selected regular sample (trade sampling) and P the supplied prior close. Caller-contract items: unit (fraction versus a percent presentation) and behaviour when the prior close is absent (header: null with reasons).",
+   "confidence": "medium-high",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_gap_endpoint.py",
+    "docs/ef1/GAP_ENDPOINT_IMPLEMENTATION.md",
+    "docs/ef1/GAP_ENDPOINT_QUALIFICATION.md"
+   ],
+   "primary_owner_story": 507,
+   "owner_stories": [
+    507,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": [
+    "D8"
+   ]
+  },
+  {
+   "opaque_id": "F0273",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.gap_endpoint.current_fill_fraction"
+   ],
+   "producer_module": "_gap_endpoint.py",
+   "class_level_meaning": "fraction of the opening gap filled by the latest price",
+   "difference_or_note": "Same clamped fill ratio on the final selected observation, as a fraction. Caller-contract items: unit (fraction versus a percent presentation), which prints count as the latest price (header: final selected observation inside the regular path scope), and zero-gap or absent-input behaviour (header: null with reasons).",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_gap_endpoint.py",
+    "docs/ef1/GAP_ENDPOINT_IMPLEMENTATION.md"
+   ],
+   "primary_owner_story": 507,
+   "owner_stories": [
+    507,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": [
+    "D8"
+   ]
+  },
+  {
+   "opaque_id": "F0275",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_high",
+    "session.daily_observations.high"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "prior-day high",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0276",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_low",
+    "session.daily_observations.low"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "prior-day low",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0283",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "prior-day level availability flag",
+   "difference_or_note": "Availability flags are not feature headers. Readiness of the paired numeric header is reported as per-output status and quality in the result, not as a value; whether such a flag is derived from that readiness or supplied is a contract item.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_definitions.py",
+    "docs/api/PUBLIC_API.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "availability-gate"
+   ]
+  },
+  {
+   "opaque_id": "F0284",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "regular-open availability flag",
+   "difference_or_note": "Availability flags are not feature headers. Readiness of the paired numeric header is reported as per-output status and quality in the result, not as a value; whether such a flag is derived from that readiness or supplied is a contract item.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_definitions.py",
+    "docs/api/PUBLIC_API.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    505,
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1",
+    "EQ164_WAVE3_SCANNERS_2"
+   ],
+   "contract_items_implicated": [
+    "availability-gate"
+   ]
+  },
+  {
+   "opaque_id": "F0309",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_high",
+    "session.daily_observations.high"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0310",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_low",
+    "session.daily_observations.low"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0311",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_high",
+    "session.daily_observations.high"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0312",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_low",
+    "session.daily_observations.low"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0313",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_high",
+    "session.daily_observations.high"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0314",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_low",
+    "session.daily_observations.low"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0315",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_high",
+    "session.daily_observations.high"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium-low",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0316",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_low",
+    "session.daily_observations.low"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium-low",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0317",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_high",
+    "session.daily_observations.high"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium-low",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0318",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_low",
+    "session.daily_observations.low"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium-low",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0319",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "session.daily_observations.high"
+   ],
+   "producer_module": "_daily.py",
+   "class_level_meaning": "year-to-date high",
+   "difference_or_note": "Selector pre_target with period civil_ytd: admitted observations of the target civil year strictly before the target session. calendar.period year with current_to_cutoff would also include the target bar prefix, so it is not the matching header. Inclusion of the target and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0320",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "session.daily_observations.low"
+   ],
+   "producer_module": "_daily.py",
+   "class_level_meaning": "year-to-date low",
+   "difference_or_note": "Selector pre_target with period civil_ytd: admitted observations of the target civil year strictly before the target session. calendar.period year with current_to_cutoff would also include the target bar prefix, so it is not the matching header. Inclusion of the target and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0321",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "session.daily_observations.high"
+   ],
+   "producer_module": "_daily.py",
+   "class_level_meaning": "prior-week high",
+   "difference_or_note": "Selector latest_observed_prior with period iso_week: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header. Treatment of an empty prior period is a caller-contract item.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0322",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "session.daily_observations.low"
+   ],
+   "producer_module": "_daily.py",
+   "class_level_meaning": "prior-week low",
+   "difference_or_note": "Selector latest_observed_prior with period iso_week: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header. Treatment of an empty prior period is a caller-contract item.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0323",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "session.daily_observations.high"
+   ],
+   "producer_module": "_daily.py",
+   "class_level_meaning": "prior-month high",
+   "difference_or_note": "Selector latest_observed_prior with period civil_month: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header. Treatment of an empty prior period is a caller-contract item.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0324",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "session.daily_observations.low"
+   ],
+   "producer_module": "_daily.py",
+   "class_level_meaning": "prior-month low",
+   "difference_or_note": "Selector latest_observed_prior with period civil_month: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header. Treatment of an empty prior period is a caller-contract item.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9"
+   ]
+  },
+  {
+   "opaque_id": "F0338",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "supplied recent completed daily-bar history carrier",
+   "difference_or_note": "Daily history is an input role of the period and daily-observation producers; no header outputs history. Length, adjustment and completed-only versus current-inclusive profile are not fixed by any merged header.",
+   "confidence": "high",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_period.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "docs/api/EF1_PERIOD_PHASE.md"
+   ],
+   "primary_owner_story": 570,
+   "owner_stories": [
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE2_X3",
+    "EQ164_WAVE3_SCANNERS_1"
+   ],
+   "contract_items_implicated": [
+    "D9H"
+   ]
+  },
+  {
+   "opaque_id": "F0432",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "count of history bars excluded by quality screening",
+   "difference_or_note": "session.daily_observations.selected_observed_count counts raw-admitted selected observations, not excluded ones, and no other EF1 header carries an exclusion count.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md"
+   ],
+   "primary_owner_story": 508,
+   "owner_stories": [
+    508,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_WATCHLISTS"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0434",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "close of the last completed session of the reference history",
+   "difference_or_note": "Daily observations expose open, high, low and a count but no close. session.close.calculated_price is the close of the target session, a different time position.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_regular_bar_prices.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md"
+   ],
+   "primary_owner_story": 508,
+   "owner_stories": [
+    508,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_WATCHLISTS"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0460",
+   "verdict": "NOT_DELIVERED",
+   "merged_public_headers": [],
+   "producer_module": null,
+   "class_level_meaning": "corporate-action suspicion flag from the reference history",
+   "difference_or_note": "reference.gate.action_state is declaration and history admission only and never infers a suspicion from prices; no header carries an inferred-split flag.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "packages/features/src/equity_features/ef1/_reference.py",
+    "docs/ef1/REFERENCE_IMPLEMENTATION.md"
+   ],
+   "primary_owner_story": 508,
+   "owner_stories": [
+    508,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_WATCHLISTS"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0463",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_high",
+    "session.daily_observations.high"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high of the last completed session of the reference history",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_WATCHLISTS"
+   ],
+   "contract_items_implicated": []
+  },
+  {
+   "opaque_id": "F0464",
+   "verdict": "MATCHED_BY_MERGED_HEADER",
+   "merged_public_headers": [
+    "history.prior_low",
+    "session.daily_observations.low"
+   ],
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low of the last completed session of the reference history",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
+   "confidence": "medium",
+   "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
+    "packages/features/src/equity_features/ef1/_daily.py",
+    "packages/features/src/equity_features/ef1/_daily_context.py",
+    "docs/ef1/DAILY_OBSERVATIONS.md",
+    "docs/ef1/DAILY_OBSERVATIONS_VALIDATION.md"
+   ],
+   "primary_owner_story": 506,
+   "owner_stories": [
+    506,
+    570,
+    571
+   ],
+   "referenced_in": [
+    "EQ164_WAVE3_WATCHLISTS"
+   ],
+   "contract_items_implicated": []
+  }
+ ]
+}
