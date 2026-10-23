@@ -1,0 +1,21 @@
+# EF3 relative statistics
+
+Use `DailyGrid`, `build_relative_stats_config`, `decode_relative_stats_config`, `compute_relative_stats` (or the closed `compute_ef3`), `ef3_definitions` and `require_ef3_capability` from `equity_features.ef3`. Config identity is `ef3.relative_stats`, algorithm `ef3-relative-stats-v1`, schema `1`, policy `ef3-rel1`.
+
+```python
+from equity_features.ef3 import RELATIVE_POLICY, build_relative_stats_config, compute_relative_stats
+
+config = build_relative_stats_config(grid, policy_version=RELATIVE_POLICY, benchmark_id="SPY", window=60,
+                                     min_pairs=45, availability=availability, adjustment=adjustment,
+                                     price_unit=price_unit, evidence_limit=8)
+result = compute_relative_stats((instrument_bars, benchmark_bars), grid, config,
+                                features=("relative.beta", "relative.correlation", "relative.residual_return"))
+```
+
+`grid` is the `DailyGrid` (instrument id, calendar, grid and revision identities, one `SessionSpec` per governed session in order, and the target slot index). The config carries its schema and SHA-256 (`grid_schema`, `grid_sha256`), so the grid is supplied again at decode and compute time. Parameters are exactly `policy_version` (`ef3-rel1`; another label is `INCOMPATIBLE_VERSION`), `benchmark_id` (exactly one, not the instrument), `window` W (2..4096), `min_pairs` (2..W) and `evidence_limit` (0..10000); there is no default and a missing, extra, bool, float or text value is `INVALID_CONFIG`. A `PriceUnit` is mandatory and both roles must declare it and the config adjustment.
+
+`batches` is the fixed pair of nullable close-only BAR batches `(instrument, benchmark)` on the governed daily grid (`close` and `known_at_ns` are read; one row per session in grid order, per-slot coverage `slot:<index>` with the exact session bounds, scope inside the grid). A third role is `INVALID_CONFIG`. Returns are exact simple session returns `C_j / C_{j-1} - 1`, formed only between adjacent READY slots of the same series and aligned by identical session; a pair is valid when both series have the return. The population is the W return slots ending at the target, joint complete-case; correlation and beta are available when the window lies inside the grid and the valid pairs `n >= min_pairs`, the residual additionally needs the target pair. Selection is per feature with independent readiness; outputs come in lexical order (`relative.beta`, `relative.correlation`, `relative.residual_return`), each float64 with unit `fraction`, column algorithm `ef3-relative-stats-v1`, backend `python-exact`, input bindings `benchmark` and `instrument`.
+
+Mathematics is exact: centered sums, beta `Sxy / Sxx` (benchmark variance), correlation `sign(Sxy) sqrt(Sxy^2 / (Sxx Syy))` (exactly the perfect-square rational when it is one, otherwise a Decimal120 square root), residual `r_i,t - beta r_b,t` with the same-window beta and no intercept, one binary64 rounding. Zero benchmark variance gives `not_applicable/zero_denominator` for all three; zero instrument variance gives correlation `zero_denominator` and beta exactly `+0.0`. Expected is W and observed the valid pairs `n` when unavailable; an available output publishes `expected = observed = n`, keeps the lost-pair causes as reasons and adds excluded evidence rows. Witnesses (available outputs only) are the first and last used close of the instrument then of the benchmark (`slot:<index>`, boundary `completed_interval`), bounded by the result-wide `evidence_limit`.
+
+Typed refusals (no `FeatureResult`): `INVALID_CONFIG`, `INCOMPATIBLE_VERSION`, `INCONSISTENT_IDENTITY` (benchmark id, self-pair, two instruments in a role, namespace), `INVALID_UNIT`, `UNSUPPORTED_ADJUSTMENT`, `INVALID_ORDER` (rows not in grid order), `DUPLICATE`, `INVALID_SCHEMA` (zero or negative close), `UNKNOWN_FEATURE` and `UNSUPPORTED_CAPABILITY` (update, restore, merge). The existing `history.return_volatility`, `relative.market_return` and `relative.sector_return` are unchanged and distinct. See [implementation and open points](../ef3/RELATIVE_RV_IMPLEMENTATION.md) and the [frozen contract](../ef3/RELATIVE_RV_CONTRACT_PROPOSAL.md).

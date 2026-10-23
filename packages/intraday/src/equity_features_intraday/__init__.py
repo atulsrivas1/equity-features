@@ -25,6 +25,14 @@ from ._channels import compute_channels
 from ._channels_registry import (CHANNELS_PRODUCER_FEATURES, channels_catalog_digest, describe_channels,
                                  require_channels_capability)
 
+# EF3 realized variance (ef3-rv1): own config identity, discovery and dispatch; the R17 catalog is unchanged.
+from ._rv_config import (REALIZED_VARIANCE_ALGORITHM, REALIZED_VARIANCE_IDENTITY, REALIZED_VARIANCE_POLICY,
+                         REALIZED_VARIANCE_SAMPLING, RealizedVarianceSettings, build_realized_variance_config,
+                         decode_realized_variance_config)
+from ._rv import compute_realized_variance
+from ._rv_registry import (describe_realized_variance, realized_variance_catalog_digest,
+                           require_realized_variance_capability)
+
 __version__ = "0.1.0a3"
 __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "IntradayPreparation", "OperandEvidence", "PreparedOperand", "prepare_intraday",
@@ -39,4 +47,8 @@ __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "CHANNELS_ALGORITHM", "CHANNELS_CONTRACT_VERSION", "CHANNELS_CONVENTIONS", "CHANNELS_IDENTITIES",
            "CHANNELS_PRODUCER_FEATURES", "ChannelsSettings", "build_channels_config",
            "decode_channels_config", "compute_channels", "describe_channels", "channels_catalog_digest",
-           "require_channels_capability"]
+           "require_channels_capability",
+           "REALIZED_VARIANCE_ALGORITHM", "REALIZED_VARIANCE_IDENTITY", "REALIZED_VARIANCE_POLICY",
+           "REALIZED_VARIANCE_SAMPLING", "RealizedVarianceSettings", "build_realized_variance_config",
+           "decode_realized_variance_config", "compute_realized_variance", "describe_realized_variance",
+           "realized_variance_catalog_digest", "require_realized_variance_capability"]

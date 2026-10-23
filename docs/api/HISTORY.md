@@ -220,3 +220,7 @@ inputs; no retained recursive fractions, history update/restore/merge, constant
 total memory or throughput claim. Existing schemas/state compatibility remain.
 [Pre-code plan](../stories/EQ-030_PLAN.md), [delivery gates](../stories/EQ-030_DELIVERY.md),
 [installed synthetic example](../../examples/history_volatility.py).
+
+## Daily log-return volatility (separate EF3 producer)
+
+`history.log_return_volatility` (centered natural-log returns, sample denominator, caller annualization factor) is the own output of the separate `ef3.daily_log_volatility` producer in `equity_features.ef3`; it is a distinct id and API from `history.return_volatility` (simple returns), whose definition, state and results are unchanged. See [the EF3 daily log volatility API](EF3_DAILY_LOG_VOLATILITY.md).
