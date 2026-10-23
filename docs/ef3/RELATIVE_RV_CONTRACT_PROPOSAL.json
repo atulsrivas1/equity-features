@@ -1,0 +1,6503 @@
+{
+ "proposal_version": "ef3-relative-rv-proposal1",
+ "status": "coordinator decisions recorded, pending owner review; frozen on merge; not an implementation or acceptance claim",
+ "story": "EQ-153 #487 (correlation, beta, residual returns) and EQ-154 #488 (daily centered log-return volatility and intraday regular-session realized variance), EF3; consumed by EF3 I/O #611 (EQ-223), worker #612 (EQ-224) and acceptance EQ-157 #491",
+ "evidence_kind": "documentation and hand-derived expected values from a scratch script using only exact Fraction arithmetic and the standard-library Decimal at 120 digits (needed only for ln and sqrt); the script imports nothing from the equity packages; the library was not imported, run or tested",
+ "frozen_contract_ref": "docs/ef1/CONTRACT.json ef1-contract1, the EF2 producer-set amendment and the accepted R17 intraday foundations are read-only and unchanged; this packet is additive",
+ "producers": {
+  "relative_stats": {
+   "config_identity": "ef3.relative_stats",
+   "algorithm_version": "ef3-relative-stats-v1",
+   "schema_version": "1",
+   "policy_version": "ef3-rel1",
+   "parameters": {
+    "policy_version": "ef3-rel1",
+    "benchmark_id": "string, exactly one, no default",
+    "window": "integer 2..4096 (W return slots), no default",
+    "min_pairs": "integer 2..window, no default",
+    "evidence_limit": "integer 0..10000"
+   },
+   "policy": {
+    "return_basis": "simple_session_return",
+    "covariance": "centered_ols_with_intercept",
+    "denominator": "sample_n_minus_1_declared_cancels_in_all_outputs",
+    "population": "last_window_governed_return_slots_ending_at_target_inclusive",
+    "pairing": "complete_case_joint_valid_pairs_identical_governed_session_ids",
+    "zero_variance": "exact_rational_zero_test_no_epsilon",
+    "residual": "r_instrument_target_minus_beta_times_r_benchmark_target_no_intercept_beta_from_same_window",
+    "gap_spanning_returns": "never_formed"
+   }
+  },
+  "daily_log_volatility": {
+   "config_identity": "ef3.daily_log_volatility",
+   "algorithm_version": "ef3-daily-log-vol-v1",
+   "schema_version": "1",
+   "policy_version": "ef3-dlv1",
+   "parameters": {
+    "policy_version": "ef3-dlv1",
+    "period": "integer 2..4096 (N log returns from N+1 closes), no default",
+    "annualization_factor": "integer 1..2^63-1, no default (1 means unannualized)",
+    "evidence_limit": "integer 0..10000"
+   },
+   "policy": {
+    "return_basis": "natural_log_of_close_ratio",
+    "centering": "centered",
+    "denominator": "sample_n_minus_1",
+    "annualization": "sqrt(A * variance)",
+    "missing": "strict_no_shrinking"
+   }
+  },
+  "intraday_realized_variance": {
+   "config_identity": "ef3.intraday_realized_variance",
+   "algorithm_version": "ef3-realized-variance-v1",
+   "schema_version": "1",
+   "policy_version": "ef3-rv1",
+   "parameters": {
+    "policy_version": "ef3-rv1",
+    "sampling": "closed convention parameter, single legal value every_governed_slot (any other: UNSUPPORTED_SAMPLING)",
+    "annualization_factor": "integer 1..2^63-1, present exactly when intraday.realized_volatility is selected",
+    "evidence_limit": "integer 0..10000",
+    "context": "R17 context (reset epoch only, anchor, target, grid)"
+   },
+   "policy": {
+    "return_basis": "natural_log_of_consecutive_governed_close_ratio",
+    "centering": "uncentered_sum_of_squares",
+    "epoch": "reset_only_target_session",
+    "first_bar": "supplies_base_close_contributes_no_return",
+    "overnight": "excluded_no_return_crosses_a_session_boundary",
+    "missing": "strict_no_bridging_no_forward_fill_no_rescaling",
+    "minimum": "one_return",
+    "annualization": "volatility only: sqrt(A * RV); variance unannualized"
+   }
+  }
+ },
+ "headers": [
+  {
+   "id": "history.log_return_volatility",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "daily_log_volatility",
+   "minimum_period": "period + 1 closes",
+   "operand_family": "windowed_log_returns"
+  },
+  {
+   "id": "intraday.realized_variance",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none (dimensionless squared log return; unit string OPEN OQ2)",
+   "producer": "intraday_realized_variance",
+   "minimum_period": 2,
+   "operand_family": "anchored_log_returns"
+  },
+  {
+   "id": "intraday.realized_volatility",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "intraday_realized_variance",
+   "minimum_period": 2,
+   "operand_family": "anchored_log_returns"
+  },
+  {
+   "id": "relative.beta",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none (dimensionless regression coefficient; unit string OPEN OQ2)",
+   "producer": "relative_stats",
+   "minimum_period": "window + 1 closes per series",
+   "operand_family": "paired_simple_returns"
+  },
+  {
+   "id": "relative.correlation",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none; range -1..1",
+   "producer": "relative_stats",
+   "minimum_period": "window + 1 closes per series",
+   "operand_family": "paired_simple_returns"
+  },
+  {
+   "id": "relative.residual_return",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "relative_stats",
+   "minimum_period": "window + 1 closes per series",
+   "operand_family": "paired_simple_returns"
+  }
+ ],
+ "header_order": "lexicographic by feature id within a producer; relative_stats selections follow per-feature selection with independent readiness (RS11 shows correlation and beta available while the residual is not)",
+ "roles": {
+  "relative_stats": [
+   {
+    "role": "instrument",
+    "kind": "bar",
+    "nullable": true,
+    "contract": "BAR close-only on the daily governed grid (required_fields close) on the governed daily grid of the target; exactly one instrument_id; one row per session; positive scaled integer closes"
+   },
+   {
+    "role": "benchmark",
+    "kind": "bar",
+    "nullable": true,
+    "contract": "same shape; instrument_id equals config benchmark_id; same namespace, grid, price unit and adjustment declaration as the instrument role"
+   }
+  ],
+  "daily_log_volatility": [
+   {
+    "role": "daily",
+    "kind": "bar",
+    "nullable": true,
+    "contract": "BAR close-only on the daily governed grid on the governed daily grid; one instrument_id; one row per session"
+   }
+  ],
+  "intraday_realized_variance": [
+   {
+    "role": "bars",
+    "kind": "bar",
+    "nullable": true,
+    "contract": "R17 chunked BAR delivery on the governed grid; close only is required; reset epoch of the target session; proven-empty slots are volume 0 with null OHLC"
+   }
+  ]
+ },
+ "grid_context": "daily closes are BAR rows on a daily governed grid with R17 grid and slot-coverage conventions: one slot per governed session, [start_ns,end_ns) session bounds, session_id, grid/calendar identity, target slot and per-slot coverage from the R17 context; one bar per session per role; no DAILY-kind input",
+ "mathematics": {
+  "notation": "closes C are positive integer coefficients at one scale; governed slots are indexed 0..t, t the target; K the cutoff; a slot is READY iff its row exists, its close is non-null and positive, its coverage is complete and known_at is non-null and <= K",
+  "simple_return": "r_j = C_j / C_{j-1} - 1 exact rational, defined iff slots j-1 and j are both READY (never across a gap)",
+  "pair": "pair j valid iff r_j(instrument) and r_j(benchmark) are both defined, same governed session id j",
+  "window": "return slots j = t-W+1..t; the window must lie wholly inside the grid (t-W >= 0) else insufficient_history; n = number of valid pairs; available iff n >= min_pairs",
+  "means": "xbar = (1/n) sum x_j, ybar = (1/n) sum y_j over the SAME n valid pairs (x instrument, y benchmark)",
+  "sums": "Sxx = sum (y_j - ybar)^2 (benchmark), Syy = sum (x_j - xbar)^2 (instrument), Sxy = sum (x_j - xbar)(y_j - ybar); exact rationals",
+  "beta": "beta = Sxy / Sxx; Sxx == 0 -> zero_denominator",
+  "correlation": "rho = Sxy / sqrt(Sxx * Syy) = sign(Sxy) * sqrt(Sxy^2 / (Sxx * Syy)); Sxx == 0 or Syy == 0 -> zero_denominator; exact value lies in [-1, 1]",
+  "residual": "e_t = x_t - beta * y_t with beta above (window includes the target); requires the target pair valid and Sxx > 0",
+  "denominator_cancellation": "cov and var use n-1 (declared); n-1 versus n cancels exactly in beta = cov/var and rho, so no published output depends on the choice",
+  "daily_log_vol": "l_i = ln(C_i / C_{i-1}), i = t-N+1..t from N+1 READY closes; lbar = (1/N) sum l_i; s2 = sum (l_i - lbar)^2 / (N-1); vol = sqrt(A * s2)",
+  "realized_variance": "RV(t) = sum_{i=a+1..t} (ln(C_i / C_{i-1}))^2, bars a..t of the reset epoch, all READY; no mean subtraction; first bar contributes no return",
+  "realized_volatility": "sqrt(A * RV(t))",
+  "rounding": "ratios and sums are exact rationals; publication is one float64 rounding of the exact (or Decimal120 reference) value; sqrt and ln are irrational so those fixtures use the R17 tolerance",
+  "accuracy_requirement": "each ln(C_i/C_{i-1}) must be evaluated from the exact ratio with relative error far below 1e-12 even when the ratio is within 1e-15 of 1 (log1p-grade, fixtures DV14, RV16); variance must be centered in a two-pass or exact manner, never E[x^2]-E[x]^2 in float; ln and sqrt reference: Decimal120 correctly rounded, acceptance R17 tolerance (O11)"
+ },
+ "numeric_policy": {
+  "reference": "exact fractions.Fraction where the value is rational (all relative_stats outputs except correlation of non-square ratios), otherwise Decimal at 120 digits (ln, sqrt); no recurrence exists in these families (windowed sums), so no Decimal120 recurrence fixture is needed",
+  "float_hex": "every float64 expectation carries float.hex",
+  "acceptance_rules": {
+   "bits": "bit-identical float64; used ONLY where exactness is argued per fixture: the exact value is representable or zero; +0.0 is REQUIRED for zero (never -0.0); there is no absolute floor in this contract (R17 INTRADAY.md)",
+   "r17_tol": "|x - ref| <= max(8 ulp(ref), 1e-12 * |ref|), the R17 tolerance; abs_tolerance is listed per fixture"
+  },
+  "exact_zero_arguments": "log returns are exactly 0 iff the close ratio is exactly 1 (decided on integers); rational relative_stats zeros are exact by Fraction arithmetic; equal exact ratios give identical logs so the centered sum is exactly 0 (DV07) and implementations must return +0.0",
+  "correlation_pm1": "reference-implementation statement: correlation exactly +1 or -1 is bit-required only through the exact-rational perfect-square path; all other correlations are irrational and use r17_tol"
+ },
+ "quality": {
+  "precedence": [
+   "absent_input",
+   "unknown_availability",
+   "future_knowledge",
+   "null_field",
+   "ineligible",
+   "governed_gap",
+   "insufficient_history",
+   "no_eligible_observations",
+   "zero_denominator"
+  ],
+  "status_of_reason": {
+   "absent_input": "missing_input",
+   "unknown_availability": "missing_input",
+   "future_knowledge": "missing_input",
+   "null_field": "missing_input",
+   "ineligible": "missing_input",
+   "governed_gap": "incomplete_coverage",
+   "insufficient_history": "insufficient_history",
+   "no_eligible_observations": "not_applicable",
+   "zero_denominator": "not_applicable"
+  },
+  "rule": "all applicable reasons retained in lexical order; status follows the first applicable reason in precedence; value null iff status is not available",
+  "slot_causes": {
+   "no row and no coverage": "absent_input",
+   "known_at null": "unknown_availability",
+   "known_at > K": "future_knowledge",
+   "row with null close": "null_field",
+   "declared incomplete coverage": "governed_gap",
+   "coverage-proven empty slot (intraday only)": "no_eligible_observations"
+  },
+  "counts": {
+   "relative_stats": "expected = window, observed = n valid pairs (same for the three outputs)",
+   "daily_log_volatility": "expected = period + 1, observed = READY closes inside the window slots",
+   "intraday_realized_variance": "expected = max(2, t - a + 1), observed = READY bars among a..t"
+  },
+  "independent_readiness": "relative_stats: correlation and beta need only n >= min_pairs valid pairs; the residual additionally needs the target pair; a lost target pair with n >= min_pairs leaves correlation and beta available",
+  "evidence": {
+   "limit": "config evidence_limit 0..10000 (R17 bound), witnesses never exceed it, unavailable outputs emit none",
+   "relative_stats_order": "instrument first used close, instrument last used close, benchmark first used close, benchmark last used close (canonical row id bar:<start_ns>:<end_ns>, role carried by the evidence role)",
+   "daily_log_volatility_order": "slot t-N then slot t",
+   "intraday_order": "anchor slot a then target slot t",
+   "boundary": "completed_interval"
+  },
+  "lost_slot_reasons": "for n < min_pairs, and for daily or intraday windows with holes, reasons are the causes of the lost pairs or slots only; insufficient_history is added ONLY when the window is not wholly inside the grid (RS01, DV01, RV01)"
+ },
+ "mode_rule": "batch and full replay only; known_at and reconstruction availability modes give identical results; update, restore and merge are unsupported (UNSUPPORTED_CAPABILITY); output at target t is independent of every slot after t (prefix property, PX01 to PX03)",
+ "fixture_notation": "compact, NOT canonical wire. scale 2 coefficients; K=100; known_at 50 unless stated. Slot states: priced (c, known_at), absent (no row, no coverage), gap (declared incomplete coverage), unknown (known_at null), future (known_at 150 > K), null (row with null close; for BAR volume null and OHLC null), empty (BAR only: volume 0, OHLC null, coverage complete expected 0). relative_stats fixtures: W=window, minp=min_pairs, t target, inst and bench slot lists indexed from 0. daily: N=period, A=annualization_factor. intraday: slot 0 is the session anchor a, A may be null when only the variance is selected, prior_close is the last close of the previous session (informational), grid_slots_declared is the number of governed slots of the session. alternatives_not_published lists counterexample values of rejected conventions; they are NOT contract outputs.",
+ "construction_rules": {
+  "bar": "BAR rows with volume > 0 need positive coherent non-null OHLC (INVALID_SCHEMA otherwise). A null-price slot is a row with volume null and OHLC null. A proven-empty slot is volume 0 with OHLC null on a slot whose coverage is complete with expected 0; volume 0 with non-null OHLC is INVALID_SCHEMA. Negative volume BOUNDS. Absent slot: no row and no coverage. Gap: coverage declared incomplete.",
+  "reset_epoch_only": "the epoch is the target session from its first governed bar; prior-session bars may be present in the role but never enter the epoch",
+  "bar_daily_close_only": "close-only BAR batch on the daily governed grid (required_fields close); columns instrument_id, session_id, start_ns, end_ns, close, known_at_ns. A null-close slot is a row with close null (no volume column). Positive closes only: 0 or negative is INVALID_SCHEMA. Identity (instrument, session, start, end) unique: DUPLICATE; start before previous end: INVALID_ORDER."
+ },
+ "fixtures": {
+  "relative_stats": [
+   {
+    "id": "RS01",
+    "group": "insufficient",
+    "description": "window needs W+1=4 closes, grid has 3 slots up to the target: insufficient_history although both pairs are valid",
+    "scale": 2,
+    "W": 3,
+    "minp": 2,
+    "t": 2,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 121,
+      "known_at": 50,
+      "i": 2
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 210,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 231,
+      "known_at": 50,
+      "i": 2
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "insufficient_history"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "insufficient_history",
+      "reasons": [
+       "insufficient_history"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "insufficient_history",
+      "reasons": [
+       "insufficient_history"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     },
+     "relative.residual_return": {
+      "status": "insufficient_history",
+      "reasons": [
+       "insufficient_history"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RS02",
+    "group": "exact",
+    "description": "exact small sample; t-W = 0 is the first slot of the grid (history boundary equality)",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 210,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 205,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "exact_small_sample",
+     "boundary"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:-6.050198314177336994246907965063539367167522518940754745618188e-1",
+       "float64": -0.6050198314177337,
+       "hex": "-0x1.35c528cabdbf4p-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 6.050198314177338e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "-5101530/2120591",
+       "float64": -2.405711426673036,
+       "hex": "-0x1.33ee5a1e964bfp+1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 2.405711426673036e-12
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "71316/2120591",
+       "float64": 0.033630247416875765,
+       "hex": "0x1.137fbd99fad69p-5",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 3.3630247416875764e-14
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     }
+    },
+    "alternatives_not_published": {
+     "convention_invariance": {
+      "cov_sample": "-2858/1472625",
+      "cov_population": "-5716/4417875",
+      "var_bench_sample": "192781/238966875",
+      "var_bench_population": "385562/716900625",
+      "beta_sample": "-5101530/2120591",
+      "beta_population": "-5101530/2120591",
+      "note": "the n-1 versus n choice cancels in beta and correlation; no published output depends on it"
+     },
+     "uncentered_beta_not_published": "-10884930/6420689",
+     "uncentered_beta_float64": -1.695290022612838,
+     "centered_beta_float64": -2.405711426673036,
+     "residual_with_intercept_not_published": "-182406/10602955",
+     "alpha_in_window": "538986/10602955"
+    }
+   },
+   {
+    "id": "RS03",
+    "group": "exact",
+    "description": "perfect positive linear relation r_i = 2 r_b + 1/100: correlation +1, beta 2",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 1000000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1210000,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 980100,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1381941,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 990,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1188,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "perfect_correlation"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "1",
+       "float64": 1.0,
+       "hex": "0x1.0000000000000p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero",
+       "note": "correlation is an exact rational here"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "2",
+       "float64": 2.0,
+       "hex": "0x1.0000000000000p+1",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "1/100",
+       "float64": 0.01,
+       "hex": "0x1.47ae147ae147bp-7",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 1e-14
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS04",
+    "group": "exact",
+    "description": "perfect negative relation r_i = -r_b: correlation -1, beta -1, residual exactly 0 (+0.0)",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 1000000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 900000,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 990000,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 792000,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 990,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1188,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "perfect_correlation",
+     "exact_zero"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "-1",
+       "float64": -1.0,
+       "hex": "-0x1.0000000000000p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero",
+       "note": "correlation is an exact rational here"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "-1",
+       "float64": -1.0,
+       "hex": "-0x1.0000000000000p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "0",
+       "float64": 0.0,
+       "hex": "0x0.0p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS05",
+    "group": "exact",
+    "description": "orthogonal returns: Sxy = 0 exactly, correlation +0.0, beta +0.0, residual equals the instrument target return",
+    "scale": 2,
+    "W": 4,
+    "minp": 4,
+    "t": 4,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 160000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 168000,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 176400,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 167580,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 159201,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 11000,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 9900,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10890,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 9801,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "zero_correlation",
+     "exact_zero"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "0",
+       "float64": 0.0,
+       "hex": "0x0.0p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero",
+       "note": "correlation is an exact rational here"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:4",
+       "benchmark:slot:0",
+       "benchmark:slot:4"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "0",
+       "float64": 0.0,
+       "hex": "0x0.0p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:4",
+       "benchmark:slot:0",
+       "benchmark:slot:4"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "-1/20",
+       "float64": -0.05,
+       "hex": "-0x1.999999999999ap-5",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 5e-14
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:4",
+       "benchmark:slot:0",
+       "benchmark:slot:4"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS06",
+    "group": "degenerate",
+    "description": "constant benchmark (zero benchmark variance): correlation, beta and residual are zero_denominator",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "zero_benchmark_variance",
+     "constant"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 3,
+      "observed": 3,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 3,
+      "observed": 3,
+      "value": null
+     },
+     "relative.residual_return": {
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 3,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RS07",
+    "group": "degenerate",
+    "description": "constant instrument with a varying benchmark: correlation zero_denominator; beta is exactly 0 and the residual is exactly 0 (both +0.0)",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 210,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 205,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "constant",
+     "zero_instrument_variance",
+     "exact_zero"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 3,
+      "observed": 3,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "0",
+       "float64": 0.0,
+       "hex": "0x0.0p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "0",
+       "float64": 0.0,
+       "hex": "0x0.0p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS08",
+    "group": "degenerate",
+    "description": "both series constant: all three outputs zero_denominator",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "constant",
+     "zero_benchmark_variance"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 3,
+      "observed": 3,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 3,
+      "observed": 3,
+      "value": null
+     },
+     "relative.residual_return": {
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 3,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RS09",
+    "group": "missing",
+    "description": "instrument slot 2 absent loses pairs 2 and 3; n = 3 = min_pairs (coverage boundary equality): available, computed on the joint valid pairs only",
+    "scale": 2,
+    "W": 5,
+    "minp": 3,
+    "t": 5,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 102,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "absent",
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 105,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 103,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 203,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 201,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 206,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 209,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "missing_pairs",
+     "misaligned",
+     "min_coverage_boundary"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 5,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:9.869790239483613601511736029374759165249755304946186355995883e-1",
+       "float64": 0.9869790239483613,
+       "hex": "0x1.f955508b64760p-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.869790239483614e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:5",
+       "benchmark:slot:0",
+       "benchmark:slot:5"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 5,
+      "observed": 3,
+      "value": {
+       "exact": "13710893516/7231322917",
+       "float64": 1.8960422143183902,
+       "hex": "0x1.e56305c655398p+0",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 1.8960422143183903e-12
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:5",
+       "benchmark:slot:0",
+       "benchmark:slot:5"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 5,
+      "observed": 3,
+      "value": {
+       "exact": "4629988450/2234478781353",
+       "float64": 0.0020720664204278076,
+       "hex": "0x1.0f97030591b2fp-9",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 2.0720664204278076e-15
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:5",
+       "benchmark:slot:0",
+       "benchmark:slot:5"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS10",
+    "group": "missing",
+    "description": "same inputs as RS09 with min_pairs 4: n = 3 < 4 so every output is missing_input/absent_input (coverage boundary minus one)",
+    "scale": 2,
+    "W": 5,
+    "minp": 4,
+    "t": 5,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 102,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "absent",
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 105,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 103,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 203,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 201,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 206,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 209,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "missing_pairs",
+     "min_coverage_boundary"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 5,
+      "observed": 3,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 5,
+      "observed": 3,
+      "value": null
+     },
+     "relative.residual_return": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 5,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RS11",
+    "group": "missing",
+    "description": "misaligned losses: instrument absent at slot 2, benchmark null at slot 6; valid pairs 1,4,5 (n=3=min_pairs). Target pair 7 is lost: correlation and beta available, residual null_field (independent readiness)",
+    "scale": 2,
+    "W": 7,
+    "minp": 3,
+    "t": 7,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 101,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "absent",
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 104,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 103,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 107,
+      "known_at": 50,
+      "i": 5
+     },
+     {
+      "state": "priced",
+      "c": 106,
+      "known_at": 50,
+      "i": 6
+     },
+     {
+      "state": "priced",
+      "c": 109,
+      "known_at": 50,
+      "i": 7
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 202,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 201,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 205,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 207,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 208,
+      "known_at": 50,
+      "i": 5
+     },
+     {
+      "state": "null",
+      "known_at": 50,
+      "i": 6
+     },
+     {
+      "state": "priced",
+      "c": 210,
+      "known_at": 50,
+      "i": 7
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "misaligned",
+     "independent_readiness",
+     "null_field"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 7,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:-8.978209210554196348590652697937212126154022646994613239052979e-1",
+       "float64": -0.8978209210554197,
+       "hex": "-0x1.cbaf2f0b31fbfp-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 8.978209210554196e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:5",
+       "benchmark:slot:0",
+       "benchmark:slot:5"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 7,
+      "observed": 3,
+      "value": {
+       "exact": "-738577296441/98446006204",
+       "float64": -7.502359160314931,
+       "hex": "-0x1.e026a70919838p+2",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 7.50235916031493e-12
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:5",
+       "benchmark:slot:0",
+       "benchmark:slot:5"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 7,
+      "observed": 3,
+      "value": null
+     }
+    },
+    "alternatives_not_published": {
+     "joint_mean_inst": "3501/267800",
+     "own_series_mean_inst_if_misjoined_not_published": "88351013/7593469000",
+     "note": "means are taken over the joint valid pairs only; an own-series mean over all valid instrument returns would differ"
+    }
+   },
+   {
+    "id": "RS12",
+    "group": "availability",
+    "description": "declared incomplete coverage (benchmark slot 2) with min_pairs = W: governed_gap / incomplete_coverage",
+    "scale": 2,
+    "W": 4,
+    "minp": 4,
+    "t": 4,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 101,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 103,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 102,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 105,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 202,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "gap",
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 206,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "governed_gap"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     },
+     "relative.residual_return": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RS13",
+    "group": "availability",
+    "description": "benchmark close null at slot 3 with min_pairs = W: null_field",
+    "scale": 2,
+    "W": 4,
+    "minp": 4,
+    "t": 4,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 101,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 103,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 102,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 105,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 202,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 201,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "null",
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 206,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "null_field"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     },
+     "relative.residual_return": {
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RS14",
+    "group": "availability",
+    "description": "instrument slot 2 knowledge null (unknown) with min_pairs = W: unknown_availability",
+    "scale": 2,
+    "W": 4,
+    "minp": 4,
+    "t": 4,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 101,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "unknown",
+      "known_at": null,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 102,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 105,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 202,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 201,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 206,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "unknown_availability"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     },
+     "relative.residual_return": {
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 4,
+      "observed": 2,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RS15",
+    "group": "availability",
+    "description": "benchmark target close known after the cutoff (150 > K=100) while the instrument is known: calendar/cutoff misalignment makes the target pair future_knowledge",
+    "scale": 2,
+    "W": 4,
+    "minp": 4,
+    "t": 4,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 101,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 103,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 102,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 105,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 202,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 201,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "future",
+      "known_at": 150,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "future_knowledge",
+     "cutoff_alignment"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     },
+     "relative.residual_return": {
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RS16",
+    "group": "precedence",
+    "description": "absent instrument, future benchmark and a gap together; all reasons retained lexically, status follows absent_input",
+    "scale": 2,
+    "W": 6,
+    "minp": 6,
+    "t": 6,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "absent",
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 103,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 102,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 105,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "gap",
+      "i": 5
+     },
+     {
+      "state": "priced",
+      "c": 107,
+      "known_at": 50,
+      "i": 6
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 202,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 201,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "future",
+      "known_at": 150,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 206,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 205,
+      "known_at": 50,
+      "i": 5
+     },
+     {
+      "state": "priced",
+      "c": 207,
+      "known_at": 50,
+      "i": 6
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "precedence"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "future_knowledge",
+       "governed_gap"
+      ],
+      "expected": 6,
+      "observed": 0,
+      "value": null
+     },
+     "relative.beta": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "future_knowledge",
+       "governed_gap"
+      ],
+      "expected": 6,
+      "observed": 0,
+      "value": null
+     },
+     "relative.residual_return": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "future_knowledge",
+       "governed_gap"
+      ],
+      "expected": 6,
+      "observed": 0,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RS17",
+    "group": "float",
+    "description": "near-constant benchmark with huge coefficients (1e15, +-1 tick): tiny positive exact variance so outputs are AVAILABLE (exact zero test, no epsilon)",
+    "scale": 2,
+    "W": 4,
+    "minp": 4,
+    "t": 4,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 103,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 101,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 104,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 102,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 1000000000000000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000001,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000000,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000001,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000000,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "near_constant",
+     "exact_zero_test"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:9.999872754987427517656319270970821411969809188400766205187035e-1",
+       "float64": 0.9999872754987428,
+       "hex": "0x1.fffe55095dd1fp-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.999872754987428e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:4",
+       "benchmark:slot:0",
+       "benchmark:slot:4"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "170524615384615555140000000000000/6935333333333336801",
+       "float64": 24587803813988.582,
+       "hex": "0x1.65ccb4fe86495p+44",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 24.587803813988582
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:4",
+       "benchmark:slot:0",
+       "benchmark:slot:4"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "1931946666666663199/360637333333333513652",
+       "float64": 0.005357034583219325,
+       "hex": "0x1.5f142056a5d6ap-8",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 5.357034583219325e-15
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:4",
+       "benchmark:slot:0",
+       "benchmark:slot:4"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS18",
+    "group": "convention",
+    "description": "centered (OLS with intercept) beta versus uncentered counterexample on positive-mean returns",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 108000,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 111240,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 127926,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 1155,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1386,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "centered_vs_uncentered"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:9.955668446019952021782154032260532073339967956570014720296790e-1",
+       "float64": 0.9955668446019952,
+       "hex": "0x1.fdbaeffd184fcp-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.955668446019952e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "11/14",
+       "float64": 0.7857142857142857,
+       "hex": "0x1.9249249249249p-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 7.857142857142857e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "-1/140",
+       "float64": -0.007142857142857143,
+       "hex": "-0x1.d41d41d41d41dp-8",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 7.142857142857142e-15
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     }
+    },
+    "alternatives_not_published": {
+     "convention_invariance": {
+      "cov_sample": "11/2400",
+      "cov_population": "11/3600",
+      "var_bench_sample": "7/1200",
+      "var_bench_population": "7/1800",
+      "beta_sample": "11/14",
+      "beta_population": "11/14",
+      "note": "the n-1 versus n choice cancels in beta and correlation; no published output depends on it"
+     },
+     "uncentered_beta_not_published": "79/105",
+     "uncentered_beta_float64": 0.7523809523809524,
+     "centered_beta_float64": 0.7857142857142857,
+     "residual_with_intercept_not_published": "-3/1400",
+     "alpha_in_window": "-1/200"
+    }
+   },
+   {
+    "id": "RS19",
+    "group": "window",
+    "description": "window membership: slots before the window (absent, gap, unknown, null) cannot affect the result; values equal RS02",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 5,
+    "K": 100,
+    "inst": [
+     {
+      "state": "absent",
+      "i": 0
+     },
+     {
+      "state": "gap",
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "bench": [
+     {
+      "state": "unknown",
+      "known_at": null,
+      "i": 0
+     },
+     {
+      "state": "null",
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 210,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 205,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "window_membership"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:-6.050198314177336994246907965063539367167522518940754745618188e-1",
+       "float64": -0.6050198314177337,
+       "hex": "-0x1.35c528cabdbf4p-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 6.050198314177338e-13
+      },
+      "witnesses": [
+       "instrument:slot:2",
+       "instrument:slot:5",
+       "benchmark:slot:2",
+       "benchmark:slot:5"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "-5101530/2120591",
+       "float64": -2.405711426673036,
+       "hex": "-0x1.33ee5a1e964bfp+1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 2.405711426673036e-12
+      },
+      "witnesses": [
+       "instrument:slot:2",
+       "instrument:slot:5",
+       "benchmark:slot:2",
+       "benchmark:slot:5"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "71316/2120591",
+       "float64": 0.033630247416875765,
+       "hex": "0x1.137fbd99fad69p-5",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 3.3630247416875764e-14
+      },
+      "witnesses": [
+       "instrument:slot:2",
+       "instrument:slot:5",
+       "benchmark:slot:2",
+       "benchmark:slot:5"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS20",
+    "group": "evidence",
+    "description": "evidence_limit 2 keeps only the first two witnesses (instrument rows)",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 210,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 205,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 2,
+    "tags": [
+     "evidence"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:-6.050198314177336994246907965063539367167522518940754745618188e-1",
+       "float64": -0.6050198314177337,
+       "hex": "-0x1.35c528cabdbf4p-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 6.050198314177338e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "-5101530/2120591",
+       "float64": -2.405711426673036,
+       "hex": "-0x1.33ee5a1e964bfp+1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 2.405711426673036e-12
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "71316/2120591",
+       "float64": 0.033630247416875765,
+       "hex": "0x1.137fbd99fad69p-5",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 3.3630247416875764e-14
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS21",
+    "group": "evidence",
+    "description": "evidence_limit 0 keeps no witnesses",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 210,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 205,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 0,
+    "tags": [
+     "evidence"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:-6.050198314177336994246907965063539367167522518940754745618188e-1",
+       "float64": -0.6050198314177337,
+       "hex": "-0x1.35c528cabdbf4p-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 6.050198314177338e-13
+      },
+      "witnesses": []
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "-5101530/2120591",
+       "float64": -2.405711426673036,
+       "hex": "-0x1.33ee5a1e964bfp+1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 2.405711426673036e-12
+      },
+      "witnesses": []
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "71316/2120591",
+       "float64": 0.033630247416875765,
+       "hex": "0x1.137fbd99fad69p-5",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 3.3630247416875764e-14
+      },
+      "witnesses": []
+     }
+    }
+   },
+   {
+    "id": "RS22",
+    "group": "availability",
+    "description": "known_at equals the cutoff (100 = K) is known: available and identical to RS02",
+    "scale": 2,
+    "W": 3,
+    "minp": 3,
+    "t": 3,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 100,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 100,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 100,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 100,
+      "i": 3
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 100,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 100,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 210,
+      "known_at": 100,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 205,
+      "known_at": 100,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "boundary",
+     "knowledge_equality"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:-6.050198314177336994246907965063539367167522518940754745618188e-1",
+       "float64": -0.6050198314177337,
+       "hex": "-0x1.35c528cabdbf4p-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 6.050198314177338e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "-5101530/2120591",
+       "float64": -2.405711426673036,
+       "hex": "-0x1.33ee5a1e964bfp+1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 2.405711426673036e-12
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "71316/2120591",
+       "float64": 0.033630247416875765,
+       "hex": "0x1.137fbd99fad69p-5",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 3.3630247416875764e-14
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:3",
+       "benchmark:slot:0",
+       "benchmark:slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS23",
+    "group": "exact",
+    "description": "minimum window W=2, min_pairs 2: two points, correlation exactly +1",
+    "scale": 2,
+    "W": 2,
+    "minp": 2,
+    "t": 2,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10500,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10395,
+      "known_at": 50,
+      "i": 2
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "minimum_window",
+     "perfect_correlation"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2,
+      "value": {
+       "exact": "1",
+       "float64": 1.0,
+       "hex": "0x1.0000000000000p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact rational is exactly representable (or zero): +0.0 REQUIRED when zero",
+       "note": "correlation is an exact rational here"
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:2",
+       "benchmark:slot:0",
+       "benchmark:slot:2"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2,
+      "value": {
+       "exact": "3/10",
+       "float64": 0.3,
+       "hex": "0x1.3333333333333p-2",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 3e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:2",
+       "benchmark:slot:0",
+       "benchmark:slot:2"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2,
+      "value": {
+       "exact": "1/50",
+       "float64": 0.02,
+       "hex": "0x1.47ae147ae147bp-6",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 2e-14
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:2",
+       "benchmark:slot:0",
+       "benchmark:slot:2"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RS24",
+    "group": "exact",
+    "description": "generic negative correlation",
+    "scale": 2,
+    "W": 4,
+    "minp": 4,
+    "t": 4,
+    "K": 100,
+    "inst": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 101,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 98,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "bench": [
+     {
+      "state": "priced",
+      "c": 200,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 202,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 206,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 204,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "negative_correlation"
+    ],
+    "expected": {
+     "relative.correlation": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:-9.431811277409806179854587192232769363088624894143001354203946e-1",
+       "float64": -0.9431811277409806,
+       "hex": "-0x1.e2e8a303b42d9p-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.431811277409806e-13
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:4",
+       "benchmark:slot:0",
+       "benchmark:slot:4"
+      ]
+     },
+     "relative.beta": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "-75163691908611/55604608964597",
+       "float64": -1.3517529087645794,
+       "hex": "-0x1.5a0c7a876aaf8p+0",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 1.3517529087645794e-12
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:4",
+       "benchmark:slot:0",
+       "benchmark:slot:4"
+      ]
+     },
+     "relative.residual_return": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "405043356416/55604608964597",
+       "float64": 0.007284348617106323,
+       "hex": "0x1.dd631715484d3p-8",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "exact rational, single correctly rounded float64",
+       "abs_tolerance": 7.284348617106322e-15
+      },
+      "witnesses": [
+       "instrument:slot:0",
+       "instrument:slot:4",
+       "benchmark:slot:0",
+       "benchmark:slot:4"
+      ]
+     }
+    }
+   }
+  ],
+  "daily_log_volatility": [
+   {
+    "id": "DV01",
+    "group": "insufficient",
+    "description": "N=3 needs 4 closes, grid has 3 slots up to the target: insufficient_history, observed 3 of expected 4",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 2,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "insufficient_history"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "insufficient_history",
+      "reasons": [
+       "insufficient_history"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "DV02",
+    "group": "exact",
+    "description": "boundary equality t-N = 0 (exactly N+1 closes): centered sample variance of log returns, A=1",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 990,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1089,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "boundary",
+     "annualization"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:1.158572800435423863203288186012324363096587107596485353648406e-1",
+       "float64": 0.11585728004354238,
+       "hex": "0x1.da8d29cca600bp-4",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 1.1585728004354238e-13
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    },
+    "alternatives_not_published": {
+     "population_denominator_N": "9.4597073031138424293552748940921860076386e-2",
+     "uncentered_rms": "9.8773982755832570545195375814279677069577e-2",
+     "simple_return_variance_exact": "1/75",
+     "existing_history_return_volatility_at_this_A": "1.1547005383792515290182975610039149112952e-1",
+     "note": "existing history.return_volatility (simple returns, centered, N-1) is a distinct API; its value is derived here from the documented formula, not from the library"
+    }
+   },
+   {
+    "id": "DV03",
+    "group": "annualization",
+    "description": "same inputs as DV02 with A=4: sqrt(4 v) = 2 sqrt(v), exactly twice DV02 in float64",
+    "scale": 2,
+    "N": 3,
+    "A": 4,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 990,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1089,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "annualization"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:2.317145600870847726406576372024648726193174215192970707296812e-1",
+       "float64": 0.23171456008708477,
+       "hex": "0x1.da8d29cca600bp-3",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 2.3171456008708476e-13
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "DV04",
+    "group": "annualization",
+    "description": "same inputs as DV02 with A=252",
+    "scale": 2,
+    "N": 3,
+    "A": 252,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 990,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1089,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "annualization"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:1.839177303429478174938011418188197398199298248536446835143697e+0",
+       "float64": 1.8391773034294783,
+       "hex": "0x1.d6d452e1c66b8p+0",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 1.839177303429478e-12
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "DV05",
+    "group": "exact",
+    "description": "minimum N=2 (denominator N-1 = 1)",
+    "scale": 2,
+    "N": 2,
+    "A": 1,
+    "t": 2,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "minimum_window"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:1.418956095467076364403291234113827901145793246128886170623320e-1",
+       "float64": 0.14189560954670763,
+       "hex": "0x1.229a2a5397befp-3",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 1.4189560954670763e-13
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:2"
+      ]
+     }
+    }
+   },
+   {
+    "id": "DV06",
+    "group": "constant",
+    "description": "constant price: every log return exactly 0 so volatility is exactly 0 (+0.0)",
+    "scale": 2,
+    "N": 3,
+    "A": 252,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 500,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 500,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 500,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 500,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "constant",
+     "exact_zero"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:0.000000000000000000000000000000000000000000000000000000000000e+60",
+       "float64": 0.0,
+       "hex": "0x0.0p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exactly zero by exact argument (all log returns exactly 0): +0.0 REQUIRED"
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "DV07",
+    "group": "constant",
+    "description": "constant growth (ratio 11/10 each step): log returns identical, centered sum exactly 0, volatility exactly +0.0 (bits)",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 1210,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1331,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "constant",
+     "exact_zero"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "0",
+       "float64": 0.0,
+       "hex": "0x0.0p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exact zero by argument: three equal close ratios (11/10 by integer cross-multiplication) give identical logs (Decimal120 ln of identical inputs is identical), so the centered sum of squares is exactly 0; +0.0 REQUIRED"
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "DV08",
+    "group": "missing",
+    "description": "absent close inside the window: strict, no shrinking: missing_input/absent_input, observed 3 of 4",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "absent",
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "missing_history"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "DV09",
+    "group": "availability",
+    "description": "null close: null_field",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "null",
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "null_field"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "DV10",
+    "group": "availability",
+    "description": "unknown availability at the target close",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "unknown",
+      "known_at": null,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "unknown_availability"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "DV11",
+    "group": "availability",
+    "description": "target close known after the cutoff: future_knowledge",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 110,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "future",
+      "known_at": 150,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "future_knowledge"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "DV12",
+    "group": "availability",
+    "description": "declared incomplete coverage: governed_gap",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "gap",
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 108,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "governed_gap"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "DV13",
+    "group": "precedence",
+    "description": "absent, gap and future in one window: all reasons retained, status follows absent_input",
+    "scale": 2,
+    "N": 4,
+    "A": 1,
+    "t": 4,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 100,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "absent",
+      "i": 1
+     },
+     {
+      "state": "gap",
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 99,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "future",
+      "known_at": 150,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "precedence"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "future_knowledge",
+       "governed_gap"
+      ],
+      "expected": 5,
+      "observed": 2,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "DV14",
+    "group": "float",
+    "description": "huge near-equal coefficients (1e15, +-1 tick): log returns ~1e-15 retained (log1p-grade accuracy needed; relative tolerance)",
+    "scale": 2,
+    "N": 4,
+    "A": 1,
+    "t": 4,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 1000000000000000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000001,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000000,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000001,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000000,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "near_constant"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 5,
+      "observed": 5,
+      "value": {
+       "exact": "decimal120:1.154700538379250951668028371378535302325882750803795735694309e-15",
+       "float64": 1.1547005383792509e-15,
+       "hex": "0x1.4cd1dc7b140f4p-50",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 1.1547005383792509e-27
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:4"
+      ]
+     }
+    }
+   },
+   {
+    "id": "DV15",
+    "group": "distinct",
+    "description": "same closes as the HISTORICAL_FORMULAS worked example (105,120,115,130; N=3): the existing simple-return volatility is a DIFFERENT value and API",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 105,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 120,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 115,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 130,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "distinct_from_simple_return_volatility"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:9.866268512490223078923246605172504059785339625097852249103214e-2",
+       "float64": 0.09866268512490223,
+       "hex": "0x1.941f52df26ea4p-4",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.866268512490222e-14
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    },
+    "alternatives_not_published": {
+     "population_denominator_N": "8.0557745069631485723433295911798967023639e-2",
+     "uncentered_rms": "1.0750702764339486547857287814697197519492e-1",
+     "simple_return_variance_exact": "476449/44791488",
+     "existing_history_return_volatility_at_this_A": "1.0313604297076220550881224137383627882474e-1",
+     "note": "existing history.return_volatility (simple returns, centered, N-1) is a distinct API; its value is derived here from the documented formula, not from the library"
+    }
+   },
+   {
+    "id": "DV16",
+    "group": "window",
+    "description": "window membership: slots before the window cannot affect the result (equals DV02)",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 5,
+    "K": 100,
+    "slots": [
+     {
+      "state": "absent",
+      "i": 0
+     },
+     {
+      "state": "gap",
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 990,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 1089,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "window_membership"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:1.158572800435423863203288186012324363096587107596485353648406e-1",
+       "float64": 0.11585728004354238,
+       "hex": "0x1.da8d29cca600bp-4",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 1.1585728004354238e-13
+      },
+      "witnesses": [
+       "slot:2",
+       "slot:5"
+      ]
+     }
+    }
+   },
+   {
+    "id": "DV17",
+    "group": "boundary",
+    "description": "known_at equals the cutoff (100 = K): known; equals DV02",
+    "scale": 2,
+    "N": 3,
+    "A": 1,
+    "t": 3,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 100,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 100,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 990,
+      "known_at": 100,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1089,
+      "known_at": 100,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "boundary",
+     "knowledge_equality"
+    ],
+    "expected": {
+     "history.log_return_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:1.158572800435423863203288186012324363096587107596485353648406e-1",
+       "float64": 0.11585728004354238,
+       "hex": "0x1.da8d29cca600bp-4",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 1.1585728004354238e-13
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    }
+   }
+  ],
+  "intraday_realized_variance": [
+   {
+    "id": "RV01",
+    "group": "insufficient",
+    "description": "target = anchor: no return exists (zero returns is not a variance of 0): insufficient_history, observed 1 of expected 2",
+    "scale": 2,
+    "a": 0,
+    "t": 0,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "insufficient_history"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "insufficient_history",
+      "reasons": [
+       "insufficient_history"
+      ],
+      "expected": 2,
+      "observed": 1,
+      "value": null
+     },
+     "intraday.realized_volatility": {
+      "status": "insufficient_history",
+      "reasons": [
+       "insufficient_history"
+      ],
+      "expected": 2,
+      "observed": 1,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RV02",
+    "group": "exact",
+    "description": "boundary: exactly one return (t = a+1): RV = ln(11/10)^2",
+    "scale": 2,
+    "a": 0,
+    "t": 1,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 50,
+      "i": 1
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "boundary"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2,
+      "value": {
+       "exact": "decimal120:9.084030374332734416816529959362747203934845839193109691163742e-3",
+       "float64": 0.009084030374332735,
+       "hex": "0x1.29aa5eafd3196p-7",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.084030374332734e-15
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:1"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2,
+      "value": {
+       "exact": "decimal120:9.531017980432486004395212328076509222060536530864419918523981e-2",
+       "float64": 0.09531017980432487,
+       "hex": "0x1.8663f793c46c7p-4",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.531017980432486e-14
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:1"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RV03",
+    "group": "exact",
+    "description": "six regular-session bars, five squared log returns, A=1",
+    "scale": 2,
+    "a": 0,
+    "t": 5,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10020,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 10100,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 10090,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "exact_small_sample",
+     "annualization"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 6,
+      "observed": 6,
+      "value": {
+       "exact": "decimal120:7.436603725682259766645782221151918647248443592064523593109336e-5",
+       "float64": 7.43660372568226e-05,
+       "hex": "0x1.37e9ecab3b630p-14",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 7.436603725682259e-17
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:5"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 6,
+      "observed": 6,
+      "value": {
+       "exact": "decimal120:8.623574505784860305491256175584196364732330417001958109346653e-3",
+       "float64": 0.00862357450578486,
+       "hex": "0x1.1a93c93d0d334p-7",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 8.62357450578486e-15
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:5"
+      ]
+     }
+    },
+    "alternatives_not_published": {
+     "simple_return_squared_sum_not_published": "7571202725037137/101376289121968980000",
+     "simple_float": 7.46841573173781e-05
+    }
+   },
+   {
+    "id": "RV04",
+    "group": "constant",
+    "description": "flat session: all log returns exactly 0: RV and volatility +0.0",
+    "scale": 2,
+    "a": 0,
+    "t": 4,
+    "A": 252,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 500,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 500,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 500,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 500,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 500,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "constant",
+     "exact_zero"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 5,
+      "observed": 5,
+      "value": {
+       "exact": "decimal120:0.000000000000000000000000000000000000000000000000000000000000e+60",
+       "float64": 0.0,
+       "hex": "0x0.0p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exactly zero by exact argument (all log returns exactly 0): +0.0 REQUIRED"
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:4"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 5,
+      "observed": 5,
+      "value": {
+       "exact": "decimal120:0.000000000000000000000000000000000000000000000000000000000000e+60",
+       "float64": 0.0,
+       "hex": "0x0.0p+0",
+       "acceptance": "bits",
+       "acceptance_reason": "exactly zero by exact argument (all log returns exactly 0): +0.0 REQUIRED"
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:4"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RV05",
+    "group": "annualization",
+    "description": "same closes as RV03 with A=252 (volatility = sqrt(252 RV); RV unchanged)",
+    "scale": 2,
+    "a": 0,
+    "t": 5,
+    "A": 252,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10020,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 10100,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 10090,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "annualization"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 6,
+      "observed": 6,
+      "value": {
+       "exact": "decimal120:7.436603725682259766645782221151918647248443592064523593109336e-5",
+       "float64": 7.43660372568226e-05,
+       "hex": "0x1.37e9ecab3b630p-14",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 7.436603725682259e-17
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:5"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 6,
+      "observed": 6,
+      "value": {
+       "exact": "decimal120:1.368950013284608380406120493434294780016705906721417589789924e-1",
+       "float64": 0.13689500132846083,
+       "hex": "0x1.185c680d886dep-3",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 1.3689500132846082e-13
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:5"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RV06",
+    "group": "overnight",
+    "description": "overnight exclusion: the previous session ended at 7000, a 42.9% jump to the first bar; the result equals RV03 because no return crosses the session boundary",
+    "scale": 2,
+    "a": 0,
+    "t": 5,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10020,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 10100,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 10090,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "overnight_exclusion"
+    ],
+    "prior_close": 7000,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 6,
+      "observed": 6,
+      "value": {
+       "exact": "decimal120:7.436603725682259766645782221151918647248443592064523593109336e-5",
+       "float64": 7.43660372568226e-05,
+       "hex": "0x1.37e9ecab3b630p-14",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 7.436603725682259e-17
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:5"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 6,
+      "observed": 6,
+      "value": {
+       "exact": "decimal120:8.623574505784860305491256175584196364732330417001958109346653e-3",
+       "float64": 0.00862357450578486,
+       "hex": "0x1.1a93c93d0d334p-7",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 8.62357450578486e-15
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:5"
+      ]
+     }
+    },
+    "alternatives_not_published": {
+     "simple_return_squared_sum_not_published": "7571202725037137/101376289121968980000",
+     "simple_float": 7.46841573173781e-05,
+     "rv_if_overnight_return_were_included_not_published": "1.2729138167095470796072456566427928519657e-1"
+    }
+   },
+   {
+    "id": "RV07",
+    "group": "early_close",
+    "description": "early-close session: the governed grid declares only 4 slots (0..3); target at slot 3 is complete, expected 4; nothing is rescaled to a full-day slot count",
+    "scale": 2,
+    "a": 0,
+    "t": 3,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10020,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "early_close"
+    ],
+    "prior_close": null,
+    "grid_slots_declared": 4,
+    "normal_session_slots": 6,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:6.945580669696761369970678570952414814420571605100730942571327e-5",
+       "float64": 6.945580669696761e-05,
+       "hex": "0x1.23519ac51cb8ep-14",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 6.945580669696762e-17
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:8.334015040601235542007451280802533470740043787880820076252765e-3",
+       "float64": 0.008334015040601236,
+       "hex": "0x1.1116c90599bebp-7",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 8.334015040601236e-15
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RV08",
+    "group": "early_close",
+    "description": "NOT an early close: the governed grid declares 6 slots and bars 4 and 5 are absent at target slot 5: incomplete grid",
+    "scale": 2,
+    "a": 0,
+    "t": 5,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10020,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "absent",
+      "i": 4
+     },
+     {
+      "state": "absent",
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "early_close",
+     "missing_history"
+    ],
+    "prior_close": null,
+    "grid_slots_declared": 6,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 6,
+      "observed": 4,
+      "value": null
+     },
+     "intraday.realized_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 6,
+      "observed": 4,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RV09",
+    "group": "missing",
+    "description": "absent bar inside the session: no bridging return across the hole: missing_input/absent_input",
+    "scale": 2,
+    "a": 0,
+    "t": 4,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "absent",
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 10100,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "missing_history"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 5,
+      "observed": 4,
+      "value": null
+     },
+     "intraday.realized_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 5,
+      "observed": 4,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RV10",
+    "group": "availability",
+    "description": "declared incomplete coverage: governed_gap",
+    "scale": 2,
+    "a": 0,
+    "t": 3,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "gap",
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "governed_gap"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     },
+     "intraday.realized_volatility": {
+      "status": "incomplete_coverage",
+      "reasons": [
+       "governed_gap"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RV11",
+    "group": "availability",
+    "description": "null close: null_field",
+    "scale": 2,
+    "a": 0,
+    "t": 3,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "null",
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "null_field"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     },
+     "intraday.realized_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "null_field"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RV12",
+    "group": "empty",
+    "description": "coverage-proven empty slot (volume 0, OHLC null): not forward-filled, no return: no_eligible_observations / not_applicable",
+    "scale": 2,
+    "a": 0,
+    "t": 3,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "empty",
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "empty_slot"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "not_applicable",
+      "reasons": [
+       "no_eligible_observations"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     },
+     "intraday.realized_volatility": {
+      "status": "not_applicable",
+      "reasons": [
+       "no_eligible_observations"
+      ],
+      "expected": 4,
+      "observed": 3,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RV13",
+    "group": "availability",
+    "description": "unknown availability",
+    "scale": 2,
+    "a": 0,
+    "t": 2,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "unknown",
+      "known_at": null,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10020,
+      "known_at": 50,
+      "i": 2
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "unknown_availability"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     },
+     "intraday.realized_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "unknown_availability"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RV14",
+    "group": "availability",
+    "description": "target bar known after the cutoff: future_knowledge",
+    "scale": 2,
+    "a": 0,
+    "t": 2,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "future",
+      "known_at": 150,
+      "i": 2
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "future_knowledge"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     },
+     "intraday.realized_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "future_knowledge"
+      ],
+      "expected": 3,
+      "observed": 2,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RV15",
+    "group": "precedence",
+    "description": "absent, empty and future together: reasons retained lexically, status follows absent_input",
+    "scale": 2,
+    "a": 0,
+    "t": 4,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "absent",
+      "i": 1
+     },
+     {
+      "state": "empty",
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "future",
+      "known_at": 150,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 10100,
+      "known_at": 50,
+      "i": 4
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "precedence"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "future_knowledge",
+       "no_eligible_observations"
+      ],
+      "expected": 5,
+      "observed": 2,
+      "value": null
+     },
+     "intraday.realized_volatility": {
+      "status": "missing_input",
+      "reasons": [
+       "absent_input",
+       "future_knowledge",
+       "no_eligible_observations"
+      ],
+      "expected": 5,
+      "observed": 2,
+      "value": null
+     }
+    }
+   },
+   {
+    "id": "RV16",
+    "group": "float",
+    "description": "huge near-equal coefficients (1e15, +-1 tick): RV about 4e-30 relative tolerance",
+    "scale": 2,
+    "a": 0,
+    "t": 3,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 1000000000000000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000001,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000000,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 1000000000000001,
+      "known_at": 50,
+      "i": 3
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "near_constant"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:2.999999999999997000000000000002749999999999997500000000000002e-30",
+       "float64": 2.999999999999997e-30,
+       "hex": "0x1.e6c71fe61a3e7p-99",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 2.999999999999997e-42
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:1.732050807568876427502042557067802953488824126205693603541463e-15",
+       "float64": 1.7320508075688765e-15,
+       "hex": "0x1.f33acab89e16fp-50",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 1.7320508075688765e-27
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RV17",
+    "group": "sign",
+    "description": "price halving and doubling: log returns -ln2 then +ln2, RV = 2 ln(2)^2 (log symmetry; simple returns would be -1/2 and +1)",
+    "scale": 2,
+    "a": 0,
+    "t": 2,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 2000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 2000,
+      "known_at": 50,
+      "i": 2
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "log_vs_simple"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:9.609060278364028493342050526533299434611059031890911737337283e-1",
+       "float64": 0.9609060278364029,
+       "hex": "0x1.ebfbdff82c58fp-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.609060278364028e-13
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:2"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 3,
+      "observed": 3,
+      "value": {
+       "exact": "decimal120:9.802581434685471917139017236352333812914606990990547210422462e-1",
+       "float64": 0.9802581434685472,
+       "hex": "0x1.f5e46537ab907p-1",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.802581434685472e-13
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:2"
+      ]
+     }
+    },
+    "alternatives_not_published": {
+     "simple_return_squared_sum_not_published": "5/4",
+     "simple_float": 1.25
+    }
+   },
+   {
+    "id": "RV18",
+    "group": "boundary",
+    "description": "known_at equals the cutoff: known; equals RV02",
+    "scale": 2,
+    "a": 0,
+    "t": 1,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 1000,
+      "known_at": 100,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 1100,
+      "known_at": 100,
+      "i": 1
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "boundary",
+     "knowledge_equality"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2,
+      "value": {
+       "exact": "decimal120:9.084030374332734416816529959362747203934845839193109691163742e-3",
+       "float64": 0.009084030374332735,
+       "hex": "0x1.29aa5eafd3196p-7",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.084030374332734e-15
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:1"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 2,
+      "observed": 2,
+      "value": {
+       "exact": "decimal120:9.531017980432486004395212328076509222060536530864419918523981e-2",
+       "float64": 0.09531017980432487,
+       "hex": "0x1.8663f793c46c7p-4",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 9.531017980432486e-14
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:1"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RV19",
+    "group": "evidence",
+    "description": "evidence_limit 1 keeps only the anchor witness",
+    "scale": 2,
+    "a": 0,
+    "t": 5,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10020,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 10100,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 10090,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 1,
+    "tags": [
+     "evidence"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 6,
+      "observed": 6,
+      "value": {
+       "exact": "decimal120:7.436603725682259766645782221151918647248443592064523593109336e-5",
+       "float64": 7.43660372568226e-05,
+       "hex": "0x1.37e9ecab3b630p-14",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 7.436603725682259e-17
+      },
+      "witnesses": [
+       "slot:0"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 6,
+      "observed": 6,
+      "value": {
+       "exact": "decimal120:8.623574505784860305491256175584196364732330417001958109346653e-3",
+       "float64": 0.00862357450578486,
+       "hex": "0x1.1a93c93d0d334p-7",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 8.62357450578486e-15
+      },
+      "witnesses": [
+       "slot:0"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RV20",
+    "group": "selection",
+    "description": "only the variance output selected: no annualization factor is supplied or used (volatility not requested)",
+    "scale": 2,
+    "a": 0,
+    "t": 5,
+    "A": null,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10020,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 10100,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 10090,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "selection"
+    ],
+    "prior_close": null,
+    "selected": [
+     "intraday.realized_variance"
+    ],
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 6,
+      "observed": 6,
+      "value": {
+       "exact": "decimal120:7.436603725682259766645782221151918647248443592064523593109336e-5",
+       "float64": 7.43660372568226e-05,
+       "hex": "0x1.37e9ecab3b630p-14",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 7.436603725682259e-17
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:5"
+      ]
+     }
+    }
+   },
+   {
+    "id": "RV21",
+    "group": "window",
+    "description": "session prefix: target in the middle of the session (t=3 of a 6-slot session); bars after the target are not part of the evaluation",
+    "scale": 2,
+    "a": 0,
+    "t": 3,
+    "A": 1,
+    "K": 100,
+    "slots": [
+     {
+      "state": "priced",
+      "c": 10000,
+      "known_at": 50,
+      "i": 0
+     },
+     {
+      "state": "priced",
+      "c": 10050,
+      "known_at": 50,
+      "i": 1
+     },
+     {
+      "state": "priced",
+      "c": 10020,
+      "known_at": 50,
+      "i": 2
+     },
+     {
+      "state": "priced",
+      "c": 10080,
+      "known_at": 50,
+      "i": 3
+     },
+     {
+      "state": "priced",
+      "c": 10100,
+      "known_at": 50,
+      "i": 4
+     },
+     {
+      "state": "priced",
+      "c": 10090,
+      "known_at": 50,
+      "i": 5
+     }
+    ],
+    "evidence_limit": 10,
+    "tags": [
+     "prefix"
+    ],
+    "prior_close": null,
+    "expected": {
+     "intraday.realized_variance": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:6.945580669696761369970678570952414814420571605100730942571327e-5",
+       "float64": 6.945580669696761e-05,
+       "hex": "0x1.23519ac51cb8ep-14",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 6.945580669696762e-17
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     },
+     "intraday.realized_volatility": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "decimal120:8.334015040601235542007451280802533470740043787880820076252765e-3",
+       "float64": 0.008334015040601236,
+       "hex": "0x1.1116c90599bebp-7",
+       "acceptance": "r17_tol",
+       "acceptance_reason": "irrational reference from Decimal120; single rounding of reference",
+       "abs_tolerance": 8.334015040601236e-15
+      },
+      "witnesses": [
+       "slot:0",
+       "slot:3"
+      ]
+     }
+    }
+   }
+  ],
+  "prefix_property": [
+   {
+    "id": "PX01",
+    "family": "relative_stats",
+    "base": "RS02",
+    "description": "prefix property: appending slots after the target (wild prices, absent, future-known) leaves every output, status, count and witness identical to RS02",
+    "variants": [
+     {
+      "label": "suffix_priced_wild",
+      "inst_suffix": [
+       {
+        "state": "priced",
+        "c": 1000000,
+        "known_at": 50
+       },
+       {
+        "state": "priced",
+        "c": 1,
+        "known_at": 50
+       }
+      ],
+      "bench_suffix": [
+       {
+        "state": "priced",
+        "c": 1000000,
+        "known_at": 50
+       },
+       {
+        "state": "priced",
+        "c": 1,
+        "known_at": 50
+       }
+      ]
+     },
+     {
+      "label": "suffix_absent",
+      "inst_suffix": [
+       {
+        "state": "absent"
+       },
+       {
+        "state": "absent"
+       }
+      ],
+      "bench_suffix": [
+       {
+        "state": "priced",
+        "c": 1000000,
+        "known_at": 50
+       },
+       {
+        "state": "priced",
+        "c": 1,
+        "known_at": 50
+       }
+      ]
+     },
+     {
+      "label": "suffix_future",
+      "inst_suffix": [
+       {
+        "state": "future",
+        "known_at": 150
+       },
+       {
+        "state": "future",
+        "known_at": 150
+       }
+      ],
+      "bench_suffix": [
+       {
+        "state": "priced",
+        "c": 1000000,
+        "known_at": 50
+       },
+       {
+        "state": "priced",
+        "c": 1,
+        "known_at": 50
+       }
+      ]
+     }
+    ],
+    "expected": "identical to RS02 expected"
+   },
+   {
+    "id": "PX02",
+    "family": "daily_log_volatility",
+    "base": "DV02",
+    "description": "prefix property: later sessions cannot change the target result (identical to DV02)",
+    "variants": [
+     {
+      "label": "suffix_priced_wild",
+      "suffix": [
+       {
+        "state": "priced",
+        "c": 1,
+        "known_at": 50
+       },
+       {
+        "state": "priced",
+        "c": 1000000000,
+        "known_at": 50
+       }
+      ]
+     },
+     {
+      "label": "suffix_absent",
+      "suffix": [
+       {
+        "state": "absent"
+       }
+      ]
+     },
+     {
+      "label": "suffix_gap",
+      "suffix": [
+       {
+        "state": "gap"
+       }
+      ]
+     }
+    ],
+    "expected": "identical to DV02 expected"
+   },
+   {
+    "id": "PX03",
+    "family": "intraday_realized_variance",
+    "base": "RV21",
+    "description": "prefix property: bars after the target do not change RV-to-date at the target (identical to RV21)",
+    "variants": [
+     {
+      "label": "later_bars_changed",
+      "suffix_after_slot_3": [
+       {
+        "state": "priced",
+        "c": 10090,
+        "known_at": 50
+       },
+       {
+        "state": "priced",
+        "c": 1,
+        "known_at": 50
+       },
+       {
+        "state": "priced",
+        "c": 99999,
+        "known_at": 50
+       }
+      ]
+     },
+     {
+      "label": "later_bars_absent",
+      "suffix_after_slot_3": [
+       {
+        "state": "absent"
+       },
+       {
+        "state": "absent"
+       }
+      ]
+     },
+     {
+      "label": "later_bar_unknown",
+      "suffix_after_slot_3": [
+       {
+        "state": "unknown",
+        "known_at": null
+       }
+      ]
+     }
+    ],
+    "expected": "identical to RV21 expected"
+   }
+  ],
+  "refusals": [
+   {
+    "id": "RF01",
+    "producer": "relative_stats",
+    "error_code": "INVALID_CONFIG",
+    "description": "window < 2 or > 4096"
+   },
+   {
+    "id": "RF02",
+    "producer": "relative_stats",
+    "error_code": "INVALID_CONFIG",
+    "description": "window or min_pairs bool, float or text"
+   },
+   {
+    "id": "RF03",
+    "producer": "relative_stats",
+    "error_code": "INVALID_CONFIG",
+    "description": "min_pairs > window"
+   },
+   {
+    "id": "RF04",
+    "producer": "relative_stats",
+    "error_code": "INVALID_CONFIG",
+    "description": "min_pairs < 2"
+   },
+   {
+    "id": "RF05",
+    "producer": "relative_stats",
+    "error_code": "INVALID_CONFIG",
+    "description": "window or min_pairs missing (no default)"
+   },
+   {
+    "id": "RF06",
+    "producer": "relative_stats",
+    "error_code": "INVALID_CONFIG",
+    "description": "benchmark_id missing or empty (no default benchmark)"
+   },
+   {
+    "id": "RF07",
+    "producer": "relative_stats",
+    "error_code": "INVALID_CONFIG",
+    "description": "more than one benchmark supplied (benchmark_id list, or a third return role): the producer joins only the requested pair"
+   },
+   {
+    "id": "RF08",
+    "producer": "relative_stats",
+    "error_code": "INVALID_CONFIG",
+    "description": "evidence_limit outside 0..10000"
+   },
+   {
+    "id": "RF09",
+    "producer": "relative_stats",
+    "error_code": "INVALID_CONFIG",
+    "description": "policy_version missing"
+   },
+   {
+    "id": "RF10",
+    "producer": "relative_stats",
+    "error_code": "INCOMPATIBLE_VERSION",
+    "description": "policy_version other than ef3-rel1 (for example a future log-basis label)"
+   },
+   {
+    "id": "RF11",
+    "producer": "relative_stats",
+    "error_code": "INCONSISTENT_IDENTITY",
+    "description": "benchmark role instrument_id differs from config benchmark_id"
+   },
+   {
+    "id": "RF12",
+    "producer": "relative_stats",
+    "error_code": "INCONSISTENT_IDENTITY",
+    "description": "instrument role instrument_id equals the benchmark (self-pair)"
+   },
+   {
+    "id": "RF13",
+    "producer": "relative_stats",
+    "error_code": "INCONSISTENT_IDENTITY",
+    "description": "a role batch carries rows of two different instrument_ids"
+   },
+   {
+    "id": "RF14",
+    "producer": "relative_stats",
+    "error_code": "INCONSISTENT_IDENTITY",
+    "description": "the two role batches have different namespaces (INCONSISTENT_IDENTITY from require_compatible_inputs)"
+   },
+   {
+    "id": "RF15",
+    "producer": "relative_stats",
+    "error_code": "INVALID_UNIT",
+    "description": "instrument and benchmark price scale, currency or unit differ (require_compatible_inputs raises INVALID_UNIT; no conversion, ruling O4) (batch versus batch, require_compatible_inputs)"
+   },
+   {
+    "id": "RF16",
+    "producer": "relative_stats",
+    "error_code": "UNSUPPORTED_ADJUSTMENT",
+    "description": "instrument and benchmark declare different adjustment basis, policy or anchor (batch versus batch, require_compatible_inputs)"
+   },
+   {
+    "id": "RF17",
+    "producer": "relative_stats",
+    "error_code": "INVALID_ORDER",
+    "description": "rows not in governed grid order across sessions: a producer-admission check against the context grid order, NOT validate_batch (the shared BAR order_group is (instrument, session))"
+   },
+   {
+    "id": "RF18",
+    "producer": "relative_stats",
+    "error_code": "DUPLICATE",
+    "description": "two rows for the same interval (duplicate identity is instrument, session, start, end)"
+   },
+   {
+    "id": "RF19",
+    "producer": "relative_stats",
+    "error_code": "INVALID_SCHEMA",
+    "description": "close equal to 0 or negative (positive prices only, validation.py)"
+   },
+   {
+    "id": "RF20",
+    "producer": "relative_stats",
+    "error_code": "UNSUPPORTED_CAPABILITY",
+    "description": "update, restore or merge requested"
+   },
+   {
+    "id": "RF21",
+    "producer": "relative_stats",
+    "error_code": "UNKNOWN_FEATURE",
+    "description": "a feature id not produced by this producer (for example history.return_volatility)"
+   },
+   {
+    "id": "RF22",
+    "producer": "daily_log_volatility",
+    "error_code": "INVALID_CONFIG",
+    "description": "period < 2 or > 4096, or bool, float or text"
+   },
+   {
+    "id": "RF23",
+    "producer": "daily_log_volatility",
+    "error_code": "INVALID_CONFIG",
+    "description": "annualization_factor missing (no default), 0, negative, bool, float or above 2^63-1"
+   },
+   {
+    "id": "RF24",
+    "producer": "daily_log_volatility",
+    "error_code": "INVALID_CONFIG",
+    "description": "evidence_limit outside 0..10000"
+   },
+   {
+    "id": "RF25",
+    "producer": "daily_log_volatility",
+    "error_code": "INCOMPATIBLE_VERSION",
+    "description": "policy_version other than ef3-dlv1"
+   },
+   {
+    "id": "RF26",
+    "producer": "daily_log_volatility",
+    "error_code": "INVALID_SCHEMA",
+    "description": "close equal to 0 or negative"
+   },
+   {
+    "id": "RF27",
+    "producer": "daily_log_volatility",
+    "error_code": "INVALID_ORDER",
+    "description": "rows not in governed grid order across sessions: a producer-admission check against the context grid order, NOT validate_batch (the shared BAR order_group is (instrument, session))"
+   },
+   {
+    "id": "RF28",
+    "producer": "daily_log_volatility",
+    "error_code": "DUPLICATE",
+    "description": "two rows for the same interval (duplicate identity is instrument, session, start, end)"
+   },
+   {
+    "id": "RF29",
+    "producer": "daily_log_volatility",
+    "error_code": "INVALID_UNIT",
+    "description": "producer admission: batch price unit (scale or currency) differs from the config PriceUnit (as R17 _admission.py: meta.price_unit != config.price_unit raises INVALID_UNIT)"
+   },
+   {
+    "id": "RF30",
+    "producer": "daily_log_volatility",
+    "error_code": "UNSUPPORTED_ADJUSTMENT",
+    "description": "producer admission: batch adjustment declaration differs from the config adjustment (as R17 _admission.py: meta.adjustment != config.adjustment raises UNSUPPORTED_ADJUSTMENT)"
+   },
+   {
+    "id": "RF31",
+    "producer": "daily_log_volatility",
+    "error_code": "INCONSISTENT_IDENTITY",
+    "description": "batch carries rows of two different instrument_ids"
+   },
+   {
+    "id": "RF32",
+    "producer": "daily_log_volatility",
+    "error_code": "UNSUPPORTED_CAPABILITY",
+    "description": "update, restore or merge requested"
+   },
+   {
+    "id": "RF33",
+    "producer": "intraday_realized_variance",
+    "error_code": "INVALID_CONFIG",
+    "description": "annualization_factor missing when intraday.realized_volatility is selected"
+   },
+   {
+    "id": "RF34",
+    "producer": "intraday_realized_variance",
+    "error_code": "INVALID_CONFIG",
+    "description": "annualization_factor supplied when only intraday.realized_variance is selected (exact-closure rule as for cmf_period)"
+   },
+   {
+    "id": "RF35",
+    "producer": "intraday_realized_variance",
+    "error_code": "INVALID_CONFIG",
+    "description": "annualization_factor 0, negative, bool, float or above 2^63-1"
+   },
+   {
+    "id": "RF36",
+    "producer": "intraday_realized_variance",
+    "error_code": "INVALID_CONFIG",
+    "description": "carry epoch mode requested (reset only)"
+   },
+   {
+    "id": "RF37",
+    "producer": "intraday_realized_variance",
+    "error_code": "INVALID_CONFIG",
+    "description": "evidence_limit outside 0..10000"
+   },
+   {
+    "id": "RF38",
+    "producer": "intraday_realized_variance",
+    "error_code": "UNSUPPORTED_SAMPLING",
+    "description": "sampling other than every_governed_slot (coarser step, resampling, subsampling)"
+   },
+   {
+    "id": "RF39",
+    "producer": "intraday_realized_variance",
+    "error_code": "INCOMPATIBLE_VERSION",
+    "description": "policy_version other than ef3-rv1"
+   },
+   {
+    "id": "RF40",
+    "producer": "intraday_realized_variance",
+    "error_code": "INVALID_SCHEMA",
+    "description": "positive-volume bar with null or non-positive close (existing BAR validation); close equal to 0"
+   },
+   {
+    "id": "RF41",
+    "producer": "intraday_realized_variance",
+    "error_code": "INVALID_SCHEMA",
+    "description": "zero-volume bar with non-null OHLC (existing BAR rule: a proven-empty slot has null OHLC)"
+   },
+   {
+    "id": "RF42",
+    "producer": "intraday_realized_variance",
+    "error_code": "BOUNDS",
+    "description": "negative volume"
+   },
+   {
+    "id": "RF43",
+    "producer": "intraday_realized_variance",
+    "error_code": "BOUNDS",
+    "description": "bar end after the supplied market cutoff (forming or future bar)"
+   },
+   {
+    "id": "RF44",
+    "producer": "intraday_realized_variance",
+    "error_code": "INVALID_ORDER",
+    "description": "rows not in governed grid order across sessions: a producer-admission check against the context grid order, NOT validate_batch (the shared BAR order_group is (instrument, session))"
+   },
+   {
+    "id": "RF45",
+    "producer": "intraday_realized_variance",
+    "error_code": "DUPLICATE",
+    "description": "two rows for the same interval (duplicate identity is instrument, session, start, end)"
+   },
+   {
+    "id": "RF46",
+    "producer": "intraday_realized_variance",
+    "error_code": "INVALID_UNIT",
+    "description": "producer admission: batch price unit (scale or currency) differs from the config PriceUnit (as R17 _admission.py: meta.price_unit != config.price_unit raises INVALID_UNIT)"
+   },
+   {
+    "id": "RF47",
+    "producer": "intraday_realized_variance",
+    "error_code": "UNSUPPORTED_ADJUSTMENT",
+    "description": "producer admission: batch adjustment declaration differs from the config adjustment (as R17 _admission.py: meta.adjustment != config.adjustment raises UNSUPPORTED_ADJUSTMENT)"
+   },
+   {
+    "id": "RF48",
+    "producer": "intraday_realized_variance",
+    "error_code": "UNSUPPORTED_CAPABILITY",
+    "description": "update, restore or merge requested"
+   }
+  ],
+  "coverage_map": {
+   "annualization": [
+    "DV02",
+    "DV03",
+    "DV04",
+    "RV03",
+    "RV05"
+   ],
+   "boundary": [
+    "RS02",
+    "RS22",
+    "DV02",
+    "DV17",
+    "RV02",
+    "RV18"
+   ],
+   "centered_vs_uncentered": [
+    "RS18"
+   ],
+   "constant": [
+    "RS06",
+    "RS07",
+    "RS08",
+    "DV06",
+    "DV07",
+    "RV04"
+   ],
+   "cutoff_alignment": [
+    "RS15"
+   ],
+   "distinct_from_simple_return_volatility": [
+    "DV15"
+   ],
+   "early_close": [
+    "RV07",
+    "RV08"
+   ],
+   "empty_slot": [
+    "RV12"
+   ],
+   "evidence": [
+    "RS20",
+    "RS21",
+    "RV19"
+   ],
+   "exact_small_sample": [
+    "RS02",
+    "RV03"
+   ],
+   "exact_zero": [
+    "DV06",
+    "DV07",
+    "RS04",
+    "RS05",
+    "RS07",
+    "RV04"
+   ],
+   "exact_zero_test": [
+    "RS17"
+   ],
+   "future_knowledge": [
+    "RS15",
+    "DV11",
+    "RV14"
+   ],
+   "governed_gap": [
+    "RS12",
+    "DV12",
+    "RV10"
+   ],
+   "independent_readiness": [
+    "RS11"
+   ],
+   "insufficient_history": [
+    "RS01",
+    "DV01",
+    "RV01"
+   ],
+   "knowledge_equality": [
+    "RS22",
+    "DV17",
+    "RV18"
+   ],
+   "log_vs_simple": [
+    "RV17"
+   ],
+   "min_coverage_boundary": [
+    "RS09",
+    "RS10"
+   ],
+   "minimum_window": [
+    "RS23",
+    "DV05"
+   ],
+   "misaligned": [
+    "RS09",
+    "RS11"
+   ],
+   "missing_history": [
+    "DV08",
+    "RV08",
+    "RV09"
+   ],
+   "missing_pairs": [
+    "RS09",
+    "RS10"
+   ],
+   "near_constant": [
+    "RS17",
+    "DV14",
+    "RV16"
+   ],
+   "negative_correlation": [
+    "RS24"
+   ],
+   "null_field": [
+    "RS11",
+    "RS13",
+    "DV09",
+    "RV11"
+   ],
+   "overnight_exclusion": [
+    "RV06"
+   ],
+   "perfect_correlation": [
+    "RS03",
+    "RS04",
+    "RS23"
+   ],
+   "precedence": [
+    "RS16",
+    "DV13",
+    "RV15"
+   ],
+   "prefix": [
+    "RV21"
+   ],
+   "prefix_property": [
+    "PX01",
+    "PX02",
+    "PX03"
+   ],
+   "selection": [
+    "RV20"
+   ],
+   "unknown_availability": [
+    "RS14",
+    "DV10",
+    "RV13"
+   ],
+   "window_membership": [
+    "RS19",
+    "DV16"
+   ],
+   "zero_benchmark_variance": [
+    "RS06",
+    "RS08"
+   ],
+   "zero_correlation": [
+    "RS05"
+   ],
+   "zero_instrument_variance": [
+    "RS07"
+   ]
+  },
+  "fixture_counts": {
+   "relative_stats_result": 24,
+   "daily_log_volatility_result": 17,
+   "intraday_realized_variance_result": 21,
+   "prefix_property": 3,
+   "refusal": 48
+  }
+ },
+ "decisions": {
+  "DP-S1": {
+   "decision": "relative_stats consumes two DAILY close-only roles (instrument, benchmark); the library derives returns from exact integer closes; the 'return witness' is the pair of adjacent closes with their row ids as evidence",
+   "alternatives": "float64 return series (rounded, not exact), REFERENCE return rows, existing ReturnReference scalars (one horizon only, cannot form a series)",
+   "state": "decided, pending owner review"
+  },
+  "DP-S2": {
+   "decision": "return basis for EQ-153: simple session return C_j/C_{j-1}-1 (consistent with relative.market_return and history.return; exact rational arithmetic)",
+   "alternatives": "natural log returns (would need a new policy label ef3-rel2 and Decimal references), excess over a risk-free series (needs another role)",
+   "state": "decided, pending owner review"
+  },
+  "DP-S3": {
+   "decision": "one return per two adjacent governed closes; a return spanning a missing close is never formed",
+   "alternatives": "multi-session spanning return across the hole (mixes horizons), forward fill (invents a zero return)",
+   "state": "decided, pending owner review"
+  },
+  "DP-S4": {
+   "decision": "sample population: the last W governed return slots ending at the target (inclusive); complete-case pairing: only slots where both returns are defined enter, and means are joint means",
+   "alternatives": "strict only (all W pairs), per-series own means, target excluded (prior-only), calendar-day windows",
+   "state": "decided, pending owner review"
+  },
+  "DP-S5": {
+   "decision": "minimum coverage: caller min_pairs in 2..W, no default, n >= min_pairs available, W = min_pairs reproduces strict mode; the window must lie wholly inside the grid (else insufficient_history regardless of min_pairs)",
+   "alternatives": "min_pairs fixed by policy, fraction-of-window threshold, lower bound 3 (OPEN OQ10)",
+   "state": "decided, pending owner review"
+  },
+  "DP-S6": {
+   "decision": "covariance is centered (OLS with intercept) with the sample denominator n-1 declared; because beta and correlation are ratios the denominator cancels exactly and no output depends on it",
+   "alternatives": "population denominator n (identical outputs), uncentered regression through the origin (different beta, shown in RS02 and RS18)",
+   "state": "decided, pending owner review"
+  },
+  "DP-S7": {
+   "decision": "zero variance is an exact rational zero test with no epsilon. Zero benchmark variance: correlation, beta and residual are not_applicable/zero_denominator. Zero instrument variance only: correlation zero_denominator, beta exactly 0, residual equals the instrument target return",
+   "alternatives": "define beta=0 or rho=0 for degenerate cases, epsilon threshold, nonfinite output",
+   "state": "decided, pending owner review"
+  },
+  "DP-S8": {
+   "decision": "beta-adjusted residual e_t = r_i,t - beta * r_b,t, beta from the same window including the target, no intercept, requires the target pair",
+   "alternatives": "prior-only beta (window ending t-1), intercept-adjusted residual r - alpha - beta*r_b (values in RS02 and RS18 alternatives), residual on log basis",
+   "state": "decided, pending owner review"
+  },
+  "DP-S9": {
+   "decision": "benchmark identity: exactly one benchmark named by config benchmark_id; same namespace, grid, scale, currency and adjustment declaration as the instrument; no FX, no rescaling, no hidden benchmark; any third instrument is a typed refusal",
+   "alternatives": "scale-free returns allowing different units (OPEN OQ4)",
+   "state": "decided, pending owner review"
+  },
+  "DP-S10": {
+   "decision": "exact rational arithmetic with one float64 rounding; correlation is the correctly rounded exact real sign*sqrt(Sxy^2/(Sxx*Syy)), within the R17 tolerance; the published value never leaves [-1,1]",
+   "alternatives": "float accumulation (rejected: cancellation, RS17)",
+   "state": "decided, pending owner review"
+  },
+  "DP-V1": {
+   "decision": "daily volatility uses natural-log close ratios, centered, sample N-1, vol = sqrt(A * variance), as a NEW feature id history.log_return_volatility; the existing history.return_volatility (simple returns) is unchanged and distinct (DV15 shows different values for the same closes)",
+   "alternatives": "population denominator N, uncentered RMS (both shown in DV15 alternatives), a version flag on the existing id (rejected: silent change of an accepted API)",
+   "state": "decided, pending owner review"
+  },
+  "DP-V2": {
+   "decision": "annualization is the caller integer A (1..2^63-1), no default; vol = sqrt(A * s2); A=1 is explicit unannualized; the policy does not claim A is sessions per year",
+   "alternatives": "variance annualization A*s2 without sqrt, a calendar-derived factor, fractional A",
+   "state": "decided, pending owner review"
+  },
+  "DP-V3": {
+   "decision": "strict window: N+1 READY consecutive governed closes, no shrinking, no gap spanning; fewer slots in the grid is insufficient_history",
+   "alternatives": "min coverage as in relative_stats, bridging returns",
+   "state": "decided, pending owner review"
+  },
+  "DP-R1": {
+   "decision": "realized variance is the uncentered sum of squared log returns of consecutive governed-slot closes in the target session",
+   "alternatives": "centered sum, bipower or jump-robust variation, subsampled or two-scale estimators",
+   "state": "decided, pending owner review"
+  },
+  "DP-R2": {
+   "decision": "sampling is every governed slot of the supplied grid (the grid version is the sampling frequency); the single-valued sampling parameter makes a coarser step UNSUPPORTED_SAMPLING",
+   "alternatives": "caller sampling step k (anchoring ambiguity), resampling inside the library",
+   "state": "decided, pending owner review"
+  },
+  "DP-R3": {
+   "decision": "overnight exclusion by the reset epoch: only returns between consecutive bars of the target session; the first bar contributes only its close as base (no open-to-close return, no prior-close return)",
+   "alternatives": "include first-bar open-to-close, carry epoch including the overnight return (R17 carry; out of v1), separate overnight feature",
+   "state": "decided, pending owner review"
+  },
+  "DP-R4": {
+   "decision": "the governed grid of the session defines the expected slots, so an early-close session simply has fewer slots and is complete at its last slot; no rescaling to a full-day slot count; cross-session comparability is the consumer's responsibility",
+   "alternatives": "scale by reference_slots/actual_slots, flag early-close sessions",
+   "state": "decided, pending owner review"
+  },
+  "DP-R5": {
+   "decision": "strict completeness from the anchor to the target: no bridging return, no forward fill, no rescaling by expected/observed; a coverage-proven empty slot has no close and yields not_applicable/no_eligible_observations (differs from the money-flow zero-flow rule because a return needs a price)",
+   "alternatives": "bridging, forward fill (zero return), expected/observed scaling, an allowed fraction of missing bars",
+   "state": "decided, pending owner review"
+  },
+  "DP-R6": {
+   "decision": "minimum of one return: t = a is insufficient_history (observed 1, expected 2); RV-to-date at any later governed target is allowed, completeness of the whole session is the caller's choice of target",
+   "alternatives": "caller min_returns parameter, session-complete flag (OPEN OQ7)",
+   "state": "decided, pending owner review"
+  },
+  "DP-R7": {
+   "decision": "realized_variance is unannualized; realized_volatility = sqrt(A * RV) with A required exactly when it is selected",
+   "alternatives": "annualize the variance too, sessions-per-year inferred from the calendar",
+   "state": "decided, pending owner review"
+  },
+  "DP-R8": {
+   "decision": "positive prices only (zero or negative close is INVALID_SCHEMA by the shared validator); units use 'fraction' for dimensionless outputs; no new unit string is introduced (OPEN OQ2)",
+   "alternatives": "new units for variance and beta",
+   "state": "decided, pending owner review"
+  }
+ },
+ "layer_responsibilities": {
+  "library": "admission of supplied closes, alignment and pair validity, returns, windowed sums, beta, correlation, residual, log volatility and realized variance with the stated exactness and accuracy, quality, evidence and every refusal; pure and deterministic; shared per-pair preparation reused by the three relative outputs without coupling their readiness; no acquisition, clock, I/O, calendar lookup or sorting",
+  "ef3_io_611": "maps ordered closes with known_at into the BAR roles exactly as supplied, the daily governed grid and coverage into the R17 context, the single benchmark identity into config; maps results (float64 hex-exact values, status, reasons, counts, witnesses) to the sink conversion; never derives a return, fills or interpolates a missing close, picks a benchmark, normalizes scale, currency or adjustment, injects a default window, minimum, annualization or threshold",
+  "worker_612": "routes selected outputs with exact warm-up closure, shares per-pair preparation within resource bounds, executes one config per complete result, binds inputs and the config digest, persists the library result unchanged; direct, worker and stored results identical including refusal class"
+ },
+ "non_goals": [
+  "no acquisition of prices, benchmarks, calendars or session schedules; no benchmark selection or universe join beyond the one requested pair",
+  "no sector or market construction; no multi-factor or multi-benchmark regression; no rolling-state, update, restore or merge capability",
+  "no carry epoch; no overnight or open-to-close return features; no jump-robust, bipower, two-scale or subsampled realized measures",
+  "no default window, minimum coverage, annualization or threshold; no annual-risk claim for any annualization factor",
+  "no change to and no interplay with history.return_volatility, relative.market_return, relative.sector_return, ReturnReference or any accepted R17 or EF2 output (distinct producers)",
+  "no new DataKind, DTO, codec, scheduler, error code, unit string or shared-validator change; no performance, parity, release or publication claim; no private-source equivalence"
+ ],
+ "amendment_note": "to-be-applied: three producers and six headers (history.log_return_volatility, intraday.realized_variance, intraday.realized_volatility, relative.beta, relative.correlation, relative.residual_return), no new unit; the shared header/unit amendment is a sibling document after the freeze. No shared validator change.",
+ "coordinator_freeze": "Frozen as ef3-rel1, ef3-dlv1 and ef3-rv1 (v1) for implementation once this PR merges (coordinator statement; no review or acceptance claim by the author). Reset epoch mode only; no defaults for windows, A or min_pairs. Any later change needs a new label and an amendment document.",
+ "rulings": {
+  "O1": "relative.* and history.log_return_volatility in packages/features (EF3 module, config namespace ef3.*); intraday.realized_* in packages/intraday; separate catalogs; describe_intraday() and its digest unchanged; no package version bump",
+  "O2": "unit 'fraction' for all six headers (dimensionless); no new unit string",
+  "O3": "daily closes are BAR rows on a daily governed grid with R17 grid and slot-coverage conventions: one slot per governed session, [start_ns,end_ns) session bounds, session_id, grid/calendar identity, target slot and per-slot coverage from the R17 context; one bar per session per role; no DAILY-kind input",
+  "O4": "differing price unit, currency or scale between instrument and benchmark: INVALID_UNIT (require_compatible_inputs); namespace mismatch INCONSISTENT_IDENTITY; no conversion",
+  "O5": "residual variants out of v1",
+  "O6": "no ef3-rel2 log label in v1",
+  "O7": "no session-complete flag; strict completeness internal",
+  "O8": "evidence row ids follow the EF2 convention bar:<start_ns>:<end_ns>; fixtures use compact instrument:slot:i, benchmark:slot:i and slot:i for those bars",
+  "O9": "window/period bound 4096 = R17 period bound (packages/intraday/src/equity_features_intraday/_context.py integer(...,1,4096)) for all producers",
+  "O10": "min_pairs lower bound 2",
+  "O11": "ln and sqrt Decimal120 correctly rounded; acceptance is the R17 tolerance max(8 ulp, 1e-12*|ref|); the earlier absolute-floor allowance is withdrawn (R17 INTRADAY.md: no universal absolute floor; exact zeros return +0.0); DV07 is a bits fixture",
+  "O12": "no interplay with ReturnReference or existing relative returns; distinct producers (non-goal)"
+ }
+}
