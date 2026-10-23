@@ -1,0 +1,3724 @@
+{
+  "schema_version": 1,
+  "kind": "eq164_wave2_x2_command_exclusion_adjudication",
+  "status": "adjudicated findings only; no row approved; full EQ164 open",
+  "scope": {
+    "other_domain_rows": 101,
+    "standalone_rows": 6
+  },
+  "verdict_counts_other_domain": {
+    "CONFIRM_EXCLUSION": 82,
+    "NEEDS_OWNER_DECISION": 11,
+    "REJECT_EXCLUSION": 8
+  },
+  "verdict_counts_standalone": {
+    "NEEDS_OWNER_DECISION": 1,
+    "CONFIRM_EXCLUSION": 5
+  },
+  "questions": {
+    "Q1": "Is the product-private admission of equity trade prints into underlying-price observations (action eligibility, validity, identity and clock policy) a retained source-access/representation obligation owned by the EF1 I/O story (#570) or the regular-price story (#506), or an excluded product-private adapter?",
+    "Q2": "Is the product-defined selection of a fixed-size stock universe from supplied activity and classification facts a retained universe-admission obligation (same treatment as C0215; candidate owners #598 or #508), or an excluded product policy?",
+    "Q3": "Is the dated-event-source schema/validator reused from the equity side, together with the event-free-interval test over a supplied schedule, a retained supplied-fact obligation (candidate owners EQ-173 #514 and EF6 I/O #617) or product-private?",
+    "Q4": "Is a first-to-last window return computed from product-carried underlying price samples and used for a confluence indicator a retained raw-return profile (candidate owners #513 or #507) or a product-private composite excluded with its product?",
+    "Q5": "The command rewrites option-derived columns into the equity candidate artifact. Which numbered equity owner (#520 lifecycle, #521 history, or a gap story) owns that artifact schema and consumer contract, and is the enrichment a product-owned downstream join?",
+    "Q6": "Which numbered owner holds the obligation that the product wire schema stays consistent with the outputs of retained components (observed outcomes, event context): EQ-180 #522, or is the schema product-private?"
+  },
+  "method": {
+    "clusters": {
+      "K1": "first product family cluster",
+      "K2": "second product family cluster",
+      "K3": "third product family cluster",
+      "K4": "fourth product family cluster"
+    },
+    "evidence_kinds": [
+      "owned command source read in full",
+      "source of directly called product packages",
+      "import-closure and reverse-import scans",
+      "static over-approximate call-graph reachability to sentinel equity-fact producers",
+      "subprocess/interface/stream-key scan"
+    ],
+    "limits": [
+      "call-graph is method-name over-approximate and does not prove runtime reachability",
+      "runtime dispatch, deployment configuration and stream contents not inspected",
+      "no numerical, source-rights or consumer verification performed"
+    ]
+  },
+  "other_domain_rows": [
+    {
+      "opaque_id": "C0103",
+      "cluster": "K1",
+      "role_class": "source_registration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "304bb27232920d02f7b5ddad6c122fe72fa90d507facbd8791dddb2abb85b1c0",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 3,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC4 other-product source registration of supplied facts, no equity output",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0104",
+      "cluster": "K1",
+      "role_class": "projection_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "5692e0497713177a8d545fd905335154462bb6693fd89e1acc36324b6bf7354d",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "uses the trading-calendar session close as an operand only; relates to the open calendar predecessor C0051 but adds no equity output",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0105",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "72dc3da13bf8ad86f79d74f50083c92731de6c5b63d40d5c6541832a57b28a4b",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 3,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "uses the trading-calendar session close as an operand only; relates to the open calendar predecessor C0051 but adds no equity output",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0106",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "9f88b7028932e42959f8faa7c0082e2d0e5cfb49a7dbe14597d675e8da4bf5a1",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 5,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0107",
+      "cluster": "K1",
+      "role_class": "api_surface",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "0a365b2d424ed1dd0388320a75a7ed35d16d2be705cad1b34ed1e25d1b7dfee9",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 3,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0108",
+      "cluster": "K1",
+      "role_class": "verification_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "9f2e7f4bf8357990517ab516526d50c2ceb55529c7e698dfc506274e1e34e171",
+      "owned_source_file_count": 3,
+      "direct_call_witness_count": 14,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0109",
+      "cluster": "K1",
+      "role_class": "batch_prepare",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "b28e4ef0cd2b237c19a7bf73081a91af353bc4ffbe2b86666a625f7495dffe9f",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 8,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q1"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0110",
+      "cluster": "K1",
+      "role_class": "admin_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "e2c03e309f477f95e42b2934c30f72f63e3e17f33f3141049e7136a18d13c656",
+      "owned_source_file_count": 14,
+      "direct_call_witness_count": 49,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC3 verification/replay shell re-executing components retained elsewhere",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": true,
+        "static_reach_size_bucket": "400+",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "re-executes retained components for verification only; the component owners cover the calculation",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0111",
+      "cluster": "K1",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "94eec3a609ce8a111b54201e5e7e60322b2586de751ac771a8bdac0934503ae3",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 9,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0112",
+      "cluster": "K1",
+      "role_class": "batch_prepare",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "fee1eda5c596f64dd2458de23ff78145ecb7b40a018742c93db07f18a819888b",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 9,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0113",
+      "cluster": "K1",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "784ecde026d6b2c509bd0c3f3b56d82cb347f42681d070fea7ed62ed1b6333e6",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0114",
+      "cluster": "K1",
+      "role_class": "audit_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "51f31a28249e2287029cb5a061ff7ddff916268ac46f52c756eda3aab7833206",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC3 verification/replay shell re-executing components retained elsewhere",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "re-executes retained components for verification only; the component owners cover the calculation",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0117",
+      "cluster": "K1",
+      "role_class": "restore_stage",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "d07c3b47a286421a9beb1cf97a852b444ed101ac3d402e9e6129e2e997c39c1d",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "shared capture-restore plumbing also restores equity-side capture consumers; recovery of captured bytes only, no calculation",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0118",
+      "cluster": "K1",
+      "role_class": "publication_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "2fef184f00b8b1ba7a9ab4d13fdcad41dce83fea44dd2237ccf00c79fdd37aa2",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q3"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Decodes and validates the dated company-event source through the equity-side schema validator and publishes it to a product store",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0119",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "0653895ad5e550462ae1f7fe89c088e9715023e09b944f49621845ad3ebecf40",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 3,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0120",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "b37f08d4006e93cf077b108c8869005cdad18c47d5916ad2e12fb43d45da81b9",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0121",
+      "cluster": "K1",
+      "role_class": "audit_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "92382a6bae143b70f0b6b5a825d68f58105f01bef45eb8a193518ce6d619f9ef",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 8,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0122",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "9083840e5e33662966dcee6ef820b76127c29f867186b4eb84c3dac1dfc7ef9b",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 3,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q4"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Computes a first-to-last window return over underlying price samples carried in the product records",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0123",
+      "cluster": "K1",
+      "role_class": "batch_process",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "9b7bf9745e28cfa9025e7ccb53b3d9dad37dc6fd6316853478dcc342306ba8c2",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 9,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [
+        "Q3 (dependent)"
+      ],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "attaches event-schedule context and a supplied underlying price to product enrichment records; no equity calculation, dependent on Q3",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0124",
+      "cluster": "K1",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "aa9a39f6f599d9cf20ce9cb93902fefa5b8a72270f26888ac96c44db9c2c6f0c",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 10,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0125",
+      "cluster": "K1",
+      "role_class": "projection_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "d8a662bad5c937e479748e703f117011c00eeb126cf53b6a078e77e96e073068",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 1,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0126",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "31744eafb9500cb67566b16697a4253c23e9725f6bcf0af779ee94a0f7d408dd",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 3,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0127",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "8f786d707573a1b211da5ae219da10ace4c86d81b0a15b75224f854153a61ed2",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 27,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0128",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "1b0243cbea53ddb2bc1248bd37c147c398b125484fdd75a9484f7252344f9e88",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 5,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0129",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "779da5bdefbe1b649388821c06ddd004b60d332692a901faffb9cdb506063b64",
+      "owned_source_file_count": 5,
+      "direct_call_witness_count": 24,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": true,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0130",
+      "cluster": "K1",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "cc85964e4a1e75509d858219e3bbc3af1f85fc319832a4f09dfefa402a2d952d",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 10,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0131",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "55723da13c65156a59687ad20dccedcacd08fe4b1a1d642d58e730efec1d9c77",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0132",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "07aca553e4109eeacd7f9b6756c7f80146bd92a116333a912f076544391f848b",
+      "owned_source_file_count": 3,
+      "direct_call_witness_count": 12,
+      "verdict": "REJECT_EXCLUSION",
+      "reason_class": "",
+      "retained_components": [
+        {
+          "kind": "pure producer",
+          "description": "observed-path underlying return and favourable/adverse excursion from an event anchor over fixed horizons",
+          "owner_story": "EQ-174 #515 (EF7); I/O #619; worker #620",
+          "note": "anchor and horizon are caller-supplied operands in the equity contract"
+        },
+        {
+          "kind": "supplied fact",
+          "description": "session-close-capped horizon targets from the trading calendar",
+          "owner_story": "EF1 clocks #505/#506; calendar predecessor C0051 owner choice still open",
+          "note": ""
+        },
+        {
+          "kind": "source access",
+          "description": "underlying price samples admitted from trade prints",
+          "owner_story": "see Q1",
+          "note": "dependent"
+        }
+      ],
+      "open_question_ids": [
+        "Q1"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": true,
+        "static_reach_size_bucket": "150-399",
+        "result": "direct or transitive reach of a retained component found",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Directly executes the observed-path outcome producer for the product anchor population",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0133",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "e2d909980154174bad1205b37f3a296e174fe629e2a025302065866948cfae0e",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 11,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": true,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0134",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "41a295ed003cca78765a3a9815755a349afd0c208fde24b99dea05d1de6e81e7",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0135",
+      "cluster": "K1",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "dbb1f97901445dcb600346a9e5e1d5aab8e3d1cd9b8c9436fe6eafca9305dbc7",
+      "owned_source_file_count": 5,
+      "direct_call_witness_count": 40,
+      "verdict": "REJECT_EXCLUSION",
+      "reason_class": "",
+      "retained_components": [
+        {
+          "kind": "pure producer",
+          "description": "observed-path underlying return and favourable/adverse excursion from an event anchor over fixed horizons",
+          "owner_story": "EQ-174 #515 (EF7); I/O #619; worker #620",
+          "note": "anchor and horizon are caller-supplied operands in the equity contract"
+        },
+        {
+          "kind": "supplied fact",
+          "description": "session-close-capped horizon targets from the trading calendar",
+          "owner_story": "EF1 clocks #505/#506; calendar predecessor C0051 owner choice still open",
+          "note": ""
+        },
+        {
+          "kind": "source access",
+          "description": "underlying price samples admitted from trade prints",
+          "owner_story": "see Q1",
+          "note": "dependent"
+        }
+      ],
+      "open_question_ids": [
+        "Q1"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": true,
+        "static_reach_size_bucket": "150-399",
+        "result": "direct or transitive reach of a retained component found",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Replays all derived analyses including the observed-path outcome producer and verifies archived price binding; orchestration of a retained component",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0136",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "3943e875d613dd31d0801e53c11009c8f49b8f82cd16ebf78474571468e8d963",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 11,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0137",
+      "cluster": "K1",
+      "role_class": "capacity_publisher",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "cd4bbb7cdd7b73e5c9f679d7aa9993f497fc1fe53290248fc59fd2d907e3561b",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0138",
+      "cluster": "K1",
+      "role_class": "publication_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "cd559d9a6225e10464009e827d740a3a77df0839b17d0132ff7c98639c2ac3c4",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 9,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0140",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "8ae1d199bb7bdea390327751cbe4e72a42af110e6d4beec217cfa9d65df5962e",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 7,
+      "verdict": "REJECT_EXCLUSION",
+      "reason_class": "",
+      "retained_components": [
+        {
+          "kind": "pure producer",
+          "description": "observed-path underlying return and favourable/adverse excursion from an event anchor over fixed horizons",
+          "owner_story": "EQ-174 #515 (EF7); I/O #619; worker #620",
+          "note": "anchor and horizon are caller-supplied operands in the equity contract"
+        },
+        {
+          "kind": "supplied fact",
+          "description": "session-close-capped horizon targets from the trading calendar",
+          "owner_story": "EF1 clocks #505/#506; calendar predecessor C0051 owner choice still open",
+          "note": ""
+        },
+        {
+          "kind": "source access",
+          "description": "underlying price samples admitted from trade prints",
+          "owner_story": "see Q1",
+          "note": "dependent"
+        }
+      ],
+      "open_question_ids": [
+        "Q1"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "direct or transitive reach of a retained component found",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Directly executes the observed-path outcome producer for the product anchor population",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0141",
+      "cluster": "K1",
+      "role_class": "projection_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "205b7b0e3f37b868d68fcbe217352349350e4d86d4b58fbe35bb18d8f7efe219",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0142",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "885b7c0f3063544d4543ac5d45715f8eebd61d2f02173ce0fbd1c47b2cb09664",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0143",
+      "cluster": "K1",
+      "role_class": "import_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "115973df05e326eb14ed85858fd5d7e9561f4c9c89129822177e7bc580e79c94",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 8,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC3 verification/replay shell re-executing components retained elsewhere",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "re-executes retained components for verification only; the component owners cover the calculation",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0144",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "58e29e2f8f0e790d50292819fc60e5a144cfdac62f982f2f1f6caa881243557e",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "option quote response measures; only the session close is shared with the calendar item",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0145",
+      "cluster": "K1",
+      "role_class": "projection_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "8ec08e564bd80a4a8d3a99b2ddb5366edf28788dbb4e8e0089e379038391c963",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0146",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "c991f997b720784e9b34534d26d89c542e6573bad771c57af710f4c660c08b38",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0148",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "f193f8bb1780d0193d82dbcca71a851a893dc86fe5e8f0fd4984e6d289a5f0bc",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 5,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q1"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0149",
+      "cluster": "K1",
+      "role_class": "projection_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "42b88311b738f94d01d2d7213fb9553e46c3e68b55a3469fcbb77d489d785878",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 5,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0150",
+      "cluster": "K1",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "7bb3ed1f01a4020d6a823477b8c969ccfba77dd3a09d282e1575dfc75230bd8f",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 11,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0151",
+      "cluster": "K1",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "c07fe32b7f9eae9130f97b6655391e57b5179c2f8c5361f9af06cc8d30cb3c90",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q2"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Freezes a fixed-size stock universe from supplied activity and classification facts using a median ranking",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0152",
+      "cluster": "K1",
+      "role_class": "delivery_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "4ecc7e52433a11794febfa94b56e5586586c36f13d539da0ce4d95cc40f7abac",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0157",
+      "cluster": "K2",
+      "role_class": "api_surface",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "a7b838adc0f5cb90c9e6988fe8008de932c9ce4144d7b4968e1fe5128deb3605",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 3,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0158",
+      "cluster": "K2",
+      "role_class": "credential_admin",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "3c490de63e70aee13126edeebf1499c305ca815ffb85c6595de2f308d26173bc",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 1,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0159",
+      "cluster": "K2",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "9211ff2249328212ee89ed7dd5443e9fb55b18e48de07ad7b38ffd01529957e4",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0160",
+      "cluster": "K2",
+      "role_class": "archive_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "f0f830bd25f425280bca86094882f5519810be2a2edcc5b8e6f575a89c5b2221",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0161",
+      "cluster": "K2",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "c15cfa45b56eed8b73ed848f75ae35db4664d136d676a1335665dcd5587f6a14",
+      "owned_source_file_count": 9,
+      "direct_call_witness_count": 79,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q1"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "400+",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0162",
+      "cluster": "K2",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "5822286fb660f144edda6b656d6e60ec386ed548f622d4ae441f31ef12eecb4f",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 10,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q1"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0163",
+      "cluster": "K2",
+      "role_class": "publication_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "0412aacfbe521a0929fa11bc4553e4bdd18a8a6dd5cd799f43d2b2d9e98d0579",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 15,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q1"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0164",
+      "cluster": "K2",
+      "role_class": "repair_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "c96410507552c058c2d92e313eac05dfc91ca7106444fef529015e3f7502f4ac",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [
+        "Q1 (dependent)"
+      ],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0165",
+      "cluster": "K2",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "dbf81db5e1fb3fcbb668c2da993d77a7934c32665d7e7a0c6bf1e4135906c3a2",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0166",
+      "cluster": "K2",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "fed558f5d53ddf9e4afa344c95d2903ab3ce915daa5976a9513e18c0cd48bc85",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 5,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0167",
+      "cluster": "K2",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "1fc401ebf1fdc945ae6997701f083272b56bfdb34973b23206cb3d0c3932a8ec",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0168",
+      "cluster": "K2",
+      "role_class": "projection_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "5ba8bb7525fe593be3d372fad92c48cfabaa5631d4da3b5afc0d5c5e1c5689c8",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0169",
+      "cluster": "K2",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "1d9fcffb9a761a339a490842a671537cb7892288cec8ddb64579a987677ffc93",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0170",
+      "cluster": "K2",
+      "role_class": "retention_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "e52b09e3aa1f5b2b4761d1cd698d17ab17daa81f5fb6261e8ff5f07ebe7773f4",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0171",
+      "cluster": "K2",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "882eaf293d0753f2c929b840fd10a8a236f5da8b05c381db3336b92b4ed7877f",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 8,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0172",
+      "cluster": "K2",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "ce2fb055879cbcd785473c2497a59b784f644cc868554c6cf48ea6415a18fdbe",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0173",
+      "cluster": "K2",
+      "role_class": "publication_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "3f334c74449157dacca3d55bf567e374859ded50690c13d3c1332ce75a73f80c",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0174",
+      "cluster": "K2",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "2eec4935c29a7cefa8505e10635fe8ba389bf09ac98d1e08809be6f0e8b2ab05",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0175",
+      "cluster": "K2",
+      "role_class": "schema_migration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "27a56379a1c88d095db402d5fead771b608306edd4aa6cd3d99acc00e70f0310",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0176",
+      "cluster": "K2",
+      "role_class": "repair_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "348c0c4f705f6be70898770476b5d81e355b06115c8b18a5835d1811a6ec7298",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0177",
+      "cluster": "K2",
+      "role_class": "verification_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "a0a6bbb1b4a65953cf6b9e18ec8c934936795ad2155ae8a849851e334e92718d",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 8,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 strategy context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0188",
+      "cluster": "K4",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "209e06684aed7ee05743ccd83cdb0878dafe6338cdba3bbc6dc325ca103ce162",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 8,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 strategy context/score",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "option-implied-volatility rank over product inputs; outputs consumed by equity strategy layers as supplied facts",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0199",
+      "cluster": "K4",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "15bc904b3a2f162f3f1f5de2314afde6d98264cc3490bba23d9416c0cc94b81e",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 11,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 end-of-day candidate context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0203",
+      "cluster": "K4",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "ef89f1c41da3bf710e1f70157877118cbc3759ae4d3417da1c06a30b5852cf64",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 8,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 strategy context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0205",
+      "cluster": "K4",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "07c9a8941acf199ae324e2dd5f99984261d54ef9c559df22cd3d2a566d94f045",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 strategy context (utility only)",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0209",
+      "cluster": "K4",
+      "role_class": "batch_process",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "8c5f05e951b33de3157f26bd5fd945f38657f544859e1edff19dc8c756da9346",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 9,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q5"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 end-of-day candidate context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Reads the equity candidate artifact and rewrites option-derived columns into it",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0210",
+      "cluster": "K4",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "09b09b9550c6d285253c3c74d2e208683d729ac30016bb422724b667c7751c57",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 1,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 end-of-day candidate context (utility only)",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0212",
+      "cluster": "K4",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "fd9752593611706d2f4b8a3133c94d51f825ca71024f8437beb61a7f0c3ef1f2",
+      "owned_source_file_count": 4,
+      "direct_call_witness_count": 32,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 end-of-day candidate context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0214",
+      "cluster": "K4",
+      "role_class": "publication_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "b0bc333b515b29c7e95023b070200be1dd1050421fc971fdd3988a8a80d45973",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 end-of-day candidate context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0216",
+      "cluster": "K4",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "860fa2e6dead6de3fda03b2fa5ae45db091ed451baab74edc59df65b79f7e8d5",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 12,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 confirmation",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0219",
+      "cluster": "K4",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "34bb7263aed3c3c01df6fbbd795cbc64fafb545db45f098f455a8eaaa0c3ed99",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 11,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 strategy context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0223",
+      "cluster": "K4",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "8a395428522ce9c6b7416893c98b67fb29bd86462d46abf6d38c9046ea230825",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 11,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 end-of-day candidate context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0242",
+      "cluster": "K4",
+      "role_class": "artifact_builder",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "e7dddb86a097d45696d45b41ddfcb4795d3f66fb7911c6cfc22ee084d72ef255",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 strategy context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "robust normalisation over option inputs only; no equity input",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0243",
+      "cluster": "K4",
+      "role_class": "artifact_loader",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "f3e87d74f1007a9a76ae19cccf48b6417e9b8cb7c4a95165e30cfad4d6342ad7",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 strategy context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "robust normalisation over option inputs only; no equity input",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0244",
+      "cluster": "K4",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "636348fbab7a559db9ab7b89321a9716c60718abc26c1318562cc4a792f6d5f3",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC5 other-product wrapper of a kernel the equity side consumes as supplied facts",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 strategy context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0249",
+      "cluster": "K4",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "8ea228652e890293d5816cd9721e33971f49f68e93677ecf29c8fcadda42e3f2",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 15,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q4"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "EF8 strategy context",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Computes a first-to-last window return over underlying price samples carried in the product records",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0277",
+      "cluster": "K3",
+      "role_class": "api_surface",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "e48731837c59437482a83587829baf79b964985dcada3bfc2b0f2ded6cb01f17",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 7,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0278",
+      "cluster": "K3",
+      "role_class": "control_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "c019e6ac028f6ebc197f9b64d852934b8d83d6fe4bb48107a566af30a6117cb2",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0279",
+      "cluster": "K3",
+      "role_class": "source_registration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "c72cf94aaefa90b3a8de16a17036e4b30b3352f2528c10c630672bdde5179b5b",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "NEEDS_OWNER_DECISION",
+      "reason_class": "",
+      "retained_components": [],
+      "open_question_ids": [
+        "Q3"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "embedded equity-fact handling found; question open",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Decodes and validates the dated company-event source through the equity-side schema validator and publishes it to a product store",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0280",
+      "cluster": "K3",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "34bcd9af4ae5ec54fbdfc0ae58c8c19c5c4248a7f11aa8710756963bc250a530",
+      "owned_source_file_count": 2,
+      "direct_call_witness_count": 13,
+      "verdict": "REJECT_EXCLUSION",
+      "reason_class": "",
+      "retained_components": [
+        {
+          "kind": "pure producer",
+          "description": "daily realized volatility from supplied adjusted daily closes",
+          "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612",
+          "note": "product variant parameters (adjustment-basis handling, calendar alignment, annualisation) must be named as a profile in the #488 contract or declared a distinct product-private profile"
+        },
+        {
+          "kind": "supplied fact",
+          "description": "adjusted daily closes with adjustment basis and corporate-action reference",
+          "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508",
+          "note": ""
+        },
+        {
+          "kind": "policy",
+          "description": "event-free interval test over a supplied dated-event schedule",
+          "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY",
+          "note": "pending Q3"
+        }
+      ],
+      "open_question_ids": [
+        "Q3"
+      ],
+      "dependent_question_ids": [
+        "Q1 (dependent)"
+      ],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "400+",
+        "result": "direct or transitive reach of a retained component found",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Reaches the daily-realized-volatility producer through the product evidence/forecast path (call path of 5 to 8 hops); also reaches event-schedule windows and trade-print admission",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0281",
+      "cluster": "K3",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "f9f2c51fc9fd163d44dcd3c262db164d9b17e843f91ca42d85673b29718e1cc1",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 7,
+      "verdict": "REJECT_EXCLUSION",
+      "reason_class": "",
+      "retained_components": [
+        {
+          "kind": "pure producer",
+          "description": "daily realized volatility from supplied adjusted daily closes",
+          "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612",
+          "note": "product variant parameters (adjustment-basis handling, calendar alignment, annualisation) must be named as a profile in the #488 contract or declared a distinct product-private profile"
+        },
+        {
+          "kind": "supplied fact",
+          "description": "adjusted daily closes with adjustment basis and corporate-action reference",
+          "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508",
+          "note": ""
+        },
+        {
+          "kind": "policy",
+          "description": "event-free interval test over a supplied dated-event schedule",
+          "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY",
+          "note": "pending Q3"
+        }
+      ],
+      "open_question_ids": [
+        "Q3"
+      ],
+      "dependent_question_ids": [
+        "Q1 (dependent)"
+      ],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "400+",
+        "result": "direct or transitive reach of a retained component found",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Reaches the daily-realized-volatility producer through the product evidence/forecast path (call path of 5 to 8 hops); also reaches event-schedule windows and trade-print admission",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0282",
+      "cluster": "K3",
+      "role_class": "projection_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "3e5090d31b0cb9d84a310517703af04d9705ee9244cad028266813e1dad00cf4",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0283",
+      "cluster": "K3",
+      "role_class": "source_registration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "df39a475100908b623025b6587d19e34c1c474397f808ee9d69c19cf3e3c6724",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC4 other-product source registration of supplied facts, no equity output",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0284",
+      "cluster": "K3",
+      "role_class": "source_registration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "c1063c2e970fee714d3c274bb7d12d8036919d43e89042fcdbe330cad57fca47",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 1,
+      "verdict": "REJECT_EXCLUSION",
+      "reason_class": "",
+      "retained_components": [
+        {
+          "kind": "pure producer",
+          "description": "daily realized volatility from supplied adjusted daily closes",
+          "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612",
+          "note": "product variant parameters (adjustment-basis handling, calendar alignment, annualisation) must be named as a profile in the #488 contract or declared a distinct product-private profile"
+        },
+        {
+          "kind": "supplied fact",
+          "description": "adjusted daily closes with adjustment basis and corporate-action reference",
+          "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508",
+          "note": ""
+        },
+        {
+          "kind": "policy",
+          "description": "event-free interval test over a supplied dated-event schedule",
+          "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY",
+          "note": "pending Q3"
+        }
+      ],
+      "open_question_ids": [
+        "Q3"
+      ],
+      "dependent_question_ids": [
+        "Q1 (dependent)"
+      ],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "400+",
+        "result": "direct or transitive reach of a retained component found",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Reaches the daily-realized-volatility producer through the product evidence/forecast path (call path of 5 to 8 hops); also reaches event-schedule windows and trade-print admission",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0285",
+      "cluster": "K3",
+      "role_class": "source_registration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "81a6538a1b144d3f01171bd7c4c69a8e17259cdd395567926472cf111c740db1",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC4 other-product source registration of supplied facts, no equity output",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0286",
+      "cluster": "K3",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "df876116732fa235d6ed25cb07676d0c96517c86b9c7b180723093bef9d5fcf7",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 11,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0287",
+      "cluster": "K3",
+      "role_class": "control_tool",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "c1d4c565d67abf6f56b4a69fa61aa30769370c623f0b23502a090007d9e6ca08",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0288",
+      "cluster": "K3",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "2165d0e0e05ae082535e75b7229481b2e33d923ebb902a9d31f35a224eeeeda9",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 4,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC2 other-product calculation or transport worker; any equity-looking value is only a supplied operand",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0289",
+      "cluster": "K3",
+      "role_class": "source_registration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "5cb83d16177f3547f7b0e34033b408adf23b66d15a7166d6eb875454fdd304ce",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC4 other-product source registration of supplied facts, no equity output",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [
+        "Q1 (dependent)"
+      ],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "150-399",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0290",
+      "cluster": "K3",
+      "role_class": "stream_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "423cc2709e4df4f2fb484bf82761abc710971fe96604bc71042287b1fa593038",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 5,
+      "verdict": "REJECT_EXCLUSION",
+      "reason_class": "",
+      "retained_components": [
+        {
+          "kind": "pure producer",
+          "description": "daily realized volatility from supplied adjusted daily closes",
+          "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612",
+          "note": "product variant parameters (adjustment-basis handling, calendar alignment, annualisation) must be named as a profile in the #488 contract or declared a distinct product-private profile"
+        },
+        {
+          "kind": "supplied fact",
+          "description": "adjusted daily closes with adjustment basis and corporate-action reference",
+          "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508",
+          "note": ""
+        },
+        {
+          "kind": "policy",
+          "description": "event-free interval test over a supplied dated-event schedule",
+          "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY",
+          "note": "pending Q3"
+        }
+      ],
+      "open_question_ids": [
+        "Q3"
+      ],
+      "dependent_question_ids": [
+        "Q1 (dependent)"
+      ],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "400+",
+        "result": "direct or transitive reach of a retained component found",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Reaches the daily-realized-volatility producer through the product evidence/forecast path (call path of 5 to 8 hops); also reaches event-schedule windows and trade-print admission",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0291",
+      "cluster": "K3",
+      "role_class": "batch_build",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "e85137a8a9ac4cf9085498fba9fe5b3fa336858752416e1e14c53608df76b182",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 17,
+      "verdict": "REJECT_EXCLUSION",
+      "reason_class": "",
+      "retained_components": [
+        {
+          "kind": "pure producer",
+          "description": "daily realized volatility from supplied adjusted daily closes",
+          "owner_story": "EQ-154 #488 (EF3); I/O #611; worker #612",
+          "note": "product variant parameters (adjustment-basis handling, calendar alignment, annualisation) must be named as a profile in the #488 contract or declared a distinct product-private profile"
+        },
+        {
+          "kind": "supplied fact",
+          "description": "adjusted daily closes with adjustment basis and corporate-action reference",
+          "owner_story": "EF3 I/O #611 with EF1 reference/action gates #508",
+          "note": ""
+        },
+        {
+          "kind": "policy",
+          "description": "event-free interval test over a supplied dated-event schedule",
+          "owner_story": "EQ-173 #514 (EF6) or NEEDS_NEW_STORY",
+          "note": "pending Q3"
+        }
+      ],
+      "open_question_ids": [
+        "Q1",
+        "Q3"
+      ],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "400+",
+        "result": "direct or transitive reach of a retained component found",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "Reaches the daily-realized-volatility producer through the corpus path and normalises historical trade prints directly",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0292",
+      "cluster": "K3",
+      "role_class": "source_registration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "c306927dc8f055906dd6ec2472bcc404bd5c620e9afdd22a85010ea0ff82fdc4",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 6,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC4 other-product source registration of supplied facts, no equity output",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "registers a supplied adjusted-close and sample artifact for the product store; its calculation is in the rows that reach the retained producer",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0293",
+      "cluster": "K3",
+      "role_class": "source_registration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "81f1bbfdcaa1bdbb73a669ea53b0ca4c79fafce9b7d2695bf6e6321d7ecf2e22",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 8,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC4 other-product source registration of supplied facts, no equity output",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "retained components reached only as operands or verification; no new obligation",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "registers a supplied corporate-action adjustment basis for the product store; no calculation",
+      "confidence": "medium",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0294",
+      "cluster": "K3",
+      "role_class": "schema_migration",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "674a0f76af0bde92e61bc2b45932876e7a1ae5ded093cd5838bf9d7c73d8ff84",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "50-149",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    },
+    {
+      "opaque_id": "C0295",
+      "cluster": "K3",
+      "role_class": "delivery_worker",
+      "plan_disposition": "proposed_other_domain_exclusion",
+      "plan_evidence_digest_sha256": "54c008f613bbfd6b927da7bf51cdb390261df640cfc983885743906092729e10",
+      "owned_source_file_count": 1,
+      "direct_call_witness_count": 2,
+      "verdict": "CONFIRM_EXCLUSION",
+      "reason_class": "RC1 operational shell of another product, no equity fact",
+      "retained_components": [],
+      "open_question_ids": [],
+      "dependent_question_ids": [],
+      "equity_consumer_link": "",
+      "evidence_inspected": [
+        "owned command source read in full",
+        "source of the directly called product packages",
+        "import-closure scan for equity-domain packages",
+        "subprocess, interface and stream-key scan of the command",
+        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
+        "reverse-import scan: equity-side consumers of the packages this command uses"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "interface_dispatch_present": false,
+        "static_reach_size_bucket": "<50",
+        "result": "no retained component reached",
+        "runtime_dispatch_proven_absent": false
+      },
+      "finding": "",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+    }
+  ],
+  "standalone_rows": [
+    {
+      "opaque_id": "C0139",
+      "plan_disposition": "EXCLUDE_STANDALONE_NUMERICAL_FEATURE_KEEP_SCHEMA_CONSUMER_LINKS",
+      "plan_evidence_digest_sha256": "30fed8cdca42801ee2f39c2869509bd04e407865d357262266558295350cb993",
+      "review_manifest": "docs/plans/equity-nine-command-source-review.json",
+      "verdict": "NEEDS_OWNER_DECISION",
+      "kept_obligation": "schema/consumer links",
+      "obligation_tie_status": "UNTIED",
+      "open_question_ids": [
+        "Q6"
+      ],
+      "evidence_inspected": [
+        "owned command source read in full",
+        "plan flags and nine-command review record",
+        "subprocess, interface and stream-key scan"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "result": "closed"
+      },
+      "finding": "Wire-schema generator over the product output types, which include the observed-outcome and event-context types whose calculations are retained by the C0140 and C0118 findings. The exclusion of the generator itself stands, but its kept schema/consumer-link obligation has neither a numbered owner nor an open-item flag in the plan.",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval"
+    },
+    {
+      "opaque_id": "C0153",
+      "plan_disposition": "EXCLUDE_STANDALONE_MATH_DYNAMIC_CHILD_GRAPH_REMAINS_OPEN",
+      "plan_evidence_digest_sha256": "d9a0703b34f5e852edb279273c9f6627107443a9e9b80b2b9c9346e4efa89604",
+      "review_manifest": "docs/plans/equity-nine-command-source-review.json",
+      "verdict": "CONFIRM_EXCLUSION",
+      "kept_obligation": "dynamic child graph",
+      "obligation_tie_status": "TIED_OPEN_ITEM",
+      "open_question_ids": [],
+      "evidence_inspected": [
+        "owned command source read in full",
+        "plan flags and nine-command review record",
+        "subprocess, interface and stream-key scan"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": true,
+        "result": "child set not closable from source"
+      },
+      "finding": "Launches configured child binaries as subprocesses; the child set comes from deployment configuration that is not in the source, so the graph cannot be closed statically. The plan flag scope_ownership_or_dynamic_route_open is the explicit open item; no numbered owner holds it, so it should be carried by the coverage stories #522/#523 until the configuration is supplied.",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval"
+    },
+    {
+      "opaque_id": "C0156",
+      "plan_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_MEASUREMENT_ONLY",
+      "plan_evidence_digest_sha256": "1483c7ecf88d3dcb87cce01988525c12dcb1781f532c449d50f5ad9606712317",
+      "review_manifest": "docs/plans/equity-nine-command-source-review.json",
+      "verdict": "CONFIRM_EXCLUSION",
+      "kept_obligation": "measurement only",
+      "obligation_tie_status": "NO_OBLIGATION_REMAINS",
+      "open_question_ids": [],
+      "evidence_inspected": [
+        "owned command source read in full",
+        "plan flags and nine-command review record",
+        "subprocess, interface and stream-key scan"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "result": "closed"
+      },
+      "finding": "Latency measurement client against a caller-supplied endpoint; reads no feature value and writes only a console report. Nothing retained needs an owner.",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval"
+    },
+    {
+      "opaque_id": "C0215",
+      "plan_disposition": "EXCLUDE_STANDALONE_PRICE_FEATURE_RETAIN_UNIVERSE_ADMISSION",
+      "plan_evidence_digest_sha256": "0e70a8bdb6cebcecbb8ad29582c342db00fe93dbd7901e36902f7e04dc3ff58a",
+      "review_manifest": "docs/plans/equity-nine-command-source-review.json",
+      "verdict": "CONFIRM_EXCLUSION",
+      "kept_obligation": "universe admission",
+      "obligation_tie_status": "TIED_OPEN_ITEM",
+      "open_question_ids": [
+        "Q2"
+      ],
+      "evidence_inspected": [
+        "owned command source read in full",
+        "plan flags and nine-command review record",
+        "subprocess, interface and stream-key scan"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "result": "closed"
+      },
+      "finding": "Derives the option parent universe from the already-acquired day equity-definition membership and writes a provenance record. It computes nothing, but the equity membership it reuses is a universe-admission fact. The plan flag is the open item; no numbered owner holds it. Same decision family as Q2 (candidate owners #598 or #508).",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval"
+    },
+    {
+      "opaque_id": "C0247",
+      "plan_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_STORAGE_RETENTION_ONLY",
+      "plan_evidence_digest_sha256": "1d3e233d5fadf1bb366afdb0136a15e8a5046e42e59a37db37ba3ef28898695b",
+      "review_manifest": "docs/plans/equity-nine-command-source-review.json",
+      "verdict": "CONFIRM_EXCLUSION",
+      "kept_obligation": "storage retention only",
+      "obligation_tie_status": "NO_OBLIGATION_REMAINS",
+      "open_question_ids": [],
+      "evidence_inspected": [
+        "owned command source read in full",
+        "plan flags and nine-command review record",
+        "subprocess, interface and stream-key scan"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "result": "closed"
+      },
+      "finding": "Trims and expires product-scoped scanner history keys in a store, refusing to apply unless persistence markers exist; the key pattern is product-scoped. No equity data or calculation.",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval"
+    },
+    {
+      "opaque_id": "C0267",
+      "plan_disposition": "EXCLUDE_STANDALONE_EQUITY_MATH_FILESYSTEM_PROVENANCE_ONLY",
+      "plan_evidence_digest_sha256": "a2590d8570eb5bdc11b27abe7a850f5f7b90db1050b4e2cfcdb0e94b069bf301",
+      "review_manifest": "docs/plans/equity-nine-command-source-review.json",
+      "verdict": "CONFIRM_EXCLUSION",
+      "kept_obligation": "filesystem provenance only",
+      "obligation_tie_status": "NO_OBLIGATION_REMAINS",
+      "open_question_ids": [],
+      "evidence_inspected": [
+        "owned command source read in full",
+        "plan flags and nine-command review record",
+        "subprocess, interface and stream-key scan"
+      ],
+      "delegated_interface_subprocess_closure": {
+        "subprocess_launch_in_command": false,
+        "result": "closed"
+      },
+      "finding": "Inventories sizes and optional duplicate hashes of a local data directory and reads column-file metadata; reads no feature values.",
+      "confidence": "high",
+      "finding_status": "adjudicated finding; not an approval"
+    }
+  ]
+}
