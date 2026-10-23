@@ -1,0 +1,7575 @@
+{
+ "schema_version": 1,
+ "kind": "eq164_wave3_scanners_1_ambiguous_scanner_operand_resolution",
+ "status": "FINDINGS ONLY; adjudicated finding / proposed resolution; nothing accepted; no tracker edited",
+ "base_commit": "dd12736",
+ "scope": {
+  "source": "EQ164_WAVE2_X4.json consumers with primary gap class AMBIGUOUS and scanner ids",
+  "ambiguous_scanners_total": 107,
+  "confidence_scale": {
+   "medium": "every X4 primitive proposal owner is corroborated by the operand evidence or the public plan",
+   "low-medium": "at least one X4 primitive proposal owner is not corroborated by operand evidence, or evidence is the single reader trace only",
+   "low": "no operand set"
+  },
+  "evidence_basis_all_rows": "single_reader_call_chain_trace; no second review or fixture exists",
+  "sorted_by": "opaque id ascending",
+  "half_taken": "first ceil(107/2) = 54",
+  "id_range_first": "S0106",
+  "id_range_last": "S0197",
+  "count": 54,
+  "second_half_for_other_agent": "the remaining 53 ambiguous scanner ids that sort after the last id above"
+ },
+ "status_vocabulary": {
+  "DELIVERED_ON_MAIN": "not used: nothing is delivered until per-field binding is proven; capability-level presence is recorded as delivery_note on PLANNED_NUMBERED operands",
+  "PLANNED_NUMBERED": "a numbered story owns the operand in the public routes; includes closed baseline stories whose reuse is unproved",
+  "PROPOSED_NEW_STORY": "a new story proposed in EQ164_WAVE2_DECISIONS.md; none is needed by this half",
+  "UNCOVERED_GAP": "no numbered, delivered or proposed owner"
+ },
+ "resolution_classes": {
+  "RESOLVED_ALL_OPERANDS_COVERED": "every named operand has a delivered, planned or proposed owner; residual selection questions remain and are listed",
+  "RESOLVED_WITH_GAPS": "operands named; at least one has no owner (listed as operand_gaps)",
+  "STILL_AMBIGUOUS": "operand set cannot be named; the missing evidence is stated"
+ },
+ "counts": {
+  "consumers": 54,
+  "by_resolution_class": {
+   "RESOLVED_ALL_OPERANDS_COVERED": 40,
+   "RESOLVED_WITH_GAPS": 12,
+   "STILL_AMBIGUOUS": 2
+  },
+  "by_confidence": {
+   "low-medium": 17,
+   "medium": 35,
+   "low": 2
+  },
+  "operand_instances_by_producer_status": {
+   "PLANNED_NUMBERED": 315
+  },
+  "operand_gap_instances": 16,
+  "consumers_with_gap_by_code": {
+   "G-RANGE-FALLBACK": 12,
+   "G-RECURSIVE-AVERAGE": 2,
+   "G-DISPERSION-OPERAND": 2
+  },
+  "distinct_operand_fields": 62,
+  "primitive_proposal_owners_not_supported_by_operand_evidence_instances": {
+   "21": 2,
+   "25": 3,
+   "508": 4,
+   "513": 8
+  },
+  "x4_pending_kinds_instances": {
+   "PK-BASELINE-REUSE": 52,
+   "PK-PROFILE-SELECT": 2
+  }
+ },
+ "per_story_demand": [
+  {
+   "story": 23,
+   "scanners_touching": 7,
+   "operand_instances": 8,
+   "distinct_fields": 4,
+   "planned_instances": 8,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 33,
+   "scanners_touching": 6,
+   "operand_instances": 6,
+   "distinct_fields": 1,
+   "planned_instances": 6,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 34,
+   "scanners_touching": 45,
+   "operand_instances": 45,
+   "distinct_fields": 1,
+   "planned_instances": 45,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 12,
+   "uncovered_gap_codes": [
+    "G-RANGE-FALLBACK"
+   ]
+  },
+  {
+   "story": 472,
+   "scanners_touching": 0,
+   "operand_instances": 0,
+   "distinct_fields": 0,
+   "planned_instances": 0,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 2,
+   "uncovered_gap_codes": [
+    "G-RECURSIVE-AVERAGE"
+   ]
+  },
+  {
+   "story": 473,
+   "scanners_touching": 2,
+   "operand_instances": 6,
+   "distinct_fields": 3,
+   "planned_instances": 6,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 2,
+   "uncovered_gap_codes": [
+    "G-DISPERSION-OPERAND"
+   ]
+  },
+  {
+   "story": 490,
+   "scanners_touching": 1,
+   "operand_instances": 2,
+   "distinct_fields": 2,
+   "planned_instances": 2,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 493,
+   "scanners_touching": 3,
+   "operand_instances": 6,
+   "distinct_fields": 4,
+   "planned_instances": 6,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 505,
+   "scanners_touching": 8,
+   "operand_instances": 10,
+   "distinct_fields": 3,
+   "planned_instances": 10,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 506,
+   "scanners_touching": 51,
+   "operand_instances": 145,
+   "distinct_fields": 30,
+   "planned_instances": 145,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 507,
+   "scanners_touching": 32,
+   "operand_instances": 32,
+   "distinct_fields": 2,
+   "planned_instances": 32,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 508,
+   "scanners_touching": 28,
+   "operand_instances": 28,
+   "distinct_fields": 1,
+   "planned_instances": 28,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 513,
+   "scanners_touching": 6,
+   "operand_instances": 6,
+   "distinct_fields": 6,
+   "planned_instances": 6,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 518,
+   "scanners_touching": 3,
+   "operand_instances": 3,
+   "distinct_fields": 3,
+   "planned_instances": 3,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 520,
+   "scanners_touching": 2,
+   "operand_instances": 2,
+   "distinct_fields": 2,
+   "planned_instances": 2,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  },
+  {
+   "story": 570,
+   "scanners_touching": 22,
+   "operand_instances": 22,
+   "distinct_fields": 2,
+   "planned_instances": 22,
+   "delivered_instances": 0,
+   "uncovered_gap_scanners_to_absorb": 0,
+   "uncovered_gap_codes": []
+  }
+ ],
+ "residual_selection_question_counts": {
+  "RQ-BASELINE-REUSE-PROOF": 18,
+  "RQ-HISTORY-LENGTH-GATE": 8,
+  "RQ-VOLATILITY-PROFILE": 45,
+  "RQ-WINDOW-CURRENT-INCLUSIVE": 8,
+  "RQ-WINDOW-SHIFT": 2,
+  "RQ-FLAG-OWNERSHIP": 5,
+  "RQ-LEVEL-WINDOW": 24,
+  "RQ-DISTANCE-DERIVED-REFERENCE": 6,
+  "RQ-DORMANT-DECLARATION": 2,
+  "RQ-UNIT-FRACTION-VS-PERCENT": 2
+ },
+ "decision_consumer_counts": {
+  "D4": 3,
+  "D9H": 18,
+  "D1": 12,
+  "D2": 2,
+  "D3": 2,
+  "D5": 5,
+  "D9": 30,
+  "D6": 2,
+  "D7": 2,
+  "D8": 2
+ },
+ "operand_field_frequency": {
+  "F0141": 1,
+  "F0145": 2,
+  "F0148": 2,
+  "F0149": 2,
+  "F0150": 17,
+  "F0153": 2,
+  "F0155": 1,
+  "F0161": 1,
+  "F0162": 4,
+  "F0171": 1,
+  "F0173": 3,
+  "F0186": 4,
+  "F0188": 33,
+  "F0189": 2,
+  "F0190": 27,
+  "F0191": 27,
+  "F0192": 4,
+  "F0206": 30,
+  "F0207": 1,
+  "F0212": 1,
+  "F0213": 1,
+  "F0214": 1,
+  "F0215": 1,
+  "F0216": 1,
+  "F0217": 1,
+  "F0218": 28,
+  "F0219": 1,
+  "F0267": 1,
+  "F0268": 1,
+  "F0271": 4,
+  "F0272": 2,
+  "F0275": 3,
+  "F0276": 3,
+  "F0283": 4,
+  "F0284": 2,
+  "F0287": 1,
+  "F0288": 1,
+  "F0289": 1,
+  "F0290": 1,
+  "F0291": 1,
+  "F0309": 1,
+  "F0310": 1,
+  "F0311": 1,
+  "F0312": 1,
+  "F0313": 1,
+  "F0314": 1,
+  "F0315": 1,
+  "F0316": 1,
+  "F0317": 1,
+  "F0318": 1,
+  "F0319": 1,
+  "F0320": 1,
+  "F0321": 1,
+  "F0322": 1,
+  "F0323": 1,
+  "F0324": 1,
+  "F0338": 18,
+  "F0347": 6,
+  "F0351": 45,
+  "F0417": 2,
+  "F0418": 2,
+  "F0426": 2
+ },
+ "consumers": [
+  {
+   "consumer_id": "S0106",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 4,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0155",
+     "role_code": "AGG_BOOK",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      493
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    },
+    {
+     "field": "F0171",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      493
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 25,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 25,
+     "supported_by_operand_evidence": false
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-HISTORY-LENGTH-GATE"
+   ],
+   "decisions_needed": [
+    "D4",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0109",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 3,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0161",
+     "role_code": "BAR_CURRENT_VOLUME",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "conditional_planned_reuse_unresolved"
+    },
+    {
+     "field": "F0141",
+     "role_code": "AGG_TRADE_COUNT",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "conditional_planned_reuse_unresolved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 23,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 23,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-HISTORY-LENGTH-GATE"
+   ],
+   "decisions_needed": [
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0110",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 4,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0153",
+     "role_code": "AGG_QUOTE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      493
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    },
+    {
+     "field": "F0145",
+     "role_code": "AVAILABILITY_COUNT",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      493
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 25,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 25,
+     "supported_by_operand_evidence": false
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-HISTORY-LENGTH-GATE"
+   ],
+   "decisions_needed": [
+    "D4",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0111",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 4,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0153",
+     "role_code": "AGG_QUOTE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      493
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    },
+    {
+     "field": "F0145",
+     "role_code": "AVAILABILITY_COUNT",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      493
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 25,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 25,
+     "supported_by_operand_evidence": false
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-HISTORY-LENGTH-GATE"
+   ],
+   "decisions_needed": [
+    "D4",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0115",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 4,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0347",
+     "role_code": "TREND_AVERAGE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_variant_if_original_semantics_retained"
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 513,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 33,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 513,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 33,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-VOLATILITY-PROFILE",
+    "RQ-WINDOW-CURRENT-INCLUSIVE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0116",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 4,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0189",
+     "role_code": "VWAP_SESSION",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_variant_if_original_semantics_retained"
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 513,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 23,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 513,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 23,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0117",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 6,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0148",
+     "role_code": "BAR_CURRENT_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0149",
+     "role_code": "BAR_CURRENT_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0347",
+     "role_code": "TREND_AVERAGE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_variant_if_original_semantics_retained"
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RECURSIVE-AVERAGE",
+     "status": "UNCOVERED_GAP",
+     "description": "recursive trend average over supplied daily closes: no daily-series owner; the only recursive-average fields belong to an intraday family",
+     "candidate_absorbing_story": 472
+    },
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 33,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 33,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-VOLATILITY-PROFILE",
+    "RQ-WINDOW-CURRENT-INCLUSIVE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D2",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0118",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 4,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0347",
+     "role_code": "TREND_AVERAGE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_variant_if_original_semantics_retained"
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 513,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 33,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 513,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 33,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-VOLATILITY-PROFILE",
+    "RQ-WINDOW-CURRENT-INCLUSIVE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0119",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 4,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0189",
+     "role_code": "VWAP_SESSION",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_variant_if_original_semantics_retained"
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 513,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 23,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 513,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 23,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0120",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 6,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0148",
+     "role_code": "BAR_CURRENT_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0149",
+     "role_code": "BAR_CURRENT_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0347",
+     "role_code": "TREND_AVERAGE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_variant_if_original_semantics_retained"
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RECURSIVE-AVERAGE",
+     "status": "UNCOVERED_GAP",
+     "description": "recursive trend average over supplied daily closes: no daily-series owner; the only recursive-average fields belong to an intraday family",
+     "candidate_absorbing_story": 472
+    },
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 33,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 33,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-VOLATILITY-PROFILE",
+    "RQ-WINDOW-CURRENT-INCLUSIVE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D2",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0121",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 6,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0417",
+     "role_code": "BAND_CENTER",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ]
+    },
+    {
+     "field": "F0418",
+     "role_code": "BAND_UPPER",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ]
+    },
+    {
+     "field": "F0426",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-DISPERSION-OPERAND",
+     "status": "UNCOVERED_GAP",
+     "description": "dispersion of the trailing close window is not an exposed output of the band family; derivable only if the band construction is proved to be a fixed multiple of it",
+     "candidate_absorbing_story": 473
+    },
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 473,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 473,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-VOLATILITY-PROFILE",
+    "RQ-WINDOW-CURRENT-INCLUSIVE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D3",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0122",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 3,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0347",
+     "role_code": "TREND_AVERAGE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_variant_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 33,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 33,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-WINDOW-CURRENT-INCLUSIVE",
+    "RQ-WINDOW-SHIFT"
+   ],
+   "decisions_needed": [
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0123",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 3,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0347",
+     "role_code": "TREND_AVERAGE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      33
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_variant_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 33,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 33,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-WINDOW-CURRENT-INCLUSIVE",
+    "RQ-WINDOW-SHIFT"
+   ],
+   "decisions_needed": [
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0124",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 6,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0417",
+     "role_code": "BAND_CENTER",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ]
+    },
+    {
+     "field": "F0418",
+     "role_code": "BAND_UPPER",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ]
+    },
+    {
+     "field": "F0426",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      473
+     ],
+     "planned_releases": [
+      "EF2"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-DISPERSION-OPERAND",
+     "status": "UNCOVERED_GAP",
+     "description": "dispersion of the trailing close window is not an exposed output of the band family; derivable only if the band construction is proved to be a fixed multiple of it",
+     "candidate_absorbing_story": 473
+    },
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 473,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 473,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-VOLATILITY-PROFILE",
+    "RQ-WINDOW-CURRENT-INCLUSIVE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D3",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0138",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 3,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 513,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 513,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-HISTORY-LENGTH-GATE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0139",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 3,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 513,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 513,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-HISTORY-LENGTH-GATE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0140",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 3,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 513,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 513,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-HISTORY-LENGTH-GATE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0141",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC01",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 3,
+   "operands": [
+    {
+     "field": "F0338",
+     "role_code": "BAR_HISTORY_SUPPLIED",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "DAILY supplied-fact slot kind exists; history length and adjustment profile unselected"
+    },
+    {
+     "field": "F0150",
+     "role_code": "BAR_CURRENT_CLOSE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [
+    {
+     "gap_code": "G-RANGE-FALLBACK",
+     "status": "UNCOVERED_GAP",
+     "description": "range-based volatility fallback used when the baseline volatility operand is absent has no owner (distinct variant of the baseline volatility profile)",
+     "candidate_absorbing_story": 34
+    }
+   ],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 513,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 513,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_WITH_GAPS",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-BASELINE-REUSE-PROOF",
+    "RQ-HISTORY-LENGTH-GATE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D1",
+    "D9H"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0158",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 10,
+   "operands": [
+    {
+     "field": "F0287",
+     "role_code": "PREDICATE_FLAG",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      518
+     ],
+     "planned_releases": [
+      "EF8"
+     ]
+    },
+    {
+     "field": "F0275",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high capability"
+    },
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0192",
+     "role_code": "VOLUME_SESSION",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "conditional_planned_reuse_unresolved"
+    },
+    {
+     "field": "F0186",
+     "role_code": "EVENT_TIME",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0162",
+     "role_code": "STATE_GATE",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0283",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0173",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-FLAG-OWNERSHIP",
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D5",
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0159",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 10,
+   "operands": [
+    {
+     "field": "F0290",
+     "role_code": "PREDICATE_FLAG",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      520
+     ],
+     "planned_releases": [
+      "EF8"
+     ]
+    },
+    {
+     "field": "F0275",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high capability"
+    },
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0192",
+     "role_code": "VOLUME_SESSION",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "conditional_planned_reuse_unresolved"
+    },
+    {
+     "field": "F0186",
+     "role_code": "EVENT_TIME",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0162",
+     "role_code": "STATE_GATE",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0283",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0173",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-FLAG-OWNERSHIP",
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D5",
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0160",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 10,
+   "operands": [
+    {
+     "field": "F0288",
+     "role_code": "PREDICATE_FLAG",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      518
+     ],
+     "planned_releases": [
+      "EF8"
+     ]
+    },
+    {
+     "field": "F0276",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation low capability"
+    },
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0192",
+     "role_code": "VOLUME_SESSION",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "conditional_planned_reuse_unresolved"
+    },
+    {
+     "field": "F0186",
+     "role_code": "EVENT_TIME",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0162",
+     "role_code": "STATE_GATE",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0283",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0173",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-FLAG-OWNERSHIP",
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D5",
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0161",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 9,
+   "operands": [
+    {
+     "field": "F0289",
+     "role_code": "PREDICATE_FLAG",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      520
+     ],
+     "planned_releases": [
+      "EF8"
+     ]
+    },
+    {
+     "field": "F0276",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation low capability"
+    },
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0192",
+     "role_code": "VOLUME_SESSION",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      23
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "conditional_planned_reuse_unresolved"
+    },
+    {
+     "field": "F0186",
+     "role_code": "EVENT_TIME",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      570
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0162",
+     "role_code": "STATE_GATE",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0283",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": false
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-FLAG-OWNERSHIP",
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D5",
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0164",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0312",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0165",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0314",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0166",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0316",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0167",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0215",
+     "role_code": "REF_DISTANCE_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-DISTANCE-DERIVED-REFERENCE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0168",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0217",
+     "role_code": "REF_DISTANCE_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-DISTANCE-DERIVED-REFERENCE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0169",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0310",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0170",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0318",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0171",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0216",
+     "role_code": "REF_DISTANCE_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-DISTANCE-DERIVED-REFERENCE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0172",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 0,
+   "operands": [],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "STILL_AMBIGUOUS",
+   "evidence_missing": "owner decision whether a declaration with no selected emitter is a consumer at all; no operand set exists because the selected end-of-day source never emits it",
+   "residual_selection_questions": [
+    "RQ-DORMANT-DECLARATION"
+   ],
+   "decisions_needed": [
+    "D6"
+   ],
+   "dormant_declaration": true,
+   "confidence": "low",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0173",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 8,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0268",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "extended-phase low capability"
+    },
+    {
+     "field": "F0271",
+     "role_code": "OPEN_REGULAR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "regular-open capability (first completed-bar open / first trade price)"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0174",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0276",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation low capability"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0175",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0324",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0176",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0322",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0177",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0320",
+     "role_code": "REF_LEVEL_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0180",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0311",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0181",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0313",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0182",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0315",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0183",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0212",
+     "role_code": "REF_DISTANCE_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-DISTANCE-DERIVED-REFERENCE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0184",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0214",
+     "role_code": "REF_DISTANCE_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-DISTANCE-DERIVED-REFERENCE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0185",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0309",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0186",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0317",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0187",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0213",
+     "role_code": "REF_DISTANCE_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      513
+     ],
+     "planned_releases": [
+      "EF4"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-DISTANCE-DERIVED-REFERENCE",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0188",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 8,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0267",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "extended-phase high capability"
+    },
+    {
+     "field": "F0271",
+     "role_code": "OPEN_REGULAR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "regular-open capability (first completed-bar open / first trade price)"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0189",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 0,
+   "operands": [],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "STILL_AMBIGUOUS",
+   "evidence_missing": "owner decision whether a declaration with no selected emitter is a consumer at all; no operand set exists because the selected end-of-day source never emits it",
+   "residual_selection_questions": [
+    "RQ-DORMANT-DECLARATION"
+   ],
+   "decisions_needed": [
+    "D6"
+   ],
+   "dormant_declaration": true,
+   "confidence": "low",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0190",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0275",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high capability"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0191",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0323",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0192",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0321",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0193",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC02",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 7,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0206",
+     "role_code": "CHANGE_VS_PRIOR",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0319",
+     "role_code": "REF_LEVEL_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "period/daily-observation high-low capability; window profile unproved"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 508,
+     "owner_state": "OPEN",
+     "pending_kind": null
+    },
+    {
+     "owner_story": 34,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 508,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 34,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-LEVEL-WINDOW",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D9"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0194",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC05",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 3,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0190",
+     "role_code": "SESSION_EXTREMUM_HIGH",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 21,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 21,
+     "supported_by_operand_evidence": false
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D7"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0195",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC05",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 3,
+   "operands": [
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0191",
+     "role_code": "SESSION_EXTREMUM_LOW",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 21,
+     "owner_state": "CLOSED",
+     "pending_kind": "PK-BASELINE-REUSE"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 21,
+     "supported_by_operand_evidence": false
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-BASELINE-REUSE"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D7"
+   ],
+   "dormant_declaration": false,
+   "confidence": "low-medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0196",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC07",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 8,
+   "operands": [
+    {
+     "field": "F0272",
+     "role_code": "GAP_MEASURE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "gap endpoint capability (opening gap fraction; fraction vs percent unit conversion open)"
+    },
+    {
+     "field": "F0271",
+     "role_code": "OPEN_REGULAR",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "regular-open capability (first completed-bar open / first trade price)"
+    },
+    {
+     "field": "F0351",
+     "role_code": "VOLATILITY_BASELINE",
+     "necessity": "optional",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      34
+     ],
+     "planned_releases": [
+      "EF4"
+     ],
+     "public_reuse_disposition": "distinct_versioned_profile_if_original_semantics_retained"
+    },
+    {
+     "field": "F0291",
+     "role_code": "PREDICATE_FLAG",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      518
+     ],
+     "planned_releases": [
+      "EF8"
+     ]
+    },
+    {
+     "field": "F0219",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ]
+    },
+    {
+     "field": "F0207",
+     "role_code": "RELATIVE_VOLUME",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      490
+     ],
+     "planned_releases": [
+      "EF3"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0284",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 507,
+     "owner_state": "OPEN",
+     "pending_kind": "PK-PROFILE-SELECT"
+    },
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": "PK-PROFILE-SELECT"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 507,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-PROFILE-SELECT"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-FLAG-OWNERSHIP",
+    "RQ-UNIT-FRACTION-VS-PERCENT",
+    "RQ-VOLATILITY-PROFILE"
+   ],
+   "decisions_needed": [
+    "D5",
+    "D8"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  },
+  {
+   "consumer_id": "S0197",
+   "wave3_story": "W3-B1",
+   "x4_primary_class": "AMBIGUOUS",
+   "profile_class": "PC07",
+   "policy_owner": {
+    "story": 518,
+    "io": 621,
+    "worker": 622,
+    "release": "EF8"
+   },
+   "operand_field_count": 5,
+   "operands": [
+    {
+     "field": "F0272",
+     "role_code": "GAP_MEASURE",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      507
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "gap endpoint capability (opening gap fraction; fraction vs percent unit conversion open)"
+    },
+    {
+     "field": "F0271",
+     "role_code": "OPEN_REGULAR",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ],
+     "delivery_note": "capability present on main; per-field binding unproven",
+     "capability_hint": "regular-open capability (first completed-bar open / first trade price)"
+    },
+    {
+     "field": "F0188",
+     "role_code": "PRICE_LAST",
+     "necessity": "required",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0218",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      508
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    },
+    {
+     "field": "F0284",
+     "role_code": "AVAILABILITY_FLAG",
+     "necessity": "gate",
+     "producer_status": "PLANNED_NUMBERED",
+     "owner_stories": [
+      505,
+      506
+     ],
+     "planned_releases": [
+      "EF1"
+     ]
+    }
+   ],
+   "operand_gaps": [],
+   "x4_primitive_proposals": [
+    {
+     "owner_story": 507,
+     "owner_state": "OPEN",
+     "pending_kind": "PK-PROFILE-SELECT"
+    },
+    {
+     "owner_story": 506,
+     "owner_state": "OPEN",
+     "pending_kind": "PK-PROFILE-SELECT"
+    }
+   ],
+   "primitive_proposal_support": [
+    {
+     "owner_story": 507,
+     "supported_by_operand_evidence": true
+    },
+    {
+     "owner_story": 506,
+     "supported_by_operand_evidence": true
+    }
+   ],
+   "x4_pending_kinds": [
+    "PK-PROFILE-SELECT"
+   ],
+   "resolution_class": "RESOLVED_ALL_OPERANDS_COVERED",
+   "evidence_missing": null,
+   "residual_selection_questions": [
+    "RQ-UNIT-FRACTION-VS-PERCENT"
+   ],
+   "decisions_needed": [
+    "D8"
+   ],
+   "dormant_declaration": false,
+   "confidence": "medium",
+   "evidence_basis": "single_reader_call_chain_trace",
+   "confidence_basis": "operand identity read from the consumer call chain in private closure material; producer mapping from public routes; no accepted binding",
+   "accepted": false
+  }
+ ]
+}
