@@ -5,7 +5,7 @@
 - Not done: Linux qualification, real-source demo, owner demo, rights and parity, release acceptance (EQ-153..157, EQ-241), package version bump, owner review of EF3 decisions. Next: EF4 in a fresh coordinator session from HANDOFF.md.
 
 ## 2026-10-23 - EF3 delivered in all three layers (evidence package, not acceptance)
-- Merged: contracts D #689 (+ Amendment 1 #693), E #690, F #691; libraries #692, #694, #695; I/O #36, #37, #38; workers #80, #81, #82; shared amendment #696 (rulings R1-R9 pending owner review); retrospective #697, #698; tools #699. Windows installed qualification #700 is open, not merged. Evidence and limits: docs/ef3/EF3_DELIVERY_EVIDENCE.md. EF3 is not accepted.
+- Merged: contracts D #689 (+ Amendment 1 #693), E #690, F #691; libraries #692, #694, #695; I/O #36, #37, #38; workers #80, #81, #82; shared amendment #696 (rulings R1-R9 pending owner review); retrospective #697, #698; tools #699. Windows installed qualification #700 was open at that time and is merged (ced7e67). Evidence and limits: docs/ef3/EF3_DELIVERY_EVIDENCE.md. EF3 is not accepted.
 - Known limits: reconstruction-mode exception, R4 roster divergence, manifest mismatches (2 entries without header, 36 headers without entry), refusal codes collapse at workers, version bump owed, O(n) batch memory. Not done: Linux qualification, real-source demo, rights and parity, owner demo, acceptance of EQ-153/154/155/156/157/241.
 
 ## 2026-10-23 - EF3 in progress: D, E, F libraries, I/O and workers (E worker pending), shared amendment merged (superseded: E worker #82 merged at f92fd6a, see the EF3 evidence entry above)

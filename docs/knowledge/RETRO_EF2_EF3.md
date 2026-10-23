@@ -123,9 +123,9 @@ Did the changes from sections 6-8 work? (applied, and evidence)
 |---|---|---|---|
 | 1 | no hardcoded ids, vary ids, run refusals | yes, from F I/O on | F I/O reviewer found no id defect (E I/O had one); refusals driven: E workers 48 of 48, F workers 59 of 62 by the reviewer, D 24 of 48 |
 | 2 | hash gate from committed blobs | partly | the F I/O stale-hash block happened before the rule; qualification explained CRLF vs LF differences and normalised them |
-| 3 | no progress polls, no "continue?" stops | yes for the Sonnet E workers rework, the qualification, evidence and demo agents | notifications per agent 0-2 after the change, against about 90 before |
+| 3 | no progress polls, no "continue?" stops | yes for the Sonnet E workers rework, the qualification, evidence and demo agents | few notifications per agent after the change (observed in this session, not tracked precisely), against about 90 for one agent before |
 | 4 | Sonnet for workers layers with new registration | yes (E workers rework) | the 26 failures were example bugs, found and fixed in one pass; Sonnet total for E workers was about 145k after the failed Haiku 276k |
-| 5 | reviewer sample budget | yes from E workers on | reviews 133k (E workers), 109k (qualification), 90k (evidence) against 113-259k for earlier layer reviews |
+| 5 | reviewer sample budget | yes from E workers on | reviews 133k (E workers), 109k (qualification), 90k (evidence) against 113-259k for earlier layer reviews (from the per-agent usage lines) |
 | 6 | contract pack and quiet batch | merged late (#699), used by later reviewers and the qualification | the tool review itself cost 201k (two rounds) and found the first pack dropped role text; token savings from the pack are not yet proven |
 | 7 | token ledger | created, extended | works; still reconstructed by hand |
 

@@ -14,7 +14,7 @@ Source: usage lines on agent completion (cumulative context tokens, tool uses, m
 | EF3 | Shared amendment | Sonnet | 123 | 86 | 2 | 211 | 25 | 3 | approve with fixes |
 | EF3 | E workers (Haiku, failed) | Haiku | 276 | - | - | 276 | 67 | 42 | not reviewed; reworked by Sonnet |
 
-EF3 total before the Sonnet E workers rework: 3,839k. Median build-plus-review unit (excluding the failed run and the amendment): about 436k.
+EF3 total before the Sonnet E workers rework: 3,839k. Median Total per unit including fix rounds (excluding the failed run and the amendment): about 436k; median build-plus-review without fix rounds: about 429k (retrospective section 8 uses 429k).
 
 
 Added at EF3 close (cumulative context k; coordinator not measured):
