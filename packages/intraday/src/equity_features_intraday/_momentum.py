@@ -132,11 +132,9 @@ def compute_momentum(batches: tuple[CanonicalBatch, ...] | None, context: Intrad
     expected: dict[str, int] = {}
     observed: dict[str, int] = {}
     views: dict[str, _View | None] = {}
-    seeds: dict[str, int] = {}
     ready: list[str] = []
     for feature in selected:
         fields, seed, rolling = _dependency(feature, settings, a, t)
-        seeds[feature] = seed
         expected[feature] = seed if rolling else max(seed, epoch)
         if admitted is None:
             views[feature] = None
