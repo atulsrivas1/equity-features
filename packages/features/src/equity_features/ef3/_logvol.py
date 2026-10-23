@@ -15,7 +15,8 @@ from equity_feature_contracts import (
     FeatureResult, Parameter, PriceUnit, QualityRow, Reason, ResultMetadata, Status, ValueType,
 )
 from equity_features import __version__
-from ._common import DailyGrid, admit_role, envelope, fail, first_status, integer, parameter_map, slot_reasons
+from ._common import (I64_MAX, DailyGrid, admit_role, envelope, fail, first_status, integer, parameter_map,
+                      slot_reasons)
 
 LOG_VOL_IDENTITY = "ef3.daily_log_volatility"
 LOG_VOL_ALGORITHM = "ef3-daily-log-vol-v1"
@@ -23,9 +24,7 @@ LOG_VOL_ALGORITHM = "ef3-daily-log-vol-v1"
 LOG_VOL_POLICY = "ef3-dlv1"
 LOG_VOL = "history.log_return_volatility"
 LOG_VOL_FEATURES = (LOG_VOL,)
-ROLES = ("daily",)
 _KEYS = frozenset({"policy_version", "period", "annualization_factor", "evidence_limit"})
-_I64_MAX = 2**63 - 1
 
 
 @dataclass(frozen=True)
@@ -41,7 +40,7 @@ def _check(policy: object, period: object, factor: object, limit: object) -> Log
         fail(ErrorCode.INVALID_CONFIG, "exact log-volatility policy label required")
     if policy != LOG_VOL_POLICY:
         fail(ErrorCode.INCOMPATIBLE_VERSION, "unsupported log-volatility policy label")
-    return LogVolatilitySettings(policy, integer(period, 2, 4096), integer(factor, 1, _I64_MAX),
+    return LogVolatilitySettings(policy, integer(period, 2, 4096), integer(factor, 1, I64_MAX),
                                  integer(limit, 0, 10000))
 
 

@@ -31,7 +31,6 @@ BETA = "relative.beta"
 CORRELATION = "relative.correlation"
 RESIDUAL = "relative.residual_return"
 RELATIVE_FEATURES = (BETA, CORRELATION, RESIDUAL)
-ROLES = ("instrument", "benchmark")
 _KEYS = frozenset({"policy_version", "benchmark_id", "window", "min_pairs", "evidence_limit"})
 
 
@@ -241,6 +240,9 @@ def compute_relative_stats(batches: tuple[CanonicalBatch | None, ...] | list[Can
                     causes_here = slot_reasons(fact, cutoff)
                     if not causes_here or fact.row_index is None or fact.input_id is None:
                         continue
+                    # FeatureResult validation (shared, unchanged) rejects an excluded unknown/future-knowledge row when the
+                    # availability mode is reconstruction (knowledge_reason is None there), so those rows are not emitted
+                    # in that mode. Values and quality rows are identical in both modes; see the implementation doc.
                     first = next(r for r in PRECEDENCE if r in causes_here)
                     if (first in (Reason.UNKNOWN_AVAILABILITY, Reason.FUTURE_KNOWLEDGE)
                             and config.availability.knowledge_reason(fact.known_at_ns) != first.value):

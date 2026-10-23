@@ -19,7 +19,6 @@ from equity_feature_contracts import (
 
 GRID_SCHEMA = "equity-features.ef3-daily-grid.v1"
 MAX_SESSIONS = 8192
-I64_MIN = -(2**63)
 I64_MAX = 2**63 - 1
 # The first applicable reason fixes the status; every applicable reason is still reported (lexical order).
 PRECEDENCE = (Reason.ABSENT_INPUT, Reason.UNKNOWN_AVAILABILITY, Reason.FUTURE_KNOWLEDGE, Reason.NULL_FIELD,
