@@ -300,7 +300,8 @@
   "vwap_points": "trade source: each eligible trade is a point (x, N, V) = (event_ns, p*q, q); bar and prepared_window: each positive-volume window is a point (end_ns, actual_notional, volume); zero-volume windows and ineligible trades are not points; points ordered by (x, order_key or slot)",
   "vwap_path": "W_k = (sum_{i<=k} N_i)/(sum_{i<=k} V_i) (published /10^scale), k = 1..n",
   "vwap_outputs": "last = W_n; maximum = max W_k; minimum = min W_k; point_count = n; change_bps = 10000*(W_n - W_1)/W_1; endpoint slope = (W_n - W_1)*10^9/(x_n - x_1) per second, needs x_n > x_1; ols slope = 10^9 * (n*sum(x*W) - sum(x)*sum(W))/(n*sum(x^2) - sum(x)^2), needs n >= 2 and a positive denominator",
-  "publication": "exact rational then one correctly rounded (half-even) float64; counts exact int64"
+  "publication": "exact rational then one correctly rounded (half-even) float64; counts exact int64",
+  "vwap_witnesses": "the cumulative sums read every earlier point, so a single selecting point is not a sufficient witness: path outputs list all points in canonical order, maximum and minimum list the points from the first through the earliest selecting point"
  },
  "quality": {
   "precedence": [
@@ -346,7 +347,7 @@
   ],
   "evidence": {
    "limit": "config evidence_limit 0..10000; witnesses never exceed it; unavailable outputs emit none; a limit changes only the witness list length, never a value, status, count or the primary witness",
-   "order": "maxima, first/last and extrema outputs: the selecting observation(s) first; microprice.mean and point_count: all contributing rows in canonical order; pair counts: rows belonging to at least one counted pair in canonical order, each once; change and endpoint slope: first then last; OLS slope: all points in canonical order. The interval bounds, anchor and proof facts are bound to the result but consume no witness budget",
+   "order": "quote maxima: the selecting observation; microprice.last and offset: the final observation; quote change.midpoint_bps and change.spread: first then last valid observation; microprice.mean and point_count: all contributing rows in canonical order; pair counts: rows belonging to at least one counted pair in canonical order, each once. VWAP path outputs read the cumulative sums of every earlier point, so their witnesses are all contributing points in canonical order: last, change_bps, endpoint slope, OLS slope and point_count list every point, maximum and minimum list the points from the first through the earliest selecting point. The interval bounds, anchor and proof facts are bound to the result but consume no witness budget",
    "row_ids": "quote:<event_id>, trade:<event_id>, bar:<start_ns>:<end_ns>; boundary completed_interval for bars; canonical order (event_ns, order_key, event_id)"
   }
  },
@@ -358,7 +359,7 @@
   "exact_integer": "int64 outputs (pair_count, midpoint_change_count, point_count) are exact",
   "documented_exceptions": "none"
  },
- "fixture_notation": "compact, NOT canonical wire. Quote fixtures: scale price_scale; interval [S,E) = interval.start_ns/end_ns in illustrative integer ns; C = market_cutoff_ns; K = knowledge_cutoff_ns = 100; row = event_id, event_ns, order_key, bid, ask, bid_size, ask_size, known_at (default 50; null = unknown; 150 = future); bounds_known_at is the interval bounds fact knowledge (default 50); quotes.coverage: complete (default), incomplete (declared incomplete delivery, governed_gap) or absent (no declaration); quotes null = the role is not delivered; params.outputs selects the evaluated outputs. VWAP fixtures: times are exact integer nanoseconds (illustrative seconds times 10^9); trade row = event_id, event_ns, order_key, eligible, price, size, known_at; trades.coverage as for quotes; grid_edges_ns lists B+1 absolute edges; bars.slots[i] is slot i (start = edge i, end = edge i+1): state row with volume, notional (null allowed), known_at, optional informational close that must be ignored; state gap = no row and a declared incomplete coverage for the slot; state absent = no row and no coverage; proof is {present, known_at} for prepared_window; anchor_known_at is the bounds fact knowledge. Placeholders $GRID_VERSION and $SERIES_POLICY stand for caller strings that the expansion binds to the grid text and the proof text. Entity, instrument, session, role and grid ids never appear in a fixture body: the expansion supplies them. Expected entries give status, reasons, expected, observed and for available outputs the exact fraction, float64, float.hex, the per-output acceptance rule and witnesses. Blocked outputs have value null and no witnesses. same_values_as names a fixture whose values (witnesses excepted for truncation fixtures) are identical (or a subset). Refusal fixtures carry a base fixture and a concrete construction recipe. Fixture ids never reused: none withdrawn.",
+ "fixture_notation": "compact, NOT canonical wire. Quote fixtures: scale price_scale; interval [S,E) = interval.start_ns/end_ns in illustrative integer ns; C = market_cutoff_ns; K = knowledge_cutoff_ns = 100; row = event_id, event_ns, order_key, bid, ask, bid_size, ask_size, known_at (default 50; null = unknown; 150 = future); bounds_known_at is the interval bounds fact knowledge (default 50); quotes.coverage: complete (default), incomplete (declared incomplete delivery, governed_gap) or absent (no declaration); quotes null = the role is not delivered; params.outputs selects the evaluated outputs. VWAP fixtures: times are exact integer nanoseconds (illustrative seconds times 10^9); trade row = event_id, event_ns, order_key, eligible, price, size, known_at; trades.coverage as for quotes; grid_edges_ns lists B+1 absolute edges; bars.slots[i] is slot i (start = edge i, end = edge i+1): state row with volume, notional (null allowed), known_at, optional informational close that must be ignored; state gap = no row and a declared incomplete coverage for the slot; state absent = no row and no coverage; proof is {present, known_at} for prepared_window; edge_known_at lists the known_at of each grid edge fact (default 50); anchor_known_at is the bounds fact knowledge. Placeholders $GRID_VERSION and $SERIES_POLICY stand for caller strings that the expansion binds to the grid text and the proof text. Entity, instrument, session, role and grid ids never appear in a fixture body: the expansion supplies them. Expected entries give status, reasons, expected, observed and for available outputs the exact fraction, float64, float.hex, the per-output acceptance rule and witnesses. Blocked outputs have value null and no witnesses. same_values_as names a fixture whose values (witnesses excepted for truncation fixtures) are identical (or a subset). Refusal fixtures carry a base fixture and a concrete construction recipe. Fixture id V27 (eligible trade with a null price) was withdrawn because the shared validator refuses it, and is not reused. A slot with state row and volume 0 is a zero-volume row; its known_at and notional are not read.",
  "quote_fixtures": [
   {
    "id": "Q01",
@@ -5419,6 +5420,9 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e4",
       "trade:e5"
      ]
     },
@@ -5434,6 +5438,9 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e4",
       "trade:e5"
      ]
     },
@@ -5482,6 +5489,8 @@
      },
      "witnesses": [
       "trade:e1",
+      "trade:e2",
+      "trade:e4",
       "trade:e5"
      ]
     },
@@ -5498,6 +5507,8 @@
      },
      "witnesses": [
       "trade:e1",
+      "trade:e2",
+      "trade:e4",
       "trade:e5"
      ]
     },
@@ -5615,6 +5626,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -5630,6 +5643,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -5677,6 +5692,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -5693,6 +5709,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -5719,6 +5736,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -5788,6 +5811,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -5803,6 +5828,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -5850,6 +5877,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -5866,6 +5894,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -5892,6 +5921,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -5978,6 +6013,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     }
@@ -5987,6 +6024,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -6059,6 +6102,7 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -6074,6 +6118,7 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -6161,6 +6206,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -6285,6 +6336,12 @@
     50000000000,
     100000000000
    ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
+   ],
    "bars": {
     "slots": [
      {
@@ -6404,6 +6461,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -6533,6 +6596,12 @@
     50000000000,
     100000000000
    ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
+   ],
    "bars": {
     "slots": [
      {
@@ -6655,6 +6724,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -6779,6 +6854,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -6905,6 +6986,12 @@
     50000000000,
     100000000000
    ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
+   ],
    "bars": {
     "slots": [
      {
@@ -6972,6 +7059,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -6987,6 +7076,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7034,6 +7125,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7050,6 +7142,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7076,6 +7169,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -7144,6 +7243,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7159,6 +7260,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7206,6 +7309,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7222,6 +7326,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7248,6 +7353,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -7375,6 +7486,12 @@
     50000000000,
     100000000000
    ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
+   ],
    "bars": {
     "slots": [
      {
@@ -7440,6 +7557,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7455,6 +7574,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7502,6 +7623,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7518,6 +7640,7 @@
      },
      "witnesses": [
       "bar:0:20000000000",
+      "bar:20000000000:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -7544,6 +7667,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -8203,6 +8332,7 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
+      "trade:e1",
       "trade:e2"
      ]
     },
@@ -8218,6 +8348,7 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
+      "trade:e1",
       "trade:e2"
      ]
     },
@@ -8486,6 +8617,7 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "trade:e1",
       "trade:e2"
      ]
     },
@@ -8501,6 +8633,7 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "trade:e1",
       "trade:e2"
      ]
     },
@@ -8648,6 +8781,7 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
+      "trade:e1",
       "trade:e2"
      ]
     },
@@ -8663,6 +8797,7 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
+      "trade:e1",
       "trade:e2"
      ]
     },
@@ -8810,6 +8945,8 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
+      "trade:e1",
+      "trade:e2",
       "trade:e3"
      ]
     },
@@ -8840,6 +8977,8 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
+      "trade:e1",
+      "trade:e2",
       "trade:e3"
      ]
     },
@@ -8872,6 +9011,7 @@
      },
      "witnesses": [
       "trade:e1",
+      "trade:e2",
       "trade:e3"
      ]
     },
@@ -8888,6 +9028,7 @@
      },
      "witnesses": [
       "trade:e1",
+      "trade:e2",
       "trade:e3"
      ]
     },
@@ -8984,6 +9125,7 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
+      "trade:e1",
       "trade:e2"
      ]
     },
@@ -9100,140 +9242,6 @@
       "eligible": true,
       "price": 100,
       "size": 30,
-      "known_at": 50
-     }
-    ]
-   }
-  },
-  {
-   "id": "V27",
-   "group": "independent_readiness",
-   "description": "an eligible trade with a null price: point_count (sizes only) stays available at 3 while every price-bearing output is null_field (expected 3, observed 2)",
-   "params": {
-    "series_source": "trade",
-    "evidence_limit": 10000,
-    "outputs": [
-     "vwap.path.change_bps",
-     "vwap.path.last",
-     "vwap.path.maximum",
-     "vwap.path.minimum",
-     "vwap.path.point_count",
-     "vwap.slope.endpoint",
-     "vwap.slope.ols"
-    ]
-   },
-   "price_scale": 0,
-   "interval": {
-    "start_ns": 0,
-    "end_ns": 100000000000
-   },
-   "market_cutoff_ns": 100000000000,
-   "knowledge_cutoff_ns": 100,
-   "anchor_known_at": 50,
-   "tags": [
-    "null_field",
-    "independent_readiness"
-   ],
-   "expected": {
-    "vwap.path.change_bps": {
-     "status": "missing_input",
-     "reasons": [
-      "null_field"
-     ],
-     "expected": 3,
-     "observed": 2,
-     "value": null
-    },
-    "vwap.path.last": {
-     "status": "missing_input",
-     "reasons": [
-      "null_field"
-     ],
-     "expected": 3,
-     "observed": 2,
-     "value": null
-    },
-    "vwap.path.maximum": {
-     "status": "missing_input",
-     "reasons": [
-      "null_field"
-     ],
-     "expected": 3,
-     "observed": 2,
-     "value": null
-    },
-    "vwap.path.minimum": {
-     "status": "missing_input",
-     "reasons": [
-      "null_field"
-     ],
-     "expected": 3,
-     "observed": 2,
-     "value": null
-    },
-    "vwap.slope.endpoint": {
-     "status": "missing_input",
-     "reasons": [
-      "null_field"
-     ],
-     "expected": 3,
-     "observed": 2,
-     "value": null
-    },
-    "vwap.slope.ols": {
-     "status": "missing_input",
-     "reasons": [
-      "null_field"
-     ],
-     "expected": 3,
-     "observed": 2,
-     "value": null
-    },
-    "vwap.path.point_count": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": {
-      "exact": "3/1",
-      "int64": 3,
-      "acceptance": "exact_integer"
-     },
-     "witnesses": [
-      "trade:e1",
-      "trade:e2",
-      "trade:e3"
-     ]
-    }
-   },
-   "trades": {
-    "coverage": "complete",
-    "rows": [
-     {
-      "event_id": "e1",
-      "event_ns": 10000000000,
-      "order_key": 1,
-      "eligible": true,
-      "price": 100,
-      "size": 10,
-      "known_at": 50
-     },
-     {
-      "event_id": "e2",
-      "event_ns": 20000000000,
-      "order_key": 1,
-      "eligible": true,
-      "price": null,
-      "size": 30,
-      "known_at": 50
-     },
-     {
-      "event_id": "e3",
-      "event_ns": 40000000000,
-      "order_key": 1,
-      "eligible": true,
-      "price": 98,
-      "size": 20,
       "known_at": 50
      }
     ]
@@ -9569,6 +9577,7 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -9584,6 +9593,7 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "bar:0:50000000000",
       "bar:50000000000:100000000000"
      ]
     },
@@ -9671,6 +9681,11 @@
     50000000000,
     100000000000
    ],
+   "edge_known_at": [
+    50,
+    50,
+    50
+   ],
    "bars": {
     "slots": [
      {
@@ -9730,6 +9745,8 @@
       "acceptance": "tolerance"
      },
      "witnesses": [
+      "trade:e1",
+      "trade:e2",
       "trade:e4"
      ]
     },
@@ -9745,6 +9762,7 @@
       "acceptance": "exact_float64"
      },
      "witnesses": [
+      "trade:e1",
       "trade:e2"
      ]
     },
@@ -9792,6 +9810,7 @@
      },
      "witnesses": [
       "trade:e1",
+      "trade:e2",
       "trade:e4"
      ]
     },
@@ -9808,6 +9827,7 @@
      },
      "witnesses": [
       "trade:e1",
+      "trade:e2",
       "trade:e4"
      ]
     },
@@ -9973,6 +9993,12 @@
     50000000000,
     100000000000
    ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
+   ],
    "bars": {
     "slots": [
      {
@@ -10101,6 +10127,12 @@
     20000000000,
     50000000000,
     100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
    ],
    "bars": {
     "slots": [
@@ -10234,6 +10266,12 @@
     50000000000,
     100000000000
    ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
+   ],
    "bars": {
     "slots": [
      {
@@ -10256,6 +10294,993 @@
      }
     ]
    }
+  },
+  {
+   "id": "V35",
+   "group": "zero_volume_knowledge",
+   "description": "a covered zero-volume slot with known_at 150 > K: EF1_PATHS rules that zero-volume bar payload and knowledge are not operands, so the slot is ready and the result equals V05 (a slot whose volume is null is different: its knowledge is read, V09)",
+   "params": {
+    "series_source": "bar",
+    "evidence_limit": 10000,
+    "outputs": [
+     "vwap.path.change_bps",
+     "vwap.path.last",
+     "vwap.path.maximum",
+     "vwap.path.minimum",
+     "vwap.path.point_count",
+     "vwap.slope.endpoint",
+     "vwap.slope.ols"
+    ],
+    "grid_version": "$GRID_VERSION"
+   },
+   "price_scale": 0,
+   "interval": {
+    "start_ns": 0,
+    "end_ns": 100000000000
+   },
+   "market_cutoff_ns": 100000000000,
+   "knowledge_cutoff_ns": 100,
+   "anchor_known_at": 50,
+   "tags": [
+    "zero_volume",
+    "knowledge"
+   ],
+   "expected": {
+    "vwap.path.last": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "724/7",
+      "float64": 103.42857142857143,
+      "hex": "0x1.9db6db6db6db7p+6",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.path.maximum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "724/7",
+      "float64": 103.42857142857143,
+      "hex": "0x1.9db6db6db6db7p+6",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.path.minimum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "100/1",
+      "float64": 100.0,
+      "hex": "0x1.9000000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "bar:0:20000000000"
+     ]
+    },
+    "vwap.path.point_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2/1",
+      "int64": 2,
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.path.change_bps": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2400/7",
+      "float64": 342.85714285714283,
+      "hex": "0x1.56db6db6db6dbp+8",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.slope.endpoint": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/70",
+      "float64": 0.04285714285714286,
+      "hex": "0x1.5f15f15f15f16p-5",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.slope.ols": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/70",
+      "float64": 0.04285714285714286,
+      "hex": "0x1.5f15f15f15f16p-5",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    }
+   },
+   "grid_edges_ns": [
+    0,
+    20000000000,
+    50000000000,
+    100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
+   ],
+   "bars": {
+    "slots": [
+     {
+      "state": "row",
+      "volume": 10,
+      "notional": 1000,
+      "known_at": 50
+     },
+     {
+      "state": "row",
+      "volume": 0,
+      "notional": null,
+      "known_at": 150
+     },
+     {
+      "state": "row",
+      "volume": 60,
+      "notional": 6240,
+      "known_at": 50
+     }
+    ]
+   },
+   "same_values_as": "V05"
+  },
+  {
+   "id": "V36",
+   "group": "zero_volume_notional",
+   "description": "a zero-volume slot with notional 0 (not null) is allowed, as the shared bar validator allows zero or absent notional on zero volume: identical to V05",
+   "params": {
+    "series_source": "bar",
+    "evidence_limit": 10000,
+    "outputs": [
+     "vwap.path.change_bps",
+     "vwap.path.last",
+     "vwap.path.maximum",
+     "vwap.path.minimum",
+     "vwap.path.point_count",
+     "vwap.slope.endpoint",
+     "vwap.slope.ols"
+    ],
+    "grid_version": "$GRID_VERSION"
+   },
+   "price_scale": 0,
+   "interval": {
+    "start_ns": 0,
+    "end_ns": 100000000000
+   },
+   "market_cutoff_ns": 100000000000,
+   "knowledge_cutoff_ns": 100,
+   "anchor_known_at": 50,
+   "tags": [
+    "zero_volume",
+    "zero_notional"
+   ],
+   "expected": {
+    "vwap.path.last": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "724/7",
+      "float64": 103.42857142857143,
+      "hex": "0x1.9db6db6db6db7p+6",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.path.maximum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "724/7",
+      "float64": 103.42857142857143,
+      "hex": "0x1.9db6db6db6db7p+6",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.path.minimum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "100/1",
+      "float64": 100.0,
+      "hex": "0x1.9000000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "bar:0:20000000000"
+     ]
+    },
+    "vwap.path.point_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2/1",
+      "int64": 2,
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.path.change_bps": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2400/7",
+      "float64": 342.85714285714283,
+      "hex": "0x1.56db6db6db6dbp+8",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.slope.endpoint": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/70",
+      "float64": 0.04285714285714286,
+      "hex": "0x1.5f15f15f15f16p-5",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    },
+    "vwap.slope.ols": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/70",
+      "float64": 0.04285714285714286,
+      "hex": "0x1.5f15f15f15f16p-5",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "bar:0:20000000000",
+      "bar:50000000000:100000000000"
+     ]
+    }
+   },
+   "grid_edges_ns": [
+    0,
+    20000000000,
+    50000000000,
+    100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    50,
+    50
+   ],
+   "bars": {
+    "slots": [
+     {
+      "state": "row",
+      "volume": 10,
+      "notional": 1000,
+      "known_at": 50
+     },
+     {
+      "state": "row",
+      "volume": 0,
+      "notional": 0,
+      "known_at": 50
+     },
+     {
+      "state": "row",
+      "volume": 60,
+      "notional": 6240,
+      "known_at": 50
+     }
+    ]
+   },
+   "same_values_as": "V05"
+  },
+  {
+   "id": "V37",
+   "group": "grid_knowledge",
+   "description": "grid edge fact 2 is known at 150 > K: the governed grid is not known, future_knowledge on every output, observed 0 (edges are read like the anchor)",
+   "params": {
+    "series_source": "bar",
+    "evidence_limit": 10000,
+    "outputs": [
+     "vwap.path.change_bps",
+     "vwap.path.last",
+     "vwap.path.maximum",
+     "vwap.path.minimum",
+     "vwap.path.point_count",
+     "vwap.slope.endpoint",
+     "vwap.slope.ols"
+    ],
+    "grid_version": "$GRID_VERSION"
+   },
+   "price_scale": 0,
+   "interval": {
+    "start_ns": 0,
+    "end_ns": 100000000000
+   },
+   "market_cutoff_ns": 100000000000,
+   "knowledge_cutoff_ns": 100,
+   "anchor_known_at": 50,
+   "tags": [
+    "knowledge",
+    "grid"
+   ],
+   "expected": {
+    "vwap.path.change_bps": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.path.last": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.path.maximum": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.path.minimum": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.path.point_count": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.slope.endpoint": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.slope.ols": {
+     "status": "missing_input",
+     "reasons": [
+      "future_knowledge"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    }
+   },
+   "grid_edges_ns": [
+    0,
+    20000000000,
+    50000000000,
+    100000000000
+   ],
+   "edge_known_at": [
+    50,
+    50,
+    150,
+    50
+   ],
+   "bars": {
+    "slots": [
+     {
+      "state": "row",
+      "volume": 10,
+      "notional": 1000,
+      "known_at": 50
+     },
+     {
+      "state": "row",
+      "volume": 50,
+      "notional": 5020,
+      "known_at": 50
+     },
+     {
+      "state": "row",
+      "volume": 60,
+      "notional": 6240,
+      "known_at": 50,
+      "close": 105
+     }
+    ]
+   }
+  },
+  {
+   "id": "V38",
+   "group": "grid_knowledge",
+   "description": "grid edge fact 1 has known_at null: unknown_availability on every output, observed 0; an edge known exactly at K is ready (V12 style)",
+   "params": {
+    "series_source": "bar",
+    "evidence_limit": 10000,
+    "outputs": [
+     "vwap.path.change_bps",
+     "vwap.path.last",
+     "vwap.path.maximum",
+     "vwap.path.minimum",
+     "vwap.path.point_count",
+     "vwap.slope.endpoint",
+     "vwap.slope.ols"
+    ],
+    "grid_version": "$GRID_VERSION"
+   },
+   "price_scale": 0,
+   "interval": {
+    "start_ns": 0,
+    "end_ns": 100000000000
+   },
+   "market_cutoff_ns": 100000000000,
+   "knowledge_cutoff_ns": 100,
+   "anchor_known_at": 50,
+   "tags": [
+    "knowledge",
+    "grid"
+   ],
+   "expected": {
+    "vwap.path.change_bps": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.path.last": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.path.maximum": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.path.minimum": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.path.point_count": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.slope.endpoint": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    },
+    "vwap.slope.ols": {
+     "status": "missing_input",
+     "reasons": [
+      "unknown_availability"
+     ],
+     "expected": 3,
+     "observed": 0,
+     "value": null
+    }
+   },
+   "grid_edges_ns": [
+    0,
+    20000000000,
+    50000000000,
+    100000000000
+   ],
+   "edge_known_at": [
+    50,
+    null,
+    50,
+    50
+   ],
+   "bars": {
+    "slots": [
+     {
+      "state": "row",
+      "volume": 10,
+      "notional": 1000,
+      "known_at": 50
+     },
+     {
+      "state": "row",
+      "volume": 50,
+      "notional": 5020,
+      "known_at": 50
+     },
+     {
+      "state": "row",
+      "volume": 60,
+      "notional": 6240,
+      "known_at": 50,
+      "close": 105
+     }
+    ]
+   }
+  },
+  {
+   "id": "V39",
+   "group": "epoch_scale",
+   "description": "epoch-scale offsets: the V31 trades shifted so that the anchor is 1700000000 s (x about 1.7e18 ns, x squared about 3e36): translation invariance makes every value equal V31; a float64 or centered-late computation of the OLS sums would lose it, the exact sums do not",
+   "params": {
+    "series_source": "trade",
+    "evidence_limit": 10000,
+    "outputs": [
+     "vwap.path.change_bps",
+     "vwap.path.last",
+     "vwap.path.maximum",
+     "vwap.path.minimum",
+     "vwap.path.point_count",
+     "vwap.slope.endpoint",
+     "vwap.slope.ols"
+    ]
+   },
+   "price_scale": 0,
+   "interval": {
+    "start_ns": 1700000000000000000,
+    "end_ns": 1700000045000000000
+   },
+   "market_cutoff_ns": 1700000045000000000,
+   "knowledge_cutoff_ns": 100,
+   "anchor_known_at": 50,
+   "tags": [
+    "epoch_scale",
+    "r17"
+   ],
+   "expected": {
+    "vwap.path.last": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "301/3",
+      "float64": 100.33333333333333,
+      "hex": "0x1.9155555555555p+6",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e4"
+     ]
+    },
+    "vwap.path.maximum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "203/2",
+      "float64": 101.5,
+      "hex": "0x1.9600000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2"
+     ]
+    },
+    "vwap.path.minimum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "100/1",
+      "float64": 100.0,
+      "hex": "0x1.9000000000000p+6",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "trade:e1"
+     ]
+    },
+    "vwap.path.point_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/1",
+      "int64": 3,
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e4"
+     ]
+    },
+    "vwap.path.change_bps": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "100/3",
+      "float64": 33.333333333333336,
+      "hex": "0x1.0aaaaaaaaaaabp+5",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e4"
+     ]
+    },
+    "vwap.slope.endpoint": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/90",
+      "float64": 0.011111111111111112,
+      "hex": "0x1.6c16c16c16c17p-7",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e4"
+     ]
+    },
+    "vwap.slope.ols": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/840",
+      "float64": 0.0011904761904761906,
+      "hex": "0x1.3813813813814p-10",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e4"
+     ]
+    }
+   },
+   "trades": {
+    "coverage": "complete",
+    "rows": [
+     {
+      "event_id": "e1",
+      "event_ns": 1700000010000000000,
+      "order_key": 1,
+      "eligible": true,
+      "price": 100,
+      "size": 10,
+      "known_at": 50
+     },
+     {
+      "event_id": "e2",
+      "event_ns": 1700000020000000000,
+      "order_key": 1,
+      "eligible": true,
+      "price": 102,
+      "size": 30,
+      "known_at": 50
+     },
+     {
+      "event_id": "e3",
+      "event_ns": 1700000030000000000,
+      "order_key": 1,
+      "eligible": false,
+      "price": 500,
+      "size": 999,
+      "known_at": null
+     },
+     {
+      "event_id": "e4",
+      "event_ns": 1700000040000000000,
+      "order_key": 1,
+      "eligible": true,
+      "price": 98,
+      "size": 20,
+      "known_at": 50
+     }
+    ]
+   },
+   "same_values_as": "V31"
+  },
+  {
+   "id": "V40",
+   "group": "near_cancellation",
+   "description": "near cancellation at epoch scale: prices 1e15, 1e15+1, 1e15 with sizes 1, 1, 2 at 10, 20, 40 s after an anchor of 1700000000 s: path 1e15, 1e15+1/2, 1e15+1/4 (differences 1/2 and 1/4 against 1e15); numerator n*Sxw - Sx*Sw is about 1e51 against a result of order 1e36 times 1e-1; exact slopes 3/560 (OLS) and 1/120 (endpoint) per second, change 1/400000000000 bps",
+   "params": {
+    "series_source": "trade",
+    "evidence_limit": 10000,
+    "outputs": [
+     "vwap.path.change_bps",
+     "vwap.path.last",
+     "vwap.path.maximum",
+     "vwap.path.minimum",
+     "vwap.path.point_count",
+     "vwap.slope.endpoint",
+     "vwap.slope.ols"
+    ]
+   },
+   "price_scale": 0,
+   "interval": {
+    "start_ns": 1700000000000000000,
+    "end_ns": 1700000100000000000
+   },
+   "market_cutoff_ns": 1700000100000000000,
+   "knowledge_cutoff_ns": 100,
+   "anchor_known_at": 50,
+   "tags": [
+    "epoch_scale",
+    "near_cancellation",
+    "r17"
+   ],
+   "expected": {
+    "vwap.path.last": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "4000000000000001/4",
+      "float64": 1000000000000000.2,
+      "hex": "0x1.c6bf526340002p+49",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e3"
+     ]
+    },
+    "vwap.path.maximum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "2000000000000001/2",
+      "float64": 1000000000000000.5,
+      "hex": "0x1.c6bf526340004p+49",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2"
+     ]
+    },
+    "vwap.path.minimum": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1000000000000000/1",
+      "float64": 1000000000000000.0,
+      "hex": "0x1.c6bf526340000p+49",
+      "acceptance": "exact_float64"
+     },
+     "witnesses": [
+      "trade:e1"
+     ]
+    },
+    "vwap.path.point_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/1",
+      "int64": 3,
+      "acceptance": "exact_integer"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e3"
+     ]
+    },
+    "vwap.path.change_bps": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/400000000000",
+      "float64": 2.5e-12,
+      "hex": "0x1.5fd7fe1796495p-39",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e3"
+     ]
+    },
+    "vwap.slope.endpoint": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/120",
+      "float64": 0.008333333333333333,
+      "hex": "0x1.1111111111111p-7",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e3"
+     ]
+    },
+    "vwap.slope.ols": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "3/560",
+      "float64": 0.005357142857142857,
+      "hex": "0x1.5f15f15f15f16p-8",
+      "acceptance": "tolerance"
+     },
+     "witnesses": [
+      "trade:e1",
+      "trade:e2",
+      "trade:e3"
+     ]
+    }
+   },
+   "trades": {
+    "coverage": "complete",
+    "rows": [
+     {
+      "event_id": "e1",
+      "event_ns": 1700000010000000000,
+      "order_key": 1,
+      "eligible": true,
+      "price": 1000000000000000,
+      "size": 1,
+      "known_at": 50
+     },
+     {
+      "event_id": "e2",
+      "event_ns": 1700000020000000000,
+      "order_key": 1,
+      "eligible": true,
+      "price": 1000000000000001,
+      "size": 1,
+      "known_at": 50
+     },
+     {
+      "event_id": "e3",
+      "event_ns": 1700000040000000000,
+      "order_key": 1,
+      "eligible": true,
+      "price": 1000000000000000,
+      "size": 2,
+      "known_at": 50
+     }
+    ]
+   }
   }
  ],
  "refusal_fixtures": [
@@ -10263,700 +11288,1554 @@
    "id": "RQ01",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
+   "rule": "S.dup_identity",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "two quote rows with the same event_id",
-   "construction": "Q01 with row e2 event_id set to 'e1' (rows e1 and e2 both 'e1')"
+   "construction": "Q01; set rows[1].event_id = 'e1' (rows[0] is 'e1')",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.1.event_id",
+     "e1"
+    ]
+   ]
   },
   {
    "id": "RQ02",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
+   "rule": "S.tie_key",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "two quote rows with the same (event_ns, order_key)",
-   "construction": "Q01 with row e2 set to event_ns 0 and order_key 1 (equal to e1)"
+   "construction": "Q01; set rows[1].event_ns = 0 and rows[1].order_key = 1 (equal to rows[0]; event ids stay distinct)",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.1.event_ns",
+     0
+    ],
+    [
+     "set",
+     "quotes.rows.1.order_key",
+     1
+    ]
+   ]
   },
   {
    "id": "RQ03",
    "error_code": "INVALID_ORDER",
    "raised_by": "shared validator",
+   "rule": "S.order",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "rows not ordered by (event_ns, order_key)",
-   "construction": "Q01 with rows e2 and e3 swapped (event_ns 7 delivered before 3)"
+   "construction": "Q01; swap rows[1] (event_ns 3) and rows[2] (event_ns 7) so 7 is delivered before 3",
+   "mutations": [
+    [
+     "swap",
+     "quotes.rows",
+     1,
+     2
+    ]
+   ]
   },
   {
    "id": "RQ04",
    "error_code": "INVALID_ORDER",
    "raised_by": "shared validator",
+   "rule": "S.order",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "equal event_ns with decreasing order_key",
-   "construction": "two rows at event_ns 5: order_key 2 delivered before order_key 1"
+   "construction": "Q01; set rows[1] to (event_ns 5, order_key 2) and rows[2] to (event_ns 5, order_key 1); rows[3] (9) and rows[4] (20) are unchanged",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.1.event_ns",
+     5
+    ],
+    [
+     "set",
+     "quotes.rows.1.order_key",
+     2
+    ],
+    [
+     "set",
+     "quotes.rows.2.event_ns",
+     5
+    ],
+    [
+     "set",
+     "quotes.rows.2.order_key",
+     1
+    ]
+   ]
   },
   {
    "id": "RQ05",
    "error_code": "BOUNDS",
    "raised_by": "library",
+   "rule": "L.row_before_start",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "row event_ns before the interval start",
-   "construction": "Q01 with S = 0 and row e1 event_ns = -1"
+   "construction": "Q01 (interval [0,100)); set rows[0].event_ns = -1",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.0.event_ns",
+     -1
+    ]
+   ]
   },
   {
    "id": "RQ06",
    "error_code": "BOUNDS",
    "raised_by": "library",
+   "rule": "L.row_at_or_after_end",
    "producer": "quote_dynamics",
    "base": "Q01",
-   "description": "row event_ns equal to the interval end (half-open)",
-   "construction": "Q01 with E = C = 100 and an extra last row at event_ns 100"
+   "description": "row event_ns equal to the interval end while the cutoff is later (half-open end)",
+   "construction": "Q01; set the bounds fact effective_end_ns = 80 (cutoff stays 100); append a sixth row event_ns 80, order_key 1, bid 100, ask 102, sizes 100/100",
+   "mutations": [
+    [
+     "set",
+     "bounds.0.end",
+     80
+    ],
+    [
+     "insert",
+     "quotes.rows",
+     5,
+     {
+      "instrument": "I",
+      "session": "S0",
+      "event_id": "e6",
+      "event_ns": 80,
+      "order_key": 1,
+      "bid": 100,
+      "ask": 102,
+      "bid_size": 100,
+      "ask_size": 100,
+      "known_at": 50
+     }
+    ]
+   ]
   },
   {
    "id": "RQ07",
    "error_code": "BOUNDS",
-   "raised_by": "library",
+   "raised_by": "shared validator",
+   "rule": "S.ref_bounds",
    "producer": "quote_dynamics",
-   "base": "Q01",
+   "base": "Q14",
    "description": "interval bounds fact with start >= end",
-   "construction": "Q01 with bounds fact effective_start_ns = 100 and effective_end_ns = 100"
+   "construction": "Q14 (empty complete quotes); set the bounds fact effective_start_ns = 100 and effective_end_ns = 100",
+   "mutations": [
+    [
+     "set",
+     "bounds.0.start",
+     100
+    ],
+    [
+     "set",
+     "bounds.0.end",
+     100
+    ]
+   ]
   },
   {
    "id": "RQ08",
    "error_code": "BOUNDS",
    "raised_by": "shared validator",
+   "rule": "S.negative_quantity",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "negative quote size",
-   "construction": "Q01 with row e1 bid_size = -1"
+   "construction": "Q01; set rows[0].bid_size = -1",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.0.bid_size",
+     -1
+    ]
+   ]
   },
   {
    "id": "RQ09",
    "error_code": "BOUNDS",
-   "raised_by": "library",
+   "raised_by": "shared validator",
+   "rule": "S.cutoff",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "row at or after the market cutoff while the interval end is later",
-   "construction": "Q01 with E = 100, C = 60 and an extra last row at event_ns 60"
+   "construction": "Q01; set the cutoff C = 60 (interval end stays 100); append a sixth row event_ns 60, order_key 1, bid 100, ask 102, sizes 100/100",
+   "mutations": [
+    [
+     "set",
+     "C",
+     60
+    ],
+    [
+     "insert",
+     "quotes.rows",
+     5,
+     {
+      "instrument": "I",
+      "session": "S0",
+      "event_id": "e6",
+      "event_ns": 60,
+      "order_key": 1,
+      "bid": 100,
+      "ask": 102,
+      "bid_size": 100,
+      "ask_size": 100,
+      "known_at": 50
+     }
+    ]
+   ]
   },
   {
    "id": "RQ10",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared constructor",
+   "rule": "K.cell_type",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "float price in the bid column",
-   "construction": "Q01 with row e1 bid = 100.0 (float)"
+   "construction": "Q01; set rows[0].bid = 100.0 (float)",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.0.bid",
+     100.0
+    ]
+   ]
   },
   {
    "id": "RQ11",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared constructor",
+   "rule": "K.cell_type",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "bool in the ask column",
-   "construction": "Q01 with row e1 ask = True"
+   "construction": "Q01; set rows[0].ask = True",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.0.ask",
+     true
+    ]
+   ]
   },
   {
    "id": "RQ12",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "library",
+   "rule": "L.batch_kind",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "quotes role holding a TRADE batch",
-   "construction": "Q01 with the quotes role replaced by a one-row TRADE batch (price 100, size 10)"
+   "construction": "Q01; set the quotes batch kind = 'trade'",
+   "mutations": [
+    [
+     "set",
+     "quotes.kind",
+     "trade"
+    ]
+   ]
   },
   {
    "id": "RQ13",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "library",
+   "rule": "L.fact_kind",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "reference fact of an unknown fact_kind in the bounds role",
-   "construction": "Q01 with the bounds fact fact_kind = 'ef4.interval.window'"
+   "construction": "Q01; set the bounds fact fact_kind = 'ef4.interval.window'",
+   "mutations": [
+    [
+     "set",
+     "bounds.0.kind",
+     "ef4.interval.window"
+    ]
+   ]
   },
   {
    "id": "RQ14",
    "error_code": "OVERFLOW",
    "raised_by": "shared constructor",
+   "rule": "K.overflow",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "bid above int64",
-   "construction": "Q01 with row e1 bid = 2^63"
+   "construction": "Q01; set rows[0].bid = 2^63 (9223372036854775808)",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.0.bid",
+     9223372036854775808
+    ]
+   ]
   },
   {
    "id": "RQ15",
    "error_code": "INVALID_UNIT",
    "raised_by": "shared constructor",
+   "rule": "K.no_unit",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "quote batch without a price unit",
-   "construction": "Q01 with the quotes batch price_unit = None"
+   "construction": "Q01; set the quotes batch price_unit = None",
+   "mutations": [
+    [
+     "set",
+     "quotes.unit",
+     false
+    ]
+   ]
   },
   {
    "id": "RQ16",
    "error_code": "INVALID_UNIT",
    "raised_by": "library",
+   "rule": "L.scale",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "batch scale differs from the config price unit",
-   "construction": "Q01 with the batch price unit scale 2 and ConfigSpec.price_unit scale 4"
+   "construction": "Q01; set the quotes batch price scale = 2 and config price scale = 4",
+   "mutations": [
+    [
+     "set",
+     "quotes.scale",
+     2
+    ],
+    [
+     "set",
+     "config.price_scale",
+     4
+    ]
+   ]
   },
   {
    "id": "RQ17",
    "error_code": "UNSUPPORTED_ADJUSTMENT",
-   "raised_by": "shared require_compatible_inputs",
+   "raised_by": "library",
+   "rule": "L.basis",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "adjustment basis differs from the config",
-   "construction": "Q01 with the batch adjustment basis 'split' and the config basis 'raw'"
+   "construction": "Q01; set the quotes batch adjustment basis = 'split' (config basis 'raw')",
+   "mutations": [
+    [
+     "set",
+     "quotes.basis",
+     "split"
+    ]
+   ]
   },
   {
    "id": "RQ18",
    "error_code": "UNSUPPORTED_SAMPLING",
    "raised_by": "shared constructor",
+   "rule": "K.no_sampling",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "quote batch with sampling 'none'",
-   "construction": "Q01 with the quotes batch metadata sampling = 'none'"
+   "construction": "Q01; set the quotes batch metadata sampling = 'none'",
+   "mutations": [
+    [
+     "set",
+     "quotes.sampling",
+     "none"
+    ]
+   ]
   },
   {
    "id": "RQ19",
    "error_code": "UNSUPPORTED_SAMPLING",
    "raised_by": "library",
+   "rule": "L.sampling_mismatch",
    "producer": "quote_dynamics",
    "base": "Q02",
    "description": "trade-snapshot quotes never satisfy a continuous requirement",
-   "construction": "Q02 rows (batch sampling 'trade_snapshot') with config sampling = 'continuous'"
+   "construction": "Q02 (batch sampling 'trade_snapshot', outputs without change); set config sampling = 'continuous'",
+   "mutations": [
+    [
+     "set",
+     "config.sampling",
+     "continuous"
+    ]
+   ]
   },
   {
    "id": "RQ20",
    "error_code": "UNSUPPORTED_SAMPLING",
    "raised_by": "library",
+   "rule": "L.sampling_mismatch",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "continuous quotes are not relabelled as snapshot-weighted",
-   "construction": "Q01 rows (batch sampling 'continuous') with config sampling = 'trade_snapshot'"
+   "construction": "Q01 (batch 'continuous'); set config sampling = 'trade_snapshot' and outputs = ['quote.sampled.maximum_spread']",
+   "mutations": [
+    [
+     "set",
+     "config.sampling",
+     "trade_snapshot"
+    ],
+    [
+     "set",
+     "config.outputs",
+     [
+      "quote.sampled.maximum_spread"
+     ]
+    ]
+   ]
   },
   {
    "id": "RQ21",
    "error_code": "UNSUPPORTED_SAMPLING",
    "raised_by": "library",
+   "rule": "L.change_on_snapshot",
    "producer": "quote_dynamics",
    "base": "Q02",
    "description": "a continuous-only output selected on a trade-snapshot batch",
-   "construction": "Q02 with outputs = ['quote.change.pair_count'] and sampling 'trade_snapshot'"
+   "construction": "Q02 (batch and config sampling 'trade_snapshot'); set outputs = ['quote.change.pair_count']",
+   "mutations": [
+    [
+     "set",
+     "config.outputs",
+     [
+      "quote.change.pair_count"
+     ]
+    ]
+   ]
   },
   {
    "id": "RQ22",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.row_identity",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "row instrument differs from the target entity",
-   "construction": "Q01 with row e3 instrument_id = '<other entity>' while the target entity is '<entity>'"
+   "construction": "Q01; set rows[2].instrument_id to a value other than the target entity",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.2.instrument",
+     "J"
+    ]
+   ]
   },
   {
    "id": "RQ23",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.row_identity",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "row session differs from the bounds fact session",
-   "construction": "Q01 with row e3 session_id = '<other session>'"
+   "construction": "Q01; set rows[2].session_id to a value other than the bounds session",
+   "mutations": [
+    [
+     "set",
+     "quotes.rows.2.session",
+     "S1"
+    ]
+   ]
   },
   {
    "id": "RQ24",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.bounds_count",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "no bounds fact delivered",
-   "construction": "Q01 with the bounds role containing zero facts"
+   "construction": "Q01; delete the bounds fact (zero facts)",
+   "mutations": [
+    [
+     "delete",
+     "bounds",
+     0
+    ]
+   ]
   },
   {
    "id": "RQ25",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
+   "rule": "S.dup_identity",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "two bounds facts with the same (instrument, session, reference_id)",
-   "construction": "Q01 with the bounds fact delivered twice"
+   "construction": "Q01; deliver the bounds fact twice unchanged",
+   "mutations": [
+    [
+     "dup",
+     "bounds",
+     0
+    ]
+   ]
   },
   {
    "id": "RQ26",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.bounds_count",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "two bounds facts with different reference_ids",
-   "construction": "Q01 with a second bounds fact reference_id x1:B('<interval id 2>') on the same session"
+   "construction": "Q01; duplicate the bounds fact and set the copy reference_id to 'x1:B(i2)' (the original is 'x1:B(i1)', same start, so the (start, reference_id) order holds)",
+   "mutations": [
+    [
+     "dup",
+     "bounds",
+     0
+    ],
+    [
+     "set",
+     "bounds.1.reference_id",
+     "x1:B(i2)"
+    ]
+   ]
   },
   {
    "id": "RQ27",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.bounds_text",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "bounds fact text differs from the batch snapshot id",
-   "construction": "Q01 with bounds text '<other snapshot>' while source.snapshot_id is '<snapshot>'"
+   "construction": "Q01; set the bounds fact text = 'other' (snapshot id is 'snap')",
+   "mutations": [
+    [
+     "set",
+     "bounds.0.text",
+     "other"
+    ]
+   ]
   },
   {
    "id": "RQ28",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "evidence_limit above 10000",
-   "construction": "Q01 with evidence_limit = 10001"
+   "construction": "Q01; set evidence_limit = 10001",
+   "mutations": [
+    [
+     "set",
+     "config.evidence_limit",
+     10001
+    ]
+   ]
   },
   {
    "id": "RQ29",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "negative evidence_limit",
-   "construction": "Q01 with evidence_limit = -1"
+   "construction": "Q01; set evidence_limit = -1",
+   "mutations": [
+    [
+     "set",
+     "config.evidence_limit",
+     -1
+    ]
+   ]
   },
   {
    "id": "RQ30",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "missing required sampling parameter (no default)",
-   "construction": "Q01 config without the sampling key"
+   "construction": "Q01; delete the sampling key from the config",
+   "mutations": [
+    [
+     "del_key",
+     "config.sampling"
+    ]
+   ]
   },
   {
    "id": "RQ31",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "unknown or extra parameter",
-   "construction": "Q01 config with an extra key 'max_age_ns' = 5"
+   "construction": "Q01; add config key max_age_ns = 5",
+   "mutations": [
+    [
+     "set",
+     "config.max_age_ns",
+     5
+    ]
+   ]
   },
   {
    "id": "RQ32",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "sampling outside trade_snapshot and continuous",
-   "construction": "Q01 config with sampling = 'none'"
+   "construction": "Q01; set config sampling = 'none'",
+   "mutations": [
+    [
+     "set",
+     "config.sampling",
+     "none"
+    ]
+   ]
   },
   {
    "id": "RQ33",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "bool evidence_limit",
-   "construction": "Q01 config with evidence_limit = True"
+   "construction": "Q01; set evidence_limit = True",
+   "mutations": [
+    [
+     "set",
+     "config.evidence_limit",
+     true
+    ]
+   ]
   },
   {
    "id": "RQ34",
    "error_code": "INCOMPATIBLE_VERSION",
    "raised_by": "library",
+   "rule": "C.version",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "unsupported policy_version label",
-   "construction": "Q01 config with policy_version = 'ef4-quote0'"
+   "construction": "Q01; set policy_version = 'ef4-quote0'",
+   "mutations": [
+    [
+     "set",
+     "config.policy_version",
+     "ef4-quote0"
+    ]
+   ]
   },
   {
    "id": "RQ35",
    "error_code": "UNKNOWN_FEATURE",
    "raised_by": "library",
+   "rule": "C.feature",
    "producer": "quote_dynamics",
    "base": "Q01",
-   "description": "feature id outside the nine quote headers",
-   "construction": "Q01 with outputs = ['quote.sampled.mean_spread'] (an existing session.quote output, not this producer)"
+   "description": "feature id that is not one of the nine quote_dynamics headers",
+   "construction": "Q01; set outputs = ['session.quote.sampled_spread'] (an existing output of the session producer, not an output of ef4.quote_dynamics)",
+   "mutations": [
+    [
+     "set",
+     "config.outputs",
+     [
+      "session.quote.sampled_spread"
+     ]
+    ]
+   ]
   },
   {
    "id": "RQ36",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "rule": "C.capability",
    "producer": "quote_dynamics",
    "base": "Q01",
    "description": "update, restore or merge requested",
-   "construction": "Q01 evaluated with capability 'update', then 'restore', then 'merge'"
+   "construction": "Q01; request capability 'update' (the same code for 'restore' and 'merge')",
+   "mutations": [
+    [
+     "set",
+     "config.capability",
+     "update"
+    ]
+   ]
   },
   {
    "id": "RV01",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
+   "rule": "S.dup_identity",
    "producer": "vwap_path",
    "base": "V01",
    "description": "two trade rows with the same event_id",
-   "construction": "V01 with trade e2 event_id set to 'e1'"
+   "construction": "V01; set trades.rows[1].event_id = 'e1'",
+   "mutations": [
+    [
+     "set",
+     "trades.rows.1.event_id",
+     "e1"
+    ]
+   ]
   },
   {
    "id": "RV02",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
+   "rule": "S.dup_identity",
    "producer": "vwap_path",
    "base": "V02",
    "description": "two bar rows for the same (start_ns, end_ns)",
-   "construction": "V02 with a second bar row at start 20 s end 50 s (volume 5, notional 500)"
+   "construction": "V02; insert a copy of the slot-1 bar row (20 s to 50 s) immediately after it (rows become slot0, slot1, slot1 copy, slot2)",
+   "mutations": [
+    [
+     "dup",
+     "bars.rows",
+     1
+    ]
+   ]
   },
   {
    "id": "RV03",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
+   "rule": "S.dup_identity",
    "producer": "vwap_path",
    "base": "V03",
    "description": "two proof facts with the same (instrument, session, reference_id)",
-   "construction": "V03 with the proof fact delivered twice"
+   "construction": "V03; deliver the proof fact twice unchanged",
+   "mutations": [
+    [
+     "dup",
+     "proof",
+     0
+    ]
+   ]
   },
   {
    "id": "RV04",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.proof_count",
    "producer": "vwap_path",
    "base": "V03",
    "description": "two proof facts with different reference_ids",
-   "construction": "V03 with a second proof fact reference_id x1:B('<series id 2>')"
+   "construction": "V03; duplicate the proof fact and set the copy reference_id 'x1:B(s2)' (original 'x1:B(s1)', same start)",
+   "mutations": [
+    [
+     "dup",
+     "proof",
+     0
+    ],
+    [
+     "set",
+     "proof.1.reference_id",
+     "x1:B(s2)"
+    ]
+   ]
   },
   {
    "id": "RV05",
    "error_code": "DUPLICATE",
    "raised_by": "shared validator",
+   "rule": "S.dup_identity",
    "producer": "vwap_path",
    "base": "V02",
    "description": "two grid edge facts with the same reference_id",
-   "construction": "V02 with edge 2 reference_id equal to edge 1 reference_id"
+   "construction": "V02; set grid[2].reference_id equal to grid[1].reference_id ('x1:B(G#1)')",
+   "mutations": [
+    [
+     "set",
+     "grid.2.reference_id",
+     "x1:B(G#1)"
+    ]
+   ]
   },
   {
    "id": "RV06",
    "error_code": "INVALID_ORDER",
    "raised_by": "shared validator",
+   "rule": "S.order",
    "producer": "vwap_path",
    "base": "V01",
    "description": "trade rows not ordered by (event_ns, order_key)",
-   "construction": "V01 with trades e1 (10 s) and e2 (20 s) swapped"
+   "construction": "V01; swap trades.rows[0] (10 s) and rows[1] (20 s)",
+   "mutations": [
+    [
+     "swap",
+     "trades.rows",
+     0,
+     1
+    ]
+   ]
   },
   {
    "id": "RV07",
    "error_code": "INVALID_ORDER",
    "raised_by": "shared validator",
+   "rule": "S.order",
    "producer": "vwap_path",
    "base": "V02",
    "description": "grid edges decreasing",
-   "construction": "V02 with edge offsets 0, 50 s, 20 s, 100 s"
+   "construction": "V02; swap grid[1] (20 s) and grid[2] (50 s): edge starts delivered 0, 50 s, 20 s, 100 s",
+   "mutations": [
+    [
+     "swap",
+     "grid",
+     1,
+     2
+    ]
+   ]
   },
   {
    "id": "RV08",
    "error_code": "BOUNDS",
    "raised_by": "library",
+   "rule": "L.row_before_start",
    "producer": "vwap_path",
    "base": "V01",
    "description": "trade before the anchor (interval start)",
-   "construction": "V01 with S = 10 s and trade e1 event_ns = 9 s"
+   "construction": "V01; set the bounds fact effective_start_ns = 10 s and trades.rows[0].event_ns = 9 s",
+   "mutations": [
+    [
+     "set",
+     "bounds.0.start",
+     10000000000
+    ],
+    [
+     "set",
+     "trades.rows.0.event_ns",
+     9000000000
+    ]
+   ]
   },
   {
    "id": "RV09",
    "error_code": "BOUNDS",
    "raised_by": "library",
+   "rule": "L.row_at_or_after_end",
    "producer": "vwap_path",
    "base": "V01",
-   "description": "trade at the interval end (half-open)",
-   "construction": "V01 with E = C = 100 s and an extra last trade at 100 s"
+   "description": "trade at the interval end while the cutoff is later (half-open)",
+   "construction": "V01; set the bounds fact effective_end_ns = 80 s (cutoff stays 100 s); append a trade at 80 s, order_key 1, price 100, size 1",
+   "mutations": [
+    [
+     "set",
+     "bounds.0.end",
+     80000000000
+    ],
+    [
+     "insert",
+     "trades.rows",
+     5,
+     {
+      "instrument": "I",
+      "session": "S0",
+      "event_id": "e6",
+      "event_ns": 80000000000,
+      "order_key": 1,
+      "eligible": true,
+      "price": 100,
+      "size": 1,
+      "known_at": 50
+     }
+    ]
+   ]
   },
   {
    "id": "RV10",
-   "error_code": "BOUNDS",
-   "raised_by": "shared trade validator",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "shared validator",
+   "rule": "S.eligible_trade",
    "producer": "vwap_path",
    "base": "V01",
    "description": "eligible trade with price 0",
-   "construction": "V01 with e1 price = 0"
+   "construction": "V01; set trades.rows[0].price = 0",
+   "mutations": [
+    [
+     "set",
+     "trades.rows.0.price",
+     0
+    ]
+   ]
   },
   {
    "id": "RV11",
-   "error_code": "BOUNDS",
-   "raised_by": "shared trade validator",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "shared validator",
+   "rule": "S.eligible_trade",
    "producer": "vwap_path",
    "base": "V01",
    "description": "eligible trade with size 0",
-   "construction": "V01 with e1 size = 0"
+   "construction": "V01; set trades.rows[0].size = 0",
+   "mutations": [
+    [
+     "set",
+     "trades.rows.0.size",
+     0
+    ]
+   ]
   },
   {
    "id": "RV12",
    "error_code": "BOUNDS",
    "raised_by": "shared validator",
+   "rule": "S.negative_quantity",
    "producer": "vwap_path",
    "base": "V02",
    "description": "negative bar volume",
-   "construction": "V02 with slot 0 volume = -1"
+   "construction": "V02 (no OHLC columns); set bars.rows[0].volume = -1",
+   "mutations": [
+    [
+     "set",
+     "bars.rows.0.volume",
+     -1
+    ]
+   ]
   },
   {
    "id": "RV13",
-   "error_code": "BOUNDS",
+   "error_code": "INVALID_SCHEMA",
    "raised_by": "library",
+   "rule": "L.bar_notional_positive",
    "producer": "vwap_path",
    "base": "V02",
-   "description": "positive-volume bar with nonpositive actual notional",
-   "construction": "V02 with slot 1 volume 50 and notional 0 (and the same with notional -5)"
+   "description": "positive-volume bar with nonpositive actual notional when no OHLC columns are delivered",
+   "construction": "V02 (no OHLC columns); set bars.rows[1].notional = -5 (the same code for 0)",
+   "mutations": [
+    [
+     "set",
+     "bars.rows.1.notional",
+     -5
+    ]
+   ]
   },
   {
    "id": "RV14",
    "error_code": "INVALID_SCHEMA",
-   "raised_by": "library",
+   "raised_by": "shared validator",
+   "rule": "S.bar_zero_volume",
    "producer": "vwap_path",
    "base": "V05",
    "description": "zero-volume bar with a nonzero notional",
-   "construction": "V05 with slot 1 volume 0 and notional 100"
+   "construction": "V05; set bars.rows[1].notional = 100 (volume 0)",
+   "mutations": [
+    [
+     "set",
+     "bars.rows.1.notional",
+     100
+    ]
+   ]
   },
   {
    "id": "RV15",
    "error_code": "BOUNDS",
    "raised_by": "library",
+   "rule": "L.grid_first_edge",
    "producer": "vwap_path",
    "base": "V02",
    "description": "grid first edge not equal to the interval start",
-   "construction": "V02 with edges 5 s, 20 s, 50 s, 100 s and S = 0"
+   "construction": "V02; set grid[0] edge time = 5 s (interval start stays 0)",
+   "mutations": [
+    [
+     "set",
+     "grid.0.start",
+     5000000000
+    ]
+   ]
   },
   {
    "id": "RV16",
    "error_code": "BOUNDS",
    "raised_by": "library",
+   "rule": "L.grid_last_edge",
    "producer": "vwap_path",
    "base": "V02",
    "description": "grid last edge not equal to the interval end",
-   "construction": "V02 with edges 0, 20 s, 50 s, 90 s and E = 100 s"
+   "construction": "V02; set grid[3] edge time = 90 s (interval end stays 100 s)",
+   "mutations": [
+    [
+     "set",
+     "grid.3.start",
+     90000000000
+    ]
+   ]
   },
   {
    "id": "RV17",
    "error_code": "BOUNDS",
-   "raised_by": "library",
+   "raised_by": "shared validator",
+   "rule": "S.ref_bounds",
    "producer": "vwap_path",
-   "base": "V01",
+   "base": "V18",
    "description": "interval start not before end",
-   "construction": "V01 with bounds effective_start_ns = effective_end_ns = 100 s"
+   "construction": "V18 (empty complete trades); set the bounds fact effective_start_ns = effective_end_ns = 100 s",
+   "mutations": [
+    [
+     "set",
+     "bounds.0.start",
+     100000000000
+    ],
+    [
+     "set",
+     "bounds.0.end",
+     100000000000
+    ]
+   ]
   },
   {
    "id": "RV18",
    "error_code": "BOUNDS",
    "raised_by": "library",
+   "rule": "L.grid_equal_edges",
    "producer": "vwap_path",
    "base": "V02",
    "description": "grid with equal consecutive edges",
-   "construction": "V02 with edges 0, 20 s, 20 s, 100 s"
+   "construction": "V02; set grid[2] edge time = 20 s (edges 0, 20 s, 20 s, 100 s; the alignment check is not evaluated on an unsound grid)",
+   "mutations": [
+    [
+     "set",
+     "grid.2.start",
+     20000000000
+    ]
+   ]
   },
   {
    "id": "RV19",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "shared constructor",
+   "rule": "K.cell_type",
    "producer": "vwap_path",
    "base": "V01",
    "description": "float price",
-   "construction": "V01 with e1 price = 100.0"
+   "construction": "V01; set trades.rows[0].price = 100.0",
+   "mutations": [
+    [
+     "set",
+     "trades.rows.0.price",
+     100.0
+    ]
+   ]
   },
   {
    "id": "RV20",
    "error_code": "INVALID_SCHEMA",
    "raised_by": "library",
+   "rule": "L.fact_kind",
    "producer": "vwap_path",
    "base": "V02",
    "description": "unknown fact_kind in the grid role",
-   "construction": "V02 with edge fact_kind = 'ef4.bucket.edge'"
+   "construction": "V02; set grid[1] fact_kind = 'ef4.bucket.edge'",
+   "mutations": [
+    [
+     "set",
+     "grid.1.kind",
+     "ef4.bucket.edge"
+    ]
+   ]
   },
   {
    "id": "RV21",
    "error_code": "OVERFLOW",
    "raised_by": "shared constructor",
+   "rule": "K.overflow",
    "producer": "vwap_path",
    "base": "V01",
    "description": "trade size above int64",
-   "construction": "V01 with e1 size = 2^63"
+   "construction": "V01; set trades.rows[0].size = 2^63",
+   "mutations": [
+    [
+     "set",
+     "trades.rows.0.size",
+     9223372036854775808
+    ]
+   ]
   },
   {
    "id": "RV22",
    "error_code": "INVALID_UNIT",
    "raised_by": "shared constructor",
+   "rule": "K.no_unit",
    "producer": "vwap_path",
    "base": "V02",
    "description": "bar batch without a price unit",
-   "construction": "V02 with the bars batch price_unit = None"
+   "construction": "V02; set the bars batch price_unit = None",
+   "mutations": [
+    [
+     "set",
+     "bars.unit",
+     false
+    ]
+   ]
   },
   {
    "id": "RV23",
    "error_code": "INVALID_UNIT",
    "raised_by": "library",
+   "rule": "L.scale",
    "producer": "vwap_path",
    "base": "V01",
    "description": "batch scale differs from the config price unit",
-   "construction": "V01 with batch scale 2 and ConfigSpec scale 0"
+   "construction": "V01; set the trades batch scale = 2 (config scale 0)",
+   "mutations": [
+    [
+     "set",
+     "trades.scale",
+     2
+    ]
+   ]
   },
   {
    "id": "RV24",
    "error_code": "UNSUPPORTED_ADJUSTMENT",
-   "raised_by": "shared require_compatible_inputs",
+   "raised_by": "library",
+   "rule": "L.basis",
    "producer": "vwap_path",
    "base": "V02",
-   "description": "bars and trades or config with different adjustment basis",
-   "construction": "V02 with the bars batch basis 'split' and the config basis 'raw'"
+   "description": "bars with a different adjustment basis than the config",
+   "construction": "V02; set the bars batch basis = 'split' (config 'raw')",
+   "mutations": [
+    [
+     "set",
+     "bars.basis",
+     "split"
+    ]
+   ]
   },
   {
    "id": "RV25",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.bar_align",
    "producer": "vwap_path",
    "base": "V02",
    "description": "bar matching no grid slot",
-   "construction": "V02 with slot 1 bar start 25 s end 50 s"
+   "construction": "V02; set bars.rows[1].start = 25 s (slot is 20 s to 50 s)",
+   "mutations": [
+    [
+     "set",
+     "bars.rows.1.start",
+     25000000000
+    ]
+   ]
   },
   {
    "id": "RV26",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.bar_align",
    "producer": "vwap_path",
    "base": "V02",
    "description": "bar straddling two grid slots",
-   "construction": "V02 with a bar start 0 end 50 s replacing slots 0 and 1"
+   "construction": "V02; delete bars.rows[0] and set the new rows[0].start = 0 (one bar 0 to 50 s, then 50 s to 100 s)",
+   "mutations": [
+    [
+     "delete",
+     "bars.rows",
+     0
+    ],
+    [
+     "set",
+     "bars.rows.0.start",
+     0
+    ]
+   ]
   },
   {
    "id": "RV27",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.proof_text",
    "producer": "vwap_path",
    "base": "V03",
    "description": "proof text differs from the configured series_policy_id",
-   "construction": "V03 with proof text '<other policy>' and series_policy_id '<policy>'"
+   "construction": "V03; set proof[0].text = 'other' (config series_policy_id 'P')",
+   "mutations": [
+    [
+     "set",
+     "proof.0.text",
+     "other"
+    ]
+   ]
   },
   {
    "id": "RV28",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.grid_text",
    "producer": "vwap_path",
    "base": "V02",
    "description": "grid text differs from the config grid_version",
-   "construction": "V02 with edge text '<grid A>' and grid_version '<grid B>'"
+   "construction": "V02; set config grid_version = 'H' (grid text 'G')",
+   "mutations": [
+    [
+     "set",
+     "config.grid_version",
+     "H"
+    ]
+   ]
   },
   {
    "id": "RV29",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.row_identity",
    "producer": "vwap_path",
    "base": "V01",
    "description": "trade instrument differs from the target entity",
-   "construction": "V01 with e2 instrument_id = '<other entity>'"
+   "construction": "V01; set trades.rows[1].instrument_id to a value other than the target entity",
+   "mutations": [
+    [
+     "set",
+     "trades.rows.1.instrument",
+     "J"
+    ]
+   ]
   },
   {
    "id": "RV30",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.source_roles",
    "producer": "vwap_path",
    "base": "V01",
    "description": "bars role delivered with series_source trade",
-   "construction": "V01 plus a delivered bars role (any one bar) with series_source = 'trade'"
+   "construction": "V01; add a bars batch with one bar row (0 to 20 s, volume 10, notional 1000)",
+   "mutations": [
+    [
+     "set",
+     "bars",
+     {
+      "kind": "bar",
+      "scale": 0,
+      "basis": "raw",
+      "unit": true,
+      "rows": [
+       {
+        "instrument": "I",
+        "session": "S0",
+        "start": 0,
+        "end": 20000000000,
+        "volume": 10,
+        "notional": 1000,
+        "known_at": 50,
+        "ohlc": null
+       }
+      ]
+     }
+    ]
+   ]
   },
   {
    "id": "RV31",
    "error_code": "INCONSISTENT_IDENTITY",
    "raised_by": "library",
+   "rule": "L.source_roles",
    "producer": "vwap_path",
    "base": "V02",
    "description": "trades role delivered with series_source bar",
-   "construction": "V02 plus a delivered trades role (any one trade) with series_source = 'bar'"
+   "construction": "V02; add a trades batch with one eligible trade (10 s, price 100, size 1)",
+   "mutations": [
+    [
+     "set",
+     "trades",
+     {
+      "kind": "trade",
+      "scale": 0,
+      "basis": "raw",
+      "unit": true,
+      "rows": [
+       {
+        "instrument": "I",
+        "session": "S0",
+        "event_id": "e1",
+        "event_ns": 10000000000,
+        "order_key": 1,
+        "eligible": true,
+        "price": 100,
+        "size": 1,
+        "known_at": 50
+       }
+      ]
+     }
+    ]
+   ]
   },
   {
    "id": "RV32",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "vwap_path",
    "base": "V01",
    "description": "series_source outside trade, bar, prepared_window",
-   "construction": "V01 config with series_source = 'quote'"
+   "construction": "V01; set series_source = 'quote'",
+   "mutations": [
+    [
+     "set",
+     "config.series_source",
+     "quote"
+    ]
+   ]
   },
   {
    "id": "RV33",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "vwap_path",
    "base": "V01",
    "description": "missing series_source (no default)",
-   "construction": "V01 config without series_source"
+   "construction": "V01; delete series_source from the config",
+   "mutations": [
+    [
+     "del_key",
+     "config.series_source"
+    ]
+   ]
   },
   {
    "id": "RV34",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "vwap_path",
    "base": "V01",
    "description": "series_policy_id present for a non-prepared source",
-   "construction": "V01 config with series_policy_id = '<policy>'"
+   "construction": "V01; add config series_policy_id = 'P'",
+   "mutations": [
+    [
+     "set",
+     "config.series_policy_id",
+     "P"
+    ]
+   ]
   },
   {
    "id": "RV35",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "vwap_path",
    "base": "V03",
-   "description": "series_policy_id missing or empty for prepared_window",
-   "construction": "V03 config without series_policy_id, then with series_policy_id = ''"
+   "description": "series_policy_id missing for prepared_window",
+   "construction": "V03; delete series_policy_id from the config (the same code for an empty string)",
+   "mutations": [
+    [
+     "del_key",
+     "config.series_policy_id"
+    ]
+   ]
   },
   {
    "id": "RV36",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "vwap_path",
    "base": "V02",
    "description": "grid_version missing for a bar source",
-   "construction": "V02 config without grid_version"
+   "construction": "V02; delete grid_version from the config",
+   "mutations": [
+    [
+     "del_key",
+     "config.grid_version"
+    ]
+   ]
   },
   {
    "id": "RV37",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "vwap_path",
    "base": "V01",
-   "description": "evidence_limit above 10000 or negative",
-   "construction": "V01 config with evidence_limit = 10001, then -1"
+   "description": "evidence_limit above 10000",
+   "construction": "V01; set evidence_limit = 10001 (the same code for -1)",
+   "mutations": [
+    [
+     "set",
+     "config.evidence_limit",
+     10001
+    ]
+   ]
   },
   {
    "id": "RV38",
    "error_code": "INVALID_CONFIG",
    "raised_by": "library",
+   "rule": "C.params",
    "producer": "vwap_path",
    "base": "V01",
    "description": "unknown or extra parameter",
-   "construction": "V01 config with an extra key 'min_points' = 2"
+   "construction": "V01; add config key min_points = 2",
+   "mutations": [
+    [
+     "set",
+     "config.min_points",
+     2
+    ]
+   ]
   },
   {
    "id": "RV39",
    "error_code": "INCOMPATIBLE_VERSION",
    "raised_by": "library",
+   "rule": "C.version",
    "producer": "vwap_path",
    "base": "V01",
    "description": "unsupported policy_version label",
-   "construction": "V01 config with policy_version = 'ef4-vwap0'"
+   "construction": "V01; set policy_version = 'ef4-vwap0'",
+   "mutations": [
+    [
+     "set",
+     "config.policy_version",
+     "ef4-vwap0"
+    ]
+   ]
   },
   {
    "id": "RV40",
    "error_code": "UNKNOWN_FEATURE",
    "raised_by": "library",
+   "rule": "C.feature",
    "producer": "vwap_path",
    "base": "V01",
    "description": "feature id outside the seven vwap headers",
-   "construction": "V01 with outputs = ['vwap.path.median']"
+   "construction": "V01; set outputs = ['vwap.path.median']",
+   "mutations": [
+    [
+     "set",
+     "config.outputs",
+     [
+      "vwap.path.median"
+     ]
+    ]
+   ]
   },
   {
    "id": "RV41",
    "error_code": "UNSUPPORTED_CAPABILITY",
    "raised_by": "library",
+   "rule": "C.capability",
    "producer": "vwap_path",
    "base": "V01",
    "description": "update, restore or merge requested",
-   "construction": "V01 evaluated with capability 'update', then 'restore', then 'merge'"
+   "construction": "V01; request capability 'restore' (the same code for 'update' and 'merge')",
+   "mutations": [
+    [
+     "set",
+     "config.capability",
+     "restore"
+    ]
+   ]
+  },
+  {
+   "id": "RV42",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "shared validator",
+   "rule": "S.eligible_trade",
+   "producer": "vwap_path",
+   "base": "V01",
+   "description": "eligible trade with a null price",
+   "construction": "V01; set trades.rows[0].price = None",
+   "mutations": [
+    [
+     "set",
+     "trades.rows.0.price",
+     null
+    ]
+   ]
+  },
+  {
+   "id": "RV43",
+   "error_code": "INVALID_SCHEMA",
+   "raised_by": "shared validator",
+   "rule": "S.bar_notional_bounds",
+   "producer": "vwap_path",
+   "base": "V02",
+   "description": "OHLC delivered and actual notional outside [low*volume, high*volume]",
+   "construction": "V02; deliver OHLC columns (rows[0] all 100, rows[1] all 100, rows[2] open 102 high 110 low 100 close 105) and set bars.rows[1].notional = 0",
+   "mutations": [
+    [
+     "set",
+     "bars.rows.0.ohlc",
+     {
+      "open": 100,
+      "high": 100,
+      "low": 100,
+      "close": 100
+     }
+    ],
+    [
+     "set",
+     "bars.rows.1.ohlc",
+     {
+      "open": 100,
+      "high": 100,
+      "low": 100,
+      "close": 100
+     }
+    ],
+    [
+     "set",
+     "bars.rows.2.ohlc",
+     {
+      "open": 102,
+      "high": 110,
+      "low": 100,
+      "close": 105
+     }
+    ],
+    [
+     "set",
+     "bars.rows.1.notional",
+     0
+    ]
+   ]
+  },
+  {
+   "id": "RV44",
+   "error_code": "BOUNDS",
+   "raised_by": "library",
+   "rule": "L.bar_end_after_cutoff",
+   "producer": "vwap_path",
+   "base": "V02",
+   "description": "bar source with interval end after the market cutoff",
+   "construction": "V02; set the cutoff C = 60 s (interval end 100 s) and delete the slot-2 bar row (slots 0 and 1 end by 50 s)",
+   "mutations": [
+    [
+     "set",
+     "C",
+     60000000000
+    ],
+    [
+     "delete",
+     "bars.rows",
+     2
+    ]
+   ]
   }
  ],
  "fixture_counts": {
   "quote_result": 30,
-  "vwap_result": 34,
-  "refusal": 77
+  "vwap_result": 39,
+  "refusal": 80
  },
  "prefix_equivalences": [
   [
@@ -11036,6 +12915,10 @@
    "V18",
    "V19"
   ],
+  "epoch_scale": [
+   "V39",
+   "V40"
+  ],
   "equal_time": [
    "Q25",
    "V21"
@@ -11055,13 +12938,16 @@
    "V06",
    "V16"
   ],
+  "grid": [
+   "V37",
+   "V38"
+  ],
   "identity": [
    "Q02"
   ],
   "independent_readiness": [
    "Q11",
-   "V08",
-   "V27"
+   "V08"
   ],
   "ineligible_ignored": [
    "V01",
@@ -11091,7 +12977,10 @@
    "V14",
    "V28",
    "V29",
-   "V33"
+   "V33",
+   "V35",
+   "V37",
+   "V38"
   ],
   "locked": [
    "Q08"
@@ -11101,6 +12990,9 @@
   ],
   "microprice": [
    "Q01"
+  ],
+  "near_cancellation": [
+   "V40"
   ],
   "negative": [
    "V25"
@@ -11117,8 +13009,7 @@
   ],
   "null_field": [
    "V08",
-   "V09",
-   "V27"
+   "V09"
   ],
   "null_size": [
    "Q11",
@@ -11139,6 +13030,10 @@
    "V04",
    "V32",
    "V33"
+  ],
+  "r17": [
+   "V39",
+   "V40"
   ],
   "repeats": [
    "Q26"
@@ -11193,12 +13088,17 @@
   "zero_denominator": [
    "V21"
   ],
+  "zero_notional": [
+   "V36"
+  ],
   "zero_size": [
    "Q10"
   ],
   "zero_volume": [
    "V05",
-   "V34"
+   "V34",
+   "V35",
+   "V36"
   ]
  },
  "reasons_reached": {
@@ -11216,7 +13116,8 @@
    "V10",
    "V14",
    "V28",
-   "V33"
+   "V33",
+   "V37"
   ],
   "future_market": [
    "Q22",
@@ -11249,20 +13150,44 @@
    "Q11",
    "Q12",
    "V08",
-   "V09",
-   "V27"
+   "V09"
   ],
   "unknown_availability": [
    "Q18",
    "Q21",
    "Q30",
    "V11",
-   "V29"
+   "V29",
+   "V38"
   ],
   "zero_denominator": [
    "V21"
   ]
  },
+ "refusal_precedence": {
+  "rule": "a call is refused by the first applicable tier; within the shared validator tier the first offending row of the first offending batch in role order raises; within the library tier the order below applies; assessment (status, reasons) happens only when nothing is refused",
+  "tiers": [
+   "T1 config: C.version (INCOMPATIBLE_VERSION), C.feature (UNKNOWN_FEATURE), C.capability (UNSUPPORTED_CAPABILITY), C.params (INVALID_CONFIG)",
+   "T2 shared batch construction: K.cell_type (INVALID_SCHEMA), K.overflow (OVERFLOW), K.no_unit (INVALID_UNIT), K.no_sampling (UNSUPPORTED_SAMPLING)",
+   "T3 shared validate_batch per batch in role order (bounds, grid, proof, quotes/trades/bars): duplicate identity or tie key (DUPLICATE) before ordering (INVALID_ORDER) before interval, cutoff and bounds (BOUNDS) before schema rules (INVALID_SCHEMA), negative quantity last (BOUNDS)",
+   "T4 library: L.batch_kind, L.fact_kind (INVALID_SCHEMA); L.scale (INVALID_UNIT); L.basis (UNSUPPORTED_ADJUSTMENT); L.sampling_mismatch, L.change_on_snapshot (UNSUPPORTED_SAMPLING); L.bounds_count, L.bounds_text, L.row_identity, L.source_roles, L.proof_count, L.proof_text, L.grid_text, L.bar_align (INCONSISTENT_IDENTITY); L.row_before_start, L.row_at_or_after_end, L.grid_first_edge, L.grid_last_edge, L.grid_equal_edges, L.bar_end_after_cutoff (BOUNDS); L.bar_notional_positive (INVALID_SCHEMA)"
+  ],
+  "dependencies": "L.sampling_mismatch is evaluated only when the config sampling is valid; L.grid_text and L.proof_text only when the config value is valid; L.bar_align only on a sound grid (strictly increasing, first edge = S, last edge = E, correct kind and text). Each refusal fixture is a single-fault construction: its recipe fires exactly the one named rule, which the harness verifies by applying the recipe to the base fixture."
+ },
+ "shared_validator_split": {
+  "shared validator (validation.py validate_batch)": [
+   "trade: duplicate event_id or (event_ns, order_key) DUPLICATE, unordered INVALID_ORDER, event at or after the market cutoff BOUNDS, an eligible trade with null or nonpositive price or size INVALID_SCHEMA",
+   "quote: the same identity, order and cutoff rules; a null or nonpositive side is a counted invalid state, never a refusal; negative size BOUNDS",
+   "bar: start >= end BOUNDS, duplicate (start, end) DUPLICATE, overlap INVALID_ORDER, end after the market cutoff BOUNDS; volume 0 requires null OHLC and zero or absent notional else INVALID_SCHEMA; volume > 0 with OHLC columns requires positive nonnull coherent OHLC and a notional within [low*volume, high*volume] else INVALID_SCHEMA; negative quantity BOUNDS",
+   "reference: duplicate reference identity DUPLICATE, unordered (start, reference_id) INVALID_ORDER, start >= end BOUNDS"
+  ],
+  "library (this contract)": [
+   "interval membership of rows (before S, at or after E) BOUNDS; bar source E > C BOUNDS",
+   "positive notional on positive volume when no OHLC columns are delivered (INVALID_SCHEMA)",
+   "all identity, grid, proof, role, sampling, unit, basis and config checks"
+  ]
+ },
+ "refusal_model": "harness model built from a base fixture: config{params,outputs,capability,price_scale,basis}, C, bounds[], grid[], proof[] (facts: instrument, session, reference_id, kind, start, end, text, known_at), quotes|trades|bars {kind, sampling, scale, basis, unit, rows[]} with placeholder instrument I, session S0, snapshot 'snap', reference ids x1:B(i1), x1:B(G#n), x1:B(s1), grid text G and series policy P. Mutation ops: set, del_key, insert, delete, dup, swap on dotted paths (list indices are integers). Placeholders never appear as contract values.",
  "decisions_proposed": [
   {
    "id": "DP-Q1",
@@ -11365,7 +13290,7 @@
   {
    "id": "DP-V3",
    "topic": "Operand definition",
-   "decision": "Trade source: eligible price*size (positive integers). Bar and prepared_window: supplied actual_notional over volume. A positive-volume window must supply a positive actual notional; close*volume, typical price or extrema are never substituted (EF1_ANCHORS). Ineligible trades are not operands: their payload and knowledge are never read.",
+   "decision": "Trade source: eligible price*size (positive integers). Bar and prepared_window: supplied actual_notional over volume. A positive-volume window must supply a positive actual notional; close*volume, typical price or extrema are never substituted (EF1_ANCHORS). Ineligible trades are not operands: their payload and knowledge are never read. An eligible trade needs a non-null positive price and size: the shared validator raises INVALID_SCHEMA otherwise (so null_field is not reachable on the trade source).",
    "alternatives": "alternatives: close*volume proxy; high/low typical price. Reason: EF1 anchors forbids proxies.",
    "state": "author-decided (proposed), pending coordinator and owner review"
   },
@@ -11393,14 +13318,14 @@
   {
    "id": "DP-V7",
    "topic": "Zero volume",
-   "decision": "A covered zero-volume window (null prices, null or zero notional) is a structurally empty window, not a missing interval: it contributes no point and no weight and is a ready slot. A zero-volume window with nonzero notional is a typed refusal. All windows empty gives point_count 0 and no_eligible_observations.",
+   "decision": "A covered zero-volume window (null prices, null or zero notional) is a structurally empty window, not a missing interval: it contributes no point and no weight and is a ready slot. Following EF1_PATHS (zero-volume bar payload and knowledge are not operands) the known_at and notional of a slot whose volume is exactly 0 are not read: V35 pins a zero-volume slot known after K as ready; a slot with null volume is different, its volume is indeterminate and its knowledge is read (V09). A notional of 0 is allowed on zero volume exactly as the shared validator allows zero or absent notional (V36); a nonzero notional on zero volume is the shared INVALID_SCHEMA refusal. All windows empty gives point_count 0 and no_eligible_observations.",
    "alternatives": "alternatives: repeat the previous W as a point; treat as gap. Reason: repeating a point would bias the equal-weight regression and invent a price.",
    "state": "author-decided (proposed), pending coordinator and owner review"
   },
   {
    "id": "DP-V8",
    "topic": "Missing intervals",
-   "decision": "For bar and prepared_window the grid fixes the expected slots. A slot with no row and a declared incomplete coverage is governed_gap; a slot with neither row nor coverage is absent_input. Any unready slot blocks every output, because the anchored cumulative path depends on all earlier points (no finite recovery). Trade-source completeness is the declared batch IntervalCoverage.",
+   "decision": "For bar and prepared_window the grid fixes the expected slots. A slot with no row and a declared incomplete coverage is governed_gap; a slot with neither row nor coverage is absent_input. Any unready slot blocks every output, because the anchored cumulative path depends on all earlier points (no finite recovery). Trade-source completeness is the declared batch IntervalCoverage. The grid edge facts are read like the anchor: an edge fact with known_at null or after K gives unknown_availability or future_knowledge on every output with observed 0 (V37, V38). For bar and prepared sources the interval end E must not exceed the market cutoff C (a bar ending after C is already a shared BOUNDS refusal), so future_market is reachable only for the trade and quote sources; E > C with a bar source is the library BOUNDS refusal RV44.",
    "alternatives": "alternatives: skip missing windows; interpolate. Reason: no silent compression of the governed grid (R17).",
    "state": "author-decided (proposed), pending coordinator and owner review"
   },
@@ -11580,5 +13505,5 @@
  "hosting": "packages/features EF4 module, config namespace ef4.*, separate catalog; describe_intraday() and its digest unchanged; no package version bump",
  "interval_kind_rule": "ef4.interval.bounds is the shared declared-interval kind for both EF4-H producers (self-contained definition in reference_fact_schemas); a duplicate (instrument, session, reference_id) is DUPLICATE and two bounds facts with different reference ids are INCONSISTENT_IDENTITY.",
  "header_ledger_to_be_applied": "the 16 headers above are to be applied by a sibling amendment document after the freeze; new unit strings pairs and points (OQ-6); bps, currency/share, shares and currency/share/second compound exist or are derived.",
- "amendment_note": "Additive producer-set and header-ledger entries needed in the shared contract are recorded here as to-be-applied: two producers, sixteen headers, role schemas and three new reference fact kinds (ef4.interval.bounds, ef4.window.edge, ef4.series.proof). A sibling amendment document follows the freeze. No change to shared validators is required or proposed; the one assumption about shared validators is the trade positivity rule stated in RV10, RV11 and RV13, which the library raises itself when the shared validator does not."
+ "amendment_note": "Additive producer-set and header-ledger entries needed in the shared contract are recorded here as to-be-applied: two producers, sixteen headers, role schemas and three new reference fact kinds (ef4.interval.bounds, ef4.window.edge, ef4.series.proof). A sibling amendment document follows the freeze. No change to shared validators is required or proposed; the exact split between shared-validator and library checks is in shared_validator_split."
 }
