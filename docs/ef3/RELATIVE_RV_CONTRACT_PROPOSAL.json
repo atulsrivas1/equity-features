@@ -1,6 +1,6 @@
 {
  "proposal_version": "ef3-relative-rv-proposal1",
- "status": "contract proposal, NOT accepted by any review; every convention is DECISION-PROPOSED or OPEN for coordinator ruling; not an implementation, numerical acceptance, release or performance claim",
+ "status": "coordinator decisions recorded, pending owner review; frozen on merge; not an implementation or acceptance claim",
  "story": "EQ-153 #487 (correlation, beta, residual returns) and EQ-154 #488 (daily centered log-return volatility and intraday regular-session realized variance), EF3; consumed by EF3 I/O #611 (EQ-223), worker #612 (EQ-224) and acceptance EQ-157 #491",
  "evidence_kind": "documentation and hand-derived expected values from a scratch script using only exact Fraction arithmetic and the standard-library Decimal at 120 digits (needed only for ln and sqrt); the script imports nothing from the equity packages; the library was not imported, run or tested",
  "frozen_contract_ref": "docs/ef1/CONTRACT.json ef1-contract1, the EF2 producer-set amendment and the accepted R17 intraday foundations are read-only and unchanged; this packet is additive",
@@ -132,13 +132,13 @@
   "relative_stats": [
    {
     "role": "instrument",
-    "kind": "daily",
+    "kind": "bar",
     "nullable": true,
-    "contract": "DAILY close-only (required_fields close) on the governed daily grid of the target; exactly one instrument_id; one row per session; positive scaled integer closes"
+    "contract": "BAR close-only on the daily governed grid (required_fields close) on the governed daily grid of the target; exactly one instrument_id; one row per session; positive scaled integer closes"
    },
    {
     "role": "benchmark",
-    "kind": "daily",
+    "kind": "bar",
     "nullable": true,
     "contract": "same shape; instrument_id equals config benchmark_id; same namespace, grid, price unit and adjustment declaration as the instrument role"
    }
@@ -146,9 +146,9 @@
   "daily_log_volatility": [
    {
     "role": "daily",
-    "kind": "daily",
+    "kind": "bar",
     "nullable": true,
-    "contract": "DAILY close-only on the governed daily grid; one instrument_id; one row per session"
+    "contract": "BAR close-only on the daily governed grid on the governed daily grid; one instrument_id; one row per session"
    }
   ],
   "intraday_realized_variance": [
@@ -160,7 +160,7 @@
    }
   ]
  },
- "grid_context": "the governed daily grid (sessions, per-slot coverage, target, cutoff) is the existing history-context owned contract, unchanged; how it is encoded for the producer set is OPEN OQ3 for EF3 I/O #611",
+ "grid_context": "daily closes are BAR rows on a daily governed grid with R17 grid and slot-coverage conventions: one slot per governed session, [start_ns,end_ns) session bounds, session_id, grid/calendar identity, target slot and per-slot coverage from the R17 context; one bar per session per role; no DAILY-kind input",
  "mathematics": {
   "notation": "closes C are positive integer coefficients at one scale; governed slots are indexed 0..t, t the target; K the cutoff; a slot is READY iff its row exists, its close is non-null and positive, its coverage is complete and known_at is non-null and <= K",
   "simple_return": "r_j = C_j / C_{j-1} - 1 exact rational, defined iff slots j-1 and j are both READY (never across a gap)",
@@ -176,7 +176,7 @@
   "realized_variance": "RV(t) = sum_{i=a+1..t} (ln(C_i / C_{i-1}))^2, bars a..t of the reset epoch, all READY; no mean subtraction; first bar contributes no return",
   "realized_volatility": "sqrt(A * RV(t))",
   "rounding": "ratios and sums are exact rationals; publication is one float64 rounding of the exact (or Decimal120 reference) value; sqrt and ln are irrational so those fixtures use the R17 tolerance",
-  "accuracy_requirement": "each ln(C_i/C_{i-1}) must be evaluated from the exact ratio with relative error far below 1e-12 even when the ratio is within 1e-15 of 1 (log1p-grade, fixtures DV14, RV16); variance must be centered in a two-pass or exact manner, never E[x^2]-E[x]^2 in float"
+  "accuracy_requirement": "each ln(C_i/C_{i-1}) must be evaluated from the exact ratio with relative error far below 1e-12 even when the ratio is within 1e-15 of 1 (log1p-grade, fixtures DV14, RV16); variance must be centered in a two-pass or exact manner, never E[x^2]-E[x]^2 in float; ln and sqrt reference: Decimal120 correctly rounded, acceptance R17 tolerance (O11)"
  },
  "numeric_policy": {
   "reference": "exact fractions.Fraction where the value is rational (all relative_stats outputs except correlation of non-square ratios), otherwise Decimal at 120 digits (ln, sqrt); no recurrence exists in these families (windowed sums), so no Decimal120 recurrence fixture is needed",
@@ -228,7 +228,7 @@
   "independent_readiness": "relative_stats: correlation and beta need only n >= min_pairs valid pairs; the residual additionally needs the target pair; a lost target pair with n >= min_pairs leaves correlation and beta available",
   "evidence": {
    "limit": "config evidence_limit 0..10000 (R17 bound), witnesses never exceed it, unavailable outputs emit none",
-   "relative_stats_order": "instrument first used close, instrument last used close, benchmark first used close, benchmark last used close (ids instrument:slot:i, benchmark:slot:i; the role prefix is an I/O mapping proposal)",
+   "relative_stats_order": "instrument first used close, instrument last used close, benchmark first used close, benchmark last used close (canonical row id bar:<start_ns>:<end_ns>, role carried by the evidence role)",
    "daily_log_volatility_order": "slot t-N then slot t",
    "intraday_order": "anchor slot a then target slot t",
    "boundary": "completed_interval"
@@ -237,9 +237,9 @@
  "mode_rule": "batch and full replay only; known_at and reconstruction availability modes give identical results; update, restore and merge are unsupported (UNSUPPORTED_CAPABILITY); output at target t is independent of every slot after t (prefix property, PX01 to PX03)",
  "fixture_notation": "compact, NOT canonical wire. scale 2 coefficients; K=100; known_at 50 unless stated. Slot states: priced (c, known_at), absent (no row, no coverage), gap (declared incomplete coverage), unknown (known_at null), future (known_at 150 > K), null (row with null close; for BAR volume null and OHLC null), empty (BAR only: volume 0, OHLC null, coverage complete expected 0). relative_stats fixtures: W=window, minp=min_pairs, t target, inst and bench slot lists indexed from 0. daily: N=period, A=annualization_factor. intraday: slot 0 is the session anchor a, A may be null when only the variance is selected, prior_close is the last close of the previous session (informational), grid_slots_declared is the number of governed slots of the session. alternatives_not_published lists counterexample values of rejected conventions; they are NOT contract outputs.",
  "construction_rules": {
-  "daily_close_only": "DAILY batch with required_fields close; columns instrument_id, session_id, start_ns, end_ns, close, known_at_ns (volume column absent). A null-close slot is a row with close null (validation.py: with the volume column absent or null no OHLC requirement applies). Positive closes only: 0 or negative is INVALID_SCHEMA. Identity (instrument, session) unique: DUPLICATE; start before previous end: INVALID_ORDER.",
   "bar": "BAR rows with volume > 0 need positive coherent non-null OHLC (INVALID_SCHEMA otherwise). A null-price slot is a row with volume null and OHLC null. A proven-empty slot is volume 0 with OHLC null on a slot whose coverage is complete with expected 0; volume 0 with non-null OHLC is INVALID_SCHEMA. Negative volume BOUNDS. Absent slot: no row and no coverage. Gap: coverage declared incomplete.",
-  "reset_epoch_only": "the epoch is the target session from its first governed bar; prior-session bars may be present in the role but never enter the epoch"
+  "reset_epoch_only": "the epoch is the target session from its first governed bar; prior-session bars may be present in the role but never enter the epoch",
+  "bar_daily_close_only": "close-only BAR batch on the daily governed grid (required_fields close); columns instrument_id, session_id, start_ns, end_ns, close, known_at_ns. A null-close slot is a row with close null (no volume column). Positive closes only: 0 or negative is INVALID_SCHEMA. Identity (instrument, session, start, end) unique: DUPLICATE; start before previous end: INVALID_ORDER."
  },
  "fixtures": {
   "relative_stats": [
@@ -5984,13 +5984,13 @@
     "id": "RF14",
     "producer": "relative_stats",
     "error_code": "INCONSISTENT_IDENTITY",
-    "description": "the two role batches have different namespaces (require_compatible_inputs)"
+    "description": "the two role batches have different namespaces (INCONSISTENT_IDENTITY from require_compatible_inputs)"
    },
    {
     "id": "RF15",
     "producer": "relative_stats",
     "error_code": "INVALID_UNIT",
-    "description": "instrument and benchmark price scale or currency differ (require_compatible_inputs; no FX, no rescaling)"
+    "description": "instrument and benchmark price scale, currency or unit differ (require_compatible_inputs raises INVALID_UNIT; no conversion, ruling O4)"
    },
    {
     "id": "RF16",
@@ -6370,162 +6370,112 @@
   "DP-S1": {
    "decision": "relative_stats consumes two DAILY close-only roles (instrument, benchmark); the library derives returns from exact integer closes; the 'return witness' is the pair of adjacent closes with their row ids as evidence",
    "alternatives": "float64 return series (rounded, not exact), REFERENCE return rows, existing ReturnReference scalars (one horizon only, cannot form a series)",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-S2": {
    "decision": "return basis for EQ-153: simple session return C_j/C_{j-1}-1 (consistent with relative.market_return and history.return; exact rational arithmetic)",
    "alternatives": "natural log returns (would need a new policy label ef3-rel2 and Decimal references), excess over a risk-free series (needs another role)",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-S3": {
    "decision": "one return per two adjacent governed closes; a return spanning a missing close is never formed",
    "alternatives": "multi-session spanning return across the hole (mixes horizons), forward fill (invents a zero return)",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-S4": {
    "decision": "sample population: the last W governed return slots ending at the target (inclusive); complete-case pairing: only slots where both returns are defined enter, and means are joint means",
    "alternatives": "strict only (all W pairs), per-series own means, target excluded (prior-only), calendar-day windows",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-S5": {
    "decision": "minimum coverage: caller min_pairs in 2..W, no default, n >= min_pairs available, W = min_pairs reproduces strict mode; the window must lie wholly inside the grid (else insufficient_history regardless of min_pairs)",
    "alternatives": "min_pairs fixed by policy, fraction-of-window threshold, lower bound 3 (OPEN OQ10)",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-S6": {
    "decision": "covariance is centered (OLS with intercept) with the sample denominator n-1 declared; because beta and correlation are ratios the denominator cancels exactly and no output depends on it",
    "alternatives": "population denominator n (identical outputs), uncentered regression through the origin (different beta, shown in RS02 and RS18)",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-S7": {
    "decision": "zero variance is an exact rational zero test with no epsilon. Zero benchmark variance: correlation, beta and residual are not_applicable/zero_denominator. Zero instrument variance only: correlation zero_denominator, beta exactly 0, residual equals the instrument target return",
    "alternatives": "define beta=0 or rho=0 for degenerate cases, epsilon threshold, nonfinite output",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-S8": {
    "decision": "beta-adjusted residual e_t = r_i,t - beta * r_b,t, beta from the same window including the target, no intercept, requires the target pair",
    "alternatives": "prior-only beta (window ending t-1), intercept-adjusted residual r - alpha - beta*r_b (values in RS02 and RS18 alternatives), residual on log basis",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-S9": {
    "decision": "benchmark identity: exactly one benchmark named by config benchmark_id; same namespace, grid, scale, currency and adjustment declaration as the instrument; no FX, no rescaling, no hidden benchmark; any third instrument is a typed refusal",
    "alternatives": "scale-free returns allowing different units (OPEN OQ4)",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-S10": {
    "decision": "exact rational arithmetic with one float64 rounding; correlation is the correctly rounded exact real sign*sqrt(Sxy^2/(Sxx*Syy)), within the R17 tolerance; the published value never leaves [-1,1]",
    "alternatives": "float accumulation (rejected: cancellation, RS17)",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-V1": {
    "decision": "daily volatility uses natural-log close ratios, centered, sample N-1, vol = sqrt(A * variance), as a NEW feature id history.log_return_volatility; the existing history.return_volatility (simple returns) is unchanged and distinct (DV15 shows different values for the same closes)",
    "alternatives": "population denominator N, uncentered RMS (both shown in DV15 alternatives), a version flag on the existing id (rejected: silent change of an accepted API)",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-V2": {
    "decision": "annualization is the caller integer A (1..2^63-1), no default; vol = sqrt(A * s2); A=1 is explicit unannualized; the policy does not claim A is sessions per year",
    "alternatives": "variance annualization A*s2 without sqrt, a calendar-derived factor, fractional A",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-V3": {
    "decision": "strict window: N+1 READY consecutive governed closes, no shrinking, no gap spanning; fewer slots in the grid is insufficient_history",
    "alternatives": "min coverage as in relative_stats, bridging returns",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-R1": {
    "decision": "realized variance is the uncentered sum of squared log returns of consecutive governed-slot closes in the target session",
    "alternatives": "centered sum, bipower or jump-robust variation, subsampled or two-scale estimators",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-R2": {
    "decision": "sampling is every governed slot of the supplied grid (the grid version is the sampling frequency); the single-valued sampling parameter makes a coarser step UNSUPPORTED_SAMPLING",
    "alternatives": "caller sampling step k (anchoring ambiguity), resampling inside the library",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-R3": {
    "decision": "overnight exclusion by the reset epoch: only returns between consecutive bars of the target session; the first bar contributes only its close as base (no open-to-close return, no prior-close return)",
    "alternatives": "include first-bar open-to-close, carry epoch including the overnight return (R17 carry; out of v1), separate overnight feature",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-R4": {
    "decision": "the governed grid of the session defines the expected slots, so an early-close session simply has fewer slots and is complete at its last slot; no rescaling to a full-day slot count; cross-session comparability is the consumer's responsibility",
    "alternatives": "scale by reference_slots/actual_slots, flag early-close sessions",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-R5": {
    "decision": "strict completeness from the anchor to the target: no bridging return, no forward fill, no rescaling by expected/observed; a coverage-proven empty slot has no close and yields not_applicable/no_eligible_observations (differs from the money-flow zero-flow rule because a return needs a price)",
    "alternatives": "bridging, forward fill (zero return), expected/observed scaling, an allowed fraction of missing bars",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-R6": {
    "decision": "minimum of one return: t = a is insufficient_history (observed 1, expected 2); RV-to-date at any later governed target is allowed, completeness of the whole session is the caller's choice of target",
    "alternatives": "caller min_returns parameter, session-complete flag (OPEN OQ7)",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-R7": {
    "decision": "realized_variance is unannualized; realized_volatility = sqrt(A * RV) with A required exactly when it is selected",
    "alternatives": "annualize the variance too, sessions-per-year inferred from the calendar",
-   "state": "DECISION-PROPOSED"
+   "state": "decided, pending owner review"
   },
   "DP-R8": {
    "decision": "positive prices only (zero or negative close is INVALID_SCHEMA by the shared validator); units use 'fraction' for dimensionless outputs; no new unit string is introduced (OPEN OQ2)",
    "alternatives": "new units for variance and beta",
-   "state": "DECISION-PROPOSED"
-  }
- },
- "open_questions": {
-  "OQ1": {
-   "text": "Hosting package and feature-id spelling: relative.* and history.log_return_volatility in packages/features, intraday.realized_* in packages/intraday (as proposed) versus a single ef3.* module; the three producers are additive to the producer set (an amendment document follows a ruling).",
-   "state": "OPEN"
-  },
-  "OQ2": {
-   "text": "Unit strings: relative.beta, relative.correlation, relative.residual_return, the volatilities and realized_variance use 'fraction' to avoid new unit strings; confirm, or register dimensionless-specific units for beta and variance.",
-   "state": "OPEN"
-  },
-  "OQ3": {
-   "text": "Encoding of the governed daily grid and per-slot coverage (the history context) in the producer set for the two DAILY producers (I/O #611); the contract only fixes that the semantics are the existing context, unchanged.",
-   "state": "OPEN"
-  },
-  "OQ4": {
-   "text": "Allow a benchmark with a different price scale or currency (returns are scale-free) under an explicit declaration, or keep the strict equal-unit rule of require_compatible_inputs (proposed).",
-   "state": "OPEN"
-  },
-  "OQ5": {
-   "text": "Residual variants (prior-only beta, intercept-adjusted) as additional outputs or later labels; v1 proposes one residual.",
-   "state": "OPEN"
-  },
-  "OQ6": {
-   "text": "Whether a log-return basis for relative_stats is wanted (new label ef3-rel2) given the log families of EQ-154.",
-   "state": "OPEN"
-  },
-  "OQ7": {
-   "text": "Whether realized variance needs an explicit session-complete indicator (complete session versus to-date) or whether the target choice suffices.",
-   "state": "OPEN"
-  },
-  "OQ8": {
-   "text": "Evidence row-id format for two-role evidence (instrument:slot:i, benchmark:slot:i) and its mapping by the I/O layer.",
-   "state": "OPEN"
-  },
-  "OQ9": {
-   "text": "Window bound 4096 (R17 period bound) for the daily families versus a tighter daily bound such as 252-based.",
-   "state": "OPEN"
-  },
-  "OQ10": {
-   "text": "Lower bound of min_pairs: 2 is allowed (two points give correlation exactly +1 or -1, RS23) versus 3.",
-   "state": "OPEN"
-  },
-  "OQ11": {
-   "text": "Accuracy wording for ln and sqrt (R17 tolerance on the final value with log1p-grade intermediate accuracy) versus an explicit per-log relative error bound.",
-   "state": "OPEN"
-  },
-  "OQ12": {
-   "text": "Interplay with the existing ReturnReference and relative.market_return: kept unchanged and distinct (proposed); confirm no deprecation intended.",
-   "state": "OPEN"
+   "state": "decided, pending owner review"
   }
  },
  "layer_responsibilities": {
   "library": "admission of supplied closes, alignment and pair validity, returns, windowed sums, beta, correlation, residual, log volatility and realized variance with the stated exactness and accuracy, quality, evidence and every refusal; pure and deterministic; shared per-pair preparation reused by the three relative outputs without coupling their readiness; no acquisition, clock, I/O, calendar lookup or sorting",
-  "ef3_io_611": "maps ordered closes with known_at into the DAILY and BAR roles exactly as supplied, the governed grid and coverage into the context, the single benchmark identity into config; maps results (float64 hex-exact values, status, reasons, counts, witnesses) to the sink conversion; never derives a return, fills or interpolates a missing close, picks a benchmark, normalizes scale, currency or adjustment, injects a default window, minimum, annualization or threshold",
+  "ef3_io_611": "maps ordered closes with known_at into the BAR roles exactly as supplied, the daily governed grid and coverage into the R17 context, the single benchmark identity into config; maps results (float64 hex-exact values, status, reasons, counts, witnesses) to the sink conversion; never derives a return, fills or interpolates a missing close, picks a benchmark, normalizes scale, currency or adjustment, injects a default window, minimum, annualization or threshold",
   "worker_612": "routes selected outputs with exact warm-up closure, shares per-pair preparation within resource bounds, executes one config per complete result, binds inputs and the config digest, persists the library result unchanged; direct, worker and stored results identical including refusal class"
  },
  "non_goals": [
@@ -6533,9 +6483,23 @@
   "no sector or market construction; no multi-factor or multi-benchmark regression; no rolling-state, update, restore or merge capability",
   "no carry epoch; no overnight or open-to-close return features; no jump-robust, bipower, two-scale or subsampled realized measures",
   "no default window, minimum coverage, annualization or threshold; no annual-risk claim for any annualization factor",
-  "no change to history.return_volatility, relative.market_return, relative.sector_return, ReturnReference or any accepted R17 or EF2 output",
+  "no change to and no interplay with history.return_volatility, relative.market_return, relative.sector_return, ReturnReference or any accepted R17 or EF2 output (distinct producers)",
   "no new DataKind, DTO, codec, scheduler, error code, unit string or shared-validator change; no performance, parity, release or publication claim; no private-source equivalence"
  ],
- "amendment_note": "producer-set and header-ledger entries (three producers, six headers) are recorded as to-be-applied; a sibling amendment document follows a coordinator ruling. No change to shared validators is proposed; every refusal uses an existing ErrorCode.",
- "coordinator_freeze": "NOT FROZEN. On acceptance the coordinator rules on each DECISION-PROPOSED and OPEN item, after which the policy labels ef3-rel1, ef3-dlv1 and ef3-rv1 (v1) freeze for implementation; any later change to a convention, label, header, role or fixture needs a new label and an amendment document. This text claims no review or acceptance."
+ "amendment_note": "to-be-applied: three producers and six headers (history.log_return_volatility, intraday.realized_variance, intraday.realized_volatility, relative.beta, relative.correlation, relative.residual_return), no new unit; the shared header/unit amendment is a sibling document after the freeze. No shared validator change.",
+ "coordinator_freeze": "Frozen as ef3-rel1, ef3-dlv1 and ef3-rv1 (v1) for implementation once this PR merges (coordinator statement; no review or acceptance claim by the author). Reset epoch mode only; no defaults for windows, A or min_pairs. Any later change needs a new label and an amendment document.",
+ "rulings": {
+  "O1": "relative.* and history.log_return_volatility in packages/features (EF3 module, config namespace ef3.*); intraday.realized_* in packages/intraday; separate catalogs; describe_intraday() and its digest unchanged; no package version bump",
+  "O2": "unit 'fraction' for all six headers (dimensionless); no new unit string",
+  "O3": "daily closes are BAR rows on a daily governed grid with R17 grid and slot-coverage conventions: one slot per governed session, [start_ns,end_ns) session bounds, session_id, grid/calendar identity, target slot and per-slot coverage from the R17 context; one bar per session per role; no DAILY-kind input",
+  "O4": "differing price unit, currency or scale between instrument and benchmark: INVALID_UNIT (require_compatible_inputs); namespace mismatch INCONSISTENT_IDENTITY; no conversion",
+  "O5": "residual variants out of v1",
+  "O6": "no ef3-rel2 log label in v1",
+  "O7": "no session-complete flag; strict completeness internal",
+  "O8": "evidence row ids follow the EF2 convention bar:<start_ns>:<end_ns>; fixtures use compact instrument:slot:i, benchmark:slot:i and slot:i for those bars",
+  "O9": "window/period bound 4096 = R17 period bound (packages/intraday/src/equity_features_intraday/_context.py integer(...,1,4096)) for all producers",
+  "O10": "min_pairs lower bound 2",
+  "O11": "ln and sqrt Decimal120 correctly rounded; acceptance is the R17 tolerance; absolute floor 1e-12 on DV07 only (exact reference 0 from equal nonzero logs)",
+  "O12": "no interplay with ReturnReference or existing relative returns; distinct producers (non-goal)"
+ }
 }
