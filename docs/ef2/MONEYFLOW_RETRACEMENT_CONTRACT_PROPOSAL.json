@@ -1,6 +1,6 @@
 {
  "proposal_version": "ef2-moneyflow-retracement-proposal1",
- "status": "PROPOSAL ONLY: not reviewed, not frozen, not accepted; no implementation admitted",
+ "status": "coordinator decisions recorded, pending owner review; frozen on merge; not an implementation or acceptance claim",
  "story": "EQ-150 #484 (money flow) and EQ-238 #663 (retracement level) in EF2; consumed by #609, #610, acceptance #486",
  "evidence_kind": "documentation and hand-derived expected values from a scratch script using only exact Fraction arithmetic; nothing executed against the library",
  "frozen_contract_ref": "docs/ef1/CONTRACT.json ef1-contract1 and the accepted R17 intraday foundations are read-only and unchanged; this packet is additive",
@@ -8,13 +8,14 @@
   "config_identity": "ef2.money_flow",
   "algorithm_version": "ef2-money-flow-v1",
   "schema_version": "1",
-  "package": "optional intraday package (additive catalog entries; catalog digest changes; R17 entries unchanged)",
+  "package": "packages/intraday (ruling 1; additive catalog entries; catalog digest changes; R17 entries unchanged); retracement.level lives in packages/features as an EF2 module",
   "policy_version": "ef2-mf1",
   "policy": {
    "obv_seed": "zero_at_anchor",
    "obv_tie": "zero",
    "mfm_zero_range": "zero",
-   "empty_slot": "zero_volume_flow",
+   "empty_slot": "zero_volume_flow_only_when_coverage_proves_empty",
+   "mode": "reset_only_carry_out_of_v1",
    "cmf_window": "last_n_governed_slots_within_epoch",
    "cmf_zero_volume": "zero_denominator"
   }
@@ -28,7 +29,8 @@
    "policy_version",
    "direction",
    "ratio_num",
-   "ratio_den"
+   "ratio_den",
+   "evidence_limit"
   ],
   "direction_values": [
    "from_high",
@@ -205,13 +207,14 @@
    "retracement": "expected 2, observed = sides admitted causal with a non-null positive price"
   },
   "evidence": {
-   "obv_ad_line": "anchor slot and target slot (limit 2)",
-   "cmf": "first and last window slot (limit 2)",
-   "retracement": "the prior_high and prior_low rows (limit 2)",
+   "limit": "config parameter evidence_limit, integer 0..10000 (R17 _context.py: build config integer(evidence_limit, 0, 10000)); witnesses never exceed it",
+   "obv_ad_line": "anchor slot then target slot",
+   "cmf": "first then last window slot",
+   "retracement": "prior_high then prior_low row",
    "unavailable": "no evidence"
   }
  },
- "mode_rule": "known_at and reconstruction availability modes give identical results; update, restore and merge unsupported; batch and full replay only",
+ "mode_rule": "anchored reset batch only (carry mode out of v1); known_at and reconstruction availability modes give identical results; update, restore and merge unsupported; batch and full replay only",
  "fixture_notation": "compact, NOT canonical wire. Money flow: scale 2 coefficients; slots a..t with state priced (c,h,l,v,known_at), empty (proven zero volume), absent (no row, no coverage), gap (declared incomplete coverage), unknown (known_at null), future (known_at 150 > K 100). K=100, known_at 50 when not stated. Float results list exact rational, float64 and float.hex. Retracement: price coefficients at the stated scale; side states priced, absent, empty_batch, null_price, insufficient (factor [observed, required]), unknown, future, gap.",
  "money_flow_fixtures": [
   {
@@ -2093,10 +2096,10 @@
   },
   {
    "id": "M23",
-   "group": "window",
-   "description": "carry mode: anchor is an earlier supplied close; OBV excludes the anchor volume, AD includes it",
+   "group": "anchor",
+   "description": "anchor asymmetry: the large anchor volume is excluded from OBV (no prior close) but included in AD",
    "scale": 2,
-   "mode": "carry",
+   "mode": "reset",
    "a": 0,
    "t": 2,
    "N": 2,
@@ -2131,7 +2134,7 @@
     }
    ],
    "tags": [
-    "carry"
+    "anchor"
    ],
    "expected": {
     "intraday.obv": {
@@ -3000,6 +3003,96 @@
    }
   },
   {
+   "id": "M36",
+   "group": "zero_volume",
+   "description": "ruling 2: zero-volume row that supplies non-null OHLC (close 1500) is a valid zero-flow bar; its prices are ignored and it never becomes the OBV base. Result equals M17. Reachable only after the shared BAR validator is amended (it currently refuses this row with INVALID_SCHEMA)",
+   "scale": 2,
+   "mode": "reset",
+   "a": 0,
+   "t": 2,
+   "N": 3,
+   "K": 100,
+   "slots": [
+    {
+     "i": 0,
+     "state": "priced",
+     "c": 1000,
+     "h": 1010,
+     "l": 990,
+     "v": 10,
+     "known_at": 50
+    },
+    {
+     "i": 1,
+     "state": "empty",
+     "known_at": 50,
+     "supplied_ohlc_ignored": {
+      "c": 1500,
+      "h": 1600,
+      "l": 1400
+     }
+    },
+    {
+     "i": 2,
+     "state": "priced",
+     "c": 1010,
+     "h": 1030,
+     "l": 1000,
+     "v": 30,
+     "known_at": 50
+    }
+   ],
+   "tags": [
+    "zero_volume",
+    "validator_amendment"
+   ],
+   "expected": {
+    "intraday.obv": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 30,
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.ad_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-10/1",
+      "float64": -10.0,
+      "hex": "-0x1.4000000000000p+3"
+     },
+     "witness_slots": [
+      0,
+      2
+     ]
+    },
+    "intraday.cmf": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "-1/4",
+      "float64": -0.25,
+      "hex": "-0x1.0000000000000p-2"
+     },
+     "sum_money_flow_volume": "-10/1",
+     "sum_volume": 40,
+     "witness_slots": [
+      0,
+      2
+     ]
+    }
+   }
+  },
+  {
    "id": "M35",
    "group": "overflow",
    "description": "intermediate excursion beyond int64 that returns in range: only the published value is bounded; AD stays within float64",
@@ -3120,17 +3213,17 @@
   {
    "id": "MR03",
    "error_code": "INVALID_SCHEMA",
-   "description": "positive-volume row with null close/high/low (malformed per the existing BAR contract)"
+   "description": "positive-volume row with null or non-positive OHLC (existing BAR validation)"
   },
   {
    "id": "MR04",
-   "error_code": "BOUNDS",
-   "description": "close outside [low, high] or low > high on a supplied row (contradictory OHLC is never ignored)"
+   "error_code": "INVALID_SCHEMA",
+   "description": "close outside [low, high] or low > high on a positive-volume row: existing BAR validation 'OHLC coherence violation' (validation.py)"
   },
   {
    "id": "MR05",
    "error_code": "BOUNDS",
-   "description": "negative volume"
+   "description": "negative volume (existing negative quantity/count check)"
   },
   {
    "id": "MR06",
@@ -3155,7 +3248,7 @@
   {
    "id": "MR10",
    "error_code": "INVALID_CONFIG",
-   "description": "cmf_period 0, negative, bool, float or above the grid bound"
+   "description": "cmf_period 0, negative, bool, float or above 4096 (R17 period bound)"
   },
   {
    "id": "MR11",
@@ -3180,12 +3273,27 @@
   {
    "id": "MR15",
    "error_code": "INVALID_CONFIG",
-   "description": "mode other than reset or carry, or target not the final governed slot"
+   "description": "mode other than reset (carry is out of v1), or target not the final governed slot"
   },
   {
    "id": "MR16",
    "error_code": "UNKNOWN_FEATURE",
    "description": "feature id outside intraday.obv, intraday.ad_line, intraday.cmf"
+  },
+  {
+   "id": "MR17",
+   "error_code": "INVALID_SCHEMA",
+   "description": "CURRENT shared validator behavior (to be amended per ruling 2, see fixture M36): zero-volume row with non-null OHLC"
+  },
+  {
+   "id": "MR18",
+   "error_code": "UNSUPPORTED_ADJUSTMENT",
+   "description": "bars of different chunks declare different adjustment bases (volume shares the declared basis; all bars must match the config)"
+  },
+  {
+   "id": "MR19",
+   "error_code": "INVALID_CONFIG",
+   "description": "evidence_limit outside 0..10000 (R17 bound)"
   }
  ],
  "retracement_fixtures": [
@@ -4666,6 +4774,11 @@
    "description": "wrong fact_kind, only one of factor_num/factor_den populated, or wrong slot kind"
   },
   {
+   "id": "TR17",
+   "error_code": "INVALID_CONFIG",
+   "description": "evidence_limit outside 0..10000"
+  },
+  {
    "id": "TR14",
    "error_code": "INVALID_UNIT",
    "description": "price unit scale or currency differs from the config"
@@ -4682,10 +4795,10 @@
   }
  ],
  "fixture_counts": {
-  "money_flow_result": 35,
-  "money_flow_refusal": 16,
+  "money_flow_result": 36,
+  "money_flow_refusal": 19,
   "retracement_result": 31,
-  "retracement_refusal": 16
+  "retracement_refusal": 17
  },
  "coverage_map": {
   "exact_initial": [
@@ -4759,13 +4872,14 @@
    "M18",
    "M19",
    "M20",
-   "M21"
+   "M21",
+   "M36"
   ],
   "zero_denominator": [
    "M19",
    "M20"
   ],
-  "carry": [
+  "anchor": [
    "M23"
   ],
   "missing_history": [
@@ -4804,6 +4918,9 @@
    "T30",
    "T31"
   ],
+  "validator_amendment": [
+   "M36"
+  ],
   "identity": [
    "T08"
   ],
@@ -4819,155 +4936,92 @@
    "T25"
   ]
  },
- "decisions_proposed": {
+ "decisions": {
   "DP-M1": {
-   "choice": "OBV seed 0 at the anchor",
-   "alternatives": "`V_a`; caller seed",
-   "state": "DECISION-PROPOSED"
+   "decision": "OBV starts at 0 at the anchor.",
+   "state": "decided, pending owner review"
   },
   "DP-M2": {
-   "choice": "OBV tie adds 0",
-   "alternatives": "add `V`; carry previous direction",
-   "state": "DECISION-PROPOSED"
+   "decision": "OBV tie adds 0.",
+   "state": "decided, pending owner review"
   },
   "DP-M3": {
-   "choice": "OBV base is the last priced close; empties never become the base",
-   "alternatives": "empty blocks the output (R17 style)",
-   "state": "DECISION-PROPOSED"
+   "decision": "OBV base is the last priced close; empty slots never become the base.",
+   "state": "decided, pending owner review"
   },
   "DP-M4": {
-   "choice": "zero-range multiplier 0",
-   "alternatives": "null/zero_denominator; carry previous; close-direction sign",
-   "state": "DECISION-PROPOSED"
+   "decision": "Zero-range multiplier is 0.",
+   "state": "decided, pending owner review"
   },
   "DP-M5": {
-   "choice": "proven-empty slot is zero-volume flow",
-   "alternatives": "R17 `observed_empty` blocking",
-   "state": "DECISION-PROPOSED"
+   "decision": "Zero-volume slots count as zero flow only when coverage proves them empty (differs from R17 EMA/ATR blocking, see above).",
+   "state": "decided, pending owner review"
   },
   "DP-M6": {
-   "choice": "CMF is the plain ratio of window sums over N governed slots within the epoch, N caller-given",
-   "alternatives": "shorter initial window; calendar-time window",
-   "state": "DECISION-PROPOSED"
+   "decision": "CMF is the plain ratio of window sums over the last N slots; N caller-set, no default.",
+   "state": "decided, pending owner review"
   },
   "DP-M7": {
-   "choice": "CMF with zero window volume is null, `zero_denominator`",
-   "alternatives": "publish 0.0",
-   "state": "DECISION-PROPOSED"
+   "decision": "Zero CMF volume sum is null, `not_applicable/zero_denominator`.",
+   "state": "decided, pending owner review"
   },
   "DP-M8": {
-   "choice": "AD includes the anchor bar flow, OBV excludes anchor volume",
-   "alternatives": "OBV includes anchor volume (needs DP-M1 alternative)",
-   "state": "DECISION-PROPOSED"
+   "decision": "A/D includes the anchor bar; OBV excludes the anchor bar's volume.",
+   "state": "decided, pending owner review"
   },
   "DP-M9": {
-   "choice": "exact rationals, one float64 rounding; OBV exact int64 with `OVERFLOW`",
-   "alternatives": "decimal128 for AD",
-   "state": "DECISION-PROPOSED"
-  },
-  "DP-M10": {
-   "choice": "ids `intraday.obv`, `intraday.ad_line`, `intraday.cmf` in the optional package",
-   "alternatives": "an `ef2.` or `momentum.` namespace",
-   "state": "DECISION-PROPOSED"
+   "decision": "Exact rationals with one float64 rounding; OBV exact int64 with `OVERFLOW` refusal.",
+   "state": "decided, pending owner review"
   },
   "DP-R1": {
-   "choice": "single output, direction in config",
-   "alternatives": "two outputs or a direction column",
-   "state": "DECISION-PROPOSED"
+   "decision": "One output per config, direction in config.",
+   "state": "decided, pending owner review"
   },
   "DP-R2": {
-   "choice": "`from_high = H - rR`, `from_low = L + rR`",
-   "alternatives": "other labelling of directions",
-   "state": "DECISION-PROPOSED"
+   "decision": "`from_high = H - rR`, `from_low = L + rR`.",
+   "state": "decided, pending owner review"
   },
   "DP-R3": {
-   "choice": "free reduced-rational ratio in `[0,1]`, no default",
-   "alternatives": "fixed ratio set; extension domain",
-   "state": "DECISION-PROPOSED"
+   "decision": "Free reduced rational ratio in [0,1], no default.",
+   "state": "decided, pending owner review"
   },
   "DP-R4": {
-   "choice": "`H = L` is `zero_denominator`",
-   "alternatives": "available level = H; refusal",
-   "state": "DECISION-PROPOSED"
+   "decision": "`H = L` is `zero_denominator`.",
+   "state": "decided, pending owner review"
   },
   "DP-R5": {
-   "choice": "`H < L` or non-positive coefficient is `ineligible`",
-   "alternatives": "`BOUNDS` refusal",
-   "state": "DECISION-PROPOSED"
+   "decision": "`H < L` or a non-positive coefficient is `ineligible`.",
+   "state": "decided, pending owner review"
   },
   "DP-R6": {
-   "choice": "extrema supplied as exact integer coefficients; rounded float64 not accepted",
-   "alternatives": "exact binary rational of the float64",
-   "state": "DECISION-PROPOSED"
+   "decision": "Exact integer-coefficient extrema; rounded float64 rejected.",
+   "state": "decided, pending owner review"
   },
   "DP-R7": {
-   "choice": "window length is the extrema owner's, carried as `factor_den`, must agree across roles",
-   "alternatives": "window length in this config",
-   "state": "DECISION-PROPOSED"
+   "decision": "Window length belongs to the extrema owner, carried as `factor_den`, equal across roles.",
+   "state": "decided, pending owner review"
   },
   "DP-R8": {
-   "choice": "the level uses no close; close variant and side comparison belong to #518",
-   "alternatives": "a close operand here",
-   "state": "DECISION-PROPOSED"
+   "decision": "No close price in the level.",
+   "state": "decided, pending owner review"
   },
   "DP-R9": {
-   "choice": "upstream insufficient history transported as null price with `factor_num < factor_den`",
-   "alternatives": "absent row (loses the reason)",
-   "state": "DECISION-PROPOSED"
+   "decision": "Shortfall is a null price with `factor_num < factor_den`.",
+   "state": "decided, pending owner review"
   }
  },
- "open_questions": {
-  "OPEN-1": {
-   "text": "naming and package home of the three ids (`intraday.*` optional package versus an EF2 namespace) and the exact catalog-digest amendment.",
-   "state": "OPEN"
-  },
-  "OPEN-2": {
-   "text": "how the existing BAR contract treats a zero-volume row with non-null OHLC (this proposal ignores its prices; confirm or refuse).",
-   "state": "OPEN"
-  },
-  "OPEN-3": {
-   "text": "volume basis when prices are split-adjusted; this proposal accepts supplied shares as given and adjusts nothing.",
-   "state": "OPEN"
-  },
-  "OPEN-4": {
-   "text": "whether OBV in carry mode should include a cross-session overnight change (currently yes, via the declared carry epoch) and the exact anchor-bar semantics for AD there.",
-   "state": "OPEN"
-  },
-  "OPEN-5": {
-   "text": "the exact `ErrorCode` for contradictory supplied OHLC (`BOUNDS` proposed) and for a non-positive price on a BAR row.",
-   "state": "OPEN"
-  },
-  "OPEN-6": {
-   "text": "whether the extrema owners (#473, #483 or history/daily carriers) can expose the exact integer coefficient and window shortfall; reuse of closed #32 remains unproved, and the extremum REFERENCE route versus a prepared-operand route is unratified.",
-   "state": "OPEN"
-  },
-  "OPEN-7": {
-   "text": "add `retracement.level` as a proposal-only entry to the 47-output manifest (decision A2) before or after this contract is accepted.",
-   "state": "OPEN"
-  },
-  "OPEN-8": {
-   "text": "evidence limits (2 per output proposed) and the CMF maximum N (4096 proposed from the grid bound).",
-   "state": "OPEN"
-  },
-  "OPEN-9": {
-   "text": "whether `intraday.ad_line` should be float64 shares or a decimal128 type, and a named unit for an unnormalized origin-dependent cumulative value.",
-   "state": "OPEN"
-  },
-  "OPEN-10": {
-   "text": "whether consumers need the extension domain above 1 later (new policy label) and whether the range itself should be emitted by this producer.",
-   "state": "OPEN"
-  }
+ "rulings": {
+  "O1": "money-flow headers in packages/intraday; retracement.level in packages/features as an EF2 module",
+  "O2": "zero-volume row with non-null OHLC is a valid zero-flow bar (prices ignored); contradictory OHLC refused through existing BAR validation codes (INVALID_SCHEMA, BOUNDS, DUPLICATE, INVALID_ORDER); current shared validator still refuses the zero-volume non-null-OHLC row (amendment to be applied)",
+  "O3": "volume in the config-declared adjustment basis; no conversion; all bars must match",
+  "O4": "carry mode not in v1; anchored batch only",
+  "O5": "see O2",
+  "O6": "exact integer-coefficient extrema REFERENCE rows mapped by I/O; no change to #473/#483/history carriers",
+  "O7": "retracement.level to be added to the 47-output manifest as proposed unaccepted entry later (hygiene PR)",
+  "O8": "evidence_limit 0..10000 and period 1..4096 reused from R17 _context.py",
+  "O9": "ad_line float64 unit shares",
+  "O10": "extension ratios above 1 out of v1"
  },
- "non_goals": [
-  "no acquisition of bars, volumes or extrema",
-  "no re-derivation of prior-window extrema",
-  "no proximity, crossing or score policy",
-  "no default ratio, period, tolerance or threshold",
-  "no extension ratios",
-  "no smoothing, signal lines, oscillators or variants",
-  "no volume/price adjustment or currency conversion",
-  "no update/restore/merge",
-  "no new DataKind, DTO, codec, scheduler or default",
-  "no performance, release, publication or acceptance claim"
- ]
+ "amendment_note": "additive producer-set and header-ledger entries (ef2.money_flow, ef2.retracement_level, four headers, intraday catalog entries and digest, BAR validator change for zero-volume non-null OHLC) are recorded as to-be-applied; a sibling amendment document follows the freeze",
+ "coordinator_freeze": "frozen as ef2-mf1 and ef2-retrace1 (v1) for implementation once the PR merges (coordinator statement; no review or acceptance claim by the author)"
 }
