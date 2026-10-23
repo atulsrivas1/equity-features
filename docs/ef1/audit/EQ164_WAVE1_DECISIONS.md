@@ -1,6 +1,6 @@
 # EQ164 wave 1: coordinator decisions
 
-October 22, 2026. Coordinator decisions on the questions raised by the three merged slice reports ([A](EQ164_SELECTED_A.md) #648, [B](EQ164_SELECTED_B.md) #649, [C](EQ164_SELECTED_C.md) #647), covering the 122 selected rows. Status of every decision: decided, pending owner review. Findings and decisions are not acceptance: full EQ164 stays open, no row is Ready, and no tracker issue was created or edited. "Proposed story" means a numbered story is needed and has not been created.
+October 22, 2026. Coordinator decisions on the questions raised by the three merged slice reports ([A](EQ164_SELECTED_A.md) #648, [B](EQ164_SELECTED_B.md) #649, [C](EQ164_SELECTED_C.md) #647), covering the 122 selected rows. Status of every decision: decided, pending owner review. Rows A3, A4, A5, B3 and B7 are provisional working rules: the slice reports left the underlying question open or unproven, so they are recorded as the coordinator's current routing choice and may be overturned by the owner or by contract evidence. Findings and decisions are not acceptance: full EQ164 stays open, no row is Ready, and no tracker issue was created or edited. "Proposed story" means a numbered story is needed and has not been created.
 
 ## Slice C (EF8-only rows)
 
@@ -40,7 +40,7 @@ October 22, 2026. Coordinator decisions on the questions raised by the three mer
 - About 95 EF3 route entries sit outside the 122-row packet and are not yet de-duplicated.
 
 ## Wave 2 (planned, not started)
-1. Adjudicate the 208 proposed command exclusions (101 ingest/admin/validation, 101 other-domain, 18 shell-with-components, 9 reviewed) by category; source-safe, opaque ids.
+1. Adjudicate the 208 proposed command exclusions (101 ingest/admin/validation, 101 other-domain, 6 reviewed standalone) by category; source-safe, opaque ids.
 2. Row-level operand lists for consumer rows (the 245 consumer operand gaps), starting with the ten rows that need operand producers in slices A and C and four in B.
 3. Draft the proposed stories (cohort normalization, anchor discovery, retracement gap, mean companion) as a docs PR; issue creation needs owner OK.
 4. Reconcile the remaining identities outside the 122 selected rows (fields 721, scanners 357, watchlists 25, commands 296) with duplicate/orphan accounting.
