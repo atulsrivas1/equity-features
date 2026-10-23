@@ -1254,7 +1254,7 @@
    ],
    "numbering_check": "issues #507,#520,#570,#571,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
    "classification": "AMBIGUOUS_OR_CONFLICTING",
-   "covering_producer": "possibly delivered anchor features (anchored VWAP/volume/notional) and/or planned open-to-endpoint return output under EQ-167 #507; ordered anchor discovery is EF8 #520 planned",
+   "covering_producer": "possibly delivered anchor features (anchor-family output) and/or planned open-to-endpoint return output under EQ-167 #507; ordered anchor discovery is EF8 #520 planned",
    "gaps": [
     "cannot determine from ledger whether delivered anchor features equal 'supplied anchor arithmetic'",
     "manifest output for open-to-endpoint return not matched to any delivered feature id",
@@ -1296,7 +1296,7 @@
    ],
    "numbering_check": "issues #507,#520,#570,#571,#621,#622 read-only title/state checked: all open; owner, release, io and worker numbers consistent with NUMBERED_LAYER_OWNERS",
    "classification": "AMBIGUOUS_OR_CONFLICTING",
-   "covering_producer": "possibly delivered anchor features (anchored VWAP/volume/notional) and/or planned open-to-endpoint return output under EQ-167 #507; ordered anchor discovery is EF8 #520 planned",
+   "covering_producer": "possibly delivered anchor features (anchor-family output) and/or planned open-to-endpoint return output under EQ-167 #507; ordered anchor discovery is EF8 #520 planned",
    "gaps": [
     "cannot determine from ledger whether delivered anchor features equal 'supplied anchor arithmetic'",
     "manifest output for open-to-endpoint return not matched to any delivered feature id",
