@@ -90,8 +90,8 @@ def _check_settings(policy: object, direction: object, num: object, den: object,
     return RetracementSettings(policy, direction, ratio_num, ratio_den, limit)
 
 
-def build_retracement_config(*, policy_version: str, direction: str, ratio_num: int, ratio_den: int,
-                             session: SessionSpec, availability: AvailabilitySpec,
+def build_retracement_config(*, policy_version: str, direction: str, ratio_num: int | None = None,
+                             ratio_den: int | None = None, session: SessionSpec, availability: AvailabilitySpec,
                              adjustment: AdjustmentSpec, price_unit: PriceUnit,
                              evidence_limit: int = 0) -> ConfigSpec:
     """Final ConfigSpec for one direction and one ratio; a different ratio or direction is a different config."""
