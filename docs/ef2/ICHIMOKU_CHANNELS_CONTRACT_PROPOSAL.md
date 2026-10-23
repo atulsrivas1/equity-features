@@ -2,7 +2,7 @@
 
 Prepared for EQ-151 [#485](https://github.com/atulsrivas1/equity-features/issues/485) (aligned Ichimoku) and EQ-170 [#511](https://github.com/atulsrivas1/equity-features/issues/511) (Keltner and Donchian channels, selected pivot levels, price-band width percentile, Bollinger/Keltner squeeze primitives), consumed by EF2 I/O [#609](https://github.com/atulsrivas1/equity-features/issues/609), worker [#610](https://github.com/atulsrivas1/equity-features/issues/610) and acceptance EQ-152 [#486](https://github.com/atulsrivas1/equity-features/issues/486). Coordinator rulings are applied (final sections; decided, pending owner review) and the contract carries a coordinator freeze statement (version `ef2-v1`). It admits no Ready state, implementation, numerical acceptance or release claim.
 
-Companion data: [ICHIMOKU_CHANNELS_CONTRACT_PROPOSAL.json](ICHIMOKU_CHANNELS_CONTRACT_PROPOSAL.json) holds machine-readable producers, headers, roles, parameters, 66 result fixtures, 21 typed-refusal fixtures and 7 cross-fixture invariants. Expected values were derived with plain `fractions` and `decimal` arithmetic in a scratch script that imports nothing from the equity packages; the library was not imported, run or tested. Fixtures use compact notation (not canonical wire) and still need expansion into canonical packets.
+Companion data: [ICHIMOKU_CHANNELS_CONTRACT_PROPOSAL.json](ICHIMOKU_CHANNELS_CONTRACT_PROPOSAL.json) holds machine-readable producers, headers, roles, parameters, 73 result fixtures, 21 typed-refusal fixtures and 7 cross-fixture invariants. Expected values were derived with plain `fractions` and `decimal` arithmetic in a scratch script that imports nothing from the equity packages; the library was not imported, run or tested. Fixtures use compact notation (not canonical wire) and still need expansion into canonical packets.
 
 All indicators here are standard, publicly documented constructions. They are specified from their public definitions with explicit conventions, with no private source, threshold, ratio or default.
 
@@ -16,7 +16,7 @@ EQ-149 [#483](https://github.com/atulsrivas1/equity-features/issues/483) stochas
 
 ## Producers and config identities
 
-Six homogeneous producers, each with its own closed parameter set, so a caller selecting one family never supplies another family's parameters. Each returns its complete sorted header set. All use algorithm `ef2-v1`, schema `1`, ConfigSpec identity `ef2.<producer>` (modules under `packages/intraday`, same package as the other EF2 contracts; ruling O11).
+Six homogeneous producers, each with its own closed parameter set, so a caller selecting one family never supplies another family's parameters. Each returns its complete sorted header set. All use algorithm_version `ef2-channels-v1` (sibling contracts: `intraday-momentum-v1`, `ef2-money-flow-v1`), schema `1`; the contract version id is `ef2-v1`, ConfigSpec identity `ef2.<producer>` (modules under `packages/intraday`, same package as the other EF2 contracts; ruling O11).
 
 | Producer | Operation parameters (all required, no defaults) | Convention label |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ Six homogeneous producers, each with its own closed parameter set, so a caller s
 | `band_width_percentile` | `band_period`, `band_k_num`, `band_k_den`, `population_size`, `min_population` | `ef2-bandpct-conv1` |
 | `bollinger_keltner_squeeze` | `band_period`, `band_k_num`, `band_k_den`, `ema_period`, `atr_period`, `atr_multiplier_num`, `atr_multiplier_den` | `ef2-squeeze-conv1` |
 
-Every config also carries `convention_version` (exact label above), `evidence_limit` (0..10000) and the R17 context envelope (`context_schema`, `context_sha256`, `context_chunks`, `context_000..`). `convention_version` names the whole set of choices in this document for that producer (extrema basis, window inclusion, tie rule, boundary inclusivity, formulas). An unsupported label is `INCOMPATIBLE_VERSION`; a different convention needs a new label, never a silent change. Integers: periods 1..4096 (`band_period` 2..4096, `displacement` 1..4096, `population_size` 1..4096, `min_population` 1..`population_size`, required, no default); multipliers `*_num/*_den` in reduced form, each 1..1000000 (the R17 band rule). Booleans are not integers. The Ichimoku set 9/26/52/26 is named in fixture ICH-14 only; it is never a default.
+Every config also carries `convention_version` (exact label above), `evidence_limit` (0..10000) and the R17 context envelope (`context_schema`, `context_sha256`, `context_chunks`, `context_000..`). `convention_version` names the whole set of choices in this document for that producer (extrema basis, window inclusion, tie rule, boundary inclusivity, formulas). An unsupported label is `INCOMPATIBLE_VERSION`; a different convention needs a new label, never a silent change. Integers: periods 1..4096, except `atr_period` (keltner and squeeze) 1..4095 because R17 caps ATR at 4095 in `packages/intraday/src/equity_features_intraday/_dispatch.py` (`band_period` 2..4096, `displacement` 1..4096, `population_size` 1..4096, `min_population` 1..`population_size`, required, no default); multipliers `*_num/*_den` in reduced form, each 1..1000000 (the R17 band rule). Booleans are not integers. The Ichimoku set 9/26/52/26 is named in fixture ICH-14 only; it is never a default.
 
 ## Inputs and roles
 
@@ -71,7 +71,7 @@ RULED D3 (observation versus display; ruling O5): a displayed shifted value is n
 
 D5: `leading_span_a_*` use exact extrema midpoints, never the rounded published lines.
 
-Grid rule (O5): shifted values exist only for slots inside the supplied governed grid and nothing is extrapolated. A `_displayed` header whose origin slot `t - d` precedes the anchor is `insufficient_history`. `lagging_line_observed` is drawn at `t - d`; if `t - d < 0` (before the first supplied governed slot) there is no display slot, so it is null with `insufficient_history`, expected 1, observed 0 (ICH-03). The `_observed` leading spans are origin-time values, not displayed values: no header holds a value displayed at a slot beyond `t`, and no timestamp for `t + d` is produced.
+Grid rule (O5): shifted values exist only for slots inside the supplied governed grid and nothing is extrapolated. A `_displayed` header whose origin slot `t - d` precedes the anchor is `insufficient_history`. `lagging_line_observed` is drawn at `t - d`: its bound is the anchor (the anchored grid `[a, t]`), not the global slot 0. It is available only when `t - d >= a`, i.e. `n >= d + 1`; otherwise it is null with `insufficient_history`. Its closure is the single slot `t` (close only), so by the generic rule expected = 1 and observed = 1 when the close at `t` qualifies, even when the status is `insufficient_history` (ICH-03: expected 1, observed 1); observed is 0 only when that close does not qualify. The `_observed` leading spans are origin-time values, not displayed values: no header holds a value displayed at a slot beyond `t`, and no timestamp for `t + d` is produced.
 
 Dependency exclusion: displayed outputs read no slot after `t - d`; a gap, empty, null or later-known value at slots `t-d+1..t` cannot affect them (ICH-04, ICH-05). Lines and observed spans need their own windows only.
 
@@ -146,7 +146,7 @@ The relation is decided on the Decimal120 operands by exact algebra, so an exact
 
 RULED D13: float64 outputs (R17 convention for computed values) rather than decimal128 (EF1 uses decimal128 only for projected supplied facts).
 
-Ordering: lexicographic by `feature_id` within the producer; one scalar `EntityKey(instrument_id, target session)` per header; column `algorithm_version` `ef2-v1`.
+Ordering: lexicographic by `feature_id` within the producer; one scalar `EntityKey(instrument_id, target session)` per header; column `algorithm_version` `ef2-channels-v1`.
 
 ## Warm-up, readiness and gaps
 
@@ -159,7 +159,7 @@ Each header is decided separately from its own closure; expected = closure size 
 | leading B observed | `t-Pb+1..t` (H, L) | `n < Pb` | `Pb` |
 | leading A displayed | `o-max(Pt,Pk)+1..o` (H, L) | `n < max(Pt,Pk)+d` | `max(Pt,Pk)` |
 | leading B displayed | `o-Pb+1..o` (H, L) | `n < Pb+d` | `Pb` |
-| lagging observed | `t` (C) | display slot `t - d < 0` | 1 |
+| lagging observed | `t` (C); display slot `t - d` must be inside `[a, t]` | `n < d + 1` (`t - d < a`) | 1 |
 | lagging reference close | `o` (C) | `n < d+1` | 1 |
 | Keltner (all four) | `C a..t`, `H/L a+1..t` | `n < max(ema_period, atr_period+1)` | `max(ema_period, atr_period+1, n)` |
 | Donchian | `t-N+1..t` | `n < N` | `N` |
@@ -177,7 +177,7 @@ Zero-denominator is unreachable: every denominator is positive by construction (
 
 Overflow: inputs are positive int64 coefficients; sums of at most four such values and ratios bounded by multipliers `<= 10^6` stay far below float64 range, so float64 output is always finite. Internal exact arithmetic beyond the inherited Decimal120/bounded-integer policy is the R17 typed `OVERFLOW` guard (RF20); results are never clamped, rounded early or replaced by non-finite values.
 
-Evidence: bounded `EvidenceRow`s, boundary `completed_interval`, `row_id` `slot:<global_index>`, sorted by feature id then slot, truncated at `evidence_limit` with counts always summarizing the full closure (as R17). Consumed and knowledge-excluded supplied rows only; never invented. Evidence limits, ordering and boundary reuse the R17 values (ruling O7; `docs/api/INTRADAY.md`, section Quality, precedence and bounded evidence). Which slot supplied an extremum is not published.
+Evidence rule: a `missing_input` output has empty evidence rows (fixtures ICH-07, ICH-13, DON-07, DON-11, PIV-04). Gap, null-field and observed-empty slots have no evidence row (no usable or knowledge-excluded row). Evidence fixtures: ICH-16, KEL-10, DON-10, DON-11, PIV-11, PCT-15, SQ-12, ICH-05. Evidence: bounded `EvidenceRow`s, boundary `completed_interval`, `row_id` `slot:<global_index>`, sorted by feature id then slot, truncated at `evidence_limit` with counts always summarizing the full closure (as R17). Consumed and knowledge-excluded supplied rows only; never invented. Evidence limits, ordering and boundary reuse the R17 values (ruling O7; `docs/api/INTRADAY.md`, section Quality, precedence and bounded evidence). Which slot supplied an extremum is not published.
 
 Typed refusals (21, RF01 to RF21 in the JSON; RF21 is any context mode other than reset, `INVALID_CONFIG`, mirroring contract A): bar end beyond C (`BOUNDS`), duplicate slot (`DUPLICATE`), off-grid row or context/config mismatch (`INCONSISTENT_IDENTITY`), unknown convention (`INCOMPATIBLE_VERSION`), open/missing/out-of-range parameters (`INVALID_CONFIG`), unit/basis mismatch (`INVALID_UNIT`, `UNSUPPORTED_ADJUSTMENT`), wrong input kind or contradictory OHLC (`INVALID_SCHEMA`), unsupported state operations (`UNSUPPORTED_CAPABILITY`), unknown feature id (`UNKNOWN_FEATURE`), inherited `OVERFLOW`.
 
@@ -192,9 +192,31 @@ Typed refusals (21, RF01 to RF21 in the JSON; RF21 is any context mode other tha
 
 ## Fixtures
 
-66 result fixtures: ICH-01..15 (ICH-10 retired), KEL-01..09, DON-01..09, PIV-01..10 (PIV-07 retired), PCT-01..14, SQ-01..11; ICH-10 and PIV-07 were carry-mode fixtures and are removed. Coverage map in the JSON: short history; displaced arrays and observation versus display (ICH-01 to 05, 14); lookahead counterexample pair (ICH-04: bars after `t-d` changed, displayed outputs equal ICH-01; ICH-05: later-known tail); gaps in and out of closures; cutoff/availability (future, unknown, empty, no delivery, absent column); zero range; target exclusion (pivots, percentile population); percentile ties, population edges and exact-versus-published rank (PCT-02 to 06, 10); squeeze boundary equalities (SQ-02 upper exactly 0, SQ-03 lower exactly 0, SQ-04 upper gap exactly -29/2592 so outside, SQ-10 both exactly 0 with a nonzero band, SQ-05 flat); prefix-property fixtures ICH-15, KEL-09, DON-09, PIV-10, PCT-14, SQ-11 (the output at bar n depends only on bars up to n; ICH-15 also shows displayed-at-`t` equals observed-at-`t-d`); percentile `min_population` (PCT-12, PCT-13); separate readiness; carry versus reset. Every fixture lists inputs, per-header value, `float.hex`, exact rational, an `acceptance` rule, status, reasons, expected, observed and `max_input_slot` (always `<= t`).
+73 result fixtures: ICH-01..16 (ICH-10 retired), KEL-01..10, DON-01..11, PIV-01..11 (PIV-07 retired), PCT-01..15, SQ-01..12; ICH-10 and PIV-07 were carry-mode fixtures and are removed. Coverage map in the JSON: short history; displaced arrays and observation versus display (ICH-01 to 05, 14); lookahead counterexample pair (ICH-04: bars after `t-d` changed, displayed outputs equal ICH-01; ICH-05: later-known tail); gaps in and out of closures; cutoff/availability (future, unknown, empty, no delivery, absent column); zero range; target exclusion (pivots, percentile population); percentile ties, population edges and exact-versus-published rank (PCT-02 to 06, 10); squeeze boundary equalities (SQ-02 upper exactly 0, SQ-03 lower exactly 0, SQ-04 upper gap exactly -29/2592 so outside, SQ-10 both exactly 0 with a nonzero band, SQ-05 flat); prefix-property fixtures ICH-15, KEL-09, DON-09, PIV-10, PCT-14, SQ-11 (the output at bar n depends only on bars up to n; ICH-15 also shows displayed-at-`t` equals observed-at-`t-d`); percentile `min_population` (PCT-12, PCT-13); separate readiness; the reset epoch (ICH-11, KEL-05); evidence rows, result-wide truncation, limit 0, knowledge-excluded rows and empty evidence for missing_input (ICH-16, KEL-10, DON-10, DON-11, PIV-11, PCT-15, SQ-12, ICH-05). Every fixture lists inputs, per-header value, `float.hex`, exact rational, an `acceptance` rule, status, reasons, expected, observed and `max_input_slot` (always `<= t`).
 
 Literal examples (scale 2; ICH-01 bars in the JSON, periods 3/5/8, displacement 4, target slot 11): `leading_span_a_observed` = 411/40 = 10.275 (`0x1.48ccccccccccdp+3`, drawn at slot 15, beyond the grid); `leading_span_a_displayed` = 161/16 = 10.0625 (`0x1.4200000000000p+3`, origin slot 7, uses slots 3..7 only); `lagging_line_observed` = 53/5 (`0x1.5333333333333p+3`); `lagging_line_reference_close` = 197/20 (`0x1.3b33333333333p+3`). PIV-01: point 611/60 (`0x1.45ddddddddddep+3`), support_2 115/12. PCT-01: 1/4. SQ-04 `upper_gap` = -29/2592 (`-0x1.6e9e06522c3f3p-7`), `lower_gap` = 16067/2592, inside = false.
+
+## Fixture notation and construction rule
+
+Fixtures are compact (not canonical wire). A bar is `[session_index, high, low, close, volume, state]` in integer coefficients at the fixture scale. Construction rule, verified against the shared BAR validator as in contract A: a positive-volume bar with any null OHLC column is refused (`INVALID_SCHEMA`), and zero volume requires all-null OHLC. Therefore an observed-empty slot (state `empty`; reasons `observed_empty` and `no_eligible_observations`) is zero volume with high, low and close all null, and a null-field slot (ICH-08, KEL-06, DON-03) is volume null with the listed OHLC value null; other slots carry volume 100. `gap` means no row; `unknown` and `future` are knowledge states. Each output lists status, reasons, expected, observed, `max_input_slot`, an `acceptance` rule and its evidence rows.
+
+## Ruled conventions D1 to D15
+
+- D1: Ichimoku extrema: high/low, midpoint (HH+LL)/2, window of P governed bars including the current bar. Alternatives: close-based extrema; window excluding the current bar.
+- D2: Ichimoku periods and displacement are explicit required config, no defaults; 9/26/52/26 only as a named fixture (ICH-14). Alternatives: built-in default; market-specific sets.
+- D3: Observation versus display: each leading span has an _observed (origin t, display t+d beyond grid, no timestamp) and a _displayed (shown at t, origin t-d) header; lagging line published only as lagging_line_observed (drawn at t-d) plus lagging_line_reference_close C[t-d].
+- D4: Every window, chain and displacement lies inside the anchored grid [anchor, target]; a window reaching before the anchor is insufficient_history, never shortened; older bars and old gaps never count.
+- D5: Leading span A is formed from exact extrema midpoints, never from the rounded published lines.
+- D6: Keltner: EMA(close) centre (R17 seed and recurrence), Wilder ATR, rational caller multiplier. Alternatives: SMA or typical-price centre, SMA-of-TR width.
+- D7: Keltner and squeeze consume the unrounded R17 Decimal120 EMA/ATR recurrence values, not published float64s.
+- D8: Donchian window of N bars including the current bar. Alternative: previous N bars.
+- D9: Classic floor pivots P, R1, S1, R2, S2 from the immediately preceding governed session's exact bar high/low/close, unclamped.
+- D10: Percentile: rank on exact squared Bollinger-style widths, target excluded, ties count half, fraction result (2L+E)/(2c).
+- D11: The ranked width is the R17 Bollinger-style width ratio 2k*sqrt(V)/mu with population variance and rational k; Keltner or Donchian width percentiles are non-goals.
+- D12: Squeeze: signed gaps (Keltner minus Bollinger upper; Bollinger minus Keltner lower) plus inclusive bool (gap >= 0 on both sides), no thresholds.
+- D13: Computed outputs are float64 (one conversion), the bool is bool.
+- D14: Six homogeneous producers with closed per-family parameter sets; a pivot context without a preceding session is missing_input/absent_input.
+- D15: R17 status/reason precedence, evidence rules and BAR admission are inherited unchanged.
 
 ## Explicit non-goals
 
@@ -202,9 +224,9 @@ Thresholds, scores, crossings, cloud colour, breakout and squeeze persistence or
 
 ## Numeric policy (all float outputs)
 
-The implementation follows the R17 policy: Decimal120 recurrences and one guarded final float64 conversion, with the R17 acceptance tolerance from `docs/api/INTRADAY.md` (section Numeric error contract): `abs(y - r) <= max(8*ulp(r), 1e-12*abs(r))` where `r = float(reference)`. The exact-fraction value and `float.hex` in each fixture are the reference `r`. Per-fixture acceptance (the `acceptance` key): "R17 tolerance" for floats; where the reference is exactly 0 the result must be `+0.0`, guaranteed because every zero-reference fixture is built from exactly representable Decimal120 operands; for any other input where an exact zero depends on inexact operands the relaxed rule is `|value| <= 1e-12 * max(|operands|)`, not a bitwise promise. The percentile and the squeeze bool are exact (see their sections).
+The implementation follows the R17 policy: Decimal120 recurrences and one guarded final float64 conversion, with the R17 acceptance tolerance from `docs/api/INTRADAY.md` (section Numeric error contract): `abs(y - r) <= max(8*ulp(r), 1e-12*abs(r))` where `r = float(reference)`. The exact-fraction value and `float.hex` in each fixture are the reference `r`. Per-fixture acceptance (the `acceptance` key): "R17 tolerance" for floats; where the reference is exactly 0 the result MUST be `+0.0`, as `docs/api/INTRADAY.md` and contract A state. The earlier relaxed zero rule is withdrawn and no deviation is documented. Exactness argument for each of the 8 zero-reference fixtures: KEL-04 (flat bars: every true range is exactly 0, so ATR is exactly Decimal 0 and `2 m 0 / E` is 0); DON-05 (`HH - LL` of equal integers); PCT-05 and PCT-10 (`Lt` and `Et` are integer counts from exact cross-multiplication, so `(2*0+0)/(2c)` is 0); SQ-02, SQ-03, SQ-10 (`ema_period` 1 and `atr_period` 1 make EMA = close and ATR = true range exact integers in Decimal120, `band_period` 2 gives `mu = (a+b)/2` and `V = ((a-b)/2)^2` with power-of-two denominators, `k^2 V` terminates and its Decimal square root is exact because the root is representable, multipliers 1, 1/2, 2, 3 keep every product terminating, so the final subtraction is exactly 0 and normalizes to `+0.0`); SQ-05 (flat bars: EMA seed `3000/3 = 1000` and every step stay exactly 1000, ATR 0, `V = 0`). The percentile and the squeeze bool are exact (see their sections).
 
-## Coordinator rulings (decided, pending owner review)
+## Coordinator rulings (coordinator decision, frozen once this PR merges, pending owner review)
 
 D1 to D15 accepted as proposed (headings above carry RULED), including D10 (exact squared-width ranking, target excluded, ties count half, fraction result) as this contract's own v1 percentile convention; a shared rank convention may be adopted by EF3 later by amendment and there is no EQ-155 dependency in EF2 v1.
 
@@ -219,7 +241,7 @@ D1 to D15 accepted as proposed (headings above carry RULED), including D10 (exac
 
 ## Coordinator freeze
 
-Frozen as `ef2-v1` for implementation once this PR merges (coordinator statement; no review or acceptance claim by the author). Convention labels, formulas, header ids, parameter sets, tie and boundary rules, fixtures and refusals in this document and the companion JSON are the frozen v1 contract; any change needs a new label or an amendment.
+Coordinator decision, frozen as `ef2-v1` (algorithm_version `ef2-channels-v1`) for implementation once this PR merges, pending owner review (coordinator statement; no review or acceptance claim by the author). Convention labels, formulas, header ids, parameter sets, tie and boundary rules, fixtures and refusals in this document and the companion JSON are the frozen v1 contract; any change needs a new label or an amendment.
 
 ## What was not verified
 
