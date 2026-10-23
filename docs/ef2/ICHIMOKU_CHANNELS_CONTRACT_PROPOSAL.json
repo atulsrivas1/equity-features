@@ -326,9 +326,9 @@
   "parameter_envelope": "R17 canonical context JSON chunked in 4096-codepoint Parameters context_000.. with context_schema, context_sha256, context_chunks, evidence_limit; operation parameters per producer; ConfigSpec identity ef2.<producer>, algorithm_version ef2-v1",
   "slots": "at most 4096 governed slots, at most 64 sessions (R17 limits)",
   "modes": [
-   "carry",
    "reset"
   ],
+  "mode_rule": "reset only in v1; carry deferred to a later amendment; any other context mode is INVALID_CONFIG (RF21)",
   "window_rule": "every window lies inside [anchor, target]; a window reaching before the anchor is insufficient_history, never shortened",
   "pivot_exception": "pivot_levels reads the whole immediately preceding governed session of the context, which may precede the anchor"
  },
@@ -383,7 +383,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -585,7 +585,7 @@
     ],
     "anchor": 0,
     "target": 6,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -749,7 +749,7 @@
     ],
     "anchor": 0,
     "target": 1,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -873,7 +873,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -1075,7 +1075,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -1272,7 +1272,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -1471,7 +1471,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "c"
@@ -1665,7 +1665,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -1863,7 +1863,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -2042,209 +2042,6 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11,
-     "acceptance": "R17 tolerance"
-    }
-   }
-  },
-  {
-   "id": "ICH-10",
-   "group": "epoch_carry",
-   "producer": "ichimoku",
-   "description": "two sessions of 6 bars, carry mode anchor slot 0: windows and displacement cross the session boundary; values equal ICH-01",
-   "params": {
-    "conversion_period": 3,
-    "base_period": 5,
-    "leading_b_period": 8,
-    "displacement": 4
-   },
-   "scale": 2,
-   "context": {
-    "sessions": [
-     6,
-     6
-    ],
-    "anchor": 0,
-    "target": 11,
-    "mode": "carry"
-   },
-   "columns": [
-    "h",
-    "l",
-    "c"
-   ],
-   "bars": [
-    [
-     0,
-     1010,
-     990,
-     1000,
-     "ok"
-    ],
-    [
-     0,
-     1030,
-     1000,
-     1020,
-     "ok"
-    ],
-    [
-     0,
-     1040,
-     1010,
-     1030,
-     "ok"
-    ],
-    [
-     0,
-     1050,
-     1020,
-     1040,
-     "ok"
-    ],
-    [
-     0,
-     1045,
-     1015,
-     1025,
-     "ok"
-    ],
-    [
-     0,
-     1035,
-     1005,
-     1015,
-     "ok"
-    ],
-    [
-     1,
-     1020,
-     990,
-     1000,
-     "ok"
-    ],
-    [
-     1,
-     1000,
-     970,
-     985,
-     "ok"
-    ],
-    [
-     1,
-     1010,
-     975,
-     1005,
-     "ok"
-    ],
-    [
-     1,
-     1040,
-     1000,
-     1035,
-     "ok"
-    ],
-    [
-     1,
-     1060,
-     1030,
-     1055,
-     "ok"
-    ],
-    [
-     1,
-     1070,
-     1040,
-     1060,
-     "ok"
-    ]
-   ],
-   "expected": {
-    "trend.ichimoku.base_line": {
-     "status": "available",
-     "reasons": [],
-     "expected": 5,
-     "observed": 5,
-     "value": 10.2,
-     "value_hex": "0x1.4666666666666p+3",
-     "exact": "51/5",
-     "max_input_slot": 11,
-     "acceptance": "R17 tolerance"
-    },
-    "trend.ichimoku.conversion_line": {
-     "status": "available",
-     "reasons": [],
-     "expected": 3,
-     "observed": 3,
-     "value": 10.35,
-     "value_hex": "0x1.4b33333333333p+3",
-     "exact": "207/20",
-     "max_input_slot": 11,
-     "acceptance": "R17 tolerance"
-    },
-    "trend.ichimoku.lagging_line_observed": {
-     "status": "available",
-     "reasons": [],
-     "expected": 1,
-     "observed": 1,
-     "value": 10.6,
-     "value_hex": "0x1.5333333333333p+3",
-     "exact": "53/5",
-     "max_input_slot": 11,
-     "acceptance": "R17 tolerance"
-    },
-    "trend.ichimoku.lagging_line_reference_close": {
-     "status": "available",
-     "reasons": [],
-     "expected": 1,
-     "observed": 1,
-     "value": 9.85,
-     "value_hex": "0x1.3b33333333333p+3",
-     "exact": "197/20",
-     "max_input_slot": 7,
-     "acceptance": "R17 tolerance"
-    },
-    "trend.ichimoku.leading_span_a_displayed": {
-     "status": "available",
-     "reasons": [],
-     "expected": 5,
-     "observed": 5,
-     "value": 10.0625,
-     "value_hex": "0x1.4200000000000p+3",
-     "exact": "161/16",
-     "max_input_slot": 7,
-     "acceptance": "R17 tolerance"
-    },
-    "trend.ichimoku.leading_span_a_observed": {
-     "status": "available",
-     "reasons": [],
-     "expected": 5,
-     "observed": 5,
-     "value": 10.275,
-     "value_hex": "0x1.48ccccccccccdp+3",
-     "exact": "411/40",
-     "max_input_slot": 11,
-     "acceptance": "R17 tolerance"
-    },
-    "trend.ichimoku.leading_span_b_displayed": {
-     "status": "available",
-     "reasons": [],
-     "expected": 8,
-     "observed": 8,
-     "value": 10.1,
-     "value_hex": "0x1.4333333333333p+3",
-     "exact": "101/10",
-     "max_input_slot": 7,
-     "acceptance": "R17 tolerance"
-    },
-    "trend.ichimoku.leading_span_b_observed": {
-     "status": "available",
-     "reasons": [],
-     "expected": 8,
-     "observed": 8,
-     "value": 10.2,
-     "value_hex": "0x1.4666666666666p+3",
-     "exact": "51/5",
      "max_input_slot": 11,
      "acceptance": "R17 tolerance"
     }
@@ -2254,7 +2051,7 @@
    "id": "ICH-11",
    "group": "epoch_reset",
    "producer": "ichimoku",
-   "description": "same two sessions, reset mode anchor slot 6 (n=6): nothing before slot 6 is read; leading B and displayed spans lack history",
+   "description": "two sessions of 6 bars, reset epoch anchor slot 6 (n=6): nothing before slot 6 is read; leading B and displayed spans lack history",
    "params": {
     "conversion_period": 3,
     "base_period": 5,
@@ -2468,7 +2265,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -2670,7 +2467,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -2779,7 +2576,7 @@
     ],
     "anchor": 0,
     "target": 79,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -3457,7 +3254,7 @@
     ],
     "anchor": 0,
     "target": 7,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -3629,7 +3426,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -3787,7 +3584,7 @@
     ],
     "anchor": 0,
     "target": 2,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -3878,7 +3675,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -4032,7 +3829,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -4349,7 +4146,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -4503,7 +4300,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -4661,7 +4458,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -4815,7 +4612,7 @@
     ],
     "anchor": 0,
     "target": 9,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -4956,7 +4753,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -5111,7 +4908,7 @@
     ],
     "anchor": 0,
     "target": 2,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -5199,7 +4996,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -5351,7 +5148,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -5506,7 +5303,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -5661,7 +5458,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -5812,7 +5609,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -5878,7 +5675,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -6029,7 +5826,7 @@
     ],
     "anchor": 0,
     "target": 9,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -6167,9 +5964,9 @@
      6,
      4
     ],
-    "anchor": 0,
+    "anchor": 6,
     "target": 9,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -6318,9 +6115,9 @@
      6,
      4
     ],
-    "anchor": 0,
+    "anchor": 6,
     "target": 9,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -6469,9 +6266,9 @@
      6,
      4
     ],
-    "anchor": 0,
+    "anchor": 6,
     "target": 9,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -6616,7 +6413,7 @@
     ],
     "anchor": 0,
     "target": 3,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -6718,9 +6515,9 @@
      2,
      2
     ],
-    "anchor": 0,
+    "anchor": 2,
     "target": 3,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -6828,9 +6625,9 @@
      3,
      2
     ],
-    "anchor": 0,
+    "anchor": 6,
     "target": 7,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -6954,157 +6751,6 @@
    }
   },
   {
-   "id": "PIV-07",
-   "group": "epoch_independence",
-   "producer": "pivot_levels",
-   "description": "reset mode with anchor at first target-session slot: the prior-session read is independent of the anchor and equals PIV-01",
-   "params": {},
-   "scale": 2,
-   "context": {
-    "sessions": [
-     6,
-     4
-    ],
-    "anchor": 6,
-    "target": 9,
-    "mode": "reset"
-   },
-   "columns": [
-    "h",
-    "l",
-    "c"
-   ],
-   "bars": [
-    [
-     0,
-     1010,
-     990,
-     1000,
-     "ok"
-    ],
-    [
-     0,
-     1030,
-     1000,
-     1020,
-     "ok"
-    ],
-    [
-     0,
-     1040,
-     1010,
-     1030,
-     "ok"
-    ],
-    [
-     0,
-     1050,
-     1020,
-     1040,
-     "ok"
-    ],
-    [
-     0,
-     1045,
-     1015,
-     1025,
-     "ok"
-    ],
-    [
-     0,
-     1035,
-     1005,
-     1015,
-     "ok"
-    ],
-    [
-     1,
-     1015,
-     1000,
-     1010,
-     "ok"
-    ],
-    [
-     1,
-     1030,
-     1005,
-     1020,
-     "ok"
-    ],
-    [
-     1,
-     1025,
-     1010,
-     1015,
-     "ok"
-    ],
-    [
-     1,
-     1040,
-     1012,
-     1038,
-     "ok"
-    ]
-   ],
-   "expected": {
-    "channel.pivot.point": {
-     "status": "available",
-     "reasons": [],
-     "expected": 6,
-     "observed": 6,
-     "value": 10.183333333333334,
-     "value_hex": "0x1.45ddddddddddep+3",
-     "exact": "611/60",
-     "max_input_slot": 5,
-     "acceptance": "R17 tolerance"
-    },
-    "channel.pivot.resistance_1": {
-     "status": "available",
-     "reasons": [],
-     "expected": 6,
-     "observed": 6,
-     "value": 10.466666666666667,
-     "value_hex": "0x1.4eeeeeeeeeeefp+3",
-     "exact": "157/15",
-     "max_input_slot": 5,
-     "acceptance": "R17 tolerance"
-    },
-    "channel.pivot.resistance_2": {
-     "status": "available",
-     "reasons": [],
-     "expected": 6,
-     "observed": 6,
-     "value": 10.783333333333333,
-     "value_hex": "0x1.5911111111111p+3",
-     "exact": "647/60",
-     "max_input_slot": 5,
-     "acceptance": "R17 tolerance"
-    },
-    "channel.pivot.support_1": {
-     "status": "available",
-     "reasons": [],
-     "expected": 6,
-     "observed": 6,
-     "value": 9.866666666666667,
-     "value_hex": "0x1.3bbbbbbbbbbbcp+3",
-     "exact": "148/15",
-     "max_input_slot": 5,
-     "acceptance": "R17 tolerance"
-    },
-    "channel.pivot.support_2": {
-     "status": "available",
-     "reasons": [],
-     "expected": 6,
-     "observed": 6,
-     "value": 9.583333333333334,
-     "value_hex": "0x1.32aaaaaaaaaabp+3",
-     "exact": "115/12",
-     "max_input_slot": 5,
-     "acceptance": "R17 tolerance"
-    }
-   }
-  },
-  {
    "id": "PIV-08",
    "group": "cutoff_availability",
    "producer": "pivot_levels",
@@ -7116,9 +6762,9 @@
      6,
      4
     ],
-    "anchor": 0,
+    "anchor": 6,
     "target": 9,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -7262,9 +6908,9 @@
      3,
      2
     ],
-    "anchor": 0,
+    "anchor": 3,
     "target": 4,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -7378,9 +7024,9 @@
      6,
      1
     ],
-    "anchor": 0,
+    "anchor": 6,
     "target": 6,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -7515,7 +7161,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -7652,7 +7298,7 @@
     ],
     "anchor": 0,
     "target": 7,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -7761,7 +7407,7 @@
     ],
     "anchor": 0,
     "target": 7,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -7870,7 +7516,7 @@
     ],
     "anchor": 0,
     "target": 7,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -7979,7 +7625,7 @@
     ],
     "anchor": 0,
     "target": 7,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -8088,7 +7734,7 @@
     ],
     "anchor": 0,
     "target": 3,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -8169,7 +7815,7 @@
     ],
     "anchor": 0,
     "target": 5,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -8252,7 +7898,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -8377,7 +8023,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -8514,7 +8160,7 @@
     ],
     "anchor": 0,
     "target": 6,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "c"
@@ -8614,7 +8260,7 @@
     ],
     "anchor": 0,
     "target": 5,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -8709,7 +8355,7 @@
     ],
     "anchor": 0,
     "target": 3,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -8778,7 +8424,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -8903,7 +8549,7 @@
     ],
     "anchor": 0,
     "target": 8,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -9021,7 +8667,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -9173,7 +8819,7 @@
     ],
     "anchor": 0,
     "target": 5,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -9283,7 +8929,7 @@
     ],
     "anchor": 0,
     "target": 5,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -9393,7 +9039,7 @@
     ],
     "anchor": 0,
     "target": 5,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -9503,7 +9149,7 @@
     ],
     "anchor": 0,
     "target": 5,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -9613,7 +9259,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -9765,7 +9411,7 @@
     ],
     "anchor": 0,
     "target": 2,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -9849,7 +9495,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -9996,7 +9642,7 @@
     ],
     "anchor": 0,
     "target": 5,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -10106,7 +9752,7 @@
     ],
     "anchor": 0,
     "target": 11,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -10253,7 +9899,7 @@
     ],
     "anchor": 0,
     "target": 9,
-    "mode": "carry"
+    "mode": "reset"
    },
    "columns": [
     "h",
@@ -10517,6 +10163,14 @@
    }
   },
   {
+   "id": "RF21",
+   "description": "a context mode other than reset (carry or anything else); reset only in v1, carry deferred to a later amendment",
+   "expected": {
+    "outcome": "typed ContractError, no FeatureResult",
+    "error_code": "INVALID_CONFIG"
+   }
+  },
+  {
    "id": "RF19",
    "description": "pivot_levels config carrying any window or period parameter",
    "expected": {
@@ -10565,14 +10219,6 @@
   },
   {
    "fixtures": [
-    "ICH-01",
-    "ICH-10"
-   ],
-   "equal": "all",
-   "why": "carry epoch crosses sessions"
-  },
-  {
-   "fixtures": [
     "PIV-01",
     "PIV-02"
    ],
@@ -10607,14 +10253,6 @@
   },
   {
    "fixtures": [
-    "PIV-01",
-    "PIV-07"
-   ],
-   "equal": "all",
-   "why": "pivots independent of anchor/mode"
-  },
-  {
-   "fixtures": [
     "PCT-01",
     "PCT-09"
    ],
@@ -10631,8 +10269,8 @@
   }
  ],
  "fixture_counts": {
-  "result_fixtures": 68,
-  "refusal_fixtures": 20
+  "result_fixtures": 66,
+  "refusal_fixtures": 21
  },
  "coverage_map": {
   "short history": [
@@ -10730,11 +10368,10 @@
    "ICH-08",
    "PCT-10"
   ],
-  "epoch carry versus reset": [
-   "ICH-10",
+  "reset epoch with a prior session in the grid": [
    "ICH-11",
    "KEL-05",
-   "PIV-07"
+   "PIV-01"
   ],
   "null field": [
    "ICH-08",
@@ -10762,6 +10399,7 @@
   "D10": "exact squared-width ranking, target excluded, ties count half, fraction result: the v1 percentile convention of this contract; a shared rank convention may be adopted by EF3 later by amendment; no EQ-155 dependency in EF2 v1",
   "O1": "EQ-149 #483 stochastic prerequisite removed from this contract; no stochastic operand consumed; to be noted for dependency edges",
   "O3": "additive internal operand families for window ends at earlier slots over extrema and moments; no change to any published R17 result; R17 outputs stay byte-identical",
+  "epoch_mode": "reset only in v1 (aligned with contracts A and B): a context mode other than reset is a typed INVALID_CONFIG refusal (RF21); ICH-10 and PIV-07 (carry/mode fixtures) retired",
   "O4": "pivots from the immediately preceding governed session exact BAR rows supplied by the caller via I/O mapping; not #506 period operands; no daily-grid context in v1",
   "O5": "shifted values are published only for slots inside the supplied governed grid; nothing is extrapolated; a displayed value whose display or origin slot lies outside the grid is null/insufficient_history",
   "O6": "retracement stays in the money-flow/retracement contract (PR #677)",
@@ -10771,7 +10409,7 @@
   "O10": "inside bool is an arithmetic relation, not policy",
   "O11": "modules under packages/intraday, config namespace ef2.*",
   "O12": "min_population is a required caller parameter with no default; below it the output is insufficient_history",
-  "v1_scope": "anchored batch only; no stateful carry-over, update, restore or merge"
+  "v1_scope": "anchored batch, reset epoch only; carry deferred to a later amendment; no update, restore or merge"
  },
  "ledger_to_be_applied": "sibling shared-contract header ledger and unit amendment after freeze: 25 new header ids listed under producers; units used: currency/share, fraction, boolean (all already in ef1 CONTRACT.json unit set; no new unit)",
  "coordinator_freeze": "frozen as ef2-v1 for implementation once PR merges (coordinator statement; no review or acceptance claim by the author)"
