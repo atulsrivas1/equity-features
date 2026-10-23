@@ -1,0 +1,3254 @@
+{
+ "receipt": "EF2 installed-artifact qualification run, Windows",
+ "date_utc": "2026-10-23",
+ "sources": {
+  "core": "a53f4402d437de75274ccf878a427e0459d2f31b",
+  "io": "c15f540b57fa59a4bd6e6ecc3b017a69d5ee039a",
+  "workers": "d2fc901b9b73d8acbf86f9e43192b363e1835cd2"
+ },
+ "platform": {
+  "os": "Windows 11 Pro 10.0.26300",
+  "python": "CPython 3.12.10",
+  "pip": "25.0.1",
+  "setuptools": "80.9.0",
+  "build_tool": "setuptools.build_meta build_sdist then build_wheel called directly from a venv holding only setuptools 80.9.0 (the build package is not installed); build exit 0 for all 8 packages"
+ },
+ "packages": [
+  "equity-feature-contracts 0.0.4a4",
+  "equity-features 0.0.4a5",
+  "equity-features-intraday 0.1.0a3",
+  "equity-feature-io-contracts 0.1.0a2",
+  "equity-feature-io-sdk 0.1.0a2",
+  "equity-feature-duckdb 0.1.0a9",
+  "equity-feature-duckdb-sink 0.1.0a0",
+  "equity-feature-workers 0.1.0a15"
+ ],
+ "archives": {
+  "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+   "sha256": "570d11fc2b1a990490a2f10aa58466f0e6e26d66471dd3f68e5150f6ff561739",
+   "bytes": 70077
+  },
+  "equity_feature_contracts-0.0.4a4.tar.gz": {
+   "sha256": "ea8af7c79010eab969e8c272847fc8dd47f12c5b8b1a52637386ce6f8acdcfe7",
+   "bytes": 57111
+  },
+  "equity_feature_duckdb-0.1.0a9-py3-none-any.whl": {
+   "sha256": "d6561fc3ac1c09716181ad31e5613a5be88c6e24960c876d1ce380263119bd47",
+   "bytes": 145151
+  },
+  "equity_feature_duckdb-0.1.0a9.tar.gz": {
+   "sha256": "ae179703de7d18a3450810c5ef9fc2a94c3f0585aab77d84a2d24dcb4374edba",
+   "bytes": 131517
+  },
+  "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+   "sha256": "601030b2c28f4f0cba252c821cca58197e0ede5fa14ef13a07c5c1a3d81c7e79",
+   "bytes": 20213
+  },
+  "equity_feature_duckdb_sink-0.1.0a0.tar.gz": {
+   "sha256": "0c64d068566bf3051ff07456e8a958ea8ed09cd43ca1082600da2e95db897708",
+   "bytes": 19243
+  },
+  "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+   "sha256": "85c74e6cb92854befaa35f051eac6899689e92d7cbe8f1d01d12e5acf67104d7",
+   "bytes": 11470
+  },
+  "equity_feature_io_contracts-0.1.0a2.tar.gz": {
+   "sha256": "820383afef87795b219109e6c89a951c2ed82c6e2760b7ab5505ae0b1af15acd",
+   "bytes": 10418
+  },
+  "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+   "sha256": "f31b5b103ca58e56ab2c27aa69b9bed1dc31875f9505cb93e4a05d5885c48a7e",
+   "bytes": 18702
+  },
+  "equity_feature_io_sdk-0.1.0a2.tar.gz": {
+   "sha256": "7f3223c6ef170ebb28ca29cf9b04c8ed70034a2701b18c61750d86ba62d01d1e",
+   "bytes": 16481
+  },
+  "equity_feature_workers-0.1.0a15-py3-none-any.whl": {
+   "sha256": "f985dea9ef46d8862cb8ab82c4ee899db40aff0f339531a7fa616ef29ee68d5e",
+   "bytes": 128696
+  },
+  "equity_feature_workers-0.1.0a15.tar.gz": {
+   "sha256": "0da2ace5e60f946f4e9217b4d4d6d13650baf32e011a09ecd9deb78f8c89cdb7",
+   "bytes": 95267
+  },
+  "equity_features-0.0.4a5-py3-none-any.whl": {
+   "sha256": "dcd745153c37b371eb91ae82cd6b0087eea3bc3717024cca32bc12a6708439cd",
+   "bytes": 158756
+  },
+  "equity_features-0.0.4a5.tar.gz": {
+   "sha256": "61e849ee854a553b265f6de14e0a1864d18480903f76150deea45badb138864f",
+   "bytes": 120513
+  },
+  "equity_features_intraday-0.1.0a3-py3-none-any.whl": {
+   "sha256": "29931ed3d54538c3c0013e7bf0d694a89330e441754852d866e0eec655cc65c1",
+   "bytes": 56349
+  },
+  "equity_features_intraday-0.1.0a3.tar.gz": {
+   "sha256": "92afff14116072dacbb28a3efc913b417264d652851f22de4e757465e6ee8c58",
+   "bytes": 43580
+  }
+ },
+ "third_party_wheels_local_only": {
+  "duckdb-1.5.6-cp312-cp312-win_amd64.whl": "09ff51b230219f0d8b47fc8a1e17fb595ba9fab0c3d96a6de4d00b8ff86b3cf1",
+  "numpy-2.2.6-cp312-cp312-win_amd64.whl": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2",
+  "setuptools-80.9.0-py3-none-any.whl": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+ },
+ "install_command": "pip install --no-index --find-links <form folder> equity-feature-workers equity-feature-duckdb-sink equity-feature-duckdb equity-features-intraday",
+ "demo_command": "python -I -B -c <launcher printing module __file__> <example.py> --output-db ABS --html ABS --run-id SHORT --case ... --contract <core docs JSON>  (clean scratch cwd, no PYTHONPATH)",
+ "forms": [
+  {
+   "form": "all-wheels",
+   "install_exit": 0,
+   "pip_check_exit": 0,
+   "pip_check_output": "No broken requirements found.",
+   "installed": [
+    "duckdb==1.5.6",
+    "equity-feature-contracts==0.0.4a4",
+    "equity-feature-duckdb==0.1.0a9",
+    "equity-feature-duckdb-sink==0.1.0a0",
+    "equity-feature-io-contracts==0.1.0a2",
+    "equity-feature-io-sdk==0.1.0a2",
+    "equity-feature-workers==0.1.0a15",
+    "equity-features==0.0.4a5",
+    "equity-features-intraday==0.1.0a3",
+    "numpy==2.2.6",
+    "pip==25.0.1"
+   ],
+   "demos_total": 59,
+   "demos_pass": 59,
+   "first_attempt_pass": 59,
+   "demos": [
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R001",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "99632dfff36fd696223039adddfa6ef2946bf323dd7a4f800a5a2fadabe27c25"
+    },
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R019",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "83b4f6a3bf186561bc2f152cfb8405f364f11f371a20d84a71412c3cb24b66ab"
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b35f70448150b9f77577ef9c6bc429a4ddb8a8b71629ff7b6821667f91fe5e48"
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R08",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f6db4bbc90210649b8ae38f6acf479a774d68b5c290b6c725ad2283e46b366b9"
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b201d4e99fd6e7c569690875af6bc43919ed7d4a07647493e54c9aa95508e98b"
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "057329a8c6a083ac8a39b92dad3a7d86aad727e089a1a7afb29825162bfc1653"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-present",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "f6ae68dd3e9fde2620cdb6dd321395b7eb0826a6270cdd129b66b76ca91e287f"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-missing",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1862ea2708a1cce19619218d4ed2b8c4d520afabd01023ca1b68d3f2151b88fd"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-unknown",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "598466b9761bf0b6fc9eb55bcade9bf8a5904ab2d11e14af20da3381712b93e5"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-future",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "51e0f584769f614f8d344d27396daccf12238962f1b2e18d43bd064f131d4486"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "47d1adf02841237d2a46ca286516575ab1e0f6f8c4717b72ec6c9c3429e302f4"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "d51591796ee6f50c660b0bae21c84234cf7290d89cfc9b01787496e985f2ab37"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "528e79590d808059689b479c7e2adabc4049a3f730d662f68d12da700eaf195c"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01-missing-notional",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "b4e7272fcaa3a507780d6ce513643b1caf64b02d4ef6bd210a86c1b734f88373"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "0f83cf3f844b1e93d9247a026fc63dc37361cd80db0b89a5a7a58c68d19b7a26"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "296c2da3fe7fbc4ad0128f05809f16ea06206ef36ffa13bf2eeeeb3f8cf12f6d"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1ae300afadd019684508aa37466ea20a985401f836358fccdd3044922a297198"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b199399df0848374ef757127fa7eb2a651682ea6c8ad1b855c4449f4df708567"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6a33dde806fdada95d84dde4d605f7caeef31d6f7c484602a03a72b092321e78"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "8dd0383d2c89426fda3aa8b12fd22d5f5af9fcb506faad9db0832cdc12892ee6"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5084d3291232e5e6ff9228c4ede1a1e076376991117bf4d1112743a9bee7bdec"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "00cb57b5dd1e8c62487007bab9e0fd8cdb871b3a6291f27d1fb88c67b90cdc1d"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV24",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7e3c4eaeb1f295bff05de95bfe22a52ce6bfa245d9b9357e3961b6ff977d2b5e"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV43",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "431a57588ba0e7c3e1546dc7779cd7080905a7ad24afdb1d61d1e473a7539df7"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV44",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "338652351e5a939b61ee847dcea02f0da9a83202d3fc543a3947cb99ba2dca6e"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "89c13534607b3006353758521a9e74785180c64643684ebce1e2482f266174fe"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV20",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b893e51b14b7c63d5078f8653e665ac532fbe0c67eb9ca6e917bd158379d57cd"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV30",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "52dc45241661a8d70ca4682589e03288cf36225965c5903f12496bda3f97d6c6"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV40",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7d612f24e3c7d0e5bd066d5c63232707ff862bda6155f4d7db9e50dbc947d40c"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "1e51c1c5b40700cb151f19c1098c15de6e67500545489faf5f0446c6738260a6"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "a7c3b4e53584b1ff635d404d61541e2e72ae490fa346f9c92ab986de6a9c133e"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "8dc01abb291ea6fb347002ea672c17ede463278ad60b49667ba7be52dbdfcfe4"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M34",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "231796d123d46774ad46bdf418d4b3e05362203489fe0ea613f81848a83683ca"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M36",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "05cc7300f340689f01c1307aff13df78ec59c04b082aa27baa80d9fe4a0d5a1e"
+    },
+    {
+     "example": "ef2_retracement",
+     "case": "T12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "bec14896adb37cd807f9f5aa8e2365545805068e5037a37bdca7e184c7816ff0"
+    },
+    {
+     "example": "ef2_retracement",
+     "case": "T32",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "2689adddecb699bd58d6c80061fd6d75d6d7e7b6c8461318403aa0c719db6b40"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "90f45cfca9b4ab77a90159c94a94d3b1b00be6bfa37fc30161fbd31ec378b847"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "ff8523ba7f3d53da45646361227cb02a6a0d3307436e2b38818d215fe3b1ea49"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M25",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "1ae2e05329edbf25e62f628829e769919e26c6fc7017760cfa09303592fbc767"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "d6158da226233a5a9933fb2b59772419a75a7021483183e30100b64bef8d1e60"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "88ac3483236d90c4217df2a09abc387f492b27b48721b49067b4f6821a3b2fbd"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D04",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "be128ed306d17b1b5a36fb2f5be2044a23a38aa734a25a40ed232213297e695e"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D22",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "5182f5ba7e53ff10bf4a9efef5f95662aca9361af5d67cb0d229b612f6f1caef"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "P02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "4d7108c5d1702dec5f5a7af2f6351526c1be5034412fc67d93639f8dade95c2a"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "af2511cd2be3c2e80723ca0a69572bf73d0587b5c18fd8c180083760652d8f63"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "6185dedde0bf47ce0a398c90cad495dc691dc0933170e8b586e2407a5bbd3a05"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "d2d46901ac0ccbfe8a797162ca24cd434e6f9fff9deaa10c257be22230d2f260"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "ICH-17",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "59f9f82da96e7042ece81383a6d72de5582a6b2c3b044b1da77b428eaa5de671"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "SQ-10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f30484fd5d43114aa7c770e3701bcda538c22e2863d545d5e922d20d1ffe9d2f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PCT-10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "876bf0c1a4340216303dbb7750c7aa84cf8129e57b2ceeece3a89986ffbe425f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PIV-11",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "643df9f5986de198da0ce7a4aabb2be9776f14b2100f5f6d83f67f6709148a02"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "KEL-04",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f3f8f58660ea9767632c59e09e565274c0559b0d2f13432ba7011ca0db908a03"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "DON-05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "e9dc71acaca824d0d7d9eb3fd25bfff3bb66983e7e896157daf917ef83f1bf69"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "ICH-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6ffca306364fa9ec5dc37c02f91da441e0597e896f2c436079cdfeec62b56093"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "KEL-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "09ad51212e5bf40fd5083de80a65b030c065e728b89b1df2c94a32b6f359c88b"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "DON-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "3bf5eb3551196067e60115f188b7ceeeae785a38bfc9a9754fe80a3176100ea9"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PIV-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5d14e6eaa7a13c8a5fa7b31c5ae71bff187aeab72be479d87e8e3f81f9e82f77"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PCT-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "4cd76e39620bc2fc26680793e227dac71cc881c326c8ed2383f343fddaf1151f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "SQ-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "c8a675aafc3776a1d8406cbe7315b8439b4f9819a552e979c1944e86b2d676c6"
+    }
+   ]
+  },
+  {
+   "form": "all-sdists",
+   "install_exit": 0,
+   "pip_check_exit": 0,
+   "pip_check_output": "No broken requirements found.",
+   "installed": [
+    "duckdb==1.5.6",
+    "equity-feature-contracts==0.0.4a4",
+    "equity-feature-duckdb==0.1.0a9",
+    "equity-feature-duckdb-sink==0.1.0a0",
+    "equity-feature-io-contracts==0.1.0a2",
+    "equity-feature-io-sdk==0.1.0a2",
+    "equity-feature-workers==0.1.0a15",
+    "equity-features==0.0.4a5",
+    "equity-features-intraday==0.1.0a3",
+    "numpy==2.2.6",
+    "pip==25.0.1"
+   ],
+   "demos_total": 59,
+   "demos_pass": 59,
+   "first_attempt_pass": 59,
+   "demos": [
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R001",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "99632dfff36fd696223039adddfa6ef2946bf323dd7a4f800a5a2fadabe27c25"
+    },
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R019",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "83b4f6a3bf186561bc2f152cfb8405f364f11f371a20d84a71412c3cb24b66ab"
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b35f70448150b9f77577ef9c6bc429a4ddb8a8b71629ff7b6821667f91fe5e48"
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R08",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f6db4bbc90210649b8ae38f6acf479a774d68b5c290b6c725ad2283e46b366b9"
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b201d4e99fd6e7c569690875af6bc43919ed7d4a07647493e54c9aa95508e98b"
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "057329a8c6a083ac8a39b92dad3a7d86aad727e089a1a7afb29825162bfc1653"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-present",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "f6ae68dd3e9fde2620cdb6dd321395b7eb0826a6270cdd129b66b76ca91e287f"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-missing",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1862ea2708a1cce19619218d4ed2b8c4d520afabd01023ca1b68d3f2151b88fd"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-unknown",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "598466b9761bf0b6fc9eb55bcade9bf8a5904ab2d11e14af20da3381712b93e5"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-future",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "51e0f584769f614f8d344d27396daccf12238962f1b2e18d43bd064f131d4486"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "47d1adf02841237d2a46ca286516575ab1e0f6f8c4717b72ec6c9c3429e302f4"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "d51591796ee6f50c660b0bae21c84234cf7290d89cfc9b01787496e985f2ab37"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "528e79590d808059689b479c7e2adabc4049a3f730d662f68d12da700eaf195c"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01-missing-notional",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "b4e7272fcaa3a507780d6ce513643b1caf64b02d4ef6bd210a86c1b734f88373"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "0f83cf3f844b1e93d9247a026fc63dc37361cd80db0b89a5a7a58c68d19b7a26"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "296c2da3fe7fbc4ad0128f05809f16ea06206ef36ffa13bf2eeeeb3f8cf12f6d"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1ae300afadd019684508aa37466ea20a985401f836358fccdd3044922a297198"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b199399df0848374ef757127fa7eb2a651682ea6c8ad1b855c4449f4df708567"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6a33dde806fdada95d84dde4d605f7caeef31d6f7c484602a03a72b092321e78"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "8dd0383d2c89426fda3aa8b12fd22d5f5af9fcb506faad9db0832cdc12892ee6"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5084d3291232e5e6ff9228c4ede1a1e076376991117bf4d1112743a9bee7bdec"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "00cb57b5dd1e8c62487007bab9e0fd8cdb871b3a6291f27d1fb88c67b90cdc1d"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV24",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7e3c4eaeb1f295bff05de95bfe22a52ce6bfa245d9b9357e3961b6ff977d2b5e"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV43",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "431a57588ba0e7c3e1546dc7779cd7080905a7ad24afdb1d61d1e473a7539df7"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV44",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "338652351e5a939b61ee847dcea02f0da9a83202d3fc543a3947cb99ba2dca6e"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "89c13534607b3006353758521a9e74785180c64643684ebce1e2482f266174fe"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV20",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b893e51b14b7c63d5078f8653e665ac532fbe0c67eb9ca6e917bd158379d57cd"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV30",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "52dc45241661a8d70ca4682589e03288cf36225965c5903f12496bda3f97d6c6"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV40",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7d612f24e3c7d0e5bd066d5c63232707ff862bda6155f4d7db9e50dbc947d40c"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "1e51c1c5b40700cb151f19c1098c15de6e67500545489faf5f0446c6738260a6"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "a7c3b4e53584b1ff635d404d61541e2e72ae490fa346f9c92ab986de6a9c133e"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "8dc01abb291ea6fb347002ea672c17ede463278ad60b49667ba7be52dbdfcfe4"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M34",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "231796d123d46774ad46bdf418d4b3e05362203489fe0ea613f81848a83683ca"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M36",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "05cc7300f340689f01c1307aff13df78ec59c04b082aa27baa80d9fe4a0d5a1e"
+    },
+    {
+     "example": "ef2_retracement",
+     "case": "T12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "bec14896adb37cd807f9f5aa8e2365545805068e5037a37bdca7e184c7816ff0"
+    },
+    {
+     "example": "ef2_retracement",
+     "case": "T32",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "2689adddecb699bd58d6c80061fd6d75d6d7e7b6c8461318403aa0c719db6b40"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "90f45cfca9b4ab77a90159c94a94d3b1b00be6bfa37fc30161fbd31ec378b847"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "ff8523ba7f3d53da45646361227cb02a6a0d3307436e2b38818d215fe3b1ea49"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M25",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "1ae2e05329edbf25e62f628829e769919e26c6fc7017760cfa09303592fbc767"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "d6158da226233a5a9933fb2b59772419a75a7021483183e30100b64bef8d1e60"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "88ac3483236d90c4217df2a09abc387f492b27b48721b49067b4f6821a3b2fbd"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D04",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "be128ed306d17b1b5a36fb2f5be2044a23a38aa734a25a40ed232213297e695e"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D22",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "5182f5ba7e53ff10bf4a9efef5f95662aca9361af5d67cb0d229b612f6f1caef"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "P02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "4d7108c5d1702dec5f5a7af2f6351526c1be5034412fc67d93639f8dade95c2a"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "af2511cd2be3c2e80723ca0a69572bf73d0587b5c18fd8c180083760652d8f63"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "6185dedde0bf47ce0a398c90cad495dc691dc0933170e8b586e2407a5bbd3a05"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "d2d46901ac0ccbfe8a797162ca24cd434e6f9fff9deaa10c257be22230d2f260"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "ICH-17",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "59f9f82da96e7042ece81383a6d72de5582a6b2c3b044b1da77b428eaa5de671"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "SQ-10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f30484fd5d43114aa7c770e3701bcda538c22e2863d545d5e922d20d1ffe9d2f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PCT-10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "876bf0c1a4340216303dbb7750c7aa84cf8129e57b2ceeece3a89986ffbe425f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PIV-11",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "643df9f5986de198da0ce7a4aabb2be9776f14b2100f5f6d83f67f6709148a02"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "KEL-04",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f3f8f58660ea9767632c59e09e565274c0559b0d2f13432ba7011ca0db908a03"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "DON-05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "e9dc71acaca824d0d7d9eb3fd25bfff3bb66983e7e896157daf917ef83f1bf69"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "ICH-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6ffca306364fa9ec5dc37c02f91da441e0597e896f2c436079cdfeec62b56093"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "KEL-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "09ad51212e5bf40fd5083de80a65b030c065e728b89b1df2c94a32b6f359c88b"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "DON-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "3bf5eb3551196067e60115f188b7ceeeae785a38bfc9a9754fe80a3176100ea9"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PIV-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5d14e6eaa7a13c8a5fa7b31c5ae71bff187aeab72be479d87e8e3f81f9e82f77"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PCT-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "4cd76e39620bc2fc26680793e227dac71cc881c326c8ed2383f343fddaf1151f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "SQ-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "c8a675aafc3776a1d8406cbe7315b8439b4f9819a552e979c1944e86b2d676c6"
+    }
+   ]
+  },
+  {
+   "form": "core-wheels-components-sdists",
+   "install_exit": 0,
+   "pip_check_exit": 0,
+   "pip_check_output": "No broken requirements found.",
+   "installed": [
+    "duckdb==1.5.6",
+    "equity-feature-contracts==0.0.4a4",
+    "equity-feature-duckdb==0.1.0a9",
+    "equity-feature-duckdb-sink==0.1.0a0",
+    "equity-feature-io-contracts==0.1.0a2",
+    "equity-feature-io-sdk==0.1.0a2",
+    "equity-feature-workers==0.1.0a15",
+    "equity-features==0.0.4a5",
+    "equity-features-intraday==0.1.0a3",
+    "numpy==2.2.6",
+    "pip==25.0.1"
+   ],
+   "demos_total": 59,
+   "demos_pass": 59,
+   "first_attempt_pass": 59,
+   "demos": [
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R001",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "99632dfff36fd696223039adddfa6ef2946bf323dd7a4f800a5a2fadabe27c25"
+    },
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R019",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "83b4f6a3bf186561bc2f152cfb8405f364f11f371a20d84a71412c3cb24b66ab"
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b35f70448150b9f77577ef9c6bc429a4ddb8a8b71629ff7b6821667f91fe5e48"
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R08",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f6db4bbc90210649b8ae38f6acf479a774d68b5c290b6c725ad2283e46b366b9"
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b201d4e99fd6e7c569690875af6bc43919ed7d4a07647493e54c9aa95508e98b"
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "057329a8c6a083ac8a39b92dad3a7d86aad727e089a1a7afb29825162bfc1653"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-present",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "f6ae68dd3e9fde2620cdb6dd321395b7eb0826a6270cdd129b66b76ca91e287f"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-missing",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1862ea2708a1cce19619218d4ed2b8c4d520afabd01023ca1b68d3f2151b88fd"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-unknown",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "598466b9761bf0b6fc9eb55bcade9bf8a5904ab2d11e14af20da3381712b93e5"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-future",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "51e0f584769f614f8d344d27396daccf12238962f1b2e18d43bd064f131d4486"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "47d1adf02841237d2a46ca286516575ab1e0f6f8c4717b72ec6c9c3429e302f4"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "d51591796ee6f50c660b0bae21c84234cf7290d89cfc9b01787496e985f2ab37"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "528e79590d808059689b479c7e2adabc4049a3f730d662f68d12da700eaf195c"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01-missing-notional",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "b4e7272fcaa3a507780d6ce513643b1caf64b02d4ef6bd210a86c1b734f88373"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "0f83cf3f844b1e93d9247a026fc63dc37361cd80db0b89a5a7a58c68d19b7a26"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "296c2da3fe7fbc4ad0128f05809f16ea06206ef36ffa13bf2eeeeb3f8cf12f6d"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1ae300afadd019684508aa37466ea20a985401f836358fccdd3044922a297198"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b199399df0848374ef757127fa7eb2a651682ea6c8ad1b855c4449f4df708567"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6a33dde806fdada95d84dde4d605f7caeef31d6f7c484602a03a72b092321e78"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "8dd0383d2c89426fda3aa8b12fd22d5f5af9fcb506faad9db0832cdc12892ee6"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5084d3291232e5e6ff9228c4ede1a1e076376991117bf4d1112743a9bee7bdec"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "00cb57b5dd1e8c62487007bab9e0fd8cdb871b3a6291f27d1fb88c67b90cdc1d"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV24",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7e3c4eaeb1f295bff05de95bfe22a52ce6bfa245d9b9357e3961b6ff977d2b5e"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV43",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "431a57588ba0e7c3e1546dc7779cd7080905a7ad24afdb1d61d1e473a7539df7"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV44",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "338652351e5a939b61ee847dcea02f0da9a83202d3fc543a3947cb99ba2dca6e"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "89c13534607b3006353758521a9e74785180c64643684ebce1e2482f266174fe"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV20",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b893e51b14b7c63d5078f8653e665ac532fbe0c67eb9ca6e917bd158379d57cd"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV30",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "52dc45241661a8d70ca4682589e03288cf36225965c5903f12496bda3f97d6c6"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV40",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7d612f24e3c7d0e5bd066d5c63232707ff862bda6155f4d7db9e50dbc947d40c"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "1e51c1c5b40700cb151f19c1098c15de6e67500545489faf5f0446c6738260a6"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "a7c3b4e53584b1ff635d404d61541e2e72ae490fa346f9c92ab986de6a9c133e"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "8dc01abb291ea6fb347002ea672c17ede463278ad60b49667ba7be52dbdfcfe4"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M34",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "231796d123d46774ad46bdf418d4b3e05362203489fe0ea613f81848a83683ca"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M36",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "05cc7300f340689f01c1307aff13df78ec59c04b082aa27baa80d9fe4a0d5a1e"
+    },
+    {
+     "example": "ef2_retracement",
+     "case": "T12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "bec14896adb37cd807f9f5aa8e2365545805068e5037a37bdca7e184c7816ff0"
+    },
+    {
+     "example": "ef2_retracement",
+     "case": "T32",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "2689adddecb699bd58d6c80061fd6d75d6d7e7b6c8461318403aa0c719db6b40"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "90f45cfca9b4ab77a90159c94a94d3b1b00be6bfa37fc30161fbd31ec378b847"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "ff8523ba7f3d53da45646361227cb02a6a0d3307436e2b38818d215fe3b1ea49"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M25",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "1ae2e05329edbf25e62f628829e769919e26c6fc7017760cfa09303592fbc767"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "d6158da226233a5a9933fb2b59772419a75a7021483183e30100b64bef8d1e60"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "88ac3483236d90c4217df2a09abc387f492b27b48721b49067b4f6821a3b2fbd"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D04",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "be128ed306d17b1b5a36fb2f5be2044a23a38aa734a25a40ed232213297e695e"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D22",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "5182f5ba7e53ff10bf4a9efef5f95662aca9361af5d67cb0d229b612f6f1caef"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "P02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "4d7108c5d1702dec5f5a7af2f6351526c1be5034412fc67d93639f8dade95c2a"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "af2511cd2be3c2e80723ca0a69572bf73d0587b5c18fd8c180083760652d8f63"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "6185dedde0bf47ce0a398c90cad495dc691dc0933170e8b586e2407a5bbd3a05"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "d2d46901ac0ccbfe8a797162ca24cd434e6f9fff9deaa10c257be22230d2f260"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "ICH-17",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "59f9f82da96e7042ece81383a6d72de5582a6b2c3b044b1da77b428eaa5de671"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "SQ-10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f30484fd5d43114aa7c770e3701bcda538c22e2863d545d5e922d20d1ffe9d2f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PCT-10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "876bf0c1a4340216303dbb7750c7aa84cf8129e57b2ceeece3a89986ffbe425f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PIV-11",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "643df9f5986de198da0ce7a4aabb2be9776f14b2100f5f6d83f67f6709148a02"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "KEL-04",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f3f8f58660ea9767632c59e09e565274c0559b0d2f13432ba7011ca0db908a03"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "DON-05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "e9dc71acaca824d0d7d9eb3fd25bfff3bb66983e7e896157daf917ef83f1bf69"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "ICH-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6ffca306364fa9ec5dc37c02f91da441e0597e896f2c436079cdfeec62b56093"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "KEL-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "09ad51212e5bf40fd5083de80a65b030c065e728b89b1df2c94a32b6f359c88b"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "DON-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "3bf5eb3551196067e60115f188b7ceeeae785a38bfc9a9754fe80a3176100ea9"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PIV-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5d14e6eaa7a13c8a5fa7b31c5ae71bff187aeab72be479d87e8e3f81f9e82f77"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PCT-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "4cd76e39620bc2fc26680793e227dac71cc881c326c8ed2383f343fddaf1151f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "SQ-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "c8a675aafc3776a1d8406cbe7315b8439b4f9819a552e979c1944e86b2d676c6"
+    }
+   ]
+  },
+  {
+   "form": "core-sdists-components-wheels",
+   "install_exit": 0,
+   "pip_check_exit": 0,
+   "pip_check_output": "No broken requirements found.",
+   "installed": [
+    "duckdb==1.5.6",
+    "equity-feature-contracts==0.0.4a4",
+    "equity-feature-duckdb==0.1.0a9",
+    "equity-feature-duckdb-sink==0.1.0a0",
+    "equity-feature-io-contracts==0.1.0a2",
+    "equity-feature-io-sdk==0.1.0a2",
+    "equity-feature-workers==0.1.0a15",
+    "equity-features==0.0.4a5",
+    "equity-features-intraday==0.1.0a3",
+    "numpy==2.2.6",
+    "pip==25.0.1"
+   ],
+   "demos_total": 59,
+   "demos_pass": 59,
+   "first_attempt_pass": 59,
+   "demos": [
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R001",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "99632dfff36fd696223039adddfa6ef2946bf323dd7a4f800a5a2fadabe27c25"
+    },
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R019",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "83b4f6a3bf186561bc2f152cfb8405f364f11f371a20d84a71412c3cb24b66ab"
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b35f70448150b9f77577ef9c6bc429a4ddb8a8b71629ff7b6821667f91fe5e48"
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R08",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f6db4bbc90210649b8ae38f6acf479a774d68b5c290b6c725ad2283e46b366b9"
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b201d4e99fd6e7c569690875af6bc43919ed7d4a07647493e54c9aa95508e98b"
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "057329a8c6a083ac8a39b92dad3a7d86aad727e089a1a7afb29825162bfc1653"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-present",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "f6ae68dd3e9fde2620cdb6dd321395b7eb0826a6270cdd129b66b76ca91e287f"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-missing",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1862ea2708a1cce19619218d4ed2b8c4d520afabd01023ca1b68d3f2151b88fd"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-unknown",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "598466b9761bf0b6fc9eb55bcade9bf8a5904ab2d11e14af20da3381712b93e5"
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-future",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "51e0f584769f614f8d344d27396daccf12238962f1b2e18d43bd064f131d4486"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "47d1adf02841237d2a46ca286516575ab1e0f6f8c4717b72ec6c9c3429e302f4"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "d51591796ee6f50c660b0bae21c84234cf7290d89cfc9b01787496e985f2ab37"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "528e79590d808059689b479c7e2adabc4049a3f730d662f68d12da700eaf195c"
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01-missing-notional",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "b4e7272fcaa3a507780d6ce513643b1caf64b02d4ef6bd210a86c1b734f88373"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "0f83cf3f844b1e93d9247a026fc63dc37361cd80db0b89a5a7a58c68d19b7a26"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "296c2da3fe7fbc4ad0128f05809f16ea06206ef36ffa13bf2eeeeb3f8cf12f6d"
+    },
+    {
+     "example": "ef1_status",
+     "case": "S03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1ae300afadd019684508aa37466ea20a985401f836358fccdd3044922a297198"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b199399df0848374ef757127fa7eb2a651682ea6c8ad1b855c4449f4df708567"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6a33dde806fdada95d84dde4d605f7caeef31d6f7c484602a03a72b092321e78"
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "8dd0383d2c89426fda3aa8b12fd22d5f5af9fcb506faad9db0832cdc12892ee6"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5084d3291232e5e6ff9228c4ede1a1e076376991117bf4d1112743a9bee7bdec"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "00cb57b5dd1e8c62487007bab9e0fd8cdb871b3a6291f27d1fb88c67b90cdc1d"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV24",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7e3c4eaeb1f295bff05de95bfe22a52ce6bfa245d9b9357e3961b6ff977d2b5e"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV43",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "431a57588ba0e7c3e1546dc7779cd7080905a7ad24afdb1d61d1e473a7539df7"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV44",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "338652351e5a939b61ee847dcea02f0da9a83202d3fc543a3947cb99ba2dca6e"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "89c13534607b3006353758521a9e74785180c64643684ebce1e2482f266174fe"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV20",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b893e51b14b7c63d5078f8653e665ac532fbe0c67eb9ca6e917bd158379d57cd"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV30",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "52dc45241661a8d70ca4682589e03288cf36225965c5903f12496bda3f97d6c6"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV40",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7d612f24e3c7d0e5bd066d5c63232707ff862bda6155f4d7db9e50dbc947d40c"
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "1e51c1c5b40700cb151f19c1098c15de6e67500545489faf5f0446c6738260a6"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "a7c3b4e53584b1ff635d404d61541e2e72ae490fa346f9c92ab986de6a9c133e"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "8dc01abb291ea6fb347002ea672c17ede463278ad60b49667ba7be52dbdfcfe4"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M34",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "231796d123d46774ad46bdf418d4b3e05362203489fe0ea613f81848a83683ca"
+    },
+    {
+     "example": "ef2_money_flow",
+     "case": "M36",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "05cc7300f340689f01c1307aff13df78ec59c04b082aa27baa80d9fe4a0d5a1e"
+    },
+    {
+     "example": "ef2_retracement",
+     "case": "T12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "bec14896adb37cd807f9f5aa8e2365545805068e5037a37bdca7e184c7816ff0"
+    },
+    {
+     "example": "ef2_retracement",
+     "case": "T32",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "2689adddecb699bd58d6c80061fd6d75d6d7e7b6c8461318403aa0c719db6b40"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "90f45cfca9b4ab77a90159c94a94d3b1b00be6bfa37fc30161fbd31ec378b847"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "ff8523ba7f3d53da45646361227cb02a6a0d3307436e2b38818d215fe3b1ea49"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M25",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "1ae2e05329edbf25e62f628829e769919e26c6fc7017760cfa09303592fbc767"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "M26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "d6158da226233a5a9933fb2b59772419a75a7021483183e30100b64bef8d1e60"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "88ac3483236d90c4217df2a09abc387f492b27b48721b49067b4f6821a3b2fbd"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D04",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "be128ed306d17b1b5a36fb2f5be2044a23a38aa734a25a40ed232213297e695e"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "D22",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "5182f5ba7e53ff10bf4a9efef5f95662aca9361af5d67cb0d229b612f6f1caef"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "P02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "4d7108c5d1702dec5f5a7af2f6351526c1be5034412fc67d93639f8dade95c2a"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "af2511cd2be3c2e80723ca0a69572bf73d0587b5c18fd8c180083760652d8f63"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "6185dedde0bf47ce0a398c90cad495dc691dc0933170e8b586e2407a5bbd3a05"
+    },
+    {
+     "example": "ef2_momentum",
+     "case": "T10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true,
+      "witness_identity_checked": true
+     },
+     "content_sha256": "d2d46901ac0ccbfe8a797162ca24cd434e6f9fff9deaa10c257be22230d2f260"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "ICH-17",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "59f9f82da96e7042ece81383a6d72de5582a6b2c3b044b1da77b428eaa5de671"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "SQ-10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f30484fd5d43114aa7c770e3701bcda538c22e2863d545d5e922d20d1ffe9d2f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PCT-10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "876bf0c1a4340216303dbb7750c7aa84cf8129e57b2ceeece3a89986ffbe425f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PIV-11",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "643df9f5986de198da0ce7a4aabb2be9776f14b2100f5f6d83f67f6709148a02"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "KEL-04",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f3f8f58660ea9767632c59e09e565274c0559b0d2f13432ba7011ca0db908a03"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "DON-05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "e9dc71acaca824d0d7d9eb3fd25bfff3bb66983e7e896157daf917ef83f1bf69"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "ICH-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6ffca306364fa9ec5dc37c02f91da441e0597e896f2c436079cdfeec62b56093"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "KEL-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "09ad51212e5bf40fd5083de80a65b030c065e728b89b1df2c94a32b6f359c88b"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "DON-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "3bf5eb3551196067e60115f188b7ceeeae785a38bfc9a9754fe80a3176100ea9"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PIV-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5d14e6eaa7a13c8a5fa7b31c5ae71bff187aeab72be479d87e8e3f81f9e82f77"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "PCT-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "4cd76e39620bc2fc26680793e227dac71cc881c326c8ed2383f343fddaf1151f"
+    },
+    {
+     "example": "ef2_channels",
+     "case": "SQ-01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "c8a675aafc3776a1d8406cbe7315b8439b4f9819a552e979c1944e86b2d676c6"
+    }
+   ]
+  }
+ ],
+ "demos_per_form": 59,
+ "content_sha256_identical_across_forms": true,
+ "not_run": [
+  "unit test suites (owner policy: manual verification only)",
+  "Linux",
+  "real data",
+  "original-source parity",
+  "source rights",
+  "benchmarks",
+  "refusal fixtures",
+  "the full contract fixture sets (304 cases)",
+  "default contract path resolution from an installed copy (--contract passed explicitly)",
+  "browser inspection",
+  "daily observations demo (needs a corpus)",
+  "other examples outside the demo list",
+  "independent artifact audit"
+ ]
+}
