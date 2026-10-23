@@ -1,5 +1,10 @@
 # Status (newest first)
 
+## 2026-10-22 - EF1 amendment merged; browser demo of results page
+- Merged core #644: sibling PRODUCER_SET_AMENDMENT (reference_close, multivenue_status; ledger 45 -> 56 headers vs frozen CONTRACT.json; merged code defines 66 -> 77). Independent reviewer approved; frozen CONTRACT.json untouched. Open findings recorded in it: units count/s/price/observations used in code but absent from the frozen unit set; frozen calendar lists omit several post-freeze producers.
+- Browser demo: ran tools/ef1_results_demo.py (workers main 8c666fe) for 62 cases, 0 failed, served the folder on a local port and viewed index.html and the close C02 page in the browser pane (server stopped afterwards). Page text confirmed: synthetic labels, no-tests statement, per-case flags. Honest gaps: the per-case pages show the canonical result as raw JSON (not human-friendly); pane screenshot was narrow so layout was not judged beyond the header; only index and one case page were opened; no real N: source.
+- Still open for EF1: full EQ164 audit, installed Windows/Linux qualification of the later slices, original-source parity and rights, EQ169 acceptance, human-readable results view.
+
 ## 2026-10-22 - EF1 missing producers delivered (EQ168 close reconciliation, EQ165 multi-venue status)
 - Merged: contracts core #637/#640 (close, ef1-close-compare1 + Amendment 1), #638/#641 (multi-venue, ef1-multivenue-status1); close producer core #639, io #30, workers #72; multi-venue producer core #642, io #31, workers #73. Each contract had a fresh independent reviewer who recomputed fixtures with an independent stdlib harness; each library PR had a second independent code review that rebuilt inputs and compared all fixtures (close 53 result + 28 refusal; multi-venue 42 result + 13 refusal), no mismatches.
 - Manual runs: worker examples for close (C01-C03) and multi-venue (all 42 MV cases) passed with contract-literal match, SDK readback, replay and close/reopen; results demo ran 62 cases without failure. I/O sink round-trips new units (bps, publishers, boolean). Coordinator spot-ran C01-C03 and MV05/MV24/MV43.
