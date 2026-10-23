@@ -1,0 +1,1592 @@
+{
+ "schema_version": 1,
+ "kind": "eq164_selected_slice_c_findings",
+ "slice": "C (rows whose planned releases are exactly EF8)",
+ "status": "findings only; not acceptance",
+ "row_count": 36,
+ "classification_counts": {
+  "COVERED_BY_PLANNED_PRODUCER": 21,
+  "AMBIGUOUS_OR_CONFLICTING": 5,
+  "NEEDS_OPERAND_PRODUCER": 10
+ },
+ "kind_counts": {
+  "field": 26,
+  "consumer": 10
+ },
+ "owner_issue_checks": {
+  "518": "open, milestone 28",
+  "519": "open, milestone 28",
+  "520": "open, milestone 28",
+  "521": "open, milestone 28 (no row in this slice)",
+  "621": "open, milestone 28",
+  "622": "open, milestone 28",
+  "626": "open, milestone 24 (EF3 library)",
+  "102": "closed (EQ-090), conditional reuse only"
+ },
+ "rows": [
+  {
+   "opaque_id": "F0715",
+   "kind": "field",
+   "selection_id": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 519,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#519 policy/score; raw diagnostic operand is #626 (EF3)",
+   "operand_producers": [
+    {
+     "operand": "event-time adaptive diagnostic (optional, only if this output consumes it)",
+     "owner": 626,
+     "status": "numbered_not_delivered"
+    },
+    {
+     "operand": "other score components",
+     "owner": null,
+     "status": "unnamed_for_this_row"
+    }
+   ],
+   "gaps": [
+    "per-output component/normalization/weight contract unfrozen",
+    "not stated which of the five rows consume #626 (edge is per-output optional)",
+    "no independent full-result fixtures"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0716",
+   "kind": "field",
+   "selection_id": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 519,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#519 policy/score; raw diagnostic operand is #626 (EF3)",
+   "operand_producers": [
+    {
+     "operand": "event-time adaptive diagnostic (optional, only if this output consumes it)",
+     "owner": 626,
+     "status": "numbered_not_delivered"
+    },
+    {
+     "operand": "other score components",
+     "owner": null,
+     "status": "unnamed_for_this_row"
+    }
+   ],
+   "gaps": [
+    "per-output component/normalization/weight contract unfrozen",
+    "not stated which of the five rows consume #626 (edge is per-output optional)",
+    "no independent full-result fixtures"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0717",
+   "kind": "field",
+   "selection_id": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 519,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#519 policy/score; raw diagnostic operand is #626 (EF3)",
+   "operand_producers": [
+    {
+     "operand": "event-time adaptive diagnostic (optional, only if this output consumes it)",
+     "owner": 626,
+     "status": "numbered_not_delivered"
+    },
+    {
+     "operand": "other score components",
+     "owner": null,
+     "status": "unnamed_for_this_row"
+    }
+   ],
+   "gaps": [
+    "per-output component/normalization/weight contract unfrozen",
+    "not stated which of the five rows consume #626 (edge is per-output optional)",
+    "no independent full-result fixtures"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0718",
+   "kind": "field",
+   "selection_id": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 519,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#519 policy/score; raw diagnostic operand is #626 (EF3)",
+   "operand_producers": [
+    {
+     "operand": "event-time adaptive diagnostic (optional, only if this output consumes it)",
+     "owner": 626,
+     "status": "numbered_not_delivered"
+    },
+    {
+     "operand": "other score components",
+     "owner": null,
+     "status": "unnamed_for_this_row"
+    }
+   ],
+   "gaps": [
+    "per-output component/normalization/weight contract unfrozen",
+    "not stated which of the five rows consume #626 (edge is per-output optional)",
+    "no independent full-result fixtures"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0719",
+   "kind": "field",
+   "selection_id": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 519,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "selected_policy_or_score; raw_adaptive_operand_separate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#519 policy/score; raw diagnostic operand is #626 (EF3)",
+   "operand_producers": [
+    {
+     "operand": "event-time adaptive diagnostic (optional, only if this output consumes it)",
+     "owner": 626,
+     "status": "numbered_not_delivered"
+    },
+    {
+     "operand": "other score components",
+     "owner": null,
+     "status": "unnamed_for_this_row"
+    }
+   ],
+   "gaps": [
+    "per-output component/normalization/weight contract unfrozen",
+    "not stated which of the five rows consume #626 (edge is per-output optional)",
+    "no independent full-result fixtures"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0720",
+   "kind": "field",
+   "selection_id": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 519,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "selected_current_policy_operand"
+    },
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "ordered_diagnostic_policy_episode_edge"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "story": "#519 current-policy operand and #520 ordered episode edge",
+   "operand_producers": [
+    {
+     "operand": "current policy value",
+     "owner": 519,
+     "status": "numbered_not_delivered"
+    },
+    {
+     "operand": "ordered diagnostic-policy episode edge",
+     "owner": 520,
+     "status": "numbered_not_delivered"
+    },
+    {
+     "operand": "adaptive diagnostic if consumed",
+     "owner": 626,
+     "status": "numbered_not_delivered"
+    }
+   ],
+   "gaps": [
+    "two primary_numbered_owner entries on one output; seam (which story publishes the final value, and the #519->#520 operand contract) not stated in the manifests",
+    "no reverse EF8 gate is introduced (consistent with plan)"
+   ],
+   "confidence": "medium",
+   "decision": "Which of #519 or #520 is the single publishing owner of this output, with the other as a named operand producer?"
+  },
+  {
+   "opaque_id": "S0090",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "S0091",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "S0092",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "S0093",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "S0094",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "S0095",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "S0096",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "S0097",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "S0098",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "S0099",
+   "kind": "consumer",
+   "selection_id": "S06-RANK",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "story": "#518 policy owner (current observed-cohort normalization; conditional reuse of closed generic ranking #102)",
+   "operand_producers": [
+    {
+     "operand": "per-member cohort measurements feeding normalization",
+     "owner": null,
+     "status": "uncovered_gap_not_named"
+    },
+    {
+     "operand": "generic ranking reuse (#102, closed)",
+     "owner": 102,
+     "status": "conditional_reuse_unproved"
+    }
+   ],
+   "gaps": [
+    "prior primitive proposal for the row equals the policy owner itself, so no operand-level producer is named",
+    "normalization arithmetic sits inside a catalogue story (#518); #518 says a separately reusable scalar beyond catalogue scope needs a narrowly numbered producer, not yet decided",
+    "member identity, expected-vs-observed population, ties, scaling, denominator unfrozen",
+    "no lexical field bridges recorded for the row"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is current-cohort normalization a numbered producer separate from catalogue story #518 (for the ten S06-RANK rows), or is exact #102 reuse proved?"
+  },
+  {
+   "opaque_id": "F0287",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "stateless_selected_predicate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#518 stateless selected predicate (current comparison)",
+   "operand_producers": [
+    {
+     "operand": "compared earlier-primitive values and threshold parameter",
+     "owner": null,
+     "status": "unnamed_for_this_row (EF1 #505/#506/#507 plausible, unconfirmed)"
+    }
+   ],
+   "gaps": [
+    "comparison operands not named per row",
+    "unknown/missing handling and threshold-as-parameter contract unfrozen"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0288",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "stateless_selected_predicate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#518 stateless selected predicate (current comparison)",
+   "operand_producers": [
+    {
+     "operand": "compared earlier-primitive values and threshold parameter",
+     "owner": null,
+     "status": "unnamed_for_this_row (EF1 #505/#506/#507 plausible, unconfirmed)"
+    }
+   ],
+   "gaps": [
+    "comparison operands not named per row",
+    "unknown/missing handling and threshold-as-parameter contract unfrozen"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0291",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "stateless_selected_predicate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#518 stateless selected predicate (current comparison)",
+   "operand_producers": [
+    {
+     "operand": "compared earlier-primitive values and threshold parameter",
+     "owner": null,
+     "status": "unnamed_for_this_row (EF1 #505/#506/#507 plausible, unconfirmed)"
+    }
+   ],
+   "gaps": [
+    "comparison operands not named per row",
+    "unknown/missing handling and threshold-as-parameter contract unfrozen"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0292",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "stateless_selected_predicate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#518 stateless selected predicate (current comparison)",
+   "operand_producers": [
+    {
+     "operand": "compared earlier-primitive values and threshold parameter",
+     "owner": null,
+     "status": "unnamed_for_this_row (EF1 #505/#506/#507 plausible, unconfirmed)"
+    }
+   ],
+   "gaps": [
+    "comparison operands not named per row",
+    "unknown/missing handling and threshold-as-parameter contract unfrozen"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0293",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "stateless_selected_predicate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#518 stateless selected predicate (current comparison)",
+   "operand_producers": [
+    {
+     "operand": "compared earlier-primitive values and threshold parameter",
+     "owner": null,
+     "status": "unnamed_for_this_row (EF1 #505/#506/#507 plausible, unconfirmed)"
+    }
+   ],
+   "gaps": [
+    "comparison operands not named per row",
+    "unknown/missing handling and threshold-as-parameter contract unfrozen"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0296",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "stateless_selected_predicate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#518 stateless selected predicate (current comparison)",
+   "operand_producers": [
+    {
+     "operand": "compared earlier-primitive values and threshold parameter",
+     "owner": null,
+     "status": "unnamed_for_this_row (EF1 #505/#506/#507 plausible, unconfirmed)"
+    }
+   ],
+   "gaps": [
+    "comparison operands not named per row",
+    "unknown/missing handling and threshold-as-parameter contract unfrozen"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0297",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "stateless_selected_predicate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#518 stateless selected predicate (current comparison)",
+   "operand_producers": [
+    {
+     "operand": "compared earlier-primitive values and threshold parameter",
+     "owner": null,
+     "status": "unnamed_for_this_row (EF1 #505/#506/#507 plausible, unconfirmed)"
+    }
+   ],
+   "gaps": [
+    "comparison operands not named per row",
+    "unknown/missing handling and threshold-as-parameter contract unfrozen"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0303",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "stateless_selected_predicate"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#518 stateless selected predicate (current comparison)",
+   "operand_producers": [
+    {
+     "operand": "compared earlier-primitive values and threshold parameter",
+     "owner": null,
+     "status": "unnamed_for_this_row (EF1 #505/#506/#507 plausible, unconfirmed)"
+    }
+   ],
+   "gaps": [
+    "comparison operands not named per row",
+    "unknown/missing handling and threshold-as-parameter contract unfrozen"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0289",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "latched_ordered_transition"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#520 latched ordered transition over supplied chronological evidence",
+   "operand_producers": [
+    {
+     "operand": "observable/level/anchor operands",
+     "owner": null,
+     "status": "selected-operand edge to #505/#506/#507 exists at story level; row-level operand not named"
+    },
+    {
+     "operand": "stateless predicate operand if any",
+     "owner": 518,
+     "status": "numbered_not_delivered"
+    }
+   ],
+   "gaps": [
+    "state/reset/replay/duplicate contract unfrozen",
+    "row-level operand mapping missing"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0290",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "latched_ordered_transition"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#520 latched ordered transition over supplied chronological evidence",
+   "operand_producers": [
+    {
+     "operand": "observable/level/anchor operands",
+     "owner": null,
+     "status": "selected-operand edge to #505/#506/#507 exists at story level; row-level operand not named"
+    },
+    {
+     "operand": "stateless predicate operand if any",
+     "owner": 518,
+     "status": "numbered_not_delivered"
+    }
+   ],
+   "gaps": [
+    "state/reset/replay/duplicate contract unfrozen",
+    "row-level operand mapping missing"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0294",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "latched_ordered_transition"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#520 latched ordered transition over supplied chronological evidence",
+   "operand_producers": [
+    {
+     "operand": "observable/level/anchor operands",
+     "owner": null,
+     "status": "selected-operand edge to #505/#506/#507 exists at story level; row-level operand not named"
+    },
+    {
+     "operand": "stateless predicate operand if any",
+     "owner": 518,
+     "status": "numbered_not_delivered"
+    }
+   ],
+   "gaps": [
+    "state/reset/replay/duplicate contract unfrozen",
+    "row-level operand mapping missing"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0295",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "latched_ordered_transition"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#520 latched ordered transition over supplied chronological evidence",
+   "operand_producers": [
+    {
+     "operand": "observable/level/anchor operands",
+     "owner": null,
+     "status": "selected-operand edge to #505/#506/#507 exists at story level; row-level operand not named"
+    },
+    {
+     "operand": "stateless predicate operand if any",
+     "owner": 518,
+     "status": "numbered_not_delivered"
+    }
+   ],
+   "gaps": [
+    "state/reset/replay/duplicate contract unfrozen",
+    "row-level operand mapping missing"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0298",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "latched_ordered_transition"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#520 latched ordered transition over supplied chronological evidence",
+   "operand_producers": [
+    {
+     "operand": "observable/level/anchor operands",
+     "owner": null,
+     "status": "selected-operand edge to #505/#506/#507 exists at story level; row-level operand not named"
+    },
+    {
+     "operand": "stateless predicate operand if any",
+     "owner": 518,
+     "status": "numbered_not_delivered"
+    }
+   ],
+   "gaps": [
+    "state/reset/replay/duplicate contract unfrozen",
+    "row-level operand mapping missing"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0299",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "latched_ordered_transition"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#520 latched ordered transition over supplied chronological evidence",
+   "operand_producers": [
+    {
+     "operand": "observable/level/anchor operands",
+     "owner": null,
+     "status": "selected-operand edge to #505/#506/#507 exists at story level; row-level operand not named"
+    },
+    {
+     "operand": "stateless predicate operand if any",
+     "owner": 518,
+     "status": "numbered_not_delivered"
+    }
+   ],
+   "gaps": [
+    "state/reset/replay/duplicate contract unfrozen",
+    "row-level operand mapping missing"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0300",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "latched_ordered_transition"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#520 latched ordered transition over supplied chronological evidence",
+   "operand_producers": [
+    {
+     "operand": "observable/level/anchor operands",
+     "owner": null,
+     "status": "selected-operand edge to #505/#506/#507 exists at story level; row-level operand not named"
+    },
+    {
+     "operand": "stateless predicate operand if any",
+     "owner": 518,
+     "status": "numbered_not_delivered"
+    }
+   ],
+   "gaps": [
+    "state/reset/replay/duplicate contract unfrozen",
+    "row-level operand mapping missing"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0301",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "latched_ordered_transition"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": false,
+   "early_primitive_gate_flag": false,
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "story": "#520 latched ordered transition over supplied chronological evidence",
+   "operand_producers": [
+    {
+     "operand": "observable/level/anchor operands",
+     "owner": null,
+     "status": "selected-operand edge to #505/#506/#507 exists at story level; row-level operand not named"
+    },
+    {
+     "operand": "stateless predicate operand if any",
+     "owner": 518,
+     "status": "numbered_not_delivered"
+    }
+   ],
+   "gaps": [
+    "state/reset/replay/duplicate contract unfrozen",
+    "row-level operand mapping missing"
+   ],
+   "confidence": "medium"
+  },
+  {
+   "opaque_id": "F0343",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "ordered_anchor_discovery_or_state_projection"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "story": "#520 ordered anchor discovery or state projection",
+   "operand_producers": [
+    {
+     "operand": "price/time evidence for first-crossing anchor",
+     "owner": null,
+     "status": "row-level operand not named"
+    },
+    {
+     "operand": "supplied anchor consumption (EF1 anchor arithmetic)",
+     "owner": 507,
+     "status": "primary arithmetic on main; discovery not covered"
+    }
+   ],
+   "gaps": [
+    "role says 'discovery OR state projection': not decided which per row",
+    "anchor discovery is numerical selection logic inside a lifecycle story; #507 consumes only a supplied anchor",
+    "risk of hidden numerical producer in an umbrella-like lifecycle story"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is anchor discovery a pure primitive needing its own numbered producer, or lifecycle state owned by #520?"
+  },
+  {
+   "opaque_id": "F0344",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "ordered_anchor_discovery_or_state_projection"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "story": "#520 ordered anchor discovery or state projection",
+   "operand_producers": [
+    {
+     "operand": "price/time evidence for first-crossing anchor",
+     "owner": null,
+     "status": "row-level operand not named"
+    },
+    {
+     "operand": "supplied anchor consumption (EF1 anchor arithmetic)",
+     "owner": 507,
+     "status": "primary arithmetic on main; discovery not covered"
+    }
+   ],
+   "gaps": [
+    "role says 'discovery OR state projection': not decided which per row",
+    "anchor discovery is numerical selection logic inside a lifecycle story; #507 consumes only a supplied anchor",
+    "risk of hidden numerical producer in an umbrella-like lifecycle story"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is anchor discovery a pure primitive needing its own numbered producer, or lifecycle state owned by #520?"
+  },
+  {
+   "opaque_id": "F0345",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "ordered_anchor_discovery_or_state_projection"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "story": "#520 ordered anchor discovery or state projection",
+   "operand_producers": [
+    {
+     "operand": "price/time evidence for first-crossing anchor",
+     "owner": null,
+     "status": "row-level operand not named"
+    },
+    {
+     "operand": "supplied anchor consumption (EF1 anchor arithmetic)",
+     "owner": 507,
+     "status": "primary arithmetic on main; discovery not covered"
+    }
+   ],
+   "gaps": [
+    "role says 'discovery OR state projection': not decided which per row",
+    "anchor discovery is numerical selection logic inside a lifecycle story; #507 consumes only a supplied anchor",
+    "risk of hidden numerical producer in an umbrella-like lifecycle story"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is anchor discovery a pure primitive needing its own numbered producer, or lifecycle state owned by #520?"
+  },
+  {
+   "opaque_id": "F0346",
+   "kind": "field",
+   "selection_id": "S07-ROLE-SPLIT",
+   "owners": [
+    {
+     "issue": 520,
+     "release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622,
+     "role": "ordered_anchor_discovery_or_state_projection"
+    }
+   ],
+   "owner_numbers_verified": true,
+   "evidence_read": [
+    "selected-scope components row",
+    "audit route coverage row (route fields match the components row)",
+    "selected dependencies manifest",
+    "output ownership manifest (no entry for this row or its owner)",
+    "owner issue read-only readback: existence/state/milestone"
+   ],
+   "hidden_numerical_producer_flag": true,
+   "early_primitive_gate_flag": false,
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "story": "#520 ordered anchor discovery or state projection",
+   "operand_producers": [
+    {
+     "operand": "price/time evidence for first-crossing anchor",
+     "owner": null,
+     "status": "row-level operand not named"
+    },
+    {
+     "operand": "supplied anchor consumption (EF1 anchor arithmetic)",
+     "owner": 507,
+     "status": "primary arithmetic on main; discovery not covered"
+    }
+   ],
+   "gaps": [
+    "role says 'discovery OR state projection': not decided which per row",
+    "anchor discovery is numerical selection logic inside a lifecycle story; #507 consumes only a supplied anchor",
+    "risk of hidden numerical producer in an umbrella-like lifecycle story"
+   ],
+   "confidence": "low-medium",
+   "decision": "Is anchor discovery a pure primitive needing its own numbered producer, or lifecycle state owned by #520?"
+  }
+ ]
+}
