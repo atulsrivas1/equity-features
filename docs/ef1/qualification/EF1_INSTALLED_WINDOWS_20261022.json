@@ -1,0 +1,1744 @@
+{
+ "receipt": "EF1 installed-artifact qualification run, Windows",
+ "date_utc": "2026-10-22/23",
+ "sources": {
+  "core": "984a266137f314763749e5f2da241d99df75e8e5",
+  "io": "9ef41e0ff976c257c2cbc8367f14289d15673852",
+  "workers": "e030433b7b1e9397b2730f2f8bde39b0297fdea8"
+ },
+ "platform": {
+  "os": "Windows 11 Pro 10.0.26300",
+  "python": "CPython 3.12.10",
+  "pip": "25.0.1 (venvs and sdist build isolation)",
+  "setuptools": "80.9.0",
+  "build_tool": "setuptools.build_meta build_sdist/build_wheel called directly (the build package is not installed)"
+ },
+ "packages": [
+  "equity-feature-contracts 0.0.4a4",
+  "equity-features 0.0.4a5",
+  "equity-features-intraday 0.1.0a3",
+  "equity-feature-io-contracts 0.1.0a2",
+  "equity-feature-io-sdk 0.1.0a2",
+  "equity-feature-duckdb 0.1.0a9",
+  "equity-feature-duckdb-sink 0.1.0a0",
+  "equity-feature-workers 0.1.0a15"
+ ],
+ "archives": {
+  "equity_feature_contracts-0.0.4a4-py3-none-any.whl": {
+   "sha256": "79cdce0fee9e249b99f2a8311c814c5786b09bff23c5e6d3cd1bd20701974a98",
+   "bytes": 70077
+  },
+  "equity_feature_contracts-0.0.4a4.tar.gz": {
+   "sha256": "b0c59800aee465c4bb8f29ef24817bf5ba1de54f47e74be1ba7b2f72a976ee2b",
+   "bytes": 57130
+  },
+  "equity_feature_duckdb-0.1.0a9-py3-none-any.whl": {
+   "sha256": "60d3c73a57714d57337c7dbc4abbece31341480fc5c2319f817afa78de7de744",
+   "bytes": 112527
+  },
+  "equity_feature_duckdb-0.1.0a9.tar.gz": {
+   "sha256": "c417f880ed5604f65b2eb7225281acbb041ad9a76922205071d0fcf8e1ab0e07",
+   "bytes": 102349
+  },
+  "equity_feature_duckdb_sink-0.1.0a0-py3-none-any.whl": {
+   "sha256": "f19b23b74d33b000e357e76faff3cd7f909e0603d9f0f6433b8bf6e05abadcb4",
+   "bytes": 20213
+  },
+  "equity_feature_duckdb_sink-0.1.0a0.tar.gz": {
+   "sha256": "6477697f569a6906ace9af4c036c88b806cf5668f182803bf0dead832a252e72",
+   "bytes": 19235
+  },
+  "equity_feature_io_contracts-0.1.0a2-py3-none-any.whl": {
+   "sha256": "c0abbf17c0a5c9aa1836ecf566806659a28b6376fb021ac136a5ccdfb9e9b8eb",
+   "bytes": 11470
+  },
+  "equity_feature_io_contracts-0.1.0a2.tar.gz": {
+   "sha256": "7bd7168679eb26e8f87b92cb3790e073e3f55a408ba39569d9a071e4e03d9b79",
+   "bytes": 10430
+  },
+  "equity_feature_io_sdk-0.1.0a2-py3-none-any.whl": {
+   "sha256": "f9c77b230ad076ab104060604005f7fbcd2209977525752229a67f52cce885c4",
+   "bytes": 18702
+  },
+  "equity_feature_io_sdk-0.1.0a2.tar.gz": {
+   "sha256": "5e30f96b265fe229b178298d825a7a4bf9a8fa39e36f73b525f58288257a9620",
+   "bytes": 16497
+  },
+  "equity_feature_workers-0.1.0a15-py3-none-any.whl": {
+   "sha256": "3602f05fca3e6134fad9eab922fa07aa858946f7fc72f4a688be2448bf56a233",
+   "bytes": 115786
+  },
+  "equity_feature_workers-0.1.0a15.tar.gz": {
+   "sha256": "6f82ed01733f8a605ff57db06849378a968621e8ace27b0d1ee24c28f9bb1641",
+   "bytes": 88066
+  },
+  "equity_features-0.0.4a5-py3-none-any.whl": {
+   "sha256": "2ab9da163dde8e20a3a6388c8e83bf8f1ae6ccdcfb0bee7057805992975bb6c1",
+   "bytes": 150851
+  },
+  "equity_features-0.0.4a5.tar.gz": {
+   "sha256": "abc9f767fe665888c6698cfae09bf83c61f949228cbacd31c92a7156566ffc0e",
+   "bytes": 114947
+  },
+  "equity_features_intraday-0.1.0a3-py3-none-any.whl": {
+   "sha256": "551f8974d9c49f253b33a581ac148289947c267685b2037eae8822a5eca1aac9",
+   "bytes": 23928
+  },
+  "equity_features_intraday-0.1.0a3.tar.gz": {
+   "sha256": "ef139c49840ca8d4e39b6a023947ebefef7c944bb00dc9a4b65afde6530fc9cc",
+   "bytes": 21002
+  }
+ },
+ "third_party_wheels_local_only": {
+  "duckdb-1.5.6-cp312-cp312-win_amd64.whl": "09ff51b230219f0d8b47fc8a1e17fb595ba9fab0c3d96a6de4d00b8ff86b3cf1",
+  "numpy-2.2.6-cp312-cp312-win_amd64.whl": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2",
+  "setuptools-80.9.0-py3-none-any.whl": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+ },
+ "forms": [
+  {
+   "form": "all-wheels",
+   "demos": [
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R001",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "99632dfff36fd696223039adddfa6ef2946bf323dd7a4f800a5a2fadabe27c25",
+     "note": null
+    },
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R019",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "83b4f6a3bf186561bc2f152cfb8405f364f11f371a20d84a71412c3cb24b66ab",
+     "note": null
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b35f70448150b9f77577ef9c6bc429a4ddb8a8b71629ff7b6821667f91fe5e48",
+     "note": null
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R08",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f6db4bbc90210649b8ae38f6acf479a774d68b5c290b6c725ad2283e46b366b9",
+     "note": null
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b201d4e99fd6e7c569690875af6bc43919ed7d4a07647493e54c9aa95508e98b",
+     "note": null
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "057329a8c6a083ac8a39b92dad3a7d86aad727e089a1a7afb29825162bfc1653",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-present",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "f6ae68dd3e9fde2620cdb6dd321395b7eb0826a6270cdd129b66b76ca91e287f",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-missing",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1862ea2708a1cce19619218d4ed2b8c4d520afabd01023ca1b68d3f2151b88fd",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-unknown",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "598466b9761bf0b6fc9eb55bcade9bf8a5904ab2d11e14af20da3381712b93e5",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-future",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "51e0f584769f614f8d344d27396daccf12238962f1b2e18d43bd064f131d4486",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "47d1adf02841237d2a46ca286516575ab1e0f6f8c4717b72ec6c9c3429e302f4",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "d51591796ee6f50c660b0bae21c84234cf7290d89cfc9b01787496e985f2ab37",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "528e79590d808059689b479c7e2adabc4049a3f730d662f68d12da700eaf195c",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01-missing-notional",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "b4e7272fcaa3a507780d6ce513643b1caf64b02d4ef6bd210a86c1b734f88373",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "0f83cf3f844b1e93d9247a026fc63dc37361cd80db0b89a5a7a58c68d19b7a26",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "296c2da3fe7fbc4ad0128f05809f16ea06206ef36ffa13bf2eeeeb3f8cf12f6d",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1ae300afadd019684508aa37466ea20a985401f836358fccdd3044922a297198",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b199399df0848374ef757127fa7eb2a651682ea6c8ad1b855c4449f4df708567",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6a33dde806fdada95d84dde4d605f7caeef31d6f7c484602a03a72b092321e78",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "8dd0383d2c89426fda3aa8b12fd22d5f5af9fcb506faad9db0832cdc12892ee6",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5084d3291232e5e6ff9228c4ede1a1e076376991117bf4d1112743a9bee7bdec",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "00cb57b5dd1e8c62487007bab9e0fd8cdb871b3a6291f27d1fb88c67b90cdc1d",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV24",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7e3c4eaeb1f295bff05de95bfe22a52ce6bfa245d9b9357e3961b6ff977d2b5e",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV43",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "431a57588ba0e7c3e1546dc7779cd7080905a7ad24afdb1d61d1e473a7539df7",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV44",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "338652351e5a939b61ee847dcea02f0da9a83202d3fc543a3947cb99ba2dca6e",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "89c13534607b3006353758521a9e74785180c64643684ebce1e2482f266174fe",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV20",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b893e51b14b7c63d5078f8653e665ac532fbe0c67eb9ca6e917bd158379d57cd",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV30",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "52dc45241661a8d70ca4682589e03288cf36225965c5903f12496bda3f97d6c6",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV40",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7d612f24e3c7d0e5bd066d5c63232707ff862bda6155f4d7db9e50dbc947d40c",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "1e51c1c5b40700cb151f19c1098c15de6e67500545489faf5f0446c6738260a6",
+     "note": null
+    }
+   ],
+   "demos_total": 30,
+   "demos_pass": 30,
+   "first_attempt_pass": 30
+  },
+  {
+   "form": "all-sdists",
+   "demos": [
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R001",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "99632dfff36fd696223039adddfa6ef2946bf323dd7a4f800a5a2fadabe27c25",
+     "note": null
+    },
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R019",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "83b4f6a3bf186561bc2f152cfb8405f364f11f371a20d84a71412c3cb24b66ab",
+     "note": null
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b35f70448150b9f77577ef9c6bc429a4ddb8a8b71629ff7b6821667f91fe5e48",
+     "note": null
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R08",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f6db4bbc90210649b8ae38f6acf479a774d68b5c290b6c725ad2283e46b366b9",
+     "note": null
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b201d4e99fd6e7c569690875af6bc43919ed7d4a07647493e54c9aa95508e98b",
+     "note": null
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "057329a8c6a083ac8a39b92dad3a7d86aad727e089a1a7afb29825162bfc1653",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-present",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "f6ae68dd3e9fde2620cdb6dd321395b7eb0826a6270cdd129b66b76ca91e287f",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-missing",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1862ea2708a1cce19619218d4ed2b8c4d520afabd01023ca1b68d3f2151b88fd",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-unknown",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "598466b9761bf0b6fc9eb55bcade9bf8a5904ab2d11e14af20da3381712b93e5",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-future",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "51e0f584769f614f8d344d27396daccf12238962f1b2e18d43bd064f131d4486",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "47d1adf02841237d2a46ca286516575ab1e0f6f8c4717b72ec6c9c3429e302f4",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "d51591796ee6f50c660b0bae21c84234cf7290d89cfc9b01787496e985f2ab37",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "528e79590d808059689b479c7e2adabc4049a3f730d662f68d12da700eaf195c",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01-missing-notional",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "b4e7272fcaa3a507780d6ce513643b1caf64b02d4ef6bd210a86c1b734f88373",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "0f83cf3f844b1e93d9247a026fc63dc37361cd80db0b89a5a7a58c68d19b7a26",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "296c2da3fe7fbc4ad0128f05809f16ea06206ef36ffa13bf2eeeeb3f8cf12f6d",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1ae300afadd019684508aa37466ea20a985401f836358fccdd3044922a297198",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b199399df0848374ef757127fa7eb2a651682ea6c8ad1b855c4449f4df708567",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6a33dde806fdada95d84dde4d605f7caeef31d6f7c484602a03a72b092321e78",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "8dd0383d2c89426fda3aa8b12fd22d5f5af9fcb506faad9db0832cdc12892ee6",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5084d3291232e5e6ff9228c4ede1a1e076376991117bf4d1112743a9bee7bdec",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "00cb57b5dd1e8c62487007bab9e0fd8cdb871b3a6291f27d1fb88c67b90cdc1d",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV24",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7e3c4eaeb1f295bff05de95bfe22a52ce6bfa245d9b9357e3961b6ff977d2b5e",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV43",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "431a57588ba0e7c3e1546dc7779cd7080905a7ad24afdb1d61d1e473a7539df7",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV44",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "338652351e5a939b61ee847dcea02f0da9a83202d3fc543a3947cb99ba2dca6e",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "89c13534607b3006353758521a9e74785180c64643684ebce1e2482f266174fe",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV20",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b893e51b14b7c63d5078f8653e665ac532fbe0c67eb9ca6e917bd158379d57cd",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV30",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "52dc45241661a8d70ca4682589e03288cf36225965c5903f12496bda3f97d6c6",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV40",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7d612f24e3c7d0e5bd066d5c63232707ff862bda6155f4d7db9e50dbc947d40c",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "1e51c1c5b40700cb151f19c1098c15de6e67500545489faf5f0446c6738260a6",
+     "note": null
+    }
+   ],
+   "demos_total": 30,
+   "demos_pass": 30,
+   "first_attempt_pass": 30
+  },
+  {
+   "form": "core-wheels-components-sdists",
+   "demos": [
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R001",
+     "exit": 2,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {},
+     "content_sha256": "99632dfff36fd696223039adddfa6ef2946bf323dd7a4f800a5a2fadabe27c25",
+     "note": "harness run-id over the 64 character bound (exit 2, usage refusal before any work); re-run with short run id in a new directory",
+     "rerun": {
+      "exit": 0,
+      "run_id_short": true,
+      "flags_all_true": true,
+      "db_and_html_written": true
+     }
+    },
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R019",
+     "exit": 2,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {},
+     "content_sha256": "83b4f6a3bf186561bc2f152cfb8405f364f11f371a20d84a71412c3cb24b66ab",
+     "note": "harness run-id over the 64 character bound (exit 2, usage refusal before any work); re-run with short run id in a new directory",
+     "rerun": {
+      "exit": 0,
+      "run_id_short": true,
+      "flags_all_true": true,
+      "db_and_html_written": true
+     }
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b35f70448150b9f77577ef9c6bc429a4ddb8a8b71629ff7b6821667f91fe5e48",
+     "note": null
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R08",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f6db4bbc90210649b8ae38f6acf479a774d68b5c290b6c725ad2283e46b366b9",
+     "note": null
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b201d4e99fd6e7c569690875af6bc43919ed7d4a07647493e54c9aa95508e98b",
+     "note": null
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "057329a8c6a083ac8a39b92dad3a7d86aad727e089a1a7afb29825162bfc1653",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-present",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "f6ae68dd3e9fde2620cdb6dd321395b7eb0826a6270cdd129b66b76ca91e287f",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-missing",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1862ea2708a1cce19619218d4ed2b8c4d520afabd01023ca1b68d3f2151b88fd",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-unknown",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "598466b9761bf0b6fc9eb55bcade9bf8a5904ab2d11e14af20da3381712b93e5",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-future",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "51e0f584769f614f8d344d27396daccf12238962f1b2e18d43bd064f131d4486",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "47d1adf02841237d2a46ca286516575ab1e0f6f8c4717b72ec6c9c3429e302f4",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "d51591796ee6f50c660b0bae21c84234cf7290d89cfc9b01787496e985f2ab37",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "528e79590d808059689b479c7e2adabc4049a3f730d662f68d12da700eaf195c",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01-missing-notional",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "b4e7272fcaa3a507780d6ce513643b1caf64b02d4ef6bd210a86c1b734f88373",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "0f83cf3f844b1e93d9247a026fc63dc37361cd80db0b89a5a7a58c68d19b7a26",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "296c2da3fe7fbc4ad0128f05809f16ea06206ef36ffa13bf2eeeeb3f8cf12f6d",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1ae300afadd019684508aa37466ea20a985401f836358fccdd3044922a297198",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b199399df0848374ef757127fa7eb2a651682ea6c8ad1b855c4449f4df708567",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6a33dde806fdada95d84dde4d605f7caeef31d6f7c484602a03a72b092321e78",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "8dd0383d2c89426fda3aa8b12fd22d5f5af9fcb506faad9db0832cdc12892ee6",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5084d3291232e5e6ff9228c4ede1a1e076376991117bf4d1112743a9bee7bdec",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "00cb57b5dd1e8c62487007bab9e0fd8cdb871b3a6291f27d1fb88c67b90cdc1d",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV24",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7e3c4eaeb1f295bff05de95bfe22a52ce6bfa245d9b9357e3961b6ff977d2b5e",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV43",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "431a57588ba0e7c3e1546dc7779cd7080905a7ad24afdb1d61d1e473a7539df7",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV44",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "338652351e5a939b61ee847dcea02f0da9a83202d3fc543a3947cb99ba2dca6e",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "89c13534607b3006353758521a9e74785180c64643684ebce1e2482f266174fe",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV20",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b893e51b14b7c63d5078f8653e665ac532fbe0c67eb9ca6e917bd158379d57cd",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV30",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "52dc45241661a8d70ca4682589e03288cf36225965c5903f12496bda3f97d6c6",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV40",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7d612f24e3c7d0e5bd066d5c63232707ff862bda6155f4d7db9e50dbc947d40c",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "1e51c1c5b40700cb151f19c1098c15de6e67500545489faf5f0446c6738260a6",
+     "note": null
+    }
+   ],
+   "demos_total": 30,
+   "demos_pass": 30,
+   "first_attempt_pass": 28
+  },
+  {
+   "form": "core-sdists-components-wheels",
+   "demos": [
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R001",
+     "exit": 2,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {},
+     "content_sha256": "99632dfff36fd696223039adddfa6ef2946bf323dd7a4f800a5a2fadabe27c25",
+     "note": "harness run-id over the 64 character bound (exit 2, usage refusal before any work); re-run with short run id in a new directory",
+     "rerun": {
+      "exit": 0,
+      "run_id_short": true,
+      "flags_all_true": true,
+      "db_and_html_written": true
+     }
+    },
+    {
+     "example": "ef1_regular_first_trade_price",
+     "case": "R019",
+     "exit": 2,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {},
+     "content_sha256": "83b4f6a3bf186561bc2f152cfb8405f364f11f371a20d84a71412c3cb24b66ab",
+     "note": "harness run-id over the 64 character bound (exit 2, usage refusal before any work); re-run with short run id in a new directory",
+     "rerun": {
+      "exit": 0,
+      "run_id_short": true,
+      "flags_all_true": true,
+      "db_and_html_written": true
+     }
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b35f70448150b9f77577ef9c6bc429a4ddb8a8b71629ff7b6821667f91fe5e48",
+     "note": null
+    },
+    {
+     "example": "ef1_regular_bar_prices",
+     "case": "R08",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "f6db4bbc90210649b8ae38f6acf479a774d68b5c290b6c725ad2283e46b366b9",
+     "note": null
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b201d4e99fd6e7c569690875af6bc43919ed7d4a07647493e54c9aa95508e98b",
+     "note": null
+    },
+    {
+     "example": "ef1_gap_endpoint",
+     "case": "E26",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "independent_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "057329a8c6a083ac8a39b92dad3a7d86aad727e089a1a7afb29825162bfc1653",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-present",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "f6ae68dd3e9fde2620cdb6dd321395b7eb0826a6270cdd129b66b76ca91e287f",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-missing",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1862ea2708a1cce19619218d4ed2b8c4d520afabd01023ca1b68d3f2151b88fd",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-unknown",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "598466b9761bf0b6fc9eb55bcade9bf8a5904ab2d11e14af20da3381712b93e5",
+     "note": null
+    },
+    {
+     "example": "ef1_clock",
+     "case": "C20-future",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "51e0f584769f614f8d344d27396daccf12238962f1b2e18d43bd064f131d4486",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "47d1adf02841237d2a46ca286516575ab1e0f6f8c4717b72ec6c9c3429e302f4",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "trades-A02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "d51591796ee6f50c660b0bae21c84234cf7290d89cfc9b01787496e985f2ab37",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "528e79590d808059689b479c7e2adabc4049a3f730d662f68d12da700eaf195c",
+     "note": null
+    },
+    {
+     "example": "ef1_anchors",
+     "case": "bars-A01-missing-notional",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "b4e7272fcaa3a507780d6ce513643b1caf64b02d4ef6bd210a86c1b734f88373",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "0f83cf3f844b1e93d9247a026fc63dc37361cd80db0b89a5a7a58c68d19b7a26",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "296c2da3fe7fbc4ad0128f05809f16ea06206ef36ffa13bf2eeeeb3f8cf12f6d",
+     "note": null
+    },
+    {
+     "example": "ef1_status",
+     "case": "S03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "verified_readback": true
+     },
+     "content_sha256": "1ae300afadd019684508aa37466ea20a985401f836358fccdd3044922a297198",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b199399df0848374ef757127fa7eb2a651682ea6c8ad1b855c4449f4df708567",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C02",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "6a33dde806fdada95d84dde4d605f7caeef31d6f7c484602a03a72b092321e78",
+     "note": null
+    },
+    {
+     "example": "ef1_reference_close",
+     "case": "C03",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "8dd0383d2c89426fda3aa8b12fd22d5f5af9fcb506faad9db0832cdc12892ee6",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV01",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "5084d3291232e5e6ff9228c4ede1a1e076376991117bf4d1112743a9bee7bdec",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV05",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "00cb57b5dd1e8c62487007bab9e0fd8cdb871b3a6291f27d1fb88c67b90cdc1d",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV24",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7e3c4eaeb1f295bff05de95bfe22a52ce6bfa245d9b9357e3961b6ff977d2b5e",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV43",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "431a57588ba0e7c3e1546dc7779cd7080905a7ad24afdb1d61d1e473a7539df7",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV44",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "338652351e5a939b61ee847dcea02f0da9a83202d3fc543a3947cb99ba2dca6e",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV10",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "89c13534607b3006353758521a9e74785180c64643684ebce1e2482f266174fe",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV20",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "b893e51b14b7c63d5078f8653e665ac532fbe0c67eb9ca6e917bd158379d57cd",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV30",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "52dc45241661a8d70ca4682589e03288cf36225965c5903f12496bda3f97d6c6",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV40",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "7d612f24e3c7d0e5bd066d5c63232707ff862bda6155f4d7db9e50dbc947d40c",
+     "note": null
+    },
+    {
+     "example": "ef1_venue_status",
+     "case": "MV12",
+     "exit": 0,
+     "pass_": true,
+     "installed_paths": true,
+     "flags": {
+      "contract_literal_match": true,
+      "verified_readback": true,
+      "verified_reopen": true
+     },
+     "content_sha256": "1e51c1c5b40700cb151f19c1098c15de6e67500545489faf5f0446c6738260a6",
+     "note": null
+    }
+   ],
+   "demos_total": 30,
+   "demos_pass": 30,
+   "first_attempt_pass": 28
+  }
+ ],
+ "content_sha256_identical_across_forms": true,
+ "not_run": [
+  "unit test suites (owner policy: manual verification only)",
+  "Linux",
+  "real N-drive data",
+  "original-source parity",
+  "source rights",
+  "benchmarks",
+  "browser inspection",
+  "daily observations demo (needs a corpus)",
+  "remaining 34 venue-status cases and other examples outside the demo list",
+  "independent artifact audit"
+ ]
+}
