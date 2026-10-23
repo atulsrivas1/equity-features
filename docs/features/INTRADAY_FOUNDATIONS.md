@@ -60,3 +60,7 @@ Missing whole inputs, absent columns, null/empty slots, insufficient warm-up, go
 R17 selects batch snapshots and explicit full-history replay; public update/restore/merge are unsupported for this first optional version. Internal reusable preparation must be immutable, bounded and bound to exact instrument/population/grid/scale/action/window/anchor/cutoff/configuration/source-revision identities. Recurrences within a symbol remain ordered. Shared admission/preparation and independent symbol/family work may run in existing supported worker modes; no new executor or unconditional concurrency increase is selected here.
 
 The linked API, [synthetic goldens](../../tests/fixtures/intraday_math/README.md), [test strategy](../releases/R17/R17_TEST_STRATEGY.md) and package decision form the accepted specification. Each dependent implementation still requires its own actual Ready inputs, separate final-head review, applicable validation and publication/readback. EQ136 itself claims no production implementation, installed package, benchmark or R17 acceptance.
+
+## EF2 money flow
+
+OBV, accumulation/distribution and Chaikin money flow are specified by the frozen [EF2 contract](../ef2/MONEYFLOW_RETRACEMENT_CONTRACT_PROPOSAL.md) over this same governed grid and reset epoch and are implemented as the separate `ef2.money_flow` producer; R17 mathematics, quality and evidence are unchanged.

@@ -23,7 +23,8 @@ SYMBOLS = {
     },
 }
 MODULES = {'json': {'loads', 'dumps'}, 'hashlib': {'sha256'}}
-INTERNAL = {'_context', '_admission', '_prepare', '_registry', '_dispatch', '_indicators', '_bands'}
+INTERNAL = {'_context', '_admission', '_prepare', '_registry', '_dispatch', '_indicators', '_bands',
+            '_flow', '_flow_config', '_flow_registry'}
 FORBIDDEN = {
     'open', '__import__', 'eval', 'exec', 'compile', 'getattr', 'setattr', 'delattr',
     'globals', 'locals', 'vars', 'dir', 'input', 'print', 'breakpoint', 'help',
