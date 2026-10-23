@@ -60,6 +60,7 @@
     "Add as a proposal-only entry to the 47-output manifest (decision A2) before or after filing?",
     "Does the prior-window length belong to this story's config or only to the extrema owner?"
    ],
+   "decisions": [],
    "acceptance": [
     "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",
     "Keep calculations pure; adapters own acquisition and workers own scheduling and persistence. Reuse existing qualified APIs; document no-change decisions.",
@@ -130,11 +131,13 @@
    },
    "open_questions": [
     "Rank convention (base, direction), tie rule and non-finite handling.",
-    "Duplicate-identity policy: breadth and rank consumers differ in the source; freeze once and align with the observed-population companion.",
-    "Can closed #102 be reused after an independent profile proof (thin variant), or is this an independent producer?",
     "Who owns the availability marker of the excess-return operand that admits a member?",
     "Is the group-size gate here or in #518 policy?",
     "Population admission here or in #518 (the X3 alternative)?"
+   ],
+   "decisions": [
+    "Coordinator-decided, pending owner review: independent producer; reuse of closed #102 is not accepted until proved.",
+    "Shared decision SD-1 (coordinator-decided, pending owner review): the duplicate-identity rule is frozen once and cited identically by the cohort-normalization (W3D-2) and observed-population (W3D-5) stories; neither may define its own."
    ],
    "acceptance": [
     "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",
@@ -159,11 +162,11 @@
    "short": "Anchor discovery primitive",
    "title": "[EQ-TBD] Implement pure anchor discovery primitive",
    "layer": "library",
-   "release": "EF1 (extends the EF1 anchor family; consumed by EF8)",
-   "parent_epic": "#569 (EF1 native epic)",
-   "milestone": "34 (EF1 - Sessions, levels and reference features)",
+   "release": "EF8",
+   "parent_epic": "#517 (EF8 native epic)",
+   "milestone": "28 (R24 - Equity policies, lifecycle and complete worker integration)",
    "origin": "Wave 1 decision C2 (slice C finding 2); #520 consumes it and it must not gate earlier primitives.",
-   "outcome": "A separately numbered pure primitive that discovers an anchor from causal history, extending the EF1 anchor family (#507 consumes a supplied anchor only), so EF8 #520 lifecycle consumes it rather than owning hidden numerical discovery.",
+   "outcome": "A separately numbered pure primitive that discovers an anchor from causal history, extending the EF1 anchor family from EF8 (#507 consumes a supplied anchor only), so EF8 #520 lifecycle consumes it rather than owning hidden numerical discovery.",
    "in_scope": [
     "Pure discovery of an anchor point from causal ordered history with explicit not-found, tie and reset semantics.",
     "Output as a supplied-anchor-compatible fact consumable by existing anchored calculations.",
@@ -182,10 +185,11 @@
     "Consumed by: #520 ordered transitions; #507 anchored arithmetic may consume discovered anchors."
    ],
    "dependencies": [
-    "#507 (EQ-167)",
+    "#507 (EQ-167): delivered EF1 anchor outputs are consumed, not changed",
     "#505/#506 operand producers named by the contract",
     "#520 (EQ-178, consumer)",
-    "#570/#571 (EF1 layers)"
+    "#621/#622 (EF8 I/O and worker layers)",
+    "#523 (EF8 acceptance)"
    ],
    "rows": {
     "consumers": [],
@@ -198,10 +202,12 @@
    },
    "open_questions": [
     "Is each of F0343-F0346 discovery or state projection; how many are truly numerical?",
-    "Placement: new EF1 story under #569 (proposed here) or EF8 under #517 (the audit places it at the EF1/EF8 boundary)?",
     "Causal prefix, tie and reset rules; not-found semantics.",
     "Does any earlier primitive need it (an EF8 owner would then gate it, which is forbidden)?",
     "Relation to the existing supplied-anchor proof in the first anchored slice."
+   ],
+   "decisions": [
+    "Coordinator-decided, pending owner review: placed in EF8 (epic #517, milestone 28), depending on the delivered EF1 anchor outputs (#507) with #520 as consumer; it must not gate EF1 acceptance."
    ],
    "acceptance": [
     "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",
@@ -242,7 +248,7 @@
     "Replacing median profiles with mean ratios."
    ],
    "owning": [
-    "Owns: the mean-ratio operand for 13 scanners; F0452 placement is an open question."
+    "Owns: the mean-ratio operand for 13 scanners and F0452 (moved out of #490)."
    ],
    "consuming": [
     "Consumed by: #518 catalogue; #611/#612 layers."
@@ -276,11 +282,12 @@
     ]
    },
    "open_questions": [
-    "Is F0452 (currently housed in #490) moved to this story or kept with a cross-reference?",
     "Which baseline profile (#489 only, or closed baseline reuse) and is reuse proved?",
     "Prior-only versus including-current baseline; zero-baseline behavior.",
-    "Common versus per-key operand across the 13 consumers.",
-    "Standalone story versus a variant profile in #490 (owner decision)."
+    "Common versus per-key operand across the 13 consumers."
+   ],
+   "decisions": [
+    "Coordinator-decided, pending owner review: F0452 and the 13 consumers move out of #490 into this story. Required scope note for #490: it stays median/MAD only and no longer houses the mean companion or F0452; the #490 body needs that note when this story is filed."
    ],
    "acceptance": [
     "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",
@@ -345,11 +352,13 @@
    },
    "open_questions": [
     "Final output list and names (seven drafted in X3, provisional).",
-    "Record versus member identity and duplicate counting: align with the cohort-normalization story.",
     "May a declared-universe profile later reuse the same arithmetic?",
     "Observed denominator, per-sector scope, empty or missing population result.",
-    "Companion story (coordinator choice) versus amending #598.",
     "Adaptive-consumer edges (S0336, S0337, S0357) are out of this story; they read adaptive outputs."
+   ],
+   "decisions": [
+    "Coordinator-decided, pending owner review: companion story (not an amendment of #598).",
+    "Shared decision SD-1 (coordinator-decided, pending owner review): the duplicate-identity rule is frozen once and cited identically by the cohort-normalization (W3D-2) and observed-population (W3D-5) stories; neither may define its own."
    ],
    "acceptance": [
     "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",
@@ -382,7 +391,7 @@
    "in_scope": [
     "Neutral admission fact schema: what the caller asserts about a record's validity, normalization and known-at time.",
     "Opaque accept and reject reasons without provider vocabulary.",
-    "Mapping obligations for #570 and later EF I/O tasks.",
+    "Mapping obligations for #570 and later EF I/O tasks (trade-print admission rows stay #570 mapping).",
     "Conformance fixtures any adapter can run."
    ],
    "out_of_scope": [
@@ -421,9 +430,11 @@
    "open_questions": [
     "Contract only, or also a reference conformance suite?",
     "Which facts are caller-asserted versus adapter-private?",
-    "Where do trade-print admission rows (X2-1) sit: here or per I/O task? C0053 also cites this question.",
-    "Versioning and compatibility across optional adapters.",
-    "Single contract or one per EF I/O task?"
+    "C0053 also cites this question; is it a cross-reference only?",
+    "Versioning and compatibility across optional adapters."
+   ],
+   "decisions": [
+    "Coordinator-decided, pending owner review: ONE neutral contract story (I/O). The trade-print admission rows (C0148, C0109, C0161-C0163) are NOT in it; they stay I/O mapping under #570 (decision X2-1)."
    ],
    "acceptance": [
     "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",
@@ -485,10 +496,12 @@
     ]
    },
    "open_questions": [
-    "Standalone story or an amendment of #521 (decision assigns the obligation to #521)?",
     "Is option enrichment a product-owned downstream join outside the equity artifact?",
     "Schema versioning and forward-compatibility policy.",
     "Interaction with option release gates (EQ153, EQ158)."
+   ],
+   "decisions": [
+    "Coordinator-decided, pending owner review: its OWN story, linked to #521 as representation owner and #520 as consumer."
    ],
    "acceptance": [
     "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",

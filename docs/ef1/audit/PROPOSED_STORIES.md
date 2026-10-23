@@ -2,13 +2,13 @@
 
 Status: these are drafts. None has been created, no number is assigned (shown as TBD), and creation is pending the coordinator and owner approval. Nothing here is accepted: no mathematics, API, source, rights, consumer equivalence or Ready status, and full EQ164 #504 stays open. No tracker issue was created or edited. For information only, the highest existing EQ number observed is EQ-237 (#626). Opaque ids only; no source formulas, thresholds, names or code. Machine-readable copy: [PROPOSED_STORIES.json](PROPOSED_STORIES.json). Sources: [wave 2 decisions](EQ164_WAVE2_DECISIONS.md), [A](EQ164_SELECTED_A.md), [B](EQ164_SELECTED_B.md), [C](EQ164_SELECTED_C.md), [X1](EQ164_WAVE2_X1.md), [X2](EQ164_WAVE2_X2.md), [X3](EQ164_WAVE2_X3.md), [X4](EQ164_WAVE2_X4.md); layer map in [NUMBERED_LAYER_OWNERS](../NUMBERED_LAYER_OWNERS.md).
 
-Epic and milestone choices follow the native homes recorded in the layer map (EF1 #569 / milestone 34; EF2 #467 / 23; EF3 #468 / 24; EF8 #517 / 28); dedicated release epics are not claimed. Each is a coordinator choice to confirm.
+Epic and milestone choices follow the native homes recorded in the layer map (EF1 #569 / milestone 34; EF2 #467 / 23; EF3 #468 / 24; EF8 #517 / 28); dedicated release epics are not claimed. Native epics are coordinator-accepted, pending owner review. Shared decision SD-1 (coordinator-decided, pending owner review): the duplicate-identity rule is frozen once and cited identically by the cohort-normalization (W3D-2) and observed-population (W3D-5) stories; neither may define its own.
 
 | Draft | Layer | Release | Parent / milestone | Rows served |
 | --- | --- | --- | --- | --- |
 | W3D-1 Retracement-level producer | library | EF2 | #467 / 23 | 9 consumers |
 | W3D-2 Cohort-normalization producer | library | EF8 | #517 / 28 | 10 consumers |
-| W3D-3 Anchor discovery primitive | library | EF1 (extends the EF1 anchor family; consumed by EF8) | #569 / 34 | 4 fields |
+| W3D-3 Anchor discovery primitive | library | EF8 | #517 / 28 | 4 fields |
 | W3D-4 Mean companion | library | EF3 | #468 / 24 | 13 consumers, 1 fields |
 | W3D-5 Observed-population companion | library | EF3 | #468 / 24 | 4 consumers |
 | W3D-6 Neutral provider-admission contract | I/O | EF1 (extended by later EF I/O tasks) | #569 / 34 | 10 commands |
@@ -69,6 +69,9 @@ A narrow pure producer of a retracement level from a prior-window extrema pair a
 - No source formula, threshold, default, name or code is copied; opaque ids only.
 - No provider-specific rule is adopted; no provider, live, production or publication operation is authorized.
 - Drafting, filing or merging this story accepts no mathematics, API, source, rights, consumer equivalence or Ready status; full EQ164 stays open.
+
+### Coordinator decisions
+
 
 ### Open questions for the contract author
 
@@ -136,26 +139,29 @@ A separately numbered pure producer of rank position within a current observed c
 - No provider-specific rule is adopted; no provider, live, production or publication operation is authorized.
 - Drafting, filing or merging this story accepts no mathematics, API, source, rights, consumer equivalence or Ready status; full EQ164 stays open.
 
+### Coordinator decisions
+
+- Coordinator-decided, pending owner review: independent producer; reuse of closed #102 is not accepted until proved.
+- Shared decision SD-1 (coordinator-decided, pending owner review): the duplicate-identity rule is frozen once and cited identically by the cohort-normalization (W3D-2) and observed-population (W3D-5) stories; neither may define its own.
+
 ### Open questions for the contract author
 
 - Rank convention (base, direction), tie rule and non-finite handling.
-- Duplicate-identity policy: breadth and rank consumers differ in the source; freeze once and align with the observed-population companion.
-- Can closed #102 be reused after an independent profile proof (thin variant), or is this an independent producer?
 - Who owns the availability marker of the excess-return operand that admits a member?
 - Is the group-size gate here or in #518 policy?
 - Population admission here or in #518 (the X3 alternative)?
 
 ## W3D-3: [EQ-TBD] Implement pure anchor discovery primitive
 
-- Parent epic: #569 (EF1 native epic)
-- Milestone: 34 (EF1 - Sessions, levels and reference features)
-- Release: EF1 (extends the EF1 anchor family; consumed by EF8)
+- Parent epic: #517 (EF8 native epic)
+- Milestone: 28 (R24 - Equity policies, lifecycle and complete worker integration)
+- Release: EF8
 - Layer: library
 - Origin: Wave 1 decision C2 (slice C finding 2); #520 consumes it and it must not gate earlier primitives.
 
 ### Outcome
 
-A separately numbered pure primitive that discovers an anchor from causal history, extending the EF1 anchor family (#507 consumes a supplied anchor only), so EF8 #520 lifecycle consumes it rather than owning hidden numerical discovery.
+A separately numbered pure primitive that discovers an anchor from causal history, extending the EF1 anchor family from EF8 (#507 consumes a supplied anchor only), so EF8 #520 lifecycle consumes it rather than owning hidden numerical discovery.
 
 ### In scope
 
@@ -177,10 +183,11 @@ A separately numbered pure primitive that discovers an anchor from causal histor
 
 ### Dependencies
 
-- #507 (EQ-167)
+- #507 (EQ-167): delivered EF1 anchor outputs are consumed, not changed
 - #505/#506 operand producers named by the contract
 - #520 (EQ-178, consumer)
-- #570/#571 (EF1 layers)
+- #621/#622 (EF8 I/O and worker layers)
+- #523 (EF8 acceptance)
 
 ### Opaque rows served
 
@@ -200,10 +207,13 @@ A separately numbered pure primitive that discovers an anchor from causal histor
 - No provider-specific rule is adopted; no provider, live, production or publication operation is authorized.
 - Drafting, filing or merging this story accepts no mathematics, API, source, rights, consumer equivalence or Ready status; full EQ164 stays open.
 
+### Coordinator decisions
+
+- Coordinator-decided, pending owner review: placed in EF8 (epic #517, milestone 28), depending on the delivered EF1 anchor outputs (#507) with #520 as consumer; it must not gate EF1 acceptance.
+
 ### Open questions for the contract author
 
 - Is each of F0343-F0346 discovery or state projection; how many are truly numerical?
-- Placement: new EF1 story under #569 (proposed here) or EF8 under #517 (the audit places it at the EF1/EF8 boundary)?
 - Causal prefix, tie and reset rules; not-found semantics.
 - Does any earlier primitive need it (an EF8 owner would then gate it, which is forbidden)?
 - Relation to the existing supplied-anchor proof in the first anchored slice.
@@ -234,7 +244,7 @@ A separately versioned pure mean-ratio companion to the median/MAD normalization
 
 ### Owning and consuming stories
 
-- Owns: the mean-ratio operand for 13 scanners; F0452 placement is an open question.
+- Owns: the mean-ratio operand for 13 scanners and F0452 (moved out of #490).
 - Consumed by: #518 catalogue; #611/#612 layers.
 
 ### Dependencies
@@ -265,13 +275,15 @@ A separately versioned pure mean-ratio companion to the median/MAD normalization
 - No provider-specific rule is adopted; no provider, live, production or publication operation is authorized.
 - Drafting, filing or merging this story accepts no mathematics, API, source, rights, consumer equivalence or Ready status; full EQ164 stays open.
 
+### Coordinator decisions
+
+- Coordinator-decided, pending owner review: F0452 and the 13 consumers move out of #490 into this story. Required scope note for #490: it stays median/MAD only and no longer houses the mean companion or F0452; the #490 body needs that note when this story is filed.
+
 ### Open questions for the contract author
 
-- Is F0452 (currently housed in #490) moved to this story or kept with a cross-reference?
 - Which baseline profile (#489 only, or closed baseline reuse) and is reuse proved?
 - Prior-only versus including-current baseline; zero-baseline behavior.
 - Common versus per-key operand across the 13 consumers.
-- Standalone story versus a variant profile in #490 (owner decision).
 
 ## W3D-5: [EQ-TBD] Implement observed-population session breadth companion
 
@@ -329,13 +341,16 @@ A narrow companion to #598 with a separately versioned observed-population profi
 - No provider-specific rule is adopted; no provider, live, production or publication operation is authorized.
 - Drafting, filing or merging this story accepts no mathematics, API, source, rights, consumer equivalence or Ready status; full EQ164 stays open.
 
+### Coordinator decisions
+
+- Coordinator-decided, pending owner review: companion story (not an amendment of #598).
+- Shared decision SD-1 (coordinator-decided, pending owner review): the duplicate-identity rule is frozen once and cited identically by the cohort-normalization (W3D-2) and observed-population (W3D-5) stories; neither may define its own.
+
 ### Open questions for the contract author
 
 - Final output list and names (seven drafted in X3, provisional).
-- Record versus member identity and duplicate counting: align with the cohort-normalization story.
 - May a declared-universe profile later reuse the same arithmetic?
 - Observed denominator, per-sector scope, empty or missing population result.
-- Companion story (coordinator choice) versus amending #598.
 - Adaptive-consumer edges (S0336, S0337, S0357) are out of this story; they read adaptive outputs.
 
 ## W3D-6: [EQ-TBD] Define neutral provider-admission contract for supplied facts
@@ -354,7 +369,7 @@ A reviewed neutral contract expressing admission of provider-sourced records as 
 
 - Neutral admission fact schema: what the caller asserts about a record's validity, normalization and known-at time.
 - Opaque accept and reject reasons without provider vocabulary.
-- Mapping obligations for #570 and later EF I/O tasks.
+- Mapping obligations for #570 and later EF I/O tasks (trade-print admission rows stay #570 mapping).
 - Conformance fixtures any adapter can run.
 
 ### Out of scope
@@ -393,13 +408,16 @@ A reviewed neutral contract expressing admission of provider-sourced records as 
 - No provider-specific rule is adopted; no provider, live, production or publication operation is authorized.
 - Drafting, filing or merging this story accepts no mathematics, API, source, rights, consumer equivalence or Ready status; full EQ164 stays open.
 
+### Coordinator decisions
+
+- Coordinator-decided, pending owner review: ONE neutral contract story (I/O). The trade-print admission rows (C0148, C0109, C0161-C0163) are NOT in it; they stay I/O mapping under #570 (decision X2-1).
+
 ### Open questions for the contract author
 
 - Contract only, or also a reference conformance suite?
 - Which facts are caller-asserted versus adapter-private?
-- Where do trade-print admission rows (X2-1) sit: here or per I/O task? C0053 also cites this question.
+- C0053 also cites this question; is it a cross-reference only?
 - Versioning and compatibility across optional adapters.
-- Single contract or one per EF I/O task?
 
 ## W3D-7: [EQ-TBD] Define candidate-artifact representation contract
 
@@ -456,9 +474,12 @@ A representation contract, owned within #521 scope with #520 as consumer, for th
 - No provider-specific rule is adopted; no provider, live, production or publication operation is authorized.
 - Drafting, filing or merging this story accepts no mathematics, API, source, rights, consumer equivalence or Ready status; full EQ164 stays open.
 
+### Coordinator decisions
+
+- Coordinator-decided, pending owner review: its OWN story, linked to #521 as representation owner and #520 as consumer.
+
 ### Open questions for the contract author
 
-- Standalone story or an amendment of #521 (decision assigns the obligation to #521)?
 - Is option enrichment a product-owned downstream join outside the equity artifact?
 - Schema versioning and forward-compatibility policy.
 - Interaction with option release gates (EQ153, EQ158).
