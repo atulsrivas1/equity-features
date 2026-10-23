@@ -74,3 +74,7 @@ future-history invariance and unsupported modes.
 caller state replay/registry rebuilding applies. No source truth/private copy/provider/
 performance/public accumulator/stable/PyPI claim. Actual delivery remains subject to
 [story receipt](../stories/EQ-035_DELIVERY.md); R3paused.
+
+## Session breadth with a declared-size denominator (separate EF3 producers)
+
+`breadth.session.*` and `breadth.observed.*` are the own outputs of the separate `ef3.session_breadth` and `ef3.observed_breadth` producers in `equity_features.ef3`: session counts, fractions, volume sums and proximity over a declared population (denominator N, missing members never shrink it) or an observed roster. They do not replace or change `breadth.direction_counts` or `breadth.above_sma_fraction`, whose definitions, state and results are unchanged. See [the EF3 session breadth API](EF3_SESSION_BREADTH.md) and [the EF3 observed breadth API](EF3_OBSERVED_BREADTH.md).
