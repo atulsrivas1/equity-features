@@ -1,0 +1,839 @@
+{
+ "version": "ef2-producer-set-amendment1",
+ "status": "proposed_additive_amendment_awaiting_review_and_owner_decision",
+ "base_main": "a53f440",
+ "frozen_contract": "docs/ef1/CONTRACT.json ef1-contract1 and docs/ef1/PRODUCER_SET_AMENDMENT.* (both unchanged by this amendment)",
+ "frozen_contract_sha256_crlf_working_copy": "02940da0c4663bbced050ac551e7fbafe2a1da1534e4c6fa5c87eaf90d420076",
+ "frozen_contract_lf_blob_sha256_origin_main": "ff576caace8e89491a634e913e946ac4b0f8cf656faf40745d24da7684c6fe14",
+ "sources": {
+  "momentum_contract": "docs/ef2/MOMENTUM_TREND_CONTRACT_PROPOSAL.md/.json incl. Amendment 1 (ef2-conv1, intraday.momentum.v1)",
+  "moneyflow_retracement_contract": "docs/ef2/MONEYFLOW_RETRACEMENT_CONTRACT_PROPOSAL.md/.json (ef2-mf1, ef2-retrace1)",
+  "channels_contract": "docs/ef2/ICHIMOKU_CHANNELS_CONTRACT_PROPOSAL.md/.json (ef2-v1, ef2-channels-v1)",
+  "implementation_docs": [
+   "docs/ef2/MOMENTUM_TREND_IMPLEMENTATION.md",
+   "docs/ef2/MONEYFLOW_RETRACEMENT_IMPLEMENTATION.md",
+   "docs/ef2/ICHIMOKU_CHANNELS_IMPLEMENTATION.md"
+  ],
+  "code": [
+   "packages/intraday/src/equity_features_intraday/_flow.py, _flow_config.py, _flow_registry.py",
+   "packages/intraday/src/equity_features_intraday/_momentum.py, _momentum_config.py, _momentum_math.py, _momentum_registry.py",
+   "packages/intraday/src/equity_features_intraday/_channels.py, _channels_config.py, _channels_math.py, _channels_registry.py",
+   "packages/intraday/src/equity_features_intraday/_registry.py, _admission.py",
+   "packages/features/src/equity_features/ef2/_retracement.py, _definitions.py, _dispatch.py, __init__.py"
+  ],
+  "io_read_only": "equity-feature-io packages/duckdb momentum.py, channels.py, money_flow.py, retracement.py at c15f540 (FEATURE_UNITS in momentum and channels only)",
+  "merged": {
+   "money_flow_retracement": "core PR 680 (364fe61); follow-up 681 (fda9332)",
+   "momentum": "core PR 682 (70e8bb2); contract Amendment 1 PR 683 (32acd2b)",
+   "channels": "core PR 684 (a53f440)",
+   "contracts": "core PR 677 (3469ec4), 678 (fb1a9a8), 679 (c0e0180)"
+  }
+ },
+ "producers": [
+  {
+   "producer": "money_flow",
+   "config_identity": "ef2.money_flow",
+   "algorithm_version": "ef2-money-flow-v1",
+   "schema_version": "1",
+   "policy_label": "ef2-mf1",
+   "package": "packages/intraday (equity_features_intraday), own catalog",
+   "roles": [
+    {
+     "role": "bars",
+     "kind": "bar"
+    }
+   ],
+   "slot_order": [
+    "bars"
+   ],
+   "parameters": [
+    "policy_version",
+    "cmf_period (present exactly when intraday.cmf is selected, 1..4096)",
+    "evidence_limit",
+    "context_schema",
+    "context_sha256",
+    "context_chunks",
+    "context_000...context_NNN"
+   ],
+   "context": "R17 canonical context JSON in 4096-codepoint chunks (1 to 16 chunks), no ef1-context1 envelope, no calendar role",
+   "epoch_mode": "reset only",
+   "window": "count = sessions of the context, target = last, completed_eod",
+   "result_backend": "intraday.python / 0.1.0a3",
+   "evidence_limit": "0..10000 (config parameter; builder default 0)",
+   "headers": 3
+  },
+  {
+   "producer": "retracement_level",
+   "config_identity": "ef2.retracement_level",
+   "algorithm_version": "ef2-retracement-level-v1",
+   "schema_version": "1",
+   "policy_label": "ef2-retrace1",
+   "package": "packages/features (equity_features.ef2)",
+   "roles": [
+    {
+     "role": "prior_high",
+     "kind": "reference",
+     "fact_kind": "ef2.extremum.high"
+    },
+    {
+     "role": "prior_low",
+     "kind": "reference",
+     "fact_kind": "ef2.extremum.low"
+    }
+   ],
+   "slot_order": [
+    "prior_high",
+    "prior_low"
+   ],
+   "parameters": [
+    "policy_version",
+    "direction (from_high|from_low)",
+    "ratio_num",
+    "ratio_den (reduced pair, 0 <= r <= 1, den 1..2^63-1, no default)",
+    "evidence_limit"
+   ],
+   "context": "single target SessionSpec; window count 1, completed_eod; no intraday context",
+   "epoch_mode": "not applicable (no epoch)",
+   "window": "target-only, count 1, completed_eod",
+   "result_backend": "python-exact / equity-features 0.0.4a5",
+   "evidence_limit": "0..10000 (config parameter; builder default 0); at most 2 rows, prior_high then prior_low",
+   "headers": 1
+  },
+  {
+   "producer": "momentum",
+   "config_identity": "intraday.momentum.v1",
+   "algorithm_version": "intraday-momentum-v1",
+   "schema_version": "1",
+   "policy_label": "ef2-conv1 (convention group; the algorithm version is the label checked for INCOMPATIBLE_VERSION, Amendment 1)",
+   "package": "packages/intraday (equity_features_intraday), own catalog",
+   "roles": [
+    {
+     "role": "bars",
+     "kind": "bar"
+    }
+   ],
+   "slot_order": [
+    "bars"
+   ],
+   "parameters": [
+    "momentum_family (macd|dmi|stochastic)",
+    "family periods: macd fast_period, slow_period, signal_period; dmi di_period, adx_period; stochastic k_period, k_slowing, d_period (each 1..4096)",
+    "closed convention parameters with one legal value each (macd 5, dmi 6, stochastic 5)",
+    "evidence_limit",
+    "context_schema",
+    "context_sha256",
+    "context_chunks",
+    "context_000...context_NNN"
+   ],
+   "context": "R17 canonical context JSON in 4096-codepoint chunks (1 to 16 chunks), no ef1-context1 envelope, no calendar role",
+   "epoch_mode": "reset only",
+   "window": "count = sessions of the context, target = last, completed_eod",
+   "result_backend": "intraday.python / 0.1.0a3",
+   "evidence_limit": "0..10000 (config parameter; builder default 0)",
+   "headers": 10
+  },
+  {
+   "producer": "ichimoku",
+   "config_identity": "ef2.ichimoku",
+   "algorithm_version": "ef2-channels-v1",
+   "schema_version": "1",
+   "policy_label": "ef2-ichimoku-conv1 (convention_version parameter; contract version ef2-v1)",
+   "package": "packages/intraday (equity_features_intraday), own catalog",
+   "roles": [
+    {
+     "role": "bars",
+     "kind": "bar"
+    }
+   ],
+   "slot_order": [
+    "bars"
+   ],
+   "parameters": [
+    "conversion_period",
+    "base_period",
+    "leading_b_period",
+    "displacement",
+    "convention_version",
+    "evidence_limit",
+    "context_schema",
+    "context_sha256",
+    "context_chunks",
+    "context_000...context_NNN"
+   ],
+   "context": "R17 canonical context JSON in 4096-codepoint chunks (1 to 16 chunks), no ef1-context1 envelope, no calendar role",
+   "epoch_mode": "reset only (any other mode is INVALID_CONFIG)",
+   "window": "count = sessions of the context, target = last, completed_eod",
+   "result_backend": "intraday.python / 0.1.0a3",
+   "evidence_limit": "0..10000 (config parameter; builder default 0)",
+   "headers": 8
+  },
+  {
+   "producer": "keltner",
+   "config_identity": "ef2.keltner",
+   "algorithm_version": "ef2-channels-v1",
+   "schema_version": "1",
+   "policy_label": "ef2-keltner-conv1 (convention_version parameter; contract version ef2-v1)",
+   "package": "packages/intraday (equity_features_intraday), own catalog",
+   "roles": [
+    {
+     "role": "bars",
+     "kind": "bar"
+    }
+   ],
+   "slot_order": [
+    "bars"
+   ],
+   "parameters": [
+    "ema_period",
+    "atr_period",
+    "atr_multiplier_num",
+    "atr_multiplier_den",
+    "convention_version",
+    "evidence_limit",
+    "context_schema",
+    "context_sha256",
+    "context_chunks",
+    "context_000...context_NNN"
+   ],
+   "context": "R17 canonical context JSON in 4096-codepoint chunks (1 to 16 chunks), no ef1-context1 envelope, no calendar role",
+   "epoch_mode": "reset only (any other mode is INVALID_CONFIG)",
+   "window": "count = sessions of the context, target = last, completed_eod",
+   "result_backend": "intraday.python / 0.1.0a3",
+   "evidence_limit": "0..10000 (config parameter; builder default 0)",
+   "headers": 4
+  },
+  {
+   "producer": "donchian",
+   "config_identity": "ef2.donchian",
+   "algorithm_version": "ef2-channels-v1",
+   "schema_version": "1",
+   "policy_label": "ef2-donchian-conv1 (convention_version parameter; contract version ef2-v1)",
+   "package": "packages/intraday (equity_features_intraday), own catalog",
+   "roles": [
+    {
+     "role": "bars",
+     "kind": "bar"
+    }
+   ],
+   "slot_order": [
+    "bars"
+   ],
+   "parameters": [
+    "period",
+    "convention_version",
+    "evidence_limit",
+    "context_schema",
+    "context_sha256",
+    "context_chunks",
+    "context_000...context_NNN"
+   ],
+   "context": "R17 canonical context JSON in 4096-codepoint chunks (1 to 16 chunks), no ef1-context1 envelope, no calendar role",
+   "epoch_mode": "reset only (any other mode is INVALID_CONFIG)",
+   "window": "count = sessions of the context, target = last, completed_eod",
+   "result_backend": "intraday.python / 0.1.0a3",
+   "evidence_limit": "0..10000 (config parameter; builder default 0)",
+   "headers": 4
+  },
+  {
+   "producer": "pivot_levels",
+   "config_identity": "ef2.pivot_levels",
+   "algorithm_version": "ef2-channels-v1",
+   "schema_version": "1",
+   "policy_label": "ef2-pivot-conv1 (convention_version parameter; contract version ef2-v1)",
+   "package": "packages/intraday (equity_features_intraday), own catalog",
+   "roles": [
+    {
+     "role": "bars",
+     "kind": "bar"
+    }
+   ],
+   "slot_order": [
+    "bars"
+   ],
+   "parameters": [
+    "convention_version",
+    "evidence_limit",
+    "context_schema",
+    "context_sha256",
+    "context_chunks",
+    "context_000...context_NNN"
+   ],
+   "context": "R17 canonical context JSON in 4096-codepoint chunks (1 to 16 chunks), no ef1-context1 envelope, no calendar role; reads the whole immediately preceding governed session of the same bars role",
+   "epoch_mode": "reset only (any other mode is INVALID_CONFIG)",
+   "window": "count = sessions of the context, target = last, completed_eod",
+   "result_backend": "intraday.python / 0.1.0a3",
+   "evidence_limit": "0..10000 (config parameter; builder default 0)",
+   "headers": 5
+  },
+  {
+   "producer": "band_width_percentile",
+   "config_identity": "ef2.band_width_percentile",
+   "algorithm_version": "ef2-channels-v1",
+   "schema_version": "1",
+   "policy_label": "ef2-bandpct-conv1 (convention_version parameter; contract version ef2-v1)",
+   "package": "packages/intraday (equity_features_intraday), own catalog",
+   "roles": [
+    {
+     "role": "bars",
+     "kind": "bar"
+    }
+   ],
+   "slot_order": [
+    "bars"
+   ],
+   "parameters": [
+    "band_period",
+    "band_k_num",
+    "band_k_den",
+    "population_size",
+    "min_population",
+    "convention_version",
+    "evidence_limit",
+    "context_schema",
+    "context_sha256",
+    "context_chunks",
+    "context_000...context_NNN"
+   ],
+   "context": "R17 canonical context JSON in 4096-codepoint chunks (1 to 16 chunks), no ef1-context1 envelope, no calendar role",
+   "epoch_mode": "reset only (any other mode is INVALID_CONFIG)",
+   "window": "count = sessions of the context, target = last, completed_eod",
+   "result_backend": "intraday.python / 0.1.0a3",
+   "evidence_limit": "0..10000 (config parameter; builder default 0)",
+   "headers": 1
+  },
+  {
+   "producer": "bollinger_keltner_squeeze",
+   "config_identity": "ef2.bollinger_keltner_squeeze",
+   "algorithm_version": "ef2-channels-v1",
+   "schema_version": "1",
+   "policy_label": "ef2-squeeze-conv1 (convention_version parameter; contract version ef2-v1)",
+   "package": "packages/intraday (equity_features_intraday), own catalog",
+   "roles": [
+    {
+     "role": "bars",
+     "kind": "bar"
+    }
+   ],
+   "slot_order": [
+    "bars"
+   ],
+   "parameters": [
+    "band_period",
+    "band_k_num",
+    "band_k_den",
+    "ema_period",
+    "atr_period",
+    "atr_multiplier_num",
+    "atr_multiplier_den",
+    "convention_version",
+    "evidence_limit",
+    "context_schema",
+    "context_sha256",
+    "context_chunks",
+    "context_000...context_NNN"
+   ],
+   "context": "R17 canonical context JSON in 4096-codepoint chunks (1 to 16 chunks), no ef1-context1 envelope, no calendar role",
+   "epoch_mode": "reset only (any other mode is INVALID_CONFIG)",
+   "window": "count = sessions of the context, target = last, completed_eod",
+   "result_backend": "intraday.python / 0.1.0a3",
+   "evidence_limit": "0..10000 (config parameter; builder default 0)",
+   "headers": 3
+  }
+ ],
+ "unchanged": [
+  "CanonicalBatch/ConfigSpec/FeatureResult and the scalar ValueType set (int64, float64, bool used)",
+  "shared validators in packages/contracts (no file changed between the contract PRs and this base)",
+  "R17 context codec equity-features.intraday-context.v1, 4096 codepoint chunks, 4096 slots, 64 sessions",
+  "describe_intraday() lists exactly the eight R17 IDs; intraday_catalog_digest() unchanged",
+  "R17 published results and headers of every existing producer",
+  "no new DataKind, DTO, result codec, scheduler or default; the default registry",
+  "equity-features 0.0.4a5, contracts 0.0.4a4, intraday 0.1.0a3 and the ef1-contract1 label"
+ ],
+ "catalogs": [
+  {
+   "catalog": "describe_money_flow()",
+   "headers": 3,
+   "digest_schema": "equity-features.money-flow-catalog.v1",
+   "digest_sha256_computed_here": "4442cea3cf904e995494a7dce59bb35205fb8905b771ff82a282596c059c6844"
+  },
+  {
+   "catalog": "describe_momentum()",
+   "headers": 10,
+   "digest_schema": "equity-features.momentum-catalog.v1",
+   "digest_sha256_computed_here": "0e6c46370b380cf037ca7ca9ec3a61daa03b1c3d7c80f5d35eace7217da349fb"
+  },
+  {
+   "catalog": "describe_channels()",
+   "headers": 25,
+   "digest_schema": "equity-features.channels-catalog.v1",
+   "digest_sha256_computed_here": "616cd83001d74c78a28a2d3b6a5848c765f588d63a00626c0c4a2735154363e2"
+  },
+  {
+   "catalog": "ef2_definitions(config) (equity_features.ef2)",
+   "headers": 1,
+   "note": "retracement.level only; per-config discovery, no catalog digest"
+  },
+  {
+   "catalog": "describe_intraday()",
+   "headers": 8,
+   "digest_sha256_computed_here": "e7dcd5fbaf28a3a74f4b26a6e638b2c3cc5d6271fab744297ab16595bab02d86",
+   "note": "R17 only; unchanged; none of the 39 EF2 headers enter it"
+  }
+ ],
+ "header_ledger_additions": [
+  {
+   "id": "channel.band_width.percentile",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "band_width_percentile",
+   "null_availability_rule": "null unless the closes of c + N bars are ready and the population c >= min_population; below min_population is insufficient_history; target excluded, ties count half"
+  },
+  {
+   "id": "channel.donchian.lower",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "donchian",
+   "null_availability_rule": "null unless the period window of lows ending t is ready (reads lows only); independent of highs"
+  },
+  {
+   "id": "channel.donchian.middle",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "donchian",
+   "null_availability_rule": "null unless the period window of highs and lows ending t is ready"
+  },
+  {
+   "id": "channel.donchian.upper",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "donchian",
+   "null_availability_rule": "null unless the period window of highs ending t is ready (reads highs only); independent of lows"
+  },
+  {
+   "id": "channel.donchian.width_ratio",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "donchian",
+   "null_availability_rule": "null unless the period window of highs and lows is ready"
+  },
+  {
+   "id": "channel.keltner.lower",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "keltner",
+   "null_availability_rule": "null unless close is ready on every epoch slot and high/low from the second; epoch shorter than the EMA/ATR seeds is insufficient_history"
+  },
+  {
+   "id": "channel.keltner.middle",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "keltner",
+   "null_availability_rule": "same closure as lower; equals R17 intraday.ema bit for bit"
+  },
+  {
+   "id": "channel.keltner.upper",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "keltner",
+   "null_availability_rule": "same closure as lower"
+  },
+  {
+   "id": "channel.keltner.width_ratio",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "keltner",
+   "null_availability_rule": "same closure as lower"
+  },
+  {
+   "id": "channel.pivot.point",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "pivot_levels",
+   "null_availability_rule": "null unless every slot of the immediately preceding governed session is ready (high, low; close on its last slot); a context without a preceding session is missing_input/absent_input, expected 1, observed 0"
+  },
+  {
+   "id": "channel.pivot.resistance_1",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "pivot_levels",
+   "null_availability_rule": "null unless every slot of the immediately preceding governed session is ready (high, low; close on its last slot); a context without a preceding session is missing_input/absent_input, expected 1, observed 0"
+  },
+  {
+   "id": "channel.pivot.resistance_2",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "pivot_levels",
+   "null_availability_rule": "null unless every slot of the immediately preceding governed session is ready (high, low; close on its last slot); a context without a preceding session is missing_input/absent_input, expected 1, observed 0"
+  },
+  {
+   "id": "channel.pivot.support_1",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "pivot_levels",
+   "null_availability_rule": "null unless every slot of the immediately preceding governed session is ready (high, low; close on its last slot); a context without a preceding session is missing_input/absent_input, expected 1, observed 0"
+  },
+  {
+   "id": "channel.pivot.support_2",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "pivot_levels",
+   "null_availability_rule": "null unless every slot of the immediately preceding governed session is ready (high, low; close on its last slot); a context without a preceding session is missing_input/absent_input, expected 1, observed 0"
+  },
+  {
+   "id": "channel.squeeze.bollinger_inside_keltner",
+   "dtype": "bool",
+   "unit": "boolean",
+   "scale": "none",
+   "producer": "bollinger_keltner_squeeze",
+   "null_availability_rule": "null unless close is ready on every epoch slot and high/low from the second; inclusive relation decided by exact algebra on Decimal120 operands (see FINDING F4)"
+  },
+  {
+   "id": "channel.squeeze.lower_gap",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "bollinger_keltner_squeeze",
+   "null_availability_rule": "same closure as the flag; signed gap Bollinger lower minus Keltner lower (exact zero may carry a Decimal120 residual, see FINDING F4)"
+  },
+  {
+   "id": "channel.squeeze.upper_gap",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "bollinger_keltner_squeeze",
+   "null_availability_rule": "same closure as the flag; signed gap Keltner upper minus Bollinger upper (same residual caveat)"
+  },
+  {
+   "id": "intraday.ad_line",
+   "dtype": "float64",
+   "unit": "shares",
+   "scale": "none",
+   "producer": "money_flow",
+   "null_availability_rule": "null unless every epoch slot a..t is ready (priced or coverage-proven empty; needs high, low, close, volume); a zero-range bar contributes multiplier 0 and stays defined; exact zero published as +0.0"
+  },
+  {
+   "id": "intraday.adx",
+   "dtype": "float64",
+   "unit": "DMI points",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null until the data-dependent f + adx_period rule is met on ready dependency slots; an ADX chain that consumes an undefined DX is not_applicable/zero_denominator and is not re-seeded (Amendment 1)"
+  },
+  {
+   "id": "intraday.cmf",
+   "dtype": "float64",
+   "unit": "fraction",
+   "scale": "none",
+   "producer": "money_flow",
+   "null_availability_rule": "null unless all N window slots wholly inside the epoch are ready; a window reaching before the anchor is insufficient_history; a zero volume sum is not_applicable/zero_denominator"
+  },
+  {
+   "id": "intraday.dx",
+   "dtype": "float64",
+   "unit": "DMI points",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null unless di_period + 1 slots are ready; S+ + S- = 0 is not_applicable/zero_denominator"
+  },
+  {
+   "id": "intraday.macd_histogram",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null unless close is ready on every epoch slot and the epoch has at least slow_period + signal_period - 1 slots; signal_period 1 gives +0.0"
+  },
+  {
+   "id": "intraday.macd_line",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null unless close is ready on every epoch slot and the epoch has at least slow_period slots"
+  },
+  {
+   "id": "intraday.macd_signal",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null unless close is ready on every epoch slot and the epoch has at least slow_period + signal_period - 1 slots"
+  },
+  {
+   "id": "intraday.minus_di",
+   "dtype": "float64",
+   "unit": "DMI points",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null unless di_period + 1 slots are ready; a zero smoothed true range is not_applicable/zero_denominator"
+  },
+  {
+   "id": "intraday.obv",
+   "dtype": "int64",
+   "unit": "shares",
+   "scale": "none",
+   "producer": "money_flow",
+   "null_availability_rule": "null unless every epoch slot is ready (close, volume); starts at 0, anchor volume not accumulated; a value outside int64 is an OVERFLOW refusal of the whole request, never a null"
+  },
+  {
+   "id": "intraday.plus_di",
+   "dtype": "float64",
+   "unit": "DMI points",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null unless di_period + 1 slots are ready; a zero smoothed true range is not_applicable/zero_denominator"
+  },
+  {
+   "id": "intraday.stoch_d",
+   "dtype": "float64",
+   "unit": "stochastic points",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null unless high/low are ready on the last k_period + k_slowing + d_period - 2 slots and close on the last k_slowing + d_period - 1; a zero-range window is not_applicable/zero_denominator"
+  },
+  {
+   "id": "intraday.stoch_k",
+   "dtype": "float64",
+   "unit": "stochastic points",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null unless high/low are ready on the last k_period + k_slowing - 1 slots and close on the last k_slowing; a zero-range window is not_applicable/zero_denominator"
+  },
+  {
+   "id": "intraday.williams_r",
+   "dtype": "float64",
+   "unit": "Williams %R points",
+   "scale": "none",
+   "producer": "momentum",
+   "null_availability_rule": "null unless high/low are ready on the last k_period slots and close on the last one; HH = LL is not_applicable/zero_denominator; range -100..0"
+  },
+  {
+   "id": "retracement.level",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none (single rounding from the exact rational of the retained integer coefficients)",
+   "producer": "retracement_level",
+   "null_availability_rule": "null unless both prior_high and prior_low are causal, completely covered, non-null and positive with H > L; H = L is not_applicable/zero_denominator; H < L or a non-positive coefficient is missing_input/ineligible; a short upstream window is insufficient_history"
+  },
+  {
+   "id": "trend.ichimoku.base_line",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "ichimoku",
+   "null_availability_rule": "null unless every slot of its own closure (base_period window ending t) is ready; a window reaching before the anchor is insufficient_history, never shortened"
+  },
+  {
+   "id": "trend.ichimoku.conversion_line",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "ichimoku",
+   "null_availability_rule": "null unless every slot of its own closure (conversion_period window ending t) is ready; a window reaching before the anchor is insufficient_history, never shortened"
+  },
+  {
+   "id": "trend.ichimoku.lagging_line_observed",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "ichimoku",
+   "null_availability_rule": "null unless every slot of its own closure (close at t) is ready; a window reaching before the anchor is insufficient_history, never shortened"
+  },
+  {
+   "id": "trend.ichimoku.lagging_line_reference_close",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "ichimoku",
+   "null_availability_rule": "null unless every slot of its own closure (close at t-d) is ready; a window reaching before the anchor is insufficient_history, never shortened"
+  },
+  {
+   "id": "trend.ichimoku.leading_span_a_displayed",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "ichimoku",
+   "null_availability_rule": "null unless every slot of its own closure (max(conversion, base) window ending t-d) is ready; a window reaching before the anchor is insufficient_history, never shortened"
+  },
+  {
+   "id": "trend.ichimoku.leading_span_a_observed",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "ichimoku",
+   "null_availability_rule": "null unless every slot of its own closure (max(conversion, base) window ending t) is ready; a window reaching before the anchor is insufficient_history, never shortened"
+  },
+  {
+   "id": "trend.ichimoku.leading_span_b_displayed",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "ichimoku",
+   "null_availability_rule": "null unless every slot of its own closure (leading_b_period window ending t-d) is ready; a window reaching before the anchor is insufficient_history, never shortened"
+  },
+  {
+   "id": "trend.ichimoku.leading_span_b_observed",
+   "dtype": "float64",
+   "unit": "currency/share",
+   "scale": "none",
+   "producer": "ichimoku",
+   "null_availability_rule": "null unless every slot of its own closure (leading_b_period window ending t) is ready; a window reaching before the anchor is insufficient_history, never shortened"
+  }
+ ],
+ "lexical_order": "by feature_id across the combined added set: channel.*, intraday.*, retracement.level, trend.ichimoku.*",
+ "header_counts": {
+  "ef2_added_total": 39,
+  "by_contract": {
+   "momentum": 10,
+   "money_flow": 3,
+   "retracement": 1,
+   "channels": 25
+  },
+  "by_dtype_unit": {
+   "bool|boolean": 1,
+   "float64|DMI points": 4,
+   "float64|Williams %R points": 1,
+   "float64|currency/share": 25,
+   "float64|fraction": 4,
+   "float64|shares": 1,
+   "float64|stochastic points": 2,
+   "int64|shares": 1
+  },
+  "frozen_contract_json_before": 45,
+  "frozen_contract_json_after_this_amendment_alone": 84,
+  "frozen_contract_json_after_ef1_and_this_amendment": 95,
+  "merged_ef1_definitions_after_ef1_amendment": 77,
+  "describe_intraday_before": 8,
+  "describe_intraday_after": 8,
+  "separate_registries": "the 39 EF2 headers live in describe_money_flow (3), describe_momentum (10), describe_channels (25) and ef2_definitions (1), not in ef1_definitions and not in describe_intraday()",
+  "basis": "CONTRACT.json headers array parses to 45 entries. The 39 are enumerated by importing the three intraday registries (38 entries, executed read-only on this checkout) plus the single retracement.level cell read from _retracement.py and _definitions.py. The EF1 figures 66 before and 77 after its amendment are cited from docs/ef1/PRODUCER_SET_AMENDMENT.md and were not recounted; packages/features/src/equity_features/ef1 has no commit after 0fa8141."
+ },
+ "unit_additions_relative_to_frozen_CONTRACT_json": [
+  {
+   "unit": "DMI points",
+   "dtype": "float64",
+   "used_by": [
+    "intraday.adx",
+    "intraday.dx",
+    "intraday.minus_di",
+    "intraday.plus_di"
+   ],
+   "status": "to be applied additive"
+  },
+  {
+   "unit": "stochastic points",
+   "dtype": "float64",
+   "used_by": [
+    "intraday.stoch_d",
+    "intraday.stoch_k"
+   ],
+   "status": "to be applied additive"
+  },
+  {
+   "unit": "Williams %R points",
+   "dtype": "float64",
+   "used_by": [
+    "intraday.williams_r"
+   ],
+   "status": "to be applied additive"
+  }
+ ],
+ "new_dtype_unit_pairs": [
+  {
+   "dtype": "float64",
+   "unit": "shares",
+   "used_by": "intraday.ad_line",
+   "note": "unit shares is frozen but only with int64 (3 frozen headers); the float64 pairing is new and was ruled O9 in the money-flow contract"
+  }
+ ],
+ "units_already_frozen_and_reused": [
+  {
+   "unit": "currency/share",
+   "dtype": "float64",
+   "headers": 25
+  },
+  {
+   "unit": "fraction",
+   "dtype": "float64",
+   "headers": 4
+  },
+  {
+   "unit": "boolean",
+   "dtype": "bool",
+   "headers": 1
+  },
+  {
+   "unit": "shares",
+   "dtype": "int64",
+   "headers": 1
+  }
+ ],
+ "frozen_units": [
+  "boolean",
+  "classification",
+  "currency",
+  "currency/share",
+  "fraction",
+  "ns",
+  "reason",
+  "sessions",
+  "shares",
+  "state"
+ ],
+ "explicit_statements": [
+  "pure additive; no frozen byte changes; docs/ef1/CONTRACT.json, docs/ef1/PRODUCER_SET_AMENDMENT.* and the three EF2 contracts are not edited",
+  "published results of existing producers are unchanged: the implementation records state before/after snapshots of 2,520 (PR 680), 4,320 (PR 682) and 2,657 (PR 684) R17 requests (EMA, RSI, ATR, bands, preparation views, refusals, describe_intraday() and its digest) that were byte-identical; this amendment cites those records and did not re-run them",
+  "describe_intraday() and its digest are unchanged; the EF2 catalogs are separate registries",
+  "package versions are not bumped (equity-features 0.0.4a5, intraday 0.1.0a3); a bump would change the R17 catalog digest; the bump is owed at release",
+  "no change to shared validators; the zero-volume rule is the existing BAR validator rule (contract ruling O2): a zero-volume row with non-null OHLC is INVALID_SCHEMA",
+  "reset epoch mode only; carry is out of v1; no update, restore or merge",
+  "tests/unit/test_purity_audit.py is NOT updated by this PR; whether the EF2 modules are audited is an owner decision, pending",
+  "no numerical, installed-artifact, cross-layer, source-rights or release acceptance is claimed; nothing is accepted"
+ ],
+ "findings": [
+  "F1 catalog placement: The money-flow contract (money_flow_producer.package, amendment_note) and the momentum contract Q1 speak of additive entries in the intraday catalog with a changed catalog digest. The merged code keeps three own catalogs (describe_money_flow, describe_momentum, describe_channels) and leaves describe_intraday() at exactly eight IDs with an unchanged digest, because the accepted R17 tests assert eight entries (money-flow implementation, point 1). This amendment follows the code; merging the entries is a one-line change the owner may still choose, but it would change the R17 digest.",
+  "F2 header count: The three contracts do not state a shared-ledger total. The frozen CONTRACT.json has 45 headers; with the EF1 amendment (not itself a frozen byte change) it would regenerate to 56, and with these 39 to 95 (84 if the EF1 amendment is not applied). The merged ef1_definitions are 77 after the EF1 amendment (cited, not recounted). The 39 EF2 headers are in separate registries and are in neither ef1_definitions nor describe_intraday(). No EF2 header joins a registry that the shared digest covers.",
+  "F3 units and dtype pairs: Three unit strings are new relative to the frozen unit set: DMI points, stochastic points, Williams %R points (momentum contract shared_contract_followup). The channels contract says no new unit, which is true of its 25 headers. The money-flow contract (O9) keeps unit shares for float64 intraday.ad_line, a dtype/unit pairing absent from the frozen set (shares is frozen only for int64). The merged R17 catalog also emits RSI points for intraday.rsi, absent from the frozen set and from the EF1 amendment; it is outside these contracts and not covered here.",
+  "F4 exact-zero language versus code: The channels contract numeric_policy states that no documented deviation exists for the exact-zero rule and that the squeeze boolean tie is stable only for exactly representable operands. The implementation document records residual gaps and a boolean flip for non-terminating EMA/ATR ties, found by independent review. The momentum contract lists its exact-zero guarantees narrowly and the implementation records residuals outside them. The ledger rules above carry the caveat; release acceptance must account for it. Not resolved here.",
+  "F5 momentum catalog labels: The momentum contract header table gives minimum_slots as formulas (for example di_period+adx_period) and lists true_ranges plus directional_moves as the operand of intraday.dx, plus_di and minus_di. The merged catalog stores a numeric minimum_period floor over all legal parameters (macd 2, dmi 2, stochastic 1) and operand_family directional_moves only, dx_observations for adx, macd_observations for the MACD signal and histogram (the implementation notes that these label derived series). Values and readiness are unaffected; the catalog digest includes the labels.",
+  "F6 channels header selection: The channels contract returns the complete fixed header set of a producer; compute_channels takes an optional features tuple defaulting to the complete set (implementation point 1). Momentum and money flow likewise select a subset of their family. The producer set is unchanged; the optional selection is a code point the owner may want recorded in discovery.",
+  "F7 scale wording: The EF2 contracts give scale none for every header including int64 intraday.obv. The frozen ledger uses scale 0 for int64 counts and the wording PriceUnit.scale input; output full currency/share for price floats. The ledger above records the EF2 contract literal. Owner to confirm whether the shared ledger should restate OBV as scale 0 and price outputs in the frozen wording.",
+  "F8 result metadata labels: Intraday EF2 results carry backend intraday.python and package version 0.1.0a3 (the R17 label); retracement.level carries backend python-exact and equity-features 0.0.4a5. Both are the unchanged shared package versions.",
+  "F9 shared admission touched: The EF2 contracts say the R17 admission is reused unchanged. The merged money-flow slice added an internal volume field to SlotFacts and one extra value in the admit() constructor in _admission.py, and extended the INTERNAL module set of tools/check_intraday_boundary.py for the new modules. No R17 output reads the field; byte identity is cited from the snapshots above, not re-run here.",
+  "F10 mapping versions: The EF2 contracts do not name I/O mapping versions. The read-only I/O repository at c15f540 names ef2-momentum-map1, ef2-channels-map1, ef2-money-flow-map1 and ef2-retracement-map1; they are recorded for information and are I/O-owned, not contract values here. FEATURE_UNITS exists in the momentum and channels I/O modules only; the money-flow and retracement units come from the library catalog and definition.",
+  "F11 calendar lists: None of the nine EF2 producers uses a calendar_provenance role or the ef1-context1 envelope (intraday producers carry sessions in the R17 context; retracement carries one SessionSpec), so the frozen calendar_required_for and calendar_null_for lists need no EF2 entries.",
+  "F12 manifest entry: Money-flow ruling O7 says retracement.level is to be added to a 47-output manifest as a proposed unaccepted entry through a later hygiene PR. That manifest was not located or read here and is not touched."
+ ],
+ "release_gate_limits": [
+  "momentum exact-zero: +0.0 is guaranteed only for the exact_plus_zero fixture mechanisms; elsewhere an exact-zero reference can appear as a Decimal120 residual (about 1.1e-119 for the MACD histogram and 1.7e-118 for DMI dx in the documented cases); values are deliberately not snapped",
+  "channels exact-zero: with non-terminating EMA/ATR (for example 110/9, 37/3, ema_period 2 to 7, tied bars) an exact-zero squeeze gap can be a residual of about 1e-119 or -1e-118 and channel.squeeze.bollinger_inside_keltner can flip to false on an exact boundary tie; an independent review found about 2% of 1,187 exact-zero gaps in a 400,000-configuration random search deviating",
+  "batch API materializes the chain lists, O(n) memory per request; the contract per-bar O(1) state applies to a future incremental API (momentum implementation note)",
+  "package version bump owed at release",
+  "strict typing (mypy) was not run in the implementation PRs",
+  "EF2 I/O mapping (#609), worker (#610) and release acceptance (#486) remain separate layers"
+ ],
+ "not_verified": [
+  "nothing in the library was run except importing the three intraday registries read-only to enumerate their 38 entries and digests; no tests were run and no fixture was executed",
+  "the byte-identity snapshots (2,520, 4,320, 2,657 requests) are cited from the implementation documents and the snapshot scripts were not available",
+  "the EF1 header counts 66 and 77 are cited from the EF1 amendment and were not recounted",
+  "the per-header availability rules were read from the contracts and the merged code, not exercised",
+  "retracement.level discovery (ef2_definitions) needs a ConfigSpec and was read, not executed",
+  "the I/O repository was read only for units, identities and mapping labels; worker admission and sink behavior of the EF2 producers are unverified",
+  "the 47-output manifest named in money-flow ruling O7 was not located",
+  "installed artifacts, CI results, strict typing, performance and source rights were not available"
+ ]
+}
