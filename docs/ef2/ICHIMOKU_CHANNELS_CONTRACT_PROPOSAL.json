@@ -7383,6 +7383,358 @@
    }
   },
   {
+   "id": "ICH-17",
+   "group": "anchor_bound_lagging",
+   "producer": "ichimoku",
+   "description": "two sessions of 6 bars, reset epoch anchor slot 6, displacement 6 (periods 3/5/8): display slot t-d = 5 lies inside the supplied grid but before the anchor, so lagging_line_observed and every displayed header are insufficient_history; the close at t qualifies so lagging observed counts 1 of 1",
+   "params": {
+    "conversion_period": 3,
+    "base_period": 5,
+    "leading_b_period": 8,
+    "displacement": 6
+   },
+   "scale": 2,
+   "context": {
+    "sessions": [
+     6,
+     6
+    ],
+    "anchor": 6,
+    "target": 11,
+    "mode": "reset"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     1010,
+     990,
+     1000,
+     100,
+     "ok"
+    ],
+    [
+     0,
+     1030,
+     1000,
+     1020,
+     100,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1010,
+     1030,
+     100,
+     "ok"
+    ],
+    [
+     0,
+     1050,
+     1020,
+     1040,
+     100,
+     "ok"
+    ],
+    [
+     0,
+     1045,
+     1015,
+     1025,
+     100,
+     "ok"
+    ],
+    [
+     0,
+     1035,
+     1005,
+     1015,
+     100,
+     "ok"
+    ],
+    [
+     1,
+     1020,
+     990,
+     1000,
+     100,
+     "ok"
+    ],
+    [
+     1,
+     1000,
+     970,
+     985,
+     100,
+     "ok"
+    ],
+    [
+     1,
+     1010,
+     975,
+     1005,
+     100,
+     "ok"
+    ],
+    [
+     1,
+     1040,
+     1000,
+     1035,
+     100,
+     "ok"
+    ],
+    [
+     1,
+     1060,
+     1030,
+     1055,
+     100,
+     "ok"
+    ],
+    [
+     1,
+     1070,
+     1040,
+     1060,
+     100,
+     "ok"
+    ]
+   ],
+   "evidence_limit": 1000,
+   "expected": {
+    "trend.ichimoku.base_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": 10.2,
+     "value_hex": "0x1.4666666666666p+3",
+     "exact": "51/5",
+     "max_input_slot": 11,
+     "evidence": [
+      {
+       "row_id": "slot:7",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:8",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:9",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:10",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:11",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      }
+     ],
+     "evidence_total_closure_rows": 5,
+     "acceptance": "R17 tolerance"
+    },
+    "trend.ichimoku.conversion_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 10.35,
+     "value_hex": "0x1.4b33333333333p+3",
+     "exact": "207/20",
+     "max_input_slot": 11,
+     "evidence": [
+      {
+       "row_id": "slot:9",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:10",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:11",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      }
+     ],
+     "evidence_total_closure_rows": 3,
+     "acceptance": "R17 tolerance"
+    },
+    "trend.ichimoku.lagging_line_observed": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 1,
+     "observed": 1,
+     "value": null,
+     "max_input_slot": 11,
+     "evidence": [
+      {
+       "row_id": "slot:11",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      }
+     ],
+     "evidence_total_closure_rows": 1
+    },
+    "trend.ichimoku.lagging_line_reference_close": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 1,
+     "observed": 0,
+     "value": null,
+     "max_input_slot": null,
+     "evidence": [],
+     "evidence_total_closure_rows": 0
+    },
+    "trend.ichimoku.leading_span_a_displayed": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 5,
+     "observed": 0,
+     "value": null,
+     "max_input_slot": null,
+     "evidence": [],
+     "evidence_total_closure_rows": 0
+    },
+    "trend.ichimoku.leading_span_a_observed": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": 10.275,
+     "value_hex": "0x1.48ccccccccccdp+3",
+     "exact": "411/40",
+     "max_input_slot": 11,
+     "evidence": [
+      {
+       "row_id": "slot:7",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:8",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:9",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:10",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:11",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      }
+     ],
+     "evidence_total_closure_rows": 5,
+     "acceptance": "R17 tolerance"
+    },
+    "trend.ichimoku.leading_span_b_displayed": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 8,
+     "observed": 0,
+     "value": null,
+     "max_input_slot": null,
+     "evidence": [],
+     "evidence_total_closure_rows": 0
+    },
+    "trend.ichimoku.leading_span_b_observed": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 8,
+     "observed": 6,
+     "value": null,
+     "max_input_slot": 11,
+     "evidence": [
+      {
+       "row_id": "slot:6",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:7",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:8",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:9",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:10",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      },
+      {
+       "row_id": "slot:11",
+       "use": "consumed",
+       "reason": null,
+       "boundary": "completed_interval"
+      }
+     ],
+     "evidence_total_closure_rows": 6
+    }
+   }
+  },
+  {
    "id": "KEL-01",
    "group": "available",
    "producer": "keltner",
@@ -22612,7 +22964,7 @@
   }
  ],
  "fixture_counts": {
-  "result_fixtures": 73,
+  "result_fixtures": 74,
   "refusal_fixtures": 21
  },
  "coverage_map": {
@@ -22646,6 +22998,9 @@
   "lookahead counterexample": [
    "ICH-04",
    "ICH-05"
+  ],
+  "anchor bound (display slot before anchor, inside grid)": [
+   "ICH-17"
   ],
   "gaps": [
    "ICH-06",
