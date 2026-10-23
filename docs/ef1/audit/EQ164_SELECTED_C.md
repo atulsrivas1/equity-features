@@ -32,7 +32,7 @@ The 47-output ownership manifest has no EF8 owner and carries no opaque ids, so 
 
 ## Key findings
 
-1. **Cohort normalization (S0090-S0099) has no named operand producer.** Each row's prior primitive proposal is the policy owner #518 itself. The normalization arithmetic (cohort normalization arithmetic) sits in a catalogue story. #518's own text says a separately reusable scalar needs a narrowly numbered producer, and none exists. The #102 reuse is conditional and unproved, and #102 is closed. Confidence: low-medium, because the operand definitions are private and were not copied.
+1. **Cohort normalization (S0090-S0099) has no named operand producer.** Each row's prior primitive proposal is the policy owner #518 itself. The cohort normalization step sits in a catalogue story. #518's own text says a separately reusable scalar needs a narrowly numbered producer, and none exists. The #102 reuse is conditional and unproved, and #102 is closed. Confidence: low-medium, because the operand definitions are private and were not copied.
 2. **Anchor discovery (F0343-F0346) may be a hidden numerical producer.** The role reads "discovery or state projection" and is not decided per row. #520 is a lifecycle story, and #507 only consumes a supplied anchor. EF1 anchor arithmetic is on main.
 3. **F0720 has two primary owners (#519 and #520).** The seam is not specified. The plan correctly requires both, and no reverse EF8 gate is added.
 4. **F0715-F0719 optionally depend on #626.** The manifests do not say which of the five rows consume it. No blanket #626 or #490 gate follows.
