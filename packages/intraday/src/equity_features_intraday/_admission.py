@@ -25,6 +25,8 @@ class SlotFacts:
     known_at_ns: int | None = None
     knowledge_reason: Reason | None = None
     empty: bool = False
+    # Additive internal field for EF2 money flow (ef2-mf1); no R17 output reads it.
+    volume: int | None = None
 
 
 @dataclass(frozen=True)
@@ -181,6 +183,7 @@ def admit(batches: tuple[CanonicalBatch, ...], context: IntradayContext,
                 None if row_index is None else number("low", row_index), known,
                 None if knowledge is None else Reason(knowledge),
                 empty or (row_index is not None and number("volume", row_index) == 0),
+                None if row_index is None else number("volume", row_index),
             )
         if not set(rows) <= local_coverage:
             fail("every supplied row needs exact per-slot coverage", ErrorCode.INCONSISTENT_IDENTITY)

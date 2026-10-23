@@ -271,3 +271,7 @@ The existing EF1 builder/decoder/discovery/compute API also accepts `reference_c
 ## Selected EF1 multi-venue status producer
 
 The existing EF1 builder/decoder/discovery/compute API also accepts `multivenue_status` with exactly five nullable venue population/seed/states/prefix/validity roles. [API](EF1_MULTI_VENUE_STATUS.md) and [source implementation limits](../ef1/MULTI_VENUE_STATUS_IMPLEMENTATION.md) describe the seven reductions over the caller-declared expected publisher population. This remains a bounded source slice with I/O mapping, worker, header-ledger amendment, installed/integration and release gates pending.
+
+## Selected EF2 money-flow and retracement-level producers
+
+`equity_features_intraday` also provides `build_money_flow_config`, `decode_money_flow_config`, `compute_money_flow` and own discovery for `intraday.obv`, `intraday.ad_line` and `intraday.cmf`, and `equity_features.ef2` provides `build_retracement_config`, `decode_retracement_config`, `ef2_definitions` and `compute_ef2` for `retracement.level` (two nullable `prior_high`/`prior_low` extremum roles). [Money-flow API](EF2_MONEY_FLOW.md), [retracement API](EF2_RETRACEMENT_LEVEL.md) and [source implementation limits](../ef2/MONEYFLOW_RETRACEMENT_IMPLEMENTATION.md) describe the frozen `ef2-mf1` and `ef2-retrace1` conventions. This remains a bounded source slice with I/O mapping, worker, header-ledger amendment, installed/integration and release gates pending.
