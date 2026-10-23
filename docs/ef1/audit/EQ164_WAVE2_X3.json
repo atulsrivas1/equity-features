@@ -1,0 +1,5013 @@
+{
+ "schema_version": 1,
+ "kind": "eq164-wave2-x3-row-operand-lists",
+ "status": "audit findings and proposed answers only; not accepted, not decisions; full EQ164 stays open, no row is Ready; no tracker edits",
+ "base_commit": "d04e820",
+ "public_digests_referenced": {
+  "selected_manifest_sha256": "b76c50912bd015dcd3a69fa3617fd3527899db20700bd6ca6fe6ae8f88cbbc17",
+  "scope_publication_report_sha256": "061bdf035d4cc1ebc282be4e22857a43f3ef516e45625cbeb6b7adcb9e148d61"
+ },
+ "status_vocabulary": {
+  "DELIVERED_ON_MAIN": "a producer or carrier exists on main at the base commit; compatibility with the original profile is not proved",
+  "PLANNED_NUMBERED": "a numbered story owns it; not delivered or not yet mapped",
+  "PROPOSED_NEW_STORY": "needs a story that wave 1 proposed and that does not exist",
+  "UNCOVERED_GAP": "no producer found or proposed",
+  "PARAMETER_ONLY": "caller parameter; not a producer gap; values withheld"
+ },
+ "operand_catalog": [
+  {
+   "operand_ref": "F0150",
+   "field_id": "F0150",
+   "kind": "field",
+   "description": "current-session close of the observation row",
+   "producer": {
+    "story": "#506 (route); layer #570",
+    "release": "EF1",
+    "delivered_id": "session.close.calculated_price; core session.bar.close"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "medium-low",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "The row carries separate intraday, end-of-day and difference variants of close; which variant the consumers read is not fixed by the route. Candidate only; compatibility unproved."
+  },
+  {
+   "operand_ref": "F0148",
+   "field_id": "F0148",
+   "kind": "field",
+   "description": "current-session high of the observation row",
+   "producer": {
+    "story": "#506 (route); layer #570",
+    "release": "EF1",
+    "delivered_id": "core session.bar.high"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "medium-low",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "Used only as an input of the true-range sequence for the current bar."
+  },
+  {
+   "operand_ref": "F0149",
+   "field_id": "F0149",
+   "kind": "field",
+   "description": "current-session low of the observation row",
+   "producer": {
+    "story": "#506 (route); layer #570",
+    "release": "EF1",
+    "delivered_id": "core session.bar.low"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "medium-low",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "As F0148."
+  },
+  {
+   "operand_ref": "F0338",
+   "field_id": "F0338",
+   "kind": "field",
+   "description": "supplied completed daily-bar history (carrier of prior bars)",
+   "producer": {
+    "story": "#570 (route, in progress)",
+    "release": "EF1",
+    "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+   },
+   "status": "PLANNED_NUMBERED",
+   "confidence": "medium-low",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "representation_mapping_pending",
+   "note": "Serves three roles at once: history for prior-window extrema, history for the range-average operand, and the previous-bar close. The carrier exists in core; the field-level mapping is owned by the in-progress layer story."
+  },
+  {
+   "operand_ref": "F0137",
+   "field_id": "F0137",
+   "kind": "field",
+   "description": "member/entity identity key",
+   "producer": {
+    "story": "#570 (route)",
+    "release": "EF1",
+    "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "medium",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "Duplicate-identity handling differs between the breadth and the rank consumers in the source; see summary."
+  },
+  {
+   "operand_ref": "F0161",
+   "field_id": "F0161",
+   "kind": "field",
+   "description": "session share volume of the observation row",
+   "producer": {
+    "story": "#19 (route, closed); layer #613",
+    "release": "EF4",
+    "delivered_id": "core session.trade.volume"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "medium-low",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "Used only in the eligibility predicate."
+  },
+  {
+   "operand_ref": "F0152",
+   "field_id": "F0152",
+   "kind": "field",
+   "description": "session dollar volume of the observation row",
+   "producer": {
+    "story": "#19 (route, closed); layer #613",
+    "release": "EF4",
+    "delivered_id": "core session.trade.notional"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "medium-low",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "Candidate; trade-notional versus bar-notional profile and precision unproved."
+  },
+  {
+   "operand_ref": "F0206",
+   "field_id": "F0206",
+   "kind": "field",
+   "description": "session change versus prior close for the observation",
+   "producer": {
+    "story": "#507 (route); layer #570",
+    "release": "EF1",
+    "delivered_id": "core session.price.close_close_return; EF1 calendar.period prior-close return (#506)"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "low-medium",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "Route names #507 but the delivered prior-close return sits in the #506 period module (attribution rule A5). Percent versus fraction scale and prior-close-absent behavior unproved."
+  },
+  {
+   "operand_ref": "F0255",
+   "field_id": "F0255",
+   "kind": "field",
+   "description": "supplied sector classification label",
+   "producer": {
+    "story": "#570 (route); #508",
+    "release": "EF1",
+    "delivered_id": "EF1 reference.classification.value (#508)"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "low-medium",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "Supplied-classification carrier exists; point-in-time membership and trimming of the label are not proved."
+  },
+  {
+   "operand_ref": "F0256",
+   "field_id": "F0256",
+   "kind": "field",
+   "description": "supplied industry classification label",
+   "producer": {
+    "story": "#570 (route); #508",
+    "release": "EF1",
+    "delivered_id": "EF1 reference.classification.value (#508)"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "low-medium",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "As F0255."
+  },
+  {
+   "operand_ref": "F0251",
+   "field_id": "F0251",
+   "kind": "field",
+   "description": "matched-window excess return versus primary-market benchmark",
+   "producer": {
+    "story": "#513 (route)",
+    "release": "EF4",
+    "delivered_id": "related candidate only: core relative.market_return (window equivalence unproved)"
+   },
+   "status": "PLANNED_NUMBERED",
+   "confidence": "medium",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "numbered_story_not_delivered",
+   "note": "Matches the #513 clarification (matched rolling interval, primary-market role). The single value is reused by the market-wide, sector-grouped and industry-grouped consumers; grouping does not change the excess return."
+  },
+  {
+   "operand_ref": "F0259",
+   "field_id": "F0259",
+   "kind": "field",
+   "description": "as-of identity of the relative value (availability marker)",
+   "producer": {
+    "story": "#570 (route); #513",
+    "release": "EF4",
+    "delivered_id": "none"
+   },
+   "status": "PLANNED_NUMBERED",
+   "confidence": "low",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "representation_mapping_pending",
+   "note": "Consumers admit a member only when this marker is present; the producer must expose availability/known-at of the F0251 output in a form the cohort step can test."
+  },
+  {
+   "operand_ref": "F0193",
+   "field_id": "F0193",
+   "kind": "field",
+   "description": "trailing-window share-volume rate",
+   "producer": {
+    "story": "#513 (route); upstream #492",
+    "release": "EF4",
+    "delivered_id": "none"
+   },
+   "status": "PLANNED_NUMBERED",
+   "confidence": "medium",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "numbered_story_not_delivered",
+   "note": "The same value is copied into F0702 at every source site read."
+  },
+  {
+   "operand_ref": "F0186",
+   "field_id": "F0186",
+   "kind": "field",
+   "description": "observation event clock",
+   "producer": {
+    "story": "#570 (route)",
+    "release": "EF1",
+    "delivered_id": "none for the echo; EF1 clock module covers the session clock only"
+   },
+   "status": "PLANNED_NUMBERED",
+   "confidence": "medium-low",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "representation_mapping_pending",
+   "note": "Defines the trailing-window end for F0193."
+  },
+  {
+   "operand_ref": "OP-TRAILING-WINDOW",
+   "field_id": "",
+   "kind": "raw_stream",
+   "description": "supplied trade tape inside the trailing window (window sum precursor)",
+   "producer": {
+    "story": "#492",
+    "release": "EF4",
+    "delivered_id": "none"
+   },
+   "status": "PLANNED_NUMBERED",
+   "confidence": "medium",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "numbered_story_not_delivered",
+   "note": "Needs the plain window-volume sum profile (not the tick-signed profile); window-end convention and empty-window behavior must be frozen in the #492 contract."
+  },
+  {
+   "operand_ref": "OP-LEVEL",
+   "field_id": "",
+   "kind": "derived",
+   "description": "caller-parameterized retracement level from a prior-window range and a ratio",
+   "producer": {
+    "story": "proposed new EF2 retracement-level story",
+    "release": "EF2",
+    "delivered_id": "none"
+   },
+   "status": "PROPOSED_NEW_STORY",
+   "confidence": "medium",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "new_pure_producer_story",
+   "note": "Wave 1 decision A1 already proposes the story; the nine rows are the consumers that make it necessary. Inside #511 only conditionally."
+  },
+  {
+   "operand_ref": "OP-PRIOR-HIGH",
+   "field_id": "",
+   "kind": "derived",
+   "description": "high extremum over the prior completed-bar window, target excluded",
+   "producer": {
+    "story": "core history.prior_high; #473/#483 numbered",
+    "release": "EF2",
+    "delivered_id": "core history.prior_high"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "medium",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "Delivery is now established from the implemented-feature catalog and README; wave 1 reported it as not established. Window length is a caller parameter; target exclusion matches in principle; exact equivalence unproved."
+  },
+  {
+   "operand_ref": "OP-PRIOR-LOW",
+   "field_id": "",
+   "kind": "derived",
+   "description": "low extremum over the prior completed-bar window, target excluded",
+   "producer": {
+    "story": "core history.prior_low; #473/#483 numbered",
+    "release": "EF2",
+    "delivered_id": "core history.prior_low"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "medium",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "As OP-PRIOR-HIGH."
+  },
+  {
+   "operand_ref": "OP-RANGE-AVG",
+   "field_id": "",
+   "kind": "derived",
+   "description": "average true range over completed bars including the current bar",
+   "producer": {
+    "story": "core history.atr; #472 interval-aware variant",
+    "release": "EF2",
+    "delivered_id": "core history.atr (anchored smoothed ATR per README)"
+   },
+   "status": "DELIVERED_ON_MAIN",
+   "confidence": "medium-low",
+   "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+   "missing_producer_kind": "none",
+   "note": "Smoothing method matches in kind; initialization, anchor and gap treatment equivalence unproved. Used only by the three proximity rows."
+  },
+  {
+   "operand_ref": "OP-OBS-BREADTH",
+   "field_id": "",
+   "kind": "derived",
+   "description": "observed-population advance count, qualifying-member count and advance fraction (whole cohort and per supplied group)",
+   "producer": {
+    "story": "#598 observed companion",
+    "release": "EF3",
+    "delivered_id": "none"
+   },
+   "status": "PLANNED_NUMBERED",
+   "confidence": "low-medium",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "numbered_story_outputs_unenumerated",
+   "note": "Story exists but its output list is declared-universe only. Proposed output enumeration is in answer B5."
+  },
+  {
+   "operand_ref": "OP-ELIG-BREADTH",
+   "field_id": "",
+   "kind": "derived",
+   "description": "per-member eligibility flag from price and volume floors (observed breadth cohort)",
+   "producer": {
+    "story": "#598 observed companion (per-member eligibility)",
+    "release": "EF3",
+    "delivered_id": "none"
+   },
+   "status": "PLANNED_NUMBERED",
+   "confidence": "low",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "numbered_story_outputs_unenumerated",
+   "note": "Floors are caller parameters; the predicate is trivial but needs an owner and unknown-input handling."
+  },
+  {
+   "operand_ref": "OP-ELIG-RANK",
+   "field_id": "",
+   "kind": "derived",
+   "description": "per-member eligibility flag from price and volume floors (observed rank cohort)",
+   "producer": {
+    "story": "proposed new EF8 cohort-normalization story (population admission step)",
+    "release": "EF8",
+    "delivered_id": "none"
+   },
+   "status": "PROPOSED_NEW_STORY",
+   "confidence": "low",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "new_pure_producer_story",
+   "note": "Proposed to be folded into the cohort-normalization story so the population admission is not hidden in catalogue policy; alternative is #518 policy."
+  },
+  {
+   "operand_ref": "OP-COHORT-RANK",
+   "field_id": "",
+   "kind": "derived",
+   "description": "current-observed-cohort rank position of a member among finite values (whole cohort or supplied group), with group-size gate",
+   "producer": {
+    "story": "proposed new EF8 cohort-normalization story",
+    "release": "EF8",
+    "delivered_id": "none"
+   },
+   "status": "PROPOSED_NEW_STORY",
+   "confidence": "medium",
+   "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+   "missing_producer_kind": "new_pure_producer_story",
+   "note": "Wave 1 decision C1. A private candidate owner (#489) is a prior-only history summary and does not cover a current-cohort rank; closed #102 reuse is unproved."
+  },
+  {
+   "operand_ref": "PARAM-RATIO",
+   "field_id": "",
+   "kind": "parameter",
+   "description": "retracement ratio (one literal per row; value withheld)",
+   "producer": {
+    "story": "caller parameter; policy #518",
+    "release": "EF8",
+    "delivered_id": "n/a"
+   },
+   "status": "PARAMETER_ONLY",
+   "confidence": "high",
+   "evidence_class": "private_source_static_read",
+   "missing_producer_kind": "parameter",
+   "note": "No default may be inherited."
+  },
+  {
+   "operand_ref": "PARAM-TOL",
+   "field_id": "",
+   "kind": "parameter",
+   "description": "proximity tolerance policy (floor and range multiple; values withheld)",
+   "producer": {
+    "story": "caller parameter; policy #518",
+    "release": "EF8",
+    "delivered_id": "n/a"
+   },
+   "status": "PARAMETER_ONLY",
+   "confidence": "high",
+   "evidence_class": "private_source_static_read",
+   "missing_producer_kind": "parameter",
+   "note": "No default may be inherited."
+  },
+  {
+   "operand_ref": "PARAM-HISTORY-GATE",
+   "field_id": "",
+   "kind": "parameter",
+   "description": "minimum completed-bar history gate",
+   "producer": {
+    "story": "caller parameter; policy #518",
+    "release": "EF8",
+    "delivered_id": "n/a"
+   },
+   "status": "PARAMETER_ONLY",
+   "confidence": "high",
+   "evidence_class": "private_source_static_read",
+   "missing_producer_kind": "parameter",
+   "note": "No default may be inherited."
+  },
+  {
+   "operand_ref": "PARAM-ELIG-FLOORS",
+   "field_id": "",
+   "kind": "parameter",
+   "description": "price floor and volume floor for the observed cohort",
+   "producer": {
+    "story": "caller parameter; policy #518",
+    "release": "EF8",
+    "delivered_id": "n/a"
+   },
+   "status": "PARAMETER_ONLY",
+   "confidence": "high",
+   "evidence_class": "private_source_static_read",
+   "missing_producer_kind": "parameter",
+   "note": "No default may be inherited."
+  },
+  {
+   "operand_ref": "PARAM-GROUP-GATE",
+   "field_id": "",
+   "kind": "parameter",
+   "description": "minimum group size for per-group results",
+   "producer": {
+    "story": "caller parameter; policy #518",
+    "release": "EF8",
+    "delivered_id": "n/a"
+   },
+   "status": "PARAMETER_ONLY",
+   "confidence": "high",
+   "evidence_class": "private_source_static_read",
+   "missing_producer_kind": "parameter",
+   "note": "No default may be inherited."
+  },
+  {
+   "operand_ref": "PARAM-REGIME-CUTS",
+   "field_id": "",
+   "kind": "parameter",
+   "description": "regime participation cut-offs (values withheld)",
+   "producer": {
+    "story": "caller parameter; policy #518",
+    "release": "EF8",
+    "delivered_id": "n/a"
+   },
+   "status": "PARAMETER_ONLY",
+   "confidence": "high",
+   "evidence_class": "private_source_static_read",
+   "missing_producer_kind": "parameter",
+   "note": "No default may be inherited."
+  },
+  {
+   "operand_ref": "PARAM-TAIL-CUT",
+   "field_id": "",
+   "kind": "parameter",
+   "description": "tail cut for top/bottom membership (value withheld)",
+   "producer": {
+    "story": "caller parameter; policy #518",
+    "release": "EF8",
+    "delivered_id": "n/a"
+   },
+   "status": "PARAMETER_ONLY",
+   "confidence": "high",
+   "evidence_class": "private_source_static_read",
+   "missing_producer_kind": "parameter",
+   "note": "No default may be inherited."
+  }
+ ],
+ "rows": [
+  {
+   "opaque_id": "F0702",
+   "kind": "field",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "medium",
+   "family": "supplied-rate copy",
+   "route": {
+    "policy_owner": null,
+    "selected_components": [
+     {
+      "primary_numbered_owner": 513,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF4",
+      "io_issue": 613,
+      "worker_issue": 614,
+      "role": "supplied_rate_operand; exact #492 ordered source profile remains separate"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0193",
+     "role": "value source: F0702 is a pass-through copy of this rate (same value at each source site read)",
+     "field_id": "F0193",
+     "kind": "field",
+     "producer": {
+      "story": "#513 (route); upstream #492",
+      "release": "EF4",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_not_delivered"
+    },
+    {
+     "operand_ref": "OP-TRAILING-WINDOW",
+     "role": "upstream window sum feeding the rate",
+     "field_id": null,
+     "kind": "raw_stream",
+     "producer": {
+      "story": "#492",
+      "release": "EF4",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_not_delivered"
+    },
+    {
+     "operand_ref": "F0186",
+     "role": "window-end clock of the rate",
+     "field_id": "F0186",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "none for the echo; EF1 clock module covers the session clock only"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    }
+   ],
+   "adjudicated_finding": "Operand chain resolved: F0702 has no independent producer. It equals F0193, whose planned owner is the #513 trailing rate projection, which consumes the #492 rolling trade window profile (answer A4).",
+   "residual_undecidable": [
+    "trailing-window end convention and empty-window behavior are not frozen in any contract"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0276",
+   "kind": "consumer",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "retracement proximity (neutral location)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 511,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF2",
+      "io_issue": 609,
+      "worker_issue": 610,
+      "role": "caller_parameterized_retracement_level"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_proximity_crossing_score_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0150",
+     "role": "current close compared with the level",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0338",
+     "role": "supplied bar history (prior bars, previous close)",
+     "field_id": "F0338",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route, in progress)",
+      "release": "EF1",
+      "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "OP-PRIOR-HIGH",
+     "role": "upper end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_high; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-PRIOR-LOW",
+     "role": "lower end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_low; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-LEVEL",
+     "role": "retracement level consumed by the predicate and score",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF2 retracement-level story",
+      "release": "EF2",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-RATIO",
+     "role": "ratio for this row only",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-HISTORY-GATE",
+     "role": "history length gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "F0148",
+     "role": "current high in the range-average sequence",
+     "field_id": "F0148",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.bar.high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0149",
+     "role": "current low in the range-average sequence",
+     "field_id": "F0149",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.bar.low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-RANGE-AVG",
+     "role": "sets the proximity tolerance",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.atr; #472 interval-aware variant",
+      "release": "EF2",
+      "delivered_id": "core history.atr (anchored smoothed ATR per README)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "PARAM-TOL",
+     "role": "tolerance floor and multiple",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "The nine wave 1 rows are three operand families, not nine identical routes. Proximity rows need the range-average operand and the current high/low; they do not use the previous close as a crossing operand.",
+   "residual_undecidable": [
+    "which close variant of the F0150 family is read; ratio and tolerance values are parameters to be supplied, not defaulted"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0277",
+   "kind": "consumer",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "retracement proximity (neutral location)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 511,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF2",
+      "io_issue": 609,
+      "worker_issue": 610,
+      "role": "caller_parameterized_retracement_level"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_proximity_crossing_score_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0150",
+     "role": "current close compared with the level",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0338",
+     "role": "supplied bar history (prior bars, previous close)",
+     "field_id": "F0338",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route, in progress)",
+      "release": "EF1",
+      "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "OP-PRIOR-HIGH",
+     "role": "upper end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_high; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-PRIOR-LOW",
+     "role": "lower end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_low; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-LEVEL",
+     "role": "retracement level consumed by the predicate and score",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF2 retracement-level story",
+      "release": "EF2",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-RATIO",
+     "role": "ratio for this row only",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-HISTORY-GATE",
+     "role": "history length gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "F0148",
+     "role": "current high in the range-average sequence",
+     "field_id": "F0148",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.bar.high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0149",
+     "role": "current low in the range-average sequence",
+     "field_id": "F0149",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.bar.low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-RANGE-AVG",
+     "role": "sets the proximity tolerance",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.atr; #472 interval-aware variant",
+      "release": "EF2",
+      "delivered_id": "core history.atr (anchored smoothed ATR per README)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "PARAM-TOL",
+     "role": "tolerance floor and multiple",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "The nine wave 1 rows are three operand families, not nine identical routes. Proximity rows need the range-average operand and the current high/low; they do not use the previous close as a crossing operand.",
+   "residual_undecidable": [
+    "which close variant of the F0150 family is read; ratio and tolerance values are parameters to be supplied, not defaulted"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0278",
+   "kind": "consumer",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "retracement proximity (neutral location)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 511,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF2",
+      "io_issue": 609,
+      "worker_issue": 610,
+      "role": "caller_parameterized_retracement_level"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_proximity_crossing_score_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0150",
+     "role": "current close compared with the level",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0338",
+     "role": "supplied bar history (prior bars, previous close)",
+     "field_id": "F0338",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route, in progress)",
+      "release": "EF1",
+      "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "OP-PRIOR-HIGH",
+     "role": "upper end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_high; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-PRIOR-LOW",
+     "role": "lower end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_low; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-LEVEL",
+     "role": "retracement level consumed by the predicate and score",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF2 retracement-level story",
+      "release": "EF2",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-RATIO",
+     "role": "ratio for this row only",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-HISTORY-GATE",
+     "role": "history length gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "F0148",
+     "role": "current high in the range-average sequence",
+     "field_id": "F0148",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.bar.high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0149",
+     "role": "current low in the range-average sequence",
+     "field_id": "F0149",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.bar.low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-RANGE-AVG",
+     "role": "sets the proximity tolerance",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.atr; #472 interval-aware variant",
+      "release": "EF2",
+      "delivered_id": "core history.atr (anchored smoothed ATR per README)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "PARAM-TOL",
+     "role": "tolerance floor and multiple",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "The nine wave 1 rows are three operand families, not nine identical routes. Proximity rows need the range-average operand and the current high/low; they do not use the previous close as a crossing operand.",
+   "residual_undecidable": [
+    "which close variant of the F0150 family is read; ratio and tolerance values are parameters to be supplied, not defaulted"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0279",
+   "kind": "consumer",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "retracement crossing up (reclaim)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 511,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF2",
+      "io_issue": 609,
+      "worker_issue": 610,
+      "role": "caller_parameterized_retracement_level"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_proximity_crossing_score_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0150",
+     "role": "current close compared with the level",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0338",
+     "role": "supplied bar history (prior bars, previous close)",
+     "field_id": "F0338",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route, in progress)",
+      "release": "EF1",
+      "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "OP-PRIOR-HIGH",
+     "role": "upper end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_high; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-PRIOR-LOW",
+     "role": "lower end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_low; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-LEVEL",
+     "role": "retracement level consumed by the predicate and score",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF2 retracement-level story",
+      "release": "EF2",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-RATIO",
+     "role": "ratio for this row only",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-HISTORY-GATE",
+     "role": "history length gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Crossing rows need the previous-bar close (from F0338) and the current close against the level; no range-average operand.",
+   "residual_undecidable": [
+    "close variant; level-equality tie rule belongs to the contract"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0280",
+   "kind": "consumer",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "retracement crossing up (reclaim)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 511,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF2",
+      "io_issue": 609,
+      "worker_issue": 610,
+      "role": "caller_parameterized_retracement_level"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_proximity_crossing_score_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0150",
+     "role": "current close compared with the level",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0338",
+     "role": "supplied bar history (prior bars, previous close)",
+     "field_id": "F0338",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route, in progress)",
+      "release": "EF1",
+      "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "OP-PRIOR-HIGH",
+     "role": "upper end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_high; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-PRIOR-LOW",
+     "role": "lower end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_low; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-LEVEL",
+     "role": "retracement level consumed by the predicate and score",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF2 retracement-level story",
+      "release": "EF2",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-RATIO",
+     "role": "ratio for this row only",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-HISTORY-GATE",
+     "role": "history length gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Crossing rows need the previous-bar close (from F0338) and the current close against the level; no range-average operand.",
+   "residual_undecidable": [
+    "close variant; level-equality tie rule belongs to the contract"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0281",
+   "kind": "consumer",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "retracement crossing up (reclaim)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 511,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF2",
+      "io_issue": 609,
+      "worker_issue": 610,
+      "role": "caller_parameterized_retracement_level"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_proximity_crossing_score_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0150",
+     "role": "current close compared with the level",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0338",
+     "role": "supplied bar history (prior bars, previous close)",
+     "field_id": "F0338",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route, in progress)",
+      "release": "EF1",
+      "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "OP-PRIOR-HIGH",
+     "role": "upper end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_high; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-PRIOR-LOW",
+     "role": "lower end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_low; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-LEVEL",
+     "role": "retracement level consumed by the predicate and score",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF2 retracement-level story",
+      "release": "EF2",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-RATIO",
+     "role": "ratio for this row only",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-HISTORY-GATE",
+     "role": "history length gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Crossing rows need the previous-bar close (from F0338) and the current close against the level; no range-average operand.",
+   "residual_undecidable": [
+    "close variant; level-equality tie rule belongs to the contract"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0282",
+   "kind": "consumer",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "retracement crossing down (rejection)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 511,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF2",
+      "io_issue": 609,
+      "worker_issue": 610,
+      "role": "caller_parameterized_retracement_level"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_proximity_crossing_score_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0150",
+     "role": "current close compared with the level",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0338",
+     "role": "supplied bar history (prior bars, previous close)",
+     "field_id": "F0338",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route, in progress)",
+      "release": "EF1",
+      "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "OP-PRIOR-HIGH",
+     "role": "upper end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_high; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-PRIOR-LOW",
+     "role": "lower end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_low; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-LEVEL",
+     "role": "retracement level consumed by the predicate and score",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF2 retracement-level story",
+      "release": "EF2",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-RATIO",
+     "role": "ratio for this row only",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-HISTORY-GATE",
+     "role": "history length gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Mirror of the crossing-up family with the opposite comparison direction; same operand set.",
+   "residual_undecidable": [
+    "close variant; level-equality tie rule belongs to the contract"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0283",
+   "kind": "consumer",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "retracement crossing down (rejection)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 511,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF2",
+      "io_issue": 609,
+      "worker_issue": 610,
+      "role": "caller_parameterized_retracement_level"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_proximity_crossing_score_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0150",
+     "role": "current close compared with the level",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0338",
+     "role": "supplied bar history (prior bars, previous close)",
+     "field_id": "F0338",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route, in progress)",
+      "release": "EF1",
+      "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "OP-PRIOR-HIGH",
+     "role": "upper end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_high; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-PRIOR-LOW",
+     "role": "lower end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_low; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-LEVEL",
+     "role": "retracement level consumed by the predicate and score",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF2 retracement-level story",
+      "release": "EF2",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-RATIO",
+     "role": "ratio for this row only",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-HISTORY-GATE",
+     "role": "history length gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Mirror of the crossing-up family with the opposite comparison direction; same operand set.",
+   "residual_undecidable": [
+    "close variant; level-equality tie rule belongs to the contract"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0284",
+   "kind": "consumer",
+   "wave1_slice": "A",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "retracement crossing down (rejection)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 511,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF2",
+      "io_issue": 609,
+      "worker_issue": 610,
+      "role": "caller_parameterized_retracement_level"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_proximity_crossing_score_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0150",
+     "role": "current close compared with the level",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0338",
+     "role": "supplied bar history (prior bars, previous close)",
+     "field_id": "F0338",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route, in progress)",
+      "release": "EF1",
+      "delivered_id": "core HistoryContext DAILY batch carrier (history.* grids)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "OP-PRIOR-HIGH",
+     "role": "upper end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_high; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_high"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-PRIOR-LOW",
+     "role": "lower end of the range the level is built from",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "core history.prior_low; #473/#483 numbered",
+      "release": "EF2",
+      "delivered_id": "core history.prior_low"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-LEVEL",
+     "role": "retracement level consumed by the predicate and score",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF2 retracement-level story",
+      "release": "EF2",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-RATIO",
+     "role": "ratio for this row only",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-HISTORY-GATE",
+     "role": "history length gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Mirror of the crossing-up family with the opposite comparison direction; same operand set.",
+   "residual_undecidable": [
+    "close variant; level-equality tie rule belongs to the contract"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0003",
+   "kind": "consumer",
+   "wave1_slice": "B",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low",
+   "family": "observed-population breadth regime (whole cohort)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 598,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF3",
+      "io_issue": 611,
+      "worker_issue": 612,
+      "role": "observed_population_companion"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_breadth_regime_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0206",
+     "role": "per-member change whose sign is counted",
+     "field_id": "F0206",
+     "kind": "field",
+     "producer": {
+      "story": "#507 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.price.close_close_return; EF1 calendar.period prior-close return (#506)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-BREADTH",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "#598 observed companion (per-member eligibility)",
+      "release": "EF3",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_outputs_unenumerated"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (duplicate handling)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-OBS-BREADTH",
+     "role": "counts and fraction over the observed cohort",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "#598 observed companion",
+      "release": "EF3",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_outputs_unenumerated"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-REGIME-CUTS",
+     "role": "cut-offs applied to the fraction (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Public bridges were empty; the private profile gives the operand set. The consumer counts positive changes over all observed qualifying members, which is not the declared-universe advance/decline ratio.",
+   "residual_undecidable": [
+    "observed-versus-declared population semantics need an owner decision (D-POP); duplicate-identity treatment must be frozen"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0004",
+   "kind": "consumer",
+   "wave1_slice": "B",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low",
+   "family": "observed-population breadth regime (whole cohort)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 598,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF3",
+      "io_issue": 611,
+      "worker_issue": 612,
+      "role": "observed_population_companion"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_breadth_regime_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0206",
+     "role": "per-member change whose sign is counted",
+     "field_id": "F0206",
+     "kind": "field",
+     "producer": {
+      "story": "#507 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.price.close_close_return; EF1 calendar.period prior-close return (#506)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-BREADTH",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "#598 observed companion (per-member eligibility)",
+      "release": "EF3",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_outputs_unenumerated"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (duplicate handling)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-OBS-BREADTH",
+     "role": "counts and fraction over the observed cohort",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "#598 observed companion",
+      "release": "EF3",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_outputs_unenumerated"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-REGIME-CUTS",
+     "role": "cut-offs applied to the fraction (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Public bridges were empty; the private profile gives the operand set. The consumer counts positive changes over all observed qualifying members, which is not the declared-universe advance/decline ratio.",
+   "residual_undecidable": [
+    "observed-versus-declared population semantics need an owner decision (D-POP); duplicate-identity treatment must be frozen"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0005",
+   "kind": "consumer",
+   "wave1_slice": "B",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low",
+   "family": "observed-population breadth regime (sector-grouped)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 598,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF3",
+      "io_issue": 611,
+      "worker_issue": 612,
+      "role": "observed_population_companion"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_breadth_regime_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0206",
+     "role": "per-member change whose sign is counted",
+     "field_id": "F0206",
+     "kind": "field",
+     "producer": {
+      "story": "#507 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.price.close_close_return; EF1 calendar.period prior-close return (#506)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0255",
+     "role": "group label for the sector-grouped fraction",
+     "field_id": "F0255",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #508",
+      "release": "EF1",
+      "delivered_id": "EF1 reference.classification.value (#508)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-BREADTH",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "#598 observed companion (per-member eligibility)",
+      "release": "EF3",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_outputs_unenumerated"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (duplicate handling)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-OBS-BREADTH",
+     "role": "counts and fraction over the observed cohort per supplied group",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "#598 observed companion",
+      "release": "EF3",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_outputs_unenumerated"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-REGIME-CUTS",
+     "role": "cut-offs applied to the fraction (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-GROUP-GATE",
+     "role": "group-size gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Public bridges were empty; the private profile gives the operand set. The consumer counts positive changes over all observed qualifying members, which is not the declared-universe advance/decline ratio.",
+   "residual_undecidable": [
+    "observed-versus-declared population semantics need an owner decision (D-POP); duplicate-identity treatment must be frozen"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0006",
+   "kind": "consumer",
+   "wave1_slice": "B",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low",
+   "family": "observed-population breadth regime (sector-grouped)",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 598,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF3",
+      "io_issue": 611,
+      "worker_issue": 612,
+      "role": "observed_population_companion"
+     },
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "separate_breadth_regime_policy"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0206",
+     "role": "per-member change whose sign is counted",
+     "field_id": "F0206",
+     "kind": "field",
+     "producer": {
+      "story": "#507 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.price.close_close_return; EF1 calendar.period prior-close return (#506)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0255",
+     "role": "group label for the sector-grouped fraction",
+     "field_id": "F0255",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #508",
+      "release": "EF1",
+      "delivered_id": "EF1 reference.classification.value (#508)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-BREADTH",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "#598 observed companion (per-member eligibility)",
+      "release": "EF3",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_outputs_unenumerated"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (duplicate handling)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-OBS-BREADTH",
+     "role": "counts and fraction over the observed cohort per supplied group",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "#598 observed companion",
+      "release": "EF3",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_outputs_unenumerated"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-REGIME-CUTS",
+     "role": "cut-offs applied to the fraction (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-GROUP-GATE",
+     "role": "group-size gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Public bridges were empty; the private profile gives the operand set. The consumer counts positive changes over all observed qualifying members, which is not the declared-universe advance/decline ratio.",
+   "residual_undecidable": [
+    "observed-versus-declared population semantics need an owner decision (D-POP); duplicate-identity treatment must be frozen"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0090",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, dollar-volume cohort, bottom tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0152",
+     "role": "cohort value being ranked",
+     "field_id": "F0152",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.notional"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0091",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, dollar-volume cohort, top tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0152",
+     "role": "cohort value being ranked",
+     "field_id": "F0152",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.notional"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0092",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, industry-grouped excess-return cohort, bottom tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0251",
+     "role": "cohort value being ranked",
+     "field_id": "F0251",
+     "kind": "field",
+     "producer": {
+      "story": "#513 (route)",
+      "release": "EF4",
+      "delivered_id": "related candidate only: core relative.market_return (window equivalence unproved)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_not_delivered"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0259",
+     "role": "admission marker: member enters only when present",
+     "field_id": "F0259",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #513",
+      "release": "EF4",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "F0256",
+     "role": "group label partitioning the cohort",
+     "field_id": "F0256",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #508",
+      "release": "EF1",
+      "delivered_id": "EF1 reference.classification.value (#508)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort group",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-GROUP-GATE",
+     "role": "group-size gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0093",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, industry-grouped excess-return cohort, top tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0251",
+     "role": "cohort value being ranked",
+     "field_id": "F0251",
+     "kind": "field",
+     "producer": {
+      "story": "#513 (route)",
+      "release": "EF4",
+      "delivered_id": "related candidate only: core relative.market_return (window equivalence unproved)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_not_delivered"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0259",
+     "role": "admission marker: member enters only when present",
+     "field_id": "F0259",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #513",
+      "release": "EF4",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "F0256",
+     "role": "group label partitioning the cohort",
+     "field_id": "F0256",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #508",
+      "release": "EF1",
+      "delivered_id": "EF1 reference.classification.value (#508)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort group",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-GROUP-GATE",
+     "role": "group-size gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0094",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, sector-grouped excess-return cohort, bottom tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0251",
+     "role": "cohort value being ranked",
+     "field_id": "F0251",
+     "kind": "field",
+     "producer": {
+      "story": "#513 (route)",
+      "release": "EF4",
+      "delivered_id": "related candidate only: core relative.market_return (window equivalence unproved)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_not_delivered"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0259",
+     "role": "admission marker: member enters only when present",
+     "field_id": "F0259",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #513",
+      "release": "EF4",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "F0255",
+     "role": "group label partitioning the cohort",
+     "field_id": "F0255",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #508",
+      "release": "EF1",
+      "delivered_id": "EF1 reference.classification.value (#508)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort group",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-GROUP-GATE",
+     "role": "group-size gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0095",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, sector-grouped excess-return cohort, top tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0251",
+     "role": "cohort value being ranked",
+     "field_id": "F0251",
+     "kind": "field",
+     "producer": {
+      "story": "#513 (route)",
+      "release": "EF4",
+      "delivered_id": "related candidate only: core relative.market_return (window equivalence unproved)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_not_delivered"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0259",
+     "role": "admission marker: member enters only when present",
+     "field_id": "F0259",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #513",
+      "release": "EF4",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "F0255",
+     "role": "group label partitioning the cohort",
+     "field_id": "F0255",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #508",
+      "release": "EF1",
+      "delivered_id": "EF1 reference.classification.value (#508)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort group",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-GROUP-GATE",
+     "role": "group-size gate",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0096",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, session-change cohort, bottom tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0206",
+     "role": "cohort value being ranked",
+     "field_id": "F0206",
+     "kind": "field",
+     "producer": {
+      "story": "#507 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.price.close_close_return; EF1 calendar.period prior-close return (#506)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0097",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, session-change cohort, top tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0206",
+     "role": "cohort value being ranked",
+     "field_id": "F0206",
+     "kind": "field",
+     "producer": {
+      "story": "#507 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "core session.price.close_close_return; EF1 calendar.period prior-close return (#506)"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "low-medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0098",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, market-wide excess-return cohort, bottom tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0251",
+     "role": "cohort value being ranked",
+     "field_id": "F0251",
+     "kind": "field",
+     "producer": {
+      "story": "#513 (route)",
+      "release": "EF4",
+      "delivered_id": "related candidate only: core relative.market_return (window equivalence unproved)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_not_delivered"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0259",
+     "role": "admission marker: member enters only when present",
+     "field_id": "F0259",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #513",
+      "release": "EF4",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  },
+  {
+   "opaque_id": "S0099",
+   "kind": "consumer",
+   "wave1_slice": "C",
+   "wave1_classification": "NEEDS_OPERAND_PRODUCER",
+   "wave1_confidence": "low-medium",
+   "family": "cohort rank, market-wide excess-return cohort, top tail",
+   "route": {
+    "policy_owner": {
+     "primary_numbered_owner": 518,
+     "planned_release": "EF8",
+     "io_issue": 621,
+     "worker_issue": 622
+    },
+    "selected_components": [
+     {
+      "primary_numbered_owner": 518,
+      "proposed_new_owner_key": null,
+      "planned_release": "EF8",
+      "io_issue": 621,
+      "worker_issue": 622,
+      "role": "current_observed_cohort_normalization; conditional_exact102reuse"
+     }
+    ]
+   },
+   "public_lexical_field_bridges": [],
+   "operand_source": "private operand and source profile material, read only; opaque ids only",
+   "operands": [
+    {
+     "operand_ref": "F0251",
+     "role": "cohort value being ranked",
+     "field_id": "F0251",
+     "kind": "field",
+     "producer": {
+      "story": "#513 (route)",
+      "release": "EF4",
+      "delivered_id": "related candidate only: core relative.market_return (window equivalence unproved)"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "numbered_story_not_delivered"
+    },
+    {
+     "operand_ref": "F0137",
+     "role": "member identity (tie order, one value per identity)",
+     "field_id": "F0137",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route)",
+      "release": "EF1",
+      "delivered_id": "explicit EntityKey in compute_ef1 and core batch contracts"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0259",
+     "role": "admission marker: member enters only when present",
+     "field_id": "F0259",
+     "kind": "field",
+     "producer": {
+      "story": "#570 (route); #513",
+      "release": "EF4",
+      "delivered_id": "none"
+     },
+     "status": "PLANNED_NUMBERED",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "representation_mapping_pending"
+    },
+    {
+     "operand_ref": "F0150",
+     "role": "eligibility input",
+     "field_id": "F0150",
+     "kind": "field",
+     "producer": {
+      "story": "#506 (route); layer #570",
+      "release": "EF1",
+      "delivered_id": "session.close.calculated_price; core session.bar.close"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "F0161",
+     "role": "eligibility input",
+     "field_id": "F0161",
+     "kind": "field",
+     "producer": {
+      "story": "#19 (route, closed); layer #613",
+      "release": "EF4",
+      "delivered_id": "core session.trade.volume"
+     },
+     "status": "DELIVERED_ON_MAIN",
+     "confidence": "medium-low",
+     "evidence_class": "private_source_static_read+delivery_ledger_and_tree_at_base",
+     "missing_producer_kind": "none"
+    },
+    {
+     "operand_ref": "OP-ELIG-RANK",
+     "role": "observed-cohort membership",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story (population admission step)",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "low",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "OP-COHORT-RANK",
+     "role": "rank position of each member within the cohort",
+     "field_id": null,
+     "kind": "derived",
+     "producer": {
+      "story": "proposed new EF8 cohort-normalization story",
+      "release": "EF8",
+      "delivered_id": "none"
+     },
+     "status": "PROPOSED_NEW_STORY",
+     "confidence": "medium",
+     "evidence_class": "private_source_static_read+public_plan_and_issue_text",
+     "missing_producer_kind": "new_pure_producer_story"
+    },
+    {
+     "operand_ref": "PARAM-ELIG-FLOORS",
+     "role": "floors",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    },
+    {
+     "operand_ref": "PARAM-TAIL-CUT",
+     "role": "tail cut (policy #518)",
+     "field_id": null,
+     "kind": "parameter",
+     "producer": {
+      "story": "caller parameter; policy #518",
+      "release": "EF8",
+      "delivered_id": "n/a"
+     },
+     "status": "PARAMETER_ONLY",
+     "confidence": "high",
+     "evidence_class": "private_source_static_read",
+     "missing_producer_kind": "parameter"
+    }
+   ],
+   "adjudicated_finding": "Cohort values come from three distinct producers depending on the family; the common step is a current-cohort rank with no numbered producer. A private candidate owner (#489) is prior-only history and is not a match.",
+   "residual_undecidable": [
+    "exact reuse of closed #102 is unproved; rank convention, tie and non-finite handling are contract items"
+   ],
+   "accepted": false
+  }
+ ],
+ "proposed_answers": {
+  "A4": {
+   "question": "Which #513 profile supplies F0702, and how do F0702 and the #492 profile link?",
+   "proposed_answer": "F0702 has no independent producer. It is a value copy of F0193, which the route already assigns to the #513 trailing-window rate projection (share-rate variant of the raw rolling return/share-rate/rate-difference role). The #513 rate projection divides a window sum by the window length and consumes the #492 plain rolling trade-window volume profile (not the tick-signed profile); #513 already lists #492 as a prerequisite. Recommend recording F0702 as an alias of F0193 (duplicate profile, identical value) and naming it as the supplied raw rate operand of #626.",
+   "chain": [
+    "OP-TRAILING-WINDOW (#492)",
+    "F0193 (#513 rate projection)",
+    "F0702 (copy; supplied operand of #626)"
+   ],
+   "evidence_class": "private_source_static_read + public_plan_and_issue_text",
+   "confidence": "medium-high",
+   "residual": [
+    "window-end convention and empty-window behavior are not frozen",
+    "EF4 producer versus EF3 consumer: per wave 1 B7 the value enters #626 as a supplied operand through I/O, so no EF4 production edge for EF3 acceptance"
+   ],
+   "status": "proposed answer, not a decision"
+  },
+  "B2": {
+   "question": "What do F0700, F0701 and F0721 carry and who produces them?",
+   "proposed_answer": "F0700 is the entity identity echoed from the input observation. F0701 is the input observation event clock echoed from the input; it is also an ordering operand (an update applies only if its clock advances for the entity and session). F0721 is the nested session-summary aggregate holding the computed session-summary outputs F0690 to F0699. So F0700 and F0701 are supplied facts: #611 maps them, #626 must name them as input identity and ordering operands in its contract. F0721 is a computed #626 output group that #611 only envelopes. Proposed re-attribution of the primary owner: F0721 to #626; F0700 and F0701 to supplied-operand status with #611 as mapping and #626 as consumer. The serialized carrier F0179 stays with #570.",
+   "evidence_class": "private_source_static_read + public_plan_and_issue_text",
+   "confidence": "medium-high for F0700 and F0701; medium for F0721",
+   "residual": [
+    "#626 contract has not stated whether the session-summary group is emitted per update or at session end",
+    "reset-on-new-session semantics belong to the #626 contract"
+   ],
+   "status": "proposed answer, not a decision"
+  },
+  "B5": {
+   "question": "Which observed-population companion outputs does #598 need, and who produces their operands?",
+   "proposed_answer": "Seven draft outputs, kept under distinct observed-population names so denominators are never mixed with declared-universe outputs: (1) qualifying observed member count; (2) observed advancing member count (strictly positive change); (3) observed advance fraction = (2)/(1), which is not the advance/decline ratio because non-advancing members are not split; (4) to (6) the same three per supplied group label together with group size; (7) a per-cohort and per-group coverage record (observed members, no expected population). Regime classification, cut-offs, score scaling and projection of the cohort result onto each member stay in #518. Operand producers: per-member change F0206 (delivered candidates, #507 route), eligibility inputs F0150 and F0161 with caller floors (delivered candidates), group label F0255 (delivered #508 candidate), identity F0137 (delivered). The consumer counts duplicates of an identity while the rank consumers keep one value per identity, so duplicate-identity handling must be frozen once. Placement: either retitle and extend #598 with a separately versioned observed-population profile or number a narrow companion story; this is an owner decision.",
+   "evidence_class": "private_source_static_read + public_plan_and_issue_text",
+   "confidence": "medium for the output list; low-medium for the placement",
+   "residual": [
+    "D-POP owner decision on placement",
+    "whether a declared-universe profile may later reuse the same arithmetic"
+   ],
+   "status": "proposed answer, not a decision"
+  },
+  "B6": {
+   "question": "Which adaptive outputs do S0336, S0337 and S0357 consume?",
+   "proposed_answer": "All three read the session-summary group F0721 (carried by F0179) and the session change F0206 for direction, plus caller thresholds. S0336 consumes the acceleration-diagnostic episode count F0695 and peak score F0696. S0337 consumes the baseline-availability flag F0699, the trigger count F0694 and the composite peak score F0690. S0357 consumes F0699 and the peak short-window relative volume F0692. Transitive #626 inputs: the supplied raw rate F0702 (all three families through the minimum-rate gate and the acceleration diagnostic), the relative-volume window values and availability flags F0208 to F0211 (route #490, EF3), F0186 and F0700. Proposed output-level edges: #518 to #626 for exactly these six outputs plus the envelope; the #519 optional edge covers the same set only if #519 re-derives them, otherwise it is unnecessary for these three rows. The private source profile for these rows names #490 as numerical owner; it predates #626 and is superseded by decision D-FLIP.",
+   "rows": {
+    "S0336": [
+     "F0721",
+     "F0695",
+     "F0696",
+     "F0206",
+     "F0179"
+    ],
+    "S0337": [
+     "F0721",
+     "F0699",
+     "F0694",
+     "F0690",
+     "F0206",
+     "F0179"
+    ],
+    "S0357": [
+     "F0721",
+     "F0699",
+     "F0692",
+     "F0206",
+     "F0179"
+    ]
+   },
+   "transitive_626_inputs": [
+    "F0702",
+    "F0208",
+    "F0209",
+    "F0210",
+    "F0211",
+    "F0186",
+    "F0700"
+   ],
+   "evidence_class": "private_source_static_read + public_plan_and_issue_text",
+   "confidence": "medium-high for the consumed outputs; medium for the transitive list",
+   "residual": [
+    "thresholds are caller parameters and are not defaulted",
+    "#626 contract must state when the session summary is final"
+   ],
+   "status": "proposed answer, not a decision"
+  }
+ },
+ "proposed_stories": [
+  {
+   "key": "N1",
+   "title": "Narrow caller-parameterized retracement-level producer",
+   "release": "EF2",
+   "origin": "wave 1 decision A1",
+   "rows": [
+    "S0276",
+    "S0277",
+    "S0278",
+    "S0279",
+    "S0280",
+    "S0281",
+    "S0282",
+    "S0283",
+    "S0284"
+   ],
+   "note": "Pure arithmetic over a prior-window extrema pair and a caller ratio; extrema from delivered history.prior_high/prior_low or numbered #473/#483.",
+   "status": "proposed, not created"
+  },
+  {
+   "key": "N2",
+   "title": "Current-observed-cohort normalization and rank producer (whole cohort and supplied group, with admission step)",
+   "release": "EF8",
+   "origin": "wave 1 decision C1",
+   "rows": [
+    "S0090",
+    "S0091",
+    "S0092",
+    "S0093",
+    "S0094",
+    "S0095",
+    "S0096",
+    "S0097",
+    "S0098",
+    "S0099"
+   ],
+   "note": "Includes the population admission step OP-ELIG-RANK; closed #102 reuse stays unproved; not #489 (prior-only history).",
+   "status": "proposed, not created"
+  },
+  {
+   "key": "A-598",
+   "title": "Amend #598 with an observed-population output profile (or number a narrow companion)",
+   "release": "EF3",
+   "origin": "wave 1 decision D-POP",
+   "rows": [
+    "S0003",
+    "S0004",
+    "S0005",
+    "S0006"
+   ],
+   "note": "Output list in answer B5; an amendment of an existing numbered story, not a new numbered producer, unless the owner prefers a companion.",
+   "status": "proposed amendment, owner decision"
+  }
+ ],
+ "rows_still_undecidable": [
+  {
+   "rows": [
+    "S0276",
+    "S0277",
+    "S0278",
+    "S0279",
+    "S0280",
+    "S0281",
+    "S0282",
+    "S0283",
+    "S0284"
+   ],
+   "why": "Operands resolved. Still open: which close variant the consumers read (the source row has several), level-equality tie rule, and the parameter values, which must be supplied rather than defaulted."
+  },
+  {
+   "rows": [
+    "S0003",
+    "S0004",
+    "S0005",
+    "S0006"
+   ],
+   "why": "Operands resolved. Placement of the observed-population outputs (D-POP) and duplicate-identity treatment need an owner decision."
+  },
+  {
+   "rows": [
+    "S0090",
+    "S0091",
+    "S0092",
+    "S0093",
+    "S0094",
+    "S0095",
+    "S0096",
+    "S0097",
+    "S0098",
+    "S0099"
+   ],
+   "why": "Operands resolved. Rank convention, ties, non-finite handling and whether closed #102 can be reused are unproved; N2 is needed unless reuse is proved."
+  },
+  {
+   "rows": [
+    "F0702"
+   ],
+   "why": "Operand chain resolved. Window-end convention and empty-window behavior are not frozen by any contract."
+  }
+ ],
+ "incidental_findings": [
+  "Delivery of history.prior_high, history.prior_low and history.atr is established from the implemented-feature catalog and README at the base commit; wave 1 reported delivery of the extrema operand as not established.",
+  "DELIVERY_LEDGER section 1 lists the supplied-close absolute BPS and tolerance comparison as not found; at the base commit the module and feature ids exist (#639). The ledger row is stale.",
+  "Route owner and delivered module disagree for F0206: the route names #507, the delivered prior-close return is in the #506 period module (see attribution rule A5).",
+  "A private source profile names #489 as candidate numerical owner of the cohort rank; #489 is prior-only history, so that candidate does not hold for a current-cohort rank."
+ ],
+ "summary": {
+  "rows_covered": 24,
+  "rows_with_all_operands_identified": 24,
+  "counts": {
+   "operand_entries_excluding_parameters": 153,
+   "parameter_entries": 55,
+   "total_entries": 208,
+   "by_status": {
+    "DELIVERED_ON_MAIN": 92,
+    "PLANNED_NUMBERED": 32,
+    "PROPOSED_NEW_STORY": 29,
+    "UNCOVERED_GAP": 0
+   },
+   "distinct_operands_by_status": {
+    "DELIVERED_ON_MAIN": 12,
+    "PLANNED_NUMBERED": 8,
+    "PROPOSED_NEW_STORY": 3,
+    "PARAMETER_ONLY": 7
+   },
+   "by_missing_producer_kind": {
+    "numbered_story_not_delivered": 8,
+    "representation_mapping_pending": 16,
+    "none": 92,
+    "new_pure_producer_story": 29,
+    "numbered_story_outputs_unenumerated": 8
+   },
+   "by_release_and_status": {
+    "EF1|DELIVERED_ON_MAIN": 55,
+    "EF1|PLANNED_NUMBERED": 10,
+    "EF2|DELIVERED_ON_MAIN": 21,
+    "EF2|PROPOSED_NEW_STORY": 9,
+    "EF3|PLANNED_NUMBERED": 8,
+    "EF4|DELIVERED_ON_MAIN": 16,
+    "EF4|PLANNED_NUMBERED": 14,
+    "EF8|PROPOSED_NEW_STORY": 20
+   },
+   "by_producer_release_status": [
+    {
+     "producer": "#19 (route, closed); layer #613",
+     "release": "EF4",
+     "status": "DELIVERED_ON_MAIN",
+     "entries": 16
+    },
+    {
+     "producer": "#492",
+     "release": "EF4",
+     "status": "PLANNED_NUMBERED",
+     "entries": 1
+    },
+    {
+     "producer": "#506 (route); layer #570",
+     "release": "EF1",
+     "status": "DELIVERED_ON_MAIN",
+     "entries": 29
+    },
+    {
+     "producer": "#507 (route); layer #570",
+     "release": "EF1",
+     "status": "DELIVERED_ON_MAIN",
+     "entries": 6
+    },
+    {
+     "producer": "#513 (route)",
+     "release": "EF4",
+     "status": "PLANNED_NUMBERED",
+     "entries": 6
+    },
+    {
+     "producer": "#513 (route); upstream #492",
+     "release": "EF4",
+     "status": "PLANNED_NUMBERED",
+     "entries": 1
+    },
+    {
+     "producer": "#570 (route)",
+     "release": "EF1",
+     "status": "DELIVERED_ON_MAIN",
+     "entries": 14
+    },
+    {
+     "producer": "#570 (route)",
+     "release": "EF1",
+     "status": "PLANNED_NUMBERED",
+     "entries": 1
+    },
+    {
+     "producer": "#570 (route); #508",
+     "release": "EF1",
+     "status": "DELIVERED_ON_MAIN",
+     "entries": 6
+    },
+    {
+     "producer": "#570 (route); #513",
+     "release": "EF4",
+     "status": "PLANNED_NUMBERED",
+     "entries": 6
+    },
+    {
+     "producer": "#570 (route, in progress)",
+     "release": "EF1",
+     "status": "PLANNED_NUMBERED",
+     "entries": 9
+    },
+    {
+     "producer": "#598 observed companion",
+     "release": "EF3",
+     "status": "PLANNED_NUMBERED",
+     "entries": 4
+    },
+    {
+     "producer": "#598 observed companion (per-member eligibility)",
+     "release": "EF3",
+     "status": "PLANNED_NUMBERED",
+     "entries": 4
+    },
+    {
+     "producer": "core history.atr; #472 interval-aware variant",
+     "release": "EF2",
+     "status": "DELIVERED_ON_MAIN",
+     "entries": 3
+    },
+    {
+     "producer": "core history.prior_high; #473/#483 numbered",
+     "release": "EF2",
+     "status": "DELIVERED_ON_MAIN",
+     "entries": 9
+    },
+    {
+     "producer": "core history.prior_low; #473/#483 numbered",
+     "release": "EF2",
+     "status": "DELIVERED_ON_MAIN",
+     "entries": 9
+    },
+    {
+     "producer": "proposed new EF2 retracement-level story",
+     "release": "EF2",
+     "status": "PROPOSED_NEW_STORY",
+     "entries": 9
+    },
+    {
+     "producer": "proposed new EF8 cohort-normalization story",
+     "release": "EF8",
+     "status": "PROPOSED_NEW_STORY",
+     "entries": 10
+    },
+    {
+     "producer": "proposed new EF8 cohort-normalization story (population admission step)",
+     "release": "EF8",
+     "status": "PROPOSED_NEW_STORY",
+     "entries": 10
+    }
+   ],
+   "rows_per_proposed_story": {
+    "OP-LEVEL": [
+     "S0276",
+     "S0277",
+     "S0278",
+     "S0279",
+     "S0280",
+     "S0281",
+     "S0282",
+     "S0283",
+     "S0284"
+    ],
+    "OP-ELIG-RANK": [
+     "S0090",
+     "S0091",
+     "S0092",
+     "S0093",
+     "S0094",
+     "S0095",
+     "S0096",
+     "S0097",
+     "S0098",
+     "S0099"
+    ],
+    "OP-COHORT-RANK": [
+     "S0090",
+     "S0091",
+     "S0092",
+     "S0093",
+     "S0094",
+     "S0095",
+     "S0096",
+     "S0097",
+     "S0098",
+     "S0099"
+    ]
+   },
+   "entries_per_row": {
+    "F0702": 3,
+    "S0276": 11,
+    "S0277": 11,
+    "S0278": 11,
+    "S0279": 7,
+    "S0280": 7,
+    "S0281": 7,
+    "S0282": 7,
+    "S0283": 7,
+    "S0284": 7,
+    "S0003": 8,
+    "S0004": 8,
+    "S0005": 10,
+    "S0006": 10,
+    "S0090": 8,
+    "S0091": 8,
+    "S0092": 11,
+    "S0093": 11,
+    "S0094": 11,
+    "S0095": 11,
+    "S0096": 8,
+    "S0097": 8,
+    "S0098": 9,
+    "S0099": 9
+   }
+  },
+  "gap_entries_by_missing_producer_kind": {
+   "numbered_story_not_delivered": 8,
+   "representation_mapping_pending": 16,
+   "new_pure_producer_story": 29,
+   "numbered_story_outputs_unenumerated": 8
+  },
+  "gap_distinct_operands_by_missing_producer_kind": {
+   "numbered_story_not_delivered": [
+    "F0193",
+    "F0251",
+    "OP-TRAILING-WINDOW"
+   ],
+   "representation_mapping_pending": [
+    "F0186",
+    "F0259",
+    "F0338"
+   ],
+   "new_pure_producer_story": [
+    "OP-COHORT-RANK",
+    "OP-ELIG-RANK",
+    "OP-LEVEL"
+   ],
+   "numbered_story_outputs_unenumerated": [
+    "OP-ELIG-BREADTH",
+    "OP-OBS-BREADTH"
+   ]
+  },
+  "delivered_distinct_operands": [
+   "F0137",
+   "F0148",
+   "F0149",
+   "F0150",
+   "F0152",
+   "F0161",
+   "F0206",
+   "F0255",
+   "F0256",
+   "OP-PRIOR-HIGH",
+   "OP-PRIOR-LOW",
+   "OP-RANGE-AVG"
+  ],
+  "wave1_comparison": {
+   "before": "24 rows classified NEEDS_OPERAND_PRODUCER with empty public bridges",
+   "after": "24 rows with operand lists; zero operand-level UNCOVERED_GAP; two pure producers missing (N1, N2); one output enumeration missing (#598)"
+  }
+ }
+}
