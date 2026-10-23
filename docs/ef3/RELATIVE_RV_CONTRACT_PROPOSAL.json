@@ -1,5 +1,5 @@
 {
- "proposal_version": "ef3-relative-rv-proposal1",
+ "proposal_version": "ef3-relative-rv-proposal1+amendment1",
  "status": "coordinator decisions recorded, pending owner review; frozen on merge; not an implementation or acceptance claim",
  "story": "EQ-153 #487 (correlation, beta, residual returns) and EQ-154 #488 (daily centered log-return volatility and intraday regular-session realized variance), EF3; consumed by EF3 I/O #611 (EQ-223), worker #612 (EQ-224) and acceptance EQ-157 #491",
  "evidence_kind": "documentation and hand-derived expected values from a scratch script using only exact Fraction arithmetic and the standard-library Decimal at 120 digits (needed only for ln and sqrt); the script imports nothing from the equity packages; the library was not imported, run or tested",
@@ -160,7 +160,7 @@
    }
   ]
  },
- "grid_context": "daily closes are BAR rows on a daily governed grid with R17 grid and slot-coverage conventions: one slot per governed session, [start_ns,end_ns) session bounds, session_id, grid/calendar identity, target slot and per-slot coverage from the R17 context; one bar per session per role; no DAILY-kind input",
+ "grid_context": "relative_stats and daily_log_volatility: local DailyGrid bound to the config by SHA-256 (Amendment 1 item 4); intraday_realized_variance: R17 context. daily closes are BAR rows on a daily governed grid with R17 grid and slot-coverage conventions: one slot per governed session, [start_ns,end_ns) session bounds, session_id, grid/calendar identity, target slot and per-slot coverage from the R17 context; one bar per session per role; no DAILY-kind input",
  "mathematics": {
   "notation": "closes C are positive integer coefficients at one scale; governed slots are indexed 0..t, t the target; K the cutoff; a slot is READY iff its row exists, its close is non-null and positive, its coverage is complete and known_at is non-null and <= K",
   "simple_return": "r_j = C_j / C_{j-1} - 1 exact rational, defined iff slots j-1 and j are both READY (never across a gap)",
@@ -221,19 +221,20 @@
    "coverage-proven empty slot (intraday only)": "no_eligible_observations"
   },
   "counts": {
-   "relative_stats": "expected = window, observed = n valid pairs (same for the three outputs)",
+   "relative_stats": "unavailable: expected = window, observed = n valid pairs; AVAILABLE: expected = observed = n usable pairs (QualityRow requires observed == expected for available), n >= min_pairs, so the published row never shows the window length; lost pairs ride in reasons (permitted on an available row) and in excluded evidence rows",
    "daily_log_volatility": "expected = period + 1, observed = READY closes inside the window slots",
    "intraday_realized_variance": "expected = max(2, t - a + 1), observed = READY bars among a..t"
   },
   "independent_readiness": "relative_stats: correlation and beta need only n >= min_pairs valid pairs; the residual additionally needs the target pair; a lost target pair with n >= min_pairs leaves correlation and beta available",
   "evidence": {
-   "limit": "config evidence_limit 0..10000 (R17 bound), witnesses never exceed it, unavailable outputs emit none",
-   "relative_stats_order": "instrument first used close, instrument last used close, benchmark first used close, benchmark last used close (canonical row id bar:<start_ns>:<end_ns>, role carried by the evidence role)",
+   "limit": "config evidence_limit 0..10000 is RESULT-WIDE as FeatureResult bounds it (len(evidence) <= metadata.evidence_limit across all outputs); selecting outputs one at a time reproduces each output's own list (per-output 'witnesses' in the fixtures); a joint selection concatenates the outputs in lexical feature-id order and truncates (field joint_selection_evidence); excluded rows count against the limit and follow the consumed rows of their output",
+   "relative_stats_order": "instrument first used close, instrument last used close, benchmark first used close, benchmark last used close (row id slot:<i>, role carried by the input_id)",
    "daily_log_volatility_order": "slot t-N then slot t",
    "intraday_order": "anchor slot a then target slot t",
-   "boundary": "completed_interval"
+   "boundary": "completed_interval",
+   "row_id": "row_id slot:<i> as emitted by the merged EF2 libraries (packages/intraday _flow.py: EvidenceRow(entity, feature, input_id, f'slot:{i}', ...)); the role is the input_id (instrument or benchmark); fixtures write instrument:slot:i as input:row"
   },
-  "lost_slot_reasons": "for n < min_pairs, and for daily or intraday windows with holes, reasons are the causes of the lost pairs or slots only; insufficient_history is added ONLY when the window is not wholly inside the grid (RS01, DV01, RV01)"
+  "lost_slot_reasons": "for n < min_pairs, and for daily or intraday windows with holes, reasons are the causes of the lost pairs or slots only; insufficient_history is added ONLY when the window is not wholly inside the grid (RS01, DV01, RV01); on an AVAILABLE relative_stats output those same causes are carried as reasons and excluded evidence rows (existing rows only: null, unknown, future-known, gap; absent slots have no row)"
  },
  "mode_rule": "batch and full replay only; known_at and reconstruction availability modes give identical results; update, restore and merge are unsupported (UNSUPPORTED_CAPABILITY); output at target t is independent of every slot after t (prefix property, PX01 to PX03)",
  "fixture_notation": "compact, NOT canonical wire. scale 2 coefficients; K=100; known_at 50 unless stated. Slot states: priced (c, known_at), absent (no row, no coverage), gap (declared incomplete coverage), unknown (known_at null), future (known_at 150 > K), null (row with null close; for BAR volume null and OHLC null), empty (BAR only: volume 0, OHLC null, coverage complete expected 0). relative_stats fixtures: W=window, minp=min_pairs, t target, inst and bench slot lists indexed from 0. daily: N=period, A=annualization_factor. intraday: slot 0 is the session anchor a, A may be null when only the variance is selected, prior_close is the last close of the previous session (informational), grid_slots_declared is the number of governed slots of the session. alternatives_not_published lists counterexample values of rejected conventions; they are NOT contract outputs.",
@@ -325,7 +326,8 @@
       "observed": 2,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS02",
@@ -388,7 +390,7 @@
       "i": 3
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "exact_small_sample",
      "boundary"
@@ -470,7 +472,21 @@
      "centered_beta_float64": -2.405711426673036,
      "residual_with_intercept_not_published": "-182406/10602955",
      "alpha_in_window": "538986/10602955"
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3"
+    ]
    },
    {
     "id": "RS03",
@@ -533,7 +549,7 @@
       "i": 3
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "perfect_correlation"
     ],
@@ -597,7 +613,21 @@
        "benchmark:slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3"
+    ]
    },
    {
     "id": "RS04",
@@ -660,7 +690,7 @@
       "i": 3
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "perfect_correlation",
      "exact_zero"
@@ -724,7 +754,21 @@
        "benchmark:slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3"
+    ]
    },
    {
     "id": "RS05",
@@ -799,7 +843,7 @@
       "i": 4
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "zero_correlation",
      "exact_zero"
@@ -864,7 +908,21 @@
        "benchmark:slot:4"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:4",
+     "benchmark:slot:0",
+     "benchmark:slot:4",
+     "instrument:slot:0",
+     "instrument:slot:4",
+     "benchmark:slot:0",
+     "benchmark:slot:4",
+     "instrument:slot:0",
+     "instrument:slot:4",
+     "benchmark:slot:0",
+     "benchmark:slot:4"
+    ]
    },
    {
     "id": "RS06",
@@ -960,7 +1018,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS07",
@@ -1077,7 +1136,17 @@
        "benchmark:slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3"
+    ]
    },
    {
     "id": "RS08",
@@ -1173,7 +1242,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS09",
@@ -1258,7 +1328,7 @@
       "i": 5
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "missing_pairs",
      "misaligned",
@@ -1267,8 +1337,10 @@
     "expected": {
      "relative.correlation": {
       "status": "available",
-      "reasons": [],
-      "expected": 5,
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 3,
       "observed": 3,
       "value": {
        "exact": "decimal120:9.869790239483613601511736029374759165249755304946186355995883e-1",
@@ -1283,12 +1355,15 @@
        "instrument:slot:5",
        "benchmark:slot:0",
        "benchmark:slot:5"
-      ]
+      ],
+      "quality_note": "available requires observed == expected (QualityRow validator): expected = observed = n usable pairs; the window length W = 5 is not published; lost pairs are carried by reasons (the validator permits reasons on an available row) and by excluded evidence rows"
      },
      "relative.beta": {
       "status": "available",
-      "reasons": [],
-      "expected": 5,
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 3,
       "observed": 3,
       "value": {
        "exact": "13710893516/7231322917",
@@ -1303,12 +1378,15 @@
        "instrument:slot:5",
        "benchmark:slot:0",
        "benchmark:slot:5"
-      ]
+      ],
+      "quality_note": "available requires observed == expected (QualityRow validator): expected = observed = n usable pairs; the window length W = 5 is not published; lost pairs are carried by reasons (the validator permits reasons on an available row) and by excluded evidence rows"
      },
      "relative.residual_return": {
       "status": "available",
-      "reasons": [],
-      "expected": 5,
+      "reasons": [
+       "absent_input"
+      ],
+      "expected": 3,
       "observed": 3,
       "value": {
        "exact": "4629988450/2234478781353",
@@ -1323,9 +1401,24 @@
        "instrument:slot:5",
        "benchmark:slot:0",
        "benchmark:slot:5"
-      ]
+      ],
+      "quality_note": "available requires observed == expected (QualityRow validator): expected = observed = n usable pairs; the window length W = 5 is not published; lost pairs are carried by reasons (the validator permits reasons on an available row) and by excluded evidence rows"
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:5",
+     "benchmark:slot:0",
+     "benchmark:slot:5",
+     "instrument:slot:0",
+     "instrument:slot:5",
+     "benchmark:slot:0",
+     "benchmark:slot:5",
+     "instrument:slot:0",
+     "instrument:slot:5",
+     "benchmark:slot:0",
+     "benchmark:slot:5"
+    ]
    },
    {
     "id": "RS10",
@@ -1443,7 +1536,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS11",
@@ -1560,8 +1654,11 @@
     "expected": {
      "relative.correlation": {
       "status": "available",
-      "reasons": [],
-      "expected": 7,
+      "reasons": [
+       "absent_input",
+       "null_field"
+      ],
+      "expected": 3,
       "observed": 3,
       "value": {
        "exact": "decimal120:-8.978209210554196348590652697937212126154022646994613239052979e-1",
@@ -1575,13 +1672,18 @@
        "instrument:slot:0",
        "instrument:slot:5",
        "benchmark:slot:0",
-       "benchmark:slot:5"
-      ]
+       "benchmark:slot:5",
+       "excluded:benchmark:slot:6:null_field"
+      ],
+      "quality_note": "available requires observed == expected (QualityRow validator): expected = observed = n usable pairs; the window length W = 7 is not published; lost pairs are carried by reasons (the validator permits reasons on an available row) and by excluded evidence rows"
      },
      "relative.beta": {
       "status": "available",
-      "reasons": [],
-      "expected": 7,
+      "reasons": [
+       "absent_input",
+       "null_field"
+      ],
+      "expected": 3,
       "observed": 3,
       "value": {
        "exact": "-738577296441/98446006204",
@@ -1595,8 +1697,10 @@
        "instrument:slot:0",
        "instrument:slot:5",
        "benchmark:slot:0",
-       "benchmark:slot:5"
-      ]
+       "benchmark:slot:5",
+       "excluded:benchmark:slot:6:null_field"
+      ],
+      "quality_note": "available requires observed == expected (QualityRow validator): expected = observed = n usable pairs; the window length W = 7 is not published; lost pairs are carried by reasons (the validator permits reasons on an available row) and by excluded evidence rows"
      },
      "relative.residual_return": {
       "status": "missing_input",
@@ -1612,7 +1716,19 @@
      "joint_mean_inst": "3501/267800",
      "own_series_mean_inst_if_misjoined_not_published": "88351013/7593469000",
      "note": "means are taken over the joint valid pairs only; an own-series mean over all valid instrument returns would differ"
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:5",
+     "benchmark:slot:0",
+     "benchmark:slot:5",
+     "excluded:benchmark:slot:6:null_field",
+     "instrument:slot:0",
+     "instrument:slot:5",
+     "benchmark:slot:0",
+     "benchmark:slot:5",
+     "excluded:benchmark:slot:6:null_field"
+    ]
    },
    {
     "id": "RS12",
@@ -1717,7 +1833,8 @@
       "observed": 2,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS13",
@@ -1823,7 +1940,8 @@
       "observed": 2,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS14",
@@ -1929,7 +2047,8 @@
       "observed": 2,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS15",
@@ -2036,7 +2155,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS16",
@@ -2168,7 +2288,8 @@
       "observed": 0,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS17",
@@ -2243,7 +2364,7 @@
       "i": 4
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "near_constant",
      "exact_zero_test"
@@ -2309,7 +2430,21 @@
        "benchmark:slot:4"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:4",
+     "benchmark:slot:0",
+     "benchmark:slot:4",
+     "instrument:slot:0",
+     "instrument:slot:4",
+     "benchmark:slot:0",
+     "benchmark:slot:4",
+     "instrument:slot:0",
+     "instrument:slot:4",
+     "benchmark:slot:0",
+     "benchmark:slot:4"
+    ]
    },
    {
     "id": "RS18",
@@ -2372,7 +2507,7 @@
       "i": 3
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "centered_vs_uncentered"
     ],
@@ -2453,7 +2588,21 @@
      "centered_beta_float64": 0.7857142857142857,
      "residual_with_intercept_not_published": "-3/1400",
      "alpha_in_window": "-1/200"
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3"
+    ]
    },
    {
     "id": "RS19",
@@ -2534,7 +2683,7 @@
       "i": 5
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "window_membership"
     ],
@@ -2599,7 +2748,21 @@
        "benchmark:slot:5"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:2",
+     "instrument:slot:5",
+     "benchmark:slot:2",
+     "benchmark:slot:5",
+     "instrument:slot:2",
+     "instrument:slot:5",
+     "benchmark:slot:2",
+     "benchmark:slot:5",
+     "instrument:slot:2",
+     "instrument:slot:5",
+     "benchmark:slot:2",
+     "benchmark:slot:5"
+    ]
    },
    {
     "id": "RS20",
@@ -2721,7 +2884,11 @@
        "instrument:slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:3"
+    ]
    },
    {
     "id": "RS21",
@@ -2834,7 +3001,8 @@
       },
       "witnesses": []
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RS22",
@@ -2897,7 +3065,7 @@
       "i": 3
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "boundary",
      "knowledge_equality"
@@ -2963,7 +3131,21 @@
        "benchmark:slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3",
+     "instrument:slot:0",
+     "instrument:slot:3",
+     "benchmark:slot:0",
+     "benchmark:slot:3"
+    ]
    },
    {
     "id": "RS23",
@@ -3014,7 +3196,7 @@
       "i": 2
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "minimum_window",
      "perfect_correlation"
@@ -3080,7 +3262,21 @@
        "benchmark:slot:2"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:2",
+     "benchmark:slot:0",
+     "benchmark:slot:2",
+     "instrument:slot:0",
+     "instrument:slot:2",
+     "benchmark:slot:0",
+     "benchmark:slot:2",
+     "instrument:slot:0",
+     "instrument:slot:2",
+     "benchmark:slot:0",
+     "benchmark:slot:2"
+    ]
    },
    {
     "id": "RS24",
@@ -3155,7 +3351,7 @@
       "i": 4
      }
     ],
-    "evidence_limit": 10,
+    "evidence_limit": 12,
     "tags": [
      "negative_correlation"
     ],
@@ -3220,7 +3416,21 @@
        "benchmark:slot:4"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "instrument:slot:0",
+     "instrument:slot:4",
+     "benchmark:slot:0",
+     "benchmark:slot:4",
+     "instrument:slot:0",
+     "instrument:slot:4",
+     "benchmark:slot:0",
+     "benchmark:slot:4",
+     "instrument:slot:0",
+     "instrument:slot:4",
+     "benchmark:slot:0",
+     "benchmark:slot:4"
+    ]
    }
   ],
   "daily_log_volatility": [
@@ -3267,7 +3477,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "DV02",
@@ -3335,7 +3546,11 @@
      "simple_return_variance_exact": "1/75",
      "existing_history_return_volatility_at_this_A": "1.1547005383792515290182975610039149112952e-1",
      "note": "existing history.return_volatility (simple returns, centered, N-1) is a distinct API; its value is derived here from the documented formula, not from the library"
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3"
+    ]
    },
    {
     "id": "DV03",
@@ -3395,7 +3610,11 @@
        "slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3"
+    ]
    },
    {
     "id": "DV04",
@@ -3455,7 +3674,11 @@
        "slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3"
+    ]
    },
    {
     "id": "DV05",
@@ -3509,7 +3732,11 @@
        "slot:2"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:2"
+    ]
    },
    {
     "id": "DV06",
@@ -3569,7 +3796,11 @@
        "slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3"
+    ]
    },
    {
     "id": "DV07",
@@ -3629,7 +3860,11 @@
        "slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3"
+    ]
    },
    {
     "id": "DV08",
@@ -3678,7 +3913,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "DV09",
@@ -3728,7 +3964,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "DV10",
@@ -3778,7 +4015,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "DV11",
@@ -3828,7 +4066,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "DV12",
@@ -3877,7 +4116,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "DV13",
@@ -3931,7 +4171,8 @@
       "observed": 2,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "DV14",
@@ -3997,7 +4238,11 @@
        "slot:4"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:4"
+    ]
    },
    {
     "id": "DV15",
@@ -4064,7 +4309,11 @@
      "simple_return_variance_exact": "476449/44791488",
      "existing_history_return_volatility_at_this_A": "1.0313604297076220550881224137383627882474e-1",
      "note": "existing history.return_volatility (simple returns, centered, N-1) is a distinct API; its value is derived here from the documented formula, not from the library"
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3"
+    ]
    },
    {
     "id": "DV16",
@@ -4132,7 +4381,11 @@
        "slot:5"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:2",
+     "slot:5"
+    ]
    },
    {
     "id": "DV17",
@@ -4193,7 +4446,11 @@
        "slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3"
+    ]
    }
   ],
   "intraday_realized_variance": [
@@ -4238,7 +4495,8 @@
       "observed": 1,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RV02",
@@ -4305,7 +4563,13 @@
        "slot:1"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:1",
+     "slot:0",
+     "slot:1"
+    ]
    },
    {
     "id": "RV03",
@@ -4401,7 +4665,13 @@
     "alternatives_not_published": {
      "simple_return_squared_sum_not_published": "7571202725037137/101376289121968980000",
      "simple_float": 7.46841573173781e-05
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:5",
+     "slot:0",
+     "slot:5"
+    ]
    },
    {
     "id": "RV04",
@@ -4485,7 +4755,13 @@
        "slot:4"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:4",
+     "slot:0",
+     "slot:4"
+    ]
    },
    {
     "id": "RV05",
@@ -4576,7 +4852,13 @@
        "slot:5"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:5",
+     "slot:0",
+     "slot:5"
+    ]
    },
    {
     "id": "RV06",
@@ -4672,7 +4954,13 @@
      "simple_return_squared_sum_not_published": "7571202725037137/101376289121968980000",
      "simple_float": 7.46841573173781e-05,
      "rv_if_overnight_return_were_included_not_published": "1.2729138167095470796072456566427928519657e-1"
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:5",
+     "slot:0",
+     "slot:5"
+    ]
    },
    {
     "id": "RV07",
@@ -4753,7 +5041,13 @@
        "slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3",
+     "slot:0",
+     "slot:3"
+    ]
    },
    {
     "id": "RV08",
@@ -4824,7 +5118,8 @@
       "observed": 4,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RV09",
@@ -4889,7 +5184,8 @@
       "observed": 4,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RV10",
@@ -4948,7 +5244,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RV11",
@@ -5008,7 +5305,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RV12",
@@ -5068,7 +5366,8 @@
       "observed": 3,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RV13",
@@ -5122,7 +5421,8 @@
       "observed": 2,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RV14",
@@ -5176,7 +5476,8 @@
       "observed": 2,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RV15",
@@ -5243,7 +5544,8 @@
       "observed": 2,
       "value": null
      }
-    }
+    },
+    "joint_selection_evidence": []
    },
    {
     "id": "RV16",
@@ -5322,7 +5624,13 @@
        "slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3",
+     "slot:0",
+     "slot:3"
+    ]
    },
    {
     "id": "RV17",
@@ -5399,7 +5707,13 @@
     "alternatives_not_published": {
      "simple_return_squared_sum_not_published": "5/4",
      "simple_float": 1.25
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:2",
+     "slot:0",
+     "slot:2"
+    ]
    },
    {
     "id": "RV18",
@@ -5467,7 +5781,13 @@
        "slot:1"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:1",
+     "slot:0",
+     "slot:1"
+    ]
    },
    {
     "id": "RV19",
@@ -5556,7 +5876,10 @@
        "slot:0"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0"
+    ]
    },
    {
     "id": "RV20",
@@ -5632,12 +5955,16 @@
        "slot:5"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:5"
+    ]
    },
    {
     "id": "RV21",
     "group": "window",
-    "description": "session prefix: target in the middle of the session (t=3 of a 6-slot session); bars after the target are not part of the evaluation",
+    "description": "session prefix: the R17 context ends at the target (t=3 is the last governed slot), so a 4-bar prefix of the RV03 session; equals RV07 and carries the PX03 property by construction",
     "scale": 2,
     "a": 0,
     "t": 3,
@@ -5667,18 +5994,6 @@
       "c": 10080,
       "known_at": 50,
       "i": 3
-     },
-     {
-      "state": "priced",
-      "c": 10100,
-      "known_at": 50,
-      "i": 4
-     },
-     {
-      "state": "priced",
-      "c": 10090,
-      "known_at": 50,
-      "i": 5
      }
     ],
     "evidence_limit": 10,
@@ -5723,7 +6038,13 @@
        "slot:3"
       ]
      }
-    }
+    },
+    "joint_selection_evidence": [
+     "slot:0",
+     "slot:3",
+     "slot:0",
+     "slot:3"
+    ]
    }
   ],
   "prefix_property": [
@@ -5809,7 +6130,8 @@
       ]
      }
     ],
-    "expected": "identical to RS02 expected"
+    "expected": "identical to RS02 expected",
+    "note": "constructible because the DailyGrid target slot may precede later sessions (Amendment 1 item 4)"
    },
    {
     "id": "PX02",
@@ -5849,56 +6171,17 @@
       ]
      }
     ],
-    "expected": "identical to DV02 expected"
+    "expected": "identical to DV02 expected",
+    "note": "constructible because the DailyGrid target slot may precede later sessions (Amendment 1 item 4)"
    },
    {
     "id": "PX03",
     "family": "intraday_realized_variance",
     "base": "RV21",
-    "description": "prefix property: bars after the target do not change RV-to-date at the target (identical to RV21)",
-    "variants": [
-     {
-      "label": "later_bars_changed",
-      "suffix_after_slot_3": [
-       {
-        "state": "priced",
-        "c": 10090,
-        "known_at": 50
-       },
-       {
-        "state": "priced",
-        "c": 1,
-        "known_at": 50
-       },
-       {
-        "state": "priced",
-        "c": 99999,
-        "known_at": 50
-       }
-      ]
-     },
-     {
-      "label": "later_bars_absent",
-      "suffix_after_slot_3": [
-       {
-        "state": "absent"
-       },
-       {
-        "state": "absent"
-       }
-      ]
-     },
-     {
-      "label": "later_bar_unknown",
-      "suffix_after_slot_3": [
-       {
-        "state": "unknown",
-        "known_at": null
-       }
-      ]
-     }
-    ],
-    "expected": "identical to RV21 expected"
+    "description": "prefix property for the R17 intraday context: NOT constructible with later bars (the context target must be the last slot); verified through the base fixture RV21 (a prefix of the RV03 session ending at the target, equal to RV07), which contains no data after the target by construction",
+    "variants": [],
+    "expected": "identical to RV21 expected",
+    "verification": "by construction through RV21"
    }
   ],
   "refusals": [
@@ -6158,7 +6441,7 @@
     "id": "RF43",
     "producer": "intraday_realized_variance",
     "error_code": "BOUNDS",
-    "description": "bar end after the supplied market cutoff (forming or future bar)"
+    "description": "cutoff outside the governed session bounds: raised by the R17 config builder as BOUNDS before any row is read (validate_batch 'session market cutoff outside actual bounds'); the per-row 'bar end after cutoff' check can never trigger under a valid config"
    },
    {
     "id": "RF44",
@@ -6232,6 +6515,7 @@
     "RV12"
    ],
    "evidence": [
+    "RS02",
     "RS20",
     "RS21",
     "RV19"
@@ -6354,6 +6638,10 @@
    ],
    "zero_instrument_variance": [
     "RS07"
+   ],
+   "available_with_lost_pairs": [
+    "RS09",
+    "RS11"
    ]
   },
   "fixture_counts": {
@@ -6489,15 +6777,23 @@
  "rulings": {
   "O1": "relative.* and history.log_return_volatility in packages/features (EF3 module, config namespace ef3.*); intraday.realized_* in packages/intraday; separate catalogs; describe_intraday() and its digest unchanged; no package version bump",
   "O2": "unit 'fraction' for all six headers (dimensionless); no new unit string",
-  "O3": "daily closes are BAR rows on a daily governed grid with R17 grid and slot-coverage conventions: one slot per governed session, [start_ns,end_ns) session bounds, session_id, grid/calendar identity, target slot and per-slot coverage from the R17 context; one bar per session per role; no DAILY-kind input",
+  "O3": "daily closes are BAR rows on a daily governed grid with R17 grid and slot-coverage conventions: one slot per governed session, [start_ns,end_ns) session bounds, session_id, grid/calendar identity, target slot and per-slot coverage from the R17 context; one bar per session per role; no DAILY-kind input; AMENDED by Amendment 1 item 4 for the two daily producers (DailyGrid)",
   "O4": "differing price unit, currency or scale between instrument and benchmark: INVALID_UNIT (require_compatible_inputs); namespace mismatch INCONSISTENT_IDENTITY; no conversion",
   "O5": "residual variants out of v1",
   "O6": "no ef3-rel2 log label in v1",
   "O7": "no session-complete flag; strict completeness internal",
-  "O8": "evidence row ids follow the EF2 convention bar:<start_ns>:<end_ns>; fixtures use compact instrument:slot:i, benchmark:slot:i and slot:i for those bars",
+  "O8": "follow the merged EF2 convention: row_id slot:<i> as emitted by the merged libraries (the earlier bar:<start>:<end> wording misdescribed it); the input role is carried by input_id",
   "O9": "window/period bound 4096 = R17 period bound (packages/intraday/src/equity_features_intraday/_context.py integer(...,1,4096)) for all producers",
   "O10": "min_pairs lower bound 2",
   "O11": "ln and sqrt Decimal120 correctly rounded; acceptance is the R17 tolerance max(8 ulp, 1e-12*|ref|); the earlier absolute-floor allowance is withdrawn (R17 INTRADAY.md: no universal absolute floor; exact zeros return +0.0); DV07 is a bits fixture",
   "O12": "no interplay with ReturnReference or existing relative returns; distinct producers (non-goal)"
+ },
+ "amendment_1": {
+  "1_available_quality": "RS09, RS11 (the only affected fixtures; DV and RV families have observed == expected whenever available) re-derived: available correlation and beta now publish expected = observed = n = 3 with reasons from the lost pairs (RS09 absent_input; RS11 absent_input, null_field) and excluded evidence; QualityRow permits reasons on an available status. min_pairs semantics unchanged.",
+  "2_evidence_result_wide": "evidence_limit is result-wide; per-output lists reproduced by one-output selections; joint selection truncates in lexical order; fixture limits raised where needed (RS02 and others) except the deliberate truncation fixtures RS20, RS21, RV19",
+  "3_row_id": "evidence row_id is slot:<i> as emitted by merged libraries; O8 restated; compact notation instrument:slot:i means input instrument, row slot:i",
+  "4_daily_grid": "packages/features cannot import the R17 context; the two daily producers (relative_stats, daily_log_volatility) take a local immutable DailyGrid (governed sessions with [start_ns,end_ns), session_id, calendar/grid identity, per-slot coverage, target slot) bound to the config by its SHA-256; the target slot may precede later sessions, which is why PX01 and PX02 are constructible. intraday_realized_variance keeps the R17 context (target is the last slot).",
+  "5_px03": "PX03 not constructible with later bars under the R17 context; verified through base fixture RV21 (now a 4-bar prefix, equal to RV07); PX01 and PX02 kept",
+  "6_rf43": "RF43 is BOUNDS from the R17 config builder (cutoff outside session bounds); the per-row bar-end check cannot trigger under a valid config"
  }
 }
