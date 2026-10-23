@@ -499,20 +499,20 @@
    "absent_input",
    "unknown_availability",
    "future_knowledge",
-   "future_market",
    "null_field",
    "ineligible",
    "governed_gap",
+   "future_market",
    "insufficient_history",
    "no_eligible_observations",
-   "zero_denominator",
-   "empty_universe"
+   "empty_universe",
+   "zero_denominator"
   ],
   "status_of_reason": {
    "absent_input": "missing_input",
    "unknown_availability": "missing_input",
    "future_knowledge": "missing_input",
-   "future_market": "missing_input",
+   "future_market": "incomplete_coverage",
    "null_field": "missing_input",
    "ineligible": "missing_input",
    "governed_gap": "incomplete_coverage",
@@ -521,6 +521,7 @@
    "zero_denominator": "not_applicable",
    "empty_universe": "not_applicable"
   },
+  "aligned_with": "contract E reason table (DP-Q1): future_market is incomplete_coverage ordered after governed_gap; empty_universe precedes zero_denominator",
   "rule": "all applicable reasons retained lexically; status follows the first applicable reason in precedence; value null exactly when not available; available requires observed = expected"
  },
  "fixture_notation": "compact, NOT canonical wire. Declared: C, K, scale (default 2), roles keyed by short name pra/ret/vol/ep/vwap/mom/hi/lo plus population; role None = absent delivery, cov incomplete = declared incomplete coverage; member rows default known_at ka 60 and event time t 50; ka null = unknown, ka 150 > K future; t >= C future_market; v null = null value; pra k available|unavailable; vwap k rat (num, den) | unavailable; population rows m, s, end, ka, stint. Observed: roles members(g=group label)/chg/qp/qv. Adaptive: times in ns (fixtures use seconds x 1e9), rows q (sequence), t, rate [price, factor_num, factor_den] or null, known_at default = t. Float cells list exact rational, float64, float.hex and exact_representable. hand_asserted holds the hand-typed expectation strings (i: int, f: exact fraction, b: bool, u: status:reasons:expected/observed); the remaining outputs of each fixture are evaluator-derived.",
@@ -528,7 +529,7 @@
   {
    "id": "DB01",
    "group": "population",
-   "description": "empty complete declared population (0 of 0): a declaration of nothing, never a vacuous truth; every output null",
+   "description": "empty complete declared population (0 of 0) with no fact role delivered (fact rows for undeclared members would be refused, RB04): a declaration of nothing, never a vacuous truth; every output null",
    "input": {
     "C": 100,
     "K": 100,
@@ -550,154 +551,14 @@
       "cov": "complete",
       "rows": []
      },
-     "pra": {
-      "cov": "complete",
-      "rows": {
-       "a": {
-        "k": "available"
-       },
-       "b": {
-        "k": "available"
-       },
-       "c": {
-        "k": "available"
-       },
-       "d": {
-        "k": "available"
-       }
-      }
-     },
-     "ret": {
-      "cov": "complete",
-      "rows": {
-       "a": {
-        "v": 3
-       },
-       "b": {
-        "v": -1
-       },
-       "c": {
-        "v": 0
-       },
-       "d": {
-        "v": 2
-       }
-      }
-     },
-     "vol": {
-      "cov": "complete",
-      "rows": {
-       "a": {
-        "v": 100
-       },
-       "b": {
-        "v": 200
-       },
-       "c": {
-        "v": 300
-       },
-       "d": {
-        "v": 400
-       }
-      }
-     },
-     "ep": {
-      "cov": "complete",
-      "rows": {
-       "a": {
-        "v": 1100,
-        "t": 40
-       },
-       "b": {
-        "v": 900,
-        "t": 70
-       },
-       "c": {
-        "v": 1000,
-        "t": 55
-       },
-       "d": {
-        "v": 1250,
-        "t": 70
-       }
-      }
-     },
-     "vwap": {
-      "cov": "complete",
-      "rows": {
-       "a": {
-        "k": "rat",
-        "num": 1000,
-        "den": 1
-       },
-       "b": {
-        "k": "rat",
-        "num": 1000,
-        "den": 1
-       },
-       "c": {
-        "k": "rat",
-        "num": 1000,
-        "den": 1
-       },
-       "d": {
-        "k": "rat",
-        "num": 2499,
-        "den": 2
-       }
-      }
-     },
-     "mom": {
-      "cov": "complete",
-      "rows": {
-       "a": {
-        "v": 5
-       },
-       "b": {
-        "v": 0
-       },
-       "c": {
-        "v": -3
-       },
-       "d": {
-        "v": 7
-       }
-      }
-     },
-     "hi": {
-      "cov": "complete",
-      "rows": {
-       "a": {
-        "v": 1120
-       },
-       "b": {
-        "v": 1200
-       },
-       "c": {
-        "v": 1000
-       },
-       "d": {
-        "v": 1250
-       }
-      }
-     },
-     "lo": {
-      "cov": "complete",
-      "rows": {
-       "a": {
-        "v": 1000
-       },
-       "b": {
-        "v": 880
-       },
-       "c": {
-        "v": 1000
-       },
-       "d": {
-        "v": 1000
-       }
-      }
-     }
+     "pra": null,
+     "ret": null,
+     "vol": null,
+     "ep": null,
+     "vwap": null,
+     "mom": null,
+     "hi": null,
+     "lo": null
     }
    },
    "hand_asserted": {
@@ -3858,7 +3719,7 @@
   {
    "id": "DB10",
    "group": "prior_reference",
-   "description": "b prior-availability fact has null known_at: unknown prior never becomes available or unavailable",
+   "description": "b prior-availability fact has null known_at while its return is -1: unknown prior never becomes available or unavailable; by DP-B3 b is decided NOT advancing and NOT unchanged (return known), so advancing, unchanged and up_volume stay available; declining, net, A/D, down_volume and the volume ratio need b and are unavailable",
    "input": {
     "C": 100,
     "K": 100,
@@ -4068,12 +3929,12 @@
     "sel": "i:4",
     "pre": "u:missing_input:unknown_availability:4/3",
     "pcf": "u:missing_input:unknown_availability:4/3",
-    "adv": "u:missing_input:unknown_availability:4/3",
+    "adv": "i:2@4/4",
+    "unc": "i:1@4/4",
+    "upv": "i:500@4/4",
     "dec": "u:missing_input:unknown_availability:4/3",
-    "unc": "u:missing_input:unknown_availability:4/3",
     "net": "u:missing_input:unknown_availability:4/3",
     "adr": "u:missing_input:unknown_availability:4/3",
-    "upv": "u:missing_input:unknown_availability:4/3",
     "dnv": "u:missing_input:unknown_availability:4/3",
     "udr": "u:missing_input:unknown_availability:4/3",
     "avf": "f:1/2",
@@ -4106,13 +3967,21 @@
      "value": null
     },
     "breadth.session.advancing_count": {
-     "status": "missing_input",
-     "reasons": [
-      "unknown_availability"
-     ],
+     "status": "available",
+     "reasons": [],
      "expected": 4,
-     "observed": 3,
-     "value": null
+     "observed": 4,
+     "value": 2,
+     "evidence": [
+      [
+       "current_return",
+       "a"
+      ],
+      [
+       "current_return",
+       "d"
+      ]
+     ]
     },
     "breadth.session.declining_count": {
      "status": "missing_input",
@@ -4124,13 +3993,17 @@
      "value": null
     },
     "breadth.session.unchanged_count": {
-     "status": "missing_input",
-     "reasons": [
-      "unknown_availability"
-     ],
+     "status": "available",
+     "reasons": [],
      "expected": 4,
-     "observed": 3,
-     "value": null
+     "observed": 4,
+     "value": 1,
+     "evidence": [
+      [
+       "current_return",
+       "c"
+      ]
+     ]
     },
     "breadth.session.direction_net_count": {
      "status": "missing_input",
@@ -4151,13 +4024,21 @@
      "value": null
     },
     "breadth.session.up_volume": {
-     "status": "missing_input",
-     "reasons": [
-      "unknown_availability"
-     ],
+     "status": "available",
+     "reasons": [],
      "expected": 4,
-     "observed": 3,
-     "value": null
+     "observed": 4,
+     "value": 500,
+     "evidence": [
+      [
+       "cumulative_volume",
+       "a"
+      ],
+      [
+       "cumulative_volume",
+       "d"
+      ]
+     ]
     },
     "breadth.session.down_volume": {
      "status": "missing_input",
@@ -4277,13 +4158,14 @@
    },
    "tags": [
     "unknown_prior",
-    "independent_readiness"
+    "independent_readiness",
+    "false_decides"
    ]
   },
   {
    "id": "DB11",
    "group": "prior_reference",
-   "description": "prior-availability role not delivered: eligibility, coverage and direction outputs unavailable; operand-independent fractions unaffected",
+   "description": "prior-availability role not delivered: eligibility and coverage unavailable; each direction class is undecidable only for the members whose return could place them in it (a +3, d +2 for advancing; b for declining; c for unchanged), so observed counts differ per output; operand-independent fractions unaffected",
    "input": {
     "C": 100,
     "K": 100,
@@ -4476,8 +4358,14 @@
     "sel": "i:4",
     "pre": "u:missing_input:absent_input:4/0",
     "pcf": "u:missing_input:absent_input:4/0",
-    "adv": "u:missing_input:absent_input:4/0",
-    "upv": "u:missing_input:absent_input:4/0",
+    "adv": "u:missing_input:absent_input:4/2",
+    "dec": "u:missing_input:absent_input:4/3",
+    "unc": "u:missing_input:absent_input:4/3",
+    "net": "u:missing_input:absent_input:4/1",
+    "adr": "u:missing_input:absent_input:4/1",
+    "upv": "u:missing_input:absent_input:4/2",
+    "dnv": "u:missing_input:absent_input:4/3",
+    "udr": "u:missing_input:absent_input:4/1",
     "avf": "f:1/2",
     "pmf": "f:1/2",
     "nhf": "f:1/2",
@@ -4516,7 +4404,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 2,
      "value": null
     },
     "breadth.session.declining_count": {
@@ -4525,7 +4413,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 3,
      "value": null
     },
     "breadth.session.unchanged_count": {
@@ -4534,7 +4422,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 3,
      "value": null
     },
     "breadth.session.direction_net_count": {
@@ -4543,7 +4431,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 1,
      "value": null
     },
     "breadth.session.advance_decline_ratio": {
@@ -4552,7 +4440,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 1,
      "value": null
     },
     "breadth.session.up_volume": {
@@ -4561,7 +4449,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 2,
      "value": null
     },
     "breadth.session.down_volume": {
@@ -4570,7 +4458,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 3,
      "value": null
     },
     "breadth.session.up_down_volume_ratio": {
@@ -4579,7 +4467,7 @@
       "absent_input"
      ],
      "expected": 4,
-     "observed": 0,
+     "observed": 1,
      "value": null
     },
     "breadth.session.above_vwap_fraction": {
@@ -4682,7 +4570,8 @@
    },
    "tags": [
     "absent_prior",
-    "independent_readiness"
+    "independent_readiness",
+    "false_decides"
    ]
   },
   {
@@ -17024,8 +16913,8 @@
     }
    },
    "hand_asserted": {
-    "lat": "u:missing_input:future_market:4/3",
-    "avf": "u:missing_input:future_market:4/3",
+    "lat": "u:incomplete_coverage:future_market:4/3",
+    "avf": "u:incomplete_coverage:future_market:4/3",
     "pmf": "f:1/2"
    },
    "expected": {
@@ -17174,7 +17063,7 @@
      }
     },
     "breadth.session.above_vwap_fraction": {
-     "status": "missing_input",
+     "status": "incomplete_coverage",
      "reasons": [
       "future_market"
      ],
@@ -17205,7 +17094,7 @@
      ]
     },
     "breadth.session.near_high_fraction": {
-     "status": "missing_input",
+     "status": "incomplete_coverage",
      "reasons": [
       "future_market"
      ],
@@ -17214,7 +17103,7 @@
      "value": null
     },
     "breadth.session.near_low_fraction": {
-     "status": "missing_input",
+     "status": "incomplete_coverage",
      "reasons": [
       "future_market"
      ],
@@ -17223,7 +17112,7 @@
      "value": null
     },
     "breadth.session.latest_observed_member_event_ns": {
-     "status": "missing_input",
+     "status": "incomplete_coverage",
      "reasons": [
       "future_market"
      ],
@@ -19776,6 +19665,467 @@
    ]
   },
   {
+   "id": "DB47",
+   "group": "rounding",
+   "description": "up_volume 2^53+1 (not representable as binary64) over down_volume 3: the ratio is ONE correctly rounded division of the exact integers (bit exact), never of float volumes; also down_volume overflow shape is RB27",
+   "input": {
+    "C": 100,
+    "K": 100,
+    "profile": "static",
+    "scale": 2,
+    "params": {
+     "near_high_tol": [
+      1,
+      4
+     ],
+     "near_low_tol": [
+      1,
+      5
+     ],
+     "evidence_limit": 3
+    },
+    "roles": {
+     "population": {
+      "cov": "complete",
+      "rows": [
+       {
+        "m": "a",
+        "e": "E",
+        "s": 0,
+        "end": null,
+        "ka": 60,
+        "stint": 0
+       },
+       {
+        "m": "b",
+        "e": "E",
+        "s": 0,
+        "end": null,
+        "ka": 60,
+        "stint": 0
+       },
+       {
+        "m": "c",
+        "e": "E",
+        "s": 0,
+        "end": null,
+        "ka": 60,
+        "stint": 0
+       },
+       {
+        "m": "d",
+        "e": "E",
+        "s": 0,
+        "end": null,
+        "ka": 60,
+        "stint": 0
+       }
+      ]
+     },
+     "pra": {
+      "cov": "complete",
+      "rows": {
+       "a": {
+        "k": "available"
+       },
+       "b": {
+        "k": "available"
+       },
+       "c": {
+        "k": "available"
+       },
+       "d": {
+        "k": "available"
+       }
+      }
+     },
+     "ret": {
+      "cov": "complete",
+      "rows": {
+       "a": {
+        "v": 1
+       },
+       "b": {
+        "v": -1
+       },
+       "c": {
+        "v": -1
+       },
+       "d": {
+        "v": 0
+       }
+      }
+     },
+     "vol": {
+      "cov": "complete",
+      "rows": {
+       "a": {
+        "v": 9007199254740993
+       },
+       "b": {
+        "v": 1
+       },
+       "c": {
+        "v": 2
+       },
+       "d": {
+        "v": 5
+       }
+      }
+     },
+     "ep": {
+      "cov": "complete",
+      "rows": {
+       "a": {
+        "v": 1100,
+        "t": 40
+       },
+       "b": {
+        "v": 900,
+        "t": 70
+       },
+       "c": {
+        "v": 1000,
+        "t": 55
+       },
+       "d": {
+        "v": 1250,
+        "t": 70
+       }
+      }
+     },
+     "vwap": {
+      "cov": "complete",
+      "rows": {
+       "a": {
+        "k": "rat",
+        "num": 1000,
+        "den": 1
+       },
+       "b": {
+        "k": "rat",
+        "num": 1000,
+        "den": 1
+       },
+       "c": {
+        "k": "rat",
+        "num": 1000,
+        "den": 1
+       },
+       "d": {
+        "k": "rat",
+        "num": 2499,
+        "den": 2
+       }
+      }
+     },
+     "mom": {
+      "cov": "complete",
+      "rows": {
+       "a": {
+        "v": 5
+       },
+       "b": {
+        "v": 0
+       },
+       "c": {
+        "v": -3
+       },
+       "d": {
+        "v": 7
+       }
+      }
+     },
+     "hi": {
+      "cov": "complete",
+      "rows": {
+       "a": {
+        "v": 1120
+       },
+       "b": {
+        "v": 1200
+       },
+       "c": {
+        "v": 1000
+       },
+       "d": {
+        "v": 1250
+       }
+      }
+     },
+     "lo": {
+      "cov": "complete",
+      "rows": {
+       "a": {
+        "v": 1000
+       },
+       "b": {
+        "v": 880
+       },
+       "c": {
+        "v": 1000
+       },
+       "d": {
+        "v": 1000
+       }
+      }
+     }
+    }
+   },
+   "hand_asserted": {
+    "upv": "i:9007199254740993",
+    "dnv": "i:3",
+    "udr": "f:9007199254740993/3"
+   },
+   "expected": {
+    "breadth.session.selected_member_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 4
+    },
+    "breadth.session.prior_reference_eligible_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 4,
+     "evidence": [
+      [
+       "prior_reference_availability",
+       "a"
+      ],
+      [
+       "prior_reference_availability",
+       "b"
+      ],
+      [
+       "prior_reference_availability",
+       "c"
+      ]
+     ]
+    },
+    "breadth.session.prior_reference_coverage_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/1",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "exact_representable": true
+     }
+    },
+    "breadth.session.advancing_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 1,
+     "evidence": [
+      [
+       "current_return",
+       "a"
+      ]
+     ]
+    },
+    "breadth.session.declining_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 2,
+     "evidence": [
+      [
+       "current_return",
+       "b"
+      ],
+      [
+       "current_return",
+       "c"
+      ]
+     ]
+    },
+    "breadth.session.unchanged_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 1,
+     "evidence": [
+      [
+       "current_return",
+       "d"
+      ]
+     ]
+    },
+    "breadth.session.direction_net_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": -1
+    },
+    "breadth.session.advance_decline_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1",
+      "exact_representable": true
+     }
+    },
+    "breadth.session.up_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 9007199254740993,
+     "evidence": [
+      [
+       "cumulative_volume",
+       "a"
+      ]
+     ]
+    },
+    "breadth.session.down_volume": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 3,
+     "evidence": [
+      [
+       "cumulative_volume",
+       "b"
+      ],
+      [
+       "cumulative_volume",
+       "c"
+      ]
+     ]
+    },
+    "breadth.session.up_down_volume_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "3002399751580331/1",
+      "float64": 3002399751580331.0,
+      "hex": "0x1.5555555555556p+51",
+      "exact_representable": true
+     }
+    },
+    "breadth.session.above_vwap_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1",
+      "exact_representable": true
+     },
+     "evidence": [
+      [
+       "endpoint_price",
+       "a"
+      ],
+      [
+       "endpoint_price",
+       "d"
+      ]
+     ]
+    },
+    "breadth.session.positive_momentum_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1",
+      "exact_representable": true
+     },
+     "evidence": [
+      [
+       "momentum",
+       "a"
+      ],
+      [
+       "momentum",
+       "d"
+      ]
+     ]
+    },
+    "breadth.session.near_high_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/2",
+      "float64": 0.5,
+      "hex": "0x1.0000000000000p-1",
+      "exact_representable": true
+     },
+     "evidence": [
+      [
+       "endpoint_price",
+       "a"
+      ],
+      [
+       "endpoint_price",
+       "d"
+      ]
+     ]
+    },
+    "breadth.session.near_low_fraction": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": {
+      "exact": "1/4",
+      "float64": 0.25,
+      "hex": "0x1.0000000000000p-2",
+      "exact_representable": true
+     },
+     "evidence": [
+      [
+       "endpoint_price",
+       "b"
+      ]
+     ]
+    },
+    "breadth.session.latest_observed_member_event_ns": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 70,
+     "evidence": [
+      [
+       "endpoint_price",
+       "b"
+      ]
+     ]
+    }
+   },
+   "tags": [
+    "rounding",
+    "int64_limit"
+   ]
+  },
+  {
    "id": "XB01",
    "group": "cross_profile",
    "description": "DECLARED universe {a..e} with e missing from every fact role: N = 5 never shrinks; direction counts unavailable (observed 4 of 5)",
@@ -21619,72 +21969,15 @@
      },
      "chg": {
       "cov": "complete",
-      "rows": {
-       "a": {
-        "v": 1
-       },
-       "b": {
-        "v": 5
-       },
-       "c": {
-        "v": -1
-       },
-       "d": {
-        "v": -2
-       },
-       "e": {
-        "v": 0
-       },
-       "f": {
-        "v": 9
-       }
-      }
+      "rows": {}
      },
      "qp": {
       "cov": "complete",
-      "rows": {
-       "a": {
-        "v": 1000
-       },
-       "b": {
-        "v": 999
-       },
-       "c": {
-        "v": 2000
-       },
-       "d": {
-        "v": 3000
-       },
-       "e": {
-        "v": 1500
-       },
-       "f": {
-        "v": 5000
-       }
-      }
+      "rows": {}
      },
      "qv": {
       "cov": "complete",
-      "rows": {
-       "a": {
-        "v": 100
-       },
-       "b": {
-        "v": 5000
-       },
-       "c": {
-        "v": 99
-       },
-       "d": {
-        "v": 500
-       },
-       "e": {
-        "v": 100
-       },
-       "f": {
-        "v": 1000
-       }
-      }
+      "rows": {}
      }
     }
    },
@@ -22784,18 +23077,6 @@
        "a": {
         "v": 1
        },
-       "b": {
-        "v": 5
-       },
-       "c": {
-        "v": -1
-       },
-       "d": {
-        "v": -2
-       },
-       "e": {
-        "v": 0
-       },
        "f": {
         "v": 9
        }
@@ -22807,18 +23088,6 @@
        "a": {
         "v": 1000
        },
-       "b": {
-        "v": 999
-       },
-       "c": {
-        "v": 2000
-       },
-       "d": {
-        "v": 3000
-       },
-       "e": {
-        "v": 1500
-       },
        "f": {
         "v": 5000
        }
@@ -22828,18 +23097,6 @@
       "cov": "complete",
       "rows": {
        "a": {
-        "v": 100
-       },
-       "b": {
-        "v": 5000
-       },
-       "c": {
-        "v": 99
-       },
-       "d": {
-        "v": 500
-       },
-       "e": {
         "v": 100
        },
        "f": {
@@ -23206,7 +23463,7 @@
     }
    },
    "hand_asserted": {
-    "adv": "u:missing_input:future_market:6/5",
+    "adv": "u:incomplete_coverage:future_market:6/5",
     "qual": "i:4",
     "unk": "i:1"
    },
@@ -23247,7 +23504,7 @@
      ]
     },
     "breadth.observed.advancing_member_count": {
-     "status": "missing_input",
+     "status": "incomplete_coverage",
      "reasons": [
       "future_market"
      ],
@@ -23256,7 +23513,7 @@
      "value": null
     },
     "breadth.observed.nonadvancing_member_count": {
-     "status": "missing_input",
+     "status": "incomplete_coverage",
      "reasons": [
       "future_market"
      ],
@@ -23265,7 +23522,7 @@
      "value": null
     },
     "breadth.observed.advance_fraction": {
-     "status": "missing_input",
+     "status": "incomplete_coverage",
      "reasons": [
       "future_market"
      ],
@@ -26628,7 +26885,7 @@
   {
    "id": "AD12",
    "group": "null_reason",
-   "description": "third in-scope observation has a null rate: rate-dependent outputs null_field (observed 3 of 4); the latest event time is independent and available",
+   "description": "third in-scope observation has a null rate: rate-dependent outputs (baseline_available, baseline_rate, scored counts, peaks) are null_field (observed 3 of 4); observation_count (a count of known in-scope rows) and latest_event_ns (times only) stay available",
    "input": {
     "C": 100000000000,
     "K": 100000000000,
@@ -26674,10 +26931,12 @@
     "evidence_limit": 2
    },
    "hand_asserted": {
+    "obs": "i:4@4/4",
     "flag": "u:missing_input:null_field:4/3",
     "base": "u:missing_input:null_field:4/3",
     "pr": "u:missing_input:null_field:4/3",
     "sc": "u:missing_input:null_field:4/3",
+    "asc": "u:missing_input:null_field:4/3",
     "lat": "i:4000000000"
    },
    "expected": {
@@ -26703,15 +26962,6 @@
      "value": null
     },
     "adaptive.volume.baseline_rate": {
-     "status": "missing_input",
-     "reasons": [
-      "null_field"
-     ],
-     "expected": 4,
-     "observed": 3,
-     "value": null
-    },
-    "adaptive.volume.observation_count": {
      "status": "missing_input",
      "reasons": [
       "null_field"
@@ -26773,6 +27023,13 @@
      "expected": 4,
      "observed": 3,
      "value": null
+    },
+    "adaptive.volume.observation_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 4
     }
    },
    "tags": [
@@ -29375,25 +29632,196 @@
    "tags": [
     "sequence_gap"
    ]
+  },
+  {
+   "id": "AD28",
+   "group": "near_tie",
+   "description": "non-dyadic near tie, W = 1: rates 10^17, 10^17+1, 10^17+2; relative rates 1+1e-17 (k=2) and 1+1.5e-17 (k=3) differ exactly but both round to binary64 1.0; the exact rational decides: the peak is observation 3 (a float comparison would tie and keep observation 2)",
+   "input": {
+    "C": 100000000000,
+    "K": 100000000000,
+    "tau_ns": 1000000000,
+    "W": 1,
+    "obs": {
+     "cov": "complete",
+     "rows": [
+      {
+       "q": 1,
+       "t": 1000000000,
+       "rate": [
+        100000000000000000,
+        1,
+        1
+       ]
+      },
+      {
+       "q": 2,
+       "t": 2000000000,
+       "rate": [
+        100000000000000001,
+        1,
+        1
+       ]
+      },
+      {
+       "q": 3,
+       "t": 3000000000,
+       "rate": [
+        100000000000000002,
+        1,
+        1
+       ]
+      }
+     ]
+    },
+    "evidence_limit": 2
+   },
+   "hand_asserted": {
+    "pr": "f:200000000000000004/200000000000000001",
+    "prt": "i:3000000000",
+    "sc": "i:2"
+   },
+   "expected": {
+    "adaptive.volume.latest_event_ns": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 3000000000,
+     "evidence": [
+      [
+       3
+      ]
+     ]
+    },
+    "adaptive.volume.baseline_available": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": true
+    },
+    "adaptive.volume.observation_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 3
+    },
+    "adaptive.volume.baseline_rate": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "400000000000000005/4",
+      "float64": 1e+17,
+      "hex": "0x1.6345785d8a000p+56",
+      "exact_representable": false
+     },
+     "evidence": [
+      [
+       3
+      ]
+     ]
+    },
+    "adaptive.volume.scored_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 2
+    },
+    "adaptive.volume.acceleration_scored_count": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 2
+    },
+    "adaptive.volume.peak_relative_rate": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "66666666666666668/66666666666666667",
+      "float64": 1.0,
+      "hex": "0x1.0000000000000p+0",
+      "exact_representable": false
+     },
+     "evidence": [
+      [
+       3
+      ]
+     ]
+    },
+    "adaptive.volume.peak_relative_rate_event_ns": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 3000000000,
+     "evidence": [
+      [
+       3
+      ]
+     ]
+    },
+    "adaptive.volume.peak_relative_acceleration": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": {
+      "exact": "1/100000000000000000",
+      "float64": 1e-17,
+      "hex": "0x1.70ef54646d497p-57",
+      "exact_representable": false
+     },
+     "evidence": [
+      [
+       2
+      ]
+     ]
+    },
+    "adaptive.volume.peak_relative_acceleration_event_ns": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 2000000000,
+     "evidence": [
+      [
+       2
+      ]
+     ]
+    }
+   },
+   "tags": [
+    "near_tie",
+    "exact_ordering",
+    "rounding"
+   ]
   }
  ],
  "refusal_fixtures": [
   {
    "id": "RB01",
    "error_code": "DUPLICATE",
-   "description": "declared population lists member a twice (same instrument, session, reference_id): SD-1",
+   "description": "declared population lists member a twice (same instrument, session, reference_id): contract E RF12 / OQ-7",
    "raised_by": "shared validator"
   },
   {
    "id": "RB02",
    "error_code": "DUPLICATE",
-   "description": "current_return lists member a twice: SD-1",
+   "description": "current_return lists member a twice: contract E RF12",
    "raised_by": "shared validator"
   },
   {
    "id": "RB03",
    "error_code": "DUPLICATE",
-   "description": "ordered_history: member b has two stints that overlap in time (even if only one contains C): SD-1",
+   "description": "ordered_history: member b has two stints that overlap in time (even if only one contains C): same identity at the same time, extension of contract E RF12",
    "raised_by": "library"
   },
   {
@@ -29423,7 +29851,7 @@
   {
    "id": "RB08",
    "error_code": "INVALID_ORDER",
-   "description": "rows of a role not ordered by (effective_start_ns, reference_id)",
+   "description": "ordered_history: the stints of ONE member are not in (effective_start_ns, reference_id) order. The shared validator checks order per (instrument, session) group, so a one-row-per-member role (instrument_id = member) can never raise INVALID_ORDER; the check applies to multi-stint membership intervals and to the adaptive stream only",
    "raised_by": "shared validator"
   },
   {
@@ -29517,6 +29945,30 @@
    "raised_by": "library"
   },
   {
+   "id": "RB27",
+   "error_code": "OVERFLOW",
+   "description": "sum of declining members volumes above 2^63-1 with down_volume selected",
+   "raised_by": "library"
+  },
+  {
+   "id": "RB28",
+   "error_code": "INVALID_SCHEMA",
+   "description": "vwap row with non-positive notional coefficient (price) or non-positive factor_den (positive notional and positive volume required)",
+   "raised_by": "library"
+  },
+  {
+   "id": "RB29",
+   "error_code": "INVALID_CONFIG",
+   "description": "evidence_limit 10001",
+   "raised_by": "library"
+  },
+  {
+   "id": "RB30",
+   "error_code": "INVALID_UNIT",
+   "description": "population batch carries no price_unit while the fact roles do (require_compatible_inputs compares None with a unit); every role batch must carry the same PriceUnit",
+   "raised_by": "shared compatibility check"
+  },
+  {
    "id": "RB24",
    "error_code": "BOUNDS",
    "description": "4097 rows in one role (4096 bound)",
@@ -29537,7 +29989,7 @@
   {
    "id": "RO01",
    "error_code": "DUPLICATE",
-   "description": "roster lists member a twice: SD-1 (cited from contract E)",
+   "description": "roster lists member a twice: contract E RF12 / OQ-7",
    "raised_by": "shared validator"
   },
   {
@@ -29607,15 +30059,33 @@
    "raised_by": "library"
   },
   {
+   "id": "RO13",
+   "error_code": "BOUNDS",
+   "description": "4097 roster rows (4096 bound as R17)",
+   "raised_by": "library"
+  },
+  {
+   "id": "RO14",
+   "error_code": "INVALID_SCHEMA",
+   "description": "non-positive qualifier_price coefficient (positive prices only)",
+   "raised_by": "library"
+  },
+  {
+   "id": "RO15",
+   "error_code": "INVALID_CONFIG",
+   "description": "evidence_limit 10001",
+   "raised_by": "library"
+  },
+  {
    "id": "RA01",
    "error_code": "DUPLICATE",
-   "description": "same reference_id twice in observations: SD-1",
+   "description": "same reference_id twice in observations: contract E RF12",
    "raised_by": "shared validator"
   },
   {
    "id": "RA02",
    "error_code": "DUPLICATE",
-   "description": "equal sequence with different event_id in one epoch",
+   "description": "equal sequence with different event_id in one epoch, rows supplied in (effective_start_ns, reference_id) order (if they are not in that order the shared validator raises INVALID_ORDER first, RA14); an equal sequence at different times is the library DUPLICATE",
    "raised_by": "library"
   },
   {
@@ -29683,6 +30153,30 @@
    "error_code": "INCONSISTENT_IDENTITY",
    "description": "row text differs from the batch snapshot id",
    "raised_by": "library"
+  },
+  {
+   "id": "RA14",
+   "error_code": "INVALID_ORDER",
+   "description": "event time goes down while the sequence goes up (key (effective_start_ns, reference_id) decreases)",
+   "raised_by": "shared validator"
+  },
+  {
+   "id": "RA15",
+   "error_code": "BOUNDS",
+   "description": "4097 observation rows (4096 bound as R17)",
+   "raised_by": "library"
+  },
+  {
+   "id": "RA16",
+   "error_code": "INVALID_CONFIG",
+   "description": "tau_ns above 2^62",
+   "raised_by": "library"
+  },
+  {
+   "id": "RA17",
+   "error_code": "INVALID_CONFIG",
+   "description": "evidence_limit 10001",
+   "raised_by": "library"
   }
  ],
  "prefix_equivalences": "AD07a to AD07c; and the evaluator asserts eval(full stream, C = t_j + 1) == eval(first j rows) for j = 0..6",
@@ -29697,7 +30191,7 @@
   },
   {
    "id": "DP-S1",
-   "text": "SD-1 (duplicate identity) is stated once, in contract E (RF12): a duplicate (instrument, session, reference_id) is rejected with DUPLICATE. This contract only cites it; the one extension is that overlapping stints of one member are the same identity (RB03)."
+   "text": "Duplicate identity is cited from contract E (refusal RF12 and OQ-7): a duplicate (instrument, session, reference_id) is rejected with DUPLICATE. The label SD-1 belongs to the audit draft, not to E. F states as its own rule (not attributed to E) that there is no first-wins, last-wins or aggregation, and extends E only by treating overlapping stints of one member as the same identity (RB03)."
   },
   {
    "id": "DP-B1",
@@ -29753,11 +30247,11 @@
   },
   {
    "id": "DP-B14",
-   "text": "Each role holds at most 4096 rows."
+   "text": "Each role of every producer (declared roles, observed roster and fact roles, adaptive observations) holds at most 4096 rows (BOUNDS), as the R17 bound integer(count, 1, 4096) in packages/intraday/src/equity_features_intraday/_context.py."
   },
   {
    "id": "DP-B15",
-   "text": "Units members, ratio, shares, fraction, utc_ns; members and ratio are new to the ledger, utc_ns is already applied by the EF1 amendment."
+   "text": "Units members, ratio, shares, fraction, utc_ns; members, ratio, shares/s and 1/s are new to the ledger, as is observations (emitted by merged code but not in the frozen ledger); utc_ns is already applied by the EF1 amendment."
   },
   {
    "id": "DP-O1",
@@ -29824,6 +30318,18 @@
    "text": "Only F0699 is mapped (baseline_available); F0690, F0692 and F0694 to F0698 are unmapped."
   },
   {
+   "id": "DP-Q1",
+   "text": "Reason table aligned with contract E: future_market maps to incomplete_coverage and is ordered after governed_gap; empty_universe precedes zero_denominator."
+  },
+  {
+   "id": "DP-V1",
+   "text": "Orphan check (a fact row for an undeclared member or non-roster member is INCONSISTENT_IDENTITY) applies only when the population or roster batch is delivered with complete coverage; with the role None or incomplete the check is skipped and the population-level finding applies."
+  },
+  {
+   "id": "DP-V2",
+   "text": "Every role batch carries the same PriceUnit, including batches without a price column, because require_compatible_inputs compares None with a unit (RB30)."
+  },
+  {
    "id": "DP-N1",
    "text": "Numeric policy: integers exact; declared and observed floats are a single correctly rounded division of exact integers (bit exact); adaptive floats are the single rounding of the exact rational with R17 acceptance max(8 ulp, 1e-12*|r|), +0.0 required where exact zero is argued."
   }
@@ -29875,11 +30381,11 @@
   }
  ],
  "fixture_counts": {
-  "declared_result": 48,
+  "declared_result": 49,
   "observed_result": 20,
-  "adaptive_result": 29,
-  "refusal": 51,
-  "hand_asserted_cells": 626
+  "adaptive_result": 30,
+  "refusal": 62,
+  "hand_asserted_cells": 640
  },
  "reset_mode": "epoch reset mode only",
  "header_counts": {
@@ -30003,6 +30509,10 @@
    "OB17",
    "AD12"
   ],
+  "false_decides": [
+   "DB10",
+   "DB11"
+  ],
   "absent_prior": [
    "DB11"
   ],
@@ -30088,15 +30598,18 @@
   "rounding": [
    "DB42",
    "DB43",
+   "DB47",
    "AD06",
    "AD20",
-   "AD26"
+   "AD26",
+   "AD28"
   ],
   "evidence": [
    "DB44"
   ],
   "int64_limit": [
    "DB45",
+   "DB47",
    "AD26"
   ],
   "observed_vs_declared": [
@@ -30178,6 +30691,12 @@
   ],
   "sequence_gap": [
    "AD27"
+  ],
+  "near_tie": [
+   "AD28"
+  ],
+  "exact_ordering": [
+   "AD28"
   ]
  },
  "coordinator_freeze": "Per the coordinator, frozen as ef3-breadth1 (ef3.session_breadth), ef3-obsbreadth1 (ef3.observed_breadth) and ef3-adaptive1 (ef3.adaptive_volume), v1, for implementation once PR 691 merges; the author makes no acceptance claim."
