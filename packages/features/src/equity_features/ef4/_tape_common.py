@@ -41,8 +41,8 @@ def knowledge_flags(columns: dict[str, tuple[Any, ...]], count: int, config: Con
 
 
 def require_batch_capability(feature_id: str, capability: str, features: tuple[str, ...], supported: tuple[str, ...]) -> None:
-    """Unknown feature first, then the capability (batch and the listed capabilities only)."""
-    if feature_id not in features:
-        fail(ErrorCode.UNKNOWN_FEATURE, "unknown EF4 tape feature")
+    """Capability first, then the unknown feature (the contract refusal order)."""
     if capability not in supported:
         fail(ErrorCode.UNSUPPORTED_CAPABILITY, "output capability is not implemented in this package version")
+    if feature_id not in features:
+        fail(ErrorCode.UNKNOWN_FEATURE, "unknown EF4 tape feature")

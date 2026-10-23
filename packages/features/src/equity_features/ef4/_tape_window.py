@@ -300,6 +300,6 @@ def compute_tape_window(batches: tuple[CanonicalBatch | None, ...] | list[Canoni
         bindings.append(InputBinding("seed", DataKind.REFERENCE, seed_batch.metadata))
     # The bound is per output (DP-T15): each available output lists at most evidence_limit witnesses.
     metadata = ResultMetadata(config.session.namespace, entity.session_id, config.availability, config.digest,
-                              tuple(bindings), "python-exact", __version__, limit * len(selected))
+                              tuple(bindings), "python-exact", __version__, limit * len(TAPE_FEATURES))
     return FeatureResult(tuple(values), tuple(quality), metadata, tuple(evidence))
 
