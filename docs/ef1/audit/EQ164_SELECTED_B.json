@@ -1,0 +1,2187 @@
+{
+ "kind": "eq164_audit_selected_slice_b_findings",
+ "status": "FINDINGS ONLY: nothing accepted; no mathematical, source, rights or consumer acceptance",
+ "slice": "rows of the selected-scope component packet whose proposed owners include planned release EF3",
+ "row_count": 58,
+ "counts_by_classification": {
+  "COVERED_BY_PLANNED_PRODUCER": 48,
+  "AMBIGUOUS_OR_CONFLICTING": 6,
+  "NEEDS_OPERAND_PRODUCER": 4
+ },
+ "issue_checks": {
+  "626": "EQ-237 OPEN m24",
+  "611": "EQ-223 OPEN m24",
+  "612": "EQ-224 OPEN m24",
+  "491": "EQ-157 OPEN m24",
+  "490": "EQ-156 OPEN m24",
+  "489": "EQ-155 OPEN m24",
+  "487": "EQ-153 OPEN m24",
+  "488": "EQ-154 OPEN m24",
+  "598": "EQ-220 OPEN m24",
+  "518": "EQ-176 OPEN m28",
+  "519": "EQ-177 OPEN m28",
+  "520": "EQ-178 OPEN m28",
+  "621": "EQ-233 OPEN m28",
+  "622": "EQ-234 OPEN m28",
+  "36": "EQ-031 CLOSED m3",
+  "492": "EQ-158 OPEN m25"
+ },
+ "issue_number_consistency": "all owner, I/O and worker issue numbers exist and match NUMBERED_LAYER_OWNERS; no missing or mismatched number found",
+ "decisions": {
+  "D-FLIP": "F0691, F0697, F0698: are these computed #626 diagnostics or supplied operands? If supplied, which story supplies them?",
+  "D-ENV": "F0700, F0701, F0721: what value does each envelope carry and which numbered story produces it, or may the I/O layer be primary owner?",
+  "D-MED": "Does the mean companion get its own numbered story or variant, or stay inside #490? Are F0707-F0712 supplied flags or computed median/MAD outputs, and is #489 an explicit operand edge?",
+  "D-WL": "Record the #489 bridge as a selected override and publish which six watchlists carry the extra direct joins.",
+  "D-POP": "Enumerate the observed-population companion outputs and their per-output operand producers, or number the missing producer.",
+  "D-EDGE": "Record which adaptive outputs S0336, S0337 and S0357 consume so the #519/#626 edges become output-level.",
+  "D-FWD": "#626 may take raw operands from EF4 #492 (later release than EF3): choose accepted earlier controls, or re-home the adaptive outcome acceptance."
+ },
+ "rows": [
+  {
+   "opaque_id": "F0690",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0691",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "confidence": "low",
+   "gaps": [
+    "prior route was representation/supplied-fact; now routed to the adaptive producer #626 whose body says a supplied raw velocity or historical ratio stays an independently owned operand",
+    "role flip unresolved: computed #626 output vs supplied operand; no contract or fixtures exist"
+   ],
+   "dependency_notes": [
+    "if supplied, the supplier of the operand is unnamed (candidate EF4 #492 or accepted controls)"
+   ],
+   "decision": "D-FLIP"
+  },
+  {
+   "opaque_id": "F0692",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0693",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0694",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0695",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0696",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0697",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "confidence": "low",
+   "gaps": [
+    "prior route was representation/supplied-fact; now routed to the adaptive producer #626 whose body says a supplied raw velocity or historical ratio stays an independently owned operand",
+    "role flip unresolved: computed #626 output vs supplied operand; no contract or fixtures exist"
+   ],
+   "dependency_notes": [
+    "if supplied, the supplier of the operand is unnamed (candidate EF4 #492 or accepted controls)"
+   ],
+   "decision": "D-FLIP"
+  },
+  {
+   "opaque_id": "F0698",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "confidence": "low",
+   "gaps": [
+    "prior route was representation/supplied-fact; now routed to the adaptive producer #626 whose body says a supplied raw velocity or historical ratio stays an independently owned operand",
+    "role flip unresolved: computed #626 output vs supplied operand; no contract or fixtures exist"
+   ],
+   "dependency_notes": [
+    "if supplied, the supplier of the operand is unnamed (candidate EF4 #492 or accepted controls)"
+   ],
+   "decision": "D-FLIP"
+  },
+  {
+   "opaque_id": "F0699",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0700",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 611,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "confidence": "low",
+   "gaps": [
+    "primary owner is the EF3 I/O layer issue (representation envelope only); no numerical or supplied-fact producer for the enveloped value is named",
+    "cannot tell whether the value is a #626 output, a supplied operand or a policy-side (EF8) value"
+   ],
+   "dependency_notes": [
+    "layer issue as primary owner conflicts with the audit rule that retained outputs need a numbered implementation story; layers must not hide math"
+   ],
+   "decision": "D-ENV"
+  },
+  {
+   "opaque_id": "F0701",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 611,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "confidence": "low",
+   "gaps": [
+    "primary owner is the EF3 I/O layer issue (representation envelope only); no numerical or supplied-fact producer for the enveloped value is named",
+    "cannot tell whether the value is a #626 output, a supplied operand or a policy-side (EF8) value"
+   ],
+   "dependency_notes": [
+    "layer issue as primary owner conflicts with the audit rule that retained outputs need a numbered implementation story; layers must not hide math"
+   ],
+   "decision": "D-ENV"
+  },
+  {
+   "opaque_id": "F0703",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0704",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0705",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0706",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0707",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-156 #490 median/MAD normalization scope; baseline summaries from EQ-155 #489",
+   "gaps": [
+    "route role reads supplied operand or flag with no mean substitution: supplied vs computed not decided",
+    "no contract or fixtures; #490 and #489 are OPEN/Backlog",
+    "row names #490 only; the median/MAD baseline producer #489 is a hidden operand edge (present only as a story prerequisite)"
+   ],
+   "dependency_notes": [
+    "must stay distinct from the mean companion; no mean substitution"
+   ],
+   "decision": "D-MED"
+  },
+  {
+   "opaque_id": "F0708",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-156 #490 median/MAD normalization scope; baseline summaries from EQ-155 #489",
+   "gaps": [
+    "route role reads supplied operand or flag with no mean substitution: supplied vs computed not decided",
+    "no contract or fixtures; #490 and #489 are OPEN/Backlog",
+    "row names #490 only; the median/MAD baseline producer #489 is a hidden operand edge (present only as a story prerequisite)"
+   ],
+   "dependency_notes": [
+    "must stay distinct from the mean companion; no mean substitution"
+   ],
+   "decision": "D-MED"
+  },
+  {
+   "opaque_id": "F0709",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-156 #490 median/MAD normalization scope; baseline summaries from EQ-155 #489",
+   "gaps": [
+    "route role reads supplied operand or flag with no mean substitution: supplied vs computed not decided",
+    "no contract or fixtures; #490 and #489 are OPEN/Backlog",
+    "row names #490 only; the median/MAD baseline producer #489 is a hidden operand edge (present only as a story prerequisite)"
+   ],
+   "dependency_notes": [
+    "must stay distinct from the mean companion; no mean substitution"
+   ],
+   "decision": "D-MED"
+  },
+  {
+   "opaque_id": "F0710",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-156 #490 median/MAD normalization scope; baseline summaries from EQ-155 #489",
+   "gaps": [
+    "route role reads supplied operand or flag with no mean substitution: supplied vs computed not decided",
+    "no contract or fixtures; #490 and #489 are OPEN/Backlog",
+    "row names #490 only; the median/MAD baseline producer #489 is a hidden operand edge (present only as a story prerequisite)"
+   ],
+   "dependency_notes": [
+    "must stay distinct from the mean companion; no mean substitution"
+   ],
+   "decision": "D-MED"
+  },
+  {
+   "opaque_id": "F0711",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-156 #490 median/MAD normalization scope; baseline summaries from EQ-155 #489",
+   "gaps": [
+    "route role reads supplied operand or flag with no mean substitution: supplied vs computed not decided",
+    "no contract or fixtures; #490 and #489 are OPEN/Backlog",
+    "row names #490 only; the median/MAD baseline producer #489 is a hidden operand edge (present only as a story prerequisite)"
+   ],
+   "dependency_notes": [
+    "must stay distinct from the mean companion; no mean substitution"
+   ],
+   "decision": "D-MED"
+  },
+  {
+   "opaque_id": "F0712",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-156 #490 median/MAD normalization scope; baseline summaries from EQ-155 #489",
+   "gaps": [
+    "route role reads supplied operand or flag with no mean substitution: supplied vs computed not decided",
+    "no contract or fixtures; #490 and #489 are OPEN/Backlog",
+    "row names #490 only; the median/MAD baseline producer #489 is a hidden operand edge (present only as a story prerequisite)"
+   ],
+   "dependency_notes": [
+    "must stay distinct from the mean companion; no mean substitution"
+   ],
+   "decision": "D-MED"
+  },
+  {
+   "opaque_id": "F0713",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0714",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-237 #626 (EF3), I/O #611, worker #612, acceptance #491",
+   "gaps": [
+    "no EF3 contract, formulas, units, warm-up contract or independent complete-result fixtures exist anywhere in the repo; #626 is OPEN/Backlog",
+    "consumed raw volume/window/control operand producers not yet named (issue body defers this to before Ready)"
+   ],
+   "dependency_notes": [
+    "no blanket #490 or EF8 dependency, consistent with #626 body; possible forward edge to EF4 #492 (see D-FWD)"
+   ]
+  },
+  {
+   "opaque_id": "F0721",
+   "kind": "field",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 611,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "AMBIGUOUS_OR_CONFLICTING",
+   "confidence": "low",
+   "gaps": [
+    "primary owner is the EF3 I/O layer issue (representation envelope only); no numerical or supplied-fact producer for the enveloped value is named",
+    "cannot tell whether the value is a #626 output, a supplied operand or a policy-side (EF8) value"
+   ],
+   "dependency_notes": [
+    "layer issue as primary owner conflicts with the audit rule that retained outputs need a numbered implementation story; layers must not hide math"
+   ],
+   "decision": "D-ENV"
+  },
+  {
+   "opaque_id": "S0336",
+   "kind": "consumer",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 519,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part: #626 (adaptive or session-summary operand); policy #518/#519 are EF8",
+   "gaps": [
+    "no field bridges recorded, so which adaptive outputs each consumer uses is unbound",
+    "adaptive contract and fixtures absent; raw operand producers of #626 unnamed"
+   ],
+   "dependency_notes": [
+    "#519 optional operand edge to #626 is published; #520 reaches it only transitively via #519 (acceptable while #519 remains the operand owner)"
+   ],
+   "decision": "D-EDGE"
+  },
+  {
+   "opaque_id": "S0337",
+   "kind": "consumer",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 519,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part: #626 (adaptive or session-summary operand); policy #518/#519 are EF8",
+   "gaps": [
+    "no field bridges recorded, so which adaptive outputs each consumer uses is unbound",
+    "adaptive contract and fixtures absent; raw operand producers of #626 unnamed"
+   ],
+   "dependency_notes": [
+    "#519 optional operand edge to #626 is published; #520 reaches it only transitively via #519 (acceptable while #519 remains the operand owner)"
+   ],
+   "decision": "D-EDGE"
+  },
+  {
+   "opaque_id": "S0357",
+   "kind": "consumer",
+   "selection": "S01-ADAPTIVE",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 519,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 626,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part: #626 (adaptive or session-summary operand); policy #518/#519 are EF8",
+   "gaps": [
+    "no field bridges recorded, so which adaptive outputs each consumer uses is unbound",
+    "adaptive contract and fixtures absent; raw operand producers of #626 unnamed"
+   ],
+   "dependency_notes": [
+    "#519 optional operand edge to #626 is published; #520 reaches it only transitively via #519 (acceptable while #519 remains the operand owner)"
+   ],
+   "decision": "D-EDGE"
+  },
+  {
+   "opaque_id": "F0452",
+   "kind": "field",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "medium",
+   "covered_by": "EQ-156 #490 separately named historical mean companion (EF3)",
+   "gaps": [
+    "mean-companion contract, window/target-inclusion policy and fixtures absent",
+    "accepted #36 reuse unproved (closed story); no numerical equivalence accepted",
+    "companion has no entry in the 47-output manifest"
+   ],
+   "dependency_notes": [
+    "#490 prerequisites (#489, #470) are median/MAD oriented; the mean companion needs its own prerequisite list or it inherits a hidden #489 edge",
+    "issue outcome is robust median/MAD while a mean companion is housed in the same issue: identity overload risk"
+   ],
+   "decision": "D-MED"
+  },
+  {
+   "opaque_id": "W0001",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0002",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0003",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0004",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0005",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0006",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0007",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0008",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0009",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0010",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0011",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0012",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0013",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0014",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0015",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0016",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0017",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0018",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0019",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0020",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0021",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0022",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0023",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0024",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "W0025",
+   "kind": "consumer",
+   "selection": "S03-MEAN-RATIO",
+   "owners": [
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    },
+    {
+     "issue": 490,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "COVERED_BY_PLANNED_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EF3 part only: #490 mean-proxy companion (via one bridged field) and #489 (via one further bridged field); policy #518 is EF8",
+   "gaps": [
+    "bridges are lexical, not a minimal execution graph; all 25 watchlist rows carry an identical bridge set, so the six rows with extra direct joins cannot be identified from the published coverage file",
+    "the bridge to the #489 producer is not among the selected component overrides (only #518 and #490 are)",
+    "most operands bridge to EF1/EF4/EF5/EF8 owners (other audit slices); closure not assessed here"
+   ],
+   "dependency_notes": [
+    "#36 conditional reuse unproved"
+   ],
+   "decision": "D-WL"
+  },
+  {
+   "opaque_id": "S0003",
+   "kind": "consumer",
+   "selection": "S08-POPULATION",
+   "owners": [
+    {
+     "issue": 598,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    },
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-220 #598 observed-population companion (EF3) plus EF8 #518 regime policy",
+   "gaps": [
+    "no field bridges recorded: consumed operands not identified",
+    "observed-population companion outputs are not enumerated; the 47-output manifest lists only the 16 declared-universe slots under #598",
+    "per-output member return/VWAP/volume/momentum producers are unnamed (issue body says add per output)",
+    "issue title still says declared-universe"
+   ],
+   "dependency_notes": [
+    "declared vs observed denominators must not mix; observed records cannot shrink the expected population"
+   ],
+   "decision": "D-POP"
+  },
+  {
+   "opaque_id": "S0004",
+   "kind": "consumer",
+   "selection": "S08-POPULATION",
+   "owners": [
+    {
+     "issue": 598,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    },
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-220 #598 observed-population companion (EF3) plus EF8 #518 regime policy",
+   "gaps": [
+    "no field bridges recorded: consumed operands not identified",
+    "observed-population companion outputs are not enumerated; the 47-output manifest lists only the 16 declared-universe slots under #598",
+    "per-output member return/VWAP/volume/momentum producers are unnamed (issue body says add per output)",
+    "issue title still says declared-universe"
+   ],
+   "dependency_notes": [
+    "declared vs observed denominators must not mix; observed records cannot shrink the expected population"
+   ],
+   "decision": "D-POP"
+  },
+  {
+   "opaque_id": "S0005",
+   "kind": "consumer",
+   "selection": "S08-POPULATION",
+   "owners": [
+    {
+     "issue": 598,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    },
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-220 #598 observed-population companion (EF3) plus EF8 #518 regime policy",
+   "gaps": [
+    "no field bridges recorded: consumed operands not identified",
+    "observed-population companion outputs are not enumerated; the 47-output manifest lists only the 16 declared-universe slots under #598",
+    "per-output member return/VWAP/volume/momentum producers are unnamed (issue body says add per output)",
+    "issue title still says declared-universe"
+   ],
+   "dependency_notes": [
+    "declared vs observed denominators must not mix; observed records cannot shrink the expected population"
+   ],
+   "decision": "D-POP"
+  },
+  {
+   "opaque_id": "S0006",
+   "kind": "consumer",
+   "selection": "S08-POPULATION",
+   "owners": [
+    {
+     "issue": 598,
+     "release": "EF3",
+     "io": 611,
+     "worker": 612
+    },
+    {
+     "issue": 518,
+     "release": "EF8",
+     "io": 621,
+     "worker": 622
+    }
+   ],
+   "evidence_read": [
+    "docs/plans/equity-selected-scope-components.json (row)",
+    "docs/plans/equity-audit-route-coverage.json (row)",
+    "docs/ef1/NUMBERED_LAYER_OWNERS.md",
+    "docs/plans/equity-selected-dependencies.json",
+    "docs/plans/equity-output-ownership.json (searched; no entry for this owner/profile)",
+    "docs/ef1/DELIVERY_LEDGER.md (no EF3 capability listed)",
+    "read-only issue readback: title, state, milestone and body of the owner, I/O and worker issues"
+   ],
+   "classification": "NEEDS_OPERAND_PRODUCER",
+   "confidence": "low",
+   "covered_by": "EQ-220 #598 observed-population companion (EF3) plus EF8 #518 regime policy",
+   "gaps": [
+    "no field bridges recorded: consumed operands not identified",
+    "observed-population companion outputs are not enumerated; the 47-output manifest lists only the 16 declared-universe slots under #598",
+    "per-output member return/VWAP/volume/momentum producers are unnamed (issue body says add per output)",
+    "issue title still says declared-universe"
+   ],
+   "dependency_notes": [
+    "declared vs observed denominators must not mix; observed records cannot shrink the expected population"
+   ],
+   "decision": "D-POP"
+  }
+ ]
+}
