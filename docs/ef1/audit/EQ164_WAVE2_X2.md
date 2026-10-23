@@ -1,6 +1,6 @@
 # EQ164 wave 2, story X2: other-domain command exclusions
 
-October 22, 2026. Adjudicated findings only. Nothing here approves an exclusion, changes a contract, edits the tracker or creates a story. Full EQ164 stays open. Per-row records are in [EQ164_WAVE2_X2.json](EQ164_WAVE2_X2.json). Opaque ids only (C####, F####, S####, W##); numbered owners follow [NUMBERED_LAYER_OWNERS.md](../NUMBERED_LAYER_OWNERS.md).
+October 22, 2026. Adjudicated findings only. Nothing here approves an exclusion, changes a contract, edits the tracker or creates a story. Full EQ164 stays open. Status of every finding: coordinator-decided per [EQ164_WAVE2_DECISIONS.md](EQ164_WAVE2_DECISIONS.md), pending owner review. Per-row records are in [EQ164_WAVE2_X2.json](EQ164_WAVE2_X2.json). Opaque ids only (C####, F####, S####, W##); numbered owners follow [NUMBERED_LAYER_OWNERS.md](../NUMBERED_LAYER_OWNERS.md).
 
 ## Scope and method
 
@@ -42,6 +42,10 @@ Reason classes for the 82 confirmed rows (the exclusion stands for the command, 
 | RC5 | Wrapper of a shared kernel that equity-side workers consume as supplied facts. The wrapper is excluded; the consumer link is noted below | 13 |
 
 Confidence: 72 rows are high and 29 are medium. Medium applies to large reach sets, interface dispatch, or rows that touch a retained component only as an operand or for verification. Every row with a verdict other than CONFIRM_EXCLUSION is either high or medium as stated in the JSON.
+
+## Method note (rework)
+
+An independent review found that most confirmed rows carried an empty or repeated finding. In this revision each of the 82 CONFIRM_EXCLUSION rows has its own one- or two-sentence `finding` (82 distinct strings) stating the class of behaviour of that command, what was checked for embedded equity facts or calculations, and the delegated, interface and subprocess closure result. The `evidence_inspected` list is built per row from the artifacts actually read for it: its own source and size band, the kinds of directly called packages, the static call-graph result (including the specific operand or verification paths reached, where any), the reverse-import result and, for the five rows with interface dispatch, the dispatch sites. Rows with identical lists are rows with the same called-package kinds and reach result. No verdict changed: all counts above are unchanged (82 / 8 / 11 and 5 / 0 / 1). The Q1 to Q6 questions were decided after this report; see the decisions record.
 
 ## What "other domain" was hiding
 

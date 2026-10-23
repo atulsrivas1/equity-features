@@ -41,7 +41,8 @@
       "call-graph is method-name over-approximate and does not prove runtime reachability",
       "runtime dispatch, deployment configuration and stream contents not inspected",
       "no numerical, source-rights or consumer verification performed"
-    ]
+    ],
+    "rework_note": "Rework: every confirmed other-domain row carries a row-specific finding and a row-specific evidence list built from that row's own source, called packages, reach result and reverse-import result."
   },
   "other_domain_rows": [
     {
@@ -59,12 +60,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -73,9 +73,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "One-shot registration tool that verifies a dated baseline manifest and its column-file artifact for the activity product and records it in the product store; the baselines are option-activity statistics and the equity-fact scan found only product identifiers. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0104",
@@ -92,12 +92,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: calendar session-close operand",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -106,9 +105,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "uses the trading-calendar session close as an operand only; relates to the open calendar predecessor C0051 but adds no equity output",
+      "finding": "Projection job that schedules activity screens from the product store for a session; it reads the trading-calendar session close only to bound the schedule, and the embedded-fact scan found no equity price, volume or return computed. Closure: retained components reached only as operands or verification (calendar session-close operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0105",
@@ -125,12 +124,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: calendar session-close operand",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -139,9 +137,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "uses the trading-calendar session close as an operand only; relates to the open calendar predecessor C0051 but adds no equity output",
+      "finding": "Stream worker that consumes committed activity candidates and schedules per-candidate screen jobs; the only shared fact is the calendar session close used as a time bound, and no equity value is derived. Closure: retained components reached only as operands or verification (calendar session-close operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0106",
@@ -158,12 +156,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -172,9 +169,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that consumes committed product records and emits alert events keyed by product identity; it only forwards product-side fields and the scan found no equity input. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0107",
@@ -191,12 +188,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 4 directly called internal package(s): product logic, serving/delivery, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -205,9 +201,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "HTTP API surface over the product store, bound to a loopback address check; it serves stored product rows and computes nothing, and its universe handling is a lookup of the product universe. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0108",
@@ -224,12 +220,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (3 file, under 100 lines)",
+        "source of 3 directly called internal package(s): artifact/codec, product logic, runtime/stream plumbing",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -238,9 +233,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Verification tool that checks capture intervals and provider delivery inventories for archived option definitions and reconciles chain mappings; it is archive auditing with no equity value read. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0109",
@@ -275,7 +270,7 @@
       },
       "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0110",
@@ -292,12 +287,12 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (14 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: archived price observation reached on a verification path; calendar session-close operand; horizon target calendar; outcome re-derivation reached on a verification path",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source",
+        "interface dispatch sites in the command read to confirm they do not select an equity component"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -306,9 +301,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "re-executes retained components for verification only; the component owners cover the calculation",
+      "finding": "Large administrative tool that stages, validates and audits recovery state, journals, capacity and committed vectors for the product; its recovery validators re-run retained outcome and price-binding code only to verify stored rows, so the retained components keep their own owners. Closure: retained components reached only as operands or verification (archived price observation reached on a verification path, calendar session-close operand, horizon target calendar, outcome re-derivation reached on a verification path), interface dispatch present and read, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0111",
@@ -325,12 +320,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): artifact/codec, product logic, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -339,9 +333,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Batch build of activity baselines from a population artifact, partitioned and encoded as column files; inputs are option-flow populations and no equity price or return is formed. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0112",
@@ -358,12 +352,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 2 directly called internal package(s): artifact/codec, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -372,9 +365,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Batch preparation that decodes and re-encodes the baseline population artifact under historical resource admission; it reshapes product data only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0113",
@@ -391,12 +384,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): artifact/codec, product logic, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -405,9 +397,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Batch partitioner that splits a baseline set into score baselines and encodes the parts; it is pure data partitioning with no equity operand. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0114",
@@ -424,12 +416,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): artifact/codec, runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: archived price observation reached on a verification path; calendar session-close operand; horizon target calendar; outcome re-derivation reached on a verification path",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -438,9 +429,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "re-executes retained components for verification only; the component owners cover the calculation",
+      "finding": "Audit tool that loads a baseline population and verifies it against the replay source inventory; the replay verification re-derives stored outcome and price-binding rows only to compare, so it adds no obligation beyond the retained component owners. Closure: retained components reached only as operands or verification (archived price observation reached on a verification path, calendar session-close operand, horizon target calendar, outcome re-derivation reached on a verification path), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0117",
@@ -457,12 +448,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 2 directly called internal package(s): other support, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -471,9 +461,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "shared capture-restore plumbing also restores equity-side capture consumers; recovery of captured bytes only, no calculation",
+      "finding": "Staging tool that audits a capture restore export and builds the consumer plan for restoring raw capture; the plan lists equity-side capture consumers among others, but the tool moves and verifies captured bytes and cursors and computes nothing. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0118",
@@ -508,7 +498,7 @@
       },
       "finding": "Decodes and validates the dated company-event source through the equity-side schema validator and publishes it to a product store",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0119",
@@ -525,12 +515,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -539,9 +528,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that consumes committed role streams and writes concentration screen rows over the product universe members; the measure is on option premium and not on equity data. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0120",
@@ -558,12 +547,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -572,9 +560,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Worker that builds a per-session summary by summing option premium and net directional premium over the covered universe members and recording coverage against the expected symbol count; the stock list is only the membership frame. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0121",
@@ -591,12 +579,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): product logic, runtime/stream plumbing",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -605,9 +592,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Audit that builds a per-day definition inventory from archived option definitions under resource admission; it observes definitions and reads no equity series. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0122",
@@ -642,7 +629,7 @@
       },
       "finding": "Computes a first-to-last window return over underlying price samples carried in the product records",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0123",
@@ -661,12 +648,11 @@
       ],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -675,9 +661,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "attaches event-schedule context and a supplied underlying price to product enrichment records; no equity calculation, dependent on Q3",
+      "finding": "Stream worker that builds enrichment records for option executions by selecting causal rate, dividend and underlying-price evidence and attaching event-schedule context; the underlying price is a supplied operand for moneyness and no equity result is computed, with the schedule validator tied to the decided supplied-fact obligation. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0124",
@@ -694,12 +680,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 2 directly called internal package(s): product logic, runtime/stream plumbing",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -708,9 +693,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Batch build of the product evidence package: chronological split of outcomes and scores plus package encoding and verification; it consumes stored option-flow outcomes and computes no equity statistic itself. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0125",
@@ -727,12 +712,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (2 file, under 100 lines)",
+        "source of 1 directly called internal package(s): store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -741,9 +725,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Projection job that writes product evidence rows from the store into a query projection; transport only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0126",
@@ -760,12 +744,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -774,9 +757,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that consumes committed role streams and writes execution screen rows for the product; screen inputs are option executions and quotes. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0127",
@@ -793,12 +776,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (2 file, 100 to 299 lines)",
+        "source of 5 directly called internal package(s): option kernel, product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 150 to 399 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -807,9 +789,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Capture worker that turns canonical option trade events into product executions, with lease, durable source publication and stream-head recovery; it adapts option feed events and parses contract symbols, and the only equity-side fact is the underlying symbol. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0128",
@@ -826,12 +808,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 2 directly called internal package(s): product logic, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -840,9 +821,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Worker that serves export requests from the product store with retry classification for infrastructure errors; it moves stored rows out and computes nothing. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0129",
@@ -859,12 +840,12 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (5 file, under 100 lines)",
+        "source of 4 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source",
+        "interface dispatch sites in the command read to confirm they do not select an equity component"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -873,9 +854,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that advances the feature calculator checkpoint over execution and frontier streams and verifies journal math for the product; the features are option-flow aggregates against baselines, and underlying price appears only as an enrichment operand. Closure: no retained component reached, interface dispatch present and read, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0130",
@@ -892,12 +873,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 4 directly called internal package(s): artifact/codec, product logic, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -906,9 +886,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Batch build of group baselines from a population artifact plus replay inspection and frontiers; option-flow group statistics only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0131",
@@ -925,12 +905,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -939,9 +918,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Evidence job that splits group evidence chronologically and runs a store query over group outcomes; it orchestrates stored product rows and forms no new equity value. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0132",
@@ -995,7 +974,7 @@
       },
       "finding": "Directly executes the observed-path outcome producer for the product anchor population",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0133",
@@ -1012,12 +991,12 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 4 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source",
+        "interface dispatch sites in the command read to confirm they do not select an equity component"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1026,9 +1005,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that scores option-execution groups against loaded group baselines and publishes score rows; no equity operand is consumed. Closure: no retained component reached, interface dispatch present and read, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0134",
@@ -1045,12 +1024,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1059,9 +1037,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that applies screens to option-execution groups and publishes the screen rows; no equity operand is consumed. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0135",
@@ -1115,7 +1093,7 @@
       },
       "finding": "Replays all derived analyses including the observed-path outcome producer and verifies archived price binding; orchestration of a retained component",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0136",
@@ -1132,12 +1110,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1146,9 +1123,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "History load worker that expands partitions, owns the history slot and parent ownership keys and refreshes the parent job under host capacity admission; scheduling and ownership only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0137",
@@ -1165,12 +1142,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 1 directly called internal package(s): runtime/stream plumbing",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1179,9 +1155,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Publisher of host capacity snapshots to the product store; infrastructure telemetry with no market data. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0138",
@@ -1198,12 +1174,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (2 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): option kernel, product logic, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1212,9 +1187,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Publisher that converts open-interest revisions into product observations from curated column files under historical admission; open interest is an option fact and no equity value is read. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0140",
@@ -1268,7 +1243,7 @@
       },
       "finding": "Directly executes the observed-path outcome producer for the product anchor population",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0141",
@@ -1285,12 +1260,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1299,9 +1273,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Projection worker that consumes committed batches and republishes them as a query projection; transport only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0142",
@@ -1318,12 +1292,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): option kernel, product logic, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1332,9 +1305,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Capture worker that decodes option quote transport messages into product quote observations; it reads option quotes and shares only the contract registry. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0143",
@@ -1351,12 +1324,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 4 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: archived price observation reached on a verification path; calendar session-close operand; horizon target calendar; outcome re-derivation reached on a verification path",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1365,9 +1337,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "re-executes retained components for verification only; the component owners cover the calculation",
+      "finding": "Import tool that loads a replay artifact and preflights it against the product store before publishing a committed step; the preflight re-derives stored outcome rows only to check them, so it adds no obligation beyond the retained component owners. Closure: retained components reached only as operands or verification (archived price observation reached on a verification path, calendar session-close operand, horizon target calendar, outcome re-derivation reached on a verification path), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0144",
@@ -1384,12 +1356,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: calendar session-close operand; horizon target calendar; outcome re-derivation reached on a verification path",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1398,9 +1369,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "option quote response measures; only the session close is shared with the calendar item",
+      "finding": "Stream worker that evaluates option-quote response measures at fixed horizons for stored executions and admits analysis maturity; the shared calendar fact is the session close, the measures are option quote based, and no equity value is derived. Closure: retained components reached only as operands or verification (calendar session-close operand, horizon target calendar, outcome re-derivation reached on a verification path), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0145",
@@ -1417,12 +1388,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1431,9 +1401,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Projection job that writes screen rows into the query projection under the capture context; transport only, no equity input. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0146",
@@ -1450,12 +1420,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1464,9 +1433,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Small worker that loads the capture context and projects screen rows; its source holds no calculation. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0148",
@@ -1501,7 +1470,7 @@
       },
       "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0149",
@@ -1518,12 +1487,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1532,9 +1500,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Projection job that writes net-directional-premium rows from the store under the capture context via a store query; the net directional premium is option premium direction and no equity value is read. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0150",
@@ -1551,12 +1519,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1565,9 +1532,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that tracks option-execution populations over time and publishes tracker evidence rows; it consumes committed role streams only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0151",
@@ -1602,7 +1569,7 @@
       },
       "finding": "Freezes a fixed-size stock universe from supplied activity and classification facts using a median ranking",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0152",
@@ -1619,12 +1586,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 2 directly called internal package(s): serving/delivery, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1633,9 +1599,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Webhook delivery worker that sends product notifications with retry delays through the delivery client; outbound transport with no market value computed. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0157",
@@ -1652,12 +1618,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): runtime/stream plumbing, serving/delivery, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1666,9 +1631,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "HTTP API and operator UI surface for the K2 product, reading the product UI store; serves stored rows only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0158",
@@ -1685,12 +1650,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 1 directly called internal package(s): store layer",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1699,9 +1663,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Credential administration tool that creates an API key in the product clock store; no market data touched. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0159",
@@ -1718,12 +1682,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (2 file, under 100 lines)",
+        "source of 4 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: option exposure arithmetic with a supplied price operand",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1732,9 +1695,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "finding": "Stream worker that converts consumed transfer batches into change rows for the K2 product; the changes are option exposure deltas and the underlying price is only a stored operand. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0160",
@@ -1751,12 +1714,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 1 directly called internal package(s): store layer",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1765,9 +1727,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Archive tool that validates clock identity and archives product clocks; clock bookkeeping with no market values. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0161",
@@ -1802,7 +1764,7 @@
       },
       "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0162",
@@ -1837,7 +1799,7 @@
       },
       "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0163",
@@ -1872,7 +1834,7 @@
       },
       "finding": "Adapts equity trade prints into underlying-price observations; no equity output computed",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0164",
@@ -1891,12 +1853,11 @@
       ],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: option exposure arithmetic with a supplied price operand; trade-price adaptation reached on a verification path; trade-price join reached on a verification path",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1905,9 +1866,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "finding": "Repair tool that plans and applies dispatch metadata repairs for the K2 product; its validation path re-runs source join logic only to check stored rows, and no equity result is emitted. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand, trade-price adaptation reached on a verification path, trade-price join reached on a verification path), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0165",
@@ -1924,12 +1885,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (2 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing",
+        "static call-graph path read from the command to: option exposure arithmetic with a supplied price operand",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1938,9 +1898,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "finding": "Stream worker that computes option exposure per contract from joined source records; the underlying price enters as a supplied operand to option arithmetic and no equity result is produced. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0166",
@@ -1957,12 +1917,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing",
+        "static call-graph path read from the command to: option exposure arithmetic with a supplied price operand",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -1971,9 +1930,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "finding": "Stream worker that resolves snapshot deliveries into the product inventory of option contracts; contract inventory only, with the exposure arithmetic downstream of it. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0167",
@@ -1990,12 +1949,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (2 file, under 100 lines)",
+        "source of 4 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: option exposure arithmetic with a supplied price operand",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2004,9 +1962,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "finding": "Stream worker that builds exposure levels from derived references; option-derived levels with the underlying price as a supplied operand. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0168",
@@ -2023,12 +1981,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2037,9 +1994,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Projection worker that consumes batches and writes records under clock validation; transport only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0169",
@@ -2056,12 +2013,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): runtime/stream plumbing, store layer",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2070,9 +2026,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Publication worker that publishes the next committed outbox item; transport only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0170",
@@ -2089,12 +2045,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (2 file, under 100 lines)",
+        "source of 2 directly called internal package(s): runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2103,9 +2058,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Retention worker that audits outbox retention, reclaims processed pages and trims worker streams under a retention policy; storage hygiene only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0171",
@@ -2122,12 +2077,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 4 directly called internal package(s): product logic, runtime/stream plumbing",
+        "static call-graph path read from the command to: option exposure arithmetic with a supplied price operand",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2136,9 +2090,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "finding": "Stream worker that builds assembled and planned exposure snapshots and decodes legacy snapshot deliveries; option exposure snapshots with the underlying price as a supplied operand. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0172",
@@ -2155,12 +2109,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (2 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing",
+        "static call-graph path read from the command to: option exposure arithmetic with a supplied price operand",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2169,9 +2122,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "finding": "Stream worker that joins source observations and computes contract exposure for the K2 product; the join carries the underlying price as an operand into option arithmetic and no equity series is produced. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0173",
@@ -2188,12 +2141,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): runtime/stream plumbing, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2202,9 +2154,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Source publication tool that publishes source artifacts under a guard and host capacity checks; artifact transport only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0174",
@@ -2221,12 +2173,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (2 file, under 100 lines)",
+        "source of 3 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph path read from the command to: option exposure arithmetic with a supplied price operand",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2235,9 +2186,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "underlying price enters option exposure arithmetic as a supplied operand; no equity result is produced",
+      "finding": "Rebuild tool that initialises and replays transport slices to rebuild product sources; it re-dispatches stored transport work and computes exposure only through the product path. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0175",
@@ -2254,12 +2205,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 1 directly called internal package(s): store layer",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2268,9 +2218,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Schema migration tool for product clocks and projections; schema change only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0176",
@@ -2287,12 +2237,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): runtime/stream plumbing, store layer",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2301,9 +2250,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Repair tool that rebuilds the operator UI projection from the store; presentation data only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0177",
@@ -2320,12 +2269,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 strategy context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 300 to 799 lines)",
+        "source of 3 directly called internal package(s): calendar/time window, option kernel",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 strategy context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2334,9 +2282,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Verification tool that replays minute-level strategy-window map-style checks against a configured policy and calendar location; it exercises an option-domain kernel that equity strategy workers also import, and computes no equity value itself. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0188",
@@ -2353,12 +2301,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 strategy context/score",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 300 to 799 lines)",
+        "source of 5 directly called internal package(s): option kernel, runtime/stream plumbing",
+        "static call-graph path read from the command to: option volatility rank kernel",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 strategy context/score)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2367,9 +2314,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "option-implied-volatility rank over product inputs; outputs consumed by equity strategy layers as supplied facts",
+      "finding": "Stream worker that ranks completed-minute option implied volatility against history with stream recovery; option inputs only, and the outputs are consumed by equity strategy layers as supplied facts. Closure: retained components reached only as operands or verification (option volatility rank kernel), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0199",
@@ -2386,12 +2333,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 end-of-day candidate context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 300 to 799 lines)",
+        "source of 4 directly called internal package(s): artifact/codec, calendar/time window, option kernel",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 end-of-day candidate context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2400,9 +2346,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Batch build of option activity baseline history from session observation files with generation-input proof checks and committed artifact verification; option data only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0203",
@@ -2419,12 +2365,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 strategy context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 300 to 799 lines)",
+        "source of 5 directly called internal package(s): calendar/time window, option kernel, runtime/stream plumbing",
+        "static call-graph path read from the command to: reference price selection from carried contract rows",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 strategy context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2433,9 +2378,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that computes option context from contract rows and event windows, choosing a reference underlying price carried in the contract rows; the price is a supplied operand and the context is an option kernel that equity strategy workers import. Closure: retained components reached only as operands or verification (reference price selection from carried contract rows), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0205",
@@ -2452,12 +2397,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 strategy context (utility only)",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 300 to 799 lines)",
+        "source of 7 directly called internal package(s): option kernel, runtime/stream plumbing",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 strategy context (utility only))",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2466,9 +2410,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that maintains option contract state from the stream with exact-integer projection and trimming; contract parsing only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0209",
@@ -2503,7 +2447,7 @@
       },
       "finding": "Reads the equity candidate artifact and rewrites option-derived columns into it",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0210",
@@ -2520,12 +2464,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 end-of-day candidate context (utility only)",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 1 directly called internal package(s): option kernel",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 end-of-day candidate context (utility only))",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2534,9 +2477,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Small tool that derives the end-of-day contract universe by parsing option contract symbols; no equity value is read. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0212",
@@ -2553,12 +2496,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 end-of-day candidate context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (4 file, 100 to 299 lines)",
+        "source of 9 directly called internal package(s): artifact/codec, option kernel, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 end-of-day candidate context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2567,9 +2509,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Large batch tool that curates option definition, quote and open-interest files into dated artifacts with provenance and manifests; it validates schemas and policies and reads no equity series. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0214",
@@ -2586,12 +2528,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 end-of-day candidate context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 300 to 799 lines)",
+        "source of 4 directly called internal package(s): artifact/codec, option kernel, other support",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 end-of-day candidate context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2600,9 +2541,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Publication tool that builds digest candidates from option scanner and contract artifacts and posts them to configured channels; it is a consumer-side publisher of option results. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0216",
@@ -2619,12 +2560,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 confirmation",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 300 to 799 lines)",
+        "source of 10 directly called internal package(s): calendar/time window, option kernel, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 confirmation)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2633,9 +2573,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that classifies option trades against quotes and builds flow windows, using an underlying price carried in the option record only for moneyness; the kernel is shared with equity confirmation workers. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0219",
@@ -2652,12 +2592,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 strategy context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 300 to 799 lines)",
+        "source of 6 directly called internal package(s): option kernel, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 strategy context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2666,9 +2605,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that builds option liquidity records from input streams per underlying; option liquidity only, with the kernel shared with equity strategy workers. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0223",
@@ -2685,12 +2624,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 end-of-day candidate context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): artifact/codec, option kernel",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 end-of-day candidate context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2699,9 +2637,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Batch process that applies curated open-interest availability, effective and revision policies and encodes snapshot and revision files; option open interest only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0242",
@@ -2718,12 +2656,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 strategy context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 1 directly called internal package(s): option kernel",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 strategy context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2732,9 +2669,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "robust normalisation over option inputs only; no equity input",
+      "finding": "Builder that encodes early-seed baselines for the pressure kernel using a robust normalisation over option pressure histories; the inputs are option values and the output is a hashed artifact. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0243",
@@ -2751,12 +2688,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 strategy context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 1 directly called internal package(s): option kernel",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 strategy context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2765,9 +2701,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "robust normalisation over option inputs only; no equity input",
+      "finding": "Loader that decodes and validates the early-seed artifact and its manifest for the pressure kernel; artifact validation only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0244",
@@ -2784,12 +2720,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "EF8 strategy context",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 300 to 799 lines)",
+        "source of 8 directly called internal package(s): calendar/time window, option kernel, runtime/stream plumbing",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: equity-side workers import the kernel this command wraps (EF8 strategy context)",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2798,9 +2733,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Stream worker that runs the option pressure kernel with market-calendar location and strategy-window settings over streams; option inputs only, with the kernel shared with equity strategy workers. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0249",
@@ -2835,7 +2770,7 @@
       },
       "finding": "Computes a first-to-last window return over underlying price samples carried in the product records",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0277",
@@ -2852,12 +2787,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): runtime/stream plumbing, serving/delivery, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2866,9 +2800,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "HTTP API surface over the K3 product store with optional components; serves stored rows and computes nothing. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0278",
@@ -2885,12 +2819,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -2899,9 +2832,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Control tool that validates clock identity and updates classification state in the K3 store; configuration only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0279",
@@ -2936,7 +2869,7 @@
       },
       "finding": "Decodes and validates the dated company-event source through the equity-side schema validator and publishes it to a product store",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0280",
@@ -2992,7 +2925,7 @@
       },
       "finding": "Reaches the daily-realized-volatility producer through the product evidence/forecast path (call path of 5 to 8 hops); also reaches event-schedule windows and trade-print admission",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0281",
@@ -3048,7 +2981,7 @@
       },
       "finding": "Reaches the daily-realized-volatility producer through the product evidence/forecast path (call path of 5 to 8 hops); also reaches event-schedule windows and trade-print admission",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0282",
@@ -3065,12 +2998,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 2 directly called internal package(s): store layer",
+        "static call-graph over 150 to 399 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3079,9 +3011,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Projection worker that writes evidence projections into the K3 store under clock validation; the evidence rows are produced elsewhere and this transports them. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0283",
@@ -3098,12 +3030,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 4 directly called internal package(s): option kernel, product logic, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3112,9 +3043,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Registration tool that decodes an expiry classification report, checks it against the declared option scope and stores it; supplied option-expiry facts, no equity output. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0284",
@@ -3170,7 +3101,7 @@
       },
       "finding": "Reaches the daily-realized-volatility producer through the product evidence/forecast path (call path of 5 to 8 hops); also reaches event-schedule windows and trade-print admission",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0285",
@@ -3187,12 +3118,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 3 directly called internal package(s): option kernel, product logic, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3201,9 +3131,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Registration tool that decodes a group classification report, prepares its scope and stores it; supplied option group facts, no equity output. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0286",
@@ -3220,12 +3150,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 4 directly called internal package(s): option kernel, product logic, store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3234,9 +3163,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Build tool that decodes history coverage records, checks them against the declared option scope and writes an evidence document; coverage bookkeeping. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0287",
@@ -3253,12 +3182,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): store layer",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3267,9 +3195,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Control tool that validates clock identity and opens the history control state in the store; configuration only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0288",
@@ -3286,12 +3214,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 4 directly called internal package(s): product logic, runtime/stream plumbing, store layer",
+        "static call-graph over 150 to 399 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3300,9 +3227,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Generation tool that prepares a history generation and runs the job capacity admission step; scheduling only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0289",
@@ -3321,12 +3248,11 @@
       ],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, 100 to 299 lines)",
+        "source of 3 directly called internal package(s): option kernel, store layer",
+        "static call-graph path read from the command to: option exposure arithmetic with a supplied price operand; trade-price adaptation reached on a verification path; trade-price join reached on a verification path",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3335,9 +3261,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Registration tool that decodes a history source and verifies it by recomputing the source frame, which passes through the trade-price adaptation as a check only; it stores the registration and emits no equity result. Closure: retained components reached only as operands or verification (option exposure arithmetic with a supplied price operand, trade-price adaptation reached on a verification path, trade-price join reached on a verification path), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0290",
@@ -3393,7 +3319,7 @@
       },
       "finding": "Reaches the daily-realized-volatility producer through the product evidence/forecast path (call path of 5 to 8 hops); also reaches event-schedule windows and trade-print admission",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0291",
@@ -3448,7 +3374,7 @@
       },
       "finding": "Reaches the daily-realized-volatility producer through the corpus path and normalises historical trade prints directly",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0292",
@@ -3465,12 +3391,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 4 directly called internal package(s): option kernel, product logic, store layer",
+        "static call-graph path read from the command to: artifact decode; artifact file verification; artifact hash; artifact validation",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3479,9 +3404,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "registers a supplied adjusted-close and sample artifact for the product store; its calculation is in the rows that reach the retained producer",
+      "finding": "Registration tool that decodes, hashes and verifies a supplied adjusted-close and sample artifact for the store; the realized-volatility calculation is performed by other rows that are rejected, and this tool validates the artifact only. Closure: retained components reached only as operands or verification (artifact decode, artifact file verification, artifact hash, artifact validation), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0293",
@@ -3498,12 +3423,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 5 directly called internal package(s): option kernel, product logic, store layer",
+        "static call-graph path read from the command to: action document hashing; artifact decode; artifact validation",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3512,9 +3436,9 @@
         "result": "retained components reached only as operands or verification; no new obligation",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "registers a supplied corporate-action adjustment basis for the product store; no calculation",
+      "finding": "Registration tool that decodes and stores a supplied corporate-action adjustment basis against a session clock; no calculation is performed and the action facts stay supplied. Closure: retained components reached only as operands or verification (action document hashing, artifact decode, artifact validation), interface dispatch absent, no subprocess launch.",
       "confidence": "medium",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0294",
@@ -3531,12 +3455,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 1 directly called internal package(s): store layer",
+        "static call-graph over 50 to 149 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3545,9 +3468,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Schema migration tool for the K3 store; schema change only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0295",
@@ -3564,12 +3487,11 @@
       "dependent_question_ids": [],
       "equity_consumer_link": "",
       "evidence_inspected": [
-        "owned command source read in full",
-        "source of the directly called product packages",
-        "import-closure scan for equity-domain packages",
-        "subprocess, interface and stream-key scan of the command",
-        "static call-graph (over-approximate, method-name matched) reachability to sentinel equity-fact producers",
-        "reverse-import scan: equity-side consumers of the packages this command uses"
+        "owned command source read in full (1 file, under 100 lines)",
+        "source of 2 directly called internal package(s): serving/delivery, store layer",
+        "static call-graph over fewer than 50 reachable functions found no equity-fact producer",
+        "reverse-import scan: no equity-side worker imports this command's packages",
+        "subprocess and interface scan of the command source"
       ],
       "delegated_interface_subprocess_closure": {
         "subprocess_launch_in_command": false,
@@ -3578,9 +3500,9 @@
         "result": "no retained component reached",
         "runtime_dispatch_proven_absent": false
       },
-      "finding": "",
+      "finding": "Webhook delivery worker for K3 product notifications; outbound transport only. Closure: no retained component reached, interface dispatch absent, no subprocess launch.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval; the exclusion stays unapproved until the owner decides"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     }
   ],
   "standalone_rows": [
@@ -3606,7 +3528,7 @@
       },
       "finding": "Wire-schema generator over the product output types, which include the observed-outcome and event-context types whose calculations are retained by the C0140 and C0118 findings. The exclusion of the generator itself stands, but its kept schema/consumer-link obligation has neither a numbered owner nor an open-item flag in the plan.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0153",
@@ -3628,7 +3550,7 @@
       },
       "finding": "Launches configured child binaries as subprocesses; the child set comes from deployment configuration that is not in the source, so the graph cannot be closed statically. The plan flag scope_ownership_or_dynamic_route_open is the explicit open item; no numbered owner holds it, so it should be carried by the coverage stories #522/#523 until the configuration is supplied.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0156",
@@ -3650,7 +3572,7 @@
       },
       "finding": "Latency measurement client against a caller-supplied endpoint; reads no feature value and writes only a console report. Nothing retained needs an owner.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0215",
@@ -3674,7 +3596,7 @@
       },
       "finding": "Derives the option parent universe from the already-acquired day equity-definition membership and writes a provenance record. It computes nothing, but the equity membership it reuses is a universe-admission fact. The plan flag is the open item; no numbered owner holds it. Same decision family as Q2 (candidate owners #598 or #508).",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0247",
@@ -3696,7 +3618,7 @@
       },
       "finding": "Trims and expires product-scoped scanner history keys in a store, refusing to apply unless persistence markers exist; the key pattern is product-scoped. No equity data or calculation.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     },
     {
       "opaque_id": "C0267",
@@ -3718,7 +3640,7 @@
       },
       "finding": "Inventories sizes and optional duplicate hashes of a local data directory and reads column-file metadata; reads no feature values.",
       "confidence": "high",
-      "finding_status": "adjudicated finding; not an approval"
+      "finding_status": "adjudicated finding; coordinator-decided per docs/ef1/audit/EQ164_WAVE2_DECISIONS.md, pending owner review"
     }
   ]
 }
