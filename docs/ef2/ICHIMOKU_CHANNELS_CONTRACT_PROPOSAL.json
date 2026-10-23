@@ -1,6 +1,6 @@
 {
  "proposal_version": "ef2-ichimoku-channels-proposal1",
- "status": "PROPOSAL ONLY: not reviewed, not frozen, not accepted; no implementation admitted",
+ "status": "Coordinator rulings applied (pending owner review); frozen as ef2-v1 once the PR merges; no review or acceptance claim by the author",
  "story": "EQ-151 #485 (Ichimoku) and EQ-170 #511 (channels, pivots, width percentile, squeeze primitives) in release EF2; consumers EF2 I/O #609, worker #610, acceptance EQ-152 #486",
  "evidence_kind": "documentation and hand-derived expected values from a scratch stdlib-only script (fractions, decimal); nothing executed against the library",
  "frozen_contract_ref": "docs/ef1/CONTRACT.json ef1-contract1 and the R17 intraday package (docs/api/INTRADAY.md) are read-only and unchanged; this packet is additive",
@@ -252,6 +252,7 @@
     "band_k_num",
     "band_k_den",
     "population_size",
+    "min_population",
     "convention_version",
     "evidence_limit",
     "context_schema",
@@ -484,7 +485,8 @@
      "value": 10.2,
      "value_hex": "0x1.4666666666666p+3",
      "exact": "51/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.conversion_line": {
      "status": "available",
@@ -494,7 +496,8 @@
      "value": 10.35,
      "value_hex": "0x1.4b33333333333p+3",
      "exact": "207/20",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_observed": {
      "status": "available",
@@ -504,7 +507,8 @@
      "value": 10.6,
      "value_hex": "0x1.5333333333333p+3",
      "exact": "53/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -514,7 +518,8 @@
      "value": 9.85,
      "value_hex": "0x1.3b33333333333p+3",
      "exact": "197/20",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "available",
@@ -524,7 +529,8 @@
      "value": 10.0625,
      "value_hex": "0x1.4200000000000p+3",
      "exact": "161/16",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_observed": {
      "status": "available",
@@ -534,7 +540,8 @@
      "value": 10.275,
      "value_hex": "0x1.48ccccccccccdp+3",
      "exact": "411/40",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_displayed": {
      "status": "available",
@@ -544,7 +551,8 @@
      "value": 10.1,
      "value_hex": "0x1.4333333333333p+3",
      "exact": "101/10",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_observed": {
      "status": "available",
@@ -554,7 +562,8 @@
      "value": 10.2,
      "value_hex": "0x1.4666666666666p+3",
      "exact": "51/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -643,7 +652,8 @@
      "value": 10.2,
      "value_hex": "0x1.4666666666666p+3",
      "exact": "51/5",
-     "max_input_slot": 6
+     "max_input_slot": 6,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.conversion_line": {
      "status": "available",
@@ -653,7 +663,8 @@
      "value": 10.175,
      "value_hex": "0x1.459999999999ap+3",
      "exact": "407/40",
-     "max_input_slot": 6
+     "max_input_slot": 6,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_observed": {
      "status": "available",
@@ -663,7 +674,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 6
+     "max_input_slot": 6,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -673,7 +685,8 @@
      "value": 10.3,
      "value_hex": "0x1.499999999999ap+3",
      "exact": "103/10",
-     "max_input_slot": 2
+     "max_input_slot": 2,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "insufficient_history",
@@ -693,7 +706,8 @@
      "value": 10.1875,
      "value_hex": "0x1.4600000000000p+3",
      "exact": "163/16",
-     "max_input_slot": 6
+     "max_input_slot": 6,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_displayed": {
      "status": "insufficient_history",
@@ -780,14 +794,14 @@
      "max_input_slot": 1
     },
     "trend.ichimoku.lagging_line_observed": {
-     "status": "available",
-     "reasons": [],
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
      "expected": 1,
-     "observed": 1,
-     "value": 10.2,
-     "value_hex": "0x1.4666666666666p+3",
-     "exact": "51/5",
-     "max_input_slot": 1
+     "observed": 0,
+     "value": null,
+     "max_input_slot": null
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "insufficient_history",
@@ -961,7 +975,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.conversion_line": {
      "status": "available",
@@ -971,7 +986,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_observed": {
      "status": "available",
@@ -981,7 +997,8 @@
      "value": 9.4,
      "value_hex": "0x1.2cccccccccccdp+3",
      "exact": "47/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -991,7 +1008,8 @@
      "value": 9.85,
      "value_hex": "0x1.3b33333333333p+3",
      "exact": "197/20",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "available",
@@ -1001,7 +1019,8 @@
      "value": 10.0625,
      "value_hex": "0x1.4200000000000p+3",
      "exact": "161/16",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_observed": {
      "status": "available",
@@ -1011,7 +1030,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_displayed": {
      "status": "available",
@@ -1021,7 +1041,8 @@
      "value": 10.1,
      "value_hex": "0x1.4333333333333p+3",
      "exact": "101/10",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_observed": {
      "status": "available",
@@ -1031,7 +1052,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -1185,7 +1207,8 @@
      "value": 9.85,
      "value_hex": "0x1.3b33333333333p+3",
      "exact": "197/20",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "available",
@@ -1195,7 +1218,8 @@
      "value": 10.0625,
      "value_hex": "0x1.4200000000000p+3",
      "exact": "161/16",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_observed": {
      "status": "incomplete_coverage",
@@ -1215,7 +1239,8 @@
      "value": 10.1,
      "value_hex": "0x1.4333333333333p+3",
      "exact": "101/10",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_observed": {
      "status": "incomplete_coverage",
@@ -1349,7 +1374,8 @@
      "value": 10.2,
      "value_hex": "0x1.4666666666666p+3",
      "exact": "51/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.conversion_line": {
      "status": "available",
@@ -1359,7 +1385,8 @@
      "value": 10.35,
      "value_hex": "0x1.4b33333333333p+3",
      "exact": "207/20",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_observed": {
      "status": "available",
@@ -1369,7 +1396,8 @@
      "value": 10.6,
      "value_hex": "0x1.5333333333333p+3",
      "exact": "53/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -1379,7 +1407,8 @@
      "value": 9.85,
      "value_hex": "0x1.3b33333333333p+3",
      "exact": "197/20",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "incomplete_coverage",
@@ -1399,7 +1428,8 @@
      "value": 10.275,
      "value_hex": "0x1.48ccccccccccdp+3",
      "exact": "411/40",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_displayed": {
      "status": "incomplete_coverage",
@@ -1561,7 +1591,8 @@
      "value": 10.6,
      "value_hex": "0x1.5333333333333p+3",
      "exact": "53/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -1571,7 +1602,8 @@
      "value": 9.85,
      "value_hex": "0x1.3b33333333333p+3",
      "exact": "197/20",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "missing_input",
@@ -1755,7 +1787,8 @@
      "value": 10.6,
      "value_hex": "0x1.5333333333333p+3",
      "exact": "53/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -1765,7 +1798,8 @@
      "value": 9.85,
      "value_hex": "0x1.3b33333333333p+3",
      "exact": "197/20",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "available",
@@ -1775,7 +1809,8 @@
      "value": 10.0625,
      "value_hex": "0x1.4200000000000p+3",
      "exact": "161/16",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_observed": {
      "status": "incomplete_coverage",
@@ -1795,7 +1830,8 @@
      "value": 10.1,
      "value_hex": "0x1.4333333333333p+3",
      "exact": "101/10",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_observed": {
      "status": "incomplete_coverage",
@@ -1929,7 +1965,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.conversion_line": {
      "status": "available",
@@ -1939,7 +1976,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_observed": {
      "status": "available",
@@ -1949,7 +1987,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -1959,7 +1998,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "available",
@@ -1969,7 +2009,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_observed": {
      "status": "available",
@@ -1979,7 +2020,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_displayed": {
      "status": "available",
@@ -1989,7 +2031,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_observed": {
      "status": "available",
@@ -1999,7 +2042,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -2124,7 +2168,8 @@
      "value": 10.2,
      "value_hex": "0x1.4666666666666p+3",
      "exact": "51/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.conversion_line": {
      "status": "available",
@@ -2134,7 +2179,8 @@
      "value": 10.35,
      "value_hex": "0x1.4b33333333333p+3",
      "exact": "207/20",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_observed": {
      "status": "available",
@@ -2144,7 +2190,8 @@
      "value": 10.6,
      "value_hex": "0x1.5333333333333p+3",
      "exact": "53/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -2154,7 +2201,8 @@
      "value": 9.85,
      "value_hex": "0x1.3b33333333333p+3",
      "exact": "197/20",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "available",
@@ -2164,7 +2212,8 @@
      "value": 10.0625,
      "value_hex": "0x1.4200000000000p+3",
      "exact": "161/16",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_observed": {
      "status": "available",
@@ -2174,7 +2223,8 @@
      "value": 10.275,
      "value_hex": "0x1.48ccccccccccdp+3",
      "exact": "411/40",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_displayed": {
      "status": "available",
@@ -2184,7 +2234,8 @@
      "value": 10.1,
      "value_hex": "0x1.4333333333333p+3",
      "exact": "101/10",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_observed": {
      "status": "available",
@@ -2194,7 +2245,8 @@
      "value": 10.2,
      "value_hex": "0x1.4666666666666p+3",
      "exact": "51/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -2319,7 +2371,8 @@
      "value": 10.2,
      "value_hex": "0x1.4666666666666p+3",
      "exact": "51/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.conversion_line": {
      "status": "available",
@@ -2329,7 +2382,8 @@
      "value": 10.35,
      "value_hex": "0x1.4b33333333333p+3",
      "exact": "207/20",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_observed": {
      "status": "available",
@@ -2339,7 +2393,8 @@
      "value": 10.6,
      "value_hex": "0x1.5333333333333p+3",
      "exact": "53/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -2349,7 +2404,8 @@
      "value": 9.85,
      "value_hex": "0x1.3b33333333333p+3",
      "exact": "197/20",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "insufficient_history",
@@ -2369,7 +2425,8 @@
      "value": 10.275,
      "value_hex": "0x1.48ccccccccccdp+3",
      "exact": "411/40",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_displayed": {
      "status": "insufficient_history",
@@ -2535,7 +2592,8 @@
      "value": 10.6,
      "value_hex": "0x1.5333333333333p+3",
      "exact": "53/5",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -2545,7 +2603,8 @@
      "value": 9.85,
      "value_hex": "0x1.3b33333333333p+3",
      "exact": "197/20",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "available",
@@ -2555,7 +2614,8 @@
      "value": 10.0625,
      "value_hex": "0x1.4200000000000p+3",
      "exact": "161/16",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_observed": {
      "status": "incomplete_coverage",
@@ -2576,7 +2636,8 @@
      "value": 10.1,
      "value_hex": "0x1.4333333333333p+3",
      "exact": "101/10",
-     "max_input_slot": 7
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_observed": {
      "status": "incomplete_coverage",
@@ -3296,7 +3357,8 @@
      "value": 100.495,
      "value_hex": "0x1.91fae147ae148p+6",
      "exact": "20099/200",
-     "max_input_slot": 79
+     "max_input_slot": 79,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.conversion_line": {
      "status": "available",
@@ -3306,7 +3368,8 @@
      "value": 100.125,
      "value_hex": "0x1.9080000000000p+6",
      "exact": "801/8",
-     "max_input_slot": 79
+     "max_input_slot": 79,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_observed": {
      "status": "available",
@@ -3316,7 +3379,8 @@
      "value": 100.06,
      "value_hex": "0x1.903d70a3d70a4p+6",
      "exact": "5003/50",
-     "max_input_slot": 79
+     "max_input_slot": 79,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.lagging_line_reference_close": {
      "status": "available",
@@ -3326,7 +3390,8 @@
      "value": 100.25,
      "value_hex": "0x1.9100000000000p+6",
      "exact": "401/4",
-     "max_input_slot": 53
+     "max_input_slot": 53,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_displayed": {
      "status": "available",
@@ -3336,7 +3401,8 @@
      "value": 100.28,
      "value_hex": "0x1.911eb851eb852p+6",
      "exact": "2507/25",
-     "max_input_slot": 53
+     "max_input_slot": 53,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_a_observed": {
      "status": "available",
@@ -3346,7 +3412,8 @@
      "value": 100.31,
      "value_hex": "0x1.913d70a3d70a4p+6",
      "exact": "10031/100",
-     "max_input_slot": 79
+     "max_input_slot": 79,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_displayed": {
      "status": "available",
@@ -3356,7 +3423,8 @@
      "value": 100.415,
      "value_hex": "0x1.91a8f5c28f5c3p+6",
      "exact": "20083/200",
-     "max_input_slot": 53
+     "max_input_slot": 53,
+     "acceptance": "R17 tolerance"
     },
     "trend.ichimoku.leading_span_b_observed": {
      "status": "available",
@@ -3366,7 +3434,180 @@
      "value": 100.51,
      "value_hex": "0x1.920a3d70a3d71p+6",
      "exact": "10051/100",
-     "max_input_slot": 79
+     "max_input_slot": 79,
+     "acceptance": "R17 tolerance"
+    }
+   }
+  },
+  {
+   "id": "ICH-15",
+   "group": "prefix_property",
+   "producer": "ichimoku",
+   "description": "first 8 bars of ICH-01 (target slot 7): leading_span_a/b_observed here MUST equal ICH-01 leading_span_a/b_displayed (the value shown at slot 11 is the observation made at slot 7)",
+   "params": {
+    "conversion_period": 3,
+    "base_period": 5,
+    "leading_b_period": 8,
+    "displacement": 4
+   },
+   "scale": 2,
+   "context": {
+    "sessions": [
+     8
+    ],
+    "anchor": 0,
+    "target": 7,
+    "mode": "carry"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     1010,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1030,
+     1000,
+     1020,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1010,
+     1030,
+     "ok"
+    ],
+    [
+     0,
+     1050,
+     1020,
+     1040,
+     "ok"
+    ],
+    [
+     0,
+     1045,
+     1015,
+     1025,
+     "ok"
+    ],
+    [
+     0,
+     1035,
+     1005,
+     1015,
+     "ok"
+    ],
+    [
+     0,
+     1020,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1000,
+     970,
+     985,
+     "ok"
+    ]
+   ],
+   "expected": {
+    "trend.ichimoku.base_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": 10.1,
+     "value_hex": "0x1.4333333333333p+3",
+     "exact": "101/10",
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
+    },
+    "trend.ichimoku.conversion_line": {
+     "status": "available",
+     "reasons": [],
+     "expected": 3,
+     "observed": 3,
+     "value": 10.025,
+     "value_hex": "0x1.40ccccccccccdp+3",
+     "exact": "401/40",
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
+    },
+    "trend.ichimoku.lagging_line_observed": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": 9.85,
+     "value_hex": "0x1.3b33333333333p+3",
+     "exact": "197/20",
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
+    },
+    "trend.ichimoku.lagging_line_reference_close": {
+     "status": "available",
+     "reasons": [],
+     "expected": 1,
+     "observed": 1,
+     "value": 10.4,
+     "value_hex": "0x1.4cccccccccccdp+3",
+     "exact": "52/5",
+     "max_input_slot": 3,
+     "acceptance": "R17 tolerance"
+    },
+    "trend.ichimoku.leading_span_a_displayed": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 5,
+     "observed": 4,
+     "value": null,
+     "max_input_slot": 3
+    },
+    "trend.ichimoku.leading_span_a_observed": {
+     "status": "available",
+     "reasons": [],
+     "expected": 5,
+     "observed": 5,
+     "value": 10.0625,
+     "value_hex": "0x1.4200000000000p+3",
+     "exact": "161/16",
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
+    },
+    "trend.ichimoku.leading_span_b_displayed": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 8,
+     "observed": 4,
+     "value": null,
+     "max_input_slot": 3
+    },
+    "trend.ichimoku.leading_span_b_observed": {
+     "status": "available",
+     "reasons": [],
+     "expected": 8,
+     "observed": 8,
+     "value": 10.1,
+     "value_hex": "0x1.4333333333333p+3",
+     "exact": "101/10",
+     "max_input_slot": 7,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -3490,7 +3731,8 @@
      "value": 10.003313078703703,
      "value_hex": "0x1.401b240795cebp+3",
      "exact": "691429/69120",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.middle": {
      "status": "available",
@@ -3500,7 +3742,8 @@
      "value": 10.482942708333333,
      "value_hex": "0x1.4f74444444444p+3",
      "exact": "80509/7680",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.upper": {
      "status": "available",
@@ -3510,7 +3753,8 @@
      "value": 10.962572337962962,
      "value_hex": "0x1.5ecd6480f2b9dp+3",
      "exact": "757733/69120",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.width_ratio": {
      "status": "available",
@@ -3520,7 +3764,8 @@
      "value": 0.09150667765232597,
      "value_hex": "0x1.76cfb4be1e1f5p-4",
      "exact": "66304/724581",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -3889,7 +4134,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.middle": {
      "status": "available",
@@ -3899,7 +4145,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.upper": {
      "status": "available",
@@ -3909,7 +4156,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.width_ratio": {
      "status": "available",
@@ -3919,7 +4167,8 @@
      "value": 0.0,
      "value_hex": "0x0.0p+0",
      "exact": "0",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "reference is exactly 0: result must be +0.0 (all operands of this fixture are exactly representable in Decimal120)"
     }
    }
   },
@@ -4044,7 +4293,8 @@
      "value": 9.99375,
      "value_hex": "0x1.3fccccccccccdp+3",
      "exact": "1599/160",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.middle": {
      "status": "available",
@@ -4054,7 +4304,8 @@
      "value": 10.477083333333333,
      "value_hex": "0x1.4f44444444444p+3",
      "exact": "5029/480",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.upper": {
      "status": "available",
@@ -4064,7 +4315,8 @@
      "value": 10.960416666666667,
      "value_hex": "0x1.5ebbbbbbbbbbcp+3",
      "exact": "5261/480",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.width_ratio": {
      "status": "available",
@@ -4074,7 +4326,8 @@
      "value": 0.0922648637900179,
      "value_hex": "0x1.79eab8c8c4b23p-4",
      "exact": "464/5029",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -4352,7 +4605,8 @@
      "value": 10.269773984053497,
      "value_hex": "0x1.48a1fd0cda48ep+3",
      "exact": "6388621/622080",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.middle": {
      "status": "available",
@@ -4362,7 +4616,8 @@
      "value": 10.482942708333333,
      "value_hex": "0x1.4f74444444444p+3",
      "exact": "80509/7680",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.upper": {
      "status": "available",
@@ -4372,7 +4627,8 @@
      "value": 10.696111432613169,
      "value_hex": "0x1.56468b7bae3fap+3",
      "exact": "6653837/622080",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.keltner.width_ratio": {
      "status": "available",
@@ -4382,7 +4638,8 @@
      "value": 0.04066963451214487,
      "value_hex": "0x1.4d2a67c5701bdp-5",
      "exact": "265216/6521229",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -4541,6 +4798,150 @@
    }
   },
   {
+   "id": "KEL-09",
+   "group": "prefix_property",
+   "producer": "keltner",
+   "description": "first 10 bars of S1 (target slot 9): the output at bar n depends only on bars <= n; any longer delivery truncated at slot 9 by the context gives exactly this result",
+   "params": {
+    "ema_period": 3,
+    "atr_period": 3,
+    "atr_multiplier_num": 3,
+    "atr_multiplier_den": 2
+   },
+   "scale": 2,
+   "context": {
+    "sessions": [
+     10
+    ],
+    "anchor": 0,
+    "target": 9,
+    "mode": "carry"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     1010,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1030,
+     1000,
+     1020,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1010,
+     1030,
+     "ok"
+    ],
+    [
+     0,
+     1050,
+     1020,
+     1040,
+     "ok"
+    ],
+    [
+     0,
+     1045,
+     1015,
+     1025,
+     "ok"
+    ],
+    [
+     0,
+     1035,
+     1005,
+     1015,
+     "ok"
+    ],
+    [
+     0,
+     1020,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1000,
+     970,
+     985,
+     "ok"
+    ],
+    [
+     0,
+     1010,
+     975,
+     1005,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1000,
+     1035,
+     "ok"
+    ]
+   ],
+   "expected": {
+    "channel.keltner.lower": {
+     "status": "available",
+     "reasons": [],
+     "expected": 10,
+     "observed": 10,
+     "value": 9.665104166666667,
+     "value_hex": "0x1.3548888888889p+3",
+     "exact": "18557/1920",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.keltner.middle": {
+     "status": "available",
+     "reasons": [],
+     "expected": 10,
+     "observed": 10,
+     "value": 10.181770833333333,
+     "value_hex": "0x1.45d1111111111p+3",
+     "exact": "19549/1920",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.keltner.upper": {
+     "status": "available",
+     "reasons": [],
+     "expected": 10,
+     "observed": 10,
+     "value": 10.6984375,
+     "value_hex": "0x1.565999999999ap+3",
+     "exact": "6847/640",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.keltner.width_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 10,
+     "observed": 10,
+     "value": 0.1014885671901376,
+     "value_hex": "0x1.9fb279cffe1d4p-4",
+     "exact": "1984/19549",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    }
+   }
+  },
+  {
    "id": "DON-01",
    "group": "available_current_bar_included",
    "producer": "donchian",
@@ -4657,7 +5058,8 @@
      "value": 9.75,
      "value_hex": "0x1.3800000000000p+3",
      "exact": "39/4",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.middle": {
      "status": "available",
@@ -4667,7 +5069,8 @@
      "value": 10.225,
      "value_hex": "0x1.4733333333333p+3",
      "exact": "409/40",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.upper": {
      "status": "available",
@@ -4677,7 +5080,8 @@
      "value": 10.7,
      "value_hex": "0x1.5666666666666p+3",
      "exact": "107/10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.width_ratio": {
      "status": "available",
@@ -4687,7 +5091,8 @@
      "value": 0.09290953545232274,
      "value_hex": "0x1.7c8eb58411869p-4",
      "exact": "38/409",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -4896,7 +5301,8 @@
      "value": 9.75,
      "value_hex": "0x1.3800000000000p+3",
      "exact": "39/4",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.middle": {
      "status": "incomplete_coverage",
@@ -5047,7 +5453,8 @@
      "value": 9.75,
      "value_hex": "0x1.3800000000000p+3",
      "exact": "39/4",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.middle": {
      "status": "available",
@@ -5057,7 +5464,8 @@
      "value": 10.225,
      "value_hex": "0x1.4733333333333p+3",
      "exact": "409/40",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.upper": {
      "status": "available",
@@ -5067,7 +5475,8 @@
      "value": 10.7,
      "value_hex": "0x1.5666666666666p+3",
      "exact": "107/10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.width_ratio": {
      "status": "available",
@@ -5077,7 +5486,8 @@
      "value": 0.09290953545232274,
      "value_hex": "0x1.7c8eb58411869p-4",
      "exact": "38/409",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -5198,7 +5608,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.middle": {
      "status": "available",
@@ -5208,7 +5619,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.upper": {
      "status": "available",
@@ -5218,7 +5630,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.donchian.width_ratio": {
      "status": "available",
@@ -5228,7 +5641,8 @@
      "value": 0.0,
      "value_hex": "0x0.0p+0",
      "exact": "0",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "reference is exactly 0: result must be +0.0 (all operands of this fixture are exactly representable in Decimal120)"
     }
    }
   },
@@ -5601,6 +6015,147 @@
    }
   },
   {
+   "id": "DON-09",
+   "group": "prefix_property",
+   "producer": "donchian",
+   "description": "first 10 bars of S1 (target slot 9): window 6..9 only",
+   "params": {
+    "period": 4
+   },
+   "scale": 2,
+   "context": {
+    "sessions": [
+     10
+    ],
+    "anchor": 0,
+    "target": 9,
+    "mode": "carry"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     1010,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1030,
+     1000,
+     1020,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1010,
+     1030,
+     "ok"
+    ],
+    [
+     0,
+     1050,
+     1020,
+     1040,
+     "ok"
+    ],
+    [
+     0,
+     1045,
+     1015,
+     1025,
+     "ok"
+    ],
+    [
+     0,
+     1035,
+     1005,
+     1015,
+     "ok"
+    ],
+    [
+     0,
+     1020,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1000,
+     970,
+     985,
+     "ok"
+    ],
+    [
+     0,
+     1010,
+     975,
+     1005,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1000,
+     1035,
+     "ok"
+    ]
+   ],
+   "expected": {
+    "channel.donchian.lower": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 9.7,
+     "value_hex": "0x1.3666666666666p+3",
+     "exact": "97/10",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.donchian.middle": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 10.05,
+     "value_hex": "0x1.419999999999ap+3",
+     "exact": "201/20",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.donchian.upper": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 10.4,
+     "value_hex": "0x1.4cccccccccccdp+3",
+     "exact": "52/5",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.donchian.width_ratio": {
+     "status": "available",
+     "reasons": [],
+     "expected": 4,
+     "observed": 4,
+     "value": 0.06965174129353234,
+     "value_hex": "0x1.1d4b24ef715a7p-4",
+     "exact": "14/201",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    }
+   }
+  },
+  {
    "id": "PIV-01",
    "group": "available",
    "producer": "pivot_levels",
@@ -5702,7 +6257,8 @@
      "value": 10.183333333333334,
      "value_hex": "0x1.45ddddddddddep+3",
      "exact": "611/60",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_1": {
      "status": "available",
@@ -5712,7 +6268,8 @@
      "value": 10.466666666666667,
      "value_hex": "0x1.4eeeeeeeeeeefp+3",
      "exact": "157/15",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_2": {
      "status": "available",
@@ -5722,7 +6279,8 @@
      "value": 10.783333333333333,
      "value_hex": "0x1.5911111111111p+3",
      "exact": "647/60",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_1": {
      "status": "available",
@@ -5732,7 +6290,8 @@
      "value": 9.866666666666667,
      "value_hex": "0x1.3bbbbbbbbbbbcp+3",
      "exact": "148/15",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_2": {
      "status": "available",
@@ -5742,7 +6301,8 @@
      "value": 9.583333333333334,
      "value_hex": "0x1.32aaaaaaaaaabp+3",
      "exact": "115/12",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -5848,7 +6408,8 @@
      "value": 10.183333333333334,
      "value_hex": "0x1.45ddddddddddep+3",
      "exact": "611/60",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_1": {
      "status": "available",
@@ -5858,7 +6419,8 @@
      "value": 10.466666666666667,
      "value_hex": "0x1.4eeeeeeeeeeefp+3",
      "exact": "157/15",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_2": {
      "status": "available",
@@ -5868,7 +6430,8 @@
      "value": 10.783333333333333,
      "value_hex": "0x1.5911111111111p+3",
      "exact": "647/60",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_1": {
      "status": "available",
@@ -5878,7 +6441,8 @@
      "value": 9.866666666666667,
      "value_hex": "0x1.3bbbbbbbbbbbcp+3",
      "exact": "148/15",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_2": {
      "status": "available",
@@ -5888,7 +6452,8 @@
      "value": 9.583333333333334,
      "value_hex": "0x1.32aaaaaaaaaabp+3",
      "exact": "115/12",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -6201,7 +6766,8 @@
      "value": 34.0,
      "value_hex": "0x1.1000000000000p+5",
      "exact": "34",
-     "max_input_slot": 1
+     "max_input_slot": 1,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_1": {
      "status": "available",
@@ -6211,7 +6777,8 @@
      "value": 67.0,
      "value_hex": "0x1.0c00000000000p+6",
      "exact": "67",
-     "max_input_slot": 1
+     "max_input_slot": 1,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_2": {
      "status": "available",
@@ -6221,7 +6788,8 @@
      "value": 133.0,
      "value_hex": "0x1.0a00000000000p+7",
      "exact": "133",
-     "max_input_slot": 1
+     "max_input_slot": 1,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_1": {
      "status": "available",
@@ -6231,7 +6799,8 @@
      "value": -32.0,
      "value_hex": "-0x1.0000000000000p+5",
      "exact": "-32",
-     "max_input_slot": 1
+     "max_input_slot": 1,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_2": {
      "status": "available",
@@ -6241,7 +6810,8 @@
      "value": -65.0,
      "value_hex": "-0x1.0400000000000p+6",
      "exact": "-65",
-     "max_input_slot": 1
+     "max_input_slot": 1,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -6334,7 +6904,8 @@
      "value": 10.2,
      "value_hex": "0x1.4666666666666p+3",
      "exact": "51/5",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_1": {
      "status": "available",
@@ -6344,7 +6915,8 @@
      "value": 10.5,
      "value_hex": "0x1.5000000000000p+3",
      "exact": "21/2",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_2": {
      "status": "available",
@@ -6354,7 +6926,8 @@
      "value": 10.7,
      "value_hex": "0x1.5666666666666p+3",
      "exact": "107/10",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_1": {
      "status": "available",
@@ -6364,7 +6937,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_2": {
      "status": "available",
@@ -6374,7 +6948,8 @@
      "value": 9.7,
      "value_hex": "0x1.3666666666666p+3",
      "exact": "97/10",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -6480,7 +7055,8 @@
      "value": 10.183333333333334,
      "value_hex": "0x1.45ddddddddddep+3",
      "exact": "611/60",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_1": {
      "status": "available",
@@ -6490,7 +7066,8 @@
      "value": 10.466666666666667,
      "value_hex": "0x1.4eeeeeeeeeeefp+3",
      "exact": "157/15",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_2": {
      "status": "available",
@@ -6500,7 +7077,8 @@
      "value": 10.783333333333333,
      "value_hex": "0x1.5911111111111p+3",
      "exact": "647/60",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_1": {
      "status": "available",
@@ -6510,7 +7088,8 @@
      "value": 9.866666666666667,
      "value_hex": "0x1.3bbbbbbbbbbbcp+3",
      "exact": "148/15",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_2": {
      "status": "available",
@@ -6520,7 +7099,8 @@
      "value": 9.583333333333334,
      "value_hex": "0x1.32aaaaaaaaaabp+3",
      "exact": "115/12",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -6737,7 +7317,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 2
+     "max_input_slot": 2,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_1": {
      "status": "available",
@@ -6747,7 +7328,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 2
+     "max_input_slot": 2,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.resistance_2": {
      "status": "available",
@@ -6757,7 +7339,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 2
+     "max_input_slot": 2,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_1": {
      "status": "available",
@@ -6767,7 +7350,8 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 2
+     "max_input_slot": 2,
+     "acceptance": "R17 tolerance"
     },
     "channel.pivot.support_2": {
      "status": "available",
@@ -6777,7 +7361,138 @@
      "value": 10.0,
      "value_hex": "0x1.4000000000000p+3",
      "exact": "10",
-     "max_input_slot": 2
+     "max_input_slot": 2,
+     "acceptance": "R17 tolerance"
+    }
+   }
+  },
+  {
+   "id": "PIV-10",
+   "group": "prefix_property",
+   "producer": "pivot_levels",
+   "description": "target session truncated to its first bar: identical to PIV-01 (later target-session bars never matter)",
+   "params": {},
+   "scale": 2,
+   "context": {
+    "sessions": [
+     6,
+     1
+    ],
+    "anchor": 0,
+    "target": 6,
+    "mode": "carry"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     1010,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1030,
+     1000,
+     1020,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1010,
+     1030,
+     "ok"
+    ],
+    [
+     0,
+     1050,
+     1020,
+     1040,
+     "ok"
+    ],
+    [
+     0,
+     1045,
+     1015,
+     1025,
+     "ok"
+    ],
+    [
+     0,
+     1035,
+     1005,
+     1015,
+     "ok"
+    ],
+    [
+     1,
+     1015,
+     1000,
+     1010,
+     "ok"
+    ]
+   ],
+   "expected": {
+    "channel.pivot.point": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": 10.183333333333334,
+     "value_hex": "0x1.45ddddddddddep+3",
+     "exact": "611/60",
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.pivot.resistance_1": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": 10.466666666666667,
+     "value_hex": "0x1.4eeeeeeeeeeefp+3",
+     "exact": "157/15",
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.pivot.resistance_2": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": 10.783333333333333,
+     "value_hex": "0x1.5911111111111p+3",
+     "exact": "647/60",
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.pivot.support_1": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": 9.866666666666667,
+     "value_hex": "0x1.3bbbbbbbbbbbcp+3",
+     "exact": "148/15",
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.pivot.support_2": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": 9.583333333333334,
+     "value_hex": "0x1.32aaaaaaaaaabp+3",
+     "exact": "115/12",
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -6790,7 +7505,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 2,
    "context": {
@@ -6912,7 +7628,8 @@
       "strict_less": "1/4",
       "weak_less_or_equal": "1/4",
       "population_including_target_midrank": "3/10"
-     }
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
     }
    }
   },
@@ -6925,7 +7642,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 2,
    "context": {
@@ -7019,7 +7737,8 @@
       "strict_less": "0",
       "weak_less_or_equal": "1",
       "population_including_target_midrank": "1/2"
-     }
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
     }
    }
   },
@@ -7032,7 +7751,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 2,
    "context": {
@@ -7126,7 +7846,8 @@
       "strict_less": "0",
       "weak_less_or_equal": "1",
       "population_including_target_midrank": "1/2"
-     }
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
     }
    }
   },
@@ -7139,7 +7860,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 2,
    "context": {
@@ -7233,7 +7955,8 @@
       "strict_less": "1",
       "weak_less_or_equal": "1",
       "population_including_target_midrank": "9/10"
-     }
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
     }
    }
   },
@@ -7246,7 +7969,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 2,
    "context": {
@@ -7340,7 +8064,8 @@
       "strict_less": "0",
       "weak_less_or_equal": "0",
       "population_including_target_midrank": "1/10"
-     }
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
     }
    }
   },
@@ -7353,7 +8078,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 1
+    "population_size": 1,
+    "min_population": 1
    },
    "scale": 2,
    "context": {
@@ -7419,7 +8145,8 @@
       "strict_less": "1",
       "weak_less_or_equal": "1",
       "population_including_target_midrank": "3/4"
-     }
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
     }
    }
   },
@@ -7432,7 +8159,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 2,
    "context": {
@@ -7514,7 +8242,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 2,
    "context": {
@@ -7638,7 +8367,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 2,
    "context": {
@@ -7760,7 +8490,8 @@
       "strict_less": "1/4",
       "weak_less_or_equal": "1/4",
       "population_including_target_midrank": "3/10"
-     }
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
     }
    }
   },
@@ -7773,7 +8504,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 0,
    "context": {
@@ -7858,7 +8590,172 @@
       "strict_less": "0",
       "weak_less_or_equal": "0",
       "population_including_target_midrank": "1/10"
-     }
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
+    }
+   }
+  },
+  {
+   "id": "PCT-12",
+   "group": "min_population_partial",
+   "producer": "band_width_percentile",
+   "description": "population_size 4 but min_population 2 with 6 bars: only 3 prior widths exist inside [anchor, target]; available over that partial population (expected = band_period + 3)",
+   "params": {
+    "band_period": 3,
+    "band_k_num": 2,
+    "band_k_den": 1,
+    "population_size": 4,
+    "min_population": 2
+   },
+   "scale": 2,
+   "context": {
+    "sessions": [
+     6
+    ],
+    "anchor": 0,
+    "target": 5,
+    "mode": "carry"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     1000,
+     1000,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1010,
+     1010,
+     1010,
+     "ok"
+    ],
+    [
+     0,
+     1000,
+     1000,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1030,
+     1030,
+     1030,
+     "ok"
+    ],
+    [
+     0,
+     1000,
+     1000,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1050,
+     1050,
+     1050,
+     "ok"
+    ]
+   ],
+   "expected": {
+    "channel.band_width.percentile": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": 1.0,
+     "value_hex": "0x1.0000000000000p+0",
+     "exact": "1",
+     "max_input_slot": 5,
+     "tally": {
+      "less": 3,
+      "equal": 0,
+      "greater": 0,
+      "population": 3
+     },
+     "alternatives_not_chosen": {
+      "strict_less": "1",
+      "weak_less_or_equal": "1",
+      "population_including_target_midrank": "7/8"
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
+    }
+   }
+  },
+  {
+   "id": "PCT-13",
+   "group": "min_population_not_met",
+   "producer": "band_width_percentile",
+   "description": "min_population 2 with 4 bars: 1 prior width < 2 => insufficient_history, expected = band_period + min_population = 5",
+   "params": {
+    "band_period": 3,
+    "band_k_num": 2,
+    "band_k_den": 1,
+    "population_size": 4,
+    "min_population": 2
+   },
+   "scale": 2,
+   "context": {
+    "sessions": [
+     4
+    ],
+    "anchor": 0,
+    "target": 3,
+    "mode": "carry"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     1000,
+     1000,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1010,
+     1010,
+     1010,
+     "ok"
+    ],
+    [
+     0,
+     1000,
+     1000,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1030,
+     1030,
+     1030,
+     "ok"
+    ]
+   ],
+   "expected": {
+    "channel.band_width.percentile": {
+     "status": "insufficient_history",
+     "reasons": [
+      "insufficient_history"
+     ],
+     "expected": 5,
+     "observed": 4,
+     "value": null,
+     "max_input_slot": 3
     }
    }
   },
@@ -7871,7 +8768,8 @@
     "band_period": 3,
     "band_k_num": 2,
     "band_k_den": 1,
-    "population_size": 4
+    "population_size": 4,
+    "min_population": 4
    },
    "scale": 2,
    "context": {
@@ -7983,6 +8881,122 @@
      "observed": 6,
      "value": null,
      "max_input_slot": 11
+    }
+   }
+  },
+  {
+   "id": "PCT-14",
+   "group": "prefix_property",
+   "producer": "band_width_percentile",
+   "description": "first 9 bars of S1 (target slot 8): population = widths at slots 4..7",
+   "params": {
+    "band_period": 3,
+    "band_k_num": 2,
+    "band_k_den": 1,
+    "population_size": 4,
+    "min_population": 4
+   },
+   "scale": 2,
+   "context": {
+    "sessions": [
+     9
+    ],
+    "anchor": 0,
+    "target": 8,
+    "mode": "carry"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     1010,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1030,
+     1000,
+     1020,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1010,
+     1030,
+     "ok"
+    ],
+    [
+     0,
+     1050,
+     1020,
+     1040,
+     "ok"
+    ],
+    [
+     0,
+     1045,
+     1015,
+     1025,
+     "ok"
+    ],
+    [
+     0,
+     1035,
+     1005,
+     1015,
+     "ok"
+    ],
+    [
+     0,
+     1020,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1000,
+     970,
+     985,
+     "ok"
+    ],
+    [
+     0,
+     1010,
+     975,
+     1005,
+     "ok"
+    ]
+   ],
+   "expected": {
+    "channel.band_width.percentile": {
+     "status": "available",
+     "reasons": [],
+     "expected": 7,
+     "observed": 7,
+     "value": 0.25,
+     "value_hex": "0x1.0000000000000p-2",
+     "exact": "1/4",
+     "max_input_slot": 8,
+     "tally": {
+      "less": 1,
+      "equal": 0,
+      "greater": 3,
+      "population": 4
+     },
+     "alternatives_not_chosen": {
+      "strict_less": "1/4",
+      "weak_less_or_equal": "1/4",
+      "population_including_target_midrank": "3/10"
+     },
+     "acceptance": "exact: ranking on exact integers/rationals, one conversion of (2L+E)/(2c)"
     }
    }
   },
@@ -8111,7 +9125,8 @@
      "exact_gap_signs": [
       1,
       1
-     ]
+     ],
+     "acceptance": "exact boolean"
     },
     "channel.squeeze.lower_gap": {
      "status": "available",
@@ -8121,7 +9136,8 @@
      "value": 0.28066223134936763,
      "value_hex": "0x1.1f65eb8378c00p-2",
      "exact": "irrational ~ 2.80662231349367621930764048426696407706122819394351e-1",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     },
     "channel.squeeze.upper_gap": {
      "status": "available",
@@ -8131,7 +9147,8 @@
      "value": 0.2465476480160343,
      "value_hex": "0x1.f8edf92913a22p-3",
      "exact": "irrational ~ 2.46547648016034288597430715093363074372789486061018e-1",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -8139,13 +9156,13 @@
    "id": "SQ-02",
    "group": "boundary_equality_upper",
    "producer": "bollinger_keltner_squeeze",
-   "description": "scale 0, band k 3/2, multiplier 1: upper gap exactly 0, lower gap 7 => inside (inclusive relation)",
+   "description": "scale 0, ema_period 1, atr_period 1 (operands exactly representable), band k 2, multiplier 1: upper gap exactly 0, lower gap 4 => inside (inclusive relation)",
    "params": {
     "band_period": 2,
-    "band_k_num": 3,
-    "band_k_den": 2,
-    "ema_period": 2,
-    "atr_period": 2,
+    "band_k_num": 2,
+    "band_k_den": 1,
+    "ema_period": 1,
+    "atr_period": 1,
     "atr_multiplier_num": 1,
     "atr_multiplier_den": 1
    },
@@ -8166,44 +9183,44 @@
    "bars": [
     [
      0,
-     42,
-     33,
-     37,
+     24,
+     21,
+     21,
      "ok"
     ],
     [
      0,
      31,
+     24,
+     29,
+     "ok"
+    ],
+    [
+     0,
+     27,
      23,
      27,
      "ok"
     ],
     [
      0,
-     41,
      37,
-     38,
-     "ok"
-    ],
-    [
-     0,
+     31,
      36,
-     28,
-     33,
      "ok"
     ],
     [
      0,
      42,
-     38,
-     40,
+     37,
+     39,
      "ok"
     ],
     [
      0,
-     27,
-     18,
-     23,
+     36,
+     33,
+     35,
      "ok"
     ]
    ],
@@ -8218,17 +9235,19 @@
      "exact_gap_signs": [
       0,
       1
-     ]
+     ],
+     "acceptance": "exact boolean"
     },
     "channel.squeeze.lower_gap": {
      "status": "available",
      "reasons": [],
      "expected": 6,
      "observed": 6,
-     "value": 7.0,
-     "value_hex": "0x1.c000000000000p+2",
-     "exact": "7",
-     "max_input_slot": 5
+     "value": 4.0,
+     "value_hex": "0x1.0000000000000p+2",
+     "exact": "4",
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.squeeze.upper_gap": {
      "status": "available",
@@ -8238,7 +9257,8 @@
      "value": 0.0,
      "value_hex": "0x0.0p+0",
      "exact": "0",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "reference is exactly 0: result must be +0.0 (all operands of this fixture are exactly representable in Decimal120)"
     }
    }
   },
@@ -8246,14 +9266,124 @@
    "id": "SQ-03",
    "group": "boundary_equality_lower",
    "producer": "bollinger_keltner_squeeze",
-   "description": "scale 0, band k 3/2, multiplier 1: lower gap exactly 0, upper gap 7 => inside (inclusive relation)",
+   "description": "scale 0, exactly representable operands, band k 1, multiplier 1/2: lower gap exactly 0, upper gap 5 => inside (inclusive relation)",
    "params": {
     "band_period": 2,
-    "band_k_num": 3,
-    "band_k_den": 2,
-    "ema_period": 2,
-    "atr_period": 2,
+    "band_k_num": 1,
+    "band_k_den": 1,
+    "ema_period": 1,
+    "atr_period": 1,
     "atr_multiplier_num": 1,
+    "atr_multiplier_den": 2
+   },
+   "scale": 0,
+   "context": {
+    "sessions": [
+     6
+    ],
+    "anchor": 0,
+    "target": 5,
+    "mode": "carry"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     39,
+     36,
+     37,
+     "ok"
+    ],
+    [
+     0,
+     37,
+     31,
+     33,
+     "ok"
+    ],
+    [
+     0,
+     35,
+     28,
+     33,
+     "ok"
+    ],
+    [
+     0,
+     33,
+     31,
+     32,
+     "ok"
+    ],
+    [
+     0,
+     23,
+     21,
+     22,
+     "ok"
+    ],
+    [
+     0,
+     32,
+     26,
+     27,
+     "ok"
+    ]
+   ],
+   "expected": {
+    "channel.squeeze.bollinger_inside_keltner": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": true,
+     "max_input_slot": 5,
+     "exact_gap_signs": [
+      1,
+      0
+     ],
+     "acceptance": "exact boolean"
+    },
+    "channel.squeeze.lower_gap": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": 0.0,
+     "value_hex": "0x0.0p+0",
+     "exact": "0",
+     "max_input_slot": 5,
+     "acceptance": "reference is exactly 0: result must be +0.0 (all operands of this fixture are exactly representable in Decimal120)"
+    },
+    "channel.squeeze.upper_gap": {
+     "status": "available",
+     "reasons": [],
+     "expected": 6,
+     "observed": 6,
+     "value": 5.0,
+     "value_hex": "0x1.4000000000000p+2",
+     "exact": "5",
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
+    }
+   }
+  },
+  {
+   "id": "SQ-10",
+   "group": "boundary_equality_both",
+   "producer": "bollinger_keltner_squeeze",
+   "description": "scale 0, exactly representable operands, band k 1, multiplier 3: both gaps exactly 0 with nonzero band => inside",
+   "params": {
+    "band_period": 2,
+    "band_k_num": 1,
+    "band_k_den": 1,
+    "ema_period": 1,
+    "atr_period": 1,
+    "atr_multiplier_num": 3,
     "atr_multiplier_den": 1
    },
    "scale": 0,
@@ -8274,43 +9404,43 @@
     [
      0,
      26,
-     21,
-     24,
+     23,
+     25,
      "ok"
     ],
     [
      0,
-     31,
-     27,
+     42,
+     36,
+     40,
+     "ok"
+    ],
+    [
+     0,
+     28,
+     23,
+     26,
+     "ok"
+    ],
+    [
+     0,
+     41,
+     35,
+     36,
+     "ok"
+    ],
+    [
+     0,
+     30,
+     28,
      28,
      "ok"
     ],
     [
      0,
-     35,
-     33,
-     35,
-     "ok"
-    ],
-    [
-     0,
-     33,
-     32,
-     32,
-     "ok"
-    ],
-    [
-     0,
-     24,
-     18,
-     23,
-     "ok"
-    ],
-    [
-     0,
-     43,
-     33,
-     38,
+     28,
+     28,
+     28,
      "ok"
     ]
    ],
@@ -8323,9 +9453,10 @@
      "value": true,
      "max_input_slot": 5,
      "exact_gap_signs": [
-      1,
+      0,
       0
-     ]
+     ],
+     "acceptance": "exact boolean"
     },
     "channel.squeeze.lower_gap": {
      "status": "available",
@@ -8335,17 +9466,19 @@
      "value": 0.0,
      "value_hex": "0x0.0p+0",
      "exact": "0",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "reference is exactly 0: result must be +0.0 (all operands of this fixture are exactly representable in Decimal120)"
     },
     "channel.squeeze.upper_gap": {
      "status": "available",
      "reasons": [],
      "expected": 6,
      "observed": 6,
-     "value": 7.0,
-     "value_hex": "0x1.c000000000000p+2",
-     "exact": "7",
-     "max_input_slot": 5
+     "value": 0.0,
+     "value_hex": "0x0.0p+0",
+     "exact": "0",
+     "max_input_slot": 5,
+     "acceptance": "reference is exactly 0: result must be +0.0 (all operands of this fixture are exactly representable in Decimal120)"
     }
    }
   },
@@ -8432,7 +9565,8 @@
      "exact_gap_signs": [
       -1,
       1
-     ]
+     ],
+     "acceptance": "exact boolean"
     },
     "channel.squeeze.lower_gap": {
      "status": "available",
@@ -8442,7 +9576,8 @@
      "value": 6.198688271604938,
      "value_hex": "0x1.8cb74f0329162p+2",
      "exact": "16067/2592",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.squeeze.upper_gap": {
      "status": "available",
@@ -8452,7 +9587,8 @@
      "value": -0.011188271604938271,
      "value_hex": "-0x1.6e9e06522c3f3p-7",
      "exact": "-29/2592",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -8581,7 +9717,8 @@
      "exact_gap_signs": [
       0,
       0
-     ]
+     ],
+     "acceptance": "exact boolean"
     },
     "channel.squeeze.lower_gap": {
      "status": "available",
@@ -8591,7 +9728,8 @@
      "value": 0.0,
      "value_hex": "0x0.0p+0",
      "exact": "0",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "reference is exactly 0: result must be +0.0 (all operands of this fixture are exactly representable in Decimal120)"
     },
     "channel.squeeze.upper_gap": {
      "status": "available",
@@ -8601,7 +9739,8 @@
      "value": 0.0,
      "value_hex": "0x0.0p+0",
      "exact": "0",
-     "max_input_slot": 11
+     "max_input_slot": 11,
+     "acceptance": "reference is exactly 0: result must be +0.0 (all operands of this fixture are exactly representable in Decimal120)"
     }
    }
   },
@@ -8919,7 +10058,8 @@
      "exact_gap_signs": [
       -1,
       -1
-     ]
+     ],
+     "acceptance": "exact boolean"
     },
     "channel.squeeze.lower_gap": {
      "status": "available",
@@ -8929,7 +10069,8 @@
      "value": -5.916666666666667,
      "value_hex": "-0x1.7aaaaaaaaaaabp+2",
      "exact": "-71/12",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     },
     "channel.squeeze.upper_gap": {
      "status": "available",
@@ -8939,7 +10080,8 @@
      "value": -2.5833333333333335,
      "value_hex": "-0x1.4aaaaaaaaaaabp+1",
      "exact": "-31/12",
-     "max_input_slot": 5
+     "max_input_slot": 5,
+     "acceptance": "R17 tolerance"
     }
    }
   },
@@ -9089,6 +10231,144 @@
      "max_input_slot": 11
     }
    }
+  },
+  {
+   "id": "SQ-11",
+   "group": "prefix_property",
+   "producer": "bollinger_keltner_squeeze",
+   "description": "first 10 bars of S1 (target slot 9)",
+   "params": {
+    "band_period": 3,
+    "band_k_num": 2,
+    "band_k_den": 1,
+    "ema_period": 3,
+    "atr_period": 3,
+    "atr_multiplier_num": 3,
+    "atr_multiplier_den": 2
+   },
+   "scale": 2,
+   "context": {
+    "sessions": [
+     10
+    ],
+    "anchor": 0,
+    "target": 9,
+    "mode": "carry"
+   },
+   "columns": [
+    "h",
+    "l",
+    "c"
+   ],
+   "bars": [
+    [
+     0,
+     1010,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1030,
+     1000,
+     1020,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1010,
+     1030,
+     "ok"
+    ],
+    [
+     0,
+     1050,
+     1020,
+     1040,
+     "ok"
+    ],
+    [
+     0,
+     1045,
+     1015,
+     1025,
+     "ok"
+    ],
+    [
+     0,
+     1035,
+     1005,
+     1015,
+     "ok"
+    ],
+    [
+     0,
+     1020,
+     990,
+     1000,
+     "ok"
+    ],
+    [
+     0,
+     1000,
+     970,
+     985,
+     "ok"
+    ],
+    [
+     0,
+     1010,
+     975,
+     1005,
+     "ok"
+    ],
+    [
+     0,
+     1040,
+     1000,
+     1035,
+     "ok"
+    ]
+   ],
+   "expected": {
+    "channel.squeeze.bollinger_inside_keltner": {
+     "status": "available",
+     "reasons": [],
+     "expected": 10,
+     "observed": 10,
+     "value": true,
+     "max_input_slot": 9,
+     "exact_gap_signs": [
+      1,
+      1
+     ],
+     "acceptance": "exact boolean"
+    },
+    "channel.squeeze.lower_gap": {
+     "status": "available",
+     "reasons": [],
+     "expected": 10,
+     "observed": 10,
+     "value": 0.00726823313540157,
+     "value_hex": "0x1.dc54b79dc2c67p-8",
+     "exact": "irrational ~ 7.26823313540156998332050790305038498429173177036170e-3",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    },
+    "channel.squeeze.upper_gap": {
+     "status": "available",
+     "reasons": [],
+     "expected": 10,
+     "observed": 10,
+     "value": 0.20414323313540156,
+     "value_hex": "0x1.a215d8f021496p-3",
+     "exact": "irrational ~ 2.04143233135401569983320507903050384984291731770362e-1",
+     "max_input_slot": 9,
+     "acceptance": "R17 tolerance"
+    }
+   }
   }
  ],
  "refusal_fixtures": [
@@ -9166,7 +10446,7 @@
   },
   {
    "id": "RF10",
-   "description": "population_size 0 or above 4096",
+   "description": "population_size 0 or above 4096, or min_population outside 1..population_size",
    "expected": {
     "outcome": "typed ContractError, no FeatureResult",
     "error_code": "INVALID_CONFIG"
@@ -9301,6 +10581,32 @@
   },
   {
    "fixtures": [
+    "ICH-15",
+    "ICH-01"
+   ],
+   "equal": [],
+   "pairs": [
+    [
+     "trend.ichimoku.leading_span_a_observed",
+     "trend.ichimoku.leading_span_a_displayed"
+    ],
+    [
+     "trend.ichimoku.leading_span_b_observed",
+     "trend.ichimoku.leading_span_b_displayed"
+    ]
+   ],
+   "why": "displayed at t equals the observation made at t-d"
+  },
+  {
+   "fixtures": [
+    "PIV-01",
+    "PIV-10"
+   ],
+   "equal": "all",
+   "why": "prefix property"
+  },
+  {
+   "fixtures": [
     "PIV-01",
     "PIV-07"
    ],
@@ -9325,7 +10631,7 @@
   }
  ],
  "fixture_counts": {
-  "result_fixtures": 59,
+  "result_fixtures": 68,
   "refusal_fixtures": 20
  },
  "coverage_map": {
@@ -9336,8 +10642,17 @@
    "KEL-02",
    "DON-02",
    "PCT-07",
+   "PCT-13",
    "SQ-06",
    "PIV-04"
+  ],
+  "prefix property": [
+   "ICH-15",
+   "KEL-09",
+   "DON-09",
+   "PIV-10",
+   "PCT-14",
+   "SQ-11"
   ],
   "displaced arrays and observation versus display": [
    "ICH-01",
@@ -9398,13 +10713,16 @@
    "PCT-04",
    "PCT-05",
    "PCT-06",
-   "PCT-10"
+   "PCT-10",
+   "PCT-12",
+   "PCT-13"
   ],
   "squeeze boundary equalities": [
    "SQ-02",
    "SQ-03",
    "SQ-04",
-   "SQ-05"
+   "SQ-05",
+   "SQ-10"
   ],
   "separate readiness": [
    "DON-03",
@@ -9429,8 +10747,32 @@
   "future wall-clock timestamps for displaced display positions",
   "retracement levels (ratios and extrema window), which belong to the separate EF2 retracement contract",
   "other pivot families (Woodie, Camarilla, Fibonacci, DeMark) and third-level R3/S3",
-  "Keltner width percentile, Donchian percentile, stochastic or ADX operands",
+  "Keltner width percentile, Donchian percentile, stochastic or ADX operands (no EQ-149 dependency)",
   "update, restore, merge, streaming state; acquisition, scheduling, persistence"
  ],
- "open_questions": "see the Markdown document, section Open questions (O1 to O12)"
+ "numeric_policy": {
+  "rule": "Implementation follows the R17 policy (Decimal120 recurrences, one guarded final float64 conversion). The exact-fraction value and float.hex in each fixture are the REFERENCE r.",
+  "tolerance": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) against r = float(reference), docs/api/INTRADAY.md section Numeric error contract (R17)",
+  "zero": "where the reference is exactly 0 the result must be +0.0; this is guaranteed only when all Decimal120 operands are exactly representable (every zero-reference fixture here is built that way). In any other case the relaxed rule is |value| <= 1e-12 * max(|operands|) and is not a bitwise promise.",
+  "exact_cases": "band_width_percentile ranking and bollinger_keltner_squeeze boolean: ranking compares exact integer/rational widths by integer cross-multiplication in arbitrary precision (never floats or Decimal); the bool uses exact algebra on the Decimal120 operands, so an exact boundary tie is a stable class only when the operands are exactly representable (SQ-02, SQ-03, SQ-05, SQ-10)."
+ },
+ "coordinator_decisions": {
+  "state": "decided by coordinator, pending owner review",
+  "D1_to_D15": "accepted as proposed",
+  "D10": "exact squared-width ranking, target excluded, ties count half, fraction result: the v1 percentile convention of this contract; a shared rank convention may be adopted by EF3 later by amendment; no EQ-155 dependency in EF2 v1",
+  "O1": "EQ-149 #483 stochastic prerequisite removed from this contract; no stochastic operand consumed; to be noted for dependency edges",
+  "O3": "additive internal operand families for window ends at earlier slots over extrema and moments; no change to any published R17 result; R17 outputs stay byte-identical",
+  "O4": "pivots from the immediately preceding governed session exact BAR rows supplied by the caller via I/O mapping; not #506 period operands; no daily-grid context in v1",
+  "O5": "shifted values are published only for slots inside the supplied governed grid; nothing is extrapolated; a displayed value whose display or origin slot lies outside the grid is null/insufficient_history",
+  "O6": "retracement stays in the money-flow/retracement contract (PR #677)",
+  "O7": "evidence witnesses and limits reuse R17 values (evidence_limit 0..10000, sorted by feature id then slot, boundary completed_interval)",
+  "O8": "missing preceding session: missing_input / absent_input (R17 INTRADAY.md precedence table, first row)",
+  "O9": "keltner.middle is its own header computed from the R17 EMA operand; no second EMA implementation",
+  "O10": "inside bool is an arithmetic relation, not policy",
+  "O11": "modules under packages/intraday, config namespace ef2.*",
+  "O12": "min_population is a required caller parameter with no default; below it the output is insufficient_history",
+  "v1_scope": "anchored batch only; no stateful carry-over, update, restore or merge"
+ },
+ "ledger_to_be_applied": "sibling shared-contract header ledger and unit amendment after freeze: 25 new header ids listed under producers; units used: currency/share, fraction, boolean (all already in ef1 CONTRACT.json unit set; no new unit)",
+ "coordinator_freeze": "frozen as ef2-v1 for implementation once PR merges (coordinator statement; no review or acceptance claim by the author)"
 }
