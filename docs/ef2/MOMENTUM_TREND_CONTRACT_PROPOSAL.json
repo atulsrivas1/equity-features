@@ -1,6 +1,9 @@
 {
+ "coordinator_freeze": "Per the coordinator, frozen as ef2-conv1 (intraday.momentum.v1) for implementation once this PR merges. The statement is the coordinator's; numerical, artifact and release gates remain.",
+ "shared_contract_followup": "The shared-contract header ledger and unit amendment (DMI points, stochastic points, Williams %R points) will be a sibling document after freeze.",
  "proposal_version": "ef2-momentum-trend-proposal1",
- "status": "CONTRACT PROPOSAL ONLY: not reviewed, not accepted, not frozen; no implementation admitted",
+ "frozen_version": "ef2-conv1",
+ "status": "Coordinator rulings applied (pending owner review); frozen as ef2-conv1 once this PR merges; no implementation admitted, no acceptance claim by the author",
  "stories": "EQ-147 #481 (MACD), EQ-148 #482 (DMI/ADX), EQ-149 #483 (stochastic, Williams %R); consumers EF2 I/O #609, worker #610; acceptance EQ-152 #486",
  "evidence_kind": "documentation and hand-derived expected values; plain fractions arithmetic in a scratch script that imports nothing from the equity packages; nothing executed against the library",
  "builds_on": [
@@ -196,7 +199,7 @@
  "config": {
   "identity": "intraday.momentum.v1",
   "algorithm_version": "intraday-momentum-v1",
-  "status": "DECISION-PROPOSED (Q10)",
+  "status": "ACCEPTED (Q10)",
   "shared_parameters_with_R17": [
    "evidence_limit",
    "context_schema",
@@ -247,15 +250,18 @@
     "oscillator_scale": "points_0_100_williams_minus100_0"
    },
    "all": {
-    "numeric_policy": "exact_rational_single_round1"
+    "numeric_policy": "r17_decimal120_v1"
    }
   },
   "convention_version": "ef2-conv1",
+  "epoch_mode": "reset only; carry is out of scope (Q7)",
   "closed": "exactly the listed parameters per family; each convention parameter accepts exactly its single v1 value; any other value is INCOMPATIBLE_VERSION; missing or extra parameter is INVALID_CONFIG",
   "numeric_policy": {
-   "id": "exact_rational_single_round1",
-   "status": "DECISION-PROPOSED (Q2)",
-   "rule": "all recurrences in exact rational arithmetic; one correctly rounded IEEE binary64 conversion per published value; exact zero published as +0.0; fixtures give float.hex of that value"
+   "id": "r17_decimal120_v1",
+   "status": "RULING Q2",
+   "rule": "R17 policy: local Decimal context prec 120, ROUND_HALF_EVEN, Emin -999999, Emax 999999, traps as in _indicators.py; exact Fraction seeds; one final float64 conversion; fixture exact values are REFERENCE values",
+   "tolerance": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)), r = float(exact reference); source docs/api/INTRADAY.md numeric error contract",
+   "exact_zero": "reference 0 must publish +0.0 when guaranteeable; guarantees: identical epoch closes (MACD), signal_period 1 (histogram), exactly zero decimal numerators or sums (DMI, stochastic); otherwise zero_bound: abs(y) <= 1e-12 * max epoch close price"
   },
   "bounds": {
    "max_slots": 4096,
@@ -314,7 +320,7 @@
    "williams": "W[j]=-100*(HH[j]-C[j])/(HH[j]-LL[j]) = R[j]-100; undefined iff HH[j]=LL[j]",
    "units": "stochastic points 0..100; Williams %R points -100..0"
   },
-  "publication": "value = float64(exact rational) with round-half-even; zero published as +0.0 (never -0.0)"
+  "publication": "value = float64(exact rational) with round-half-even; zero published as +0.0 (never -0.0); implementations compute with the R17 Decimal120 policy and are accepted per the fixture acceptance rule"
  },
  "quality": {
   "status_precedence": [
@@ -352,200 +358,206 @@
   },
   "evidence": "R17 rules: actually supplied consumed or knowledge-excluded dependency rows, row_id slot:<global_index>, boundary completed_interval, sorted feature id then slot, truncated to the result-wide evidence_limit"
  },
+ "acceptance_rules": {
+  "tolerance": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)), r = the float64 in the fixture (float.hex)",
+  "exact_plus_zero": "reference exact 0 and the stated guarantee holds: publish bit-exact +0.0",
+  "zero_bound": "reference exact 0 not guaranteeable: abs(y) <= 1e-12 * max epoch close price (currency/share)",
+  "state_budget": "O(1) state per bar; no whole-series barrier"
+ },
  "decisions_proposed": [
   {
    "id": "DP1",
    "topic": "EMA seed",
    "text": "Seed each EMA chain with the simple mean of its first p epoch closes (R17 convention). Alternatives: first close as seed (no warm-up); longer history seeding.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP2",
    "topic": "Signal seed",
    "text": "Signal seeded with the simple mean of the first g MACD observations (first observation at the slow seed bar). Alternatives: first MACD value as seed; signal seeded from the fast seed bar.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP3",
    "topic": "MACD start",
    "text": "MACD line exists only from the slow seed bar; the fast chain runs from its own seed meanwhile.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP4",
    "topic": "EMA smoothing factor",
    "text": "alpha=2/(p+1) for MACD and signal (not Wilder 1/p).",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP5",
    "topic": "DMI smoothing",
    "text": "Wilder smoothing in average form seeded by the mean of the first n values (same as R17 ATR). Equivalent sum form gives identical DI/DX. Alternatives: EMA alpha=2/(n+1); SMA windows.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP6",
    "topic": "Directional movement rule",
    "text": "Strict inequality with zero on ties; zero moves are not movements. Both DM zero for inside bars and equal moves.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP7",
    "topic": "DMI scale",
    "text": "DI, DX, ADX published as points on 0..100 with unit DMI points. Alternative: fraction 0..1.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP8",
    "topic": "Undefined DI/DX",
    "text": "DI undefined when smoothed TR is 0; DX undefined when smoothed +DM plus -DM is 0: not_applicable/zero_denominator. Alternatives: publish 0; carry previous value.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP9",
    "topic": "ADX chain start",
    "text": "ADX seeds with the mean of the first adx_period defined DX values starting at the first defined DX, then Wilder recursion; warm-up is therefore data dependent when DX starts late. Alternatives: fixed seed index with poisoning; undefined DX treated as 0.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP10",
    "topic": "DMI periods",
    "text": "Two explicit parameters di_period and adx_period; no default.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP11",
    "topic": "Stochastic smoothing",
    "text": "Raw %K location in the n-bar window including the current bar; %K = simple mean of s raw values (slowing); %D = simple mean of d %K values. s=1 is fast %K. Alternatives: EMA or Wilder smoothing; %D on raw.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP12",
    "topic": "Oscillator scale",
    "text": "Stochastic 0..100 points; Williams %R -100..0 points. Alternative: fractions.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP13",
    "topic": "Zero range",
    "text": "HH=LL makes raw %K and Williams undefined (not_applicable/zero_denominator) and the condition propagates to every smoothed output that consumes it. Alternatives: neutral 50 (R17 RSI precedent); 0; carry previous.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP14",
    "topic": "Williams %R",
    "text": "Uses k_period and the same window as raw %K; no separate period parameter.",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP15",
    "topic": "Numeric policy",
-   "text": "Exact rational recurrences with one correctly rounded float64 conversion and +0.0 normalization (guarantees exact zeros such as constant-series MACD). Alternative: R17 Decimal120 recurrences with tolerance max(8 ulp, 1e-12*abs(r)).",
-   "status": "DECISION-PROPOSED"
+   "text": "SUPERSEDED by ruling Q2: implementation uses R17 Decimal120 recurrences and tolerance; exact rationals are fixture reference values only.",
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP16",
    "topic": "Producer shape",
    "text": "One homogeneous config per family (macd, dmi, stochastic); caller may select any subset of that family's IDs (R17 selection style, not the EF1 fixed complete set).",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP17",
    "topic": "Epoch rule",
    "text": "Every chain and window lies inside [anchor, target]; rolling windows cannot reach before the anchor; older bars and old gaps never count (R17 band precedent).",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP18",
    "topic": "Output IDs and units",
    "text": "intraday.macd_line/signal/histogram (currency/share); intraday.plus_di/minus_di/dx/adx (DMI points); intraday.stoch_k/stoch_d (stochastic points); intraday.williams_r (Williams %R points).",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   },
   {
    "id": "DP19",
    "topic": "Capabilities",
    "text": "Batch snapshot and full supplied-history replay only; update, restore, merge unsupported (R17 posture).",
-   "status": "DECISION-PROPOSED"
+   "status": "ACCEPTED (coordinator, pending owner review)"
   }
  ],
  "open_questions": [
   {
    "id": "Q1",
    "topic": "Packaging",
-   "text": "Extend equity_features_intraday (reuses private preparation) or add a separate package behind a public preparation API? Proposed: additive modules in equity_features_intraday with a new prerelease and catalog digest.",
-   "status": "OPEN"
+   "text": "Extend packages/intraday (equity_features_intraday) with additive modules, a new prerelease version and a new catalog digest. The money-flow contract B uses the same package.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q2",
    "topic": "Numeric policy",
-   "text": "Rule on DP15: exact rational with bitwise float(exact) acceptance, or Decimal120 with the R17 tolerance and an explicit exact-zero rule.",
-   "status": "OPEN"
+   "text": "Implementation follows the R17 policy (Decimal120 recurrences, ROUND_HALF_EVEN, one final float64 conversion, tolerance abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) from docs/api/INTRADAY.md; kernel in _indicators.py). Fixture exact fractions and float.hex are REFERENCE values. Reference 0 must be +0.0 where guaranteeable (see acceptance rules) else abs(y) <= 1e-12 * max epoch close.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q3",
    "topic": "ADX start",
-   "text": "Rule on DP9 including the data-dependent warm-up and its quality text (expected = first defined DX index + adx_period).",
-   "status": "OPEN"
+   "text": "As proposed: first defined DX, data-dependent warm-up.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q4",
    "topic": "Zero range",
-   "text": "Rule on DP13 (propagating undefined versus neutral 50 versus carry).",
-   "status": "OPEN"
+   "text": "As proposed: undefined, propagating.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q5",
-   "topic": "Scales",
-   "text": "Rule on DP7 and DP12 (points versus fractions); new unit strings DMI points, stochastic points, Williams %R points need the unit set amended.",
-   "status": "OPEN"
+   "topic": "Units",
+   "text": "DMI points, stochastic points, Williams %R points accepted as additive units, to be listed in the later shared-contract header ledger and unit amendment (a sibling document after freeze).",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q6",
    "topic": "OHLC validity",
-   "text": "Is low <= close <= high and low <= high enforced for consumed bars by the existing BAR validation? Not verified. If not, the library must refuse (INVALID_SCHEMA) because stochastic ranges leave 0..100 otherwise.",
-   "status": "OPEN"
+   "text": "Verified: packages/contracts validation.py validate_batch refuses low > high and open/high/low/close outside [low, high] with INVALID_SCHEMA (zero-volume rows must be null OHLC). The producer adds no check, no new code, no change to shared validators.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q7",
    "topic": "State",
-   "text": "Are update/restore/merge wanted for the MACD, DMI chains? Proposed: unsupported in this release (DP19).",
-   "status": "OPEN"
+   "text": "update, restore, merge and carry epochs are NOT in v1. Anchored batch (reset epoch) only; a carry-mode context is INVALID_CONFIG.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q8",
    "topic": "Extra outputs",
-   "text": "Exclude raw/fast %K, +DM/-DM, TR, ADXR, PPO/percentage MACD in this release? Proposed: excluded (non-goals).",
-   "status": "OPEN"
+   "text": "None beyond the 10.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q9",
    "topic": "Defaults",
-   "text": "Confirm no default periods (12/26/9, 14, 14/3/3 are documentation examples only).",
-   "status": "OPEN"
+   "text": "No default periods or thresholds; standard values appear only in fixtures.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q10",
    "topic": "Identity",
-   "text": "Confirm config identity intraday.momentum.v1, algorithm intraday-momentum-v1, convention label ef2-conv1.",
-   "status": "OPEN"
+   "text": "intraday.momentum.v1 accepted.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q11",
-   "topic": "New preparation families",
-   "text": "Confirm additive internal families directional_moves and rolling_extrema_runs and that R17 anchored_closes, true_ranges, high_extrema, low_extrema stay unchanged.",
-   "status": "OPEN"
+   "topic": "Operand families",
+   "text": "directional_moves and rolling_extrema_runs accepted as additive internal families.",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q12",
    "topic": "Prefix property",
-   "text": "Confirm the acceptance property: a snapshot at target t equals the full-history replay value at t for every output (fixtures M07_* illustrate it).",
-   "status": "OPEN"
+   "text": "REQUIRED: the output at bar n must not depend on later bars. Fixtures P01 (macd), P02 (dmi), P03 (stochastic).",
+   "status": "RULING (coordinator, pending owner review)"
   },
   {
    "id": "Q13",
    "topic": "Performance",
-   "text": "EQ-152 must freeze workloads and adoption rule before timing; this contract makes no performance claim.",
-   "status": "OPEN"
+   "text": "Not a contract item in v1 beyond O(1) state per bar and no whole-series barrier; measurement belongs to the release baseline.",
+   "status": "RULING (coordinator, pending owner review)"
   }
  ],
  "fixture_notation": {
@@ -554,16 +566,17 @@
   "intermediate_exact": "optional exact chains for hand checking"
  },
  "fixture_counts": {
-  "result_fixtures": 96,
+  "result_fixtures": 97,
+  "prefix_property_fixtures": 3,
   "by_family": {
    "macd": 32,
-   "dmi": 34,
+   "dmi": 35,
    "stochastic": 30
   },
-  "refusal_fixtures": 23,
+  "refusal_fixtures": 24,
   "output_statuses": {
    "insufficient_history": 25,
-   "available": 198,
+   "available": 192,
    "incomplete_coverage": 48,
    "missing_input": 20,
    "not_applicable": 27
@@ -624,10 +637,6 @@
    "M19",
    "D16",
    "T24"
-  ],
-  "epoch_carry": [
-   "M21",
-   "T26"
   ],
   "epoch_reset": [
    "M20",
@@ -694,6 +703,11 @@
   ],
   "precision": [
    "M10"
+  ],
+  "prefix_property": [
+   "P01",
+   "P02",
+   "P03"
   ],
   "scale": [
    "M09",
@@ -867,6 +881,10 @@
        "exact": "1",
        "float64": 1.0,
        "hex": "0x1.0000000000000p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -980,6 +998,10 @@
        "exact": "-1/12",
        "float64": -0.08333333333333333,
        "hex": "-0x1.5555555555555p-4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -991,6 +1013,10 @@
        "exact": "5/6",
        "float64": 0.8333333333333334,
        "hex": "0x1.aaaaaaaaaaaabp-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -1002,6 +1028,10 @@
        "exact": "11/12",
        "float64": 0.9166666666666666,
        "hex": "0x1.d555555555555p-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -1135,6 +1165,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "identical-input detection: all epoch closes equal, every EMA equals that close exactly, so the output is set to +0.0"
       }
      },
      "intraday.macd_line": {
@@ -1146,6 +1180,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "identical-input detection: all epoch closes equal, every EMA equals that close exactly, so the output is set to +0.0"
       }
      },
      "intraday.macd_signal": {
@@ -1157,6 +1195,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "identical-input detection: all epoch closes equal, every EMA equals that close exactly, so the output is set to +0.0"
       }
      }
     },
@@ -1334,6 +1376,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "zero_bound",
+       "text": "exact reference 0 is not guaranteeable on non-identical input with Decimal120 recurrences; relaxed to abs(y) <= 1e-12 * max epoch close price in currency/share"
       }
      },
      "intraday.macd_line": {
@@ -1345,6 +1391,10 @@
        "exact": "1",
        "float64": 1.0,
        "hex": "0x1.0000000000000p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -1356,6 +1406,10 @@
        "exact": "1",
        "float64": 1.0,
        "hex": "0x1.0000000000000p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -1547,6 +1601,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "zero_bound",
+       "text": "exact reference 0 is not guaranteeable on non-identical input with Decimal120 recurrences; relaxed to abs(y) <= 1e-12 * max epoch close price in currency/share"
       }
      },
      "intraday.macd_line": {
@@ -1558,6 +1616,10 @@
        "exact": "-1",
        "float64": -1.0,
        "hex": "-0x1.0000000000000p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -1569,6 +1631,10 @@
        "exact": "-1",
        "float64": -1.0,
        "hex": "-0x1.0000000000000p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -1745,6 +1811,10 @@
        "exact": "-13/54",
        "float64": -0.24074074074074073,
        "hex": "-0x1.ed097b425ed09p-3"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -1756,6 +1826,10 @@
        "exact": "7/36",
        "float64": 0.19444444444444445,
        "hex": "0x1.8e38e38e38e39p-3"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -1767,6 +1841,10 @@
        "exact": "47/108",
        "float64": 0.4351851851851852,
        "hex": "0x1.bda12f684bda1p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -1909,6 +1987,10 @@
        "exact": "-161/648",
        "float64": -0.24845679012345678,
        "hex": "-0x1.fcd6e9e06522cp-3"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -1920,6 +2002,10 @@
        "exact": "-67/216",
        "float64": -0.3101851851851852,
        "hex": "-0x1.3da12f684bda1p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -1931,6 +2017,10 @@
        "exact": "-5/81",
        "float64": -0.06172839506172839,
        "hex": "-0x1.f9add3c0ca458p-5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -2092,6 +2182,10 @@
        "exact": "-19/144",
        "float64": -0.13194444444444445,
        "hex": "-0x1.0e38e38e38e39p-3"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -2103,6 +2197,10 @@
        "exact": "-593/1296",
        "float64": -0.4575617283950617,
        "hex": "-0x1.d48b0fcd6e9e0p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -2114,6 +2212,10 @@
        "exact": "-211/648",
        "float64": -0.3256172839506173,
        "hex": "-0x1.4d6e9e06522c4p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -2294,6 +2396,10 @@
        "exact": "2561/23328",
        "float64": 0.10978223593964334,
        "hex": "0x1.c1ab0490ae2dap-4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -2305,6 +2411,10 @@
        "exact": "29/7776",
        "float64": 0.003729423868312757,
        "hex": "0x1.e8d2b3183afefp-9"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -2316,6 +2426,10 @@
        "exact": "-1237/11664",
        "float64": -0.10605281207133059,
        "hex": "-0x1.b2646ef7ec55bp-4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -2515,6 +2629,10 @@
        "exact": "31979/139968",
        "float64": 0.22847365112025605,
        "hex": "0x1.d3e9fe5c7944fp-3"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -2526,6 +2644,10 @@
        "exact": "27031/46656",
        "float64": 0.5793681412894376,
        "hex": "0x1.28a2f0e65d690p-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -2537,6 +2659,10 @@
        "exact": "24557/69984",
        "float64": 0.3508944901691815,
        "hex": "0x1.6750e29e7e2f8p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -2755,6 +2881,10 @@
        "exact": "27803/279936",
        "float64": 0.099319130086877,
        "hex": "0x1.96cfa7f971e51p-4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -2766,6 +2896,10 @@
        "exact": "181637/279936",
        "float64": 0.6488518804298126,
        "hex": "0x1.4c36504cc9cdbp-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -2777,6 +2911,10 @@
        "exact": "25639/46656",
        "float64": 0.5495327503429356,
        "hex": "0x1.195c5b4d9b911p-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -2999,6 +3137,10 @@
        "exact": "545/864",
        "float64": 0.6307870370370371,
        "hex": "0x1.42f684bda12f7p-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -3010,6 +3152,10 @@
        "exact": "1975/432",
        "float64": 4.5717592592592595,
        "hex": "0x1.2497b425ed098p+2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -3021,6 +3167,10 @@
        "exact": "1135/288",
        "float64": 3.9409722222222223,
        "hex": "0x1.f871c71c71c72p+1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -3192,6 +3342,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "zero_bound",
+       "text": "exact reference 0 is not guaranteeable on non-identical input with Decimal120 recurrences; relaxed to abs(y) <= 1e-12 * max epoch close price in currency/share"
       }
      },
      "intraday.macd_line": {
@@ -3203,6 +3357,10 @@
        "exact": "1",
        "float64": 1.0,
        "hex": "0x1.0000000000000p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -3214,6 +3372,10 @@
        "exact": "1",
        "float64": 1.0,
        "hex": "0x1.0000000000000p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -3332,6 +3494,10 @@
        "exact": "-1/4",
        "float64": -0.25,
        "hex": "-0x1.0000000000000p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -3343,6 +3509,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "zero_bound",
+       "text": "exact reference 0 is not guaranteeable on non-identical input with Decimal120 recurrences; relaxed to abs(y) <= 1e-12 * max epoch close price in currency/share"
       }
      },
      "intraday.macd_signal": {
@@ -3354,6 +3524,10 @@
        "exact": "1/4",
        "float64": 0.25,
        "hex": "0x1.0000000000000p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -3472,6 +3646,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "signal_period 1 defines signal = line (alpha 1, exact), so histogram = line - line = +0.0"
       }
      },
      "intraday.macd_line": {
@@ -3483,6 +3661,10 @@
        "exact": "29/18",
        "float64": 1.6111111111111112,
        "hex": "0x1.9c71c71c71c72p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -3494,6 +3676,10 @@
        "exact": "29/18",
        "float64": 1.6111111111111112,
        "hex": "0x1.9c71c71c71c72p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -3619,6 +3805,10 @@
        "exact": "1/81",
        "float64": 0.012345679012345678,
        "hex": "0x1.948b0fcd6e9e0p-7"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -3630,6 +3820,10 @@
        "exact": "37/108",
        "float64": 0.3425925925925926,
        "hex": "0x1.5ed097b425ed1p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -3641,6 +3835,10 @@
        "exact": "107/324",
        "float64": 0.33024691358024694,
        "hex": "0x1.522c3f35ba782p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -3773,6 +3971,10 @@
        "exact": "1/12",
        "float64": 0.08333333333333333,
        "hex": "0x1.5555555555555p-4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -3784,6 +3986,10 @@
        "exact": "2/3",
        "float64": 0.6666666666666666,
        "hex": "0x1.5555555555555p-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -3795,6 +4001,10 @@
        "exact": "7/12",
        "float64": 0.5833333333333334,
        "hex": "0x1.2aaaaaaaaaaabp-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -4779,6 +4989,10 @@
        "exact": "-1/12",
        "float64": -0.08333333333333333,
        "hex": "-0x1.5555555555555p-4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -4790,6 +5004,10 @@
        "exact": "5/6",
        "float64": 0.8333333333333334,
        "hex": "0x1.aaaaaaaaaaaabp-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -4801,6 +5019,10 @@
        "exact": "11/12",
        "float64": 0.9166666666666666,
        "hex": "0x1.d555555555555p-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -5079,6 +5301,10 @@
        "exact": "-1/12",
        "float64": -0.08333333333333333,
        "hex": "-0x1.5555555555555p-4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -5090,6 +5316,10 @@
        "exact": "5/6",
        "float64": 0.8333333333333334,
        "hex": "0x1.aaaaaaaaaaaabp-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -5101,6 +5331,10 @@
        "exact": "11/12",
        "float64": 0.9166666666666666,
        "hex": "0x1.d555555555555p-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -5174,184 +5408,6 @@
    }
   },
   {
-   "id": "M21",
-   "group": "epoch_carry",
-   "family": "macd",
-   "description": "carry: anchor is slot 0, same closes as M20 but prior bars included in the chain",
-   "params": {
-    "fast_period": 2,
-    "slow_period": 3,
-    "signal_period": 2
-   },
-   "scale": 0,
-   "mode": "carry",
-   "anchor": 0,
-   "slots": [
-    {
-     "h": null,
-     "l": null,
-     "c": 11
-    },
-    {
-     "h": null,
-     "l": null,
-     "c": 13
-    },
-    {
-     "h": null,
-     "l": null,
-     "c": 10
-    },
-    {
-     "h": null,
-     "l": null,
-     "c": 12
-    },
-    {
-     "h": null,
-     "l": null,
-     "c": 14
-    },
-    {
-     "h": null,
-     "l": null,
-     "c": 15
-    }
-   ],
-   "expected": {
-    "outputs": {
-     "intraday.macd_histogram": {
-      "status": "available",
-      "reasons": [],
-      "expected": 6,
-      "observed": 6,
-      "value": {
-       "exact": "121/972",
-       "float64": 0.12448559670781893,
-       "hex": "0x1.fde49beaee173p-4"
-      }
-     },
-     "intraday.macd_line": {
-      "status": "available",
-      "reasons": [],
-      "expected": 6,
-      "observed": 6,
-      "value": {
-       "exact": "155/324",
-       "float64": 0.4783950617283951,
-       "hex": "0x1.e9e06522c3f36p-2"
-      }
-     },
-     "intraday.macd_signal": {
-      "status": "available",
-      "reasons": [],
-      "expected": 6,
-      "observed": 6,
-      "value": {
-       "exact": "86/243",
-       "float64": 0.35390946502057613,
-       "hex": "0x1.6a673e28086d9p-2"
-      }
-     }
-    },
-    "evidence_rows": {
-     "intraday.macd_histogram": [
-      [
-       0,
-       "consumed"
-      ],
-      [
-       1,
-       "consumed"
-      ],
-      [
-       2,
-       "consumed"
-      ],
-      [
-       3,
-       "consumed"
-      ],
-      [
-       4,
-       "consumed"
-      ],
-      [
-       5,
-       "consumed"
-      ]
-     ],
-     "intraday.macd_line": [
-      [
-       0,
-       "consumed"
-      ],
-      [
-       1,
-       "consumed"
-      ],
-      [
-       2,
-       "consumed"
-      ],
-      [
-       3,
-       "consumed"
-      ],
-      [
-       4,
-       "consumed"
-      ],
-      [
-       5,
-       "consumed"
-      ]
-     ],
-     "intraday.macd_signal": [
-      [
-       0,
-       "consumed"
-      ],
-      [
-       1,
-       "consumed"
-      ],
-      [
-       2,
-       "consumed"
-      ],
-      [
-       3,
-       "consumed"
-      ],
-      [
-       4,
-       "consumed"
-      ],
-      [
-       5,
-       "consumed"
-      ]
-     ]
-    },
-    "intermediate_exact": {
-     "ema_fast": {
-      "1": "12",
-      "2": "32/3",
-      "3": "104/9",
-      "4": "356/27",
-      "5": "1166/81"
-     },
-     "ema_slow": {
-      "2": "34/3",
-      "3": "35/3",
-      "4": "77/6",
-      "5": "167/12"
-     }
-    }
-   }
-  },
-  {
    "id": "M22",
    "group": "evidence",
    "family": "macd",
@@ -5398,6 +5454,10 @@
        "exact": "-1/12",
        "float64": -0.08333333333333333,
        "hex": "-0x1.5555555555555p-4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -5409,6 +5469,10 @@
        "exact": "5/6",
        "float64": 0.8333333333333334,
        "hex": "0x1.aaaaaaaaaaaabp-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -5420,6 +5484,10 @@
        "exact": "11/12",
        "float64": 0.9166666666666666,
        "hex": "0x1.d555555555555p-1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -5502,6 +5570,10 @@
        "exact": "1",
        "float64": 1.0,
        "hex": "0x1.0000000000000p+0"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -5628,6 +5700,10 @@
        "exact": "-390014558887/1317668800000",
        "float64": -0.29598830820537,
        "hex": "-0x1.2f178f1ef633fp-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_line": {
@@ -5639,6 +5715,10 @@
        "exact": "148990477/1264962048",
        "float64": 0.11778256686480447,
        "hex": "0x1.e26ff90b9281fp-4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.macd_signal": {
@@ -5650,6 +5730,10 @@
        "exact": "817819458643/1976503200000",
        "float64": 0.41377087507017446,
        "hex": "0x1.a7b38d61dad47p-2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -5911,6 +5995,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -5922,6 +6010,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -6019,6 +6111,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -6030,6 +6126,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -6041,6 +6141,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -6052,6 +6156,10 @@
        "exact": "400/17",
        "float64": 23.529411764705884,
        "hex": "0x1.7878787878788p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -6149,6 +6257,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -6160,6 +6272,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -6171,6 +6287,10 @@
        "exact": "500/17",
        "float64": 29.41176470588235,
        "hex": "0x1.d696969696969p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -6182,6 +6302,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -6297,6 +6421,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -6308,6 +6436,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -6405,6 +6537,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -6416,6 +6552,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -6427,6 +6567,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -6438,6 +6582,10 @@
        "exact": "20",
        "float64": 20.0,
        "hex": "0x1.4000000000000p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -6535,6 +6683,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -6546,6 +6698,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -6557,6 +6713,10 @@
        "exact": "20",
        "float64": 20.0,
        "hex": "0x1.4000000000000p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -6568,6 +6728,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -6665,6 +6829,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -6676,6 +6844,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -6687,6 +6859,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -6698,6 +6874,10 @@
        "exact": "80",
        "float64": 80.0,
        "hex": "0x1.4000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -6813,6 +6993,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -6824,6 +7008,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -6939,6 +7127,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -6950,6 +7142,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -7303,6 +7499,10 @@
        "exact": "100/3",
        "float64": 33.333333333333336,
        "hex": "0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -7314,6 +7514,10 @@
        "exact": "10",
        "float64": 10.0,
        "hex": "0x1.4000000000000p+3"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -7325,6 +7529,10 @@
        "exact": "20",
        "float64": 20.0,
        "hex": "0x1.4000000000000p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -7451,6 +7659,10 @@
        "exact": "500/9",
        "float64": 55.55555555555556,
        "hex": "0x1.bc71c71c71c72p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -7462,6 +7674,10 @@
        "exact": "700/9",
        "float64": 77.77777777777777,
        "hex": "0x1.371c71c71c71cp+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -7473,6 +7689,10 @@
        "exact": "25/6",
        "float64": 4.166666666666667,
        "hex": "0x1.0aaaaaaaaaaabp+2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -7484,6 +7704,10 @@
        "exact": "100/3",
        "float64": 33.333333333333336,
        "hex": "0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -7635,6 +7859,10 @@
        "exact": "8200/117",
        "float64": 70.08547008547009,
        "hex": "0x1.1857857857858p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -7646,6 +7874,10 @@
        "exact": "1100/13",
        "float64": 84.61538461538461,
        "hex": "0x1.5276276276276p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -7657,6 +7889,10 @@
        "exact": "25/11",
        "float64": 2.272727272727273,
        "hex": "0x1.22e8ba2e8ba2fp+1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -7668,6 +7904,10 @@
        "exact": "300/11",
        "float64": 27.272727272727273,
        "hex": "0x1.b45d1745d1746p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -7849,6 +8089,10 @@
        "exact": "1093475/18837",
        "float64": 58.04931783192653,
        "hex": "0x1.d06500bf59df6p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -7860,6 +8104,10 @@
        "exact": "1700/23",
        "float64": 73.91304347826087,
        "hex": "0x1.27a6f4de9bd38p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -7871,6 +8119,10 @@
        "exact": "225/43",
        "float64": 5.232558139534884,
        "hex": "0x1.4ee23b88ee23cp+2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -7882,6 +8134,10 @@
        "exact": "1500/43",
        "float64": 34.883720930232556,
        "hex": "0x1.1711dc47711dcp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -8103,6 +8359,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -8114,6 +8374,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -8125,6 +8389,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -8136,6 +8404,10 @@
        "exact": "50",
        "float64": 50.0,
        "hex": "0x1.9000000000000p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -8717,6 +8989,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -8728,6 +9004,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -8739,6 +9019,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -8890,6 +9174,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -8901,6 +9189,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -8912,6 +9204,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -8923,6 +9219,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -9099,6 +9399,10 @@
        "exact": "60",
        "float64": 60.0,
        "hex": "0x1.e000000000000p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -9110,6 +9414,10 @@
        "exact": "20",
        "float64": 20.0,
        "hex": "0x1.4000000000000p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -9121,6 +9429,10 @@
        "exact": "200/9",
        "float64": 22.22222222222222,
        "hex": "0x1.638e38e38e38ep+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -9132,6 +9444,10 @@
        "exact": "100/3",
        "float64": 33.333333333333336,
        "hex": "0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -9323,6 +9639,10 @@
        "exact": "22900/351",
        "float64": 65.24216524216524,
        "hex": "0x1.04f7fa2a4d4f8p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -9334,6 +9654,10 @@
        "exact": "1100/13",
        "float64": 84.61538461538461,
        "hex": "0x1.5276276276276p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -9345,6 +9669,10 @@
        "exact": "25/11",
        "float64": 2.272727272727273,
        "hex": "0x1.22e8ba2e8ba2fp+1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -9356,6 +9684,10 @@
        "exact": "300/11",
        "float64": 27.272727272727273,
        "hex": "0x1.b45d1745d1746p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -9547,6 +9879,10 @@
        "exact": "359411640/12456457",
        "float64": 28.853440428526344,
        "hex": "0x1.cda7b12699ad9p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -9558,6 +9894,10 @@
        "exact": "20500/1131",
        "float64": 18.125552608311228,
        "hex": "0x1.22024373a9fcdp+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -9569,6 +9909,10 @@
        "exact": "2315/228",
        "float64": 10.153508771929825,
        "hex": "0x1.44e98b3a62ceap+3"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -9580,6 +9924,10 @@
        "exact": "835/57",
        "float64": 14.649122807017545,
        "hex": "0x1.d4c59d31674c6p+3"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -9825,6 +10173,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -9836,6 +10188,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -9847,6 +10203,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.plus_di": {
@@ -9858,6 +10218,10 @@
        "exact": "300/7",
        "float64": 42.857142857142854,
        "hex": "0x1.56db6db6db6dbp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -10385,6 +10749,10 @@
        "exact": "8200/117",
        "float64": 70.08547008547009,
        "hex": "0x1.1857857857858p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -10396,6 +10764,10 @@
        "exact": "1100/13",
        "float64": 84.61538461538461,
        "hex": "0x1.5276276276276p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -10407,6 +10779,10 @@
        "exact": "25/11",
        "float64": 2.272727272727273,
        "hex": "0x1.22e8ba2e8ba2fp+1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -10418,6 +10794,10 @@
        "exact": "300/11",
        "float64": 27.272727272727273,
        "hex": "0x1.b45d1745d1746p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -11402,6 +11782,10 @@
        "exact": "8200/117",
        "float64": 70.08547008547009,
        "hex": "0x1.1857857857858p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -11413,6 +11797,10 @@
        "exact": "1100/13",
        "float64": 84.61538461538461,
        "hex": "0x1.5276276276276p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -11424,6 +11812,10 @@
        "exact": "25/11",
        "float64": 2.272727272727273,
        "hex": "0x1.22e8ba2e8ba2fp+1"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -11435,6 +11827,10 @@
        "exact": "300/11",
        "float64": 27.272727272727273,
        "hex": "0x1.b45d1745d1746p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -11602,6 +11998,10 @@
        "exact": "500/9",
        "float64": 55.55555555555556,
        "hex": "0x1.bc71c71c71c72p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.dx": {
@@ -11613,6 +12013,10 @@
        "exact": "700/9",
        "float64": 77.77777777777777,
        "hex": "0x1.371c71c71c71cp+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.minus_di": {
@@ -11624,6 +12028,10 @@
        "exact": "25/6",
        "float64": 4.166666666666667,
        "hex": "0x1.0aaaaaaaaaaabp+2"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.plus_di": {
@@ -11635,6 +12043,10 @@
        "exact": "100/3",
        "float64": 33.333333333333336,
        "hex": "0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -11841,6 +12253,10 @@
        "exact": "-20",
        "float64": -20.0,
        "hex": "-0x1.4000000000000p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -11950,6 +12366,10 @@
        "exact": "60",
        "float64": 60.0,
        "hex": "0x1.e000000000000p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -11961,6 +12381,10 @@
        "exact": "-60",
        "float64": -60.0,
        "hex": "-0x1.e000000000000p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -12075,6 +12499,10 @@
        "exact": "65",
        "float64": 65.0,
        "hex": "0x1.0400000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -12086,6 +12514,10 @@
        "exact": "70",
        "float64": 70.0,
        "hex": "0x1.1800000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -12097,6 +12529,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -12226,6 +12662,10 @@
        "exact": "25",
        "float64": 25.0,
        "hex": "0x1.9000000000000p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -12237,6 +12677,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.williams_r": {
@@ -12248,6 +12692,10 @@
        "exact": "-100",
        "float64": -100.0,
        "hex": "-0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -12369,6 +12817,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -12380,6 +12832,10 @@
        "exact": "100",
        "float64": 100.0,
        "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -12391,6 +12847,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -12510,6 +12970,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.stoch_k": {
@@ -12521,6 +12985,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.williams_r": {
@@ -12532,6 +13000,10 @@
        "exact": "-100",
        "float64": -100.0,
        "hex": "-0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -12795,6 +13267,10 @@
        "exact": "-50",
        "float64": -50.0,
        "hex": "-0x1.9000000000000p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -12917,6 +13393,10 @@
        "exact": "175/3",
        "float64": 58.333333333333336,
        "hex": "0x1.d2aaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -12928,6 +13408,10 @@
        "exact": "-100/3",
        "float64": -33.333333333333336,
        "hex": "-0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -13051,6 +13535,10 @@
        "exact": "425/6",
        "float64": 70.83333333333333,
        "hex": "0x1.1b55555555555p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -13062,6 +13550,10 @@
        "exact": "250/3",
        "float64": 83.33333333333333,
        "hex": "0x1.4d55555555555p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -13073,6 +13565,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -13187,6 +13683,10 @@
        "exact": "40",
        "float64": 40.0,
        "hex": "0x1.4000000000000p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -13198,6 +13698,10 @@
        "exact": "40",
        "float64": 40.0,
        "hex": "0x1.4000000000000p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -13209,6 +13713,10 @@
        "exact": "-60",
        "float64": -60.0,
        "hex": "-0x1.e000000000000p+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -13300,6 +13808,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.stoch_k": {
@@ -13311,6 +13823,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      },
      "intraday.williams_r": {
@@ -13322,6 +13838,10 @@
        "exact": "-100",
        "float64": -100.0,
        "hex": "-0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -13486,6 +14006,10 @@
        "exact": "75",
        "float64": 75.0,
        "hex": "0x1.2c00000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -13497,6 +14021,10 @@
        "exact": "75",
        "float64": 75.0,
        "hex": "0x1.2c00000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -13508,6 +14036,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -13654,6 +14186,10 @@
        "exact": "100/3",
        "float64": 33.333333333333336,
        "hex": "0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -13665,6 +14201,10 @@
        "exact": "-100/3",
        "float64": -33.333333333333336,
        "hex": "-0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -13819,6 +14359,10 @@
        "exact": "-100/3",
        "float64": -33.333333333333336,
        "hex": "-0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -13954,6 +14498,10 @@
        "exact": "50/3",
        "float64": 16.666666666666668,
        "hex": "0x1.0aaaaaaaaaaabp+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -13965,6 +14513,10 @@
        "exact": "100/3",
        "float64": 33.333333333333336,
        "hex": "0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -13976,6 +14528,10 @@
        "exact": "-100/3",
        "float64": -33.333333333333336,
        "hex": "-0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -14128,6 +14684,10 @@
        "exact": "100/3",
        "float64": 33.333333333333336,
        "hex": "0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -14139,6 +14699,10 @@
        "exact": "-100/3",
        "float64": -33.333333333333336,
        "hex": "-0x1.0aaaaaaaaaaabp+5"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -14909,147 +15473,6 @@
    }
   },
   {
-   "id": "T26",
-   "group": "epoch_carry",
-   "family": "stochastic",
-   "description": "carry: anchor slot 0 includes the same 5 bars",
-   "params": {
-    "k_period": 3,
-    "k_slowing": 2,
-    "d_period": 2
-   },
-   "scale": 0,
-   "mode": "carry",
-   "anchor": 0,
-   "slots": [
-    {
-     "h": 10,
-     "l": 8,
-     "c": 9
-    },
-    {
-     "h": 12,
-     "l": 9,
-     "c": 11
-    },
-    {
-     "h": 13,
-     "l": 10,
-     "c": 12
-    },
-    {
-     "h": 14,
-     "l": 11,
-     "c": 11
-    },
-    {
-     "h": 14,
-     "l": 12,
-     "c": 14
-    }
-   ],
-   "expected": {
-    "outputs": {
-     "intraday.stoch_d": {
-      "status": "available",
-      "reasons": [],
-      "expected": 5,
-      "observed": 5,
-      "value": {
-       "exact": "65",
-       "float64": 65.0,
-       "hex": "0x1.0400000000000p+6"
-      }
-     },
-     "intraday.stoch_k": {
-      "status": "available",
-      "reasons": [],
-      "expected": 4,
-      "observed": 4,
-      "value": {
-       "exact": "70",
-       "float64": 70.0,
-       "hex": "0x1.1800000000000p+6"
-      }
-     },
-     "intraday.williams_r": {
-      "status": "available",
-      "reasons": [],
-      "expected": 3,
-      "observed": 3,
-      "value": {
-       "exact": "0",
-       "float64": 0.0,
-       "hex": "0x0.0p+0"
-      }
-     }
-    },
-    "evidence_rows": {
-     "intraday.stoch_d": [
-      [
-       0,
-       "consumed"
-      ],
-      [
-       1,
-       "consumed"
-      ],
-      [
-       2,
-       "consumed"
-      ],
-      [
-       3,
-       "consumed"
-      ],
-      [
-       4,
-       "consumed"
-      ]
-     ],
-     "intraday.stoch_k": [
-      [
-       1,
-       "consumed"
-      ],
-      [
-       2,
-       "consumed"
-      ],
-      [
-       3,
-       "consumed"
-      ],
-      [
-       4,
-       "consumed"
-      ]
-     ],
-     "intraday.williams_r": [
-      [
-       2,
-       "consumed"
-      ],
-      [
-       3,
-       "consumed"
-      ],
-      [
-       4,
-       "consumed"
-      ]
-     ]
-    },
-    "intermediate_exact": {
-     "raw_k": {
-      "2": "80",
-      "3": "40",
-      "4": "100"
-     }
-    }
-   }
-  },
-  {
    "id": "T27",
    "group": "long_recurrence",
    "family": "stochastic",
@@ -15135,6 +15558,10 @@
        "exact": "141725/2106",
        "float64": 67.29582146248814,
        "hex": "0x1.0d2eebd24b5dap+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -15146,6 +15573,10 @@
        "exact": "46075/702",
        "float64": 65.63390313390313,
        "hex": "0x1.06891de733c89p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -15157,6 +15588,10 @@
        "exact": "-25/2",
        "float64": -12.5,
        "hex": "-0x1.9000000000000p+3"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -15317,6 +15752,10 @@
        "exact": "65",
        "float64": 65.0,
        "hex": "0x1.0400000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -15328,6 +15767,10 @@
        "exact": "70",
        "float64": 70.0,
        "hex": "0x1.1800000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -15339,6 +15782,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -15459,6 +15906,10 @@
        "exact": "65",
        "float64": 65.0,
        "hex": "0x1.0400000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.stoch_k": {
@@ -15470,6 +15921,10 @@
        "exact": "70",
        "float64": 70.0,
        "hex": "0x1.1800000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      },
      "intraday.williams_r": {
@@ -15481,6 +15936,10 @@
        "exact": "0",
        "float64": 0.0,
        "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
       }
      }
     },
@@ -15568,6 +16027,10 @@
        "exact": "-20",
        "float64": -20.0,
        "hex": "-0x1.4000000000000p+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
       }
      }
     },
@@ -15593,6 +16056,833 @@
      }
     }
    }
+  },
+  {
+   "id": "P01",
+   "group": "prefix_property",
+   "family": "macd",
+   "description": "MACD prefix property: tails differ after bar 6; outputs at prefixes 3..6 identical",
+   "params": {
+    "fast_period": 2,
+    "slow_period": 3,
+    "signal_period": 2
+   },
+   "scale": 0,
+   "mode": "reset",
+   "anchor": 0,
+   "series_A": [
+    {
+     "h": null,
+     "l": null,
+     "c": 10
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 12
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 14
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 15
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 13
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 11
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 10
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 12
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 15
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 16
+    }
+   ],
+   "series_B_same_prefix_different_tail": [
+    {
+     "h": null,
+     "l": null,
+     "c": 10
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 12
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 14
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 15
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 13
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 11
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 99
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 1
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 50
+    },
+    {
+     "h": null,
+     "l": null,
+     "c": 50
+    }
+   ],
+   "prefix_lengths": [
+    3,
+    4,
+    5,
+    6
+   ],
+   "prefix_cases": [
+    {
+     "prefix_length": 3,
+     "outputs": {
+      "intraday.macd_histogram": {
+       "status": "insufficient_history",
+       "reasons": [
+        "insufficient_history"
+       ],
+       "expected": 4,
+       "observed": 3,
+       "value": null
+      },
+      "intraday.macd_line": {
+       "status": "available",
+       "reasons": [],
+       "expected": 3,
+       "observed": 3,
+       "value": {
+        "exact": "1",
+        "float64": 1.0,
+        "hex": "0x1.0000000000000p+0"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.macd_signal": {
+       "status": "insufficient_history",
+       "reasons": [
+        "insufficient_history"
+       ],
+       "expected": 4,
+       "observed": 3,
+       "value": null
+      }
+     }
+    },
+    {
+     "prefix_length": 4,
+     "outputs": {
+      "intraday.macd_histogram": {
+       "status": "available",
+       "reasons": [],
+       "expected": 4,
+       "observed": 4,
+       "value": {
+        "exact": "-1/12",
+        "float64": -0.08333333333333333,
+        "hex": "-0x1.5555555555555p-4"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.macd_line": {
+       "status": "available",
+       "reasons": [],
+       "expected": 4,
+       "observed": 4,
+       "value": {
+        "exact": "5/6",
+        "float64": 0.8333333333333334,
+        "hex": "0x1.aaaaaaaaaaaabp-1"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.macd_signal": {
+       "status": "available",
+       "reasons": [],
+       "expected": 4,
+       "observed": 4,
+       "value": {
+        "exact": "11/12",
+        "float64": 0.9166666666666666,
+        "hex": "0x1.d555555555555p-1"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      }
+     }
+    },
+    {
+     "prefix_length": 5,
+     "outputs": {
+      "intraday.macd_histogram": {
+       "status": "available",
+       "reasons": [],
+       "expected": 5,
+       "observed": 5,
+       "value": {
+        "exact": "-13/54",
+        "float64": -0.24074074074074073,
+        "hex": "-0x1.ed097b425ed09p-3"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.macd_line": {
+       "status": "available",
+       "reasons": [],
+       "expected": 5,
+       "observed": 5,
+       "value": {
+        "exact": "7/36",
+        "float64": 0.19444444444444445,
+        "hex": "0x1.8e38e38e38e39p-3"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.macd_signal": {
+       "status": "available",
+       "reasons": [],
+       "expected": 5,
+       "observed": 5,
+       "value": {
+        "exact": "47/108",
+        "float64": 0.4351851851851852,
+        "hex": "0x1.bda12f684bda1p-2"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      }
+     }
+    },
+    {
+     "prefix_length": 6,
+     "outputs": {
+      "intraday.macd_histogram": {
+       "status": "available",
+       "reasons": [],
+       "expected": 6,
+       "observed": 6,
+       "value": {
+        "exact": "-161/648",
+        "float64": -0.24845679012345678,
+        "hex": "-0x1.fcd6e9e06522cp-3"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.macd_line": {
+       "status": "available",
+       "reasons": [],
+       "expected": 6,
+       "observed": 6,
+       "value": {
+        "exact": "-67/216",
+        "float64": -0.3101851851851852,
+        "hex": "-0x1.3da12f684bda1p-2"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.macd_signal": {
+       "status": "available",
+       "reasons": [],
+       "expected": 6,
+       "observed": 6,
+       "value": {
+        "exact": "-5/81",
+        "float64": -0.06172839506172839,
+        "hex": "-0x1.f9add3c0ca458p-5"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      }
+     }
+    }
+   ],
+   "rule": "for each listed prefix length m, the outputs at target m-1 computed from series A[:m] and from series B[:m] are identical, and equal the outputs of replaying the longer series up to bar m-1; no bar after m-1 may influence them"
+  },
+  {
+   "id": "P02",
+   "group": "prefix_property",
+   "family": "dmi",
+   "description": "DMI prefix property: tails differ after bar 5",
+   "params": {
+    "di_period": 2,
+    "adx_period": 2
+   },
+   "scale": 0,
+   "mode": "reset",
+   "anchor": 0,
+   "series_A": [
+    {
+     "h": 20,
+     "l": 16,
+     "c": 18
+    },
+    {
+     "h": 22,
+     "l": 17,
+     "c": 21
+    },
+    {
+     "h": 21,
+     "l": 16,
+     "c": 17
+    },
+    {
+     "h": 24,
+     "l": 18,
+     "c": 23
+    },
+    {
+     "h": 25,
+     "l": 20,
+     "c": 22
+    },
+    {
+     "h": 23,
+     "l": 19,
+     "c": 20
+    },
+    {
+     "h": 26,
+     "l": 21,
+     "c": 25
+    }
+   ],
+   "series_B_same_prefix_different_tail": [
+    {
+     "h": 20,
+     "l": 16,
+     "c": 18
+    },
+    {
+     "h": 22,
+     "l": 17,
+     "c": 21
+    },
+    {
+     "h": 21,
+     "l": 16,
+     "c": 17
+    },
+    {
+     "h": 24,
+     "l": 18,
+     "c": 23
+    },
+    {
+     "h": 25,
+     "l": 20,
+     "c": 22
+    },
+    {
+     "h": 90,
+     "l": 2,
+     "c": 50
+    },
+    {
+     "h": 3,
+     "l": 1,
+     "c": 2
+    }
+   ],
+   "prefix_lengths": [
+    3,
+    4,
+    5
+   ],
+   "prefix_cases": [
+    {
+     "prefix_length": 3,
+     "outputs": {
+      "intraday.adx": {
+       "status": "insufficient_history",
+       "reasons": [
+        "insufficient_history"
+       ],
+       "expected": 4,
+       "observed": 3,
+       "value": null
+      },
+      "intraday.dx": {
+       "status": "available",
+       "reasons": [],
+       "expected": 3,
+       "observed": 3,
+       "value": {
+        "exact": "100/3",
+        "float64": 33.333333333333336,
+        "hex": "0x1.0aaaaaaaaaaabp+5"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.minus_di": {
+       "status": "available",
+       "reasons": [],
+       "expected": 3,
+       "observed": 3,
+       "value": {
+        "exact": "10",
+        "float64": 10.0,
+        "hex": "0x1.4000000000000p+3"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.plus_di": {
+       "status": "available",
+       "reasons": [],
+       "expected": 3,
+       "observed": 3,
+       "value": {
+        "exact": "20",
+        "float64": 20.0,
+        "hex": "0x1.4000000000000p+4"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      }
+     }
+    },
+    {
+     "prefix_length": 4,
+     "outputs": {
+      "intraday.adx": {
+       "status": "available",
+       "reasons": [],
+       "expected": 4,
+       "observed": 4,
+       "value": {
+        "exact": "500/9",
+        "float64": 55.55555555555556,
+        "hex": "0x1.bc71c71c71c72p+5"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.dx": {
+       "status": "available",
+       "reasons": [],
+       "expected": 4,
+       "observed": 4,
+       "value": {
+        "exact": "700/9",
+        "float64": 77.77777777777777,
+        "hex": "0x1.371c71c71c71cp+6"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.minus_di": {
+       "status": "available",
+       "reasons": [],
+       "expected": 4,
+       "observed": 4,
+       "value": {
+        "exact": "25/6",
+        "float64": 4.166666666666667,
+        "hex": "0x1.0aaaaaaaaaaabp+2"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.plus_di": {
+       "status": "available",
+       "reasons": [],
+       "expected": 4,
+       "observed": 4,
+       "value": {
+        "exact": "100/3",
+        "float64": 33.333333333333336,
+        "hex": "0x1.0aaaaaaaaaaabp+5"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      }
+     }
+    },
+    {
+     "prefix_length": 5,
+     "outputs": {
+      "intraday.adx": {
+       "status": "available",
+       "reasons": [],
+       "expected": 5,
+       "observed": 5,
+       "value": {
+        "exact": "8200/117",
+        "float64": 70.08547008547009,
+        "hex": "0x1.1857857857858p+6"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.dx": {
+       "status": "available",
+       "reasons": [],
+       "expected": 5,
+       "observed": 5,
+       "value": {
+        "exact": "1100/13",
+        "float64": 84.61538461538461,
+        "hex": "0x1.5276276276276p+6"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.minus_di": {
+       "status": "available",
+       "reasons": [],
+       "expected": 5,
+       "observed": 5,
+       "value": {
+        "exact": "25/11",
+        "float64": 2.272727272727273,
+        "hex": "0x1.22e8ba2e8ba2fp+1"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.plus_di": {
+       "status": "available",
+       "reasons": [],
+       "expected": 5,
+       "observed": 5,
+       "value": {
+        "exact": "300/11",
+        "float64": 27.272727272727273,
+        "hex": "0x1.b45d1745d1746p+4"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      }
+     }
+    }
+   ],
+   "rule": "for each listed prefix length m, the outputs at target m-1 computed from series A[:m] and from series B[:m] are identical, and equal the outputs of replaying the longer series up to bar m-1; no bar after m-1 may influence them"
+  },
+  {
+   "id": "P03",
+   "group": "prefix_property",
+   "family": "stochastic",
+   "description": "Stochastic prefix property: tails differ after bar 5",
+   "params": {
+    "k_period": 3,
+    "k_slowing": 2,
+    "d_period": 2
+   },
+   "scale": 0,
+   "mode": "reset",
+   "anchor": 0,
+   "series_A": [
+    {
+     "h": 10,
+     "l": 8,
+     "c": 9
+    },
+    {
+     "h": 12,
+     "l": 9,
+     "c": 11
+    },
+    {
+     "h": 13,
+     "l": 10,
+     "c": 12
+    },
+    {
+     "h": 14,
+     "l": 11,
+     "c": 11
+    },
+    {
+     "h": 14,
+     "l": 12,
+     "c": 14
+    },
+    {
+     "h": 13,
+     "l": 11,
+     "c": 11
+    },
+    {
+     "h": 12,
+     "l": 10,
+     "c": 10
+    }
+   ],
+   "series_B_same_prefix_different_tail": [
+    {
+     "h": 10,
+     "l": 8,
+     "c": 9
+    },
+    {
+     "h": 12,
+     "l": 9,
+     "c": 11
+    },
+    {
+     "h": 13,
+     "l": 10,
+     "c": 12
+    },
+    {
+     "h": 14,
+     "l": 11,
+     "c": 11
+    },
+    {
+     "h": 14,
+     "l": 12,
+     "c": 14
+    },
+    {
+     "h": 50,
+     "l": 1,
+     "c": 25
+    },
+    {
+     "h": 7,
+     "l": 7,
+     "c": 7
+    }
+   ],
+   "prefix_lengths": [
+    3,
+    4,
+    5
+   ],
+   "prefix_cases": [
+    {
+     "prefix_length": 3,
+     "outputs": {
+      "intraday.stoch_d": {
+       "status": "insufficient_history",
+       "reasons": [
+        "insufficient_history"
+       ],
+       "expected": 5,
+       "observed": 3,
+       "value": null
+      },
+      "intraday.stoch_k": {
+       "status": "insufficient_history",
+       "reasons": [
+        "insufficient_history"
+       ],
+       "expected": 4,
+       "observed": 3,
+       "value": null
+      },
+      "intraday.williams_r": {
+       "status": "available",
+       "reasons": [],
+       "expected": 3,
+       "observed": 3,
+       "value": {
+        "exact": "-20",
+        "float64": -20.0,
+        "hex": "-0x1.4000000000000p+4"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      }
+     }
+    },
+    {
+     "prefix_length": 4,
+     "outputs": {
+      "intraday.stoch_d": {
+       "status": "insufficient_history",
+       "reasons": [
+        "insufficient_history"
+       ],
+       "expected": 5,
+       "observed": 4,
+       "value": null
+      },
+      "intraday.stoch_k": {
+       "status": "available",
+       "reasons": [],
+       "expected": 4,
+       "observed": 4,
+       "value": {
+        "exact": "60",
+        "float64": 60.0,
+        "hex": "0x1.e000000000000p+5"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.williams_r": {
+       "status": "available",
+       "reasons": [],
+       "expected": 3,
+       "observed": 3,
+       "value": {
+        "exact": "-60",
+        "float64": -60.0,
+        "hex": "-0x1.e000000000000p+5"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      }
+     }
+    },
+    {
+     "prefix_length": 5,
+     "outputs": {
+      "intraday.stoch_d": {
+       "status": "available",
+       "reasons": [],
+       "expected": 5,
+       "observed": 5,
+       "value": {
+        "exact": "65",
+        "float64": 65.0,
+        "hex": "0x1.0400000000000p+6"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.stoch_k": {
+       "status": "available",
+       "reasons": [],
+       "expected": 4,
+       "observed": 4,
+       "value": {
+        "exact": "70",
+        "float64": 70.0,
+        "hex": "0x1.1800000000000p+6"
+       },
+       "acceptance": {
+        "rule": "tolerance",
+        "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+       }
+      },
+      "intraday.williams_r": {
+       "status": "available",
+       "reasons": [],
+       "expected": 3,
+       "observed": 3,
+       "value": {
+        "exact": "0",
+        "float64": 0.0,
+        "hex": "0x0.0p+0"
+       },
+       "acceptance": {
+        "rule": "exact_plus_zero",
+        "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
+       }
+      }
+     }
+    }
+   ],
+   "rule": "for each listed prefix length m, the outputs at target m-1 computed from series A[:m] and from series B[:m] are identical, and equal the outputs of replaying the longer series up to bar m-1; no bar after m-1 may influence them"
   }
  ],
  "refusal_fixtures": [
@@ -15777,7 +17067,7 @@
   {
    "id": "E16",
    "code": "INVALID_SCHEMA",
-   "description": "consumed bar has low > high (contradictory OHLC; inherited R17 rule, enforcement location unverified)",
+   "description": "bar has low > high: refused by the shared validate_batch coherence rule (validation.py), no producer check added",
    "input": {
     "bar": {
      "h": 10,
@@ -15789,7 +17079,7 @@
   {
    "id": "E17",
    "code": "INVALID_SCHEMA",
-   "description": "consumed bar has close outside [low, high] (inherited R17 rule, enforcement location unverified)",
+   "description": "bar has close or open outside [low, high]: refused by the shared validate_batch coherence rule",
    "input": {
     "bar": {
      "h": 12,
@@ -15839,6 +17129,14 @@
    }
   },
   {
+   "id": "E24",
+   "code": "INVALID_CONFIG",
+   "description": "context mode carry (or any mode other than reset) is out of scope in v1",
+   "input": {
+    "mode": "carry"
+   }
+  },
+  {
    "id": "E23",
    "code": "OVERFLOW",
    "description": "non-finite Float64 conversion or violated arithmetic invariant (whole-call)",
@@ -15852,7 +17150,7 @@
   "no change to R17 outputs, mathematics, catalog or the frozen EF1 CONTRACT.json",
   "no acquisition, calendar inference, resampling, price adjustment or forward fill",
   "no default periods",
-  "no update/restore/merge state",
+  "no update/restore/merge/carry state (anchored batch, reset epoch only)",
   "no raw %K, fast %K, +DM/-DM, TR, ADXR, PPO or other extra outputs",
   "no signal or crossover flags",
   "no source, rights or provider claim"
