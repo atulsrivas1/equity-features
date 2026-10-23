@@ -358,6 +358,14 @@
   },
   "evidence": "R17 rules: actually supplied consumed or knowledge-excluded dependency rows, row_id slot:<global_index>, boundary completed_interval, sorted feature id then slot, truncated to the result-wide evidence_limit"
  },
+ "amendment_1": {
+  "state": "coordinator decision, frozen once this PR merges, pending owner review",
+  "d04_positive_prices": "D04 prices shifted by +10 (first low was 0, refused by the shared BAR validator as non-positive); expected outputs unchanged and re-derived; every other fixture checked: all prices positive",
+  "di_period_one": "with di_period = 1 undefined DI/DX states need not form a prefix. DI and DX at the target follow the definition; an ADX chain that meets an undefined DX publishes not_applicable/zero_denominator and is NOT re-seeded (ADX seeds from the first defined DX only at the chain start). Fixture D22.",
+  "incompatible_version_label": "the version label checked for INCOMPATIBLE_VERSION is the algorithm version (MOMENTUM_ALGORITHM); there is no separate parameter",
+  "no_package_version_bump": "package versions are not bumped (consistent with contract B; a bump would change the R17 digest)",
+  "missing_input_evidence": "missing_input outputs emit no evidence rows"
+ },
  "adx_expected_rule": "anchored rule: expected = max(di_period + adx_period, epoch_slots). The data-dependent term applies only when every dependency slot is ready (so the first defined DX index f is knowable), DX is defined at the target and fewer than adx_period DX values exist from f: then expected = f + adx_period (f zero-based epoch index) and status insufficient_history. When gaps, nulls, unknown or future rows or absent columns hide DX values, f is not computed, no data-dependent term is used, and expected = max(di_period + adx_period, epoch_slots) with the status that precedence assigns (fixtures D10, D20, D21).",
  "evidence_rule": "missing_input outputs have empty evidence rows; evidence lists only consumed rows or knowledge-excluded rows of dependency slots actually supplied",
  "acceptance_rules": {
@@ -563,29 +571,29 @@
   }
  ],
  "fixture_notation": {
-  "compact": "NOT canonical wire. A null-field slot is built with volume null and the listed OHLC field null (validate_batch refuses a positive-volume bar with any null OHLC column; zero volume requires all-null OHLC = observed-empty slot); all other slots have positive volume. slots are global indices 0..T-1; target is the last slot; anchor is the epoch start; h,l,c are integer coefficients at scale; null means no value; defect kinds: missing (no row), empty (observed empty), null (listed fields null), future (known after K), unknown (known_at null); absent_columns lists columns missing from the whole delivery; delivery none means batches=None; all other slots are complete, causal, positive-volume rows",
+  "compact": "NOT canonical wire. Fixture prices must be positive (shared BAR validation). A null-field slot is built with volume null and the listed OHLC field null (validate_batch refuses a positive-volume bar with any null OHLC column; zero volume requires all-null OHLC = observed-empty slot); all other slots have positive volume. slots are global indices 0..T-1; target is the last slot; anchor is the epoch start; h,l,c are integer coefficients at scale; null means no value; defect kinds: missing (no row), empty (observed empty), null (listed fields null), future (known after K), unknown (known_at null); absent_columns lists columns missing from the whole delivery; delivery none means batches=None; all other slots are complete, causal, positive-volume rows",
   "expected": "value.exact is the exact rational; value.float64 and value.hex are the correctly rounded result; expected/observed are quality counts; evidence_rows lists [slot, use] sorted by feature id then slot after truncation to evidence_limit (default 10000)",
   "intermediate_exact": "optional exact chains for hand checking"
  },
  "fixture_counts": {
-  "result_fixtures": 99,
+  "result_fixtures": 100,
   "acceptance_rule_counts_all_fixtures_incl_prefix": {
-   "tolerance": 182,
-   "exact_plus_zero": 37
+   "tolerance": 184,
+   "exact_plus_zero": 38
   },
   "prefix_property_fixtures": 3,
   "by_family": {
    "macd": 32,
-   "dmi": 37,
+   "dmi": 38,
    "stochastic": 30
   },
   "refusal_fixtures": 23,
   "output_statuses": {
    "insufficient_history": 26,
-   "available": 192,
+   "available": 195,
    "incomplete_coverage": 55,
    "missing_input": 20,
-   "not_applicable": 27
+   "not_applicable": 28
   }
  },
  "coverage_map": {
@@ -627,6 +635,9 @@
   "degenerate": [
    "T12",
    "T13"
+  ],
+  "di_period_one": [
+   "D22"
   ],
   "dm_classification": [
    "D02_inside",
@@ -8312,7 +8323,7 @@
    "id": "D04",
    "group": "monotone",
    "family": "dmi",
-   "description": "monotone rising bars (3,3): +DM=1, -DM=0, TR=2: +DI=50, DX=ADX=100 exactly",
+   "description": "monotone rising bars (3,3), prices shifted +10 so all are positive (DM, TR, DI, DX, ADX are translation-invariant): +DM=1, -DM=0, TR=2: +DI=50, DX=ADX=100 exactly",
    "params": {
     "di_period": 3,
     "adx_period": 3
@@ -8322,39 +8333,39 @@
    "anchor": 0,
    "slots": [
     {
-     "h": 2,
-     "l": 0,
-     "c": 1
+     "h": 12,
+     "l": 10,
+     "c": 11
     },
     {
-     "h": 3,
-     "l": 1,
-     "c": 2
+     "h": 13,
+     "l": 11,
+     "c": 12
     },
     {
-     "h": 4,
-     "l": 2,
-     "c": 3
+     "h": 14,
+     "l": 12,
+     "c": 13
     },
     {
-     "h": 5,
-     "l": 3,
-     "c": 4
+     "h": 15,
+     "l": 13,
+     "c": 14
     },
     {
-     "h": 6,
-     "l": 4,
-     "c": 5
+     "h": 16,
+     "l": 14,
+     "c": 15
     },
     {
-     "h": 7,
-     "l": 5,
-     "c": 6
+     "h": 17,
+     "l": 15,
+     "c": 16
     },
     {
-     "h": 8,
-     "l": 6,
-     "c": 7
+     "h": 18,
+     "l": 16,
+     "c": 17
     }
    ],
    "expected": {
@@ -12277,6 +12288,196 @@
      },
      "smoothed_tr": {
       "2": "10"
+     }
+    }
+   }
+  },
+  {
+   "id": "D22",
+   "group": "di_period_one",
+   "family": "dmi",
+   "description": "di_period 1, adx_period 2: DX defined at k=1 (outside bar), undefined at k=2 (inside bar, DM both 0) and defined again at k=3; the ADX chain met an undefined DX and is NOT re-seeded, so ADX is not_applicable/zero_denominator while DX and DI stay available",
+   "params": {
+    "di_period": 1,
+    "adx_period": 2
+   },
+   "scale": 0,
+   "mode": "reset",
+   "anchor": 0,
+   "slots": [
+    {
+     "h": 20,
+     "l": 10,
+     "c": 15
+    },
+    {
+     "h": 24,
+     "l": 7,
+     "c": 20
+    },
+    {
+     "h": 23,
+     "l": 10,
+     "c": 18
+    },
+    {
+     "h": 26,
+     "l": 12,
+     "c": 25
+    }
+   ],
+   "expected": {
+    "outputs": {
+     "intraday.adx": {
+      "status": "not_applicable",
+      "reasons": [
+       "zero_denominator"
+      ],
+      "expected": 4,
+      "observed": 4,
+      "value": null
+     },
+     "intraday.dx": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "100",
+       "float64": 100.0,
+       "hex": "0x1.9000000000000p+6"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+      }
+     },
+     "intraday.minus_di": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "0",
+       "float64": 0.0,
+       "hex": "0x0.0p+0"
+      },
+      "acceptance": {
+       "rule": "exact_plus_zero",
+       "guarantee": "zero arises from an exactly zero integer/decimal numerator or sum (no rounding precedes it); publish +0.0"
+      }
+     },
+     "intraday.plus_di": {
+      "status": "available",
+      "reasons": [],
+      "expected": 4,
+      "observed": 4,
+      "value": {
+       "exact": "150/7",
+       "float64": 21.428571428571427,
+       "hex": "0x1.56db6db6db6dbp+4"
+      },
+      "acceptance": {
+       "rule": "tolerance",
+       "text": "abs(y-r) <= max(8*ulp(r), 1e-12*abs(r)) with r = float.hex value given"
+      }
+     }
+    },
+    "evidence_rows": {
+     "intraday.adx": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       1,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ],
+      [
+       3,
+       "consumed"
+      ]
+     ],
+     "intraday.dx": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       1,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ],
+      [
+       3,
+       "consumed"
+      ]
+     ],
+     "intraday.minus_di": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       1,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ],
+      [
+       3,
+       "consumed"
+      ]
+     ],
+     "intraday.plus_di": [
+      [
+       0,
+       "consumed"
+      ],
+      [
+       1,
+       "consumed"
+      ],
+      [
+       2,
+       "consumed"
+      ],
+      [
+       3,
+       "consumed"
+      ]
+     ]
+    },
+    "intermediate_exact": {
+     "first_defined_dx_epoch_index": 1,
+     "tr": {
+      "1": "17",
+      "2": "13",
+      "3": "14"
+     },
+     "plus_dm": {
+      "1": "4",
+      "2": "0",
+      "3": "3"
+     },
+     "minus_dm": {
+      "1": "0",
+      "2": "0",
+      "3": "0"
+     },
+     "smoothed_tr": {
+      "1": "17",
+      "2": "13",
+      "3": "14"
      }
     }
    }
