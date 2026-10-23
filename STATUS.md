@@ -1,5 +1,9 @@
 # Status (newest first)
 
+## 2026-10-22 - EQ164 audit wave 2 done (exclusions and operand gaps)
+- Merged findings PRs: X1 #654 (101 ingest/admin/validation commands: 80 confirm, 5 reject, 16 owner decisions), X2 #652 (101 other-domain plus 6 standalone: 87 confirm, 8 reject, 12 owner decisions), X3 #653 (24 priority rows: 208 operands; 92 delivered candidates, 32 planned, 29 proposed new story, 0 uncovered), X4 #651 (245 = consumers without a single explicit numerical owner, 220 scanners and 25 watchlists; reproduces from private material only; 226 rows classified outside the priority set, 132 ambiguous). Decisions are in docs/ef1/audit/EQ164_WAVE2_DECISIONS.md (pending owner review). Delivery ledger rows for EQ165 and EQ168 corrected.
+- Not done: wave 3 (public plan flag corrections, 132 ambiguous consumers, contracts for 7 proposed stories, hygiene fixes, non-selected identities); no tracker issue created; full EQ164 stays open. Audit confidence is low to medium. The scratchpad was shared between agents, so one helper script may have been overwritten; each author re-verified its own output.
+
 ## 2026-10-22 - EQ164 audit wave 1 (selected rows) done
 - Merged findings PRs core #647 (slice C, 36 EF8-only rows), #648 (slice A, 28 EF1/EF2/EF4 rows), #649 (slice B, 58 EF3 rows): 122 selected rows, opaque ids only. Totals: 3 partly delivered on main, 82 covered by a planned producer, 24 need operand producers, 13 ambiguous, 0 exclusions. All owner/release/I-O/worker issue numbers checked read-only against GitHub: no mismatches. Coordinator decisions on the 17 raised questions are in docs/ef1/audit/EQ164_WAVE1_DECISIONS.md (pending owner review). No tracker issue created or edited.
 - Not done: wave 2 (208 command exclusions, row-level operand lists for consumer gaps, proposed stories, remaining identities), so full EQ164 stays open. Audit confidence is low to medium per row because opaque ids could not be tied to private inventories.

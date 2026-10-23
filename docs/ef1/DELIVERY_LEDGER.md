@@ -24,8 +24,8 @@ Legend: Lib = `packages/features/src/equity_features/ef1/` in this repo. IO = `e
 | Daily observations | EQ166 #506 (published daily source evidence comment) | `session.daily_observations.*` (`_daily.py`, `_daily_context.py`), on main | `equity_daily_observations.py`, `ef1_daily_observations.py`, on main |
 | Regular bar prices | EQ166 #506 | `session.regular.first_completed_bar_open`, `session.close.calculated_price` (`_regular_bar_prices.py`), on main | `equity_regular_bar_prices.py`, `ef1_regular_bar_prices.py`, on main |
 | Regular first-trade price | EQ166 #506 | `session.regular.first_trade_price` (`_regular_first_trade_price.py`), on main | `equity_regular_first_trade_price.py`, `ef1_regular_first_trade_price.py`, on main |
-| Multi-venue counts, OR summaries, state, latest clock | EQ165 #505 | not found (named only in `CONTRACT.json`, `OWNERSHIP_RECONCILIATION.md`, `PERIOD_PHASE_CONTRACT_PROPOSAL.json`) | not found |
-| Supplied-close absolute BPS and tolerance comparison | EQ168 #508 | not found (the reference module covers gate state and reason only) | not found |
+| Multi-venue counts, OR summaries, state, latest clock | EQ165 #505 | `session.venue_status.*` (`_venue_status.py`), on main since core #642; contract `MULTI_VENUE_STATUS_CONTRACT_PROPOSAL`; I/O #31 | `equity_venue_status.py`, `ef1_venue_status.py`, on main since workers #73 |
+| Supplied-close absolute BPS and tolerance comparison | EQ168 #508 | `reference.close.*` (`_reference_close.py`), on main since core #639; contract `CLOSE_RECONCILIATION_CONTRACT_PROPOSAL` with Amendment 1; I/O #30 | `equity_reference_close.py`, `ef1_reference_close.py`, on main since workers #72 |
 
 Every worker entry point above is also wired in `ef1_runner.py` (`run_ef1_*`), on main. The last two rows are planned outputs in the 47-output ownership manifest, where planned ownership is accepted but mathematical/API bindings are not; no producer was found for them in any of the three repos.
 
@@ -67,7 +67,7 @@ No file changed on any branch is absent from main. The differing files are mainl
 ## 4. Outstanding
 
 - Full EQ164 #504: 296 command routes and 245 consumer operand gaps unresolved; selected routes for 216 representation slots / 33 variants unresolved; zero accepted private mathematical/source/consumer bindings (per `NUMBERED_LAYER_OWNERS.md` and `IMPLEMENTATION_ADMISSION.md`).
-- Producers not found: EQ165 multi-venue aggregation outputs and EQ168 supplied-close BPS/tolerance comparison (section 1).
+- Producers not found: neither of the two once listed here remains missing (EQ165 multi-venue and EQ168 supplied-close comparison were delivered after this ledger was first written; see STATUS.md, 2026-10-22).
 - Installed Windows/Linux qualification: the recorded cohort is bounded and synthetic and predates some slices (regular bar prices, first-trade price, gap endpoints, daily observations are unverified as covered).
 - Real N: DuckDB source demo: not done; synthetic checks do not qualify suitable source data.
 - Original-source numerical parity and rights, precision, clocks and benchmarks: not claimed anywhere; the original EQ142 study remains unaccepted.
