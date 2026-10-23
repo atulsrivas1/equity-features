@@ -171,7 +171,7 @@
    "id": "reference.close.supplied_price",
    "dtype": "decimal128",
    "unit": "currency/share",
-   "scale": "retained integer coefficient at ConfigSpec.price_unit.scale",
+   "scale": "integer coefficient at PriceUnit.scale",
    "producer": "reference_close",
    "null_availability_rule": "null unless one causal complete-coverage positive row and market_cutoff_ns == session close_ns; provisional (cutoff < close) -> incomplete_coverage/governed_gap, no witness"
   },
@@ -246,7 +246,7 @@
   "frozen_contract_json_after_this_amendment": 56,
   "merged_code_definitions_before_this_amendment": 66,
   "merged_code_definitions_after": 77,
-  "basis": "CONTRACT.json headers array has 45 entries (parsed). Merged _definitions.py statically enumerated (not executed): the nine frozen producers give 45; later producers add gap_endpoint 2, regular_bar_prices 2, regular_first_trade_price 1, daily_observations 4, status_history 6, opening_trade 5, opening_trade_seconds 1 = 21 (66); this amendment adds 4 + 7 (77)."
+  "basis": "CONTRACT.json headers array has 45 entries (parsed). Merged _definitions.py statically enumerated (not executed): the nine frozen producers give 45; later producers add gap_endpoint 2, regular_bar_prices 2, regular_first_trade_price 1, daily_observations 4, status_history 6, opening_trade 5, opening_trade_seconds 1 = 21 (66); this amendment adds 4 + 7 (77). These counts are a static reading and assume one header set per producer, not per status dimension."
  },
  "unit_additions_relative_to_frozen_CONTRACT_json": [
   {
@@ -292,7 +292,7 @@
   "F1 header count: the multi-venue contract and IMPLEMENTATION_ADMISSION say 45 frozen headers, true for CONTRACT.json, but merged code already defines 66 before this change (21 from later reviewed producers). The code-wide ledger goes 66 to 77 and the frozen file 45 to 56. Counts are by static reading, not execution.",
   "F2 utc_ns: multi-venue contract D10 calls utc_ns new; true relative to CONTRACT.json, but merged opening_trade already emits utc_ns, and merged code also emits count, s, price and observations, likewise absent from CONTRACT.json and not covered by this amendment.",
   "F3 mapping versions: ef1-close-compare1 is a comparison policy label (selection.policy_version), not a mapping version; the authoritative_close mapping version is ef1-reference-map1 (code check); only ef1-venue-map1 is a new mapping version.",
-  "F4 calendar: reference_close requires a target-only calendar like regular_bar_prices, multivenue_status forbids one; the frozen calendar_required_for and calendar_null_for lists must gain these producers."
+  "F4 calendar: reference_close requires a target-only calendar like regular_bar_prices, multivenue_status forbids one; the frozen calendar_required_for and calendar_null_for lists must gain these producers. The frozen lists also omit other post-freeze producers; verified from _context.py as calendar-requiring: regular_bar_prices, regular_first_trade_price, path_gap_endpoint. Observable and daily_observations calendar handling was not fully read."
  ],
  "not_verified": [
   "nothing was executed and no tests were run",
@@ -300,5 +300,7 @@
   "header counts are static readings",
   "the byte-identity claim is cited from merged documentation, not re-run",
   "installed artifacts, CI results and the 381-outcome snapshot script were not available"
- ]
+ ],
+ "frozen_contract_sha256_form": "CRLF working-copy form only",
+ "frozen_contract_lf_blob_sha256_origin_main": "ff576caace8e89491a634e913e946ac4b0f8cf656faf40745d24da7684c6fe14"
 }
