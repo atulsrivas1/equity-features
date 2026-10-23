@@ -143,3 +143,7 @@ EQ137's internal preparation includes exact rolling price count/sum/mean/populat
 ## EF2 money flow (separate producer)
 
 `intraday.obv`, `intraday.ad_line` and `intraday.cmf` are the own outputs of the separate `ef2.money_flow` producer (config `build_money_flow_config`, dispatch `compute_money_flow`, own `describe_money_flow` catalog) over the same R17 context, BAR admission and governed grid with an added volume column. The eight R17 IDs, `describe_intraday`, `compute_intraday` and the catalog digest above are unchanged. See [the EF2 money-flow API](EF2_MONEY_FLOW.md).
+
+## EF2 momentum (separate producer)
+
+`intraday.macd_line`, `intraday.macd_signal`, `intraday.macd_histogram`, `intraday.plus_di`, `intraday.minus_di`, `intraday.dx`, `intraday.adx`, `intraday.stoch_k`, `intraday.stoch_d` and `intraday.williams_r` are the own outputs of the separate `intraday.momentum` producer (config `build_momentum_config`, dispatch `compute_momentum`, own `describe_momentum` catalog) over the same R17 context, BAR admission and governed grid; one config computes one family and any subset of its outputs. The eight R17 IDs, `describe_intraday`, `compute_intraday` and the catalog digest above are unchanged. See [the EF2 momentum API](EF2_MOMENTUM.md).

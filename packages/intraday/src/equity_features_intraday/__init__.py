@@ -11,6 +11,12 @@ from ._flow_config import (MONEY_FLOW_ALGORITHM, MONEY_FLOW_IDENTITY, MONEY_FLOW
 from ._flow import compute_money_flow
 from ._flow_registry import describe_money_flow, money_flow_catalog_digest, require_money_flow_capability
 
+# EF2 momentum and trend (ef2-conv1): own config identity, discovery and dispatch; the R17 catalog is unchanged.
+from ._momentum_config import (MOMENTUM_ALGORITHM, MOMENTUM_CONVENTIONS, MOMENTUM_IDENTITY, MomentumSettings,
+                               build_momentum_config, decode_momentum_config)
+from ._momentum import compute_momentum
+from ._momentum_registry import describe_momentum, momentum_catalog_digest, require_momentum_capability
+
 __version__ = "0.1.0a3"
 __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "IntradayPreparation", "OperandEvidence", "PreparedOperand", "prepare_intraday",
@@ -18,4 +24,7 @@ __all__ = ["IntradayContext", "IntradayRun", "build_intraday_config",
            "intraday_catalog_digest", "require_intraday_capability",
            "MONEY_FLOW_ALGORITHM", "MONEY_FLOW_IDENTITY", "MONEY_FLOW_POLICY", "MoneyFlowSettings",
            "build_money_flow_config", "decode_money_flow_config", "compute_money_flow",
-           "describe_money_flow", "money_flow_catalog_digest", "require_money_flow_capability"]
+           "describe_money_flow", "money_flow_catalog_digest", "require_money_flow_capability",
+           "MOMENTUM_ALGORITHM", "MOMENTUM_CONVENTIONS", "MOMENTUM_IDENTITY", "MomentumSettings",
+           "build_momentum_config", "decode_momentum_config", "compute_momentum",
+           "describe_momentum", "momentum_catalog_digest", "require_momentum_capability"]
