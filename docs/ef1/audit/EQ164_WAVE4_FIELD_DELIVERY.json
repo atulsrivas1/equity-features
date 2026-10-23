@@ -487,7 +487,7 @@
    ],
    "producer_module": "_period.py",
    "class_level_meaning": "premarket high",
-   "difference_or_note": "The header is the extremum of supplied completed interval highs inside the supplied premarket phase prefix. The private meaning is the extremum over individual trade prints in the premarket phase. Sampling basis (interval bars versus trade prints) differs; phase bounds are supplied calendar segments in the header.",
+   "difference_or_note": "The header is the extremum of supplied completed interval highs inside the supplied premarket phase prefix. Caller-contract items: which print basis (interval bars or trade prints) and which admission rule the contract must state; phase bounds are supplied calendar segments in the header.",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_period.py",
@@ -513,7 +513,7 @@
    ],
    "producer_module": "_period.py",
    "class_level_meaning": "premarket low",
-   "difference_or_note": "The header is the extremum of supplied completed interval lows inside the supplied premarket phase prefix. The private meaning is the extremum over individual trade prints in the premarket phase. Sampling basis (interval bars versus trade prints) differs; phase bounds are supplied calendar segments in the header.",
+   "difference_or_note": "The header is the extremum of supplied completed interval lows inside the supplied premarket phase prefix. Caller-contract items: which print basis (interval bars or trade prints) and which admission rule the contract must state; phase bounds are supplied calendar segments in the header.",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_period.py",
