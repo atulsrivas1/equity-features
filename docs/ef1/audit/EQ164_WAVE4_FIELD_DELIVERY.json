@@ -12,8 +12,8 @@
  "field_count": 47,
  "verdict_counts": {
   "MATCHED_BY_MERGED_HEADER": 24,
-  "PARTIAL_MATCH": 6,
-  "NOT_DELIVERED": 17,
+  "PARTIAL_MATCH": 11,
+  "NOT_DELIVERED": 12,
   "UNDETERMINED": 0
  },
  "per_primary_owner_story": {
@@ -25,8 +25,8 @@
   },
   "506": {
    "MATCHED_BY_MERGED_HEADER": 21,
-   "PARTIAL_MATCH": 3,
-   "NOT_DELIVERED": 8,
+   "PARTIAL_MATCH": 8,
+   "NOT_DELIVERED": 3,
    "UNDETERMINED": 0
   },
   "507": {
@@ -74,17 +74,19 @@
   },
   {
    "opaque_id": "F0148",
-   "verdict": "NOT_DELIVERED",
-   "merged_public_headers": [],
-   "producer_module": null,
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.high"
+   ],
+   "producer_module": "session/_reductions.py",
    "class_level_meaning": "regular-session high of the observation row",
-   "difference_or_note": "No header gives a regular-session extremum for the target session. session.extended.* covers only premarket and postmarket phases; calendar.period.* has week, month, year and rolling kinds with no single-session kind; session.daily_observations.* excludes the target session by construction.",
+   "difference_or_note": "Same unit (currency per share) and session; the header gives a running value at a mid-session cutoff (eligible bars ending at or before the cutoff, scope marked as cutoff). Remaining difference is the sampling basis: bar-interval values versus trade-print values, and which extended-hours or auction prints are admitted, which is a caller input-contract item.",
    "confidence": "medium-high",
    "evidence_public_files": [
-    "packages/features/src/equity_features/ef1/_definitions.py",
-    "packages/features/src/equity_features/ef1/_period.py",
-    "docs/api/EF1_PERIOD_PHASE.md",
-    "docs/ef1/DAILY_OBSERVATIONS.md"
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
    ],
    "primary_owner_story": 506,
    "owner_stories": [
@@ -96,23 +98,23 @@
     "EQ164_WAVE2_X3",
     "EQ164_WAVE3_SCANNERS_1"
    ],
-   "contract_items_implicated": [
-    "D7"
-   ]
+   "contract_items_implicated": []
   },
   {
    "opaque_id": "F0149",
-   "verdict": "NOT_DELIVERED",
-   "merged_public_headers": [],
-   "producer_module": null,
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.low"
+   ],
+   "producer_module": "session/_reductions.py",
    "class_level_meaning": "regular-session low of the observation row",
-   "difference_or_note": "No header gives a regular-session extremum for the target session. session.extended.* covers only premarket and postmarket phases; calendar.period.* has week, month, year and rolling kinds with no single-session kind; session.daily_observations.* excludes the target session by construction.",
+   "difference_or_note": "Same unit (currency per share) and session; the header gives a running value at a mid-session cutoff (eligible bars ending at or before the cutoff, scope marked as cutoff). Remaining difference is the sampling basis: bar-interval values versus trade-print values, and which extended-hours or auction prints are admitted, which is a caller input-contract item.",
    "confidence": "medium-high",
    "evidence_public_files": [
-    "packages/features/src/equity_features/ef1/_definitions.py",
-    "packages/features/src/equity_features/ef1/_period.py",
-    "docs/api/EF1_PERIOD_PHASE.md",
-    "docs/ef1/DAILY_OBSERVATIONS.md"
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
    ],
    "primary_owner_story": 506,
    "owner_stories": [
@@ -124,23 +126,25 @@
     "EQ164_WAVE2_X3",
     "EQ164_WAVE3_SCANNERS_1"
    ],
-   "contract_items_implicated": [
-    "D7"
-   ]
+   "contract_items_implicated": []
   },
   {
    "opaque_id": "F0150",
    "verdict": "PARTIAL_MATCH",
    "merged_public_headers": [
+    "session.bar.close",
     "session.close.calculated_price"
    ],
-   "producer_module": "_regular_bar_prices.py",
+   "producer_module": "session/_reductions.py; _regular_bar_prices.py",
    "class_level_meaning": "current-session close of the observation row",
-   "difference_or_note": "Same unit (currency per share) and same session. The header is the last positive-volume close of causally admitted completed regular bars (provisional prefix); the private meaning is the last trade price of the session. Basis differs at class level: completed-bar close versus trade-print close, and closing-auction print handling is not shown to coincide.",
+   "difference_or_note": "Same unit and session. session.bar.close is the close of the last eligible interval at the cutoff; session.close.calculated_price is the last positive-volume completed-bar close. Remaining difference is the sampling basis: completed-bar close versus trade-print close, and auction-print admission as a caller input-contract item.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py",
     "packages/features/src/equity_features/ef1/_regular_bar_prices.py",
-    "docs/api/EF1_REGULAR_BAR_PRICES.md",
     "docs/ef1/REGULAR_BAR_PRICES_IMPLEMENTATION.md"
    ],
    "primary_owner_story": 506,
@@ -163,7 +167,7 @@
    ],
    "producer_module": "_status.py",
    "class_level_meaning": "trading status of the instrument at the row",
-   "difference_or_note": "The header is a closed-vocabulary state (active, halted, closed) of the last supplied transition strictly before the cutoff, inside a proved prefix and validity interval. The private meaning is the last status code seen in the input, with no cutoff, prefix proof or vocabulary mapping. Value domain and causal selection differ.",
+   "difference_or_note": "The header is a closed-vocabulary state (active, halted, closed) selected causally from a proved supplied prefix and validity interval before the cutoff. Open contract questions: mapping of the supplied status vocabulary to the closed states, and which event the row-level status refers to relative to the cutoff.",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_status.py",
@@ -256,15 +260,19 @@
   },
   {
    "opaque_id": "F0188",
-   "verdict": "NOT_DELIVERED",
-   "merged_public_headers": [],
-   "producer_module": null,
-   "class_level_meaning": "latest trade price at the evaluation time, any phase",
-   "difference_or_note": "No last-price header. session.close.calculated_price is a completed-bar close of regular bars, not a latest print that includes extended hours.",
-   "confidence": "medium-high",
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.close"
+   ],
+   "producer_module": "session/_reductions.py",
+   "class_level_meaning": "latest price at the evaluation time",
+   "difference_or_note": "session.bar.close is the close of the last eligible interval at the cutoff, so it tracks the latest regular-session price at bar granularity. Open contract questions: bar-close versus trade-print basis and whether extended-hours prints are in scope; no trade-print last-price header exists.",
+   "confidence": "medium",
    "evidence_public_files": [
-    "packages/features/src/equity_features/ef1/_regular_bar_prices.py",
-    "docs/api/EF1_REGULAR_BAR_PRICES.md"
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
    ],
    "primary_owner_story": 506,
    "owner_stories": [
@@ -280,16 +288,19 @@
   },
   {
    "opaque_id": "F0190",
-   "verdict": "NOT_DELIVERED",
-   "merged_public_headers": [],
-   "producer_module": null,
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.high"
+   ],
+   "producer_module": "session/_reductions.py",
    "class_level_meaning": "running regular-session high at the evaluation cutoff",
-   "difference_or_note": "Same gap as the row-level extremum: no running regular-session extremum header exists on main, so the session extremum that D7 assigns to #506 is not delivered.",
+   "difference_or_note": "Same unit (currency per share) and session; the header gives a running value at a mid-session cutoff (eligible bars ending at or before the cutoff, scope marked as cutoff). Remaining difference is the sampling basis: bar-interval values versus trade-print values, and which extended-hours or auction prints are admitted, which is a caller input-contract item.",
    "confidence": "medium-high",
    "evidence_public_files": [
-    "packages/features/src/equity_features/ef1/_definitions.py",
-    "packages/features/src/equity_features/ef1/_period.py",
-    "docs/ef1/DELIVERY_LEDGER.md"
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
    ],
    "primary_owner_story": 506,
    "owner_stories": [
@@ -301,22 +312,23 @@
     "EQ164_WAVE3_SCANNERS_1",
     "EQ164_WAVE3_SCANNERS_2"
    ],
-   "contract_items_implicated": [
-    "D7"
-   ]
+   "contract_items_implicated": []
   },
   {
    "opaque_id": "F0191",
-   "verdict": "NOT_DELIVERED",
-   "merged_public_headers": [],
-   "producer_module": null,
+   "verdict": "PARTIAL_MATCH",
+   "merged_public_headers": [
+    "session.bar.low"
+   ],
+   "producer_module": "session/_reductions.py",
    "class_level_meaning": "running regular-session low at the evaluation cutoff",
-   "difference_or_note": "Same gap as the row-level extremum: no running regular-session extremum header exists on main, so the session extremum that D7 assigns to #506 is not delivered.",
+   "difference_or_note": "Same unit (currency per share) and session; the header gives a running value at a mid-session cutoff (eligible bars ending at or before the cutoff, scope marked as cutoff). Remaining difference is the sampling basis: bar-interval values versus trade-print values, and which extended-hours or auction prints are admitted, which is a caller input-contract item.",
    "confidence": "medium-high",
    "evidence_public_files": [
-    "packages/features/src/equity_features/ef1/_definitions.py",
-    "packages/features/src/equity_features/ef1/_period.py",
-    "docs/ef1/DELIVERY_LEDGER.md"
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py"
    ],
    "primary_owner_story": 506,
    "owner_stories": [
@@ -328,24 +340,26 @@
     "EQ164_WAVE3_SCANNERS_1",
     "EQ164_WAVE3_SCANNERS_2"
    ],
-   "contract_items_implicated": [
-    "D7"
-   ]
+   "contract_items_implicated": []
   },
   {
    "opaque_id": "F0206",
    "verdict": "PARTIAL_MATCH",
    "merged_public_headers": [
+    "session.price.close_close_return",
     "session.extended.prior_close_return"
    ],
-   "producer_module": "_period.py",
+   "producer_module": "session/_reductions.py; _period.py",
    "class_level_meaning": "change of the current price versus the prior regular close",
-   "difference_or_note": "The header exists only for premarket and postmarket phases (phase close versus predecessor regular close, as a fraction). The private meaning applies to the latest price in any phase and is scaled as percent; no header covers the regular session. The delivery ledger and the wave 2 note place a prior-close return under calendar.period, but main defines it only under session.extended.",
+   "difference_or_note": "session.price.close_close_return (fraction, C/P-1 with a compatible prior close P) is the regular-session carrier; session.extended.prior_close_return covers premarket and postmarket phases. Remaining differences: price basis (bar close versus latest print), phase scope, and unit (fraction versus percent) as a presentation conversion. Ledger note: prior_close_return exists only as session.extended.prior_close_return; calendar.period.* has none.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/SESSION_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/SESSION_BARS.md",
+    "packages/features/src/equity_features/session/_reductions.py",
     "packages/features/src/equity_features/ef1/_definitions.py",
     "packages/features/src/equity_features/ef1/_period.py",
-    "docs/features/EF1_PERIOD_PHASE.md",
     "docs/ef1/DELIVERY_LEDGER.md"
    ],
    "primary_owner_story": 507,
@@ -556,7 +570,7 @@
    ],
    "producer_module": "_gap_endpoint.py",
    "class_level_meaning": "opening gap of the regular open versus the prior close",
-   "difference_or_note": "The header is the fraction (O-P)/P with O the first selected regular sample (trade sampling) and P the supplied prior close. The private measure is the same ratio scaled by 100 (percent) and uses zero when the prior close is absent; the header unit is a fraction and absence is a null with reasons. The factor 100 and zero-versus-null are conversion items, not a semantic gap.",
+   "difference_or_note": "The header is the fraction (O-P)/P with O the first selected regular sample (trade sampling) and P the supplied prior close. Caller-contract items: unit (fraction versus a percent presentation) and behaviour when the prior close is absent (header: null with reasons).",
    "confidence": "medium-high",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_gap_endpoint.py",
@@ -584,8 +598,8 @@
     "session.gap_endpoint.current_fill_fraction"
    ],
    "producer_module": "_gap_endpoint.py",
-   "class_level_meaning": "fraction of the opening gap filled by the latest price, on a 0 to 100 scale",
-   "difference_or_note": "Same clamped fill ratio on the final selected observation, but as a fraction rather than a 0 to 100 scale. Inclusion differs: the header uses the final selected observation inside the regular path scope, while the private latest price also reflects extended-hours prints. Zero-gap and absent-input handling (zero versus null) also differ.",
+   "class_level_meaning": "fraction of the opening gap filled by the latest price",
+   "difference_or_note": "Same clamped fill ratio on the final selected observation, as a fraction. Caller-contract items: unit (fraction versus a percent presentation), which prints count as the latest price (header: final selected observation inside the regular path scope), and zero-gap or absent-input behaviour (header: null with reasons).",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_gap_endpoint.py",
@@ -608,13 +622,18 @@
    "opaque_id": "F0275",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_high",
     "session.daily_observations.high"
    ],
-   "producer_module": "_daily.py",
+   "producer_module": "history.py; _daily.py",
    "class_level_meaning": "prior-day high",
-   "difference_or_note": "Selector last_observations with N=1 over admitted completed daily observations strictly before the target (prior-only window). Admission, quality limits and basis conversion are caller policy in the daily context.",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -638,13 +657,18 @@
    "opaque_id": "F0276",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_low",
     "session.daily_observations.low"
    ],
-   "producer_module": "_daily.py",
+   "producer_module": "history.py; _daily.py",
    "class_level_meaning": "prior-day low",
-   "difference_or_note": "Selector last_observations with N=1 over admitted completed daily observations strictly before the target (prior-only window). Admission, quality limits and basis conversion are caller policy in the daily context.",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -720,13 +744,18 @@
    "opaque_id": "F0309",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_high",
     "session.daily_observations.high"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "high over the last 5 completed sessions",
-   "difference_or_note": "Selector last_observations with N=5 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -749,13 +778,18 @@
    "opaque_id": "F0310",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_low",
     "session.daily_observations.low"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "low over the last 5 completed sessions",
-   "difference_or_note": "Selector last_observations with N=5 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -778,13 +812,18 @@
    "opaque_id": "F0311",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_high",
     "session.daily_observations.high"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "high over the last 10 completed sessions",
-   "difference_or_note": "Selector last_observations with N=10 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -807,13 +846,18 @@
    "opaque_id": "F0312",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_low",
     "session.daily_observations.low"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "low over the last 10 completed sessions",
-   "difference_or_note": "Selector last_observations with N=10 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -836,13 +880,18 @@
    "opaque_id": "F0313",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_high",
     "session.daily_observations.high"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "high over the last 20 completed sessions",
-   "difference_or_note": "Selector last_observations with N=20 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -865,13 +914,18 @@
    "opaque_id": "F0314",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_low",
     "session.daily_observations.low"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "low over the last 20 completed sessions",
-   "difference_or_note": "Selector last_observations with N=20 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -894,13 +948,18 @@
    "opaque_id": "F0315",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_high",
     "session.daily_observations.high"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "high over the last 63 completed sessions",
-   "difference_or_note": "Selector last_observations with N=63 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium-low",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -923,13 +982,18 @@
    "opaque_id": "F0316",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_low",
     "session.daily_observations.low"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "low over the last 63 completed sessions",
-   "difference_or_note": "Selector last_observations with N=63 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium-low",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -952,13 +1016,18 @@
    "opaque_id": "F0317",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_high",
     "session.daily_observations.high"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "high over the last 126 completed sessions",
-   "difference_or_note": "Selector last_observations with N=126 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "high over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium-low",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -981,13 +1050,18 @@
    "opaque_id": "F0318",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_low",
     "session.daily_observations.low"
    ],
-   "producer_module": "_daily.py",
-   "class_level_meaning": "low over the last 126 completed sessions",
-   "difference_or_note": "Selector last_observations with N=126 (allowed range 1 to 252), prior-only, earliest tie. The private window is a fixed session count, so a civil-month window (calendar.period rolling_months) would be a different rule; minimum history is daily-context policy.",
+   "producer_module": "history.py; _daily.py",
+   "class_level_meaning": "low over a rolling window of N prior observations",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium-low",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -1014,7 +1088,7 @@
    ],
    "producer_module": "_daily.py",
    "class_level_meaning": "year-to-date high",
-   "difference_or_note": "Selector pre_target with period civil_ytd: completed observations of the target civil year strictly before the target session. calendar.period year with current_to_cutoff would also include the target bar prefix, so it is not the matching header.",
+   "difference_or_note": "Selector pre_target with period civil_ytd: admitted observations of the target civil year strictly before the target session. calendar.period year with current_to_cutoff would also include the target bar prefix, so it is not the matching header. Inclusion of the target and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_daily.py",
@@ -1043,7 +1117,7 @@
    ],
    "producer_module": "_daily.py",
    "class_level_meaning": "year-to-date low",
-   "difference_or_note": "Selector pre_target with period civil_ytd: completed observations of the target civil year strictly before the target session. calendar.period year with current_to_cutoff would also include the target bar prefix, so it is not the matching header.",
+   "difference_or_note": "Selector pre_target with period civil_ytd: admitted observations of the target civil year strictly before the target session. calendar.period year with current_to_cutoff would also include the target bar prefix, so it is not the matching header. Inclusion of the target and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_daily.py",
@@ -1072,7 +1146,7 @@
    ],
    "producer_module": "_daily.py",
    "class_level_meaning": "prior-week high",
-   "difference_or_note": "Selector latest_observed_prior with period iso_week: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header.",
+   "difference_or_note": "Selector latest_observed_prior with period iso_week: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header. Treatment of an empty prior period is a caller-contract item.",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_daily.py",
@@ -1101,7 +1175,7 @@
    ],
    "producer_module": "_daily.py",
    "class_level_meaning": "prior-week low",
-   "difference_or_note": "Selector latest_observed_prior with period iso_week: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header.",
+   "difference_or_note": "Selector latest_observed_prior with period iso_week: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header. Treatment of an empty prior period is a caller-contract item.",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_daily.py",
@@ -1130,7 +1204,7 @@
    ],
    "producer_module": "_daily.py",
    "class_level_meaning": "prior-month high",
-   "difference_or_note": "Selector latest_observed_prior with period civil_month: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header.",
+   "difference_or_note": "Selector latest_observed_prior with period civil_month: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header. Treatment of an empty prior period is a caller-contract item.",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_daily.py",
@@ -1159,7 +1233,7 @@
    ],
    "producer_module": "_daily.py",
    "class_level_meaning": "prior-month low",
-   "difference_or_note": "Selector latest_observed_prior with period civil_month: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header.",
+   "difference_or_note": "Selector latest_observed_prior with period civil_month: the most recent populated prior period. calendar.period with prior_complete would instead select the immediately preceding civil period even if empty, so it is not the matching header. Treatment of an empty prior period is a caller-contract item.",
    "confidence": "medium",
    "evidence_public_files": [
     "packages/features/src/equity_features/ef1/_daily.py",
@@ -1280,13 +1354,18 @@
    "opaque_id": "F0463",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_high",
     "session.daily_observations.high"
    ],
-   "producer_module": "_daily.py",
+   "producer_module": "history.py; _daily.py",
    "class_level_meaning": "high of the last completed session of the reference history",
-   "difference_or_note": "Selector last_observations with N=1 over admitted completed daily observations strictly before the target (prior-only window). Admission, quality limits and basis conversion are caller policy in the daily context.",
+   "difference_or_note": "history.prior_high is the prior-only rolling high over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.high with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
@@ -1307,13 +1386,18 @@
    "opaque_id": "F0464",
    "verdict": "MATCHED_BY_MERGED_HEADER",
    "merged_public_headers": [
+    "history.prior_low",
     "session.daily_observations.low"
    ],
-   "producer_module": "_daily.py",
+   "producer_module": "history.py; _daily.py",
    "class_level_meaning": "low of the last completed session of the reference history",
-   "difference_or_note": "Selector last_observations with N=1 over admitted completed daily observations strictly before the target (prior-only window). Admission, quality limits and basis conversion are caller policy in the daily context.",
+   "difference_or_note": "history.prior_low is the prior-only rolling low over N complete prior governed slots, excluding the target; too few slots gives insufficient history rather than a smaller window. Alternative carrier: session.daily_observations.low with selector last_observations (N of 1 to 252 admitted observations, not a session count; a short history yields a smaller window or a null with insufficient-history status per _daily_context.py and _daily.py), prior-only. Window rule (observation count versus calendar span), admission and minimum history are caller-contract items.",
    "confidence": "medium",
    "evidence_public_files": [
+    "docs/features/HISTORICAL_FORMULAS.md",
+    "docs/features/V1_SCOPE.md",
+    "docs/api/HISTORY.md",
+    "packages/features/src/equity_features/history.py",
     "packages/features/src/equity_features/ef1/_daily.py",
     "packages/features/src/equity_features/ef1/_daily_context.py",
     "docs/ef1/DAILY_OBSERVATIONS.md",
