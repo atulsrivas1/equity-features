@@ -106,3 +106,7 @@ repository root. It checks independent mathematical fixtures, not this prose or
 production execution. Review the table against the linked example and formulas;
 follow [contributor setup](../../CONTRIBUTING.md) before separately executing the
 production example. No new numerical behavior or measured performance is claimed.
+
+## Quote dynamics (separate EF4 producer)
+
+`quote.sampled.maximum_spread`, `quote.sampled.maximum_midpoint_bps`, `quote.microprice.*` and `quote.change.*` are the own outputs of the separate `ef4.quote_dynamics` producer in `equity_features.ef4` over full normalized quote states in a declared interval, with an explicit sampling that must equal the batch sampling. They apply no duration weighting and no seed; `session.quote.sampled_spread`, `session.quote.state_counts` and `session.quote.time_weighted_spread` and their results are unchanged. See [the EF4 quote dynamics API](EF4_QUOTE_DYNAMICS.md).
