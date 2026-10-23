@@ -13,7 +13,7 @@ Findings only, dated 2026-10-22. Every statement is an adjudicated finding or a 
 | Common fields read by no predicate | 8 (F0431, F0432, F0433, F0442, F0451, F0455, F0460, F0464) |
 | Proposed resolution | 23 RESOLVED_COMMON_OPERANDS, 2 RESOLVED_WITH_OWN_OPERANDS (W0014, W0015), 0 STILL_AMBIGUOUS; confidence medium for all 25 |
 | The six with extra direct joins | Not identifiable (section 4) |
-| Operand gaps | 0 of 33 fields lack an owner; 3 non-field policy inputs shared by all 25 have no mapped owner |
+| Operand gaps | 0 of 33 lack a planned owner; 3 non-field policy inputs shared by all 25 have no mapped owner |
 | Delivered with a proven binding on main | 0 of 33 |
 
 ## 2. How the operands were resolved
@@ -27,9 +27,9 @@ Adjudicated findings:
 3. **Eight common fields are validation or gating only** (read by no predicate): F0431, F0432, F0433, F0442, F0451, F0455, F0460, F0464. The other 25 are read by at least one predicate.
 4. **Watchlist-to-watchlist edges.** Two watchlists are composites over other watchlists: W0014 over 7 (W0001, W0004, W0007, W0012, W0018, W0022, W0024) and W0015 over 6 (W0008, W0009, W0013, W0017, W0023, W0025). These are consumer-to-consumer dependencies, not fields, and are absent from the public records. Their predicate field sets (19 and 18) contain every member's predicate fields. This is why they are classed RESOLVED_WITH_OWN_OPERANDS.
 5. **Three shared non-field policy inputs.** All 25 also consume three non-field policy inputs (an eligibility configuration, a product classification, and a pinned override revision or explicit unknown). They have no F#### id and are not in the public operand lists; no producer for them is identified in the public plans (decision W3A-4).
-6. **Identical predicate sets.** Eight pairs have identical predicate field sets: W0001/W0008, W0003/W0016, W0005/W0006, W0012/W0013, W0017/W0018, W0020/W0021, W0022/W0023, W0024/W0025. This is consistent with bullish/bearish mirror pairs.
+6. **Identical predicate sets.** Eight pairs have identical predicate field sets: W0001/W0008, W0003/W0016, W0005/W0006, W0012/W0013, W0017/W0018, W0020/W0021, W0022/W0023, W0024/W0025. This is consistent with paired.
 
-Confidence is medium, not high, for three reasons: the bridge is lexical (field accesses, not proven numerical need); the W#### to private key mapping is by sorted-key position and cannot be confirmed from public data (supporting sign: the mirror pairs and the composite membership lists are consistent under it); and nothing is numerically accepted.
+Confidence is medium, not high, for three reasons: the bridge is lexical (field accesses, not proven numerical need; F0455 is validation-only per the lexical bridge); the W#### to private key mapping is by sorted-key position and cannot be confirmed from public data (supporting sign: the paired sets and the composite membership lists are consistent under it); and nothing is numerically accepted.
 
 ## 3. Producer status of the 33 common operands
 
@@ -53,21 +53,21 @@ Totals: 0 delivered with a proven binding, 33 planned or proposed, 0 without an 
 
 **The private material cannot identify them.** No watchlist has a predicate field join outside the common 33, so the bridge does not single out six as "additional". Several six-member sets exist, so any choice is a guess:
 
-- Set A: W0001, W0008, W0014, W0015, W0020, W0021 are exactly the readers of F0452 and F0453 (the mean-companion row and a companion operand). They form three mirror pairs and the F0452 row is discussed beside the "six" sentence in the public route publication. Confidence that A is the published six: low.
-- Set B: W0002, W0014, W0015, W0017, W0018, W0019 are exactly the readers of F0435 and F0441. Not a mirror-pair set.
+- Set A: W0001, W0008, W0014, W0015, W0020, W0021 are exactly the readers of F0452 and F0453 (the mean-companion row and a companion operand). They form three pairs. Confidence that A is the published six: low.
+- Set B: W0002, W0014, W0015, W0017, W0018, W0019 are exactly the readers of F0435 and F0441. Not a set of pairs.
 
 What the evidence does support: whichever six is meant, their extra joins fall inside the common 33 and do not change any operand set. They matter only for minimal-prerequisite scoping.
 
 ## 5. Is the #489 baseline edge genuinely required?
 
-The only #489 field in the set is F0455. Findings: (a) it is accessed by the shared validation function, in range-style checks only, with no computation; (b) it is one of the two eligibility-tag fields; (c) it is read by no predicate in any of the 25. So the edge is genuinely required by the common validation (a watchlist result is withheld when validation fails) and is not required by any predicate. It is not merely lexical, but it is a validation-only dependency: a producer, or a supplied quality-flagged value, is needed with no numerical use in membership. Confidence: medium (lexical bridge plus a reading of the function body; no semantic acceptance). The same holds for the other seven validation-or-gating-only fields.
+The only #489 field in the set is F0455. Findings: (a) it is validation-only per the lexical bridge; (b) it is one of the two eligibility-tag fields; (c) it is read by no predicate in any of the 25. So the edge is genuinely required by the common validation (a watchlist result is withheld when validation fails) and is not required by any predicate. It is not merely lexical, but it is a validation-only dependency: a producer, or a supplied quality-flagged value, is needed with no numerical use in membership. Confidence: medium (lexical bridge only; no semantic acceptance). Wave 1 decision B4 / D-WL (record the #489 bridge as a selected override) is recorded as a decision in [EQ164_WAVE1_DECISIONS.md](EQ164_WAVE1_DECISIONS.md) but is NOT yet applied in the public plans: no watchlist's selected_scope_component_overrides contains #489, and F0455's route shows selected_scope_override_applied false. Whether F0455 blocks all 25 stays open (W3A-5). The same holds for the other seven validation-or-gating-only fields.
 
 ## 6. Decisions needed (exact questions)
 
 - **W3A-1.** Operand model: record every watchlist with the common 33-field set as a shared profile, plus an optional per-watchlist predicate subset for minimal-prerequisite scoping? Proposed: yes; the common set is authoritative for admission and per-key subsets are informational.
 - **W3A-2.** Is the published "six with additional direct joins" Set A, Set B or another set? If the owner cannot say, should the statement be retired in favor of the finding that no watchlist reads outside the common 33?
 - **W3A-3.** Should W0014 and W0015 record explicit watchlist-membership dependencies (7 and 6 members) as consumer-to-consumer edges in the public plans?
-- **W3A-4.** Which stories own the three shared non-field policy inputs (eligibility configuration, classification, pinned override revision)? Candidates #518 (configuration and policy) and #508 (classification) are unverified.
+- **W3A-4.** Which stories own the three shared non-field policy inputs (eligibility configuration, classification, pinned override revision)? #518 is the catalogue and policy owner in the route coverage, but no story is mapped to these three shared policy inputs, so none is assumed here.
 - **W3A-5.** Is F0455 (#489) a required supplied or computed validation input, or may validation treat it as a quality-flagged optional input? This decides whether the #489 edge blocks all 25.
 - **W3A-6.** Confirm the opaque W-id to watchlist mapping (sorted-key position) with the owner, since it cannot be checked from public data.
 
