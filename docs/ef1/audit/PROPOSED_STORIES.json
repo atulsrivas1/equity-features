@@ -238,7 +238,7 @@
    "origin": "Wave 1 decision B3; wave 2 X4 class MISSING_PRODUCER_STORY (NS-MEAN-COMPANION).",
    "outcome": "A separately versioned pure mean-ratio companion to the median/MAD normalization of #490, so #490 keeps its stated median scope and the mean-ratio consumers have a numbered owner with their own prerequisites.",
    "in_scope": [
-    "Mean-ratio normalization against a prior-only baseline with explicit warm-up, minimum history, zero or negative denominator and unavailable behavior.",
+    "Mean-ratio normalization against a baseline (target-inclusion per contract) with explicit warm-up, minimum history, zero or negative denominator and unavailable behavior.",
     "Version and config identity separate from the median profile.",
     "Explicit baseline operand edge (#489), not an implied one."
    ],
@@ -287,7 +287,7 @@
     "Common versus per-key operand across the 13 consumers."
    ],
    "decisions": [
-    "Coordinator-decided, pending owner review: F0452 and the 13 consumers move out of #490 into this story. Required scope note for #490: it stays median/MAD only and no longer houses the mean companion or F0452; the #490 body needs that note when this story is filed."
+    "Coordinator-decided, pending owner review: F0452 and the 13 consumers move out of #490 into this story. Required scope note for #490: it stays median/MAD only and no longer houses the mean companion or F0452, and #490 text naming the mean companion as a companion, and its planning fallback with the #36 reference, is retired by this story; the #490 body needs that note when this story is filed."
    ],
    "acceptance": [
     "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",
@@ -427,6 +427,7 @@
      "C0197"
     ]
    },
+   "notes_rows": "C0053 is a cross-reference only and is not served by this story.",
    "open_questions": [
     "Contract only, or also a reference conformance suite?",
     "Which facts are caller-asserted versus adapter-private?",
@@ -437,11 +438,11 @@
     "Coordinator-decided, pending owner review: ONE neutral contract story (I/O). The trade-print admission rows (C0148, C0109, C0161-C0163) are NOT in it; they stay I/O mapping under #570 (decision X2-1)."
    ],
    "acceptance": [
-    "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",
-    "Keep calculations pure; adapters own acquisition and workers own scheduling and persistence. Reuse existing qualified APIs; document no-change decisions.",
-    "Independent synthetic or licensed expected fixtures, hand-specified separately from the implementation, with complete result, status, quality and evidence parity; explicit unsupported or missing inputs.",
-    "Plan reuse of compatible inputs and intermediates, legal ordered state and bounded shared CPU, RAM, I/O and backend-thread budgets. Measure defined workloads against credible baselines before any speed claim; no invented SLA or fastest result.",
-    "Update story, PR, formula, API, example, decision and release documents; complete required review, applicable tests, CI and installed artifacts, publication and actual readback before Done."
+    "Contract text frozen and independently reviewed before Ready: fields, units, timing and known-at semantics, versioning, refusal and unsupported cases; no private source rules or thresholds copied without rights.",
+    "Keep the contract source-independent: adapters own acquisition and mapping, workers own scheduling and persistence, libraries own mathematics; document no-change decisions for existing qualified APIs.",
+    "Independent conformance cases, authored separately from any implementation, covering accepted, refused, missing and contradictory inputs; no provider rules or private thresholds.",
+    "State compatibility and versioning obligations for existing and optional consumers; no speed or SLA claim.",
+    "Update story, PR, contract, example, decision and release documents; complete required review, applicable checks and actual readback before Done."
    ],
    "non_goals": [
     "No source formula, threshold, default, name or code is copied; opaque ids only.",
@@ -504,11 +505,11 @@
     "Coordinator-decided, pending owner review: its OWN story, linked to #521 as representation owner and #520 as consumer."
    ],
    "acceptance": [
-    "Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.",
-    "Keep calculations pure; adapters own acquisition and workers own scheduling and persistence. Reuse existing qualified APIs; document no-change decisions.",
-    "Independent synthetic or licensed expected fixtures, hand-specified separately from the implementation, with complete result, status, quality and evidence parity; explicit unsupported or missing inputs.",
-    "Plan reuse of compatible inputs and intermediates, legal ordered state and bounded shared CPU, RAM, I/O and backend-thread budgets. Measure defined workloads against credible baselines before any speed claim; no invented SLA or fastest result.",
-    "Update story, PR, formula, API, example, decision and release documents; complete required review, applicable tests, CI and installed artifacts, publication and actual readback before Done."
+    "Contract text frozen and independently reviewed before Ready: fields, units, timing and known-at semantics, versioning, refusal and unsupported cases; no private source rules or thresholds copied without rights.",
+    "Keep the contract source-independent: adapters own acquisition and mapping, workers own scheduling and persistence, libraries own mathematics; document no-change decisions for existing qualified APIs.",
+    "Independent conformance cases, authored separately from any implementation, covering accepted, refused, missing and contradictory inputs; no provider rules or private thresholds.",
+    "State compatibility and versioning obligations for existing and optional consumers; no speed or SLA claim.",
+    "Update story, PR, contract, example, decision and release documents; complete required review, applicable checks and actual readback before Done."
    ],
    "non_goals": [
     "No source formula, threshold, default, name or code is copied; opaque ids only.",

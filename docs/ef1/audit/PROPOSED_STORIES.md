@@ -9,10 +9,10 @@ Epic and milestone choices follow the native homes recorded in the layer map (EF
 | W3D-1 Retracement-level producer | library | EF2 | #467 / 23 | 9 consumers |
 | W3D-2 Cohort-normalization producer | library | EF8 | #517 / 28 | 10 consumers |
 | W3D-3 Anchor discovery primitive | library | EF8 | #517 / 28 | 4 fields |
-| W3D-4 Mean companion | library | EF3 | #468 / 24 | 13 consumers, 1 fields |
+| W3D-4 Mean companion | library | EF3 | #468 / 24 | 13 consumers, 1 field |
 | W3D-5 Observed-population companion | library | EF3 | #468 / 24 | 4 consumers |
 | W3D-6 Neutral provider-admission contract | I/O | EF1 (extended by later EF I/O tasks) | #569 / 34 | 10 commands |
-| W3D-7 Candidate-artifact representation contract | library | EF8 | #517 / 28 | 1 commands |
+| W3D-7 Candidate-artifact representation contract | library | EF8 | #517 / 28 | 1 command |
 
 ## W3D-1: [EQ-TBD] Implement caller-parameterized retracement-level producer
 
@@ -232,7 +232,7 @@ A separately versioned pure mean-ratio companion to the median/MAD normalization
 
 ### In scope
 
-- Mean-ratio normalization against a prior-only baseline with explicit warm-up, minimum history, zero or negative denominator and unavailable behavior.
+- Mean-ratio normalization against a baseline (target-inclusion per contract) with explicit warm-up, minimum history, zero or negative denominator and unavailable behavior.
 - Version and config identity separate from the median profile.
 - Explicit baseline operand edge (#489), not an implied one.
 
@@ -277,7 +277,7 @@ A separately versioned pure mean-ratio companion to the median/MAD normalization
 
 ### Coordinator decisions
 
-- Coordinator-decided, pending owner review: F0452 and the 13 consumers move out of #490 into this story. Required scope note for #490: it stays median/MAD only and no longer houses the mean companion or F0452; the #490 body needs that note when this story is filed.
+- Coordinator-decided, pending owner review: F0452 and the 13 consumers move out of #490 into this story. Required scope note for #490: it stays median/MAD only and no longer houses the mean companion or F0452, and #490 text naming the mean companion as a companion, and its planning fallback with the #36 reference, is retired by this story; the #490 body needs that note when this story is filed.
 
 ### Open questions for the contract author
 
@@ -393,14 +393,15 @@ A reviewed neutral contract expressing admission of provider-sourced records as 
 ### Opaque rows served
 
 - commands (10): C0040 C0043 C0044 C0056 C0057 C0060 C0089 C0101 C0102 C0197
+- Note: C0053 is a cross-reference only and is not served by this story.
 
 ### Mandatory acceptance for this story
 
-- [ ] Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.
-- [ ] Keep calculations pure; adapters own acquisition and workers own scheduling and persistence. Reuse existing qualified APIs; document no-change decisions.
-- [ ] Independent synthetic or licensed expected fixtures, hand-specified separately from the implementation, with complete result, status, quality and evidence parity; explicit unsupported or missing inputs.
-- [ ] Plan reuse of compatible inputs and intermediates, legal ordered state and bounded shared CPU, RAM, I/O and backend-thread budgets. Measure defined workloads against credible baselines before any speed claim; no invented SLA or fastest result.
-- [ ] Update story, PR, formula, API, example, decision and release documents; complete required review, applicable tests, CI and installed artifacts, publication and actual readback before Done.
+- [ ] Contract text frozen and independently reviewed before Ready: fields, units, timing and known-at semantics, versioning, refusal and unsupported cases; no private source rules or thresholds copied without rights.
+- [ ] Keep the contract source-independent: adapters own acquisition and mapping, workers own scheduling and persistence, libraries own mathematics; document no-change decisions for existing qualified APIs.
+- [ ] Independent conformance cases, authored separately from any implementation, covering accepted, refused, missing and contradictory inputs; no provider rules or private thresholds.
+- [ ] State compatibility and versioning obligations for existing and optional consumers; no speed or SLA claim.
+- [ ] Update story, PR, contract, example, decision and release documents; complete required review, applicable checks and actual readback before Done.
 
 ### Non-goals
 
@@ -462,11 +463,11 @@ A representation contract, owned within #521 scope with #520 as consumer, for th
 
 ### Mandatory acceptance for this story
 
-- [ ] Freeze original formulas, units, timing and known-at availability, initialization, coverage, edge cases and supported capabilities before Ready; no private source formulas or thresholds copied without rights.
-- [ ] Keep calculations pure; adapters own acquisition and workers own scheduling and persistence. Reuse existing qualified APIs; document no-change decisions.
-- [ ] Independent synthetic or licensed expected fixtures, hand-specified separately from the implementation, with complete result, status, quality and evidence parity; explicit unsupported or missing inputs.
-- [ ] Plan reuse of compatible inputs and intermediates, legal ordered state and bounded shared CPU, RAM, I/O and backend-thread budgets. Measure defined workloads against credible baselines before any speed claim; no invented SLA or fastest result.
-- [ ] Update story, PR, formula, API, example, decision and release documents; complete required review, applicable tests, CI and installed artifacts, publication and actual readback before Done.
+- [ ] Contract text frozen and independently reviewed before Ready: fields, units, timing and known-at semantics, versioning, refusal and unsupported cases; no private source rules or thresholds copied without rights.
+- [ ] Keep the contract source-independent: adapters own acquisition and mapping, workers own scheduling and persistence, libraries own mathematics; document no-change decisions for existing qualified APIs.
+- [ ] Independent conformance cases, authored separately from any implementation, covering accepted, refused, missing and contradictory inputs; no provider rules or private thresholds.
+- [ ] State compatibility and versioning obligations for existing and optional consumers; no speed or SLA claim.
+- [ ] Update story, PR, contract, example, decision and release documents; complete required review, applicable checks and actual readback before Done.
 
 ### Non-goals
 
